@@ -1,0 +1,2402 @@
+{
+    "u-1-pt": {
+        "id": "u-1-pt",
+        "text": "Sotaque"
+    },
+    "u-2-pt": {
+        "id": "u-2-pt",
+        "text": "Bolota"
+    },
+    "u-3-pt": {
+        "id": "u-3-pt",
+        "text": "Aladdin"
+    },
+    "u-4-pt": {
+        "id": "u-4-pt",
+        "text": "Alarme"
+    },
+    "u-5-pt": {
+        "id": "u-5-pt",
+        "text": "Alcatraz"
+    },
+    "u-6-pt": {
+        "id": "u-6-pt",
+        "text": "Álcool"
+    },
+    "u-7-pt": {
+        "id": "u-7-pt",
+        "text": "Estrangeiro"
+    },
+    "u-8-pt": {
+        "id": "u-8-pt",
+        "text": "Aliança"
+    },
+    "u-9-pt": {
+        "id": "u-9-pt",
+        "text": "Amazônia"
+    },
+    "u-10-pt": {
+        "id": "u-10-pt",
+        "text": "América"
+    },
+    "u-11-pt": {
+        "id": "u-11-pt",
+        "text": "Âncora"
+    },
+    "u-12-pt": {
+        "id": "u-12-pt",
+        "text": "Anjo"
+    },
+    "u-13-pt": {
+        "id": "u-13-pt",
+        "text": "Aniversário"
+    },
+    "u-14-pt": {
+        "id": "u-14-pt",
+        "text": "Antártica"
+    },
+    "u-15-pt": {
+        "id": "u-15-pt",
+        "text": "Maçã"
+    },
+    "u-16-pt": {
+        "id": "u-16-pt",
+        "text": "Manhã"
+    },
+    "u-17-pt": {
+        "id": "u-17-pt",
+        "text": "Lula"
+    },
+    "u-18-pt": {
+        "id": "u-18-pt",
+        "text": "Austrália"
+    },
+    "u-19-pt": {
+        "id": "u-19-pt",
+        "text": "Avatar"
+    },
+    "u-20-pt": {
+        "id": "u-20-pt",
+        "text": "Bebê"
+    },
+    "u-21-pt": {
+        "id": "u-21-pt",
+        "text": "Mau"
+    },
+    "u-22-pt": {
+        "id": "u-22-pt",
+        "text": "Padeiro"
+    },
+    "u-23-pt": {
+        "id": "u-23-pt",
+        "text": "Bola"
+    },
+    "u-24-pt": {
+        "id": "u-24-pt",
+        "text": "Balé"
+    },
+    "u-25-pt": {
+        "id": "u-25-pt",
+        "text": "Banana"
+    },
+    "u-26-pt": {
+        "id": "u-26-pt",
+        "text": "Banda"
+    },
+    "u-27-pt": {
+        "id": "u-27-pt",
+        "text": "Bar"
+    },
+    "u-28-pt": {
+        "id": "u-28-pt",
+        "text": "Churrasco"
+    },
+    "u-29-pt": {
+        "id": "u-29-pt",
+        "text": "Barbie"
+    },
+    "u-30-pt": {
+        "id": "u-30-pt",
+        "text": "Banho"
+    },
+    "u-31-pt": {
+        "id": "u-31-pt",
+        "text": "Batman"
+    },
+    "u-32-pt": {
+        "id": "u-32-pt",
+        "text": "Bateria"
+    },
+    "u-33-pt": {
+        "id": "u-33-pt",
+        "text": "Cerveja"
+    },
+    "u-34-pt": {
+        "id": "u-34-pt",
+        "text": "Bélgica"
+    },
+    "u-35-pt": {
+        "id": "u-35-pt",
+        "text": "Umbigo"
+    },
+    "u-36-pt": {
+        "id": "u-36-pt",
+        "text": "Cinto"
+    },
+    "u-37-pt": {
+        "id": "u-37-pt",
+        "text": "Baga"
+    },
+    "u-38-pt": {
+        "id": "u-38-pt",
+        "text": "Aposta"
+    },
+    "u-39-pt": {
+        "id": "u-39-pt",
+        "text": "Binóculos"
+    },
+    "u-40-pt": {
+        "id": "u-40-pt",
+        "text": "Loiro"
+    },
+    "u-41-pt": {
+        "id": "u-41-pt",
+        "text": "Placa"
+    },
+    "u-42-pt": {
+        "id": "u-42-pt",
+        "text": "Osso"
+    },
+    "u-43-pt": {
+        "id": "u-43-pt",
+        "text": "Livro"
+    },
+    "u-44-pt": {
+        "id": "u-44-pt",
+        "text": "Chefe"
+    },
+    "u-45-pt": {
+        "id": "u-45-pt",
+        "text": "Garrafa"
+    },
+    "u-46-pt": {
+        "id": "u-46-pt",
+        "text": "Arco"
+    },
+    "u-47-pt": {
+        "id": "u-47-pt",
+        "text": "Boliche"
+    },
+    "u-48-pt": {
+        "id": "u-48-pt",
+        "text": "Boxe"
+    },
+    "u-49-pt": {
+        "id": "u-49-pt",
+        "text": "Pulseira"
+    },
+    "u-50-pt": {
+        "id": "u-50-pt",
+        "text": "Cérebro"
+    },
+    "u-51-pt": {
+        "id": "u-51-pt",
+        "text": "Galho"
+    },
+    "u-52-pt": {
+        "id": "u-52-pt",
+        "text": "Pão"
+    },
+    "u-53-pt": {
+        "id": "u-53-pt",
+        "text": "Ponte"
+    },
+    "u-54-pt": {
+        "id": "u-54-pt",
+        "text": "Escova"
+    },
+    "u-55-pt": {
+        "id": "u-55-pt",
+        "text": "Bolha"
+    },
+    "u-56-pt": {
+        "id": "u-56-pt",
+        "text": "Buffy"
+    },
+    "u-57-pt": {
+        "id": "u-57-pt",
+        "text": "Borboleta"
+    },
+    "u-58-pt": {
+        "id": "u-58-pt",
+        "text": "Botão"
+    },
+    "u-59-pt": {
+        "id": "u-59-pt",
+        "text": "Cacto"
+    },
+    "u-60-pt": {
+        "id": "u-60-pt",
+        "text": "César"
+    },
+    "u-61-pt": {
+        "id": "u-61-pt",
+        "text": "Cantina"
+    },
+    "u-62-pt": {
+        "id": "u-62-pt",
+        "text": "Bolo"
+    },
+    "u-63-pt": {
+        "id": "u-63-pt",
+        "text": "Calendário"
+    },
+    "u-64-pt": {
+        "id": "u-64-pt",
+        "text": "Canastra"
+    },
+    "u-65-pt": {
+        "id": "u-65-pt",
+        "text": "Canadá"
+    },
+    "u-66-pt": {
+        "id": "u-66-pt",
+        "text": "Doce"
+    },
+    "u-67-pt": {
+        "id": "u-67-pt",
+        "text": "Bengala"
+    },
+    "u-68-pt": {
+        "id": "u-68-pt",
+        "text": "Canon"
+    },
+    "u-69-pt": {
+        "id": "u-69-pt",
+        "text": "Cantina"
+    },
+    "u-70-pt": {
+        "id": "u-70-pt",
+        "text": "Lona"
+    },
+    "u-71-pt": {
+        "id": "u-71-pt",
+        "text": "Carnaval"
+    },
+    "u-72-pt": {
+        "id": "u-72-pt",
+        "text": "Carrossel"
+    },
+    "u-73-pt": {
+        "id": "u-73-pt",
+        "text": "Tapete"
+    },
+    "u-74-pt": {
+        "id": "u-74-pt",
+        "text": "Desenho"
+    },
+    "u-75-pt": {
+        "id": "u-75-pt",
+        "text": "Cassino"
+    },
+    "u-76-pt": {
+        "id": "u-76-pt",
+        "text": "Castelo"
+    },
+    "u-77-pt": {
+        "id": "u-77-pt",
+        "text": "Gato"
+    },
+    "u-78-pt": {
+        "id": "u-78-pt",
+        "text": "Lagarta"
+    },
+    "u-79-pt": {
+        "id": "u-79-pt",
+        "text": "Caverna"
+    },
+    "u-80-pt": {
+        "id": "u-80-pt",
+        "text": "Cavidade"
+    },
+    "u-81-pt": {
+        "id": "u-81-pt",
+        "text": "Célula"
+    },
+    "u-82-pt": {
+        "id": "u-82-pt",
+        "text": "Cemitério"
+    },
+    "u-83-pt": {
+        "id": "u-83-pt",
+        "text": "Cereal"
+    },
+    "u-84-pt": {
+        "id": "u-84-pt",
+        "text": "Cadeia"
+    },
+    "u-85-pt": {
+        "id": "u-85-pt",
+        "text": "Champanhe"
+    },
+    "u-86-pt": {
+        "id": "u-86-pt",
+        "text": "Queijo"
+    },
+    "u-87-pt": {
+        "id": "u-87-pt",
+        "text": "Chewbacca"
+    },
+    "u-88-pt": {
+        "id": "u-88-pt",
+        "text": "Frango"
+    },
+    "u-89-pt": {
+        "id": "u-89-pt",
+        "text": "Chile"
+    },
+    "u-90-pt": {
+        "id": "u-90-pt",
+        "text": "Chip"
+    },
+    "u-91-pt": {
+        "id": "u-91-pt",
+        "text": "Chocolate"
+    },
+    "u-92-pt": {
+        "id": "u-92-pt",
+        "text": "Natal"
+    },
+    "u-93-pt": {
+        "id": "u-93-pt",
+        "text": "Churchill"
+    },
+    "u-94-pt": {
+        "id": "u-94-pt",
+        "text": "Cigarro"
+    },
+    "u-95-pt": {
+        "id": "u-95-pt",
+        "text": "Escalada"
+    },
+    "u-96-pt": {
+        "id": "u-96-pt",
+        "text": "Cinderela"
+    },
+    "u-97-pt": {
+        "id": "u-97-pt",
+        "text": "Cinema"
+    },
+    "u-98-pt": {
+        "id": "u-98-pt",
+        "text": "Circo"
+    },
+    "u-99-pt": {
+        "id": "u-99-pt",
+        "text": "Cleopatra"
+    },
+    "u-100-pt": {
+        "id": "u-100-pt",
+        "text": "Trevo"
+    },
+    "u-101-pt": {
+        "id": "u-101-pt",
+        "text": "Clube"
+    },
+    "u-102-pt": {
+        "id": "u-102-pt",
+        "text": "Barata"
+    },
+    "u-103-pt": {
+        "id": "u-103-pt",
+        "text": "Coquetel"
+    },
+    "u-104-pt": {
+        "id": "u-104-pt",
+        "text": "Casulo"
+    },
+    "u-105-pt": {
+        "id": "u-105-pt",
+        "text": "Café"
+    },
+    "u-106-pt": {
+        "id": "u-106-pt",
+        "text": "Coronel"
+    },
+    "u-107-pt": {
+        "id": "u-107-pt",
+        "text": "Comédia"
+    },
+    "u-108-pt": {
+        "id": "u-108-pt",
+        "text": "Consolo"
+    },
+    "u-109-pt": {
+        "id": "u-109-pt",
+        "text": "Computador"
+    },
+    "u-110-pt": {
+        "id": "u-110-pt",
+        "text": "Show"
+    },
+    "u-111-pt": {
+        "id": "u-111-pt",
+        "text": "Biscoito"
+    },
+    "u-112-pt": {
+        "id": "u-112-pt",
+        "text": "Cortiça"
+    },
+    "u-113-pt": {
+        "id": "u-113-pt",
+        "text": "Canto"
+    },
+    "u-114-pt": {
+        "id": "u-114-pt",
+        "text": "Puma"
+    },
+    "u-115-pt": {
+        "id": "u-115-pt",
+        "text": "Cuscuz"
+    },
+    "u-116-pt": {
+        "id": "u-116-pt",
+        "text": "Guindaste"
+    },
+    "u-117-pt": {
+        "id": "u-117-pt",
+        "text": "Tapioca"
+    },
+    "u-118-pt": {
+        "id": "u-118-pt",
+        "text": "Crocodilo"
+    },
+    "u-119-pt": {
+        "id": "u-119-pt",
+        "text": "Croissant"
+    },
+    "u-120-pt": {
+        "id": "u-120-pt",
+        "text": "Cruz"
+    },
+    "u-121-pt": {
+        "id": "u-121-pt",
+        "text": "Cruzamento"
+    },
+    "u-122-pt": {
+        "id": "u-122-pt",
+        "text": "Coroa"
+    },
+    "u-123-pt": {
+        "id": "u-123-pt",
+        "text": "Cubo"
+    },
+    "u-124-pt": {
+        "id": "u-124-pt",
+        "text": "Xícara"
+    },
+    "u-125-pt": {
+        "id": "u-125-pt",
+        "text": "Cupido"
+    },
+    "u-126-pt": {
+        "id": "u-126-pt",
+        "text": "Ciclo"
+    },
+    "u-127-pt": {
+        "id": "u-127-pt",
+        "text": "Dança"
+    },
+    "u-128-pt": {
+        "id": "u-128-pt",
+        "text": "Darwin"
+    },
+    "u-129-pt": {
+        "id": "u-129-pt",
+        "text": "Maratona"
+    },
+    "u-130-pt": {
+        "id": "u-130-pt",
+        "text": "Defesa"
+    },
+    "u-131-pt": {
+        "id": "u-131-pt",
+        "text": "Dentista"
+    },
+    "u-132-pt": {
+        "id": "u-132-pt",
+        "text": "Deserto"
+    },
+    "u-133-pt": {
+        "id": "u-133-pt",
+        "text": "Diabo"
+    },
+    "u-134-pt": {
+        "id": "u-134-pt",
+        "text": "Diamante"
+    },
+    "u-135-pt": {
+        "id": "u-135-pt",
+        "text": "Dinossauro"
+    },
+    "u-136-pt": {
+        "id": "u-136-pt",
+        "text": "Discoteca"
+    },
+    "u-137-pt": {
+        "id": "u-137-pt",
+        "text": "Médico"
+    },
+    "u-138-pt": {
+        "id": "u-138-pt",
+        "text": "Boneca"
+    },
+    "u-139-pt": {
+        "id": "u-139-pt",
+        "text": "Drogas"
+    },
+    "u-140-pt": {
+        "id": "u-140-pt",
+        "text": "Drácula"
+    },
+    "u-141-pt": {
+        "id": "u-141-pt",
+        "text": "Arrastar"
+    },
+    "u-142-pt": {
+        "id": "u-142-pt",
+        "text": "Sonho"
+    },
+    "u-143-pt": {
+        "id": "u-143-pt",
+        "text": "Duna"
+    },
+    "u-144-pt": {
+        "id": "u-144-pt",
+        "text": "Anão"
+    },
+    "u-145-pt": {
+        "id": "u-145-pt",
+        "text": "Páscoa"
+    },
+    "u-146-pt": {
+        "id": "u-146-pt",
+        "text": "Ovo"
+    },
+    "u-147-pt": {
+        "id": "u-147-pt",
+        "text": "Elástico"
+    },
+    "u-148-pt": {
+        "id": "u-148-pt",
+        "text": "Eleição"
+    },
+    "u-149-pt": {
+        "id": "u-149-pt",
+        "text": "Eletricidade"
+    },
+    "u-150-pt": {
+        "id": "u-150-pt",
+        "text": "Elefante"
+    },
+    "u-151-pt": {
+        "id": "u-151-pt",
+        "text": "Duende"
+    },
+    "u-152-pt": {
+        "id": "u-152-pt",
+        "text": "Elvis"
+    },
+    "u-153-pt": {
+        "id": "u-153-pt",
+        "text": "Emergência"
+    },
+    "u-154-pt": {
+        "id": "u-154-pt",
+        "text": "Imperador"
+    },
+    "u-155-pt": {
+        "id": "u-155-pt",
+        "text": "Fim"
+    },
+    "u-156-pt": {
+        "id": "u-156-pt",
+        "text": "Tarde"
+    },
+    "u-157-pt": {
+        "id": "u-157-pt",
+        "text": "Everest"
+    },
+    "u-158-pt": {
+        "id": "u-158-pt",
+        "text": "Facebook"
+    },
+    "u-159-pt": {
+        "id": "u-159-pt",
+        "text": "Falha"
+    },
+    "u-160-pt": {
+        "id": "u-160-pt",
+        "text": "Justo"
+    },
+    "u-161-pt": {
+        "id": "u-161-pt",
+        "text": "Fada"
+    },
+    "u-162-pt": {
+        "id": "u-162-pt",
+        "text": "Outono"
+    },
+    "u-163-pt": {
+        "id": "u-163-pt",
+        "text": "Fazenda"
+    },
+    "u-164-pt": {
+        "id": "u-164-pt",
+        "text": "Moda"
+    },
+    "u-165-pt": {
+        "id": "u-165-pt",
+        "text": "Febre"
+    },
+    "u-166-pt": {
+        "id": "u-166-pt",
+        "text": "Incêndio"
+    },
+    "u-167-pt": {
+        "id": "u-167-pt",
+        "text": "Incêndio"
+    },
+    "u-168-pt": {
+        "id": "u-168-pt",
+        "text": "Bombeiro"
+    },
+    "u-169-pt": {
+        "id": "u-169-pt",
+        "text": "Estômago"
+    },
+    "u-170-pt": {
+        "id": "u-170-pt",
+        "text": "Chama"
+    },
+    "u-171-pt": {
+        "id": "u-171-pt",
+        "text": "Instantâneo"
+    },
+    "u-172-pt": {
+        "id": "u-172-pt",
+        "text": "Voar"
+    },
+    "u-173-pt": {
+        "id": "u-173-pt",
+        "text": "Flintstone"
+    },
+    "u-174-pt": {
+        "id": "u-174-pt",
+        "text": "Flor"
+    },
+    "u-175-pt": {
+        "id": "u-175-pt",
+        "text": "Flauta"
+    },
+    "u-176-pt": {
+        "id": "u-176-pt",
+        "text": "Espuma"
+    },
+    "u-177-pt": {
+        "id": "u-177-pt",
+        "text": "Ford"
+    },
+    "u-178-pt": {
+        "id": "u-178-pt",
+        "text": "Floresta"
+    },
+    "u-179-pt": {
+        "id": "u-179-pt",
+        "text": "Garfo"
+    },
+    "u-180-pt": {
+        "id": "u-180-pt",
+        "text": "Fonte"
+    },
+    "u-181-pt": {
+        "id": "u-181-pt",
+        "text": "Raposa"
+    },
+    "u-182-pt": {
+        "id": "u-182-pt",
+        "text": "França"
+    },
+    "u-183-pt": {
+        "id": "u-183-pt",
+        "text": "Frankenstein"
+    },
+    "u-184-pt": {
+        "id": "u-184-pt",
+        "text": "Sexta-feira"
+    },
+    "u-185-pt": {
+        "id": "u-185-pt",
+        "text": "Fritas"
+    },
+    "u-186-pt": {
+        "id": "u-186-pt",
+        "text": "Geada"
+    },
+    "u-187-pt": {
+        "id": "u-187-pt",
+        "text": "Pelagem"
+    },
+    "u-188-pt": {
+        "id": "u-188-pt",
+        "text": "Galáxia"
+    },
+    "u-189-pt": {
+        "id": "u-189-pt",
+        "text": "Jogo"
+    },
+    "u-190-pt": {
+        "id": "u-190-pt",
+        "text": "Gandhi"
+    },
+    "u-191-pt": {
+        "id": "u-191-pt",
+        "text": "Jardim"
+    },
+    "u-192-pt": {
+        "id": "u-192-pt",
+        "text": "Alho"
+    },
+    "u-193-pt": {
+        "id": "u-193-pt",
+        "text": "Gênio"
+    },
+    "u-194-pt": {
+        "id": "u-194-pt",
+        "text": "Fantasma"
+    },
+    "u-195-pt": {
+        "id": "u-195-pt",
+        "text": "Gigante"
+    },
+    "u-196-pt": {
+        "id": "u-196-pt",
+        "text": "Gladiador"
+    },
+    "u-197-pt": {
+        "id": "u-197-pt",
+        "text": "Vidro"
+    },
+    "u-198-pt": {
+        "id": "u-198-pt",
+        "text": "Vidro"
+    },
+    "u-199-pt": {
+        "id": "u-199-pt",
+        "text": "Bode"
+    },
+    "u-200-pt": {
+        "id": "u-200-pt",
+        "text": "Padrinho"
+    },
+    "u-201-pt": {
+        "id": "u-201-pt",
+        "text": "Godzilla"
+    },
+    "u-202-pt": {
+        "id": "u-202-pt",
+        "text": "Golfe"
+    },
+    "u-203-pt": {
+        "id": "u-203-pt",
+        "text": "Google"
+    },
+    "u-204-pt": {
+        "id": "u-204-pt",
+        "text": "Gótico"
+    },
+    "u-205-pt": {
+        "id": "u-205-pt",
+        "text": "Grama"
+    },
+    "u-206-pt": {
+        "id": "u-206-pt",
+        "text": "Grécia"
+    },
+    "u-207-pt": {
+        "id": "u-207-pt",
+        "text": "Gremlins"
+    },
+    "u-208-pt": {
+        "id": "u-208-pt",
+        "text": "Granada"
+    },
+    "u-209-pt": {
+        "id": "u-209-pt",
+        "text": "Gruta"
+    },
+    "u-210-pt": {
+        "id": "u-210-pt",
+        "text": "Guarda"
+    },
+    "u-211-pt": {
+        "id": "u-211-pt",
+        "text": "Guilhotina"
+    },
+    "u-212-pt": {
+        "id": "u-212-pt",
+        "text": "Quiabo"
+    },
+    "u-213-pt": {
+        "id": "u-213-pt",
+        "text": "Cabelo"
+    },
+    "u-214-pt": {
+        "id": "u-214-pt",
+        "text": "Cabeleireiro"
+    },
+    "u-215-pt": {
+        "id": "u-215-pt",
+        "text": "Halloween"
+    },
+    "u-216-pt": {
+        "id": "u-216-pt",
+        "text": "Martelo"
+    },
+    "u-217-pt": {
+        "id": "u-217-pt",
+        "text": "Alça"
+    },
+    "u-218-pt": {
+        "id": "u-218-pt",
+        "text": "Hanukkah"
+    },
+    "u-219-pt": {
+        "id": "u-219-pt",
+        "text": "Chapéu"
+    },
+    "u-220-pt": {
+        "id": "u-220-pt",
+        "text": "Avelã"
+    },
+    "u-221-pt": {
+        "id": "u-221-pt",
+        "text": "Coração"
+    },
+    "u-222-pt": {
+        "id": "u-222-pt",
+        "text": "Salto"
+    },
+    "u-223-pt": {
+        "id": "u-223-pt",
+        "text": "Helicóptero"
+    },
+    "u-224-pt": {
+        "id": "u-224-pt",
+        "text": "Capacete"
+    },
+    "u-225-pt": {
+        "id": "u-225-pt",
+        "text": "História"
+    },
+    "u-226-pt": {
+        "id": "u-226-pt",
+        "text": "Hóquei"
+    },
+    "u-227-pt": {
+        "id": "u-227-pt",
+        "text": "Buraco"
+    },
+    "u-228-pt": {
+        "id": "u-228-pt",
+        "text": "Hollywood"
+    },
+    "u-229-pt": {
+        "id": "u-229-pt",
+        "text": "Mel"
+    },
+    "u-230-pt": {
+        "id": "u-230-pt",
+        "text": "Mangueira"
+    },
+    "u-231-pt": {
+        "id": "u-231-pt",
+        "text": "Hotel"
+    },
+    "u-232-pt": {
+        "id": "u-232-pt",
+        "text": "Lar"
+    },
+    "u-233-pt": {
+        "id": "u-233-pt",
+        "text": "Hulk"
+    },
+    "u-234-pt": {
+        "id": "u-234-pt",
+        "text": "Humor"
+    },
+    "u-235-pt": {
+        "id": "u-235-pt",
+        "text": "Caçador"
+    },
+    "u-236-pt": {
+        "id": "u-236-pt",
+        "text": "Gelo"
+    },
+    "u-237-pt": {
+        "id": "u-237-pt",
+        "text": "Ikea"
+    },
+    "u-238-pt": {
+        "id": "u-238-pt",
+        "text": "Íris"
+    },
+    "u-239-pt": {
+        "id": "u-239-pt",
+        "text": "Ferro"
+    },
+    "u-240-pt": {
+        "id": "u-240-pt",
+        "text": "Ilha"
+    },
+    "u-241-pt": {
+        "id": "u-241-pt",
+        "text": "Israel"
+    },
+    "u-242-pt": {
+        "id": "u-242-pt",
+        "text": "Itália"
+    },
+    "u-243-pt": {
+        "id": "u-243-pt",
+        "text": "Jackson"
+    },
+    "u-244-pt": {
+        "id": "u-244-pt",
+        "text": "Jedi"
+    },
+    "u-245-pt": {
+        "id": "u-245-pt",
+        "text": "Joia"
+    },
+    "u-246-pt": {
+        "id": "u-246-pt",
+        "text": "Johnny"
+    },
+    "u-247-pt": {
+        "id": "u-247-pt",
+        "text": "Palhaço"
+    },
+    "u-248-pt": {
+        "id": "u-248-pt",
+        "text": "Jones"
+    },
+    "u-249-pt": {
+        "id": "u-249-pt",
+        "text": "Selva"
+    },
+    "u-250-pt": {
+        "id": "u-250-pt",
+        "text": "Karatê"
+    },
+    "u-251-pt": {
+        "id": "u-251-pt",
+        "text": "Rei"
+    },
+    "u-252-pt": {
+        "id": "u-252-pt",
+        "text": "Faca"
+    },
+    "u-253-pt": {
+        "id": "u-253-pt",
+        "text": "Cavaleiro"
+    },
+    "u-254-pt": {
+        "id": "u-254-pt",
+        "text": "Escada"
+    },
+    "u-255-pt": {
+        "id": "u-255-pt",
+        "text": "Joaninha"
+    },
+    "u-256-pt": {
+        "id": "u-256-pt",
+        "text": "Lago"
+    },
+    "u-257-pt": {
+        "id": "u-257-pt",
+        "text": "Lâmpada"
+    },
+    "u-258-pt": {
+        "id": "u-258-pt",
+        "text": "Língua"
+    },
+    "u-259-pt": {
+        "id": "u-259-pt",
+        "text": "Grande"
+    },
+    "u-260-pt": {
+        "id": "u-260-pt",
+        "text": "Lava"
+    },
+    "u-261-pt": {
+        "id": "u-261-pt",
+        "text": "Advogado"
+    },
+    "u-262-pt": {
+        "id": "u-262-pt",
+        "text": "Folha"
+    },
+    "u-263-pt": {
+        "id": "u-263-pt",
+        "text": "Salto"
+    },
+    "u-264-pt": {
+        "id": "u-264-pt",
+        "text": "Lego"
+    },
+    "u-265-pt": {
+        "id": "u-265-pt",
+        "text": "Carta"
+    },
+    "u-266-pt": {
+        "id": "u-266-pt",
+        "text": "Luz"
+    },
+    "u-267-pt": {
+        "id": "u-267-pt",
+        "text": "Lâmpada"
+    },
+    "u-268-pt": {
+        "id": "u-268-pt",
+        "text": "Farol"
+    },
+    "u-269-pt": {
+        "id": "u-269-pt",
+        "text": "Relâmpago"
+    },
+    "u-270-pt": {
+        "id": "u-270-pt",
+        "text": "Membro"
+    },
+    "u-271-pt": {
+        "id": "u-271-pt",
+        "text": "Leão"
+    },
+    "u-272-pt": {
+        "id": "u-272-pt",
+        "text": "Sozinho"
+    },
+    "u-273-pt": {
+        "id": "u-273-pt",
+        "text": "Loteria"
+    },
+    "u-274-pt": {
+        "id": "u-274-pt",
+        "text": "Máquina"
+    },
+    "u-275-pt": {
+        "id": "u-275-pt",
+        "text": "Louco"
+    },
+    "u-276-pt": {
+        "id": "u-276-pt",
+        "text": "Máfia"
+    },
+    "u-277-pt": {
+        "id": "u-277-pt",
+        "text": "Mágico"
+    },
+    "u-278-pt": {
+        "id": "u-278-pt",
+        "text": "Magnético"
+    },
+    "u-279-pt": {
+        "id": "u-279-pt",
+        "text": "Mangá"
+    },
+    "u-280-pt": {
+        "id": "u-280-pt",
+        "text": "Manual"
+    },
+    "u-281-pt": {
+        "id": "u-281-pt",
+        "text": "Estrume"
+    },
+    "u-282-pt": {
+        "id": "u-282-pt",
+        "text": "Mapa"
+    },
+    "u-283-pt": {
+        "id": "u-283-pt",
+        "text": "Mario"
+    },
+    "u-284-pt": {
+        "id": "u-284-pt",
+        "text": "Mercado"
+    },
+    "u-285-pt": {
+        "id": "u-285-pt",
+        "text": "Casado"
+    },
+    "u-286-pt": {
+        "id": "u-286-pt",
+        "text": "Marte"
+    },
+    "u-287-pt": {
+        "id": "u-287-pt",
+        "text": "Máscara"
+    },
+    "u-288-pt": {
+        "id": "u-288-pt",
+        "text": "Matriz"
+    },
+    "u-289-pt": {
+        "id": "u-289-pt",
+        "text": "Melão"
+    },
+    "u-290-pt": {
+        "id": "u-290-pt",
+        "text": "Metal"
+    },
+    "u-291-pt": {
+        "id": "u-291-pt",
+        "text": "México"
+    },
+    "u-292-pt": {
+        "id": "u-292-pt",
+        "text": "Mickey"
+    },
+    "u-293-pt": {
+        "id": "u-293-pt",
+        "text": "Microsoft"
+    },
+    "u-294-pt": {
+        "id": "u-294-pt",
+        "text": "Leite"
+    },
+    "u-295-pt": {
+        "id": "u-295-pt",
+        "text": "Moinho"
+    },
+    "u-296-pt": {
+        "id": "u-296-pt",
+        "text": "Miragem"
+    },
+    "u-297-pt": {
+        "id": "u-297-pt",
+        "text": "Espelho"
+    },
+    "u-298-pt": {
+        "id": "u-298-pt",
+        "text": "Míssil"
+    },
+    "u-299-pt": {
+        "id": "u-299-pt",
+        "text": "Macaco"
+    },
+    "u-300-pt": {
+        "id": "u-300-pt",
+        "text": "Monopólio"
+    },
+    "u-301-pt": {
+        "id": "u-301-pt",
+        "text": "Lua"
+    },
+    "u-302-pt": {
+        "id": "u-302-pt",
+        "text": "Moscou"
+    },
+    "u-303-pt": {
+        "id": "u-303-pt",
+        "text": "Mosquito"
+    },
+    "u-304-pt": {
+        "id": "u-304-pt",
+        "text": "Montanha"
+    },
+    "u-305-pt": {
+        "id": "u-305-pt",
+        "text": "Mouse"
+    },
+    "u-306-pt": {
+        "id": "u-306-pt",
+        "text": "Boca"
+    },
+    "u-307-pt": {
+        "id": "u-307-pt",
+        "text": "Cortador"
+    },
+    "u-308-pt": {
+        "id": "u-308-pt",
+        "text": "Mozart"
+    },
+    "u-309-pt": {
+        "id": "u-309-pt",
+        "text": "Mamãe"
+    },
+    "u-310-pt": {
+        "id": "u-310-pt",
+        "text": "Musa"
+    },
+    "u-311-pt": {
+        "id": "u-311-pt",
+        "text": "Cogumelo"
+    },
+    "u-312-pt": {
+        "id": "u-312-pt",
+        "text": "Música"
+    },
+    "u-313-pt": {
+        "id": "u-313-pt",
+        "text": "Mosqueteiro"
+    },
+    "u-314-pt": {
+        "id": "u-314-pt",
+        "text": "Bigode"
+    },
+    "u-315-pt": {
+        "id": "u-315-pt",
+        "text": "Mostarda"
+    },
+    "u-316-pt": {
+        "id": "u-316-pt",
+        "text": "Mito"
+    },
+    "u-317-pt": {
+        "id": "u-317-pt",
+        "text": "Unha"
+    },
+    "u-318-pt": {
+        "id": "u-318-pt",
+        "text": "Colar"
+    },
+    "u-319-pt": {
+        "id": "u-319-pt",
+        "text": "Agulha"
+    },
+    "u-320-pt": {
+        "id": "u-320-pt",
+        "text": "Vizinhança"
+    },
+    "u-321-pt": {
+        "id": "u-321-pt",
+        "text": "Ninho"
+    },
+    "u-322-pt": {
+        "id": "u-322-pt",
+        "text": "Novo"
+    },
+    "u-323-pt": {
+        "id": "u-323-pt",
+        "text": "Jornal"
+    },
+    "u-324-pt": {
+        "id": "u-324-pt",
+        "text": "Nilo"
+    },
+    "u-325-pt": {
+        "id": "u-325-pt",
+        "text": "Ninja"
+    },
+    "u-326-pt": {
+        "id": "u-326-pt",
+        "text": "Nintendo"
+    },
+    "u-327-pt": {
+        "id": "u-327-pt",
+        "text": "Macarrão"
+    },
+    "u-328-pt": {
+        "id": "u-328-pt",
+        "text": "Nuclear"
+    },
+    "u-329-pt": {
+        "id": "u-329-pt",
+        "text": "Humano"
+    },
+    "u-330-pt": {
+        "id": "u-330-pt",
+        "text": "Número"
+    },
+    "u-331-pt": {
+        "id": "u-331-pt",
+        "text": "Freira"
+    },
+    "u-332-pt": {
+        "id": "u-332-pt",
+        "text": "Oásis"
+    },
+    "u-333-pt": {
+        "id": "u-333-pt",
+        "text": "Polvo"
+    },
+    "u-334-pt": {
+        "id": "u-334-pt",
+        "text": "Olimpíadas"
+    },
+    "u-335-pt": {
+        "id": "u-335-pt",
+        "text": "Ópera"
+    },
+    "u-336-pt": {
+        "id": "u-336-pt",
+        "text": "Operação"
+    },
+    "u-337-pt": {
+        "id": "u-337-pt",
+        "text": "Laranja"
+    },
+    "u-338-pt": {
+        "id": "u-338-pt",
+        "text": "Forno"
+    },
+    "u-339-pt": {
+        "id": "u-339-pt",
+        "text": "Pintura"
+    },
+    "u-340-pt": {
+        "id": "u-340-pt",
+        "text": "Par"
+    },
+    "u-341-pt": {
+        "id": "u-341-pt",
+        "text": "Palácio"
+    },
+    "u-342-pt": {
+        "id": "u-342-pt",
+        "text": "Frigideira"
+    },
+    "u-343-pt": {
+        "id": "u-343-pt",
+        "text": "Panda"
+    },
+    "u-344-pt": {
+        "id": "u-344-pt",
+        "text": "Pára-quedas"
+    },
+    "u-345-pt": {
+        "id": "u-345-pt",
+        "text": "Paraíso"
+    },
+    "u-346-pt": {
+        "id": "u-346-pt",
+        "text": "Papagaio"
+    },
+    "u-347-pt": {
+        "id": "u-347-pt",
+        "text": "Paixão"
+    },
+    "u-348-pt": {
+        "id": "u-348-pt",
+        "text": "Paz"
+    },
+    "u-349-pt": {
+        "id": "u-349-pt",
+        "text": "Pêssego"
+    },
+    "u-350-pt": {
+        "id": "u-350-pt",
+        "text": "Amendoim"
+    },
+    "u-351-pt": {
+        "id": "u-351-pt",
+        "text": "Pera"
+    },
+    "u-352-pt": {
+        "id": "u-352-pt",
+        "text": "Seixo"
+    },
+    "u-353-pt": {
+        "id": "u-353-pt",
+        "text": "Pinguim"
+    },
+    "u-354-pt": {
+        "id": "u-354-pt",
+        "text": "Pimenta"
+    },
+    "u-355-pt": {
+        "id": "u-355-pt",
+        "text": "Perfume"
+    },
+    "u-356-pt": {
+        "id": "u-356-pt",
+        "text": "Picasso"
+    },
+    "u-357-pt": {
+        "id": "u-357-pt",
+        "text": "Torta"
+    },
+    "u-358-pt": {
+        "id": "u-358-pt",
+        "text": "Porco"
+    },
+    "u-359-pt": {
+        "id": "u-359-pt",
+        "text": "Pombo"
+    },
+    "u-360-pt": {
+        "id": "u-360-pt",
+        "text": "Pikachu"
+    },
+    "u-361-pt": {
+        "id": "u-361-pt",
+        "text": "Travesseiro"
+    },
+    "u-362-pt": {
+        "id": "u-362-pt",
+        "text": "Piloto"
+    },
+    "u-363-pt": {
+        "id": "u-363-pt",
+        "text": "Pimento"
+    },
+    "u-364-pt": {
+        "id": "u-364-pt",
+        "text": "Tubo"
+    },
+    "u-365-pt": {
+        "id": "u-365-pt",
+        "text": "Pirata"
+    },
+    "u-366-pt": {
+        "id": "u-366-pt",
+        "text": "Poço"
+    },
+    "u-367-pt": {
+        "id": "u-367-pt",
+        "text": "Pizza"
+    },
+    "u-368-pt": {
+        "id": "u-368-pt",
+        "text": "Plano"
+    },
+    "u-369-pt": {
+        "id": "u-369-pt",
+        "text": "Plástico"
+    },
+    "u-370-pt": {
+        "id": "u-370-pt",
+        "text": "Playstation"
+    },
+    "u-371-pt": {
+        "id": "u-371-pt",
+        "text": "Alicate"
+    },
+    "u-372-pt": {
+        "id": "u-372-pt",
+        "text": "Poção"
+    },
+    "u-373-pt": {
+        "id": "u-373-pt",
+        "text": "Pôquer"
+    },
+    "u-374-pt": {
+        "id": "u-374-pt",
+        "text": "Polar"
+    },
+    "u-375-pt": {
+        "id": "u-375-pt",
+        "text": "Pólo"
+    },
+    "u-376-pt": {
+        "id": "u-376-pt",
+        "text": "Polícia"
+    },
+    "u-377-pt": {
+        "id": "u-377-pt",
+        "text": "Pónei"
+    },
+    "u-378-pt": {
+        "id": "u-378-pt",
+        "text": "Piscina"
+    },
+    "u-379-pt": {
+        "id": "u-379-pt",
+        "text": "Papa"
+    },
+    "u-380-pt": {
+        "id": "u-380-pt",
+        "text": "Porcelana"
+    },
+    "u-381-pt": {
+        "id": "u-381-pt",
+        "text": "Batata"
+    },
+    "u-382-pt": {
+        "id": "u-382-pt",
+        "text": "Potter"
+    },
+    "u-383-pt": {
+        "id": "u-383-pt",
+        "text": "Pó"
+    },
+    "u-384-pt": {
+        "id": "u-384-pt",
+        "text": "Grávida"
+    },
+    "u-385-pt": {
+        "id": "u-385-pt",
+        "text": "Presidente"
+    },
+    "u-386-pt": {
+        "id": "u-386-pt",
+        "text": "Primário"
+    },
+    "u-387-pt": {
+        "id": "u-387-pt",
+        "text": "Princesa"
+    },
+    "u-388-pt": {
+        "id": "u-388-pt",
+        "text": "Prisão"
+    },
+    "u-389-pt": {
+        "id": "u-389-pt",
+        "text": "Formatura"
+    },
+    "u-390-pt": {
+        "id": "u-390-pt",
+        "text": "Psicopata"
+    },
+    "u-391-pt": {
+        "id": "u-391-pt",
+        "text": "Bomba"
+    },
+    "u-392-pt": {
+        "id": "u-392-pt",
+        "text": "Punk"
+    },
+    "u-393-pt": {
+        "id": "u-393-pt",
+        "text": "Fantoche"
+    },
+    "u-394-pt": {
+        "id": "u-394-pt",
+        "text": "Bolsa"
+    },
+    "u-395-pt": {
+        "id": "u-395-pt",
+        "text": "Pirâmide"
+    },
+    "u-396-pt": {
+        "id": "u-396-pt",
+        "text": "Rádio"
+    },
+    "u-397-pt": {
+        "id": "u-397-pt",
+        "text": "Trilho"
+    },
+    "u-398-pt": {
+        "id": "u-398-pt",
+        "text": "Chuva"
+    },
+    "u-399-pt": {
+        "id": "u-399-pt",
+        "text": "Ancinho"
+    },
+    "u-400-pt": {
+        "id": "u-400-pt",
+        "text": "Carneiro"
+    },
+    "u-401-pt": {
+        "id": "u-401-pt",
+        "text": "Rambo"
+    },
+    "u-402-pt": {
+        "id": "u-402-pt",
+        "text": "Ramsés"
+    },
+    "u-403-pt": {
+        "id": "u-403-pt",
+        "text": "Rap"
+    },
+    "u-404-pt": {
+        "id": "u-404-pt",
+        "text": "Rato"
+    },
+    "u-405-pt": {
+        "id": "u-405-pt",
+        "text": "Raio"
+    },
+    "u-406-pt": {
+        "id": "u-406-pt",
+        "text": "Reggae"
+    },
+    "u-407-pt": {
+        "id": "u-407-pt",
+        "text": "Registro"
+    },
+    "u-408-pt": {
+        "id": "u-408-pt",
+        "text": "Revolução"
+    },
+    "u-409-pt": {
+        "id": "u-409-pt",
+        "text": "Anel"
+    },
+    "u-410-pt": {
+        "id": "u-410-pt",
+        "text": "Maduro"
+    },
+    "u-411-pt": {
+        "id": "u-411-pt",
+        "text": "Rio"
+    },
+    "u-412-pt": {
+        "id": "u-412-pt",
+        "text": "Robô"
+    },
+    "u-413-pt": {
+        "id": "u-413-pt",
+        "text": "Rock"
+    },
+    "u-414-pt": {
+        "id": "u-414-pt",
+        "text": "Rochoso"
+    },
+    "u-415-pt": {
+        "id": "u-415-pt",
+        "text": "Sala"
+    },
+    "u-416-pt": {
+        "id": "u-416-pt",
+        "text": "Galo"
+    },
+    "u-417-pt": {
+        "id": "u-417-pt",
+        "text": "Raiz"
+    },
+    "u-418-pt": {
+        "id": "u-418-pt",
+        "text": "Corda"
+    },
+    "u-419-pt": {
+        "id": "u-419-pt",
+        "text": "Rosa"
+    },
+    "u-420-pt": {
+        "id": "u-420-pt",
+        "text": "Governante"
+    },
+    "u-421-pt": {
+        "id": "u-421-pt",
+        "text": "Rum"
+    },
+    "u-422-pt": {
+        "id": "u-422-pt",
+        "text": "Safári"
+    },
+    "u-423-pt": {
+        "id": "u-423-pt",
+        "text": "Seguro"
+    },
+    "u-424-pt": {
+        "id": "u-424-pt",
+        "text": "Sahara"
+    },
+    "u-425-pt": {
+        "id": "u-425-pt",
+        "text": "Velejar"
+    },
+    "u-426-pt": {
+        "id": "u-426-pt",
+        "text": "Sal"
+    },
+    "u-427-pt": {
+        "id": "u-427-pt",
+        "text": "Areia"
+    },
+    "u-428-pt": {
+        "id": "u-428-pt",
+        "text": "Sartine"
+    },
+    "u-429-pt": {
+        "id": "u-429-pt",
+        "text": "Salsicha"
+    },
+    "u-430-pt": {
+        "id": "u-430-pt",
+        "text": "Escala"
+    },
+    "u-431-pt": {
+        "id": "u-431-pt",
+        "text": "Cena"
+    },
+    "u-432-pt": {
+        "id": "u-432-pt",
+        "text": "Escola"
+    },
+    "u-433-pt": {
+        "id": "u-433-pt",
+        "text": "Parafuso"
+    },
+    "u-434-pt": {
+        "id": "u-434-pt",
+        "text": "Series"
+    },
+    "u-435-pt": {
+        "id": "u-435-pt",
+        "text": "Esgoto"
+    },
+    "u-436-pt": {
+        "id": "u-436-pt",
+        "text": "Shack"
+    },
+    "u-437-pt": {
+        "id": "u-437-pt",
+        "text": "Shakespeare"
+    },
+    "u-438-pt": {
+        "id": "u-438-pt",
+        "text": "Tubarão"
+    },
+    "u-439-pt": {
+        "id": "u-439-pt",
+        "text": "Ovelha"
+    },
+    "u-440-pt": {
+        "id": "u-440-pt",
+        "text": "Prateleira"
+    },
+    "u-441-pt": {
+        "id": "u-441-pt",
+        "text": "Casca"
+    },
+    "u-442-pt": {
+        "id": "u-442-pt",
+        "text": "Sherlock"
+    },
+    "u-443-pt": {
+        "id": "u-443-pt",
+        "text": "Navio"
+    },
+    "u-444-pt": {
+        "id": "u-444-pt",
+        "text": "Pá"
+    },
+    "u-445-pt": {
+        "id": "u-445-pt",
+        "text": "Banho"
+    },
+    "u-446-pt": {
+        "id": "u-446-pt",
+        "text": "Shrek"
+    },
+    "u-447-pt": {
+        "id": "u-447-pt",
+        "text": "Simpson"
+    },
+    "u-448-pt": {
+        "id": "u-448-pt",
+        "text": "Sereia"
+    },
+    "u-449-pt": {
+        "id": "u-449-pt",
+        "text": "Esqui"
+    },
+    "u-450-pt": {
+        "id": "u-450-pt",
+        "text": "Manga"
+    },
+    "u-451-pt": {
+        "id": "u-451-pt",
+        "text": "Chinelo"
+    },
+    "u-452-pt": {
+        "id": "u-452-pt",
+        "text": "Fumaça"
+    },
+    "u-453-pt": {
+        "id": "u-453-pt",
+        "text": "Cobra"
+    },
+    "u-454-pt": {
+        "id": "u-454-pt",
+        "text": "Neve"
+    },
+    "u-455-pt": {
+        "id": "u-455-pt",
+        "text": "Sofá"
+    },
+    "u-456-pt": {
+        "id": "u-456-pt",
+        "text": "Sabão"
+    },
+    "u-457-pt": {
+        "id": "u-457-pt",
+        "text": "Soquete"
+    },
+    "u-458-pt": {
+        "id": "u-458-pt",
+        "text": "Soquete"
+    },
+    "u-459-pt": {
+        "id": "u-459-pt",
+        "text": "Sombrero"
+    },
+    "u-460-pt": {
+        "id": "u-460-pt",
+        "text": "Canção"
+    },
+    "u-461-pt": {
+        "id": "u-461-pt",
+        "text": "Spartacus"
+    },
+    "u-462-pt": {
+        "id": "u-462-pt",
+        "text": "Lança"
+    },
+    "u-463-pt": {
+        "id": "u-463-pt",
+        "text": "Tempero"
+    },
+    "u-464-pt": {
+        "id": "u-464-pt",
+        "text": "Spielberg"
+    },
+    "u-465-pt": {
+        "id": "u-465-pt",
+        "text": "Espião"
+    },
+    "u-466-pt": {
+        "id": "u-466-pt",
+        "text": "Aborto"
+    },
+    "u-467-pt": {
+        "id": "u-467-pt",
+        "text": "Garanhão"
+    },
+    "u-468-pt": {
+        "id": "u-468-pt",
+        "text": "Estrela"
+    },
+    "u-469-pt": {
+        "id": "u-469-pt",
+        "text": "Starbucks"
+    },
+    "u-470-pt": {
+        "id": "u-470-pt",
+        "text": "Duro"
+    },
+    "u-471-pt": {
+        "id": "u-471-pt",
+        "text": "Estação"
+    },
+    "u-472-pt": {
+        "id": "u-472-pt",
+        "text": "Molhado"
+    },
+    "u-473-pt": {
+        "id": "u-473-pt",
+        "text": "Picada"
+    },
+    "u-474-pt": {
+        "id": "u-474-pt",
+        "text": "Pedra"
+    },
+    "u-475-pt": {
+        "id": "u-475-pt",
+        "text": "Canudo"
+    },
+    "u-476-pt": {
+        "id": "u-476-pt",
+        "text": "Morango"
+    },
+    "u-477-pt": {
+        "id": "u-477-pt",
+        "text": "Fragmento"
+    },
+    "u-478-pt": {
+        "id": "u-478-pt",
+        "text": "Estudar"
+    },
+    "u-479-pt": {
+        "id": "u-479-pt",
+        "text": "Estofamento"
+    },
+    "u-480-pt": {
+        "id": "u-480-pt",
+        "text": "Metrô"
+    },
+    "u-481-pt": {
+        "id": "u-481-pt",
+        "text": "Açúcar"
+    },
+    "u-482-pt": {
+        "id": "u-482-pt",
+        "text": "Sol"
+    },
+    "u-483-pt": {
+        "id": "u-483-pt",
+        "text": "Suíça"
+    },
+    "u-484-pt": {
+        "id": "u-484-pt",
+        "text": "Espada"
+    },
+    "u-485-pt": {
+        "id": "u-485-pt",
+        "text": "Xarope"
+    },
+    "u-486-pt": {
+        "id": "u-486-pt",
+        "text": "Tango"
+    },
+    "u-487-pt": {
+        "id": "u-487-pt",
+        "text": "Tarantino"
+    },
+    "u-488-pt": {
+        "id": "u-488-pt",
+        "text": "Tarzan"
+    },
+    "u-489-pt": {
+        "id": "u-489-pt",
+        "text": "Tatuagem"
+    },
+    "u-490-pt": {
+        "id": "u-490-pt",
+        "text": "Táxi"
+    },
+    "u-491-pt": {
+        "id": "u-491-pt",
+        "text": "Cabeça"
+    },
+    "u-492-pt": {
+        "id": "u-492-pt",
+        "text": "Tênis"
+    },
+    "u-493-pt": {
+        "id": "u-493-pt",
+        "text": "Exterminador"
+    },
+    "u-494-pt": {
+        "id": "u-494-pt",
+        "text": "Teatro"
+    },
+    "u-495-pt": {
+        "id": "u-495-pt",
+        "text": "Pensamento"
+    },
+    "u-496-pt": {
+        "id": "u-496-pt",
+        "text": "Fio"
+    },
+    "u-497-pt": {
+        "id": "u-497-pt",
+        "text": "Garganta"
+    },
+    "u-498-pt": {
+        "id": "u-498-pt",
+        "text": "Trovão"
+    },
+    "u-499-pt": {
+        "id": "u-499-pt",
+        "text": "Bilhete"
+    },
+    "u-500-pt": {
+        "id": "u-500-pt",
+        "text": "Senha"
+    },
+    "u-501-pt": {
+        "id": "u-501-pt",
+        "text": "Gravata"
+    },
+    "u-502-pt": {
+        "id": "u-502-pt",
+        "text": "Tigre"
+    },
+    "u-503-pt": {
+        "id": "u-503-pt",
+        "text": "Titânico"
+    },
+    "u-504-pt": {
+        "id": "u-504-pt",
+        "text": "Tabaco"
+    },
+    "u-505-pt": {
+        "id": "u-505-pt",
+        "text": "Tóquio"
+    },
+    "u-506-pt": {
+        "id": "u-506-pt",
+        "text": "Tolkien"
+    },
+    "u-507-pt": {
+        "id": "u-507-pt",
+        "text": "Tomate"
+    },
+    "u-508-pt": {
+        "id": "u-508-pt",
+        "text": "Ferramenta"
+    },
+    "u-509-pt": {
+        "id": "u-509-pt",
+        "text": "Tornado"
+    },
+    "u-510-pt": {
+        "id": "u-510-pt",
+        "text": "Toalha"
+    },
+    "u-511-pt": {
+        "id": "u-511-pt",
+        "text": "Torre"
+    },
+    "u-512-pt": {
+        "id": "u-512-pt",
+        "text": "Tradição"
+    },
+    "u-513-pt": {
+        "id": "u-513-pt",
+        "text": "Trem"
+    },
+    "u-514-pt": {
+        "id": "u-514-pt",
+        "text": "Tesouro"
+    },
+    "u-515-pt": {
+        "id": "u-515-pt",
+        "text": "Triângulo"
+    },
+    "u-516-pt": {
+        "id": "u-516-pt",
+        "text": "Troy"
+    },
+    "u-517-pt": {
+        "id": "u-517-pt",
+        "text": "Tubo"
+    },
+    "u-518-pt": {
+        "id": "u-518-pt",
+        "text": "Tulipa"
+    },
+    "u-519-pt": {
+        "id": "u-519-pt",
+        "text": "Atum"
+    },
+    "u-520-pt": {
+        "id": "u-520-pt",
+        "text": "Túnel"
+    },
+    "u-521-pt": {
+        "id": "u-521-pt",
+        "text": "Guarda-chuva"
+    },
+    "u-522-pt": {
+        "id": "u-522-pt",
+        "text": "Unicórnio"
+    },
+    "u-523-pt": {
+        "id": "u-523-pt",
+        "text": "Uniforme"
+    },
+    "u-524-pt": {
+        "id": "u-524-pt",
+        "text": "Férias"
+    },
+    "u-525-pt": {
+        "id": "u-525-pt",
+        "text": "Vampiro"
+    },
+    "u-526-pt": {
+        "id": "u-526-pt",
+        "text": "Vegas"
+    },
+    "u-527-pt": {
+        "id": "u-527-pt",
+        "text": "Vegetal"
+    },
+    "u-528-pt": {
+        "id": "u-528-pt",
+        "text": "Vingança"
+    },
+    "u-529-pt": {
+        "id": "u-529-pt",
+        "text": "Vênus"
+    },
+    "u-530-pt": {
+        "id": "u-530-pt",
+        "text": "Viking"
+    },
+    "u-531-pt": {
+        "id": "u-531-pt",
+        "text": "Violino"
+    },
+    "u-532-pt": {
+        "id": "u-532-pt",
+        "text": "Vírus"
+    },
+    "u-533-pt": {
+        "id": "u-533-pt",
+        "text": "Vulcão"
+    },
+    "u-534-pt": {
+        "id": "u-534-pt",
+        "text": "Valsa"
+    },
+    "u-535-pt": {
+        "id": "u-535-pt",
+        "text": "Guerra"
+    },
+    "u-536-pt": {
+        "id": "u-536-pt",
+        "text": "Relógio"
+    },
+    "u-537-pt": {
+        "id": "u-537-pt",
+        "text": "Onda"
+    },
+    "u-538-pt": {
+        "id": "u-538-pt",
+        "text": "Clima"
+    },
+    "u-539-pt": {
+        "id": "u-539-pt",
+        "text": "Ocidental"
+    },
+    "u-540-pt": {
+        "id": "u-540-pt",
+        "text": "Trigo"
+    },
+    "u-541-pt": {
+        "id": "u-541-pt",
+        "text": "Branco"
+    },
+    "u-542-pt": {
+        "id": "u-542-pt",
+        "text": "Vento"
+    },
+    "u-543-pt": {
+        "id": "u-543-pt",
+        "text": "Janela"
+    },
+    "u-544-pt": {
+        "id": "u-544-pt",
+        "text": "Pedreiro"
+    },
+    "u-545-pt": {
+        "id": "u-545-pt",
+        "text": "Vinho"
+    },
+    "u-546-pt": {
+        "id": "u-546-pt",
+        "text": "Lobo"
+    },
+    "u-547-pt": {
+        "id": "u-547-pt",
+        "text": "Amarelo"
+    },
+    "u-548-pt": {
+        "id": "u-548-pt",
+        "text": "Zeus"
+    },
+    "u-549-pt": {
+        "id": "u-549-pt",
+        "text": "Zumbi"
+    },
+    "u-550-pt": {
+        "id": "u-550-pt",
+        "text": "Zoológico"
+    },
+    "u-551-pt": {
+        "id": "u-551-pt",
+        "text": "Caipirinha"
+    },
+    "u-552-pt": {
+        "id": "u-552-pt",
+        "text": "Capivara"
+    },
+    "u-553-pt": {
+        "id": "u-553-pt",
+        "text": "Goiaba"
+    },
+    "u-554-pt": {
+        "id": "u-554-pt",
+        "text": "Pudim"
+    },
+    "u-555-pt": {
+        "id": "u-555-pt",
+        "text": "Paçoca"
+    },
+    "u-556-pt": {
+        "id": "u-556-pt",
+        "text": "Pagode"
+    },
+    "u-557-pt": {
+        "id": "u-557-pt",
+        "text": "Samba"
+    },
+    "u-558-pt": {
+        "id": "u-558-pt",
+        "text": "Quadrilha"
+    },
+    "u-559-pt": {
+        "id": "u-559-pt",
+        "text": "Frevo"
+    },
+    "u-560-pt": {
+        "id": "u-560-pt",
+        "text": "Nordeste"
+    },
+    "u-561-pt": {
+        "id": "u-561-pt",
+        "text": "Guaraná"
+    },
+    "u-562-pt": {
+        "id": "u-562-pt",
+        "text": "Cangaço"
+    },
+    "u-563-pt": {
+        "id": "u-563-pt",
+        "text": "Rapadura"
+    },
+    "u-564-pt": {
+        "id": "u-564-pt",
+        "text": "Feijoada"
+    },
+    "u-565-pt": {
+        "id": "u-565-pt",
+        "text": "Brigadeiro"
+    },
+    "u-566-pt": {
+        "id": "u-566-pt",
+        "text": "Futebol"
+    },
+    "u-567-pt": {
+        "id": "u-567-pt",
+        "text": "Saci"
+    },
+    "u-568-pt": {
+        "id": "u-568-pt",
+        "text": "Curupira"
+    },
+    "u-569-pt": {
+        "id": "u-569-pt",
+        "text": "Cachaça"
+    },
+    "u-570-pt": {
+        "id": "u-570-pt",
+        "text": "Amazônia"
+    },
+    "u-571-pt": {
+        "id": "u-571-pt",
+        "text": "Igreja"
+    },
+    "u-572-pt": {
+        "id": "u-572-pt",
+        "text": "Manicure"
+    },
+    "u-573-pt": {
+        "id": "u-573-pt",
+        "text": "Bandeira"
+    },
+    "u-574-pt": {
+        "id": "u-574-pt",
+        "text": "Coxinha"
+    },
+    "u-575-pt": {
+        "id": "u-575-pt",
+        "text": "Empada"
+    },
+    "u-576-pt": {
+        "id": "u-576-pt",
+        "text": "Pastel"
+    },
+    "u-577-pt": {
+        "id": "u-577-pt",
+        "text": "Tamanduá"
+    },
+    "u-578-pt": {
+        "id": "u-578-pt",
+        "text": "Argentina"
+    },
+    "u-579-pt": {
+        "id": "u-579-pt",
+        "text": "Brasil"
+    },
+    "u-580-pt": {
+        "id": "u-580-pt",
+        "text": "Maracanã"
+    },
+    "u-581-pt": {
+        "id": "u-581-pt",
+        "text": "Balão"
+    },
+    "u-582-pt": {
+        "id": "u-582-pt",
+        "text": "Fantasma"
+    },
+    "u-583-pt": {
+        "id": "u-583-pt",
+        "text": "Buraco"
+    },
+    "u-584-pt": {
+        "id": "u-584-pt",
+        "text": "Bacon"
+    },
+    "u-585-pt": {
+        "id": "u-585-pt",
+        "text": "Saudade"
+    },
+    "u-586-pt": {
+        "id": "u-586-pt",
+        "text": "Chorinho"
+    },
+    "u-587-pt": {
+        "id": "u-587-pt",
+        "text": "Batida"
+    },
+    "u-588-pt": {
+        "id": "u-588-pt",
+        "text": "Pamonha"
+    },
+    "u-589-pt": {
+        "id": "u-589-pt",
+        "text": "Macaco"
+    },
+    "u-590-pt": {
+        "id": "u-590-pt",
+        "text": "Pântano"
+    },
+    "u-591-pt": {
+        "id": "u-591-pt",
+        "text": "Peixe"
+    },
+    "u-592-pt": {
+        "id": "u-592-pt",
+        "text": "Casamento"
+    },
+    "u-593-pt": {
+        "id": "u-593-pt",
+        "text": "Barraquinha"
+    },
+    "u-594-pt": {
+        "id": "u-594-pt",
+        "text": "Catarro"
+    },
+    "u-595-pt": {
+        "id": "u-595-pt",
+        "text": "Popozuda"
+    },
+    "u-596-pt": {
+        "id": "u-596-pt",
+        "text": "Funk"
+    },
+    "u-597-pt": {
+        "id": "u-597-pt",
+        "text": "Sertanejo"
+    },
+    "u-598-pt": {
+        "id": "u-598-pt",
+        "text": "Pinto"
+    },
+    "u-599-pt": {
+        "id": "u-599-pt",
+        "text": "Perereca"
+    },
+    "u-600-pt": {
+        "id": "u-600-pt",
+        "text": "Couro"
+    }
+}

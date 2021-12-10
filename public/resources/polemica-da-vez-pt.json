@@ -1,0 +1,981 @@
+{
+  "p-0-pt": {
+    "id": "p-0-pt",
+    "text": "Abelhas"
+  },
+  "p-1-pt": {
+    "id": "p-1-pt",
+    "text": "Academia"
+  },
+  "p-2-pt": {
+    "id": "p-2-pt",
+    "text": "Acampar"
+  },
+  "p-3-pt": {
+    "id": "p-3-pt",
+    "text": "Acordar cedo"
+  },
+  "p-4-pt": {
+    "id": "p-4-pt",
+    "text": "Amazônia"
+  },
+  "p-5-pt": {
+    "id": "p-5-pt",
+    "text": "Anarquia"
+  },
+  "p-6-pt": {
+    "id": "p-6-pt",
+    "text": "Anchovas"
+  },
+  "p-7-pt": {
+    "id": "p-7-pt",
+    "text": "Andar de patins"
+  },
+  "p-8-pt": {
+    "id": "p-8-pt",
+    "text": "Anime"
+  },
+  "p-9-pt": {
+    "id": "p-9-pt",
+    "text": "Apps de comida"
+  },
+  "p-10-pt": {
+    "id": "p-10-pt",
+    "text": "Apps de pegação"
+  },
+  "p-11-pt": {
+    "id": "p-11-pt",
+    "text": "Aranhas"
+  },
+  "p-12-pt": {
+    "id": "p-12-pt",
+    "text": "Armas"
+  },
+  "p-13-pt": {
+    "id": "p-13-pt",
+    "text": "Arte moderna"
+  },
+  "p-14-pt": {
+    "id": "p-14-pt",
+    "text": "Artes marciais"
+  },
+  "p-15-pt": {
+    "id": "p-15-pt",
+    "text": "Artesanato"
+  },
+  "p-16-pt": {
+    "id": "p-16-pt",
+    "text": "Balé"
+  },
+  "p-17-pt": {
+    "id": "p-17-pt",
+    "text": "Barbas longas"
+  },
+  "p-18-pt": {
+    "id": "p-18-pt",
+    "text": "Beber até cair"
+  },
+  "p-19-pt": {
+    "id": "p-19-pt",
+    "text": "Beber durante o dia"
+  },
+  "p-20-pt": {
+    "id": "p-20-pt",
+    "text": "Big Brother"
+  },
+  "p-21-pt": {
+    "id": "p-21-pt",
+    "text": "Bitcoin"
+  },
+  "p-22-pt": {
+    "id": "p-22-pt",
+    "text": "Brechós"
+  },
+  "p-23-pt": {
+    "id": "p-23-pt",
+    "text": "Britney Spears"
+  },
+  "p-24-pt": {
+    "id": "p-24-pt",
+    "text": "Buteco"
+  },
+  "p-25-pt": {
+    "id": "p-25-pt",
+    "text": "Cachorro-quente de barraquinha"
+  },
+  "p-26-pt": {
+    "id": "p-26-pt",
+    "text": "Cachorros"
+  },
+  "p-27-pt": {
+    "id": "p-27-pt",
+    "text": "Calça justa"
+  },
+  "p-28-pt": {
+    "id": "p-28-pt",
+    "text": "California"
+  },
+  "p-29-pt": {
+    "id": "p-29-pt",
+    "text": "Calor"
+  },
+  "p-30-pt": {
+    "id": "p-30-pt",
+    "text": "Camelô"
+  },
+  "p-31-pt": {
+    "id": "p-31-pt",
+    "text": "Carnaval"
+  },
+  "p-32-pt": {
+    "id": "p-32-pt",
+    "text": "Carne mal passada"
+  },
+  "p-33-pt": {
+    "id": "p-33-pt",
+    "text": "Carros autônomos"
+  },
+  "p-34-pt": {
+    "id": "p-34-pt",
+    "text": "Castelo Rá-Tim-Bum"
+  },
+  "p-35-pt": {
+    "id": "p-35-pt",
+    "text": "CBF"
+  },
+  "p-36-pt": {
+    "id": "p-36-pt",
+    "text": "Chinelo"
+  },
+  "p-37-pt": {
+    "id": "p-37-pt",
+    "text": "Chocolate branco"
+  },
+  "p-38-pt": {
+    "id": "p-38-pt",
+    "text": "Chorar"
+  },
+  "p-39-pt": {
+    "id": "p-39-pt",
+    "text": "Churrasco"
+  },
+  "p-40-pt": {
+    "id": "p-40-pt",
+    "text": "Cidade alerta"
+  },
+  "p-41-pt": {
+    "id": "p-41-pt",
+    "text": "Cigarro"
+  },
+  "p-42-pt": {
+    "id": "p-42-pt",
+    "text": "Coentro"
+  },
+  "p-43-pt": {
+    "id": "p-43-pt",
+    "text": "Comer até passar mal"
+  },
+  "p-44-pt": {
+    "id": "p-44-pt",
+    "text": "Comer porcaria"
+  },
+  "p-45-pt": {
+    "id": "p-45-pt",
+    "text": "Comida de buteco"
+  },
+  "p-46-pt": {
+    "id": "p-46-pt",
+    "text": "Comida de festa junina"
+  },
+  "p-47-pt": {
+    "id": "p-47-pt",
+    "text": "Comida japonesa"
+  },
+  "p-48-pt": {
+    "id": "p-48-pt",
+    "text": "Comida vegetariana"
+  },
+  "p-49-pt": {
+    "id": "p-49-pt",
+    "text": "Comidas gordurosas"
+  },
+  "p-50-pt": {
+    "id": "p-50-pt",
+    "text": "Comprar roupa"
+  },
+  "p-51-pt": {
+    "id": "p-51-pt",
+    "text": "Comunismo"
+  },
+  "p-52-pt": {
+    "id": "p-52-pt",
+    "text": "Copa do Mundo"
+  },
+  "p-53-pt": {
+    "id": "p-53-pt",
+    "text": "Couve"
+  },
+  "p-54-pt": {
+    "id": "p-54-pt",
+    "text": "Crianças"
+  },
+  "p-55-pt": {
+    "id": "p-55-pt",
+    "text": "Crush"
+  },
+  "p-56-pt": {
+    "id": "p-56-pt",
+    "text": "Dar uma festa"
+  },
+  "p-57-pt": {
+    "id": "p-57-pt",
+    "text": "Dentista"
+  },
+  "p-58-pt": {
+    "id": "p-58-pt",
+    "text": "Dia dos namorados"
+  },
+  "p-59-pt": {
+    "id": "p-59-pt",
+    "text": "Dilma"
+  },
+  "p-60-pt": {
+    "id": "p-60-pt",
+    "text": "Dirigir"
+  },
+  "p-61-pt": {
+    "id": "p-61-pt",
+    "text": "Discutir a relação"
+  },
+  "p-62-pt": {
+    "id": "p-62-pt",
+    "text": "Doce de leite"
+  },
+  "p-63-pt": {
+    "id": "p-63-pt",
+    "text": "Energia nuclear"
+  },
+  "p-64-pt": {
+    "id": "p-64-pt",
+    "text": "Escrever"
+  },
+  "p-65-pt": {
+    "id": "p-65-pt",
+    "text": "Esportes"
+  },
+  "p-66-pt": {
+    "id": "p-66-pt",
+    "text": "Facebook"
+  },
+  "p-67-pt": {
+    "id": "p-67-pt",
+    "text": "Falar com estranhos na fila"
+  },
+  "p-68-pt": {
+    "id": "p-68-pt",
+    "text": "Fantasiar-se"
+  },
+  "p-69-pt": {
+    "id": "p-69-pt",
+    "text": "Fast Food"
+  },
+  "p-70-pt": {
+    "id": "p-70-pt",
+    "text": "Faxina"
+  },
+  "p-71-pt": {
+    "id": "p-71-pt",
+    "text": "Fazer caminhada"
+  },
+  "p-72-pt": {
+    "id": "p-72-pt",
+    "text": "Fazer teste do Buzzfeed"
+  },
+  "p-73-pt": {
+    "id": "p-73-pt",
+    "text": "Feng Shui"
+  },
+  "p-74-pt": {
+    "id": "p-74-pt",
+    "text": "Festa de final de ano"
+  },
+  "p-75-pt": {
+    "id": "p-75-pt",
+    "text": "Festa de formatura"
+  },
+  "p-76-pt": {
+    "id": "p-76-pt",
+    "text": "Festas temáticas"
+  },
+  "p-77-pt": {
+    "id": "p-77-pt",
+    "text": "Ficar acordado até tarde"
+  },
+  "p-78-pt": {
+    "id": "p-78-pt",
+    "text": "Filmes de Hollywood"
+  },
+  "p-79-pt": {
+    "id": "p-79-pt",
+    "text": "Filmes de terror"
+  },
+  "p-80-pt": {
+    "id": "p-80-pt",
+    "text": "Filmes estrangeiros"
+  },
+  "p-81-pt": {
+    "id": "p-81-pt",
+    "text": "Filmes infantis"
+  },
+  "p-82-pt": {
+    "id": "p-82-pt",
+    "text": "Filosofia"
+  },
+  "p-83-pt": {
+    "id": "p-83-pt",
+    "text": "Fliperama"
+  },
+  "p-84-pt": {
+    "id": "p-84-pt",
+    "text": "Fofoca"
+  },
+  "p-85-pt": {
+    "id": "p-85-pt",
+    "text": "Frases de parachoque"
+  },
+  "p-86-pt": {
+    "id": "p-86-pt",
+    "text": "Frio"
+  },
+  "p-87-pt": {
+    "id": "p-87-pt",
+    "text": "Futebol na TV"
+  },
+  "p-88-pt": {
+    "id": "p-88-pt",
+    "text": "Garfield"
+  },
+  "p-89-pt": {
+    "id": "p-89-pt",
+    "text": "Gatos"
+  },
+  "p-90-pt": {
+    "id": "p-90-pt",
+    "text": "Globo"
+  },
+  "p-91-pt": {
+    "id": "p-91-pt",
+    "text": "Goianos"
+  },
+  "p-92-pt": {
+    "id": "p-92-pt",
+    "text": "Guerra Fria"
+  },
+  "p-93-pt": {
+    "id": "p-93-pt",
+    "text": "Guerra nas Estrelas"
+  },
+  "p-94-pt": {
+    "id": "p-94-pt",
+    "text": "Harry Potter"
+  },
+  "p-95-pt": {
+    "id": "p-95-pt",
+    "text": "Hebe Camargo"
+  },
+  "p-96-pt": {
+    "id": "p-96-pt",
+    "text": "Hippies"
+  },
+  "p-97-pt": {
+    "id": "p-97-pt",
+    "text": "História"
+  },
+  "p-98-pt": {
+    "id": "p-98-pt",
+    "text": "Humanidade"
+  },
+  "p-99-pt": {
+    "id": "p-99-pt",
+    "text": "Império romano"
+  },
+  "p-100-pt": {
+    "id": "p-100-pt",
+    "text": "Incenso"
+  },
+  "p-101-pt": {
+    "id": "p-101-pt",
+    "text": "Instagram"
+  },
+  "p-102-pt": {
+    "id": "p-102-pt",
+    "text": "Ioga"
+  },
+  "p-103-pt": {
+    "id": "p-103-pt",
+    "text": "Jardinagem"
+  },
+  "p-104-pt": {
+    "id": "p-104-pt",
+    "text": "Jiló"
+  },
+  "p-105-pt": {
+    "id": "p-105-pt",
+    "text": "Jogos Olímpicos"
+  },
+  "p-106-pt": {
+    "id": "p-106-pt",
+    "text": "Jovem Pan"
+  },
+  "p-107-pt": {
+    "id": "p-107-pt",
+    "text": "Justin Bieber"
+  },
+  "p-108-pt": {
+    "id": "p-108-pt",
+    "text": "Karaoke"
+  },
+  "p-109-pt": {
+    "id": "p-109-pt",
+    "text": "Listas de compras"
+  },
+  "p-110-pt": {
+    "id": "p-110-pt",
+    "text": "Livros de auto-ajuda"
+  },
+  "p-111-pt": {
+    "id": "p-111-pt",
+    "text": "Lojas Americanas"
+  },
+  "p-112-pt": {
+    "id": "p-112-pt",
+    "text": "Luta Livre"
+  },
+  "p-113-pt": {
+    "id": "p-113-pt",
+    "text": "Lutar boxe"
+  },
+  "p-114-pt": {
+    "id": "p-114-pt",
+    "text": "Maionese"
+  },
+  "p-115-pt": {
+    "id": "p-115-pt",
+    "text": "Manuais"
+  },
+  "p-116-pt": {
+    "id": "p-116-pt",
+    "text": "Marmita"
+  },
+  "p-117-pt": {
+    "id": "p-117-pt",
+    "text": "Massagistas"
+  },
+  "p-118-pt": {
+    "id": "p-118-pt",
+    "text": "Matemática"
+  },
+  "p-119-pt": {
+    "id": "p-119-pt",
+    "text": "Medicina alternativa"
+  },
+  "p-120-pt": {
+    "id": "p-120-pt",
+    "text": "Meia-calça"
+  },
+  "p-121-pt": {
+    "id": "p-121-pt",
+    "text": "Memes"
+  },
+  "p-122-pt": {
+    "id": "p-122-pt",
+    "text": "Michael Jackson"
+  },
+  "p-123-pt": {
+    "id": "p-123-pt",
+    "text": "Montar móveis"
+  },
+  "p-124-pt": {
+    "id": "p-124-pt",
+    "text": "Museus de arte"
+  },
+  "p-125-pt": {
+    "id": "p-125-pt",
+    "text": "Museus de Ciências"
+  },
+  "p-126-pt": {
+    "id": "p-126-pt",
+    "text": "Música eletrônica"
+  },
+  "p-127-pt": {
+    "id": "p-127-pt",
+    "text": "Música sertaneja"
+  },
+  "p-128-pt": {
+    "id": "p-128-pt",
+    "text": "Musicais"
+  },
+  "p-129-pt": {
+    "id": "p-129-pt",
+    "text": "Naldo"
+  },
+  "p-130-pt": {
+    "id": "p-130-pt",
+    "text": "Natal"
+  },
+  "p-131-pt": {
+    "id": "p-131-pt",
+    "text": "Nerds"
+  },
+  "p-132-pt": {
+    "id": "p-132-pt",
+    "text": "Nordeste"
+  },
+  "p-133-pt": {
+    "id": "p-133-pt",
+    "text": "Novela das 8"
+  },
+  "p-134-pt": {
+    "id": "p-134-pt",
+    "text": "O papa"
+  },
+  "p-135-pt": {
+    "id": "p-135-pt",
+    "text": "O presidente"
+  },
+  "p-136-pt": {
+    "id": "p-136-pt",
+    "text": "O Senhor dos Anéis"
+  },
+  "p-137-pt": {
+    "id": "p-137-pt",
+    "text": "ONGs"
+  },
+  "p-138-pt": {
+    "id": "p-138-pt",
+    "text": "Ouvir música alta"
+  },
+  "p-139-pt": {
+    "id": "p-139-pt",
+    "text": "Pacote turistico"
+  },
+  "p-140-pt": {
+    "id": "p-140-pt",
+    "text": "Palestras"
+  },
+  "p-141-pt": {
+    "id": "p-141-pt",
+    "text": "Paródias"
+  },
+  "p-142-pt": {
+    "id": "p-142-pt",
+    "text": "Passeios de carro"
+  },
+  "p-143-pt": {
+    "id": "p-143-pt",
+    "text": "Pegar ônibus"
+  },
+  "p-144-pt": {
+    "id": "p-144-pt",
+    "text": "Pensar no futuro"
+  },
+  "p-145-pt": {
+    "id": "p-145-pt",
+    "text": "Pequi"
+  },
+  "p-146-pt": {
+    "id": "p-146-pt",
+    "text": "Pequi"
+  },
+  "p-147-pt": {
+    "id": "p-147-pt",
+    "text": "Planejar tudo nos mínimos detalhes"
+  },
+  "p-148-pt": {
+    "id": "p-148-pt",
+    "text": "Pokemon"
+  },
+  "p-149-pt": {
+    "id": "p-149-pt",
+    "text": "Pornografia"
+  },
+  "p-150-pt": {
+    "id": "p-150-pt",
+    "text": "Powerpoint"
+  },
+  "p-151-pt": {
+    "id": "p-151-pt",
+    "text": "Premiações"
+  },
+  "p-152-pt": {
+    "id": "p-152-pt",
+    "text": "Presidentes de empresas"
+  },
+  "p-153-pt": {
+    "id": "p-153-pt",
+    "text": "Produtos Apple"
+  },
+  "p-154-pt": {
+    "id": "p-154-pt",
+    "text": "Programa Eleitoral Gratuito"
+  },
+  "p-155-pt": {
+    "id": "p-155-pt",
+    "text": "Programas de entrevista"
+  },
+  "p-156-pt": {
+    "id": "p-156-pt",
+    "text": "Psicologia"
+  },
+  "p-157-pt": {
+    "id": "p-157-pt",
+    "text": "Pular corda"
+  },
+  "p-158-pt": {
+    "id": "p-158-pt",
+    "text": "Punk Rock"
+  },
+  "p-159-pt": {
+    "id": "p-159-pt",
+    "text": "Queijo"
+  },
+  "p-160-pt": {
+    "id": "p-160-pt",
+    "text": "Queijo Minas"
+  },
+  "p-161-pt": {
+    "id": "p-161-pt",
+    "text": "Rádio"
+  },
+  "p-162-pt": {
+    "id": "p-162-pt",
+    "text": "Rainha da Inglaterra"
+  },
+  "p-163-pt": {
+    "id": "p-163-pt",
+    "text": "Reality Show"
+  },
+  "p-164-pt": {
+    "id": "p-164-pt",
+    "text": "Relacionamento aberto"
+  },
+  "p-165-pt": {
+    "id": "p-165-pt",
+    "text": "Répteis"
+  },
+  "p-166-pt": {
+    "id": "p-166-pt",
+    "text": "Reuniões"
+  },
+  "p-167-pt": {
+    "id": "p-167-pt",
+    "text": "Revista de fofoca"
+  },
+  "p-168-pt": {
+    "id": "p-168-pt",
+    "text": "Revista em quadrinhos"
+  },
+  "p-169-pt": {
+    "id": "p-169-pt",
+    "text": "Rinoplastia"
+  },
+  "p-170-pt": {
+    "id": "p-170-pt",
+    "text": "Rock In Rio"
+  },
+  "p-171-pt": {
+    "id": "p-171-pt",
+    "text": "São Paulo"
+  },
+  "p-172-pt": {
+    "id": "p-172-pt",
+    "text": "SBT"
+  },
+  "p-173-pt": {
+    "id": "p-173-pt",
+    "text": "Seriados"
+  },
+  "p-174-pt": {
+    "id": "p-174-pt",
+    "text": "Seu último emprego"
+  },
+  "p-175-pt": {
+    "id": "p-175-pt",
+    "text": "Sindicatos"
+  },
+  "p-176-pt": {
+    "id": "p-176-pt",
+    "text": "Socialismo"
+  },
+  "p-177-pt": {
+    "id": "p-177-pt",
+    "text": "Spam"
+  },
+  "p-178-pt": {
+    "id": "p-178-pt",
+    "text": "Star Wars"
+  },
+  "p-179-pt": {
+    "id": "p-179-pt",
+    "text": "Steve Jobs"
+  },
+  "p-180-pt": {
+    "id": "p-180-pt",
+    "text": "Sua própria voz"
+  },
+  "p-181-pt": {
+    "id": "p-181-pt",
+    "text": "Supermercado no atacado"
+  },
+  "p-182-pt": {
+    "id": "p-182-pt",
+    "text": "Tablets"
+  },
+  "p-183-pt": {
+    "id": "p-183-pt",
+    "text": "Taxidermia"
+  },
+  "p-184-pt": {
+    "id": "p-184-pt",
+    "text": "Teatro"
+  },
+  "p-185-pt": {
+    "id": "p-185-pt",
+    "text": "Teorias da conspiração"
+  },
+  "p-186-pt": {
+    "id": "p-186-pt",
+    "text": "TikTok"
+  },
+  "p-187-pt": {
+    "id": "p-187-pt",
+    "text": "Tomar banho"
+  },
+  "p-188-pt": {
+    "id": "p-188-pt",
+    "text": "Tomar vitaminas"
+  },
+  "p-189-pt": {
+    "id": "p-189-pt",
+    "text": "Transporte público"
+  },
+  "p-190-pt": {
+    "id": "p-190-pt",
+    "text": "Twitter"
+  },
+  "p-191-pt": {
+    "id": "p-191-pt",
+    "text": "Veganismo"
+  },
+  "p-192-pt": {
+    "id": "p-192-pt",
+    "text": "Velas perfumadas"
+  },
+  "p-193-pt": {
+    "id": "p-193-pt",
+    "text": "Viagem aérea"
+  },
+  "p-194-pt": {
+    "id": "p-194-pt",
+    "text": "Viagem no tempo em filmes"
+  },
+  "p-195-pt": {
+    "id": "p-195-pt",
+    "text": "Video games"
+  },
+  "p-196-pt": {
+    "id": "p-196-pt",
+    "text": "Sugira um animal",
+    "custom": true
+  },
+  "p-197-pt": {
+    "id": "p-197-pt",
+    "text": "Sugira um artista",
+    "custom": true
+  },
+  "p-198-pt": {
+    "id": "p-198-pt",
+    "text": "Sugira um atleta",
+    "custom": true
+  },
+  "p-199-pt": {
+    "id": "p-199-pt",
+    "text": "Sugira um desenho",
+    "custom": true
+  },
+  "p-200-pt": {
+    "id": "p-200-pt",
+    "text": "Sugira um esporte",
+    "custom": true
+  },
+  "p-201-pt": {
+    "id": "p-201-pt",
+    "text": "Sugira um filme",
+    "custom": true
+  },
+  "p-202-pt": {
+    "id": "p-202-pt",
+    "text": "Sugira um filme de terror",
+    "custom": true
+  },
+  "p-203-pt": {
+    "id": "p-203-pt",
+    "text": "Sugira um gênero musical",
+    "custom": true
+  },
+  "p-204-pt": {
+    "id": "p-204-pt",
+    "text": "Sugira um livro",
+    "custom": true
+  },
+  "p-205-pt": {
+    "id": "p-205-pt",
+    "text": "Sugira um móvel",
+    "custom": true
+  },
+  "p-206-pt": {
+    "id": "p-206-pt",
+    "text": "Sugira um penteado",
+    "custom": true
+  },
+  "p-207-pt": {
+    "id": "p-207-pt",
+    "text": "Sugira um período histórico",
+    "custom": true
+  },
+  "p-208-pt": {
+    "id": "p-208-pt",
+    "text": "Sugira um personagem da Disney",
+    "custom": true
+  },
+  "p-209-pt": {
+    "id": "p-209-pt",
+    "text": "Sugira um político",
+    "custom": true
+  },
+  "p-210-pt": {
+    "id": "p-210-pt",
+    "text": "Sugira um presente",
+    "custom": true
+  },
+  "p-211-pt": {
+    "id": "p-211-pt",
+    "text": "Sugira um remédio",
+    "custom": true
+  },
+  "p-212-pt": {
+    "id": "p-212-pt",
+    "text": "Sugira um super-herói",
+    "custom": true
+  },
+  "p-213-pt": {
+    "id": "p-213-pt",
+    "text": "Sugira um vilão",
+    "custom": true
+  },
+  "p-214-pt": {
+    "id": "p-214-pt",
+    "text": "Sugira uma bebida",
+    "custom": true
+  },
+  "p-215-pt": {
+    "id": "p-215-pt",
+    "text": "Sugira uma celebridade",
+    "custom": true
+  },
+  "p-216-pt": {
+    "id": "p-216-pt",
+    "text": "Sugira uma cidade",
+    "custom": true
+  },
+  "p-217-pt": {
+    "id": "p-217-pt",
+    "text": "Sugira uma coisa bem brasileira",
+    "custom": true
+  },
+  "p-218-pt": {
+    "id": "p-218-pt",
+    "text": "Sugira uma coisa brega",
+    "custom": true
+  },
+  "p-219-pt": {
+    "id": "p-219-pt",
+    "text": "Sugira uma coisa dos anos 2000",
+    "custom": true
+  },
+  "p-220-pt": {
+    "id": "p-220-pt",
+    "text": "Sugira uma coisa dos anos 50",
+    "custom": true
+  },
+  "p-221-pt": {
+    "id": "p-221-pt",
+    "text": "Sugira uma coisa dos anos 60",
+    "custom": true
+  },
+  "p-222-pt": {
+    "id": "p-222-pt",
+    "text": "Sugira uma coisa dos anos 70",
+    "custom": true
+  },
+  "p-223-pt": {
+    "id": "p-223-pt",
+    "text": "Sugira uma coisa dos anos 80",
+    "custom": true
+  },
+  "p-224-pt": {
+    "id": "p-224-pt",
+    "text": "Sugira uma coisa dos anos 90",
+    "custom": true
+  },
+  "p-225-pt": {
+    "id": "p-225-pt",
+    "text": "Sugira uma coisa luxuosa",
+    "custom": true
+  },
+  "p-226-pt": {
+    "id": "p-226-pt",
+    "text": "Sugira uma coisa que é só para crianças",
+    "custom": true
+  },
+  "p-227-pt": {
+    "id": "p-227-pt",
+    "text": "Sugira uma coisa que é só pra adultos",
+    "custom": true
+  },
+  "p-228-pt": {
+    "id": "p-228-pt",
+    "text": "Sugira uma comida",
+    "custom": true
+  },
+  "p-229-pt": {
+    "id": "p-229-pt",
+    "text": "Sugira uma cor",
+    "custom": true
+  },
+  "p-230-pt": {
+    "id": "p-230-pt",
+    "text": "Sugira uma empresa",
+    "custom": true
+  },
+  "p-231-pt": {
+    "id": "p-231-pt",
+    "text": "Sugira uma figura histórica",
+    "custom": true
+  },
+  "p-232-pt": {
+    "id": "p-232-pt",
+    "text": "Sugira uma idéia",
+    "custom": true
+  },
+  "p-233-pt": {
+    "id": "p-233-pt",
+    "text": "Sugira uma loja",
+    "custom": true
+  },
+  "p-234-pt": {
+    "id": "p-234-pt",
+    "text": "Sugira uma música",
+    "custom": true
+  }
+}

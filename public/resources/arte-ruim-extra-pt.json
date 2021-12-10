@@ -1,0 +1,886 @@
+{
+  "ax-1-pt": {
+    "id": "ax-1-pt",
+    "theme": "morte",
+    "cards": {
+      "a-1-pt": "À beira da morte",
+      "a-139-pt": "Morte horrenda",
+      "a-777-pt": "Ex bom é ex morto",
+      "a-779-pt": "Um morto muito vivo",
+      "a-728-pt": "Morreu, mas passa bem",
+      "a-712-pt": "Meus pêsames"
+    }
+  },
+  "ax-2-pt": {
+    "id": "ax-2-pt",
+    "theme": "cachorro;;bicho",
+    "cards": {
+      "a-50-pt": "Chutar cachorro morto",
+      "a-198-pt": "Vira-lata caramelo",
+      "a-784-pt": "Mãe de pet",
+      "a-114-pt": "Filhote de cruz credo",
+      "a-27-pt": "Bicho do mato",
+      "a-665-pt": "Cachorro doido"
+    }
+  },
+  "ax-3-pt": {
+    "id": "ax-3-pt",
+    "theme": "moda",
+    "cards": {
+      "a-2-pt": "À moda antiga",
+      "a-115-pt": "Fora de moda",
+      "a-126-pt": "Inventar moda",
+      "a-378-pt": "Roupa de ir"
+    }
+  },
+  "ax-4-pt": {
+    "id": "ax-4-pt",
+    "theme": "acordar;;dormir",
+    "length": 0,
+    "cards": {
+      "a-4-pt": "Acordar pra vida",
+      "a-5-pt": "Acorda, menina!",
+      "a-746-pt": "Acordar de ressaca",
+      "a-191-pt": "Sono de beleza",
+      "a-391-pt": "Time dos sonhos"
+    }
+  },
+  "ax-5-pt": {
+    "id": "ax-5-pt",
+    "theme": "boca",
+    "cards": {
+      "a-53-pt": "Colocar a boca no trombone",
+      "a-67-pt": "Da boca pra fora",
+      "a-101-pt": "Estar na boca do povo",
+      "a-781-pt": "Boca livre",
+      "a-168-pt": "Poupe saliva"
+    }
+  },
+  "ax-6-pt": {
+    "id": "ax-6-pt",
+    "theme": "caça;;mapa",
+    "cards": {
+      "a-32-pt": "Caça ao tesouro",
+      "a-33-pt": "Caçador de talentos",
+      "a-34-pt": "Caçadores de Aventuras",
+      "a-261-pt": "Espirito de aventura",
+      "a-799-pt": "Mapa Astral",
+      "a-20-pt": "Atalho",
+      "a-171-pt": "Procurando encrenca"
+    }
+  },
+  "ax-7-pt": {
+    "id": "ax-7-pt",
+    "theme": "pobre",
+    "cards": {
+      "a-323-pt": "Moleque",
+      "a-617-pt": "Flanelinha",
+      "a-108-pt": "Favelado",
+      "a-107-pt": "Farofeiro",
+      "a-357-pt": "Pose de maloqueiro",
+      "a-312-pt": "Malandro"
+    }
+  },
+  "ax-8-pt": {
+    "id": "ax-8-pt",
+    "theme": "genes",
+    "cards": {
+      "a-707-pt": "Descendente de pobre",
+      "a-11-pt": "Antepassados",
+      "a-223-pt": "Caracteristica hereditária"
+    }
+  },
+  "ax-9-pt": {
+    "id": "ax-9-pt",
+    "theme": "passar",
+    "cards": {
+      "a-159-pt": "Passa ou repassa",
+      "a-161-pt": "Passar pra trás",
+      "a-336-pt": "Passar a diante",
+      "a-337-pt": "O que passou, passou",
+      "a-526-pt": "Remoer o passado",
+      "a-640-pt": "Não deixar passar batido",
+      "a-754-pt": "Passar bem"
+    }
+  },
+  "ax-10-pt": {
+    "id": "ax-10-pt",
+    "theme": "lugar|mapa",
+    "cards": {
+      "a-55-pt": "Cochinchina",
+      "a-151-pt": "O mundo dá voltas",
+      "a-399-pt": "Viajado"
+    }
+  },
+  "ax-11-pt": {
+    "id": "ax-11-pt",
+    "theme": "conflito",
+    "cards": {
+      "a-231-pt": "Conflito de interesse",
+      "a-232-pt": "Conflito interno"
+    }
+  },
+  "ax-12-pt": {
+    "id": "ax-12-pt",
+    "theme": "louco",
+    "cards": {
+      "a-606-pt": "Chilique",
+      "a-77-pt": "Despirocado",
+      "a-147-pt": "Neurado"
+    }
+  },
+  "ax-13-pt": {
+    "id": "ax-13-pt",
+    "theme": "calendario",
+    "cards": {
+      "a-13-pt": "Anuidade",
+      "a-17-pt": "Aposentadoria antecipada",
+      "a-237-pt": "Crise de meia idade",
+      "a-635-pt": "Hoje não"
+    }
+  },
+  "ax-14-pt": {
+    "id": "ax-14-pt",
+    "theme": "triste;;entediante;;chato",
+    "cards": {
+      "a-12-pt": "Anticlimático",
+      "a-679-pt": "Xoxa, capenga, manca, anêmica, frágil e inconsistente",
+      "a-100-pt": "Estar borocoxô",
+      "a-216-pt": "Baixa auto-estima",
+      "a-218-pt": "Bodar"
+    }
+  },
+  "ax-15-pt": {
+    "id": "ax-15-pt",
+    "theme": "ideia;;ligar;;luz",
+    "cards": {
+      "a-14-pt": "Apagão",
+      "a-129-pt": "Ligar o fodas",
+      "a-715-pt": "Ideia estapafúrdia",
+      "a-140-pt": "Mudar de ideia",
+      "a-389-pt": "Tá ligado?",
+      "a-393-pt": "Tiro no escuro",
+      "a-293-pt": "Ideia de jerico",
+      "a-123-pt": "Há anos luz",
+      "a-809-pt": "Luz na passarela que lá vem ela"
+    }
+  },
+  "ax-16-pt": {
+    "id": "ax-16-pt",
+    "theme": "imaginação",
+    "cards": {
+      "a-9-pt": "Amigo imaginário",
+      "a-80-pt": "Difícil de imaginar",
+      "a-294-pt": "Imaginação fértil",
+      "a-297-pt": "Inesquecível"
+    }
+  },
+  "ax-17-pt": {
+    "id": "ax-17-pt",
+    "theme": "falar",
+    "cards": {
+      "a-104-pt": "Falar em público",
+      "a-105-pt": "Falar nada com nada",
+      "a-474-pt": "Metaforicamente falando",
+      "a-578-pt": "Tô te falando!",
+      "a-106-pt": "Falta de comunicação",
+      "a-384-pt": "Sem palavras",
+      "a-385-pt": "Sem papas na língua",
+      "a-243-pt": "De poucas palavras"
+    }
+  },
+  "ax-18-pt": {
+    "id": "ax-18-pt",
+    "theme": "amigo",
+    "cards": {
+      "a-9-pt": "Amigo imaginário",
+      "a-18-pt": "Arqui-inimigo",
+      "a-207-pt": "Amigos para sempre",
+      "a-458-pt": "Inimigo de renome",
+      "a-555-pt": "Seu pior inimigo",
+      "a-751-pt": "Parceiro pacas",
+      "a-201-pt": "A gente é brother",
+      "a-208-pt": "Animiga",
+      "a-672-pt": "Camarada"
+    }
+  },
+  "ax-19-pt": {
+    "id": "ax-19-pt",
+    "theme": "estilo;;beleza",
+    "cards": {
+      "a-673-pt": "Andar mulambenta",
+      "a-81-pt": "Diva",
+      "a-638-pt": "Feio bonito",
+      "a-663-pt": "Metida à besta",
+      "a-801-pt": "Feio arrumado",
+      "a-861-pt": "Lindo de morrer",
+      "a-848-pt": "Lindo, tesão, bonito e gostosão",
+      "a-191-pt": "Sono de beleza",
+      "a-521-pt": "Que deselegante!",
+      "a-279-pt": "Fino e elegante",
+      "a-589-pt": "Tribufú"
+    }
+  },
+  "ax-20-pt": {
+    "id": "ax-20-pt",
+    "theme": "atenção",
+    "cards": {
+      "a-15-pt": "Aparecida",
+      "a-400-pt": "Viver de aparência",
+      "a-522-pt": "Querer aparecer",
+      "a-43-pt": "Centro das atenções",
+      "a-628-pt": "Piriguete assanhada",
+      "a-492-pt": "O ó do borogodó",
+      "a-187-pt": "Sem chamar atenção"
+    }
+  },
+  "ax-21-pt": {
+    "id": "ax-21-pt",
+    "theme": "parafuso;;maquina",
+    "cards": {
+      "a-16-pt": "Apertar a rebimboca",
+      "a-31-pt": "Bugigangas",
+      "a-284-pt": "Gambiarra"
+    }
+  },
+  "ax-22-pt": {
+    "id": "ax-22-pt",
+    "theme": "coco",
+    "cards": {
+      "a-35-pt": "Cagando e andando",
+      "a-36-pt": "Cagar de medo",
+      "a-141-pt": "Não caga nem sai da moita"
+    }
+  },
+  "ax-23-pt": {
+    "id": "ax-23-pt",
+    "theme": "carro",
+    "cards": {
+      "a-23-pt": "Atropelamento com omissão de socorro",
+      "a-68-pt": "Dar PT",
+      "a-163-pt": "Pegar estrada",
+      "a-132-pt": "Maria Gasolina",
+      "a-205-pt": "Acidentes acontecem"
+    }
+  },
+  "ax-24-pt": {
+    "id": "ax-24-pt",
+    "theme": "festa",
+    "cards": {
+      "a-25-pt": "Baile de formatura",
+      "a-438-pt": "Estraga-festa",
+      "a-621-pt": "Estar de parabéns",
+      "a-236-pt": "Convidado",
+      "a-636-pt": "Só uma lembrancinha"
+    }
+  },
+  "ax-25-pt": {
+    "id": "ax-25-pt",
+    "theme": "arte;rabisco",
+    "cards": {
+      "a-19-pt": "Arte abstrata",
+      "a-179-pt": "Rascunho",
+      "a-682-pt": "Letra de médico",
+      "a-803-pt": "Rabisco",
+      "a-213-pt": "Arriscado",
+      "a-699-pt": "Borrocado",
+      "a-95-pt": "Enrolação"
+    }
+  },
+  "ax-26-pt": {
+    "id": "ax-26-pt",
+    "theme": "direção;caminho",
+    "cards": {
+      "a-37-pt": "Caminho sem volta",
+      "a-346-pt": "Pedaço de mau caminho",
+      "a-656-pt": "Atrasada, mas a caminho"
+    }
+  },
+  "ax-27-pt": {
+    "id": "ax-27-pt",
+    "theme": "hora;relogio",
+    "cards": {
+      "a-26-pt": "Bem na hora",
+      "a-47-pt": "Cheio de nove horas",
+      "a-291-pt": "Hora da verdade",
+      "a-292-pt": "Horário eleitoral gratuito"
+    }
+  },
+  "ax-28-pt": {
+    "id": "ax-28-pt",
+    "theme": "olho",
+    "cards": {
+      "a-28-pt": "Bisbilhotar",
+      "a-70-pt": "Dar uma olhadinha",
+      "a-69-pt": "Dar um tapa no visual",
+      "a-142-pt": "Não dê nas vistas",
+      "a-167-pt": "Ponto cego"
+    }
+  },
+  "ax-29-pt": {
+    "id": "ax-29-pt",
+    "theme": "cara",
+    "cards": {
+      "a-38-pt": "Cara de besta",
+      "a-39-pt": "Cara de madeira",
+      "a-40-pt": "Cara de um, focinho de outro",
+      "a-192-pt": "Tá na cara!",
+      "a-752-pt": "Cara caramba cara caraô",
+      "a-693-pt": "Hackear o face",
+      "a-823-pt": "Cara de carranca"
+    }
+  },
+  "ax-30-pt": {
+    "id": "ax-30-pt",
+    "theme": "nerd;;inteligência",
+    "cards": {
+      "a-30-pt": "Briga de nerds",
+      "a-41-pt": "CDF",
+      "a-299-pt": "Inteligência fora do normal",
+      "a-177-pt": "Raciocínio crítico",
+      "a-552-pt": "Ser expert no assunto",
+      "a-829-pt": "Ser \"profissa\""
+    }
+  },
+  "ax-31-pt": {
+    "id": "ax-31-pt",
+    "theme": "crime;matar;arma",
+    "cards": {
+      "a-42-pt": "Cena do crime",
+      "a-64-pt": "Crime cibernético",
+      "a-158-pt": "Parceiros no crime",
+      "a-133-pt": "Matar aula",
+      "a-644-pt": "Matar no peito"
+    }
+  },
+  "ax-32-pt": {
+    "id": "ax-32-pt",
+    "theme": "medico;;medicina",
+    "cards": {
+      "a-695-pt": "Formado em 17+ temporadas de Grey's Anatomy",
+      "a-471-pt": "Melhor prevenir do que remediar",
+      "a-682-pt": "Letra de médico",
+      "a-696-pt": "Atestado médico"
+    }
+  },
+  "ax-33-pt": {
+    "id": "ax-33-pt",
+    "theme": "tempo;;velho",
+    "cards": {
+      "a-150-pt": "No meu tempo...",
+      "a-573-pt": "Tempos modernos",
+      "a-554-pt": "Seu passado te condena",
+      "a-410-pt": "Antes tarde do que nunca",
+      "a-797-pt": "Não ter mais idade para isso",
+      "a-798-pt": "Já foi o tempo",
+      "a-239-pt": "Daqui a pouco",
+      "a-717-pt": "Pra ontem"
+    }
+  },
+  "ax-34-pt": {
+    "id": "ax-34-pt",
+    "theme": "macumba",
+    "cards": {
+      "a-65-pt": "Curandeiro",
+      "a-764-pt": "Macumbeira",
+      "a-99-pt": "Esotérico",
+      "a-200-pt": "Zen",
+      "a-320-pt": "Milagreiro"
+    }
+  },
+  "ax-35-pt": {
+    "id": "ax-35-pt",
+    "theme": "saude",
+    "cards": {
+      "a-78-pt": "Dia da saúde mental",
+      "a-184-pt": "Saúde de ferro",
+      "a-354-pt": "Plano de saúde",
+      "a-358-pt": "Posto de saúde",
+      "a-790-pt": "Saúde!",
+      "a-791-pt": "Vida saudável"
+    }
+  },
+  "ax-36-pt": {
+    "id": "ax-36-pt",
+    "theme": "brasil",
+    "cards": {
+      "a-48-pt": "Choca Brasil!",
+      "a-128-pt": "Jeitinho brasileiro",
+      "a-506-pt": "Politicamente incorreto"
+    }
+  },
+  "ax-37-pt": {
+    "id": "ax-37-pt",
+    "theme": "controle",
+    "cards": {
+      "a-56-pt": "Controle de danos",
+      "a-57-pt": "Controle dos pais"
+    }
+  },
+  "ax-38-pt": {
+    "id": "ax-38-pt",
+    "theme": "mão",
+    "cards": {
+      "a-73-pt": "De segunda mão",
+      "a-75-pt": "Deixar na mão",
+      "a-89-pt": "É pegar ou largar",
+      "a-348-pt": "Pegadinha",
+      "a-792-pt": "Dar uma mãozinha"
+    }
+  },
+  "ax-39-pt": {
+    "id": "ax-39-pt",
+    "theme": "lei;;juiz",
+    "cards": {
+      "a-63-pt": "Criar juízo",
+      "a-464-pt": "Lei de Murphy",
+      "a-639-pt": "De lei",
+      "a-292-pt": "Horário eleitoral gratuito",
+      "a-79-pt": "Dia de eleição"
+    }
+  },
+  "ax-40-pt": {
+    "id": "ax-40-pt",
+    "theme": "numeros;dois;tres",
+    "cards": {
+      "a-84-pt": "Dois em um",
+      "a-87-pt": "Dupla jornada",
+      "a-88-pt": "Dupla personalidade",
+      "a-135-pt": "Melhor de três",
+      "a-677-pt": "A meta é dobrar a meta"
+    }
+  },
+  "ax-41-pt": {
+    "id": "ax-41-pt",
+    "theme": "chefe",
+    "cards": {
+      "a-46-pt": "Chefão",
+      "a-775-pt": "Ser seu próprio chefe",
+      "a-747-pt": "Dona e proprietária",
+      "a-85-pt": "Dono da espelunca",
+      "a-314-pt": "Mandar na birosca",
+      "a-333-pt": "No comando"
+    }
+  },
+  "ax-42-pt": {
+    "id": "ax-42-pt",
+    "theme": "dinheiro;;economia",
+    "cards": {
+      "a-90-pt": "Economizar energia",
+      "a-144-pt": "Não ter um tostão furado",
+      "a-145-pt": "Não valorizou",
+      "a-264-pt": "Estar na pindaiba",
+      "a-170-pt": "Preço salgado",
+      "a-660-pt": "Crédito ou débito",
+      "a-796-pt": "Receber propina",
+      "a-395-pt": "Última oferta",
+      "a-240-pt": "Dar crédito",
+      "a-814-pt": "Parcelado ou à vista?"
+    }
+  },
+  "ax-43-pt": {
+    "id": "ax-43-pt",
+    "theme": "pau;;sexo",
+    "cards": {
+      "a-152-pt": "O pau vai comer",
+      "a-162-pt": "Pau pra toda obra",
+      "a-183-pt": "Santo do pau oco",
+      "a-691-pt": "Triste com tesão",
+      "a-689-pt": "Nude inesperado",
+      "a-811-pt": "Monobola"
+    }
+  },
+  "ax-44-pt": {
+    "id": "ax-44-pt",
+    "theme": "casa;;local",
+    "cards": {
+      "a-738-pt": "Puxadinho",
+      "a-737-pt": "Favela da Rocinha",
+      "a-188-pt": "Ser de casa"
+    }
+  },
+  "ax-45-pt": {
+    "id": "ax-45-pt",
+    "theme": "efeitos",
+    "cards": {
+      "a-91-pt": "Efeitos colaterais",
+      "a-92-pt": "Efeitos especiais"
+    }
+  },
+  "ax-46-pt": {
+    "id": "ax-46-pt",
+    "theme": "feliz;;otimismo",
+    "cards": {
+      "a-97-pt": "Entusiasmado",
+      "a-300-pt": "Irritantemente otimista",
+      "a-375-pt": "Rir pra não chorar",
+      "a-383-pt": "Sem medo de ser feliz"
+    }
+  },
+  "ax-47-pt": {
+    "id": "ax-47-pt",
+    "theme": "comum",
+    "cards": {
+      "a-414-pt": "Bem comum",
+      "a-481-pt": "Nada em comum",
+      "a-550-pt": "Senso comum"
+    }
+  },
+  "ax-48-pt": {
+    "id": "ax-48-pt",
+    "theme": "ficante;;namorado",
+    "cards": {
+      "a-111-pt": "Ficante",
+      "a-537-pt": "Sair com o crush",
+      "a-221-pt": "Brotinho maroto",
+      "a-269-pt": "Ex-namorada",
+      "a-793-pt": "Peguete",
+      "a-794-pt": "Casinho"
+    }
+  },
+  "ax-49-pt": {
+    "id": "ax-49-pt",
+    "theme": "fora",
+    "cards": {
+      "a-116-pt": "Fora de proporção",
+      "a-281-pt": "Fora de circulação"
+    }
+  },
+  "ax-50-pt": {
+    "id": "ax-50-pt",
+    "theme": "ceu;;altura",
+    "cards": {
+      "a-131-pt": "Mano do céu",
+      "a-134-pt": "Medo de altura"
+    }
+  },
+  "ax-51-pt": {
+    "id": "ax-51-pt",
+    "theme": "mente",
+    "cards": {
+      "a-136-pt": "Mente fechada",
+      "a-283-pt": "Friamente calculado"
+    }
+  },
+  "ax-52-pt": {
+    "id": "ax-52-pt",
+    "theme": "igual",
+    "cards": {
+      "a-298-pt": "Inigualável",
+      "a-138-pt": "Mesmice",
+      "a-340-pt": "Os mesmos de sempre",
+      "a-262-pt": "Estamos quites"
+    }
+  },
+  "ax-53-pt": {
+    "id": "ax-53-pt",
+    "theme": "saco",
+    "cards": {
+      "a-172-pt": "Puxa-saco",
+      "a-174-pt": "Que saco!",
+      "a-646-pt": "Farinha do mesmo saco",
+      "a-723-pt": "Saco sem fundo"
+    }
+  },
+  "ax-54-pt": {
+    "id": "ax-54-pt",
+    "theme": "tchan",
+    "cards": {
+      "a-186-pt": "Segurar o tchan",
+      "a-739-pt": "Amarrar o tchan",
+      "a-627-pt": "Senta danada!",
+      "a-808-pt": "Vai ordinária",
+      "a-810-pt": "Na pegada do bambu do bambo bambu do bambu do bambolê",
+      "a-809-pt": "Luz na passarela que lá vem ela",
+      "a-714-pt": "Domingo ela não vai"
+    }
+  },
+  "ax-55-pt": {
+    "id": "ax-55-pt",
+    "theme": "setas",
+    "cards": {
+      "a-196-pt": "Vem fácil, vai fácil",
+      "a-469-pt": "Mal que vem pro bem",
+      "a-210-pt": "Antes e depois",
+      "a-20-pt": "Atalho"
+    }
+  },
+  "ax-56-pt": {
+    "id": "ax-56-pt",
+    "theme": "dia",
+    "cards": {
+      "a-169-pt": "Prato do dia",
+      "a-193-pt": "Um dia desses aí",
+      "a-252-pt": "Dias de glória",
+      "a-362-pt": "Primeiro dia de aula",
+      "a-680-pt": "Estar com a terapia em dia"
+    }
+  },
+  "ax-57-pt": {
+    "id": "ax-57-pt",
+    "theme": "show",
+    "cards": {
+      "a-215-pt": "Atração principal",
+      "a-189-pt": "Show esgotado",
+      "a-807-pt": "Dar show",
+      "a-590-pt": "Tumulto",
+      "a-328-pt": "Muvuca",
+      "a-686-pt": "Ir para a galera",
+      "a-700-pt": "Rei do camarote",
+      "a-820-pt": "O show tem que continuar"
+    }
+  },
+  "ax-58-pt": {
+    "id": "ax-58-pt",
+    "theme": "sexo",
+    "cards": {
+      "a-651-pt": "Sexy sem ser vulgar",
+      "a-652-pt": "Vulgar sem ser sexy",
+      "a-654-pt": "Preferência nacional",
+      "a-658-pt": "Sem vergonha",
+      "a-689-pt": "Nude inesperado",
+      "a-178-pt": "Rapidinha",
+      "a-762-pt": "Sururu gostoso",
+      "a-347-pt": "Pegação"
+    }
+  },
+  "ax-59-pt": {
+    "id": "ax-59-pt",
+    "theme": "velho;idoso",
+    "cards": {
+      "a-113-pt": "Fila de idoso",
+      "a-82-pt": "Do arco da velha",
+      "a-143-pt": "Não ficar velho nunca"
+    }
+  },
+  "ax-60-pt": {
+    "id": "ax-60-pt",
+    "theme": "mal;mau;ruim",
+    "cards": {
+      "a-423-pt": "De mal a pior",
+      "a-711-pt": "Mau caráter",
+      "a-72-pt": "De mau gosto",
+      "a-316-pt": "Mau elemento",
+      "a-469-pt": "Mal que vem pro bem",
+      "a-86-pt": "Dos males o menor",
+      "a-749-pt": "Ruim pra dedéu",
+      "a-504-pt": "Piorado",
+      "a-311-pt": "Má influência"
+    }
+  },
+  "ax-61-pt": {
+    "id": "ax-61-pt",
+    "theme": "expressões",
+    "cards": {
+      "a-591-pt": "Uai, tenta!",
+      "a-704-pt": "Depende...",
+      "a-245-pt": "De vez em quando",
+      "a-295-pt": "Importantíssimo"
+    }
+  },
+  "ax-62-pt": {
+    "id": "ax-62-pt",
+    "theme": "nada",
+    "cards": {
+      "a-105-pt": "Falar nada com nada",
+      "a-479-pt": "Nada a ver",
+      "a-480-pt": "Nada demais",
+      "a-481-pt": "Nada em comum",
+      "a-482-pt": "Nada não",
+      "a-520-pt": "Quase nada"
+    }
+  },
+  "ax-63-pt": {
+    "id": "ax-63-pt",
+    "theme": "doença",
+    "cards": {
+      "a-642-pt": "Zika",
+      "a-648-pt": "COVID-19"
+    }
+  },
+  "ax-64-pt": {
+    "id": "ax-64-pt",
+    "theme": "tecnologia",
+    "cards": {
+      "a-647-pt": "Gemidão do Zap",
+      "a-125-pt": "Internet",
+      "a-698-pt": "Reunião que poderia ter sido um e-mail",
+      "a-693-pt": "Hackear o face"
+    }
+  },
+  "ax-65-pt": {
+    "id": "ax-65-pt",
+    "theme": "documento;;leitura",
+    "cards": {
+      "a-576-pt": "Termos e condições",
+      "a-641-pt": "Moral da história"
+    }
+  },
+  "ax-66-pt": {
+    "id": "ax-66-pt",
+    "theme": "não",
+    "cards": {
+      "a-203-pt": "Achado não é roubado",
+      "a-330-pt": "Não tem cabimento",
+      "a-445-pt": "Favor não insistir",
+      "a-482-pt": "Nada não",
+      "a-484-pt": "Não está decidido",
+      "a-486-pt": "Não precisa nem explicar",
+      "a-487-pt": "Não sei se vou ou se fico",
+      "a-503-pt": "Pior do que tá não pode ficar",
+      "a-623-pt": "Mas não é essa",
+      "a-624-pt": "Parece, mas não é",
+      "a-635-pt": "Hoje não",
+      "a-640-pt": "Não deixar passar batido",
+      "a-683-pt": "Não criar pânico",
+      "a-701-pt": "Até que tentei, mas não deu",
+      "a-706-pt": "Mistura que não combina",
+      "a-753-pt": "Não responder for si",
+      "a-763-pt": "Não voltar nunca mais",
+      "a-778-pt": "E se eu não for?"
+    }
+  },
+  "ax-67-pt": {
+    "id": "ax-67-pt",
+    "theme": "cu",
+    "cards": {
+      "a-822-pt": "De cair o cu da bunda",
+      "a-21-pt": "Até o cu fazer bico",
+      "a-155-pt": "Opinião é igual cu"
+    }
+  },
+  "ax-68-pt": {
+    "id": "ax-68-pt",
+    "theme": "andar",
+    "cards": {
+      "a-10-pt": "Andar à toa",
+      "a-35-pt": "Cagando e andando",
+      "a-583-pt": "Trabalho em andamento",
+      "a-673-pt": "Andar mulambenta",
+      "a-160-pt": "Passar a perna",
+      "a-182-pt": "Samba no pé",
+      "a-109-pt": "Fazer nas coxas"
+    }
+  },
+  "ax-69-pt": {
+    "id": "ax-69-pt",
+    "theme": "deus",
+    "cards": {
+      "a-637-pt": "Porque Deus quis",
+      "a-830-pt": "Saber lá Deus quando",
+      "a-831-pt": "Deus é pai",
+      "a-832-pt": "Só Deus sabe",
+      "a-94-pt": "Encontrar Jesus",
+      "a-579-pt": "Todo poderoso"
+    }
+  },
+  "ax-70-pt": {
+    "id": "ax-70-pt",
+    "theme": "força",
+    "cards": {
+      "a-112-pt": "Ficha da academia",
+      "a-117-pt": "Força de vontade",
+      "a-118-pt": "Força do hábito",
+      "a-119-pt": "Força interior",
+      "a-98-pt": "Esforço hercúleo"
+    }
+  },
+  "ax-71-pt": {
+    "id": "ax-71-pt",
+    "theme": "cores",
+    "cards": {
+      "a-612-pt": "Inveja branca",
+      "a-408-pt": "Amarelar",
+      "a-302-pt": "Jogando verde",
+      "a-836-pt": "Estar cheio de roxos",
+      "a-643-pt": "Cartão vermelho",
+      "a-625-pt": "Tela Azul",
+      "a-708-pt": "Sangue azul",
+      "a-834-pt": "Ser da cor do pecado",
+      "a-835-pt": "E com as cores do vendo colorir"
+    }
+  },
+  "ax-72-pt": {
+    "id": "ax-72-pt",
+    "theme": "obrigado",
+    "cards": {
+      "a-493-pt": "Obrigado eu",
+      "a-850-pt": "Obrigado você",
+      "a-851-pt": "Obrigado Deus",
+      "a-865-pt": "Obrigado senhor!",
+      "a-875-pt": "Obrigado a todos",
+      "a-876-pt": "Não ser obrigada a nada",
+      "a-877-pt": "Não fazer mais que a obrigação"
+    }
+  },
+  "ax-73-pt": {
+    "id": "ax-73-pt",
+    "theme": "familia",
+    "cards": {
+      "a-122-pt": "Gut gut da mamãe",
+      "a-466-pt": "Mãe, terminei.",
+      "a-110-pt": "Férias em família"
+    }
+  },
+  "ax-74-pt": {
+    "id": "ax-74-pt",
+    "theme": "musica",
+    "cards": {
+      "a-825-pt": "Summer Eletrohits",
+      "a-812-pt": "Xurastei ou xuragou",
+      "a-670-pt": "Lerigou",
+      "a-774-pt": "Mama se mama sa mama coo sa",
+      "a-773-pt": "Possuído pelo ritmo ragatanga"
+    }
+  },
+  "ax-75-pt": {
+    "id": "ax-75-pt",
+    "theme": "loucura",
+    "cards": {
+      "a-567-pt": "Surtado",
+      "a-853-pt": "Ser porra louca",
+      "a-757-pt": "Desespero justificado",
+      "a-735-pt": "Rir de nervoso"
+    }
+  },
+  "ax-76-pt": {
+    "id": "ax-76-pt",
+    "theme": "vida",
+    "cards": {
+      "a-4-pt": "Acordar pra vida",
+      "a-268-pt": "Estilo de vida",
+      "a-307-pt": "Levar pra vida",
+      "a-364-pt": "Qualidade de vida",
+      "a-376-pt": "Risco de vida",
+      "a-599-pt": "Vida dura",
+      "a-684-pt": "Estar P da vida",
+      "a-791-pt": "Vida saudável",
+      "a-400-pt": "Viver de aparência",
+      "a-562-pt": "Só se vive uma vez",
+      "a-779-pt": "Um morto muito vivo"
+    }
+  },
+  "ax-77-pt": {
+    "id": "ax-77-pt",
+    "theme": "sem",
+    "cards": {
+      "a-544-pt": "Sem eira nem beira",
+      "a-545-pt": "Sem noção",
+      "a-546-pt": "Sem pensar",
+      "a-547-pt": "Sem problemas",
+      "a-548-pt": "Sem ressentimentos",
+      "a-549-pt": "Sem sombras de dúvidas"
+    }
+  },
+  "ax-78-pt": {
+    "id": "ax-78-pt",
+    "theme": "mais;;menos",
+    "cards": {
+      "a-616-pt": "Sou mais eu",
+      "a-703-pt": "Bem mais ou menos",
+      "a-776-pt": "Super demais",
+      "a-610-pt": "Seje menas",
+      "a-878-pt": "Um plus a mais"
+    }
+  }
+}
