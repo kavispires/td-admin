@@ -1,0 +1,454 @@
+{
+  "t-1-pt": {
+    "id": "t-1-pt",
+    "question": "Ele(a) já foi para um jogo em um estádio?"
+  },
+  "t-2-pt": {
+    "id": "t-2-pt",
+    "question": "Ele(a) gosta de música clássica?"
+  },
+  "t-3-pt": {
+    "id": "t-3-pt",
+    "question": "Ele(a) acredita em alienígenas?"
+  },
+  "t-4-pt": {
+    "id": "t-4-pt",
+    "question": "Ele(a) tem uma caminhonete?"
+  },
+  "t-5-pt": {
+    "id": "t-5-pt",
+    "question": "Ele(a) come fora com frequência?"
+  },
+  "t-6-pt": {
+    "id": "t-6-pt",
+    "question": "Ele(a) já foi esquiar alguma vez?"
+  },
+  "t-7-pt": {
+    "id": "t-7-pt",
+    "question": "Ele(a) recicla seu lixo?"
+  },
+  "t-8-pt": {
+    "id": "t-8-pt",
+    "question": "Ele(a) gosta de acampar?"
+  },
+  "t-9-pt": {
+    "id": "t-9-pt",
+    "question": "Ele(a) tem muitos adesivos no carro?"
+  },
+  "t-10-pt": {
+    "id": "t-10-pt",
+    "question": "Ele(a) já participou de um protesto?"
+  },
+  "t-11-pt": {
+    "id": "t-11-pt",
+    "question": "Ele(a) fala muito palavrão?"
+  },
+  "t-12-pt": {
+    "id": "t-12-pt",
+    "question": "Ele(a) já foi no parque Guanabara?"
+  },
+  "t-13-pt": {
+    "id": "t-13-pt",
+    "question": "Ele(a) gosta de arte moderna?"
+  },
+  "t-14-pt": {
+    "id": "t-14-pt",
+    "question": "Ele(a) bebe com frequência?"
+  },
+  "t-15-pt": {
+    "id": "t-15-pt",
+    "question": "Ele(a) é um fã da Apple?"
+  },
+  "t-16-pt": {
+    "id": "t-16-pt",
+    "question": "Ele(a) cumprimenta seus vizinhos?"
+  },
+  "t-17-pt": {
+    "id": "t-17-pt",
+    "question": "Ele(a) tem tatuagens?"
+  },
+  "t-18-pt": {
+    "id": "t-18-pt",
+    "question": "Ele(a) morreria primeiro em uma apocalipse zumbi?"
+  },
+  "t-19-pt": {
+    "id": "t-19-pt",
+    "question": "Ele(a) é fã de ficção científica?"
+  },
+  "t-20-pt": {
+    "id": "t-20-pt",
+    "question": "Ele(a) deixa os filhos brincarem no quintal?"
+  },
+  "t-21-pt": {
+    "id": "t-21-pt",
+    "question": "Ele(a) tem muitas multas de trânsito?"
+  },
+  "t-22-pt": {
+    "id": "t-22-pt",
+    "question": "Ele(a) serviu no exército?"
+  },
+  "t-23-pt": {
+    "id": "t-23-pt",
+    "question": "Ele(a) fala mais de um idioma?"
+  },
+  "t-24-pt": {
+    "id": "t-24-pt",
+    "question": "Ele(a) faz trabalho voluntário?"
+  },
+  "t-25-pt": {
+    "id": "t-25-pt",
+    "question": "Ele(a) já foi em Porto Seguro?"
+  },
+  "t-26-pt": {
+    "id": "t-26-pt",
+    "question": "Ele(a) come muito fast food?"
+  },
+  "t-27-pt": {
+    "id": "t-27-pt",
+    "question": "Ele(a) foi um escoteiro(a)?"
+  },
+  "t-28-pt": {
+    "id": "t-28-pt",
+    "question": "Ele(a) já teve um caso extraconjugal?"
+  },
+  "t-29-pt": {
+    "id": "t-29-pt",
+    "question": "Ele(a) vai pra casa dos pais no Reveillon?"
+  },
+  "t-30-pt": {
+    "id": "t-30-pt",
+    "question": "Ele(a) mora com os pais?"
+  },
+  "t-31-pt": {
+    "id": "t-31-pt",
+    "question": "Ele(a) tem um grande círculo social?"
+  },
+  "t-32-pt": {
+    "id": "t-32-pt",
+    "question": "Ele(a) é proprietário de um imóvel?"
+  },
+  "t-33-pt": {
+    "id": "t-33-pt",
+    "question": "Ele(a) cheira gostoso?"
+  },
+  "t-34-pt": {
+    "id": "t-34-pt",
+    "question": "Ele(a) é conservador?"
+  },
+  "t-35-pt": {
+    "id": "t-35-pt",
+    "question": "Ele(a) canta bem?"
+  },
+  "t-36-pt": {
+    "id": "t-36-pt",
+    "question": "Ele(a) fez faculdade?"
+  },
+  "t-37-pt": {
+    "id": "t-37-pt",
+    "question": "Ele(a) é romântico?"
+  },
+  "t-38-pt": {
+    "id": "t-38-pt",
+    "question": "Ele(a) se dá bem com seus colegas de trabalho?"
+  },
+  "t-39-pt": {
+    "id": "t-39-pt",
+    "question": "Ele(a) passa muito tempo no banheiro?"
+  },
+  "t-40-pt": {
+    "id": "t-40-pt",
+    "question": "Ele(a) assiste filmes clássicos?"
+  },
+  "t-41-pt": {
+    "id": "t-41-pt",
+    "question": "Ele(a) gosta de crianças?"
+  },
+  "t-42-pt": {
+    "id": "t-42-pt",
+    "question": "Ele(a) gosta de musicais da Broadway?"
+  },
+  "t-43-pt": {
+    "id": "t-43-pt",
+    "question": "Ele(a) lê romances?"
+  },
+  "t-44-pt": {
+    "id": "t-44-pt",
+    "question": "Ele(a) vai a boates?"
+  },
+  "t-45-pt": {
+    "id": "t-45-pt",
+    "question": "Ele(a) dão os 10% do garçom sem contestar?"
+  },
+  "t-46-pt": {
+    "id": "t-46-pt",
+    "question": "Ele(a) constuma pular refeições?"
+  },
+  "t-47-pt": {
+    "id": "t-47-pt",
+    "question": "Ele(a) pratica algum esporte?"
+  },
+  "t-48-pt": {
+    "id": "t-48-pt",
+    "question": "Ele(a) é casado?"
+  },
+  "t-49-pt": {
+    "id": "t-49-pt",
+    "question": "Ele(a) usa transporte público?"
+  },
+  "t-50-pt": {
+    "id": "t-50-pt",
+    "question": "Ele(a) gosta de jogos de azar?"
+  },
+  "t-51-pt": {
+    "id": "t-51-pt",
+    "question": "Ele(a) consegue economizar dinheiro?"
+  },
+  "t-52-pt": {
+    "id": "t-52-pt",
+    "question": "Ele(a) tem temperamento forte?"
+  },
+  "t-53-pt": {
+    "id": "t-53-pt",
+    "question": "Ele(a) já participou de um cruzeiro?"
+  },
+  "t-54-pt": {
+    "id": "t-54-pt",
+    "question": "Ele(a) assiste Cidade Alerta?"
+  },
+  "t-55-pt": {
+    "id": "t-55-pt",
+    "question": "Ele(a) mora na zona sul?"
+  },
+  "t-56-pt": {
+    "id": "t-56-pt",
+    "question": "Ele(a) é artístico?"
+  },
+  "t-57-pt": {
+    "id": "t-57-pt",
+    "question": "Ele(a) vai de bicicleta para o trabalho?"
+  },
+  "t-58-pt": {
+    "id": "t-58-pt",
+    "question": "Ele(a) fuma maconha?"
+  },
+  "t-59-pt": {
+    "id": "t-59-pt",
+    "question": "Ele(a) faz ioga?"
+  },
+  "t-60-pt": {
+    "id": "t-60-pt",
+    "question": "Ele(a) usa o feng shui em casa?"
+  },
+  "t-61-pt": {
+    "id": "t-61-pt",
+    "question": "Ele(a) sempre pagam seus impostos?"
+  },
+  "t-62-pt": {
+    "id": "t-62-pt",
+    "question": "Ele(a) tem uma voz irritante?"
+  },
+  "t-63-pt": {
+    "id": "t-63-pt",
+    "question": "Ele(a) sabe cantar o hino nacional?"
+  },
+  "t-64-pt": {
+    "id": "t-64-pt",
+    "question": "Ele(a) usa prato descartável em casa?"
+  },
+  "t-65-pt": {
+    "id": "t-65-pt",
+    "question": "Ele(a) assiste a final do Campeonato Brasileiro?"
+  },
+  "t-66-pt": {
+    "id": "t-66-pt",
+    "question": "Ele(a) gosta de discutir política?"
+  },
+  "t-67-pt": {
+    "id": "t-67-pt",
+    "question": "Ele(a) monta árvore de Natal?"
+  },
+  "t-68-pt": {
+    "id": "t-68-pt",
+    "question": "Ele(a) tem uma vitrola?"
+  },
+  "t-69-pt": {
+    "id": "t-69-pt",
+    "question": "Ele(a) bebe muito café?"
+  },
+  "t-70-pt": {
+    "id": "t-70-pt",
+    "question": "Ele(a) tem uma arma em casa?"
+  },
+  "t-71-pt": {
+    "id": "t-71-pt",
+    "question": "Ele(a) gosta de cozinhar?"
+  },
+  "t-72-pt": {
+    "id": "t-72-pt",
+    "question": "Ele(a) é supersticioso?"
+  },
+  "t-73-pt": {
+    "id": "t-73-pt",
+    "question": "Ele(a) ouve heavy metal?"
+  },
+  "t-74-pt": {
+    "id": "t-74-pt",
+    "question": "Ele(a) lê revista quadrinhos?"
+  },
+  "t-75-pt": {
+    "id": "t-75-pt",
+    "question": "Ele(a) assiste reality shows?"
+  },
+  "t-76-pt": {
+    "id": "t-76-pt",
+    "question": "Ele(a) é vegetariano?"
+  },
+  "t-77-pt": {
+    "id": "t-77-pt",
+    "question": "Ele(a) viaja para o exterior com frequência?"
+  },
+  "t-78-pt": {
+    "id": "t-78-pt",
+    "question": "Ele(a) sabe tocar um instrumento musical?"
+  },
+  "t-79-pt": {
+    "id": "t-79-pt",
+    "question": "Ele(a) participa de eventos de caridade?"
+  },
+  "t-80-pt": {
+    "id": "t-80-pt",
+    "question": "Ele(a) paga TV a cabo pra ver jogos de futebol?"
+  },
+  "t-81-pt": {
+    "id": "t-81-pt",
+    "question": "Ele(a) entra em fila pra pegar uma promoção?"
+  },
+  "t-82-pt": {
+    "id": "t-82-pt",
+    "question": "Ele(a) possue um pau de selfie?"
+  },
+  "t-83-pt": {
+    "id": "t-83-pt",
+    "question": "Ele(a) gosta de pimenta na comida?"
+  },
+  "t-84-pt": {
+    "id": "t-84-pt",
+    "question": "Ele(a) gosta de jogos de tabuleiro?"
+  },
+  "t-85-pt": {
+    "id": "t-85-pt",
+    "question": "Ele(a) assiste filmes de terror?"
+  },
+  "t-86-pt": {
+    "id": "t-86-pt",
+    "question": "Ele(a) é religioso?"
+  },
+  "t-87-pt": {
+    "id": "t-87-pt",
+    "question": "Ele(a) é racista?"
+  },
+  "t-88-pt": {
+    "id": "t-88-pt",
+    "question": "Ele(a) tem um smartphone no bolso?"
+  },
+  "t-89-pt": {
+    "id": "t-89-pt",
+    "question": "Ele(a) tem medo de avião?"
+  },
+  "t-90-pt": {
+    "id": "t-90-pt",
+    "question": "Ele(a) assiste Jornal Nacional?"
+  },
+  "t-91-pt": {
+    "id": "t-91-pt",
+    "question": "Ele(a) é um bom motorista?"
+  },
+  "t-92-pt": {
+    "id": "t-92-pt",
+    "question": "Ele(a) é chamado por um apelido?"
+  },
+  "t-93-pt": {
+    "id": "t-93-pt",
+    "question": "Ele(a) joga videogames?"
+  },
+  "t-94-pt": {
+    "id": "t-94-pt",
+    "question": "Ele(a) acredita em reencarnação?"
+  },
+  "t-95-pt": {
+    "id": "t-95-pt",
+    "question": "Ele(a) gosta de abraçar?"
+  },
+  "t-96-pt": {
+    "id": "t-96-pt",
+    "question": "Ele(a) fuma?"
+  },
+  "t-97-pt": {
+    "id": "t-97-pt",
+    "question": "Ele(a) tem antecedentes criminais?"
+  },
+  "t-98-pt": {
+    "id": "t-98-pt",
+    "question": "Ele(a) frequenta uma academia?"
+  },
+  "t-99-pt": {
+    "id": "t-99-pt",
+    "question": "Ele(a) assiste a documentários?"
+  },
+  "t-100-pt": {
+    "id": "t-100-pt",
+    "question": "Ele(a) comemora o Dia dos Namorados?"
+  },
+  "t-101-pt": {
+    "id": "t-101-pt",
+    "question": "Ele(a) é virgem?"
+  },
+  "t-102-pt": {
+    "id": "t-102-pt",
+    "question": "Ele(a) acredita em signos e astrologia?"
+  },
+  "t-103-pt": {
+    "id": "t-103-pt",
+    "question": "Ele(a) é homossexual?"
+  },
+  "t-104-pt": {
+    "id": "t-104-pt",
+    "question": "Ele(a) assiste Silvio Santos todo domingo?"
+  },
+  "t-105-pt": {
+    "id": "t-105-pt",
+    "question": "Ele(a) pechincham muito?"
+  },
+  "t-106-pt": {
+    "id": "t-106-pt",
+    "question": "Ele(a) usa máscara para se protejer do COVID?"
+  },
+  "t-107-pt": {
+    "id": "t-107-pt",
+    "question": "Ele(a) já pegou COVID?"
+  },
+  "t-108-pt": {
+    "id": "t-108-pt",
+    "question": "Ele(a) contra vacinas?"
+  },
+  "t-109-pt": {
+    "id": "t-109-pt",
+    "question": "Ele(a) tem muitos amigos?"
+  },
+  "t-110-pt": {
+    "id": "t-110-pt",
+    "question": "Ele(a) usa drogas?"
+  },
+  "t-111-pt": {
+    "id": "t-111-pt",
+    "question": "Ele(a) é cringe?"
+  },
+  "t-112-pt": {
+    "id": "t-112-pt",
+    "question": "Ele(a) teve um tamagochi quando criança?"
+  },
+  "t-113-pt": {
+    "id": "t-113-pt",
+    "question": "Ele(a) já vestiu fantasias para apimentar a relação?"
+  }
+}

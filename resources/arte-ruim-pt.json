@@ -1,0 +1,4392 @@
+{
+  "a-1-pt": {
+    "id": "a-1-pt",
+    "text": "À beira da morte",
+    "level": 1
+  },
+  "a-2-pt": {
+    "id": "a-2-pt",
+    "text": "À moda antiga",
+    "level": 1
+  },
+  "a-3-pt": {
+    "id": "a-3-pt",
+    "text": "Acesso restrito",
+    "level": 1
+  },
+  "a-4-pt": {
+    "id": "a-4-pt",
+    "text": "Acordar pra vida",
+    "level": 1
+  },
+  "a-5-pt": {
+    "id": "a-5-pt",
+    "text": "Acorda, menina!",
+    "level": 1
+  },
+  "a-6-pt": {
+    "id": "a-6-pt",
+    "text": "Agir por instinto",
+    "level": 1
+  },
+  "a-7-pt": {
+    "id": "a-7-pt",
+    "text": "Alarme falso",
+    "level": 1
+  },
+  "a-8-pt": {
+    "id": "a-8-pt",
+    "text": "Ameaça múltipla",
+    "level": 1
+  },
+  "a-9-pt": {
+    "id": "a-9-pt",
+    "text": "Amigo imaginário",
+    "level": 1
+  },
+  "a-10-pt": {
+    "id": "a-10-pt",
+    "text": "Andar à toa",
+    "level": 1
+  },
+  "a-11-pt": {
+    "id": "a-11-pt",
+    "text": "Antepassados",
+    "level": 1
+  },
+  "a-12-pt": {
+    "id": "a-12-pt",
+    "text": "Anticlimático",
+    "level": 1
+  },
+  "a-13-pt": {
+    "id": "a-13-pt",
+    "text": "Anuidade",
+    "level": 1
+  },
+  "a-14-pt": {
+    "id": "a-14-pt",
+    "text": "Apagão",
+    "level": 1
+  },
+  "a-15-pt": {
+    "id": "a-15-pt",
+    "text": "Aparecida",
+    "level": 1
+  },
+  "a-16-pt": {
+    "id": "a-16-pt",
+    "text": "Apertar a rebimboca",
+    "level": 1
+  },
+  "a-17-pt": {
+    "id": "a-17-pt",
+    "text": "Aposentadoria antecipada",
+    "level": 1
+  },
+  "a-18-pt": {
+    "id": "a-18-pt",
+    "text": "Arqui-inimigo",
+    "level": 1
+  },
+  "a-19-pt": {
+    "id": "a-19-pt",
+    "text": "Arte abstrata",
+    "level": 1
+  },
+  "a-20-pt": {
+    "id": "a-20-pt",
+    "text": "Atalho",
+    "level": 1
+  },
+  "a-21-pt": {
+    "id": "a-21-pt",
+    "text": "Até o cu fazer bico",
+    "level": 1
+  },
+  "a-22-pt": {
+    "id": "a-22-pt",
+    "text": "Ato de nobreza",
+    "level": 1
+  },
+  "a-23-pt": {
+    "id": "a-23-pt",
+    "text": "Atropelamento com omissão de socorro",
+    "level": 1
+  },
+  "a-24-pt": {
+    "id": "a-24-pt",
+    "text": "Aula de etiqueta",
+    "level": 1
+  },
+  "a-25-pt": {
+    "id": "a-25-pt",
+    "text": "Baile de formatura",
+    "level": 1
+  },
+  "a-26-pt": {
+    "id": "a-26-pt",
+    "text": "Bem na hora",
+    "level": 1
+  },
+  "a-27-pt": {
+    "id": "a-27-pt",
+    "text": "Bicho do mato",
+    "level": 1
+  },
+  "a-28-pt": {
+    "id": "a-28-pt",
+    "text": "Bisbilhotar",
+    "level": 1
+  },
+  "a-29-pt": {
+    "id": "a-29-pt",
+    "text": "Bolsa de estudos",
+    "level": 1
+  },
+  "a-30-pt": {
+    "id": "a-30-pt",
+    "text": "Briga de nerds",
+    "level": 1
+  },
+  "a-31-pt": {
+    "id": "a-31-pt",
+    "text": "Bugigangas",
+    "level": 1
+  },
+  "a-32-pt": {
+    "id": "a-32-pt",
+    "text": "Caça ao tesouro",
+    "level": 1
+  },
+  "a-33-pt": {
+    "id": "a-33-pt",
+    "text": "Caçador de talentos",
+    "level": 1
+  },
+  "a-34-pt": {
+    "id": "a-34-pt",
+    "text": "Caçadores de Aventuras",
+    "level": 1
+  },
+  "a-35-pt": {
+    "id": "a-35-pt",
+    "text": "Cagando e andando",
+    "level": 1
+  },
+  "a-36-pt": {
+    "id": "a-36-pt",
+    "text": "Cagar de medo",
+    "level": 1
+  },
+  "a-37-pt": {
+    "id": "a-37-pt",
+    "text": "Caminho sem volta",
+    "level": 1
+  },
+  "a-38-pt": {
+    "id": "a-38-pt",
+    "text": "Cara de besta",
+    "level": 1
+  },
+  "a-39-pt": {
+    "id": "a-39-pt",
+    "text": "Cara de madeira",
+    "level": 1
+  },
+  "a-40-pt": {
+    "id": "a-40-pt",
+    "text": "Cara de um, focinho de outro",
+    "level": 1
+  },
+  "a-41-pt": {
+    "id": "a-41-pt",
+    "text": "CDF",
+    "level": 1
+  },
+  "a-42-pt": {
+    "id": "a-42-pt",
+    "text": "Cena do crime",
+    "level": 1
+  },
+  "a-43-pt": {
+    "id": "a-43-pt",
+    "text": "Centro das atenções",
+    "level": 1
+  },
+  "a-44-pt": {
+    "id": "a-44-pt",
+    "text": "Chá de sumiço",
+    "level": 1
+  },
+  "a-45-pt": {
+    "id": "a-45-pt",
+    "text": "Chato de galocha",
+    "level": 1
+  },
+  "a-46-pt": {
+    "id": "a-46-pt",
+    "text": "Chefão",
+    "level": 1
+  },
+  "a-47-pt": {
+    "id": "a-47-pt",
+    "text": "Cheio de nove horas",
+    "level": 1
+  },
+  "a-48-pt": {
+    "id": "a-48-pt",
+    "text": "Choca Brasil!",
+    "level": 1
+  },
+  "a-49-pt": {
+    "id": "a-49-pt",
+    "text": "Choque de cultura",
+    "level": 1
+  },
+  "a-50-pt": {
+    "id": "a-50-pt",
+    "text": "Chutar cachorro morto",
+    "level": 1
+  },
+  "a-51-pt": {
+    "id": "a-51-pt",
+    "text": "Classe média",
+    "level": 1
+  },
+  "a-52-pt": {
+    "id": "a-52-pt",
+    "text": "Colagem",
+    "level": 1
+  },
+  "a-53-pt": {
+    "id": "a-53-pt",
+    "text": "Colocar a boca no trombone",
+    "level": 1
+  },
+  "a-54-pt": {
+    "id": "a-54-pt",
+    "text": "Comentarista",
+    "level": 1
+  },
+  "a-55-pt": {
+    "id": "a-55-pt",
+    "text": "Cochinchina",
+    "level": 1
+  },
+  "a-56-pt": {
+    "id": "a-56-pt",
+    "text": "Controle de danos",
+    "level": 1
+  },
+  "a-57-pt": {
+    "id": "a-57-pt",
+    "text": "Controle dos pais",
+    "level": 1
+  },
+  "a-58-pt": {
+    "id": "a-58-pt",
+    "text": "Cópia-carbono",
+    "level": 1
+  },
+  "a-59-pt": {
+    "id": "a-59-pt",
+    "text": "Corno manso",
+    "level": 1
+  },
+  "a-60-pt": {
+    "id": "a-60-pt",
+    "text": "Corrida de obstáculos",
+    "level": 1
+  },
+  "a-61-pt": {
+    "id": "a-61-pt",
+    "text": "Cosquinhas",
+    "level": 1
+  },
+  "a-62-pt": {
+    "id": "a-62-pt",
+    "text": "Craque do artesanato",
+    "level": 1
+  },
+  "a-63-pt": {
+    "id": "a-63-pt",
+    "text": "Criar juízo",
+    "level": 1
+  },
+  "a-64-pt": {
+    "id": "a-64-pt",
+    "text": "Crime cibernético",
+    "level": 1
+  },
+  "a-65-pt": {
+    "id": "a-65-pt",
+    "text": "Curandeiro",
+    "level": 1
+  },
+  "a-66-pt": {
+    "id": "a-66-pt",
+    "text": "Curto-circuito",
+    "level": 1
+  },
+  "a-67-pt": {
+    "id": "a-67-pt",
+    "text": "Da boca pra fora",
+    "level": 1
+  },
+  "a-68-pt": {
+    "id": "a-68-pt",
+    "text": "Dar PT",
+    "level": 1
+  },
+  "a-69-pt": {
+    "id": "a-69-pt",
+    "text": "Dar um tapa no visual",
+    "level": 1
+  },
+  "a-70-pt": {
+    "id": "a-70-pt",
+    "text": "Dar uma olhadinha",
+    "level": 1
+  },
+  "a-71-pt": {
+    "id": "a-71-pt",
+    "text": "De grão em grão a galinha enche o papo",
+    "level": 1
+  },
+  "a-72-pt": {
+    "id": "a-72-pt",
+    "text": "De mau gosto",
+    "level": 1
+  },
+  "a-73-pt": {
+    "id": "a-73-pt",
+    "text": "De segunda mão",
+    "level": 1
+  },
+  "a-74-pt": {
+    "id": "a-74-pt",
+    "text": "Deixar bacana",
+    "level": 1
+  },
+  "a-75-pt": {
+    "id": "a-75-pt",
+    "text": "Deixar na mão",
+    "level": 1
+  },
+  "a-76-pt": {
+    "id": "a-76-pt",
+    "text": "Dessincronizado",
+    "level": 1
+  },
+  "a-77-pt": {
+    "id": "a-77-pt",
+    "text": "Despirocado",
+    "level": 1
+  },
+  "a-78-pt": {
+    "id": "a-78-pt",
+    "text": "Dia da saúde mental",
+    "level": 1
+  },
+  "a-79-pt": {
+    "id": "a-79-pt",
+    "text": "Dia de eleição",
+    "level": 1
+  },
+  "a-80-pt": {
+    "id": "a-80-pt",
+    "text": "Difícil de imaginar",
+    "level": 1
+  },
+  "a-81-pt": {
+    "id": "a-81-pt",
+    "text": "Diva",
+    "level": 1
+  },
+  "a-82-pt": {
+    "id": "a-82-pt",
+    "text": "Do arco da velha",
+    "level": 1
+  },
+  "a-83-pt": {
+    "id": "a-83-pt",
+    "text": "Doce vingança",
+    "level": 1
+  },
+  "a-84-pt": {
+    "id": "a-84-pt",
+    "text": "Dois em um",
+    "level": 1
+  },
+  "a-85-pt": {
+    "id": "a-85-pt",
+    "text": "Dono da espelunca",
+    "level": 1
+  },
+  "a-86-pt": {
+    "id": "a-86-pt",
+    "text": "Dos males o menor",
+    "level": 1
+  },
+  "a-87-pt": {
+    "id": "a-87-pt",
+    "text": "Dupla jornada",
+    "level": 1
+  },
+  "a-88-pt": {
+    "id": "a-88-pt",
+    "text": "Dupla personalidade",
+    "level": 1
+  },
+  "a-89-pt": {
+    "id": "a-89-pt",
+    "text": "É pegar ou largar",
+    "level": 1
+  },
+  "a-90-pt": {
+    "id": "a-90-pt",
+    "text": "Economizar energia",
+    "level": 1
+  },
+  "a-91-pt": {
+    "id": "a-91-pt",
+    "text": "Efeitos colaterais",
+    "level": 1
+  },
+  "a-92-pt": {
+    "id": "a-92-pt",
+    "text": "Efeitos especiais",
+    "level": 1
+  },
+  "a-93-pt": {
+    "id": "a-93-pt",
+    "text": "Encher o bucho",
+    "level": 1
+  },
+  "a-94-pt": {
+    "id": "a-94-pt",
+    "text": "Encontrar Jesus",
+    "level": 1
+  },
+  "a-95-pt": {
+    "id": "a-95-pt",
+    "text": "Enrolação",
+    "level": 1
+  },
+  "a-96-pt": {
+    "id": "a-96-pt",
+    "text": "Entrar na onda",
+    "level": 1
+  },
+  "a-97-pt": {
+    "id": "a-97-pt",
+    "text": "Entusiasmado",
+    "level": 1
+  },
+  "a-98-pt": {
+    "id": "a-98-pt",
+    "text": "Esforço hercúleo",
+    "level": 1
+  },
+  "a-99-pt": {
+    "id": "a-99-pt",
+    "text": "Esotérico",
+    "level": 1
+  },
+  "a-100-pt": {
+    "id": "a-100-pt",
+    "text": "Estar borocoxô",
+    "level": 1
+  },
+  "a-101-pt": {
+    "id": "a-101-pt",
+    "text": "Estar na boca do povo",
+    "level": 1
+  },
+  "a-102-pt": {
+    "id": "a-102-pt",
+    "text": "Estar no mundo da lua",
+    "level": 1
+  },
+  "a-103-pt": {
+    "id": "a-103-pt",
+    "text": "Fada sensata",
+    "level": 1
+  },
+  "a-104-pt": {
+    "id": "a-104-pt",
+    "text": "Falar em público",
+    "level": 1
+  },
+  "a-105-pt": {
+    "id": "a-105-pt",
+    "text": "Falar nada com nada",
+    "level": 1
+  },
+  "a-106-pt": {
+    "id": "a-106-pt",
+    "text": "Falta de comunicação",
+    "level": 1
+  },
+  "a-107-pt": {
+    "id": "a-107-pt",
+    "text": "Farofeiro",
+    "level": 1
+  },
+  "a-108-pt": {
+    "id": "a-108-pt",
+    "text": "Favelado",
+    "level": 1
+  },
+  "a-109-pt": {
+    "id": "a-109-pt",
+    "text": "Fazer nas coxas",
+    "level": 1
+  },
+  "a-110-pt": {
+    "id": "a-110-pt",
+    "text": "Férias em família",
+    "level": 1
+  },
+  "a-111-pt": {
+    "id": "a-111-pt",
+    "text": "Ficante",
+    "level": 1
+  },
+  "a-112-pt": {
+    "id": "a-112-pt",
+    "text": "Ficha da academia",
+    "level": 1
+  },
+  "a-113-pt": {
+    "id": "a-113-pt",
+    "text": "Fila de idoso",
+    "level": 1
+  },
+  "a-114-pt": {
+    "id": "a-114-pt",
+    "text": "Filhote de cruz credo",
+    "level": 1
+  },
+  "a-115-pt": {
+    "id": "a-115-pt",
+    "text": "Fora de moda",
+    "level": 1
+  },
+  "a-116-pt": {
+    "id": "a-116-pt",
+    "text": "Fora de proporção",
+    "level": 1
+  },
+  "a-117-pt": {
+    "id": "a-117-pt",
+    "text": "Força de vontade",
+    "level": 1
+  },
+  "a-118-pt": {
+    "id": "a-118-pt",
+    "text": "Força do hábito",
+    "level": 1
+  },
+  "a-119-pt": {
+    "id": "a-119-pt",
+    "text": "Força interior",
+    "level": 1
+  },
+  "a-120-pt": {
+    "id": "a-120-pt",
+    "text": "Golpe baixo",
+    "level": 1
+  },
+  "a-121-pt": {
+    "id": "a-121-pt",
+    "text": "Guerra fria",
+    "level": 1
+  },
+  "a-122-pt": {
+    "id": "a-122-pt",
+    "text": "Gut gut da mamãe",
+    "level": 1
+  },
+  "a-123-pt": {
+    "id": "a-123-pt",
+    "text": "Há anos luz",
+    "level": 1
+  },
+  "a-124-pt": {
+    "id": "a-124-pt",
+    "text": "Hipnose",
+    "level": 1
+  },
+  "a-125-pt": {
+    "id": "a-125-pt",
+    "text": "Internet",
+    "level": 1
+  },
+  "a-126-pt": {
+    "id": "a-126-pt",
+    "text": "Inventar moda",
+    "level": 1
+  },
+  "a-127-pt": {
+    "id": "a-127-pt",
+    "text": "Item de colecionador",
+    "level": 1
+  },
+  "a-128-pt": {
+    "id": "a-128-pt",
+    "text": "Jeitinho brasileiro",
+    "level": 1
+  },
+  "a-129-pt": {
+    "id": "a-129-pt",
+    "text": "Ligar o fodas",
+    "level": 1
+  },
+  "a-130-pt": {
+    "id": "a-130-pt",
+    "text": "Manjar dos paranauê",
+    "level": 1
+  },
+  "a-131-pt": {
+    "id": "a-131-pt",
+    "text": "Mano do céu",
+    "level": 1
+  },
+  "a-132-pt": {
+    "id": "a-132-pt",
+    "text": "Maria Gasolina",
+    "level": 1
+  },
+  "a-133-pt": {
+    "id": "a-133-pt",
+    "text": "Matar aula",
+    "level": 1
+  },
+  "a-134-pt": {
+    "id": "a-134-pt",
+    "text": "Medo de altura",
+    "level": 1
+  },
+  "a-135-pt": {
+    "id": "a-135-pt",
+    "text": "Melhor de três",
+    "level": 1
+  },
+  "a-136-pt": {
+    "id": "a-136-pt",
+    "text": "Mente fechada",
+    "level": 1
+  },
+  "a-137-pt": {
+    "id": "a-137-pt",
+    "text": "Mercado negro",
+    "level": 1
+  },
+  "a-138-pt": {
+    "id": "a-138-pt",
+    "text": "Mesmice",
+    "level": 1
+  },
+  "a-139-pt": {
+    "id": "a-139-pt",
+    "text": "Morte horrenda",
+    "level": 1
+  },
+  "a-140-pt": {
+    "id": "a-140-pt",
+    "text": "Mudar de ideia",
+    "level": 1
+  },
+  "a-141-pt": {
+    "id": "a-141-pt",
+    "text": "Não caga nem sai da moita",
+    "level": 1
+  },
+  "a-142-pt": {
+    "id": "a-142-pt",
+    "text": "Não dê nas vistas",
+    "level": 1
+  },
+  "a-143-pt": {
+    "id": "a-143-pt",
+    "text": "Não ficar velho nunca",
+    "level": 1
+  },
+  "a-144-pt": {
+    "id": "a-144-pt",
+    "text": "Não ter um tostão furado",
+    "level": 1
+  },
+  "a-145-pt": {
+    "id": "a-145-pt",
+    "text": "Não valorizou",
+    "level": 1
+  },
+  "a-146-pt": {
+    "id": "a-146-pt",
+    "text": "Natureza humana",
+    "level": 1
+  },
+  "a-147-pt": {
+    "id": "a-147-pt",
+    "text": "Neurado",
+    "level": 1
+  },
+  "a-148-pt": {
+    "id": "a-148-pt",
+    "text": "Ninho de mafagafos",
+    "level": 1
+  },
+  "a-149-pt": {
+    "id": "a-149-pt",
+    "text": "No fundo do poço",
+    "level": 1
+  },
+  "a-150-pt": {
+    "id": "a-150-pt",
+    "text": "No meu tempo...",
+    "level": 1
+  },
+  "a-151-pt": {
+    "id": "a-151-pt",
+    "text": "O mundo dá voltas",
+    "level": 1
+  },
+  "a-152-pt": {
+    "id": "a-152-pt",
+    "text": "O pau vai comer",
+    "level": 1
+  },
+  "a-153-pt": {
+    "id": "a-153-pt",
+    "text": "Ódio no coração",
+    "level": 1
+  },
+  "a-154-pt": {
+    "id": "a-154-pt",
+    "text": "Onde Judas perdeu as botas",
+    "level": 1
+  },
+  "a-155-pt": {
+    "id": "a-155-pt",
+    "text": "Opinião é igual cu",
+    "level": 1
+  },
+  "a-156-pt": {
+    "id": "a-156-pt",
+    "text": "Original de fábrica",
+    "level": 1
+  },
+  "a-157-pt": {
+    "id": "a-157-pt",
+    "text": "Pacote completo",
+    "level": 1
+  },
+  "a-158-pt": {
+    "id": "a-158-pt",
+    "text": "Parceiros no crime",
+    "level": 1
+  },
+  "a-159-pt": {
+    "id": "a-159-pt",
+    "text": "Passa ou repassa",
+    "level": 1
+  },
+  "a-160-pt": {
+    "id": "a-160-pt",
+    "text": "Passar a perna",
+    "level": 1
+  },
+  "a-161-pt": {
+    "id": "a-161-pt",
+    "text": "Passar pra trás",
+    "level": 1
+  },
+  "a-162-pt": {
+    "id": "a-162-pt",
+    "text": "Pau pra toda obra",
+    "level": 1
+  },
+  "a-163-pt": {
+    "id": "a-163-pt",
+    "text": "Pegar estrada",
+    "level": 1
+  },
+  "a-164-pt": {
+    "id": "a-164-pt",
+    "text": "Pisa menos",
+    "level": 1
+  },
+  "a-165-pt": {
+    "id": "a-165-pt",
+    "text": "Poço sem fundo",
+    "level": 1
+  },
+  "a-166-pt": {
+    "id": "a-166-pt",
+    "text": "Poker face",
+    "level": 1
+  },
+  "a-167-pt": {
+    "id": "a-167-pt",
+    "text": "Ponto cego",
+    "level": 1
+  },
+  "a-168-pt": {
+    "id": "a-168-pt",
+    "text": "Poupe saliva",
+    "level": 1
+  },
+  "a-169-pt": {
+    "id": "a-169-pt",
+    "text": "Prato do dia",
+    "level": 1
+  },
+  "a-170-pt": {
+    "id": "a-170-pt",
+    "text": "Preço salgado",
+    "level": 1
+  },
+  "a-171-pt": {
+    "id": "a-171-pt",
+    "text": "Procurando encrenca",
+    "level": 1
+  },
+  "a-172-pt": {
+    "id": "a-172-pt",
+    "text": "Puxa-saco",
+    "level": 1
+  },
+  "a-173-pt": {
+    "id": "a-173-pt",
+    "text": "Puxar conversa",
+    "level": 1
+  },
+  "a-174-pt": {
+    "id": "a-174-pt",
+    "text": "Que saco!",
+    "level": 1
+  },
+  "a-175-pt": {
+    "id": "a-175-pt",
+    "text": "Quebrar o galho",
+    "level": 1
+  },
+  "a-176-pt": {
+    "id": "a-176-pt",
+    "text": "Rachar o bico",
+    "level": 1
+  },
+  "a-177-pt": {
+    "id": "a-177-pt",
+    "text": "Raciocínio crítico",
+    "level": 1
+  },
+  "a-178-pt": {
+    "id": "a-178-pt",
+    "text": "Rapidinha",
+    "level": 1
+  },
+  "a-179-pt": {
+    "id": "a-179-pt",
+    "text": "Rascunho",
+    "level": 1
+  },
+  "a-180-pt": {
+    "id": "a-180-pt",
+    "text": "Rodar a baiana",
+    "level": 1
+  },
+  "a-181-pt": {
+    "id": "a-181-pt",
+    "text": "Salvo pelo gongo",
+    "level": 1
+  },
+  "a-182-pt": {
+    "id": "a-182-pt",
+    "text": "Samba no pé",
+    "level": 1
+  },
+  "a-183-pt": {
+    "id": "a-183-pt",
+    "text": "Santo do pau oco",
+    "level": 1
+  },
+  "a-184-pt": {
+    "id": "a-184-pt",
+    "text": "Saúde de ferro",
+    "level": 1
+  },
+  "a-185-pt": {
+    "id": "a-185-pt",
+    "text": "Se virar nos 30",
+    "level": 1
+  },
+  "a-186-pt": {
+    "id": "a-186-pt",
+    "text": "Segurar o tchan",
+    "level": 1
+  },
+  "a-187-pt": {
+    "id": "a-187-pt",
+    "text": "Sem chamar atenção",
+    "level": 1
+  },
+  "a-188-pt": {
+    "id": "a-188-pt",
+    "text": "Ser de casa",
+    "level": 1
+  },
+  "a-189-pt": {
+    "id": "a-189-pt",
+    "text": "Show esgotado",
+    "level": 1
+  },
+  "a-190-pt": {
+    "id": "a-190-pt",
+    "text": "Sob pressão",
+    "level": 1
+  },
+  "a-191-pt": {
+    "id": "a-191-pt",
+    "text": "Sono de beleza",
+    "level": 1
+  },
+  "a-192-pt": {
+    "id": "a-192-pt",
+    "text": "Tá na cara!",
+    "level": 1
+  },
+  "a-193-pt": {
+    "id": "a-193-pt",
+    "text": "Um dia desses aí",
+    "level": 1
+  },
+  "a-194-pt": {
+    "id": "a-194-pt",
+    "text": "Uma perspectiva diferente",
+    "level": 1
+  },
+  "a-195-pt": {
+    "id": "a-195-pt",
+    "text": "Valendo ponto",
+    "level": 1
+  },
+  "a-196-pt": {
+    "id": "a-196-pt",
+    "text": "Vem fácil, vai fácil",
+    "level": 1
+  },
+  "a-197-pt": {
+    "id": "a-197-pt",
+    "text": "Viajar na maionese",
+    "level": 1
+  },
+  "a-198-pt": {
+    "id": "a-198-pt",
+    "text": "Vira-lata caramelo",
+    "level": 1
+  },
+  "a-199-pt": {
+    "id": "a-199-pt",
+    "text": "Vitória enorme",
+    "level": 1
+  },
+  "a-200-pt": {
+    "id": "a-200-pt",
+    "text": "Zen",
+    "level": 1
+  },
+  "a-201-pt": {
+    "id": "a-201-pt",
+    "text": "A gente é brother",
+    "level": 2
+  },
+  "a-202-pt": {
+    "id": "a-202-pt",
+    "text": "Aberto a sugestões",
+    "level": 2
+  },
+  "a-203-pt": {
+    "id": "a-203-pt",
+    "text": "Achado não é roubado",
+    "level": 2
+  },
+  "a-204-pt": {
+    "id": "a-204-pt",
+    "text": "Achados e perdidos",
+    "level": 2
+  },
+  "a-205-pt": {
+    "id": "a-205-pt",
+    "text": "Acidentes acontecem",
+    "level": 2
+  },
+  "a-206-pt": {
+    "id": "a-206-pt",
+    "text": "Acima da média",
+    "level": 2
+  },
+  "a-207-pt": {
+    "id": "a-207-pt",
+    "text": "Amigos para sempre",
+    "level": 2
+  },
+  "a-208-pt": {
+    "id": "a-208-pt",
+    "text": "Animiga",
+    "level": 2
+  },
+  "a-209-pt": {
+    "id": "a-209-pt",
+    "text": "Anos 80",
+    "level": 2
+  },
+  "a-210-pt": {
+    "id": "a-210-pt",
+    "text": "Antes e depois",
+    "level": 2
+  },
+  "a-211-pt": {
+    "id": "a-211-pt",
+    "text": "Apoio moral",
+    "level": 2
+  },
+  "a-212-pt": {
+    "id": "a-212-pt",
+    "text": "Argumento válido",
+    "level": 2
+  },
+  "a-213-pt": {
+    "id": "a-213-pt",
+    "text": "Arriscado",
+    "level": 2
+  },
+  "a-214-pt": {
+    "id": "a-214-pt",
+    "text": "Atividade extracurricular",
+    "level": 2
+  },
+  "a-215-pt": {
+    "id": "a-215-pt",
+    "text": "Atração principal",
+    "level": 2
+  },
+  "a-216-pt": {
+    "id": "a-216-pt",
+    "text": "Baixa auto-estima",
+    "level": 2
+  },
+  "a-217-pt": {
+    "id": "a-217-pt",
+    "text": "Bem que eu te falei",
+    "level": 2
+  },
+  "a-218-pt": {
+    "id": "a-218-pt",
+    "text": "Bodar",
+    "level": 2
+  },
+  "a-219-pt": {
+    "id": "a-219-pt",
+    "text": "Bom exemplo",
+    "level": 2
+  },
+  "a-220-pt": {
+    "id": "a-220-pt",
+    "text": "Brincar de mímica",
+    "level": 2
+  },
+  "a-221-pt": {
+    "id": "a-221-pt",
+    "text": "Brotinho maroto",
+    "level": 2
+  },
+  "a-222-pt": {
+    "id": "a-222-pt",
+    "text": "Caloria sem culpa",
+    "level": 2
+  },
+  "a-223-pt": {
+    "id": "a-223-pt",
+    "text": "Caracteristica hereditária",
+    "level": 2
+  },
+  "a-224-pt": {
+    "id": "a-224-pt",
+    "text": "Cassetada",
+    "level": 2
+  },
+  "a-225-pt": {
+    "id": "a-225-pt",
+    "text": "Cheio de coisas pra resolver",
+    "level": 2
+  },
+  "a-226-pt": {
+    "id": "a-226-pt",
+    "text": "Circunstâncias atenuantes",
+    "level": 2
+  },
+  "a-227-pt": {
+    "id": "a-227-pt",
+    "text": "Classificação etária",
+    "level": 2
+  },
+  "a-228-pt": {
+    "id": "a-228-pt",
+    "text": "Coisa bonina",
+    "level": 2
+  },
+  "a-229-pt": {
+    "id": "a-229-pt",
+    "text": "Coisa de principiante",
+    "level": 2
+  },
+  "a-230-pt": {
+    "id": "a-230-pt",
+    "text": "Conclusão precipitada",
+    "level": 2
+  },
+  "a-231-pt": {
+    "id": "a-231-pt",
+    "text": "Conflito de interesse",
+    "level": 2
+  },
+  "a-232-pt": {
+    "id": "a-232-pt",
+    "text": "Conflito interno",
+    "level": 2
+  },
+  "a-233-pt": {
+    "id": "a-233-pt",
+    "text": "Confundir com outra pessoa",
+    "level": 2
+  },
+  "a-234-pt": {
+    "id": "a-234-pt",
+    "text": "Conhecer um songamonga",
+    "level": 2
+  },
+  "a-235-pt": {
+    "id": "a-235-pt",
+    "text": "Conto da carochinha",
+    "level": 2
+  },
+  "a-236-pt": {
+    "id": "a-236-pt",
+    "text": "Convidado",
+    "level": 2
+  },
+  "a-237-pt": {
+    "id": "a-237-pt",
+    "text": "Crise de meia idade",
+    "level": 2
+  },
+  "a-238-pt": {
+    "id": "a-238-pt",
+    "text": "Cultura do cancelamento",
+    "level": 2
+  },
+  "a-239-pt": {
+    "id": "a-239-pt",
+    "text": "Daqui a pouco",
+    "level": 2
+  },
+  "a-240-pt": {
+    "id": "a-240-pt",
+    "text": "Dar crédito",
+    "level": 2
+  },
+  "a-241-pt": {
+    "id": "a-241-pt",
+    "text": "Dar treta",
+    "level": 2
+  },
+  "a-242-pt": {
+    "id": "a-242-pt",
+    "text": "De acordo com o plano",
+    "level": 2
+  },
+  "a-243-pt": {
+    "id": "a-243-pt",
+    "text": "De poucas palavras",
+    "level": 2
+  },
+  "a-244-pt": {
+    "id": "a-244-pt",
+    "text": "De supetão",
+    "level": 2
+  },
+  "a-245-pt": {
+    "id": "a-245-pt",
+    "text": "De vez em quando",
+    "level": 2
+  },
+  "a-246-pt": {
+    "id": "a-246-pt",
+    "text": "Deixa no vácuo",
+    "level": 2
+  },
+  "a-247-pt": {
+    "id": "a-247-pt",
+    "text": "Desbotado",
+    "level": 2
+  },
+  "a-248-pt": {
+    "id": "a-248-pt",
+    "text": "Desculpas aceitas",
+    "level": 2
+  },
+  "a-249-pt": {
+    "id": "a-249-pt",
+    "text": "Desemprego",
+    "level": 2
+  },
+  "a-250-pt": {
+    "id": "a-250-pt",
+    "text": "Desenvolver um siricutico",
+    "level": 2
+  },
+  "a-251-pt": {
+    "id": "a-251-pt",
+    "text": "Detenção",
+    "level": 2
+  },
+  "a-252-pt": {
+    "id": "a-252-pt",
+    "text": "Dias de glória",
+    "level": 2
+  },
+  "a-253-pt": {
+    "id": "a-253-pt",
+    "text": "Dondoca na pindaíba",
+    "level": 2
+  },
+  "a-254-pt": {
+    "id": "a-254-pt",
+    "text": "Encontro com o destino",
+    "level": 2
+  },
+  "a-255-pt": {
+    "id": "a-255-pt",
+    "text": "Entender a ziquizira",
+    "level": 2
+  },
+  "a-256-pt": {
+    "id": "a-256-pt",
+    "text": "Entender bulhufas",
+    "level": 2
+  },
+  "a-257-pt": {
+    "id": "a-257-pt",
+    "text": "Esbarrar com fulano",
+    "level": 2
+  },
+  "a-258-pt": {
+    "id": "a-258-pt",
+    "text": "Escapar por um triz",
+    "level": 2
+  },
+  "a-259-pt": {
+    "id": "a-259-pt",
+    "text": "Esperar demais",
+    "level": 2
+  },
+  "a-260-pt": {
+    "id": "a-260-pt",
+    "text": "Espere sua vez",
+    "level": 2
+  },
+  "a-261-pt": {
+    "id": "a-261-pt",
+    "text": "Espirito de aventura",
+    "level": 2
+  },
+  "a-262-pt": {
+    "id": "a-262-pt",
+    "text": "Estamos quites",
+    "level": 2
+  },
+  "a-263-pt": {
+    "id": "a-263-pt",
+    "text": "Estar com urucubaca",
+    "level": 2
+  },
+  "a-264-pt": {
+    "id": "a-264-pt",
+    "text": "Estar na pindaiba",
+    "level": 2
+  },
+  "a-265-pt": {
+    "id": "a-265-pt",
+    "text": "Estar no desespero",
+    "level": 2
+  },
+  "a-266-pt": {
+    "id": "a-266-pt",
+    "text": "Estar uma zona",
+    "level": 2
+  },
+  "a-267-pt": {
+    "id": "a-267-pt",
+    "text": "Esticar o date",
+    "level": 2
+  },
+  "a-268-pt": {
+    "id": "a-268-pt",
+    "text": "Estilo de vida",
+    "level": 2
+  },
+  "a-269-pt": {
+    "id": "a-269-pt",
+    "text": "Ex-namorada",
+    "level": 2
+  },
+  "a-270-pt": {
+    "id": "a-270-pt",
+    "text": "Exemplo",
+    "level": 2
+  },
+  "a-271-pt": {
+    "id": "a-271-pt",
+    "text": "Explicação lógica",
+    "level": 2
+  },
+  "a-272-pt": {
+    "id": "a-272-pt",
+    "text": "Falsificado",
+    "level": 2
+  },
+  "a-273-pt": {
+    "id": "a-273-pt",
+    "text": "Faxina geral",
+    "level": 2
+  },
+  "a-274-pt": {
+    "id": "a-274-pt",
+    "text": "Fazer birra",
+    "level": 2
+  },
+  "a-275-pt": {
+    "id": "a-275-pt",
+    "text": "Fechado para balanço",
+    "level": 2
+  },
+  "a-276-pt": {
+    "id": "a-276-pt",
+    "text": "Ficar bolado",
+    "level": 2
+  },
+  "a-277-pt": {
+    "id": "a-277-pt",
+    "text": "Ficar de tocaia",
+    "level": 2
+  },
+  "a-278-pt": {
+    "id": "a-278-pt",
+    "text": "Figura de linguagem",
+    "level": 2
+  },
+  "a-279-pt": {
+    "id": "a-279-pt",
+    "text": "Fino e elegante",
+    "level": 2
+  },
+  "a-280-pt": {
+    "id": "a-280-pt",
+    "text": "Fofocagem",
+    "level": 2
+  },
+  "a-281-pt": {
+    "id": "a-281-pt",
+    "text": "Fora de circulação",
+    "level": 2
+  },
+  "a-282-pt": {
+    "id": "a-282-pt",
+    "text": "Formigando",
+    "level": 2
+  },
+  "a-283-pt": {
+    "id": "a-283-pt",
+    "text": "Friamente calculado",
+    "level": 2
+  },
+  "a-284-pt": {
+    "id": "a-284-pt",
+    "text": "Gambiarra",
+    "level": 2
+  },
+  "a-285-pt": {
+    "id": "a-285-pt",
+    "text": "Gerar fake news",
+    "level": 2
+  },
+  "a-286-pt": {
+    "id": "a-286-pt",
+    "text": "Geringonça",
+    "level": 2
+  },
+  "a-287-pt": {
+    "id": "a-287-pt",
+    "text": "Gororoba",
+    "level": 2
+  },
+  "a-288-pt": {
+    "id": "a-288-pt",
+    "text": "Guardar rancor",
+    "level": 2
+  },
+  "a-289-pt": {
+    "id": "a-289-pt",
+    "text": "Higiene pessoal",
+    "level": 2
+  },
+  "a-290-pt": {
+    "id": "a-290-pt",
+    "text": "História de sucesso",
+    "level": 2
+  },
+  "a-291-pt": {
+    "id": "a-291-pt",
+    "text": "Hora da verdade",
+    "level": 2
+  },
+  "a-292-pt": {
+    "id": "a-292-pt",
+    "text": "Horário eleitoral gratuito",
+    "level": 2
+  },
+  "a-293-pt": {
+    "id": "a-293-pt",
+    "text": "Ideia de jerico",
+    "level": 2
+  },
+  "a-294-pt": {
+    "id": "a-294-pt",
+    "text": "Imaginação fértil",
+    "level": 2
+  },
+  "a-295-pt": {
+    "id": "a-295-pt",
+    "text": "Importantíssimo",
+    "level": 2
+  },
+  "a-296-pt": {
+    "id": "a-296-pt",
+    "text": "Inarticulado",
+    "level": 2
+  },
+  "a-297-pt": {
+    "id": "a-297-pt",
+    "text": "Inesquecível",
+    "level": 2
+  },
+  "a-298-pt": {
+    "id": "a-298-pt",
+    "text": "Inigualável",
+    "level": 2
+  },
+  "a-299-pt": {
+    "id": "a-299-pt",
+    "text": "Inteligência fora do normal",
+    "level": 2
+  },
+  "a-300-pt": {
+    "id": "a-300-pt",
+    "text": "Irritantemente otimista",
+    "level": 2
+  },
+  "a-301-pt": {
+    "id": "a-301-pt",
+    "text": "Jogado as traças",
+    "level": 2
+  },
+  "a-302-pt": {
+    "id": "a-302-pt",
+    "text": "Jogando verde",
+    "level": 2
+  },
+  "a-303-pt": {
+    "id": "a-303-pt",
+    "text": "Jogar a real",
+    "level": 2
+  },
+  "a-304-pt": {
+    "id": "a-304-pt",
+    "text": "Jogar limpo",
+    "level": 2
+  },
+  "a-305-pt": {
+    "id": "a-305-pt",
+    "text": "Lançar tendência",
+    "level": 2
+  },
+  "a-306-pt": {
+    "id": "a-306-pt",
+    "text": "Leilão silencioso",
+    "level": 2
+  },
+  "a-307-pt": {
+    "id": "a-307-pt",
+    "text": "Levar pra vida",
+    "level": 2
+  },
+  "a-308-pt": {
+    "id": "a-308-pt",
+    "text": "Licença poética",
+    "level": 2
+  },
+  "a-309-pt": {
+    "id": "a-309-pt",
+    "text": "Literatura em movimento",
+    "level": 2
+  },
+  "a-310-pt": {
+    "id": "a-310-pt",
+    "text": "Longo prazo",
+    "level": 2
+  },
+  "a-311-pt": {
+    "id": "a-311-pt",
+    "text": "Má influência",
+    "level": 2
+  },
+  "a-312-pt": {
+    "id": "a-312-pt",
+    "text": "Malandro",
+    "level": 2
+  },
+  "a-313-pt": {
+    "id": "a-313-pt",
+    "text": "Malemolência",
+    "level": 2
+  },
+  "a-314-pt": {
+    "id": "a-314-pt",
+    "text": "Mandar na birosca",
+    "level": 2
+  },
+  "a-315-pt": {
+    "id": "a-315-pt",
+    "text": "Maria vai com as outras",
+    "level": 2
+  },
+  "a-316-pt": {
+    "id": "a-316-pt",
+    "text": "Mau elemento",
+    "level": 2
+  },
+  "a-317-pt": {
+    "id": "a-317-pt",
+    "text": "Medir o divertimento",
+    "level": 2
+  },
+  "a-318-pt": {
+    "id": "a-318-pt",
+    "text": "Melodramático",
+    "level": 2
+  },
+  "a-319-pt": {
+    "id": "a-319-pt",
+    "text": "Mentirinha besta",
+    "level": 2
+  },
+  "a-320-pt": {
+    "id": "a-320-pt",
+    "text": "Milagreiro",
+    "level": 2
+  },
+  "a-321-pt": {
+    "id": "a-321-pt",
+    "text": "Mínimos detalhes",
+    "level": 2
+  },
+  "a-322-pt": {
+    "id": "a-322-pt",
+    "text": "Missão de resgate",
+    "level": 2
+  },
+  "a-323-pt": {
+    "id": "a-323-pt",
+    "text": "Moleque",
+    "level": 2
+  },
+  "a-324-pt": {
+    "id": "a-324-pt",
+    "text": "Monogamia",
+    "level": 2
+  },
+  "a-325-pt": {
+    "id": "a-325-pt",
+    "text": "Mudança de ar",
+    "level": 2
+  },
+  "a-326-pt": {
+    "id": "a-326-pt",
+    "text": "Muito grato",
+    "level": 2
+  },
+  "a-327-pt": {
+    "id": "a-327-pt",
+    "text": "Musical da Broadway",
+    "level": 2
+  },
+  "a-328-pt": {
+    "id": "a-328-pt",
+    "text": "Muvuca",
+    "level": 2
+  },
+  "a-329-pt": {
+    "id": "a-329-pt",
+    "text": "Na surdina",
+    "level": 2
+  },
+  "a-330-pt": {
+    "id": "a-330-pt",
+    "text": "Não tem cabimento",
+    "level": 2
+  },
+  "a-331-pt": {
+    "id": "a-331-pt",
+    "text": "Não tem graça nenhuma",
+    "level": 2
+  },
+  "a-332-pt": {
+    "id": "a-332-pt",
+    "text": "Nem dá pra debater",
+    "level": 2
+  },
+  "a-333-pt": {
+    "id": "a-333-pt",
+    "text": "No comando",
+    "level": 2
+  },
+  "a-334-pt": {
+    "id": "a-334-pt",
+    "text": "Notícias de ontem",
+    "level": 2
+  },
+  "a-335-pt": {
+    "id": "a-335-pt",
+    "text": "O mais rápido possível",
+    "level": 2
+  },
+  "a-336-pt": {
+    "id": "a-336-pt",
+    "text": "Passar a diante",
+    "level": 2
+  },
+  "a-337-pt": {
+    "id": "a-337-pt",
+    "text": "O que passou, passou",
+    "level": 2
+  },
+  "a-338-pt": {
+    "id": "a-338-pt",
+    "text": "Obsoleto",
+    "level": 2
+  },
+  "a-339-pt": {
+    "id": "a-339-pt",
+    "text": "Oportunidades iguais",
+    "level": 2
+  },
+  "a-340-pt": {
+    "id": "a-340-pt",
+    "text": "Os mesmos de sempre",
+    "level": 2
+  },
+  "a-341-pt": {
+    "id": "a-341-pt",
+    "text": "Os opostos se atraem",
+    "level": 2
+  },
+  "a-342-pt": {
+    "id": "a-342-pt",
+    "text": "Palavra de honra",
+    "level": 2
+  },
+  "a-343-pt": {
+    "id": "a-343-pt",
+    "text": "Paradeiro desconhecido",
+    "level": 2
+  },
+  "a-344-pt": {
+    "id": "a-344-pt",
+    "text": "Parado na alfândega",
+    "level": 2
+  },
+  "a-345-pt": {
+    "id": "a-345-pt",
+    "text": "Pavor",
+    "level": 2
+  },
+  "a-346-pt": {
+    "id": "a-346-pt",
+    "text": "Pedaço de mau caminho",
+    "level": 2
+  },
+  "a-347-pt": {
+    "id": "a-347-pt",
+    "text": "Pegação",
+    "level": 2
+  },
+  "a-348-pt": {
+    "id": "a-348-pt",
+    "text": "Pegadinha",
+    "level": 2
+  },
+  "a-349-pt": {
+    "id": "a-349-pt",
+    "text": "Pense bem",
+    "level": 2
+  },
+  "a-350-pt": {
+    "id": "a-350-pt",
+    "text": "Perigo iminente",
+    "level": 2
+  },
+  "a-351-pt": {
+    "id": "a-351-pt",
+    "text": "Personal styler",
+    "level": 2
+  },
+  "a-352-pt": {
+    "id": "a-352-pt",
+    "text": "Piripaque",
+    "level": 2
+  },
+  "a-353-pt": {
+    "id": "a-353-pt",
+    "text": "Plano B",
+    "level": 2
+  },
+  "a-354-pt": {
+    "id": "a-354-pt",
+    "text": "Plano de saúde",
+    "level": 2
+  },
+  "a-355-pt": {
+    "id": "a-355-pt",
+    "text": "Polícia federal",
+    "level": 2
+  },
+  "a-356-pt": {
+    "id": "a-356-pt",
+    "text": "Política de privacidade",
+    "level": 2
+  },
+  "a-357-pt": {
+    "id": "a-357-pt",
+    "text": "Pose de maloqueiro",
+    "level": 2
+  },
+  "a-358-pt": {
+    "id": "a-358-pt",
+    "text": "Posto de saúde",
+    "level": 2
+  },
+  "a-359-pt": {
+    "id": "a-359-pt",
+    "text": "Pouca visibilidade",
+    "level": 2
+  },
+  "a-360-pt": {
+    "id": "a-360-pt",
+    "text": "Poucas escolhas",
+    "level": 2
+  },
+  "a-361-pt": {
+    "id": "a-361-pt",
+    "text": "Pra bom entendedor, poucas palavras bastam",
+    "level": 2
+  },
+  "a-362-pt": {
+    "id": "a-362-pt",
+    "text": "Primeiro dia de aula",
+    "level": 2
+  },
+  "a-363-pt": {
+    "id": "a-363-pt",
+    "text": "Punição cruel",
+    "level": 2
+  },
+  "a-364-pt": {
+    "id": "a-364-pt",
+    "text": "Qualidade de vida",
+    "level": 2
+  },
+  "a-365-pt": {
+    "id": "a-365-pt",
+    "text": "Que azar!",
+    "level": 2
+  },
+  "a-366-pt": {
+    "id": "a-366-pt",
+    "text": "Queridinhx",
+    "level": 2
+  },
+  "a-367-pt": {
+    "id": "a-367-pt",
+    "text": "Realidade virtual",
+    "level": 2
+  },
+  "a-368-pt": {
+    "id": "a-368-pt",
+    "text": "Recorde pessoal",
+    "level": 2
+  },
+  "a-369-pt": {
+    "id": "a-369-pt",
+    "text": "Recreio",
+    "level": 2
+  },
+  "a-370-pt": {
+    "id": "a-370-pt",
+    "text": "Redes sociais",
+    "level": 2
+  },
+  "a-371-pt": {
+    "id": "a-371-pt",
+    "text": "Replay em câmera-lenta",
+    "level": 2
+  },
+  "a-372-pt": {
+    "id": "a-372-pt",
+    "text": "Resolver uma parada",
+    "level": 2
+  },
+  "a-373-pt": {
+    "id": "a-373-pt",
+    "text": "Resposta errada",
+    "level": 2
+  },
+  "a-374-pt": {
+    "id": "a-374-pt",
+    "text": "Riqueza de detalhes",
+    "level": 2
+  },
+  "a-375-pt": {
+    "id": "a-375-pt",
+    "text": "Rir pra não chorar",
+    "level": 2
+  },
+  "a-376-pt": {
+    "id": "a-376-pt",
+    "text": "Risco de vida",
+    "level": 2
+  },
+  "a-377-pt": {
+    "id": "a-377-pt",
+    "text": "Roubo de identidade",
+    "level": 2
+  },
+  "a-378-pt": {
+    "id": "a-378-pt",
+    "text": "Roupa de ir",
+    "level": 2
+  },
+  "a-379-pt": {
+    "id": "a-379-pt",
+    "text": "Se recuperando",
+    "level": 2
+  },
+  "a-380-pt": {
+    "id": "a-380-pt",
+    "text": "Seguir os instintos",
+    "level": 2
+  },
+  "a-381-pt": {
+    "id": "a-381-pt",
+    "text": "Segundo turno",
+    "level": 2
+  },
+  "a-382-pt": {
+    "id": "a-382-pt",
+    "text": "Seleção natural",
+    "level": 2
+  },
+  "a-383-pt": {
+    "id": "a-383-pt",
+    "text": "Sem medo de ser feliz",
+    "level": 2
+  },
+  "a-384-pt": {
+    "id": "a-384-pt",
+    "text": "Sem palavras",
+    "level": 2
+  },
+  "a-385-pt": {
+    "id": "a-385-pt",
+    "text": "Sem papas na língua",
+    "level": 2
+  },
+  "a-386-pt": {
+    "id": "a-386-pt",
+    "text": "Sinais de atenção",
+    "level": 2
+  },
+  "a-387-pt": {
+    "id": "a-387-pt",
+    "text": "Sofrer por antecipação",
+    "level": 2
+  },
+  "a-388-pt": {
+    "id": "a-388-pt",
+    "text": "Soluço",
+    "level": 2
+  },
+  "a-389-pt": {
+    "id": "a-389-pt",
+    "text": "Tá ligado?",
+    "level": 2
+  },
+  "a-390-pt": {
+    "id": "a-390-pt",
+    "text": "Terapia de casal",
+    "level": 2
+  },
+  "a-391-pt": {
+    "id": "a-391-pt",
+    "text": "Time dos sonhos",
+    "level": 2
+  },
+  "a-392-pt": {
+    "id": "a-392-pt",
+    "text": "Tirar pereba",
+    "level": 2
+  },
+  "a-393-pt": {
+    "id": "a-393-pt",
+    "text": "Tiro no escuro",
+    "level": 2
+  },
+  "a-394-pt": {
+    "id": "a-394-pt",
+    "text": "Última geração",
+    "level": 2
+  },
+  "a-395-pt": {
+    "id": "a-395-pt",
+    "text": "Última oferta",
+    "level": 2
+  },
+  "a-396-pt": {
+    "id": "a-396-pt",
+    "text": "Último recurso",
+    "level": 2
+  },
+  "a-397-pt": {
+    "id": "a-397-pt",
+    "text": "Um novo começo",
+    "level": 2
+  },
+  "a-398-pt": {
+    "id": "a-398-pt",
+    "text": "Verdade ou consequência",
+    "level": 2
+  },
+  "a-399-pt": {
+    "id": "a-399-pt",
+    "text": "Viajado",
+    "level": 2
+  },
+  "a-400-pt": {
+    "id": "a-400-pt",
+    "text": "Viver de aparência",
+    "level": 2
+  },
+  "a-401-pt": {
+    "id": "a-401-pt",
+    "text": "A prática leva à perfeição",
+    "level": 3
+  },
+  "a-402-pt": {
+    "id": "a-402-pt",
+    "text": "Abrir uma exceção",
+    "level": 3
+  },
+  "a-403-pt": {
+    "id": "a-403-pt",
+    "text": "Ação disciplinar",
+    "level": 3
+  },
+  "a-404-pt": {
+    "id": "a-404-pt",
+    "text": "Acredite em si mesmo",
+    "level": 3
+  },
+  "a-405-pt": {
+    "id": "a-405-pt",
+    "text": "Aguentar o tranco",
+    "level": 3
+  },
+  "a-406-pt": {
+    "id": "a-406-pt",
+    "text": "Aí complica!",
+    "level": 3
+  },
+  "a-407-pt": {
+    "id": "a-407-pt",
+    "text": "Alter ego",
+    "level": 3
+  },
+  "a-408-pt": {
+    "id": "a-408-pt",
+    "text": "Amarelar",
+    "level": 3
+  },
+  "a-409-pt": {
+    "id": "a-409-pt",
+    "text": "Analisar a situação",
+    "level": 3
+  },
+  "a-410-pt": {
+    "id": "a-410-pt",
+    "text": "Antes tarde do que nunca",
+    "level": 3
+  },
+  "a-411-pt": {
+    "id": "a-411-pt",
+    "text": "Apesar dos pesares",
+    "level": 3
+  },
+  "a-412-pt": {
+    "id": "a-412-pt",
+    "text": "Assunto delicado",
+    "level": 3
+  },
+  "a-413-pt": {
+    "id": "a-413-pt",
+    "text": "Ato falho",
+    "level": 3
+  },
+  "a-414-pt": {
+    "id": "a-414-pt",
+    "text": "Bem comum",
+    "level": 3
+  },
+  "a-415-pt": {
+    "id": "a-415-pt",
+    "text": "Causa perdida",
+    "level": 3
+  },
+  "a-416-pt": {
+    "id": "a-416-pt",
+    "text": "Com boas intenções",
+    "level": 3
+  },
+  "a-417-pt": {
+    "id": "a-417-pt",
+    "text": "Consciência social",
+    "level": 3
+  },
+  "a-418-pt": {
+    "id": "a-418-pt",
+    "text": "Construção do argumento",
+    "level": 3
+  },
+  "a-419-pt": {
+    "id": "a-419-pt",
+    "text": "Crítica construtiva",
+    "level": 3
+  },
+  "a-420-pt": {
+    "id": "a-420-pt",
+    "text": "Culpa de ninguém",
+    "level": 3
+  },
+  "a-421-pt": {
+    "id": "a-421-pt",
+    "text": "Dar uma moral",
+    "level": 3
+  },
+  "a-422-pt": {
+    "id": "a-422-pt",
+    "text": "De bom grado",
+    "level": 3
+  },
+  "a-423-pt": {
+    "id": "a-423-pt",
+    "text": "De mal a pior",
+    "level": 3
+  },
+  "a-424-pt": {
+    "id": "a-424-pt",
+    "text": "De origem humilde",
+    "level": 3
+  },
+  "a-425-pt": {
+    "id": "a-425-pt",
+    "text": "Decência",
+    "level": 3
+  },
+  "a-426-pt": {
+    "id": "a-426-pt",
+    "text": "Decisão fundamentada",
+    "level": 3
+  },
+  "a-427-pt": {
+    "id": "a-427-pt",
+    "text": "Desculpa esfarrapada",
+    "level": 3
+  },
+  "a-428-pt": {
+    "id": "a-428-pt",
+    "text": "Dilema",
+    "level": 3
+  },
+  "a-429-pt": {
+    "id": "a-429-pt",
+    "text": "É assim e pronto.",
+    "level": 3
+  },
+  "a-430-pt": {
+    "id": "a-430-pt",
+    "text": "É o que tem pra hoje",
+    "level": 3
+  },
+  "a-431-pt": {
+    "id": "a-431-pt",
+    "text": "Eca!",
+    "level": 3
+  },
+  "a-432-pt": {
+    "id": "a-432-pt",
+    "text": "Então, fechou!",
+    "level": 3
+  },
+  "a-433-pt": {
+    "id": "a-433-pt",
+    "text": "Então...",
+    "level": 3
+  },
+  "a-434-pt": {
+    "id": "a-434-pt",
+    "text": "Esperançoso",
+    "level": 3
+  },
+  "a-435-pt": {
+    "id": "a-435-pt",
+    "text": "Estar nos trinques",
+    "level": 3
+  },
+  "a-436-pt": {
+    "id": "a-436-pt",
+    "text": "Estar se achando",
+    "level": 3
+  },
+  "a-437-pt": {
+    "id": "a-437-pt",
+    "text": "Estética da hipocrisia",
+    "level": 3
+  },
+  "a-438-pt": {
+    "id": "a-438-pt",
+    "text": "Estraga-festa",
+    "level": 3
+  },
+  "a-439-pt": {
+    "id": "a-439-pt",
+    "text": "Evento beneficente",
+    "level": 3
+  },
+  "a-440-pt": {
+    "id": "a-440-pt",
+    "text": "Evidência conclusiva",
+    "level": 3
+  },
+  "a-441-pt": {
+    "id": "a-441-pt",
+    "text": "Falsa modéstia",
+    "level": 3
+  },
+  "a-442-pt": {
+    "id": "a-442-pt",
+    "text": "Falsas promessas",
+    "level": 3
+  },
+  "a-443-pt": {
+    "id": "a-443-pt",
+    "text": "Falsiane",
+    "level": 3
+  },
+  "a-444-pt": {
+    "id": "a-444-pt",
+    "text": "Falta de caráter",
+    "level": 3
+  },
+  "a-445-pt": {
+    "id": "a-445-pt",
+    "text": "Favor não insistir",
+    "level": 3
+  },
+  "a-446-pt": {
+    "id": "a-446-pt",
+    "text": "Favoritismo",
+    "level": 3
+  },
+  "a-447-pt": {
+    "id": "a-447-pt",
+    "text": "Faz parte",
+    "level": 3
+  },
+  "a-448-pt": {
+    "id": "a-448-pt",
+    "text": "Faz tudo",
+    "level": 3
+  },
+  "a-449-pt": {
+    "id": "a-449-pt",
+    "text": "Fazer algo drástico",
+    "level": 3
+  },
+  "a-450-pt": {
+    "id": "a-450-pt",
+    "text": "Fenômeno inexplicável",
+    "level": 3
+  },
+  "a-451-pt": {
+    "id": "a-451-pt",
+    "text": "Fingir que não viu",
+    "level": 3
+  },
+  "a-452-pt": {
+    "id": "a-452-pt",
+    "text": "Fique à vontade",
+    "level": 3
+  },
+  "a-453-pt": {
+    "id": "a-453-pt",
+    "text": "Firmeza",
+    "level": 3
+  },
+  "a-454-pt": {
+    "id": "a-454-pt",
+    "text": "Foi assim",
+    "level": 3
+  },
+  "a-455-pt": {
+    "id": "a-455-pt",
+    "text": "Gestão de recursos",
+    "level": 3
+  },
+  "a-456-pt": {
+    "id": "a-456-pt",
+    "text": "Gíria",
+    "level": 3
+  },
+  "a-457-pt": {
+    "id": "a-457-pt",
+    "text": "História antiga",
+    "level": 3
+  },
+  "a-458-pt": {
+    "id": "a-458-pt",
+    "text": "Inimigo de renome",
+    "level": 3
+  },
+  "a-459-pt": {
+    "id": "a-459-pt",
+    "text": "Investimento seguro",
+    "level": 3
+  },
+  "a-460-pt": {
+    "id": "a-460-pt",
+    "text": "Ir além do necessário",
+    "level": 3
+  },
+  "a-461-pt": {
+    "id": "a-461-pt",
+    "text": "Ir na maciota",
+    "level": 3
+  },
+  "a-462-pt": {
+    "id": "a-462-pt",
+    "text": "Ironia",
+    "level": 3
+  },
+  "a-463-pt": {
+    "id": "a-463-pt",
+    "text": "Irrelevante",
+    "level": 3
+  },
+  "a-464-pt": {
+    "id": "a-464-pt",
+    "text": "Lei de Murphy",
+    "level": 3
+  },
+  "a-465-pt": {
+    "id": "a-465-pt",
+    "text": "Lenda urbana",
+    "level": 3
+  },
+  "a-466-pt": {
+    "id": "a-466-pt",
+    "text": "Mãe, terminei.",
+    "level": 3
+  },
+  "a-467-pt": {
+    "id": "a-467-pt",
+    "text": "Mais estranho que ficção",
+    "level": 3
+  },
+  "a-468-pt": {
+    "id": "a-468-pt",
+    "text": "Mais que irmãs, sisters!",
+    "level": 3
+  },
+  "a-469-pt": {
+    "id": "a-469-pt",
+    "text": "Mal que vem pro bem",
+    "level": 3
+  },
+  "a-470-pt": {
+    "id": "a-470-pt",
+    "text": "Maracutaia",
+    "level": 3
+  },
+  "a-471-pt": {
+    "id": "a-471-pt",
+    "text": "Melhor prevenir do que remediar",
+    "level": 3
+  },
+  "a-472-pt": {
+    "id": "a-472-pt",
+    "text": "Melhorar a atitude",
+    "level": 3
+  },
+  "a-473-pt": {
+    "id": "a-473-pt",
+    "text": "Menção honrosa",
+    "level": 3
+  },
+  "a-474-pt": {
+    "id": "a-474-pt",
+    "text": "Metaforicamente falando",
+    "level": 3
+  },
+  "a-475-pt": {
+    "id": "a-475-pt",
+    "text": "Meu orgulho",
+    "level": 3
+  },
+  "a-476-pt": {
+    "id": "a-476-pt",
+    "text": "Miséria pouca é bobagem",
+    "level": 3
+  },
+  "a-477-pt": {
+    "id": "a-477-pt",
+    "text": "Mudança de planos",
+    "level": 3
+  },
+  "a-478-pt": {
+    "id": "a-478-pt",
+    "text": "Muito bom pra ser verdade",
+    "level": 3
+  },
+  "a-479-pt": {
+    "id": "a-479-pt",
+    "text": "Nada a ver",
+    "level": 3
+  },
+  "a-480-pt": {
+    "id": "a-480-pt",
+    "text": "Nada demais",
+    "level": 3
+  },
+  "a-481-pt": {
+    "id": "a-481-pt",
+    "text": "Nada em comum",
+    "level": 3
+  },
+  "a-482-pt": {
+    "id": "a-482-pt",
+    "text": "Nada não",
+    "level": 3
+  },
+  "a-483-pt": {
+    "id": "a-483-pt",
+    "text": "Não é da sua conta",
+    "level": 3
+  },
+  "a-484-pt": {
+    "id": "a-484-pt",
+    "text": "Não está decidido",
+    "level": 3
+  },
+  "a-485-pt": {
+    "id": "a-485-pt",
+    "text": "Não me diga!",
+    "level": 3
+  },
+  "a-486-pt": {
+    "id": "a-486-pt",
+    "text": "Não precisa nem explicar",
+    "level": 3
+  },
+  "a-487-pt": {
+    "id": "a-487-pt",
+    "text": "Não sei se vou ou se fico",
+    "level": 3
+  },
+  "a-488-pt": {
+    "id": "a-488-pt",
+    "text": "Nem por isso...",
+    "level": 3
+  },
+  "a-489-pt": {
+    "id": "a-489-pt",
+    "text": "Nem te conto",
+    "level": 3
+  },
+  "a-490-pt": {
+    "id": "a-490-pt",
+    "text": "O melhor de tudo",
+    "level": 3
+  },
+  "a-491-pt": {
+    "id": "a-491-pt",
+    "text": "O mínimo de respeito",
+    "level": 3
+  },
+  "a-492-pt": {
+    "id": "a-492-pt",
+    "text": "O ó do borogodó",
+    "level": 3
+  },
+  "a-493-pt": {
+    "id": "a-493-pt",
+    "text": "Obrigado eu",
+    "level": 3
+  },
+  "a-494-pt": {
+    "id": "a-494-pt",
+    "text": "Ocasião especial",
+    "level": 3
+  },
+  "a-495-pt": {
+    "id": "a-495-pt",
+    "text": "Orgulho bobo",
+    "level": 3
+  },
+  "a-496-pt": {
+    "id": "a-496-pt",
+    "text": "Para o que der e vier",
+    "level": 3
+  },
+  "a-497-pt": {
+    "id": "a-497-pt",
+    "text": "Pedir pra sair",
+    "level": 3
+  },
+  "a-498-pt": {
+    "id": "a-498-pt",
+    "text": "Penetra",
+    "level": 3
+  },
+  "a-499-pt": {
+    "id": "a-499-pt",
+    "text": "Perder a oportunidade",
+    "level": 3
+  },
+  "a-500-pt": {
+    "id": "a-500-pt",
+    "text": "Período de tolerância",
+    "level": 3
+  },
+  "a-501-pt": {
+    "id": "a-501-pt",
+    "text": "Piada interna",
+    "level": 3
+  },
+  "a-502-pt": {
+    "id": "a-502-pt",
+    "text": "Pioneiro",
+    "level": 3
+  },
+  "a-503-pt": {
+    "id": "a-503-pt",
+    "text": "Pior do que tá não pode ficar",
+    "level": 3
+  },
+  "a-504-pt": {
+    "id": "a-504-pt",
+    "text": "Piorado",
+    "level": 3
+  },
+  "a-505-pt": {
+    "id": "a-505-pt",
+    "text": "Poder de persuasão",
+    "level": 3
+  },
+  "a-506-pt": {
+    "id": "a-506-pt",
+    "text": "Politicamente incorreto",
+    "level": 3
+  },
+  "a-507-pt": {
+    "id": "a-507-pt",
+    "text": "Pontos no ibope",
+    "level": 3
+  },
+  "a-508-pt": {
+    "id": "a-508-pt",
+    "text": "Potencial para desastre",
+    "level": 3
+  },
+  "a-509-pt": {
+    "id": "a-509-pt",
+    "text": "Prático",
+    "level": 3
+  },
+  "a-510-pt": {
+    "id": "a-510-pt",
+    "text": "Proativo",
+    "level": 3
+  },
+  "a-511-pt": {
+    "id": "a-511-pt",
+    "text": "Processo de eliminação",
+    "level": 3
+  },
+  "a-512-pt": {
+    "id": "a-512-pt",
+    "text": "Produção automatizada",
+    "level": 3
+  },
+  "a-513-pt": {
+    "id": "a-513-pt",
+    "text": "Programação",
+    "level": 3
+  },
+  "a-514-pt": {
+    "id": "a-514-pt",
+    "text": "Promessa de ano novo",
+    "level": 3
+  },
+  "a-515-pt": {
+    "id": "a-515-pt",
+    "text": "Pronto para o que der e vier",
+    "level": 3
+  },
+  "a-516-pt": {
+    "id": "a-516-pt",
+    "text": "Prossiga com cautela",
+    "level": 3
+  },
+  "a-517-pt": {
+    "id": "a-517-pt",
+    "text": "Protagonista principal",
+    "level": 3
+  },
+  "a-518-pt": {
+    "id": "a-518-pt",
+    "text": "Puts grila",
+    "level": 3
+  },
+  "a-519-pt": {
+    "id": "a-519-pt",
+    "text": "Quando for assim...",
+    "level": 3
+  },
+  "a-520-pt": {
+    "id": "a-520-pt",
+    "text": "Quase nada",
+    "level": 3
+  },
+  "a-521-pt": {
+    "id": "a-521-pt",
+    "text": "Que deselegante!",
+    "level": 3
+  },
+  "a-522-pt": {
+    "id": "a-522-pt",
+    "text": "Querer aparecer",
+    "level": 3
+  },
+  "a-523-pt": {
+    "id": "a-523-pt",
+    "text": "Ranço instaurado",
+    "level": 3
+  },
+  "a-524-pt": {
+    "id": "a-524-pt",
+    "text": "Reclamação formal",
+    "level": 3
+  },
+  "a-525-pt": {
+    "id": "a-525-pt",
+    "text": "Reincidente",
+    "level": 3
+  },
+  "a-526-pt": {
+    "id": "a-526-pt",
+    "text": "Remoer o passado",
+    "level": 3
+  },
+  "a-527-pt": {
+    "id": "a-527-pt",
+    "text": "Repercursão negativa",
+    "level": 3
+  },
+  "a-528-pt": {
+    "id": "a-528-pt",
+    "text": "Resolver a bagaça",
+    "level": 3
+  },
+  "a-529-pt": {
+    "id": "a-529-pt",
+    "text": "Resumindo",
+    "level": 3
+  },
+  "a-530-pt": {
+    "id": "a-530-pt",
+    "text": "Reunião do conselho",
+    "level": 3
+  },
+  "a-531-pt": {
+    "id": "a-531-pt",
+    "text": "Reviravolta do destino",
+    "level": 3
+  },
+  "a-532-pt": {
+    "id": "a-532-pt",
+    "text": "Revisão completa",
+    "level": 3
+  },
+  "a-533-pt": {
+    "id": "a-533-pt",
+    "text": "Revisitar a pocilga",
+    "level": 3
+  },
+  "a-534-pt": {
+    "id": "a-534-pt",
+    "text": "Ritmo de sofrência",
+    "level": 3
+  },
+  "a-535-pt": {
+    "id": "a-535-pt",
+    "text": "Rolezinho",
+    "level": 3
+  },
+  "a-536-pt": {
+    "id": "a-536-pt",
+    "text": "Sabichão",
+    "level": 3
+  },
+  "a-537-pt": {
+    "id": "a-537-pt",
+    "text": "Sair com o crush",
+    "level": 3
+  },
+  "a-538-pt": {
+    "id": "a-538-pt",
+    "text": "Sarcasmo",
+    "level": 3
+  },
+  "a-539-pt": {
+    "id": "a-539-pt",
+    "text": "Satisfação garantida",
+    "level": 3
+  },
+  "a-540-pt": {
+    "id": "a-540-pt",
+    "text": "Saudade",
+    "level": 3
+  },
+  "a-541-pt": {
+    "id": "a-541-pt",
+    "text": "Se fazer de sonso",
+    "level": 3
+  },
+  "a-542-pt": {
+    "id": "a-542-pt",
+    "text": "Se redimir",
+    "level": 3
+  },
+  "a-543-pt": {
+    "id": "a-543-pt",
+    "text": "Segundas intenções",
+    "level": 3
+  },
+  "a-544-pt": {
+    "id": "a-544-pt",
+    "text": "Sem eira nem beira",
+    "level": 3
+  },
+  "a-545-pt": {
+    "id": "a-545-pt",
+    "text": "Sem noção",
+    "level": 3
+  },
+  "a-546-pt": {
+    "id": "a-546-pt",
+    "text": "Sem pensar",
+    "level": 3
+  },
+  "a-547-pt": {
+    "id": "a-547-pt",
+    "text": "Sem problemas",
+    "level": 3
+  },
+  "a-548-pt": {
+    "id": "a-548-pt",
+    "text": "Sem ressentimentos",
+    "level": 3
+  },
+  "a-549-pt": {
+    "id": "a-549-pt",
+    "text": "Sem sombras de dúvidas",
+    "level": 3
+  },
+  "a-550-pt": {
+    "id": "a-550-pt",
+    "text": "Senso comum",
+    "level": 3
+  },
+  "a-551-pt": {
+    "id": "a-551-pt",
+    "text": "Ser do balacobaco",
+    "level": 3
+  },
+  "a-552-pt": {
+    "id": "a-552-pt",
+    "text": "Ser expert no assunto",
+    "level": 3
+  },
+  "a-553-pt": {
+    "id": "a-553-pt",
+    "text": "Serviço de atendimento ao consumidor",
+    "level": 3
+  },
+  "a-554-pt": {
+    "id": "a-554-pt",
+    "text": "Seu passado te condena",
+    "level": 3
+  },
+  "a-555-pt": {
+    "id": "a-555-pt",
+    "text": "Seu pior inimigo",
+    "level": 3
+  },
+  "a-556-pt": {
+    "id": "a-556-pt",
+    "text": "Siga meu conselho",
+    "level": 3
+  },
+  "a-557-pt": {
+    "id": "a-557-pt",
+    "text": "Siga o mestre",
+    "level": 3
+  },
+  "a-558-pt": {
+    "id": "a-558-pt",
+    "text": "Silêncio constrangedor",
+    "level": 3
+  },
+  "a-559-pt": {
+    "id": "a-559-pt",
+    "text": "Símbolo de status",
+    "level": 3
+  },
+  "a-560-pt": {
+    "id": "a-560-pt",
+    "text": "Sinal de emergência",
+    "level": 3
+  },
+  "a-561-pt": {
+    "id": "a-561-pt",
+    "text": "Situação ideal",
+    "level": 3
+  },
+  "a-562-pt": {
+    "id": "a-562-pt",
+    "text": "Só se vive uma vez",
+    "level": 3
+  },
+  "a-563-pt": {
+    "id": "a-563-pt",
+    "text": "Sob suspeita",
+    "level": 3
+  },
+  "a-564-pt": {
+    "id": "a-564-pt",
+    "text": "Sossegar o facho",
+    "level": 3
+  },
+  "a-565-pt": {
+    "id": "a-565-pt",
+    "text": "Super dotado",
+    "level": 3
+  },
+  "a-566-pt": {
+    "id": "a-566-pt",
+    "text": "Suporte técnico",
+    "level": 3
+  },
+  "a-567-pt": {
+    "id": "a-567-pt",
+    "text": "Surtado",
+    "level": 3
+  },
+  "a-568-pt": {
+    "id": "a-568-pt",
+    "text": "Suspiro aliviado",
+    "level": 3
+  },
+  "a-569-pt": {
+    "id": "a-569-pt",
+    "text": "Talvez",
+    "level": 3
+  },
+  "a-570-pt": {
+    "id": "a-570-pt",
+    "text": "Tapado",
+    "level": 3
+  },
+  "a-571-pt": {
+    "id": "a-571-pt",
+    "text": "Tarde divertida",
+    "level": 3
+  },
+  "a-572-pt": {
+    "id": "a-572-pt",
+    "text": "Tédio",
+    "level": 3
+  },
+  "a-573-pt": {
+    "id": "a-573-pt",
+    "text": "Tempos modernos",
+    "level": 3
+  },
+  "a-574-pt": {
+    "id": "a-574-pt",
+    "text": "Tentativa e erro",
+    "level": 3
+  },
+  "a-575-pt": {
+    "id": "a-575-pt",
+    "text": "Ter culpa no cartório",
+    "level": 3
+  },
+  "a-576-pt": {
+    "id": "a-576-pt",
+    "text": "Termos e condições",
+    "level": 3
+  },
+  "a-577-pt": {
+    "id": "a-577-pt",
+    "text": "Testado e aprovado",
+    "level": 3
+  },
+  "a-578-pt": {
+    "id": "a-578-pt",
+    "text": "Tô te falando!",
+    "level": 3
+  },
+  "a-579-pt": {
+    "id": "a-579-pt",
+    "text": "Todo poderoso",
+    "level": 3
+  },
+  "a-580-pt": {
+    "id": "a-580-pt",
+    "text": "Toma jeito!",
+    "level": 3
+  },
+  "a-581-pt": {
+    "id": "a-581-pt",
+    "text": "Top de linha",
+    "level": 3
+  },
+  "a-582-pt": {
+    "id": "a-582-pt",
+    "text": "Top secret",
+    "level": 3
+  },
+  "a-583-pt": {
+    "id": "a-583-pt",
+    "text": "Trabalho em andamento",
+    "level": 3
+  },
+  "a-584-pt": {
+    "id": "a-584-pt",
+    "text": "Trabalho em grupo",
+    "level": 3
+  },
+  "a-585-pt": {
+    "id": "a-585-pt",
+    "text": "Trapacear",
+    "level": 3
+  },
+  "a-586-pt": {
+    "id": "a-586-pt",
+    "text": "Tratamento injusto",
+    "level": 3
+  },
+  "a-587-pt": {
+    "id": "a-587-pt",
+    "text": "Travessuras",
+    "level": 3
+  },
+  "a-588-pt": {
+    "id": "a-588-pt",
+    "text": "Tremendo de medo",
+    "level": 3
+  },
+  "a-589-pt": {
+    "id": "a-589-pt",
+    "text": "Tribufú",
+    "level": 3
+  },
+  "a-590-pt": {
+    "id": "a-590-pt",
+    "text": "Tumulto",
+    "level": 3
+  },
+  "a-591-pt": {
+    "id": "a-591-pt",
+    "text": "Uai, tenta!",
+    "level": 3
+  },
+  "a-592-pt": {
+    "id": "a-592-pt",
+    "text": "Últimos acontecimentos",
+    "level": 3
+  },
+  "a-593-pt": {
+    "id": "a-593-pt",
+    "text": "Uma questão de opinião",
+    "level": 3
+  },
+  "a-594-pt": {
+    "id": "a-594-pt",
+    "text": "Único",
+    "level": 3
+  },
+  "a-595-pt": {
+    "id": "a-595-pt",
+    "text": "Vacilo",
+    "level": 3
+  },
+  "a-596-pt": {
+    "id": "a-596-pt",
+    "text": "Vai ficar pra história",
+    "level": 3
+  },
+  "a-597-pt": {
+    "id": "a-597-pt",
+    "text": "Vai se lascar",
+    "level": 3
+  },
+  "a-598-pt": {
+    "id": "a-598-pt",
+    "text": "Vergonha alheia",
+    "level": 3
+  },
+  "a-599-pt": {
+    "id": "a-599-pt",
+    "text": "Vida dura",
+    "level": 3
+  },
+  "a-600-pt": {
+    "id": "a-600-pt",
+    "text": "Zé ninguém",
+    "level": 3
+  },
+  "a-601-pt": {
+    "id": "a-601-pt",
+    "text": "Ziquizira",
+    "level": 3
+  },
+  "a-602-pt": {
+    "id": "a-602-pt",
+    "text": "Dar os migué",
+    "level": 2
+  },
+  "a-603-pt": {
+    "id": "a-603-pt",
+    "text": "Conjugação verbal",
+    "level": 3
+  },
+  "a-604-pt": {
+    "id": "a-604-pt",
+    "text": "Dar zoom",
+    "level": 1
+  },
+  "a-605-pt": {
+    "id": "a-605-pt",
+    "text": "Bom partido",
+    "level": 1
+  },
+  "a-606-pt": {
+    "id": "a-606-pt",
+    "text": "Chilique",
+    "level": 3
+  },
+  "a-607-pt": {
+    "id": "a-607-pt",
+    "text": "Conceitual",
+    "level": 2
+  },
+  "a-608-pt": {
+    "id": "a-608-pt",
+    "text": "Cloroquina",
+    "level": 1
+  },
+  "a-609-pt": {
+    "id": "a-609-pt",
+    "text": "Cartilha gay",
+    "level": 1
+  },
+  "a-610-pt": {
+    "id": "a-610-pt",
+    "text": "Seje menas",
+    "level": 2
+  },
+  "a-611-pt": {
+    "id": "a-611-pt",
+    "text": "Preguiça Monstra",
+    "level": 2
+  },
+  "a-612-pt": {
+    "id": "a-612-pt",
+    "text": "Inveja branca",
+    "level": 3
+  },
+  "a-613-pt": {
+    "id": "a-613-pt",
+    "text": "Coragem...",
+    "level": 3
+  },
+  "a-614-pt": {
+    "id": "a-614-pt",
+    "text": "Pretérito mais que perfeito",
+    "level": 2
+  },
+  "a-615-pt": {
+    "id": "a-615-pt",
+    "text": "Alecrim dourado",
+    "level": 1
+  },
+  "a-616-pt": {
+    "id": "a-616-pt",
+    "text": "Sou mais eu",
+    "level": 1
+  },
+  "a-617-pt": {
+    "id": "a-617-pt",
+    "text": "Flanelinha",
+    "level": 2
+  },
+  "a-618-pt": {
+    "id": "a-618-pt",
+    "text": "Levar chumbo grosso",
+    "level": 3
+  },
+  "a-619-pt": {
+    "id": "a-619-pt",
+    "text": "Instigado",
+    "level": 3
+  },
+  "a-620-pt": {
+    "id": "a-620-pt",
+    "text": "Cheiro de azedo",
+    "level": 2
+  },
+  "a-621-pt": {
+    "id": "a-621-pt",
+    "text": "Estar de parabéns",
+    "level": 1
+  },
+  "a-622-pt": {
+    "id": "a-622-pt",
+    "text": "Ciúme doentio",
+    "level": 3
+  },
+  "a-623-pt": {
+    "id": "a-623-pt",
+    "text": "Mas não é essa",
+    "level": 2
+  },
+  "a-624-pt": {
+    "id": "a-624-pt",
+    "text": "Parece, mas não é",
+    "level": 2
+  },
+  "a-625-pt": {
+    "id": "a-625-pt",
+    "text": "Tela Azul",
+    "level": 1
+  },
+  "a-626-pt": {
+    "id": "a-626-pt",
+    "text": "Fazer de propósito",
+    "level": 3
+  },
+  "a-627-pt": {
+    "id": "a-627-pt",
+    "text": "Senta danada!",
+    "level": 1
+  },
+  "a-628-pt": {
+    "id": "a-628-pt",
+    "text": "Piriguete assanhada",
+    "level": 1
+  },
+  "a-629-pt": {
+    "id": "a-629-pt",
+    "text": "Mameluco",
+    "level": 2
+  },
+  "a-630-pt": {
+    "id": "a-630-pt",
+    "text": "Cringe",
+    "level": 2
+  },
+  "a-631-pt": {
+    "id": "a-631-pt",
+    "text": "O contrário de volátil",
+    "level": 2
+  },
+  "a-632-pt": {
+    "id": "a-632-pt",
+    "text": "A diferença de afetivo e efetivo",
+    "level": 1
+  },
+  "a-633-pt": {
+    "id": "a-633-pt",
+    "text": "Imunizada na manicure",
+    "level": 1
+  },
+  "a-634-pt": {
+    "id": "a-634-pt",
+    "text": "Arrombado",
+    "level": 1
+  },
+  "a-635-pt": {
+    "id": "a-635-pt",
+    "text": "Hoje não",
+    "level": 1
+  },
+  "a-636-pt": {
+    "id": "a-636-pt",
+    "text": "Só uma lembrancinha",
+    "level": 1
+  },
+  "a-637-pt": {
+    "id": "a-637-pt",
+    "text": "Porque Deus quis",
+    "level": 1
+  },
+  "a-638-pt": {
+    "id": "a-638-pt",
+    "text": "Feio bonito",
+    "level": 1
+  },
+  "a-639-pt": {
+    "id": "a-639-pt",
+    "text": "De lei",
+    "level": 1
+  },
+  "a-640-pt": {
+    "id": "a-640-pt",
+    "text": "Não deixar passar batido",
+    "level": 1
+  },
+  "a-641-pt": {
+    "id": "a-641-pt",
+    "text": "Moral da história",
+    "level": 2
+  },
+  "a-642-pt": {
+    "id": "a-642-pt",
+    "text": "Zika",
+    "level": 2
+  },
+  "a-643-pt": {
+    "id": "a-643-pt",
+    "text": "Cartão vermelho",
+    "level": 1
+  },
+  "a-644-pt": {
+    "id": "a-644-pt",
+    "text": "Matar no peito",
+    "level": 1
+  },
+  "a-645-pt": {
+    "id": "a-645-pt",
+    "text": "Estocar vento",
+    "level": 1
+  },
+  "a-646-pt": {
+    "id": "a-646-pt",
+    "text": "Farinha do mesmo saco",
+    "level": 1
+  },
+  "a-647-pt": {
+    "id": "a-647-pt",
+    "text": "Gemidão do Zap",
+    "level": 1
+  },
+  "a-648-pt": {
+    "id": "a-648-pt",
+    "text": "COVID-19",
+    "level": 2
+  },
+  "a-649-pt": {
+    "id": "a-649-pt",
+    "text": "Crise existencial",
+    "level": 2
+  },
+  "a-650-pt": {
+    "id": "a-650-pt",
+    "text": "Porque é junto ou separado?",
+    "level": 1
+  },
+  "a-651-pt": {
+    "id": "a-651-pt",
+    "text": "Sexy sem ser vulgar",
+    "level": 1
+  },
+  "a-652-pt": {
+    "id": "a-652-pt",
+    "text": "Vulgar sem ser sexy",
+    "level": 1
+  },
+  "a-653-pt": {
+    "id": "a-653-pt",
+    "text": "Mandar bem",
+    "level": 2
+  },
+  "a-654-pt": {
+    "id": "a-654-pt",
+    "text": "Preferência nacional",
+    "level": 1
+  },
+  "a-655-pt": {
+    "id": "a-655-pt",
+    "text": "De vez e nunca",
+    "level": 3
+  },
+  "a-656-pt": {
+    "id": "a-656-pt",
+    "text": "Atrasada, mas a caminho",
+    "level": 1
+  },
+  "a-657-pt": {
+    "id": "a-657-pt",
+    "text": "Pomba mole",
+    "level": 1
+  },
+  "a-658-pt": {
+    "id": "a-658-pt",
+    "text": "Sem vergonha",
+    "level": 2
+  },
+  "a-659-pt": {
+    "id": "a-659-pt",
+    "text": "Canguiço",
+    "level": 3
+  },
+  "a-660-pt": {
+    "id": "a-660-pt",
+    "text": "Crédito ou débito",
+    "level": 1
+  },
+  "a-661-pt": {
+    "id": "a-661-pt",
+    "text": "Beuzebu",
+    "level": 2
+  },
+  "a-662-pt": {
+    "id": "a-662-pt",
+    "text": "Besta quadrada",
+    "level": 1
+  },
+  "a-663-pt": {
+    "id": "a-663-pt",
+    "text": "Metida à besta",
+    "level": 2
+  },
+  "a-664-pt": {
+    "id": "a-664-pt",
+    "text": "Xolofompila",
+    "level": 3
+  },
+  "a-665-pt": {
+    "id": "a-665-pt",
+    "text": "Cachorro doido",
+    "level": 2
+  },
+  "a-666-pt": {
+    "id": "a-666-pt",
+    "text": "Meio Termo",
+    "level": 1
+  },
+  "a-667-pt": {
+    "id": "a-667-pt",
+    "text": "Estar com nome no SPC",
+    "level": 2
+  },
+  "a-668-pt": {
+    "id": "a-668-pt",
+    "text": "Trazer a dolorosa",
+    "level": 2
+  },
+  "a-669-pt": {
+    "id": "a-669-pt",
+    "text": "Saideira",
+    "level": 1
+  },
+  "a-670-pt": {
+    "id": "a-670-pt",
+    "text": "Lerigou",
+    "level": 2
+  },
+  "a-671-pt": {
+    "id": "a-671-pt",
+    "text": "Experiência enriquecedora",
+    "level": 3
+  },
+  "a-672-pt": {
+    "id": "a-672-pt",
+    "text": "Camarada",
+    "level": 2
+  },
+  "a-673-pt": {
+    "id": "a-673-pt",
+    "text": "Andar mulambenta",
+    "level": 2
+  },
+  "a-674-pt": {
+    "id": "a-674-pt",
+    "text": "Equilíbrio emocional",
+    "level": 1
+  },
+  "a-675-pt": {
+    "id": "a-675-pt",
+    "text": "Saudar a mandioca",
+    "level": 1
+  },
+  "a-676-pt": {
+    "id": "a-676-pt",
+    "text": "Tem, mas acabou",
+    "level": 2
+  },
+  "a-677-pt": {
+    "id": "a-677-pt",
+    "text": "A meta é dobrar a meta",
+    "level": 1
+  },
+  "a-678-pt": {
+    "id": "a-678-pt",
+    "text": "Oxe",
+    "level": 3
+  },
+  "a-679-pt": {
+    "id": "a-679-pt",
+    "text": "Xoxa, capenga, manca, anêmica, frágil e inconsistente",
+    "level": 1
+  },
+  "a-680-pt": {
+    "id": "a-680-pt",
+    "text": "Estar com a terapia em dia",
+    "level": 1
+  },
+  "a-681-pt": {
+    "id": "a-681-pt",
+    "text": "Sofrer mais que a Maria do Bairro",
+    "level": 1
+  },
+  "a-682-pt": {
+    "id": "a-682-pt",
+    "text": "Letra de médico",
+    "level": 2
+  },
+  "a-683-pt": {
+    "id": "a-683-pt",
+    "text": "Não criar pânico",
+    "level": 2
+  },
+  "a-684-pt": {
+    "id": "a-684-pt",
+    "text": "Estar P da vida",
+    "level": 3
+  },
+  "a-685-pt": {
+    "id": "a-685-pt",
+    "text": "Peça rara",
+    "level": 1
+  },
+  "a-686-pt": {
+    "id": "a-686-pt",
+    "text": "Ir para a galera",
+    "level": 2
+  },
+  "a-687-pt": {
+    "id": "a-687-pt",
+    "text": "Oclusão de ambiente",
+    "level": 3
+  },
+  "a-688-pt": {
+    "id": "a-688-pt",
+    "text": "Deixar alguém em paz",
+    "level": 2
+  },
+  "a-689-pt": {
+    "id": "a-689-pt",
+    "text": "Nude inesperado",
+    "level": 2
+  },
+  "a-690-pt": {
+    "id": "a-690-pt",
+    "text": "Pessoa versada em linguística",
+    "level": 2
+  },
+  "a-691-pt": {
+    "id": "a-691-pt",
+    "text": "Triste com tesão",
+    "level": 1
+  },
+  "a-692-pt": {
+    "id": "a-692-pt",
+    "text": "Aqui se faz, aqui se paga",
+    "level": 1
+  },
+  "a-693-pt": {
+    "id": "a-693-pt",
+    "text": "Hackear o face",
+    "level": 2
+  },
+  "a-694-pt": {
+    "id": "a-694-pt",
+    "text": "Abrir chamado",
+    "level": 2
+  },
+  "a-695-pt": {
+    "id": "a-695-pt",
+    "text": "Formado em 17+ temporadas de Grey's Anatomy",
+    "level": 2
+  },
+  "a-696-pt": {
+    "id": "a-696-pt",
+    "text": "Atestado médico",
+    "level": 1
+  },
+  "a-697-pt": {
+    "id": "a-697-pt",
+    "text": "BCG",
+    "level": 2
+  },
+  "a-698-pt": {
+    "id": "a-698-pt",
+    "text": "Reunião que poderia ter sido um e-mail",
+    "level": 2
+  },
+  "a-699-pt": {
+    "id": "a-699-pt",
+    "text": "Borrocado",
+    "level": 3
+  },
+  "a-700-pt": {
+    "id": "a-700-pt",
+    "text": "Rei do camarote",
+    "level": 1
+  },
+  "a-701-pt": {
+    "id": "a-701-pt",
+    "text": "Até que tentei, mas não deu",
+    "level": 3
+  },
+  "a-702-pt": {
+    "id": "a-702-pt",
+    "text": "Acho um pouco bom",
+    "level": 1
+  },
+  "a-703-pt": {
+    "id": "a-703-pt",
+    "text": "Bem mais ou menos",
+    "level": 1
+  },
+  "a-704-pt": {
+    "id": "a-704-pt",
+    "text": "Depende...",
+    "level": 3
+  },
+  "a-705-pt": {
+    "id": "a-705-pt",
+    "text": "Machismo reverso",
+    "level": 1
+  },
+  "a-706-pt": {
+    "id": "a-706-pt",
+    "text": "Mistura que não combina",
+    "level": 3
+  },
+  "a-707-pt": {
+    "id": "a-707-pt",
+    "text": "Descendente de pobre",
+    "level": 2
+  },
+  "a-708-pt": {
+    "id": "a-708-pt",
+    "text": "Sangue azul",
+    "level": 1
+  },
+  "a-709-pt": {
+    "id": "a-709-pt",
+    "text": "Pessoa do bem, calma e educada",
+    "level": 2
+  },
+  "a-710-pt": {
+    "id": "a-710-pt",
+    "text": "Pouca vergonha",
+    "level": 2
+  },
+  "a-711-pt": {
+    "id": "a-711-pt",
+    "text": "Mau caráter",
+    "level": 1
+  },
+  "a-712-pt": {
+    "id": "a-712-pt",
+    "text": "Meus pêsames",
+    "level": 1
+  },
+  "a-713-pt": {
+    "id": "a-713-pt",
+    "text": "Ou ela ou eu",
+    "level": 2
+  },
+  "a-714-pt": {
+    "id": "a-714-pt",
+    "text": "Domingo ela não vai",
+    "level": 2
+  },
+  "a-715-pt": {
+    "id": "a-715-pt",
+    "text": "Ideia estapafúrdia",
+    "level": 1
+  },
+  "a-716-pt": {
+    "id": "a-716-pt",
+    "text": "Seu primo passou em um concurso",
+    "level": 2
+  },
+  "a-717-pt": {
+    "id": "a-717-pt",
+    "text": "Pra ontem",
+    "level": 2
+  },
+  "a-718-pt": {
+    "id": "a-718-pt",
+    "text": "Mamando nas tetas do governo",
+    "level": 1
+  },
+  "a-719-pt": {
+    "id": "a-719-pt",
+    "text": "Funcionário publico privatista",
+    "level": 3
+  },
+  "a-720-pt": {
+    "id": "a-720-pt",
+    "text": "Mudanças eletromagnéticas",
+    "level": 2
+  },
+  "a-721-pt": {
+    "id": "a-721-pt",
+    "text": "Ranço",
+    "level": 2
+  },
+  "a-722-pt": {
+    "id": "a-722-pt",
+    "text": "Extravagante desejo",
+    "level": 3
+  },
+  "a-723-pt": {
+    "id": "a-723-pt",
+    "text": "Saco sem fundo",
+    "level": 1
+  },
+  "a-724-pt": {
+    "id": "a-724-pt",
+    "text": "Livre, leve e solto",
+    "level": 2
+  },
+  "a-725-pt": {
+    "id": "a-725-pt",
+    "text": "Capacidade de superação",
+    "level": 3
+  },
+  "a-726-pt": {
+    "id": "a-726-pt",
+    "text": "Esconder fraqueza",
+    "level": 1
+  },
+  "a-727-pt": {
+    "id": "a-727-pt",
+    "text": "Pequena sutileza",
+    "level": 2
+  },
+  "a-728-pt": {
+    "id": "a-728-pt",
+    "text": "Morreu, mas passa bem",
+    "level": 1
+  },
+  "a-729-pt": {
+    "id": "a-729-pt",
+    "text": "Ir dessa para melhor",
+    "level": 1
+  },
+  "a-730-pt": {
+    "id": "a-730-pt",
+    "text": "Nunca acredite em si mesmo",
+    "level": 2
+  },
+  "a-731-pt": {
+    "id": "a-731-pt",
+    "text": "Ir longe demais",
+    "level": 1
+  },
+  "a-732-pt": {
+    "id": "a-732-pt",
+    "text": "Expressões idiomáticas",
+    "level": 3
+  },
+  "a-733-pt": {
+    "id": "a-733-pt",
+    "text": "Mentir no currículo",
+    "level": 2
+  },
+  "a-734-pt": {
+    "id": "a-734-pt",
+    "text": "Novidade",
+    "level": 2
+  },
+  "a-735-pt": {
+    "id": "a-735-pt",
+    "text": "Rir de nervoso",
+    "level": 1
+  },
+  "a-736-pt": {
+    "id": "a-736-pt",
+    "text": "Corta na frente, pica atrás",
+    "level": 1
+  },
+  "a-737-pt": {
+    "id": "a-737-pt",
+    "text": "Favela da Rocinha",
+    "level": 2
+  },
+  "a-738-pt": {
+    "id": "a-738-pt",
+    "text": "Puxadinho",
+    "level": 2
+  },
+  "a-739-pt": {
+    "id": "a-739-pt",
+    "text": "Amarrar o tchan",
+    "level": 1
+  },
+  "a-740-pt": {
+    "id": "a-740-pt",
+    "text": "Falta de paciência",
+    "level": 3
+  },
+  "a-741-pt": {
+    "id": "a-741-pt",
+    "text": "Estar pregando de suor",
+    "level": 2
+  },
+  "a-742-pt": {
+    "id": "a-742-pt",
+    "text": "App que traduz miados",
+    "level": 1
+  },
+  "a-743-pt": {
+    "id": "a-743-pt",
+    "text": "Hola, que tal?",
+    "level": 1
+  },
+  "a-744-pt": {
+    "id": "a-744-pt",
+    "text": "Conceito aberto",
+    "level": 2
+  },
+  "a-745-pt": {
+    "id": "a-745-pt",
+    "text": "Ideia errada",
+    "level": 2
+  },
+  "a-746-pt": {
+    "id": "a-746-pt",
+    "text": "Acordar de ressaca",
+    "level": 1
+  },
+  "a-747-pt": {
+    "id": "a-747-pt",
+    "text": "Dona e proprietária",
+    "level": 2
+  },
+  "a-748-pt": {
+    "id": "a-748-pt",
+    "text": "Fofoca quentíssima",
+    "level": 2
+  },
+  "a-749-pt": {
+    "id": "a-749-pt",
+    "text": "Ruim pra dedéu",
+    "level": 1
+  },
+  "a-750-pt": {
+    "id": "a-750-pt",
+    "text": "Bom pra caramba",
+    "level": 1
+  },
+  "a-751-pt": {
+    "id": "a-751-pt",
+    "text": "Parceiro pacas",
+    "level": 2
+  },
+  "a-752-pt": {
+    "id": "a-752-pt",
+    "text": "Cara caramba cara caraô",
+    "level": 1
+  },
+  "a-753-pt": {
+    "id": "a-753-pt",
+    "text": "Não responder for si",
+    "level": 3
+  },
+  "a-754-pt": {
+    "id": "a-754-pt",
+    "text": "Passar bem",
+    "level": 1
+  },
+  "a-755-pt": {
+    "id": "a-755-pt",
+    "text": "Descanse em glória",
+    "level": 1
+  },
+  "a-756-pt": {
+    "id": "a-756-pt",
+    "text": "Rainha da sofrência",
+    "level": 1
+  },
+  "a-757-pt": {
+    "id": "a-757-pt",
+    "text": "Desespero justificado",
+    "level": 2
+  },
+  "a-758-pt": {
+    "id": "a-758-pt",
+    "text": "Mania boba",
+    "level": 3
+  },
+  "a-759-pt": {
+    "id": "a-759-pt",
+    "text": "Pecado capital",
+    "level": 1
+  },
+  "a-760-pt": {
+    "id": "a-760-pt",
+    "text": "Motivo bobo e sem importância",
+    "level": 3
+  },
+  "a-761-pt": {
+    "id": "a-761-pt",
+    "text": "Inverter as coisas",
+    "level": 2
+  },
+  "a-762-pt": {
+    "id": "a-762-pt",
+    "text": "Sururu gostoso",
+    "level": 2
+  },
+  "a-763-pt": {
+    "id": "a-763-pt",
+    "text": "Não voltar nunca mais",
+    "level": 2
+  },
+  "a-764-pt": {
+    "id": "a-764-pt",
+    "text": "Macumbeira",
+    "level": 1
+  },
+  "a-765-pt": {
+    "id": "a-765-pt",
+    "text": "Lipada e siliconada",
+    "level": 1
+  },
+  "a-766-pt": {
+    "id": "a-766-pt",
+    "text": "Ata",
+    "level": 2
+  },
+  "a-767-pt": {
+    "id": "a-767-pt",
+    "text": "Brocal e lantejoula",
+    "level": 2
+  },
+  "a-768-pt": {
+    "id": "a-768-pt",
+    "text": "Manobra de Heimlich",
+    "level": 2
+  },
+  "a-769-pt": {
+    "id": "a-769-pt",
+    "text": "Furar fila",
+    "level": 1
+  },
+  "a-770-pt": {
+    "id": "a-770-pt",
+    "text": "Corpo fechado",
+    "level": 1
+  },
+  "a-771-pt": {
+    "id": "a-771-pt",
+    "text": "Descapembada",
+    "level": 3
+  },
+  "a-772-pt": {
+    "id": "a-772-pt",
+    "text": "Meme",
+    "level": 2
+  },
+  "a-773-pt": {
+    "id": "a-773-pt",
+    "text": "Possuído pelo ritmo ragatanga",
+    "level": 2
+  },
+  "a-774-pt": {
+    "id": "a-774-pt",
+    "text": "Mama se mama sa mama coo sa",
+    "level": 3
+  },
+  "a-775-pt": {
+    "id": "a-775-pt",
+    "text": "Ser seu próprio chefe",
+    "level": 3
+  },
+  "a-776-pt": {
+    "id": "a-776-pt",
+    "text": "Super demais",
+    "level": 2
+  },
+  "a-777-pt": {
+    "id": "a-777-pt",
+    "text": "Ex bom é ex morto",
+    "level": 1
+  },
+  "a-778-pt": {
+    "id": "a-778-pt",
+    "text": "E se eu não for?",
+    "level": 3
+  },
+  "a-779-pt": {
+    "id": "a-779-pt",
+    "text": "Um morto muito vivo",
+    "level": 2
+  },
+  "a-780-pt": {
+    "id": "a-780-pt",
+    "text": "Fazer uma boquinha",
+    "level": 1
+  },
+  "a-781-pt": {
+    "id": "a-781-pt",
+    "text": "Boca livre",
+    "level": 1
+  },
+  "a-782-pt": {
+    "id": "a-782-pt",
+    "text": "De lamber os beiços",
+    "level": 1
+  },
+  "a-783-pt": {
+    "id": "a-783-pt",
+    "text": "Mulher de fases",
+    "level": 2
+  },
+  "a-784-pt": {
+    "id": "a-784-pt",
+    "text": "Mãe de pet",
+    "level": 4
+  },
+  "a-785-pt": {
+    "id": "a-785-pt",
+    "text": "Garrafa Pet 2 Litros Tropical Verão",
+    "level": 1
+  },
+  "a-786-pt": {
+    "id": "a-786-pt",
+    "text": "50% ódio, 50% tremedeira",
+    "level": 1
+  },
+  "a-787-pt": {
+    "id": "a-787-pt",
+    "text": "Coco tem acento?",
+    "level": 1
+  },
+  "a-788-pt": {
+    "id": "a-788-pt",
+    "text": "Matar a saudade",
+    "level": 1
+  },
+  "a-789-pt": {
+    "id": "a-789-pt",
+    "text": "Exame de próstata",
+    "level": 1
+  },
+  "a-790-pt": {
+    "id": "a-790-pt",
+    "text": "Saúde!",
+    "level": 3
+  },
+  "a-791-pt": {
+    "id": "a-791-pt",
+    "text": "Vida saudável",
+    "level": 2
+  },
+  "a-792-pt": {
+    "id": "a-792-pt",
+    "text": "Dar uma mãozinha",
+    "level": 4
+  },
+  "a-793-pt": {
+    "id": "a-793-pt",
+    "text": "Peguete",
+    "level": 2
+  },
+  "a-794-pt": {
+    "id": "a-794-pt",
+    "text": "Casinho",
+    "level": 2
+  },
+  "a-795-pt": {
+    "id": "a-795-pt",
+    "text": "De dentro pra fora",
+    "level": 2
+  },
+  "a-796-pt": {
+    "id": "a-796-pt",
+    "text": "Receber propina",
+    "level": 4
+  },
+  "a-797-pt": {
+    "id": "a-797-pt",
+    "text": "Não ter mais idade para isso",
+    "level": 1
+  },
+  "a-798-pt": {
+    "id": "a-798-pt",
+    "text": "Já foi o tempo",
+    "level": 4
+  },
+  "a-799-pt": {
+    "id": "a-799-pt",
+    "text": "Mapa astral",
+    "level": 2
+  },
+  "a-800-pt": {
+    "id": "a-800-pt",
+    "text": "Não estar no mapa",
+    "level": 1
+  },
+  "a-801-pt": {
+    "id": "a-801-pt",
+    "text": "Feio arrumado",
+    "level": 2
+  },
+  "a-802-pt": {
+    "id": "a-802-pt",
+    "text": "Estar tudo uma bosta",
+    "level": 1
+  },
+  "a-803-pt": {
+    "id": "a-803-pt",
+    "text": "Rabisco",
+    "level": 4
+  },
+  "a-804-pt": {
+    "id": "a-804-pt",
+    "text": "Efeito psicológico",
+    "level": 3
+  },
+  "a-805-pt": {
+    "id": "a-805-pt",
+    "text": "Frase de efeito",
+    "level": 2
+  },
+  "a-806-pt": {
+    "id": "a-806-pt",
+    "text": "Fora do sério",
+    "level": 1
+  },
+  "a-807-pt": {
+    "id": "a-807-pt",
+    "text": "Dar show",
+    "level": 2
+  },
+  "a-808-pt": {
+    "id": "a-808-pt",
+    "text": "Vai ordinária",
+    "level": 2
+  },
+  "a-809-pt": {
+    "id": "a-809-pt",
+    "text": "Luz na passarela que lá vem ela",
+    "level": 4
+  },
+  "a-810-pt": {
+    "id": "a-810-pt",
+    "text": "Na pegada do bambu do bambo bambu do bambu do bambolê",
+    "level": 4
+  },
+  "a-811-pt": {
+    "id": "a-811-pt",
+    "text": "Monobola",
+    "level": 1
+  },
+  "a-812-pt": {
+    "id": "a-812-pt",
+    "text": "Xurastei ou xuragou",
+    "level": 2
+  },
+  "a-813-pt": {
+    "id": "a-813-pt",
+    "text": "Quem converte não se diverte",
+    "level": 2
+  },
+  "a-814-pt": {
+    "id": "a-814-pt",
+    "text": "Parcelado ou à vista?",
+    "level": 1
+  },
+  "a-815-pt": {
+    "id": "a-815-pt",
+    "text": "Perrengue chique",
+    "level": 2
+  },
+  "a-816-pt": {
+    "id": "a-816-pt",
+    "text": "Coach de fracassos",
+    "level": 3
+  },
+  "a-817-pt": {
+    "id": "a-817-pt",
+    "text": "Usuário não encontrado",
+    "level": 1
+  },
+  "a-818-pt": {
+    "id": "a-818-pt",
+    "text": "Não ser bom em nada",
+    "level": 2
+  },
+  "a-819-pt": {
+    "id": "a-819-pt",
+    "text": "Famoso no TikTok",
+    "level": 2
+  },
+  "a-820-pt": {
+    "id": "a-820-pt",
+    "text": "O show tem que continuar",
+    "level": 2
+  },
+  "a-821-pt": {
+    "id": "a-821-pt",
+    "text": "Choquei na chocadeira",
+    "level": 1
+  },
+  "a-822-pt": {
+    "id": "a-822-pt",
+    "text": "De cair o cu da bunda",
+    "level": 4
+  },
+  "a-823-pt": {
+    "id": "a-823-pt",
+    "text": "Cara de carranca",
+    "level": 1
+  },
+  "a-824-pt": {
+    "id": "a-824-pt",
+    "text": "Não sei o que lá",
+    "level": 1
+  },
+  "a-825-pt": {
+    "id": "a-825-pt",
+    "text": "Summer Eletrohits",
+    "level": 2
+  },
+  "a-826-pt": {
+    "id": "a-826-pt",
+    "text": "Gugu dada",
+    "level": 1
+  },
+  "a-827-pt": {
+    "id": "a-827-pt",
+    "text": "Wolverine triste",
+    "level": 1
+  },
+  "a-828-pt": {
+    "id": "a-828-pt",
+    "text": "Manjar bem",
+    "level": 3
+  },
+  "a-829-pt": {
+    "id": "a-829-pt",
+    "text": "Ser \"profissa\"",
+    "level": 3
+  },
+  "a-830-pt": {
+    "id": "a-830-pt",
+    "text": "Saber lá Deus quando",
+    "level": 2
+  },
+  "a-831-pt": {
+    "id": "a-831-pt",
+    "text": "Deus é pai",
+    "level": 2
+  },
+  "a-832-pt": {
+    "id": "a-832-pt",
+    "text": "Só Deus sabe",
+    "level": 2
+  },
+  "a-833-pt": {
+    "id": "a-833-pt",
+    "text": "Fazer a egípcia",
+    "level": 1
+  },
+  "a-834-pt": {
+    "id": "a-834-pt",
+    "text": "Ser da cor do pecado",
+    "level": 2
+  },
+  "a-835-pt": {
+    "id": "a-835-pt",
+    "text": "E com as cores do vento colorir",
+    "level": 4
+  },
+  "a-836-pt": {
+    "id": "a-836-pt",
+    "text": "Estar cheio de roxos",
+    "level": 2
+  },
+  "a-837-pt": {
+    "id": "a-837-pt",
+    "text": "Carreta furacão",
+    "level": 2
+  },
+  "a-838-pt": {
+    "id": "a-838-pt",
+    "text": "Deu ruim",
+    "level": 3
+  },
+  "a-839-pt": {
+    "id": "a-839-pt",
+    "text": "Ao infinito e além",
+    "level": 2
+  },
+  "a-840-pt": {
+    "id": "a-840-pt",
+    "text": "Sair do controle",
+    "level": 2
+  },
+  "a-841-pt": {
+    "id": "a-841-pt",
+    "text": "Se não for vai ficar sendo",
+    "level": 2
+  },
+  "a-842-pt": {
+    "id": "a-842-pt",
+    "text": "Sem dó nem piedade",
+    "level": 3
+  },
+  "a-843-pt": {
+    "id": "a-843-pt",
+    "text": "Misericórdia",
+    "level": 3
+  },
+  "a-844-pt": {
+    "id": "a-844-pt",
+    "text": "Descontrole financeiro",
+    "level": 1
+  },
+  "a-845-pt": {
+    "id": "a-845-pt",
+    "text": "Intestino preso",
+    "level": 1
+  },
+  "a-846-pt": {
+    "id": "a-846-pt",
+    "text": "Autoboicote",
+    "level": 3
+  },
+  "a-847-pt": {
+    "id": "a-847-pt",
+    "text": "Só lamento",
+    "level": 1
+  },
+  "a-848-pt": {
+    "id": "a-848-pt",
+    "text": "Lindo, tesão, bonito e gostosão",
+    "level": 2
+  },
+  "a-849-pt": {
+    "id": "a-849-pt",
+    "text": "Ishalá",
+    "level": 3
+  },
+  "a-850-pt": {
+    "id": "a-850-pt",
+    "text": "Obrigado você",
+    "level": 4
+  },
+  "a-851-pt": {
+    "id": "a-851-pt",
+    "text": "Obrigado Deus",
+    "level": 2
+  },
+  "a-852-pt": {
+    "id": "a-852-pt",
+    "text": "Não ter mais salvação",
+    "level": 2
+  },
+  "a-853-pt": {
+    "id": "a-853-pt",
+    "text": "Ser porra louca",
+    "level": 3
+  },
+  "a-854-pt": {
+    "id": "a-854-pt",
+    "text": "Subir pelas paredes",
+    "level": 2
+  },
+  "a-855-pt": {
+    "id": "a-855-pt",
+    "text": "Peido cheiroso",
+    "level": 1
+  },
+  "a-856-pt": {
+    "id": "a-856-pt",
+    "text": "Peido silencioso",
+    "level": 1
+  },
+  "a-857-pt": {
+    "id": "a-857-pt",
+    "text": "Jesus humilha Satanás",
+    "level": 1
+  },
+  "a-858-pt": {
+    "id": "a-858-pt",
+    "text": "Fazer papel de trouxa",
+    "level": 3
+  },
+  "a-859-pt": {
+    "id": "a-859-pt",
+    "text": "Filar bóia",
+    "level": 2
+  },
+  "a-860-pt": {
+    "id": "a-860-pt",
+    "text": "Bóia fria",
+    "level": 2
+  },
+  "a-861-pt": {
+    "id": "a-861-pt",
+    "text": "Lindo de morrer",
+    "level": 3
+  },
+  "a-862-pt": {
+    "id": "a-862-pt",
+    "text": "Quanto mais queijo, menos queijo",
+    "level": 1
+  },
+  "a-863-pt": {
+    "id": "a-863-pt",
+    "text": "Quem mexeu no meu queijo",
+    "level": 1
+  },
+  "a-864-pt": {
+    "id": "a-864-pt",
+    "text": "Hilda Furação",
+    "level": 1
+  },
+  "a-865-pt": {
+    "id": "a-865-pt",
+    "text": "Obrigado senhor!",
+    "level": 2
+  },
+  "a-866-pt": {
+    "id": "a-866-pt",
+    "text": "Virar sem ser nessa na outra",
+    "level": 1
+  },
+  "a-867-pt": {
+    "id": "a-867-pt",
+    "text": "Cheio de manias",
+    "level": 3
+  },
+  "a-868-pt": {
+    "id": "a-868-pt",
+    "text": "Estar delirando",
+    "level": 3
+  },
+  "a-869-pt": {
+    "id": "a-869-pt",
+    "text": "Nem doeu",
+    "level": 2
+  },
+  "a-870-pt": {
+    "id": "a-870-pt",
+    "text": "Pode crer",
+    "level": 2
+  },
+  "a-871-pt": {
+    "id": "a-871-pt",
+    "text": "Estar de greve",
+    "level": 3
+  },
+  "a-872-pt": {
+    "id": "a-872-pt",
+    "text": "Cheia de charme",
+    "level": 3
+  },
+  "a-873-pt": {
+    "id": "a-873-pt",
+    "text": "Milagre da multiplicação",
+    "level": 1
+  },
+  "a-874-pt": {
+    "id": "a-874-pt",
+    "text": "Jogo online não tem pause",
+    "level": 2
+  },
+  "a-875-pt": {
+    "id": "a-875-pt",
+    "text": "Obrigado a todos",
+    "level": 4
+  },
+  "a-876-pt": {
+    "id": "a-876-pt",
+    "text": "Não ser obrigada a nada",
+    "level": 3
+  },
+  "a-877-pt": {
+    "id": "a-877-pt",
+    "text": "Não fazer mais que a obrigação",
+    "level": 3
+  },
+  "a-878-pt": {
+    "id": "a-878-pt",
+    "text": "Um plus a mais",
+    "level": 4
+  }
+}
