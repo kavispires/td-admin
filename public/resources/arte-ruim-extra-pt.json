@@ -30,7 +30,8 @@
       "a-2-pt": "À moda antiga",
       "a-115-pt": "Fora de moda",
       "a-126-pt": "Inventar moda",
-      "a-378-pt": "Roupa de ir"
+      "a-378-pt": "Roupa de ir",
+      "a-247-pt": "Desbotado"
     }
   },
   "ax-4-pt": {
@@ -66,7 +67,8 @@
       "a-261-pt": "Espirito de aventura",
       "a-799-pt": "Mapa Astral",
       "a-20-pt": "Atalho",
-      "a-171-pt": "Procurando encrenca"
+      "a-171-pt": "Procurando encrenca",
+      "a-800-pt": "Não estar no mapa"
     }
   },
   "ax-7-pt": {
@@ -78,7 +80,8 @@
       "a-108-pt": "Favelado",
       "a-107-pt": "Farofeiro",
       "a-357-pt": "Pose de maloqueiro",
-      "a-312-pt": "Malandro"
+      "a-312-pt": "Malandro",
+      "a-932-pt": "Pobre coitado"
     }
   },
   "ax-8-pt": {
@@ -186,7 +189,9 @@
       "a-106-pt": "Falta de comunicação",
       "a-384-pt": "Sem palavras",
       "a-385-pt": "Sem papas na língua",
-      "a-243-pt": "De poucas palavras"
+      "a-243-pt": "De poucas palavras",
+      "a-173-pt": "Puxar conversa",
+      "a-217-pt": "Bem que eu te falei"
     }
   },
   "ax-18-pt": {
@@ -284,7 +289,8 @@
       "a-803-pt": "Rabisco",
       "a-213-pt": "Arriscado",
       "a-699-pt": "Borrocado",
-      "a-95-pt": "Enrolação"
+      "a-95-pt": "Enrolação",
+      "a-929-pt": "Arte Barroca"
     }
   },
   "ax-26-pt": {
@@ -475,7 +481,10 @@
       "a-796-pt": "Receber propina",
       "a-395-pt": "Última oferta",
       "a-240-pt": "Dar crédito",
-      "a-814-pt": "Parcelado ou à vista?"
+      "a-814-pt": "Parcelado ou à vista?",
+      "a-249-pt": "Desemprego",
+      "a-374-pt": "Riqueza de detalhes",
+      "a-923-pt": "Rico em cálcio"
     }
   },
   "ax-43-pt": {
@@ -496,7 +505,10 @@
     "cards": {
       "a-738-pt": "Puxadinho",
       "a-737-pt": "Favela da Rocinha",
-      "a-188-pt": "Ser de casa"
+      "a-188-pt": "Ser de casa",
+      "a-896-pt": "Tati Quebra Barraco",
+      "a-926-pt": "Quebrar o barraco",
+      "a-927-pt": "Armar a barraca"
     }
   },
   "ax-45-pt": {
@@ -602,7 +614,8 @@
       "a-196-pt": "Vem fácil, vai fácil",
       "a-469-pt": "Mal que vem pro bem",
       "a-210-pt": "Antes e depois",
-      "a-20-pt": "Atalho"
+      "a-20-pt": "Atalho",
+      "a-206-pt": "Acima da média"
     }
   },
   "ax-56-pt": {
@@ -746,7 +759,9 @@
     "cards": {
       "a-822-pt": "De cair o cu da bunda",
       "a-21-pt": "Até o cu fazer bico",
-      "a-155-pt": "Opinião é igual cu"
+      "a-155-pt": "Opinião é igual cu",
+      "a-855-pt": "Peido cheiroso",
+      "a-856-pt": "Peido silencioso"
     }
   },
   "ax-68-pt": {
@@ -771,7 +786,11 @@
       "a-831-pt": "Deus é pai",
       "a-832-pt": "Só Deus sabe",
       "a-94-pt": "Encontrar Jesus",
-      "a-579-pt": "Todo poderoso"
+      "a-579-pt": "Todo poderoso",
+      "a-857-pt": "Jesus humilha Satanás",
+      "a-851-pt": "Obrigado Deus",
+      "a-894-pt": "Pra Deus e o mundo",
+      "a-901-pt": "Pelo amor de Deus"
     }
   },
   "ax-70-pt": {
@@ -881,6 +900,24 @@
       "a-776-pt": "Super demais",
       "a-610-pt": "Seje menas",
       "a-878-pt": "Um plus a mais"
+    }
+  },
+  "ax-79-pt": {
+    "id": "ax-79-pt",
+    "theme": "alarme",
+    "cards": {
+      "a-883-pt": "Alerta vermelho",
+      "a-7-pt": "Alarme falso",
+      "a-560-pt": "Sinal de emergência"
+    }
+  },
+  "ax-80-pt": {
+    "id": "ax-80-pt",
+    "theme": "peido",
+    "cards": {
+      "a-883-pt": "Alerta vermelho",
+      "a-7-pt": "Alarme falso",
+      "a-560-pt": "Sinal de emergência"
     }
   }
 }
