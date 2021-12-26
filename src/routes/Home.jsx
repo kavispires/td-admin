@@ -37,6 +37,9 @@ function Home() {
           <Link to="/level4" className="home-link">
             <DoubleRightOutlined /> Arte Ruim: Level 4
           </Link>
+          <Link to="/other" className="home-link">
+            <DoubleRightOutlined /> Other
+          </Link>
         </Space>
       )}
     </div>
