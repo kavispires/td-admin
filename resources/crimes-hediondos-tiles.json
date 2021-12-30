@@ -1,0 +1,1186 @@
+[
+  {
+    "title": {
+      "en": "Cause of Death",
+      "pt": "Cause da Morte"
+    },
+    "values": [
+      {
+        "en": "Suffocation",
+        "pt": "Sufocamento"
+      },
+      {
+        "en": "Severe Injury",
+        "pt": "Lesão Grave"
+      },
+      {
+        "en": "Loss of Blood",
+        "pt": "Perda de Sangue"
+      },
+      {
+        "en": "Illness/Disease",
+        "pt": "Doença/Infecção"
+      },
+      {
+        "en": "Poisoning",
+        "pt": "Envenenamento"
+      },
+      {
+        "en": "Accident",
+        "pt": "Acidente"
+      }
+    ],
+    "id": "starting-tile-cause",
+    "type": "cause"
+  },
+  {
+    "title": {
+      "en": "Took as souvenir",
+      "pt": "Levou de lembrança"
+    },
+    "values": [
+      {
+        "en": "Left on top of the body",
+        "pt": "Deixou em cima do corpo"
+      },
+      {
+        "en": "Moved it to an odd place",
+        "pt": "Colocou em um local incomum"
+      },
+      {
+        "en": "Saw in the crime scene",
+        "pt": "Viu na cena do crime"
+      },
+      {
+        "en": "Wore/used it while committing the crime",
+        "pt": "Usou enquanto cometia o crime"
+      },
+      {
+        "en": "Was the victim's",
+        "pt": "Era da vítima"
+      },
+      {
+        "en": "Was how you got close to the victim ",
+        "pt": "Foi o que ajudou a se aproximar da vítima"
+      }
+    ],
+    "id": "starting-tile-evidence",
+    "type": "evidence"
+  },
+  {
+    "title": {
+      "en": "Location of Crime",
+      "pt": "Local do Crime"
+    },
+    "values": [
+      {
+        "en": "Living Room",
+        "pt": "Sala"
+      },
+      {
+        "en": "Bedroom",
+        "pt": "Quarto"
+      },
+      {
+        "en": "Storeroom",
+        "pt": "Despensa"
+      },
+      {
+        "en": "Bathroom",
+        "pt": "Banheiro"
+      },
+      {
+        "en": "Kitchen",
+        "pt": "Cozinha"
+      },
+      {
+        "en": "Balcony",
+        "pt": "Varanda"
+      }
+    ],
+    "id": "location-tile-1",
+    "type": "location"
+  },
+  {
+    "title": {
+      "en": "Location of Crime",
+      "pt": "Local do Crime"
+    },
+    "values": [
+      {
+        "en": "Playground",
+        "pt": "Parquinho"
+      },
+      {
+        "en": "Classroom",
+        "pt": "Sala de aula"
+      },
+      {
+        "en": "Dormitory",
+        "pt": "Dormitório"
+      },
+      {
+        "en": "Cafeteria",
+        "pt": "Lanchonete"
+      },
+      {
+        "en": "Elevator",
+        "pt": "Elevador"
+      },
+      {
+        "en": "Toilet",
+        "pt": "Banheiro"
+      }
+    ],
+    "id": "location-tile-2",
+    "type": "location"
+  },
+  {
+    "title": {
+      "en": "Location of Crime",
+      "pt": "Local do Crime"
+    },
+    "values": [
+      {
+        "en": "Vacation Home",
+        "pt": "Casa de campo"
+      },
+      {
+        "en": "Park",
+        "pt": "Parque"
+      },
+      {
+        "en": "Supermarket",
+        "pt": "Supermercado"
+      },
+      {
+        "en": "School",
+        "pt": "Escola"
+      },
+      {
+        "en": "Woods",
+        "pt": "Mato"
+      },
+      {
+        "en": "Bank",
+        "pt": "Banco"
+      }
+    ],
+    "id": "location-tile-3",
+    "type": "location"
+  },
+  {
+    "title": {
+      "en": "Location of Crime",
+      "pt": "Local do Crime"
+    },
+    "values": [
+      {
+        "en": "Pub",
+        "pt": "Bar"
+      },
+      {
+        "en": "Bookstore",
+        "pt": "Livraria"
+      },
+      {
+        "en": "Restaurant",
+        "pt": "Restaurante"
+      },
+      {
+        "en": "Hotel",
+        "pt": "Hotel"
+      },
+      {
+        "en": "Hospital",
+        "pt": "Hospital"
+      },
+      {
+        "en": "Building Site",
+        "pt": "Construção"
+      }
+    ],
+    "id": "location-tile-4",
+    "type": "location"
+  },
+  {
+    "title": {
+      "en": "Ambient Noise",
+      "pt": "Som Ambiente"
+    },
+    "values": [
+      {
+        "en": "Nature",
+        "pt": "Natureza"
+      },
+      {
+        "en": "Traffic",
+        "pt": "Trânsito"
+      },
+      {
+        "en": "People",
+        "pt": "Pessoas"
+      },
+      {
+        "en": "Machines",
+        "pt": "Máquinas"
+      },
+      {
+        "en": "Energy",
+        "pt": "Energia"
+      },
+      {
+        "en": "Silence",
+        "pt": "Silêncio"
+      }
+    ],
+    "id": "scene-1",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Corpse Condition",
+      "pt": "Condição do Corpo"
+    },
+    "values": [
+      {
+        "en": "Still Warm",
+        "pt": "Ainda quente"
+      },
+      {
+        "en": "Stiff",
+        "pt": "Rígido"
+      },
+      {
+        "en": "Decayed",
+        "pt": "Decomposto"
+      },
+      {
+        "en": "Incomplete",
+        "pt": "Incompleto"
+      },
+      {
+        "en": "Intact",
+        "pt": "Intacto"
+      },
+      {
+        "en": "Twisted",
+        "pt": "Retorcido"
+      }
+    ],
+    "id": "scene-2",
+    "type": "scene",
+    "specific": "weapon"
+  },
+  {
+    "title": {
+      "en": "Day of Crime",
+      "pt": "Dia do Crime"
+    },
+    "values": [
+      {
+        "en": "Weekday",
+        "pt": "Dia de Semana"
+      },
+      {
+        "en": "Weekend",
+        "pt": "Fim de Semana"
+      },
+      {
+        "en": "Spring",
+        "pt": "Primavera"
+      },
+      {
+        "en": "Summer",
+        "pt": "Verão"
+      },
+      {
+        "en": "Autumn",
+        "pt": "Outono"
+      },
+      {
+        "en": "Winter",
+        "pt": "Inverno"
+      }
+    ],
+    "id": "scene-3",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Duration of Crime",
+      "pt": "Duração do Crime"
+    },
+    "values": [
+      {
+        "en": "Instantaneous",
+        "pt": "Instantâneo"
+      },
+      {
+        "en": "Brief",
+        "pt": "Rápido"
+      },
+      {
+        "en": "Gradual",
+        "pt": "Gradual"
+      },
+      {
+        "en": "Prolonged",
+        "pt": "Prolongado"
+      },
+      {
+        "en": "Few Days",
+        "pt": "Alguns Dias"
+      },
+      {
+        "en": "Unclear",
+        "pt": "Inconclusivo"
+      }
+    ],
+    "id": "scene-4",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Evidence Left Behind",
+      "pt": "Evidência Deixada Pra Trás"
+    },
+    "values": [
+      {
+        "en": "Natural",
+        "pt": "Natural"
+      },
+      {
+        "en": "Artistic",
+        "pt": "Artístico"
+      },
+      {
+        "en": "Written",
+        "pt": "Escrito"
+      },
+      {
+        "en": "Synthetic",
+        "pt": "Sintético"
+      },
+      {
+        "en": "Personal",
+        "pt": "Pessoal"
+      },
+      {
+        "en": "Unrelated",
+        "pt": "Irrelevante"
+      }
+    ],
+    "id": "scene-5",
+    "type": "scene",
+    "specific": "evidence"
+  },
+  {
+    "title": {
+      "en": "General Impression",
+      "pt": "Impressão Geral"
+    },
+    "values": [
+      {
+        "en": "Common",
+        "pt": "Comum"
+      },
+      {
+        "en": "Creative",
+        "pt": "Criativo"
+      },
+      {
+        "en": "Fishy",
+        "pt": "Suspeito"
+      },
+      {
+        "en": "Cruel",
+        "pt": "Cruel"
+      },
+      {
+        "en": "Horrible",
+        "pt": "Horrível"
+      },
+      {
+        "en": "Suspenseful",
+        "pt": "Misterioso"
+      }
+    ],
+    "id": "scene-6",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Hint on Corpse",
+      "pt": "Detalhe no Corpo"
+    },
+    "values": [
+      {
+        "en": "Head",
+        "pt": "Cabeça"
+      },
+      {
+        "en": "Chest",
+        "pt": "Peito"
+      },
+      {
+        "en": "Hand",
+        "pt": "Mão"
+      },
+      {
+        "en": "Leg",
+        "pt": "Perna"
+      },
+      {
+        "en": "Partial",
+        "pt": "Parcial"
+      },
+      {
+        "en": "All-over",
+        "pt": "Pra Todo Lado"
+      }
+    ],
+    "id": "scene-7",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "In Progress",
+      "pt": "Em Andamento"
+    },
+    "values": [
+      {
+        "en": "Entertainment",
+        "pt": "Entretenimento"
+      },
+      {
+        "en": "Relaxation",
+        "pt": "Descanso"
+      },
+      {
+        "en": "Assembly",
+        "pt": "Reunião"
+      },
+      {
+        "en": "Trading",
+        "pt": "Negociação/Comércio"
+      },
+      {
+        "en": "Visit",
+        "pt": "Visita"
+      },
+      {
+        "en": "Dining",
+        "pt": "Refeição"
+      }
+    ],
+    "id": "scene-8",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Noticed by Bystander",
+      "pt": "Percebido por Transeunte"
+    },
+    "values": [
+      {
+        "en": "Sudden sound",
+        "pt": "Ruído Súbito"
+      },
+      {
+        "en": "Prolonged Sound",
+        "pt": "Ruído Prolongado"
+      },
+      {
+        "en": "Smell",
+        "pt": "Cheiro"
+      },
+      {
+        "en": "Visual",
+        "pt": "Algo visual"
+      },
+      {
+        "en": "Action",
+        "pt": "Uma Ação"
+      },
+      {
+        "en": "Nothing",
+        "pt": "Nada"
+      }
+    ],
+    "id": "scene-9",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Motive of Crime",
+      "pt": "Motivo do Crime"
+    },
+    "values": [
+      {
+        "en": "Hatred",
+        "pt": "Ódio"
+      },
+      {
+        "en": "Power",
+        "pt": "Poder"
+      },
+      {
+        "en": "Money",
+        "pt": "Dinheiro"
+      },
+      {
+        "en": "Love",
+        "pt": "Amor"
+      },
+      {
+        "en": "Jealousy",
+        "pt": "Ciúme/Inveja"
+      },
+      {
+        "en": "Justice",
+        "pt": "Justiça"
+      }
+    ],
+    "id": "scene-10",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Murder Inspired By",
+      "pt": "Inspiração para o Crime"
+    },
+    "values": [
+      {
+        "en": "Television",
+        "pt": "Televisão"
+      },
+      {
+        "en": "Copycat",
+        "pt": "Imitação"
+      },
+      {
+        "en": "Passion",
+        "pt": "Passional"
+      },
+      {
+        "en": "Carelessness",
+        "pt": "Negligência"
+      },
+      {
+        "en": "Politics",
+        "pt": "Política"
+      },
+      {
+        "en": "None",
+        "pt": "Nada"
+      }
+    ],
+    "id": "scene-11",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Murderer's Personality",
+      "pt": "Personalidade do Assassino"
+    },
+    "values": [
+      {
+        "en": "Arrogant",
+        "pt": "Arrogante"
+      },
+      {
+        "en": "Despicable",
+        "pt": "Mesquinho"
+      },
+      {
+        "en": "Furious",
+        "pt": "Impetuoso"
+      },
+      {
+        "en": "Greedy",
+        "pt": "Ganancioso"
+      },
+      {
+        "en": "Forceful",
+        "pt": "Forte"
+      },
+      {
+        "en": "Perverted",
+        "pt": "Pervertido"
+      }
+    ],
+    "id": "scene-12",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Murder Weapon",
+      "pt": "Arma do Crime"
+    },
+    "values": [
+      {
+        "en": "Easily Accessible",
+        "pt": "Fácil de Achar"
+      },
+      {
+        "en": "Difficult to Acquire",
+        "pt": "Difícil de Achar"
+      },
+      {
+        "en": "Already at the Scene",
+        "pt": "Já estava na cena do crime"
+      },
+      {
+        "en": "Belonged to Killer",
+        "pt": "Pertencia ao assassino"
+      },
+      {
+        "en": "Unexpected",
+        "pt": "Inesperado"
+      },
+      {
+        "en": "Missing",
+        "pt": "Não encontrada"
+      }
+    ],
+    "id": "scene-13",
+    "type": "scene",
+    "specific": "weapon"
+  },
+  {
+    "title": {
+      "en": "Perceived by Sixth Sense",
+      "pt": "Perceptível pelo Sexto Sentido"
+    },
+    "values": [
+      {
+        "en": "Bright Colors",
+        "pt": "Cores Vibrantes"
+      },
+      {
+        "en": "Strong Emotion",
+        "pt": "Emoção forte"
+      },
+      {
+        "en": "Vague Unease",
+        "pt": "Desconforto"
+      },
+      {
+        "en": "Familiarity",
+        "pt": "Familiaridade"
+      },
+      {
+        "en": "A Sense of Betrayal",
+        "pt": "Uma sensação de traição"
+      },
+      {
+        "en": "Utter Confusion",
+        "pt": "Confusão total"
+      }
+    ],
+    "id": "scene-14",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Smell in the Air",
+      "pt": "Cheiro no Ar"
+    },
+    "values": [
+      {
+        "en": "Chemical",
+        "pt": "Químico"
+      },
+      {
+        "en": "Perfume",
+        "pt": "Perfume"
+      },
+      {
+        "en": "Human Waste",
+        "pt": "Dejetos Humanos"
+      },
+      {
+        "en": "Flowers",
+        "pt": "Flores"
+      },
+      {
+        "en": "Garbage",
+        "pt": "Lixo"
+      },
+      {
+        "en": "Food",
+        "pt": "Comida"
+      }
+    ],
+    "id": "scene-15",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Social Relationship",
+      "pt": "Relacionamento Social"
+    },
+    "values": [
+      {
+        "en": "Relatives",
+        "pt": "Parentes"
+      },
+      {
+        "en": "Friends",
+        "pt": "Amigos"
+      },
+      {
+        "en": "Colleagues",
+        "pt": "Colegas de Trabalho"
+      },
+      {
+        "en": "Employer/Employee",
+        "pt": "Patrão/Empregado"
+      },
+      {
+        "en": "Lovers",
+        "pt": "Amoroso"
+      },
+      {
+        "en": "Strangers",
+        "pt": "Desconhecidos"
+      }
+    ],
+    "id": "scene-16",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "State of the Scene",
+      "pt": "Estado da Cena do Crime"
+    },
+    "values": [
+      {
+        "en": "Bits and Pieces",
+        "pt": "Cheio de coisas"
+      },
+      {
+        "en": "Ashes",
+        "pt": "Cinzas"
+      },
+      {
+        "en": "Water Stain",
+        "pt": "Molhado"
+      },
+      {
+        "en": "Cracked",
+        "pt": "Rachadura"
+      },
+      {
+        "en": "Disorderly",
+        "pt": "Bagunçado"
+      },
+      {
+        "en": "Tidy",
+        "pt": "Arrumado"
+      }
+    ],
+    "id": "scene-17",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Sudden Incident",
+      "pt": "Sudden Incident"
+    },
+    "values": [
+      {
+        "en": "Power Failure",
+        "pt": "Apagão"
+      },
+      {
+        "en": "Fire",
+        "pt": "Fogo"
+      },
+      {
+        "en": "Conflict",
+        "pt": "Conflito"
+      },
+      {
+        "en": "Loss of Valuables",
+        "pt": "Desaparecimento de items de valor"
+      },
+      {
+        "en": "Scream",
+        "pt": "Grito"
+      },
+      {
+        "en": "Nothing",
+        "pt": "Nada"
+      }
+    ],
+    "id": "scene-18",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Time of Death",
+      "pt": "Hora da Morte"
+    },
+    "values": [
+      {
+        "en": "Drawn",
+        "pt": "Amanhecer"
+      },
+      {
+        "en": "Morning",
+        "pt": "Manhã"
+      },
+      {
+        "en": "Noon",
+        "pt": "Meio-dia"
+      },
+      {
+        "en": "Afternoon",
+        "pt": "Tarde"
+      },
+      {
+        "en": "Evening",
+        "pt": "Noite"
+      },
+      {
+        "en": "Night",
+        "pt": "Madrugada"
+      }
+    ],
+    "id": "scene-19",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Trace at the Scene",
+      "pt": "Vestígios na Cena do Crime"
+    },
+    "values": [
+      {
+        "en": "Fingerprint",
+        "pt": "Impressões digitais"
+      },
+      {
+        "en": "Footprint",
+        "pt": "Pegadas"
+      },
+      {
+        "en": "Bruise",
+        "pt": "Hematoma"
+      },
+      {
+        "en": "Blood Stain",
+        "pt": "Mancha de sangue"
+      },
+      {
+        "en": "Bodily Fluid",
+        "pt": "Fluido Corporal"
+      },
+      {
+        "en": "Scar",
+        "pt": "Cicatriz"
+      }
+    ],
+    "id": "scene-20",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Victim's Build",
+      "pt": "Porte da Vítima"
+    },
+    "values": [
+      {
+        "en": "Large",
+        "pt": "Grande"
+      },
+      {
+        "en": "Thin",
+        "pt": "Magro"
+      },
+      {
+        "en": "Tall",
+        "pt": "Alto"
+      },
+      {
+        "en": "Short",
+        "pt": "Baixo"
+      },
+      {
+        "en": "Disfigured",
+        "pt": "Desfigurado"
+      },
+      {
+        "en": "Fit",
+        "pt": "Malhado"
+      }
+    ],
+    "id": "scene-21",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Victim's Clothes",
+      "pt": "Roupas da Vítima"
+    },
+    "values": [
+      {
+        "en": "Neat",
+        "pt": "Limpo"
+      },
+      {
+        "en": "Untidy",
+        "pt": "Bagunçado"
+      },
+      {
+        "en": "Elegant",
+        "pt": "Elegante"
+      },
+      {
+        "en": "Shabby",
+        "pt": "Maltrapilho"
+      },
+      {
+        "en": "Bizarre",
+        "pt": "Bizarro"
+      },
+      {
+        "en": "Naked",
+        "pt": "Pelado"
+      }
+    ],
+    "id": "scene-22",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Victim's Expression",
+      "pt": "Expressão da Vítima"
+    },
+    "values": [
+      {
+        "en": "Peaceful",
+        "pt": "Calmo"
+      },
+      {
+        "en": "Struggling",
+        "pt": "Tentando se defender"
+      },
+      {
+        "en": "Frightened",
+        "pt": "Assustado"
+      },
+      {
+        "en": "In Pain",
+        "pt": "Com dor"
+      },
+      {
+        "en": "Blank",
+        "pt": "Sem expressão"
+      },
+      {
+        "en": "Angry",
+        "pt": "Zangado"
+      }
+    ],
+    "id": "scene-23",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Victim's Hobbies",
+      "pt": "Hobbies da Vítima"
+    },
+    "values": [
+      {
+        "en": "Science",
+        "pt": "Ciência"
+      },
+      {
+        "en": "Games",
+        "pt": "Jogos"
+      },
+      {
+        "en": "Adventure",
+        "pt": "Aventura"
+      },
+      {
+        "en": "Food",
+        "pt": "Comida"
+      },
+      {
+        "en": "The Arts",
+        "pt": "Arte"
+      },
+      {
+        "en": "Fashion",
+        "pt": "Moda"
+      }
+    ],
+    "id": "scene-24",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Victim's Identity",
+      "pt": "Identidade da Vítima"
+    },
+    "values": [
+      {
+        "en": "Child",
+        "pt": "Criança"
+      },
+      {
+        "en": "Young Adult",
+        "pt": "Jovem-Adulto"
+      },
+      {
+        "en": "Middle-Aged",
+        "pt": "Quarentão"
+      },
+      {
+        "en": "Senior",
+        "pt": "Idoso"
+      },
+      {
+        "en": "Male",
+        "pt": "Homem"
+      },
+      {
+        "en": "Female",
+        "pt": "Mulher"
+      }
+    ],
+    "id": "scene-25",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Victim's Occupation",
+      "pt": "Profissão da Vítima"
+    },
+    "values": [
+      {
+        "en": "Boss",
+        "pt": "Chefe"
+      },
+      {
+        "en": "Professional",
+        "pt": "Profissional autônomo"
+      },
+      {
+        "en": "Worker",
+        "pt": "Trabalhador"
+      },
+      {
+        "en": "Student",
+        "pt": "Estudante"
+      },
+      {
+        "en": "Unemployed",
+        "pt": "Desempregado"
+      },
+      {
+        "en": "Retired",
+        "pt": "Aposentado"
+      }
+    ],
+    "id": "scene-26",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Victim's Personality",
+      "pt": "Personalidade da Vítima"
+    },
+    "values": [
+      {
+        "en": "Public",
+        "pt": "Pessoa pública"
+      },
+      {
+        "en": "Wild",
+        "pt": "Doidão"
+      },
+      {
+        "en": "Reserved",
+        "pt": "Reservado"
+      },
+      {
+        "en": "Healthy",
+        "pt": "Focado em saúde"
+      },
+      {
+        "en": "Lazy",
+        "pt": "Preguiçoso"
+      },
+      {
+        "en": "Average",
+        "pt": "Normal"
+      }
+    ],
+    "id": "scene-27",
+    "type": "scene",
+    "specific": null
+  },
+  {
+    "title": {
+      "en": "Weather",
+      "pt": "Clima"
+    },
+    "values": [
+      {
+        "en": "Sunny",
+        "pt": "Ensolarado"
+      },
+      {
+        "en": "Stormy",
+        "pt": "Chuvoso"
+      },
+      {
+        "en": "Dry",
+        "pt": "Seco"
+      },
+      {
+        "en": "Humid",
+        "pt": "Úmido"
+      },
+      {
+        "en": "Cold",
+        "pt": "Frio"
+      },
+      {
+        "en": "Hot",
+        "pt": "Quente"
+      }
+    ],
+    "id": "scene-28",
+    "type": "scene",
+    "specific": null
+  }
+]
