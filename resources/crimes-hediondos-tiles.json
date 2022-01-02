@@ -232,6 +232,10 @@
       "en": "Ambient Noise",
       "pt": "Som Ambiente"
     },
+    "description": {
+      "en": "What noises could be heard during the crime?",
+      "pt": "Quais ruídos poderiam ser ouvidos durante o crime?"
+    },
     "values": [
       {
         "en": "Nature",
