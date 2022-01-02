@@ -2,7 +2,11 @@
   {
     "title": {
       "en": "Cause of Death",
-      "pt": "Cause da Morte"
+      "pt": "Causa da Morte"
+    },
+    "description": {
+      "en": "How did the weapon made the victim die?",
+      "pt": "Como a arma causou a morte da vítima?"
     },
     "values": [
       {
@@ -38,6 +42,10 @@
       "en": "Evidence/Object",
       "pt": "Evidência/Objeto"
     },
+    "description": {
+      "en": "How the selected object relates to the crime?",
+      "pt": "Como a evidência selecionada se relaciona com o crime?"
+    },
     "values": [
       {
         "en": "Left on top of the body",
@@ -71,6 +79,10 @@
     "title": {
       "en": "Location of Crime",
       "pt": "Local do Crime"
+    },
+    "description": {
+      "en": "Rooms in a house",
+      "pt": "Aposentos em uma casa"
     },
     "values": [
       {
@@ -106,6 +118,10 @@
       "en": "Location of Crime",
       "pt": "Local do Crime"
     },
+    "description": {
+      "en": "Places in an educational institution",
+      "pt": "Lugares numa instituição de ensino"
+    },
     "values": [
       {
         "en": "Playground",
@@ -140,6 +156,10 @@
       "en": "Location of Crime",
       "pt": "Local do Crime"
     },
+    "description": {
+      "en": "General Places I",
+      "pt": "Lugares em geral I"
+    },
     "values": [
       {
         "en": "Vacation Home",
@@ -173,6 +193,10 @@
     "title": {
       "en": "Location of Crime",
       "pt": "Local do Crime"
+    },
+    "description": {
+      "en": "General Places II",
+      "pt": "Lugares em geral II"
     },
     "values": [
       {
@@ -243,6 +267,10 @@
       "en": "Corpse Condition",
       "pt": "Condição do Corpo"
     },
+    "description": {
+      "en": "How was the body when the cops arrived?",
+      "pt": "Como o corpo foi encontrado pelos policiais?"
+    },
     "values": [
       {
         "en": "Still Warm",
@@ -277,6 +305,10 @@
     "title": {
       "en": "Day of Crime",
       "pt": "Dia do Crime"
+    },
+    "description": {
+      "en": "When did it all happen?",
+      "pt": "Quando o crime ocorreu?"
     },
     "values": [
       {
@@ -313,6 +345,10 @@
       "en": "Duration of Crime",
       "pt": "Duração do Crime"
     },
+    "description": {
+      "en": "How long did it take for the victim to die?",
+      "pt": "Quanto tempo durou pra vítima morrer?"
+    },
     "values": [
       {
         "en": "Instantaneous",
@@ -345,8 +381,12 @@
   },
   {
     "title": {
-      "en": "Evidence Left Behind",
-      "pt": "Evidência Deixada Pra Trás"
+      "en": "Chosen Evidence",
+      "pt": "Evidência Escolhida"
+    },
+    "description": {
+      "en": "What feature does the evidence have related to the crime?",
+      "pt": "Qual característica tem a evidência com relação ao crime?"
     },
     "values": [
       {
@@ -383,6 +423,10 @@
       "en": "General Impression",
       "pt": "Impressão Geral"
     },
+    "description": {
+      "en": "What impression does the cops had of the crime scene?",
+      "pt": "Qual impressão os policiais tiveram da cena do crime?"
+    },
     "values": [
       {
         "en": "Common",
@@ -417,6 +461,10 @@
     "title": {
       "en": "Hint on Corpse",
       "pt": "Detalhe no Corpo"
+    },
+    "description": {
+      "en": "What part of the body had an important detail?",
+      "pt": "Qual parte do corpo tinha um detalhe importante?"
     },
     "values": [
       {
@@ -453,6 +501,10 @@
       "en": "In Progress",
       "pt": "Em Andamento"
     },
+    "description": {
+      "en": "What was going on at the time of the crime?",
+      "pt": "O que estava acontecendo quando o crime aconteceu?"
+    },
     "values": [
       {
         "en": "Entertainment",
@@ -487,6 +539,10 @@
     "title": {
       "en": "Noticed by Bystander",
       "pt": "Percebido por Transeunte"
+    },
+    "description": {
+      "en": "What would a bystander have noticed if they were nearby?",
+      "pt": "O que um transeunte teria notado se estivesse perto do crime?"
     },
     "values": [
       {
@@ -523,6 +579,10 @@
       "en": "Motive of Crime",
       "pt": "Motivo do Crime"
     },
+    "description": {
+      "en": "What's the motive?",
+      "pt": "Qual o motivo do crime?"
+    },
     "values": [
       {
         "en": "Hatred",
@@ -558,6 +618,10 @@
       "en": "Murder Inspired By",
       "pt": "Inspiração para o Crime"
     },
+    "description": {
+      "en": "What inspired you to commit the crime?",
+      "pt": "O que levou você a cometer o crime?"
+    },
     "values": [
       {
         "en": "Television",
@@ -569,7 +633,7 @@
       },
       {
         "en": "Passion",
-        "pt": "Passional"
+        "pt": "Emocional"
       },
       {
         "en": "Carelessness",
@@ -592,6 +656,10 @@
     "title": {
       "en": "Murderer's Personality",
       "pt": "Personalidade do Assassino"
+    },
+    "description": {
+      "en": "Since you chose that weapon and evidence, what's your personality as a murderer?",
+      "pt": "Pra ter escolhido essa arma e objeto, qual a sua personalidade enquanto assassino psicopata?"
     },
     "values": [
       {
@@ -628,6 +696,10 @@
       "en": "Murder Weapon",
       "pt": "Arma do Crime"
     },
+    "description": {
+      "en": "Tell us more about the murder weapon.",
+      "pt": "Diga nos mais alguma coisa sobre a arma do crime."
+    },
     "values": [
       {
         "en": "Easily Accessible",
@@ -662,6 +734,10 @@
     "title": {
       "en": "Perceived by Sixth Sense",
       "pt": "Perceptível pelo Sexto Sentido"
+    },
+    "description": {
+      "en": "What would a person sense while in the crime scene?",
+      "pt": "O que uma pessoa perceberia na cena do crime?"
     },
     "values": [
       {
@@ -698,6 +774,10 @@
       "en": "Smell in the Air",
       "pt": "Cheiro no Ar"
     },
+    "description": {
+      "en": "What's the smell in the crime scene?",
+      "pt": "Qual o cheiro da cena do crime?"
+    },
     "values": [
       {
         "en": "Chemical",
@@ -732,6 +812,10 @@
     "title": {
       "en": "Social Relationship",
       "pt": "Relacionamento Social"
+    },
+    "description": {
+      "en": "What's your relationship with the victim?",
+      "pt": "Qual a sua relação com a vítima?"
     },
     "values": [
       {
@@ -768,6 +852,10 @@
       "en": "State of the Scene",
       "pt": "Estado da Cena do Crime"
     },
+    "description": {
+      "en": "What's another detail of the crime scene?",
+      "pt": "Qual um outro detalhe da cena do crime?"
+    },
     "values": [
       {
         "en": "Bits and Pieces",
@@ -783,7 +871,7 @@
       },
       {
         "en": "Cracked",
-        "pt": "Rachadura"
+        "pt": "Rachadura(s)"
       },
       {
         "en": "Disorderly",
@@ -801,7 +889,11 @@
   {
     "title": {
       "en": "Sudden Incident",
-      "pt": "Sudden Incident"
+      "pt": "Incidente repentino"
+    },
+    "description": {
+      "en": "What suddenly happened in the crime scene?",
+      "pt": "O que aconteceu de repente?"
     },
     "values": [
       {
@@ -838,6 +930,10 @@
       "en": "Time of Death",
       "pt": "Hora da Morte"
     },
+    "description": {
+      "en": "What time did the victim die?",
+      "pt": "Quando a vítima morreu?"
+    },
     "values": [
       {
         "en": "Drawn",
@@ -873,6 +969,10 @@
       "en": "Trace at the Scene",
       "pt": "Vestígios na Cena do Crime"
     },
+    "description": {
+      "en": "What is something noticed at the crime scene?",
+      "pt": "O que é algo perceptível na cena do crime?"
+    },
     "values": [
       {
         "en": "Fingerprint",
@@ -884,7 +984,7 @@
       },
       {
         "en": "Bruise",
-        "pt": "Hematoma"
+        "pt": "Contusão"
       },
       {
         "en": "Blood Stain",
@@ -908,10 +1008,14 @@
       "en": "Victim's Build",
       "pt": "Porte da Vítima"
     },
+    "description": {
+      "en": "How was the victim?",
+      "pt": "Como era a vítima?"
+    },
     "values": [
       {
         "en": "Large",
-        "pt": "Grande"
+        "pt": "Grande/Parruda"
       },
       {
         "en": "Thin",
@@ -943,30 +1047,34 @@
       "en": "Victim's Clothes",
       "pt": "Roupas da Vítima"
     },
+    "description": {
+      "en": "How was the victim's clothes?",
+      "pt": "Como eram as roupas da vítima?"
+    },
     "values": [
       {
         "en": "Neat",
-        "pt": "Limpo"
+        "pt": "Limpas"
       },
       {
         "en": "Untidy",
-        "pt": "Bagunçado"
+        "pt": "Bagunçadas"
       },
       {
         "en": "Elegant",
-        "pt": "Elegante"
+        "pt": "Elegantes"
       },
       {
         "en": "Shabby",
-        "pt": "Maltrapilho"
+        "pt": "Maltrapilhas"
       },
       {
         "en": "Bizarre",
-        "pt": "Bizarro"
+        "pt": "Bizarras"
       },
       {
         "en": "Naked",
-        "pt": "Pelado"
+        "pt": "Pelada"
       }
     ],
     "id": "scene-22",
@@ -977,6 +1085,10 @@
     "title": {
       "en": "Victim's Expression",
       "pt": "Expressão da Vítima"
+    },
+    "description": {
+      "en": "What expression did the victim die with?",
+      "pt": "Com que expressão a vítima morreu?"
     },
     "values": [
       {
@@ -1013,6 +1125,10 @@
       "en": "Victim's Hobbies",
       "pt": "Hobbies da Vítima"
     },
+    "description": {
+      "en": "What was a victim's hobby?",
+      "pt": "Do que a vítima gostava?"
+    },
     "values": [
       {
         "en": "Science",
@@ -1047,6 +1163,10 @@
     "title": {
       "en": "Victim's Identity",
       "pt": "Identidade da Vítima"
+    },
+    "description": {
+      "en": "Tell us more about the victim.",
+      "pt": "Diga-nos mais sobre a vítima."
     },
     "values": [
       {
@@ -1083,6 +1203,10 @@
       "en": "Victim's Occupation",
       "pt": "Profissão da Vítima"
     },
+    "description": {
+      "en": "What did the victim work with?",
+      "pt": "Com o que a vítima trabalhava?"
+    },
     "values": [
       {
         "en": "Boss",
@@ -1118,10 +1242,14 @@
       "en": "Victim's Personality",
       "pt": "Personalidade da Vítima"
     },
+    "description": {
+      "en": "How was the victim?",
+      "pt": "Como era a vítima?"
+    },
     "values": [
       {
         "en": "Public",
-        "pt": "Pessoa pública"
+        "pt": "Do povo/Pessoa pública"
       },
       {
         "en": "Wild",
@@ -1152,6 +1280,10 @@
     "title": {
       "en": "Weather",
       "pt": "Clima"
+    },
+    "description": {
+      "en": "How was the weather?",
+      "pt": "Como tava o clima?"
     },
     "values": [
       {
