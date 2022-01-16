@@ -1,0 +1,494 @@
+{
+  "ax-1-en": {
+    "id": "ax-1-en",
+    "theme": "mind;;thinking",
+    "cards": {
+      "a-3-en": "Change your mind",
+      "a-18-en": "Closed-minded",
+      "a-150-en": "Think again",
+      "a-410-en": "Wishful thinking",
+      "a-354-en": "Gone but not forgotten",
+      "a-618-en": "Thinking out loud",
+      "a-440-en": "Vivid imagination",
+      "a-491-en": "Hard to imagine",
+      "a-251-en": "Unforgettable",
+      "a-555-en": "Selective memory",
+      "a-676-en": "Mindless task"
+    }
+  },
+  "ax-2-en": {
+    "id": "ax-2-en",
+    "theme": "girl;;woman",
+    "cards": {
+      "a-35-en": "Ex-girlfriend",
+      "a-610-en": "Don't be a Karen",
+      "a-83-en": "Frenemies",
+      "a-172-en": "Best friends forever",
+      "a-268-en": "Imaginary friend"
+    }
+  },
+  "ax-3-en": {
+    "id": "ax-3-en",
+    "theme": "power;;electricity;;energy",
+    "cards": {
+      "a-45-en": "Energy conservation",
+      "a-118-en": "Willpower",
+      "a-40-en": "Power outage"
+    }
+  },
+  "ax-4-en": {
+    "id": "ax-4-en",
+    "theme": "feelings",
+    "cards": {
+      "a-105-en": "Significant other",
+      "a-436-en": "No hard feelings",
+      "a-465-en": "Mixed feelings",
+      "a-591-en": "Haters gonna hate",
+      "a-585-en": "Emotionally unavailable",
+      "a-586-en": "Emotionally unstable"
+    }
+  },
+  "ax-5-en": {
+    "id": "ax-5-en",
+    "theme": "paper",
+    "cards": {
+      "a-95-en": "Yesterday's news",
+      "a-629-en": "Topic sentence",
+      "a-630-en": "Thesis statement",
+      "a-39-en": "Terms and conditions",
+      "a-262-en": "Unwritten rule",
+      "a-269-en": "Long-term goals",
+      "a-329-en": "Poetry in motion",
+      "a-339-en": "Privacy policy"
+    }
+  },
+
+  "ax-6-en": {
+    "id": "ax-6-en",
+    "theme": "family;;body",
+    "cards": {
+      "a-47-en": "Hereditary trait",
+      "a-112-en": "Generation gap",
+      "a-575-en": "Body block",
+      "a-43-en": "Ancestors",
+      "a-89-en": "Family Vacation",
+      "a-97-en": "Natural selection",
+      "a-166-en": "Gut reaction"
+    }
+  },
+  "ax-7-en": {
+    "id": "ax-7-en",
+    "theme": "face",
+    "cards": {
+      "a-62-en": "Poker face",
+      "a-593-en": "Facelift",
+      "a-595-en": "Lip-reading",
+      "a-658-en": "Lip sync for you life",
+      "a-596-en": "Plastic surgery",
+      "a-79-en": "Split personality"
+    }
+  },
+  "ax-8-en": {
+    "id": "ax-8-en",
+    "theme": "choices;;list",
+    "cards": {
+      "a-632-en": "Multiple choice",
+      "a-631-en": "Infinite possibilities",
+      "a-645-en": "To infinity and beyond",
+      "a-644-en": "Ranking low",
+      "a-96-en": "Pop quiz",
+      "a-33-en": "Truth or dare",
+      "a-56-en": "Simple solution",
+      "a-170-en": "Process of elimination"
+    }
+  },
+  "ax-9-en": {
+    "id": "ax-9-en",
+    "theme": "eye;;visible",
+    "cards": {
+      "a-98-en": "Low visibility",
+      "a-120-en": "Hypnosis",
+      "a-545-en": "See yourself out",
+      "a-529-en": "Simple looks better",
+      "a-657-en": "Lookout",
+      "a-30-en": "A different point of view",
+      "a-185-en": "Blind spot"
+    }
+  },
+  "ax-10-en": {
+    "id": "ax-10-en",
+    "theme": "money",
+    "cards": {
+      "a-100-en": "Black market",
+      "a-619-en": "Price tag",
+      "a-620-en": "Not about the money",
+      "a-621-en": "Rich and famous",
+      "a-622-en": "Time is money",
+      "a-649-en": "In debt",
+      "a-650-en": "Maxed out credit card",
+      "a-651-en": "Bad credit",
+      "a-108-en": "Safe bet",
+      "a-113-en": "Final offer",
+      "a-122-en": "Fundraising event",
+      "a-124-en": "A done deal",
+      "a-65-en": "Senior discount",
+      "a-133-en": "Sound investment"
+    }
+  },
+  "ax-11-en": {
+    "id": "ax-11-en",
+    "theme": "speak",
+    "cards": {
+      "a-176-en": "Public speaking",
+      "a-425-en": "Metaphorically speaking",
+      "a-613-en": "Speak out",
+      "a-615-en": "Speak your mind",
+      "a-617-en": "Speaking of that",
+      "a-612-en": "Say my name",
+      "a-616-en": "Talk the talk",
+      "a-614-en": "Don't tell me what to do",
+      "a-618-en": "Thinking out loud",
+      "a-606-en": "Monologue",
+      "a-6-en": "Communication breakdown",
+      "a-318-en": "Frank discussion",
+      "a-161-en": "Conversation starter"
+    }
+  },
+  "ax-12-en": {
+    "id": "ax-12-en",
+    "theme": "no;;nothing",
+    "cards": {
+      "a-420-en": "Nothing in common",
+      "a-518-en": "Nothing",
+      "a-541-en": "Not fitting in",
+      "a-348-en": "Next to nothing",
+      "a-567-en": "Something wrong is not right",
+      "a-625-en": "Nothing else matters"
+    }
+  },
+  "ax-13-en": {
+    "id": "ax-13-en",
+    "theme": "arrow;;direction",
+    "cards": {
+      "a-547-en": "And there it is",
+      "a-88-en": "Above average",
+      "a-309-en": "From bad to worse",
+      "a-8-en": "Wait your turn",
+      "a-181-en": "Center of attention",
+      "a-183-en": "Above and beyond",
+      "a-230-en": "Out of circulation",
+      "a-235-en": "Humble beginnings",
+      "a-687-en": "Opposite directions",
+      "a-678-en": "Up and down"
+    }
+  },
+  "ax-14-en": {
+    "id": "ax-14-en",
+    "theme": "work",
+    "cards": {
+      "a-519-en": "Inside job",
+      "a-634-en": "Change jobs",
+      "a-636-en": "Good job",
+      "a-637-en": "Job well done",
+      "a-640-en": "In between jobs",
+      "a-179-en": "Miracle worker",
+      "a-182-en": "Work in progress",
+      "a-554-en": "Assigned work",
+      "a-635-en": "Workaholic"
+    }
+  },
+  "ax-15-en": {
+    "id": "ax-15-en",
+    "theme": "animal;;pet",
+    "cards": {
+      "a-597-en": "Puppy bump",
+      "a-656-en": "Good boi",
+      "a-641-en": "Pet owner"
+    }
+  },
+  "ax-16-en": {
+    "id": "ax-16-en",
+    "theme": "party",
+    "cards": {
+      "a-628-en": "Carnival games",
+      "a-22-en": "Party foul",
+      "a-126-en": "Prom night",
+      "a-13-en": "Make an entrance",
+      "a-16-en": "New Year's resolution",
+      "a-26-en": "Uninvited guest",
+      "a-147-en": "Broadway musical",
+      "a-177-en": "Party pooper",
+      "a-552-en": "Coming Out Party"
+    }
+  },
+  "ax-17-en": {
+    "id": "ax-17-en",
+    "theme": "lost",
+    "cards": {
+      "a-202-en": "Lost and found",
+      "a-285-en": "Lost in the ether",
+      "a-375-en": "Lost cause",
+      "a-648-en": "Lost in translation",
+      "a-174-en": "Clueless",
+      "a-423-en": "Whereabout unknown"
+    }
+  },
+  "ax-18-en": {
+    "id": "ax-18-en",
+    "theme": "social;;media",
+    "cards": {
+      "a-642-en": "Influencer",
+      "a-643-en": "Instagram model",
+      "a-524-en": "Do it for the likes",
+      "a-543-en": "Don't forget to like and subscribe",
+      "a-77-en": "Social media",
+      "a-319-en": "Trendsetter",
+      "a-342-en": "Popularity contest",
+      "a-46-en": "Backlash",
+      "a-171-en": "The Internet",
+      "a-243-en": "Role model",
+      "a-365-en": "Meme"
+    }
+  },
+  "ax-19-en": {
+    "id": "ax-19-en",
+    "theme": "image;;photograph",
+    "cards": {
+      "a-583-en": "Blursed image",
+      "a-573-en": "Blurred picture",
+      "a-68-en": "Feature presentation",
+      "a-684-en": "Picture perfect",
+      "a-686-en": "Old photograph"
+    }
+  },
+  "ax-20-en": {
+    "id": "ax-20-en",
+    "theme": "meeting;;place",
+    "cards": {
+      "a-582-en": "Main hall",
+      "a-11-en": "Board meeting",
+      "a-71-en": "Change of scenery",
+      "a-169-en": "Chance meeting",
+      "a-221-en": "Middle of nowhere",
+      "a-241-en": "Shortcut"
+    }
+  },
+  "ax-21-en": {
+    "id": "ax-21-en",
+    "theme": "alarm;;alert",
+    "cards": {
+      "a-44-en": "False alarm",
+      "a-42-en": "Recess",
+      "a-102-en": "Distress signal",
+      "a-106-en": "Dire emergency",
+      "a-153-en": "Attention span",
+      "a-224-en": "Warning signs"
+    }
+  },
+  "ax-22-en": {
+    "id": "ax-22-en",
+    "theme": "phone",
+    "cards": {
+      "a-36-en": "Close call",
+      "a-54-en": "Technical support",
+      "a-32-en": "Customer service",
+      "a-159-en": "Call your bluff"
+    }
+  },
+  "ax-23-en": {
+    "id": "ax-23-en",
+    "theme": "kill;;weapon",
+    "cards": {
+      "a-72-en": "Cold war",
+      "a-76-en": "Long shot",
+      "a-125-en": "Partner in crime",
+      "a-196-en": "Scene of the crime",
+      "a-305-en": "Cybercrime",
+      "a-659-en": "Killing me softly",
+      "a-665-en": "Suicide watch",
+      "a-663-en": "Please, kill me",
+      "a-664-en": "Murdered by words",
+      "a-281-en": "Empty threat",
+      "a-470-en": "Worthy opponent"
+    }
+  },
+  "ax-24-en": {
+    "id": "ax-24-en",
+    "theme": "good;;smile;;happy",
+    "cards": {
+      "a-74-en": "No laughing matter",
+      "a-86-en": "Practical joke",
+      "a-332-en": "Inside joke",
+      "a-163-en": "Can-do attitude",
+      "a-31-en": "The greater good",
+      "a-148-en": "Damaged goods",
+      "a-407-en": "Too good to be true",
+      "a-431-en": "With good intentions",
+      "a-466-en": "On good terms",
+      "a-579-en": "It hurts so good",
+      "a-636-en": "Good job"
+    }
+  },
+  "ax-25-en": {
+    "id": "ax-25-en",
+    "theme": "plus;;minus",
+    "cards": {
+      "a-85-en": "Opposites attract",
+      "a-689-en": "Be right back",
+      "a-688-en": "Many many ways",
+      "a-687-en": "Opposite directions"
+    }
+  },
+  "ax-26-en": {
+    "id": "ax-26-en",
+    "theme": "fix;;wrench",
+    "cards": {
+      "a-101-en": "Quick fix",
+      "a-344-en": "Troubleshoot",
+      "a-383-en": "Problem solver",
+      "a-557-en": "An inadvertent problem",
+      "a-70-en": "Broken promises",
+      "a-669-en": "Broken dreams",
+      "a-60-en": "Cut corners"
+    }
+  },
+  "ax-27-en": {
+    "id": "ax-27-en",
+    "theme": "health;hospital",
+    "cards": {
+      "a-110-en": "Clean bill of health",
+      "a-263-en": "Weakened condition",
+      "a-237-en": "Health care",
+      "a-259-en": "Add insult to injury"
+    }
+  },
+  "ax-28-en": {
+    "id": "ax-28-en",
+    "theme": "school;;learning",
+    "cards": {
+      "a-130-en": "Scholarship",
+      "a-48-en": "Extracurricular activities",
+      "a-42-en": "Recess",
+      "a-128-en": "Detention",
+      "a-210-en": "First day of school"
+    }
+  },
+  "ax-29-en": {
+    "id": "ax-29-en",
+    "theme": "strength;;gym",
+    "cards": {
+      "a-15-en": "Inner strength",
+      "a-17-en": "Workout routine",
+      "a-667-en": "Crossfit"
+    }
+  },
+  "ax-30-en": {
+    "id": "ax-30-en",
+    "theme": "religious",
+    "cards": {
+      "a-661-en": "Thank God",
+      "a-662-en": "Oh My Gosh",
+      "a-660-en": "Praise be",
+      "a-331-en": "Utter disbelief",
+      "a-20-en": "Blessing in disguise",
+      "a-75-en": "High-spirited"
+    }
+  },
+  "ax-31-en": {
+    "id": "ax-31-en",
+    "theme": "time;;clock",
+    "cards": {
+      "a-50-en": "Modern times",
+      "a-454-en": "Stand the test of time",
+      "a-511-en": "Ain't nobody got time for that",
+      "a-622-en": "Time is money",
+      "a-154-en": "Early retirement",
+      "a-34-en": "Personal best",
+      "a-67-en": "Perfect timing",
+      "a-192-en": "As soon as possible",
+      "a-248-en": "Recent past"
+    }
+  },
+  "ax-32-en": {
+    "id": "ax-32-en",
+    "theme": "shock;;scared;;nerve;;crazy",
+    "cards": {
+      "a-311-en": "Total freak out",
+      "a-315-en": "Culture shock",
+      "a-328-en": "Desperate measures",
+      "a-333-en": "Internal struggle",
+      "a-104-en": "Hot mess",
+      "a-160-en": "Nervous wreck",
+      "a-12-en": "Scared stiff",
+      "a-52-en": "Nonsense",
+      "a-94-en": "Wild and crazy",
+      "a-10-en": "Thrill-seeker"
+    }
+  },
+  "ax-33-en": {
+    "id": "ax-33-en",
+    "theme": "equal;;different",
+    "cards": {
+      "a-30-en": "A different point of view",
+      "a-323-en": "Same difference",
+      "a-526-en": "The difference between affect and effect",
+      "a-188-en": "Equal opportunity",
+      "a-138-en": "Odds and ends"
+    }
+  },
+  "ax-34-en": {
+    "id": "ax-34-en",
+    "theme": "bad;;evil",
+    "cards": {
+      "a-334-en": "Lesser of two evils",
+      "a-167-en": "Bad influence",
+      "a-309-en": "From bad to worse",
+      "a-162-en": "Rude awakening",
+      "a-651-en": "Bad credit",
+      "a-207-en": "Archenemy"
+    }
+  },
+  "ax-35-en": {
+    "id": "ax-35-en",
+    "theme": "days;;calendar",
+    "cards": {
+      "a-345-en": "History repeating itself",
+      "a-346-en": "Glory days",
+      "a-1-en": "Election Day",
+      "a-95-en": "Yesterday's news",
+      "a-210-en": "First day of school",
+      "a-228-en": "Mental health day",
+      "a-257-en": "Here today, gone tomorrow",
+      "a-549-en": "Die another day",
+      "a-588-en": "No nut November",
+      "a-589-en": "Dry January",
+      "a-90-en": "Current events",
+      "a-205-en": "Ancient history",
+      "a-208-en": "Daily special"
+    }
+  },
+  "ax-36-en": {
+    "id": "ax-36-en",
+    "theme": "days;;calendar",
+    "cards": {
+      "a-204-en": "Handsome",
+      "a-214-en": "Beauty sleep",
+      "a-680-en": "Beautiful stranger",
+      "a-681-en": "Beauty fades",
+      "a-682-en": "Pretty sure"
+    }
+  },
+  "ax-37-en": {
+    "id": "ax-37-en",
+    "theme": "art",
+    "cards": {
+      "a-220-en": "Abstract art",
+      "a-325-en": "State-of-the-art",
+      "a-672-en": "Questionable art",
+      "a-673-en": "Artistic differences",
+      "a-674-en": "Sketch artist",
+      "a-691-en": "Pencil drawing",
+      "a-690-en": "Doodle"
+    }
+  }
+}
