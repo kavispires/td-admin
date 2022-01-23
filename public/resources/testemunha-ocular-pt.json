@@ -413,7 +413,7 @@
   },
   "t-104-pt": {
     "id": "t-104-pt",
-    "question": "Ele(a) assiste Silvio Santos todo domingo?"
+    "question": "Ele(a) assiste Sílvio Santos todo domingo?"
   },
   "t-105-pt": {
     "id": "t-105-pt",
@@ -421,7 +421,7 @@
   },
   "t-106-pt": {
     "id": "t-106-pt",
-    "question": "Ele(a) usa máscara para se protejer do COVID?"
+    "question": "Ele(a) usa máscara para se proteger do COVID?"
   },
   "t-107-pt": {
     "id": "t-107-pt",
@@ -429,7 +429,7 @@
   },
   "t-108-pt": {
     "id": "t-108-pt",
-    "question": "Ele(a) contra vacinas?"
+    "question": "Ele(a) é contra vacinas?"
   },
   "t-109-pt": {
     "id": "t-109-pt",
@@ -450,5 +450,13 @@
   "t-113-pt": {
     "id": "t-113-pt",
     "question": "Ele(a) já vestiu fantasias para apimentar a relação?"
+  },
+  "t-114-pt": {
+    "id": "t-114-pt",
+    "question": "Ele(a) é uma pessoa pontual?"
+  },
+  "t-115-pt": {
+    "id": "t-115-pt",
+    "question": "Ele(a) colecionava figurinhas do Campeonato Brasileiro quando criança?"
   }
 }
