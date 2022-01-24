@@ -1,0 +1,334 @@
+{
+  "e-01-pt": {
+    "id": "e-01-pt",
+    "name": "Avião",
+    "roles": [
+      "Passageiro",
+      "Piloto",
+      "Copiloto",
+      "Passageiro",
+      "Comissário de Bordo",
+      "Passageiro da Primeira Classe",
+      "Mula"
+    ]
+  },
+  "e-02-pt": {
+    "id": "e-02-pt",
+    "name": "Parque de Diversões",
+    "roles": [
+      "Visitante",
+      "Mecânico",
+      "Operador de brinquedo",
+      "Criança",
+      "Animador Fantasiado",
+      "Vendedor de guloseimas",
+      "Turista"
+    ]
+  },
+  "e-03-pt": {
+    "id": "e-03-pt",
+    "name": "Banco",
+    "roles": [
+      "Cliente",
+      "Caixa",
+      "Estagiário",
+      "Segurança",
+      "Assaltante",
+      "Aposentado",
+      "Gerente",
+      "Motorista do Carro Blindado"
+    ]
+  },
+  "e-04-pt": {
+    "id": "e-04-pt",
+    "name": "Praia",
+    "roles": [
+      "Turista",
+      "Salva-vidas",
+      "Pivete",
+      "Vendedor de picolé",
+      "Criança",
+      "Surfista",
+      "Vendedor de miçangas"
+    ]
+  },
+  "e-05-pt": {
+    "id": "e-05-pt",
+    "name": "Casino",
+    "roles": [
+      "Apostador",
+      "Porteiro",
+      "Segurança",
+      "Dono",
+      "Crouper (dá as cartas)",
+      "Barman",
+      "Administrador",
+      "Malandro Trapaceiro"
+    ]
+  },
+  "e-06-pt": {
+    "id": "e-06-pt",
+    "name": "Festa da Empresa",
+    "roles": ["Empregado", "Chefe", "Contador", "Auxiliar Administrativo", "Estagiário", "Penetra", "DJ"]
+  },
+  "e-07-pt": {
+    "id": "e-07-pt",
+    "name": "Circo",
+    "roles": ["Acrobata", "Domador", "Contorcionista", "Mágico", "Mulher barbada", "Visitante", "Palhaço"]
+  },
+  "e-08-pt": {
+    "id": "e-08-pt",
+    "name": "Salão de Beleza",
+    "roles": ["Manicure", "Recepcionista", "Cabeleireiro", "Depiladora", "Maquiadora", "Dono", "Cliente"]
+  },
+  "e-09-pt": {
+    "id": "e-09-pt",
+    "name": "Hospital",
+    "roles": [
+      "Médico",
+      "Paciente",
+      "Enfermeira",
+      "Anestesista",
+      "Cirurgião",
+      "Visitante",
+      "Médico-Estagiário",
+      "Paciente com COVID"
+    ]
+  },
+  "e-10-pt": {
+    "id": "e-10-pt",
+    "name": "Hotel",
+    "roles": [
+      "Hóspede",
+      "Recepcionista",
+      "Camareira",
+      "Concierge",
+      "Barman",
+      "Carregador de malas",
+      "Turista"
+    ]
+  },
+  "e-11-pt": {
+    "id": "e-11-pt",
+    "name": "Base Militar",
+    "roles": ["Soldado", "Guarda", "General", "Capitão", "Médico", "Anti-bombas", "Parente"]
+  },
+  "e-12-pt": {
+    "id": "e-12-pt",
+    "name": "Estúdio de Cinema",
+    "roles": ["Ator", "Diretor", "Figurante", "Técnico de som", "Dublê", "Cameraman", "Figurinista"]
+  },
+  "e-13-pt": {
+    "id": "e-13-pt",
+    "name": "Boate",
+    "roles": ["Porteiro", "DJ", "Segurança", "Barman", "Piriguete", "Dançarina", "Gogo Boy", "Visitante"]
+  },
+  "e-14-pt": {
+    "id": "e-14-pt",
+    "name": "Trem",
+    "roles": [
+      "Passageiro",
+      "Maquinista",
+      "Passageiro que só dorme",
+      "Bilheteiro",
+      "Criança",
+      "Idoso",
+      "Pedinte"
+    ]
+  },
+  "e-15-pt": {
+    "id": "e-15-pt",
+    "name": "Cruzeiro",
+    "roles": ["Passageiro", "Barman", "Capitão", "Camareira", "Músico", "Passageiro Rico", "Cozinheiro"]
+  },
+  "e-16-pt": {
+    "id": "e-16-pt",
+    "name": "Estação Polar",
+    "roles": ["Cientista", "Geofísico", "Biólogo", "Hidrologista", "Meteorologista", "Médico", "Esquimó"]
+  },
+  "e-17-pt": {
+    "id": "e-17-pt",
+    "name": "Delegacia",
+    "roles": ["Policial", "Delegado", "Criminoso", "Detetive", "Jornalista", "Arquivista", "Advogado"]
+  },
+  "e-18-pt": {
+    "id": "e-18-pt",
+    "name": "Estação Espacial",
+    "roles": [
+      "Astronauta",
+      "Alienígena",
+      "Pesquisador",
+      "Engenheiro Mecânico",
+      "Comandante",
+      "Médico",
+      "Piloto"
+    ]
+  },
+  "e-19-pt": {
+    "id": "e-19-pt",
+    "name": "Mecânica",
+    "roles": ["Mecânico", "Motorista", "Inspetor", "Motoqueiro", "Eletricista de Carros", "Lavador", "Dono"]
+  },
+  "e-20-pt": {
+    "id": "e-20-pt",
+    "name": "Escola",
+    "roles": [
+      "Estudante",
+      "Professor",
+      "Criança",
+      "Faxineiro",
+      "Professor substituto",
+      "Fiscal de corredor",
+      "Ajudante do professor"
+    ]
+  },
+  "e-21-pt": {
+    "id": "e-21-pt",
+    "name": "Restaurante",
+    "roles": [
+      "Freguês",
+      "Cozinheiro",
+      "Garçom",
+      "Ajudante de garçom",
+      "Faxineiro",
+      "Caixa",
+      "Ajudante de cozinha"
+    ]
+  },
+  "e-22-pt": {
+    "id": "e-22-pt",
+    "name": "Submarino",
+    "roles": [
+      "Marinheiro",
+      "Comandante",
+      "Operador de Rádio",
+      "Operador do Sonar",
+      "Cozinheiro",
+      "Eletricista",
+      "Navegador"
+    ]
+  },
+  "e-23-pt": {
+    "id": "e-23-pt",
+    "name": "Cinema",
+    "roles": [
+      "Espectador",
+      "Bilheteiro",
+      "Falador",
+      "Funcionário",
+      "Operador de Projetor",
+      "Faxineiro",
+      "Criança"
+    ]
+  },
+  "e-24-pt": {
+    "id": "e-24-pt",
+    "name": "Universidade",
+    "roles": ["Professor", "Faxineiro", "Segurança", "Parente Visitante", "Reitor", "Formando", "Estudante"]
+  },
+  "e-25-pt": {
+    "id": "e-25-pt",
+    "name": "Zoológico",
+    "roles": ["Tratador", "Bilheteiro", "Guia", "Veterinário", "Jardineiro", "Criança", "Visitante"]
+  },
+  "e-26-pt": {
+    "id": "e-26-pt",
+    "name": "Supermercado",
+    "roles": ["Repositor", "Gerente", "Caixa", "Empacotador", "Estoque", "Segurança", "Freguês"]
+  },
+  "e-27-pt": {
+    "id": "e-27-pt",
+    "name": "Museu",
+    "roles": ["Visitante", "Estudante", "Guia", "Segurança", "Curador", "Restaurador", "Vendedor de Souvenir"]
+  },
+  "e-28-pt": {
+    "id": "e-28-pt",
+    "name": "Cemitério",
+    "roles": ["Coveiro", "Morto", "Viúva", "Ente querido", "Padre", "Herdeiro", "Amigo"]
+  },
+  "e-29-pt": {
+    "id": "e-29-pt",
+    "name": "Construção",
+    "roles": [
+      "Chefe de obras",
+      "Arquiteto",
+      "Cliente",
+      "Eletricista",
+      "Pintor",
+      "Servente de pedreiro",
+      "Pedreiro"
+    ]
+  },
+  "e-30-pt": {
+    "id": "e-30-pt",
+    "name": "Posto de Gasolina",
+    "roles": ["Criança no carro", "Cliente", "Turista", "Motociclista", "Motorista", "Mecânico", "Frentista"]
+  },
+  "e-31-pt": {
+    "id": "e-31-pt",
+    "name": "Presídio",
+    "roles": ["Líder de gangue", "Cozinheiro", "Advogado", "Guarda", "Administrador", "Visitante", "Preso"]
+  },
+  "e-32-pt": {
+    "id": "e-32-pt",
+    "name": "Biblioteca",
+    "roles": ["Bibliotecária", "Nerd", "Arquivista", "Voluntário", "Autor", "Pesquisador", "Estudante"]
+  },
+  "e-33-pt": {
+    "id": "e-33-pt",
+    "name": "Asilo",
+    "roles": ["Enfermeira", "Visitante", "Médico", "Parente", "Idosa", "Farmacêutico", "Idoso"]
+  },
+  "e-34-pt": {
+    "id": "e-34-pt",
+    "name": "Show",
+    "roles": ["Cantor", "Baterista", "Tiete", "Dançarino", "Agente", "Fã", "Espectador"]
+  },
+  "e-35-pt": {
+    "id": "e-35-pt",
+    "name": "Estádio",
+    "roles": ["Torcedor", "Jogador", "Treinador", "Vendedor de comida", "Juiz", "Narrador", "Comentarista"]
+  },
+  "e-36-pt": {
+    "id": "e-36-pt",
+    "name": "Casamento",
+    "roles": ["Noiva", "Noivo", "Padre", "Madrinha", "Porta-aliança", "Penetra", "Convidado"]
+  },
+  "e-37-pt": {
+    "id": "e-37-pt",
+    "name": "Shopping",
+    "roles": [
+      "Cliente",
+      "Segurança",
+      "Adolescente",
+      "Vendedor",
+      "Gerente",
+      "Rolezeiro",
+      "Recolhedor de bandeja da praça de alimentação"
+    ]
+  },
+  "e-38-pt": {
+    "id": "e-38-pt",
+    "name": "Festa Junina",
+    "roles": [
+      "Criança",
+      "Padre",
+      "Noiva",
+      "Noivo",
+      "Vendedor na Barraquinha",
+      "Vendedor na Pescaria",
+      "Puxador da Quadrilha",
+      "Convidado"
+    ]
+  },
+  "e-39-pt": {
+    "id": "e-39-pt",
+    "name": "Igreja",
+    "roles": ["Beata", "Corista", "Padre", "Pecador", "Coroinha", "Mendigo", "Freira"]
+  },
+  "e-40-pt": {
+    "id": "e-40-pt",
+    "name": "Onibus",
+    "roles": ["Passageiro", "Proletariado", "Motorista", "Cobrador", "Tarado", "Grávida", "Idoso"]
+  }
+}

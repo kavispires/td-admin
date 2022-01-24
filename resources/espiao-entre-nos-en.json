@@ -1,0 +1,247 @@
+{
+  "e-01-en": {
+    "id": "e-01-en",
+    "name": "Airplane",
+    "roles": [
+      "Coach Passenger",
+      "Pilot",
+      "Copilot",
+      "Business Class Passenger",
+      "Flight Attendant",
+      "Flight Engineer",
+      "Stowaway"
+    ]
+  },
+  "e-02-en": {
+    "id": "e-02-en",
+    "name": "Amusement Park",
+    "roles": ["Visitor", "Mechanic", "Ride Operator", "Kid", "Clown", "Vendor", "Tourist"]
+  },
+  "e-03-en": {
+    "id": "e-03-en",
+    "name": "Bank",
+    "roles": [
+      "Branch Manager",
+      "Security Guard",
+      "Teller",
+      "Customer",
+      "Robber",
+      "Consultant",
+      "Armored Car Driver"
+    ]
+  },
+  "e-04-en": {
+    "id": "e-04-en",
+    "name": "Beach",
+    "roles": [
+      "Vacationer",
+      "Entertainment Director",
+      "Lifeguard",
+      "Thief",
+      "Food Vendor",
+      "Photographer with Monkey",
+      "Paraglider"
+    ]
+  },
+  "e-05-en": {
+    "id": "e-05-en",
+    "name": "Casino",
+    "roles": ["Dealer", "Administrator", "Bartender", "Gambler", "Cardsharp", "Bouncer", "Head of Security"]
+  },
+  "e-06-en": {
+    "id": "e-06-en",
+    "name": "Corporate Party",
+    "roles": ["Accountant", "CEO", "Courier", "Manager", "Administrative Assistant", "Party Crasher", "Emcee"]
+  },
+  "e-07-en": {
+    "id": "e-07-en",
+    "name": "Circus Tent",
+    "roles": ["Acrobat", "Animal Tamer", "Juggler", "Knife Thrower", "Clown", "Magician", "Circus-Goer"]
+  },
+  "e-08-en": {
+    "id": "e-08-en",
+    "name": "Day Spa",
+    "roles": [
+      "Masseur",
+      "Nail Specialist",
+      "Beautician",
+      "Stylist",
+      "Makeup Specialist",
+      "Dermatologist",
+      "Customer"
+    ]
+  },
+  "e-09-en": {
+    "id": "e-09-en",
+    "name": "Hospital",
+    "roles": ["Physician", "Head Physician", "Nurse", "Pathologist", "Intern", "Surgeon", "Patient"]
+  },
+  "e-10-en": {
+    "id": "e-10-en",
+    "name": "Hotel",
+    "roles": ["Guest", "Barman", "Chambermaid", "Security guard", "Porter", "Manager", "Doorman"]
+  },
+  "e-11-en": {
+    "id": "e-11-en",
+    "name": "Military Base",
+    "roles": ["Soldier", "Doctor", "Deserter", "Guard", "Junior Officer", "Colonel"]
+  },
+  "e-12-en": {
+    "id": "e-12-en",
+    "name": "Movie Studio",
+    "roles": ["Actor", "Sound Engineer", "Cameraman", "Stuntman", "Costumer Designer", "Extra", "Director"]
+  },
+  "e-13-en": {
+    "id": "e-13-en",
+    "name": "Dance Club",
+    "roles": ["Visitor", "Dancer", "Drunk", "Bouncer", "DJ", "Kid with Fake Id", "Security Guard"]
+  },
+  "e-14-en": {
+    "id": "e-14-en",
+    "name": "Passenger Train",
+    "roles": ["Passenger", "Conductor", "Peddler", "Stoker", "Cook", "Border Guard"]
+  },
+  "e-15-en": {
+    "id": "e-15-en",
+    "name": "Ocean Liner",
+    "roles": ["Attendant", "Wealthy Passenger", "Cook", "Musician", "Captain", "Radio Operator", "Bartender"]
+  },
+  "e-16-en": {
+    "id": "e-16-en",
+    "name": "Estação Polar",
+    "roles": [
+      "Scientist",
+      "Geophysicist",
+      "Biologist",
+      "Hydrologist",
+      "Meteorologist",
+      "Medic",
+      "Eskimo",
+      "Expedition Leader"
+    ]
+  },
+  "e-17-en": {
+    "id": "e-17-en",
+    "name": "Police Station",
+    "roles": ["Criminal Lawyer", "Beat Cop", "Journalist", "Suspect", "Attorney", "Lieutenant", "Detective"]
+  },
+  "e-18-en": {
+    "id": "e-18-en",
+    "name": "Space Station",
+    "roles": [
+      "Mission Commander",
+      "Doctor",
+      "Alien",
+      "Space Tourist",
+      "Pilot",
+      "Research Engineer",
+      "Mechanical Engineer"
+    ]
+  },
+  "e-19-en": {
+    "id": "e-19-en",
+    "name": "Service Station",
+    "roles": ["Mechanic", "Driver", "Washer", "Motorcyclist", "Tire Fitter", "Electrician", "Owner"]
+  },
+  "e-20-en": {
+    "id": "e-20-en",
+    "name": "School",
+    "roles": ["Student", "Teacher", "Principal", "P.E. Teacher", "Sub", "Janitor", "Bully"]
+  },
+  "e-21-en": {
+    "id": "e-21-en",
+    "name": "Restaurant",
+    "roles": ["Customer", "Busboy", "Maitre d'", "Musician", "Chef", "Food Critic", "Waiter"]
+  },
+  "e-22-en": {
+    "id": "e-22-en",
+    "name": "Submarino",
+    "roles": ["Sailor", "Commander", "Radio operator", "Navigator", "Cook", "Electrician", "Sonar Operator"]
+  },
+  "e-23-en": {
+    "id": "e-23-en",
+    "name": "Movie Theater",
+    "roles": [
+      "Guest",
+      "Usher",
+      "Teenager",
+      "Film Projectionist",
+      "Ticket Seller",
+      "Concession Attendant",
+      "Janitor",
+      "Manager"
+    ]
+  },
+  "e-24-en": {
+    "id": "e-24-en",
+    "name": "University",
+    "roles": [
+      "Researcher",
+      "Dean",
+      "Professor",
+      "Graduate Student",
+      "President",
+      "Student",
+      "Campus Security"
+    ]
+  },
+  "e-25-en": {
+    "id": "e-25-en",
+    "name": "Zoo",
+    "roles": ["Animal Keeper", "Aquarist", "Tour Guide", "Veterinarian", "Gardner", "Kid", "Guest"]
+  },
+  "e-26-en": {
+    "id": "e-26-en",
+    "name": "Supermarket",
+    "roles": ["Butcher", "Security Guard", "Janitor", "Customer", "Delivery Man", "Cashier", "Merchandiser"]
+  },
+  "e-27-en": {
+    "id": "e-27-en",
+    "name": "Museu",
+    "roles": [
+      "Visitor",
+      "Art Student",
+      "Guide",
+      "Security Guard",
+      "Curator",
+      "Restorer",
+      "Souvenir Store Vendor"
+    ]
+  },
+  "e-28-en": {
+    "id": "e-28-en",
+    "name": "Cemetery",
+    "roles": ["Gravedigger", "Deceased", "Widow", "Relative", "Heir", "Priest", "Friend"]
+  },
+
+  "e-29-en": {
+    "id": "e-29-en",
+    "name": "Embassy",
+    "roles": ["Refugee", "Ambassador", "Diplomat", "Secretary", "Tourist", "Bureaucrat", "Security Guard"]
+  },
+
+  "e-30-en": {
+    "id": "e-30-en",
+    "name": "Crusader Army",
+    "roles": ["Servant", "Archer", "Squire", "Monk", "Bishop", "Knight", "Captive Saracen"]
+  },
+
+  "e-31-en": {
+    "id": "e-31-en",
+    "name": "Pirate Ship",
+    "roles": ["Cook", "Gunner", "Seaman", "Cabin", "Swashbuckling Captain", "Shackled Prisoner", "Slave"]
+  },
+  "e-32-en": {
+    "id": "e-32-en",
+    "name": "Carnival",
+    "roles": [
+      "Tourist",
+      "Roleplaying Game Fan",
+      "Costumer",
+      "Reporter",
+      "Photographer",
+      "Reenactor",
+      "Vendor"
+    ]
+  }
+}
