@@ -79,7 +79,7 @@
   "e-10-en": {
     "id": "e-10-en",
     "name": "Hotel",
-    "roles": ["Guest", "Barman", "Chambermaid", "Security guard", "Porter", "Manager", "Doorman"]
+    "roles": ["Guest", "Bartender", "Chambermaid", "Security guard", "Porter", "Manager", "Doorman"]
   },
   "e-11-en": {
     "id": "e-11-en",
@@ -242,6 +242,133 @@
       "Photographer",
       "Reenactor",
       "Vendor"
+    ]
+  },
+  "e-33-en": {
+    "id": "e-33-en",
+    "name": "Jazz Club",
+    "roles": [
+      "Music Lover",
+      "Hepcat",
+      "Trumpet Player",
+      "Bartender",
+      "Singer",
+      "Guitar Player",
+      "Bouncer",
+      "Saxophonist",
+      "Drummer",
+      "Pianist"
+    ]
+  },
+  "e-34-en": {
+    "id": "e-34-en",
+    "name": "Produce Farm",
+    "roles": [
+      "Loader",
+      "Vendor",
+      "Sanitary Inspector",
+      "Customer",
+      "Packer",
+      "Supervisor",
+      "Engineer",
+      "Driver",
+      "Janitor",
+      "Supplier"
+    ]
+  },
+  "e-35-en": {
+    "id": "e-35-en",
+    "name": "Coal Mine",
+    "roles": [
+      "Prisoner",
+      "Guard",
+      "Bully",
+      "Cook",
+      "Lawyer",
+      "Maniac",
+      "Psychiatrist",
+      "Warden",
+      "Snitch",
+      "Visitor"
+    ]
+  },
+  "e-36-en": {
+    "id": "e-36-en",
+    "name": "Jail",
+    "roles": [
+      "Prisoner",
+      "Guard",
+      "Bully",
+      "Cook",
+      "Lawyer",
+      "Maniac",
+      "Psychiatrist",
+      "Warden",
+      "Snitch",
+      "Visitor"
+    ]
+  },
+  "e-37-en": {
+    "id": "e-37-en",
+    "name": "Rock Concert",
+    "roles": [
+      "Fan",
+      "Roadie",
+      "Bouncer",
+      "Dancer",
+      "Manager",
+      "Keyboard Player",
+      "Drummer",
+      "Bass Guitar Player",
+      "Guitarist",
+      "Singer"
+    ]
+  },
+  "e-38-en": {
+    "id": "e-38-en",
+    "name": "Cat Show",
+    "roles": [
+      "Cat",
+      "Child",
+      "Crazy Cat Lover",
+      "Groomer",
+      "Veterinarian",
+      "Organizer",
+      "Judge",
+      "Visitor",
+      "Expert",
+      "Cat-Handler"
+    ]
+  },
+  "e-39-en": {
+    "id": "e-39-en",
+    "name": "Race Track",
+    "roles": [
+      "Pit Crew",
+      "Team Owner",
+      "Commentator",
+      "Firefighter",
+      "Medic",
+      "Flagman",
+      "Fan",
+      "Journalist",
+      "Girl with Champagne"
+    ]
+  },
+  "e-40-en": {
+    "id": "e-40-en",
+    "name": "Vineyard",
+    "roles": [
+      "Waiter",
+      "Wine Seller",
+      "Field Worker",
+      "Gardner",
+      "Sommelier",
+      "Gourmet Guide",
+      "Tourist",
+      "Taster",
+      "Vintager",
+      "winemaker"
     ]
   }
 }
