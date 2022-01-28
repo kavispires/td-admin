@@ -1,9 +1,10 @@
-import { Alert, Divider, Input, Layout, PageHeader, Typography, List } from 'antd';
+import { Input, Layout, Typography, List } from 'antd';
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
 import { useAsync, useTitle } from 'react-use';
-import DataLoading from '../components/DataLoading';
-import { LOCALHOST_RESOURCE_URL } from '../utils/constants';
+import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
+import { ResourceSelectionBar } from '../../components/ResourceSelectionBar';
+import { useResourceState } from '../../hooks/useResourceState';
+import { LOCALHOST_RESOURCE_URL } from '../../utils/constants';
 
 const { Text, Title } = Typography;
 
@@ -37,26 +38,24 @@ const parseData = (cards, groups) => {
 
 function Level4() {
   useTitle('Arte Ruim - Level 4');
-  const history = useHistory();
+
+  const availableResources = ['arte-ruim'];
+  const initialState = { language: 'pt', resourceName: availableResources[0] };
 
   const [used, setUsed] = useState({});
   const [unused, setUnused] = useState({});
   const [duplicated, setDuplicated] = useState({});
   const [themes, setThemes] = useState([]);
 
-  const resourceName = 'arte-ruim';
-  const language = 'pt';
-
   const {
-    value: cards,
-    loading: loadingCards,
-    error: errorCards,
-  } = useAsync(async () => {
-    const response = await fetch(`${LOCALHOST_RESOURCE_URL}/${resourceName}-${language}.json`);
-    const result = await response.json();
-
-    return result;
-  }, []);
+    resourceName,
+    language,
+    loading,
+    error,
+    updateResource,
+    hasResponseData,
+    response: cards,
+  } = useResourceState(availableResources, initialState);
 
   const {
     value: groups,
@@ -67,33 +66,32 @@ function Level4() {
     const result = await response.json();
 
     return result;
-  }, []);
+  }, [language]);
 
   useEffect(() => {
-    if (cards && groups) {
+    if (!loading && !loadingLevel4 && cards && groups) {
       const result = parseData(cards, groups);
       setThemes(result.themes);
       setUsed(result.used);
       setUnused(result.unused);
       setDuplicated(result.duplicated);
     }
-  }, [cards, groups]);
+  }, [cards, groups, loading, loadingLevel4]);
 
   return (
     <Layout>
-      <PageHeader title="Arte Ruim Level 4" onBack={() => history.goBack()} />
-
-      {Boolean(cards && groups) && (
-        <Alert
-          type="success"
-          message={`Data loaded for ${resourceName}-${language}`}
-          className="with-margin"
-        />
-      )}
-      <Divider />
+      <ResourceSelectionBar
+        title="Arte Ruim Level 4"
+        resourceNames={['arte-ruim']}
+        initialValues={initialState}
+        updateState={updateResource}
+        hasResponseData={hasResponseData && Boolean(groups)}
+        loading={loading || loadingLevel4}
+        error={error || errorLevel4}
+      />
 
       <Layout.Content className="content">
-        <DataLoading loading={loadingCards || loadingLevel4} error={errorCards || errorLevel4}>
+        <DataLoadingWrapper loading={loading || loadingLevel4} error={error || errorLevel4}>
           <div className="parser-container">
             <div className="parser-main">
               <Title level={2}>Used in Groups ({Object.keys(used).length})</Title>
@@ -121,7 +119,7 @@ function Level4() {
                 cols="15"
                 rows="5"
                 readOnly
-                value={JSON.stringify(duplicated)}
+                value={JSON.stringify(duplicated, null, 4)}
               />
             </div>
 
@@ -130,30 +128,16 @@ function Level4() {
                 header={<Title level={2}>Themes</Title>}
                 bordered
                 dataSource={themes}
+                size="small"
                 renderItem={(item) => (
                   <List.Item>
                     <Text mark></Text> {item}
                   </List.Item>
                 )}
               />
-
-              <Divider />
-
-              {/* <div className="parser-flex-column">
-                <Title level={2}>Search Similar</Title>
-                <Input type="text" onChange={onSearchSimilar} placeholder="Type here" />
-                <Input.TextArea
-                  name="search-results"
-                  id=""
-                  cols="10"
-                  rows="10"
-                  readOnly
-                  value={JSON.stringify(searchResults, null, 4)}
-                />
-              </div> */}
             </aside>
           </div>
-        </DataLoading>
+        </DataLoadingWrapper>
       </Layout.Content>
     </Layout>
   );
