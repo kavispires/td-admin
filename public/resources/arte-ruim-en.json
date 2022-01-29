@@ -3453,5 +3453,315 @@
     "id": "a-691-en",
     "text": "Pencil drawing",
     "level": 1
+  },
+  "a-692-en": {
+    "id": "a-692-en",
+    "text": "Quiet trepidation",
+    "level": 3
+  },
+  "a-693-en": {
+    "id": "a-693-en",
+    "text": "Dope AF",
+    "level": 3
+  },
+  "a-694-en": {
+    "id": "a-694-en",
+    "text": "Caked up",
+    "level": 1
+  },
+  "a-695-en": {
+    "id": "a-695-en",
+    "text": "Excessive force",
+    "level": 1
+  },
+  "a-696-en": {
+    "id": "a-696-en",
+    "text": "Switch bodies",
+    "level": 1
+  },
+  "a-697-en": {
+    "id": "a-697-en",
+    "text": "Body shaming",
+    "level": 2
+  },
+  "a-698-en": {
+    "id": "a-698-en",
+    "text": "Make it clap",
+    "level": 1
+  },
+  "a-699-en": {
+    "id": "a-699-en",
+    "text": "Off-putting",
+    "level": 3
+  },
+  "a-700-en": {
+    "id": "a-700-en",
+    "text": "Get low",
+    "level": 3
+  },
+  "a-701-en": {
+    "id": "a-701-en",
+    "text": "Homeboy",
+    "level": 1
+  },
+  "a-702-en": {
+    "id": "a-702-en",
+    "text": "Hit me baby one more time",
+    "level": 2
+  },
+  "a-703-en": {
+    "id": "a-703-en",
+    "text": "Swagger",
+    "level": 2
+  },
+  "a-704-en": {
+    "id": "a-704-en",
+    "text": "For the honor of Grayskull",
+    "level": 1
+  },
+  "a-705-en": {
+    "id": "a-705-en",
+    "text": "Pull Request",
+    "level": 3
+  },
+  "a-706-en": {
+    "id": "a-706-en",
+    "text": "No meeting day",
+    "level": 2
+  },
+  "a-707-en": {
+    "id": "a-707-en",
+    "text": "Antivax",
+    "level": 1
+  },
+  "a-708-en": {
+    "id": "a-708-en",
+    "text": "No pain no gain",
+    "level": 1
+  },
+  "a-709-en": {
+    "id": "a-709-en",
+    "text": "Warehouse sale",
+    "level": 1
+  },
+  "a-710-en": {
+    "id": "a-710-en",
+    "text": "Don't stop believing",
+    "level": 3
+  },
+  "a-711-en": {
+    "id": "a-711-en",
+    "text": "Among Us",
+    "level": 1
+  },
+  "a-712-en": {
+    "id": "a-712-en",
+    "text": "Leave me alone",
+    "level": 3
+  },
+  "a-713-en": {
+    "id": "a-713-en",
+    "text": "Error message",
+    "level": 2
+  },
+  "a-714-en": {
+    "id": "a-714-en",
+    "text": "Popup",
+    "level": 2
+  },
+  "a-715-en": {
+    "id": "a-715-en",
+    "text": "Laziness is a virtue",
+    "level": 0
+  },
+  "a-716-en": {
+    "id": "a-716-en",
+    "text": "They don't know we know they know",
+    "level": 2
+  },
+  "a-717-en": {
+    "id": "a-717-en",
+    "text": "Why so serious?",
+    "level": 1
+  },
+  "a-718-en": {
+    "id": "a-718-en",
+    "text": "Fine line",
+    "level": 1
+  },
+  "a-719-en": {
+    "id": "a-719-en",
+    "text": "Fine print",
+    "level": 2
+  },
+  "a-720-en": {
+    "id": "a-720-en",
+    "text": "On the fence",
+    "level": 1
+  },
+  "a-721-en": {
+    "id": "a-721-en",
+    "text": "Weight watchers",
+    "level": 1
+  },
+  "a-722-en": {
+    "id": "a-722-en",
+    "text": "Survival instincts",
+    "level": 2
+  },
+  "a-723-en": {
+    "id": "a-723-en",
+    "text": "Good looks",
+    "level": 1
+  },
+  "a-724-en": {
+    "id": "a-724-en",
+    "text": "Limited edition",
+    "level": 2
+  },
+  "a-725-en": {
+    "id": "a-725-en",
+    "text": "First come first serve",
+    "level": 1
+  },
+  "a-726-en": {
+    "id": "a-726-en",
+    "text": "Hidden fees",
+    "level": 1
+  },
+  "a-727-en": {
+    "id": "a-727-en",
+    "text": "Online troll",
+    "level": 2
+  },
+  "a-728-en": {
+    "id": "a-728-en",
+    "text": "Motivational post",
+    "level": 1
+  },
+  "a-729-en": {
+    "id": "a-729-en",
+    "text": "Alexa, what is Sesquipedalian?",
+    "level": 2
+  },
+  "a-730-en": {
+    "id": "a-730-en",
+    "text": "To get over a breakup",
+    "level": 2
+  },
+  "a-731-en": {
+    "id": "a-731-en",
+    "text": "Push your luck",
+    "level": 1
+  },
+  "a-732-en": {
+    "id": "a-732-en",
+    "text": "You and Me forever",
+    "level": 1
+  },
+  "a-733-en": {
+    "id": "a-733-en",
+    "text": "Paleo diet",
+    "level": 3
+  },
+  "a-734-en": {
+    "id": "a-734-en",
+    "text": "See the bright side",
+    "level": 1
+  },
+  "a-735-en": {
+    "id": "a-735-en",
+    "text": "Something that doesn't suck",
+    "level": 2
+  },
+  "a-736-en": {
+    "id": "a-736-en",
+    "text": "To-do list",
+    "level": 1
+  },
+  "a-737-en": {
+    "id": "a-737-en",
+    "text": "Regretful decision",
+    "level": 2
+  },
+  "a-738-en": {
+    "id": "a-738-en",
+    "text": "Stress-free life",
+    "level": 2
+  },
+  "a-739-en": {
+    "id": "a-739-en",
+    "text": "Second-guessing yourself",
+    "level": 3
+  },
+  "a-740-en": {
+    "id": "a-740-en",
+    "text": "Stand-up comedy",
+    "level": 1
+  },
+  "a-741-en": {
+    "id": "a-741-en",
+    "text": "Saturday morning cartoons",
+    "level": 2
+  },
+  "a-742-en": {
+    "id": "a-742-en",
+    "text": "Buzzfeed test",
+    "level": 1
+  },
+  "a-743-en": {
+    "id": "a-743-en",
+    "text": "To do your ironing in the dryer",
+    "level": 2
+  },
+  "a-744-en": {
+    "id": "a-744-en",
+    "text": "Dad jokes",
+    "level": 2
+  },
+  "a-745-en": {
+    "id": "a-745-en",
+    "text": "Morning person",
+    "level": 1
+  },
+  "a-746-en": {
+    "id": "a-746-en",
+    "text": "Late-night snacking",
+    "level": 2
+  },
+  "a-747-en": {
+    "id": "a-747-en",
+    "text": "Good taste",
+    "level": 1
+  },
+  "a-748-en": {
+    "id": "a-748-en",
+    "text": "Bad hair day",
+    "level": 1
+  },
+  "a-749-en": {
+    "id": "a-749-en",
+    "text": "Advancements of humanity",
+    "level": 0
+  },
+  "a-750-en": {
+    "id": "a-750-en",
+    "text": "Too many tabs open",
+    "level": 2
+  },
+  "a-751-en": {
+    "id": "a-751-en",
+    "text": "Insufferable brat",
+    "level": 3
+  },
+  "a-752-en": {
+    "id": "a-752-en",
+    "text": "Insanity",
+    "level": 2
+  },
+  "a-753-en": {
+    "id": "a-753-en",
+    "text": "Dangerous game",
+    "level": 1
   }
 }
