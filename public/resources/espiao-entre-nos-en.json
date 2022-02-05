@@ -108,7 +108,7 @@
   },
   "e-16-en": {
     "id": "e-16-en",
-    "name": "Estação Polar",
+    "name": "Polar Station",
     "roles": [
       "Scientist",
       "Geophysicist",
@@ -155,7 +155,7 @@
   },
   "e-22-en": {
     "id": "e-22-en",
-    "name": "Submarino",
+    "name": "Submarine",
     "roles": ["Sailor", "Commander", "Radio operator", "Navigator", "Cook", "Electrician", "Sonar Operator"]
   },
   "e-23-en": {
@@ -197,7 +197,7 @@
   },
   "e-27-en": {
     "id": "e-27-en",
-    "name": "Museu",
+    "name": "Museum",
     "roles": [
       "Visitor",
       "Art Student",
