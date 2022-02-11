@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { Alert, Divider, Input, Layout, PageHeader, Typography } from 'antd';
 import { useEffect, useMemo, useState } from 'react';
-import { useHistory } from 'react-router';
+
 import { useAsync, useTitle } from 'react-use';
 import { LOCALHOST_RESOURCE_URL } from '../utils/constants';
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
@@ -12,8 +12,6 @@ const { Text, Title } = Typography;
 
 function Other() {
   useTitle('Arte Ruim - Other');
-
-  const history = useHistory();
 
   // const result = Array(50)
   //   .fill(1)
@@ -150,10 +148,10 @@ function Other() {
   };
 
   const result = parseEspiao();
-  console.log({ result });
+
   return (
     <Layout>
-      <PageHeader title="Other" onBack={() => history.goBack()} />
+      <PageHeader title="Other" onBack={() => {}} />
 
       <Divider />
 

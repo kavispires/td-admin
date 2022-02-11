@@ -1,7 +1,8 @@
 import { Button, Form, PageHeader, Select, Tag } from 'antd';
-import { useHistory } from 'react-router-dom';
 import { LANGUAGES } from '../utils/constants';
 import { Menu } from './Menu';
+import { useQueryParams } from '../hooks/useQueryParams';
+import { useNavigate } from 'react-router-dom';
 
 function TagState({ loading, error, hasResponseData }) {
   if (loading) return <Tag color="blue">Loading...</Tag>;
@@ -18,26 +19,28 @@ export function ResourceSelectionBar({
   loading,
   error,
   hasResponseData,
+  values = {},
 }) {
-  const history = useHistory();
+  const navigate = useNavigate();
+  const { updateQueryParams } = useQueryParams();
 
-  const onFinish = ({ resourceName, language }) => {
+  const onFinish = (values) => {
     updateState({
-      language,
-      resourceName,
+      ...values,
     });
+    updateQueryParams({ ...values });
   };
 
   return (
     <PageHeader
       title={title}
       tags={<TagState loading={loading} error={error} hasResponseData={hasResponseData} />}
-      onBack={() => history.goBack()}
+      onBack={() => navigate(-1)}
       extra={<Menu />}
     >
-      <Form layout="inline" onFinish={onFinish} size="small" initialValues={initialValues}>
+      <Form layout="inline" onFinish={onFinish} size="small" initialValues={{ ...initialValues, ...values }}>
         <Form.Item label="Resource" name="resourceName">
-          <Select style={{ minWidth: '150px' }}>
+          <Select style={{ minWidth: '150px' }} value={values.resourceName}>
             {resourceNames.map((rn) => (
               <Select.Option key={rn} value={rn}>
                 {rn}

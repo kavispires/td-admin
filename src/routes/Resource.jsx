@@ -6,22 +6,20 @@ import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
 import { useResourceState } from '../hooks/useResourceState';
 import { RESOURCE_NAMES } from '../utils/constants';
 import { SearchDuplicates } from '../components/SearchDuplicates';
+import { useQueryParams } from '../hooks/useQueryParams';
 
 const { Text, Title } = Typography;
 
 function Resource() {
   useTitle('Resource');
 
-  const initialState = {
-    language: 'pt',
-    resourceName: RESOURCE_NAMES[Math.floor(Math.random() * RESOURCE_NAMES.length)],
-  };
-
   const [output, setOutput] = useState({});
   const property = 'text';
 
   const { resourceName, language, loading, error, updateResource, hasResponseData, response } =
-    useResourceState(RESOURCE_NAMES, initialState);
+    useResourceState(RESOURCE_NAMES, {});
+
+  const { params } = useQueryParams({ resourceName, language }, updateResource);
 
   useEffect(() => {
     if (response) {
@@ -34,7 +32,7 @@ function Resource() {
       <ResourceSelectionBar
         title={`Data for ${resourceName}-${language}`}
         resourceNames={RESOURCE_NAMES}
-        initialValues={initialState}
+        values={params}
         updateState={updateResource}
         hasResponseData={hasResponseData}
         loading={loading}
