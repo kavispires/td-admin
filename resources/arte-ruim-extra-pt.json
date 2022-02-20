@@ -31,7 +31,9 @@
       "a-115-pt": "Fora de moda",
       "a-126-pt": "Inventar moda",
       "a-378-pt": "Roupa de ir",
-      "a-247-pt": "Desbotado"
+      "a-247-pt": "Desbotado",
+      "a-984-pt": "Coleção primavera-verão",
+      "a-985-pt": "Coleção outono-inverno"
     }
   },
   "ax-4-pt": {
@@ -54,7 +56,9 @@
       "a-67-pt": "Da boca pra fora",
       "a-101-pt": "Estar na boca do povo",
       "a-781-pt": "Boca livre",
-      "a-168-pt": "Poupe saliva"
+      "a-168-pt": "Poupe saliva",
+      "a-782-pt": "De lamber os beiços",
+      "a-780-pt": "Fazer uma boquinha"
     }
   },
   "ax-6-pt": {
@@ -90,7 +94,8 @@
     "cards": {
       "a-707-pt": "Descendente de pobre",
       "a-11-pt": "Antepassados",
-      "a-223-pt": "Caracteristica hereditária"
+      "a-223-pt": "Caracteristica hereditária",
+      "a-998-pt": "Filhinho de papai"
     }
   },
   "ax-9-pt": {
@@ -150,7 +155,9 @@
       "a-679-pt": "Xoxa, capenga, manca, anêmica, frágil e inconsistente",
       "a-100-pt": "Estar borocoxô",
       "a-216-pt": "Baixa auto-estima",
-      "a-218-pt": "Bodar"
+      "a-218-pt": "Bodar",
+      "a-999-pt": "Depressão profunda",
+      "a-847-pt": "Só lamento"
     }
   },
   "ax-15-pt": {
@@ -256,7 +263,9 @@
     "cards": {
       "a-35-pt": "Cagando e andando",
       "a-36-pt": "Cagar de medo",
-      "a-141-pt": "Não caga nem sai da moita"
+      "a-141-pt": "Não caga nem sai da moita",
+      "a-979-pt": "Coliformes fecais",
+      "a-980-pt": "Ir à merda"
     }
   },
   "ax-23-pt": {
@@ -280,7 +289,10 @@
       "a-236-pt": "Convidado",
       "a-636-pt": "Só uma lembrancinha",
       "a-955-pt": "Super festa",
-      "a-906-pt": "Pular carnaval"
+      "a-906-pt": "Pular carnaval",
+      "a-1005-pt": "Festa surpresa",
+      "a-997-pt": "Com quem será...",
+      "a-977-pt": "Esquecer o aniversário de casamento"
     }
   },
   "ax-25-pt": {
@@ -328,7 +340,9 @@
       "a-167-pt": "Ponto cego",
       "a-954-pt": "Dar pra ver nitidamente",
       "a-953-pt": "Olha só!",
-      "a-938-pt": "Estrábico convergente"
+      "a-938-pt": "Estrábico convergente",
+      "a-451-pt": "Fingir que não viu",
+      "a-982-pt": "Invadir a privacidade"
     }
   },
   "ax-29-pt": {
@@ -341,7 +355,8 @@
       "a-192-pt": "Tá na cara!",
       "a-752-pt": "Cara caramba cara caraô",
       "a-693-pt": "Hackear o face",
-      "a-823-pt": "Cara de carranca"
+      "a-823-pt": "Cara de carranca",
+      "a-986-pt": "Cara de deboche"
     }
   },
   "ax-30-pt": {
@@ -439,7 +454,11 @@
       "a-75-pt": "Deixar na mão",
       "a-89-pt": "É pegar ou largar",
       "a-348-pt": "Pegadinha",
-      "a-792-pt": "Dar uma mãozinha"
+      "a-792-pt": "Dar uma mãozinha",
+      "a-1009-pt": "Pega no compasso",
+      "a-1010-pt": "Pegar mal",
+      "a-1011-pt": "Pegar bem",
+      "a-1012-pt": "Ter pegada"
     }
   },
   "ax-39-pt": {
@@ -492,12 +511,15 @@
       "a-814-pt": "Parcelado ou à vista?",
       "a-249-pt": "Desemprego",
       "a-374-pt": "Riqueza de detalhes",
-      "a-923-pt": "Rico em cálcio"
+      "a-923-pt": "Rico em cálcio",
+      "a-459-pt": "Investimento seguro",
+      "a-882-pt": "Black fraude",
+      "a-884-pt": "Pra gringo é mais caro"
     }
   },
   "ax-43-pt": {
     "id": "ax-43-pt",
-    "theme": "pau;;sexo",
+    "theme": "pau;;pinto;;sexo",
     "cards": {
       "a-152-pt": "O pau vai comer",
       "a-162-pt": "Pau pra toda obra",
@@ -507,7 +529,10 @@
       "a-811-pt": "Monobola",
       "a-944-pt": "Pau que nasce torto nunca se endireita",
       "a-916-pt": "Proctologista experiente",
-      "a-900-pt": "Descer o cacete"
+      "a-900-pt": "Descer o cacete",
+      "a-925-pt": "Meter o cacete",
+      "a-897-pt": "Quebrar o pau",
+      "a-565-pt": "Super dotado"
     }
   },
   "ax-44-pt": {
@@ -538,7 +563,8 @@
       "a-300-pt": "Irritantemente otimista",
       "a-375-pt": "Rir pra não chorar",
       "a-383-pt": "Sem medo de ser feliz",
-      "a-939-pt": "Rachar de rir"
+      "a-939-pt": "Rachar de rir",
+      "a-890-pt": "Para nossa alegria"
     }
   },
   "ax-47-pt": {
@@ -731,7 +757,11 @@
       "a-647-pt": "Gemidão do Zap",
       "a-125-pt": "Internet",
       "a-698-pt": "Reunião que poderia ter sido um e-mail",
-      "a-693-pt": "Hackear o face"
+      "a-693-pt": "Hackear o face",
+      "a-1003-pt": "Hitar na internet",
+      "a-963-pt": "Reunião online",
+      "a-571-pt": "Tarde divertida",
+      "a-976-pt": "Suas definições de vírus foram atualizadas"
     }
   },
   "ax-65-pt": {
@@ -739,7 +769,9 @@
     "theme": "documento;;leitura",
     "cards": {
       "a-576-pt": "Termos e condições",
-      "a-641-pt": "Moral da história"
+      "a-641-pt": "Moral da história",
+      "a-473-pt": "Menção honrosa",
+      "a-733-pt": "Mentir no currículo"
     }
   },
   "ax-66-pt": {
@@ -775,7 +807,8 @@
       "a-155-pt": "Opinião é igual cu",
       "a-855-pt": "Peido cheiroso",
       "a-856-pt": "Peido silencioso",
-      "a-956-pt": "Bunda suculenta"
+      "a-956-pt": "Bunda suculenta",
+      "a-634-pt": "Arrombado"
     }
   },
   "ax-68-pt": {
@@ -929,11 +962,45 @@
   },
   "ax-80-pt": {
     "id": "ax-80-pt",
-    "theme": "peido",
+    "theme": "??",
+    "cards": {}
+  },
+  "ax-81-pt": {
+    "id": "ax-81-pt",
+    "theme": "falso",
     "cards": {
-      "a-883-pt": "Alerta vermelho",
       "a-7-pt": "Alarme falso",
-      "a-560-pt": "Sinal de emergência"
+      "a-272-pt": "Falsificado",
+      "a-441-pt": "Falsa modéstia",
+      "a-442-pt": "Falsas promessas",
+      "a-443-pt": "Falsiane"
+    }
+  },
+  "ax-82-pt": {
+    "id": "ax-82-pt",
+    "theme": "macaco",
+    "cards": {
+      "a-880-pt": "Dá o play macaco",
+      "a-968-pt": "Acordar com a macaca",
+      "a-970-pt": "Macacos me mordam"
+    }
+  },
+  "ax-83-pt": {
+    "id": "ax-83-pt",
+    "theme": "mosca",
+    "cards": {
+      "a-959-pt": "Comer mosca",
+      "a-961-pt": "Mosca morta",
+      "a-960-pt": "Engolir sapo"
+    }
+  },
+  "ax-84-pt": {
+    "id": "ax-84-pt",
+    "theme": "capeta",
+    "cards": {
+      "a-994-pt": "Demonização facial",
+      "a-965-pt": "Estar com o capeta",
+      "a-966-pt": "Que diabos é isso?"
     }
   }
 }
