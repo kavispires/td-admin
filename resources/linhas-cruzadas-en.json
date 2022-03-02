@@ -1,926 +1,3302 @@
 {
-  "l-1-en": { "id": "l-1-en", "text": "acne" },
-  "l-2-en": { "id": "l-2-en", "text": "advertisement" },
-  "l-3-en": { "id": "l-3-en", "text": "africa" },
-  "l-4-en": { "id": "l-4-en", "text": "agent" },
-  "l-5-en": { "id": "l-5-en", "text": "air" },
-  "l-6-en": { "id": "l-6-en", "text": "aisle" },
-  "l-7-en": { "id": "l-7-en", "text": "alien" },
-  "l-8-en": { "id": "l-8-en", "text": "alligator" },
-  "l-9-en": { "id": "l-9-en", "text": "alphabet" },
-  "l-10-en": { "id": "l-10-en", "text": "amazon" },
-  "l-11-en": { "id": "l-11-en", "text": "ambulance" },
-  "l-12-en": { "id": "l-12-en", "text": "america" },
-  "l-13-en": { "id": "l-13-en", "text": "angel" },
-  "l-14-en": { "id": "l-14-en", "text": "ankle" },
-  "l-15-en": { "id": "l-15-en", "text": "antarctica" },
-  "l-16-en": { "id": "l-16-en", "text": "applause" },
-  "l-17-en": { "id": "l-17-en", "text": "apple" },
-  "l-18-en": { "id": "l-18-en", "text": "application" },
-  "l-19-en": { "id": "l-19-en", "text": "archaeologist" },
-  "l-20-en": { "id": "l-20-en", "text": "arm" },
-  "l-21-en": { "id": "l-21-en", "text": "asleep" },
-  "l-22-en": { "id": "l-22-en", "text": "astronaut" },
-  "l-23-en": { "id": "l-23-en", "text": "athlete" },
-  "l-24-en": { "id": "l-24-en", "text": "atlantis" },
-  "l-25-en": { "id": "l-25-en", "text": "aunt" },
-  "l-26-en": { "id": "l-26-en", "text": "australia" },
-  "l-27-en": { "id": "l-27-en", "text": "avocado" },
-  "l-28-en": { "id": "l-28-en", "text": "aztec" },
-  "l-29-en": { "id": "l-29-en", "text": "baby-sitter" },
-  "l-30-en": { "id": "l-30-en", "text": "back" },
-  "l-31-en": { "id": "l-31-en", "text": "bag" },
-  "l-32-en": { "id": "l-32-en", "text": "baguette" },
-  "l-33-en": { "id": "l-33-en", "text": "bald" },
-  "l-34-en": { "id": "l-34-en", "text": "ball" },
-  "l-35-en": { "id": "l-35-en", "text": "balloon" },
-  "l-36-en": { "id": "l-36-en", "text": "banana" },
-  "l-37-en": { "id": "l-37-en", "text": "band" },
-  "l-38-en": { "id": "l-38-en", "text": "banister" },
-  "l-39-en": { "id": "l-39-en", "text": "bank" },
-  "l-40-en": { "id": "l-40-en", "text": "bar" },
-  "l-41-en": { "id": "l-41-en", "text": "bark" },
-  "l-42-en": { "id": "l-42-en", "text": "baseball" },
-  "l-43-en": { "id": "l-43-en", "text": "basketball" },
-  "l-44-en": { "id": "l-44-en", "text": "bat" },
-  "l-45-en": { "id": "l-45-en", "text": "battery" },
-  "l-46-en": { "id": "l-46-en", "text": "beach" },
-  "l-47-en": { "id": "l-47-en", "text": "beanstalk" },
-  "l-48-en": { "id": "l-48-en", "text": "bear" },
-  "l-49-en": { "id": "l-49-en", "text": "beat" },
-  "l-50-en": { "id": "l-50-en", "text": "bed" },
-  "l-51-en": { "id": "l-51-en", "text": "beer" },
-  "l-52-en": { "id": "l-52-en", "text": "beethoven" },
-  "l-53-en": { "id": "l-53-en", "text": "beijing" },
-  "l-54-en": { "id": "l-54-en", "text": "bell" },
-  "l-55-en": { "id": "l-55-en", "text": "belt" },
-  "l-56-en": { "id": "l-56-en", "text": "berlin" },
-  "l-57-en": { "id": "l-57-en", "text": "berry" },
-  "l-58-en": { "id": "l-58-en", "text": "bib" },
-  "l-59-en": { "id": "l-59-en", "text": "bicycle" },
-  "l-60-en": { "id": "l-60-en", "text": "big" },
-  "l-61-en": { "id": "l-61-en", "text": "bike" },
-  "l-62-en": { "id": "l-62-en", "text": "bill" },
-  "l-63-en": { "id": "l-63-en", "text": "billboard" },
-  "l-64-en": { "id": "l-64-en", "text": "bird" },
-  "l-65-en": { "id": "l-65-en", "text": "birthday" },
-  "l-66-en": { "id": "l-66-en", "text": "bite" },
-  "l-67-en": { "id": "l-67-en", "text": "blacksmith" },
-  "l-68-en": { "id": "l-68-en", "text": "blanket" },
-  "l-69-en": { "id": "l-69-en", "text": "bleach" },
-  "l-70-en": { "id": "l-70-en", "text": "block" },
-  "l-71-en": { "id": "l-71-en", "text": "blueprint" },
-  "l-72-en": { "id": "l-72-en", "text": "board" },
-  "l-73-en": { "id": "l-73-en", "text": "boat" },
-  "l-74-en": { "id": "l-74-en", "text": "bobsled" },
-  "l-75-en": { "id": "l-75-en", "text": "body" },
-  "l-76-en": { "id": "l-76-en", "text": "bolt" },
-  "l-77-en": { "id": "l-77-en", "text": "bomb" },
-  "l-78-en": { "id": "l-78-en", "text": "bond" },
-  "l-79-en": { "id": "l-79-en", "text": "bonnet" },
-  "l-80-en": { "id": "l-80-en", "text": "book" },
-  "l-81-en": { "id": "l-81-en", "text": "boom" },
-  "l-82-en": { "id": "l-82-en", "text": "boot" },
-  "l-83-en": { "id": "l-83-en", "text": "booth" },
-  "l-84-en": { "id": "l-84-en", "text": "bottle" },
-  "l-85-en": { "id": "l-85-en", "text": "bow" },
-  "l-86-en": { "id": "l-86-en", "text": "box" },
-  "l-87-en": { "id": "l-87-en", "text": "boy" },
-  "l-88-en": { "id": "l-88-en", "text": "brainstorm" },
-  "l-89-en": { "id": "l-89-en", "text": "brand" },
-  "l-90-en": { "id": "l-90-en", "text": "brave" },
-  "l-91-en": { "id": "l-91-en", "text": "bride" },
-  "l-92-en": { "id": "l-92-en", "text": "bridge" },
-  "l-93-en": { "id": "l-93-en", "text": "broccoli" },
-  "l-94-en": { "id": "l-94-en", "text": "broken" },
-  "l-95-en": { "id": "l-95-en", "text": "broom" },
-  "l-96-en": { "id": "l-96-en", "text": "bruise" },
-  "l-97-en": { "id": "l-97-en", "text": "brunette" },
-  "l-98-en": { "id": "l-98-en", "text": "brush" },
-  "l-99-en": { "id": "l-99-en", "text": "bubble" },
-  "l-100-en": { "id": "l-100-en", "text": "buck" },
-  "l-101-en": { "id": "l-101-en", "text": "buddy" },
-  "l-102-en": { "id": "l-102-en", "text": "buffalo" },
-  "l-103-en": { "id": "l-103-en", "text": "bug" },
-  "l-104-en": { "id": "l-104-en", "text": "bulb" },
-  "l-105-en": { "id": "l-105-en", "text": "bunny" },
-  "l-106-en": { "id": "l-106-en", "text": "bus" },
-  "l-107-en": { "id": "l-107-en", "text": "button" },
-  "l-108-en": { "id": "l-108-en", "text": "buy" },
-  "l-109-en": { "id": "l-109-en", "text": "cabin" },
-  "l-110-en": { "id": "l-110-en", "text": "cafeteria" },
-  "l-111-en": { "id": "l-111-en", "text": "cake" },
-  "l-112-en": { "id": "l-112-en", "text": "calculator" },
-  "l-113-en": { "id": "l-113-en", "text": "calf" },
-  "l-114-en": { "id": "l-114-en", "text": "campsite" },
-  "l-115-en": { "id": "l-115-en", "text": "can" },
-  "l-116-en": { "id": "l-116-en", "text": "canada" },
-  "l-117-en": { "id": "l-117-en", "text": "candle" },
-  "l-118-en": { "id": "l-118-en", "text": "candy" },
-  "l-119-en": { "id": "l-119-en", "text": "cap" },
-  "l-120-en": { "id": "l-120-en", "text": "cape" },
-  "l-121-en": { "id": "l-121-en", "text": "capital" },
-  "l-122-en": { "id": "l-122-en", "text": "car" },
-  "l-123-en": { "id": "l-123-en", "text": "card" },
-  "l-124-en": { "id": "l-124-en", "text": "cardboard" },
-  "l-125-en": { "id": "l-125-en", "text": "carrot" },
-  "l-126-en": { "id": "l-126-en", "text": "cartography" },
-  "l-127-en": { "id": "l-127-en", "text": "casino" },
-  "l-128-en": { "id": "l-128-en", "text": "cast" },
-  "l-129-en": { "id": "l-129-en", "text": "cat" },
-  "l-130-en": { "id": "l-130-en", "text": "cd" },
-  "l-131-en": { "id": "l-131-en", "text": "ceiling" },
-  "l-132-en": { "id": "l-132-en", "text": "cell" },
-  "l-133-en": { "id": "l-133-en", "text": "centaur" },
-  "l-134-en": { "id": "l-134-en", "text": "center" },
-  "l-135-en": { "id": "l-135-en", "text": "century" },
-  "l-136-en": { "id": "l-136-en", "text": "chair" },
-  "l-137-en": { "id": "l-137-en", "text": "chalk" },
-  "l-138-en": { "id": "l-138-en", "text": "champion" },
-  "l-139-en": { "id": "l-139-en", "text": "change" },
-  "l-140-en": { "id": "l-140-en", "text": "charge" },
-  "l-141-en": { "id": "l-141-en", "text": "charger" },
-  "l-142-en": { "id": "l-142-en", "text": "check" },
-  "l-143-en": { "id": "l-143-en", "text": "cheerleader" },
-  "l-144-en": { "id": "l-144-en", "text": "chef" },
-  "l-145-en": { "id": "l-145-en", "text": "chess" },
-  "l-146-en": { "id": "l-146-en", "text": "chest" },
-  "l-147-en": { "id": "l-147-en", "text": "chick" },
-  "l-148-en": { "id": "l-148-en", "text": "chicken" },
-  "l-149-en": { "id": "l-149-en", "text": "chime" },
-  "l-150-en": { "id": "l-150-en", "text": "china" },
-  "l-151-en": { "id": "l-151-en", "text": "chocolate" },
-  "l-152-en": { "id": "l-152-en", "text": "church" },
-  "l-153-en": { "id": "l-153-en", "text": "circle" },
-  "l-154-en": { "id": "l-154-en", "text": "circus" },
-  "l-155-en": { "id": "l-155-en", "text": "clay" },
-  "l-156-en": { "id": "l-156-en", "text": "cliff" },
-  "l-157-en": { "id": "l-157-en", "text": "cloak" },
-  "l-158-en": { "id": "l-158-en", "text": "clockwork" },
-  "l-159-en": { "id": "l-159-en", "text": "clown" },
-  "l-160-en": { "id": "l-160-en", "text": "club" },
-  "l-161-en": { "id": "l-161-en", "text": "clue" },
-  "l-162-en": { "id": "l-162-en", "text": "coach" },
-  "l-163-en": { "id": "l-163-en", "text": "coal" },
-  "l-164-en": { "id": "l-164-en", "text": "coaster" },
-  "l-165-en": { "id": "l-165-en", "text": "code" },
-  "l-166-en": { "id": "l-166-en", "text": "cog" },
-  "l-167-en": { "id": "l-167-en", "text": "cold" },
-  "l-168-en": { "id": "l-168-en", "text": "college" },
-  "l-169-en": { "id": "l-169-en", "text": "comfort" },
-  "l-170-en": { "id": "l-170-en", "text": "comic" },
-  "l-171-en": { "id": "l-171-en", "text": "compound" },
-  "l-172-en": { "id": "l-172-en", "text": "computer" },
-  "l-173-en": { "id": "l-173-en", "text": "concert" },
-  "l-174-en": { "id": "l-174-en", "text": "conductor" },
-  "l-175-en": { "id": "l-175-en", "text": "cone" },
-  "l-176-en": { "id": "l-176-en", "text": "contract" },
-  "l-177-en": { "id": "l-177-en", "text": "conversation" },
-  "l-178-en": { "id": "l-178-en", "text": "coop" },
-  "l-179-en": { "id": "l-179-en", "text": "copper" },
-  "l-180-en": { "id": "l-180-en", "text": "cord" },
-  "l-181-en": { "id": "l-181-en", "text": "cot" },
-  "l-182-en": { "id": "l-182-en", "text": "cotton" },
-  "l-183-en": { "id": "l-183-en", "text": "cough" },
-  "l-184-en": { "id": "l-184-en", "text": "court" },
-  "l-185-en": { "id": "l-185-en", "text": "cover" },
-  "l-186-en": { "id": "l-186-en", "text": "cow" },
-  "l-187-en": { "id": "l-187-en", "text": "cowboy" },
-  "l-188-en": { "id": "l-188-en", "text": "crane" },
-  "l-189-en": { "id": "l-189-en", "text": "crash" },
-  "l-190-en": { "id": "l-190-en", "text": "crayon" },
-  "l-191-en": { "id": "l-191-en", "text": "cream" },
-  "l-192-en": { "id": "l-192-en", "text": "cricket" },
-  "l-193-en": { "id": "l-193-en", "text": "crisp" },
-  "l-194-en": { "id": "l-194-en", "text": "cross" },
-  "l-195-en": { "id": "l-195-en", "text": "crow" },
-  "l-196-en": { "id": "l-196-en", "text": "crown" },
-  "l-197-en": { "id": "l-197-en", "text": "cruise" },
-  "l-198-en": { "id": "l-198-en", "text": "crumb" },
-  "l-199-en": { "id": "l-199-en", "text": "crust" },
-  "l-200-en": { "id": "l-200-en", "text": "curtain" },
-  "l-201-en": { "id": "l-201-en", "text": "cuticle" },
-  "l-202-en": { "id": "l-202-en", "text": "cycle" },
-  "l-203-en": { "id": "l-203-en", "text": "czar" },
-  "l-204-en": { "id": "l-204-en", "text": "dad" },
-  "l-205-en": { "id": "l-205-en", "text": "dance" },
-  "l-206-en": { "id": "l-206-en", "text": "dart" },
-  "l-207-en": { "id": "l-207-en", "text": "date" },
-  "l-208-en": { "id": "l-208-en", "text": "dawn" },
-  "l-209-en": { "id": "l-209-en", "text": "day" },
-  "l-210-en": { "id": "l-210-en", "text": "death" },
-  "l-211-en": { "id": "l-211-en", "text": "deck" },
-  "l-212-en": { "id": "l-212-en", "text": "deep" },
-  "l-213-en": { "id": "l-213-en", "text": "defect" },
-  "l-214-en": { "id": "l-214-en", "text": "degree" },
-  "l-215-en": { "id": "l-215-en", "text": "dent" },
-  "l-216-en": { "id": "l-216-en", "text": "dentist" },
-  "l-217-en": { "id": "l-217-en", "text": "desk" },
-  "l-218-en": { "id": "l-218-en", "text": "diamond" },
-  "l-219-en": { "id": "l-219-en", "text": "dice" },
-  "l-220-en": { "id": "l-220-en", "text": "dictionary" },
-  "l-221-en": { "id": "l-221-en", "text": "dimple" },
-  "l-222-en": { "id": "l-222-en", "text": "dinosaur" },
-  "l-223-en": { "id": "l-223-en", "text": "dirty" },
-  "l-224-en": { "id": "l-224-en", "text": "disease" },
-  "l-225-en": { "id": "l-225-en", "text": "ditch" },
-  "l-226-en": { "id": "l-226-en", "text": "diver" },
-  "l-227-en": { "id": "l-227-en", "text": "doctor" },
-  "l-228-en": { "id": "l-228-en", "text": "dog" },
-  "l-229-en": { "id": "l-229-en", "text": "doghouse" },
-  "l-230-en": { "id": "l-230-en", "text": "doll" },
-  "l-231-en": { "id": "l-231-en", "text": "dominoes" },
-  "l-232-en": { "id": "l-232-en", "text": "door" },
-  "l-233-en": { "id": "l-233-en", "text": "dot" },
-  "l-234-en": { "id": "l-234-en", "text": "draft" },
-  "l-235-en": { "id": "l-235-en", "text": "dragon" },
-  "l-236-en": { "id": "l-236-en", "text": "drain" },
-  "l-237-en": { "id": "l-237-en", "text": "draw" },
-  "l-238-en": { "id": "l-238-en", "text": "dream" },
-  "l-239-en": { "id": "l-239-en", "text": "dress" },
-  "l-240-en": { "id": "l-240-en", "text": "drill" },
-  "l-241-en": { "id": "l-241-en", "text": "drink" },
-  "l-242-en": { "id": "l-242-en", "text": "drip" },
-  "l-243-en": { "id": "l-243-en", "text": "drop" },
-  "l-244-en": { "id": "l-244-en", "text": "drums" },
-  "l-245-en": { "id": "l-245-en", "text": "dryer" },
-  "l-246-en": { "id": "l-246-en", "text": "duck" },
-  "l-247-en": { "id": "l-247-en", "text": "dust" },
-  "l-248-en": { "id": "l-248-en", "text": "dwarf" },
-  "l-249-en": { "id": "l-249-en", "text": "eagle" },
-  "l-250-en": { "id": "l-250-en", "text": "ear" },
-  "l-251-en": { "id": "l-251-en", "text": "eat" },
-  "l-252-en": { "id": "l-252-en", "text": "ebony" },
-  "l-253-en": { "id": "l-253-en", "text": "egypt" },
-  "l-254-en": { "id": "l-254-en", "text": "elbow" },
-  "l-255-en": { "id": "l-255-en", "text": "electricity" },
-  "l-256-en": { "id": "l-256-en", "text": "elephant" },
-  "l-257-en": { "id": "l-257-en", "text": "elevator" },
-  "l-258-en": { "id": "l-258-en", "text": "elf" },
-  "l-259-en": { "id": "l-259-en", "text": "elm" },
-  "l-260-en": { "id": "l-260-en", "text": "embassy" },
-  "l-261-en": { "id": "l-261-en", "text": "engine" },
-  "l-262-en": { "id": "l-262-en", "text": "england" },
-  "l-263-en": { "id": "l-263-en", "text": "ergonomic" },
-  "l-264-en": { "id": "l-264-en", "text": "escalator" },
-  "l-265-en": { "id": "l-265-en", "text": "eureka" },
-  "l-266-en": { "id": "l-266-en", "text": "europe" },
-  "l-267-en": { "id": "l-267-en", "text": "evolution" },
-  "l-268-en": { "id": "l-268-en", "text": "extension" },
-  "l-269-en": { "id": "l-269-en", "text": "eye" },
-  "l-270-en": { "id": "l-270-en", "text": "eyebrow" },
-  "l-271-en": { "id": "l-271-en", "text": "face" },
-  "l-272-en": { "id": "l-272-en", "text": "fair" },
-  "l-273-en": { "id": "l-273-en", "text": "fall" },
-  "l-274-en": { "id": "l-274-en", "text": "fan" },
-  "l-275-en": { "id": "l-275-en", "text": "fancy" },
-  "l-276-en": { "id": "l-276-en", "text": "fast" },
-  "l-277-en": { "id": "l-277-en", "text": "feast" },
-  "l-278-en": { "id": "l-278-en", "text": "fence" },
-  "l-279-en": { "id": "l-279-en", "text": "feudalism" },
-  "l-280-en": { "id": "l-280-en", "text": "fiddle" },
-  "l-281-en": { "id": "l-281-en", "text": "field" },
-  "l-282-en": { "id": "l-282-en", "text": "fighter" },
-  "l-283-en": { "id": "l-283-en", "text": "figment" },
-  "l-284-en": { "id": "l-284-en", "text": "figure" },
-  "l-285-en": { "id": "l-285-en", "text": "file" },
-  "l-286-en": { "id": "l-286-en", "text": "film" },
-  "l-287-en": { "id": "l-287-en", "text": "finger" },
-  "l-288-en": { "id": "l-288-en", "text": "fire" },
-  "l-289-en": { "id": "l-289-en", "text": "first" },
-  "l-290-en": { "id": "l-290-en", "text": "fish" },
-  "l-291-en": { "id": "l-291-en", "text": "fishing" },
-  "l-292-en": { "id": "l-292-en", "text": "fix" },
-  "l-293-en": { "id": "l-293-en", "text": "fizz" },
-  "l-294-en": { "id": "l-294-en", "text": "flagpole" },
-  "l-295-en": { "id": "l-295-en", "text": "flannel" },
-  "l-296-en": { "id": "l-296-en", "text": "flashlight" },
-  "l-297-en": { "id": "l-297-en", "text": "flock" },
-  "l-298-en": { "id": "l-298-en", "text": "flotsam" },
-  "l-299-en": { "id": "l-299-en", "text": "flower" },
-  "l-300-en": { "id": "l-300-en", "text": "flu" },
-  "l-301-en": { "id": "l-301-en", "text": "flush" },
-  "l-302-en": { "id": "l-302-en", "text": "flute" },
-  "l-303-en": { "id": "l-303-en", "text": "flutter" },
-  "l-304-en": { "id": "l-304-en", "text": "fly" },
-  "l-305-en": { "id": "l-305-en", "text": "fog" },
-  "l-306-en": { "id": "l-306-en", "text": "foil" },
-  "l-307-en": { "id": "l-307-en", "text": "foot" },
-  "l-308-en": { "id": "l-308-en", "text": "football" },
-  "l-309-en": { "id": "l-309-en", "text": "force" },
-  "l-310-en": { "id": "l-310-en", "text": "forehead" },
-  "l-311-en": { "id": "l-311-en", "text": "forest" },
-  "l-312-en": { "id": "l-312-en", "text": "forever" },
-  "l-313-en": { "id": "l-313-en", "text": "fork" },
-  "l-314-en": { "id": "l-314-en", "text": "fortnight" },
-  "l-315-en": { "id": "l-315-en", "text": "france" },
-  "l-316-en": { "id": "l-316-en", "text": "freckle" },
-  "l-317-en": { "id": "l-317-en", "text": "freight" },
-  "l-318-en": { "id": "l-318-en", "text": "fringe" },
-  "l-319-en": { "id": "l-319-en", "text": "frog" },
-  "l-320-en": { "id": "l-320-en", "text": "frown" },
-  "l-321-en": { "id": "l-321-en", "text": "gallop" },
-  "l-322-en": { "id": "l-322-en", "text": "game" },
-  "l-323-en": { "id": "l-323-en", "text": "garbage" },
-  "l-324-en": { "id": "l-324-en", "text": "garden" },
-  "l-325-en": { "id": "l-325-en", "text": "gas" },
-  "l-326-en": { "id": "l-326-en", "text": "gasoline" },
-  "l-327-en": { "id": "l-327-en", "text": "gem" },
-  "l-328-en": { "id": "l-328-en", "text": "genius" },
-  "l-329-en": { "id": "l-329-en", "text": "germany" },
-  "l-330-en": { "id": "l-330-en", "text": "ghost" },
-  "l-331-en": { "id": "l-331-en", "text": "giant" },
-  "l-332-en": { "id": "l-332-en", "text": "ginger" },
-  "l-333-en": { "id": "l-333-en", "text": "gingerbread" },
-  "l-334-en": { "id": "l-334-en", "text": "girl" },
-  "l-335-en": { "id": "l-335-en", "text": "glass" },
-  "l-336-en": { "id": "l-336-en", "text": "glasses" },
-  "l-337-en": { "id": "l-337-en", "text": "glove" },
-  "l-338-en": { "id": "l-338-en", "text": "goblin" },
-  "l-339-en": { "id": "l-339-en", "text": "gold" },
-  "l-340-en": { "id": "l-340-en", "text": "goodbye" },
-  "l-341-en": { "id": "l-341-en", "text": "grace" },
-  "l-342-en": { "id": "l-342-en", "text": "grandpa" },
-  "l-343-en": { "id": "l-343-en", "text": "grape" },
-  "l-344-en": { "id": "l-344-en", "text": "grass" },
-  "l-345-en": { "id": "l-345-en", "text": "gratitude" },
-  "l-346-en": { "id": "l-346-en", "text": "gray" },
-  "l-347-en": { "id": "l-347-en", "text": "greece" },
-  "l-348-en": { "id": "l-348-en", "text": "green" },
-  "l-349-en": { "id": "l-349-en", "text": "ground" },
-  "l-350-en": { "id": "l-350-en", "text": "guitar" },
-  "l-351-en": { "id": "l-351-en", "text": "gum" },
-  "l-352-en": { "id": "l-352-en", "text": "gumball" },
-  "l-353-en": { "id": "l-353-en", "text": "hair" },
-  "l-354-en": { "id": "l-354-en", "text": "half" },
-  "l-355-en": { "id": "l-355-en", "text": "ham" },
-  "l-356-en": { "id": "l-356-en", "text": "hand" },
-  "l-357-en": { "id": "l-357-en", "text": "handle" },
-  "l-358-en": { "id": "l-358-en", "text": "handwriting" },
-  "l-359-en": { "id": "l-359-en", "text": "hang" },
-  "l-360-en": { "id": "l-360-en", "text": "happy" },
-  "l-361-en": { "id": "l-361-en", "text": "hat" },
-  "l-362-en": { "id": "l-362-en", "text": "hatch" },
-  "l-363-en": { "id": "l-363-en", "text": "hawk" },
-  "l-364-en": { "id": "l-364-en", "text": "head" },
-  "l-365-en": { "id": "l-365-en", "text": "headache" },
-  "l-366-en": { "id": "l-366-en", "text": "heart" },
-  "l-367-en": { "id": "l-367-en", "text": "hedge" },
-  "l-368-en": { "id": "l-368-en", "text": "helicopter" },
-  "l-369-en": { "id": "l-369-en", "text": "hem" },
-  "l-370-en": { "id": "l-370-en", "text": "hide" },
-  "l-371-en": { "id": "l-371-en", "text": "hill" },
-  "l-372-en": { "id": "l-372-en", "text": "himalayas" },
-  "l-373-en": { "id": "l-373-en", "text": "hockey" },
-  "l-374-en": { "id": "l-374-en", "text": "hole" },
-  "l-375-en": { "id": "l-375-en", "text": "hollywood" },
-  "l-376-en": { "id": "l-376-en", "text": "homework" },
-  "l-377-en": { "id": "l-377-en", "text": "honey" },
-  "l-378-en": { "id": "l-378-en", "text": "honk" },
-  "l-379-en": { "id": "l-379-en", "text": "hood" },
-  "l-380-en": { "id": "l-380-en", "text": "hook" },
-  "l-381-en": { "id": "l-381-en", "text": "hopscotch" },
-  "l-382-en": { "id": "l-382-en", "text": "horn" },
-  "l-383-en": { "id": "l-383-en", "text": "horse" },
-  "l-384-en": { "id": "l-384-en", "text": "horseshoe" },
-  "l-385-en": { "id": "l-385-en", "text": "hose" },
-  "l-386-en": { "id": "l-386-en", "text": "hospital" },
-  "l-387-en": { "id": "l-387-en", "text": "hot" },
-  "l-388-en": { "id": "l-388-en", "text": "hotel" },
-  "l-389-en": { "id": "l-389-en", "text": "house" },
-  "l-390-en": { "id": "l-390-en", "text": "houseboat" },
-  "l-391-en": { "id": "l-391-en", "text": "hug" },
-  "l-392-en": { "id": "l-392-en", "text": "humidifier" },
-  "l-393-en": { "id": "l-393-en", "text": "hungry" },
-  "l-394-en": { "id": "l-394-en", "text": "hurdle" },
-  "l-395-en": { "id": "l-395-en", "text": "hurt" },
-  "l-396-en": { "id": "l-396-en", "text": "hut" },
-  "l-397-en": { "id": "l-397-en", "text": "ice" },
-  "l-398-en": { "id": "l-398-en", "text": "ice cream" },
-  "l-399-en": { "id": "l-399-en", "text": "india" },
-  "l-400-en": { "id": "l-400-en", "text": "inn" },
-  "l-401-en": { "id": "l-401-en", "text": "inquisition" },
-  "l-402-en": { "id": "l-402-en", "text": "intern" },
-  "l-403-en": { "id": "l-403-en", "text": "internet" },
-  "l-404-en": { "id": "l-404-en", "text": "invitation" },
-  "l-405-en": { "id": "l-405-en", "text": "iron" },
-  "l-406-en": { "id": "l-406-en", "text": "ivory" },
-  "l-407-en": { "id": "l-407-en", "text": "ivy" },
-  "l-408-en": { "id": "l-408-en", "text": "jack" },
-  "l-409-en": { "id": "l-409-en", "text": "jade" },
-  "l-410-en": { "id": "l-410-en", "text": "jam" },
-  "l-411-en": { "id": "l-411-en", "text": "japan" },
-  "l-412-en": { "id": "l-412-en", "text": "jeans" },
-  "l-413-en": { "id": "l-413-en", "text": "jelly" },
-  "l-414-en": { "id": "l-414-en", "text": "jet" },
-  "l-415-en": { "id": "l-415-en", "text": "jig" },
-  "l-416-en": { "id": "l-416-en", "text": "jog" },
-  "l-417-en": { "id": "l-417-en", "text": "journal" },
-  "l-418-en": { "id": "l-418-en", "text": "jump" },
-  "l-419-en": { "id": "l-419-en", "text": "jupiter" },
-  "l-420-en": { "id": "l-420-en", "text": "kangaroo" },
-  "l-421-en": { "id": "l-421-en", "text": "ketchup" },
-  "l-422-en": { "id": "l-422-en", "text": "key" },
-  "l-423-en": { "id": "l-423-en", "text": "kid" },
-  "l-424-en": { "id": "l-424-en", "text": "killer" },
-  "l-425-en": { "id": "l-425-en", "text": "kilogram" },
-  "l-426-en": { "id": "l-426-en", "text": "king" },
-  "l-427-en": { "id": "l-427-en", "text": "kitchen" },
-  "l-428-en": { "id": "l-428-en", "text": "kite" },
-  "l-429-en": { "id": "l-429-en", "text": "kiwi" },
-  "l-430-en": { "id": "l-430-en", "text": "knee" },
-  "l-431-en": { "id": "l-431-en", "text": "kneel" },
-  "l-432-en": { "id": "l-432-en", "text": "knife" },
-  "l-433-en": { "id": "l-433-en", "text": "knight" },
-  "l-434-en": { "id": "l-434-en", "text": "koala" },
-  "l-435-en": { "id": "l-435-en", "text": "lab" },
-  "l-436-en": { "id": "l-436-en", "text": "lace" },
-  "l-437-en": { "id": "l-437-en", "text": "ladder" },
-  "l-438-en": { "id": "l-438-en", "text": "ladybug" },
-  "l-439-en": { "id": "l-439-en", "text": "lag" },
-  "l-440-en": { "id": "l-440-en", "text": "landfill" },
-  "l-441-en": { "id": "l-441-en", "text": "lap" },
-  "l-442-en": { "id": "l-442-en", "text": "laser" },
-  "l-443-en": { "id": "l-443-en", "text": "laugh" },
-  "l-444-en": { "id": "l-444-en", "text": "laundry" },
-  "l-445-en": { "id": "l-445-en", "text": "law" },
-  "l-446-en": { "id": "l-446-en", "text": "lawn" },
-  "l-447-en": { "id": "l-447-en", "text": "lawnmower" },
-  "l-448-en": { "id": "l-448-en", "text": "lawyer" },
-  "l-449-en": { "id": "l-449-en", "text": "lead" },
-  "l-450-en": { "id": "l-450-en", "text": "leak" },
-  "l-451-en": { "id": "l-451-en", "text": "leg" },
-  "l-452-en": { "id": "l-452-en", "text": "lemon" },
-  "l-453-en": { "id": "l-453-en", "text": "leprechaun" },
-  "l-454-en": { "id": "l-454-en", "text": "letter" },
-  "l-455-en": { "id": "l-455-en", "text": "level" },
-  "l-456-en": { "id": "l-456-en", "text": "life" },
-  "l-457-en": { "id": "l-457-en", "text": "lifestyle" },
-  "l-458-en": { "id": "l-458-en", "text": "ligament" },
-  "l-459-en": { "id": "l-459-en", "text": "light" },
-  "l-460-en": { "id": "l-460-en", "text": "lightsaber" },
-  "l-461-en": { "id": "l-461-en", "text": "lime" },
-  "l-462-en": { "id": "l-462-en", "text": "limousine" },
-  "l-463-en": { "id": "l-463-en", "text": "line" },
-  "l-464-en": { "id": "l-464-en", "text": "link" },
-  "l-465-en": { "id": "l-465-en", "text": "lion" },
-  "l-466-en": { "id": "l-466-en", "text": "litter" },
-  "l-467-en": { "id": "l-467-en", "text": "lizard" },
-  "l-468-en": { "id": "l-468-en", "text": "loch ness" },
-  "l-469-en": { "id": "l-469-en", "text": "lock" },
-  "l-470-en": { "id": "l-470-en", "text": "log" },
-  "l-471-en": { "id": "l-471-en", "text": "loiterer" },
-  "l-472-en": { "id": "l-472-en", "text": "lollipop" },
-  "l-473-en": { "id": "l-473-en", "text": "london" },
-  "l-474-en": { "id": "l-474-en", "text": "loveseat" },
-  "l-475-en": { "id": "l-475-en", "text": "loyalty" },
-  "l-476-en": { "id": "l-476-en", "text": "luck" },
-  "l-477-en": { "id": "l-477-en", "text": "lunch" },
-  "l-478-en": { "id": "l-478-en", "text": "lunchbox" },
-  "l-479-en": { "id": "l-479-en", "text": "lyrics" },
-  "l-480-en": { "id": "l-480-en", "text": "machine" },
-  "l-481-en": { "id": "l-481-en", "text": "macho" },
-  "l-482-en": { "id": "l-482-en", "text": "mail" },
-  "l-483-en": { "id": "l-483-en", "text": "mailbox" },
-  "l-484-en": { "id": "l-484-en", "text": "mammoth" },
-  "l-485-en": { "id": "l-485-en", "text": "maple" },
-  "l-486-en": { "id": "l-486-en", "text": "marble" },
-  "l-487-en": { "id": "l-487-en", "text": "march" },
-  "l-488-en": { "id": "l-488-en", "text": "mark" },
-  "l-489-en": { "id": "l-489-en", "text": "mars" },
-  "l-490-en": { "id": "l-490-en", "text": "mascot" },
-  "l-491-en": { "id": "l-491-en", "text": "mass" },
-  "l-492-en": { "id": "l-492-en", "text": "mast" },
-  "l-493-en": { "id": "l-493-en", "text": "match" },
-  "l-494-en": { "id": "l-494-en", "text": "matchstick" },
-  "l-495-en": { "id": "l-495-en", "text": "mate" },
-  "l-496-en": { "id": "l-496-en", "text": "mattress" },
-  "l-497-en": { "id": "l-497-en", "text": "mercury" },
-  "l-498-en": { "id": "l-498-en", "text": "mess" },
-  "l-499-en": { "id": "l-499-en", "text": "mexico" },
-  "l-500-en": { "id": "l-500-en", "text": "microscope" },
-  "l-501-en": { "id": "l-501-en", "text": "midsummer" },
-  "l-502-en": { "id": "l-502-en", "text": "millionaire" },
-  "l-503-en": { "id": "l-503-en", "text": "mine" },
-  "l-504-en": { "id": "l-504-en", "text": "mint" },
-  "l-505-en": { "id": "l-505-en", "text": "missile" },
-  "l-506-en": { "id": "l-506-en", "text": "mistake" },
-  "l-507-en": { "id": "l-507-en", "text": "model" },
-  "l-508-en": { "id": "l-508-en", "text": "modern" },
-  "l-509-en": { "id": "l-509-en", "text": "mold" },
-  "l-510-en": { "id": "l-510-en", "text": "mole" },
-  "l-511-en": { "id": "l-511-en", "text": "mom" },
-  "l-512-en": { "id": "l-512-en", "text": "monday" },
-  "l-513-en": { "id": "l-513-en", "text": "money" },
-  "l-514-en": { "id": "l-514-en", "text": "monitor" },
-  "l-515-en": { "id": "l-515-en", "text": "monster" },
-  "l-516-en": { "id": "l-516-en", "text": "mooch" },
-  "l-517-en": { "id": "l-517-en", "text": "moon" },
-  "l-518-en": { "id": "l-518-en", "text": "mop" },
-  "l-519-en": { "id": "l-519-en", "text": "moscow" },
-  "l-520-en": { "id": "l-520-en", "text": "moth" },
-  "l-521-en": { "id": "l-521-en", "text": "motorcycle" },
-  "l-522-en": { "id": "l-522-en", "text": "mount" },
-  "l-523-en": { "id": "l-523-en", "text": "mountain" },
-  "l-524-en": { "id": "l-524-en", "text": "mouse" },
-  "l-525-en": { "id": "l-525-en", "text": "mouth" },
-  "l-526-en": { "id": "l-526-en", "text": "mower" },
-  "l-527-en": { "id": "l-527-en", "text": "mud" },
-  "l-528-en": { "id": "l-528-en", "text": "mug" },
-  "l-529-en": { "id": "l-529-en", "text": "music" },
-  "l-530-en": { "id": "l-530-en", "text": "mute" },
-  "l-531-en": { "id": "l-531-en", "text": "nail" },
-  "l-532-en": { "id": "l-532-en", "text": "nature" },
-  "l-533-en": { "id": "l-533-en", "text": "needle" },
-  "l-534-en": { "id": "l-534-en", "text": "negotiate" },
-  "l-535-en": { "id": "l-535-en", "text": "neighbor" },
-  "l-536-en": { "id": "l-536-en", "text": "nest" },
-  "l-537-en": { "id": "l-537-en", "text": "net" },
-  "l-538-en": { "id": "l-538-en", "text": "neutron" },
-  "l-539-en": { "id": "l-539-en", "text": "new york" },
-  "l-540-en": { "id": "l-540-en", "text": "niece" },
-  "l-541-en": { "id": "l-541-en", "text": "night" },
-  "l-542-en": { "id": "l-542-en", "text": "nightmare" },
-  "l-543-en": { "id": "l-543-en", "text": "ninja" },
-  "l-544-en": { "id": "l-544-en", "text": "nose" },
-  "l-545-en": { "id": "l-545-en", "text": "note" },
-  "l-546-en": { "id": "l-546-en", "text": "novel" },
-  "l-547-en": { "id": "l-547-en", "text": "nurse" },
-  "l-548-en": { "id": "l-548-en", "text": "nut" },
-  "l-549-en": { "id": "l-549-en", "text": "oar" },
-  "l-550-en": { "id": "l-550-en", "text": "observatory" },
-  "l-551-en": { "id": "l-551-en", "text": "octopus" },
-  "l-552-en": { "id": "l-552-en", "text": "office" },
-  "l-553-en": { "id": "l-553-en", "text": "oil" },
-  "l-554-en": { "id": "l-554-en", "text": "old" },
-  "l-555-en": { "id": "l-555-en", "text": "olive" },
-  "l-556-en": { "id": "l-556-en", "text": "olympus" },
-  "l-557-en": { "id": "l-557-en", "text": "opaque" },
-  "l-558-en": { "id": "l-558-en", "text": "opener" },
-  "l-559-en": { "id": "l-559-en", "text": "opera" },
-  "l-560-en": { "id": "l-560-en", "text": "orange" },
-  "l-561-en": { "id": "l-561-en", "text": "orbit" },
-  "l-562-en": { "id": "l-562-en", "text": "organ" },
-  "l-563-en": { "id": "l-563-en", "text": "outer" },
-  "l-564-en": { "id": "l-564-en", "text": "outside" },
-  "l-565-en": { "id": "l-565-en", "text": "ovation" },
-  "l-566-en": { "id": "l-566-en", "text": "pail" },
-  "l-567-en": { "id": "l-567-en", "text": "paint" },
-  "l-568-en": { "id": "l-568-en", "text": "pajamas" },
-  "l-569-en": { "id": "l-569-en", "text": "palace" },
-  "l-570-en": { "id": "l-570-en", "text": "palm" },
-  "l-571-en": { "id": "l-571-en", "text": "pan" },
-  "l-572-en": { "id": "l-572-en", "text": "pants" },
-  "l-573-en": { "id": "l-573-en", "text": "paper" },
-  "l-574-en": { "id": "l-574-en", "text": "parachute" },
-  "l-575-en": { "id": "l-575-en", "text": "park" },
-  "l-576-en": { "id": "l-576-en", "text": "parody" },
-  "l-577-en": { "id": "l-577-en", "text": "part" },
-  "l-578-en": { "id": "l-578-en", "text": "party" },
-  "l-579-en": { "id": "l-579-en", "text": "pass" },
-  "l-580-en": { "id": "l-580-en", "text": "password" },
-  "l-581-en": { "id": "l-581-en", "text": "paste" },
-  "l-582-en": { "id": "l-582-en", "text": "pastry" },
-  "l-583-en": { "id": "l-583-en", "text": "pawn" },
-  "l-584-en": { "id": "l-584-en", "text": "pear" },
-  "l-585-en": { "id": "l-585-en", "text": "pen" },
-  "l-586-en": { "id": "l-586-en", "text": "pencil" },
-  "l-587-en": { "id": "l-587-en", "text": "pendulum" },
-  "l-588-en": { "id": "l-588-en", "text": "penguin" },
-  "l-589-en": { "id": "l-589-en", "text": "penis" },
-  "l-590-en": { "id": "l-590-en", "text": "penny" },
-  "l-591-en": { "id": "l-591-en", "text": "pepper" },
-  "l-592-en": { "id": "l-592-en", "text": "personal" },
-  "l-593-en": { "id": "l-593-en", "text": "philosopher" },
-  "l-594-en": { "id": "l-594-en", "text": "phoenix" },
-  "l-595-en": { "id": "l-595-en", "text": "phone" },
-  "l-596-en": { "id": "l-596-en", "text": "photograph" },
-  "l-597-en": { "id": "l-597-en", "text": "piano" },
-  "l-598-en": { "id": "l-598-en", "text": "picnic" },
-  "l-599-en": { "id": "l-599-en", "text": "pie" },
-  "l-600-en": { "id": "l-600-en", "text": "pigpen" },
-  "l-601-en": { "id": "l-601-en", "text": "pillow" },
-  "l-602-en": { "id": "l-602-en", "text": "pilot" },
-  "l-603-en": { "id": "l-603-en", "text": "pin" },
-  "l-604-en": { "id": "l-604-en", "text": "pinch" },
-  "l-605-en": { "id": "l-605-en", "text": "ping" },
-  "l-606-en": { "id": "l-606-en", "text": "pinwheel" },
-  "l-607-en": { "id": "l-607-en", "text": "pipe" },
-  "l-608-en": { "id": "l-608-en", "text": "pirate" },
-  "l-609-en": { "id": "l-609-en", "text": "pistol" },
-  "l-610-en": { "id": "l-610-en", "text": "pit" },
-  "l-611-en": { "id": "l-611-en", "text": "pitch" },
-  "l-612-en": { "id": "l-612-en", "text": "plaid" },
-  "l-613-en": { "id": "l-613-en", "text": "plan" },
-  "l-614-en": { "id": "l-614-en", "text": "plank" },
-  "l-615-en": { "id": "l-615-en", "text": "plastic" },
-  "l-616-en": { "id": "l-616-en", "text": "plate" },
-  "l-617-en": { "id": "l-617-en", "text": "platypus" },
-  "l-618-en": { "id": "l-618-en", "text": "play" },
-  "l-619-en": { "id": "l-619-en", "text": "playground" },
-  "l-620-en": { "id": "l-620-en", "text": "plot" },
-  "l-621-en": { "id": "l-621-en", "text": "plumber" },
-  "l-622-en": { "id": "l-622-en", "text": "pocket" },
-  "l-623-en": { "id": "l-623-en", "text": "poem" },
-  "l-624-en": { "id": "l-624-en", "text": "point" },
-  "l-625-en": { "id": "l-625-en", "text": "poison" },
-  "l-626-en": { "id": "l-626-en", "text": "pole" },
-  "l-627-en": { "id": "l-627-en", "text": "police" },
-  "l-628-en": { "id": "l-628-en", "text": "pomp" },
-  "l-629-en": { "id": "l-629-en", "text": "pool" },
-  "l-630-en": { "id": "l-630-en", "text": "popsicle" },
-  "l-631-en": { "id": "l-631-en", "text": "population" },
-  "l-632-en": { "id": "l-632-en", "text": "port" },
-  "l-633-en": { "id": "l-633-en", "text": "portfolio" },
-  "l-634-en": { "id": "l-634-en", "text": "positive" },
-  "l-635-en": { "id": "l-635-en", "text": "post" },
-  "l-636-en": { "id": "l-636-en", "text": "pound" },
-  "l-637-en": { "id": "l-637-en", "text": "press" },
-  "l-638-en": { "id": "l-638-en", "text": "princess" },
-  "l-639-en": { "id": "l-639-en", "text": "protestant" },
-  "l-640-en": { "id": "l-640-en", "text": "psychologist" },
-  "l-641-en": { "id": "l-641-en", "text": "publisher" },
-  "l-642-en": { "id": "l-642-en", "text": "pumpkin" },
-  "l-643-en": { "id": "l-643-en", "text": "punk" },
-  "l-644-en": { "id": "l-644-en", "text": "pupil" },
-  "l-645-en": { "id": "l-645-en", "text": "puppet" },
-  "l-646-en": { "id": "l-646-en", "text": "puppy" },
-  "l-647-en": { "id": "l-647-en", "text": "puzzle" },
-  "l-648-en": { "id": "l-648-en", "text": "pyramid" },
-  "l-649-en": { "id": "l-649-en", "text": "quarantine" },
-  "l-650-en": { "id": "l-650-en", "text": "queen" },
-  "l-651-en": { "id": "l-651-en", "text": "quicksand" },
-  "l-652-en": { "id": "l-652-en", "text": "quiet" },
-  "l-653-en": { "id": "l-653-en", "text": "rabbit" },
-  "l-654-en": { "id": "l-654-en", "text": "race" },
-  "l-655-en": { "id": "l-655-en", "text": "racket" },
-  "l-656-en": { "id": "l-656-en", "text": "radio" },
-  "l-657-en": { "id": "l-657-en", "text": "raft" },
-  "l-658-en": { "id": "l-658-en", "text": "rag" },
-  "l-659-en": { "id": "l-659-en", "text": "rainbow" },
-  "l-660-en": { "id": "l-660-en", "text": "rainwater" },
-  "l-661-en": { "id": "l-661-en", "text": "random" },
-  "l-662-en": { "id": "l-662-en", "text": "ray" },
-  "l-663-en": { "id": "l-663-en", "text": "recycle" },
-  "l-664-en": { "id": "l-664-en", "text": "red" },
-  "l-665-en": { "id": "l-665-en", "text": "regret" },
-  "l-666-en": { "id": "l-666-en", "text": "reimbursement" },
-  "l-667-en": { "id": "l-667-en", "text": "revolution" },
-  "l-668-en": { "id": "l-668-en", "text": "rib" },
-  "l-669-en": { "id": "l-669-en", "text": "riddle" },
-  "l-670-en": { "id": "l-670-en", "text": "rim" },
-  "l-671-en": { "id": "l-671-en", "text": "ring" },
-  "l-672-en": { "id": "l-672-en", "text": "rink" },
-  "l-673-en": { "id": "l-673-en", "text": "robin" },
-  "l-674-en": { "id": "l-674-en", "text": "robot" },
-  "l-675-en": { "id": "l-675-en", "text": "rock" },
-  "l-676-en": { "id": "l-676-en", "text": "roller" },
-  "l-677-en": { "id": "l-677-en", "text": "rome" },
-  "l-678-en": { "id": "l-678-en", "text": "room" },
-  "l-679-en": { "id": "l-679-en", "text": "root" },
-  "l-680-en": { "id": "l-680-en", "text": "rose" },
-  "l-681-en": { "id": "l-681-en", "text": "roulette" },
-  "l-682-en": { "id": "l-682-en", "text": "round" },
-  "l-683-en": { "id": "l-683-en", "text": "roundabout" },
-  "l-684-en": { "id": "l-684-en", "text": "row" },
-  "l-685-en": { "id": "l-685-en", "text": "ruler" },
-  "l-686-en": { "id": "l-686-en", "text": "rung" },
-  "l-687-en": { "id": "l-687-en", "text": "runt" },
-  "l-688-en": { "id": "l-688-en", "text": "rut" },
-  "l-689-en": { "id": "l-689-en", "text": "sad" },
-  "l-690-en": { "id": "l-690-en", "text": "safe" },
-  "l-691-en": { "id": "l-691-en", "text": "salmon" },
-  "l-692-en": { "id": "l-692-en", "text": "salt" },
-  "l-693-en": { "id": "l-693-en", "text": "sandbox" },
-  "l-694-en": { "id": "l-694-en", "text": "sandcastle" },
-  "l-695-en": { "id": "l-695-en", "text": "sandwich" },
-  "l-696-en": { "id": "l-696-en", "text": "satellite" },
-  "l-697-en": { "id": "l-697-en", "text": "saturn" },
-  "l-698-en": { "id": "l-698-en", "text": "scale" },
-  "l-699-en": { "id": "l-699-en", "text": "scar" },
-  "l-700-en": { "id": "l-700-en", "text": "school" },
-  "l-701-en": { "id": "l-701-en", "text": "scientist" },
-  "l-702-en": { "id": "l-702-en", "text": "scorpion" },
-  "l-703-en": { "id": "l-703-en", "text": "scoundrel" },
-  "l-704-en": { "id": "l-704-en", "text": "scramble" },
-  "l-705-en": { "id": "l-705-en", "text": "screen" },
-  "l-706-en": { "id": "l-706-en", "text": "scuba diver" },
-  "l-707-en": { "id": "l-707-en", "text": "seal" },
-  "l-708-en": { "id": "l-708-en", "text": "seashell" },
-  "l-709-en": { "id": "l-709-en", "text": "season" },
-  "l-710-en": { "id": "l-710-en", "text": "sentence" },
-  "l-711-en": { "id": "l-711-en", "text": "sequins" },
-  "l-712-en": { "id": "l-712-en", "text": "server" },
-  "l-713-en": { "id": "l-713-en", "text": "set" },
-  "l-714-en": { "id": "l-714-en", "text": "shadow" },
-  "l-715-en": { "id": "l-715-en", "text": "shaft" },
-  "l-716-en": { "id": "l-716-en", "text": "shakespeare" },
-  "l-717-en": { "id": "l-717-en", "text": "shallow" },
-  "l-718-en": { "id": "l-718-en", "text": "shampoo" },
-  "l-719-en": { "id": "l-719-en", "text": "shark" },
-  "l-720-en": { "id": "l-720-en", "text": "sheep" },
-  "l-721-en": { "id": "l-721-en", "text": "sheets" },
-  "l-722-en": { "id": "l-722-en", "text": "sheriff" },
-  "l-723-en": { "id": "l-723-en", "text": "ship" },
-  "l-724-en": { "id": "l-724-en", "text": "shipwreck" },
-  "l-725-en": { "id": "l-725-en", "text": "shirt" },
-  "l-726-en": { "id": "l-726-en", "text": "shoe" },
-  "l-727-en": { "id": "l-727-en", "text": "shoelace" },
-  "l-728-en": { "id": "l-728-en", "text": "shop" },
-  "l-729-en": { "id": "l-729-en", "text": "short" },
-  "l-730-en": { "id": "l-730-en", "text": "shot" },
-  "l-731-en": { "id": "l-731-en", "text": "shower" },
-  "l-732-en": { "id": "l-732-en", "text": "shrink" },
-  "l-733-en": { "id": "l-733-en", "text": "sick" },
-  "l-734-en": { "id": "l-734-en", "text": "siesta" },
-  "l-735-en": { "id": "l-735-en", "text": "silhouette" },
-  "l-736-en": { "id": "l-736-en", "text": "singer" },
-  "l-737-en": { "id": "l-737-en", "text": "sink" },
-  "l-738-en": { "id": "l-738-en", "text": "sip" },
-  "l-739-en": { "id": "l-739-en", "text": "skate" },
-  "l-740-en": { "id": "l-740-en", "text": "skating" },
-  "l-741-en": { "id": "l-741-en", "text": "ski" },
-  "l-742-en": { "id": "l-742-en", "text": "skyscraper" },
-  "l-743-en": { "id": "l-743-en", "text": "slam" },
-  "l-744-en": { "id": "l-744-en", "text": "sleep" },
-  "l-745-en": { "id": "l-745-en", "text": "sling" },
-  "l-746-en": { "id": "l-746-en", "text": "slip" },
-  "l-747-en": { "id": "l-747-en", "text": "slow" },
-  "l-748-en": { "id": "l-748-en", "text": "slug" },
-  "l-749-en": { "id": "l-749-en", "text": "slump" },
-  "l-750-en": { "id": "l-750-en", "text": "smith" },
-  "l-751-en": { "id": "l-751-en", "text": "smuggler" },
-  "l-752-en": { "id": "l-752-en", "text": "sneeze" },
-  "l-753-en": { "id": "l-753-en", "text": "snow" },
-  "l-754-en": { "id": "l-754-en", "text": "snowman" },
-  "l-755-en": { "id": "l-755-en", "text": "snuggle" },
-  "l-756-en": { "id": "l-756-en", "text": "sock" },
-  "l-757-en": { "id": "l-757-en", "text": "soldier" },
-  "l-758-en": { "id": "l-758-en", "text": "song" },
-  "l-759-en": { "id": "l-759-en", "text": "soul" },
-  "l-760-en": { "id": "l-760-en", "text": "sound" },
-  "l-761-en": { "id": "l-761-en", "text": "space" },
-  "l-762-en": { "id": "l-762-en", "text": "spare" },
-  "l-763-en": { "id": "l-763-en", "text": "speakers" },
-  "l-764-en": { "id": "l-764-en", "text": "spell" },
-  "l-765-en": { "id": "l-765-en", "text": "spider" },
-  "l-766-en": { "id": "l-766-en", "text": "spike" },
-  "l-767-en": { "id": "l-767-en", "text": "spine" },
-  "l-768-en": { "id": "l-768-en", "text": "spit" },
-  "l-769-en": { "id": "l-769-en", "text": "sponge" },
-  "l-770-en": { "id": "l-770-en", "text": "spool" },
-  "l-771-en": { "id": "l-771-en", "text": "spoon" },
-  "l-772-en": { "id": "l-772-en", "text": "spot" },
-  "l-773-en": { "id": "l-773-en", "text": "spring" },
-  "l-774-en": { "id": "l-774-en", "text": "sprinkler" },
-  "l-775-en": { "id": "l-775-en", "text": "spy" },
-  "l-776-en": { "id": "l-776-en", "text": "square" },
-  "l-777-en": { "id": "l-777-en", "text": "squint" },
-  "l-778-en": { "id": "l-778-en", "text": "stadium" },
-  "l-779-en": { "id": "l-779-en", "text": "staff" },
-  "l-780-en": { "id": "l-780-en", "text": "stairs" },
-  "l-781-en": { "id": "l-781-en", "text": "standing" },
-  "l-782-en": { "id": "l-782-en", "text": "star" },
-  "l-783-en": { "id": "l-783-en", "text": "state" },
-  "l-784-en": { "id": "l-784-en", "text": "stick" },
-  "l-785-en": { "id": "l-785-en", "text": "stock" },
-  "l-786-en": { "id": "l-786-en", "text": "stockholder" },
-  "l-787-en": { "id": "l-787-en", "text": "stoplight" },
-  "l-788-en": { "id": "l-788-en", "text": "stout" },
-  "l-789-en": { "id": "l-789-en", "text": "stove" },
-  "l-790-en": { "id": "l-790-en", "text": "stowaway" },
-  "l-791-en": { "id": "l-791-en", "text": "straw" },
-  "l-792-en": { "id": "l-792-en", "text": "stream" },
-  "l-793-en": { "id": "l-793-en", "text": "streamline" },
-  "l-794-en": { "id": "l-794-en", "text": "strike" },
-  "l-795-en": { "id": "l-795-en", "text": "string" },
-  "l-796-en": { "id": "l-796-en", "text": "stripe" },
-  "l-797-en": { "id": "l-797-en", "text": "student" },
-  "l-798-en": { "id": "l-798-en", "text": "sub" },
-  "l-799-en": { "id": "l-799-en", "text": "suit" },
-  "l-800-en": { "id": "l-800-en", "text": "sun" },
-  "l-801-en": { "id": "l-801-en", "text": "sunburn" },
-  "l-802-en": { "id": "l-802-en", "text": "superhero" },
-  "l-803-en": { "id": "l-803-en", "text": "sushi" },
-  "l-804-en": { "id": "l-804-en", "text": "swamp" },
-  "l-805-en": { "id": "l-805-en", "text": "swarm" },
-  "l-806-en": { "id": "l-806-en", "text": "sweater" },
-  "l-807-en": { "id": "l-807-en", "text": "swimming" },
-  "l-808-en": { "id": "l-808-en", "text": "swing" },
-  "l-809-en": { "id": "l-809-en", "text": "switch" },
-  "l-810-en": { "id": "l-810-en", "text": "table" },
-  "l-811-en": { "id": "l-811-en", "text": "tablet" },
-  "l-812-en": { "id": "l-812-en", "text": "tachometer" },
-  "l-813-en": { "id": "l-813-en", "text": "tag" },
-  "l-814-en": { "id": "l-814-en", "text": "tail" },
-  "l-815-en": { "id": "l-815-en", "text": "talk" },
-  "l-816-en": { "id": "l-816-en", "text": "tap" },
-  "l-817-en": { "id": "l-817-en", "text": "taxi" },
-  "l-818-en": { "id": "l-818-en", "text": "teacher" },
-  "l-819-en": { "id": "l-819-en", "text": "teapot" },
-  "l-820-en": { "id": "l-820-en", "text": "teenager" },
-  "l-821-en": { "id": "l-821-en", "text": "telephone" },
-  "l-822-en": { "id": "l-822-en", "text": "telescope" },
-  "l-823-en": { "id": "l-823-en", "text": "television" },
-  "l-824-en": { "id": "l-824-en", "text": "temple" },
-  "l-825-en": { "id": "l-825-en", "text": "ten" },
-  "l-826-en": { "id": "l-826-en", "text": "tennis" },
-  "l-827-en": { "id": "l-827-en", "text": "theater" },
-  "l-828-en": { "id": "l-828-en", "text": "thief" },
-  "l-829-en": { "id": "l-829-en", "text": "think" },
-  "l-830-en": { "id": "l-830-en", "text": "throne" },
-  "l-831-en": { "id": "l-831-en", "text": "through" },
-  "l-832-en": { "id": "l-832-en", "text": "thumb" },
-  "l-833-en": { "id": "l-833-en", "text": "thunder" },
-  "l-834-en": { "id": "l-834-en", "text": "tick" },
-  "l-835-en": { "id": "l-835-en", "text": "tide" },
-  "l-836-en": { "id": "l-836-en", "text": "tie" },
-  "l-837-en": { "id": "l-837-en", "text": "tiger" },
-  "l-838-en": { "id": "l-838-en", "text": "time" },
-  "l-839-en": { "id": "l-839-en", "text": "tinting" },
-  "l-840-en": { "id": "l-840-en", "text": "tiptoe" },
-  "l-841-en": { "id": "l-841-en", "text": "tiptop" },
-  "l-842-en": { "id": "l-842-en", "text": "tired" },
-  "l-843-en": { "id": "l-843-en", "text": "tissue" },
-  "l-844-en": { "id": "l-844-en", "text": "toast" },
-  "l-845-en": { "id": "l-845-en", "text": "toilet" },
-  "l-846-en": { "id": "l-846-en", "text": "tokyo" },
-  "l-847-en": { "id": "l-847-en", "text": "tool" },
-  "l-848-en": { "id": "l-848-en", "text": "tooth" },
-  "l-849-en": { "id": "l-849-en", "text": "toothbrush" },
-  "l-850-en": { "id": "l-850-en", "text": "torch" },
-  "l-851-en": { "id": "l-851-en", "text": "tornado" },
-  "l-852-en": { "id": "l-852-en", "text": "tournament" },
-  "l-853-en": { "id": "l-853-en", "text": "tower" },
-  "l-854-en": { "id": "l-854-en", "text": "track" },
-  "l-855-en": { "id": "l-855-en", "text": "tractor" },
-  "l-856-en": { "id": "l-856-en", "text": "train" },
-  "l-857-en": { "id": "l-857-en", "text": "trash" },
-  "l-858-en": { "id": "l-858-en", "text": "treasure" },
-  "l-859-en": { "id": "l-859-en", "text": "tree" },
-  "l-860-en": { "id": "l-860-en", "text": "triangle" },
-  "l-861-en": { "id": "l-861-en", "text": "trip" },
-  "l-862-en": { "id": "l-862-en", "text": "truck" },
-  "l-863-en": { "id": "l-863-en", "text": "trunk" },
-  "l-864-en": { "id": "l-864-en", "text": "tub" },
-  "l-865-en": { "id": "l-865-en", "text": "tuba" },
-  "l-866-en": { "id": "l-866-en", "text": "tube" },
-  "l-867-en": { "id": "l-867-en", "text": "turkey" },
-  "l-868-en": { "id": "l-868-en", "text": "tutor" },
-  "l-869-en": { "id": "l-869-en", "text": "twang" },
-  "l-870-en": { "id": "l-870-en", "text": "twig" },
-  "l-871-en": { "id": "l-871-en", "text": "twitterpated" },
-  "l-872-en": { "id": "l-872-en", "text": "type" },
-  "l-873-en": { "id": "l-873-en", "text": "undertaker" },
-  "l-874-en": { "id": "l-874-en", "text": "unemployed" },
-  "l-875-en": { "id": "l-875-en", "text": "unicorn" },
-  "l-876-en": { "id": "l-876-en", "text": "upgrade" },
-  "l-877-en": { "id": "l-877-en", "text": "vacuum" },
-  "l-878-en": { "id": "l-878-en", "text": "van" },
-  "l-879-en": { "id": "l-879-en", "text": "vest" },
-  "l-880-en": { "id": "l-880-en", "text": "vet" },
-  "l-881-en": { "id": "l-881-en", "text": "vision" },
-  "l-882-en": { "id": "l-882-en", "text": "wag" },
-  "l-883-en": { "id": "l-883-en", "text": "wake" },
-  "l-884-en": { "id": "l-884-en", "text": "wall" },
-  "l-885-en": { "id": "l-885-en", "text": "war" },
-  "l-886-en": { "id": "l-886-en", "text": "washer" },
-  "l-887-en": { "id": "l-887-en", "text": "washington" },
-  "l-888-en": { "id": "l-888-en", "text": "watch" },
-  "l-889-en": { "id": "l-889-en", "text": "water" },
-  "l-890-en": { "id": "l-890-en", "text": "watermelon" },
-  "l-891-en": { "id": "l-891-en", "text": "wave" },
-  "l-892-en": { "id": "l-892-en", "text": "wax" },
-  "l-893-en": { "id": "l-893-en", "text": "web" },
-  "l-894-en": { "id": "l-894-en", "text": "wedding" },
-  "l-895-en": { "id": "l-895-en", "text": "weed" },
-  "l-896-en": { "id": "l-896-en", "text": "welder" },
-  "l-897-en": { "id": "l-897-en", "text": "well" },
-  "l-898-en": { "id": "l-898-en", "text": "whale" },
-  "l-899-en": { "id": "l-899-en", "text": "whatever" },
-  "l-900-en": { "id": "l-900-en", "text": "wheelchair" },
-  "l-901-en": { "id": "l-901-en", "text": "whip" },
-  "l-902-en": { "id": "l-902-en", "text": "whiplash" },
-  "l-903-en": { "id": "l-903-en", "text": "whisk" },
-  "l-904-en": { "id": "l-904-en", "text": "whistle" },
-  "l-905-en": { "id": "l-905-en", "text": "white" },
-  "l-906-en": { "id": "l-906-en", "text": "wig" },
-  "l-907-en": { "id": "l-907-en", "text": "will" },
-  "l-908-en": { "id": "l-908-en", "text": "wind" },
-  "l-909-en": { "id": "l-909-en", "text": "windmill" },
-  "l-910-en": { "id": "l-910-en", "text": "winter" },
-  "l-911-en": { "id": "l-911-en", "text": "wish" },
-  "l-912-en": { "id": "l-912-en", "text": "witch" },
-  "l-913-en": { "id": "l-913-en", "text": "wolf" },
-  "l-914-en": { "id": "l-914-en", "text": "wool" },
-  "l-915-en": { "id": "l-915-en", "text": "world" },
-  "l-916-en": { "id": "l-916-en", "text": "worm" },
-  "l-917-en": { "id": "l-917-en", "text": "wristwatch" },
-  "l-918-en": { "id": "l-918-en", "text": "yard" },
-  "l-919-en": { "id": "l-919-en", "text": "yardstick" },
-  "l-920-en": { "id": "l-920-en", "text": "zen" },
-  "l-921-en": { "id": "l-921-en", "text": "zero" },
-  "l-922-en": { "id": "l-922-en", "text": "zipper" },
-  "l-923-en": { "id": "l-923-en", "text": "zone" },
-  "l-924-en": { "id": "l-924-en", "text": "zoo" }
+  "lc-1-en": {
+    "id": "lc-1-en",
+    "text": "taxi"
+  },
+  "lc-2-en": {
+    "id": "lc-2-en",
+    "text": "bathroom"
+  },
+  "lc-3-en": {
+    "id": "lc-3-en",
+    "text": "zebra"
+  },
+  "lc-4-en": {
+    "id": "lc-4-en",
+    "text": "hug"
+  },
+  "lc-5-en": {
+    "id": "lc-5-en",
+    "text": "salt & pepper"
+  },
+  "lc-6-en": {
+    "id": "lc-6-en",
+    "text": "nachos"
+  },
+  "lc-7-en": {
+    "id": "lc-7-en",
+    "text": "pretzel"
+  },
+  "lc-8-en": {
+    "id": "lc-8-en",
+    "text": "pear"
+  },
+  "lc-9-en": {
+    "id": "lc-9-en",
+    "text": "pie in the sky"
+  },
+  "lc-10-en": {
+    "id": "lc-10-en",
+    "text": "window washer"
+  },
+  "lc-11-en": {
+    "id": "lc-11-en",
+    "text": "blueberry muffin"
+  },
+  "lc-12-en": {
+    "id": "lc-12-en",
+    "text": "firefighter"
+  },
+  "lc-13-en": {
+    "id": "lc-13-en",
+    "text": "bumper sticker"
+  },
+  "lc-14-en": {
+    "id": "lc-14-en",
+    "text": "donkey"
+  },
+  "lc-15-en": {
+    "id": "lc-15-en",
+    "text": "racoon"
+  },
+  "lc-16-en": {
+    "id": "lc-16-en",
+    "text": "rose"
+  },
+  "lc-17-en": {
+    "id": "lc-17-en",
+    "text": "robot"
+  },
+  "lc-18-en": {
+    "id": "lc-18-en",
+    "text": "cheese puffs"
+  },
+  "lc-19-en": {
+    "id": "lc-19-en",
+    "text": "sand castle"
+  },
+  "lc-20-en": {
+    "id": "lc-20-en",
+    "text": "potato chips"
+  },
+  "lc-21-en": {
+    "id": "lc-21-en",
+    "text": "grandfather"
+  },
+  "lc-22-en": {
+    "id": "lc-22-en",
+    "text": "fish out of water"
+  },
+  "lc-23-en": {
+    "id": "lc-23-en",
+    "text": "bull"
+  },
+  "lc-24-en": {
+    "id": "lc-24-en",
+    "text": "crybaby"
+  },
+  "lc-25-en": {
+    "id": "lc-25-en",
+    "text": "cotton candy"
+  },
+  "lc-26-en": {
+    "id": "lc-26-en",
+    "text": "pigs in a blanket"
+  },
+  "lc-27-en": {
+    "id": "lc-27-en",
+    "text": "rocket ship"
+  },
+  "lc-28-en": {
+    "id": "lc-28-en",
+    "text": "hamster wheel"
+  },
+  "lc-29-en": {
+    "id": "lc-29-en",
+    "text": "polka dots"
+  },
+  "lc-30-en": {
+    "id": "lc-30-en",
+    "text": "needle and thread"
+  },
+  "lc-31-en": {
+    "id": "lc-31-en",
+    "text": "sailor"
+  },
+  "lc-32-en": {
+    "id": "lc-32-en",
+    "text": "shooting star"
+  },
+  "lc-33-en": {
+    "id": "lc-33-en",
+    "text": "fireball"
+  },
+  "lc-34-en": {
+    "id": "lc-34-en",
+    "text": "elephant"
+  },
+  "lc-35-en": {
+    "id": "lc-35-en",
+    "text": "ice cream sundae"
+  },
+  "lc-36-en": {
+    "id": "lc-36-en",
+    "text": "bowling alley"
+  },
+  "lc-37-en": {
+    "id": "lc-37-en",
+    "text": "finger paints"
+  },
+  "lc-38-en": {
+    "id": "lc-38-en",
+    "text": "socks"
+  },
+  "lc-39-en": {
+    "id": "lc-39-en",
+    "text": "life vest"
+  },
+  "lc-40-en": {
+    "id": "lc-40-en",
+    "text": "fat cat"
+  },
+  "lc-41-en": {
+    "id": "lc-41-en",
+    "text": "stilts"
+  },
+  "lc-42-en": {
+    "id": "lc-42-en",
+    "text": "igloo"
+  },
+  "lc-43-en": {
+    "id": "lc-43-en",
+    "text": "bad breath"
+  },
+  "lc-44-en": {
+    "id": "lc-44-en",
+    "text": "mummy"
+  },
+  "lc-45-en": {
+    "id": "lc-45-en",
+    "text": "bean bag chair"
+  },
+  "lc-46-en": {
+    "id": "lc-46-en",
+    "text": "octopus"
+  },
+  "lc-47-en": {
+    "id": "lc-47-en",
+    "text": "skunk"
+  },
+  "lc-48-en": {
+    "id": "lc-48-en",
+    "text": "thermometer"
+  },
+  "lc-49-en": {
+    "id": "lc-49-en",
+    "text": "hummingbird"
+  },
+  "lc-50-en": {
+    "id": "lc-50-en",
+    "text": "pig"
+  },
+  "lc-51-en": {
+    "id": "lc-51-en",
+    "text": "sword"
+  },
+  "lc-52-en": {
+    "id": "lc-52-en",
+    "text": "eye"
+  },
+  "lc-53-en": {
+    "id": "lc-53-en",
+    "text": "chips and salsa"
+  },
+  "lc-54-en": {
+    "id": "lc-54-en",
+    "text": "watermelon"
+  },
+  "lc-55-en": {
+    "id": "lc-55-en",
+    "text": "suntan lotion"
+  },
+  "lc-56-en": {
+    "id": "lc-56-en",
+    "text": "boxing gloves"
+  },
+  "lc-57-en": {
+    "id": "lc-57-en",
+    "text": "roller coaster"
+  },
+  "lc-58-en": {
+    "id": "lc-58-en",
+    "text": "bagpipes"
+  },
+  "lc-59-en": {
+    "id": "lc-59-en",
+    "text": "coconut"
+  },
+  "lc-60-en": {
+    "id": "lc-60-en",
+    "text": "unicorn"
+  },
+  "lc-61-en": {
+    "id": "lc-61-en",
+    "text": "graveyard"
+  },
+  "lc-62-en": {
+    "id": "lc-62-en",
+    "text": "gas station"
+  },
+  "lc-63-en": {
+    "id": "lc-63-en",
+    "text": "airport"
+  },
+  "lc-64-en": {
+    "id": "lc-64-en",
+    "text": "fast food"
+  },
+  "lc-65-en": {
+    "id": "lc-65-en",
+    "text": "cheesecake"
+  },
+  "lc-66-en": {
+    "id": "lc-66-en",
+    "text": "cook"
+  },
+  "lc-67-en": {
+    "id": "lc-67-en",
+    "text": "island"
+  },
+  "lc-68-en": {
+    "id": "lc-68-en",
+    "text": "tightrope walker"
+  },
+  "lc-69-en": {
+    "id": "lc-69-en",
+    "text": "feet"
+  },
+  "lc-70-en": {
+    "id": "lc-70-en",
+    "text": "chicken"
+  },
+  "lc-71-en": {
+    "id": "lc-71-en",
+    "text": "bullfrog"
+  },
+  "lc-72-en": {
+    "id": "lc-72-en",
+    "text": "sunny-side up eggs"
+  },
+  "lc-73-en": {
+    "id": "lc-73-en",
+    "text": "crayons"
+  },
+  "lc-74-en": {
+    "id": "lc-74-en",
+    "text": "grandmother"
+  },
+  "lc-75-en": {
+    "id": "lc-75-en",
+    "text": "wishbone"
+  },
+  "lc-76-en": {
+    "id": "lc-76-en",
+    "text": "piñata"
+  },
+  "lc-77-en": {
+    "id": "lc-77-en",
+    "text": "fish sticks"
+  },
+  "lc-78-en": {
+    "id": "lc-78-en",
+    "text": "rapunzel"
+  },
+  "lc-79-en": {
+    "id": "lc-79-en",
+    "text": "yawn"
+  },
+  "lc-80-en": {
+    "id": "lc-80-en",
+    "text": "freckles"
+  },
+  "lc-81-en": {
+    "id": "lc-81-en",
+    "text": "vegetables"
+  },
+  "lc-82-en": {
+    "id": "lc-82-en",
+    "text": "perfume"
+  },
+  "lc-83-en": {
+    "id": "lc-83-en",
+    "text": "fly"
+  },
+  "lc-84-en": {
+    "id": "lc-84-en",
+    "text": "park bench"
+  },
+  "lc-85-en": {
+    "id": "lc-85-en",
+    "text": "candy corn"
+  },
+  "lc-86-en": {
+    "id": "lc-86-en",
+    "text": "drum"
+  },
+  "lc-87-en": {
+    "id": "lc-87-en",
+    "text": "best friends"
+  },
+  "lc-88-en": {
+    "id": "lc-88-en",
+    "text": "flower girl"
+  },
+  "lc-89-en": {
+    "id": "lc-89-en",
+    "text": "egg roll"
+  },
+  "lc-90-en": {
+    "id": "lc-90-en",
+    "text": "goose"
+  },
+  "lc-91-en": {
+    "id": "lc-91-en",
+    "text": "ants"
+  },
+  "lc-92-en": {
+    "id": "lc-92-en",
+    "text": "butterfly"
+  },
+  "lc-93-en": {
+    "id": "lc-93-en",
+    "text": "surfer"
+  },
+  "lc-94-en": {
+    "id": "lc-94-en",
+    "text": "teapot"
+  },
+  "lc-95-en": {
+    "id": "lc-95-en",
+    "text": "quicksand"
+  },
+  "lc-96-en": {
+    "id": "lc-96-en",
+    "text": "brownies"
+  },
+  "lc-97-en": {
+    "id": "lc-97-en",
+    "text": "comb"
+  },
+  "lc-98-en": {
+    "id": "lc-98-en",
+    "text": "birdbath"
+  },
+  "lc-99-en": {
+    "id": "lc-99-en",
+    "text": "cake walk"
+  },
+  "lc-100-en": {
+    "id": "lc-100-en",
+    "text": "gorilla"
+  },
+  "lc-101-en": {
+    "id": "lc-101-en",
+    "text": "humpty dumpty"
+  },
+  "lc-102-en": {
+    "id": "lc-102-en",
+    "text": "father"
+  },
+  "lc-103-en": {
+    "id": "lc-103-en",
+    "text": "sit"
+  },
+  "lc-104-en": {
+    "id": "lc-104-en",
+    "text": "farm"
+  },
+  "lc-105-en": {
+    "id": "lc-105-en",
+    "text": "spy"
+  },
+  "lc-106-en": {
+    "id": "lc-106-en",
+    "text": "convertible"
+  },
+  "lc-107-en": {
+    "id": "lc-107-en",
+    "text": "martian"
+  },
+  "lc-108-en": {
+    "id": "lc-108-en",
+    "text": "balloon animal"
+  },
+  "lc-109-en": {
+    "id": "lc-109-en",
+    "text": "raft"
+  },
+  "lc-110-en": {
+    "id": "lc-110-en",
+    "text": "bobsled"
+  },
+  "lc-111-en": {
+    "id": "lc-111-en",
+    "text": "cinderella"
+  },
+  "lc-112-en": {
+    "id": "lc-112-en",
+    "text": "bbq"
+  },
+  "lc-113-en": {
+    "id": "lc-113-en",
+    "text": "braid"
+  },
+  "lc-114-en": {
+    "id": "lc-114-en",
+    "text": "scissors"
+  },
+  "lc-115-en": {
+    "id": "lc-115-en",
+    "text": "factory"
+  },
+  "lc-116-en": {
+    "id": "lc-116-en",
+    "text": "ants in your pants"
+  },
+  "lc-117-en": {
+    "id": "lc-117-en",
+    "text": "banana split"
+  },
+  "lc-118-en": {
+    "id": "lc-118-en",
+    "text": "vampire"
+  },
+  "lc-119-en": {
+    "id": "lc-119-en",
+    "text": "loaf of bread"
+  },
+  "lc-120-en": {
+    "id": "lc-120-en",
+    "text": "rabbit"
+  },
+  "lc-121-en": {
+    "id": "lc-121-en",
+    "text": "birthday cake"
+  },
+  "lc-122-en": {
+    "id": "lc-122-en",
+    "text": "cut"
+  },
+  "lc-123-en": {
+    "id": "lc-123-en",
+    "text": "soda pop"
+  },
+  "lc-124-en": {
+    "id": "lc-124-en",
+    "text": "oatmeal"
+  },
+  "lc-125-en": {
+    "id": "lc-125-en",
+    "text": "petting zoo"
+  },
+  "lc-126-en": {
+    "id": "lc-126-en",
+    "text": "night light"
+  },
+  "lc-127-en": {
+    "id": "lc-127-en",
+    "text": "chopsticks"
+  },
+  "lc-128-en": {
+    "id": "lc-128-en",
+    "text": "hula hoop"
+  },
+  "lc-129-en": {
+    "id": "lc-129-en",
+    "text": "water slide"
+  },
+  "lc-130-en": {
+    "id": "lc-130-en",
+    "text": "frown"
+  },
+  "lc-131-en": {
+    "id": "lc-131-en",
+    "text": "twins"
+  },
+  "lc-132-en": {
+    "id": "lc-132-en",
+    "text": "zookeeper"
+  },
+  "lc-133-en": {
+    "id": "lc-133-en",
+    "text": "dump truck"
+  },
+  "lc-134-en": {
+    "id": "lc-134-en",
+    "text": "crutches"
+  },
+  "lc-135-en": {
+    "id": "lc-135-en",
+    "text": "boots"
+  },
+  "lc-136-en": {
+    "id": "lc-136-en",
+    "text": "grandfather clock"
+  },
+  "lc-137-en": {
+    "id": "lc-137-en",
+    "text": "throne"
+  },
+  "lc-138-en": {
+    "id": "lc-138-en",
+    "text": "cookie jar"
+  },
+  "lc-139-en": {
+    "id": "lc-139-en",
+    "text": "brush"
+  },
+  "lc-140-en": {
+    "id": "lc-140-en",
+    "text": "windmill"
+  },
+  "lc-141-en": {
+    "id": "lc-141-en",
+    "text": "fly a kite"
+  },
+  "lc-142-en": {
+    "id": "lc-142-en",
+    "text": "pots and pans"
+  },
+  "lc-143-en": {
+    "id": "lc-143-en",
+    "text": "magnifying glass"
+  },
+  "lc-144-en": {
+    "id": "lc-144-en",
+    "text": "pizza"
+  },
+  "lc-145-en": {
+    "id": "lc-145-en",
+    "text": "koala"
+  },
+  "lc-146-en": {
+    "id": "lc-146-en",
+    "text": "puppet show"
+  },
+  "lc-147-en": {
+    "id": "lc-147-en",
+    "text": "race track"
+  },
+  "lc-148-en": {
+    "id": "lc-148-en",
+    "text": "bathrobe"
+  },
+  "lc-149-en": {
+    "id": "lc-149-en",
+    "text": "sabertooth tiger"
+  },
+  "lc-150-en": {
+    "id": "lc-150-en",
+    "text": "eye patch"
+  },
+  "lc-151-en": {
+    "id": "lc-151-en",
+    "text": "crystal ball"
+  },
+  "lc-152-en": {
+    "id": "lc-152-en",
+    "text": "watering can"
+  },
+  "lc-153-en": {
+    "id": "lc-153-en",
+    "text": "bow and arrow"
+  },
+  "lc-154-en": {
+    "id": "lc-154-en",
+    "text": "parking lot"
+  },
+  "lc-155-en": {
+    "id": "lc-155-en",
+    "text": "bowling ball"
+  },
+  "lc-156-en": {
+    "id": "lc-156-en",
+    "text": "turtleneck"
+  },
+  "lc-157-en": {
+    "id": "lc-157-en",
+    "text": "rooster"
+  },
+  "lc-158-en": {
+    "id": "lc-158-en",
+    "text": "mushrooms"
+  },
+  "lc-159-en": {
+    "id": "lc-159-en",
+    "text": "pineapple"
+  },
+  "lc-160-en": {
+    "id": "lc-160-en",
+    "text": "doll house"
+  },
+  "lc-161-en": {
+    "id": "lc-161-en",
+    "text": "crab"
+  },
+  "lc-162-en": {
+    "id": "lc-162-en",
+    "text": "outer space"
+  },
+  "lc-163-en": {
+    "id": "lc-163-en",
+    "text": "ballerina"
+  },
+  "lc-164-en": {
+    "id": "lc-164-en",
+    "text": "dragonfly"
+  },
+  "lc-165-en": {
+    "id": "lc-165-en",
+    "text": "clap"
+  },
+  "lc-166-en": {
+    "id": "lc-166-en",
+    "text": "tank top"
+  },
+  "lc-167-en": {
+    "id": "lc-167-en",
+    "text": "training wheels"
+  },
+  "lc-168-en": {
+    "id": "lc-168-en",
+    "text": "rock concert"
+  },
+  "lc-169-en": {
+    "id": "lc-169-en",
+    "text": "antill"
+  },
+  "lc-170-en": {
+    "id": "lc-170-en",
+    "text": "cat"
+  },
+  "lc-171-en": {
+    "id": "lc-171-en",
+    "text": "gloves"
+  },
+  "lc-172-en": {
+    "id": "lc-172-en",
+    "text": "camera"
+  },
+  "lc-173-en": {
+    "id": "lc-173-en",
+    "text": "dance"
+  },
+  "lc-174-en": {
+    "id": "lc-174-en",
+    "text": "sunburn"
+  },
+  "lc-175-en": {
+    "id": "lc-175-en",
+    "text": "high five"
+  },
+  "lc-176-en": {
+    "id": "lc-176-en",
+    "text": "duck duck"
+  },
+  "lc-177-en": {
+    "id": "lc-177-en",
+    "text": "palm tree"
+  },
+  "lc-178-en": {
+    "id": "lc-178-en",
+    "text": "barrel"
+  },
+  "lc-179-en": {
+    "id": "lc-179-en",
+    "text": "root beer"
+  },
+  "lc-180-en": {
+    "id": "lc-180-en",
+    "text": "bird's nest"
+  },
+  "lc-181-en": {
+    "id": "lc-181-en",
+    "text": "janitor"
+  },
+  "lc-182-en": {
+    "id": "lc-182-en",
+    "text": "panda"
+  },
+  "lc-183-en": {
+    "id": "lc-183-en",
+    "text": "dynamite"
+  },
+  "lc-184-en": {
+    "id": "lc-184-en",
+    "text": "flippers"
+  },
+  "lc-185-en": {
+    "id": "lc-185-en",
+    "text": "garbage truck"
+  },
+  "lc-186-en": {
+    "id": "lc-186-en",
+    "text": "the big bad wolf"
+  },
+  "lc-187-en": {
+    "id": "lc-187-en",
+    "text": "tug of war"
+  },
+  "lc-188-en": {
+    "id": "lc-188-en",
+    "text": "wig"
+  },
+  "lc-189-en": {
+    "id": "lc-189-en",
+    "text": "bed bug"
+  },
+  "lc-190-en": {
+    "id": "lc-190-en",
+    "text": "shield"
+  },
+  "lc-191-en": {
+    "id": "lc-191-en",
+    "text": "chicken wings"
+  },
+  "lc-192-en": {
+    "id": "lc-192-en",
+    "text": "fried egg"
+  },
+  "lc-193-en": {
+    "id": "lc-193-en",
+    "text": "flamingo"
+  },
+  "lc-194-en": {
+    "id": "lc-194-en",
+    "text": "grapes"
+  },
+  "lc-195-en": {
+    "id": "lc-195-en",
+    "text": "scarf"
+  },
+  "lc-196-en": {
+    "id": "lc-196-en",
+    "text": "bumper cars"
+  },
+  "lc-197-en": {
+    "id": "lc-197-en",
+    "text": "baby shower"
+  },
+  "lc-198-en": {
+    "id": "lc-198-en",
+    "text": "caboose"
+  },
+  "lc-199-en": {
+    "id": "lc-199-en",
+    "text": "arm pit"
+  },
+  "lc-200-en": {
+    "id": "lc-200-en",
+    "text": "binoculars"
+  },
+  "lc-201-en": {
+    "id": "lc-201-en",
+    "text": "magnet"
+  },
+  "lc-202-en": {
+    "id": "lc-202-en",
+    "text": "soccer ball"
+  },
+  "lc-203-en": {
+    "id": "lc-203-en",
+    "text": "bubble gum"
+  },
+  "lc-204-en": {
+    "id": "lc-204-en",
+    "text": "fire ant"
+  },
+  "lc-205-en": {
+    "id": "lc-205-en",
+    "text": "reindeer"
+  },
+  "lc-206-en": {
+    "id": "lc-206-en",
+    "text": "lipstick"
+  },
+  "lc-207-en": {
+    "id": "lc-207-en",
+    "text": "ping pong"
+  },
+  "lc-208-en": {
+    "id": "lc-208-en",
+    "text": "hard hat"
+  },
+  "lc-209-en": {
+    "id": "lc-209-en",
+    "text": "baked beans"
+  },
+  "lc-210-en": {
+    "id": "lc-210-en",
+    "text": "braces"
+  },
+  "lc-211-en": {
+    "id": "lc-211-en",
+    "text": "ankle"
+  },
+  "lc-212-en": {
+    "id": "lc-212-en",
+    "text": "icicle"
+  },
+  "lc-213-en": {
+    "id": "lc-213-en",
+    "text": "cherry tree"
+  },
+  "lc-214-en": {
+    "id": "lc-214-en",
+    "text": "smile"
+  },
+  "lc-215-en": {
+    "id": "lc-215-en",
+    "text": "race car"
+  },
+  "lc-216-en": {
+    "id": "lc-216-en",
+    "text": "bird feeder"
+  },
+  "lc-217-en": {
+    "id": "lc-217-en",
+    "text": "tv"
+  },
+  "lc-218-en": {
+    "id": "lc-218-en",
+    "text": "kiss"
+  },
+  "lc-219-en": {
+    "id": "lc-219-en",
+    "text": "snowball fight"
+  },
+  "lc-220-en": {
+    "id": "lc-220-en",
+    "text": "sleeping beauty"
+  },
+  "lc-221-en": {
+    "id": "lc-221-en",
+    "text": "clown"
+  },
+  "lc-222-en": {
+    "id": "lc-222-en",
+    "text": "basketball hoop"
+  },
+  "lc-223-en": {
+    "id": "lc-223-en",
+    "text": "whistle"
+  },
+  "lc-224-en": {
+    "id": "lc-224-en",
+    "text": "glue"
+  },
+  "lc-225-en": {
+    "id": "lc-225-en",
+    "text": "car wash"
+  },
+  "lc-226-en": {
+    "id": "lc-226-en",
+    "text": "turtle"
+  },
+  "lc-227-en": {
+    "id": "lc-227-en",
+    "text": "hula dancer"
+  },
+  "lc-228-en": {
+    "id": "lc-228-en",
+    "text": "top hat"
+  },
+  "lc-229-en": {
+    "id": "lc-229-en",
+    "text": "log cabin"
+  },
+  "lc-230-en": {
+    "id": "lc-230-en",
+    "text": "juggler"
+  },
+  "lc-231-en": {
+    "id": "lc-231-en",
+    "text": "dream"
+  },
+  "lc-232-en": {
+    "id": "lc-232-en",
+    "text": "toilet paper"
+  },
+  "lc-233-en": {
+    "id": "lc-233-en",
+    "text": "santas sleigh"
+  },
+  "lc-234-en": {
+    "id": "lc-234-en",
+    "text": "sponge"
+  },
+  "lc-235-en": {
+    "id": "lc-235-en",
+    "text": "frog"
+  },
+  "lc-236-en": {
+    "id": "lc-236-en",
+    "text": "ice cream truck"
+  },
+  "lc-237-en": {
+    "id": "lc-237-en",
+    "text": "woodpecker"
+  },
+  "lc-238-en": {
+    "id": "lc-238-en",
+    "text": "tree house"
+  },
+  "lc-239-en": {
+    "id": "lc-239-en",
+    "text": "leprechaun"
+  },
+  "lc-240-en": {
+    "id": "lc-240-en",
+    "text": "submarine"
+  },
+  "lc-241-en": {
+    "id": "lc-241-en",
+    "text": "finger food"
+  },
+  "lc-242-en": {
+    "id": "lc-242-en",
+    "text": "monster"
+  },
+  "lc-243-en": {
+    "id": "lc-243-en",
+    "text": "popsicle"
+  },
+  "lc-244-en": {
+    "id": "lc-244-en",
+    "text": "burrito"
+  },
+  "lc-245-en": {
+    "id": "lc-245-en",
+    "text": "three little pigs"
+  },
+  "lc-246-en": {
+    "id": "lc-246-en",
+    "text": "sofa"
+  },
+  "lc-247-en": {
+    "id": "lc-247-en",
+    "text": "dessert"
+  },
+  "lc-248-en": {
+    "id": "lc-248-en",
+    "text": "tuba"
+  },
+  "lc-249-en": {
+    "id": "lc-249-en",
+    "text": "babysitter"
+  },
+  "lc-250-en": {
+    "id": "lc-250-en",
+    "text": "remote control"
+  },
+  "lc-251-en": {
+    "id": "lc-251-en",
+    "text": "birdhouse"
+  },
+  "lc-252-en": {
+    "id": "lc-252-en",
+    "text": "mailbox"
+  },
+  "lc-253-en": {
+    "id": "lc-253-en",
+    "text": "flower pot"
+  },
+  "lc-254-en": {
+    "id": "lc-254-en",
+    "text": "lantern"
+  },
+  "lc-255-en": {
+    "id": "lc-255-en",
+    "text": "waterslide"
+  },
+  "lc-256-en": {
+    "id": "lc-256-en",
+    "text": "camping"
+  },
+  "lc-257-en": {
+    "id": "lc-257-en",
+    "text": "pine cone"
+  },
+  "lc-258-en": {
+    "id": "lc-258-en",
+    "text": "dishwasher"
+  },
+  "lc-259-en": {
+    "id": "lc-259-en",
+    "text": "stuffy nose"
+  },
+  "lc-260-en": {
+    "id": "lc-260-en",
+    "text": "vacuum"
+  },
+  "lc-261-en": {
+    "id": "lc-261-en",
+    "text": "caveman"
+  },
+  "lc-262-en": {
+    "id": "lc-262-en",
+    "text": "telephone pole"
+  },
+  "lc-263-en": {
+    "id": "lc-263-en",
+    "text": "grilled cheese"
+  },
+  "lc-264-en": {
+    "id": "lc-264-en",
+    "text": "frisbee"
+  },
+  "lc-265-en": {
+    "id": "lc-265-en",
+    "text": "camel"
+  },
+  "lc-266-en": {
+    "id": "lc-266-en",
+    "text": "kangaroo"
+  },
+  "lc-267-en": {
+    "id": "lc-267-en",
+    "text": "honey bear"
+  },
+  "lc-268-en": {
+    "id": "lc-268-en",
+    "text": "elbow"
+  },
+  "lc-269-en": {
+    "id": "lc-269-en",
+    "text": "anteater"
+  },
+  "lc-270-en": {
+    "id": "lc-270-en",
+    "text": "vest"
+  },
+  "lc-271-en": {
+    "id": "lc-271-en",
+    "text": "president"
+  },
+  "lc-272-en": {
+    "id": "lc-272-en",
+    "text": "bunk bed"
+  },
+  "lc-273-en": {
+    "id": "lc-273-en",
+    "text": "bigfoot"
+  },
+  "lc-274-en": {
+    "id": "lc-274-en",
+    "text": "flat tire"
+  },
+  "lc-275-en": {
+    "id": "lc-275-en",
+    "text": "carrots"
+  },
+  "lc-276-en": {
+    "id": "lc-276-en",
+    "text": "macaroni & cheese"
+  },
+  "lc-277-en": {
+    "id": "lc-277-en",
+    "text": "love bug"
+  },
+  "lc-278-en": {
+    "id": "lc-278-en",
+    "text": "dirt"
+  },
+  "lc-279-en": {
+    "id": "lc-279-en",
+    "text": "ear wax"
+  },
+  "lc-280-en": {
+    "id": "lc-280-en",
+    "text": "belt buckle"
+  },
+  "lc-281-en": {
+    "id": "lc-281-en",
+    "text": "flip flops"
+  },
+  "lc-282-en": {
+    "id": "lc-282-en",
+    "text": "goat"
+  },
+  "lc-283-en": {
+    "id": "lc-283-en",
+    "text": "super hero"
+  },
+  "lc-284-en": {
+    "id": "lc-284-en",
+    "text": "diaper"
+  },
+  "lc-285-en": {
+    "id": "lc-285-en",
+    "text": "pirate"
+  },
+  "lc-286-en": {
+    "id": "lc-286-en",
+    "text": "hide & seek"
+  },
+  "lc-287-en": {
+    "id": "lc-287-en",
+    "text": "earthquake"
+  },
+  "lc-288-en": {
+    "id": "lc-288-en",
+    "text": "door"
+  },
+  "lc-289-en": {
+    "id": "lc-289-en",
+    "text": "kitchen sink"
+  },
+  "lc-290-en": {
+    "id": "lc-290-en",
+    "text": "backflip"
+  },
+  "lc-291-en": {
+    "id": "lc-291-en",
+    "text": "tiptoe"
+  },
+  "lc-292-en": {
+    "id": "lc-292-en",
+    "text": "frankenstein"
+  },
+  "lc-293-en": {
+    "id": "lc-293-en",
+    "text": "alarm clock"
+  },
+  "lc-294-en": {
+    "id": "lc-294-en",
+    "text": "centipede"
+  },
+  "lc-295-en": {
+    "id": "lc-295-en",
+    "text": "flying carpet"
+  },
+  "lc-296-en": {
+    "id": "lc-296-en",
+    "text": "double-decker bus"
+  },
+  "lc-297-en": {
+    "id": "lc-297-en",
+    "text": "sting"
+  },
+  "lc-298-en": {
+    "id": "lc-298-en",
+    "text": "witch"
+  },
+  "lc-299-en": {
+    "id": "lc-299-en",
+    "text": "bubble bath"
+  },
+  "lc-300-en": {
+    "id": "lc-300-en",
+    "text": "bomb"
+  },
+  "lc-301-en": {
+    "id": "lc-301-en",
+    "text": "bicycle"
+  },
+  "lc-302-en": {
+    "id": "lc-302-en",
+    "text": "drop"
+  },
+  "lc-303-en": {
+    "id": "lc-303-en",
+    "text": "dracula"
+  },
+  "lc-304-en": {
+    "id": "lc-304-en",
+    "text": "ketchup"
+  },
+  "lc-305-en": {
+    "id": "lc-305-en",
+    "text": "cartwheel"
+  },
+  "lc-306-en": {
+    "id": "lc-306-en",
+    "text": "broken window"
+  },
+  "lc-307-en": {
+    "id": "lc-307-en",
+    "text": "medicine"
+  },
+  "lc-308-en": {
+    "id": "lc-308-en",
+    "text": "knight"
+  },
+  "lc-309-en": {
+    "id": "lc-309-en",
+    "text": "drill"
+  },
+  "lc-310-en": {
+    "id": "lc-310-en",
+    "text": "boomerang"
+  },
+  "lc-311-en": {
+    "id": "lc-311-en",
+    "text": "ice cubes"
+  },
+  "lc-312-en": {
+    "id": "lc-312-en",
+    "text": "surfboard"
+  },
+  "lc-313-en": {
+    "id": "lc-313-en",
+    "text": "giraffe"
+  },
+  "lc-314-en": {
+    "id": "lc-314-en",
+    "text": "freeway"
+  },
+  "lc-315-en": {
+    "id": "lc-315-en",
+    "text": "belly button"
+  },
+  "lc-316-en": {
+    "id": "lc-316-en",
+    "text": "holding hands"
+  },
+  "lc-317-en": {
+    "id": "lc-317-en",
+    "text": "triplets"
+  },
+  "lc-318-en": {
+    "id": "lc-318-en",
+    "text": "teddy bear"
+  },
+  "lc-319-en": {
+    "id": "lc-319-en",
+    "text": "sewing machine"
+  },
+  "lc-320-en": {
+    "id": "lc-320-en",
+    "text": "rocking horse"
+  },
+  "lc-321-en": {
+    "id": "lc-321-en",
+    "text": "electricity"
+  },
+  "lc-322-en": {
+    "id": "lc-322-en",
+    "text": "jump rope"
+  },
+  "lc-323-en": {
+    "id": "lc-323-en",
+    "text": "electric eel"
+  },
+  "lc-324-en": {
+    "id": "lc-324-en",
+    "text": "lighthouse"
+  },
+  "lc-325-en": {
+    "id": "lc-325-en",
+    "text": "bribe"
+  },
+  "lc-326-en": {
+    "id": "lc-326-en",
+    "text": "bar of soap"
+  },
+  "lc-327-en": {
+    "id": "lc-327-en",
+    "text": "santa claus"
+  },
+  "lc-328-en": {
+    "id": "lc-328-en",
+    "text": "chief"
+  },
+  "lc-329-en": {
+    "id": "lc-329-en",
+    "text": "motorcycle"
+  },
+  "lc-330-en": {
+    "id": "lc-330-en",
+    "text": "backpack"
+  },
+  "lc-331-en": {
+    "id": "lc-331-en",
+    "text": "magic wand"
+  },
+  "lc-332-en": {
+    "id": "lc-332-en",
+    "text": "lily pad"
+  },
+  "lc-333-en": {
+    "id": "lc-333-en",
+    "text": "caterpillar"
+  },
+  "lc-334-en": {
+    "id": "lc-334-en",
+    "text": "chicken noodle soup"
+  },
+  "lc-335-en": {
+    "id": "lc-335-en",
+    "text": "bulldozer"
+  },
+  "lc-336-en": {
+    "id": "lc-336-en",
+    "text": "home plate"
+  },
+  "lc-337-en": {
+    "id": "lc-337-en",
+    "text": "doll"
+  },
+  "lc-338-en": {
+    "id": "lc-338-en",
+    "text": "basketball player"
+  },
+  "lc-339-en": {
+    "id": "lc-339-en",
+    "text": "bird watching"
+  },
+  "lc-340-en": {
+    "id": "lc-340-en",
+    "text": "jump"
+  },
+  "lc-341-en": {
+    "id": "lc-341-en",
+    "text": "compass"
+  },
+  "lc-342-en": {
+    "id": "lc-342-en",
+    "text": "farmer"
+  },
+  "lc-343-en": {
+    "id": "lc-343-en",
+    "text": "rocking chair"
+  },
+  "lc-344-en": {
+    "id": "lc-344-en",
+    "text": "treasure chest"
+  },
+  "lc-345-en": {
+    "id": "lc-345-en",
+    "text": "pillows"
+  },
+  "lc-346-en": {
+    "id": "lc-346-en",
+    "text": "baked potato"
+  },
+  "lc-347-en": {
+    "id": "lc-347-en",
+    "text": "junkyard"
+  },
+  "lc-348-en": {
+    "id": "lc-348-en",
+    "text": "water fountain"
+  },
+  "lc-349-en": {
+    "id": "lc-349-en",
+    "text": "drink"
+  },
+  "lc-350-en": {
+    "id": "lc-350-en",
+    "text": "football field"
+  },
+  "lc-351-en": {
+    "id": "lc-351-en",
+    "text": "lunch lady"
+  },
+  "lc-352-en": {
+    "id": "lc-352-en",
+    "text": "cheerleader"
+  },
+  "lc-353-en": {
+    "id": "lc-353-en",
+    "text": "roller skates"
+  },
+  "lc-354-en": {
+    "id": "lc-354-en",
+    "text": "hockey stick"
+  },
+  "lc-355-en": {
+    "id": "lc-355-en",
+    "text": "halloween"
+  },
+  "lc-356-en": {
+    "id": "lc-356-en",
+    "text": "king"
+  },
+  "lc-357-en": {
+    "id": "lc-357-en",
+    "text": "beach"
+  },
+  "lc-358-en": {
+    "id": "lc-358-en",
+    "text": "jellyfish"
+  },
+  "lc-359-en": {
+    "id": "lc-359-en",
+    "text": "beach ball"
+  },
+  "lc-360-en": {
+    "id": "lc-360-en",
+    "text": "skyscraper"
+  },
+  "lc-361-en": {
+    "id": "lc-361-en",
+    "text": "shrimp"
+  },
+  "lc-362-en": {
+    "id": "lc-362-en",
+    "text": "diamond ring"
+  },
+  "lc-363-en": {
+    "id": "lc-363-en",
+    "text": "wheelchair"
+  },
+  "lc-364-en": {
+    "id": "lc-364-en",
+    "text": "hamster"
+  },
+  "lc-365-en": {
+    "id": "lc-365-en",
+    "text": "poodle"
+  },
+  "lc-366-en": {
+    "id": "lc-366-en",
+    "text": "penguin"
+  },
+  "lc-367-en": {
+    "id": "lc-367-en",
+    "text": "ant farm"
+  },
+  "lc-368-en": {
+    "id": "lc-368-en",
+    "text": "broccoli"
+  },
+  "lc-369-en": {
+    "id": "lc-369-en",
+    "text": "eyelash"
+  },
+  "lc-370-en": {
+    "id": "lc-370-en",
+    "text": "dog"
+  },
+  "lc-371-en": {
+    "id": "lc-371-en",
+    "text": "marshmallow"
+  },
+  "lc-372-en": {
+    "id": "lc-372-en",
+    "text": "whale"
+  },
+  "lc-373-en": {
+    "id": "lc-373-en",
+    "text": "microscope"
+  },
+  "lc-374-en": {
+    "id": "lc-374-en",
+    "text": "pot of gold"
+  },
+  "lc-375-en": {
+    "id": "lc-375-en",
+    "text": "airplane"
+  },
+  "lc-376-en": {
+    "id": "lc-376-en",
+    "text": "peanut butter and jelly"
+  },
+  "lc-377-en": {
+    "id": "lc-377-en",
+    "text": "bullseye"
+  },
+  "lc-378-en": {
+    "id": "lc-378-en",
+    "text": "peacock"
+  },
+  "lc-379-en": {
+    "id": "lc-379-en",
+    "text": "pancakes"
+  },
+  "lc-380-en": {
+    "id": "lc-380-en",
+    "text": "queen bee"
+  },
+  "lc-381-en": {
+    "id": "lc-381-en",
+    "text": "chocolate chip cookie"
+  },
+  "lc-382-en": {
+    "id": "lc-382-en",
+    "text": "bubbles"
+  },
+  "lc-383-en": {
+    "id": "lc-383-en",
+    "text": "gift wrap"
+  },
+  "lc-384-en": {
+    "id": "lc-384-en",
+    "text": "telescope"
+  },
+  "lc-385-en": {
+    "id": "lc-385-en",
+    "text": "milk and cookies"
+  },
+  "lc-386-en": {
+    "id": "lc-386-en",
+    "text": "handshake"
+  },
+  "lc-387-en": {
+    "id": "lc-387-en",
+    "text": "squirt gun"
+  },
+  "lc-388-en": {
+    "id": "lc-388-en",
+    "text": "porch swing"
+  },
+  "lc-389-en": {
+    "id": "lc-389-en",
+    "text": "xylophone"
+  },
+  "lc-390-en": {
+    "id": "lc-390-en",
+    "text": "pickle"
+  },
+  "lc-391-en": {
+    "id": "lc-391-en",
+    "text": "train"
+  },
+  "lc-392-en": {
+    "id": "lc-392-en",
+    "text": "hammerhead shark"
+  },
+  "lc-393-en": {
+    "id": "lc-393-en",
+    "text": "pirate ship"
+  },
+  "lc-394-en": {
+    "id": "lc-394-en",
+    "text": "catfish"
+  },
+  "lc-395-en": {
+    "id": "lc-395-en",
+    "text": "milkshake"
+  },
+  "lc-396-en": {
+    "id": "lc-396-en",
+    "text": "crocodile"
+  },
+  "lc-397-en": {
+    "id": "lc-397-en",
+    "text": "gymnast"
+  },
+  "lc-398-en": {
+    "id": "lc-398-en",
+    "text": "sea horse"
+  },
+  "lc-399-en": {
+    "id": "lc-399-en",
+    "text": "onion rings"
+  },
+  "lc-400-en": {
+    "id": "lc-400-en",
+    "text": "fairy"
+  },
+  "lc-401-en": {
+    "id": "lc-401-en",
+    "text": "canoe"
+  },
+  "lc-402-en": {
+    "id": "lc-402-en",
+    "text": "family portrait"
+  },
+  "lc-403-en": {
+    "id": "lc-403-en",
+    "text": "book  mark"
+  },
+  "lc-404-en": {
+    "id": "lc-404-en",
+    "text": "hot chocolate"
+  },
+  "lc-405-en": {
+    "id": "lc-405-en",
+    "text": "hopscotch"
+  },
+  "lc-406-en": {
+    "id": "lc-406-en",
+    "text": "night owl"
+  },
+  "lc-407-en": {
+    "id": "lc-407-en",
+    "text": "salad"
+  },
+  "lc-408-en": {
+    "id": "lc-408-en",
+    "text": "boa constrictor"
+  },
+  "lc-409-en": {
+    "id": "lc-409-en",
+    "text": "belly flop"
+  },
+  "lc-410-en": {
+    "id": "lc-410-en",
+    "text": "skeleton"
+  },
+  "lc-411-en": {
+    "id": "lc-411-en",
+    "text": "animal crackers"
+  },
+  "lc-412-en": {
+    "id": "lc-412-en",
+    "text": "fortune cookie"
+  },
+  "lc-413-en": {
+    "id": "lc-413-en",
+    "text": "diving board"
+  },
+  "lc-414-en": {
+    "id": "lc-414-en",
+    "text": "hair dryer"
+  },
+  "lc-415-en": {
+    "id": "lc-415-en",
+    "text": "blanket"
+  },
+  "lc-416-en": {
+    "id": "lc-416-en",
+    "text": "shampoo"
+  },
+  "lc-417-en": {
+    "id": "lc-417-en",
+    "text": "alligator"
+  },
+  "lc-418-en": {
+    "id": "lc-418-en",
+    "text": "corn on the cob"
+  },
+  "lc-419-en": {
+    "id": "lc-419-en",
+    "text": "skydiving"
+  },
+  "lc-420-en": {
+    "id": "lc-420-en",
+    "text": "handstand"
+  },
+  "lc-421-en": {
+    "id": "lc-421-en",
+    "text": "baby"
+  },
+  "lc-422-en": {
+    "id": "lc-422-en",
+    "text": "earthworm"
+  },
+  "lc-423-en": {
+    "id": "lc-423-en",
+    "text": "money"
+  },
+  "lc-424-en": {
+    "id": "lc-424-en",
+    "text": "bagel"
+  },
+  "lc-425-en": {
+    "id": "lc-425-en",
+    "text": "watchdog"
+  },
+  "lc-426-en": {
+    "id": "lc-426-en",
+    "text": "piggy bank"
+  },
+  "lc-427-en": {
+    "id": "lc-427-en",
+    "text": "cavity"
+  },
+  "lc-428-en": {
+    "id": "lc-428-en",
+    "text": "hot dog"
+  },
+  "lc-429-en": {
+    "id": "lc-429-en",
+    "text": "helicopter"
+  },
+  "lc-430-en": {
+    "id": "lc-430-en",
+    "text": "ostrich"
+  },
+  "lc-431-en": {
+    "id": "lc-431-en",
+    "text": "spaghetti & meatballs"
+  },
+  "lc-432-en": {
+    "id": "lc-432-en",
+    "text": "parade"
+  },
+  "lc-433-en": {
+    "id": "lc-433-en",
+    "text": "hot air balloon"
+  },
+  "lc-434-en": {
+    "id": "lc-434-en",
+    "text": "walkie-talkie"
+  },
+  "lc-435-en": {
+    "id": "lc-435-en",
+    "text": "jumping jacks"
+  },
+  "lc-436-en": {
+    "id": "lc-436-en",
+    "text": "guitar"
+  },
+  "lc-437-en": {
+    "id": "lc-437-en",
+    "text": "cereal"
+  },
+  "lc-438-en": {
+    "id": "lc-438-en",
+    "text": "elbow macaroni"
+  },
+  "lc-439-en": {
+    "id": "lc-439-en",
+    "text": "key"
+  },
+  "lc-440-en": {
+    "id": "lc-440-en",
+    "text": "hairball"
+  },
+  "lc-441-en": {
+    "id": "lc-441-en",
+    "text": "necklace"
+  },
+  "lc-442-en": {
+    "id": "lc-442-en",
+    "text": "umbrella"
+  },
+  "lc-443-en": {
+    "id": "lc-443-en",
+    "text": "chicken pot pie"
+  },
+  "lc-444-en": {
+    "id": "lc-444-en",
+    "text": "candy bar"
+  },
+  "lc-445-en": {
+    "id": "lc-445-en",
+    "text": "halo"
+  },
+  "lc-446-en": {
+    "id": "lc-446-en",
+    "text": "locomotive"
+  },
+  "lc-447-en": {
+    "id": "lc-447-en",
+    "text": "body odor"
+  },
+  "lc-448-en": {
+    "id": "lc-448-en",
+    "text": "eggs"
+  },
+  "lc-449-en": {
+    "id": "lc-449-en",
+    "text": "limbo"
+  },
+  "lc-450-en": {
+    "id": "lc-450-en",
+    "text": "treasure map"
+  },
+  "lc-451-en": {
+    "id": "lc-451-en",
+    "text": "raincoat"
+  },
+  "lc-452-en": {
+    "id": "lc-452-en",
+    "text": "mouse trap"
+  },
+  "lc-453-en": {
+    "id": "lc-453-en",
+    "text": "fireworks"
+  },
+  "lc-454-en": {
+    "id": "lc-454-en",
+    "text": "merry-go-round"
+  },
+  "lc-455-en": {
+    "id": "lc-455-en",
+    "text": "ski jump"
+  },
+  "lc-456-en": {
+    "id": "lc-456-en",
+    "text": "sub sandwich"
+  },
+  "lc-457-en": {
+    "id": "lc-457-en",
+    "text": "sunflower"
+  },
+  "lc-458-en": {
+    "id": "lc-458-en",
+    "text": "plumber"
+  },
+  "lc-459-en": {
+    "id": "lc-459-en",
+    "text": "toenail clippers"
+  },
+  "lc-460-en": {
+    "id": "lc-460-en",
+    "text": "popcorn"
+  },
+  "lc-461-en": {
+    "id": "lc-461-en",
+    "text": "sunset"
+  },
+  "lc-462-en": {
+    "id": "lc-462-en",
+    "text": "lightning"
+  },
+  "lc-463-en": {
+    "id": "lc-463-en",
+    "text": "monster truck"
+  },
+  "lc-464-en": {
+    "id": "lc-464-en",
+    "text": "the tooth fairy"
+  },
+  "lc-465-en": {
+    "id": "lc-465-en",
+    "text": "zoo"
+  },
+  "lc-466-en": {
+    "id": "lc-466-en",
+    "text": "christmas tree"
+  },
+  "lc-467-en": {
+    "id": "lc-467-en",
+    "text": "postcard"
+  },
+  "lc-468-en": {
+    "id": "lc-468-en",
+    "text": "house plant"
+  },
+  "lc-469-en": {
+    "id": "lc-469-en",
+    "text": "mask"
+  },
+  "lc-470-en": {
+    "id": "lc-470-en",
+    "text": "buried treasure"
+  },
+  "lc-471-en": {
+    "id": "lc-471-en",
+    "text": "video game"
+  },
+  "lc-472-en": {
+    "id": "lc-472-en",
+    "text": "teeter-totter"
+  },
+  "lc-473-en": {
+    "id": "lc-473-en",
+    "text": "ghost"
+  },
+  "lc-474-en": {
+    "id": "lc-474-en",
+    "text": "tiger shark"
+  },
+  "lc-475-en": {
+    "id": "lc-475-en",
+    "text": "honeycomb"
+  },
+  "lc-476-en": {
+    "id": "lc-476-en",
+    "text": "diamond"
+  },
+  "lc-477-en": {
+    "id": "lc-477-en",
+    "text": "tug boat"
+  },
+  "lc-478-en": {
+    "id": "lc-478-en",
+    "text": "chicken pox"
+  },
+  "lc-479-en": {
+    "id": "lc-479-en",
+    "text": "pajamas"
+  },
+  "lc-480-en": {
+    "id": "lc-480-en",
+    "text": "pony"
+  },
+  "lc-481-en": {
+    "id": "lc-481-en",
+    "text": "police office"
+  },
+  "lc-482-en": {
+    "id": "lc-482-en",
+    "text": "candy bar"
+  },
+  "lc-483-en": {
+    "id": "lc-483-en",
+    "text": "needle in a haystack"
+  },
+  "lc-484-en": {
+    "id": "lc-484-en",
+    "text": "campfire"
+  },
+  "lc-485-en": {
+    "id": "lc-485-en",
+    "text": "tattoo"
+  },
+  "lc-486-en": {
+    "id": "lc-486-en",
+    "text": "fruit bat"
+  },
+  "lc-487-en": {
+    "id": "lc-487-en",
+    "text": "earrings"
+  },
+  "lc-488-en": {
+    "id": "lc-488-en",
+    "text": "fire engine"
+  },
+  "lc-489-en": {
+    "id": "lc-489-en",
+    "text": "over the rainbow"
+  },
+  "lc-490-en": {
+    "id": "lc-490-en",
+    "text": "jack-o-lantern"
+  },
+  "lc-491-en": {
+    "id": "lc-491-en",
+    "text": "tennis racket"
+  },
+  "lc-492-en": {
+    "id": "lc-492-en",
+    "text": "hockey"
+  },
+  "lc-493-en": {
+    "id": "lc-493-en",
+    "text": "beehive"
+  },
+  "lc-494-en": {
+    "id": "lc-494-en",
+    "text": "tennis court"
+  },
+  "lc-495-en": {
+    "id": "lc-495-en",
+    "text": "cowgirl"
+  },
+  "lc-496-en": {
+    "id": "lc-496-en",
+    "text": "keyboard"
+  },
+  "lc-497-en": {
+    "id": "lc-497-en",
+    "text": "bridge"
+  },
+  "lc-498-en": {
+    "id": "lc-498-en",
+    "text": "piano"
+  },
+  "lc-499-en": {
+    "id": "lc-499-en",
+    "text": "pilgrim"
+  },
+  "lc-500-en": {
+    "id": "lc-500-en",
+    "text": "sombrero"
+  },
+  "lc-501-en": {
+    "id": "lc-501-en",
+    "text": "mouse trap"
+  },
+  "lc-502-en": {
+    "id": "lc-502-en",
+    "text": "christmas"
+  },
+  "lc-503-en": {
+    "id": "lc-503-en",
+    "text": "cut corners"
+  },
+  "lc-504-en": {
+    "id": "lc-504-en",
+    "text": "black widow"
+  },
+  "lc-505-en": {
+    "id": "lc-505-en",
+    "text": "three blind mice"
+  },
+  "lc-506-en": {
+    "id": "lc-506-en",
+    "text": "bath tub"
+  },
+  "lc-507-en": {
+    "id": "lc-507-en",
+    "text": "sleepwalk"
+  },
+  "lc-508-en": {
+    "id": "lc-508-en",
+    "text": "cheese & crackers"
+  },
+  "lc-509-en": {
+    "id": "lc-509-en",
+    "text": "snail"
+  },
+  "lc-510-en": {
+    "id": "lc-510-en",
+    "text": "limousine"
+  },
+  "lc-511-en": {
+    "id": "lc-511-en",
+    "text": "duck"
+  },
+  "lc-512-en": {
+    "id": "lc-512-en",
+    "text": "ferris wheel"
+  },
+  "lc-513-en": {
+    "id": "lc-513-en",
+    "text": "toast"
+  },
+  "lc-514-en": {
+    "id": "lc-514-en",
+    "text": "light switch"
+  },
+  "lc-515-en": {
+    "id": "lc-515-en",
+    "text": "can of worms"
+  },
+  "lc-516-en": {
+    "id": "lc-516-en",
+    "text": "rhinoceros"
+  },
+  "lc-517-en": {
+    "id": "lc-517-en",
+    "text": "tyrannosaurus rex"
+  },
+  "lc-518-en": {
+    "id": "lc-518-en",
+    "text": "bearded lady"
+  },
+  "lc-519-en": {
+    "id": "lc-519-en",
+    "text": "cheetah"
+  },
+  "lc-520-en": {
+    "id": "lc-520-en",
+    "text": "state of liberty"
+  },
+  "lc-521-en": {
+    "id": "lc-521-en",
+    "text": "indian"
+  },
+  "lc-522-en": {
+    "id": "lc-522-en",
+    "text": "aquarium"
+  },
+  "lc-523-en": {
+    "id": "lc-523-en",
+    "text": "lollipop"
+  },
+  "lc-524-en": {
+    "id": "lc-524-en",
+    "text": "moose"
+  },
+  "lc-525-en": {
+    "id": "lc-525-en",
+    "text": "goldfish"
+  },
+  "lc-526-en": {
+    "id": "lc-526-en",
+    "text": "trophy"
+  },
+  "lc-527-en": {
+    "id": "lc-527-en",
+    "text": "garden gnome"
+  },
+  "lc-528-en": {
+    "id": "lc-528-en",
+    "text": "sunglasses"
+  },
+  "lc-529-en": {
+    "id": "lc-529-en",
+    "text": "tarantula"
+  },
+  "lc-530-en": {
+    "id": "lc-530-en",
+    "text": "volcano"
+  },
+  "lc-531-en": {
+    "id": "lc-531-en",
+    "text": "hot potato"
+  },
+  "lc-532-en": {
+    "id": "lc-532-en",
+    "text": "monkey"
+  },
+  "lc-533-en": {
+    "id": "lc-533-en",
+    "text": "referee"
+  },
+  "lc-534-en": {
+    "id": "lc-534-en",
+    "text": "turkey"
+  },
+  "lc-535-en": {
+    "id": "lc-535-en",
+    "text": "ninja"
+  },
+  "lc-536-en": {
+    "id": "lc-536-en",
+    "text": "fishing pole"
+  },
+  "lc-537-en": {
+    "id": "lc-537-en",
+    "text": "mustard"
+  },
+  "lc-538-en": {
+    "id": "lc-538-en",
+    "text": "killer whale"
+  },
+  "lc-539-en": {
+    "id": "lc-539-en",
+    "text": "snorkel"
+  },
+  "lc-540-en": {
+    "id": "lc-540-en",
+    "text": "sports car"
+  },
+  "lc-541-en": {
+    "id": "lc-541-en",
+    "text": "picnic"
+  },
+  "lc-542-en": {
+    "id": "lc-542-en",
+    "text": "lava"
+  },
+  "lc-543-en": {
+    "id": "lc-543-en",
+    "text": "rock band"
+  },
+  "lc-544-en": {
+    "id": "lc-544-en",
+    "text": "brain freeze"
+  },
+  "lc-545-en": {
+    "id": "lc-545-en",
+    "text": "cupcakes"
+  },
+  "lc-546-en": {
+    "id": "lc-546-en",
+    "text": "swimming pool"
+  },
+  "lc-547-en": {
+    "id": "lc-547-en",
+    "text": "coyote"
+  },
+  "lc-548-en": {
+    "id": "lc-548-en",
+    "text": "love letter"
+  },
+  "lc-549-en": {
+    "id": "lc-549-en",
+    "text": "dress up"
+  },
+  "lc-550-en": {
+    "id": "lc-550-en",
+    "text": "snowflake"
+  },
+  "lc-551-en": {
+    "id": "lc-551-en",
+    "text": "mohawk"
+  },
+  "lc-552-en": {
+    "id": "lc-552-en",
+    "text": "underpants"
+  },
+  "lc-553-en": {
+    "id": "lc-553-en",
+    "text": "skateboard"
+  },
+  "lc-554-en": {
+    "id": "lc-554-en",
+    "text": "ballpark"
+  },
+  "lc-555-en": {
+    "id": "lc-555-en",
+    "text": "zombie"
+  },
+  "lc-556-en": {
+    "id": "lc-556-en",
+    "text": "banana peel"
+  },
+  "lc-557-en": {
+    "id": "lc-557-en",
+    "text": "taco"
+  },
+  "lc-558-en": {
+    "id": "lc-558-en",
+    "text": "fish tank"
+  },
+  "lc-559-en": {
+    "id": "lc-559-en",
+    "text": "dolphin"
+  },
+  "lc-560-en": {
+    "id": "lc-560-en",
+    "text": "telephone"
+  },
+  "lc-561-en": {
+    "id": "lc-561-en",
+    "text": "ballet"
+  },
+  "lc-562-en": {
+    "id": "lc-562-en",
+    "text": "rainbow"
+  },
+  "lc-563-en": {
+    "id": "lc-563-en",
+    "text": "man on the moon"
+  },
+  "lc-564-en": {
+    "id": "lc-564-en",
+    "text": "shipwreck"
+  },
+  "lc-565-en": {
+    "id": "lc-565-en",
+    "text": "werewolf"
+  },
+  "lc-566-en": {
+    "id": "lc-566-en",
+    "text": "flute"
+  },
+  "lc-567-en": {
+    "id": "lc-567-en",
+    "text": "seasick"
+  },
+  "lc-568-en": {
+    "id": "lc-568-en",
+    "text": "fire hydrant"
+  },
+  "lc-569-en": {
+    "id": "lc-569-en",
+    "text": "avocado"
+  },
+  "lc-570-en": {
+    "id": "lc-570-en",
+    "text": "sprinkler"
+  },
+  "lc-571-en": {
+    "id": "lc-571-en",
+    "text": "railroad tracks"
+  },
+  "lc-572-en": {
+    "id": "lc-572-en",
+    "text": "steak"
+  },
+  "lc-573-en": {
+    "id": "lc-573-en",
+    "text": "starfish"
+  },
+  "lc-574-en": {
+    "id": "lc-574-en",
+    "text": "fruit basket"
+  },
+  "lc-575-en": {
+    "id": "lc-575-en",
+    "text": "stopwatch"
+  },
+  "lc-576-en": {
+    "id": "lc-576-en",
+    "text": "rubber duck"
+  },
+  "lc-577-en": {
+    "id": "lc-577-en",
+    "text": "scooter"
+  },
+  "lc-578-en": {
+    "id": "lc-578-en",
+    "text": "school bus"
+  },
+  "lc-579-en": {
+    "id": "lc-579-en",
+    "text": "heaven"
+  },
+  "lc-580-en": {
+    "id": "lc-580-en",
+    "text": "lobster"
+  },
+  "lc-581-en": {
+    "id": "lc-581-en",
+    "text": "smelly feet"
+  },
+  "lc-582-en": {
+    "id": "lc-582-en",
+    "text": "flyswatter"
+  },
+  "lc-583-en": {
+    "id": "lc-583-en",
+    "text": "barrel of monkeys"
+  },
+  "lc-584-en": {
+    "id": "lc-584-en",
+    "text": "blank"
+  },
+  "lc-585-en": {
+    "id": "lc-585-en",
+    "text": "funny bone"
+  },
+  "lc-586-en": {
+    "id": "lc-586-en",
+    "text": "spider web"
+  },
+  "lc-587-en": {
+    "id": "lc-587-en",
+    "text": "asparagus"
+  },
+  "lc-588-en": {
+    "id": "lc-588-en",
+    "text": "snowman"
+  },
+  "lc-589-en": {
+    "id": "lc-589-en",
+    "text": "breakfast in bed"
+  },
+  "lc-590-en": {
+    "id": "lc-590-en",
+    "text": "golf course"
+  },
+  "lc-591-en": {
+    "id": "lc-591-en",
+    "text": "valentine's day"
+  },
+  "lc-592-en": {
+    "id": "lc-592-en",
+    "text": "pool table"
+  },
+  "lc-593-en": {
+    "id": "lc-593-en",
+    "text": "water bed"
+  },
+  "lc-594-en": {
+    "id": "lc-594-en",
+    "text": "beard"
+  },
+  "lc-595-en": {
+    "id": "lc-595-en",
+    "text": "sneakers"
+  },
+  "lc-596-en": {
+    "id": "lc-596-en",
+    "text": "teacher"
+  },
+  "lc-597-en": {
+    "id": "lc-597-en",
+    "text": "mittens"
+  },
+  "lc-598-en": {
+    "id": "lc-598-en",
+    "text": "mountain goat"
+  },
+  "lc-599-en": {
+    "id": "lc-599-en",
+    "text": "stoplight"
+  },
+  "lc-600-en": {
+    "id": "lc-600-en",
+    "text": "dog biscuit"
+  },
+  "lc-601-en": {
+    "id": "lc-601-en",
+    "text": "castle"
+  },
+  "lc-602-en": {
+    "id": "lc-602-en",
+    "text": "bathing suit"
+  },
+  "lc-603-en": {
+    "id": "lc-603-en",
+    "text": "tutu"
+  },
+  "lc-604-en": {
+    "id": "lc-604-en",
+    "text": "doughnuts"
+  },
+  "lc-605-en": {
+    "id": "lc-605-en",
+    "text": "mother"
+  },
+  "lc-606-en": {
+    "id": "lc-606-en",
+    "text": "pogo stick"
+  },
+  "lc-607-en": {
+    "id": "lc-607-en",
+    "text": "mermaid"
+  },
+  "lc-608-en": {
+    "id": "lc-608-en",
+    "text": "garden"
+  },
+  "lc-609-en": {
+    "id": "lc-609-en",
+    "text": "swordfish"
+  },
+  "lc-610-en": {
+    "id": "lc-610-en",
+    "text": "giant"
+  },
+  "lc-611-en": {
+    "id": "lc-611-en",
+    "text": "wizard"
+  },
+  "lc-612-en": {
+    "id": "lc-612-en",
+    "text": "corn dog"
+  },
+  "lc-613-en": {
+    "id": "lc-613-en",
+    "text": "leapfrog"
+  },
+  "lc-614-en": {
+    "id": "lc-614-en",
+    "text": "hair spray"
+  },
+  "lc-615-en": {
+    "id": "lc-615-en",
+    "text": "lemonade stand"
+  },
+  "lc-616-en": {
+    "id": "lc-616-en",
+    "text": "north pole"
+  },
+  "lc-617-en": {
+    "id": "lc-617-en",
+    "text": "t-shirt"
+  },
+  "lc-618-en": {
+    "id": "lc-618-en",
+    "text": "checkerboard"
+  },
+  "lc-619-en": {
+    "id": "lc-619-en",
+    "text": "cuckoo clock"
+  },
+  "lc-620-en": {
+    "id": "lc-620-en",
+    "text": "tongue twister"
+  },
+  "lc-621-en": {
+    "id": "lc-621-en",
+    "text": "angel"
+  },
+  "lc-622-en": {
+    "id": "lc-622-en",
+    "text": "cold feet"
+  },
+  "lc-623-en": {
+    "id": "lc-623-en",
+    "text": "muscle"
+  },
+  "lc-624-en": {
+    "id": "lc-624-en",
+    "text": "magician"
+  },
+  "lc-625-en": {
+    "id": "lc-625-en",
+    "text": "suitcase"
+  },
+  "lc-626-en": {
+    "id": "lc-626-en",
+    "text": "can opener"
+  },
+  "lc-627-en": {
+    "id": "lc-627-en",
+    "text": "vacation"
+  },
+  "lc-628-en": {
+    "id": "lc-628-en",
+    "text": "dragon"
+  },
+  "lc-629-en": {
+    "id": "lc-629-en",
+    "text": "dig"
+  },
+  "lc-630-en": {
+    "id": "lc-630-en",
+    "text": "waffle"
+  },
+  "lc-631-en": {
+    "id": "lc-631-en",
+    "text": "apple pie"
+  },
+  "lc-632-en": {
+    "id": "lc-632-en",
+    "text": "firefly"
+  },
+  "lc-633-en": {
+    "id": "lc-633-en",
+    "text": "bath toys"
+  },
+  "lc-634-en": {
+    "id": "lc-634-en",
+    "text": "alien"
+  },
+  "lc-635-en": {
+    "id": "lc-635-en",
+    "text": "light bulb"
+  },
+  "lc-636-en": {
+    "id": "lc-636-en",
+    "text": "nose"
+  },
+  "lc-637-en": {
+    "id": "lc-637-en",
+    "text": "bee sting"
+  },
+  "lc-638-en": {
+    "id": "lc-638-en",
+    "text": "chicken fingers"
+  },
+  "lc-639-en": {
+    "id": "lc-639-en",
+    "text": "trampoline"
+  },
+  "lc-640-en": {
+    "id": "lc-640-en",
+    "text": "dalmatian"
+  },
+  "lc-641-en": {
+    "id": "lc-641-en",
+    "text": "bulldog"
+  },
+  "lc-642-en": {
+    "id": "lc-642-en",
+    "text": "mall"
+  },
+  "lc-643-en": {
+    "id": "lc-643-en",
+    "text": "cheeseburger"
+  },
+  "lc-644-en": {
+    "id": "lc-644-en",
+    "text": "sand dollar"
+  },
+  "lc-645-en": {
+    "id": "lc-645-en",
+    "text": "pony tail"
+  },
+  "lc-646-en": {
+    "id": "lc-646-en",
+    "text": "frying pan"
+  },
+  "lc-647-en": {
+    "id": "lc-647-en",
+    "text": "swing set"
+  },
+  "lc-648-en": {
+    "id": "lc-648-en",
+    "text": "bacon"
+  },
+  "lc-649-en": {
+    "id": "lc-649-en",
+    "text": "squid"
+  },
+  "lc-650-en": {
+    "id": "lc-650-en",
+    "text": "fireplace"
+  },
+  "lc-651-en": {
+    "id": "lc-651-en",
+    "text": "cowboy"
+  },
+  "lc-652-en": {
+    "id": "lc-652-en",
+    "text": "fairy tale"
+  },
+  "lc-653-en": {
+    "id": "lc-653-en",
+    "text": "harmonica"
+  },
+  "lc-654-en": {
+    "id": "lc-654-en",
+    "text": "cruise ship"
+  },
+  "lc-655-en": {
+    "id": "lc-655-en",
+    "text": "bus stop"
+  },
+  "lc-656-en": {
+    "id": "lc-656-en",
+    "text": "water ski"
+  },
+  "lc-657-en": {
+    "id": "lc-657-en",
+    "text": "carpool"
+  },
+  "lc-658-en": {
+    "id": "lc-658-en",
+    "text": "pond"
+  },
+  "lc-659-en": {
+    "id": "lc-659-en",
+    "text": "seashell"
+  },
+  "lc-660-en": {
+    "id": "lc-660-en",
+    "text": "apple"
+  },
+  "lc-661-en": {
+    "id": "lc-661-en",
+    "text": "couch potato"
+  },
+  "lc-662-en": {
+    "id": "lc-662-en",
+    "text": "the white house"
+  },
+  "lc-663-en": {
+    "id": "lc-663-en",
+    "text": "snow white"
+  },
+  "lc-664-en": {
+    "id": "lc-664-en",
+    "text": "tiger"
+  },
+  "lc-665-en": {
+    "id": "lc-665-en",
+    "text": "baseball player"
+  },
+  "lc-666-en": {
+    "id": "lc-666-en",
+    "text": "beaver waterfall"
+  },
+  "lc-667-en": {
+    "id": "lc-667-en",
+    "text": "moon"
+  },
+  "lc-668-en": {
+    "id": "lc-668-en",
+    "text": "ham"
+  },
+  "lc-669-en": {
+    "id": "lc-669-en",
+    "text": "little red riding hood"
+  },
+  "lc-670-en": {
+    "id": "lc-670-en",
+    "text": "genie in a bottle"
+  },
+  "lc-671-en": {
+    "id": "lc-671-en",
+    "text": "mountain climber"
+  },
+  "lc-672-en": {
+    "id": "lc-672-en",
+    "text": "flying saucer"
+  },
+  "lc-673-en": {
+    "id": "lc-673-en",
+    "text": "trash can"
+  },
+  "lc-674-en": {
+    "id": "lc-674-en",
+    "text": "saddle"
+  },
+  "lc-675-en": {
+    "id": "lc-675-en",
+    "text": "shower"
+  },
+  "lc-676-en": {
+    "id": "lc-676-en",
+    "text": "salad bar"
+  },
+  "lc-677-en": {
+    "id": "lc-677-en",
+    "text": "desert"
+  },
+  "lc-678-en": {
+    "id": "lc-678-en",
+    "text": "carrot cake"
+  },
+  "lc-679-en": {
+    "id": "lc-679-en",
+    "text": "lawn mower"
+  },
+  "lc-680-en": {
+    "id": "lc-680-en",
+    "text": "drive-thru"
+  },
+  "lc-681-en": {
+    "id": "lc-681-en",
+    "text": "high heels"
+  },
+  "lc-682-en": {
+    "id": "lc-682-en",
+    "text": "hot tub"
+  },
+  "lc-683-en": {
+    "id": "lc-683-en",
+    "text": "fingers"
+  },
+  "lc-684-en": {
+    "id": "lc-684-en",
+    "text": "grapevine"
+  },
+  "lc-685-en": {
+    "id": "lc-685-en",
+    "text": "karate"
+  },
+  "lc-686-en": {
+    "id": "lc-686-en",
+    "text": "monkey bars"
+  },
+  "lc-687-en": {
+    "id": "lc-687-en",
+    "text": "head in the cloud"
+  },
+  "lc-688-en": {
+    "id": "lc-688-en",
+    "text": "tow truck"
+  },
+  "lc-689-en": {
+    "id": "lc-689-en",
+    "text": "microphone"
+  },
+  "lc-690-en": {
+    "id": "lc-690-en",
+    "text": "pinocchio"
+  },
+  "lc-691-en": {
+    "id": "lc-691-en",
+    "text": "toybox"
+  },
+  "lc-692-en": {
+    "id": "lc-692-en",
+    "text": "frog legs"
+  },
+  "lc-693-en": {
+    "id": "lc-693-en",
+    "text": "tickle"
+  },
+  "lc-694-en": {
+    "id": "lc-694-en",
+    "text": "microwave"
+  },
+  "lc-695-en": {
+    "id": "lc-695-en",
+    "text": "football player"
+  },
+  "lc-696-en": {
+    "id": "lc-696-en",
+    "text": "houseboat"
+  },
+  "lc-697-en": {
+    "id": "lc-697-en",
+    "text": "tree frog"
+  },
+  "lc-698-en": {
+    "id": "lc-698-en",
+    "text": "seesaw"
+  },
+  "lc-699-en": {
+    "id": "lc-699-en",
+    "text": "space shuttle"
+  },
+  "lc-700-en": {
+    "id": "lc-700-en",
+    "text": "flowers"
+  },
+  "lc-701-en": {
+    "id": "lc-701-en",
+    "text": "hand puppet"
+  },
+  "lc-702-en": {
+    "id": "lc-702-en",
+    "text": "shovel"
+  },
+  "lc-703-en": {
+    "id": "lc-703-en",
+    "text": "lion"
+  },
+  "lc-704-en": {
+    "id": "lc-704-en",
+    "text": "tooth cactus"
+  },
+  "lc-705-en": {
+    "id": "lc-705-en",
+    "text": "iceberg"
+  },
+  "lc-706-en": {
+    "id": "lc-706-en",
+    "text": "x-ray"
+  },
+  "lc-707-en": {
+    "id": "lc-707-en",
+    "text": "gingerbread house"
+  },
+  "lc-708-en": {
+    "id": "lc-708-en",
+    "text": "lady bug"
+  },
+  "lc-709-en": {
+    "id": "lc-709-en",
+    "text": "cow"
+  },
+  "lc-710-en": {
+    "id": "lc-710-en",
+    "text": "ambulance"
+  },
+  "lc-711-en": {
+    "id": "lc-711-en",
+    "text": "pencil sharpener"
+  },
+  "lc-712-en": {
+    "id": "lc-712-en",
+    "text": "astronaut"
+  },
+  "lc-713-en": {
+    "id": "lc-713-en",
+    "text": "calculator"
+  },
+  "lc-714-en": {
+    "id": "lc-714-en",
+    "text": "bear hug"
+  },
+  "lc-715-en": {
+    "id": "lc-715-en",
+    "text": "french fries"
+  },
+  "lc-716-en": {
+    "id": "lc-716-en",
+    "text": "barefoot"
+  },
+  "lc-717-en": {
+    "id": "lc-717-en",
+    "text": "dental floss"
+  },
+  "lc-718-en": {
+    "id": "lc-718-en",
+    "text": "first base"
+  },
+  "lc-719-en": {
+    "id": "lc-719-en",
+    "text": "grasshopper"
+  },
+  "lc-720-en": {
+    "id": "lc-720-en",
+    "text": "chipmunk"
+  },
+  "lc-721-en": {
+    "id": "lc-721-en",
+    "text": "circus"
+  },
+  "lc-722-en": {
+    "id": "lc-722-en",
+    "text": "wishing well"
+  },
+  "lc-723-en": {
+    "id": "lc-723-en",
+    "text": "the easter bunny"
+  },
+  "lc-724-en": {
+    "id": "lc-724-en",
+    "text": "elf"
+  },
+  "lc-725-en": {
+    "id": "lc-725-en",
+    "text": "go-kart"
+  },
+  "lc-726-en": {
+    "id": "lc-726-en",
+    "text": "bunch of bananas"
+  },
+  "lc-727-en": {
+    "id": "lc-727-en",
+    "text": "librarian"
+  },
+  "lc-728-en": {
+    "id": "lc-728-en",
+    "text": "snowboard"
+  },
+  "lc-729-en": {
+    "id": "lc-729-en",
+    "text": "sippy cup"
+  },
+  "lc-730-en": {
+    "id": "lc-730-en",
+    "text": "computer"
+  },
+  "lc-731-en": {
+    "id": "lc-731-en",
+    "text": "peppermint"
+  },
+  "lc-732-en": {
+    "id": "lc-732-en",
+    "text": "wink"
+  },
+  "lc-733-en": {
+    "id": "lc-733-en",
+    "text": "hippopotamus"
+  },
+  "lc-734-en": {
+    "id": "lc-734-en",
+    "text": "artist"
+  },
+  "lc-735-en": {
+    "id": "lc-735-en",
+    "text": "lunchbox"
+  },
+  "lc-736-en": {
+    "id": "lc-736-en",
+    "text": "run miniature golf"
+  },
+  "lc-737-en": {
+    "id": "lc-737-en",
+    "text": "fetch"
+  },
+  "lc-738-en": {
+    "id": "lc-738-en",
+    "text": "zipper"
+  },
+  "lc-739-en": {
+    "id": "lc-739-en",
+    "text": "doctor"
+  },
+  "lc-740-en": {
+    "id": "lc-740-en",
+    "text": "honey bee"
+  },
+  "lc-741-en": {
+    "id": "lc-741-en",
+    "text": "puppy love"
+  },
+  "lc-742-en": {
+    "id": "lc-742-en",
+    "text": "pillow fight"
+  },
+  "lc-743-en": {
+    "id": "lc-743-en",
+    "text": "bread and butter"
+  },
+  "lc-744-en": {
+    "id": "lc-744-en",
+    "text": "queen"
+  },
+  "lc-745-en": {
+    "id": "lc-745-en",
+    "text": "broken leg"
+  },
+  "lc-746-en": {
+    "id": "lc-746-en",
+    "text": "bookworm"
+  },
+  "lc-747-en": {
+    "id": "lc-747-en",
+    "text": "sail boat"
+  },
+  "lc-748-en": {
+    "id": "lc-748-en",
+    "text": "snowshoe"
+  },
+  "lc-749-en": {
+    "id": "lc-749-en",
+    "text": "bumblebee"
+  },
+  "lc-750-en": {
+    "id": "lc-750-en",
+    "text": "jail"
+  },
+  "lc-751-en": {
+    "id": "lc-751-en",
+    "text": "snow cone"
+  },
+  "lc-752-en": {
+    "id": "lc-752-en",
+    "text": "eskimo"
+  },
+  "lc-753-en": {
+    "id": "lc-753-en",
+    "text": "deodorant"
+  },
+  "lc-754-en": {
+    "id": "lc-754-en",
+    "text": "bell tower"
+  },
+  "lc-755-en": {
+    "id": "lc-755-en",
+    "text": "flea"
+  },
+  "lc-756-en": {
+    "id": "lc-756-en",
+    "text": "thanksgiving"
+  },
+  "lc-757-en": {
+    "id": "lc-757-en",
+    "text": "lemonade"
+  },
+  "lc-758-en": {
+    "id": "lc-758-en",
+    "text": "killer bees"
+  },
+  "lc-759-en": {
+    "id": "lc-759-en",
+    "text": "crown"
+  },
+  "lc-760-en": {
+    "id": "lc-760-en",
+    "text": "tornado"
+  },
+  "lc-761-en": {
+    "id": "lc-761-en",
+    "text": "goalie"
+  },
+  "lc-762-en": {
+    "id": "lc-762-en",
+    "text": "sneeze"
+  },
+  "lc-763-en": {
+    "id": "lc-763-en",
+    "text": "feathers"
+  },
+  "lc-764-en": {
+    "id": "lc-764-en",
+    "text": "pinwheel"
+  },
+  "lc-765-en": {
+    "id": "lc-765-en",
+    "text": "eyebrow"
+  },
+  "lc-766-en": {
+    "id": "lc-766-en",
+    "text": "fruit cake"
+  },
+  "lc-767-en": {
+    "id": "lc-767-en",
+    "text": "lifeguard"
+  },
+  "lc-768-en": {
+    "id": "lc-768-en",
+    "text": "bow tie"
+  },
+  "lc-769-en": {
+    "id": "lc-769-en",
+    "text": "ice cream cone"
+  },
+  "lc-770-en": {
+    "id": "lc-770-en",
+    "text": "easter"
+  },
+  "lc-771-en": {
+    "id": "lc-771-en",
+    "text": "gingerbread man"
+  },
+  "lc-772-en": {
+    "id": "lc-772-en",
+    "text": "flying fish"
+  },
+  "lc-773-en": {
+    "id": "lc-773-en",
+    "text": "pumpkin patch"
+  },
+  "lc-774-en": {
+    "id": "lc-774-en",
+    "text": "s'mores"
+  },
+  "lc-775-en": {
+    "id": "lc-775-en",
+    "text": "love birds"
+  },
+  "lc-776-en": {
+    "id": "lc-776-en",
+    "text": "mail man"
+  },
+  "lc-777-en": {
+    "id": "lc-777-en",
+    "text": "hammock"
+  },
+  "lc-778-en": {
+    "id": "lc-778-en",
+    "text": "sign language"
+  },
+  "lc-779-en": {
+    "id": "lc-779-en",
+    "text": "drumstick"
+  },
+  "lc-780-en": {
+    "id": "lc-780-en",
+    "text": "tank"
+  },
+  "lc-781-en": {
+    "id": "lc-781-en",
+    "text": "firewood"
+  },
+  "lc-782-en": {
+    "id": "lc-782-en",
+    "text": "piggyback"
+  },
+  "lc-783-en": {
+    "id": "lc-783-en",
+    "text": "sleeping bag"
+  },
+  "lc-784-en": {
+    "id": "lc-784-en",
+    "text": "jell-o"
+  },
+  "lc-785-en": {
+    "id": "lc-785-en",
+    "text": "arm wrestling"
+  },
+  "lc-786-en": {
+    "id": "lc-786-en",
+    "text": "horse"
+  },
+  "lc-787-en": {
+    "id": "lc-787-en",
+    "text": "toothpick"
+  },
+  "lc-788-en": {
+    "id": "lc-788-en",
+    "text": "form in the road"
+  },
+  "lc-789-en": {
+    "id": "lc-789-en",
+    "text": "cell phone"
+  },
+  "lc-790-en": {
+    "id": "lc-790-en",
+    "text": "gas can"
+  },
+  "lc-791-en": {
+    "id": "lc-791-en",
+    "text": "dinosaur"
+  },
+  "lc-792-en": {
+    "id": "lc-792-en",
+    "text": "princess"
+  },
+  "lc-793-en": {
+    "id": "lc-793-en",
+    "text": "scientist"
+  },
+  "lc-794-en": {
+    "id": "lc-794-en",
+    "text": "bald eagle"
+  },
+  "lc-795-en": {
+    "id": "lc-795-en",
+    "text": "scarecrow"
+  },
+  "lc-796-en": {
+    "id": "lc-796-en",
+    "text": "saxophone"
+  },
+  "lc-797-en": {
+    "id": "lc-797-en",
+    "text": "sumo"
+  },
+  "lc-798-en": {
+    "id": "lc-798-en",
+    "text": "singing in the shower"
+  },
+  "lc-799-en": {
+    "id": "lc-799-en",
+    "text": "spreadsheet"
+  },
+  "lc-800-en": {
+    "id": "lc-800-en",
+    "text": "apple tree"
+  },
+  "lc-801-en": {
+    "id": "lc-801-en",
+    "text": "an actor"
+  },
+  "lc-802-en": {
+    "id": "lc-802-en",
+    "text": "an actress"
+  },
+  "lc-803-en": {
+    "id": "lc-803-en",
+    "text": "an animal"
+  },
+  "lc-804-en": {
+    "id": "lc-804-en",
+    "text": "an athlete"
+  },
+  "lc-805-en": {
+    "id": "lc-805-en",
+    "text": "a book"
+  },
+  "lc-806-en": {
+    "id": "lc-806-en",
+    "text": "a cartoon"
+  },
+  "lc-807-en": {
+    "id": "lc-807-en",
+    "text": "a food"
+  },
+  "lc-808-en": {
+    "id": "lc-808-en",
+    "text": "a game"
+  },
+  "lc-809-en": {
+    "id": "lc-809-en",
+    "text": "a movie character"
+  },
+  "lc-810-en": {
+    "id": "lc-810-en",
+    "text": "a movie"
+  },
+  "lc-811-en": {
+    "id": "lc-811-en",
+    "text": "a singer"
+  },
+  "lc-812-en": {
+    "id": "lc-812-en",
+    "text": "a song"
+  },
+  "lc-813-en": {
+    "id": "lc-813-en",
+    "text": "a sport"
+  },
+  "lc-814-en": {
+    "id": "lc-814-en",
+    "text": "a superhero"
+  },
+  "lc-815-en": {
+    "id": "lc-815-en",
+    "text": "a toy"
+  },
+  "lc-816-en": {
+    "id": "lc-816-en",
+    "text": "a TV character"
+  },
+  "lc-817-en": {
+    "id": "lc-817-en",
+    "text": "a TV show"
+  },
+  "lc-818-en": {
+    "id": "lc-818-en",
+    "text": "a celebrity"
+  },
+  "lc-819-en": {
+    "id": "lc-819-en",
+    "text": "a politician"
+  },
+  "lc-820-en": {
+    "id": "lc-820-en",
+    "text": "an appliance"
+  },
+  "lc-821-en": {
+    "id": "lc-821-en",
+    "text": "an insect"
+  },
+  "lc-822-en": {
+    "id": "lc-822-en",
+    "text": "a disease"
+  },
+  "lc-823-en": {
+    "id": "lc-823-en",
+    "text": "a hobby"
+  },
+  "lc-824-en": {
+    "id": "lc-824-en",
+    "text": "a country"
+  },
+  "lc-825-en": {
+    "id": "lc-825-en",
+    "text": "an app"
+  }
 }
