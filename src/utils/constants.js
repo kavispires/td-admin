@@ -9,6 +9,7 @@ export const RESOURCE_NAMES = [
   'mente-coletiva',
   'onda-telepatica',
   'polemica-da-vez',
+  'single-word',
   'testemunha-ocular',
   'themes',
   'ue-so-isso',
