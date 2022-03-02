@@ -3572,7 +3572,7 @@
   "a-715-en": {
     "id": "a-715-en",
     "text": "Laziness is a virtue",
-    "level": 0
+    "level": 3
   },
   "a-716-en": {
     "id": "a-716-en",
@@ -3742,7 +3742,7 @@
   "a-749-en": {
     "id": "a-749-en",
     "text": "Advancements of humanity",
-    "level": 0
+    "level": 2
   },
   "a-750-en": {
     "id": "a-750-en",
@@ -3913,5 +3913,1780 @@
     "id": "a-783-en",
     "text": "Severance package",
     "level": 3
+  },
+  "a-784-en": {
+    "id": "a-784-en",
+    "text": "Magic missile",
+    "level": 1
+  },
+  "a-785-en": {
+    "id": "a-785-en",
+    "text": "Neanderthal",
+    "level": 3
+  },
+  "a-786-en": {
+    "id": "a-786-en",
+    "text": "\"It's complicated\" relationship status",
+    "level": 3
+  },
+  "a-787-en": {
+    "id": "a-787-en",
+    "text": "Pedobear",
+    "level": 1
+  },
+  "a-788-en": {
+    "id": "a-788-en",
+    "text": "Oh yeah",
+    "level": 1
+  },
+  "a-789-en": {
+    "id": "a-789-en",
+    "text": "Dramatic Chipmunk",
+    "level": 1
+  },
+  "a-790-en": {
+    "id": "a-790-en",
+    "text": "Deep throat",
+    "level": 1
+  },
+  "a-791-en": {
+    "id": "a-791-en",
+    "text": "Free the nipple",
+    "level": 1
+  },
+  "a-792-en": {
+    "id": "a-792-en",
+    "text": "All that jazz",
+    "level": 3
+  },
+  "a-793-en": {
+    "id": "a-793-en",
+    "text": "Children under a trench coat",
+    "level": 1
+  },
+  "a-794-en": {
+    "id": "a-794-en",
+    "text": "The Macarena",
+    "level": 2
+  },
+  "a-795-en": {
+    "id": "a-795-en",
+    "text": "The Hunger Games",
+    "level": 2
+  },
+  "a-796-en": {
+    "id": "a-796-en",
+    "text": "Underwear vending machine",
+    "level": 1
+  },
+  "a-797-en": {
+    "id": "a-797-en",
+    "text": "Fallopian tubes",
+    "level": 2
+  },
+  "a-798-en": {
+    "id": "a-798-en",
+    "text": "Chaos",
+    "level": 3
+  },
+  "a-799-en": {
+    "id": "a-799-en",
+    "text": "Thigh gap",
+    "level": 1
+  },
+  "a-800-en": {
+    "id": "a-800-en",
+    "text": "Pop-up ad",
+    "level": 2
+  },
+  "a-801-en": {
+    "id": "a-801-en",
+    "text": "Zumba class",
+    "level": 2
+  },
+  "a-802-en": {
+    "id": "a-802-en",
+    "text": "Being Hangry",
+    "level": 1
+  },
+  "a-803-en": {
+    "id": "a-803-en",
+    "text": "Glamping",
+    "level": 2
+  },
+  "a-804-en": {
+    "id": "a-804-en",
+    "text": "Wedgie",
+    "level": 1
+  },
+  "a-805-en": {
+    "id": "a-805-en",
+    "text": "Slim Shady",
+    "level": 3
+  },
+  "a-806-en": {
+    "id": "a-806-en",
+    "text": "Helicopter parents",
+    "level": 1
+  },
+  "a-807-en": {
+    "id": "a-807-en",
+    "text": "Sleep paralysis",
+    "level": 1
+  },
+  "a-808-en": {
+    "id": "a-808-en",
+    "text": "Sad Keanu",
+    "level": 2
+  },
+  "a-809-en": {
+    "id": "a-809-en",
+    "text": "Chupacabra",
+    "level": 2
+  },
+  "a-810-en": {
+    "id": "a-810-en",
+    "text": "Tetris",
+    "level": 1
+  },
+  "a-811-en": {
+    "id": "a-811-en",
+    "text": "Cannibal",
+    "level": 2
+  },
+  "a-812-en": {
+    "id": "a-812-en",
+    "text": "Google I feel Lucky button",
+    "level": 2
+  },
+  "a-813-en": {
+    "id": "a-813-en",
+    "text": "Flappy bird",
+    "level": 1
+  },
+  "a-814-en": {
+    "id": "a-814-en",
+    "text": "Mechanical bull",
+    "level": 1
+  },
+  "a-815-en": {
+    "id": "a-815-en",
+    "text": "Wet willy",
+    "level": 2
+  },
+  "a-816-en": {
+    "id": "a-816-en",
+    "text": "A collection of blogs",
+    "level": 2
+  },
+  "a-817-en": {
+    "id": "a-817-en",
+    "text": "Dad bod",
+    "level": 2
+  },
+  "a-818-en": {
+    "id": "a-818-en",
+    "text": "Light as a feather, stiff as a board",
+    "level": 1
+  },
+  "a-819-en": {
+    "id": "a-819-en",
+    "text": "Martial arts",
+    "level": 1
+  },
+  "a-820-en": {
+    "id": "a-820-en",
+    "text": "A senpai",
+    "level": 3
+  },
+  "a-821-en": {
+    "id": "a-821-en",
+    "text": "Stop-motion",
+    "level": 3
+  },
+  "a-822-en": {
+    "id": "a-822-en",
+    "text": "Air Bud",
+    "level": 2
+  },
+  "a-823-en": {
+    "id": "a-823-en",
+    "text": "Pain reliever",
+    "level": 2
+  },
+  "a-824-en": {
+    "id": "a-824-en",
+    "text": "Pretending you didn't trip up",
+    "level": 3
+  },
+  "a-825-en": {
+    "id": "a-825-en",
+    "text": "Micronation'",
+    "level": 2
+  },
+  "a-826-en": {
+    "id": "a-826-en",
+    "text": "Medieval feast",
+    "level": 2
+  },
+  "a-827-en": {
+    "id": "a-827-en",
+    "text": "The worst pokemon",
+    "level": 2
+  },
+  "a-828-en": {
+    "id": "a-828-en",
+    "text": "Quiche",
+    "level": 3
+  },
+  "a-829-en": {
+    "id": "a-829-en",
+    "text": "Hot tub",
+    "level": 2
+  },
+  "a-830-en": {
+    "id": "a-830-en",
+    "text": "Colonists",
+    "level": 2
+  },
+  "a-831-en": {
+    "id": "a-831-en",
+    "text": "Leg day",
+    "level": 1
+  },
+  "a-832-en": {
+    "id": "a-832-en",
+    "text": "The final countdown",
+    "level": 2
+  },
+  "a-833-en": {
+    "id": "a-833-en",
+    "text": "Stock photo",
+    "level": 2
+  },
+  "a-834-en": {
+    "id": "a-834-en",
+    "text": "Blue man group",
+    "level": 2
+  },
+  "a-835-en": {
+    "id": "a-835-en",
+    "text": "A hoarder",
+    "level": 2
+  },
+  "a-836-en": {
+    "id": "a-836-en",
+    "text": "Celibacy",
+    "level": 2
+  },
+  "a-837-en": {
+    "id": "a-837-en",
+    "text": "Ebola",
+    "level": 3
+  },
+  "a-838-en": {
+    "id": "a-838-en",
+    "text": "MC Hammer",
+    "level": 2
+  },
+  "a-839-en": {
+    "id": "a-839-en",
+    "text": "Wazzzzupppp??!!",
+    "level": 1
+  },
+  "a-840-en": {
+    "id": "a-840-en",
+    "text": "Shower thoughts",
+    "level": 1
+  },
+  "a-841-en": {
+    "id": "a-841-en",
+    "text": "n00b",
+    "level": 3
+  },
+  "a-842-en": {
+    "id": "a-842-en",
+    "text": "A furry",
+    "level": 2
+  },
+  "a-843-en": {
+    "id": "a-843-en",
+    "text": "Comic Sans",
+    "level": 2
+  },
+  "a-844-en": {
+    "id": "a-844-en",
+    "text": "Distracted boyfriend",
+    "level": 3
+  },
+  "a-845-en": {
+    "id": "a-845-en",
+    "text": "Obsessive-compulsive disorder",
+    "level": 3
+  },
+  "a-846-en": {
+    "id": "a-846-en",
+    "text": "Seven minutes in heaven",
+    "level": 2
+  },
+  "a-847-en": {
+    "id": "a-847-en",
+    "text": "Reverse centaur",
+    "level": 2
+  },
+  "a-848-en": {
+    "id": "a-848-en",
+    "text": "Vibrato",
+    "level": 3
+  },
+  "a-849-en": {
+    "id": "a-849-en",
+    "text": "A bidet",
+    "level": 2
+  },
+  "a-850-en": {
+    "id": "a-850-en",
+    "text": "Gag reflex",
+    "level": 2
+  },
+  "a-851-en": {
+    "id": "a-851-en",
+    "text": "Pleading the Fifth",
+    "level": 2
+  },
+  "a-852-en": {
+    "id": "a-852-en",
+    "text": "Skateboarding dog",
+    "level": 1
+  },
+  "a-853-en": {
+    "id": "a-853-en",
+    "text": "Revolving doors",
+    "level": 2
+  },
+  "a-854-en": {
+    "id": "a-854-en",
+    "text": "Walk of shame",
+    "level": 2
+  },
+  "a-855-en": {
+    "id": "a-855-en",
+    "text": "Power up",
+    "level": 1
+  },
+  "a-856-en": {
+    "id": "a-856-en",
+    "text": "The invisible man",
+    "level": 3
+  },
+  "a-857-en": {
+    "id": "a-857-en",
+    "text": "Cramps",
+    "level": 3
+  },
+  "a-858-en": {
+    "id": "a-858-en",
+    "text": "Nobel Prize",
+    "level": 1
+  },
+  "a-859-en": {
+    "id": "a-859-en",
+    "text": "The second law of thermodynamics",
+    "level": 3
+  },
+  "a-860-en": {
+    "id": "a-860-en",
+    "text": "Blinking for help",
+    "level": 1
+  },
+  "a-861-en": {
+    "id": "a-861-en",
+    "text": "Thought bubble",
+    "level": 1
+  },
+  "a-862-en": {
+    "id": "a-862-en",
+    "text": "Overbite",
+    "level": 1
+  },
+  "a-863-en": {
+    "id": "a-863-en",
+    "text": "Underbite",
+    "level": 1
+  },
+  "a-864-en": {
+    "id": "a-864-en",
+    "text": "Golden shower",
+    "level": 2
+  },
+  "a-865-en": {
+    "id": "a-865-en",
+    "text": "Vuvuzela",
+    "level": 1
+  },
+  "a-866-en": {
+    "id": "a-866-en",
+    "text": "Tai chi",
+    "level": 2
+  },
+  "a-867-en": {
+    "id": "a-867-en",
+    "text": "Fidget spinner",
+    "level": 1
+  },
+  "a-868-en": {
+    "id": "a-868-en",
+    "text": "Restless legs syndrome",
+    "level": 2
+  },
+  "a-869-en": {
+    "id": "a-869-en",
+    "text": "Yodeling",
+    "level": 2
+  },
+  "a-870-en": {
+    "id": "a-870-en",
+    "text": "Birthday song",
+    "level": 2
+  },
+  "a-871-en": {
+    "id": "a-871-en",
+    "text": "Auto-tune",
+    "level": 3
+  },
+  "a-872-en": {
+    "id": "a-872-en",
+    "text": "White privilege",
+    "level": 3
+  },
+  "a-873-en": {
+    "id": "a-873-en",
+    "text": "Moonwalking",
+    "level": 2
+  },
+  "a-874-en": {
+    "id": "a-874-en",
+    "text": "Information",
+    "level": 1
+  },
+  "a-875-en": {
+    "id": "a-875-en",
+    "text": "Object permanence",
+    "level": 2
+  },
+  "a-876-en": {
+    "id": "a-876-en",
+    "text": "Surprise party",
+    "level": 1
+  },
+  "a-877-en": {
+    "id": "a-877-en",
+    "text": "Seasonal affective disorder",
+    "level": 2
+  },
+  "a-878-en": {
+    "id": "a-878-en",
+    "text": "Foot fetish",
+    "level": 1
+  },
+  "a-879-en": {
+    "id": "a-879-en",
+    "text": "Set of skills",
+    "level": 2
+  },
+  "a-880-en": {
+    "id": "a-880-en",
+    "text": "Taking your shirt off to fight",
+    "level": 1
+  },
+  "a-881-en": {
+    "id": "a-881-en",
+    "text": "Uranus",
+    "level": 1
+  },
+  "a-882-en": {
+    "id": "a-882-en",
+    "text": "Dad jokes",
+    "level": 2
+  },
+  "a-883-en": {
+    "id": "a-883-en",
+    "text": "Kiss cam",
+    "level": 1
+  },
+  "a-884-en": {
+    "id": "a-884-en",
+    "text": "Hadouken",
+    "level": 1
+  },
+  "a-885-en": {
+    "id": "a-885-en",
+    "text": "North Korea",
+    "level": 2
+  },
+  "a-886-en": {
+    "id": "a-886-en",
+    "text": "Maneater",
+    "level": 2
+  },
+  "a-887-en": {
+    "id": "a-887-en",
+    "text": "ASMR",
+    "level": 2
+  },
+  "a-888-en": {
+    "id": "a-888-en",
+    "text": "Lingo",
+    "level": 3
+  },
+  "a-889-en": {
+    "id": "a-889-en",
+    "text": "Gargoyle",
+    "level": 1
+  },
+  "a-890-en": {
+    "id": "a-890-en",
+    "text": "Holding a sneeze",
+    "level": 2
+  },
+  "a-891-en": {
+    "id": "a-891-en",
+    "text": "Reverse mermaid",
+    "level": 1
+  },
+  "a-892-en": {
+    "id": "a-892-en",
+    "text": "The 1%",
+    "level": 3
+  },
+  "a-893-en": {
+    "id": "a-893-en",
+    "text": "Clone",
+    "level": 1
+  },
+  "a-894-en": {
+    "id": "a-894-en",
+    "text": "Conjoined twins",
+    "level": 1
+  },
+  "a-895-en": {
+    "id": "a-895-en",
+    "text": "Black Mirror",
+    "level": 2
+  },
+  "a-896-en": {
+    "id": "a-896-en",
+    "text": "Claw machine",
+    "level": 1
+  },
+  "a-897-en": {
+    "id": "a-897-en",
+    "text": "Crossfit",
+    "level": 2
+  },
+  "a-898-en": {
+    "id": "a-898-en",
+    "text": "Hugging yourself",
+    "level": 2
+  },
+  "a-899-en": {
+    "id": "a-899-en",
+    "text": "Double-bagging",
+    "level": 2
+  },
+  "a-900-en": {
+    "id": "a-900-en",
+    "text": "Sorry, not sorry",
+    "level": 3
+  },
+  "a-901-en": {
+    "id": "a-901-en",
+    "text": "Post-credits scene",
+    "level": 2
+  },
+  "a-902-en": {
+    "id": "a-902-en",
+    "text": "A girl has no name",
+    "level": 1
+  },
+  "a-903-en": {
+    "id": "a-903-en",
+    "text": "A heist",
+    "level": 3
+  },
+  "a-904-en": {
+    "id": "a-904-en",
+    "text": "QR code",
+    "level": 1
+  },
+  "a-905-en": {
+    "id": "a-905-en",
+    "text": "Cyberbully",
+    "level": 1
+  },
+  "a-906-en": {
+    "id": "a-906-en",
+    "text": "Nobody",
+    "level": 3
+  },
+  "a-907-en": {
+    "id": "a-907-en",
+    "text": "You",
+    "level": 2
+  },
+  "a-908-en": {
+    "id": "a-908-en",
+    "text": "Celebrity",
+    "level": 2
+  },
+  "a-909-en": {
+    "id": "a-909-en",
+    "text": "Madness",
+    "level": 1
+  },
+  "a-910-en": {
+    "id": "a-910-en",
+    "text": "Wheelie",
+    "level": 1
+  },
+  "a-911-en": {
+    "id": "a-911-en",
+    "text": "Physical comedy",
+    "level": 2
+  },
+  "a-912-en": {
+    "id": "a-912-en",
+    "text": "Funny name",
+    "level": 2
+  },
+  "a-913-en": {
+    "id": "a-913-en",
+    "text": "Vocal fry",
+    "level": 3
+  },
+  "a-914-en": {
+    "id": "a-914-en",
+    "text": "Population control",
+    "level": 2
+  },
+  "a-915-en": {
+    "id": "a-915-en",
+    "text": "Psychological manipulation",
+    "level": 3
+  },
+  "a-916-en": {
+    "id": "a-916-en",
+    "text": "Avant-garde",
+    "level": 3
+  },
+  "a-917-en": {
+    "id": "a-917-en",
+    "text": "Red hair",
+    "level": 2
+  },
+  "a-918-en": {
+    "id": "a-918-en",
+    "text": "Uptalk",
+    "level": 2
+  },
+  "a-919-en": {
+    "id": "a-919-en",
+    "text": "Slow motion",
+    "level": 2
+  },
+  "a-920-en": {
+    "id": "a-920-en",
+    "text": "Hive mind",
+    "level": 2
+  },
+  "a-921-en": {
+    "id": "a-921-en",
+    "text": "Bullet time",
+    "level": 1
+  },
+  "a-922-en": {
+    "id": "a-922-en",
+    "text": "Genetic disease",
+    "level": 3
+  },
+  "a-923-en": {
+    "id": "a-923-en",
+    "text": "Vulnerable to infection",
+    "level": 3
+  },
+  "a-924-en": {
+    "id": "a-924-en",
+    "text": "Bubble boy",
+    "level": 1
+  },
+  "a-925-en": {
+    "id": "a-925-en",
+    "text": "Involuntary twitching movements",
+    "level": 3
+  },
+  "a-926-en": {
+    "id": "a-926-en",
+    "text": "Unplaceable accent",
+    "level": 3
+  },
+  "a-927-en": {
+    "id": "a-927-en",
+    "text": "Charades",
+    "level": 2
+  },
+  "a-928-en": {
+    "id": "a-928-en",
+    "text": "For no reason whatsoever",
+    "level": 3
+  },
+  "a-929-en": {
+    "id": "a-929-en",
+    "text": "Aggressive marketing",
+    "level": 2
+  },
+  "a-930-en": {
+    "id": "a-930-en",
+    "text": "Awkward silence",
+    "level": 2
+  },
+  "a-931-en": {
+    "id": "a-931-en",
+    "text": "Size matters",
+    "level": 2
+  },
+  "a-932-en": {
+    "id": "a-932-en",
+    "text": "The bigger the better",
+    "level": 2
+  },
+  "a-933-en": {
+    "id": "a-933-en",
+    "text": "Mom jeans",
+    "level": 2
+  },
+  "a-934-en": {
+    "id": "a-934-en",
+    "text": "Beyoncé",
+    "level": 2
+  },
+  "a-935-en": {
+    "id": "a-935-en",
+    "text": "Small stature",
+    "level": 1
+  },
+  "a-936-en": {
+    "id": "a-936-en",
+    "text": "Karaoke",
+    "level": 1
+  },
+  "a-937-en": {
+    "id": "a-937-en",
+    "text": "Smelling your own armpits",
+    "level": 1
+  },
+  "a-938-en": {
+    "id": "a-938-en",
+    "text": "The floor is lava",
+    "level": 2
+  },
+  "a-939-en": {
+    "id": "a-939-en",
+    "text": "Save yourself",
+    "level": 3
+  },
+  "a-940-en": {
+    "id": "a-940-en",
+    "text": "Parkour",
+    "level": 2
+  },
+  "a-941-en": {
+    "id": "a-941-en",
+    "text": "Duck face",
+    "level": 1
+  },
+  "a-942-en": {
+    "id": "a-942-en",
+    "text": "Keg stand",
+    "level": 2
+  },
+  "a-943-en": {
+    "id": "a-943-en",
+    "text": "Big spoon",
+    "level": 1
+  },
+  "a-944-en": {
+    "id": "a-944-en",
+    "text": "Off balance",
+    "level": 1
+  },
+  "a-945-en": {
+    "id": "a-945-en",
+    "text": "Sausage party",
+    "level": 1
+  },
+  "a-946-en": {
+    "id": "a-946-en",
+    "text": "Avian enthusiasts",
+    "level": 1
+  },
+  "a-947-en": {
+    "id": "a-947-en",
+    "text": "A fad",
+    "level": 3
+  },
+  "a-948-en": {
+    "id": "a-948-en",
+    "text": "Rigor mortis",
+    "level": 2
+  },
+  "a-949-en": {
+    "id": "a-949-en",
+    "text": "Staring contest",
+    "level": 1
+  },
+  "a-950-en": {
+    "id": "a-950-en",
+    "text": "Rock Paper Scissors",
+    "level": 1
+  },
+  "a-951-en": {
+    "id": "a-951-en",
+    "text": "Germophobe",
+    "level": 2
+  },
+  "a-952-en": {
+    "id": "a-952-en",
+    "text": "Compulsive hand washing",
+    "level": 1
+  },
+  "a-953-en": {
+    "id": "a-953-en",
+    "text": "Drug lord",
+    "level": 1
+  },
+  "a-954-en": {
+    "id": "a-954-en",
+    "text": "Mexican cartel",
+    "level": 1
+  },
+  "a-955-en": {
+    "id": "a-955-en",
+    "text": "Drug trafficker",
+    "level": 1
+  },
+  "a-956-en": {
+    "id": "a-956-en",
+    "text": "Stocky frame",
+    "level": 2
+  },
+  "a-957-en": {
+    "id": "a-957-en",
+    "text": "Voguing",
+    "level": 2
+  },
+  "a-958-en": {
+    "id": "a-958-en",
+    "text": "Secretly sensitive",
+    "level": 2
+  },
+  "a-959-en": {
+    "id": "a-959-en",
+    "text": "Evil twin",
+    "level": 1
+  },
+  "a-960-en": {
+    "id": "a-960-en",
+    "text": "Automated vacuum cleaner",
+    "level": 2
+  },
+  "a-961-en": {
+    "id": "a-961-en",
+    "text": "Nunchucks",
+    "level": 1
+  },
+  "a-962-en": {
+    "id": "a-962-en",
+    "text": "Cone of shame",
+    "level": 1
+  },
+  "a-963-en": {
+    "id": "a-963-en",
+    "text": "Pink eye",
+    "level": 1
+  },
+  "a-964-en": {
+    "id": "a-964-en",
+    "text": "F*ck Marry Kill",
+    "level": 2
+  },
+  "a-965-en": {
+    "id": "a-965-en",
+    "text": "Running out of toilet paper",
+    "level": 1
+  },
+  "a-966-en": {
+    "id": "a-966-en",
+    "text": "Alexa",
+    "level": 2
+  },
+  "a-967-en": {
+    "id": "a-967-en",
+    "text": "Siri",
+    "level": 2
+  },
+  "a-968-en": {
+    "id": "a-968-en",
+    "text": "Pixelated nudity",
+    "level": 2
+  },
+  "a-969-en": {
+    "id": "a-969-en",
+    "text": "Farting in an elevator",
+    "level": 2
+  },
+  "a-970-en": {
+    "id": "a-970-en",
+    "text": "Bombshell",
+    "level": 1
+  },
+  "a-971-en": {
+    "id": "a-971-en",
+    "text": "The trolley problem",
+    "level": 1
+  },
+  "a-972-en": {
+    "id": "a-972-en",
+    "text": "Shy bladder",
+    "level": 2
+  },
+  "a-973-en": {
+    "id": "a-973-en",
+    "text": "A ball pit",
+    "level": 1
+  },
+  "a-974-en": {
+    "id": "a-974-en",
+    "text": "Patient zero",
+    "level": 2
+  },
+  "a-975-en": {
+    "id": "a-975-en",
+    "text": "Medical condition",
+    "level": 2
+  },
+  "a-976-en": {
+    "id": "a-976-en",
+    "text": "Double meaning",
+    "level": 2
+  },
+  "a-977-en": {
+    "id": "a-977-en",
+    "text": "Performance-enhancing drugs",
+    "level": 1
+  },
+  "a-978-en": {
+    "id": "a-978-en",
+    "text": "Pandora's box",
+    "level": 1
+  },
+  "a-979-en": {
+    "id": "a-979-en",
+    "text": "Fictional character",
+    "level": 2
+  },
+  "a-980-en": {
+    "id": "a-980-en",
+    "text": "Going commando",
+    "level": 1
+  },
+  "a-981-en": {
+    "id": "a-981-en",
+    "text": "Gluten",
+    "level": 1
+  },
+  "a-982-en": {
+    "id": "a-982-en",
+    "text": "Paleo diet",
+    "level": 3
+  },
+  "a-983-en": {
+    "id": "a-983-en",
+    "text": "Planking",
+    "level": 1
+  },
+  "a-984-en": {
+    "id": "a-984-en",
+    "text": "Pooping before you weigh yourself",
+    "level": 1
+  },
+  "a-985-en": {
+    "id": "a-985-en",
+    "text": "An anthropomorphic locomotive",
+    "level": 1
+  },
+  "a-986-en": {
+    "id": "a-986-en",
+    "text": "A senior moment",
+    "level": 2
+  },
+  "a-987-en": {
+    "id": "a-987-en",
+    "text": "A wet blanket",
+    "level": 1
+  },
+  "a-988-en": {
+    "id": "a-988-en",
+    "text": "International waters",
+    "level": 2
+  },
+  "a-989-en": {
+    "id": "a-989-en",
+    "text": "Fetus",
+    "level": 1
+  },
+  "a-990-en": {
+    "id": "a-990-en",
+    "text": "High profile client",
+    "level": 2
+  },
+  "a-991-en": {
+    "id": "a-991-en",
+    "text": "Assless chaps",
+    "level": 1
+  },
+  "a-992-en": {
+    "id": "a-992-en",
+    "text": "Slow clap",
+    "level": 1
+  },
+  "a-993-en": {
+    "id": "a-993-en",
+    "text": "Diet Coke and Mentos",
+    "level": 1
+  },
+  "a-994-en": {
+    "id": "a-994-en",
+    "text": "Stage name",
+    "level": 2
+  },
+  "a-995-en": {
+    "id": "a-995-en",
+    "text": "Brand name",
+    "level": 2
+  },
+  "a-996-en": {
+    "id": "a-996-en",
+    "text": "Infinity Gauntlet",
+    "level": 1
+  },
+  "a-997-en": {
+    "id": "a-997-en",
+    "text": "The cinnamon challenge",
+    "level": 2
+  },
+  "a-998-en": {
+    "id": "a-998-en",
+    "text": "The mannequin challenge",
+    "level": 1
+  },
+  "a-999-en": {
+    "id": "a-999-en",
+    "text": "Expired milk",
+    "level": 1
+  },
+  "a-1000-en": {
+    "id": "a-1000-en",
+    "text": "Free world",
+    "level": 1
+  },
+  "a-1001-en": {
+    "id": "a-1001-en",
+    "text": "Thumb war",
+    "level": 1
+  },
+  "a-1002-en": {
+    "id": "a-1002-en",
+    "text": "Brain-eating amoeba",
+    "level": 2
+  },
+  "a-1003-en": {
+    "id": "a-1003-en",
+    "text": "Footprints in the sand",
+    "level": 2
+  },
+  "a-1004-en": {
+    "id": "a-1004-en",
+    "text": "Short poem",
+    "level": 2
+  },
+  "a-1005-en": {
+    "id": "a-1005-en",
+    "text": "Mansplaining",
+    "level": 2
+  },
+  "a-1006-en": {
+    "id": "a-1006-en",
+    "text": "The Rock",
+    "level": 2
+  },
+  "a-1007-en": {
+    "id": "a-1007-en",
+    "text": "Bromance",
+    "level": 2
+  },
+  "a-1008-en": {
+    "id": "a-1008-en",
+    "text": "Flamboyant",
+    "level": 3
+  },
+  "a-1009-en": {
+    "id": "a-1009-en",
+    "text": "Sound effect",
+    "level": 1
+  },
+  "a-1010-en": {
+    "id": "a-1010-en",
+    "text": "Rap air horn",
+    "level": 2
+  },
+  "a-1011-en": {
+    "id": "a-1011-en",
+    "text": "Jello wrestling",
+    "level": 3
+  },
+  "a-1012-en": {
+    "id": "a-1012-en",
+    "text": "Assistant Regional Manager",
+    "level": 3
+  },
+  "a-1013-en": {
+    "id": "a-1013-en",
+    "text": "Pinball machine",
+    "level": 1
+  },
+  "a-1014-en": {
+    "id": "a-1014-en",
+    "text": "All Terrain Armored Transport",
+    "level": 3
+  },
+  "a-1015-en": {
+    "id": "a-1015-en",
+    "text": "Butt dialing",
+    "level": 1
+  },
+  "a-1016-en": {
+    "id": "a-1016-en",
+    "text": "Slam poetry",
+    "level": 2
+  },
+  "a-1017-en": {
+    "id": "a-1017-en",
+    "text": "Over Enunciating words",
+    "level": 3
+  },
+  "a-1018-en": {
+    "id": "a-1018-en",
+    "text": "British accent",
+    "level": 1
+  },
+  "a-1019-en": {
+    "id": "a-1019-en",
+    "text": "Manspreading",
+    "level": 1
+  },
+  "a-1020-en": {
+    "id": "a-1020-en",
+    "text": "Infinitely repeating pattern",
+    "level": 2
+  },
+  "a-1021-en": {
+    "id": "a-1021-en",
+    "text": "Mouth breather",
+    "level": 1
+  },
+  "a-1022-en": {
+    "id": "a-1022-en",
+    "text": "A replica of something",
+    "level": 2
+  },
+  "a-1023-en": {
+    "id": "a-1023-en",
+    "text": "Pacemaker",
+    "level": 2
+  },
+  "a-1024-en": {
+    "id": "a-1024-en",
+    "text": "Take it or leave it",
+    "level": 3
+  },
+  "a-1025-en": {
+    "id": "a-1025-en",
+    "text": "Millennial pink",
+    "level": 3
+  },
+  "a-1026-en": {
+    "id": "a-1026-en",
+    "text": "Pat-down",
+    "level": 2
+  },
+  "a-1027-en": {
+    "id": "a-1027-en",
+    "text": "Morning breath",
+    "level": 1
+  },
+  "a-1028-en": {
+    "id": "a-1028-en",
+    "text": "A bro",
+    "level": 2
+  },
+  "a-1029-en": {
+    "id": "a-1029-en",
+    "text": "Meatloaf",
+    "level": 2
+  },
+  "a-1030-en": {
+    "id": "a-1030-en",
+    "text": "Foul ball",
+    "level": 1
+  },
+  "a-1031-en": {
+    "id": "a-1031-en",
+    "text": "Unstoppable force",
+    "level": 3
+  },
+  "a-1032-en": {
+    "id": "a-1032-en",
+    "text": "Scat singing",
+    "level": 2
+  },
+  "a-1033-en": {
+    "id": "a-1033-en",
+    "text": "Bath salts",
+    "level": 2
+  },
+  "a-1034-en": {
+    "id": "a-1034-en",
+    "text": "Condescending Wonka",
+    "level": 3
+  },
+  "a-1035-en": {
+    "id": "a-1035-en",
+    "text": "Theremin player",
+    "level": 3
+  },
+  "a-1036-en": {
+    "id": "a-1036-en",
+    "text": "Leper",
+    "level": 2
+  },
+  "a-1037-en": {
+    "id": "a-1037-en",
+    "text": "Isolated colonies",
+    "level": 3
+  },
+  "a-1038-en": {
+    "id": "a-1038-en",
+    "text": "Hypothetical scenario",
+    "level": 3
+  },
+  "a-1039-en": {
+    "id": "a-1039-en",
+    "text": "Inability to feel pain",
+    "level": 2
+  },
+  "a-1040-en": {
+    "id": "a-1040-en",
+    "text": "Human centipede",
+    "level": 1
+  },
+  "a-1041-en": {
+    "id": "a-1041-en",
+    "text": "Digestive system",
+    "level": 2
+  },
+  "a-1042-en": {
+    "id": "a-1042-en",
+    "text": "Shirtless Vladimir Putin",
+    "level": 2
+  },
+  "a-1043-en": {
+    "id": "a-1043-en",
+    "text": "Meet the bar",
+    "level": 3
+  },
+  "a-1044-en": {
+    "id": "a-1044-en",
+    "text": "Historical figure",
+    "level": 2
+  },
+  "a-1045-en": {
+    "id": "a-1045-en",
+    "text": "Wax figure",
+    "level": 2
+  },
+  "a-1046-en": {
+    "id": "a-1046-en",
+    "text": "Copyright dispute",
+    "level": 3
+  },
+  "a-1047-en": {
+    "id": "a-1047-en",
+    "text": "Robotic life form",
+    "level": 2
+  },
+  "a-1048-en": {
+    "id": "a-1048-en",
+    "text": "Competitive eater",
+    "level": 2
+  },
+  "a-1049-en": {
+    "id": "a-1049-en",
+    "text": "Venture capitalists",
+    "level": 3
+  },
+  "a-1050-en": {
+    "id": "a-1050-en",
+    "text": "Wear something ironically",
+    "level": 2
+  },
+  "a-1051-en": {
+    "id": "a-1051-en",
+    "text": "Racial profiling",
+    "level": 2
+  },
+  "a-1052-en": {
+    "id": "a-1052-en",
+    "text": "Sir Mix-A-Lot",
+    "level": 3
+  },
+  "a-1053-en": {
+    "id": "a-1053-en",
+    "text": "Poet voice",
+    "level": 2
+  },
+  "a-1054-en": {
+    "id": "a-1054-en",
+    "text": "Surrealist artist",
+    "level": 3
+  },
+  "a-1055-en": {
+    "id": "a-1055-en",
+    "text": "Bacne",
+    "level": 3
+  },
+  "a-1056-en": {
+    "id": "a-1056-en",
+    "text": "Trust falls",
+    "level": 3
+  },
+  "a-1057-en": {
+    "id": "a-1057-en",
+    "text": "Tide pods",
+    "level": 2
+  },
+  "a-1058-en": {
+    "id": "a-1058-en",
+    "text": "Sharting",
+    "level": 1
+  },
+  "a-1059-en": {
+    "id": "a-1059-en",
+    "text": "Lasso of truth",
+    "level": 1
+  },
+  "a-1060-en": {
+    "id": "a-1060-en",
+    "text": "Omniscient, omnipotent. and omnipresent",
+    "level": 3
+  },
+  "a-1061-en": {
+    "id": "a-1061-en",
+    "text": "All the single ladies",
+    "level": 2
+  },
+  "a-1062-en": {
+    "id": "a-1062-en",
+    "text": "Head, shoulders, knees, and toes",
+    "level": 1
+  },
+  "a-1063-en": {
+    "id": "a-1063-en",
+    "text": "Ikea",
+    "level": 1
+  },
+  "a-1064-en": {
+    "id": "a-1064-en",
+    "text": "Ticks",
+    "level": 2
+  },
+  "a-1065-en": {
+    "id": "a-1065-en",
+    "text": "Hunchback",
+    "level": 1
+  },
+  "a-1066-en": {
+    "id": "a-1066-en",
+    "text": "Playing tag",
+    "level": 1
+  },
+  "a-1067-en": {
+    "id": "a-1067-en",
+    "text": "Reedless wind instrument",
+    "level": 2
+  },
+  "a-1068-en": {
+    "id": "a-1068-en",
+    "text": "John Doe",
+    "level": 3
+  },
+  "a-1069-en": {
+    "id": "a-1069-en",
+    "text": "Adrenaline shot",
+    "level": 1
+  },
+  "a-1070-en": {
+    "id": "a-1070-en",
+    "text": "Beetlejuice",
+    "level": 1
+  },
+  "a-1071-en": {
+    "id": "a-1071-en",
+    "text": "Ugly crying",
+    "level": 1
+  },
+  "a-1072-en": {
+    "id": "a-1072-en",
+    "text": "Synchronized swimming",
+    "level": 2
+  },
+  "a-1073-en": {
+    "id": "a-1073-en",
+    "text": "Your mom",
+    "level": 2
+  },
+  "a-1074-en": {
+    "id": "a-1074-en",
+    "text": "Ankle monitor",
+    "level": 1
+  },
+  "a-1075-en": {
+    "id": "a-1075-en",
+    "text": "Caregiver",
+    "level": 3
+  },
+  "a-1076-en": {
+    "id": "a-1076-en",
+    "text": "Diversion programs",
+    "level": 3
+  },
+  "a-1077-en": {
+    "id": "a-1077-en",
+    "text": "Conspiracy theory",
+    "level": 3
+  },
+  "a-1078-en": {
+    "id": "a-1078-en",
+    "text": "Shapeshifter",
+    "level": 2
+  },
+  "a-1079-en": {
+    "id": "a-1079-en",
+    "text": "Dabbing",
+    "level": 1
+  },
+  "a-1080-en": {
+    "id": "a-1080-en",
+    "text": "Motion capture suit",
+    "level": 2
+  },
+  "a-1081-en": {
+    "id": "a-1081-en",
+    "text": "Lorem ipsum",
+    "level": 2
+  },
+  "a-1082-en": {
+    "id": "a-1082-en",
+    "text": "Irritable bowel syndrome",
+    "level": 2
+  },
+  "a-1083-en": {
+    "id": "a-1083-en",
+    "text": "Bubble wrap",
+    "level": 2
+  },
+  "a-1084-en": {
+    "id": "a-1084-en",
+    "text": "Stage mom",
+    "level": 2
+  },
+  "a-1085-en": {
+    "id": "a-1085-en",
+    "text": "Hotline Bling",
+    "level": 3
+  },
+  "a-1086-en": {
+    "id": "a-1086-en",
+    "text": "A brain in a vat",
+    "level": 2
+  },
+  "a-1087-en": {
+    "id": "a-1087-en",
+    "text": "Goo",
+    "level": 2
+  },
+  "a-1088-en": {
+    "id": "a-1088-en",
+    "text": "Dijon mustard",
+    "level": 2
+  },
+  "a-1089-en": {
+    "id": "a-1089-en",
+    "text": "Drag queen",
+    "level": 2
+  },
+  "a-1090-en": {
+    "id": "a-1090-en",
+    "text": "Quicksand",
+    "level": 2
+  },
+  "a-1091-en": {
+    "id": "a-1091-en",
+    "text": "Women laughing alone with salad",
+    "level": 1
+  },
+  "a-1092-en": {
+    "id": "a-1092-en",
+    "text": "Drug mule",
+    "level": 1
+  },
+  "a-1093-en": {
+    "id": "a-1093-en",
+    "text": "Danger zone",
+    "level": 2
+  },
+  "a-1094-en": {
+    "id": "a-1094-en",
+    "text": "White lies",
+    "level": 3
+  },
+  "a-1095-en": {
+    "id": "a-1095-en",
+    "text": "Cake wreck",
+    "level": 1
+  },
+  "a-1096-en": {
+    "id": "a-1096-en",
+    "text": "Spontaneous human combustion",
+    "level": 1
+  },
+  "a-1097-en": {
+    "id": "a-1097-en",
+    "text": "Common denominator",
+    "level": 2
+  },
+  "a-1098-en": {
+    "id": "a-1098-en",
+    "text": "Hostility",
+    "level": 2
+  },
+  "a-1099-en": {
+    "id": "a-1099-en",
+    "text": "If nothing happened...",
+    "level": 3
+  },
+  "a-1100-en": {
+    "id": "a-1100-en",
+    "text": "Science fiction",
+    "level": 2
+  },
+  "a-1101-en": {
+    "id": "a-1101-en",
+    "text": "World of Warcraft",
+    "level": 1
+  },
+  "a-1102-en": {
+    "id": "a-1102-en",
+    "text": "Chemical engineer",
+    "level": 3
+  },
+  "a-1103-en": {
+    "id": "a-1103-en",
+    "text": "Pyrokinetic abilities",
+    "level": 2
+  },
+  "a-1104-en": {
+    "id": "a-1104-en",
+    "text": "Posthumous exoneration",
+    "level": 3
+  },
+  "a-1105-en": {
+    "id": "a-1105-en",
+    "text": "Carbon monoxide poisoning",
+    "level": 2
+  },
+  "a-1106-en": {
+    "id": "a-1106-en",
+    "text": "Clippy",
+    "level": 1
+  },
+  "a-1107-en": {
+    "id": "a-1107-en",
+    "text": "Southern life",
+    "level": 2
+  },
+  "a-1108-en": {
+    "id": "a-1108-en",
+    "text": "Oedipus complex",
+    "level": 3
+  },
+  "a-1109-en": {
+    "id": "a-1109-en",
+    "text": "Finger guns",
+    "level": 1
+  },
+  "a-1110-en": {
+    "id": "a-1110-en",
+    "text": "Nihilism",
+    "level": 3
+  },
+  "a-1111-en": {
+    "id": "a-1111-en",
+    "text": "Child soldier",
+    "level": 1
+  },
+  "a-1112-en": {
+    "id": "a-1112-en",
+    "text": "Civil War reenactment",
+    "level": 2
+  },
+  "a-1113-en": {
+    "id": "a-1113-en",
+    "text": "Armest dispute",
+    "level": 2
+  },
+  "a-1114-en": {
+    "id": "a-1114-en",
+    "text": "Natural 20",
+    "level": 2
+  },
+  "a-1115-en": {
+    "id": "a-1115-en",
+    "text": "Calf implants",
+    "level": 1
+  },
+  "a-1116-en": {
+    "id": "a-1116-en",
+    "text": "Sidekick",
+    "level": 2
+  },
+  "a-1117-en": {
+    "id": "a-1117-en",
+    "text": "Bad hair day",
+    "level": 1
+  },
+  "a-1118-en": {
+    "id": "a-1118-en",
+    "text": "50 shades of grey",
+    "level": 2
+  },
+  "a-1119-en": {
+    "id": "a-1119-en",
+    "text": "Mother Brain",
+    "level": 1
+  },
+  "a-1120-en": {
+    "id": "a-1120-en",
+    "text": "Fog machine",
+    "level": 1
+  },
+  "a-1121-en": {
+    "id": "a-1121-en",
+    "text": "Biological father",
+    "level": 2
+  },
+  "a-1122-en": {
+    "id": "a-1122-en",
+    "text": "Five-second rule",
+    "level": 1
+  },
+  "a-1123-en": {
+    "id": "a-1123-en",
+    "text": "A knock-knock joke",
+    "level": 1
+  },
+  "a-1124-en": {
+    "id": "a-1124-en",
+    "text": "Mr. Poopy Butthole",
+    "level": 1
+  },
+  "a-1125-en": {
+    "id": "a-1125-en",
+    "text": "Peek-a-boo!",
+    "level": 1
+  },
+  "a-1126-en": {
+    "id": "a-1126-en",
+    "text": "Hospital gown",
+    "level": 1
+  },
+  "a-1127-en": {
+    "id": "a-1127-en",
+    "text": "Déjà vu",
+    "level": 3
+  },
+  "a-1128-en": {
+    "id": "a-1128-en",
+    "text": "Hot mess",
+    "level": 2
+  },
+  "a-1129-en": {
+    "id": "a-1129-en",
+    "text": "Necrophilia",
+    "level": 2
+  },
+  "a-1130-en": {
+    "id": "a-1130-en",
+    "text": "Hippity hoppity",
+    "level": 2
+  },
+  "a-1131-en": {
+    "id": "a-1131-en",
+    "text": "Burned at the stake",
+    "level": 1
+  },
+  "a-1132-en": {
+    "id": "a-1132-en",
+    "text": "Strategic decision-making",
+    "level": 3
+  },
+  "a-1133-en": {
+    "id": "a-1133-en",
+    "text": "Tapeworm",
+    "level": 1
+  },
+  "a-1134-en": {
+    "id": "a-1134-en",
+    "text": "The Nigerian prince scam",
+    "level": 1
+  },
+  "a-1135-en": {
+    "id": "a-1135-en",
+    "text": "Tinder",
+    "level": 1
+  },
+  "a-1136-en": {
+    "id": "a-1136-en",
+    "text": "Sparking joy",
+    "level": 2
+  },
+  "a-1137-en": {
+    "id": "a-1137-en",
+    "text": "Decorative gourd season",
+    "level": 3
+  },
+  "a-1138-en": {
+    "id": "a-1138-en",
+    "text": "Chimney sweep",
+    "level": 1
   }
 }
