@@ -13,7 +13,9 @@
       "a-491-en": "Hard to imagine",
       "a-251-en": "Unforgettable",
       "a-555-en": "Selective memory",
-      "a-676-en": "Mindless task"
+      "a-676-en": "Mindless task",
+      "a-754-en": "Mind control",
+      "a-755-en": "Mindless job"
     }
   },
   "ax-2-en": {
@@ -24,7 +26,12 @@
       "a-610-en": "Don't be a Karen",
       "a-83-en": "Frenemies",
       "a-172-en": "Best friends forever",
-      "a-268-en": "Imaginary friend"
+      "a-268-en": "Imaginary friend",
+      "a-1091-en": "Women laughing alone with salad",
+      "a-1089-en": "Drag queen",
+      "a-1084-en": "Stage mom",
+      "a-1073-en": "Your mom",
+      "a-1061-en": "All the single ladies"
     }
   },
   "ax-3-en": {
@@ -45,7 +52,11 @@
       "a-465-en": "Mixed feelings",
       "a-591-en": "Haters gonna hate",
       "a-585-en": "Emotionally unavailable",
-      "a-586-en": "Emotionally unstable"
+      "a-586-en": "Emotionally unstable",
+      "a-1071-en": "Ugly crying",
+      "a-759-en": "Sad happy",
+      "a-1134-en": "Sad okay",
+      "a-411-en": "Melodramatic"
     }
   },
   "ax-5-en": {
@@ -59,7 +70,8 @@
       "a-262-en": "Unwritten rule",
       "a-269-en": "Long-term goals",
       "a-329-en": "Poetry in motion",
-      "a-339-en": "Privacy policy"
+      "a-339-en": "Privacy policy",
+      "a-301-en": "Formal complaint"
     }
   },
 
@@ -73,7 +85,9 @@
       "a-43-en": "Ancestors",
       "a-89-en": "Family Vacation",
       "a-97-en": "Natural selection",
-      "a-166-en": "Gut reaction"
+      "a-166-en": "Gut reaction",
+      "a-1121-en": "Biological father",
+      "a-1119-en": "Mother Brain"
     }
   },
   "ax-7-en": {
@@ -85,7 +99,8 @@
       "a-595-en": "Lip-reading",
       "a-658-en": "Lip sync for you life",
       "a-596-en": "Plastic surgery",
-      "a-79-en": "Split personality"
+      "a-79-en": "Split personality",
+      "a-1062-en": "Head, shoulders, knees, and toes"
     }
   },
   "ax-8-en": {
@@ -99,7 +114,11 @@
       "a-96-en": "Pop quiz",
       "a-33-en": "Truth or dare",
       "a-56-en": "Simple solution",
-      "a-170-en": "Process of elimination"
+      "a-170-en": "Process of elimination",
+      "a-416-en": "Wrong answer",
+      "a-736-en": "To-do list",
+      "a-742-en": "Buzzfeed test",
+      "a-1137-en": "Running out of options"
     }
   },
   "ax-9-en": {
@@ -132,7 +151,8 @@
       "a-122-en": "Fundraising event",
       "a-124-en": "A done deal",
       "a-65-en": "Senior discount",
-      "a-133-en": "Sound investment"
+      "a-133-en": "Sound investment",
+      "a-1049-en": "Venture capitalists"
     }
   },
   "ax-11-en": {
@@ -179,7 +199,8 @@
       "a-230-en": "Out of circulation",
       "a-235-en": "Humble beginnings",
       "a-687-en": "Opposite directions",
-      "a-678-en": "Up and down"
+      "a-678-en": "Up and down",
+      "a-23-en": "Out of sync"
     }
   },
   "ax-14-en": {
@@ -208,7 +229,7 @@
   },
   "ax-16-en": {
     "id": "ax-16-en",
-    "theme": "party",
+    "theme": "party;;celebration;;birthday",
     "cards": {
       "a-628-en": "Carnival games",
       "a-22-en": "Party foul",
@@ -218,7 +239,8 @@
       "a-26-en": "Uninvited guest",
       "a-147-en": "Broadway musical",
       "a-177-en": "Party pooper",
-      "a-552-en": "Coming Out Party"
+      "a-552-en": "Coming Out Party",
+      "a-1095-en": "Cake wreck"
     }
   },
   "ax-17-en": {
@@ -282,7 +304,8 @@
       "a-102-en": "Distress signal",
       "a-106-en": "Dire emergency",
       "a-153-en": "Attention span",
-      "a-224-en": "Warning signs"
+      "a-224-en": "Warning signs",
+      "a-1093-en": "Danger zone"
     }
   },
   "ax-22-en": {
@@ -292,7 +315,8 @@
       "a-36-en": "Close call",
       "a-54-en": "Technical support",
       "a-32-en": "Customer service",
-      "a-159-en": "Call your bluff"
+      "a-159-en": "Call your bluff",
+      "a-1085-en": "Hotline Bling"
     }
   },
   "ax-23-en": {
@@ -301,15 +325,16 @@
     "cards": {
       "a-72-en": "Cold war",
       "a-76-en": "Long shot",
-      "a-125-en": "Partner in crime",
-      "a-196-en": "Scene of the crime",
-      "a-305-en": "Cybercrime",
       "a-659-en": "Killing me softly",
       "a-665-en": "Suicide watch",
       "a-663-en": "Please, kill me",
       "a-664-en": "Murdered by words",
       "a-281-en": "Empty threat",
-      "a-470-en": "Worthy opponent"
+      "a-470-en": "Worthy opponent",
+      "a-1111-en": "Child soldier",
+      "a-1112-en": "Civil War reenactment",
+      "a-1109-en": "Finger guns",
+      "a-1101-en": "World of Warcraft"
     }
   },
   "ax-24-en": {
@@ -326,7 +351,9 @@
       "a-431-en": "With good intentions",
       "a-466-en": "On good terms",
       "a-579-en": "It hurts so good",
-      "a-636-en": "Good job"
+      "a-636-en": "Good job",
+      "a-55-en": "Eternal optimist",
+      "a-63-en": "Pride and joy"
     }
   },
   "ax-25-en": {
@@ -359,7 +386,8 @@
       "a-110-en": "Clean bill of health",
       "a-263-en": "Weakened condition",
       "a-237-en": "Health care",
-      "a-259-en": "Add insult to injury"
+      "a-259-en": "Add insult to injury",
+      "a-1126-en": "Hospital gown"
     }
   },
   "ax-28-en": {
@@ -379,7 +407,8 @@
     "cards": {
       "a-15-en": "Inner strength",
       "a-17-en": "Workout routine",
-      "a-667-en": "Crossfit"
+      "a-667-en": "Crossfit",
+      "a-831-en": "Leg day"
     }
   },
   "ax-30-en": {
@@ -422,7 +451,8 @@
       "a-12-en": "Scared stiff",
       "a-52-en": "Nonsense",
       "a-94-en": "Wild and crazy",
-      "a-10-en": "Thrill-seeker"
+      "a-10-en": "Thrill-seeker",
+      "a-752-en": "Insanity"
     }
   },
   "ax-33-en": {
@@ -445,7 +475,8 @@
       "a-309-en": "From bad to worse",
       "a-162-en": "Rude awakening",
       "a-651-en": "Bad credit",
-      "a-207-en": "Archenemy"
+      "a-207-en": "Archenemy",
+      "a-1098-en": "Hostility"
     }
   },
   "ax-35-en": {
@@ -488,7 +519,175 @@
       "a-673-en": "Artistic differences",
       "a-674-en": "Sketch artist",
       "a-691-en": "Pencil drawing",
-      "a-690-en": "Doodle"
+      "a-690-en": "Doodle",
+      "a-1054-en": "Surrealist artist"
+    }
+  },
+  "ax-38-en": {
+    "id": "ax-38-en",
+    "theme": "fire;;hot;;heat",
+    "cards": {
+      "a-517-en": "Slow burn",
+      "a-1131-en": "Burned at the stake",
+      "a-1103-en": "Pyrokinetic abilities",
+      "a-1128-en": "Hot and cold",
+      "a-829-en": "Hot tub"
+    }
+  },
+  "ax-39-en": {
+    "id": "ax-39-en",
+    "theme": "spark;;effects",
+    "cards": {
+      "a-897-en": "Sparking joy",
+      "a-1100-en": "Science fiction",
+      "a-27-en": "Common side effects",
+      "a-41-en": "Special effects",
+      "a-526-en": "The difference between affect and effect",
+      "a-1009-en": "Sound effect"
+    }
+  },
+  "ax-40-en": {
+    "id": "ax-40-en",
+    "theme": "love;;heart",
+    "cards": {
+      "a-927-en": "Tinder",
+      "a-1129-en": "Necrophilia",
+      "a-675-en": "Love at first sight",
+      "a-121-en": "Fooling around",
+      "a-274-en": "A date with destiny"
+    }
+  },
+  "ax-41-en": {
+    "id": "ax-41-en",
+    "theme": "color",
+    "cards": {
+      "a-1118-en": "50 shades of grey",
+      "a-917-en": "Red hair",
+      "a-9-en": "Going green",
+      "a-963-en": "Pink eye",
+      "a-1025-en": "Millennial pink",
+      "a-504-en": "Out of the blue",
+      "a-834-en": "Blue man group",
+      "a-91-en": "Gray area"
+    }
+  },
+  "ax-42-en": {
+    "id": "ax-42-en",
+    "theme": "foot;;leg",
+    "cards": {
+      "a-1116-en": "Sidekick",
+      "a-1115-en": "Calf implants",
+      "a-1062-en": "Head, shoulders, knees, and toes",
+      "a-878-en": "Foot fetish",
+      "a-1003-en": "Footprints in the sand",
+      "a-831-en": "Leg day",
+      "a-868-en": "Restless legs syndrome"
+    }
+  },
+  "ax-43-en": {
+    "id": "ax-43-en",
+    "theme": "hand;;arm",
+    "cards": {
+      "a-1113-en": "Armest dispute",
+      "a-1109-en": "Finger guns",
+      "a-4-en": "Hand-me-down",
+      "a-952-en": "Compulsive hand washing",
+      "a-288-en": "Touchy subject"
+    }
+  },
+  "ax-44-en": {
+    "id": "ax-44-en",
+    "theme": "vaccine",
+    "cards": {
+      "a-1069-en": "Adrenaline shot",
+      "a-590-en": "Vaxxed and relaxed",
+      "a-707-en": "Antivax",
+      "a-521-en": "COVID-19",
+      "a-655-en": "COVID variant"
+    }
+  },
+  "ax-45-en": {
+    "id": "ax-45-en",
+    "theme": "poop;;organs;;body",
+    "cards": {
+      "a-1058-en": "Sharting",
+      "a-1041-en": "Digestive system",
+      "a-1082-en": "Irritable bowel syndrome",
+      "a-177-en": "Party pooper",
+      "a-984-en": "Pooping before you weigh yourself",
+      "a-1124-en": "Mr. Poopy Butthole",
+      "a-1015-en": "Butt dialing",
+      "a-760-en": "Hold a fart",
+      "a-969-en": "Farting in an elevator"
+    }
+  },
+  "ax-46-en": {
+    "id": "ax-46-en",
+    "theme": "clothes;;shirt;;pants",
+    "cards": {
+      "a-1050-en": "Wear something ironically",
+      "a-796-en": "Underwear vending machine",
+      "a-29-en": "Old-fashioned",
+      "a-498-en": "Fashion statement",
+      "a-111-en": "Proper etiquette",
+      "a-619-en": "Price tag",
+      "a-1066-en": "Playing tag"
+    }
+  },
+  "ax-47-en": {
+    "id": "ax-47-en",
+    "theme": "food;;eat",
+    "cards": {
+      "a-1048-en": "Competitive eater",
+      "a-556-en": "Food coma",
+      "a-746-en": "Late-night snacking"
+    }
+  },
+  "ax-48-en": {
+    "id": "ax-48-en",
+    "theme": "organs;;body",
+    "cards": {
+      "a-1039-en": "Inability to feel pain",
+      "a-1040-en": "Human centipede",
+      "a-1036-en": "Leper",
+      "a-575-en": "Body block",
+      "a-697-en": "Body shaming"
+    }
+  },
+  "ax-49-en": {
+    "id": "ax-49-en",
+    "theme": "music;;instrument",
+    "cards": {
+      "a-147-en": "Broadway musical",
+      "a-1035-en": "Theremin player",
+      "a-1032-en": "Scat singing",
+      "a-133-en": "Sound investment",
+      "a-1009-en": "Sound effect"
+    }
+  },
+  "ax-50-en": {
+    "id": "ax-50-en",
+    "theme": "crime",
+    "cards": {
+      "a-770-en": "Catch a predator",
+      "a-771-en": "Suspicious behavior",
+      "a-772-en": "Criminal activity",
+      "a-125-en": "Partner in crime",
+      "a-196-en": "Scene of the crime",
+      "a-305-en": "Cybercrime"
+    }
+  },
+  "ax-51-en": {
+    "id": "ax-51-en",
+    "theme": "eye;;see",
+    "cards": {
+      "a-949-en": "Staring contest",
+      "a-545-en": "See yourself out",
+      "a-734-en": "See the bright side",
+      "a-963-en": "Pink eye",
+      "a-98-en": "Low visibility",
+      "a-1135-en": "Night vision",
+      "a-1136-en": "See for yourself"
     }
   }
 }
