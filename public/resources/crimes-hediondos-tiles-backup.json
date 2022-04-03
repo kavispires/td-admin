@@ -81,36 +81,150 @@
       "pt": "Local do Crime"
     },
     "description": {
-      "en": "General",
-      "pt": "Geral"
+      "en": "Rooms in a house",
+      "pt": "Aposentos em uma casa"
     },
     "values": [
       {
-        "en": "Public Building",
-        "pt": "Edifício Público"
+        "en": "Living Room",
+        "pt": "Sala"
       },
       {
-        "en": "Business",
-        "pt": "Empresa"
+        "en": "Bedroom",
+        "pt": "Quarto"
       },
       {
-        "en": "Residence",
-        "pt": "Residência"
+        "en": "Storeroom",
+        "pt": "Despensa"
       },
       {
-        "en": "Common Outdoor Space",
-        "pt": "Lugar Ao Ar Livre Comum"
+        "en": "Bathroom",
+        "pt": "Banheiro"
       },
       {
-        "en": "Secluded Outdoor Space",
-        "pt": "Lugar Isolado"
+        "en": "Kitchen",
+        "pt": "Cozinha"
       },
       {
-        "en": "Unknown",
-        "pt": "Desconhecido"
+        "en": "Balcony",
+        "pt": "Varanda"
       }
     ],
     "id": "location-tile-1",
+    "type": "location"
+  },
+  {
+    "title": {
+      "en": "Location of Crime",
+      "pt": "Local do Crime"
+    },
+    "description": {
+      "en": "Places in an educational institution",
+      "pt": "Lugares numa instituição de ensino"
+    },
+    "values": [
+      {
+        "en": "Playground",
+        "pt": "Parquinho"
+      },
+      {
+        "en": "Classroom",
+        "pt": "Sala de aula"
+      },
+      {
+        "en": "Dormitory",
+        "pt": "Dormitório"
+      },
+      {
+        "en": "Cafeteria",
+        "pt": "Lanchonete"
+      },
+      {
+        "en": "Elevator",
+        "pt": "Elevador"
+      },
+      {
+        "en": "Toilet",
+        "pt": "Banheiro"
+      }
+    ],
+    "id": "location-tile-2",
+    "type": "location"
+  },
+  {
+    "title": {
+      "en": "Location of Crime",
+      "pt": "Local do Crime"
+    },
+    "description": {
+      "en": "General Places I",
+      "pt": "Lugares em geral I"
+    },
+    "values": [
+      {
+        "en": "Vacation Home",
+        "pt": "Casa de campo"
+      },
+      {
+        "en": "Park",
+        "pt": "Parque"
+      },
+      {
+        "en": "Supermarket",
+        "pt": "Supermercado"
+      },
+      {
+        "en": "School",
+        "pt": "Escola"
+      },
+      {
+        "en": "Woods",
+        "pt": "Matagal"
+      },
+      {
+        "en": "Bank",
+        "pt": "Banco"
+      }
+    ],
+    "id": "location-tile-3",
+    "type": "location"
+  },
+  {
+    "title": {
+      "en": "Location of Crime",
+      "pt": "Local do Crime"
+    },
+    "description": {
+      "en": "General Places II",
+      "pt": "Lugares em geral II"
+    },
+    "values": [
+      {
+        "en": "Pub",
+        "pt": "Bar"
+      },
+      {
+        "en": "Bookstore",
+        "pt": "Livraria"
+      },
+      {
+        "en": "Restaurant",
+        "pt": "Restaurante"
+      },
+      {
+        "en": "Hotel",
+        "pt": "Hotel"
+      },
+      {
+        "en": "Hospital",
+        "pt": "Hospital"
+      },
+      {
+        "en": "Building Site",
+        "pt": "Construção"
+      }
+    ],
+    "id": "location-tile-4",
     "type": "location"
   },
   {
