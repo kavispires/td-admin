@@ -16,3 +16,5 @@ export const RESOURCE_NAMES = [
 ];
 
 export const LANGUAGES = ['pt', 'en'];
+
+export const DEFAULT_LANGUAGE = 'pt';

@@ -40,7 +40,7 @@ function Level4() {
   useTitle('Arte Ruim - Level 4');
 
   const availableResources = ['arte-ruim'];
-  const initialState = { language: 'pt', resourceName: availableResources[0] };
+  const initialState = { language: 'en', resourceName: availableResources[0] };
 
   const [used, setUsed] = useState({});
   const [unused, setUnused] = useState({});

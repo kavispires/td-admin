@@ -7,6 +7,7 @@ import { ResourceSelectionBar } from '../../components/ResourceSelectionBar';
 import { useResourceState } from '../../hooks/useResourceState';
 import { ArteRuimLevels } from '../../components/ArteRuimLevels';
 import { SearchDuplicates } from '../../components/SearchDuplicates';
+import { DEFAULT_LANGUAGE } from '../../utils/constants';
 
 const { Text, Title } = Typography;
 
@@ -14,7 +15,7 @@ function Parser() {
   useTitle('Arte Ruim - Parser');
 
   const availableResources = ['arte-ruim'];
-  const initialState = { language: 'pt', resourceName: availableResources[0] };
+  const initialState = { language: DEFAULT_LANGUAGE, resourceName: availableResources[0] };
 
   const [output, setOutput] = useState({});
   const [duplicates, setDuplicates] = useState({});
