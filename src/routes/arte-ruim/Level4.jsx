@@ -4,7 +4,7 @@ import { useAsync, useTitle } from 'react-use';
 import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
 import { ResourceSelectionBar } from '../../components/ResourceSelectionBar';
 import { useResourceState } from '../../hooks/useResourceState';
-import { LOCALHOST_RESOURCE_URL } from '../../utils/constants';
+import { DEFAULT_LANGUAGE, LOCALHOST_RESOURCE_URL } from '../../utils/constants';
 
 const { Text, Title } = Typography;
 
@@ -40,7 +40,7 @@ function Level4() {
   useTitle('Arte Ruim - Level 4');
 
   const availableResources = ['arte-ruim'];
-  const initialState = { language: 'en', resourceName: availableResources[0] };
+  const initialState = { language: DEFAULT_LANGUAGE, resourceName: availableResources[0] };
 
   const [used, setUsed] = useState({});
   const [unused, setUnused] = useState({});
