@@ -11,11 +11,11 @@ function App() {
     <div className="App">
       <HashRouter>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/arte-ruim/parser" element={<Parser />} />
           <Route path="/arte-ruim/level4" element={<Level4 />} />
           <Route path="/resource" element={<Resource />} />
           <Route path="/other" element={<Other />} />
-          <Route path="/" exact element={<Home />} />
         </Routes>
       </HashRouter>
     </div>

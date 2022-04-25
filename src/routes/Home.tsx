@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import logo from '../logo.svg';
+import logo from 'assets/images/logo.svg';
 
 import { Menu } from '../components/Menu';
+import { Image } from 'antd';
 
 function Home() {
   const [count, setCount] = useState(0);
@@ -27,8 +28,8 @@ function Home() {
   return (
     <div className="home">
       <header className="home-header" style={styles} onClick={increaseCount}>
-        <img src={logo} className="home-logo" alt="logo" />
-        {showMenu && <Menu ghost />}
+        <Image src={logo} className="home-logo" alt="logo" preview={false} />
+        {showMenu && <Menu />}
       </header>
     </div>
   );
