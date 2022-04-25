@@ -2,8 +2,31 @@ import { useState } from 'react';
 import { useAsync } from 'react-use';
 import { LOCALHOST_RESOURCE_URL } from '../utils/constants';
 
-export function useResourceState(availableResources, initialState = {}) {
-  const [resourceName, setResourceName] = useState(initialState.resourceName ?? null);
+type InitialState = {
+  resourceName?: string;
+  language?: Language;
+  [key: string]: any;
+};
+
+type ResourceState = {
+  resourceName: string | null;
+  setResourceName: Function;
+  language: Language;
+  setLanguage: Function;
+  response: any;
+  loading: boolean;
+  error?: {
+    message: string;
+  };
+  hasResponseData: boolean;
+  updateResource: Function;
+};
+
+export function useResourceState(
+  availableResources: AvailableResources,
+  initialState: InitialState = {}
+): ResourceState {
+  const [resourceName, setResourceName] = useState(initialState?.resourceName ?? null);
   const [language, setLanguage] = useState(initialState.language ?? 'pt');
   const [response, setResponse] = useState({});
 
@@ -17,7 +40,7 @@ export function useResourceState(availableResources, initialState = {}) {
     }
   }, [resourceName, language]);
 
-  const updateResource = (obj) => {
+  const updateResource = (obj: InitialState) => {
     if (obj.language && obj.language !== language) setLanguage(obj.language);
     if (obj.resourceName && obj.resourceName !== resourceName) setResourceName(obj.resourceName);
   };
