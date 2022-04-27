@@ -1,9 +1,19 @@
 import { Alert, Empty, Layout, Spin } from 'antd';
-import React from 'react';
 
-export function DataLoadingWrapper({ loading, error, hasResponseData, children }) {
+type DataLoadingWrapperProps = {
+  loading: boolean;
+  error?:
+    | {
+        message: string;
+      }
+    | undefined;
+  hasResponseData: boolean;
+  children: any;
+};
+
+export function DataLoadingWrapper({ loading, error, hasResponseData, children }: DataLoadingWrapperProps) {
   if (loading) {
-    return <Spin tip="Loading...">{children}</Spin>;
+    return <Spin tip="Loading">{children}</Spin>;
   }
 
   if (error) {

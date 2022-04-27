@@ -1,7 +1,11 @@
 import { Typography } from 'antd';
 import { useMemo } from 'react';
 
-export function ArteRuimLevels({ data }) {
+type ArteRuimLevelsProps = {
+  data: PlainObject;
+};
+
+export function ArteRuimLevels({ data }: ArteRuimLevelsProps) {
   const { level0, level1, level2, level3, level4, total } = useMemo(
     () =>
       Object.values(data).reduce(

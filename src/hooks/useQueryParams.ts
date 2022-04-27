@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-export function useQueryParams(paramsState, updateFunction) {
+export function useQueryParams(paramsState?: PlainObject, updateFunction?: Function) {
   const location = useLocation();
   const navigate = useNavigate();
   const [params, setParams] = useState({});
@@ -10,7 +10,7 @@ export function useQueryParams(paramsState, updateFunction) {
   useEffect(() => {
     if (location.search && updateFunction) {
       const qp = new URLSearchParams(location.search);
-      const currentParams = {};
+      const currentParams: PlainObject = {};
       for (let pair of qp.entries()) {
         currentParams[pair[0]] = pair[1];
       }
@@ -25,7 +25,7 @@ export function useQueryParams(paramsState, updateFunction) {
     }
   }, [location.search, paramsState, updateFunction]);
 
-  const updateQueryParams = (newParams) => {
+  const updateQueryParams = (newParams: PlainObject) => {
     const qp = new URLSearchParams();
     Object.entries(newParams).forEach(([key, value]) => {
       qp.append(key, value);

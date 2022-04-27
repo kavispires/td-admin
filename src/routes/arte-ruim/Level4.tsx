@@ -1,6 +1,7 @@
-import { Input, Layout, Typography, List } from 'antd';
+import { Input, Layout, List, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 import { useAsync, useTitle } from 'react-use';
+
 import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
 import { ResourceSelectionBar } from '../../components/ResourceSelectionBar';
 import { useResourceState } from '../../hooks/useResourceState';
@@ -8,14 +9,14 @@ import { DEFAULT_LANGUAGE, LOCALHOST_RESOURCE_URL } from '../../utils/constants'
 
 const { Text, Title } = Typography;
 
-const parseData = (cards, groups) => {
+const parseData = (cards: Record<CardId, ArteRuimCard>, groups: Record<string, ArteRuimGroup>) => {
   const themes = Object.values(groups)
     .map((entry) => entry.theme)
     .sort();
 
-  const used = {};
-  const unused = {};
-  const duplicated = {};
+  const used: StringDictionary = {};
+  const unused: StringDictionary = {};
+  const duplicated: StringDictionary = {};
   // Get used and unused
   Object.values(groups).forEach((group) => {
     Object.keys(group.cards).forEach((entryId) => {
@@ -45,7 +46,7 @@ function Level4() {
   const [used, setUsed] = useState({});
   const [unused, setUnused] = useState({});
   const [duplicated, setDuplicated] = useState({});
-  const [themes, setThemes] = useState([]);
+  const [themes, setThemes] = useState<string[]>([]);
 
   const {
     resourceName,
@@ -91,15 +92,19 @@ function Level4() {
       />
 
       <Layout.Content className="content">
-        <DataLoadingWrapper loading={loading || loadingLevel4} error={error || errorLevel4}>
+        <DataLoadingWrapper
+          loading={loading || loadingLevel4}
+          error={error || errorLevel4}
+          hasResponseData={hasResponseData && Boolean(groups)}
+        >
           <div className="parser-container">
             <div className="parser-main">
               <Title level={2}>Used in Groups ({Object.keys(used).length})</Title>
               <Input.TextArea
                 name="output"
                 id=""
-                cols="15"
-                rows="10"
+                cols={15}
+                rows={10}
                 readOnly
                 value={JSON.stringify(used, null, 4)}
               />
@@ -107,8 +112,8 @@ function Level4() {
               <Input.TextArea
                 name="output"
                 id=""
-                cols="15"
-                rows="10"
+                cols={15}
+                rows={10}
                 readOnly
                 value={JSON.stringify(unused, null, 4)}
               />
@@ -116,8 +121,8 @@ function Level4() {
               <Input.TextArea
                 name="duplicates"
                 id=""
-                cols="15"
-                rows="5"
+                cols={15}
+                rows={5}
                 readOnly
                 value={JSON.stringify(duplicated, null, 4)}
               />

@@ -3,10 +3,15 @@ import { useState } from 'react';
 import { findSimilar, stringRemoveAccents } from '../utils';
 import { SEARCH_THRESHOLD } from '../utils/constants';
 
-export function SearchDuplicates({ response, property }) {
+type SearchDuplicatesProps = {
+  response: ObjectDictionary;
+  property: string;
+};
+
+export function SearchDuplicates({ response, property }: SearchDuplicatesProps) {
   const [searchResults, setSearchResults] = useState({});
 
-  const onSearchSimilar = (e) => {
+  const onSearchSimilar = (e: any) => {
     const { value = '' } = e.target;
     const str = stringRemoveAccents(value.trim().toLowerCase());
 
@@ -24,8 +29,8 @@ export function SearchDuplicates({ response, property }) {
       <Input.TextArea
         name="search-results"
         id=""
-        cols="10"
-        rows="10"
+        cols={10}
+        rows={10}
         readOnly
         value={JSON.stringify(searchResults, null, 4)}
       />

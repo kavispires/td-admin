@@ -1,12 +1,13 @@
 import { Input, Layout, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 import { useTitle } from 'react-use';
+
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
-import { useResourceState } from '../hooks/useResourceState';
-import { RESOURCE_NAMES } from '../utils/constants';
 import { SearchDuplicates } from '../components/SearchDuplicates';
 import { useQueryParams } from '../hooks/useQueryParams';
+import { useResourceState } from '../hooks/useResourceState';
+import { RESOURCE_NAMES } from '../utils/constants';
 
 const { Text, Title } = Typography;
 
@@ -48,8 +49,8 @@ function Resource() {
               <Input.TextArea
                 name="output"
                 id=""
-                cols="15"
-                rows="15"
+                cols={15}
+                rows={15}
                 readOnly
                 value={JSON.stringify(output, null, 4)}
               />

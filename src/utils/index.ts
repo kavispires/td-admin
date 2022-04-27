@@ -2,22 +2,22 @@ import { SEARCH_THRESHOLD } from './constants';
 
 /**
  *
- * @param {string} str
+ * @param str
  * @returns
  */
-export function stringRemoveAccents(str) {
+export function stringRemoveAccents(str: string) {
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
 /**
  *
- * @param {*} data
- * @param {string} property
+ * @param data
+ * @param property
  * @returns
  */
-export const checkForDuplicates = (data, property = 'text') => {
-  const unique = {};
-  const duplicates = {};
+export const checkForDuplicates = (data: PlainObject, property = 'text') => {
+  const unique: PlainObject = {};
+  const duplicates: PlainObject = {};
 
   Object.values(data).forEach((entry) => {
     if (!entry[property]) {
@@ -41,13 +41,13 @@ export const checkForDuplicates = (data, property = 'text') => {
 
 /**
  *
- * @param {string} value
- * @param {*} data
- * @param {string} property
+ * @param str
+ * @param data
+ * @param property
  * @returns
  */
-export const findSimilar = (str, data, property = 'text') => {
-  const similar = {};
+export const findSimilar = (str: string, data: PlainObject, property = 'text') => {
+  const similar: PlainObject = {};
   const value = stringRemoveAccents(str.trim().toLowerCase());
   if (!value || value.length < SEARCH_THRESHOLD) return {};
 

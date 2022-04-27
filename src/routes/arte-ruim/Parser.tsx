@@ -1,12 +1,13 @@
 import { Divider, Input, Layout, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 import { useTitle } from 'react-use';
-import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
-import { checkForDuplicates } from '../../utils';
-import { ResourceSelectionBar } from '../../components/ResourceSelectionBar';
-import { useResourceState } from '../../hooks/useResourceState';
+
 import { ArteRuimLevels } from '../../components/ArteRuimLevels';
+import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
+import { ResourceSelectionBar } from '../../components/ResourceSelectionBar';
 import { SearchDuplicates } from '../../components/SearchDuplicates';
+import { useResourceState } from '../../hooks/useResourceState';
+import { checkForDuplicates } from '../../utils';
 import { DEFAULT_LANGUAGE } from '../../utils/constants';
 
 const { Text, Title } = Typography;
@@ -31,17 +32,17 @@ function Parser() {
     }
   }, [response]);
 
-  const onInputChange = (e) => {
+  const onInputChange = (e: any) => {
     const { value } = e.target;
     const parsedInput = value.split('\n');
 
-    const dataArray = Object.values(response ?? {});
+    const dataArray: any[] = Object.values(response ?? {});
     const lastId = Number(dataArray[dataArray.length - 1].id.split('-')[1]) || 1;
 
     const result = parsedInput.reduce(
-      (acc, text, index) => {
+      (acc: Record<CardId, ArteRuimCard>, text: string, index: number) => {
         if (text) {
-          const newId = `${resourceName[0]}-${lastId + index + 1}-${language}`;
+          const newId = `${resourceName![0]}-${lastId + index + 1}-${language}`;
           acc[newId] = {
             id: newId,
             text,
@@ -74,13 +75,13 @@ function Parser() {
             <div className="parser-main">
               <Title level={2}>Adding Data</Title>
               <Text>Input</Text>
-              <Input.TextArea name="input" id="" cols="15" rows="5" onChange={onInputChange} />
+              <Input.TextArea name="input" id="" cols={15} rows={5} onChange={onInputChange} />
               <Text>Output</Text>
               <Input.TextArea
                 name="output"
                 id=""
-                cols="15"
-                rows="15"
+                cols={15}
+                rows={15}
                 readOnly
                 value={JSON.stringify(output, null, 4)}
               />
@@ -89,8 +90,8 @@ function Parser() {
               <Input.TextArea
                 name="duplicates"
                 id=""
-                cols="15"
-                rows="3"
+                cols={15}
+                rows={3}
                 readOnly
                 value={JSON.stringify(duplicates)}
               />
