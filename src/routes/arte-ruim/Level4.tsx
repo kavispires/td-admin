@@ -63,7 +63,7 @@ function Level4() {
     loading: loadingLevel4,
     error: errorLevel4,
   } = useAsync(async () => {
-    const response = await fetch(`${LOCALHOST_RESOURCE_URL}/${resourceName}-extra-${language}.json`);
+    const response = await fetch(`${LOCALHOST_RESOURCE_URL}/${resourceName}-group-${language}.json`);
     const result = await response.json();
 
     return result;

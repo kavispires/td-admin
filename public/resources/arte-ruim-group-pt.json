@@ -85,7 +85,9 @@
       "a-107-pt": "Farofeiro",
       "a-357-pt": "Pose de maloqueiro",
       "a-312-pt": "Malandro",
-      "a-932-pt": "Pobre coitado"
+      "a-932-pt": "Pobre coitado",
+      "a-1059-pt": "Trombadinha",
+      "a-1060-pt": "Trambiqueiro"
     }
   },
   "ax-8-pt": {
@@ -342,7 +344,8 @@
       "a-953-pt": "Olha só!",
       "a-938-pt": "Estrábico convergente",
       "a-451-pt": "Fingir que não viu",
-      "a-982-pt": "Invadir a privacidade"
+      "a-982-pt": "Invadir a privacidade",
+      "a-992-pt": "Olhar pra você ver"
     }
   },
   "ax-29-pt": {
@@ -356,7 +359,12 @@
       "a-752-pt": "Cara caramba cara caraô",
       "a-693-pt": "Hackear o face",
       "a-823-pt": "Cara de carranca",
-      "a-986-pt": "Cara de deboche"
+      "a-986-pt": "Cara de deboche",
+      "a-1052-pt": "Virar a cara do avesso",
+      "a-1053-pt": "Tomar carão",
+      "a-1007-pt": "Sambar na cara das inimigas",
+      "a-990-pt": "Perder a cabeça",
+      "a-166-pt": "Poker face"
     }
   },
   "ax-30-pt": {
@@ -379,7 +387,8 @@
       "a-64-pt": "Crime cibernético",
       "a-158-pt": "Parceiros no crime",
       "a-133-pt": "Matar aula",
-      "a-644-pt": "Matar no peito"
+      "a-644-pt": "Matar no peito",
+      "a-989-pt": "Planejar um assassinato"
     }
   },
   "ax-32-pt": {
@@ -585,7 +594,8 @@
       "a-221-pt": "Brotinho maroto",
       "a-269-pt": "Ex-namorada",
       "a-793-pt": "Peguete",
-      "a-794-pt": "Casinho"
+      "a-794-pt": "Casinho",
+      "a-1062-pt": "Namorido"
     }
   },
   "ax-49-pt": {
@@ -962,8 +972,14 @@
   },
   "ax-80-pt": {
     "id": "ax-80-pt",
-    "theme": "??",
-    "cards": {}
+    "theme": "diferença",
+    "cards": {
+      "a-194-pt": "Uma perspectiva diferente",
+      "a-632-pt": "A diferença de afetivo e efetivo",
+      "a-1063-pt": "A diferença entre barango e brega",
+      "a-1064-pt": "A diferença entre macaco e chipanzé",
+      "a-1065-pt": "A diferença entre agente e a gente"
+    }
   },
   "ax-81-pt": {
     "id": "ax-81-pt",
@@ -982,7 +998,8 @@
     "cards": {
       "a-880-pt": "Dá o play macaco",
       "a-968-pt": "Acordar com a macaca",
-      "a-970-pt": "Macacos me mordam"
+      "a-970-pt": "Macacos me mordam",
+      "a-1064-pt": "A diferença entre macaco e chipanzé"
     }
   },
   "ax-83-pt": {
@@ -1001,6 +1018,16 @@
       "a-994-pt": "Demonização facial",
       "a-965-pt": "Estar com o capeta",
       "a-966-pt": "Que diabos é isso?"
+    }
+  },
+  "ax-85-pt": {
+    "id": "ax-85-pt",
+    "theme": "raiva;;odio",
+    "cards": {
+      "a-153-pt": "Ódio no coração",
+      "a-786-pt": "50% ódio, 50% tremedeira",
+      "a-1054-pt": "Na força do ódio",
+      "a-995-pt": "Passar raiva"
     }
   }
 }
