@@ -1,0 +1,898 @@
+{
+  "char-1-pt": {
+    "id": "char-1-pt",
+    "text": "Alice (Alice no País das Maravilhas)"
+  },
+  "char-2-pt": {
+    "id": "char-2-pt",
+    "text": "Amélie Poulain"
+  },
+  "char-3-pt": {
+    "id": "char-3-pt",
+    "text": "Annabelle (Invocação do Mal)"
+  },
+  "char-4-pt": {
+    "id": "char-4-pt",
+    "text": "Angelica Pickles (Os Anjinhos)"
+  },
+  "char-5-pt": {
+    "id": "char-5-pt",
+    "text": "Anna (Frozen)"
+  },
+  "char-6-pt": {
+    "id": "char-6-pt",
+    "text": "Aquaman"
+  },
+  "char-7-pt": {
+    "id": "char-7-pt",
+    "text": "Ariel (A Pequena Sereia)"
+  },
+  "char-8-pt": {
+    "id": "char-8-pt",
+    "text": "Arthur"
+  },
+  "char-9-pt": {
+    "id": "char-9-pt",
+    "text": "Ash (Pokemon)"
+  },
+  "char-10-pt": {
+    "id": "char-10-pt",
+    "text": "Baby Shark"
+  },
+  "char-11-pt": {
+    "id": "char-11-pt",
+    "text": "Barbie"
+  },
+  "char-12-pt": {
+    "id": "char-12-pt",
+    "text": "Bart Simpson"
+  },
+  "char-13-pt": {
+    "id": "char-13-pt",
+    "text": "Batman"
+  },
+  "char-14-pt": {
+    "id": "char-14-pt",
+    "text": "Fera (A Bela e a Fera)"
+  },
+  "char-15-pt": {
+    "id": "char-15-pt",
+    "text": "Beavis (Beavis & Butt-Head)"
+  },
+  "char-16-pt": {
+    "id": "char-16-pt",
+    "text": "Bender (Futurama)"
+  },
+  "char-17-pt": {
+    "id": "char-17-pt",
+    "text": "Betty Boop"
+  },
+  "char-18-pt": {
+    "id": "char-18-pt",
+    "text": "Pantera Negra"
+  },
+  "char-19-pt": {
+    "id": "char-19-pt",
+    "text": "Viúva Negra"
+  },
+  "char-20-pt": {
+    "id": "char-20-pt",
+    "text": "Blanka (Street Fighter)"
+  },
+  "char-21-pt": {
+    "id": "char-21-pt",
+    "text": "Lindinha (As Meninas Superpoderosas)"
+  },
+  "char-22-pt": {
+    "id": "char-22-pt",
+    "text": "Bob Pêra (The Incredibles)"
+  },
+  "char-23-pt": {
+    "id": "char-23-pt",
+    "text": "Bobby Hill (King of the Hill)"
+  },
+  "char-24-pt": {
+    "id": "char-24-pt",
+    "text": "BoJack Horseman"
+  },
+  "char-25-pt": {
+    "id": "char-25-pt",
+    "text": "Borat"
+  },
+  "char-26-pt": {
+    "id": "char-26-pt",
+    "text": "Bowser (Super Mario)"
+  },
+  "char-27-pt": {
+    "id": "char-27-pt",
+    "text": "Docinho (As Meninas Superpoderosas)"
+  },
+  "char-28-pt": {
+    "id": "char-28-pt",
+    "text": "Perna Longa (Looney Tunes)"
+  },
+  "char-29-pt": {
+    "id": "char-29-pt",
+    "text": "Butt-Head (Beavis & Butt-Head)"
+  },
+  "char-30-pt": {
+    "id": "char-30-pt",
+    "text": "Florzinha (As Meninas Superpoderosas)"
+  },
+  "char-31-pt": {
+    "id": "char-31-pt",
+    "text": "Buzz Lightyear (Toy Story)"
+  },
+  "char-32-pt": {
+    "id": "char-32-pt",
+    "text": "Capitão América"
+  },
+  "char-33-pt": {
+    "id": "char-33-pt",
+    "text": "Capitão Jack Sparrow"
+  },
+  "char-34-pt": {
+    "id": "char-34-pt",
+    "text": "Mulher-gato"
+  },
+  "char-35-pt": {
+    "id": "char-35-pt",
+    "text": "Charizard (Pokemon)"
+  },
+  "char-36-pt": {
+    "id": "char-36-pt",
+    "text": "Charlie Brown (Minduim)"
+  },
+  "char-37-pt": {
+    "id": "char-37-pt",
+    "text": "Cheshire Cat (Alice no País das Maravilhas)"
+  },
+  "char-38-pt": {
+    "id": "char-38-pt",
+    "text": "Chewbacca "
+  },
+  "char-39-pt": {
+    "id": "char-39-pt",
+    "text": "Chihiro (A Viagem de Chihiro)"
+  },
+  "char-40-pt": {
+    "id": "char-40-pt",
+    "text": "Chun-li (Street Fighter)"
+  },
+  "char-41-pt": {
+    "id": "char-41-pt",
+    "text": "Cosmo e Wanda (Os Padrinhos Mágicos)"
+  },
+  "char-42-pt": {
+    "id": "char-42-pt",
+    "text": "Crash Bandicoot"
+  },
+  "char-43-pt": {
+    "id": "char-43-pt",
+    "text": "Cruelly de Vil"
+  },
+  "char-44-pt": {
+    "id": "char-44-pt",
+    "text": "Patolino (Looney Tunes)"
+  },
+  "char-45-pt": {
+    "id": "char-45-pt",
+    "text": "Margarida (Disney)"
+  },
+  "char-46-pt": {
+    "id": "char-46-pt",
+    "text": "Daria Morgendorffer"
+  },
+  "char-47-pt": {
+    "id": "char-47-pt",
+    "text": "Darth Vader"
+  },
+  "char-48-pt": {
+    "id": "char-48-pt",
+    "text": "Dennis o pimentinha"
+  },
+  "char-49-pt": {
+    "id": "char-49-pt",
+    "text": "Dexter (O Laboratório de Dexter)"
+  },
+  "char-50-pt": {
+    "id": "char-50-pt",
+    "text": "Doutor Estranho"
+  },
+  "char-51-pt": {
+    "id": "char-51-pt",
+    "text": "Doge"
+  },
+  "char-52-pt": {
+    "id": "char-52-pt",
+    "text": "Pato Donald"
+  },
+  "char-53-pt": {
+    "id": "char-53-pt",
+    "text": "Donatello (Teenage Mutant Ninja Turtles)"
+  },
+  "char-54-pt": {
+    "id": "char-54-pt",
+    "text": "Burro (Shrek)"
+  },
+  "char-55-pt": {
+    "id": "char-55-pt",
+    "text": "Donkey Kong"
+  },
+  "char-56-pt": {
+    "id": "char-56-pt",
+    "text": "Dora"
+  },
+  "char-57-pt": {
+    "id": "char-57-pt",
+    "text": "Dory (Procurando Nemo)"
+  },
+  "char-58-pt": {
+    "id": "char-58-pt",
+    "text": "Dr. Doofenshmirtz (Phineas e Ferb)"
+  },
+  "char-59-pt": {
+    "id": "char-59-pt",
+    "text": "Earthworm Jim"
+  },
+  "char-60-pt": {
+    "id": "char-60-pt",
+    "text": "Du"
+  },
+  "char-61-pt": {
+    "id": "char-61-pt",
+    "text": "Edna E Mode (Os Incríveis)"
+  },
+  "char-62-pt": {
+    "id": "char-62-pt",
+    "text": "Edward Mãos de Tesoura"
+  },
+  "char-63-pt": {
+    "id": "char-63-pt",
+    "text": "Eleven (Stranger Things)"
+  },
+  "char-64-pt": {
+    "id": "char-64-pt",
+    "text": "Elsa (Frozen)"
+  },
+  "char-65-pt": {
+    "id": "char-65-pt",
+    "text": "Eric Cartman (South Park)"
+  },
+  "char-66-pt": {
+    "id": "char-66-pt",
+    "text": "ET"
+  },
+  "char-67-pt": {
+    "id": "char-67-pt",
+    "text": "Rainha Má (Branca de Neve e os Sete Anões)"
+  },
+  "char-68-pt": {
+    "id": "char-68-pt",
+    "text": "Ezio Auditore da Firenze (Assassin's Creed)"
+  },
+  "char-69-pt": {
+    "id": "char-69-pt",
+    "text": "O Gato Félix"
+  },
+  "char-70-pt": {
+    "id": "char-70-pt",
+    "text": "Finn o humano (Hora de Aventura)"
+  },
+  "char-71-pt": {
+    "id": "char-71-pt",
+    "text": "Fred Flintstone"
+  },
+  "char-72-pt": {
+    "id": "char-72-pt",
+    "text": "Freddy Krueger"
+  },
+  "char-73-pt": {
+    "id": "char-73-pt",
+    "text": "Gamora (Guardiões da Galáxia)"
+  },
+  "char-74-pt": {
+    "id": "char-74-pt",
+    "text": "Gandalf"
+  },
+  "char-75-pt": {
+    "id": "char-75-pt",
+    "text": "Garfield"
+  },
+  "char-76-pt": {
+    "id": "char-76-pt",
+    "text": "Garnet (Steven Universo)"
+  },
+  "char-77-pt": {
+    "id": "char-77-pt",
+    "text": "Gastão (A Bela e a Fera)"
+  },
+  "char-78-pt": {
+    "id": "char-78-pt",
+    "text": "Gênio (Aladdin)"
+  },
+  "char-79-pt": {
+    "id": "char-79-pt",
+    "text": "Geralt of Rivia (The Witcher)"
+  },
+  "char-80-pt": {
+    "id": "char-80-pt",
+    "text": "Gollum (O Senhor dos Anéis)"
+  },
+  "char-81-pt": {
+    "id": "char-81-pt",
+    "text": "Pateta (Disney)"
+  },
+  "char-82-pt": {
+    "id": "char-82-pt",
+    "text": "Groot (Os Guardiões da Galáxia)"
+  },
+  "char-83-pt": {
+    "id": "char-83-pt",
+    "text": "Tio Stan (Gravity Falls)"
+  },
+  "char-84-pt": {
+    "id": "char-84-pt",
+    "text": "Han Solo"
+  },
+  "char-85-pt": {
+    "id": "char-85-pt",
+    "text": "Hannibal Lecter"
+  },
+  "char-86-pt": {
+    "id": "char-86-pt",
+    "text": "Harley Quinn"
+  },
+  "char-87-pt": {
+    "id": "char-87-pt",
+    "text": "Harry Potter"
+  },
+  "char-88-pt": {
+    "id": "char-88-pt",
+    "text": "Chapeleiro (Alice no País das Maravilhas)"
+  },
+  "char-89-pt": {
+    "id": "char-89-pt",
+    "text": "Hello Kitty"
+  },
+  "char-90-pt": {
+    "id": "char-90-pt",
+    "text": "Homer Simpson"
+  },
+  "char-91-pt": {
+    "id": "char-91-pt",
+    "text": "Hulk"
+  },
+  "char-92-pt": {
+    "id": "char-92-pt",
+    "text": "Indiana Jones"
+  },
+  "char-93-pt": {
+    "id": "char-93-pt",
+    "text": "Homem de Ferro"
+  },
+  "char-94-pt": {
+    "id": "char-94-pt",
+    "text": "Jafar (Aladdin)"
+  },
+  "char-95-pt": {
+    "id": "char-95-pt",
+    "text": "Jake o cão (Hora de Aventura)"
+  },
+  "char-96-pt": {
+    "id": "char-96-pt",
+    "text": "James Bond"
+  },
+  "char-97-pt": {
+    "id": "char-97-pt",
+    "text": "Jerry (Tom e Jerry)"
+  },
+  "char-98-pt": {
+    "id": "char-98-pt",
+    "text": "Jessica Rabbit"
+  },
+  "char-99-pt": {
+    "id": "char-99-pt",
+    "text": "Johnny Bravo"
+  },
+  "char-100-pt": {
+    "id": "char-100-pt",
+    "text": "Joker"
+  },
+  "char-101-pt": {
+    "id": "char-101-pt",
+    "text": "Jon Snow (Game of Thrones)"
+  },
+  "char-102-pt": {
+    "id": "char-102-pt",
+    "text": "Katniss Everdeen"
+  },
+  "char-103-pt": {
+    "id": "char-103-pt",
+    "text": "Ken (Barbie)"
+  },
+  "char-104-pt": {
+    "id": "char-104-pt",
+    "text": "Ken (Street Fighter)"
+  },
+  "char-105-pt": {
+    "id": "char-105-pt",
+    "text": "Kenny (South Park)"
+  },
+  "char-106-pt": {
+    "id": "char-106-pt",
+    "text": "Kirby"
+  },
+  "char-107-pt": {
+    "id": "char-107-pt",
+    "text": "Korra (A lenda de Korra)"
+  },
+  "char-108-pt": {
+    "id": "char-108-pt",
+    "text": "Kratos (God of War)"
+  },
+  "char-109-pt": {
+    "id": "char-109-pt",
+    "text": "Kung Fu Panda"
+  },
+  "char-110-pt": {
+    "id": "char-110-pt",
+    "text": "Lara Croft"
+  },
+  "char-111-pt": {
+    "id": "char-111-pt",
+    "text": "Luís o pepino (Os Vegetais)"
+  },
+  "char-112-pt": {
+    "id": "char-112-pt",
+    "text": "Legolas (O Senhor dos Anéis)"
+  },
+  "char-113-pt": {
+    "id": "char-113-pt",
+    "text": "Leonardo (Tartarugas Ninjas)"
+  },
+  "char-114-pt": {
+    "id": "char-114-pt",
+    "text": "Lilo Multipass (O quinto elemento)"
+  },
+  "char-115-pt": {
+    "id": "char-115-pt",
+    "text": "Link (The Legend of Zelda)"
+  },
+  "char-116-pt": {
+    "id": "char-116-pt",
+    "text": "Liu Kang (Mortal Kombat)"
+  },
+  "char-117-pt": {
+    "id": "char-117-pt",
+    "text": "Lorax"
+  },
+  "char-118-pt": {
+    "id": "char-118-pt",
+    "text": "Luigi (Super Mario)"
+  },
+  "char-119-pt": {
+    "id": "char-119-pt",
+    "text": "Malévola"
+  },
+  "char-120-pt": {
+    "id": "char-120-pt",
+    "text": "Marge Simpson"
+  },
+  "char-121-pt": {
+    "id": "char-121-pt",
+    "text": "Mario (Super Mario)"
+  },
+  "char-122-pt": {
+    "id": "char-122-pt",
+    "text": "Marty McFly"
+  },
+  "char-123-pt": {
+    "id": "char-123-pt",
+    "text": "Marvino marciano (Looney Tunes)"
+  },
+  "char-124-pt": {
+    "id": "char-124-pt",
+    "text": "Mary Poppins"
+  },
+  "char-125-pt": {
+    "id": "char-125-pt",
+    "text": "Master Chief (Halo)"
+  },
+  "char-126-pt": {
+    "id": "char-126-pt",
+    "text": "Michelangelo (Tartarugas Ninjas)"
+  },
+  "char-127-pt": {
+    "id": "char-127-pt",
+    "text": "Mickey Mouse"
+  },
+  "char-128-pt": {
+    "id": "char-128-pt",
+    "text": "Miles 'Tails' Prower (Sonic)"
+  },
+  "char-129-pt": {
+    "id": "char-129-pt",
+    "text": "Minion"
+  },
+  "char-130-pt": {
+    "id": "char-130-pt",
+    "text": "Minnie Mouse (Disney)"
+  },
+  "char-131-pt": {
+    "id": "char-131-pt",
+    "text": "Mirabel Madrigal (Encanto)"
+  },
+  "char-132-pt": {
+    "id": "char-132-pt",
+    "text": "Mordecai and Rigby (Apenas um Show)"
+  },
+  "char-133-pt": {
+    "id": "char-133-pt",
+    "text": "Morty (Rick and Morty)"
+  },
+  "char-134-pt": {
+    "id": "char-134-pt",
+    "text": "Mufasa (O Rei Leão)"
+  },
+  "char-135-pt": {
+    "id": "char-135-pt",
+    "text": "Mulan"
+  },
+  "char-136-pt": {
+    "id": "char-136-pt",
+    "text": "Nemo (Procurando Nemo)"
+  },
+  "char-137-pt": {
+    "id": "char-137-pt",
+    "text": "Olive Oyl (Popeye)"
+  },
+  "char-138-pt": {
+    "id": "char-138-pt",
+    "text": "Oswaldo o Coelho Sortudo"
+  },
+  "char-139-pt": {
+    "id": "char-139-pt",
+    "text": "Pac-Man"
+  },
+  "char-140-pt": {
+    "id": "char-140-pt",
+    "text": "Patrick Estrela (Bob Esponja Calça Quadrada)"
+  },
+  "char-141-pt": {
+    "id": "char-141-pt",
+    "text": "Pepe o sapo"
+  },
+  "char-142-pt": {
+    "id": "char-142-pt",
+    "text": "Peppa Pig"
+  },
+  "char-143-pt": {
+    "id": "char-143-pt",
+    "text": "Peter Pan"
+  },
+  "char-144-pt": {
+    "id": "char-144-pt",
+    "text": "Phineas and Ferb"
+  },
+  "char-145-pt": {
+    "id": "char-145-pt",
+    "text": "Pikachu (Pokemon)"
+  },
+  "char-146-pt": {
+    "id": "char-146-pt",
+    "text": "Pink Panther"
+  },
+  "char-147-pt": {
+    "id": "char-147-pt",
+    "text": "Pinky & the Brain"
+  },
+  "char-148-pt": {
+    "id": "char-148-pt",
+    "text": "Pluto (Disney)"
+  },
+  "char-149-pt": {
+    "id": "char-149-pt",
+    "text": "Pocahontas"
+  },
+  "char-150-pt": {
+    "id": "char-150-pt",
+    "text": "Popeye"
+  },
+  "char-151-pt": {
+    "id": "char-151-pt",
+    "text": "Princesa Peach (Super Mario)"
+  },
+  "char-152-pt": {
+    "id": "char-152-pt",
+    "text": "O Justiceiro"
+  },
+  "char-153-pt": {
+    "id": "char-153-pt",
+    "text": "Quasimodo (The Hunchback of Notre-Dame)"
+  },
+  "char-154-pt": {
+    "id": "char-154-pt",
+    "text": "Rafael (Tartarugas Ninjas)"
+  },
+  "char-155-pt": {
+    "id": "char-155-pt",
+    "text": "Rapunzel"
+  },
+  "char-156-pt": {
+    "id": "char-156-pt",
+    "text": "Rayman"
+  },
+  "char-157-pt": {
+    "id": "char-157-pt",
+    "text": "Ranger Vermelho (Power Rangers)"
+  },
+  "char-158-pt": {
+    "id": "char-158-pt",
+    "text": "Rex (Toy Story)"
+  },
+  "char-159-pt": {
+    "id": "char-159-pt",
+    "text": "Rick (Rick and Morty)"
+  },
+  "char-160-pt": {
+    "id": "char-160-pt",
+    "text": "Papa-léguas (Looney Tunes)"
+  },
+  "char-161-pt": {
+    "id": "char-161-pt",
+    "text": "Robin"
+  },
+  "char-162-pt": {
+    "id": "char-162-pt",
+    "text": "Rocky Balboa"
+  },
+  "char-163-pt": {
+    "id": "char-163-pt",
+    "text": "Ronald McDonald"
+  },
+  "char-164-pt": {
+    "id": "char-164-pt",
+    "text": "Rose (Titanic)"
+  },
+  "char-165-pt": {
+    "id": "char-165-pt",
+    "text": "Ryu (Street Fighter)"
+  },
+  "char-166-pt": {
+    "id": "char-166-pt",
+    "text": "Sailor Moon"
+  },
+  "char-167-pt": {
+    "id": "char-167-pt",
+    "text": "Simba (O Rei Leão)"
+  },
+  "char-168-pt": {
+    "id": "char-168-pt",
+    "text": "Samus Aran (Metroid)"
+  },
+  "char-169-pt": {
+    "id": "char-169-pt",
+    "text": "Scar (O Rei Leão)"
+  },
+  "char-170-pt": {
+    "id": "char-170-pt",
+    "text": "Scooby-Doo"
+  },
+  "char-171-pt": {
+    "id": "char-171-pt",
+    "text": "Tio Patinhas (DuckTales)"
+  },
+  "char-172-pt": {
+    "id": "char-172-pt",
+    "text": "Sebastião (A Pequena Sereia)"
+  },
+  "char-173-pt": {
+    "id": "char-173-pt",
+    "text": "Salsicha (Scooby-Doo)"
+  },
+  "char-174-pt": {
+    "id": "char-174-pt",
+    "text": "She-Hulk"
+  },
+  "char-175-pt": {
+    "id": "char-175-pt",
+    "text": "She-Ra"
+  },
+  "char-176-pt": {
+    "id": "char-176-pt",
+    "text": "Shrek"
+  },
+  "char-177-pt": {
+    "id": "char-177-pt",
+    "text": "Surfista Prateado"
+  },
+  "char-178-pt": {
+    "id": "char-178-pt",
+    "text": "Snoopy (Minduim)"
+  },
+  "char-179-pt": {
+    "id": "char-179-pt",
+    "text": "Branca de Neve"
+  },
+  "char-180-pt": {
+    "id": "char-180-pt",
+    "text": "Sonic the Hedgehog"
+  },
+  "char-181-pt": {
+    "id": "char-181-pt",
+    "text": "Space Ghost"
+  },
+  "char-182-pt": {
+    "id": "char-182-pt",
+    "text": "Homem-aranha"
+  },
+  "char-183-pt": {
+    "id": "char-183-pt",
+    "text": "Bob Esponja Calça Quadrada"
+  },
+  "char-184-pt": {
+    "id": "char-184-pt",
+    "text": "Spyro (o Dragão)"
+  },
+  "char-185-pt": {
+    "id": "char-185-pt",
+    "text": "Senhor das Estrelas (Os Guardiões da Galáxia)"
+  },
+  "char-186-pt": {
+    "id": "char-186-pt",
+    "text": "Steve (Minecraft)"
+  },
+  "char-187-pt": {
+    "id": "char-187-pt",
+    "text": "Steven Universo"
+  },
+  "char-188-pt": {
+    "id": "char-188-pt",
+    "text": "Stewie Griffin (Family Guy)"
+  },
+  "char-189-pt": {
+    "id": "char-189-pt",
+    "text": "Stitch (Lilo & Stitch)"
+  },
+  "char-190-pt": {
+    "id": "char-190-pt",
+    "text": "Tempestade (X-Men)"
+  },
+  "char-191-pt": {
+    "id": "char-191-pt",
+    "text": "Sub-Zero (Mortal Kombat)"
+  },
+  "char-192-pt": {
+    "id": "char-192-pt",
+    "text": "Sullivan (Monstros S.A.)"
+  },
+  "char-193-pt": {
+    "id": "char-193-pt",
+    "text": "Super-homem"
+  },
+  "char-194-pt": {
+    "id": "char-194-pt",
+    "text": "O Máscara"
+  },
+  "char-195-pt": {
+    "id": "char-195-pt",
+    "text": "Thor"
+  },
+  "char-196-pt": {
+    "id": "char-196-pt",
+    "text": "Tiana (A Princesa e O Sapo)"
+  },
+  "char-197-pt": {
+    "id": "char-197-pt",
+    "text": "Tigrão"
+  },
+  "char-198-pt": {
+    "id": "char-198-pt",
+    "text": "Tina Belcher (Bob's Burgers)"
+  },
+  "char-199-pt": {
+    "id": "char-199-pt",
+    "text": "Sininho"
+  },
+  "char-200-pt": {
+    "id": "char-200-pt",
+    "text": "Tom (Tom e Jerry)"
+  },
+  "char-201-pt": {
+    "id": "char-201-pt",
+    "text": "Bangela (Como treinar o seu dragão)"
+  },
+  "char-202-pt": {
+    "id": "char-202-pt",
+    "text": "Piu-piu (Looney Tunes)"
+  },
+  "char-203-pt": {
+    "id": "char-203-pt",
+    "text": "Ursula (A Pequena Sereia)"
+  },
+  "char-204-pt": {
+    "id": "char-204-pt",
+    "text": "Wanda Maximoff"
+  },
+  "char-205-pt": {
+    "id": "char-205-pt",
+    "text": "Willy Coiote"
+  },
+  "char-206-pt": {
+    "id": "char-206-pt",
+    "text": "Ursinho Pooh"
+  },
+  "char-207-pt": {
+    "id": "char-207-pt",
+    "text": "Wolverine"
+  },
+  "char-208-pt": {
+    "id": "char-208-pt",
+    "text": "Mulher Maravilha"
+  },
+  "char-209-pt": {
+    "id": "char-209-pt",
+    "text": "Woody (Toy Story)"
+  },
+  "char-210-pt": {
+    "id": "char-210-pt",
+    "text": "Zé Colmeia"
+  },
+  "char-211-pt": {
+    "id": "char-211-pt",
+    "text": "Yoshi (Super Mario)"
+  },
+  "char-212-pt": {
+    "id": "char-212-pt",
+    "text": "Yzma"
+  },
+  "char-213-pt": {
+    "id": "char-213-pt",
+    "text": "Zoolander"
+  },
+  "char-214-pt": {
+    "id": "char-214-pt",
+    "text": "Aang (Avatar: A Lenda de Aang)"
+  },
+  "char-215-pt": {
+    "id": "char-215-pt",
+    "text": "Princesa Jujuba  (Hora de Aventura)"
+  },
+  "char-216-pt": {
+    "id": "char-216-pt",
+    "text": "Chaves"
+  },
+  "char-217-pt": {
+    "id": "char-217-pt",
+    "text": "Kiko"
+  },
+  "char-218-pt": {
+    "id": "char-218-pt",
+    "text": "Chiquinha"
+  },
+  "char-219-pt": {
+    "id": "char-219-pt",
+    "text": "Mônica"
+  },
+  "char-220-pt": {
+    "id": "char-220-pt",
+    "text": "Cebolinha"
+  },
+  "char-221-pt": {
+    "id": "char-221-pt",
+    "text": "Cascão"
+  },
+  "char-222-pt": {
+    "id": "char-222-pt",
+    "text": "Magali"
+  },
+  "char-223-pt": {
+    "id": "char-223-pt",
+    "text": "Irmão do Jorel"
+  },
+  "char-224-pt": {
+    "id": "char-224-pt",
+    "text": "Nino (Castelo Rá-Tim-Bum)"
+  }
+}
