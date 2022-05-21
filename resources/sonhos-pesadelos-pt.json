@@ -1,242 +1,260 @@
 {
-    "mui-1-pt": {
-        "id": "mui-1-pt",
-        "set": "awakenings",
-        "text": "Cite um local não fictício na Terra",
-        "level": 2
-    },
-    "mui-2-pt": {
-        "id": "mui-2-pt",
-        "set": "awakenings",
-        "text": "Cite um filme lançado nos últimos 50 anos",
-        "level": 2
-    },
-    "mui-3-pt": {
-        "id": "mui-3-pt",
-        "set": "awakenings",
-        "text": "Cite qualquer livro publicado",
-        "level": 2
-    },
-    "mui-4-pt": {
-        "id": "mui-4-pt",
-        "set": "awakenings",
-        "text": "Cite uma pessoa não-ficcional, viva ou morta",
-        "level": 2
-    },
-    "mui-5-pt": {
-        "id": "mui-5-pt",
-        "set": "awakenings",
-        "text": "Escreva uma palavra com exatamente seis letras",
-        "level": 2
-    },
-    "mui-6-pt": {
-        "id": "mui-6-pt",
-        "set": "awakenings",
-        "text": "Cite um programa de televisão que foi ao ar nos últimos 50 anos",
-        "level": 2
-    },
-    "mui-7-pt": {
-        "id": "mui-7-pt",
-        "set": "awakenings",
-        "text": "Cite um objeto tangível que possa ser encontrado em sua casa",
-        "level": 2
-    },
-    "mui-8-pt": {
-        "id": "mui-8-pt",
-        "set": "awakenings",
-        "text": "Cite um animal não fictício",
-        "level": 2
-    },
-    "mui-9-pt": {
-        "id": "mui-9-pt",
-        "set": "awakenings",
-        "text": "Cite uma bebida ou líquido não fictício",
-        "level": 2
-    },
-    "mui-10-pt": {
-        "id": "mui-10-pt",
-        "set": "awakenings",
-        "text": "Cite uma corporação ou empresa não fictícia",
-        "level": 2
-    },
-    "mui-11-pt": {
-        "id": "mui-11-pt",
-        "set": "awakenings",
-        "text": "Cite um objeto tangível que você deu ou recebeu como presente",
-        "level": 2
-    },
-    "mui-12-pt": {
-        "id": "mui-12-pt",
-        "set": "awakenings",
-        "text": "Cite algo que você esperaria encontrar no oceano",
-        "level": 2
-    },
-    "mui-13-pt": {
-        "id": "mui-13-pt",
-        "set": "awakenings",
-        "text": "Cite uma música lançada nos últimos 50 anos",
-        "level": 2
-    },
-    "mui-14-pt": {
-        "id": "mui-14-pt",
-        "set": "awakenings",
-        "text": "Escreva uma palavra que comece com a letra \"J\"",
-        "level": 2
-    },
-    "mui-15-pt": {
-        "id": "mui-15-pt",
-        "set": "awakenings",
-        "text": "Cite uma banda ou músico não fictício",
-        "level": 2
-    },
-    "mui-16-pt": {
-        "id": "mui-16-pt",
-        "set": "awakenings",
-        "text": "Cite uma planta ou vegetal não fictício",
-        "level": 3
-    },
-    "mui-17-pt": {
-        "id": "mui-17-pt",
-        "set": "awakenings",
-        "text": "Cite uma peça de roupa não fictícia",
-        "level": 3
-    },
-    "mui-18-pt": {
-        "id": "mui-18-pt",
-        "set": "awakenings",
-        "text": "Cite um jogo lançado nos últimos 20 anos",
-        "level": 3
-    },
-    "mui-19-pt": {
-        "id": "mui-19-pt",
-        "set": "awakenings",
-        "text": "Escreva uma palavra com exatamente três letras",
-        "level": 3
-    },
-    "mui-20-pt": {
-        "id": "mui-20-pt",
-        "set": "awakenings",
-        "text": "Cite um inseto não fictício",
-        "level": 3
-    },
-    "mui-21-pt": {
-        "id": "mui-21-pt",
-        "set": "awakenings",
-        "text": "Cite uma comida ou prato não fictício",
-        "level": 3
-    },
-    "mui-22-pt": {
-        "id": "mui-22-pt",
-        "set": "awakenings",
-        "text": "Cite um personagem fictício de qualquer trabalho publicado",
-        "level": 3
-    },
-    "mui-23-pt": {
-        "id": "mui-23-pt",
-        "set": "awakenings",
-        "text": "Cite uma marca de automóvel não fictícia",
-        "level": 3
-    },
-    "mui-24-pt": {
-        "id": "mui-24-pt",
-        "set": "awakenings",
-        "text": "Cite um evento olímpico",
-        "level": 3
-    },
-    "mui-25-pt": {
-        "id": "mui-25-pt",
-        "set": "awakenings",
-        "text": "Cite um humor ou emoção",
-        "level": 3
-    },
-    "mui-26-pt": {
-        "id": "mui-26-pt",
-        "set": "awakenings",
-        "text": "Cite um tópico de estudo na escola ou universidade",
-        "level": 3
-    },
-    "mui-27-pt": {
-        "id": "mui-27-pt",
-        "set": "awakenings",
-        "text": "Cite um site que você visitou",
-        "level": 3
-    },
-    "mui-28-pt": {
-        "id": "mui-28-pt",
-        "set": "awakenings",
-        "text": "Cite um objeto tangível que você embalou para as férias",
-        "level": 3
-    },
-    "mui-29-pt": {
-        "id": "mui-29-pt",
-        "set": "awakenings",
-        "text": "Cite um programa ou aplicativo de software não fictício",
-        "level": 3
-    },
-    "mui-30-pt": {
-        "id": "mui-30-pt",
-        "set": "awakenings",
-        "text": "Cite um cargo ou profissão ocupado por alguém que você conheceu",
-        "level": 3
-    },
-    "mui-31-pt": {
-        "id": "mui-31-pt",
-        "set": "awakenings",
-        "text": "Cite um local fictício de qualquer trabalho publicado",
-        "level": 4
-    },
-    "mui-32-pt": {
-        "id": "mui-32-pt",
-        "set": "awakenings",
-        "text": "Cite algo que você comeu em um sanduíche",
-        "level": 4
-    },
-    "mui-33-pt": {
-        "id": "mui-33-pt",
-        "set": "awakenings",
-        "text": "Cite um objeto sólido não fictício que flutua na água",
-        "level": 4
-    },
-    "mui-34-pt": {
-        "id": "mui-34-pt",
-        "set": "awakenings",
-        "text": "Cite um dispositivo não fictício alimentado por bateria",
-        "level": 4
-    },
-    "mui-35-pt": {
-        "id": "mui-35-pt",
-        "set": "awakenings",
-        "text": "Cite um feriado não-ficcional",
-        "level": 4
-    },
-    "mui-36-pt": {
-        "id": "mui-36-pt",
-        "set": "awakenings",
-        "text": "Escreva um número",
-        "level": 4
-    },
-    "mui-37-pt": {
-        "id": "mui-37-pt",
-        "set": "awakenings",
-        "text": "Cite um veículo ou meio de transporte não fictício",
-        "level": 4
-    },
-    "mui-38-pt": {
-        "id": "mui-38-pt",
-        "set": "awakenings",
-        "text": "Cite um edifício, estrutura ou monumento não fictício",
-        "level": 4
-    },
-    "mui-39-pt": {
-        "id": "mui-39-pt",
-        "set": "awakenings",
-        "text": "Cite uma cor que você esperaria encontrar em uma caixa de giz de cera",
-        "level": 4
-    },
-    "mui-40-pt": {
-        "id": "mui-40-pt",
-        "set": "awakenings",
-        "text": "Cite uma parte do corpo não fictícia (humana ou não)",
-        "level": 4
-    }
+  "mui-1-pt": {
+    "id": "mui-1-pt",
+    "text": "Cite um local não fictício na Terra",
+    "level": 2,
+    "set": "base"
+  },
+  "mui-2-pt": {
+    "id": "mui-2-pt",
+    "text": "Cite um filme lançado nos últimos 50 anos",
+    "level": 2,
+    "set": "base"
+  },
+  "mui-3-pt": {
+    "id": "mui-3-pt",
+    "text": "Cite qualquer livro publicado",
+    "level": 2,
+    "set": "base"
+  },
+  "mui-4-pt": {
+    "id": "mui-4-pt",
+    "text": "Cite uma pessoa não-ficcional, viva ou morta",
+    "level": 2,
+    "set": "base"
+  },
+  "mui-5-pt": {
+    "id": "mui-5-pt",
+    "text": "Escreva uma palavra com exatamente seis letras",
+    "level": 2,
+    "set": "base"
+  },
+  "mui-6-pt": {
+    "id": "mui-6-pt",
+    "text": "Cite um programa de televisão que foi ao ar nos últimos 50 anos",
+    "level": 2,
+    "set": "base"
+  },
+  "mui-7-pt": {
+    "id": "mui-7-pt",
+    "text": "Cite um objeto tangível que possa ser encontrado em sua casa",
+    "level": 2,
+    "set": "base"
+  },
+  "mui-8-pt": {
+    "id": "mui-8-pt",
+    "text": "Cite um animal não fictício",
+    "level": 2,
+    "set": "base"
+  },
+  "mui-9-pt": {
+    "id": "mui-9-pt",
+    "text": "Cite uma bebida ou líquido não fictício",
+    "level": 2,
+    "set": "base"
+  },
+  "mui-10-pt": {
+    "id": "mui-10-pt",
+    "text": "Cite uma planta ou vegetal não fictício",
+    "level": 3,
+    "set": "base"
+  },
+  "mui-11-pt": {
+    "id": "mui-11-pt",
+    "text": "Cite uma peça de roupa não fictícia",
+    "level": 3,
+    "set": "base"
+  },
+  "mui-12-pt": {
+    "id": "mui-12-pt",
+    "text": "Cite um jogo lançado nos últimos 20 anos",
+    "level": 3,
+    "set": "base"
+  },
+  "mui-13-pt": {
+    "id": "mui-13-pt",
+    "text": "Escreva uma palavra com exatamente três letras",
+    "level": 3,
+    "set": "base"
+  },
+  "mui-14-pt": {
+    "id": "mui-14-pt",
+    "text": "Cite um inseto não fictício",
+    "level": 3,
+    "set": "base"
+  },
+  "mui-15-pt": {
+    "id": "mui-15-pt",
+    "text": "Cite uma comida ou prato não fictício",
+    "level": 3,
+    "set": "base"
+  },
+  "mui-16-pt": {
+    "id": "mui-16-pt",
+    "text": "Cite um personagem fictício de qualquer trabalho publicado",
+    "level": 3,
+    "set": "base"
+  },
+  "mui-17-pt": {
+    "id": "mui-17-pt",
+    "text": "Cite um feriado não-ficcional",
+    "level": 4,
+    "set": "base"
+  },
+  "mui-18-pt": {
+    "id": "mui-18-pt",
+    "text": "Escreva um número",
+    "level": 4,
+    "set": "base"
+  },
+  "mui-19-pt": {
+    "id": "mui-19-pt",
+    "text": "Cite um veículo ou meio de transporte não fictício",
+    "level": 4,
+    "set": "base"
+  },
+  "mui-20-pt": {
+    "id": "mui-20-pt",
+    "text": "Cite um edifício, estrutura ou monumento não fictício",
+    "level": 4,
+    "set": "base"
+  },
+  "mui-21-pt": {
+    "id": "mui-21-pt",
+    "text": "Cite uma cor que você esperaria encontrar em uma caixa de giz de cera",
+    "level": 4,
+    "set": "base"
+  },
+  "mui-22-pt": {
+    "id": "mui-22-pt",
+    "text": "Cite uma parte do corpo não fictícia (humana ou não)",
+    "level": 4,
+    "set": "base"
+  },
+  "mui-23-pt": {
+    "id": "mui-23-pt",
+    "text": "Cite um eletrodoméstico ou mobília não fictícia",
+    "level": 4,
+    "set": "base"
+  },
+  "mui-24-pt": {
+    "id": "mui-24-pt",
+    "text": "Cite uma ferramenta não fictícia",
+    "level": 4,
+    "set": "base"
+  },
+  "mui-25-pt": {
+    "id": "mui-25-pt",
+    "text": "Cite uma corporação ou empresa não fictícia",
+    "level": 2,
+    "set": "awakenings"
+  },
+  "mui-26-pt": {
+    "id": "mui-26-pt",
+    "text": "Cite um objeto tangível que você deu ou recebeu como presente",
+    "level": 2,
+    "set": "awakenings"
+  },
+  "mui-27-pt": {
+    "id": "mui-27-pt",
+    "text": "Cite algo que você esperaria encontrar no oceano",
+    "level": 2,
+    "set": "awakenings"
+  },
+  "mui-28-pt": {
+    "id": "mui-28-pt",
+    "text": "Cite uma música lançada nos últimos 50 anos",
+    "level": 2,
+    "set": "awakenings"
+  },
+  "mui-29-pt": {
+    "id": "mui-29-pt",
+    "text": "Escreva uma palavra que comece com a letra \"J\"",
+    "level": 2,
+    "set": "awakenings"
+  },
+  "mui-30-pt": {
+    "id": "mui-30-pt",
+    "text": "Cite uma banda ou músico não fictício",
+    "level": 2,
+    "set": "awakenings"
+  },
+  "mui-31-pt": {
+    "id": "mui-31-pt",
+    "text": "Cite uma marca de automóvel não fictícia",
+    "level": 3,
+    "set": "awakenings"
+  },
+  "mui-32-pt": {
+    "id": "mui-32-pt",
+    "text": "Cite um evento olímpico",
+    "level": 3,
+    "set": "awakenings"
+  },
+  "mui-33-pt": {
+    "id": "mui-33-pt",
+    "text": "Cite um humor ou emoção",
+    "level": 3,
+    "set": "awakenings"
+  },
+  "mui-34-pt": {
+    "id": "mui-34-pt",
+    "text": "Cite um tópico de estudo na escola ou universidade",
+    "level": 3,
+    "set": "awakenings"
+  },
+  "mui-35-pt": {
+    "id": "mui-35-pt",
+    "text": "Cite um site que você visitou",
+    "level": 3,
+    "set": "awakenings"
+  },
+  "mui-36-pt": {
+    "id": "mui-36-pt",
+    "text": "Cite um objeto tangível que você embalou para as férias",
+    "level": 3,
+    "set": "awakenings"
+  },
+  "mui-37-pt": {
+    "id": "mui-37-pt",
+    "text": "Cite um programa ou aplicativo de software não fictício",
+    "level": 3,
+    "set": "awakenings"
+  },
+  "mui-38-pt": {
+    "id": "mui-38-pt",
+    "text": "Cite um cargo ou profissão ocupado por alguém que você conheceu",
+    "level": 3,
+    "set": "awakenings"
+  },
+  "mui-39-pt": {
+    "id": "mui-39-pt",
+    "text": "Cite um local fictício de qualquer trabalho publicado",
+    "level": 4,
+    "set": "awakenings"
+  },
+  "mui-40-pt": {
+    "id": "mui-40-pt",
+    "text": "Cite algo que você comeu em um sanduíche",
+    "level": 4,
+    "set": "awakenings"
+  },
+  "mui-41-pt": {
+    "id": "mui-41-pt",
+    "text": "Cite um objeto sólido não fictício que flutua na água",
+    "level": 4,
+    "set": "awakenings"
+  },
+  "mui-42-pt": {
+    "id": "mui-42-pt",
+    "text": "Cite um dispositivo não fictício alimentado por bateria",
+    "level": 4,
+    "set": "awakenings"
+  },
+  "mui-43-pt": {
+    "id": "mui-43-pt",
+    "text": "Escreva uma palavra com exatamente quatro letras",
+    "level": 2,
+    "set": "renaissance"
+  }
 }
