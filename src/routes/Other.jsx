@@ -186,7 +186,22 @@ function Other() {
     }, {});
   };
 
-  const result = parseCategories();
+  // const result = parseCategories();
+
+  const parseInspirations = () => {
+    return rawData.reduce((acc, entry, index) => {
+      const id = `mui-${index + 1}-pt`;
+      acc[id] = {
+        id,
+        text: entry.text,
+        level: entry.level,
+        set: entry.set,
+      };
+      return acc;
+    }, {});
+  };
+
+  const result = parseInspirations();
 
   return (
     <Layout>
