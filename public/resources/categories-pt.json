@@ -1,0 +1,122 @@
+{
+  "ct-1-pt": {
+    "id": "ct-1-pt",
+    "text": "Abstrato"
+  },
+  "ct-2-pt": {
+    "id": "ct-2-pt",
+    "text": "Ação"
+  },
+  "ct-3-pt": {
+    "id": "ct-3-pt",
+    "text": "Adjetivo"
+  },
+  "ct-4-pt": {
+    "id": "ct-4-pt",
+    "text": "Animal"
+  },
+  "ct-5-pt": {
+    "id": "ct-5-pt",
+    "text": "Arte"
+  },
+  "ct-6-pt": {
+    "id": "ct-6-pt",
+    "text": "Artista"
+  },
+  "ct-7-pt": {
+    "id": "ct-7-pt",
+    "text": "Marca"
+  },
+  "ct-8-pt": {
+    "id": "ct-8-pt",
+    "text": "Personagem"
+  },
+  "ct-9-pt": {
+    "id": "ct-9-pt",
+    "text": "Roupa"
+  },
+  "ct-10-pt": {
+    "id": "ct-10-pt",
+    "text": "Criatura"
+  },
+  "ct-11-pt": {
+    "id": "ct-11-pt",
+    "text": "Data"
+  },
+  "ct-12-pt": {
+    "id": "ct-12-pt",
+    "text": "Comível"
+  },
+  "ct-13-pt": {
+    "id": "ct-13-pt",
+    "text": "Famoso"
+  },
+  "ct-14-pt": {
+    "id": "ct-14-pt",
+    "text": "Sentimento"
+  },
+  "ct-15-pt": {
+    "id": "ct-15-pt",
+    "text": "Jogo"
+  },
+  "ct-16-pt": {
+    "id": "ct-16-pt",
+    "text": "Figura Histórica"
+  },
+  "ct-17-pt": {
+    "id": "ct-17-pt",
+    "text": "Ideia"
+  },
+  "ct-18-pt": {
+    "id": "ct-18-pt",
+    "text": "Lenda"
+  },
+  "ct-19-pt": {
+    "id": "ct-19-pt",
+    "text": "Medieval"
+  },
+  "ct-20-pt": {
+    "id": "ct-20-pt",
+    "text": "Filme"
+  },
+  "ct-21-pt": {
+    "id": "ct-21-pt",
+    "text": "Música"
+  },
+  "ct-22-pt": {
+    "id": "ct-22-pt",
+    "text": "Fenômeno Natural"
+  },
+  "ct-23-pt": {
+    "id": "ct-23-pt",
+    "text": "Objeto"
+  },
+  "ct-24-pt": {
+    "id": "ct-24-pt",
+    "text": "Lugar"
+  },
+  "ct-25-pt": {
+    "id": "ct-25-pt",
+    "text": "Política"
+  },
+  "ct-26-pt": {
+    "id": "ct-26-pt",
+    "text": "Profissão"
+  },
+  "ct-27-pt": {
+    "id": "ct-27-pt",
+    "text": "Esporte"
+  },
+  "ct-28-pt": {
+    "id": "ct-28-pt",
+    "text": "Tecnologia"
+  },
+  "ct-29-pt": {
+    "id": "ct-29-pt",
+    "text": "Brinquedo"
+  },
+  "ct-30-pt": {
+    "id": "ct-30-pt",
+    "text": "Transporte"
+  }
+}

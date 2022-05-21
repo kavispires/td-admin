@@ -1,0 +1,122 @@
+{
+  "ct-1-en": {
+    "id": "ct-1-en",
+    "text": "Abstract"
+  },
+  "ct-2-en": {
+    "id": "ct-2-en",
+    "text": "Action"
+  },
+  "ct-3-en": {
+    "id": "ct-3-en",
+    "text": "Adjective"
+  },
+  "ct-4-en": {
+    "id": "ct-4-en",
+    "text": "Animal"
+  },
+  "ct-5-en": {
+    "id": "ct-5-en",
+    "text": "Art"
+  },
+  "ct-6-en": {
+    "id": "ct-6-en",
+    "text": "Artist"
+  },
+  "ct-7-en": {
+    "id": "ct-7-en",
+    "text": "Brand"
+  },
+  "ct-8-en": {
+    "id": "ct-8-en",
+    "text": "Character"
+  },
+  "ct-9-en": {
+    "id": "ct-9-en",
+    "text": "Clothing"
+  },
+  "ct-10-en": {
+    "id": "ct-10-en",
+    "text": "Creature"
+  },
+  "ct-11-en": {
+    "id": "ct-11-en",
+    "text": "Date"
+  },
+  "ct-12-en": {
+    "id": "ct-12-en",
+    "text": "Edible"
+  },
+  "ct-13-en": {
+    "id": "ct-13-en",
+    "text": "Famous Figure"
+  },
+  "ct-14-en": {
+    "id": "ct-14-en",
+    "text": "Feeling"
+  },
+  "ct-15-en": {
+    "id": "ct-15-en",
+    "text": "Game"
+  },
+  "ct-16-en": {
+    "id": "ct-16-en",
+    "text": "Historical Figure"
+  },
+  "ct-17-en": {
+    "id": "ct-17-en",
+    "text": "Idea"
+  },
+  "ct-18-en": {
+    "id": "ct-18-en",
+    "text": "Legend"
+  },
+  "ct-19-en": {
+    "id": "ct-19-en",
+    "text": "Medieval"
+  },
+  "ct-20-en": {
+    "id": "ct-20-en",
+    "text": "Movie"
+  },
+  "ct-21-en": {
+    "id": "ct-21-en",
+    "text": "Music"
+  },
+  "ct-22-en": {
+    "id": "ct-22-en",
+    "text": "Natural Phenomenon"
+  },
+  "ct-23-en": {
+    "id": "ct-23-en",
+    "text": "Object"
+  },
+  "ct-24-en": {
+    "id": "ct-24-en",
+    "text": "Place"
+  },
+  "ct-25-en": {
+    "id": "ct-25-en",
+    "text": "Politics"
+  },
+  "ct-26-en": {
+    "id": "ct-26-en",
+    "text": "Profession"
+  },
+  "ct-27-en": {
+    "id": "ct-27-en",
+    "text": "Sport"
+  },
+  "ct-28-en": {
+    "id": "ct-28-en",
+    "text": "Technology"
+  },
+  "ct-29-en": {
+    "id": "ct-29-en",
+    "text": "Toy"
+  },
+  "ct-30-en": {
+    "id": "ct-30-en",
+    "text": "Transportation"
+  }
+}

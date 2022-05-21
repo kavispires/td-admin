@@ -160,7 +160,33 @@ function Other() {
     }, {});
   };
 
-  const result = parseLinhasCruzadas();
+  // const result = parseLinhasCruzadas();
+
+  const parseGaleriaDeSonhos = () => {
+    return rawData.reduce((acc, entry, index) => {
+      const id = `gs-${index + 1}-pt`;
+      acc[id] = {
+        id,
+        text: entry.text,
+      };
+      return acc;
+    }, {});
+  };
+
+  // const result = parseGaleriaDeSonhos();
+
+  const parseCategories = () => {
+    return rawData.reduce((acc, entry, index) => {
+      const id = `ct-${index + 1}-pt`;
+      acc[id] = {
+        id,
+        text: entry.category,
+      };
+      return acc;
+    }, {});
+  };
+
+  const result = parseCategories();
 
   return (
     <Layout>
@@ -194,3 +220,5 @@ function parse(a) {
 }
 
 const db = [];
+
+const rawData = [];
