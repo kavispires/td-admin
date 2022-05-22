@@ -85,7 +85,7 @@
   },
   "ct-22-pt": {
     "id": "ct-22-pt",
-    "text": "Fenômeno Natural"
+    "text": "Natural"
   },
   "ct-23-pt": {
     "id": "ct-23-pt",
@@ -118,5 +118,13 @@
   "ct-30-pt": {
     "id": "ct-30-pt",
     "text": "Transporte"
+  },
+  "ct-31-pt": {
+    "id": "ct-31-pt",
+    "text": "Corpo"
+  },
+  "ct-32-pt": {
+    "id": "ct-32-pt",
+    "text": "Fenômeno"
   }
 }
