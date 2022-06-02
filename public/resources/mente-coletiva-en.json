@@ -51,7 +51,7 @@
     "id": "m-9-en",
     "prefix": "What are",
     "number": 4,
-    "suffix": "things there are"
+    "suffix": "things there are 7 of?"
   },
   "m-10-en": {
     "id": "m-10-en",
@@ -261,7 +261,7 @@
     "id": "m-44-en",
     "prefix": "What are",
     "number": 4,
-    "suffix": "things there are"
+    "suffix": "things there are 10 of"
   },
   "m-45-en": {
     "id": "m-45-en",
@@ -765,7 +765,7 @@
     "id": "m-128-en",
     "prefix": "what are",
     "number": 4,
-    "suffix": "animals with"
+    "suffix": "animals with 4-letter names"
   },
   "m-129-en": {
     "id": "m-129-en",
@@ -1005,7 +1005,7 @@
     "id": "m-168-en",
     "prefix": "What are",
     "number": 3,
-    "suffix": "things that if broken"
+    "suffix": "things that if broken, can't be fixed?"
   },
   "m-169-en": {
     "id": "m-169-en",
@@ -2247,7 +2247,7 @@
     "id": "m-375-en",
     "prefix": "What are",
     "number": 4,
-    "suffix": "foods only"
+    "suffix": "foods only 3 letters long?"
   },
   "m-376-en": {
     "id": "m-376-en",

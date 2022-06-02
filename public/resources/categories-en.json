@@ -85,7 +85,7 @@
   },
   "ct-22-en": {
     "id": "ct-22-en",
-    "text": "Natural Phenomenon"
+    "text": "Natural"
   },
   "ct-23-en": {
     "id": "ct-23-en",
@@ -118,5 +118,13 @@
   "ct-30-en": {
     "id": "ct-30-en",
     "text": "Transportation"
+  },
+  "ct-31-en": {
+    "id": "ct-31-en",
+    "text": "Body"
+  },
+  "ct-32-en": {
+    "id": "ct-32-en",
+    "text": "Phenomenon"
   }
 }
