@@ -1029,5 +1029,20 @@
       "a-1054-pt": "Na força do ódio",
       "a-995-pt": "Passar raiva"
     }
+  },
+  "ax-86-pt": {
+    "id": "ax-86-pt",
+    "theme": "falta",
+    "cards": {
+      "a-106-pt": "Falta de comunicação",
+      "a-444-pt": "Falta de caráter",
+      "a-740-pt": "Falta de paciência",
+      "a-934-pt": "Falta de melanina",
+      "a-1067-pt": "Falta de educação",
+      "a-1068-pt": "Falta de respeito",
+      "a-1069-pt": "Falta de juízo",
+      "a-1070-pt": "Falta do que fazer",
+      "a-1071-pt": "Falta de vergonha na cara"
+    }
   }
 }
