@@ -51,6 +51,8 @@
       "a-436-en": "No hard feelings",
       "a-465-en": "Mixed feelings",
       "a-591-en": "Haters gonna hate",
+      "a-585-en": "Emotionally unavailable",
+      "a-586-en": "Emotionally unstable",
       "a-1071-en": "Ugly crying",
       "a-759-en": "Sad happy",
       "a-1134-en": "Sad okay",
@@ -150,8 +152,7 @@
       "a-124-en": "A done deal",
       "a-65-en": "Senior discount",
       "a-133-en": "Sound investment",
-      "a-1049-en": "Venture capitalists",
-      "a-1166-en": "Cash grab"
+      "a-1049-en": "Venture capitalists"
     }
   },
   "ax-11-en": {
@@ -687,26 +688,6 @@
       "a-98-en": "Low visibility",
       "a-1135-en": "Night vision",
       "a-1136-en": "See for yourself"
-    }
-  },
-  "ax-52-en": {
-    "id": "ax-52-en",
-    "theme": "emotion",
-    "cards": {
-      "a-585-en": "Emotionally unavailable",
-      "a-586-en": "Emotionally unstable",
-      "a-1153-en": "Emotional damage",
-      "a-1154-en": "Emotional support"
-    }
-  },
-  "ax-53-en": {
-    "id": "ax-53-en",
-    "theme": "secret",
-    "cards": {
-      "a-238-en": "Top secret",
-      "a-958-en": "Secretly sensitive",
-      "a-1164-en": "Secret menu",
-      "a-1165-en": "Secret society"
     }
   }
 }

@@ -58,7 +58,10 @@
       "a-781-pt": "Boca livre",
       "a-168-pt": "Poupe saliva",
       "a-782-pt": "De lamber os beiços",
-      "a-780-pt": "Fazer uma boquinha"
+      "a-780-pt": "Fazer uma boquinha",
+      "a-1046-pt": "Beijo grego",
+      "a-1006-pt": "Beijo no ombro",
+      "a-881-pt": "Língua de sogra"
     }
   },
   "ax-6-pt": {
@@ -96,7 +99,7 @@
     "cards": {
       "a-707-pt": "Descendente de pobre",
       "a-11-pt": "Antepassados",
-      "a-223-pt": "Caracteristica hereditária",
+      "a-223-pt": "Característica hereditária",
       "a-998-pt": "Filhinho de papai"
     }
   },
@@ -146,7 +149,9 @@
       "a-13-pt": "Anuidade",
       "a-17-pt": "Aposentadoria antecipada",
       "a-237-pt": "Crise de meia idade",
-      "a-635-pt": "Hoje não"
+      "a-635-pt": "Hoje não",
+      "a-500-pt": "Período de tolerância",
+      "a-514-pt": "Promessa de ano novo"
     }
   },
   "ax-14-pt": {
@@ -159,7 +164,10 @@
       "a-216-pt": "Baixa auto-estima",
       "a-218-pt": "Bodar",
       "a-999-pt": "Depressão profunda",
-      "a-847-pt": "Só lamento"
+      "a-847-pt": "Só lamento",
+      "a-534-pt": "Ritmo de sofrência",
+      "a-1061-pt": "Chorar sem motivo",
+      "a-1057-pt": "Chorinho"
     }
   },
   "ax-15-pt": {
@@ -174,7 +182,9 @@
       "a-393-pt": "Tiro no escuro",
       "a-293-pt": "Ideia de jerico",
       "a-123-pt": "Há anos luz",
-      "a-809-pt": "Luz na passarela que lá vem ela"
+      "a-745-pt": "Ideia errada",
+      "a-809-pt": "Luz na passarela que lá vem ela",
+      "a-1067-pt": "Ideia mirabolante"
     }
   },
   "ax-16-pt": {
@@ -234,7 +244,7 @@
       "a-191-pt": "Sono de beleza",
       "a-521-pt": "Que deselegante!",
       "a-279-pt": "Fino e elegante",
-      "a-589-pt": "Tribufú"
+      "a-1032-pt": "Cansar a beleza"
     }
   },
   "ax-20-pt": {
@@ -267,7 +277,8 @@
       "a-36-pt": "Cagar de medo",
       "a-141-pt": "Não caga nem sai da moita",
       "a-979-pt": "Coliformes fecais",
-      "a-980-pt": "Ir à merda"
+      "a-980-pt": "Ir à merda",
+      "a-802-pt": "Estar tudo uma bosta"
     }
   },
   "ax-23-pt": {
@@ -294,7 +305,8 @@
       "a-906-pt": "Pular carnaval",
       "a-1005-pt": "Festa surpresa",
       "a-997-pt": "Com quem será...",
-      "a-977-pt": "Esquecer o aniversário de casamento"
+      "a-977-pt": "Esquecer o aniversário de casamento",
+      "a-498-pt": "Penetra"
     }
   },
   "ax-25-pt": {
@@ -328,7 +340,8 @@
       "a-26-pt": "Bem na hora",
       "a-47-pt": "Cheio de nove horas",
       "a-291-pt": "Hora da verdade",
-      "a-292-pt": "Horário eleitoral gratuito"
+      "a-292-pt": "Horário eleitoral gratuito",
+      "a-519-pt": "Quando for assim..."
     }
   },
   "ax-28-pt": {
@@ -369,14 +382,17 @@
   },
   "ax-30-pt": {
     "id": "ax-30-pt",
-    "theme": "nerd;;inteligência",
+    "theme": "nerd;;inteligência;;entendimento",
     "cards": {
       "a-30-pt": "Briga de nerds",
       "a-41-pt": "CDF",
       "a-299-pt": "Inteligência fora do normal",
       "a-177-pt": "Raciocínio crítico",
       "a-552-pt": "Ser expert no assunto",
-      "a-829-pt": "Ser \"profissa\""
+      "a-829-pt": "Ser \"profissa\"",
+      "a-255-pt": "Entender a ziquizira",
+      "a-256-pt": "Entender bulhufas",
+      "a-536-pt": "Sabichão"
     }
   },
   "ax-31-pt": {
@@ -388,7 +404,8 @@
       "a-158-pt": "Parceiros no crime",
       "a-133-pt": "Matar aula",
       "a-644-pt": "Matar no peito",
-      "a-989-pt": "Planejar um assassinato"
+      "a-989-pt": "Planejar um assassinato",
+      "a-788-pt": "Matar a saudade"
     }
   },
   "ax-32-pt": {
@@ -412,7 +429,11 @@
       "a-797-pt": "Não ter mais idade para isso",
       "a-798-pt": "Já foi o tempo",
       "a-239-pt": "Daqui a pouco",
-      "a-717-pt": "Pra ontem"
+      "a-717-pt": "Pra ontem",
+      "a-259-pt": "Esperar demais",
+      "a-260-pt": "Espere sua vez",
+      "a-656-pt": "Atrasada, mas a caminho",
+      "a-1020-pt": "Acordar cedo para me atrasar com calma"
     }
   },
   "ax-34-pt": {
@@ -523,7 +544,11 @@
       "a-923-pt": "Rico em cálcio",
       "a-459-pt": "Investimento seguro",
       "a-882-pt": "Black fraude",
-      "a-884-pt": "Pra gringo é mais caro"
+      "a-884-pt": "Pra gringo é mais caro",
+      "a-759-pt": "Pecado capital",
+      "a-559-pt": "Símbolo de status",
+      "a-1051-pt": "Na volta a gente compra",
+      "a-937-pt": "Muquirana"
     }
   },
   "ax-43-pt": {
@@ -541,7 +566,8 @@
       "a-900-pt": "Descer o cacete",
       "a-925-pt": "Meter o cacete",
       "a-897-pt": "Quebrar o pau",
-      "a-565-pt": "Super dotado"
+      "a-565-pt": "Super dotado",
+      "a-1078-pt": "Dar pau"
     }
   },
   "ax-44-pt": {
@@ -573,7 +599,8 @@
       "a-375-pt": "Rir pra não chorar",
       "a-383-pt": "Sem medo de ser feliz",
       "a-939-pt": "Rachar de rir",
-      "a-890-pt": "Para nossa alegria"
+      "a-890-pt": "Para nossa alegria",
+      "a-913-pt": "rs"
     }
   },
   "ax-47-pt": {
@@ -664,7 +691,8 @@
       "a-469-pt": "Mal que vem pro bem",
       "a-210-pt": "Antes e depois",
       "a-20-pt": "Atalho",
-      "a-206-pt": "Acima da média"
+      "a-206-pt": "Acima da média",
+      "a-1029-pt": "Ir pro brejo"
     }
   },
   "ax-56-pt": {
@@ -818,7 +846,8 @@
       "a-855-pt": "Peido cheiroso",
       "a-856-pt": "Peido silencioso",
       "a-956-pt": "Bunda suculenta",
-      "a-634-pt": "Arrombado"
+      "a-634-pt": "Arrombado",
+      "a-789-pt": "Exame de próstata"
     }
   },
   "ax-68-pt": {
@@ -860,7 +889,8 @@
       "a-119-pt": "Força interior",
       "a-98-pt": "Esforço hercúleo",
       "a-949-pt": "Estar fortinho",
-      "a-950-pt": "Parrudinho"
+      "a-950-pt": "Parrudinho",
+      "a-726-pt": "Esconder fraqueza"
     }
   },
   "ax-71-pt": {
@@ -967,7 +997,12 @@
     "cards": {
       "a-883-pt": "Alerta vermelho",
       "a-7-pt": "Alarme falso",
-      "a-560-pt": "Sinal de emergência"
+      "a-560-pt": "Sinal de emergência",
+      "a-386-pt": "Sinais de atenção",
+      "a-904-pt": "Não ter perigo",
+      "a-905-pt": "Alta periculosidade",
+      "a-350-pt": "Perigo iminente",
+      "a-376-pt": "Risco de vida"
     }
   },
   "ax-80-pt": {
@@ -975,10 +1010,13 @@
     "theme": "diferença",
     "cards": {
       "a-194-pt": "Uma perspectiva diferente",
-      "a-632-pt": "A diferença de afetivo e efetivo",
+      "a-632-pt": "A diferença entre afetivo e efetivo",
       "a-1063-pt": "A diferença entre barango e brega",
       "a-1064-pt": "A diferença entre macaco e chipanzé",
-      "a-1065-pt": "A diferença entre agente e a gente"
+      "a-1065-pt": "A diferença entre agente e a gente",
+      "a-1081-pt": "A diferença entre o charme e o funk",
+      "a-1048-pt": "Expectativa vs realidade",
+      "a-914-pt": "Besta ou bocó?"
     }
   },
   "ax-81-pt": {
@@ -999,7 +1037,9 @@
       "a-880-pt": "Dá o play macaco",
       "a-968-pt": "Acordar com a macaca",
       "a-970-pt": "Macacos me mordam",
-      "a-1064-pt": "A diferença entre macaco e chipanzé"
+      "a-1064-pt": "A diferença entre macaco e chipanzé",
+      "a-969-pt": "Pagar mico",
+      "a-971-pt": "Fazer macaquice"
     }
   },
   "ax-83-pt": {
@@ -1032,17 +1072,105 @@
   },
   "ax-86-pt": {
     "id": "ax-86-pt",
-    "theme": "falta",
+    "theme": "feio;;horrivel",
     "cards": {
-      "a-106-pt": "Falta de comunicação",
-      "a-444-pt": "Falta de caráter",
-      "a-740-pt": "Falta de paciência",
-      "a-934-pt": "Falta de melanina",
-      "a-1067-pt": "Falta de educação",
-      "a-1068-pt": "Falta de respeito",
-      "a-1069-pt": "Falta de juízo",
-      "a-1070-pt": "Falta do que fazer",
-      "a-1071-pt": "Falta de vergonha na cara"
+      "a-589-pt": "Tribufú",
+      "a-1015-pt": "Lambisgóia",
+      "a-899-pt": "Escorraçado"
+    }
+  },
+  "ax-87-pt": {
+    "id": "ax-87-pt",
+    "theme": "ela;;mulher",
+    "cards": {
+      "a-713-pt": "Ou ela ou eu",
+      "a-756-pt": "Rainha da sofrência",
+      "a-765-pt": "Lipada e siliconada",
+      "a-783-pt": "Mulher de fases",
+      "a-1034-pt": "Maria mole",
+      "a-1028-pt": "Grávida de Taubaté",
+      "a-1027-pt": "As branquelas",
+      "a-886-pt": "Vixi Maria",
+      "a-864-pt": "Hilda Furação"
+    }
+  },
+  "ax-88-pt": {
+    "id": "ax-88-pt",
+    "theme": "portugues;;gramatica",
+    "cards": {
+      "a-732-pt": "Expressões idiomáticas",
+      "a-805-pt": "Frase de efeito",
+      "a-361-pt": "Pra bom entendedor, poucas palavras bastam",
+      "a-212-pt": "Argumento válido",
+      "a-603-pt": "Conjugação verbal",
+      "a-243-pt": "De poucas palavras",
+      "a-342-pt": "Palavra de honra",
+      "a-384-pt": "Sem palavras",
+      "a-887-pt": "Palavra de baixo calão",
+      "a-1068-pt": "Palavra proparoxítona",
+      "a-614-pt": "Pretérito mais que perfeito",
+      "a-650-pt": "Porque é junto ou separado?",
+      "a-1069-pt": "Sílaba tônica"
+    }
+  },
+  "ax-89-pt": {
+    "id": "ax-89-pt",
+    "theme": "distancia",
+    "cards": {
+      "a-731-pt": "Ir longe demais",
+      "a-310-pt": "Longo prazo",
+      "a-1080-pt": "Estar longe de ser verdade",
+      "a-154-pt": "Onde Judas perdeu as botas"
+    }
+  },
+  "ax-90-pt": {
+    "id": "ax-90-pt",
+    "theme": "corpo",
+    "cards": {
+      "a-741-pt": "Estar pregando de suor",
+      "a-770-pt": "Corpo fechado",
+      "a-972-pt": "Jogo de cintura",
+      "a-957-pt": "Quilos mortais"
+    }
+  },
+  "ax-91-pt": {
+    "id": "ax-91-pt",
+    "theme": "bom;;positivo;;otimo;;joia",
+    "cards": {
+      "a-750-pt": "Bom pra caramba",
+      "a-818-pt": "Não ser bom em nada",
+      "a-219-pt": "Bom exemplo",
+      "a-361-pt": "Pra bom entendedor, poucas palavras bastam",
+      "a-422-pt": "De bom grado",
+      "a-478-pt": "Muito bom pra ser verdade",
+      "a-605-pt": "Bom partido",
+      "a-702-pt": "Acho um pouco bom",
+      "a-888-pt": "Ser bom demais da conta",
+      "a-828-pt": "Manjar bem",
+      "a-74-pt": "Deixar bacana",
+      "a-490-pt": "O melhor de tudo",
+      "a-539-pt": "Satisfação garantida",
+      "a-653-pt": "Mandar bem"
+    }
+  },
+  "ax-92-pt": {
+    "id": "ax-92-pt",
+    "theme": "serio;;apatico",
+    "cards": {
+      "a-806-pt": "Fora do sério",
+      "a-45-pt": "Chato de galocha",
+      "a-570-pt": "Tapado",
+      "a-572-pt": "Tédio",
+      "a-914-pt": "Besta ou bocó?"
+    }
+  },
+  "ax-93-pt": {
+    "id": "ax-93-pt",
+    "theme": "situação-tensa",
+    "cards": {
+      "a-1042-pt": "Complô",
+      "a-1043-pt": "Tramoia",
+      "a-1017-pt": "Cheio de fricote"
     }
   }
 }

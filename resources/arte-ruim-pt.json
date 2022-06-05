@@ -1111,7 +1111,7 @@
   },
   "a-223-pt": {
     "id": "a-223-pt",
-    "text": "Caracteristica hereditária",
+    "text": "Característica hereditária",
     "level": 2
   },
   "a-224-pt": {
@@ -1271,7 +1271,7 @@
   },
   "a-255-pt": {
     "id": "a-255-pt",
-    "text": "Entender a ziquizira",
+    "text": "Entender a explicação",
     "level": 2
   },
   "a-256-pt": {
@@ -1316,7 +1316,7 @@
   },
   "a-264-pt": {
     "id": "a-264-pt",
-    "text": "Estar na pindaiba",
+    "text": "Estar na pindaíba",
     "level": 2
   },
   "a-265-pt": {
@@ -2631,7 +2631,7 @@
   },
   "a-527-pt": {
     "id": "a-527-pt",
-    "text": "Repercursão negativa",
+    "text": "Repercussão negativa",
     "level": 3
   },
   "a-528-pt": {
@@ -3156,7 +3156,7 @@
   },
   "a-632-pt": {
     "id": "a-632-pt",
-    "text": "A diferença de afetivo e efetivo",
+    "text": "A diferença entre afetivo e efetivo",
     "level": 1
   },
   "a-633-pt": {
@@ -5331,117 +5331,77 @@
   },
   "a-1067-pt": {
     "id": "a-1067-pt",
-    "text": "Falta de educação",
-    "level": 3
+    "text": "Ideia mirabolante",
+    "level": 1
   },
   "a-1068-pt": {
     "id": "a-1068-pt",
-    "text": "Falta de respeito",
+    "text": "Palavra proparoxítona",
     "level": 3
   },
   "a-1069-pt": {
     "id": "a-1069-pt",
-    "text": "Falta de juízo",
-    "level": 3
+    "text": "Sílaba tônica",
+    "level": 2
   },
   "a-1070-pt": {
     "id": "a-1070-pt",
-    "text": "Falta do que fazer",
+    "text": "Obviamente esdrúxulo",
     "level": 3
   },
   "a-1071-pt": {
     "id": "a-1071-pt",
-    "text": "Falta de vergonha na cara",
+    "text": "Trêbado",
     "level": 2
   },
   "a-1072-pt": {
     "id": "a-1072-pt",
-    "text": "Carne de burro não é transparente",
-    "level": 1
+    "text": "Não ter lógica nenhuma",
+    "level": 3
   },
   "a-1073-pt": {
     "id": "a-1073-pt",
-    "text": "Brilho isotrópico",
+    "text": "Pokémon",
     "level": 1
   },
   "a-1074-pt": {
     "id": "a-1074-pt",
-    "text": "Limpar a barra",
+    "text": "Não é a mamãe",
     "level": 2
   },
   "a-1075-pt": {
     "id": "a-1075-pt",
-    "text": "Chegar como quem não quer nada",
-    "level": 3
+    "text": "Áudio longo",
+    "level": 1
   },
   "a-1076-pt": {
     "id": "a-1076-pt",
-    "text": "Não ter nem comparação ",
-    "level": 1
+    "text": "Minimizar todas as janelas",
+    "level": 2
   },
   "a-1077-pt": {
     "id": "a-1077-pt",
-    "text": "Colocando as tripas pra fora",
+    "text": "Ticket alimentação",
     "level": 1
   },
   "a-1078-pt": {
     "id": "a-1078-pt",
-    "text": "Sem cerimônia",
-    "level": 2
+    "text": "Dar pau",
+    "level": 1
   },
   "a-1079-pt": {
     "id": "a-1079-pt",
-    "text": "Sem condições",
-    "level": 3
+    "text": "Galinha trans",
+    "level": 1
   },
   "a-1080-pt": {
     "id": "a-1080-pt",
-    "text": "Quem nasce em Tilambuco",
-    "level": 2
+    "text": "Estar longe de ser verdade",
+    "level": 3
   },
   "a-1081-pt": {
     "id": "a-1081-pt",
-    "text": "De vida ou morte",
-    "level": 2
-  },
-  "a-1082-pt": {
-    "id": "a-1082-pt",
-    "text": "Cobrir os rastros",
-    "level": 2
-  },
-  "a-1083-pt": {
-    "id": "a-1083-pt",
-    "text": "Nada contra",
-    "level": 2
-  },
-  "a-1084-pt": {
-    "id": "a-1084-pt",
-    "text": "Dormir mais que a cama",
-    "level": 1
-  },
-  "a-1085-pt": {
-    "id": "a-1085-pt",
-    "text": "Falar que bem pobre na chuva",
-    "level": 1
-  },
-  "a-1086-pt": {
-    "id": "a-1086-pt",
-    "text": "Que desgraça!",
-    "level": 3
-  },
-  "a-1087-pt": {
-    "id": "a-1087-pt",
-    "text": "Mas enfim né gente",
-    "level": 3
-  },
-  "a-1088-pt": {
-    "id": "a-1088-pt",
-    "text": "Passado distante",
-    "level": 2
-  },
-  "a-1089-pt": {
-    "id": "a-1089-pt",
-    "text": "Cotovelada na costela",
+    "text": "A diferença entre o charme e o funk",
     "level": 1
   }
 }
