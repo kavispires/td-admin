@@ -188,20 +188,33 @@ function Other() {
 
   // const result = parseCategories();
 
-  const parseInspirations = () => {
+  // const parseInspirations = () => {
+  //   return rawData.reduce((acc, entry, index) => {
+  //     const id = `mui-${index + 1}-pt`;
+  //     acc[id] = {
+  //       id,
+  //       text: entry.text,
+  //       level: entry.level,
+  //       set: entry.set,
+  //     };
+  //     return acc;
+  //   }, {});
+  // };
+
+  // const result = parseInspirations();
+
+  const parseAdjectives = () => {
     return rawData.reduce((acc, entry, index) => {
-      const id = `mui-${index + 1}-pt`;
+      const id = `adj-${index + 1}-pt`;
       acc[id] = {
         id,
-        text: entry.text,
-        level: entry.level,
-        set: entry.set,
+        text: entry.texto,
       };
       return acc;
     }, {});
   };
 
-  const result = parseInspirations();
+  const result = parseAdjectives();
 
   return (
     <Layout>
