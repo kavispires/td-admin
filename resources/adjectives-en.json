@@ -1,0 +1,882 @@
+{
+  "adj-1-en": {
+    "id": "adj-1-en",
+    "text": "acclaimed"
+  },
+  "adj-2-en": {
+    "id": "adj-2-en",
+    "text": "accomplished"
+  },
+  "adj-3-en": {
+    "id": "adj-3-en",
+    "text": "admired"
+  },
+  "adj-4-en": {
+    "id": "adj-4-en",
+    "text": "adorable"
+  },
+  "adj-5-en": {
+    "id": "adj-5-en",
+    "text": "adventurous"
+  },
+  "adj-6-en": {
+    "id": "adj-6-en",
+    "text": "aggressive"
+  },
+  "adj-7-en": {
+    "id": "adj-7-en",
+    "text": "ambitious"
+  },
+  "adj-8-en": {
+    "id": "adj-8-en",
+    "text": "amusing"
+  },
+  "adj-9-en": {
+    "id": "adj-9-en",
+    "text": "analytical"
+  },
+  "adj-10-en": {
+    "id": "adj-10-en",
+    "text": "ancient"
+  },
+  "adj-11-en": {
+    "id": "adj-11-en",
+    "text": "annoying"
+  },
+  "adj-12-en": {
+    "id": "adj-12-en",
+    "text": "antique"
+  },
+  "adj-13-en": {
+    "id": "adj-13-en",
+    "text": "artistic"
+  },
+  "adj-14-en": {
+    "id": "adj-14-en",
+    "text": "asian"
+  },
+  "adj-15-en": {
+    "id": "adj-15-en",
+    "text": "assertive"
+  },
+  "adj-16-en": {
+    "id": "adj-16-en",
+    "text": "awesome"
+  },
+  "adj-17-en": {
+    "id": "adj-17-en",
+    "text": "bad"
+  },
+  "adj-18-en": {
+    "id": "adj-18-en",
+    "text": "baked"
+  },
+  "adj-19-en": {
+    "id": "adj-19-en",
+    "text": "balanced"
+  },
+  "adj-20-en": {
+    "id": "adj-20-en",
+    "text": "beautiful"
+  },
+  "adj-21-en": {
+    "id": "adj-21-en",
+    "text": "belligerent"
+  },
+  "adj-22-en": {
+    "id": "adj-22-en",
+    "text": "bent"
+  },
+  "adj-23-en": {
+    "id": "adj-23-en",
+    "text": "bitter"
+  },
+  "adj-24-en": {
+    "id": "adj-24-en",
+    "text": "bizarre"
+  },
+  "adj-25-en": {
+    "id": "adj-25-en",
+    "text": "boisterous"
+  },
+  "adj-26-en": {
+    "id": "adj-26-en",
+    "text": "brave"
+  },
+  "adj-27-en": {
+    "id": "adj-27-en",
+    "text": "breezy"
+  },
+  "adj-28-en": {
+    "id": "adj-28-en",
+    "text": "bright"
+  },
+  "adj-29-en": {
+    "id": "adj-29-en",
+    "text": "brilliant"
+  },
+  "adj-30-en": {
+    "id": "adj-30-en",
+    "text": "broken"
+  },
+  "adj-31-en": {
+    "id": "adj-31-en",
+    "text": "buff"
+  },
+  "adj-32-en": {
+    "id": "adj-32-en",
+    "text": "calm"
+  },
+  "adj-33-en": {
+    "id": "adj-33-en",
+    "text": "cantankerous"
+  },
+  "adj-34-en": {
+    "id": "adj-34-en",
+    "text": "caring"
+  },
+  "adj-35-en": {
+    "id": "adj-35-en",
+    "text": "carnivorous"
+  },
+  "adj-36-en": {
+    "id": "adj-36-en",
+    "text": "charming"
+  },
+  "adj-37-en": {
+    "id": "adj-37-en",
+    "text": "cheerful"
+  },
+  "adj-38-en": {
+    "id": "adj-38-en",
+    "text": "childish"
+  },
+  "adj-39-en": {
+    "id": "adj-39-en",
+    "text": "chilly"
+  },
+  "adj-40-en": {
+    "id": "adj-40-en",
+    "text": "civil"
+  },
+  "adj-41-en": {
+    "id": "adj-41-en",
+    "text": "cloudy"
+  },
+  "adj-42-en": {
+    "id": "adj-42-en",
+    "text": "cold"
+  },
+  "adj-43-en": {
+    "id": "adj-43-en",
+    "text": "colorful"
+  },
+  "adj-44-en": {
+    "id": "adj-44-en",
+    "text": "comical"
+  },
+  "adj-45-en": {
+    "id": "adj-45-en",
+    "text": "compact"
+  },
+  "adj-46-en": {
+    "id": "adj-46-en",
+    "text": "competent"
+  },
+  "adj-47-en": {
+    "id": "adj-47-en",
+    "text": "complex"
+  },
+  "adj-48-en": {
+    "id": "adj-48-en",
+    "text": "complicated"
+  },
+  "adj-49-en": {
+    "id": "adj-49-en",
+    "text": "composed"
+  },
+  "adj-50-en": {
+    "id": "adj-50-en",
+    "text": "conceited"
+  },
+  "adj-51-en": {
+    "id": "adj-51-en",
+    "text": "concrete"
+  },
+  "adj-52-en": {
+    "id": "adj-52-en",
+    "text": "confident"
+  },
+  "adj-53-en": {
+    "id": "adj-53-en",
+    "text": "conventional"
+  },
+  "adj-54-en": {
+    "id": "adj-54-en",
+    "text": "cool"
+  },
+  "adj-55-en": {
+    "id": "adj-55-en",
+    "text": "cranky"
+  },
+  "adj-56-en": {
+    "id": "adj-56-en",
+    "text": "cruel"
+  },
+  "adj-57-en": {
+    "id": "adj-57-en",
+    "text": "crunchy"
+  },
+  "adj-58-en": {
+    "id": "adj-58-en",
+    "text": "curved"
+  },
+  "adj-59-en": {
+    "id": "adj-59-en",
+    "text": "dangerous"
+  },
+  "adj-60-en": {
+    "id": "adj-60-en",
+    "text": "deadly"
+  },
+  "adj-61-en": {
+    "id": "adj-61-en",
+    "text": "deafening"
+  },
+  "adj-62-en": {
+    "id": "adj-62-en",
+    "text": "delicious"
+  },
+  "adj-63-en": {
+    "id": "adj-63-en",
+    "text": "delightful"
+  },
+  "adj-64-en": {
+    "id": "adj-64-en",
+    "text": "demanding"
+  },
+  "adj-65-en": {
+    "id": "adj-65-en",
+    "text": "demure"
+  },
+  "adj-66-en": {
+    "id": "adj-66-en",
+    "text": "dependable"
+  },
+  "adj-67-en": {
+    "id": "adj-67-en",
+    "text": "despised"
+  },
+  "adj-68-en": {
+    "id": "adj-68-en",
+    "text": "destructive"
+  },
+  "adj-69-en": {
+    "id": "adj-69-en",
+    "text": "disgusting"
+  },
+  "adj-70-en": {
+    "id": "adj-70-en",
+    "text": "distracting"
+  },
+  "adj-71-en": {
+    "id": "adj-71-en",
+    "text": "dramatic"
+  },
+  "adj-72-en": {
+    "id": "adj-72-en",
+    "text": "edible"
+  },
+  "adj-73-en": {
+    "id": "adj-73-en",
+    "text": "elaborate"
+  },
+  "adj-74-en": {
+    "id": "adj-74-en",
+    "text": "elegant"
+  },
+  "adj-75-en": {
+    "id": "adj-75-en",
+    "text": "esteemed"
+  },
+  "adj-76-en": {
+    "id": "adj-76-en",
+    "text": "european"
+  },
+  "adj-77-en": {
+    "id": "adj-77-en",
+    "text": "exacting"
+  },
+  "adj-78-en": {
+    "id": "adj-78-en",
+    "text": "exotic"
+  },
+  "adj-79-en": {
+    "id": "adj-79-en",
+    "text": "fantasy"
+  },
+  "adj-80-en": {
+    "id": "adj-80-en",
+    "text": "fascinating"
+  },
+  "adj-81-en": {
+    "id": "adj-81-en",
+    "text": "fat"
+  },
+  "adj-82-en": {
+    "id": "adj-82-en",
+    "text": "ferocious"
+  },
+  "adj-83-en": {
+    "id": "adj-83-en",
+    "text": "focused"
+  },
+  "adj-84-en": {
+    "id": "adj-84-en",
+    "text": "foolish"
+  },
+  "adj-85-en": {
+    "id": "adj-85-en",
+    "text": "fragile"
+  },
+  "adj-86-en": {
+    "id": "adj-86-en",
+    "text": "freezing"
+  },
+  "adj-87-en": {
+    "id": "adj-87-en",
+    "text": "friendly"
+  },
+  "adj-88-en": {
+    "id": "adj-88-en",
+    "text": "funny"
+  },
+  "adj-89-en": {
+    "id": "adj-89-en",
+    "text": "generous"
+  },
+  "adj-90-en": {
+    "id": "adj-90-en",
+    "text": "gentle"
+  },
+  "adj-91-en": {
+    "id": "adj-91-en",
+    "text": "gigantic"
+  },
+  "adj-92-en": {
+    "id": "adj-92-en",
+    "text": "gloomy"
+  },
+  "adj-93-en": {
+    "id": "adj-93-en",
+    "text": "good"
+  },
+  "adj-94-en": {
+    "id": "adj-94-en",
+    "text": "gorgeous"
+  },
+  "adj-95-en": {
+    "id": "adj-95-en",
+    "text": "greedy"
+  },
+  "adj-96-en": {
+    "id": "adj-96-en",
+    "text": "gregarious"
+  },
+  "adj-97-en": {
+    "id": "adj-97-en",
+    "text": "grim"
+  },
+  "adj-98-en": {
+    "id": "adj-98-en",
+    "text": "grimy"
+  },
+  "adj-99-en": {
+    "id": "adj-99-en",
+    "text": "grotesque"
+  },
+  "adj-100-en": {
+    "id": "adj-100-en",
+    "text": "hairy"
+  },
+  "adj-101-en": {
+    "id": "adj-101-en",
+    "text": "handsome"
+  },
+  "adj-102-en": {
+    "id": "adj-102-en",
+    "text": "handy"
+  },
+  "adj-103-en": {
+    "id": "adj-103-en",
+    "text": "hard"
+  },
+  "adj-104-en": {
+    "id": "adj-104-en",
+    "text": "helpful"
+  },
+  "adj-105-en": {
+    "id": "adj-105-en",
+    "text": "hesitant"
+  },
+  "adj-106-en": {
+    "id": "adj-106-en",
+    "text": "historical"
+  },
+  "adj-107-en": {
+    "id": "adj-107-en",
+    "text": "hot"
+  },
+  "adj-108-en": {
+    "id": "adj-108-en",
+    "text": "huge"
+  },
+  "adj-109-en": {
+    "id": "adj-109-en",
+    "text": "hurtful"
+  },
+  "adj-110-en": {
+    "id": "adj-110-en",
+    "text": "icy"
+  },
+  "adj-111-en": {
+    "id": "adj-111-en",
+    "text": "imaginary"
+  },
+  "adj-112-en": {
+    "id": "adj-112-en",
+    "text": "important"
+  },
+  "adj-113-en": {
+    "id": "adj-113-en",
+    "text": "inexpensive"
+  },
+  "adj-114-en": {
+    "id": "adj-114-en",
+    "text": "informative"
+  },
+  "adj-115-en": {
+    "id": "adj-115-en",
+    "text": "intelligent"
+  },
+  "adj-116-en": {
+    "id": "adj-116-en",
+    "text": "intrepid"
+  },
+  "adj-117-en": {
+    "id": "adj-117-en",
+    "text": "isolated"
+  },
+  "adj-118-en": {
+    "id": "adj-118-en",
+    "text": "joyful"
+  },
+  "adj-119-en": {
+    "id": "adj-119-en",
+    "text": "jubilant"
+  },
+  "adj-120-en": {
+    "id": "adj-120-en",
+    "text": "keen"
+  },
+  "adj-121-en": {
+    "id": "adj-121-en",
+    "text": "kooky"
+  },
+  "adj-122-en": {
+    "id": "adj-122-en",
+    "text": "lightweight"
+  },
+  "adj-123-en": {
+    "id": "adj-123-en",
+    "text": "loud"
+  },
+  "adj-124-en": {
+    "id": "adj-124-en",
+    "text": "lovable"
+  },
+  "adj-125-en": {
+    "id": "adj-125-en",
+    "text": "lovely"
+  },
+  "adj-126-en": {
+    "id": "adj-126-en",
+    "text": "luminous"
+  },
+  "adj-127-en": {
+    "id": "adj-127-en",
+    "text": "luxurious"
+  },
+  "adj-128-en": {
+    "id": "adj-128-en",
+    "text": "magical"
+  },
+  "adj-129-en": {
+    "id": "adj-129-en",
+    "text": "majestic"
+  },
+  "adj-130-en": {
+    "id": "adj-130-en",
+    "text": "massive"
+  },
+  "adj-131-en": {
+    "id": "adj-131-en",
+    "text": "medieval"
+  },
+  "adj-132-en": {
+    "id": "adj-132-en",
+    "text": "mediocre"
+  },
+  "adj-133-en": {
+    "id": "adj-133-en",
+    "text": "mellow"
+  },
+  "adj-134-en": {
+    "id": "adj-134-en",
+    "text": "messy"
+  },
+  "adj-135-en": {
+    "id": "adj-135-en",
+    "text": "metallic"
+  },
+  "adj-136-en": {
+    "id": "adj-136-en",
+    "text": "meticulous"
+  },
+  "adj-137-en": {
+    "id": "adj-137-en",
+    "text": "mild"
+  },
+  "adj-138-en": {
+    "id": "adj-138-en",
+    "text": "militant"
+  },
+  "adj-139-en": {
+    "id": "adj-139-en",
+    "text": "mischievous"
+  },
+  "adj-140-en": {
+    "id": "adj-140-en",
+    "text": "miserable"
+  },
+  "adj-141-en": {
+    "id": "adj-141-en",
+    "text": "modest"
+  },
+  "adj-142-en": {
+    "id": "adj-142-en",
+    "text": "moist"
+  },
+  "adj-143-en": {
+    "id": "adj-143-en",
+    "text": "mushy"
+  },
+  "adj-144-en": {
+    "id": "adj-144-en",
+    "text": "musical"
+  },
+  "adj-145-en": {
+    "id": "adj-145-en",
+    "text": "mysterious"
+  },
+  "adj-146-en": {
+    "id": "adj-146-en",
+    "text": "nasty"
+  },
+  "adj-147-en": {
+    "id": "adj-147-en",
+    "text": "natural"
+  },
+  "adj-148-en": {
+    "id": "adj-148-en",
+    "text": "nefarious"
+  },
+  "adj-149-en": {
+    "id": "adj-149-en",
+    "text": "nocturnal"
+  },
+  "adj-150-en": {
+    "id": "adj-150-en",
+    "text": "nostalgic"
+  },
+  "adj-151-en": {
+    "id": "adj-151-en",
+    "text": "nutty"
+  },
+  "adj-152-en": {
+    "id": "adj-152-en",
+    "text": "ordinary"
+  },
+  "adj-153-en": {
+    "id": "adj-153-en",
+    "text": "outrageous"
+  },
+  "adj-154-en": {
+    "id": "adj-154-en",
+    "text": "outspoken"
+  },
+  "adj-155-en": {
+    "id": "adj-155-en",
+    "text": "over the top"
+  },
+  "adj-156-en": {
+    "id": "adj-156-en",
+    "text": "packaged"
+  },
+  "adj-157-en": {
+    "id": "adj-157-en",
+    "text": "passionate"
+  },
+  "adj-158-en": {
+    "id": "adj-158-en",
+    "text": "political"
+  },
+  "adj-159-en": {
+    "id": "adj-159-en",
+    "text": "pompous"
+  },
+  "adj-160-en": {
+    "id": "adj-160-en",
+    "text": "poor"
+  },
+  "adj-161-en": {
+    "id": "adj-161-en",
+    "text": "popular"
+  },
+  "adj-162-en": {
+    "id": "adj-162-en",
+    "text": "portable"
+  },
+  "adj-163-en": {
+    "id": "adj-163-en",
+    "text": "powerful"
+  },
+  "adj-164-en": {
+    "id": "adj-164-en",
+    "text": "practical"
+  },
+  "adj-165-en": {
+    "id": "adj-165-en",
+    "text": "precious"
+  },
+  "adj-166-en": {
+    "id": "adj-166-en",
+    "text": "pretty"
+  },
+  "adj-167-en": {
+    "id": "adj-167-en",
+    "text": "professional"
+  },
+  "adj-168-en": {
+    "id": "adj-168-en",
+    "text": "profitable"
+  },
+  "adj-169-en": {
+    "id": "adj-169-en",
+    "text": "questionable"
+  },
+  "adj-170-en": {
+    "id": "adj-170-en",
+    "text": "quiet"
+  },
+  "adj-171-en": {
+    "id": "adj-171-en",
+    "text": "quirky"
+  },
+  "adj-172-en": {
+    "id": "adj-172-en",
+    "text": "reliable"
+  },
+  "adj-173-en": {
+    "id": "adj-173-en",
+    "text": "rich"
+  },
+  "adj-174-en": {
+    "id": "adj-174-en",
+    "text": "round"
+  },
+  "adj-175-en": {
+    "id": "adj-175-en",
+    "text": "rural"
+  },
+  "adj-176-en": {
+    "id": "adj-176-en",
+    "text": "safe"
+  },
+  "adj-177-en": {
+    "id": "adj-177-en",
+    "text": "salty"
+  },
+  "adj-178-en": {
+    "id": "adj-178-en",
+    "text": "scary"
+  },
+  "adj-179-en": {
+    "id": "adj-179-en",
+    "text": "secret"
+  },
+  "adj-180-en": {
+    "id": "adj-180-en",
+    "text": "selfish"
+  },
+  "adj-181-en": {
+    "id": "adj-181-en",
+    "text": "shiny"
+  },
+  "adj-182-en": {
+    "id": "adj-182-en",
+    "text": "short"
+  },
+  "adj-183-en": {
+    "id": "adj-183-en",
+    "text": "slow"
+  },
+  "adj-184-en": {
+    "id": "adj-184-en",
+    "text": "smelly"
+  },
+  "adj-185-en": {
+    "id": "adj-185-en",
+    "text": "soft"
+  },
+  "adj-186-en": {
+    "id": "adj-186-en",
+    "text": "sour"
+  },
+  "adj-187-en": {
+    "id": "adj-187-en",
+    "text": "speedy"
+  },
+  "adj-188-en": {
+    "id": "adj-188-en",
+    "text": "spicy"
+  },
+  "adj-189-en": {
+    "id": "adj-189-en",
+    "text": "squishy"
+  },
+  "adj-190-en": {
+    "id": "adj-190-en",
+    "text": "stellar"
+  },
+  "adj-191-en": {
+    "id": "adj-191-en",
+    "text": "sticky"
+  },
+  "adj-192-en": {
+    "id": "adj-192-en",
+    "text": "strong"
+  },
+  "adj-193-en": {
+    "id": "adj-193-en",
+    "text": "sunny"
+  },
+  "adj-194-en": {
+    "id": "adj-194-en",
+    "text": "surly"
+  },
+  "adj-195-en": {
+    "id": "adj-195-en",
+    "text": "sweet"
+  },
+  "adj-196-en": {
+    "id": "adj-196-en",
+    "text": "swollen"
+  },
+  "adj-197-en": {
+    "id": "adj-197-en",
+    "text": "synthetic"
+  },
+  "adj-198-en": {
+    "id": "adj-198-en",
+    "text": "tasty"
+  },
+  "adj-199-en": {
+    "id": "adj-199-en",
+    "text": "tender"
+  },
+  "adj-200-en": {
+    "id": "adj-200-en",
+    "text": "thin"
+  },
+  "adj-201-en": {
+    "id": "adj-201-en",
+    "text": "timid"
+  },
+  "adj-202-en": {
+    "id": "adj-202-en",
+    "text": "tiny"
+  },
+  "adj-203-en": {
+    "id": "adj-203-en",
+    "text": "tired"
+  },
+  "adj-204-en": {
+    "id": "adj-204-en",
+    "text": "translucent"
+  },
+  "adj-205-en": {
+    "id": "adj-205-en",
+    "text": "tricky"
+  },
+  "adj-206-en": {
+    "id": "adj-206-en",
+    "text": "ugly"
+  },
+  "adj-207-en": {
+    "id": "adj-207-en",
+    "text": "unusual"
+  },
+  "adj-208-en": {
+    "id": "adj-208-en",
+    "text": "useful"
+  },
+  "adj-209-en": {
+    "id": "adj-209-en",
+    "text": "vehicular"
+  },
+  "adj-210-en": {
+    "id": "adj-210-en",
+    "text": "versatile"
+  },
+  "adj-211-en": {
+    "id": "adj-211-en",
+    "text": "vintage"
+  },
+  "adj-212-en": {
+    "id": "adj-212-en",
+    "text": "violent"
+  },
+  "adj-213-en": {
+    "id": "adj-213-en",
+    "text": "warm"
+  },
+  "adj-214-en": {
+    "id": "adj-214-en",
+    "text": "weak"
+  },
+  "adj-215-en": {
+    "id": "adj-215-en",
+    "text": "weird"
+  },
+  "adj-216-en": {
+    "id": "adj-216-en",
+    "text": "welcoming"
+  },
+  "adj-217-en": {
+    "id": "adj-217-en",
+    "text": "wild"
+  },
+  "adj-218-en": {
+    "id": "adj-218-en",
+    "text": "wise"
+  },
+  "adj-219-en": {
+    "id": "adj-219-en",
+    "text": "young"
+  },
+  "adj-220-en": {
+    "id": "adj-220-en",
+    "text": "zealous"
+  }
+}

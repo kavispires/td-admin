@@ -1,0 +1,882 @@
+{
+  "adj-1-pt": {
+    "id": "adj-1-pt",
+    "text": "aclamado"
+  },
+  "adj-2-pt": {
+    "id": "adj-2-pt",
+    "text": "acolhedor"
+  },
+  "adj-3-pt": {
+    "id": "adj-3-pt",
+    "text": "admirado"
+  },
+  "adj-4-pt": {
+    "id": "adj-4-pt",
+    "text": "adorável"
+  },
+  "adj-5-pt": {
+    "id": "adj-5-pt",
+    "text": "afiado"
+  },
+  "adj-6-pt": {
+    "id": "adj-6-pt",
+    "text": "agradável"
+  },
+  "adj-7-pt": {
+    "id": "adj-7-pt",
+    "text": "agressivo"
+  },
+  "adj-8-pt": {
+    "id": "adj-8-pt",
+    "text": "alto"
+  },
+  "adj-9-pt": {
+    "id": "adj-9-pt",
+    "text": "amargo"
+  },
+  "adj-10-pt": {
+    "id": "adj-10-pt",
+    "text": "amável"
+  },
+  "adj-11-pt": {
+    "id": "adj-11-pt",
+    "text": "ambicioso"
+  },
+  "adj-12-pt": {
+    "id": "adj-12-pt",
+    "text": "amigável"
+  },
+  "adj-13-pt": {
+    "id": "adj-13-pt",
+    "text": "analítico"
+  },
+  "adj-14-pt": {
+    "id": "adj-14-pt",
+    "text": "animado"
+  },
+  "adj-15-pt": {
+    "id": "adj-15-pt",
+    "text": "antigo"
+  },
+  "adj-16-pt": {
+    "id": "adj-16-pt",
+    "text": "antiquado"
+  },
+  "adj-17-pt": {
+    "id": "adj-17-pt",
+    "text": "apaixonante"
+  },
+  "adj-18-pt": {
+    "id": "adj-18-pt",
+    "text": "apavorante"
+  },
+  "adj-19-pt": {
+    "id": "adj-19-pt",
+    "text": "apimentado"
+  },
+  "adj-20-pt": {
+    "id": "adj-20-pt",
+    "text": "artístico"
+  },
+  "adj-21-pt": {
+    "id": "adj-21-pt",
+    "text": "asiático"
+  },
+  "adj-22-pt": {
+    "id": "adj-22-pt",
+    "text": "assado"
+  },
+  "adj-23-pt": {
+    "id": "adj-23-pt",
+    "text": "assertivo"
+  },
+  "adj-24-pt": {
+    "id": "adj-24-pt",
+    "text": "aventureiro"
+  },
+  "adj-25-pt": {
+    "id": "adj-25-pt",
+    "text": "azedo"
+  },
+  "adj-26-pt": {
+    "id": "adj-26-pt",
+    "text": "bagunçado"
+  },
+  "adj-27-pt": {
+    "id": "adj-27-pt",
+    "text": "barato"
+  },
+  "adj-28-pt": {
+    "id": "adj-28-pt",
+    "text": "bizarro"
+  },
+  "adj-29-pt": {
+    "id": "adj-29-pt",
+    "text": "bom"
+  },
+  "adj-30-pt": {
+    "id": "adj-30-pt",
+    "text": "bonito"
+  },
+  "adj-31-pt": {
+    "id": "adj-31-pt",
+    "text": "bonito"
+  },
+  "adj-32-pt": {
+    "id": "adj-32-pt",
+    "text": "brilhante"
+  },
+  "adj-33-pt": {
+    "id": "adj-33-pt",
+    "text": "brilhoso"
+  },
+  "adj-34-pt": {
+    "id": "adj-34-pt",
+    "text": "burrice"
+  },
+  "adj-35-pt": {
+    "id": "adj-35-pt",
+    "text": "calma"
+  },
+  "adj-36-pt": {
+    "id": "adj-36-pt",
+    "text": "caloroso"
+  },
+  "adj-37-pt": {
+    "id": "adj-37-pt",
+    "text": "cansado"
+  },
+  "adj-38-pt": {
+    "id": "adj-38-pt",
+    "text": "carinhoso"
+  },
+  "adj-39-pt": {
+    "id": "adj-39-pt",
+    "text": "carnívoro"
+  },
+  "adj-40-pt": {
+    "id": "adj-40-pt",
+    "text": "charmoso"
+  },
+  "adj-41-pt": {
+    "id": "adj-41-pt",
+    "text": "chato"
+  },
+  "adj-42-pt": {
+    "id": "adj-42-pt",
+    "text": "civil"
+  },
+  "adj-43-pt": {
+    "id": "adj-43-pt",
+    "text": "claro"
+  },
+  "adj-44-pt": {
+    "id": "adj-44-pt",
+    "text": "colorido"
+  },
+  "adj-45-pt": {
+    "id": "adj-45-pt",
+    "text": "comestível"
+  },
+  "adj-46-pt": {
+    "id": "adj-46-pt",
+    "text": "cômico"
+  },
+  "adj-47-pt": {
+    "id": "adj-47-pt",
+    "text": "compacto"
+  },
+  "adj-48-pt": {
+    "id": "adj-48-pt",
+    "text": "competente"
+  },
+  "adj-49-pt": {
+    "id": "adj-49-pt",
+    "text": "complexo"
+  },
+  "adj-50-pt": {
+    "id": "adj-50-pt",
+    "text": "complicado"
+  },
+  "adj-51-pt": {
+    "id": "adj-51-pt",
+    "text": "composto"
+  },
+  "adj-52-pt": {
+    "id": "adj-52-pt",
+    "text": "comum"
+  },
+  "adj-53-pt": {
+    "id": "adj-53-pt",
+    "text": "concreto"
+  },
+  "adj-54-pt": {
+    "id": "adj-54-pt",
+    "text": "confiante"
+  },
+  "adj-55-pt": {
+    "id": "adj-55-pt",
+    "text": "confiável"
+  },
+  "adj-56-pt": {
+    "id": "adj-56-pt",
+    "text": "congelado"
+  },
+  "adj-57-pt": {
+    "id": "adj-57-pt",
+    "text": "convencional"
+  },
+  "adj-58-pt": {
+    "id": "adj-58-pt",
+    "text": "conveniente"
+  },
+  "adj-59-pt": {
+    "id": "adj-59-pt",
+    "text": "corajoso"
+  },
+  "adj-60-pt": {
+    "id": "adj-60-pt",
+    "text": "crocante"
+  },
+  "adj-61-pt": {
+    "id": "adj-61-pt",
+    "text": "cruel"
+  },
+  "adj-62-pt": {
+    "id": "adj-62-pt",
+    "text": "curto"
+  },
+  "adj-63-pt": {
+    "id": "adj-63-pt",
+    "text": "curvado"
+  },
+  "adj-64-pt": {
+    "id": "adj-64-pt",
+    "text": "delicioso"
+  },
+  "adj-65-pt": {
+    "id": "adj-65-pt",
+    "text": "demais"
+  },
+  "adj-66-pt": {
+    "id": "adj-66-pt",
+    "text": "deslumbrante"
+  },
+  "adj-67-pt": {
+    "id": "adj-67-pt",
+    "text": "desprezado"
+  },
+  "adj-68-pt": {
+    "id": "adj-68-pt",
+    "text": "destrutivo"
+  },
+  "adj-69-pt": {
+    "id": "adj-69-pt",
+    "text": "dificil"
+  },
+  "adj-70-pt": {
+    "id": "adj-70-pt",
+    "text": "divertido"
+  },
+  "adj-71-pt": {
+    "id": "adj-71-pt",
+    "text": "dobrado"
+  },
+  "adj-72-pt": {
+    "id": "adj-72-pt",
+    "text": "doce"
+  },
+  "adj-73-pt": {
+    "id": "adj-73-pt",
+    "text": "doloroso"
+  },
+  "adj-74-pt": {
+    "id": "adj-74-pt",
+    "text": "dramático"
+  },
+  "adj-75-pt": {
+    "id": "adj-75-pt",
+    "text": "duro"
+  },
+  "adj-76-pt": {
+    "id": "adj-76-pt",
+    "text": "egoísta"
+  },
+  "adj-77-pt": {
+    "id": "adj-77-pt",
+    "text": "elaborado"
+  },
+  "adj-78-pt": {
+    "id": "adj-78-pt",
+    "text": "elegante"
+  },
+  "adj-79-pt": {
+    "id": "adj-79-pt",
+    "text": "embalado"
+  },
+  "adj-80-pt": {
+    "id": "adj-80-pt",
+    "text": "encantador"
+  },
+  "adj-81-pt": {
+    "id": "adj-81-pt",
+    "text": "enfadado"
+  },
+  "adj-82-pt": {
+    "id": "adj-82-pt",
+    "text": "engraçado"
+  },
+  "adj-83-pt": {
+    "id": "adj-83-pt",
+    "text": "enorme"
+  },
+  "adj-84-pt": {
+    "id": "adj-84-pt",
+    "text": "ensolarado"
+  },
+  "adj-85-pt": {
+    "id": "adj-85-pt",
+    "text": "ensurdecedor"
+  },
+  "adj-86-pt": {
+    "id": "adj-86-pt",
+    "text": "equilibrado"
+  },
+  "adj-87-pt": {
+    "id": "adj-87-pt",
+    "text": "estelar"
+  },
+  "adj-88-pt": {
+    "id": "adj-88-pt",
+    "text": "estimado"
+  },
+  "adj-89-pt": {
+    "id": "adj-89-pt",
+    "text": "estranho"
+  },
+  "adj-90-pt": {
+    "id": "adj-90-pt",
+    "text": "europeu"
+  },
+  "adj-91-pt": {
+    "id": "adj-91-pt",
+    "text": "excêntrico"
+  },
+  "adj-92-pt": {
+    "id": "adj-92-pt",
+    "text": "exigente"
+  },
+  "adj-93-pt": {
+    "id": "adj-93-pt",
+    "text": "exótico"
+  },
+  "adj-94-pt": {
+    "id": "adj-94-pt",
+    "text": "fantasioso"
+  },
+  "adj-95-pt": {
+    "id": "adj-95-pt",
+    "text": "fascinante"
+  },
+  "adj-96-pt": {
+    "id": "adj-96-pt",
+    "text": "fedorento"
+  },
+  "adj-97-pt": {
+    "id": "adj-97-pt",
+    "text": "feio"
+  },
+  "adj-98-pt": {
+    "id": "adj-98-pt",
+    "text": "feroz"
+  },
+  "adj-99-pt": {
+    "id": "adj-99-pt",
+    "text": "fidedígno"
+  },
+  "adj-100-pt": {
+    "id": "adj-100-pt",
+    "text": "fino"
+  },
+  "adj-101-pt": {
+    "id": "adj-101-pt",
+    "text": "focado"
+  },
+  "adj-102-pt": {
+    "id": "adj-102-pt",
+    "text": "forte"
+  },
+  "adj-103-pt": {
+    "id": "adj-103-pt",
+    "text": "fraco"
+  },
+  "adj-104-pt": {
+    "id": "adj-104-pt",
+    "text": "frágil"
+  },
+  "adj-105-pt": {
+    "id": "adj-105-pt",
+    "text": "franco"
+  },
+  "adj-106-pt": {
+    "id": "adj-106-pt",
+    "text": "frio"
+  },
+  "adj-107-pt": {
+    "id": "adj-107-pt",
+    "text": "ganancioso"
+  },
+  "adj-108-pt": {
+    "id": "adj-108-pt",
+    "text": "gelado"
+  },
+  "adj-109-pt": {
+    "id": "adj-109-pt",
+    "text": "generoso"
+  },
+  "adj-110-pt": {
+    "id": "adj-110-pt",
+    "text": "gentil"
+  },
+  "adj-111-pt": {
+    "id": "adj-111-pt",
+    "text": "gigantesco"
+  },
+  "adj-112-pt": {
+    "id": "adj-112-pt",
+    "text": "glacial"
+  },
+  "adj-113-pt": {
+    "id": "adj-113-pt",
+    "text": "gordo"
+  },
+  "adj-114-pt": {
+    "id": "adj-114-pt",
+    "text": "gostoso"
+  },
+  "adj-115-pt": {
+    "id": "adj-115-pt",
+    "text": "gregário"
+  },
+  "adj-116-pt": {
+    "id": "adj-116-pt",
+    "text": "grotesco"
+  },
+  "adj-117-pt": {
+    "id": "adj-117-pt",
+    "text": "hesitante"
+  },
+  "adj-118-pt": {
+    "id": "adj-118-pt",
+    "text": "histórico"
+  },
+  "adj-119-pt": {
+    "id": "adj-119-pt",
+    "text": "hostíl"
+  },
+  "adj-120-pt": {
+    "id": "adj-120-pt",
+    "text": "imaginário"
+  },
+  "adj-121-pt": {
+    "id": "adj-121-pt",
+    "text": "importante"
+  },
+  "adj-122-pt": {
+    "id": "adj-122-pt",
+    "text": "inchado"
+  },
+  "adj-123-pt": {
+    "id": "adj-123-pt",
+    "text": "incomum"
+  },
+  "adj-124-pt": {
+    "id": "adj-124-pt",
+    "text": "incrível"
+  },
+  "adj-125-pt": {
+    "id": "adj-125-pt",
+    "text": "infantil"
+  },
+  "adj-126-pt": {
+    "id": "adj-126-pt",
+    "text": "informativo"
+  },
+  "adj-127-pt": {
+    "id": "adj-127-pt",
+    "text": "inteligente"
+  },
+  "adj-128-pt": {
+    "id": "adj-128-pt",
+    "text": "intrépido"
+  },
+  "adj-129-pt": {
+    "id": "adj-129-pt",
+    "text": "irritadiço"
+  },
+  "adj-130-pt": {
+    "id": "adj-130-pt",
+    "text": "isolado"
+  },
+  "adj-131-pt": {
+    "id": "adj-131-pt",
+    "text": "jovem"
+  },
+  "adj-132-pt": {
+    "id": "adj-132-pt",
+    "text": "jubiloso"
+  },
+  "adj-133-pt": {
+    "id": "adj-133-pt",
+    "text": "legal"
+  },
+  "adj-134-pt": {
+    "id": "adj-134-pt",
+    "text": "lento"
+  },
+  "adj-135-pt": {
+    "id": "adj-135-pt",
+    "text": "leve"
+  },
+  "adj-136-pt": {
+    "id": "adj-136-pt",
+    "text": "lindo"
+  },
+  "adj-137-pt": {
+    "id": "adj-137-pt",
+    "text": "lucrativo"
+  },
+  "adj-138-pt": {
+    "id": "adj-138-pt",
+    "text": "luminoso"
+  },
+  "adj-139-pt": {
+    "id": "adj-139-pt",
+    "text": "luxuoso"
+  },
+  "adj-140-pt": {
+    "id": "adj-140-pt",
+    "text": "maciço"
+  },
+  "adj-141-pt": {
+    "id": "adj-141-pt",
+    "text": "macio"
+  },
+  "adj-142-pt": {
+    "id": "adj-142-pt",
+    "text": "maduro"
+  },
+  "adj-143-pt": {
+    "id": "adj-143-pt",
+    "text": "mágico"
+  },
+  "adj-144-pt": {
+    "id": "adj-144-pt",
+    "text": "majestoso"
+  },
+  "adj-145-pt": {
+    "id": "adj-145-pt",
+    "text": "malicioso"
+  },
+  "adj-146-pt": {
+    "id": "adj-146-pt",
+    "text": "maluco"
+  },
+  "adj-147-pt": {
+    "id": "adj-147-pt",
+    "text": "mau"
+  },
+  "adj-148-pt": {
+    "id": "adj-148-pt",
+    "text": "medieval"
+  },
+  "adj-149-pt": {
+    "id": "adj-149-pt",
+    "text": "medíocre"
+  },
+  "adj-150-pt": {
+    "id": "adj-150-pt",
+    "text": "metálico"
+  },
+  "adj-151-pt": {
+    "id": "adj-151-pt",
+    "text": "meticuloso"
+  },
+  "adj-152-pt": {
+    "id": "adj-152-pt",
+    "text": "militante"
+  },
+  "adj-153-pt": {
+    "id": "adj-153-pt",
+    "text": "minúsculo"
+  },
+  "adj-154-pt": {
+    "id": "adj-154-pt",
+    "text": "miserável"
+  },
+  "adj-155-pt": {
+    "id": "adj-155-pt",
+    "text": "misterioso"
+  },
+  "adj-156-pt": {
+    "id": "adj-156-pt",
+    "text": "modesto"
+  },
+  "adj-157-pt": {
+    "id": "adj-157-pt",
+    "text": "mole"
+  },
+  "adj-158-pt": {
+    "id": "adj-158-pt",
+    "text": "mortal"
+  },
+  "adj-159-pt": {
+    "id": "adj-159-pt",
+    "text": "murchibento"
+  },
+  "adj-160-pt": {
+    "id": "adj-160-pt",
+    "text": "musical"
+  },
+  "adj-161-pt": {
+    "id": "adj-161-pt",
+    "text": "natural"
+  },
+  "adj-162-pt": {
+    "id": "adj-162-pt",
+    "text": "nefasto"
+  },
+  "adj-163-pt": {
+    "id": "adj-163-pt",
+    "text": "nojento"
+  },
+  "adj-164-pt": {
+    "id": "adj-164-pt",
+    "text": "nostálgico"
+  },
+  "adj-165-pt": {
+    "id": "adj-165-pt",
+    "text": "noturno"
+  },
+  "adj-166-pt": {
+    "id": "adj-166-pt",
+    "text": "nublado"
+  },
+  "adj-167-pt": {
+    "id": "adj-167-pt",
+    "text": "parrudo"
+  },
+  "adj-168-pt": {
+    "id": "adj-168-pt",
+    "text": "peculiar"
+  },
+  "adj-169-pt": {
+    "id": "adj-169-pt",
+    "text": "pegajoso"
+  },
+  "adj-170-pt": {
+    "id": "adj-170-pt",
+    "text": "peludo"
+  },
+  "adj-171-pt": {
+    "id": "adj-171-pt",
+    "text": "perigoso"
+  },
+  "adj-172-pt": {
+    "id": "adj-172-pt",
+    "text": "perturbador"
+  },
+  "adj-173-pt": {
+    "id": "adj-173-pt",
+    "text": "pobre"
+  },
+  "adj-174-pt": {
+    "id": "adj-174-pt",
+    "text": "poderoso"
+  },
+  "adj-175-pt": {
+    "id": "adj-175-pt",
+    "text": "político"
+  },
+  "adj-176-pt": {
+    "id": "adj-176-pt",
+    "text": "pomposo"
+  },
+  "adj-177-pt": {
+    "id": "adj-177-pt",
+    "text": "popular"
+  },
+  "adj-178-pt": {
+    "id": "adj-178-pt",
+    "text": "portátil"
+  },
+  "adj-179-pt": {
+    "id": "adj-179-pt",
+    "text": "prático"
+  },
+  "adj-180-pt": {
+    "id": "adj-180-pt",
+    "text": "precioso"
+  },
+  "adj-181-pt": {
+    "id": "adj-181-pt",
+    "text": "pretensioso"
+  },
+  "adj-182-pt": {
+    "id": "adj-182-pt",
+    "text": "profissional"
+  },
+  "adj-183-pt": {
+    "id": "adj-183-pt",
+    "text": "proveitoso"
+  },
+  "adj-184-pt": {
+    "id": "adj-184-pt",
+    "text": "quebrado"
+  },
+  "adj-185-pt": {
+    "id": "adj-185-pt",
+    "text": "quente"
+  },
+  "adj-186-pt": {
+    "id": "adj-186-pt",
+    "text": "questionável"
+  },
+  "adj-187-pt": {
+    "id": "adj-187-pt",
+    "text": "quieto"
+  },
+  "adj-188-pt": {
+    "id": "adj-188-pt",
+    "text": "rabugento"
+  },
+  "adj-189-pt": {
+    "id": "adj-189-pt",
+    "text": "realizado"
+  },
+  "adj-190-pt": {
+    "id": "adj-190-pt",
+    "text": "recatado"
+  },
+  "adj-191-pt": {
+    "id": "adj-191-pt",
+    "text": "redondo"
+  },
+  "adj-192-pt": {
+    "id": "adj-192-pt",
+    "text": "rejubilante"
+  },
+  "adj-193-pt": {
+    "id": "adj-193-pt",
+    "text": "repugnante"
+  },
+  "adj-194-pt": {
+    "id": "adj-194-pt",
+    "text": "rico"
+  },
+  "adj-195-pt": {
+    "id": "adj-195-pt",
+    "text": "rigoroso"
+  },
+  "adj-196-pt": {
+    "id": "adj-196-pt",
+    "text": "rural"
+  },
+  "adj-197-pt": {
+    "id": "adj-197-pt",
+    "text": "sábio"
+  },
+  "adj-198-pt": {
+    "id": "adj-198-pt",
+    "text": "salgado"
+  },
+  "adj-199-pt": {
+    "id": "adj-199-pt",
+    "text": "segreto"
+  },
+  "adj-200-pt": {
+    "id": "adj-200-pt",
+    "text": "seguro"
+  },
+  "adj-201-pt": {
+    "id": "adj-201-pt",
+    "text": "selvagem"
+  },
+  "adj-202-pt": {
+    "id": "adj-202-pt",
+    "text": "sinistro"
+  },
+  "adj-203-pt": {
+    "id": "adj-203-pt",
+    "text": "sintético"
+  },
+  "adj-204-pt": {
+    "id": "adj-204-pt",
+    "text": "sombrio"
+  },
+  "adj-205-pt": {
+    "id": "adj-205-pt",
+    "text": "suave"
+  },
+  "adj-206-pt": {
+    "id": "adj-206-pt",
+    "text": "sujo"
+  },
+  "adj-207-pt": {
+    "id": "adj-207-pt",
+    "text": "tenro"
+  },
+  "adj-208-pt": {
+    "id": "adj-208-pt",
+    "text": "tímido"
+  },
+  "adj-209-pt": {
+    "id": "adj-209-pt",
+    "text": "translúcido"
+  },
+  "adj-210-pt": {
+    "id": "adj-210-pt",
+    "text": "turbulento"
+  },
+  "adj-211-pt": {
+    "id": "adj-211-pt",
+    "text": "ultrajante"
+  },
+  "adj-212-pt": {
+    "id": "adj-212-pt",
+    "text": "úmido"
+  },
+  "adj-213-pt": {
+    "id": "adj-213-pt",
+    "text": "útil"
+  },
+  "adj-214-pt": {
+    "id": "adj-214-pt",
+    "text": "veicular"
+  },
+  "adj-215-pt": {
+    "id": "adj-215-pt",
+    "text": "veloz"
+  },
+  "adj-216-pt": {
+    "id": "adj-216-pt",
+    "text": "ventoso"
+  },
+  "adj-217-pt": {
+    "id": "adj-217-pt",
+    "text": "versátil"
+  },
+  "adj-218-pt": {
+    "id": "adj-218-pt",
+    "text": "vintage"
+  },
+  "adj-219-pt": {
+    "id": "adj-219-pt",
+    "text": "violento"
+  },
+  "adj-220-pt": {
+    "id": "adj-220-pt",
+    "text": "zeloso"
+  }
+}
