@@ -5728,5 +5728,55 @@
     "id": "a-1146-en",
     "text": "Wear and tear",
     "level": 2
+  },
+  "a-1147-en": {
+    "id": "a-1147-en",
+    "text": "Desperate gamble",
+    "level": 2
+  },
+  "a-1148-en": {
+    "id": "a-1148-en",
+    "text": "Pirated software",
+    "level": 1
+  },
+  "a-1149-en": {
+    "id": "a-1149-en",
+    "text": "Showcase",
+    "level": 1
+  },
+  "a-1150-en": {
+    "id": "a-1150-en",
+    "text": "Heart to heart",
+    "level": 4
+  },
+  "a-1151-en": {
+    "id": "a-1151-en",
+    "text": "Heartwarming",
+    "level": 1
+  },
+  "a-1152-en": {
+    "id": "a-1152-en",
+    "text": "Heartbreak",
+    "level": 4
+  },
+  "a-1153-en": {
+    "id": "a-1153-en",
+    "text": "Open heart surgery",
+    "level": 1
+  },
+  "a-1154-en": {
+    "id": "a-1154-en",
+    "text": "Check if the coast is clear",
+    "level": 2
+  },
+  "a-1155-en": {
+    "id": "a-1155-en",
+    "text": "Cautionary tale",
+    "level": 3
+  },
+  "a-1156-en": {
+    "id": "a-1156-en",
+    "text": "Repent or perish",
+    "level": 3
   }
 }
