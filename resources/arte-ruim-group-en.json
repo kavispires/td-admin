@@ -548,7 +548,7 @@
   },
   "ax-40-en": {
     "id": "ax-40-en",
-    "theme": "love;;heart",
+    "theme": "love;;relationship",
     "cards": {
       "a-927-en": "Tinder",
       "a-1129-en": "Necrophilia",
@@ -688,6 +688,16 @@
       "a-98-en": "Low visibility",
       "a-1135-en": "Night vision",
       "a-1136-en": "See for yourself"
+    }
+  },
+  "ax-52-en": {
+    "id": "ax-52-en",
+    "theme": "heart",
+    "cards": {
+      "a-1150-en": "Heart to heart",
+      "a-1151-en": "Heartwarming",
+      "a-1152-en": "Heartbreak",
+      "a-1153-en": "Open heart surgery"
     }
   }
 }
