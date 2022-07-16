@@ -216,18 +216,53 @@ function Other() {
 
   // const result = parseAdjectives();
 
-  const parsePairs = () => {
-    return rawData.reduce((acc, entry, index) => {
-      const id = `ap-${index + 1}-pt`;
+  // const parsePairs = () => {
+  //   return rawData.reduce((acc, entry, index) => {
+  //     const id = `ap-${index + 1}-pt`;
+  //     acc[id] = {
+  //       id,
+  //       values: [entry.CARD_1, entry.CARD_2],
+  //     };
+  //     return acc;
+  //   }, {});
+  // };
+
+  // const result = parsePairs();
+
+  const cache = {};
+  const duplicated = {};
+  const uniqueSingleWords = () => {
+    const resArr = [];
+
+    Object.values(rawData).forEach((entry) => {
+      const raw = stringRemoveAccents(entry.text).toLowerCase();
+
+      if (raw.includes(' ')) {
+        console.warn('SPACE IN', raw);
+      }
+
+      if (cache[raw]) {
+        duplicated[raw] = true;
+      } else {
+        cache[raw] = true;
+        resArr.push(entry.text.toLowerCase());
+      }
+    });
+
+    const sortedArr = resArr.sort((a, b) => a.localeCompare(b));
+
+    return sortedArr.reduce((acc, entry, index) => {
+      const id = `sw-${index + 1}-pt`;
       acc[id] = {
         id,
-        values: [entry.CARD_1, entry.CARD_2],
+        text: entry,
       };
+
       return acc;
     }, {});
   };
-
-  const result = parsePairs();
+  const result = uniqueSingleWords();
+  console.log(duplicated);
 
   return (
     <Layout>
@@ -262,113 +297,4 @@ function parse(a) {
 
 const db = [];
 
-const rawData = [
-  {
-    CARD_1: 'lápis',
-    CARD_2: 'caneta',
-  },
-  {
-    CARD_1: 'giz',
-    CARD_2: 'giz de ceira',
-  },
-  {
-    CARD_1: 'ônibus',
-    CARD_2: 'van',
-  },
-  {
-    CARD_1: 'dentista',
-    CARD_2: 'médico',
-  },
-  {
-    CARD_1: 'jardineiro',
-    CARD_2: 'encanador',
-  },
-  {
-    CARD_1: 'professor',
-    CARD_2: 'treinador',
-  },
-  {
-    CARD_1: 'fantoche',
-    CARD_2: 'marionete',
-  },
-  {
-    CARD_1: 'boneca',
-    CARD_2: 'criança',
-  },
-  {
-    CARD_1: 'cabra',
-    CARD_2: 'ovelha',
-  },
-  {
-    CARD_1: 'lhama',
-    CARD_2: 'camelo',
-  },
-  {
-    CARD_1: 'urso',
-    CARD_2: 'cachorro',
-  },
-  {
-    CARD_1: 'óculos',
-    CARD_2: 'binóculos',
-  },
-  {
-    CARD_1: 'pá',
-    CARD_2: 'colher',
-  },
-  {
-    CARD_1: 'quarto',
-    CARD_2: 'sala de estar',
-  },
-  {
-    CARD_1: 'banheira',
-    CARD_2: 'privada',
-  },
-  {
-    CARD_1: 'laço',
-    CARD_2: 'pular corda',
-  },
-  {
-    CARD_1: 'escova de dentes',
-    CARD_2: 'escova de cabelo',
-  },
-  {
-    CARD_1: 'submarino',
-    CARD_2: 'navio pirata',
-  },
-  {
-    CARD_1: 'nadar',
-    CARD_2: 'afogar',
-  },
-  {
-    CARD_1: 'bolo',
-    CARD_2: 'pão',
-  },
-  {
-    CARD_1: 'fruta',
-    CARD_2: 'verdura',
-  },
-  {
-    CARD_1: 'Mario',
-    CARD_2: 'Luigi',
-  },
-  {
-    CARD_1: 'Tetris',
-    CARD_2: 'Vitrais',
-  },
-  {
-    CARD_1: 'Bola de futebol',
-    CARD_2: 'Bola de basquete',
-  },
-  {
-    CARD_1: 'Escada',
-    CARD_2: 'Trilho do trem',
-  },
-  {
-    CARD_1: 'Fazenda',
-    CARD_2: 'Zoológico',
-  },
-  {
-    CARD_1: 'microfone',
-    CARD_2: 'sorvete',
-  },
-];
+const rawData = {};
