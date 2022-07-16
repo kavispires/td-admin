@@ -1,0 +1,110 @@
+{
+  "ap-1-en": {
+    "id": "ap-1-en",
+    "values": ["pen", "pencil"]
+  },
+  "ap-2-en": {
+    "id": "ap-2-en",
+    "values": ["chalk", "crayons"]
+  },
+  "ap-3-en": {
+    "id": "ap-3-en",
+    "values": ["bus", "van"]
+  },
+  "ap-4-en": {
+    "id": "ap-4-en",
+    "values": ["dentist", "doctor"]
+  },
+  "ap-5-en": {
+    "id": "ap-5-en",
+    "values": ["gardener", "plumber"]
+  },
+  "ap-6-en": {
+    "id": "ap-6-en",
+    "values": ["teacher", "coach"]
+  },
+  "ap-7-en": {
+    "id": "ap-7-en",
+    "values": ["puppet", "marionette"]
+  },
+  "ap-8-en": {
+    "id": "ap-8-en",
+    "values": ["doll", "action figure"]
+  },
+  "ap-9-en": {
+    "id": "ap-9-en",
+    "values": ["goat", "sheep"]
+  },
+  "ap-10-en": {
+    "id": "ap-10-en",
+    "values": ["llama", "camel"]
+  },
+  "ap-11-en": {
+    "id": "ap-11-en",
+    "values": ["bear", "dog"]
+  },
+  "ap-12-en": {
+    "id": "ap-12-en",
+    "values": ["glasses", "binoculars"]
+  },
+  "ap-13-en": {
+    "id": "ap-13-en",
+    "values": ["shovel", "spoon"]
+  },
+  "ap-14-en": {
+    "id": "ap-14-en",
+    "values": ["bedroom", "living room"]
+  },
+  "ap-15-en": {
+    "id": "ap-15-en",
+    "values": ["bath tub", "toilet"]
+  },
+  "ap-16-en": {
+    "id": "ap-16-en",
+    "values": ["lasso", "jump rope"]
+  },
+  "ap-17-en": {
+    "id": "ap-17-en",
+    "values": ["toothbrush", "hairbrush"]
+  },
+  "ap-18-en": {
+    "id": "ap-18-en",
+    "values": ["submarine", "pirate ship"]
+  },
+  "ap-19-en": {
+    "id": "ap-19-en",
+    "values": ["swim", "drown"]
+  },
+  "ap-20-en": {
+    "id": "ap-20-en",
+    "values": ["cake", "bread"]
+  },
+  "ap-21-en": {
+    "id": "ap-21-en",
+    "values": ["fruit", "vegetable"]
+  },
+  "ap-22-en": {
+    "id": "ap-22-en",
+    "values": ["Mario", "Luigi"]
+  },
+  "ap-23-en": {
+    "id": "ap-23-en",
+    "values": ["tetris", "stained glass"]
+  },
+  "ap-24-en": {
+    "id": "ap-24-en",
+    "values": ["soccer ball", "basketball"]
+  },
+  "ap-25-en": {
+    "id": "ap-25-en",
+    "values": ["ladder", "train tracks"]
+  },
+  "ap-26-en": {
+    "id": "ap-26-en",
+    "values": ["farm", "zoo"]
+  },
+  "ap-27-en": {
+    "id": "ap-27-en",
+    "values": ["microphone", "ice cream"]
+  }
+}
