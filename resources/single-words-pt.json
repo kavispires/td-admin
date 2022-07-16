@@ -1,0 +1,4978 @@
+{
+  "sw-1-pt": {
+    "id": "sw-1-pt",
+    "text": "abacate"
+  },
+  "sw-2-pt": {
+    "id": "sw-2-pt",
+    "text": "abóbora"
+  },
+  "sw-3-pt": {
+    "id": "sw-3-pt",
+    "text": "aborto"
+  },
+  "sw-4-pt": {
+    "id": "sw-4-pt",
+    "text": "abraço"
+  },
+  "sw-5-pt": {
+    "id": "sw-5-pt",
+    "text": "abridor"
+  },
+  "sw-6-pt": {
+    "id": "sw-6-pt",
+    "text": "acampamento"
+  },
+  "sw-7-pt": {
+    "id": "sw-7-pt",
+    "text": "acionista"
+  },
+  "sw-8-pt": {
+    "id": "sw-8-pt",
+    "text": "acne"
+  },
+  "sw-9-pt": {
+    "id": "sw-9-pt",
+    "text": "açúcar"
+  },
+  "sw-10-pt": {
+    "id": "sw-10-pt",
+    "text": "adeus"
+  },
+  "sw-11-pt": {
+    "id": "sw-11-pt",
+    "text": "adolescente"
+  },
+  "sw-12-pt": {
+    "id": "sw-12-pt",
+    "text": "advogado"
+  },
+  "sw-13-pt": {
+    "id": "sw-13-pt",
+    "text": "áfrica"
+  },
+  "sw-14-pt": {
+    "id": "sw-14-pt",
+    "text": "agasalho"
+  },
+  "sw-15-pt": {
+    "id": "sw-15-pt",
+    "text": "agente"
+  },
+  "sw-16-pt": {
+    "id": "sw-16-pt",
+    "text": "água"
+  },
+  "sw-17-pt": {
+    "id": "sw-17-pt",
+    "text": "águia"
+  },
+  "sw-18-pt": {
+    "id": "sw-18-pt",
+    "text": "agulha"
+  },
+  "sw-19-pt": {
+    "id": "sw-19-pt",
+    "text": "aladdin"
+  },
+  "sw-20-pt": {
+    "id": "sw-20-pt",
+    "text": "alarme"
+  },
+  "sw-21-pt": {
+    "id": "sw-21-pt",
+    "text": "alça"
+  },
+  "sw-22-pt": {
+    "id": "sw-22-pt",
+    "text": "alcatraz"
+  },
+  "sw-23-pt": {
+    "id": "sw-23-pt",
+    "text": "álcool"
+  },
+  "sw-24-pt": {
+    "id": "sw-24-pt",
+    "text": "aleatório"
+  },
+  "sw-25-pt": {
+    "id": "sw-25-pt",
+    "text": "alemanha"
+  },
+  "sw-26-pt": {
+    "id": "sw-26-pt",
+    "text": "alfabeto"
+  },
+  "sw-27-pt": {
+    "id": "sw-27-pt",
+    "text": "alfinete"
+  },
+  "sw-28-pt": {
+    "id": "sw-28-pt",
+    "text": "algodão"
+  },
+  "sw-29-pt": {
+    "id": "sw-29-pt",
+    "text": "alho"
+  },
+  "sw-30-pt": {
+    "id": "sw-30-pt",
+    "text": "aliança"
+  },
+  "sw-31-pt": {
+    "id": "sw-31-pt",
+    "text": "alicate"
+  },
+  "sw-32-pt": {
+    "id": "sw-32-pt",
+    "text": "alma"
+  },
+  "sw-33-pt": {
+    "id": "sw-33-pt",
+    "text": "almoço"
+  },
+  "sw-34-pt": {
+    "id": "sw-34-pt",
+    "text": "almofada"
+  },
+  "sw-35-pt": {
+    "id": "sw-35-pt",
+    "text": "alumínio"
+  },
+  "sw-36-pt": {
+    "id": "sw-36-pt",
+    "text": "aluna"
+  },
+  "sw-37-pt": {
+    "id": "sw-37-pt",
+    "text": "aluno"
+  },
+  "sw-38-pt": {
+    "id": "sw-38-pt",
+    "text": "amarelinha"
+  },
+  "sw-39-pt": {
+    "id": "sw-39-pt",
+    "text": "amarelo"
+  },
+  "sw-40-pt": {
+    "id": "sw-40-pt",
+    "text": "amazônia"
+  },
+  "sw-41-pt": {
+    "id": "sw-41-pt",
+    "text": "ambulância"
+  },
+  "sw-42-pt": {
+    "id": "sw-42-pt",
+    "text": "amendoim"
+  },
+  "sw-43-pt": {
+    "id": "sw-43-pt",
+    "text": "américa"
+  },
+  "sw-44-pt": {
+    "id": "sw-44-pt",
+    "text": "amigo"
+  },
+  "sw-45-pt": {
+    "id": "sw-45-pt",
+    "text": "anão"
+  },
+  "sw-46-pt": {
+    "id": "sw-46-pt",
+    "text": "ancinho"
+  },
+  "sw-47-pt": {
+    "id": "sw-47-pt",
+    "text": "âncora"
+  },
+  "sw-48-pt": {
+    "id": "sw-48-pt",
+    "text": "anel"
+  },
+  "sw-49-pt": {
+    "id": "sw-49-pt",
+    "text": "aniversário"
+  },
+  "sw-50-pt": {
+    "id": "sw-50-pt",
+    "text": "anjo"
+  },
+  "sw-51-pt": {
+    "id": "sw-51-pt",
+    "text": "antártica"
+  },
+  "sw-52-pt": {
+    "id": "sw-52-pt",
+    "text": "apagador"
+  },
+  "sw-53-pt": {
+    "id": "sw-53-pt",
+    "text": "apito"
+  },
+  "sw-54-pt": {
+    "id": "sw-54-pt",
+    "text": "aplauso"
+  },
+  "sw-55-pt": {
+    "id": "sw-55-pt",
+    "text": "aplicativo"
+  },
+  "sw-56-pt": {
+    "id": "sw-56-pt",
+    "text": "aposta"
+  },
+  "sw-57-pt": {
+    "id": "sw-57-pt",
+    "text": "ar"
+  },
+  "sw-58-pt": {
+    "id": "sw-58-pt",
+    "text": "aranha"
+  },
+  "sw-59-pt": {
+    "id": "sw-59-pt",
+    "text": "arco"
+  },
+  "sw-60-pt": {
+    "id": "sw-60-pt",
+    "text": "arco-íris"
+  },
+  "sw-61-pt": {
+    "id": "sw-61-pt",
+    "text": "areia"
+  },
+  "sw-62-pt": {
+    "id": "sw-62-pt",
+    "text": "argentina"
+  },
+  "sw-63-pt": {
+    "id": "sw-63-pt",
+    "text": "argila"
+  },
+  "sw-64-pt": {
+    "id": "sw-64-pt",
+    "text": "aro"
+  },
+  "sw-65-pt": {
+    "id": "sw-65-pt",
+    "text": "arqueólogo"
+  },
+  "sw-66-pt": {
+    "id": "sw-66-pt",
+    "text": "arquivo"
+  },
+  "sw-67-pt": {
+    "id": "sw-67-pt",
+    "text": "arranha-céu"
+  },
+  "sw-68-pt": {
+    "id": "sw-68-pt",
+    "text": "arrastar"
+  },
+  "sw-69-pt": {
+    "id": "sw-69-pt",
+    "text": "arrependimento"
+  },
+  "sw-70-pt": {
+    "id": "sw-70-pt",
+    "text": "árvore"
+  },
+  "sw-71-pt": {
+    "id": "sw-71-pt",
+    "text": "aspersor"
+  },
+  "sw-72-pt": {
+    "id": "sw-72-pt",
+    "text": "assassino"
+  },
+  "sw-73-pt": {
+    "id": "sw-73-pt",
+    "text": "asteca"
+  },
+  "sw-74-pt": {
+    "id": "sw-74-pt",
+    "text": "astronauta"
+  },
+  "sw-75-pt": {
+    "id": "sw-75-pt",
+    "text": "aterro"
+  },
+  "sw-76-pt": {
+    "id": "sw-76-pt",
+    "text": "atlantis"
+  },
+  "sw-77-pt": {
+    "id": "sw-77-pt",
+    "text": "atleta"
+  },
+  "sw-78-pt": {
+    "id": "sw-78-pt",
+    "text": "atraso"
+  },
+  "sw-79-pt": {
+    "id": "sw-79-pt",
+    "text": "atum"
+  },
+  "sw-80-pt": {
+    "id": "sw-80-pt",
+    "text": "austrália"
+  },
+  "sw-81-pt": {
+    "id": "sw-81-pt",
+    "text": "avatar"
+  },
+  "sw-82-pt": {
+    "id": "sw-82-pt",
+    "text": "avelã"
+  },
+  "sw-83-pt": {
+    "id": "sw-83-pt",
+    "text": "azeitona"
+  },
+  "sw-84-pt": {
+    "id": "sw-84-pt",
+    "text": "babá"
+  },
+  "sw-85-pt": {
+    "id": "sw-85-pt",
+    "text": "babador"
+  },
+  "sw-86-pt": {
+    "id": "sw-86-pt",
+    "text": "bacon"
+  },
+  "sw-87-pt": {
+    "id": "sw-87-pt",
+    "text": "baga"
+  },
+  "sw-88-pt": {
+    "id": "sw-88-pt",
+    "text": "baguete"
+  },
+  "sw-89-pt": {
+    "id": "sw-89-pt",
+    "text": "bagunça"
+  },
+  "sw-90-pt": {
+    "id": "sw-90-pt",
+    "text": "bainha"
+  },
+  "sw-91-pt": {
+    "id": "sw-91-pt",
+    "text": "baixo"
+  },
+  "sw-92-pt": {
+    "id": "sw-92-pt",
+    "text": "bala"
+  },
+  "sw-93-pt": {
+    "id": "sw-93-pt",
+    "text": "balança"
+  },
+  "sw-94-pt": {
+    "id": "sw-94-pt",
+    "text": "balanço"
+  },
+  "sw-95-pt": {
+    "id": "sw-95-pt",
+    "text": "balão"
+  },
+  "sw-96-pt": {
+    "id": "sw-96-pt",
+    "text": "balde"
+  },
+  "sw-97-pt": {
+    "id": "sw-97-pt",
+    "text": "balé"
+  },
+  "sw-98-pt": {
+    "id": "sw-98-pt",
+    "text": "baleia"
+  },
+  "sw-99-pt": {
+    "id": "sw-99-pt",
+    "text": "banana"
+  },
+  "sw-100-pt": {
+    "id": "sw-100-pt",
+    "text": "banco"
+  },
+  "sw-101-pt": {
+    "id": "sw-101-pt",
+    "text": "banda"
+  },
+  "sw-102-pt": {
+    "id": "sw-102-pt",
+    "text": "bandeira"
+  },
+  "sw-103-pt": {
+    "id": "sw-103-pt",
+    "text": "banheira"
+  },
+  "sw-104-pt": {
+    "id": "sw-104-pt",
+    "text": "banheiro"
+  },
+  "sw-105-pt": {
+    "id": "sw-105-pt",
+    "text": "banho"
+  },
+  "sw-106-pt": {
+    "id": "sw-106-pt",
+    "text": "bar"
+  },
+  "sw-107-pt": {
+    "id": "sw-107-pt",
+    "text": "barata"
+  },
+  "sw-108-pt": {
+    "id": "sw-108-pt",
+    "text": "barbie"
+  },
+  "sw-109-pt": {
+    "id": "sw-109-pt",
+    "text": "barco"
+  },
+  "sw-110-pt": {
+    "id": "sw-110-pt",
+    "text": "barra"
+  },
+  "sw-111-pt": {
+    "id": "sw-111-pt",
+    "text": "barraco"
+  },
+  "sw-112-pt": {
+    "id": "sw-112-pt",
+    "text": "barraquinha"
+  },
+  "sw-113-pt": {
+    "id": "sw-113-pt",
+    "text": "basquetebol"
+  },
+  "sw-114-pt": {
+    "id": "sw-114-pt",
+    "text": "bastão"
+  },
+  "sw-115-pt": {
+    "id": "sw-115-pt",
+    "text": "batata"
+  },
+  "sw-116-pt": {
+    "id": "sw-116-pt",
+    "text": "batedeira"
+  },
+  "sw-117-pt": {
+    "id": "sw-117-pt",
+    "text": "bateria"
+  },
+  "sw-118-pt": {
+    "id": "sw-118-pt",
+    "text": "batida"
+  },
+  "sw-119-pt": {
+    "id": "sw-119-pt",
+    "text": "batman"
+  },
+  "sw-120-pt": {
+    "id": "sw-120-pt",
+    "text": "bebê"
+  },
+  "sw-121-pt": {
+    "id": "sw-121-pt",
+    "text": "bebida"
+  },
+  "sw-122-pt": {
+    "id": "sw-122-pt",
+    "text": "beethoven"
+  },
+  "sw-123-pt": {
+    "id": "sw-123-pt",
+    "text": "beisebol"
+  },
+  "sw-124-pt": {
+    "id": "sw-124-pt",
+    "text": "bélgica"
+  },
+  "sw-125-pt": {
+    "id": "sw-125-pt",
+    "text": "bem"
+  },
+  "sw-126-pt": {
+    "id": "sw-126-pt",
+    "text": "bengala"
+  },
+  "sw-127-pt": {
+    "id": "sw-127-pt",
+    "text": "berço"
+  },
+  "sw-128-pt": {
+    "id": "sw-128-pt",
+    "text": "berlim"
+  },
+  "sw-129-pt": {
+    "id": "sw-129-pt",
+    "text": "bicho"
+  },
+  "sw-130-pt": {
+    "id": "sw-130-pt",
+    "text": "bicicleta"
+  },
+  "sw-131-pt": {
+    "id": "sw-131-pt",
+    "text": "bigode"
+  },
+  "sw-132-pt": {
+    "id": "sw-132-pt",
+    "text": "bilhete"
+  },
+  "sw-133-pt": {
+    "id": "sw-133-pt",
+    "text": "binóculos"
+  },
+  "sw-134-pt": {
+    "id": "sw-134-pt",
+    "text": "biscoito"
+  },
+  "sw-135-pt": {
+    "id": "sw-135-pt",
+    "text": "bloco"
+  },
+  "sw-136-pt": {
+    "id": "sw-136-pt",
+    "text": "boca"
+  },
+  "sw-137-pt": {
+    "id": "sw-137-pt",
+    "text": "bode"
+  },
+  "sw-138-pt": {
+    "id": "sw-138-pt",
+    "text": "bola"
+  },
+  "sw-139-pt": {
+    "id": "sw-139-pt",
+    "text": "bolha"
+  },
+  "sw-140-pt": {
+    "id": "sw-140-pt",
+    "text": "boliche"
+  },
+  "sw-141-pt": {
+    "id": "sw-141-pt",
+    "text": "bolo"
+  },
+  "sw-142-pt": {
+    "id": "sw-142-pt",
+    "text": "bolor"
+  },
+  "sw-143-pt": {
+    "id": "sw-143-pt",
+    "text": "bolota"
+  },
+  "sw-144-pt": {
+    "id": "sw-144-pt",
+    "text": "bolsa"
+  },
+  "sw-145-pt": {
+    "id": "sw-145-pt",
+    "text": "bolso"
+  },
+  "sw-146-pt": {
+    "id": "sw-146-pt",
+    "text": "bomba"
+  },
+  "sw-147-pt": {
+    "id": "sw-147-pt",
+    "text": "bombeiro"
+  },
+  "sw-148-pt": {
+    "id": "sw-148-pt",
+    "text": "boné"
+  },
+  "sw-149-pt": {
+    "id": "sw-149-pt",
+    "text": "boneca"
+  },
+  "sw-150-pt": {
+    "id": "sw-150-pt",
+    "text": "borboleta"
+  },
+  "sw-151-pt": {
+    "id": "sw-151-pt",
+    "text": "bota"
+  },
+  "sw-152-pt": {
+    "id": "sw-152-pt",
+    "text": "botão"
+  },
+  "sw-153-pt": {
+    "id": "sw-153-pt",
+    "text": "boxe"
+  },
+  "sw-154-pt": {
+    "id": "sw-154-pt",
+    "text": "braço"
+  },
+  "sw-155-pt": {
+    "id": "sw-155-pt",
+    "text": "branco"
+  },
+  "sw-156-pt": {
+    "id": "sw-156-pt",
+    "text": "brasil"
+  },
+  "sw-157-pt": {
+    "id": "sw-157-pt",
+    "text": "brigadeiro"
+  },
+  "sw-158-pt": {
+    "id": "sw-158-pt",
+    "text": "brócolis"
+  },
+  "sw-159-pt": {
+    "id": "sw-159-pt",
+    "text": "bronze"
+  },
+  "sw-160-pt": {
+    "id": "sw-160-pt",
+    "text": "bruxa"
+  },
+  "sw-161-pt": {
+    "id": "sw-161-pt",
+    "text": "búfalo"
+  },
+  "sw-162-pt": {
+    "id": "sw-162-pt",
+    "text": "buffy"
+  },
+  "sw-163-pt": {
+    "id": "sw-163-pt",
+    "text": "buraco"
+  },
+  "sw-164-pt": {
+    "id": "sw-164-pt",
+    "text": "buzina"
+  },
+  "sw-165-pt": {
+    "id": "sw-165-pt",
+    "text": "cabana"
+  },
+  "sw-166-pt": {
+    "id": "sw-166-pt",
+    "text": "cabeça"
+  },
+  "sw-167-pt": {
+    "id": "sw-167-pt",
+    "text": "cabeleireiro"
+  },
+  "sw-168-pt": {
+    "id": "sw-168-pt",
+    "text": "cabelo"
+  },
+  "sw-169-pt": {
+    "id": "sw-169-pt",
+    "text": "cabide"
+  },
+  "sw-170-pt": {
+    "id": "sw-170-pt",
+    "text": "cabine"
+  },
+  "sw-171-pt": {
+    "id": "sw-171-pt",
+    "text": "caçador"
+  },
+  "sw-172-pt": {
+    "id": "sw-172-pt",
+    "text": "cachaça"
+  },
+  "sw-173-pt": {
+    "id": "sw-173-pt",
+    "text": "cachorro"
+  },
+  "sw-174-pt": {
+    "id": "sw-174-pt",
+    "text": "cacto"
+  },
+  "sw-175-pt": {
+    "id": "sw-175-pt",
+    "text": "cadarço"
+  },
+  "sw-176-pt": {
+    "id": "sw-176-pt",
+    "text": "cadeado"
+  },
+  "sw-177-pt": {
+    "id": "sw-177-pt",
+    "text": "cadeia"
+  },
+  "sw-178-pt": {
+    "id": "sw-178-pt",
+    "text": "cadeira"
+  },
+  "sw-179-pt": {
+    "id": "sw-179-pt",
+    "text": "café"
+  },
+  "sw-180-pt": {
+    "id": "sw-180-pt",
+    "text": "caipirinha"
+  },
+  "sw-181-pt": {
+    "id": "sw-181-pt",
+    "text": "caixa"
+  },
+  "sw-182-pt": {
+    "id": "sw-182-pt",
+    "text": "calça"
+  },
+  "sw-183-pt": {
+    "id": "sw-183-pt",
+    "text": "calculadora"
+  },
+  "sw-184-pt": {
+    "id": "sw-184-pt",
+    "text": "calendário"
+  },
+  "sw-185-pt": {
+    "id": "sw-185-pt",
+    "text": "caligrafia"
+  },
+  "sw-186-pt": {
+    "id": "sw-186-pt",
+    "text": "cama"
+  },
+  "sw-187-pt": {
+    "id": "sw-187-pt",
+    "text": "camarada"
+  },
+  "sw-188-pt": {
+    "id": "sw-188-pt",
+    "text": "caminhão"
+  },
+  "sw-189-pt": {
+    "id": "sw-189-pt",
+    "text": "camisa"
+  },
+  "sw-190-pt": {
+    "id": "sw-190-pt",
+    "text": "campeão"
+  },
+  "sw-191-pt": {
+    "id": "sw-191-pt",
+    "text": "campo"
+  },
+  "sw-192-pt": {
+    "id": "sw-192-pt",
+    "text": "canadá"
+  },
+  "sw-193-pt": {
+    "id": "sw-193-pt",
+    "text": "canalha"
+  },
+  "sw-194-pt": {
+    "id": "sw-194-pt",
+    "text": "canastra"
+  },
+  "sw-195-pt": {
+    "id": "sw-195-pt",
+    "text": "canção"
+  },
+  "sw-196-pt": {
+    "id": "sw-196-pt",
+    "text": "caneca"
+  },
+  "sw-197-pt": {
+    "id": "sw-197-pt",
+    "text": "caneta"
+  },
+  "sw-198-pt": {
+    "id": "sw-198-pt",
+    "text": "cangaço"
+  },
+  "sw-199-pt": {
+    "id": "sw-199-pt",
+    "text": "canguru"
+  },
+  "sw-200-pt": {
+    "id": "sw-200-pt",
+    "text": "canil"
+  },
+  "sw-201-pt": {
+    "id": "sw-201-pt",
+    "text": "canon"
+  },
+  "sw-202-pt": {
+    "id": "sw-202-pt",
+    "text": "cansado"
+  },
+  "sw-203-pt": {
+    "id": "sw-203-pt",
+    "text": "cantina"
+  },
+  "sw-204-pt": {
+    "id": "sw-204-pt",
+    "text": "canto"
+  },
+  "sw-205-pt": {
+    "id": "sw-205-pt",
+    "text": "cantor"
+  },
+  "sw-206-pt": {
+    "id": "sw-206-pt",
+    "text": "canudo"
+  },
+  "sw-207-pt": {
+    "id": "sw-207-pt",
+    "text": "capa"
+  },
+  "sw-208-pt": {
+    "id": "sw-208-pt",
+    "text": "capacete"
+  },
+  "sw-209-pt": {
+    "id": "sw-209-pt",
+    "text": "capim"
+  },
+  "sw-210-pt": {
+    "id": "sw-210-pt",
+    "text": "capital"
+  },
+  "sw-211-pt": {
+    "id": "sw-211-pt",
+    "text": "capivara"
+  },
+  "sw-212-pt": {
+    "id": "sw-212-pt",
+    "text": "capuz"
+  },
+  "sw-213-pt": {
+    "id": "sw-213-pt",
+    "text": "careca"
+  },
+  "sw-214-pt": {
+    "id": "sw-214-pt",
+    "text": "careta"
+  },
+  "sw-215-pt": {
+    "id": "sw-215-pt",
+    "text": "carnaval"
+  },
+  "sw-216-pt": {
+    "id": "sw-216-pt",
+    "text": "carneiro"
+  },
+  "sw-217-pt": {
+    "id": "sw-217-pt",
+    "text": "carregador"
+  },
+  "sw-218-pt": {
+    "id": "sw-218-pt",
+    "text": "carretel"
+  },
+  "sw-219-pt": {
+    "id": "sw-219-pt",
+    "text": "carrilhão"
+  },
+  "sw-220-pt": {
+    "id": "sw-220-pt",
+    "text": "carro"
+  },
+  "sw-221-pt": {
+    "id": "sw-221-pt",
+    "text": "carrossel"
+  },
+  "sw-222-pt": {
+    "id": "sw-222-pt",
+    "text": "carta"
+  },
+  "sw-223-pt": {
+    "id": "sw-223-pt",
+    "text": "cartão"
+  },
+  "sw-224-pt": {
+    "id": "sw-224-pt",
+    "text": "carteira"
+  },
+  "sw-225-pt": {
+    "id": "sw-225-pt",
+    "text": "cartografia"
+  },
+  "sw-226-pt": {
+    "id": "sw-226-pt",
+    "text": "carvão"
+  },
+  "sw-227-pt": {
+    "id": "sw-227-pt",
+    "text": "casa"
+  },
+  "sw-228-pt": {
+    "id": "sw-228-pt",
+    "text": "casado"
+  },
+  "sw-229-pt": {
+    "id": "sw-229-pt",
+    "text": "casamento"
+  },
+  "sw-230-pt": {
+    "id": "sw-230-pt",
+    "text": "casca"
+  },
+  "sw-231-pt": {
+    "id": "sw-231-pt",
+    "text": "cassino"
+  },
+  "sw-232-pt": {
+    "id": "sw-232-pt",
+    "text": "castelo"
+  },
+  "sw-233-pt": {
+    "id": "sw-233-pt",
+    "text": "casulo"
+  },
+  "sw-234-pt": {
+    "id": "sw-234-pt",
+    "text": "catarro"
+  },
+  "sw-235-pt": {
+    "id": "sw-235-pt",
+    "text": "catavento"
+  },
+  "sw-236-pt": {
+    "id": "sw-236-pt",
+    "text": "cavaleiro"
+  },
+  "sw-237-pt": {
+    "id": "sw-237-pt",
+    "text": "cavalo"
+  },
+  "sw-238-pt": {
+    "id": "sw-238-pt",
+    "text": "caverna"
+  },
+  "sw-239-pt": {
+    "id": "sw-239-pt",
+    "text": "cavidade"
+  },
+  "sw-240-pt": {
+    "id": "sw-240-pt",
+    "text": "cd"
+  },
+  "sw-241-pt": {
+    "id": "sw-241-pt",
+    "text": "celebração"
+  },
+  "sw-242-pt": {
+    "id": "sw-242-pt",
+    "text": "célula"
+  },
+  "sw-243-pt": {
+    "id": "sw-243-pt",
+    "text": "cemitério"
+  },
+  "sw-244-pt": {
+    "id": "sw-244-pt",
+    "text": "cena"
+  },
+  "sw-245-pt": {
+    "id": "sw-245-pt",
+    "text": "cenário"
+  },
+  "sw-246-pt": {
+    "id": "sw-246-pt",
+    "text": "cenoura"
+  },
+  "sw-247-pt": {
+    "id": "sw-247-pt",
+    "text": "centauro"
+  },
+  "sw-248-pt": {
+    "id": "sw-248-pt",
+    "text": "centavo"
+  },
+  "sw-249-pt": {
+    "id": "sw-249-pt",
+    "text": "centro"
+  },
+  "sw-250-pt": {
+    "id": "sw-250-pt",
+    "text": "cera"
+  },
+  "sw-251-pt": {
+    "id": "sw-251-pt",
+    "text": "cerca"
+  },
+  "sw-252-pt": {
+    "id": "sw-252-pt",
+    "text": "cereal"
+  },
+  "sw-253-pt": {
+    "id": "sw-253-pt",
+    "text": "cérebro"
+  },
+  "sw-254-pt": {
+    "id": "sw-254-pt",
+    "text": "cerveja"
+  },
+  "sw-255-pt": {
+    "id": "sw-255-pt",
+    "text": "césar"
+  },
+  "sw-256-pt": {
+    "id": "sw-256-pt",
+    "text": "chaleira"
+  },
+  "sw-257-pt": {
+    "id": "sw-257-pt",
+    "text": "chama"
+  },
+  "sw-258-pt": {
+    "id": "sw-258-pt",
+    "text": "champanhe"
+  },
+  "sw-259-pt": {
+    "id": "sw-259-pt",
+    "text": "chão"
+  },
+  "sw-260-pt": {
+    "id": "sw-260-pt",
+    "text": "chapéu"
+  },
+  "sw-261-pt": {
+    "id": "sw-261-pt",
+    "text": "chave"
+  },
+  "sw-262-pt": {
+    "id": "sw-262-pt",
+    "text": "chef"
+  },
+  "sw-263-pt": {
+    "id": "sw-263-pt",
+    "text": "chefe"
+  },
+  "sw-264-pt": {
+    "id": "sw-264-pt",
+    "text": "cheque"
+  },
+  "sw-265-pt": {
+    "id": "sw-265-pt",
+    "text": "chewbacca"
+  },
+  "sw-266-pt": {
+    "id": "sw-266-pt",
+    "text": "chiclete"
+  },
+  "sw-267-pt": {
+    "id": "sw-267-pt",
+    "text": "chicote"
+  },
+  "sw-268-pt": {
+    "id": "sw-268-pt",
+    "text": "chifre"
+  },
+  "sw-269-pt": {
+    "id": "sw-269-pt",
+    "text": "chile"
+  },
+  "sw-270-pt": {
+    "id": "sw-270-pt",
+    "text": "china"
+  },
+  "sw-271-pt": {
+    "id": "sw-271-pt",
+    "text": "chinelo"
+  },
+  "sw-272-pt": {
+    "id": "sw-272-pt",
+    "text": "chip"
+  },
+  "sw-273-pt": {
+    "id": "sw-273-pt",
+    "text": "chique"
+  },
+  "sw-274-pt": {
+    "id": "sw-274-pt",
+    "text": "chiqueiro"
+  },
+  "sw-275-pt": {
+    "id": "sw-275-pt",
+    "text": "chocolate"
+  },
+  "sw-276-pt": {
+    "id": "sw-276-pt",
+    "text": "chorinho"
+  },
+  "sw-277-pt": {
+    "id": "sw-277-pt",
+    "text": "chumbo"
+  },
+  "sw-278-pt": {
+    "id": "sw-278-pt",
+    "text": "churchill"
+  },
+  "sw-279-pt": {
+    "id": "sw-279-pt",
+    "text": "churrasco"
+  },
+  "sw-280-pt": {
+    "id": "sw-280-pt",
+    "text": "chuva"
+  },
+  "sw-281-pt": {
+    "id": "sw-281-pt",
+    "text": "cicatriz"
+  },
+  "sw-282-pt": {
+    "id": "sw-282-pt",
+    "text": "ciclo"
+  },
+  "sw-283-pt": {
+    "id": "sw-283-pt",
+    "text": "cientista"
+  },
+  "sw-284-pt": {
+    "id": "sw-284-pt",
+    "text": "cigarro"
+  },
+  "sw-285-pt": {
+    "id": "sw-285-pt",
+    "text": "cinderela"
+  },
+  "sw-286-pt": {
+    "id": "sw-286-pt",
+    "text": "cinema"
+  },
+  "sw-287-pt": {
+    "id": "sw-287-pt",
+    "text": "cinto"
+  },
+  "sw-288-pt": {
+    "id": "sw-288-pt",
+    "text": "cinza"
+  },
+  "sw-289-pt": {
+    "id": "sw-289-pt",
+    "text": "circo"
+  },
+  "sw-290-pt": {
+    "id": "sw-290-pt",
+    "text": "círculo"
+  },
+  "sw-291-pt": {
+    "id": "sw-291-pt",
+    "text": "clandestino"
+  },
+  "sw-292-pt": {
+    "id": "sw-292-pt",
+    "text": "cleopatra"
+  },
+  "sw-293-pt": {
+    "id": "sw-293-pt",
+    "text": "clima"
+  },
+  "sw-294-pt": {
+    "id": "sw-294-pt",
+    "text": "clube"
+  },
+  "sw-295-pt": {
+    "id": "sw-295-pt",
+    "text": "coala"
+  },
+  "sw-296-pt": {
+    "id": "sw-296-pt",
+    "text": "coberta"
+  },
+  "sw-297-pt": {
+    "id": "sw-297-pt",
+    "text": "cobertor"
+  },
+  "sw-298-pt": {
+    "id": "sw-298-pt",
+    "text": "cobertura"
+  },
+  "sw-299-pt": {
+    "id": "sw-299-pt",
+    "text": "cobra"
+  },
+  "sw-300-pt": {
+    "id": "sw-300-pt",
+    "text": "cobrança"
+  },
+  "sw-301-pt": {
+    "id": "sw-301-pt",
+    "text": "cobre"
+  },
+  "sw-302-pt": {
+    "id": "sw-302-pt",
+    "text": "código"
+  },
+  "sw-303-pt": {
+    "id": "sw-303-pt",
+    "text": "coelho"
+  },
+  "sw-304-pt": {
+    "id": "sw-304-pt",
+    "text": "cofre"
+  },
+  "sw-305-pt": {
+    "id": "sw-305-pt",
+    "text": "cogumelo"
+  },
+  "sw-306-pt": {
+    "id": "sw-306-pt",
+    "text": "colar"
+  },
+  "sw-307-pt": {
+    "id": "sw-307-pt",
+    "text": "colchão"
+  },
+  "sw-308-pt": {
+    "id": "sw-308-pt",
+    "text": "colete"
+  },
+  "sw-309-pt": {
+    "id": "sw-309-pt",
+    "text": "colher"
+  },
+  "sw-310-pt": {
+    "id": "sw-310-pt",
+    "text": "colina"
+  },
+  "sw-311-pt": {
+    "id": "sw-311-pt",
+    "text": "colo"
+  },
+  "sw-312-pt": {
+    "id": "sw-312-pt",
+    "text": "coluna"
+  },
+  "sw-313-pt": {
+    "id": "sw-313-pt",
+    "text": "comédia"
+  },
+  "sw-314-pt": {
+    "id": "sw-314-pt",
+    "text": "comida"
+  },
+  "sw-315-pt": {
+    "id": "sw-315-pt",
+    "text": "composto"
+  },
+  "sw-316-pt": {
+    "id": "sw-316-pt",
+    "text": "compra"
+  },
+  "sw-317-pt": {
+    "id": "sw-317-pt",
+    "text": "compras"
+  },
+  "sw-318-pt": {
+    "id": "sw-318-pt",
+    "text": "computador"
+  },
+  "sw-319-pt": {
+    "id": "sw-319-pt",
+    "text": "concha"
+  },
+  "sw-320-pt": {
+    "id": "sw-320-pt",
+    "text": "condutor"
+  },
+  "sw-321-pt": {
+    "id": "sw-321-pt",
+    "text": "cone"
+  },
+  "sw-322-pt": {
+    "id": "sw-322-pt",
+    "text": "conforto"
+  },
+  "sw-323-pt": {
+    "id": "sw-323-pt",
+    "text": "conserto"
+  },
+  "sw-324-pt": {
+    "id": "sw-324-pt",
+    "text": "consolo"
+  },
+  "sw-325-pt": {
+    "id": "sw-325-pt",
+    "text": "conta"
+  },
+  "sw-326-pt": {
+    "id": "sw-326-pt",
+    "text": "contrabandista"
+  },
+  "sw-327-pt": {
+    "id": "sw-327-pt",
+    "text": "contrato"
+  },
+  "sw-328-pt": {
+    "id": "sw-328-pt",
+    "text": "conversa"
+  },
+  "sw-329-pt": {
+    "id": "sw-329-pt",
+    "text": "conversação"
+  },
+  "sw-330-pt": {
+    "id": "sw-330-pt",
+    "text": "convite"
+  },
+  "sw-331-pt": {
+    "id": "sw-331-pt",
+    "text": "cooper"
+  },
+  "sw-332-pt": {
+    "id": "sw-332-pt",
+    "text": "copo"
+  },
+  "sw-333-pt": {
+    "id": "sw-333-pt",
+    "text": "coquetel"
+  },
+  "sw-334-pt": {
+    "id": "sw-334-pt",
+    "text": "coração"
+  },
+  "sw-335-pt": {
+    "id": "sw-335-pt",
+    "text": "corajoso"
+  },
+  "sw-336-pt": {
+    "id": "sw-336-pt",
+    "text": "corda"
+  },
+  "sw-337-pt": {
+    "id": "sw-337-pt",
+    "text": "cordão"
+  },
+  "sw-338-pt": {
+    "id": "sw-338-pt",
+    "text": "coroa"
+  },
+  "sw-339-pt": {
+    "id": "sw-339-pt",
+    "text": "coronel"
+  },
+  "sw-340-pt": {
+    "id": "sw-340-pt",
+    "text": "corpo"
+  },
+  "sw-341-pt": {
+    "id": "sw-341-pt",
+    "text": "corredor"
+  },
+  "sw-342-pt": {
+    "id": "sw-342-pt",
+    "text": "correio"
+  },
+  "sw-343-pt": {
+    "id": "sw-343-pt",
+    "text": "corrimão"
+  },
+  "sw-344-pt": {
+    "id": "sw-344-pt",
+    "text": "cortador"
+  },
+  "sw-345-pt": {
+    "id": "sw-345-pt",
+    "text": "cortiça"
+  },
+  "sw-346-pt": {
+    "id": "sw-346-pt",
+    "text": "cortina"
+  },
+  "sw-347-pt": {
+    "id": "sw-347-pt",
+    "text": "corvo"
+  },
+  "sw-348-pt": {
+    "id": "sw-348-pt",
+    "text": "costas"
+  },
+  "sw-349-pt": {
+    "id": "sw-349-pt",
+    "text": "costela"
+  },
+  "sw-350-pt": {
+    "id": "sw-350-pt",
+    "text": "cotovelo"
+  },
+  "sw-351-pt": {
+    "id": "sw-351-pt",
+    "text": "couro"
+  },
+  "sw-352-pt": {
+    "id": "sw-352-pt",
+    "text": "coveiro"
+  },
+  "sw-353-pt": {
+    "id": "sw-353-pt",
+    "text": "covinha"
+  },
+  "sw-354-pt": {
+    "id": "sw-354-pt",
+    "text": "coxinha"
+  },
+  "sw-355-pt": {
+    "id": "sw-355-pt",
+    "text": "cozinha"
+  },
+  "sw-356-pt": {
+    "id": "sw-356-pt",
+    "text": "creme"
+  },
+  "sw-357-pt": {
+    "id": "sw-357-pt",
+    "text": "crente"
+  },
+  "sw-358-pt": {
+    "id": "sw-358-pt",
+    "text": "criança"
+  },
+  "sw-359-pt": {
+    "id": "sw-359-pt",
+    "text": "crocante"
+  },
+  "sw-360-pt": {
+    "id": "sw-360-pt",
+    "text": "crocodilo"
+  },
+  "sw-361-pt": {
+    "id": "sw-361-pt",
+    "text": "croissant"
+  },
+  "sw-362-pt": {
+    "id": "sw-362-pt",
+    "text": "crosta"
+  },
+  "sw-363-pt": {
+    "id": "sw-363-pt",
+    "text": "cruz"
+  },
+  "sw-364-pt": {
+    "id": "sw-364-pt",
+    "text": "cruzamento"
+  },
+  "sw-365-pt": {
+    "id": "sw-365-pt",
+    "text": "cruzeiro"
+  },
+  "sw-366-pt": {
+    "id": "sw-366-pt",
+    "text": "cubo"
+  },
+  "sw-367-pt": {
+    "id": "sw-367-pt",
+    "text": "cupido"
+  },
+  "sw-368-pt": {
+    "id": "sw-368-pt",
+    "text": "curupira"
+  },
+  "sw-369-pt": {
+    "id": "sw-369-pt",
+    "text": "cuscuz"
+  },
+  "sw-370-pt": {
+    "id": "sw-370-pt",
+    "text": "cuspe"
+  },
+  "sw-371-pt": {
+    "id": "sw-371-pt",
+    "text": "cutícula"
+  },
+  "sw-372-pt": {
+    "id": "sw-372-pt",
+    "text": "czar"
+  },
+  "sw-373-pt": {
+    "id": "sw-373-pt",
+    "text": "dados"
+  },
+  "sw-374-pt": {
+    "id": "sw-374-pt",
+    "text": "dança"
+  },
+  "sw-375-pt": {
+    "id": "sw-375-pt",
+    "text": "dardo"
+  },
+  "sw-376-pt": {
+    "id": "sw-376-pt",
+    "text": "darwin"
+  },
+  "sw-377-pt": {
+    "id": "sw-377-pt",
+    "text": "dedo"
+  },
+  "sw-378-pt": {
+    "id": "sw-378-pt",
+    "text": "defeito"
+  },
+  "sw-379-pt": {
+    "id": "sw-379-pt",
+    "text": "defesa"
+  },
+  "sw-380-pt": {
+    "id": "sw-380-pt",
+    "text": "degrau"
+  },
+  "sw-381-pt": {
+    "id": "sw-381-pt",
+    "text": "dente"
+  },
+  "sw-382-pt": {
+    "id": "sw-382-pt",
+    "text": "dentista"
+  },
+  "sw-383-pt": {
+    "id": "sw-383-pt",
+    "text": "descarga"
+  },
+  "sw-384-pt": {
+    "id": "sw-384-pt",
+    "text": "desejo"
+  },
+  "sw-385-pt": {
+    "id": "sw-385-pt",
+    "text": "desempregado"
+  },
+  "sw-386-pt": {
+    "id": "sw-386-pt",
+    "text": "desenho"
+  },
+  "sw-387-pt": {
+    "id": "sw-387-pt",
+    "text": "deserto"
+  },
+  "sw-388-pt": {
+    "id": "sw-388-pt",
+    "text": "destroços"
+  },
+  "sw-389-pt": {
+    "id": "sw-389-pt",
+    "text": "devagar"
+  },
+  "sw-390-pt": {
+    "id": "sw-390-pt",
+    "text": "dez"
+  },
+  "sw-391-pt": {
+    "id": "sw-391-pt",
+    "text": "dia"
+  },
+  "sw-392-pt": {
+    "id": "sw-392-pt",
+    "text": "diabo"
+  },
+  "sw-393-pt": {
+    "id": "sw-393-pt",
+    "text": "diamante"
+  },
+  "sw-394-pt": {
+    "id": "sw-394-pt",
+    "text": "diário"
+  },
+  "sw-395-pt": {
+    "id": "sw-395-pt",
+    "text": "dica"
+  },
+  "sw-396-pt": {
+    "id": "sw-396-pt",
+    "text": "dicionário"
+  },
+  "sw-397-pt": {
+    "id": "sw-397-pt",
+    "text": "dinheiro"
+  },
+  "sw-398-pt": {
+    "id": "sw-398-pt",
+    "text": "dinossauro"
+  },
+  "sw-399-pt": {
+    "id": "sw-399-pt",
+    "text": "discoteca"
+  },
+  "sw-400-pt": {
+    "id": "sw-400-pt",
+    "text": "doce"
+  },
+  "sw-401-pt": {
+    "id": "sw-401-pt",
+    "text": "doença"
+  },
+  "sw-402-pt": {
+    "id": "sw-402-pt",
+    "text": "doente"
+  },
+  "sw-403-pt": {
+    "id": "sw-403-pt",
+    "text": "dominó"
+  },
+  "sw-404-pt": {
+    "id": "sw-404-pt",
+    "text": "dormindo"
+  },
+  "sw-405-pt": {
+    "id": "sw-405-pt",
+    "text": "doutor"
+  },
+  "sw-406-pt": {
+    "id": "sw-406-pt",
+    "text": "drácula"
+  },
+  "sw-407-pt": {
+    "id": "sw-407-pt",
+    "text": "dragão"
+  },
+  "sw-408-pt": {
+    "id": "sw-408-pt",
+    "text": "drogas"
+  },
+  "sw-409-pt": {
+    "id": "sw-409-pt",
+    "text": "duende"
+  },
+  "sw-410-pt": {
+    "id": "sw-410-pt",
+    "text": "duna"
+  },
+  "sw-411-pt": {
+    "id": "sw-411-pt",
+    "text": "duro"
+  },
+  "sw-412-pt": {
+    "id": "sw-412-pt",
+    "text": "editor"
+  },
+  "sw-413-pt": {
+    "id": "sw-413-pt",
+    "text": "egito"
+  },
+  "sw-414-pt": {
+    "id": "sw-414-pt",
+    "text": "elástico"
+  },
+  "sw-415-pt": {
+    "id": "sw-415-pt",
+    "text": "elefante"
+  },
+  "sw-416-pt": {
+    "id": "sw-416-pt",
+    "text": "eleição"
+  },
+  "sw-417-pt": {
+    "id": "sw-417-pt",
+    "text": "elenco"
+  },
+  "sw-418-pt": {
+    "id": "sw-418-pt",
+    "text": "eletricidade"
+  },
+  "sw-419-pt": {
+    "id": "sw-419-pt",
+    "text": "elevador"
+  },
+  "sw-420-pt": {
+    "id": "sw-420-pt",
+    "text": "elfo"
+  },
+  "sw-421-pt": {
+    "id": "sw-421-pt",
+    "text": "elvis"
+  },
+  "sw-422-pt": {
+    "id": "sw-422-pt",
+    "text": "embaixada"
+  },
+  "sw-423-pt": {
+    "id": "sw-423-pt",
+    "text": "emergência"
+  },
+  "sw-424-pt": {
+    "id": "sw-424-pt",
+    "text": "empada"
+  },
+  "sw-425-pt": {
+    "id": "sw-425-pt",
+    "text": "empate"
+  },
+  "sw-426-pt": {
+    "id": "sw-426-pt",
+    "text": "encanador"
+  },
+  "sw-427-pt": {
+    "id": "sw-427-pt",
+    "text": "encontro"
+  },
+  "sw-428-pt": {
+    "id": "sw-428-pt",
+    "text": "enfermeira"
+  },
+  "sw-429-pt": {
+    "id": "sw-429-pt",
+    "text": "engrenagem"
+  },
+  "sw-430-pt": {
+    "id": "sw-430-pt",
+    "text": "enigma"
+  },
+  "sw-431-pt": {
+    "id": "sw-431-pt",
+    "text": "enredo"
+  },
+  "sw-432-pt": {
+    "id": "sw-432-pt",
+    "text": "enxame"
+  },
+  "sw-433-pt": {
+    "id": "sw-433-pt",
+    "text": "ergonômico"
+  },
+  "sw-434-pt": {
+    "id": "sw-434-pt",
+    "text": "erro"
+  },
+  "sw-435-pt": {
+    "id": "sw-435-pt",
+    "text": "esboço"
+  },
+  "sw-436-pt": {
+    "id": "sw-436-pt",
+    "text": "escada"
+  },
+  "sw-437-pt": {
+    "id": "sw-437-pt",
+    "text": "escadaria"
+  },
+  "sw-438-pt": {
+    "id": "sw-438-pt",
+    "text": "escala"
+  },
+  "sw-439-pt": {
+    "id": "sw-439-pt",
+    "text": "escalada"
+  },
+  "sw-440-pt": {
+    "id": "sw-440-pt",
+    "text": "escavadeira"
+  },
+  "sw-441-pt": {
+    "id": "sw-441-pt",
+    "text": "escola"
+  },
+  "sw-442-pt": {
+    "id": "sw-442-pt",
+    "text": "esconderijo"
+  },
+  "sw-443-pt": {
+    "id": "sw-443-pt",
+    "text": "escorpião"
+  },
+  "sw-444-pt": {
+    "id": "sw-444-pt",
+    "text": "escotilha"
+  },
+  "sw-445-pt": {
+    "id": "sw-445-pt",
+    "text": "escova"
+  },
+  "sw-446-pt": {
+    "id": "sw-446-pt",
+    "text": "escovar"
+  },
+  "sw-447-pt": {
+    "id": "sw-447-pt",
+    "text": "escritório"
+  },
+  "sw-448-pt": {
+    "id": "sw-448-pt",
+    "text": "escrivaninha"
+  },
+  "sw-449-pt": {
+    "id": "sw-449-pt",
+    "text": "esfregão"
+  },
+  "sw-450-pt": {
+    "id": "sw-450-pt",
+    "text": "esgoto"
+  },
+  "sw-451-pt": {
+    "id": "sw-451-pt",
+    "text": "espaço"
+  },
+  "sw-452-pt": {
+    "id": "sw-452-pt",
+    "text": "espada"
+  },
+  "sw-453-pt": {
+    "id": "sw-453-pt",
+    "text": "espelho"
+  },
+  "sw-454-pt": {
+    "id": "sw-454-pt",
+    "text": "espião"
+  },
+  "sw-455-pt": {
+    "id": "sw-455-pt",
+    "text": "espirro"
+  },
+  "sw-456-pt": {
+    "id": "sw-456-pt",
+    "text": "esponja"
+  },
+  "sw-457-pt": {
+    "id": "sw-457-pt",
+    "text": "espuma"
+  },
+  "sw-458-pt": {
+    "id": "sw-458-pt",
+    "text": "esqui"
+  },
+  "sw-459-pt": {
+    "id": "sw-459-pt",
+    "text": "estação"
+  },
+  "sw-460-pt": {
+    "id": "sw-460-pt",
+    "text": "estádio"
+  },
+  "sw-461-pt": {
+    "id": "sw-461-pt",
+    "text": "estado"
+  },
+  "sw-462-pt": {
+    "id": "sw-462-pt",
+    "text": "estagiário"
+  },
+  "sw-463-pt": {
+    "id": "sw-463-pt",
+    "text": "estilingue"
+  },
+  "sw-464-pt": {
+    "id": "sw-464-pt",
+    "text": "estilo"
+  },
+  "sw-465-pt": {
+    "id": "sw-465-pt",
+    "text": "estofamento"
+  },
+  "sw-466-pt": {
+    "id": "sw-466-pt",
+    "text": "estômago"
+  },
+  "sw-467-pt": {
+    "id": "sw-467-pt",
+    "text": "estoque"
+  },
+  "sw-468-pt": {
+    "id": "sw-468-pt",
+    "text": "estrabismo"
+  },
+  "sw-469-pt": {
+    "id": "sw-469-pt",
+    "text": "estrangeiro"
+  },
+  "sw-470-pt": {
+    "id": "sw-470-pt",
+    "text": "estrela"
+  },
+  "sw-471-pt": {
+    "id": "sw-471-pt",
+    "text": "estrondo"
+  },
+  "sw-472-pt": {
+    "id": "sw-472-pt",
+    "text": "estrume"
+  },
+  "sw-473-pt": {
+    "id": "sw-473-pt",
+    "text": "estudar"
+  },
+  "sw-474-pt": {
+    "id": "sw-474-pt",
+    "text": "etiqueta"
+  },
+  "sw-475-pt": {
+    "id": "sw-475-pt",
+    "text": "eureka"
+  },
+  "sw-476-pt": {
+    "id": "sw-476-pt",
+    "text": "europa"
+  },
+  "sw-477-pt": {
+    "id": "sw-477-pt",
+    "text": "everest"
+  },
+  "sw-478-pt": {
+    "id": "sw-478-pt",
+    "text": "evolução"
+  },
+  "sw-479-pt": {
+    "id": "sw-479-pt",
+    "text": "excelente"
+  },
+  "sw-480-pt": {
+    "id": "sw-480-pt",
+    "text": "extensão"
+  },
+  "sw-481-pt": {
+    "id": "sw-481-pt",
+    "text": "exterior"
+  },
+  "sw-482-pt": {
+    "id": "sw-482-pt",
+    "text": "exterminador"
+  },
+  "sw-483-pt": {
+    "id": "sw-483-pt",
+    "text": "fã"
+  },
+  "sw-484-pt": {
+    "id": "sw-484-pt",
+    "text": "faca"
+  },
+  "sw-485-pt": {
+    "id": "sw-485-pt",
+    "text": "face"
+  },
+  "sw-486-pt": {
+    "id": "sw-486-pt",
+    "text": "facebook"
+  },
+  "sw-487-pt": {
+    "id": "sw-487-pt",
+    "text": "faculdade"
+  },
+  "sw-488-pt": {
+    "id": "sw-488-pt",
+    "text": "fada"
+  },
+  "sw-489-pt": {
+    "id": "sw-489-pt",
+    "text": "falcão"
+  },
+  "sw-490-pt": {
+    "id": "sw-490-pt",
+    "text": "falha"
+  },
+  "sw-491-pt": {
+    "id": "sw-491-pt",
+    "text": "fantasma"
+  },
+  "sw-492-pt": {
+    "id": "sw-492-pt",
+    "text": "fantoche"
+  },
+  "sw-493-pt": {
+    "id": "sw-493-pt",
+    "text": "farol"
+  },
+  "sw-494-pt": {
+    "id": "sw-494-pt",
+    "text": "fazenda"
+  },
+  "sw-495-pt": {
+    "id": "sw-495-pt",
+    "text": "febre"
+  },
+  "sw-496-pt": {
+    "id": "sw-496-pt",
+    "text": "feijão"
+  },
+  "sw-497-pt": {
+    "id": "sw-497-pt",
+    "text": "feijoada"
+  },
+  "sw-498-pt": {
+    "id": "sw-498-pt",
+    "text": "feira"
+  },
+  "sw-499-pt": {
+    "id": "sw-499-pt",
+    "text": "feitiço"
+  },
+  "sw-500-pt": {
+    "id": "sw-500-pt",
+    "text": "feliz"
+  },
+  "sw-501-pt": {
+    "id": "sw-501-pt",
+    "text": "fênix"
+  },
+  "sw-502-pt": {
+    "id": "sw-502-pt",
+    "text": "férias"
+  },
+  "sw-503-pt": {
+    "id": "sw-503-pt",
+    "text": "ferradura"
+  },
+  "sw-504-pt": {
+    "id": "sw-504-pt",
+    "text": "ferramenta"
+  },
+  "sw-505-pt": {
+    "id": "sw-505-pt",
+    "text": "ferreiro"
+  },
+  "sw-506-pt": {
+    "id": "sw-506-pt",
+    "text": "ferro"
+  },
+  "sw-507-pt": {
+    "id": "sw-507-pt",
+    "text": "festa"
+  },
+  "sw-508-pt": {
+    "id": "sw-508-pt",
+    "text": "feudalismo"
+  },
+  "sw-509-pt": {
+    "id": "sw-509-pt",
+    "text": "figura"
+  },
+  "sw-510-pt": {
+    "id": "sw-510-pt",
+    "text": "fileira"
+  },
+  "sw-511-pt": {
+    "id": "sw-511-pt",
+    "text": "filme"
+  },
+  "sw-512-pt": {
+    "id": "sw-512-pt",
+    "text": "filósofo"
+  },
+  "sw-513-pt": {
+    "id": "sw-513-pt",
+    "text": "fim"
+  },
+  "sw-514-pt": {
+    "id": "sw-514-pt",
+    "text": "fio"
+  },
+  "sw-515-pt": {
+    "id": "sw-515-pt",
+    "text": "flanela"
+  },
+  "sw-516-pt": {
+    "id": "sw-516-pt",
+    "text": "flauta"
+  },
+  "sw-517-pt": {
+    "id": "sw-517-pt",
+    "text": "flintstone"
+  },
+  "sw-518-pt": {
+    "id": "sw-518-pt",
+    "text": "flor"
+  },
+  "sw-519-pt": {
+    "id": "sw-519-pt",
+    "text": "floresta"
+  },
+  "sw-520-pt": {
+    "id": "sw-520-pt",
+    "text": "fluxo"
+  },
+  "sw-521-pt": {
+    "id": "sw-521-pt",
+    "text": "foca"
+  },
+  "sw-522-pt": {
+    "id": "sw-522-pt",
+    "text": "fogo"
+  },
+  "sw-523-pt": {
+    "id": "sw-523-pt",
+    "text": "folha"
+  },
+  "sw-524-pt": {
+    "id": "sw-524-pt",
+    "text": "fome"
+  },
+  "sw-525-pt": {
+    "id": "sw-525-pt",
+    "text": "fonte"
+  },
+  "sw-526-pt": {
+    "id": "sw-526-pt",
+    "text": "fora"
+  },
+  "sw-527-pt": {
+    "id": "sw-527-pt",
+    "text": "força"
+  },
+  "sw-528-pt": {
+    "id": "sw-528-pt",
+    "text": "ford"
+  },
+  "sw-529-pt": {
+    "id": "sw-529-pt",
+    "text": "formatura"
+  },
+  "sw-530-pt": {
+    "id": "sw-530-pt",
+    "text": "forno"
+  },
+  "sw-531-pt": {
+    "id": "sw-531-pt",
+    "text": "fósforo"
+  },
+  "sw-532-pt": {
+    "id": "sw-532-pt",
+    "text": "fosso"
+  },
+  "sw-533-pt": {
+    "id": "sw-533-pt",
+    "text": "fotografia"
+  },
+  "sw-534-pt": {
+    "id": "sw-534-pt",
+    "text": "fragmento"
+  },
+  "sw-535-pt": {
+    "id": "sw-535-pt",
+    "text": "frança"
+  },
+  "sw-536-pt": {
+    "id": "sw-536-pt",
+    "text": "frango"
+  },
+  "sw-537-pt": {
+    "id": "sw-537-pt",
+    "text": "franja"
+  },
+  "sw-538-pt": {
+    "id": "sw-538-pt",
+    "text": "frankenstein"
+  },
+  "sw-539-pt": {
+    "id": "sw-539-pt",
+    "text": "frase"
+  },
+  "sw-540-pt": {
+    "id": "sw-540-pt",
+    "text": "freira"
+  },
+  "sw-541-pt": {
+    "id": "sw-541-pt",
+    "text": "frete"
+  },
+  "sw-542-pt": {
+    "id": "sw-542-pt",
+    "text": "frevo"
+  },
+  "sw-543-pt": {
+    "id": "sw-543-pt",
+    "text": "frigideira"
+  },
+  "sw-544-pt": {
+    "id": "sw-544-pt",
+    "text": "frio"
+  },
+  "sw-545-pt": {
+    "id": "sw-545-pt",
+    "text": "fritas"
+  },
+  "sw-546-pt": {
+    "id": "sw-546-pt",
+    "text": "fumaça"
+  },
+  "sw-547-pt": {
+    "id": "sw-547-pt",
+    "text": "funk"
+  },
+  "sw-548-pt": {
+    "id": "sw-548-pt",
+    "text": "furadeira"
+  },
+  "sw-549-pt": {
+    "id": "sw-549-pt",
+    "text": "futebol"
+  },
+  "sw-550-pt": {
+    "id": "sw-550-pt",
+    "text": "gabarito"
+  },
+  "sw-551-pt": {
+    "id": "sw-551-pt",
+    "text": "gaiola"
+  },
+  "sw-552-pt": {
+    "id": "sw-552-pt",
+    "text": "galáxia"
+  },
+  "sw-553-pt": {
+    "id": "sw-553-pt",
+    "text": "galho"
+  },
+  "sw-554-pt": {
+    "id": "sw-554-pt",
+    "text": "galo"
+  },
+  "sw-555-pt": {
+    "id": "sw-555-pt",
+    "text": "gancho"
+  },
+  "sw-556-pt": {
+    "id": "sw-556-pt",
+    "text": "gandhi"
+  },
+  "sw-557-pt": {
+    "id": "sw-557-pt",
+    "text": "garanhão"
+  },
+  "sw-558-pt": {
+    "id": "sw-558-pt",
+    "text": "garfo"
+  },
+  "sw-559-pt": {
+    "id": "sw-559-pt",
+    "text": "garganta"
+  },
+  "sw-560-pt": {
+    "id": "sw-560-pt",
+    "text": "garota"
+  },
+  "sw-561-pt": {
+    "id": "sw-561-pt",
+    "text": "garrafa"
+  },
+  "sw-562-pt": {
+    "id": "sw-562-pt",
+    "text": "gás"
+  },
+  "sw-563-pt": {
+    "id": "sw-563-pt",
+    "text": "gasolina"
+  },
+  "sw-564-pt": {
+    "id": "sw-564-pt",
+    "text": "gato"
+  },
+  "sw-565-pt": {
+    "id": "sw-565-pt",
+    "text": "geada"
+  },
+  "sw-566-pt": {
+    "id": "sw-566-pt",
+    "text": "geleia"
+  },
+  "sw-567-pt": {
+    "id": "sw-567-pt",
+    "text": "gelo"
+  },
+  "sw-568-pt": {
+    "id": "sw-568-pt",
+    "text": "gema"
+  },
+  "sw-569-pt": {
+    "id": "sw-569-pt",
+    "text": "gênio"
+  },
+  "sw-570-pt": {
+    "id": "sw-570-pt",
+    "text": "gigante"
+  },
+  "sw-571-pt": {
+    "id": "sw-571-pt",
+    "text": "gis"
+  },
+  "sw-572-pt": {
+    "id": "sw-572-pt",
+    "text": "giz"
+  },
+  "sw-573-pt": {
+    "id": "sw-573-pt",
+    "text": "gladiador"
+  },
+  "sw-574-pt": {
+    "id": "sw-574-pt",
+    "text": "goblin"
+  },
+  "sw-575-pt": {
+    "id": "sw-575-pt",
+    "text": "godzilla"
+  },
+  "sw-576-pt": {
+    "id": "sw-576-pt",
+    "text": "goiaba"
+  },
+  "sw-577-pt": {
+    "id": "sw-577-pt",
+    "text": "gole"
+  },
+  "sw-578-pt": {
+    "id": "sw-578-pt",
+    "text": "golfe"
+  },
+  "sw-579-pt": {
+    "id": "sw-579-pt",
+    "text": "google"
+  },
+  "sw-580-pt": {
+    "id": "sw-580-pt",
+    "text": "gorro"
+  },
+  "sw-581-pt": {
+    "id": "sw-581-pt",
+    "text": "gota"
+  },
+  "sw-582-pt": {
+    "id": "sw-582-pt",
+    "text": "gótico"
+  },
+  "sw-583-pt": {
+    "id": "sw-583-pt",
+    "text": "governante"
+  },
+  "sw-584-pt": {
+    "id": "sw-584-pt",
+    "text": "graça"
+  },
+  "sw-585-pt": {
+    "id": "sw-585-pt",
+    "text": "grama"
+  },
+  "sw-586-pt": {
+    "id": "sw-586-pt",
+    "text": "granada"
+  },
+  "sw-587-pt": {
+    "id": "sw-587-pt",
+    "text": "grande"
+  },
+  "sw-588-pt": {
+    "id": "sw-588-pt",
+    "text": "gratidão"
+  },
+  "sw-589-pt": {
+    "id": "sw-589-pt",
+    "text": "grau"
+  },
+  "sw-590-pt": {
+    "id": "sw-590-pt",
+    "text": "gravata"
+  },
+  "sw-591-pt": {
+    "id": "sw-591-pt",
+    "text": "grávida"
+  },
+  "sw-592-pt": {
+    "id": "sw-592-pt",
+    "text": "grécia"
+  },
+  "sw-593-pt": {
+    "id": "sw-593-pt",
+    "text": "gremlins"
+  },
+  "sw-594-pt": {
+    "id": "sw-594-pt",
+    "text": "grilo"
+  },
+  "sw-595-pt": {
+    "id": "sw-595-pt",
+    "text": "gripe"
+  },
+  "sw-596-pt": {
+    "id": "sw-596-pt",
+    "text": "grude"
+  },
+  "sw-597-pt": {
+    "id": "sw-597-pt",
+    "text": "gruta"
+  },
+  "sw-598-pt": {
+    "id": "sw-598-pt",
+    "text": "guaraná"
+  },
+  "sw-599-pt": {
+    "id": "sw-599-pt",
+    "text": "guarda"
+  },
+  "sw-600-pt": {
+    "id": "sw-600-pt",
+    "text": "guarda-chuva"
+  },
+  "sw-601-pt": {
+    "id": "sw-601-pt",
+    "text": "gude"
+  },
+  "sw-602-pt": {
+    "id": "sw-602-pt",
+    "text": "guerra"
+  },
+  "sw-603-pt": {
+    "id": "sw-603-pt",
+    "text": "guilhotina"
+  },
+  "sw-604-pt": {
+    "id": "sw-604-pt",
+    "text": "guindaste"
+  },
+  "sw-605-pt": {
+    "id": "sw-605-pt",
+    "text": "halloween"
+  },
+  "sw-606-pt": {
+    "id": "sw-606-pt",
+    "text": "hanukkah"
+  },
+  "sw-607-pt": {
+    "id": "sw-607-pt",
+    "text": "helicóptero"
+  },
+  "sw-608-pt": {
+    "id": "sw-608-pt",
+    "text": "hematoma"
+  },
+  "sw-609-pt": {
+    "id": "sw-609-pt",
+    "text": "herói"
+  },
+  "sw-610-pt": {
+    "id": "sw-610-pt",
+    "text": "himalaia"
+  },
+  "sw-611-pt": {
+    "id": "sw-611-pt",
+    "text": "história"
+  },
+  "sw-612-pt": {
+    "id": "sw-612-pt",
+    "text": "hollywood"
+  },
+  "sw-613-pt": {
+    "id": "sw-613-pt",
+    "text": "hóquei"
+  },
+  "sw-614-pt": {
+    "id": "sw-614-pt",
+    "text": "hortelã"
+  },
+  "sw-615-pt": {
+    "id": "sw-615-pt",
+    "text": "hospital"
+  },
+  "sw-616-pt": {
+    "id": "sw-616-pt",
+    "text": "hotel"
+  },
+  "sw-617-pt": {
+    "id": "sw-617-pt",
+    "text": "hulk"
+  },
+  "sw-618-pt": {
+    "id": "sw-618-pt",
+    "text": "humano"
+  },
+  "sw-619-pt": {
+    "id": "sw-619-pt",
+    "text": "humor"
+  },
+  "sw-620-pt": {
+    "id": "sw-620-pt",
+    "text": "igreja"
+  },
+  "sw-621-pt": {
+    "id": "sw-621-pt",
+    "text": "ikea"
+  },
+  "sw-622-pt": {
+    "id": "sw-622-pt",
+    "text": "ilha"
+  },
+  "sw-623-pt": {
+    "id": "sw-623-pt",
+    "text": "imperador"
+  },
+  "sw-624-pt": {
+    "id": "sw-624-pt",
+    "text": "imprensa"
+  },
+  "sw-625-pt": {
+    "id": "sw-625-pt",
+    "text": "incêndio"
+  },
+  "sw-626-pt": {
+    "id": "sw-626-pt",
+    "text": "índia"
+  },
+  "sw-627-pt": {
+    "id": "sw-627-pt",
+    "text": "inglaterra"
+  },
+  "sw-628-pt": {
+    "id": "sw-628-pt",
+    "text": "inquisição"
+  },
+  "sw-629-pt": {
+    "id": "sw-629-pt",
+    "text": "instantâneo"
+  },
+  "sw-630-pt": {
+    "id": "sw-630-pt",
+    "text": "internet"
+  },
+  "sw-631-pt": {
+    "id": "sw-631-pt",
+    "text": "invenção"
+  },
+  "sw-632-pt": {
+    "id": "sw-632-pt",
+    "text": "inverno"
+  },
+  "sw-633-pt": {
+    "id": "sw-633-pt",
+    "text": "íris"
+  },
+  "sw-634-pt": {
+    "id": "sw-634-pt",
+    "text": "israel"
+  },
+  "sw-635-pt": {
+    "id": "sw-635-pt",
+    "text": "itália"
+  },
+  "sw-636-pt": {
+    "id": "sw-636-pt",
+    "text": "jacaré"
+  },
+  "sw-637-pt": {
+    "id": "sw-637-pt",
+    "text": "jackson"
+  },
+  "sw-638-pt": {
+    "id": "sw-638-pt",
+    "text": "janela"
+  },
+  "sw-639-pt": {
+    "id": "sw-639-pt",
+    "text": "jangada"
+  },
+  "sw-640-pt": {
+    "id": "sw-640-pt",
+    "text": "japão"
+  },
+  "sw-641-pt": {
+    "id": "sw-641-pt",
+    "text": "jardim"
+  },
+  "sw-642-pt": {
+    "id": "sw-642-pt",
+    "text": "jato"
+  },
+  "sw-643-pt": {
+    "id": "sw-643-pt",
+    "text": "jeans"
+  },
+  "sw-644-pt": {
+    "id": "sw-644-pt",
+    "text": "jedi"
+  },
+  "sw-645-pt": {
+    "id": "sw-645-pt",
+    "text": "joaninha"
+  },
+  "sw-646-pt": {
+    "id": "sw-646-pt",
+    "text": "joelho"
+  },
+  "sw-647-pt": {
+    "id": "sw-647-pt",
+    "text": "jogo"
+  },
+  "sw-648-pt": {
+    "id": "sw-648-pt",
+    "text": "johnny"
+  },
+  "sw-649-pt": {
+    "id": "sw-649-pt",
+    "text": "joia"
+  },
+  "sw-650-pt": {
+    "id": "sw-650-pt",
+    "text": "jones"
+  },
+  "sw-651-pt": {
+    "id": "sw-651-pt",
+    "text": "jornal"
+  },
+  "sw-652-pt": {
+    "id": "sw-652-pt",
+    "text": "júpiter"
+  },
+  "sw-653-pt": {
+    "id": "sw-653-pt",
+    "text": "justo"
+  },
+  "sw-654-pt": {
+    "id": "sw-654-pt",
+    "text": "karatê"
+  },
+  "sw-655-pt": {
+    "id": "sw-655-pt",
+    "text": "ketchup"
+  },
+  "sw-656-pt": {
+    "id": "sw-656-pt",
+    "text": "kiwi"
+  },
+  "sw-657-pt": {
+    "id": "sw-657-pt",
+    "text": "lã"
+  },
+  "sw-658-pt": {
+    "id": "sw-658-pt",
+    "text": "laboratório"
+  },
+  "sw-659-pt": {
+    "id": "sw-659-pt",
+    "text": "laço"
+  },
+  "sw-660-pt": {
+    "id": "sw-660-pt",
+    "text": "ladrão"
+  },
+  "sw-661-pt": {
+    "id": "sw-661-pt",
+    "text": "lagarta"
+  },
+  "sw-662-pt": {
+    "id": "sw-662-pt",
+    "text": "lagarto"
+  },
+  "sw-663-pt": {
+    "id": "sw-663-pt",
+    "text": "lago"
+  },
+  "sw-664-pt": {
+    "id": "sw-664-pt",
+    "text": "lama"
+  },
+  "sw-665-pt": {
+    "id": "sw-665-pt",
+    "text": "lâmpada"
+  },
+  "sw-666-pt": {
+    "id": "sw-666-pt",
+    "text": "lança"
+  },
+  "sw-667-pt": {
+    "id": "sw-667-pt",
+    "text": "lantejoulas"
+  },
+  "sw-668-pt": {
+    "id": "sw-668-pt",
+    "text": "lanterna"
+  },
+  "sw-669-pt": {
+    "id": "sw-669-pt",
+    "text": "lápis"
+  },
+  "sw-670-pt": {
+    "id": "sw-670-pt",
+    "text": "lar"
+  },
+  "sw-671-pt": {
+    "id": "sw-671-pt",
+    "text": "laranja"
+  },
+  "sw-672-pt": {
+    "id": "sw-672-pt",
+    "text": "laser"
+  },
+  "sw-673-pt": {
+    "id": "sw-673-pt",
+    "text": "lata"
+  },
+  "sw-674-pt": {
+    "id": "sw-674-pt",
+    "text": "latido"
+  },
+  "sw-675-pt": {
+    "id": "sw-675-pt",
+    "text": "lava"
+  },
+  "sw-676-pt": {
+    "id": "sw-676-pt",
+    "text": "lavadora"
+  },
+  "sw-677-pt": {
+    "id": "sw-677-pt",
+    "text": "lavanderia"
+  },
+  "sw-678-pt": {
+    "id": "sw-678-pt",
+    "text": "lealdade"
+  },
+  "sw-679-pt": {
+    "id": "sw-679-pt",
+    "text": "leão"
+  },
+  "sw-680-pt": {
+    "id": "sw-680-pt",
+    "text": "lego"
+  },
+  "sw-681-pt": {
+    "id": "sw-681-pt",
+    "text": "lei"
+  },
+  "sw-682-pt": {
+    "id": "sw-682-pt",
+    "text": "leite"
+  },
+  "sw-683-pt": {
+    "id": "sw-683-pt",
+    "text": "lenço"
+  },
+  "sw-684-pt": {
+    "id": "sw-684-pt",
+    "text": "lençóis"
+  },
+  "sw-685-pt": {
+    "id": "sw-685-pt",
+    "text": "lesma"
+  },
+  "sw-686-pt": {
+    "id": "sw-686-pt",
+    "text": "letra"
+  },
+  "sw-687-pt": {
+    "id": "sw-687-pt",
+    "text": "libra"
+  },
+  "sw-688-pt": {
+    "id": "sw-688-pt",
+    "text": "ligação"
+  },
+  "sw-689-pt": {
+    "id": "sw-689-pt",
+    "text": "ligamento"
+  },
+  "sw-690-pt": {
+    "id": "sw-690-pt",
+    "text": "lima"
+  },
+  "sw-691-pt": {
+    "id": "sw-691-pt",
+    "text": "limão"
+  },
+  "sw-692-pt": {
+    "id": "sw-692-pt",
+    "text": "limusine"
+  },
+  "sw-693-pt": {
+    "id": "sw-693-pt",
+    "text": "língua"
+  },
+  "sw-694-pt": {
+    "id": "sw-694-pt",
+    "text": "linha"
+  },
+  "sw-695-pt": {
+    "id": "sw-695-pt",
+    "text": "listra"
+  },
+  "sw-696-pt": {
+    "id": "sw-696-pt",
+    "text": "livro"
+  },
+  "sw-697-pt": {
+    "id": "sw-697-pt",
+    "text": "lixo"
+  },
+  "sw-698-pt": {
+    "id": "sw-698-pt",
+    "text": "lobo"
+  },
+  "sw-699-pt": {
+    "id": "sw-699-pt",
+    "text": "loiro"
+  },
+  "sw-700-pt": {
+    "id": "sw-700-pt",
+    "text": "lona"
+  },
+  "sw-701-pt": {
+    "id": "sw-701-pt",
+    "text": "londres"
+  },
+  "sw-702-pt": {
+    "id": "sw-702-pt",
+    "text": "loteria"
+  },
+  "sw-703-pt": {
+    "id": "sw-703-pt",
+    "text": "louco"
+  },
+  "sw-704-pt": {
+    "id": "sw-704-pt",
+    "text": "lua"
+  },
+  "sw-705-pt": {
+    "id": "sw-705-pt",
+    "text": "lula"
+  },
+  "sw-706-pt": {
+    "id": "sw-706-pt",
+    "text": "lutador"
+  },
+  "sw-707-pt": {
+    "id": "sw-707-pt",
+    "text": "luva"
+  },
+  "sw-708-pt": {
+    "id": "sw-708-pt",
+    "text": "luz"
+  },
+  "sw-709-pt": {
+    "id": "sw-709-pt",
+    "text": "maçã"
+  },
+  "sw-710-pt": {
+    "id": "sw-710-pt",
+    "text": "macaco"
+  },
+  "sw-711-pt": {
+    "id": "sw-711-pt",
+    "text": "maçaneta"
+  },
+  "sw-712-pt": {
+    "id": "sw-712-pt",
+    "text": "macarrão"
+  },
+  "sw-713-pt": {
+    "id": "sw-713-pt",
+    "text": "macho"
+  },
+  "sw-714-pt": {
+    "id": "sw-714-pt",
+    "text": "machucado"
+  },
+  "sw-715-pt": {
+    "id": "sw-715-pt",
+    "text": "maduro"
+  },
+  "sw-716-pt": {
+    "id": "sw-716-pt",
+    "text": "mãe"
+  },
+  "sw-717-pt": {
+    "id": "sw-717-pt",
+    "text": "máfia"
+  },
+  "sw-718-pt": {
+    "id": "sw-718-pt",
+    "text": "mágico"
+  },
+  "sw-719-pt": {
+    "id": "sw-719-pt",
+    "text": "magnético"
+  },
+  "sw-720-pt": {
+    "id": "sw-720-pt",
+    "text": "mamãe"
+  },
+  "sw-721-pt": {
+    "id": "sw-721-pt",
+    "text": "mamute"
+  },
+  "sw-722-pt": {
+    "id": "sw-722-pt",
+    "text": "mancha"
+  },
+  "sw-723-pt": {
+    "id": "sw-723-pt",
+    "text": "mangá"
+  },
+  "sw-724-pt": {
+    "id": "sw-724-pt",
+    "text": "mangueira"
+  },
+  "sw-725-pt": {
+    "id": "sw-725-pt",
+    "text": "manhã"
+  },
+  "sw-726-pt": {
+    "id": "sw-726-pt",
+    "text": "manicure"
+  },
+  "sw-727-pt": {
+    "id": "sw-727-pt",
+    "text": "manual"
+  },
+  "sw-728-pt": {
+    "id": "sw-728-pt",
+    "text": "mão"
+  },
+  "sw-729-pt": {
+    "id": "sw-729-pt",
+    "text": "mapa"
+  },
+  "sw-730-pt": {
+    "id": "sw-730-pt",
+    "text": "máquina"
+  },
+  "sw-731-pt": {
+    "id": "sw-731-pt",
+    "text": "maracanã"
+  },
+  "sw-732-pt": {
+    "id": "sw-732-pt",
+    "text": "maratona"
+  },
+  "sw-733-pt": {
+    "id": "sw-733-pt",
+    "text": "marca"
+  },
+  "sw-734-pt": {
+    "id": "sw-734-pt",
+    "text": "marcha"
+  },
+  "sw-735-pt": {
+    "id": "sw-735-pt",
+    "text": "maré"
+  },
+  "sw-736-pt": {
+    "id": "sw-736-pt",
+    "text": "marfim"
+  },
+  "sw-737-pt": {
+    "id": "sw-737-pt",
+    "text": "mario"
+  },
+  "sw-738-pt": {
+    "id": "sw-738-pt",
+    "text": "mariposa"
+  },
+  "sw-739-pt": {
+    "id": "sw-739-pt",
+    "text": "marte"
+  },
+  "sw-740-pt": {
+    "id": "sw-740-pt",
+    "text": "martelo"
+  },
+  "sw-741-pt": {
+    "id": "sw-741-pt",
+    "text": "máscara"
+  },
+  "sw-742-pt": {
+    "id": "sw-742-pt",
+    "text": "mascote"
+  },
+  "sw-743-pt": {
+    "id": "sw-743-pt",
+    "text": "massa"
+  },
+  "sw-744-pt": {
+    "id": "sw-744-pt",
+    "text": "mastro"
+  },
+  "sw-745-pt": {
+    "id": "sw-745-pt",
+    "text": "matriz"
+  },
+  "sw-746-pt": {
+    "id": "sw-746-pt",
+    "text": "mau"
+  },
+  "sw-747-pt": {
+    "id": "sw-747-pt",
+    "text": "médico"
+  },
+  "sw-748-pt": {
+    "id": "sw-748-pt",
+    "text": "medida"
+  },
+  "sw-749-pt": {
+    "id": "sw-749-pt",
+    "text": "meia"
+  },
+  "sw-750-pt": {
+    "id": "sw-750-pt",
+    "text": "mel"
+  },
+  "sw-751-pt": {
+    "id": "sw-751-pt",
+    "text": "melancia"
+  },
+  "sw-752-pt": {
+    "id": "sw-752-pt",
+    "text": "melão"
+  },
+  "sw-753-pt": {
+    "id": "sw-753-pt",
+    "text": "membro"
+  },
+  "sw-754-pt": {
+    "id": "sw-754-pt",
+    "text": "menina"
+  },
+  "sw-755-pt": {
+    "id": "sw-755-pt",
+    "text": "menino"
+  },
+  "sw-756-pt": {
+    "id": "sw-756-pt",
+    "text": "mercado"
+  },
+  "sw-757-pt": {
+    "id": "sw-757-pt",
+    "text": "mercúrio"
+  },
+  "sw-758-pt": {
+    "id": "sw-758-pt",
+    "text": "merendeira"
+  },
+  "sw-759-pt": {
+    "id": "sw-759-pt",
+    "text": "mergulhador"
+  },
+  "sw-760-pt": {
+    "id": "sw-760-pt",
+    "text": "mesa"
+  },
+  "sw-761-pt": {
+    "id": "sw-761-pt",
+    "text": "metade"
+  },
+  "sw-762-pt": {
+    "id": "sw-762-pt",
+    "text": "metal"
+  },
+  "sw-763-pt": {
+    "id": "sw-763-pt",
+    "text": "metrô"
+  },
+  "sw-764-pt": {
+    "id": "sw-764-pt",
+    "text": "méxico"
+  },
+  "sw-765-pt": {
+    "id": "sw-765-pt",
+    "text": "mickey"
+  },
+  "sw-766-pt": {
+    "id": "sw-766-pt",
+    "text": "microscópio"
+  },
+  "sw-767-pt": {
+    "id": "sw-767-pt",
+    "text": "microsoft"
+  },
+  "sw-768-pt": {
+    "id": "sw-768-pt",
+    "text": "migalha"
+  },
+  "sw-769-pt": {
+    "id": "sw-769-pt",
+    "text": "milionário"
+  },
+  "sw-770-pt": {
+    "id": "sw-770-pt",
+    "text": "mina"
+  },
+  "sw-771-pt": {
+    "id": "sw-771-pt",
+    "text": "minhoca"
+  },
+  "sw-772-pt": {
+    "id": "sw-772-pt",
+    "text": "miragem"
+  },
+  "sw-773-pt": {
+    "id": "sw-773-pt",
+    "text": "míssil"
+  },
+  "sw-774-pt": {
+    "id": "sw-774-pt",
+    "text": "mito"
+  },
+  "sw-775-pt": {
+    "id": "sw-775-pt",
+    "text": "moda"
+  },
+  "sw-776-pt": {
+    "id": "sw-776-pt",
+    "text": "modelo"
+  },
+  "sw-777-pt": {
+    "id": "sw-777-pt",
+    "text": "moderno"
+  },
+  "sw-778-pt": {
+    "id": "sw-778-pt",
+    "text": "moinho"
+  },
+  "sw-779-pt": {
+    "id": "sw-779-pt",
+    "text": "molhado"
+  },
+  "sw-780-pt": {
+    "id": "sw-780-pt",
+    "text": "monitor"
+  },
+  "sw-781-pt": {
+    "id": "sw-781-pt",
+    "text": "monopólio"
+  },
+  "sw-782-pt": {
+    "id": "sw-782-pt",
+    "text": "monstro"
+  },
+  "sw-783-pt": {
+    "id": "sw-783-pt",
+    "text": "montanha"
+  },
+  "sw-784-pt": {
+    "id": "sw-784-pt",
+    "text": "montanha-russa"
+  },
+  "sw-785-pt": {
+    "id": "sw-785-pt",
+    "text": "monte"
+  },
+  "sw-786-pt": {
+    "id": "sw-786-pt",
+    "text": "morango"
+  },
+  "sw-787-pt": {
+    "id": "sw-787-pt",
+    "text": "morcego"
+  },
+  "sw-788-pt": {
+    "id": "sw-788-pt",
+    "text": "mordida"
+  },
+  "sw-789-pt": {
+    "id": "sw-789-pt",
+    "text": "morena"
+  },
+  "sw-790-pt": {
+    "id": "sw-790-pt",
+    "text": "morte"
+  },
+  "sw-791-pt": {
+    "id": "sw-791-pt",
+    "text": "mosca"
+  },
+  "sw-792-pt": {
+    "id": "sw-792-pt",
+    "text": "moscou"
+  },
+  "sw-793-pt": {
+    "id": "sw-793-pt",
+    "text": "mosqueteiro"
+  },
+  "sw-794-pt": {
+    "id": "sw-794-pt",
+    "text": "mosquito"
+  },
+  "sw-795-pt": {
+    "id": "sw-795-pt",
+    "text": "mostarda"
+  },
+  "sw-796-pt": {
+    "id": "sw-796-pt",
+    "text": "motocicleta"
+  },
+  "sw-797-pt": {
+    "id": "sw-797-pt",
+    "text": "motor"
+  },
+  "sw-798-pt": {
+    "id": "sw-798-pt",
+    "text": "mouse"
+  },
+  "sw-799-pt": {
+    "id": "sw-799-pt",
+    "text": "mozart"
+  },
+  "sw-800-pt": {
+    "id": "sw-800-pt",
+    "text": "mudança"
+  },
+  "sw-801-pt": {
+    "id": "sw-801-pt",
+    "text": "mudo"
+  },
+  "sw-802-pt": {
+    "id": "sw-802-pt",
+    "text": "mundo"
+  },
+  "sw-803-pt": {
+    "id": "sw-803-pt",
+    "text": "muro"
+  },
+  "sw-804-pt": {
+    "id": "sw-804-pt",
+    "text": "musa"
+  },
+  "sw-805-pt": {
+    "id": "sw-805-pt",
+    "text": "música"
+  },
+  "sw-806-pt": {
+    "id": "sw-806-pt",
+    "text": "namoradeira"
+  },
+  "sw-807-pt": {
+    "id": "sw-807-pt",
+    "text": "nariz"
+  },
+  "sw-808-pt": {
+    "id": "sw-808-pt",
+    "text": "natação"
+  },
+  "sw-809-pt": {
+    "id": "sw-809-pt",
+    "text": "natal"
+  },
+  "sw-810-pt": {
+    "id": "sw-810-pt",
+    "text": "natureza"
+  },
+  "sw-811-pt": {
+    "id": "sw-811-pt",
+    "text": "naufrágio"
+  },
+  "sw-812-pt": {
+    "id": "sw-812-pt",
+    "text": "navio"
+  },
+  "sw-813-pt": {
+    "id": "sw-813-pt",
+    "text": "negociar"
+  },
+  "sw-814-pt": {
+    "id": "sw-814-pt",
+    "text": "nêutron"
+  },
+  "sw-815-pt": {
+    "id": "sw-815-pt",
+    "text": "neve"
+  },
+  "sw-816-pt": {
+    "id": "sw-816-pt",
+    "text": "névoa"
+  },
+  "sw-817-pt": {
+    "id": "sw-817-pt",
+    "text": "nilo"
+  },
+  "sw-818-pt": {
+    "id": "sw-818-pt",
+    "text": "ninho"
+  },
+  "sw-819-pt": {
+    "id": "sw-819-pt",
+    "text": "ninja"
+  },
+  "sw-820-pt": {
+    "id": "sw-820-pt",
+    "text": "nintendo"
+  },
+  "sw-821-pt": {
+    "id": "sw-821-pt",
+    "text": "nível"
+  },
+  "sw-822-pt": {
+    "id": "sw-822-pt",
+    "text": "noite"
+  },
+  "sw-823-pt": {
+    "id": "sw-823-pt",
+    "text": "noiva"
+  },
+  "sw-824-pt": {
+    "id": "sw-824-pt",
+    "text": "nordeste"
+  },
+  "sw-825-pt": {
+    "id": "sw-825-pt",
+    "text": "novo"
+  },
+  "sw-826-pt": {
+    "id": "sw-826-pt",
+    "text": "nuclear"
+  },
+  "sw-827-pt": {
+    "id": "sw-827-pt",
+    "text": "número"
+  },
+  "sw-828-pt": {
+    "id": "sw-828-pt",
+    "text": "oásis"
+  },
+  "sw-829-pt": {
+    "id": "sw-829-pt",
+    "text": "observatório"
+  },
+  "sw-830-pt": {
+    "id": "sw-830-pt",
+    "text": "obstáculo"
+  },
+  "sw-831-pt": {
+    "id": "sw-831-pt",
+    "text": "ocidental"
+  },
+  "sw-832-pt": {
+    "id": "sw-832-pt",
+    "text": "óculos"
+  },
+  "sw-833-pt": {
+    "id": "sw-833-pt",
+    "text": "óleo"
+  },
+  "sw-834-pt": {
+    "id": "sw-834-pt",
+    "text": "olho"
+  },
+  "sw-835-pt": {
+    "id": "sw-835-pt",
+    "text": "olimpíadas"
+  },
+  "sw-836-pt": {
+    "id": "sw-836-pt",
+    "text": "olimpo"
+  },
+  "sw-837-pt": {
+    "id": "sw-837-pt",
+    "text": "onda"
+  },
+  "sw-838-pt": {
+    "id": "sw-838-pt",
+    "text": "ônibus"
+  },
+  "sw-839-pt": {
+    "id": "sw-839-pt",
+    "text": "opaco"
+  },
+  "sw-840-pt": {
+    "id": "sw-840-pt",
+    "text": "ópera"
+  },
+  "sw-841-pt": {
+    "id": "sw-841-pt",
+    "text": "operação"
+  },
+  "sw-842-pt": {
+    "id": "sw-842-pt",
+    "text": "órbita"
+  },
+  "sw-843-pt": {
+    "id": "sw-843-pt",
+    "text": "orelha"
+  },
+  "sw-844-pt": {
+    "id": "sw-844-pt",
+    "text": "órgão"
+  },
+  "sw-845-pt": {
+    "id": "sw-845-pt",
+    "text": "ornitorrinco"
+  },
+  "sw-846-pt": {
+    "id": "sw-846-pt",
+    "text": "orvalho"
+  },
+  "sw-847-pt": {
+    "id": "sw-847-pt",
+    "text": "osso"
+  },
+  "sw-848-pt": {
+    "id": "sw-848-pt",
+    "text": "ouro"
+  },
+  "sw-849-pt": {
+    "id": "sw-849-pt",
+    "text": "outdoor"
+  },
+  "sw-850-pt": {
+    "id": "sw-850-pt",
+    "text": "outono"
+  },
+  "sw-851-pt": {
+    "id": "sw-851-pt",
+    "text": "ovelha"
+  },
+  "sw-852-pt": {
+    "id": "sw-852-pt",
+    "text": "ovo"
+  },
+  "sw-853-pt": {
+    "id": "sw-853-pt",
+    "text": "pá"
+  },
+  "sw-854-pt": {
+    "id": "sw-854-pt",
+    "text": "paçoca"
+  },
+  "sw-855-pt": {
+    "id": "sw-855-pt",
+    "text": "padeiro"
+  },
+  "sw-856-pt": {
+    "id": "sw-856-pt",
+    "text": "padrinho"
+  },
+  "sw-857-pt": {
+    "id": "sw-857-pt",
+    "text": "pagode"
+  },
+  "sw-858-pt": {
+    "id": "sw-858-pt",
+    "text": "paixão"
+  },
+  "sw-859-pt": {
+    "id": "sw-859-pt",
+    "text": "palácio"
+  },
+  "sw-860-pt": {
+    "id": "sw-860-pt",
+    "text": "palha"
+  },
+  "sw-861-pt": {
+    "id": "sw-861-pt",
+    "text": "palhaço"
+  },
+  "sw-862-pt": {
+    "id": "sw-862-pt",
+    "text": "palma"
+  },
+  "sw-863-pt": {
+    "id": "sw-863-pt",
+    "text": "pamonha"
+  },
+  "sw-864-pt": {
+    "id": "sw-864-pt",
+    "text": "panda"
+  },
+  "sw-865-pt": {
+    "id": "sw-865-pt",
+    "text": "panetone"
+  },
+  "sw-866-pt": {
+    "id": "sw-866-pt",
+    "text": "pântano"
+  },
+  "sw-867-pt": {
+    "id": "sw-867-pt",
+    "text": "panturrilha"
+  },
+  "sw-868-pt": {
+    "id": "sw-868-pt",
+    "text": "pão"
+  },
+  "sw-869-pt": {
+    "id": "sw-869-pt",
+    "text": "papa"
+  },
+  "sw-870-pt": {
+    "id": "sw-870-pt",
+    "text": "papagaio"
+  },
+  "sw-871-pt": {
+    "id": "sw-871-pt",
+    "text": "papai"
+  },
+  "sw-872-pt": {
+    "id": "sw-872-pt",
+    "text": "papel"
+  },
+  "sw-873-pt": {
+    "id": "sw-873-pt",
+    "text": "papelão"
+  },
+  "sw-874-pt": {
+    "id": "sw-874-pt",
+    "text": "par"
+  },
+  "sw-875-pt": {
+    "id": "sw-875-pt",
+    "text": "para-casa"
+  },
+  "sw-876-pt": {
+    "id": "sw-876-pt",
+    "text": "pára-quedas"
+  },
+  "sw-877-pt": {
+    "id": "sw-877-pt",
+    "text": "parafuso"
+  },
+  "sw-878-pt": {
+    "id": "sw-878-pt",
+    "text": "paraíso"
+  },
+  "sw-879-pt": {
+    "id": "sw-879-pt",
+    "text": "paródia"
+  },
+  "sw-880-pt": {
+    "id": "sw-880-pt",
+    "text": "parque"
+  },
+  "sw-881-pt": {
+    "id": "sw-881-pt",
+    "text": "parquinho"
+  },
+  "sw-882-pt": {
+    "id": "sw-882-pt",
+    "text": "partida"
+  },
+  "sw-883-pt": {
+    "id": "sw-883-pt",
+    "text": "páscoa"
+  },
+  "sw-884-pt": {
+    "id": "sw-884-pt",
+    "text": "pássaro"
+  },
+  "sw-885-pt": {
+    "id": "sw-885-pt",
+    "text": "passe"
+  },
+  "sw-886-pt": {
+    "id": "sw-886-pt",
+    "text": "passeio"
+  },
+  "sw-887-pt": {
+    "id": "sw-887-pt",
+    "text": "pastel"
+  },
+  "sw-888-pt": {
+    "id": "sw-888-pt",
+    "text": "patim"
+  },
+  "sw-889-pt": {
+    "id": "sw-889-pt",
+    "text": "patinação"
+  },
+  "sw-890-pt": {
+    "id": "sw-890-pt",
+    "text": "pato"
+  },
+  "sw-891-pt": {
+    "id": "sw-891-pt",
+    "text": "paz"
+  },
+  "sw-892-pt": {
+    "id": "sw-892-pt",
+    "text": "pé"
+  },
+  "sw-893-pt": {
+    "id": "sw-893-pt",
+    "text": "pedra"
+  },
+  "sw-894-pt": {
+    "id": "sw-894-pt",
+    "text": "pedreiro"
+  },
+  "sw-895-pt": {
+    "id": "sw-895-pt",
+    "text": "peito"
+  },
+  "sw-896-pt": {
+    "id": "sw-896-pt",
+    "text": "peixe"
+  },
+  "sw-897-pt": {
+    "id": "sw-897-pt",
+    "text": "pelagem"
+  },
+  "sw-898-pt": {
+    "id": "sw-898-pt",
+    "text": "pêndulo"
+  },
+  "sw-899-pt": {
+    "id": "sw-899-pt",
+    "text": "penhasco"
+  },
+  "sw-900-pt": {
+    "id": "sw-900-pt",
+    "text": "penhor"
+  },
+  "sw-901-pt": {
+    "id": "sw-901-pt",
+    "text": "pênis"
+  },
+  "sw-902-pt": {
+    "id": "sw-902-pt",
+    "text": "pensamento"
+  },
+  "sw-903-pt": {
+    "id": "sw-903-pt",
+    "text": "pequim"
+  },
+  "sw-904-pt": {
+    "id": "sw-904-pt",
+    "text": "pera"
+  },
+  "sw-905-pt": {
+    "id": "sw-905-pt",
+    "text": "perereca"
+  },
+  "sw-906-pt": {
+    "id": "sw-906-pt",
+    "text": "perfume"
+  },
+  "sw-907-pt": {
+    "id": "sw-907-pt",
+    "text": "perna"
+  },
+  "sw-908-pt": {
+    "id": "sw-908-pt",
+    "text": "peruca"
+  },
+  "sw-909-pt": {
+    "id": "sw-909-pt",
+    "text": "pesadelo"
+  },
+  "sw-910-pt": {
+    "id": "sw-910-pt",
+    "text": "pescaria"
+  },
+  "sw-911-pt": {
+    "id": "sw-911-pt",
+    "text": "pêssego"
+  },
+  "sw-912-pt": {
+    "id": "sw-912-pt",
+    "text": "pessoa"
+  },
+  "sw-913-pt": {
+    "id": "sw-913-pt",
+    "text": "pia"
+  },
+  "sw-914-pt": {
+    "id": "sw-914-pt",
+    "text": "piano"
+  },
+  "sw-915-pt": {
+    "id": "sw-915-pt",
+    "text": "picada"
+  },
+  "sw-916-pt": {
+    "id": "sw-916-pt",
+    "text": "picasso"
+  },
+  "sw-917-pt": {
+    "id": "sw-917-pt",
+    "text": "picolé"
+  },
+  "sw-918-pt": {
+    "id": "sw-918-pt",
+    "text": "pijamas"
+  },
+  "sw-919-pt": {
+    "id": "sw-919-pt",
+    "text": "pikachu"
+  },
+  "sw-920-pt": {
+    "id": "sw-920-pt",
+    "text": "piloto"
+  },
+  "sw-921-pt": {
+    "id": "sw-921-pt",
+    "text": "pimenta"
+  },
+  "sw-922-pt": {
+    "id": "sw-922-pt",
+    "text": "pimento"
+  },
+  "sw-923-pt": {
+    "id": "sw-923-pt",
+    "text": "pinguim"
+  },
+  "sw-924-pt": {
+    "id": "sw-924-pt",
+    "text": "pinto"
+  },
+  "sw-925-pt": {
+    "id": "sw-925-pt",
+    "text": "pintura"
+  },
+  "sw-926-pt": {
+    "id": "sw-926-pt",
+    "text": "pipa"
+  },
+  "sw-927-pt": {
+    "id": "sw-927-pt",
+    "text": "piquenique"
+  },
+  "sw-928-pt": {
+    "id": "sw-928-pt",
+    "text": "pirâmide"
+  },
+  "sw-929-pt": {
+    "id": "sw-929-pt",
+    "text": "pirata"
+  },
+  "sw-930-pt": {
+    "id": "sw-930-pt",
+    "text": "pirulito"
+  },
+  "sw-931-pt": {
+    "id": "sw-931-pt",
+    "text": "piscina"
+  },
+  "sw-932-pt": {
+    "id": "sw-932-pt",
+    "text": "pitada"
+  },
+  "sw-933-pt": {
+    "id": "sw-933-pt",
+    "text": "pizza"
+  },
+  "sw-934-pt": {
+    "id": "sw-934-pt",
+    "text": "placa"
+  },
+  "sw-935-pt": {
+    "id": "sw-935-pt",
+    "text": "plano"
+  },
+  "sw-936-pt": {
+    "id": "sw-936-pt",
+    "text": "planta"
+  },
+  "sw-937-pt": {
+    "id": "sw-937-pt",
+    "text": "plástico"
+  },
+  "sw-938-pt": {
+    "id": "sw-938-pt",
+    "text": "playstation"
+  },
+  "sw-939-pt": {
+    "id": "sw-939-pt",
+    "text": "pó"
+  },
+  "sw-940-pt": {
+    "id": "sw-940-pt",
+    "text": "poção"
+  },
+  "sw-941-pt": {
+    "id": "sw-941-pt",
+    "text": "poço"
+  },
+  "sw-942-pt": {
+    "id": "sw-942-pt",
+    "text": "poema"
+  },
+  "sw-943-pt": {
+    "id": "sw-943-pt",
+    "text": "polar"
+  },
+  "sw-944-pt": {
+    "id": "sw-944-pt",
+    "text": "polegar"
+  },
+  "sw-945-pt": {
+    "id": "sw-945-pt",
+    "text": "polícia"
+  },
+  "sw-946-pt": {
+    "id": "sw-946-pt",
+    "text": "pólo"
+  },
+  "sw-947-pt": {
+    "id": "sw-947-pt",
+    "text": "polvo"
+  },
+  "sw-948-pt": {
+    "id": "sw-948-pt",
+    "text": "pombo"
+  },
+  "sw-949-pt": {
+    "id": "sw-949-pt",
+    "text": "pompa"
+  },
+  "sw-950-pt": {
+    "id": "sw-950-pt",
+    "text": "pónei"
+  },
+  "sw-951-pt": {
+    "id": "sw-951-pt",
+    "text": "ponte"
+  },
+  "sw-952-pt": {
+    "id": "sw-952-pt",
+    "text": "ponto"
+  },
+  "sw-953-pt": {
+    "id": "sw-953-pt",
+    "text": "popozuda"
+  },
+  "sw-954-pt": {
+    "id": "sw-954-pt",
+    "text": "população"
+  },
+  "sw-955-pt": {
+    "id": "sw-955-pt",
+    "text": "pôquer"
+  },
+  "sw-956-pt": {
+    "id": "sw-956-pt",
+    "text": "porca"
+  },
+  "sw-957-pt": {
+    "id": "sw-957-pt",
+    "text": "porcelana"
+  },
+  "sw-958-pt": {
+    "id": "sw-958-pt",
+    "text": "porco"
+  },
+  "sw-959-pt": {
+    "id": "sw-959-pt",
+    "text": "porta"
+  },
+  "sw-960-pt": {
+    "id": "sw-960-pt",
+    "text": "porto"
+  },
+  "sw-961-pt": {
+    "id": "sw-961-pt",
+    "text": "positivo"
+  },
+  "sw-962-pt": {
+    "id": "sw-962-pt",
+    "text": "postagem"
+  },
+  "sw-963-pt": {
+    "id": "sw-963-pt",
+    "text": "poste"
+  },
+  "sw-964-pt": {
+    "id": "sw-964-pt",
+    "text": "potter"
+  },
+  "sw-965-pt": {
+    "id": "sw-965-pt",
+    "text": "pousada"
+  },
+  "sw-966-pt": {
+    "id": "sw-966-pt",
+    "text": "praia"
+  },
+  "sw-967-pt": {
+    "id": "sw-967-pt",
+    "text": "prancha"
+  },
+  "sw-968-pt": {
+    "id": "sw-968-pt",
+    "text": "prateleira"
+  },
+  "sw-969-pt": {
+    "id": "sw-969-pt",
+    "text": "presidente"
+  },
+  "sw-970-pt": {
+    "id": "sw-970-pt",
+    "text": "presunto"
+  },
+  "sw-971-pt": {
+    "id": "sw-971-pt",
+    "text": "primário"
+  },
+  "sw-972-pt": {
+    "id": "sw-972-pt",
+    "text": "primavera"
+  },
+  "sw-973-pt": {
+    "id": "sw-973-pt",
+    "text": "primeiro"
+  },
+  "sw-974-pt": {
+    "id": "sw-974-pt",
+    "text": "princesa"
+  },
+  "sw-975-pt": {
+    "id": "sw-975-pt",
+    "text": "prisão"
+  },
+  "sw-976-pt": {
+    "id": "sw-976-pt",
+    "text": "professor"
+  },
+  "sw-977-pt": {
+    "id": "sw-977-pt",
+    "text": "profundo"
+  },
+  "sw-978-pt": {
+    "id": "sw-978-pt",
+    "text": "propaganda"
+  },
+  "sw-979-pt": {
+    "id": "sw-979-pt",
+    "text": "protestante"
+  },
+  "sw-980-pt": {
+    "id": "sw-980-pt",
+    "text": "psicólogo"
+  },
+  "sw-981-pt": {
+    "id": "sw-981-pt",
+    "text": "psicopata"
+  },
+  "sw-982-pt": {
+    "id": "sw-982-pt",
+    "text": "psiquiatra"
+  },
+  "sw-983-pt": {
+    "id": "sw-983-pt",
+    "text": "pudim"
+  },
+  "sw-984-pt": {
+    "id": "sw-984-pt",
+    "text": "pulo"
+  },
+  "sw-985-pt": {
+    "id": "sw-985-pt",
+    "text": "pulseira"
+  },
+  "sw-986-pt": {
+    "id": "sw-986-pt",
+    "text": "puma"
+  },
+  "sw-987-pt": {
+    "id": "sw-987-pt",
+    "text": "punk"
+  },
+  "sw-988-pt": {
+    "id": "sw-988-pt",
+    "text": "quadrado"
+  },
+  "sw-989-pt": {
+    "id": "sw-989-pt",
+    "text": "quadrilha"
+  },
+  "sw-990-pt": {
+    "id": "sw-990-pt",
+    "text": "quadrinhos"
+  },
+  "sw-991-pt": {
+    "id": "sw-991-pt",
+    "text": "quarentena"
+  },
+  "sw-992-pt": {
+    "id": "sw-992-pt",
+    "text": "quarto"
+  },
+  "sw-993-pt": {
+    "id": "sw-993-pt",
+    "text": "quebra-cabeça"
+  },
+  "sw-994-pt": {
+    "id": "sw-994-pt",
+    "text": "quebrado"
+  },
+  "sw-995-pt": {
+    "id": "sw-995-pt",
+    "text": "queda"
+  },
+  "sw-996-pt": {
+    "id": "sw-996-pt",
+    "text": "queijo"
+  },
+  "sw-997-pt": {
+    "id": "sw-997-pt",
+    "text": "quente"
+  },
+  "sw-998-pt": {
+    "id": "sw-998-pt",
+    "text": "quiabo"
+  },
+  "sw-999-pt": {
+    "id": "sw-999-pt",
+    "text": "quieto"
+  },
+  "sw-1000-pt": {
+    "id": "sw-1000-pt",
+    "text": "quilograma"
+  },
+  "sw-1001-pt": {
+    "id": "sw-1001-pt",
+    "text": "quinzena"
+  },
+  "sw-1002-pt": {
+    "id": "sw-1002-pt",
+    "text": "rabo"
+  },
+  "sw-1003-pt": {
+    "id": "sw-1003-pt",
+    "text": "raça"
+  },
+  "sw-1004-pt": {
+    "id": "sw-1004-pt",
+    "text": "rádio"
+  },
+  "sw-1005-pt": {
+    "id": "sw-1005-pt",
+    "text": "rainha"
+  },
+  "sw-1006-pt": {
+    "id": "sw-1006-pt",
+    "text": "raio"
+  },
+  "sw-1007-pt": {
+    "id": "sw-1007-pt",
+    "text": "raiz"
+  },
+  "sw-1008-pt": {
+    "id": "sw-1008-pt",
+    "text": "ralo"
+  },
+  "sw-1009-pt": {
+    "id": "sw-1009-pt",
+    "text": "rambo"
+  },
+  "sw-1010-pt": {
+    "id": "sw-1010-pt",
+    "text": "ramsés"
+  },
+  "sw-1011-pt": {
+    "id": "sw-1011-pt",
+    "text": "rap"
+  },
+  "sw-1012-pt": {
+    "id": "sw-1012-pt",
+    "text": "rapadura"
+  },
+  "sw-1013-pt": {
+    "id": "sw-1013-pt",
+    "text": "rápido"
+  },
+  "sw-1014-pt": {
+    "id": "sw-1014-pt",
+    "text": "raposa"
+  },
+  "sw-1015-pt": {
+    "id": "sw-1015-pt",
+    "text": "raquete"
+  },
+  "sw-1016-pt": {
+    "id": "sw-1016-pt",
+    "text": "raso"
+  },
+  "sw-1017-pt": {
+    "id": "sw-1017-pt",
+    "text": "rato"
+  },
+  "sw-1018-pt": {
+    "id": "sw-1018-pt",
+    "text": "rebanho"
+  },
+  "sw-1019-pt": {
+    "id": "sw-1019-pt",
+    "text": "reciclagem"
+  },
+  "sw-1020-pt": {
+    "id": "sw-1020-pt",
+    "text": "redação"
+  },
+  "sw-1021-pt": {
+    "id": "sw-1021-pt",
+    "text": "reembolso"
+  },
+  "sw-1022-pt": {
+    "id": "sw-1022-pt",
+    "text": "reggae"
+  },
+  "sw-1023-pt": {
+    "id": "sw-1023-pt",
+    "text": "registro"
+  },
+  "sw-1024-pt": {
+    "id": "sw-1024-pt",
+    "text": "régua"
+  },
+  "sw-1025-pt": {
+    "id": "sw-1025-pt",
+    "text": "rei"
+  },
+  "sw-1026-pt": {
+    "id": "sw-1026-pt",
+    "text": "relâmpago"
+  },
+  "sw-1027-pt": {
+    "id": "sw-1027-pt",
+    "text": "relógio"
+  },
+  "sw-1028-pt": {
+    "id": "sw-1028-pt",
+    "text": "remo"
+  },
+  "sw-1029-pt": {
+    "id": "sw-1029-pt",
+    "text": "renda"
+  },
+  "sw-1030-pt": {
+    "id": "sw-1030-pt",
+    "text": "revolução"
+  },
+  "sw-1031-pt": {
+    "id": "sw-1031-pt",
+    "text": "reza"
+  },
+  "sw-1032-pt": {
+    "id": "sw-1032-pt",
+    "text": "rio"
+  },
+  "sw-1033-pt": {
+    "id": "sw-1033-pt",
+    "text": "riso"
+  },
+  "sw-1034-pt": {
+    "id": "sw-1034-pt",
+    "text": "robô"
+  },
+  "sw-1035-pt": {
+    "id": "sw-1035-pt",
+    "text": "rochoso"
+  },
+  "sw-1036-pt": {
+    "id": "sw-1036-pt",
+    "text": "rock"
+  },
+  "sw-1037-pt": {
+    "id": "sw-1037-pt",
+    "text": "roleta"
+  },
+  "sw-1038-pt": {
+    "id": "sw-1038-pt",
+    "text": "rolo"
+  },
+  "sw-1039-pt": {
+    "id": "sw-1039-pt",
+    "text": "roma"
+  },
+  "sw-1040-pt": {
+    "id": "sw-1040-pt",
+    "text": "romance"
+  },
+  "sw-1041-pt": {
+    "id": "sw-1041-pt",
+    "text": "rosa"
+  },
+  "sw-1042-pt": {
+    "id": "sw-1042-pt",
+    "text": "rotina"
+  },
+  "sw-1043-pt": {
+    "id": "sw-1043-pt",
+    "text": "ruivo"
+  },
+  "sw-1044-pt": {
+    "id": "sw-1044-pt",
+    "text": "rum"
+  },
+  "sw-1045-pt": {
+    "id": "sw-1045-pt",
+    "text": "sabão"
+  },
+  "sw-1046-pt": {
+    "id": "sw-1046-pt",
+    "text": "saci"
+  },
+  "sw-1047-pt": {
+    "id": "sw-1047-pt",
+    "text": "sacola"
+  },
+  "sw-1048-pt": {
+    "id": "sw-1048-pt",
+    "text": "safári"
+  },
+  "sw-1049-pt": {
+    "id": "sw-1049-pt",
+    "text": "sahara"
+  },
+  "sw-1050-pt": {
+    "id": "sw-1050-pt",
+    "text": "sal"
+  },
+  "sw-1051-pt": {
+    "id": "sw-1051-pt",
+    "text": "sala"
+  },
+  "sw-1052-pt": {
+    "id": "sw-1052-pt",
+    "text": "salmão"
+  },
+  "sw-1053-pt": {
+    "id": "sw-1053-pt",
+    "text": "salsicha"
+  },
+  "sw-1054-pt": {
+    "id": "sw-1054-pt",
+    "text": "salto"
+  },
+  "sw-1055-pt": {
+    "id": "sw-1055-pt",
+    "text": "samba"
+  },
+  "sw-1056-pt": {
+    "id": "sw-1056-pt",
+    "text": "sanduíche"
+  },
+  "sw-1057-pt": {
+    "id": "sw-1057-pt",
+    "text": "sapato"
+  },
+  "sw-1058-pt": {
+    "id": "sw-1058-pt",
+    "text": "sapo"
+  },
+  "sw-1059-pt": {
+    "id": "sw-1059-pt",
+    "text": "sarda"
+  },
+  "sw-1060-pt": {
+    "id": "sw-1060-pt",
+    "text": "sartine"
+  },
+  "sw-1061-pt": {
+    "id": "sw-1061-pt",
+    "text": "satélite"
+  },
+  "sw-1062-pt": {
+    "id": "sw-1062-pt",
+    "text": "saturno"
+  },
+  "sw-1063-pt": {
+    "id": "sw-1063-pt",
+    "text": "saudade"
+  },
+  "sw-1064-pt": {
+    "id": "sw-1064-pt",
+    "text": "secador"
+  },
+  "sw-1065-pt": {
+    "id": "sw-1065-pt",
+    "text": "século"
+  },
+  "sw-1066-pt": {
+    "id": "sw-1066-pt",
+    "text": "segunda-feira"
+  },
+  "sw-1067-pt": {
+    "id": "sw-1067-pt",
+    "text": "seguro"
+  },
+  "sw-1068-pt": {
+    "id": "sw-1068-pt",
+    "text": "seixo"
+  },
+  "sw-1069-pt": {
+    "id": "sw-1069-pt",
+    "text": "selva"
+  },
+  "sw-1070-pt": {
+    "id": "sw-1070-pt",
+    "text": "sempre"
+  },
+  "sw-1071-pt": {
+    "id": "sw-1071-pt",
+    "text": "senha"
+  },
+  "sw-1072-pt": {
+    "id": "sw-1072-pt",
+    "text": "sereia"
+  },
+  "sw-1073-pt": {
+    "id": "sw-1073-pt",
+    "text": "series"
+  },
+  "sw-1074-pt": {
+    "id": "sw-1074-pt",
+    "text": "sertanejo"
+  },
+  "sw-1075-pt": {
+    "id": "sw-1075-pt",
+    "text": "servidor"
+  },
+  "sw-1076-pt": {
+    "id": "sw-1076-pt",
+    "text": "sexta-feira"
+  },
+  "sw-1077-pt": {
+    "id": "sw-1077-pt",
+    "text": "shack"
+  },
+  "sw-1078-pt": {
+    "id": "sw-1078-pt",
+    "text": "shakespeare"
+  },
+  "sw-1079-pt": {
+    "id": "sw-1079-pt",
+    "text": "sherlock"
+  },
+  "sw-1080-pt": {
+    "id": "sw-1080-pt",
+    "text": "show"
+  },
+  "sw-1081-pt": {
+    "id": "sw-1081-pt",
+    "text": "shrek"
+  },
+  "sw-1082-pt": {
+    "id": "sw-1082-pt",
+    "text": "silhueta"
+  },
+  "sw-1083-pt": {
+    "id": "sw-1083-pt",
+    "text": "simpson"
+  },
+  "sw-1084-pt": {
+    "id": "sw-1084-pt",
+    "text": "sino"
+  },
+  "sw-1085-pt": {
+    "id": "sw-1085-pt",
+    "text": "sobrancelha"
+  },
+  "sw-1086-pt": {
+    "id": "sw-1086-pt",
+    "text": "sobrinha"
+  },
+  "sw-1087-pt": {
+    "id": "sw-1087-pt",
+    "text": "soco"
+  },
+  "sw-1088-pt": {
+    "id": "sw-1088-pt",
+    "text": "sofá"
+  },
+  "sw-1089-pt": {
+    "id": "sw-1089-pt",
+    "text": "sol"
+  },
+  "sw-1090-pt": {
+    "id": "sw-1090-pt",
+    "text": "soldado"
+  },
+  "sw-1091-pt": {
+    "id": "sw-1091-pt",
+    "text": "solstício"
+  },
+  "sw-1092-pt": {
+    "id": "sw-1092-pt",
+    "text": "som"
+  },
+  "sw-1093-pt": {
+    "id": "sw-1093-pt",
+    "text": "sombra"
+  },
+  "sw-1094-pt": {
+    "id": "sw-1094-pt",
+    "text": "sombrero"
+  },
+  "sw-1095-pt": {
+    "id": "sw-1095-pt",
+    "text": "sonho"
+  },
+  "sw-1096-pt": {
+    "id": "sw-1096-pt",
+    "text": "sono"
+  },
+  "sw-1097-pt": {
+    "id": "sw-1097-pt",
+    "text": "soquete"
+  },
+  "sw-1098-pt": {
+    "id": "sw-1098-pt",
+    "text": "sorte"
+  },
+  "sw-1099-pt": {
+    "id": "sw-1099-pt",
+    "text": "sorvete"
+  },
+  "sw-1100-pt": {
+    "id": "sw-1100-pt",
+    "text": "sotaque"
+  },
+  "sw-1101-pt": {
+    "id": "sw-1101-pt",
+    "text": "sozinho"
+  },
+  "sw-1102-pt": {
+    "id": "sw-1102-pt",
+    "text": "spartacus"
+  },
+  "sw-1103-pt": {
+    "id": "sw-1103-pt",
+    "text": "spielberg"
+  },
+  "sw-1104-pt": {
+    "id": "sw-1104-pt",
+    "text": "starbucks"
+  },
+  "sw-1105-pt": {
+    "id": "sw-1105-pt",
+    "text": "streaming"
+  },
+  "sw-1106-pt": {
+    "id": "sw-1106-pt",
+    "text": "substituto"
+  },
+  "sw-1107-pt": {
+    "id": "sw-1107-pt",
+    "text": "suíça"
+  },
+  "sw-1108-pt": {
+    "id": "sw-1108-pt",
+    "text": "sujo"
+  },
+  "sw-1109-pt": {
+    "id": "sw-1109-pt",
+    "text": "sushi"
+  },
+  "sw-1110-pt": {
+    "id": "sw-1110-pt",
+    "text": "tabaco"
+  },
+  "sw-1111-pt": {
+    "id": "sw-1111-pt",
+    "text": "tablet"
+  },
+  "sw-1112-pt": {
+    "id": "sw-1112-pt",
+    "text": "tábua"
+  },
+  "sw-1113-pt": {
+    "id": "sw-1113-pt",
+    "text": "tamanduá"
+  },
+  "sw-1114-pt": {
+    "id": "sw-1114-pt",
+    "text": "tango"
+  },
+  "sw-1115-pt": {
+    "id": "sw-1115-pt",
+    "text": "tapete"
+  },
+  "sw-1116-pt": {
+    "id": "sw-1116-pt",
+    "text": "tapioca"
+  },
+  "sw-1117-pt": {
+    "id": "sw-1117-pt",
+    "text": "tarantino"
+  },
+  "sw-1118-pt": {
+    "id": "sw-1118-pt",
+    "text": "tarde"
+  },
+  "sw-1119-pt": {
+    "id": "sw-1119-pt",
+    "text": "tarzan"
+  },
+  "sw-1120-pt": {
+    "id": "sw-1120-pt",
+    "text": "tatuagem"
+  },
+  "sw-1121-pt": {
+    "id": "sw-1121-pt",
+    "text": "táxi"
+  },
+  "sw-1122-pt": {
+    "id": "sw-1122-pt",
+    "text": "tchau"
+  },
+  "sw-1123-pt": {
+    "id": "sw-1123-pt",
+    "text": "teatro"
+  },
+  "sw-1124-pt": {
+    "id": "sw-1124-pt",
+    "text": "teclado"
+  },
+  "sw-1125-pt": {
+    "id": "sw-1125-pt",
+    "text": "teia"
+  },
+  "sw-1126-pt": {
+    "id": "sw-1126-pt",
+    "text": "tela"
+  },
+  "sw-1127-pt": {
+    "id": "sw-1127-pt",
+    "text": "telefone"
+  },
+  "sw-1128-pt": {
+    "id": "sw-1128-pt",
+    "text": "telescópio"
+  },
+  "sw-1129-pt": {
+    "id": "sw-1129-pt",
+    "text": "televisão"
+  },
+  "sw-1130-pt": {
+    "id": "sw-1130-pt",
+    "text": "tempero"
+  },
+  "sw-1131-pt": {
+    "id": "sw-1131-pt",
+    "text": "templo"
+  },
+  "sw-1132-pt": {
+    "id": "sw-1132-pt",
+    "text": "tempo"
+  },
+  "sw-1133-pt": {
+    "id": "sw-1133-pt",
+    "text": "temporada"
+  },
+  "sw-1134-pt": {
+    "id": "sw-1134-pt",
+    "text": "tênis"
+  },
+  "sw-1135-pt": {
+    "id": "sw-1135-pt",
+    "text": "terno"
+  },
+  "sw-1136-pt": {
+    "id": "sw-1136-pt",
+    "text": "tesouro"
+  },
+  "sw-1137-pt": {
+    "id": "sw-1137-pt",
+    "text": "testa"
+  },
+  "sw-1138-pt": {
+    "id": "sw-1138-pt",
+    "text": "teto"
+  },
+  "sw-1139-pt": {
+    "id": "sw-1139-pt",
+    "text": "tia"
+  },
+  "sw-1140-pt": {
+    "id": "sw-1140-pt",
+    "text": "tigre"
+  },
+  "sw-1141-pt": {
+    "id": "sw-1141-pt",
+    "text": "tinta"
+  },
+  "sw-1142-pt": {
+    "id": "sw-1142-pt",
+    "text": "tiro"
+  },
+  "sw-1143-pt": {
+    "id": "sw-1143-pt",
+    "text": "titânico"
+  },
+  "sw-1144-pt": {
+    "id": "sw-1144-pt",
+    "text": "toalha"
+  },
+  "sw-1145-pt": {
+    "id": "sw-1145-pt",
+    "text": "tocha"
+  },
+  "sw-1146-pt": {
+    "id": "sw-1146-pt",
+    "text": "tolkien"
+  },
+  "sw-1147-pt": {
+    "id": "sw-1147-pt",
+    "text": "tom"
+  },
+  "sw-1148-pt": {
+    "id": "sw-1148-pt",
+    "text": "tomate"
+  },
+  "sw-1149-pt": {
+    "id": "sw-1149-pt",
+    "text": "toque"
+  },
+  "sw-1150-pt": {
+    "id": "sw-1150-pt",
+    "text": "tóquio"
+  },
+  "sw-1151-pt": {
+    "id": "sw-1151-pt",
+    "text": "torcida"
+  },
+  "sw-1152-pt": {
+    "id": "sw-1152-pt",
+    "text": "tornado"
+  },
+  "sw-1153-pt": {
+    "id": "sw-1153-pt",
+    "text": "torneio"
+  },
+  "sw-1154-pt": {
+    "id": "sw-1154-pt",
+    "text": "tornozelo"
+  },
+  "sw-1155-pt": {
+    "id": "sw-1155-pt",
+    "text": "torrada"
+  },
+  "sw-1156-pt": {
+    "id": "sw-1156-pt",
+    "text": "torre"
+  },
+  "sw-1157-pt": {
+    "id": "sw-1157-pt",
+    "text": "torta"
+  },
+  "sw-1158-pt": {
+    "id": "sw-1158-pt",
+    "text": "tosse"
+  },
+  "sw-1159-pt": {
+    "id": "sw-1159-pt",
+    "text": "toupeira"
+  },
+  "sw-1160-pt": {
+    "id": "sw-1160-pt",
+    "text": "tradição"
+  },
+  "sw-1161-pt": {
+    "id": "sw-1161-pt",
+    "text": "trapo"
+  },
+  "sw-1162-pt": {
+    "id": "sw-1162-pt",
+    "text": "trator"
+  },
+  "sw-1163-pt": {
+    "id": "sw-1163-pt",
+    "text": "travesseiro"
+  },
+  "sw-1164-pt": {
+    "id": "sw-1164-pt",
+    "text": "treinador"
+  },
+  "sw-1165-pt": {
+    "id": "sw-1165-pt",
+    "text": "trem"
+  },
+  "sw-1166-pt": {
+    "id": "sw-1166-pt",
+    "text": "trenó"
+  },
+  "sw-1167-pt": {
+    "id": "sw-1167-pt",
+    "text": "trepadeira"
+  },
+  "sw-1168-pt": {
+    "id": "sw-1168-pt",
+    "text": "trevo"
+  },
+  "sw-1169-pt": {
+    "id": "sw-1169-pt",
+    "text": "triângulo"
+  },
+  "sw-1170-pt": {
+    "id": "sw-1170-pt",
+    "text": "tribunal"
+  },
+  "sw-1171-pt": {
+    "id": "sw-1171-pt",
+    "text": "trigo"
+  },
+  "sw-1172-pt": {
+    "id": "sw-1172-pt",
+    "text": "trilho"
+  },
+  "sw-1173-pt": {
+    "id": "sw-1173-pt",
+    "text": "triste"
+  },
+  "sw-1174-pt": {
+    "id": "sw-1174-pt",
+    "text": "troco"
+  },
+  "sw-1175-pt": {
+    "id": "sw-1175-pt",
+    "text": "tronco"
+  },
+  "sw-1176-pt": {
+    "id": "sw-1176-pt",
+    "text": "trono"
+  },
+  "sw-1177-pt": {
+    "id": "sw-1177-pt",
+    "text": "trovão"
+  },
+  "sw-1178-pt": {
+    "id": "sw-1178-pt",
+    "text": "troy"
+  },
+  "sw-1179-pt": {
+    "id": "sw-1179-pt",
+    "text": "tuba"
+  },
+  "sw-1180-pt": {
+    "id": "sw-1180-pt",
+    "text": "tubarão"
+  },
+  "sw-1181-pt": {
+    "id": "sw-1181-pt",
+    "text": "tubo"
+  },
+  "sw-1182-pt": {
+    "id": "sw-1182-pt",
+    "text": "tulipa"
+  },
+  "sw-1183-pt": {
+    "id": "sw-1183-pt",
+    "text": "túnel"
+  },
+  "sw-1184-pt": {
+    "id": "sw-1184-pt",
+    "text": "turquia"
+  },
+  "sw-1185-pt": {
+    "id": "sw-1185-pt",
+    "text": "tutor"
+  },
+  "sw-1186-pt": {
+    "id": "sw-1186-pt",
+    "text": "umbigo"
+  },
+  "sw-1187-pt": {
+    "id": "sw-1187-pt",
+    "text": "umidificador"
+  },
+  "sw-1188-pt": {
+    "id": "sw-1188-pt",
+    "text": "unha"
+  },
+  "sw-1189-pt": {
+    "id": "sw-1189-pt",
+    "text": "unicórnio"
+  },
+  "sw-1190-pt": {
+    "id": "sw-1190-pt",
+    "text": "uniforme"
+  },
+  "sw-1191-pt": {
+    "id": "sw-1191-pt",
+    "text": "upgrade"
+  },
+  "sw-1192-pt": {
+    "id": "sw-1192-pt",
+    "text": "urso"
+  },
+  "sw-1193-pt": {
+    "id": "sw-1193-pt",
+    "text": "uva"
+  },
+  "sw-1194-pt": {
+    "id": "sw-1194-pt",
+    "text": "vaca"
+  },
+  "sw-1195-pt": {
+    "id": "sw-1195-pt",
+    "text": "vácuo"
+  },
+  "sw-1196-pt": {
+    "id": "sw-1196-pt",
+    "text": "vagabundo"
+  },
+  "sw-1197-pt": {
+    "id": "sw-1197-pt",
+    "text": "valsa"
+  },
+  "sw-1198-pt": {
+    "id": "sw-1198-pt",
+    "text": "vampiro"
+  },
+  "sw-1199-pt": {
+    "id": "sw-1199-pt",
+    "text": "van"
+  },
+  "sw-1200-pt": {
+    "id": "sw-1200-pt",
+    "text": "vaqueiro"
+  },
+  "sw-1201-pt": {
+    "id": "sw-1201-pt",
+    "text": "varanda"
+  },
+  "sw-1202-pt": {
+    "id": "sw-1202-pt",
+    "text": "vassoura"
+  },
+  "sw-1203-pt": {
+    "id": "sw-1203-pt",
+    "text": "vazamento"
+  },
+  "sw-1204-pt": {
+    "id": "sw-1204-pt",
+    "text": "vegas"
+  },
+  "sw-1205-pt": {
+    "id": "sw-1205-pt",
+    "text": "vegetal"
+  },
+  "sw-1206-pt": {
+    "id": "sw-1206-pt",
+    "text": "vela"
+  },
+  "sw-1207-pt": {
+    "id": "sw-1207-pt",
+    "text": "velejar"
+  },
+  "sw-1208-pt": {
+    "id": "sw-1208-pt",
+    "text": "velho"
+  },
+  "sw-1209-pt": {
+    "id": "sw-1209-pt",
+    "text": "veneno"
+  },
+  "sw-1210-pt": {
+    "id": "sw-1210-pt",
+    "text": "ventilador"
+  },
+  "sw-1211-pt": {
+    "id": "sw-1211-pt",
+    "text": "vento"
+  },
+  "sw-1212-pt": {
+    "id": "sw-1212-pt",
+    "text": "vênus"
+  },
+  "sw-1213-pt": {
+    "id": "sw-1213-pt",
+    "text": "verde"
+  },
+  "sw-1214-pt": {
+    "id": "sw-1214-pt",
+    "text": "vermelho"
+  },
+  "sw-1215-pt": {
+    "id": "sw-1215-pt",
+    "text": "vestido"
+  },
+  "sw-1216-pt": {
+    "id": "sw-1216-pt",
+    "text": "veterinário"
+  },
+  "sw-1217-pt": {
+    "id": "sw-1217-pt",
+    "text": "viagem"
+  },
+  "sw-1218-pt": {
+    "id": "sw-1218-pt",
+    "text": "vibração"
+  },
+  "sw-1219-pt": {
+    "id": "sw-1219-pt",
+    "text": "vida"
+  },
+  "sw-1220-pt": {
+    "id": "sw-1220-pt",
+    "text": "vidro"
+  },
+  "sw-1221-pt": {
+    "id": "sw-1221-pt",
+    "text": "viking"
+  },
+  "sw-1222-pt": {
+    "id": "sw-1222-pt",
+    "text": "vingança"
+  },
+  "sw-1223-pt": {
+    "id": "sw-1223-pt",
+    "text": "vinho"
+  },
+  "sw-1224-pt": {
+    "id": "sw-1224-pt",
+    "text": "violão"
+  },
+  "sw-1225-pt": {
+    "id": "sw-1225-pt",
+    "text": "violino"
+  },
+  "sw-1226-pt": {
+    "id": "sw-1226-pt",
+    "text": "vírus"
+  },
+  "sw-1227-pt": {
+    "id": "sw-1227-pt",
+    "text": "visão"
+  },
+  "sw-1228-pt": {
+    "id": "sw-1228-pt",
+    "text": "vizinhança"
+  },
+  "sw-1229-pt": {
+    "id": "sw-1229-pt",
+    "text": "vizinho"
+  },
+  "sw-1230-pt": {
+    "id": "sw-1230-pt",
+    "text": "voar"
+  },
+  "sw-1231-pt": {
+    "id": "sw-1231-pt",
+    "text": "vovô"
+  },
+  "sw-1232-pt": {
+    "id": "sw-1232-pt",
+    "text": "vulcão"
+  },
+  "sw-1233-pt": {
+    "id": "sw-1233-pt",
+    "text": "xadrez"
+  },
+  "sw-1234-pt": {
+    "id": "sw-1234-pt",
+    "text": "xampu"
+  },
+  "sw-1235-pt": {
+    "id": "sw-1235-pt",
+    "text": "xarope"
+  },
+  "sw-1236-pt": {
+    "id": "sw-1236-pt",
+    "text": "xerife"
+  },
+  "sw-1237-pt": {
+    "id": "sw-1237-pt",
+    "text": "xícara"
+  },
+  "sw-1238-pt": {
+    "id": "sw-1238-pt",
+    "text": "zen"
+  },
+  "sw-1239-pt": {
+    "id": "sw-1239-pt",
+    "text": "zero"
+  },
+  "sw-1240-pt": {
+    "id": "sw-1240-pt",
+    "text": "zeus"
+  },
+  "sw-1241-pt": {
+    "id": "sw-1241-pt",
+    "text": "zíper"
+  },
+  "sw-1242-pt": {
+    "id": "sw-1242-pt",
+    "text": "zona"
+  },
+  "sw-1243-pt": {
+    "id": "sw-1243-pt",
+    "text": "zoológico"
+  },
+  "sw-1244-pt": {
+    "id": "sw-1244-pt",
+    "text": "zumbi"
+  }
+}
