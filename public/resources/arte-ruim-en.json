@@ -5803,5 +5803,25 @@
     "id": "a-1161-en",
     "text": "Awake but at what cost",
     "level": 2
+  },
+  "a-1162-en": {
+    "id": "a-1162-en",
+    "text": "Better off alone",
+    "level": 2
+  },
+  "a-1163-en": {
+    "id": "a-1163-en",
+    "text": "Unintelligible speech",
+    "level": 2
+  },
+  "a-1164-en": {
+    "id": "a-1164-en",
+    "text": "Technically truth",
+    "level": 3
+  },
+  "a-1165-en": {
+    "id": "a-1165-en",
+    "text": "Romantic comedy",
+    "level": 1
   }
 }
