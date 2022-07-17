@@ -106,5 +106,109 @@
   "ap-27-pt": {
     "id": "ap-27-pt",
     "values": ["microfone", "sorvete"]
+  },
+  "ap-28-pt": {
+    "id": "ap-28-pt",
+    "values": ["tomate", "maçã"]
+  },
+  "ap-29-pt": {
+    "id": "ap-29-pt",
+    "values": ["criança", "anão"]
+  },
+  "ap-30-pt": {
+    "id": "ap-30-pt",
+    "values": ["cobra", "minhoca"]
+  },
+  "ap-31-pt": {
+    "id": "ap-31-pt",
+    "values": ["black-power", "leão"]
+  },
+  "ap-32-pt": {
+    "id": "ap-32-pt",
+    "values": ["lata de lixo", "cesto de roupa suja"]
+  },
+  "ap-33-pt": {
+    "id": "ap-33-pt",
+    "values": ["bicicleta", "motocicleta"]
+  },
+  "ap-34-pt": {
+    "id": "ap-34-pt",
+    "values": ["dentes", "lábios"]
+  },
+  "ap-35-pt": {
+    "id": "ap-35-pt",
+    "values": ["mão", "luva"]
+  },
+  "ap-36-pt": {
+    "id": "ap-36-pt",
+    "values": ["pinguim", "coruja"]
+  },
+  "ap-37-pt": {
+    "id": "ap-37-pt",
+    "values": ["tangerina", "cebola"]
+  },
+  "ap-38-pt": {
+    "id": "ap-38-pt",
+    "values": ["pedra", "batata"]
+  },
+  "ap-39-pt": {
+    "id": "ap-39-pt",
+    "values": ["avental", "roupão"]
+  },
+  "ap-40-pt": {
+    "id": "ap-40-pt",
+    "values": ["múmia", "ninja"]
+  },
+  "ap-41-pt": {
+    "id": "ap-41-pt",
+    "values": ["macarrão", "novelo de lã"]
+  },
+  "ap-42-pt": {
+    "id": "ap-42-pt",
+    "values": ["cantor", "político"]
+  },
+  "ap-43-pt": {
+    "id": "ap-43-pt",
+    "values": ["prato", "pneu"]
+  },
+  "ap-44-pt": {
+    "id": "ap-44-pt",
+    "values": ["poça de sangue", "poça d'água"]
+  },
+  "ap-45-pt": {
+    "id": "ap-45-pt",
+    "values": ["mouse", "balão"]
+  },
+  "ap-46-pt": {
+    "id": "ap-46-pt",
+    "values": ["chapéu", "barco"]
+  },
+  "ap-47-pt": {
+    "id": "ap-47-pt",
+    "values": ["televisão", "micro-ondas"]
+  },
+  "ap-48-pt": {
+    "id": "ap-48-pt",
+    "values": ["café", "chá"]
+  },
+  "ap-49-pt": {
+    "id": "ap-49-pt",
+    "values": ["saturno", "pogobol"]
+  },
+  "ap-50-pt": {
+    "id": "ap-50-pt",
+    "values": ["ambulância", "viatura"]
+  },
+  "ap-51-pt": {
+    "id": "ap-51-pt",
+    "values": ["bacon", "cachecol"]
+  },
+  "ap-52-pt": {
+    "id": "ap-52-pt",
+    "values": ["mansão mal-assombrada", "castelo"]
+  },
+  "ap-53-pt": {
+    "id": "ap-53-pt",
+    "values": ["Vingadores", "X-men"]
   }
 }
