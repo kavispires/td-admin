@@ -1,110 +1,214 @@
 {
-  "ap-1-en": {
-    "id": "ap-1-en",
+  "ap-1-pt": {
+    "id": "ap-1-pt",
     "values": ["pen", "pencil"]
   },
-  "ap-2-en": {
-    "id": "ap-2-en",
+  "ap-2-pt": {
+    "id": "ap-2-pt",
     "values": ["chalk", "crayons"]
   },
-  "ap-3-en": {
-    "id": "ap-3-en",
+  "ap-3-pt": {
+    "id": "ap-3-pt",
     "values": ["bus", "van"]
   },
-  "ap-4-en": {
-    "id": "ap-4-en",
+  "ap-4-pt": {
+    "id": "ap-4-pt",
     "values": ["dentist", "doctor"]
   },
-  "ap-5-en": {
-    "id": "ap-5-en",
+  "ap-5-pt": {
+    "id": "ap-5-pt",
     "values": ["gardener", "plumber"]
   },
-  "ap-6-en": {
-    "id": "ap-6-en",
+  "ap-6-pt": {
+    "id": "ap-6-pt",
     "values": ["teacher", "coach"]
   },
-  "ap-7-en": {
-    "id": "ap-7-en",
+  "ap-7-pt": {
+    "id": "ap-7-pt",
     "values": ["puppet", "marionette"]
   },
-  "ap-8-en": {
-    "id": "ap-8-en",
+  "ap-8-pt": {
+    "id": "ap-8-pt",
     "values": ["doll", "action figure"]
   },
-  "ap-9-en": {
-    "id": "ap-9-en",
+  "ap-9-pt": {
+    "id": "ap-9-pt",
     "values": ["goat", "sheep"]
   },
-  "ap-10-en": {
-    "id": "ap-10-en",
+  "ap-10-pt": {
+    "id": "ap-10-pt",
     "values": ["llama", "camel"]
   },
-  "ap-11-en": {
-    "id": "ap-11-en",
+  "ap-11-pt": {
+    "id": "ap-11-pt",
     "values": ["bear", "dog"]
   },
-  "ap-12-en": {
-    "id": "ap-12-en",
+  "ap-12-pt": {
+    "id": "ap-12-pt",
     "values": ["glasses", "binoculars"]
   },
-  "ap-13-en": {
-    "id": "ap-13-en",
+  "ap-13-pt": {
+    "id": "ap-13-pt",
     "values": ["shovel", "spoon"]
   },
-  "ap-14-en": {
-    "id": "ap-14-en",
+  "ap-14-pt": {
+    "id": "ap-14-pt",
     "values": ["bedroom", "living room"]
   },
-  "ap-15-en": {
-    "id": "ap-15-en",
+  "ap-15-pt": {
+    "id": "ap-15-pt",
     "values": ["bath tub", "toilet"]
   },
-  "ap-16-en": {
-    "id": "ap-16-en",
+  "ap-16-pt": {
+    "id": "ap-16-pt",
     "values": ["lasso", "jump rope"]
   },
-  "ap-17-en": {
-    "id": "ap-17-en",
+  "ap-17-pt": {
+    "id": "ap-17-pt",
     "values": ["toothbrush", "hairbrush"]
   },
-  "ap-18-en": {
-    "id": "ap-18-en",
+  "ap-18-pt": {
+    "id": "ap-18-pt",
     "values": ["submarine", "pirate ship"]
   },
-  "ap-19-en": {
-    "id": "ap-19-en",
+  "ap-19-pt": {
+    "id": "ap-19-pt",
     "values": ["swim", "drown"]
   },
-  "ap-20-en": {
-    "id": "ap-20-en",
+  "ap-20-pt": {
+    "id": "ap-20-pt",
     "values": ["cake", "bread"]
   },
-  "ap-21-en": {
-    "id": "ap-21-en",
+  "ap-21-pt": {
+    "id": "ap-21-pt",
     "values": ["fruit", "vegetable"]
   },
-  "ap-22-en": {
-    "id": "ap-22-en",
+  "ap-22-pt": {
+    "id": "ap-22-pt",
     "values": ["Mario", "Luigi"]
   },
-  "ap-23-en": {
-    "id": "ap-23-en",
+  "ap-23-pt": {
+    "id": "ap-23-pt",
     "values": ["tetris", "stained glass"]
   },
-  "ap-24-en": {
-    "id": "ap-24-en",
+  "ap-24-pt": {
+    "id": "ap-24-pt",
     "values": ["soccer ball", "basketball"]
   },
-  "ap-25-en": {
-    "id": "ap-25-en",
+  "ap-25-pt": {
+    "id": "ap-25-pt",
     "values": ["ladder", "train tracks"]
   },
-  "ap-26-en": {
-    "id": "ap-26-en",
+  "ap-26-pt": {
+    "id": "ap-26-pt",
     "values": ["farm", "zoo"]
   },
-  "ap-27-en": {
-    "id": "ap-27-en",
+  "ap-27-pt": {
+    "id": "ap-27-pt",
     "values": ["microphone", "ice cream"]
+  },
+  "ap-28-pt": {
+    "id": "ap-28-pt",
+    "values": ["tomato", "apple"]
+  },
+  "ap-29-pt": {
+    "id": "ap-29-pt",
+    "values": ["child", "dwarf"]
+  },
+  "ap-30-pt": {
+    "id": "ap-30-pt",
+    "values": ["snake", "worm"]
+  },
+  "ap-31-pt": {
+    "id": "ap-31-pt",
+    "values": ["tiger", "lion"]
+  },
+  "ap-32-pt": {
+    "id": "ap-32-pt",
+    "values": ["trash can", "laundry basket"]
+  },
+  "ap-33-pt": {
+    "id": "ap-33-pt",
+    "values": ["bicycle", "motercycle"]
+  },
+  "ap-34-pt": {
+    "id": "ap-34-pt",
+    "values": ["teeth", "lips"]
+  },
+  "ap-35-pt": {
+    "id": "ap-35-pt",
+    "values": ["hand", "gloves"]
+  },
+  "ap-36-pt": {
+    "id": "ap-36-pt",
+    "values": ["owl", "penguin"]
+  },
+  "ap-37-pt": {
+    "id": "ap-37-pt",
+    "values": ["tangerine", "onion"]
+  },
+  "ap-38-pt": {
+    "id": "ap-38-pt",
+    "values": ["potato", "rock"]
+  },
+  "ap-39-pt": {
+    "id": "ap-39-pt",
+    "values": ["robe", "apron"]
+  },
+  "ap-40-pt": {
+    "id": "ap-40-pt",
+    "values": ["ninja", "mummy"]
+  },
+  "ap-41-pt": {
+    "id": "ap-41-pt",
+    "values": ["yarn", "noodles"]
+  },
+  "ap-42-pt": {
+    "id": "ap-42-pt",
+    "values": ["singer", "politician"]
+  },
+  "ap-43-pt": {
+    "id": "ap-43-pt",
+    "values": ["tire", "plate"]
+  },
+  "ap-44-pt": {
+    "id": "ap-44-pt",
+    "values": ["blood pool", "puddle"]
+  },
+  "ap-45-pt": {
+    "id": "ap-45-pt",
+    "values": ["balloon", "computer mouse"]
+  },
+  "ap-46-pt": {
+    "id": "ap-46-pt",
+    "values": ["hat", "boat"]
+  },
+  "ap-47-pt": {
+    "id": "ap-47-pt",
+    "values": ["TV", "microwave"]
+  },
+  "ap-48-pt": {
+    "id": "ap-48-pt",
+    "values": ["coffee", "tea"]
+  },
+  "ap-49-pt": {
+    "id": "ap-49-pt",
+    "values": ["egg", "planet"]
+  },
+  "ap-50-pt": {
+    "id": "ap-50-pt",
+    "values": ["police car", "ambulance"]
+  },
+  "ap-51-pt": {
+    "id": "ap-51-pt",
+    "values": ["scarf", "bacon"]
+  },
+  "ap-52-pt": {
+    "id": "ap-52-pt",
+    "values": ["castle", "haunted house"]
+  },
+  "ap-53-pt": {
+    "id": "ap-53-pt",
+    "values": ["Avengers", "x-men"]
   }
 }
