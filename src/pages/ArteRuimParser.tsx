@@ -8,22 +8,21 @@ import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
 import { SearchDuplicates } from '../components/SearchDuplicates';
 import { useResourceState } from '../hooks/useResourceState';
 import { checkForDuplicates } from '../utils';
-import { DEFAULT_LANGUAGE } from '../utils/constants';
+import { DEFAULT_LANGUAGE, RESOURCE_NAMES } from '../utils/constants';
 
 const { Text, Title } = Typography;
 
 export function ArteRuimParser() {
   useTitle('Arte Ruim - Parser');
 
-  const availableResources = ['arte-ruim'];
-  const initialState = { language: DEFAULT_LANGUAGE, resourceName: availableResources[0] };
+  const initialState = { language: DEFAULT_LANGUAGE, resourceName: RESOURCE_NAMES.ARTE_RUIM_CARDS };
 
   const [output, setOutput] = useState({});
   const [duplicates, setDuplicates] = useState({});
   const property = 'text';
 
   const { resourceName, language, loading, error, updateResource, hasResponseData, response } =
-    useResourceState(availableResources, initialState);
+    useResourceState([RESOURCE_NAMES.ARTE_RUIM_CARDS], initialState);
 
   useEffect(() => {
     if (response) {
@@ -61,7 +60,7 @@ export function ArteRuimParser() {
     <Layout>
       <ResourceSelectionBar
         title="Arte Ruim Parser"
-        resourceNames={['arte-ruim']}
+        resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]}
         initialValues={initialState}
         updateState={updateResource}
         hasResponseData={hasResponseData}

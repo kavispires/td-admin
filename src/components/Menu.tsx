@@ -7,14 +7,14 @@ export function Menu({ ghost = false }) {
 
   return (
     <Space>
-      <Link to="/arte-ruim/parser">
-        <Button disabled={location.pathname === '/arte-ruim/parser'} type="link" ghost={ghost}>
+      <Link to="/arte-ruim-parser">
+        <Button disabled={location.pathname === '/arte-ruim-parser'} type="link" ghost={ghost}>
           ARPD Parser
         </Button>
       </Link>
-      <Link to="/arte-ruim/level4">
-        <Button disabled={location.pathname === '/arte-ruim/level4'} type="link" ghost={ghost}>
-          ARPD Level 4
+      <Link to="/arte-ruim-groups">
+        <Button disabled={location.pathname === '/arte-ruim-groups'} type="link" ghost={ghost}>
+          ARPD Groups
         </Button>
       </Link>
       <Link to="/resource">
