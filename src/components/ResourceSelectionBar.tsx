@@ -1,4 +1,4 @@
-import { Button, Form, PageHeader, Select, Tag } from 'antd';
+import { Button, Divider, Form, PageHeader, Select, Tag } from 'antd';
 import { ReactElement } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -65,7 +65,13 @@ export function ResourceSelectionBar({
         onBack={() => navigate(-1)}
         extra={<Menu />}
       />
-      <Form layout="inline" onFinish={onFinish} size="small" initialValues={{ ...initialValues, ...values }}>
+      <Form
+        className="resource-selection-bar"
+        layout="inline"
+        onFinish={onFinish}
+        size="small"
+        initialValues={{ ...initialValues, ...values }}
+      >
         <Form.Item label="Resource" name="resourceName">
           <Select style={{ minWidth: '150px' }} value={values.resourceName}>
             {resourceNames.map((rn) => (
@@ -90,6 +96,7 @@ export function ResourceSelectionBar({
           </Button>
         </Form.Item>
       </Form>
+      <Divider />
     </>
   );
 }

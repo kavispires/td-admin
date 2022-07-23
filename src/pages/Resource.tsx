@@ -31,7 +31,7 @@ export function Resource() {
   }, [response]);
 
   return (
-    <Layout>
+    <Layout className="container">
       <ResourceSelectionBar
         title={`Data for ${resourceName}-${language}`}
         initialValues={{
