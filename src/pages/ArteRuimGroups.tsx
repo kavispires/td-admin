@@ -2,10 +2,10 @@ import { Input, Layout, List, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 import { useAsync, useTitle } from 'react-use';
 
-import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
-import { ResourceSelectionBar } from '../../components/ResourceSelectionBar';
-import { useResourceState } from '../../hooks/useResourceState';
-import { DEFAULT_LANGUAGE, LOCALHOST_RESOURCE_URL } from '../../utils/constants';
+import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
+import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
+import { useResourceState } from '../hooks/useResourceState';
+import { DEFAULT_LANGUAGE, LOCALHOST_RESOURCE_URL, RESOURCE_NAMES } from '../utils/constants';
 
 const { Text, Title } = Typography;
 
@@ -37,11 +37,11 @@ const parseData = (cards: Record<CardId, ArteRuimCard>, groups: Record<string, A
   return { themes, used, unused, duplicated };
 };
 
-function Level4() {
-  useTitle('Arte Ruim - Level 4');
+export function ArteRuimGroups() {
+  useTitle('Arte Ruim - Groups');
 
-  const availableResources = ['arte-ruim'];
-  const initialState = { language: DEFAULT_LANGUAGE, resourceName: availableResources[0] };
+  // const availableResources = ['arte-ruim-cards'];
+  const initialState = { language: DEFAULT_LANGUAGE, resourceName: RESOURCE_NAMES.ARTE_RUIM_CARDS };
 
   const [used, setUsed] = useState({});
   const [unused, setUnused] = useState({});
@@ -49,21 +49,22 @@ function Level4() {
   const [themes, setThemes] = useState<string[]>([]);
 
   const {
-    resourceName,
     language,
     loading,
     error,
     updateResource,
     hasResponseData,
     response: cards,
-  } = useResourceState(availableResources, initialState);
+  } = useResourceState([RESOURCE_NAMES.ARTE_RUIM_CARDS], initialState);
 
   const {
     value: groups,
     loading: loadingLevel4,
     error: errorLevel4,
   } = useAsync(async () => {
-    const response = await fetch(`${LOCALHOST_RESOURCE_URL}/${resourceName}-group-${language}.json`);
+    const response = await fetch(
+      `${LOCALHOST_RESOURCE_URL}/${RESOURCE_NAMES.ARTE_RUIM_GROUPS}-${language}.json`
+    );
     const result = await response.json();
 
     return result;
@@ -147,5 +148,3 @@ function Level4() {
     </Layout>
   );
 }
-
-export default Level4;

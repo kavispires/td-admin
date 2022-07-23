@@ -22,7 +22,10 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "paths": {
+      "@*": ["src/*"]
+    }
   },
   "include": ["src"]
 }

@@ -10,7 +10,7 @@ import { SEARCH_THRESHOLD } from '../utils/constants';
 
 const { Text, Title } = Typography;
 
-function Other() {
+export function Other() {
   useTitle('Arte Ruim - Other');
 
   // const result = Array(50)
@@ -285,8 +285,6 @@ function Other() {
     </Layout>
   );
 }
-
-export default Other;
 
 function parse(a) {
   return a.map((v) => {

@@ -11,14 +11,16 @@ import { RESOURCE_NAMES } from '../utils/constants';
 
 const { Text, Title } = Typography;
 
-function Resource() {
-  useTitle('Resource');
+const resourceNames = Object.values(RESOURCE_NAMES);
+
+export function Resource() {
+  useTitle('Resource Viewer');
 
   const [output, setOutput] = useState({});
   const property = 'text';
 
   const { resourceName, language, loading, error, updateResource, hasResponseData, response } =
-    useResourceState(RESOURCE_NAMES, {});
+    useResourceState(resourceNames, {});
 
   const { params } = useQueryParams({ resourceName, language }, updateResource);
 
@@ -32,7 +34,11 @@ function Resource() {
     <Layout>
       <ResourceSelectionBar
         title={`Data for ${resourceName}-${language}`}
-        resourceNames={RESOURCE_NAMES}
+        initialValues={{
+          resourceName,
+          language,
+        }}
+        resourceNames={resourceNames}
         values={params}
         updateState={updateResource}
         hasResponseData={hasResponseData}
@@ -65,5 +71,3 @@ function Resource() {
     </Layout>
   );
 }
-
-export default Resource;

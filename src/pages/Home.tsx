@@ -1,23 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import logo from 'assets/images/logo.svg';
 
 import { Menu } from '../components/Menu';
 import { Image } from 'antd';
 
-function Home() {
+export function Home() {
   const [count, setCount] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
 
-  const increaseCount = () => {
-    setCount(count + 1);
+  const onShowMenu = () => {
+    setShowMenu(true);
   };
-
-  useEffect(() => {
-    if (count === 6) {
-      setShowMenu(true);
-    }
-  }, [count]);
 
   const styles = showMenu
     ? {
@@ -27,12 +21,10 @@ function Home() {
 
   return (
     <div className="home">
-      <header className="home-header" style={styles} onClick={increaseCount}>
+      <header className="home-header" style={styles} onClick={onShowMenu}>
         <Image src={logo} className="home-logo" alt="logo" preview={false} />
         {showMenu && <Menu />}
       </header>
     </div>
   );
 }
-
-export default Home;

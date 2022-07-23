@@ -2,17 +2,17 @@ import { Divider, Input, Layout, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 import { useTitle } from 'react-use';
 
-import { ArteRuimLevels } from '../../components/ArteRuimLevels';
-import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
-import { ResourceSelectionBar } from '../../components/ResourceSelectionBar';
-import { SearchDuplicates } from '../../components/SearchDuplicates';
-import { useResourceState } from '../../hooks/useResourceState';
-import { checkForDuplicates } from '../../utils';
-import { DEFAULT_LANGUAGE } from '../../utils/constants';
+import { ArteRuimLevels } from '../components/ArteRuimLevels';
+import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
+import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
+import { SearchDuplicates } from '../components/SearchDuplicates';
+import { useResourceState } from '../hooks/useResourceState';
+import { checkForDuplicates } from '../utils';
+import { DEFAULT_LANGUAGE } from '../utils/constants';
 
 const { Text, Title } = Typography;
 
-function Parser() {
+export function ArteRuimParser() {
   useTitle('Arte Ruim - Parser');
 
   const availableResources = ['arte-ruim'];
@@ -109,5 +109,3 @@ function Parser() {
     </Layout>
   );
 }
-
-export default Parser;
