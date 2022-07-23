@@ -1,7 +1,7 @@
 import { Input, Layout, Typography } from 'antd';
-import { useEffect, useState } from 'react';
+import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
+import { useEffect, useMemo, useState } from 'react';
 import { useTitle } from 'react-use';
-
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
 import { SearchDuplicates } from '../components/SearchDuplicates';
@@ -9,7 +9,7 @@ import { useQueryParams } from '../hooks/useQueryParams';
 import { useResourceState } from '../hooks/useResourceState';
 import { RESOURCE_NAMES } from '../utils/constants';
 
-const { Text, Title } = Typography;
+const { Title } = Typography;
 
 const resourceNames = Object.values(RESOURCE_NAMES);
 
@@ -30,6 +30,8 @@ export function Resource() {
     }
   }, [response]);
 
+  const jsonString = useMemo(() => JSON.stringify(output, null, 4), [output]);
+
   return (
     <Layout className="container">
       <ResourceSelectionBar
@@ -48,21 +50,14 @@ export function Resource() {
 
       <Layout.Content className="content">
         <DataLoadingWrapper loading={loading} error={error} hasResponseData={hasResponseData}>
-          <div className="parser-container">
-            <div className="parser-main">
-              <Title level={2}>Data</Title>
-              <Text>Output</Text>
-              <Input.TextArea
-                name="output"
-                id=""
-                cols={15}
-                rows={15}
-                readOnly
-                value={JSON.stringify(output, null, 4)}
-              />
-            </div>
-
-            <aside className="parser-controls">
+          <div className="page-content page-content--6-4">
+            <main>
+              <Title level={2}>
+                JSON <CopyToClipboardButton content={jsonString} />
+              </Title>
+              <Input.TextArea name="output" id="" cols={15} rows={15} readOnly value={jsonString} />
+            </main>
+            <aside>
               <SearchDuplicates response={response} property={property} />
             </aside>
           </div>
