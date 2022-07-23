@@ -1,0 +1,1069 @@
+{
+  "cnt-1": {
+    "id": "cnt-1",
+    "name": {
+      "en": "Abominable Snowman",
+      "pt": "Abominável Homem das Neves"
+    }
+  },
+  "cnt-2": {
+    "id": "cnt-2",
+    "name": {
+      "en": "Abraham Lincoln",
+      "pt": "Abraham Lincoln"
+    }
+  },
+  "cnt-3": {
+    "id": "cnt-3",
+    "name": {
+      "en": "Al Capone",
+      "pt": "Al Capone"
+    }
+  },
+  "cnt-4": {
+    "id": "cnt-4",
+    "name": {
+      "en": "Albert Einstein",
+      "pt": "Albert Einstein"
+    }
+  },
+  "cnt-5": {
+    "id": "cnt-5",
+    "name": {
+      "en": "Alfred Nobel",
+      "pt": "Alfred Nobel"
+    }
+  },
+  "cnt-6": {
+    "id": "cnt-6",
+    "name": {
+      "en": "Aphrodite",
+      "pt": "Afrodite"
+    }
+  },
+  "cnt-7": {
+    "id": "cnt-7",
+    "name": {
+      "en": "Aquaman",
+      "pt": "Aquaman"
+    }
+  },
+  "cnt-8": {
+    "id": "cnt-8",
+    "name": {
+      "en": "Arnold Schwarzenegger",
+      "pt": "Arnold Schwarzenegger"
+    }
+  },
+  "cnt-9": {
+    "id": "cnt-9",
+    "name": {
+      "en": "Austin Powers",
+      "pt": "Austin Powers"
+    }
+  },
+  "cnt-10": {
+    "id": "cnt-10",
+    "name": {
+      "en": "Babe",
+      "pt": "Babe, o porquinho"
+    }
+  },
+  "cnt-11": {
+    "id": "cnt-11",
+    "name": {
+      "en": "Bart Simpson",
+      "pt": "Bart Simpson"
+    }
+  },
+  "cnt-12": {
+    "id": "cnt-12",
+    "name": {
+      "en": "Batman",
+      "pt": "Batman"
+    }
+  },
+  "cnt-13": {
+    "id": "cnt-13",
+    "name": {
+      "en": "Beethoven",
+      "pt": "Beethoven"
+    }
+  },
+  "cnt-14": {
+    "id": "cnt-14",
+    "name": {
+      "en": "Ben Franklin",
+      "pt": "Ben Franklin"
+    }
+  },
+  "cnt-15": {
+    "id": "cnt-15",
+    "name": {
+      "en": "Betty Crocker",
+      "pt": "Betty Crocker"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-16": {
+    "id": "cnt-16",
+    "name": {
+      "en": "Big Bad Wolf",
+      "pt": "Lobo Mau"
+    }
+  },
+  "cnt-17": {
+    "id": "cnt-17",
+    "name": {
+      "en": "Bigfoot",
+      "pt": "Pé Grande"
+    }
+  },
+  "cnt-18": {
+    "id": "cnt-18",
+    "name": {
+      "en": "Bill Gates",
+      "pt": "Bill Gates"
+    }
+  },
+  "cnt-19": {
+    "id": "cnt-19",
+    "name": {
+      "en": "Buddha",
+      "pt": "Buda"
+    }
+  },
+  "cnt-20": {
+    "id": "cnt-20",
+    "name": {
+      "en": "Buffy the Vampire Slayer",
+      "pt": "Buffy a caça vampiros"
+    }
+  },
+  "cnt-21": {
+    "id": "cnt-21",
+    "name": {
+      "en": "Bugs Bunny",
+      "pt": "Perna Longa"
+    }
+  },
+  "cnt-22": {
+    "id": "cnt-22",
+    "name": {
+      "en": "Buzz Lightyear",
+      "pt": "Buzz Lightyear"
+    }
+  },
+  "cnt-23": {
+    "id": "cnt-23",
+    "name": {
+      "en": "Cancer",
+      "pt": "Cancer"
+    }
+  },
+  "cnt-24": {
+    "id": "cnt-24",
+    "name": {
+      "en": "Captain Crunch",
+      "pt": "Captain Crunch"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-25": {
+    "id": "cnt-25",
+    "name": {
+      "en": "Captain Jack Sparrow",
+      "pt": "Capitão Jack Sparrow"
+    }
+  },
+  "cnt-26": {
+    "id": "cnt-26",
+    "name": {
+      "en": "Captain Kirk",
+      "pt": "Capitão Kirk"
+    }
+  },
+  "cnt-27": {
+    "id": "cnt-27",
+    "name": {
+      "en": "Catwoman",
+      "pt": "Mulher Gato"
+    }
+  },
+  "cnt-28": {
+    "id": "cnt-28",
+    "name": {
+      "en": "Chuck Norris",
+      "pt": "Chuck Norris"
+    }
+  },
+  "cnt-29": {
+    "id": "cnt-29",
+    "name": {
+      "en": "Clifford the Big Red Dog",
+      "pt": "Clifford the Big Red Dog"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-30": {
+    "id": "cnt-30",
+    "name": {
+      "en": "Cockroach",
+      "pt": "Uma barata"
+    }
+  },
+  "cnt-31": {
+    "id": "cnt-31",
+    "name": {
+      "en": "Colonel Sanders",
+      "pt": "Colonel Sanders"
+    }
+  },
+  "cnt-32": {
+    "id": "cnt-32",
+    "name": {
+      "en": "Confucius",
+      "pt": "Confúcio"
+    }
+  },
+  "cnt-33": {
+    "id": "cnt-33",
+    "name": {
+      "en": "Cookie Monster",
+      "pt": "Cookie Monster"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-34": {
+    "id": "cnt-34",
+    "name": {
+      "en": "Cruella De Vil",
+      "pt": "Cruella De Vil"
+    }
+  },
+  "cnt-35": {
+    "id": "cnt-35",
+    "name": {
+      "en": "Cupid",
+      "pt": "Cupido"
+    }
+  },
+  "cnt-36": {
+    "id": "cnt-36",
+    "name": {
+      "en": "Curious George",
+      "pt": "George o Curioso"
+    }
+  },
+  "cnt-37": {
+    "id": "cnt-37",
+    "name": {
+      "en": "Darth Vader",
+      "pt": "Darth Vader"
+    }
+  },
+  "cnt-38": {
+    "id": "cnt-38",
+    "name": {
+      "en": "Darwin",
+      "pt": "Darwin"
+    }
+  },
+  "cnt-39": {
+    "id": "cnt-39",
+    "name": {
+      "en": "Donald Trump",
+      "pt": "Donald Trump"
+    }
+  },
+  "cnt-40": {
+    "id": "cnt-40",
+    "name": {
+      "en": "Dopey",
+      "pt": "Dunga"
+    }
+  },
+  "cnt-41": {
+    "id": "cnt-41",
+    "name": {
+      "en": "Dora the Explorer",
+      "pt": "Dora a exploradora"
+    }
+  },
+  "cnt-42": {
+    "id": "cnt-42",
+    "name": {
+      "en": "Dorothy",
+      "pt": "Dorothy"
+    }
+  },
+  "cnt-43": {
+    "id": "cnt-43",
+    "name": {
+      "en": "Dr. Evil",
+      "pt": "Dr. Evil"
+    }
+  },
+  "cnt-44": {
+    "id": "cnt-44",
+    "name": {
+      "en": "Dracula",
+      "pt": "Drácula"
+    }
+  },
+  "cnt-45": {
+    "id": "cnt-45",
+    "name": {
+      "en": "E. Coli",
+      "pt": "E. Coli"
+    }
+  },
+  "cnt-46": {
+    "id": "cnt-46",
+    "name": {
+      "en": "Easter Bunny",
+      "pt": "Coelhinho da Páscoa"
+    }
+  },
+  "cnt-47": {
+    "id": "cnt-47",
+    "name": {
+      "en": "Elvis",
+      "pt": "Elvis"
+    }
+  },
+  "cnt-48": {
+    "id": "cnt-48",
+    "name": {
+      "en": "Eve",
+      "pt": "Eva"
+    }
+  },
+  "cnt-49": {
+    "id": "cnt-49",
+    "name": {
+      "en": "Ferris Bueller",
+      "pt": "Ferris Bueller"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-50": {
+    "id": "cnt-50",
+    "name": {
+      "en": "Frank Sinatra",
+      "pt": "Frank Sinatra"
+    }
+  },
+  "cnt-51": {
+    "id": "cnt-51",
+    "name": {
+      "en": "Freddy Krueger",
+      "pt": "Freddy Krueger"
+    }
+  },
+  "cnt-52": {
+    "id": "cnt-52",
+    "name": {
+      "en": "Gandalf",
+      "pt": "Gandalf"
+    }
+  },
+  "cnt-53": {
+    "id": "cnt-53",
+    "name": {
+      "en": "Gandhi",
+      "pt": "Gandhi"
+    }
+  },
+  "cnt-54": {
+    "id": "cnt-54",
+    "name": {
+      "en": "Genghis Khan",
+      "pt": "Genghis Khan"
+    }
+  },
+  "cnt-55": {
+    "id": "cnt-55",
+    "name": {
+      "en": "George Lucas",
+      "pt": "George Lucas"
+    }
+  },
+  "cnt-56": {
+    "id": "cnt-56",
+    "name": {
+      "en": "George Washington",
+      "pt": "George Washington"
+    }
+  },
+  "cnt-57": {
+    "id": "cnt-57",
+    "name": {
+      "en": "Glinda the Good Witch",
+      "pt": "Glinda the Good Witch"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-58": {
+    "id": "cnt-58",
+    "name": {
+      "en": "Godzilla",
+      "pt": "Godzilla"
+    }
+  },
+  "cnt-59": {
+    "id": "cnt-59",
+    "name": {
+      "en": "Good Luck Care Bear",
+      "pt": "Ursinho Carinhoso"
+    }
+  },
+  "cnt-60": {
+    "id": "cnt-60",
+    "name": {
+      "en": "Grim Reaper",
+      "pt": "Ceifador"
+    }
+  },
+  "cnt-61": {
+    "id": "cnt-61",
+    "name": {
+      "en": "Han Solo",
+      "pt": "Han Solo"
+    }
+  },
+  "cnt-62": {
+    "id": "cnt-62",
+    "name": {
+      "en": "Hannibal Lecter",
+      "pt": "Hannibal Lecter"
+    }
+  },
+  "cnt-63": {
+    "id": "cnt-63",
+    "name": {
+      "en": "Hello Kitty",
+      "pt": "Hello Kitty"
+    }
+  },
+  "cnt-64": {
+    "id": "cnt-64",
+    "name": {
+      "en": "Hercules",
+      "pt": "Hércules"
+    }
+  },
+  "cnt-65": {
+    "id": "cnt-65",
+    "name": {
+      "en": "Hitler",
+      "pt": "Hitler"
+    }
+  },
+  "cnt-66": {
+    "id": "cnt-66",
+    "name": {
+      "en": "Honey Badger",
+      "pt": "Texugo"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-67": {
+    "id": "cnt-67",
+    "name": {
+      "en": "Houdini",
+      "pt": "Houdini"
+    }
+  },
+  "cnt-68": {
+    "id": "cnt-68",
+    "name": {
+      "en": "Indiana Jones",
+      "pt": "Indiana Jones"
+    }
+  },
+  "cnt-69": {
+    "id": "cnt-69",
+    "name": {
+      "en": "Jack the Ripper",
+      "pt": "Jack, o estripador"
+    }
+  },
+  "cnt-70": {
+    "id": "cnt-70",
+    "name": {
+      "en": "Jackie Chan",
+      "pt": "Jackie Chan"
+    }
+  },
+  "cnt-71": {
+    "id": "cnt-71",
+    "name": {
+      "en": "James Bond",
+      "pt": "James Bond"
+    }
+  },
+  "cnt-72": {
+    "id": "cnt-72",
+    "name": {
+      "en": "Jaws",
+      "pt": "Tubarão"
+    }
+  },
+  "cnt-73": {
+    "id": "cnt-73",
+    "name": {
+      "en": "Joan of Arc",
+      "pt": "Joana D'Arc"
+    }
+  },
+  "cnt-74": {
+    "id": "cnt-74",
+    "name": {
+      "en": "Judas",
+      "pt": "Judas"
+    }
+  },
+  "cnt-75": {
+    "id": "cnt-75",
+    "name": {
+      "en": "Julius Caesar",
+      "pt": "Julius Caesar"
+    }
+  },
+  "cnt-76": {
+    "id": "cnt-76",
+    "name": {
+      "en": "Kenny",
+      "pt": "Kenny"
+    }
+  },
+  "cnt-77": {
+    "id": "cnt-77",
+    "name": {
+      "en": "Kermit the Frog",
+      "pt": "Caco o sapo"
+    }
+  },
+  "cnt-78": {
+    "id": "cnt-78",
+    "name": {
+      "en": "King Arthur",
+      "pt": "Rei Arthur"
+    }
+  },
+  "cnt-79": {
+    "id": "cnt-79",
+    "name": {
+      "en": "King Kong",
+      "pt": "King Kong"
+    }
+  },
+  "cnt-80": {
+    "id": "cnt-80",
+    "name": {
+      "en": "Lara Croft",
+      "pt": "Lara Croft"
+    }
+  },
+  "cnt-81": {
+    "id": "cnt-81",
+    "name": {
+      "en": "Lassie",
+      "pt": "Lassie"
+    }
+  },
+  "cnt-82": {
+    "id": "cnt-82",
+    "name": {
+      "en": "Leonardo Da Vinci",
+      "pt": "Leonardo Da Vinci"
+    }
+  },
+  "cnt-83": {
+    "id": "cnt-83",
+    "name": {
+      "en": "Lex Luthor",
+      "pt": "Lex Luthor"
+    }
+  },
+  "cnt-84": {
+    "id": "cnt-84",
+    "name": {
+      "en": "Little Red Riding Hood",
+      "pt": "Chapeuzinho Vermelho"
+    }
+  },
+  "cnt-85": {
+    "id": "cnt-85",
+    "name": {
+      "en": "Loch Ness Monster",
+      "pt": "Monstro do Lago Ness"
+    }
+  },
+  "cnt-86": {
+    "id": "cnt-86",
+    "name": {
+      "en": "Lois Lane",
+      "pt": "Lois Lane"
+    }
+  },
+  "cnt-87": {
+    "id": "cnt-87",
+    "name": {
+      "en": "Loki",
+      "pt": "Loki"
+    }
+  },
+  "cnt-88": {
+    "id": "cnt-88",
+    "name": {
+      "en": "Lorax",
+      "pt": "Lorax"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-89": {
+    "id": "cnt-89",
+    "name": {
+      "en": "Luke Skywalker",
+      "pt": "Luke Skywalker"
+    }
+  },
+  "cnt-90": {
+    "id": "cnt-90",
+    "name": {
+      "en": "Madonna",
+      "pt": "Madonna"
+    }
+  },
+  "cnt-91": {
+    "id": "cnt-91",
+    "name": {
+      "en": "Marie Antoinette",
+      "pt": "Maria Antonieta"
+    }
+  },
+  "cnt-92": {
+    "id": "cnt-92",
+    "name": {
+      "en": "Marilyn Monroe",
+      "pt": "Marilyn Monroe"
+    }
+  },
+  "cnt-93": {
+    "id": "cnt-93",
+    "name": {
+      "en": "Martin Luther King Jr.",
+      "pt": "Martin Luther King Jr."
+    }
+  },
+  "cnt-94": {
+    "id": "cnt-94",
+    "name": {
+      "en": "Medusa",
+      "pt": "Medusa"
+    }
+  },
+  "cnt-95": {
+    "id": "cnt-95",
+    "name": {
+      "en": "Michael Jackson",
+      "pt": "Michael Jackson"
+    }
+  },
+  "cnt-96": {
+    "id": "cnt-96",
+    "name": {
+      "en": "Moses",
+      "pt": "Moises"
+    }
+  },
+  "cnt-97": {
+    "id": "cnt-97",
+    "name": {
+      "en": "Mother Teresa",
+      "pt": "Madre Teresa"
+    }
+  },
+  "cnt-98": {
+    "id": "cnt-98",
+    "name": {
+      "en": "Mr. Kool-aid",
+      "pt": "Mr. Kool-aid"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-99": {
+    "id": "cnt-99",
+    "name": {
+      "en": "Mr. Rogers",
+      "pt": "Mr. Rogers"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-100": {
+    "id": "cnt-100",
+    "name": {
+      "en": "Mr. Spock",
+      "pt": "Sr. Spock"
+    }
+  },
+  "cnt-101": {
+    "id": "cnt-101",
+    "name": {
+      "en": "Neil Amstrong",
+      "pt": "Neil Amstrong"
+    }
+  },
+  "cnt-102": {
+    "id": "cnt-102",
+    "name": {
+      "en": "Norman Bates",
+      "pt": "Norman Bates"
+    }
+  },
+  "cnt-103": {
+    "id": "cnt-103",
+    "name": {
+      "en": "OJ Simpson",
+      "pt": "OJ Simpson"
+    }
+  },
+  "cnt-104": {
+    "id": "cnt-104",
+    "name": {
+      "en": "Ozzy Osbourne",
+      "pt": "Ozzy Osbourne"
+    }
+  },
+  "cnt-105": {
+    "id": "cnt-105",
+    "name": {
+      "en": "Patrick Star",
+      "pt": "Patrick Estrela"
+    }
+  },
+  "cnt-106": {
+    "id": "cnt-106",
+    "name": {
+      "en": "Peter Pan",
+      "pt": "Peter Pan"
+    }
+  },
+  "cnt-107": {
+    "id": "cnt-107",
+    "name": {
+      "en": "Pinkie Pie",
+      "pt": "Pinkie Pie"
+    }
+  },
+  "cnt-108": {
+    "id": "cnt-108",
+    "name": {
+      "en": "Pinocchio",
+      "pt": "Pinóquio"
+    }
+  },
+  "cnt-109": {
+    "id": "cnt-109",
+    "name": {
+      "en": "Ronald McDonald",
+      "pt": "Ronald McDonald"
+    }
+  },
+  "cnt-110": {
+    "id": "cnt-110",
+    "name": {
+      "en": "Salvador Dali",
+      "pt": "Salvador Dali"
+    }
+  },
+  "cnt-111": {
+    "id": "cnt-111",
+    "name": {
+      "en": "Santa Claus",
+      "pt": "Papai Noel"
+    }
+  },
+  "cnt-112": {
+    "id": "cnt-112",
+    "name": {
+      "en": "Satan",
+      "pt": "Satan"
+    }
+  },
+  "cnt-113": {
+    "id": "cnt-113",
+    "name": {
+      "en": "Scarecrow",
+      "pt": "Espantalho"
+    }
+  },
+  "cnt-114": {
+    "id": "cnt-114",
+    "name": {
+      "en": "Scooby Doo",
+      "pt": "Scooby Doo"
+    }
+  },
+  "cnt-115": {
+    "id": "cnt-115",
+    "name": {
+      "en": "Sherlock Holmes",
+      "pt": "Sherlock Holmes"
+    }
+  },
+  "cnt-116": {
+    "id": "cnt-116",
+    "name": {
+      "en": "Sigmund Freud",
+      "pt": "Sigmund Freud"
+    }
+  },
+  "cnt-117": {
+    "id": "cnt-117",
+    "name": {
+      "en": "Snoopy",
+      "pt": "Snoopy"
+    }
+  },
+  "cnt-118": {
+    "id": "cnt-118",
+    "name": {
+      "en": "Snow White",
+      "pt": "Branca de Neve"
+    }
+  },
+  "cnt-119": {
+    "id": "cnt-119",
+    "name": {
+      "en": "Socrates",
+      "pt": "Socrates"
+    }
+  },
+  "cnt-120": {
+    "id": "cnt-120",
+    "name": {
+      "en": "Steve Jobs",
+      "pt": "Steve Jobs"
+    }
+  },
+  "cnt-121": {
+    "id": "cnt-121",
+    "name": {
+      "en": "Superman",
+      "pt": "Super-homem"
+    }
+  },
+  "cnt-122": {
+    "id": "cnt-122",
+    "name": {
+      "en": "The Hulk",
+      "pt": "O Incrível Hulk"
+    }
+  },
+  "cnt-123": {
+    "id": "cnt-123",
+    "name": {
+      "en": "The Pope",
+      "pt": "O Papa"
+    }
+  },
+  "cnt-124": {
+    "id": "cnt-124",
+    "name": {
+      "en": "The Terminator",
+      "pt": "O Exterminador do Futuro"
+    }
+  },
+  "cnt-125": {
+    "id": "cnt-125",
+    "name": {
+      "en": "Tooth Fairy",
+      "pt": "Fada dos dentes"
+    }
+  },
+  "cnt-126": {
+    "id": "cnt-126",
+    "name": {
+      "en": "Vincent Van Gogh",
+      "pt": "Vincent Van Gogh"
+    }
+  },
+  "cnt-127": {
+    "id": "cnt-127",
+    "name": {
+      "en": "Voldemort",
+      "pt": "Voldemort"
+    }
+  },
+  "cnt-128": {
+    "id": "cnt-128",
+    "name": {
+      "en": "Winnie-the-pooh",
+      "pt": "Ursinho Pooh"
+    }
+  },
+  "cnt-129": {
+    "id": "cnt-129",
+    "name": {
+      "en": "Wonder Woman",
+      "pt": "Mulher Maravilha"
+    }
+  },
+  "cnt-130": {
+    "id": "cnt-130",
+    "name": {
+      "en": "Yoda",
+      "pt": "Yoda"
+    }
+  },
+  "cnt-131": {
+    "id": "cnt-131",
+    "name": {
+      "en": "Monica",
+      "pt": "Monica"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-132": {
+    "id": "cnt-132",
+    "name": {
+      "en": "Louro José",
+      "pt": "Louro José"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-133": {
+    "id": "cnt-133",
+    "name": {
+      "en": "Neymar",
+      "pt": "Neymar"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-134": {
+    "id": "cnt-134",
+    "name": {
+      "en": "Seu Madruga",
+      "pt": "Seu Madruga"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-135": {
+    "id": "cnt-135",
+    "name": {
+      "en": "Lady Gaga",
+      "pt": "Lady Gaga"
+    }
+  },
+  "cnt-136": {
+    "id": "cnt-136",
+    "name": {
+      "en": "An Influencer",
+      "pt": "Um influenciador digital"
+    }
+  },
+  "cnt-137": {
+    "id": "cnt-137",
+    "name": {
+      "en": "Carminha",
+      "pt": "Carminha"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-138": {
+    "id": "cnt-138",
+    "name": {
+      "en": "A Flávia",
+      "pt": "A Flávia"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-139": {
+    "id": "cnt-139",
+    "name": {
+      "en": "Joyce Byers",
+      "pt": "Joyce Byers"
+    }
+  },
+  "cnt-140": {
+    "id": "cnt-140",
+    "name": {
+      "en": "Mario",
+      "pt": "Mário"
+    }
+  },
+  "cnt-141": {
+    "id": "cnt-141",
+    "name": {
+      "en": "Sharknado",
+      "pt": "Sharknado"
+    }
+  },
+  "cnt-142": {
+    "id": "cnt-142",
+    "name": {
+      "en": "Mr Meeseeks",
+      "pt": "Mr Meeseeks"
+    }
+  },
+  "cnt-143": {
+    "id": "cnt-143",
+    "name": {
+      "en": "Jon Snow",
+      "pt": "Jon Snow"
+    }
+  },
+  "cnt-144": {
+    "id": "cnt-144",
+    "name": {
+      "en": "Pikachu",
+      "pt": "Pikachu"
+    }
+  },
+  "cnt-145": {
+    "id": "cnt-145",
+    "name": {
+      "en": "Ken",
+      "pt": "Ken"
+    }
+  },
+  "cnt-146": {
+    "id": "cnt-146",
+    "name": {
+      "en": "Nino",
+      "pt": "Nino"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-147": {
+    "id": "cnt-147",
+    "name": {
+      "en": "Mickey Mouse",
+      "pt": "Mickey Mouse"
+    }
+  },
+  "cnt-148": {
+    "id": "cnt-148",
+    "name": {
+      "en": "Cousin It",
+      "pt": "Primo It"
+    }
+  },
+  "cnt-149": {
+    "id": "cnt-149",
+    "name": {
+      "en": "Beetlejuice",
+      "pt": "Beetlejuice"
+    }
+  },
+  "cnt-150": {
+    "id": "cnt-150",
+    "name": {
+      "en": "Olaf",
+      "pt": "Olaf"
+    }
+  }
+}
