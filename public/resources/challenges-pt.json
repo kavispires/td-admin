@@ -89,7 +89,7 @@
   },
   "clg-23-pt": {
     "id": "clg-23-pt",
-    "text": "Mais provavel de levar um tapão quando pula na piscina"
+    "text": "Mais provável de levar um tapão quando pula na piscina"
   },
   "clg-24-pt": {
     "id": "clg-24-pt",
@@ -201,7 +201,7 @@
   },
   "clg-51-pt": {
     "id": "clg-51-pt",
-    "text": "Mais provável que seja o palhaço divertido"
+    "text": "O maior gozador"
   },
   "clg-52-pt": {
     "id": "clg-52-pt",
@@ -225,7 +225,7 @@
   },
   "clg-57-pt": {
     "id": "clg-57-pt",
-    "text": "Mais esperto pra assalatar um banco"
+    "text": "Mais esperto pra assaltar um banco"
   },
   "clg-58-pt": {
     "id": "clg-58-pt",
@@ -233,7 +233,7 @@
   },
   "clg-59-pt": {
     "id": "clg-59-pt",
-    "text": "Ficaria melhor com um bigode"
+    "text": "Ficaria melhor de bigode"
   },
   "clg-60-pt": {
     "id": "clg-60-pt",
@@ -249,11 +249,11 @@
   },
   "clg-63-pt": {
     "id": "clg-63-pt",
-    "text": "Mais proável de ser escolhido primeiro em esportes"
+    "text": "Mais provável de ser escolhido primeiro em esportes"
   },
   "clg-64-pt": {
     "id": "clg-64-pt",
-    "text": "Trouxe a maior felicidade para o mundo"
+    "text": "Trouxe mais felicidade para o mundo"
   },
   "clg-65-pt": {
     "id": "clg-65-pt",
@@ -261,7 +261,7 @@
   },
   "clg-66-pt": {
     "id": "clg-66-pt",
-    "text": "Pior em dar gorjeta "
+    "text": "Pior em dar gorjeta"
   },
   "clg-67-pt": {
     "id": "clg-67-pt",
@@ -385,7 +385,7 @@
   },
   "clg-97-pt": {
     "id": "clg-97-pt",
-    "text": "O mais já foi alguém"
+    "text": "O mais já foi alguém, mas hoje ninguém lembra"
   },
   "clg-98-pt": {
     "id": "clg-98-pt",
@@ -397,6 +397,10 @@
   },
   "clg-100-pt": {
     "id": "clg-100-pt",
-    "text": "A primeira pessoa que você chamaria para ajudar a enterrar um corpo"
+    "text": "A primeira pessoa que você chamaria para te ajudar a enterrar um corpo"
+  },
+  "clg-101-pt": {
+    "id": "clg-101-pt",
+    "text": "Mais provável de viralizar numa dancinha no Tik Tok"
   }
 }

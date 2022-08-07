@@ -528,7 +528,7 @@
     "id": "cnt-75",
     "name": {
       "en": "Julius Caesar",
-      "pt": "Julius Caesar"
+      "pt": "Júlio Caesar"
     }
   },
   "cnt-76": {
@@ -1065,5 +1065,77 @@
       "en": "Olaf",
       "pt": "Olaf"
     }
+  },
+  "cnt-151": {
+    "id": "cnt-151",
+    "name": {
+      "en": "Sheldon",
+      "pt": "Sheldon"
+    }
+  },
+  "cnt-152": {
+    "id": "cnt-152",
+    "name": {
+      "en": "ET",
+      "pt": "ET, o extraterrestre"
+    }
+  },
+  "cnt-153": {
+    "id": "cnt-153",
+    "name": {
+      "en": "Genie",
+      "pt": "O Gênio da Lâmpada"
+    }
+  },
+  "cnt-154": {
+    "id": "cnt-154",
+    "name": {
+      "en": "Harley Quinn",
+      "pt": "Harley Quinn"
+    }
+  },
+  "cnt-155": {
+    "id": "cnt-155",
+    "name": {
+      "en": "Baby Shark",
+      "pt": "Baby Shark"
+    }
+  },
+  "cnt-156": {
+    "id": "cnt-156",
+    "name": {
+      "en": "Cosmo and Wanda",
+      "pt": "Cosmo e Wanda"
+    }
+  },
+  "cnt-157": {
+    "id": "cnt-157",
+    "name": {
+      "en": "Thanos",
+      "pt": "Thanos"
+    }
+  },
+  "cnt-158": {
+    "id": "cnt-158",
+    "name": {
+      "en": "Hide the Pain Harold",
+      "pt": "Veio rindo de nervoso"
+    }
+  },
+  "cnt-159": {
+    "id": "cnt-159",
+    "name": {
+      "en": "Sabrine Ferretti",
+      "pt": "Sabrine Ferretti"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-160": {
+    "id": "cnt-160",
+    "name": {
+      "en": "Valesca Popozuda",
+      "pt": "Valesca Popozuda"
+    },
+    "exclusivity": "pt"
   }
 }
