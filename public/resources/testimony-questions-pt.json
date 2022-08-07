@@ -113,7 +113,7 @@
   },
   "t-29-pt": {
     "id": "t-29-pt",
-    "question": "Ele(a) vai pra casa dos pais no Reveillon?"
+    "question": "Ele(a) vai pra casa dos pais no Réveillon?"
   },
   "t-30-pt": {
     "id": "t-30-pt",
@@ -181,7 +181,7 @@
   },
   "t-46-pt": {
     "id": "t-46-pt",
-    "question": "Ele(a) constuma pular refeições?"
+    "question": "Ele(a) costuma pular refeições?"
   },
   "t-47-pt": {
     "id": "t-47-pt",
@@ -325,7 +325,7 @@
   },
   "t-82-pt": {
     "id": "t-82-pt",
-    "question": "Ele(a) possue um pau de selfie?"
+    "question": "Ele(a) possui um pau de selfie?"
   },
   "t-83-pt": {
     "id": "t-83-pt",
@@ -462,5 +462,25 @@
   "t-116-pt": {
     "id": "t-116-pt",
     "question": "Ele(a) calça 42?"
+  },
+  "t-117-pt": {
+    "id": "t-117-pt",
+    "question": "Ele(a) é surdo(a)?"
+  },
+  "t-118-pt": {
+    "id": "t-118-pt",
+    "question": "Elx é não-binário?"
+  },
+  "t-119-pt": {
+    "id": "t-119-pt",
+    "question": "Ele(a) tem muitas alergias?"
+  },
+  "t-120-pt": {
+    "id": "t-120-pt",
+    "question": "Ele(a) guarda rancor?"
+  },
+  "t-121-pt": {
+    "id": "t-121-pt",
+    "question": "Ele(a) é preconceituoso(a)?"
   }
 }
