@@ -984,8 +984,8 @@
   "cnt-139": {
     "id": "cnt-139",
     "name": {
-      "en": "Joyce Byers",
-      "pt": "Joyce Byers"
+      "en": "Eleven",
+      "pt": "Eleven"
     }
   },
   "cnt-140": {
@@ -1137,5 +1137,20 @@
       "pt": "Valesca Popozuda"
     },
     "exclusivity": "pt"
+  },
+  "cnt-161": {
+    "id": "cnt-161",
+    "name": {
+      "en": "Zé Gotão",
+      "pt": "Zé Gotão"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-162": {
+    "id": "cnt-162",
+    "name": {
+      "en": "Regan MacNeil",
+      "pt": "Regan MacNeil"
+    }
   }
 }
