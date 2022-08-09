@@ -790,7 +790,7 @@
     "id": "cnt-112",
     "name": {
       "en": "Satan",
-      "pt": "Satan"
+      "pt": "Satanás"
     }
   },
   "cnt-113": {
@@ -1149,8 +1149,68 @@
   "cnt-162": {
     "id": "cnt-162",
     "name": {
-      "en": "Regan MacNeil",
-      "pt": "Regan MacNeil"
+      "en": "Possessed Regan MacNeil",
+      "pt": "Regan MacNeil possuída"
     }
+  },
+  "cnt-163": {
+    "id": "cnt-163",
+    "name": {
+      "en": "As Paquitas",
+      "pt": "As Paquitas"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-164": {
+    "id": "cnt-164",
+    "name": {
+      "en": "Kevin",
+      "pt": "Kevin"
+    },
+  },
+   "cnt-165": {
+    "id": "cnt-165",
+    "name": {
+      "en": "Karen",
+      "pt": "Karen"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-166": {
+    "id": "cnt-166",
+    "name": {
+      "en": "He-man",
+      "pt": "He-man"
+    },
+  },
+  "cnt-167": {
+    "id": "cnt-167",
+    "name": {
+      "en": "Buttercup",
+      "pt": "Docinho"
+    },
+  },
+  "cnt-168": {
+    "id": "cnt-168",
+    "name": {
+      "en": "Inês Brasil",
+      "pt": "Inês Brasil"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-169": {
+    "id": "cnt-169",
+    "name": {
+      "en": "Chip 'n' Dale",
+      "pt": "Tico e Teco"
+    },
+  },
+  "cnt-170": {
+    "id": "cnt-170",
+    "name": {
+      "en": "Xuxa Meneguel",
+      "pt": "Xuxa Meneguel"
+    },
+    "exclusivity": "pt"
   }
 }
