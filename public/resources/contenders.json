@@ -790,7 +790,7 @@
     "id": "cnt-112",
     "name": {
       "en": "Satan",
-      "pt": "Satan"
+      "pt": "Satanás"
     }
   },
   "cnt-113": {
@@ -839,7 +839,7 @@
     "id": "cnt-119",
     "name": {
       "en": "Socrates",
-      "pt": "Socrates"
+      "pt": "Sócrates"
     }
   },
   "cnt-120": {
@@ -984,8 +984,8 @@
   "cnt-139": {
     "id": "cnt-139",
     "name": {
-      "en": "Joyce Byers",
-      "pt": "Joyce Byers"
+      "en": "Eleven",
+      "pt": "Eleven"
     }
   },
   "cnt-140": {
@@ -1135,6 +1135,118 @@
     "name": {
       "en": "Valesca Popozuda",
       "pt": "Valesca Popozuda"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-161": {
+    "id": "cnt-161",
+    "name": {
+      "en": "Zé Gotão",
+      "pt": "Zé Gotão"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-162": {
+    "id": "cnt-162",
+    "name": {
+      "en": "Possessed Regan MacNeil",
+      "pt": "Regan MacNeil possuída"
+    }
+  },
+  "cnt-163": {
+    "id": "cnt-163",
+    "name": {
+      "en": "As Paquitas",
+      "pt": "As Paquitas"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-164": {
+    "id": "cnt-164",
+    "name": {
+      "en": "Kevin",
+      "pt": "Kevin"
+    }
+  },
+  "cnt-165": {
+    "id": "cnt-165",
+    "name": {
+      "en": "Karen",
+      "pt": "Karen"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-166": {
+    "id": "cnt-166",
+    "name": {
+      "en": "He-man",
+      "pt": "He-man"
+    }
+  },
+  "cnt-167": {
+    "id": "cnt-167",
+    "name": {
+      "en": "Buttercup",
+      "pt": "Docinho"
+    }
+  },
+  "cnt-168": {
+    "id": "cnt-168",
+    "name": {
+      "en": "Inês Brasil",
+      "pt": "Inês Brasil"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-169": {
+    "id": "cnt-169",
+    "name": {
+      "en": "Chip 'n' Dale",
+      "pt": "Tico e Teco"
+    }
+  },
+  "cnt-170": {
+    "id": "cnt-170",
+    "name": {
+      "en": "Xuxa Meneghel",
+      "pt": "Xuxa Meneghel"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-171": {
+    "id": "cnt-171",
+    "name": {
+      "en": "Annabelle",
+      "pt": "Annabelle"
+    }
+  },
+  "cnt-172": {
+    "id": "cnt-172",
+    "name": {
+      "en": "Maria do Bairro",
+      "pt": "Maria do Bairro"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-173": {
+    "id": "cnt-173",
+    "name": {
+      "en": "T-Rex",
+      "pt": "T-Rex"
+    }
+  },
+  "cnt-174": {
+    "id": "cnt-174",
+    "name": {
+      "en": "Shrek",
+      "pt": "Shrek"
+    }
+  },
+  "cnt-175": {
+    "id": "cnt-175",
+    "name": {
+      "en": "Paola Bracho",
+      "pt": "Paola Bracho"
     },
     "exclusivity": "pt"
   }
