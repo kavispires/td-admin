@@ -839,7 +839,7 @@
     "id": "cnt-119",
     "name": {
       "en": "Socrates",
-      "pt": "Socrates"
+      "pt": "Sócrates"
     }
   },
   "cnt-120": {
@@ -1208,8 +1208,45 @@
   "cnt-170": {
     "id": "cnt-170",
     "name": {
-      "en": "Xuxa Meneguel",
-      "pt": "Xuxa Meneguel"
+      "en": "Xuxa Meneghel",
+      "pt": "Xuxa Meneghel"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-171": {
+    "id": "cnt-171",
+    "name": {
+      "en": "Annabelle",
+      "pt": "Annabelle"
+    }
+  },
+  "cnt-172": {
+    "id": "cnt-172",
+    "name": {
+      "en": "Maria do Bairro",
+      "pt": "Maria do Bairro"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-173": {
+    "id": "cnt-173",
+    "name": {
+      "en": "T-Rex",
+      "pt": "T-Rex"
+    }
+  },
+  "cnt-174": {
+    "id": "cnt-174",
+    "name": {
+      "en": "Shrek",
+      "pt": "Shrek"
+    }
+  },
+  "cnt-175": {
+    "id": "cnt-175",
+    "name": {
+      "en": "Paola Bracho",
+      "pt": "Paola Bracho"
     },
     "exclusivity": "pt"
   }
