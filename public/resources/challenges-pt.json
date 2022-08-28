@@ -1,7 +1,7 @@
 {
   "clg-1-pt": {
     "id": "clg-1-pt",
-    "text": "Mais provável de sido criado por lobos"
+    "text": "Mais provável de ter sido criado por lobos"
   },
   "clg-2-pt": {
     "id": "clg-2-pt",
@@ -301,7 +301,7 @@
   },
   "clg-76-pt": {
     "id": "clg-76-pt",
-    "text": "Mais cruel"
+    "text": "O mais perverso"
   },
   "clg-77-pt": {
     "id": "clg-77-pt",
@@ -385,7 +385,7 @@
   },
   "clg-97-pt": {
     "id": "clg-97-pt",
-    "text": "O mais já foi alguém, mas hoje ninguém lembra"
+    "text": "O que mais já foi alguém, mas hoje ninguém lembra"
   },
   "clg-98-pt": {
     "id": "clg-98-pt",
@@ -402,5 +402,13 @@
   "clg-101-pt": {
     "id": "clg-101-pt",
     "text": "Mais provável de viralizar numa dancinha no Tik Tok"
+  },
+  "clg-102-pt": {
+    "id": "clg-102-pt",
+    "text": "Melhor conseguiria dançar o quadradinho de 8"
+  },
+  "clg-103-pt": {
+    "id": "clg-103-pt",
+    "text": "Melhor na cama"
   }
 }
