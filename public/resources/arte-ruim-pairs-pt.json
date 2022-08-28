@@ -210,5 +210,9 @@
   "ap-53-pt": {
     "id": "ap-53-pt",
     "values": ["Vingadores", "X-men"]
+  },
+  "ap-54-pt": {
+    "id": "ap-54-pt",
+    "values": ["Rato", "Capivara"]
   }
 }

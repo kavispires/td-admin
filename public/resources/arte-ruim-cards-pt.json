@@ -5728,5 +5728,205 @@
     "id": "a-1146-pt",
     "text": "Desprovido de inteligência",
     "level": 2
+  },
+  "a-1147-pt": {
+    "id": "a-1147-pt",
+    "text": "Fingir de morto",
+    "level": 2
+  },
+  "a-1148-pt": {
+    "id": "a-1148-pt",
+    "text": "Fingir de besta",
+    "level": 3
+  },
+  "a-1149-pt": {
+    "id": "a-1149-pt",
+    "text": "Incrível",
+    "level": 2
+  },
+  "a-1150-pt": {
+    "id": "a-1150-pt",
+    "text": "Concurso garota da lage",
+    "level": 2
+  },
+  "a-1151-pt": {
+    "id": "a-1151-pt",
+    "text": "Nem fede nem cheira",
+    "level": 1
+  },
+  "a-1152-pt": {
+    "id": "a-1152-pt",
+    "text": "A que ponto chegamos",
+    "level": 2
+  },
+  "a-1153-pt": {
+    "id": "a-1153-pt",
+    "text": "Fale com o motorista somente o indispensável",
+    "level": 1
+  },
+  "a-1154-pt": {
+    "id": "a-1154-pt",
+    "text": "Cheiro de murrinha",
+    "level": 2
+  },
+  "a-1155-pt": {
+    "id": "a-1155-pt",
+    "text": "Cheiro de terra molhada",
+    "level": 2
+  },
+  "a-1156-pt": {
+    "id": "a-1156-pt",
+    "text": "Sob controle",
+    "level": 1
+  },
+  "a-1157-pt": {
+    "id": "a-1157-pt",
+    "text": "Sem querer",
+    "level": 3
+  },
+  "a-1158-pt": {
+    "id": "a-1158-pt",
+    "text": "Conversa fiada",
+    "level": 1
+  },
+  "a-1159-pt": {
+    "id": "a-1159-pt",
+    "text": "Construir o raciocínio",
+    "level": 2
+  },
+  "a-1160-pt": {
+    "id": "a-1160-pt",
+    "text": "Não saber patavinas",
+    "level": 2
+  },
+  "a-1161-pt": {
+    "id": "a-1161-pt",
+    "text": "Potranca salafrária",
+    "level": 3
+  },
+  "a-1162-pt": {
+    "id": "a-1162-pt",
+    "text": "Eguinha potocó",
+    "level": 1
+  },
+  "a-1163-pt": {
+    "id": "a-1163-pt",
+    "text": "Relacionamento tóxico",
+    "level": 2
+  },
+  "a-1164-pt": {
+    "id": "a-1164-pt",
+    "text": "Banheira do Gugu",
+    "level": 1
+  },
+  "a-1165-pt": {
+    "id": "a-1165-pt",
+    "text": "Fazer desfeita",
+    "level": 2
+  },
+  "a-1166-pt": {
+    "id": "a-1166-pt",
+    "text": "Decomposição",
+    "level": 3
+  },
+  "a-1167-pt": {
+    "id": "a-1167-pt",
+    "text": "Calça pega frango",
+    "level": 1
+  },
+  "a-1168-pt": {
+    "id": "a-1168-pt",
+    "text": "Desconfiômetro",
+    "level": 1
+  },
+  "a-1169-pt": {
+    "id": "a-1169-pt",
+    "text": "Sete pecados",
+    "level": 2
+  },
+  "a-1170-pt": {
+    "id": "a-1170-pt",
+    "text": "Falso testemunho",
+    "level": 3
+  },
+  "a-1171-pt": {
+    "id": "a-1171-pt",
+    "text": "Frases de superação",
+    "level": 2
+  },
+  "a-1172-pt": {
+    "id": "a-1172-pt",
+    "text": "Impacto",
+    "level": 1
+  },
+  "a-1173-pt": {
+    "id": "a-1173-pt",
+    "text": "De 7 em 7 anos o paladar muda",
+    "level": 1
+  },
+  "a-1174-pt": {
+    "id": "a-1174-pt",
+    "text": "Comandos em ação",
+    "level": 1
+  },
+  "a-1175-pt": {
+    "id": "a-1175-pt",
+    "text": " A culpa é do estagiário",
+    "level": 3
+  },
+  "a-1176-pt": {
+    "id": "a-1176-pt",
+    "text": "Vaga de estágio",
+    "level": 2
+  },
+  "a-1177-pt": {
+    "id": "a-1177-pt",
+    "text": "Poliamor",
+    "level": 1
+  },
+  "a-1178-pt": {
+    "id": "a-1178-pt",
+    "text": "App de pegação",
+    "level": 1
+  },
+  "a-1179-pt": {
+    "id": "a-1179-pt",
+    "text": " Forunculofilia",
+    "level": 3
+  },
+  "a-1180-pt": {
+    "id": "a-1180-pt",
+    "text": "Complicada e perfeitinha",
+    "level": 2
+  },
+  "a-1181-pt": {
+    "id": "a-1181-pt",
+    "text": "Limpar igual a cara",
+    "level": 1
+  },
+  "a-1182-pt": {
+    "id": "a-1182-pt",
+    "text": "Não reparar na bagunça",
+    "level": 2
+  },
+  "a-1183-pt": {
+    "id": "a-1183-pt",
+    "text": "Meu maior defeito é ser perfeccionista",
+    "level": 3
+  },
+  "a-1184-pt": {
+    "id": "a-1184-pt",
+    "text": "Areia movediça",
+    "level": 2
+  },
+  "a-1185-pt": {
+    "id": "a-1185-pt",
+    "text": "Casos de família",
+    "level": 2
+  },
+  "a-1186-pt": {
+    "id": "a-1186-pt",
+    "text": "Estar de conluio",
+    "level": 3
   }
 }
