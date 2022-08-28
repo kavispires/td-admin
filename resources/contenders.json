@@ -1150,7 +1150,7 @@
     "id": "cnt-162",
     "name": {
       "en": "Possessed Regan MacNeil",
-      "pt": "Regan MacNeil possuída"
+      "pt": "Menina do exorcista possuída"
     }
   },
   "cnt-163": {
@@ -1249,5 +1249,79 @@
       "pt": "Paola Bracho"
     },
     "exclusivity": "pt"
+  },
+  "cnt-176": {
+    "id": "cnt-176",
+    "name": {
+      "en": "Silvio Santos",
+      "pt": "Silvio Santos"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-177": {
+    "id": "cnt-177",
+    "name": {
+      "en": "Tiririca",
+      "pt": "Tiririca"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-178": {
+    "id": "cnt-178",
+    "name": {
+      "en": "Barack Obama",
+      "pt": "Barack Obama"
+    }
+  },
+  "cnt-179": {
+    "id": "cnt-179",
+    "name": {
+      "en": "Bozena",
+      "pt": "Bozena"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-180": {
+    "id": "cnt-180",
+    "name": {
+      "en": "A mosquito",
+      "pt": "Mosquito da dengue"
+    }
+  },
+  "cnt-181": {
+    "id": "cnt-181",
+    "name": {
+      "en": "Coronavirus",
+      "pt": "Coronavírus"
+    }
+  },
+  "cnt-182": {
+    "id": "cnt-182",
+    "name": {
+      "en": "Handsome Squidward",
+      "pt": "Lula Molusco Bunitão"
+    }
+  },
+  "cnt-183": {
+    "id": "cnt-183",
+    "name": {
+      "en": "Psy",
+      "pt": "Psy"
+    }
+  },
+  "cnt-184": {
+    "id": "cnt-184",
+    "name": {
+      "en": "Pit Bitoca",
+      "pt": "Pit Bitoca"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-185": {
+    "id": "cnt-185",
+    "name": {
+      "en": "Ghost face",
+      "pt": "Pânico"
+    }
   }
 }

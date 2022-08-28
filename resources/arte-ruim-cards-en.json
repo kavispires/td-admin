@@ -5823,5 +5823,100 @@
     "id": "a-1165-en",
     "text": "Romantic comedy",
     "level": 1
+  },
+  "a-1166-en": {
+    "id": "a-1166-en",
+    "text": "Intentional dialogue",
+    "level": 1
+  },
+  "a-1167-en": {
+    "id": "a-1167-en",
+    "text": "Fatal attraction",
+    "level": 2
+  },
+  "a-1168-en": {
+    "id": "a-1168-en",
+    "text": "Sweet tooth",
+    "level": 1
+  },
+  "a-1169-en": {
+    "id": "a-1169-en",
+    "text": "Snap out of it",
+    "level": 1
+  },
+  "a-1170-en": {
+    "id": "a-1170-en",
+    "text": "Too soon",
+    "level": 1
+  },
+  "a-1171-en": {
+    "id": "a-1171-en",
+    "text": "Commit perjury",
+    "level": 2
+  },
+  "a-1172-en": {
+    "id": "a-1172-en",
+    "text": "Ennie meanie minie moe",
+    "level": 2
+  },
+  "a-1173-en": {
+    "id": "a-1173-en",
+    "text": "It is what it is",
+    "level": 3
+  },
+  "a-1174-en": {
+    "id": "a-1174-en",
+    "text": "Decomposing",
+    "level": 3
+  },
+  "a-1175-en": {
+    "id": "a-1175-en",
+    "text": "Feeding bowl",
+    "level": 2
+  },
+  "a-1176-en": {
+    "id": "a-1176-en",
+    "text": "Educated guess",
+    "level": 3
+  },
+  "a-1177-en": {
+    "id": "a-1177-en",
+    "text": "Self-assessment",
+    "level": 3
+  },
+  "a-1178-en": {
+    "id": "a-1178-en",
+    "text": "Self-assurance",
+    "level": 3
+  },
+  "a-1179-en": {
+    "id": "a-1179-en",
+    "text": "Poseidon's kiss",
+    "level": 2
+  },
+  "a-1180-en": {
+    "id": "a-1180-en",
+    "text": "That's so Raven",
+    "level": 3
+  },
+  "a-1181-en": {
+    "id": "a-1181-en",
+    "text": "Face plant",
+    "level": 1
+  },
+  "a-1182-en": {
+    "id": "a-1182-en",
+    "text": "Ghost kitchen",
+    "level": 1
+  },
+  "a-1183-en": {
+    "id": "a-1183-en",
+    "text": "Fanfic",
+    "level": 1
+  },
+  "a-1184-en": {
+    "id": "a-1184-en",
+    "text": "Command line",
+    "level": 1
   }
 }
