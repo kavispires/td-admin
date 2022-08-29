@@ -36,6 +36,7 @@ export function useResourceState(
       const res = language
         ? await fetch(`${url}/${resourceName}-${language}.json`)
         : await fetch(`${url}/${resourceName}.json`);
+
       const result = res.body ? await res.json() : {};
       setResponse(result);
       return result;

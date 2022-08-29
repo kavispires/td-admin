@@ -52,10 +52,11 @@ export const findSimilar = (str: string, data: PlainObject, property = 'text') =
   if (!value || value.length < SEARCH_THRESHOLD) return {};
 
   Object.values(data).forEach((entry) => {
-    const entryStr = stringRemoveAccents(entry[property].toLowerCase());
+    const val = typeof entry[property] === 'string' ? entry[property] : JSON.stringify(entry[property]);
+    const entryStr = stringRemoveAccents(val.toLowerCase());
 
     if (entryStr.includes(value)) {
-      similar[entry.id] = entry[property];
+      similar[entry.id] = val;
     }
   });
 

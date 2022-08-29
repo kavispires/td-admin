@@ -15,15 +15,17 @@ body {
 
 .container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .resource-selection-bar {
   padding: 0 24px;
 }
+.page-content-tabs {
+  padding: 0 24px;
+}
 
 .page-content {
-  padding: 0 24px;
   display: grid;
   gap: 2rem;
 
@@ -103,4 +105,25 @@ body {
 .parser-flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.resource-cards {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  justify-content: space-between;
+
+  &__entry {
+    margin-bottom: 1rem;
+    flex: 1;
+  }
+
+  &__card {
+    width: 200px;
+    height: 100%;
+    flex: 1;
+  }
 }

@@ -30,3 +30,26 @@ export const DUAL_LANGUAGE_RESOURCES = ['contenders', 'crime-tiles'];
 export const LANGUAGES: Language[] = ['pt', 'en'];
 
 export const DEFAULT_LANGUAGE: Language = 'pt';
+
+export const SEARCH_PROPERTY: Record<string, string> = {
+  adjectives: 'text',
+  'arte-ruim-cards': 'text',
+  'arte-ruim-groups': 'theme',
+  'arte-ruim-pairs': 'values',
+  categories: 'text',
+  challenges: 'text',
+  characters: 'text',
+  contenders: '',
+  'crime-tiles': '',
+  'galeria-de-sonhos': 'text',
+  'group-questions': 'text',
+  'linhas-cruzadas': 'text',
+  'naming-prompts': 'text',
+  'opposing-ideas': '',
+  'single-words': 'text',
+  'spy-locations': '',
+  'spy-questions': '',
+  'testimony-questions': 'question',
+  themes: 'text',
+  topics: 'text',
+};
