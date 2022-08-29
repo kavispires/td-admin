@@ -1,9 +1,9 @@
 import { Button, Divider, Form, PageHeader, Select, Tag } from 'antd';
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useQueryParams } from '../hooks/useQueryParams';
-import { LANGUAGES } from '../utils/constants';
+import { DUAL_LANGUAGE_RESOURCES, LANGUAGES } from '../utils/constants';
 import { Menu } from './Menu';
 
 type TagStateProps = {
@@ -49,12 +49,22 @@ export function ResourceSelectionBar({
 }: ResourceSelectionBarProps) {
   const navigate = useNavigate();
   const { updateQueryParams } = useQueryParams();
+  const [currentResourceName, setCurrentResourceName] = useState(values.resourceName);
 
   const onFinish = (v: any) => {
-    updateState({
+    const isDualLanguageResource = DUAL_LANGUAGE_RESOURCES.includes(v.resourceName);
+    const props = {
       ...v,
+      language: isDualLanguageResource ? null : v.language,
+    };
+    updateState({
+      ...props,
     });
-    updateQueryParams({ ...v });
+
+    if (isDualLanguageResource) {
+      delete props.language;
+    }
+    updateQueryParams({ ...props });
   };
 
   return (
@@ -73,7 +83,11 @@ export function ResourceSelectionBar({
         initialValues={{ ...initialValues, ...values }}
       >
         <Form.Item label="Resource" name="resourceName">
-          <Select style={{ minWidth: '150px' }} value={values.resourceName}>
+          <Select
+            style={{ minWidth: '150px' }}
+            value={values.resourceName}
+            onChange={(e: string) => setCurrentResourceName(e)}
+          >
             {resourceNames.map((rn) => (
               <Select.Option key={rn} value={rn}>
                 {rn}
@@ -82,7 +96,10 @@ export function ResourceSelectionBar({
           </Select>
         </Form.Item>
         <Form.Item label="Language" name="language">
-          <Select style={{ minWidth: '50px' }}>
+          <Select
+            style={{ minWidth: '50px' }}
+            disabled={DUAL_LANGUAGE_RESOURCES.includes(currentResourceName)}
+          >
             {LANGUAGES.map((lng) => (
               <Select.Option key={lng} value={lng}>
                 {lng}

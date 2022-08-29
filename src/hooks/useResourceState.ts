@@ -4,14 +4,14 @@ import { LOCALHOST_RESOURCE_URL } from '../utils/constants';
 
 type InitialState = {
   resourceName?: string;
-  language?: Language;
+  language?: Language | null;
   [key: string]: any;
 };
 
 type ResourceState = {
   resourceName: string | null;
   setResourceName: Function;
-  language: Language;
+  language?: Language | null;
   setLanguage: Function;
   response: any;
   loading: boolean;
@@ -27,13 +27,15 @@ export function useResourceState(
   initialState: InitialState = {}
 ): ResourceState {
   const [resourceName, setResourceName] = useState(initialState?.resourceName ?? null);
-  const [language, setLanguage] = useState(initialState.language ?? 'pt');
+  const [language, setLanguage] = useState(initialState.language);
   const [response, setResponse] = useState({});
 
   const { value, loading, error } = useAsync(async () => {
     if (availableResources && resourceName && language) {
       const url = process.env.NODE_ENV === 'development' ? LOCALHOST_RESOURCE_URL : process.env.PUBLIC_URL;
-      const res = await fetch(`${url}/${resourceName}-${language}.json`);
+      const res = language
+        ? await fetch(`${url}/${resourceName}-${language}.json`)
+        : await fetch(`${url}/${resourceName}.json`);
       const result = res.body ? await res.json() : {};
       setResponse(result);
       return result;

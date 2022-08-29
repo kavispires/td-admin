@@ -8,7 +8,10 @@ export const RESOURCE_NAMES = {
   ARTE_RUIM_GROUPS: 'arte-ruim-groups',
   ARTE_RUIM_PAIRS: 'arte-ruim-pairs',
   CATEGORIES: 'categories',
+  CHALLENGES: 'challenges',
   CHARACTERS: 'characters',
+  CONTENDERS: 'contenders',
+  CRIME_TILES: 'crime-tiles',
   GALERIA_DE_SONHOS: 'galeria-de-sonhos',
   GROUP_QUESTIONS: 'group-questions',
   LINHAS_CRUZADAS: 'linhas-cruzadas',
@@ -21,6 +24,8 @@ export const RESOURCE_NAMES = {
   THEMES: 'themes',
   TOPICS: 'topics',
 };
+
+export const DUAL_LANGUAGE_RESOURCES = ['contenders', 'crime-tiles'];
 
 export const LANGUAGES: Language[] = ['pt', 'en'];
 

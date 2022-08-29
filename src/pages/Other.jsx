@@ -7,11 +7,12 @@ import { LOCALHOST_RESOURCE_URL } from '../utils/constants';
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { checkForDuplicates, findSimilar, stringRemoveAccents } from '../utils';
 import { SEARCH_THRESHOLD } from '../utils/constants';
+import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 
 const { Text, Title } = Typography;
 
 export function Other() {
-  useTitle('Arte Ruim - Other');
+  useTitle('Other');
 
   // const result = Array(50)
   //   .fill(1)
@@ -229,40 +230,76 @@ export function Other() {
 
   // const result = parsePairs();
 
-  const cache = {};
-  const duplicated = {};
-  const uniqueSingleWords = () => {
-    const resArr = [];
+  // const cache = {};
+  // const duplicated = {};
+  // const uniqueSingleWords = () => {
+  //   const resArr = [];
 
-    Object.values(rawData).forEach((entry) => {
-      const raw = stringRemoveAccents(entry.text).toLowerCase();
+  //   Object.values(rawData).forEach((entry) => {
+  //     const raw = stringRemoveAccents(entry.text).toLowerCase();
 
-      if (raw.includes(' ')) {
-        console.warn('SPACE IN', raw);
-      }
+  //     if (raw.includes(' ')) {
+  //       console.warn('SPACE IN', raw);
+  //     }
 
-      if (cache[raw]) {
-        duplicated[raw] = true;
-      } else {
-        cache[raw] = true;
-        resArr.push(entry.text.toLowerCase());
-      }
-    });
+  //     if (cache[raw]) {
+  //       duplicated[raw] = true;
+  //     } else {
+  //       cache[raw] = true;
+  //       resArr.push(entry.text.toLowerCase());
+  //     }
+  //   });
 
-    const sortedArr = resArr.sort((a, b) => a.localeCompare(b));
+  //   const sortedArr = resArr.sort((a, b) => a.localeCompare(b));
 
-    return sortedArr.reduce((acc, entry, index) => {
-      const id = `sw-${index + 1}-pt`;
-      acc[id] = {
+  //   return sortedArr.reduce((acc, entry, index) => {
+  //     const id = `sw-${index + 1}-pt`;
+  //     acc[id] = {
+  //       id,
+  //       text: entry,
+  //     };
+
+  //     return acc;
+  //   }, {});
+  // };
+  // const result = uniqueSingleWords();
+  // console.log(duplicated);
+
+  const parseContenders = () =>
+    rawData.reduce((acc, entry, index) => {
+      const id = `cnt-${index + 1}`;
+      const item = {
         id,
-        text: entry,
+        name: {
+          en: entry.name_en,
+          pt: entry.name_pt,
+        },
       };
+
+      if (entry.exclusivity) {
+        item.exclusivity = entry.exclusivity;
+      }
+
+      acc[id] = item;
 
       return acc;
     }, {});
-  };
-  const result = uniqueSingleWords();
-  console.log(duplicated);
+
+  // const result = parseContenders();
+
+  const parseChallenges = () =>
+    rawData.reduce((acc, entry, index) => {
+      const id = `clg-${index + 1}-pt`;
+      acc[id] = {
+        id,
+        text: entry.challenge_pt,
+      };
+      return acc;
+    }, {});
+
+  const result = parseChallenges();
+
+  const jsonString = useMemo(() => JSON.stringify(result, null, 4), [result]);
 
   return (
     <Layout>
@@ -272,14 +309,11 @@ export function Other() {
 
       <Layout.Content className="content">
         <div className="a">
-          <Input.TextArea
-            name="search-results"
-            id=""
-            cols="10"
-            rows="10"
-            readOnly
-            value={JSON.stringify(result, null, 4)}
-          />
+          <Text>
+            Output <CopyToClipboardButton content={jsonString} />
+          </Text>
+
+          <Input.TextArea name="search-results" id="" cols="10" rows="10" readOnly value={jsonString} />
         </div>
       </Layout.Content>
     </Layout>
@@ -295,4 +329,4 @@ function parse(a) {
 
 const db = [];
 
-const rawData = {};
+const rawData = [];
