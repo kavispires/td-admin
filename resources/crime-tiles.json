@@ -35,7 +35,91 @@
       }
     ],
     "id": "starting-tile-cause",
-    "type": "cause"
+    "type": "cause",
+    "tags": {
+      "0": ["allergy", "cord", "drowning", "flexible", "inhaleable"],
+      "1": [
+        "animal",
+        "bite",
+        "bruise",
+        "carry",
+        "corrosive",
+        "flexible",
+        "force",
+        "hard",
+        "inflammable",
+        "large",
+        "melting",
+        "metal",
+        "mineral",
+        "tool",
+        "touch",
+        "transport"
+      ],
+      "2": [
+        "blade",
+        "firearm",
+        "glass",
+        "mineral",
+        "projectile",
+        "punctureable",
+        "sharp",
+        "tool",
+        "utensils",
+        "weapon"
+      ],
+      "3": [
+        "allergy",
+        "bite",
+        "chemical",
+        "condition",
+        "disease",
+        "food",
+        "ingestible",
+        "inhaleable",
+        "injectable",
+        "insect",
+        "liquid",
+        "passive",
+        "plant",
+        "powder",
+        "prolonged",
+        "touch",
+        "utensils"
+      ],
+      "4": [
+        "chemical",
+        "corrosive",
+        "drug",
+        "food",
+        "gas",
+        "ingestible",
+        "inhaleable",
+        "injectable",
+        "liquid",
+        "mouth-on",
+        "plant",
+        "poisonous",
+        "powder",
+        "touch",
+        "utensils",
+        "venomous"
+      ],
+      "5": [
+        "all",
+        "accident",
+        "action",
+        "animal",
+        "child",
+        "drowning",
+        "electronic",
+        "force",
+        "inflammable",
+        "passive",
+        "powered",
+        "prolonged"
+      ]
+    }
   },
   {
     "title": {
@@ -68,12 +152,45 @@
         "pt": "Era da vítima"
       },
       {
-        "en": "Was how you got close to the victim ",
+        "en": "Was how you got close to the victim",
         "pt": "Foi o que ajudou a se aproximar da vítima"
       }
     ],
     "id": "starting-tile-evidence",
-    "type": "evidence"
+    "type": "evidence",
+    "tags": {
+      "0": ["ash", "child", "utensils", "tool", "food", "reading", "writing"],
+      "1": ["carry", "child", "wealth", "personal", "food", "reading"],
+      "2": [
+        "animal",
+        "ash",
+        "child",
+        "cord",
+        "bright",
+        "building",
+        "drug",
+        "electronic",
+        "stain",
+        "writing",
+        "plant"
+      ],
+      "3": ["wearable", "face", "head", "drug", "tool"],
+      "4": ["animal", "tool", "wealth"],
+      "5": [
+        "animal",
+        "art",
+        "cooking",
+        "drink",
+        "drug",
+        "electronic",
+        "sport",
+        "leisure",
+        "virtual",
+        "medical",
+        "food",
+        "reading"
+      ]
+    }
   },
   {
     "title": {
@@ -111,7 +228,15 @@
       }
     ],
     "id": "location-tile-1",
-    "type": "location"
+    "type": "location",
+    "tags": {
+      "0": [""],
+      "1": [""],
+      "2": [""],
+      "3": [""],
+      "4": [""],
+      "5": [""]
+    }
   },
   {
     "title": {
@@ -510,7 +635,7 @@
     },
     "description": {
       "en": "What inspired you to commit the crime?",
-      "pt": "O que levou você a cometer o crime?"
+      "pt": "O que inspirou você a cometer o crime?"
     },
     "values": [
       {
