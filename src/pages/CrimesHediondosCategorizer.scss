@@ -1,0 +1,40 @@
+.h-container {
+  background: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.h-select {
+  min-width: 80vw;
+  padding: 2rem;
+}
+
+.h-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.all-tags {
+  margin: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__tag {
+    margin-bottom: 4px;
+  }
+}
+
+.h-margin {
+  margin: 1rem;
+}
+
+.json-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

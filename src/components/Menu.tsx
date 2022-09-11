@@ -17,6 +17,11 @@ export function Menu({ ghost = false }) {
           ARPD Groups
         </Button>
       </Link>
+      <Link to="/crimes-hediondos-categorizer">
+        <Button disabled={location.pathname === '/crimes-hediondos-categorizer'} type="link" ghost={ghost}>
+          CH Categorizer
+        </Button>
+      </Link>
       <Link to="/resource">
         <Button disabled={location.pathname === '/resource'} type="link" ghost={ghost}>
           Resource

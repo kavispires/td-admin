@@ -18,9 +18,16 @@ body {
   min-height: 100vh;
 }
 
+.content {
+  &--padded {
+    padding: 0 24px;
+  }
+}
+
 .resource-selection-bar {
   padding: 0 24px;
 }
+
 .page-content-tabs {
   padding: 0 24px;
 }
