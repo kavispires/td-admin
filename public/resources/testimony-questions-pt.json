@@ -481,6 +481,42 @@
   },
   "t-121-pt": {
     "id": "t-121-pt",
-    "question": "Ele(a) é preconceituoso(a)?"
+    "question": "Ele(a) odeia pobre?"
+  },
+  "t-122-pt": {
+    "id": "t-122-pt",
+    "question": "Os pais dele(a) são orgulhosos dele(a)?"
+  },
+  "t-123-pt": {
+    "id": "t-123-pt",
+    "question": "Eles acham comida baiana exótica?"
+  },
+  "t-124-pt": {
+    "id": "t-124-pt",
+    "question": "Ele(a) prefere cachorros a gatos?"
+  },
+  "t-125-pt": {
+    "id": "t-125-pt",
+    "question": "Ele(a) já pegou um porteiro ou faxineira do prédio?"
+  },
+  "t-126-pt": {
+    "id": "t-126-pt",
+    "question": "Ele(a) acha que fazer peido com o sovaco é um talento?"
+  },
+  "t-127-pt": {
+    "id": "t-127-pt",
+    "question": "Ele(a) tem colesterol alto?"
+  },
+  "t-128-pt": {
+    "id": "t-128-pt",
+    "question": "Ele(a) já doou para o Criança Esperança?"
+  },
+  "t-129-pt": {
+    "id": "t-129-pt",
+    "question": "Ele(a) sabe dançar uma coreografia do É o Tchan?"
+  },
+  "t-130-pt": {
+    "id": "t-130-pt",
+    "question": "Ele(a) tem samba no pé?"
   }
 }

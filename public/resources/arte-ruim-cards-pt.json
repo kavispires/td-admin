@@ -5928,5 +5928,200 @@
     "id": "a-1186-pt",
     "text": "Estar de conluio",
     "level": 3
+  },
+  "a-1187-pt": {
+    "id": "a-1187-pt",
+    "text": "Cadeira gamer",
+    "level": 1
+  },
+  "a-1188-pt": {
+    "id": "a-1188-pt",
+    "text": "Cadeira de massagem",
+    "level": 1
+  },
+  "a-1189-pt": {
+    "id": "a-1189-pt",
+    "text": "Jejum intermitente",
+    "level": 3
+  },
+  "a-1190-pt": {
+    "id": "a-1190-pt",
+    "text": "Gente boa",
+    "level": 2
+  },
+  "a-1191-pt": {
+    "id": "a-1191-pt",
+    "text": "Gente como a gente",
+    "level": 2
+  },
+  "a-1192-pt": {
+    "id": "a-1192-pt",
+    "text": "Não se misturar com essa gentalha",
+    "level": 1
+  },
+  "a-1193-pt": {
+    "id": "a-1193-pt",
+    "text": "Dica marota",
+    "level": 2
+  },
+  "a-1194-pt": {
+    "id": "a-1194-pt",
+    "text": "Achar meio bom",
+    "level": 3
+  },
+  "a-1195-pt": {
+    "id": "a-1195-pt",
+    "text": "Não ter onde cair morto",
+    "level": 2
+  },
+  "a-1196-pt": {
+    "id": "a-1196-pt",
+    "text": "Mão boba",
+    "level": 2
+  },
+  "a-1197-pt": {
+    "id": "a-1197-pt",
+    "text": "Chegar de mãos abanando",
+    "level": 1
+  },
+  "a-1198-pt": {
+    "id": "a-1198-pt",
+    "text": "Novo em folha",
+    "level": 2
+  },
+  "a-1199-pt": {
+    "id": "a-1199-pt",
+    "text": "Tintim por tintim",
+    "level": 2
+  },
+  "a-1200-pt": {
+    "id": "a-1200-pt",
+    "text": "Tem que me incluir",
+    "level": 3
+  },
+  "a-1201-pt": {
+    "id": "a-1201-pt",
+    "text": "Dar vexame",
+    "level": 3
+  },
+  "a-1202-pt": {
+    "id": "a-1202-pt",
+    "text": "Movimento de translação",
+    "level": 1
+  },
+  "a-1203-pt": {
+    "id": "a-1203-pt",
+    "text": "Cair de boca",
+    "level": 2
+  },
+  "a-1204-pt": {
+    "id": "a-1204-pt",
+    "text": "Boca fechada não entra mosca",
+    "level": 1
+  },
+  "a-1205-pt": {
+    "id": "a-1205-pt",
+    "text": "Bumba meu boi",
+    "level": 1
+  },
+  "a-1206-pt": {
+    "id": "a-1206-pt",
+    "text": "Tirar o grosso",
+    "level": 3
+  },
+  "a-1207-pt": {
+    "id": "a-1207-pt",
+    "text": "Apologia às drogas",
+    "level": 2
+  },
+  "a-1208-pt": {
+    "id": "a-1208-pt",
+    "text": "Falta de Deus",
+    "level": 3
+  },
+  "a-1209-pt": {
+    "id": "a-1209-pt",
+    "text": "Alimento transgênico",
+    "level": 2
+  },
+  "a-1210-pt": {
+    "id": "a-1210-pt",
+    "text": "Pobre não tem tempo pra ter depressão",
+    "level": 2
+  },
+  "a-1211-pt": {
+    "id": "a-1211-pt",
+    "text": "Prisão de ventre",
+    "level": 2
+  },
+  "a-1212-pt": {
+    "id": "a-1212-pt",
+    "text": "Entregar o ouro",
+    "level": 2
+  },
+  "a-1213-pt": {
+    "id": "a-1213-pt",
+    "text": "Calcinha caramelo transparente",
+    "level": 2
+  },
+  "a-1214-pt": {
+    "id": "a-1214-pt",
+    "text": "Fungada no cagote",
+    "level": 2
+  },
+  "a-1215-pt": {
+    "id": "a-1215-pt",
+    "text": "Bugar o cérebro",
+    "level": 1
+  },
+  "a-1216-pt": {
+    "id": "a-1216-pt",
+    "text": "Que o raio o parta",
+    "level": 1
+  },
+  "a-1217-pt": {
+    "id": "a-1217-pt",
+    "text": "Banco de dados",
+    "level": 2
+  },
+  "a-1218-pt": {
+    "id": "a-1218-pt",
+    "text": "Cortina semi-romântica",
+    "level": 1
+  },
+  "a-1219-pt": {
+    "id": "a-1219-pt",
+    "text": "Viciada em seduzir",
+    "level": 3
+  },
+  "a-1220-pt": {
+    "id": "a-1220-pt",
+    "text": "Quarentão",
+    "level": 3
+  },
+  "a-1221-pt": {
+    "id": "a-1221-pt",
+    "text": "Cara e coragem",
+    "level": 1
+  },
+  "a-1222-pt": {
+    "id": "a-1222-pt",
+    "text": "Não ouvir um pio",
+    "level": 2
+  },
+  "a-1223-pt": {
+    "id": "a-1223-pt",
+    "text": "Deus me livre, mas quem me dera",
+    "level": 3
+  },
+  "a-1224-pt": {
+    "id": "a-1224-pt",
+    "text": "Qualquer rede social pode ser Tinder",
+    "level": 3
+  },
+  "a-1225-pt": {
+    "id": "a-1225-pt",
+    "text": "Em cima do muro",
+    "level": 1
   }
 }

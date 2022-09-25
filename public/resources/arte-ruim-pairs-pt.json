@@ -214,5 +214,17 @@
   "ap-54-pt": {
     "id": "ap-54-pt",
     "values": ["Rato", "Capivara"]
+  },
+  "ap-55-pt": {
+    "id": "ap-55-pt",
+    "values": ["Peneira", "Raquete"]
+  },
+  "ap-56-pt": {
+    "id": "ap-56-pt",
+    "values": ["Leoa", "Pantera"]
+  },
+  "ap-57-pt": {
+    "id": "ap-57-pt",
+    "values": ["Folha de maconha", "Folha do outono"]
   }
 }
