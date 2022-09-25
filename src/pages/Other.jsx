@@ -230,74 +230,74 @@ export function Other() {
 
   // const result = parsePairs();
 
-  // const cache = {};
-  // const duplicated = {};
-  // const uniqueSingleWords = () => {
-  //   const resArr = [];
+  const cache = {};
+  const duplicated = {};
+  const uniqueSingleWords = () => {
+    const resArr = [];
 
-  //   Object.values(rawData).forEach((entry) => {
-  //     const raw = stringRemoveAccents(entry.text).toLowerCase();
+    Object.values(rawData).forEach((entry) => {
+      const raw = stringRemoveAccents(entry.text).toLowerCase();
 
-  //     if (raw.includes(' ')) {
-  //       console.warn('SPACE IN', raw);
-  //     }
+      if (raw.includes(' ')) {
+        console.warn('SPACE IN', raw);
+      }
 
-  //     if (cache[raw]) {
-  //       duplicated[raw] = true;
-  //     } else {
-  //       cache[raw] = true;
-  //       resArr.push(entry.text.toLowerCase());
-  //     }
-  //   });
+      if (cache[raw]) {
+        duplicated[raw] = true;
+      } else {
+        cache[raw] = true;
+        resArr.push(entry.text.toLowerCase());
+      }
+    });
 
-  //   const sortedArr = resArr.sort((a, b) => a.localeCompare(b));
+    const sortedArr = resArr.sort((a, b) => a.localeCompare(b));
 
-  //   return sortedArr.reduce((acc, entry, index) => {
-  //     const id = `sw-${index + 1}-pt`;
-  //     acc[id] = {
+    return sortedArr.reduce((acc, entry, index) => {
+      const id = `sw-${index + 1}-pt`;
+      acc[id] = {
+        id,
+        text: entry,
+      };
+
+      return acc;
+    }, {});
+  };
+  const result = uniqueSingleWords();
+  console.log(duplicated);
+
+  // const parseContenders = () =>
+  //   rawData.reduce((acc, entry, index) => {
+  //     const id = `cnt-${index + 1}`;
+  //     const item = {
   //       id,
-  //       text: entry,
+  //       name: {
+  //         en: entry.name_en,
+  //         pt: entry.name_pt,
+  //       },
   //     };
+
+  //     if (entry.exclusivity) {
+  //       item.exclusivity = entry.exclusivity;
+  //     }
+
+  //     acc[id] = item;
 
   //     return acc;
   //   }, {});
-  // };
-  // const result = uniqueSingleWords();
-  // console.log(duplicated);
-
-  const parseContenders = () =>
-    rawData.reduce((acc, entry, index) => {
-      const id = `cnt-${index + 1}`;
-      const item = {
-        id,
-        name: {
-          en: entry.name_en,
-          pt: entry.name_pt,
-        },
-      };
-
-      if (entry.exclusivity) {
-        item.exclusivity = entry.exclusivity;
-      }
-
-      acc[id] = item;
-
-      return acc;
-    }, {});
 
   // const result = parseContenders();
 
-  const parseChallenges = () =>
-    rawData.reduce((acc, entry, index) => {
-      const id = `clg-${index + 1}-pt`;
-      acc[id] = {
-        id,
-        text: entry.challenge_pt,
-      };
-      return acc;
-    }, {});
+  // const parseChallenges = () =>
+  //   rawData.reduce((acc, entry, index) => {
+  //     const id = `clg-${index + 1}-pt`;
+  //     acc[id] = {
+  //       id,
+  //       text: entry.challenge_pt,
+  //     };
+  //     return acc;
+  //   }, {});
 
-  const result = parseChallenges();
+  // const result = parseChallenges();
 
   const jsonString = useMemo(() => JSON.stringify(result, null, 4), [result]);
 

@@ -8,6 +8,7 @@ import { Resource } from 'pages/Resource';
 import { ConfigProvider } from 'antd';
 import { CrimesHediondosCategorizer } from 'pages/CrimesHediondosCategorizer';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { SingleWordsExpander } from 'pages/SingleWordsExpander';
 
 ConfigProvider.config({
   theme: {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/arte-ruim-groups" element={<ArteRuimGroups />} />
           <Route path="/resource" element={<Resource />} />
           <Route path="/crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
+          <Route path="/single-words" element={<SingleWordsExpander />} />
           <Route path="/other" element={<Other />} />
         </Routes>
       </HashRouter>

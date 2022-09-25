@@ -44,6 +44,11 @@ type ArteRuimGroup = {
   cards: Record<string, CardId>;
 };
 
+type TextCard = {
+  id: string;
+  text: string;
+};
+
 type Tag = string;
 
 interface CrimesHediondosCard {
