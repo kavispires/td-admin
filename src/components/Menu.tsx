@@ -22,6 +22,11 @@ export function Menu({ ghost = false }) {
           CH Categorizer
         </Button>
       </Link>
+      <Link to="/single-words">
+        <Button disabled={location.pathname === '/single-words'} type="link" ghost={ghost}>
+          Single Words
+        </Button>
+      </Link>
       <Link to="/resource">
         <Button disabled={location.pathname === '/resource'} type="link" ghost={ghost}>
           Resource
