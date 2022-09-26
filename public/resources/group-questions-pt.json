@@ -27,7 +27,7 @@
     "id": "m-5-en",
     "prefix": "Complete a frase com",
     "number": 4,
-    "suffix": "opções: Ao invés de bolo de casamento"
+    "suffix": "opções: Ao invés de bolo de casamento, eles preferiram ter ___ no casamento."
   },
   "m-6-en": {
     "id": "m-6-en",
@@ -117,7 +117,7 @@
     "id": "m-20-en",
     "prefix": "Complete a frase com",
     "number": 3,
-    "suffix": "opções: Não havia uma faca"
+    "suffix": "opções: Não havia uma faca, então Roberto usou um(a) __ para passar manteiga."
   },
   "m-21-en": {
     "id": "m-21-en",
@@ -717,7 +717,7 @@
     "id": "m-120-en",
     "prefix": "Complete a frase com",
     "number": 3,
-    "suffix": "opções: Patrícia formou em publicidade"
+    "suffix": "opções: Patrícia formou em publicidade, mas hoje ela trabalha com ___."
   },
   "m-121-en": {
     "id": "m-121-en",
@@ -753,7 +753,7 @@
     "id": "m-126-en",
     "prefix": "Complete a frase com",
     "number": 3,
-    "suffix": "opções: \"Amanda acabou de apresentar um trabalho na frente de todos"
+    "suffix": "opções: \"Amanda acabou de apresentar um trabalho na frente de todos, mas aí ela se olhou no espelho e ela tava com __ na cara!"
   },
   "m-127-en": {
     "id": "m-127-en",
@@ -831,7 +831,7 @@
     "id": "m-139-en",
     "prefix": "Complete a frase com",
     "number": 4,
-    "suffix": "opções: Eu contratei um palhaço para animar a festa de aniversário"
+    "suffix": "opções: Eu contratei um palhaço para animar a festa de aniversário, mas ele __."
   },
   "m-140-en": {
     "id": "m-140-en",
@@ -1593,7 +1593,7 @@
     "id": "m-266-en",
     "prefix": "Complete a frase com",
     "number": 3,
-    "suffix": "opções: \"Quando Jorginho puxou o forro de mesa num truque de 'mágica'"
+    "suffix": "opções: \"Quando Jorginho puxou o forro de mesa num truque de 'mágica', ___ caiu no chão."
   },
   "m-267-en": {
     "id": "m-267-en",

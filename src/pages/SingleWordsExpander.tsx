@@ -1,12 +1,12 @@
 import { Divider, Input, Layout, Typography } from 'antd';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTitle } from 'react-use';
 
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
 import { SearchDuplicates } from '../components/SearchDuplicates';
 import { useResourceState } from '../hooks/useResourceState';
-import { checkForDuplicates, findSimilar, stringRemoveAccents } from '../utils';
+import { findSimilar, stringRemoveAccents } from '../utils';
 import { DEFAULT_LANGUAGE, RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
 
 const { Text, Title } = Typography;
@@ -25,10 +25,10 @@ export function SingleWordsExpander() {
     [RESOURCE_NAMES.SINGLE_WORDS],
     initialState
   );
-  const cache: BooleanDictionary = {};
 
   useEffect(() => {
     if (response) {
+      const cache: BooleanDictionary = {};
       const newDuplicates: StringDictionary = {};
       const selected = Object.values(response as Record<CardId, TextCard>)
         .filter((entry) => {
