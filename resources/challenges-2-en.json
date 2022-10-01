@@ -1,258 +1,62 @@
 {
-  "clg-2-en": {
-    "id": "clg-2-en",
-    "text": "Most likely to survive a zombie apocalypse"
+  "clg-2-1-en": {
+    "id": "clg-2-1-en",
+    "text": "Most likely to land a commercial"
   },
-  "clg-4-en": {
-    "id": "clg-4-en",
+  "clg-2-2-en": {
+    "id": "clg-2-2-en",
     "text": "Most annoying"
   },
-  "clg-6-en": {
-    "id": "clg-6-en",
+  "clg-2-3-en": {
+    "id": "clg-2-3-en",
+    "text": "Most likely to throw a temper tantrum"
+  },
+  "clg-2-4-en": {
+    "id": "clg-2-4-en",
+    "text": "Most likely to nap through a movie"
+  },
+  "clg-2-5-en": {
+    "id": "clg-2-5-en",
     "text": "Least likely to play well with others"
   },
-  "clg-7-en": {
-    "id": "clg-7-en",
-    "text": "Best Runway Model"
-  },
-  "clg-8-en": {
-    "id": "clg-8-en",
-    "text": "Most powerful"
-  },
-  "clg-9-en": {
-    "id": "clg-9-en",
+  "clg-2-6-en": {
+    "id": "clg-2-6-en",
     "text": "Would Make the best rapper"
   },
-  "clg-10-en": {
-    "id": "clg-10-en",
-    "text": "Biggest genius"
-  },
-  "clg-11-en": {
-    "id": "clg-11-en",
-    "text": "Most likely to survive in the wilderness"
-  },
-  "clg-13-en": {
-    "id": "clg-13-en",
-    "text": "Best in a snowball fight"
-  },
-  "clg-15-en": {
-    "id": "clg-15-en",
-    "text": "Would win a baby formula eating contest"
-  },
-  "clg-20-en": {
-    "id": "clg-20-en",
-    "text": "Best Friend"
-  },
-  "clg-23-en": {
-    "id": "clg-23-en",
-    "text": "Best Belly-Flopper"
-  },
-  "clg-26-en": {
-    "id": "clg-26-en",
-    "text": "Unluckiest"
-  },
-  "clg-27-en": {
-    "id": "clg-27-en",
-    "text": " Most Likely to receive coal for Christmas"
-  },
-  "clg-30-en": {
-    "id": "clg-30-en",
-    "text": "Most likely to take control of the Bouncing Castle"
-  },
-  "clg-34-en": {
-    "id": "clg-34-en",
-    "text": "Best road trip companion"
-  },
-  "clg-35-en": {
-    "id": "clg-35-en",
-    "text": "Most likely to have Pinocchio's nose"
-  },
-  "clg-36-en": {
-    "id": "clg-36-en",
-    "text": "Best name for a sandwich"
-  },
-  "clg-38-en": {
-    "id": "clg-38-en",
-    "text": "Most likely to be caught staring at themselves in the mirror"
-  },
-  "clg-40-en": {
-    "id": "clg-40-en",
-    "text": "Most loveable"
-  },
-  "clg-49-en": {
-    "id": "clg-49-en",
-    "text": "The 8th dwarf"
-  },
-  "clg-53-en": {
-    "id": "clg-53-en",
-    "text": "Most likely to win a dance-off"
-  },
-  "clg-54-en": {
-    "id": "clg-54-en",
-    "text": "Most likely to keep their mouth shut"
-  },
-  "clg-55-en": {
-    "id": "clg-55-en",
-    "text": "Most generous"
-  },
-  "clg-56-en": {
-    "id": "clg-56-en",
-    "text": "Most likely to accidentally blow up the world"
-  },
-  "clg-57-en": {
-    "id": "clg-57-en",
-    "text": "Cleverest bank robber"
-  },
-  "clg-58-en": {
-    "id": "clg-58-en",
-    "text": "Best hair"
-  },
-  "clg-59-en": {
-    "id": "clg-59-en",
+  "clg-2-7-en": {
+    "id": "clg-2-7-en",
     "text": "Look best with a mustache"
   },
-  "clg-60-en": {
-    "id": "clg-60-en",
-    "text": "Most misunderstood"
-  },
-  "clg-61-en": {
-    "id": "clg-61-en",
-    "text": "Most likely to start a flash mob"
-  },
-  "clg-62-en": {
-    "id": "clg-62-en",
-    "text": "Most beautiful"
-  },
-  "clg-63-en": {
-    "id": "clg-63-en",
-    "text": "Would be picked first in sports"
-  },
-  "clg-64-en": {
-    "id": "clg-64-en",
-    "text": "Has brought the most happiness to the world"
-  },
-  "clg-65-en": {
-    "id": "clg-65-en",
+  "clg-2-8-en": {
+    "id": "clg-2-8-en",
     "text": "Has the loudest flatulence"
   },
-  "clg-68-en": {
-    "id": "clg-68-en",
-    "text": "Funniest"
+  "clg-2-9-en": {
+    "id": "clg-2-9-en",
+    "text": "Most likely to have Pinocchio's nose"
   },
-  "clg-70-en": {
-    "id": "clg-70-en",
-    "text": "Greatest hero"
+  "clg-2-10-en": {
+    "id": "clg-2-10-en",
+    "text": "Most likely to join the CARE team"
   },
-  "clg-71-en": {
-    "id": "clg-71-en",
-    "text": "Biggest Tattletale"
+  "clg-2-11-en": {
+    "id": "clg-2-11-en",
+    "text": "Cutest"
   },
-  "clg-72-en": {
-    "id": "clg-72-en",
-    "text": "Craziest"
+  "clg-2-12-en": {
+    "id": "clg-2-12-en",
+    "text": "Most likely to put themselves in dangerous situation"
   },
-  "clg-73-en": {
-    "id": "clg-73-en",
-    "text": "Would have the smallest funeral"
+  "clg-2-13-en": {
+    "id": "clg-2-13-en",
+    "text": "Most likely to have a secret evil twin"
   },
-  "clg-74-en": {
-    "id": "clg-74-en",
-    "text": "would tell the biggest lie to their mother"
+  "clg-2-14-en": {
+    "id": "clg-2-14-en",
+    "text": "Would win a baby formula eating contest"
   },
-  "clg-75-en": {
-    "id": "clg-75-en",
-    "text": "Best first date"
-  },
-  "clg-76-en": {
-    "id": "clg-76-en",
-    "text": "Most vicious"
-  },
-  "clg-78-en": {
-    "id": "clg-78-en",
-    "text": "If cats chose a leader"
-  },
-  "clg-81-en": {
-    "id": "clg-81-en",
-    "text": "Last person you would want on your jury"
-  },
-  "clg-82-en": {
-    "id": "clg-82-en",
-    "text": "Biggest backstabber"
-  },
-  "clg-83-en": {
-    "id": "clg-83-en",
-    "text": "Toughest"
-  },
-  "clg-84-en": {
-    "id": "clg-84-en",
-    "text": "Worst role model for children"
-  },
-  "clg-85-en": {
-    "id": "clg-85-en",
-    "text": "Most likely to push the self-destruct button"
-  },
-  "clg-86-en": {
-    "id": "clg-86-en",
-    "text": "Scariest"
-  },
-  "clg-87-en": {
-    "id": "clg-87-en",
-    "text": "Most evil"
-  },
-  "clg-88-en": {
-    "id": "clg-88-en",
-    "text": "Would get into heaven first"
-  },
-  "clg-89-en": {
-    "id": "clg-89-en",
-    "text": "Cruelest"
-  },
-  "clg-90-en": {
-    "id": "clg-90-en",
-    "text": "Most likely to be caught stealing"
-  },
-  "clg-91-en": {
-    "id": "clg-91-en",
-    "text": "Time Magazine's person of all time"
-  },
-  "clg-92-en": {
-    "id": "clg-92-en",
-    "text": "Biggest cheater"
-  },
-  "clg-93-en": {
-    "id": "clg-93-en",
-    "text": "Biggest hypocrite"
-  },
-  "clg-94-en": {
-    "id": "clg-94-en",
-    "text": "Most likely to join a cult"
-  },
-  "clg-95-en": {
-    "id": "clg-95-en",
-    "text": "Always the first to go down in a fight"
-  },
-  "clg-96-en": {
-    "id": "clg-96-en",
-    "text": "Most disgusting"
-  },
-  "clg-97-en": {
-    "id": "clg-97-en",
-    "text": "Biggest has-been"
-  },
-  "clg-98-en": {
-    "id": "clg-98-en",
-    "text": "Sexiest"
-  },
-  "clg-99-en": {
-    "id": "clg-99-en",
-    "text": "Most ruthless"
-  },
-  "clg-100-en": {
-    "id": "clg-100-en",
-    "text": "First person you'd call to help bury a body"
-  },
-  "clg-101-en": {
-    "id": "clg-101-en",
-    "text": "Most likely to go viral on a Tik Tok dance"
+  "clg-2-15-en": {
+    "id": "clg-2-15-en",
+    "text": "Most likely to survive a zombie apocalypse"
   }
 }
