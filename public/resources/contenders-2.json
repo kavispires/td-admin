@@ -1,0 +1,247 @@
+{
+  "cntb-1": {
+    "id": "cntb-1",
+    "name": {
+      "en": "Boss Baby",
+      "pt": "Boss Baby"
+    }
+  },
+  "cntb-2": {
+    "id": "cntb-2",
+    "name": {
+      "en": "Baby Groot",
+      "pt": "Baby Groot"
+    }
+  },
+  "cntb-3": {
+    "id": "cntb-3",
+    "name": {
+      "en": "Baby Shark",
+      "pt": "Baby Shark"
+    }
+  },
+  "cntb-4": {
+    "id": "cntb-4",
+    "name": {
+      "en": "Baby (Dinosaur)",
+      "pt": "Baby (Dinosaur)"
+    }
+  },
+  "cntb-5": {
+    "id": "cntb-5",
+    "name": {
+      "en": "Tommy Pickles",
+      "pt": "Tommy Pickles"
+    }
+  },
+  "cntb-6": {
+    "id": "cntb-6",
+    "name": {
+      "en": "Stewie Griffin",
+      "pt": "Stewie Griffin"
+    }
+  },
+  "cntb-7": {
+    "id": "cntb-7",
+    "name": {
+      "en": "Maggie Simpson",
+      "pt": "Maggie Simpson"
+    }
+  },
+  "cntb-8": {
+    "id": "cntb-8",
+    "name": {
+      "en": "Baby Simba",
+      "pt": "Baby Simba"
+    }
+  },
+  "cntb-9": {
+    "id": "cntb-9",
+    "name": {
+      "en": "Baby Boomer",
+      "pt": "Baby Boomer"
+    }
+  },
+  "cntb-10": {
+    "id": "cntb-10",
+    "name": {
+      "en": "Jack-Jack",
+      "pt": "Jack-Jack"
+    }
+  },
+  "cntb-11": {
+    "id": "cntb-11",
+    "name": {
+      "en": "Baby Panda",
+      "pt": "Baby Panda"
+    }
+  },
+  "cntb-12": {
+    "id": "cntb-12",
+    "name": {
+      "en": "Boh",
+      "pt": "Boh"
+    }
+  },
+  "cntb-13": {
+    "id": "cntb-13",
+    "name": {
+      "en": "Bambi",
+      "pt": "Bambi"
+    }
+  },
+  "cntb-14": {
+    "id": "cntb-14",
+    "name": {
+      "en": "The Nirvana Baby",
+      "pt": "The Nirvana Baby"
+    }
+  },
+  "cntb-15": {
+    "id": "cntb-15",
+    "name": {
+      "en": "Baby Xenomorph",
+      "pt": "Baby Xenomorph"
+    }
+  },
+  "cntb-16": {
+    "id": "cntb-16",
+    "name": {
+      "en": "Baby Driver",
+      "pt": "Baby Driver"
+    }
+  },
+  "cntb-17": {
+    "id": "cntb-17",
+    "name": {
+      "en": "Baby Mario",
+      "pt": "Baby Mario"
+    }
+  },
+  "cntb-18": {
+    "id": "cntb-18",
+    "name": {
+      "en": "Bieber singing Baby",
+      "pt": "Bieber singing Baby"
+    }
+  },
+  "cntb-19": {
+    "id": "cntb-19",
+    "name": {
+      "en": "Babyface",
+      "pt": "Babyface"
+    }
+  },
+  "cntb-20": {
+    "id": "cntb-20",
+    "name": {
+      "en": "X Æ A-12 Musk",
+      "pt": "X Æ A-12 Musk"
+    }
+  },
+  "cntb-21": {
+    "id": "cntb-21",
+    "name": {
+      "en": "Baby Yoda",
+      "pt": "Baby Yoda"
+    }
+  },
+  "cntb-22": {
+    "id": "cntb-22",
+    "name": {
+      "en": "Rosemary's Baby",
+      "pt": "Rosemary's Baby"
+    }
+  },
+  "cntb-23": {
+    "id": "cntb-23",
+    "name": {
+      "en": "Cocomelon",
+      "pt": "Cocomelon"
+    }
+  },
+  "cntb-24": {
+    "id": "cntb-24",
+    "name": {
+      "en": "The Hangover Baby",
+      "pt": "The Hangover Baby"
+    }
+  },
+  "cntb-25": {
+    "id": "cntb-25",
+    "name": {
+      "en": "Baby Bugs Bunny",
+      "pt": "Baby Bugs Bunny"
+    }
+  },
+  "cntb-26": {
+    "id": "cntb-26",
+    "name": {
+      "en": "Baby Piggy",
+      "pt": "Baby Piggy"
+    }
+  },
+  "cntb-27": {
+    "id": "cntb-27",
+    "name": {
+      "en": "DaBaby",
+      "pt": "DaBaby"
+    }
+  },
+  "cntb-28": {
+    "id": "cntb-28",
+    "name": {
+      "en": "Baby Nut",
+      "pt": "Baby Nut"
+    }
+  },
+  "cntb-29": {
+    "id": "cntb-29",
+    "name": {
+      "en": "Emma Geller-Greene",
+      "pt": "Emma Geller-Greene"
+    }
+  },
+  "cntb-30": {
+    "id": "cntb-30",
+    "name": {
+      "en": "Babe",
+      "pt": "Babe"
+    }
+  },
+  "cntb-31": {
+    "id": "cntb-31",
+    "name": {
+      "en": "Pichu",
+      "pt": "Pichu"
+    }
+  },
+  "cntb-32": {
+    "id": "cntb-32",
+    "name": {
+      "en": "Charlie, the finger biter",
+      "pt": "Charlie, the finger biter"
+    }
+  },
+  "cntb-33": {
+    "id": "cntb-33",
+    "name": {
+      "en": "A baby carrot",
+      "pt": "A baby carrot"
+    }
+  },
+  "cntb-34": {
+    "id": "cntb-34",
+    "name": {
+      "en": "Baby Benjamin Button",
+      "pt": "Baby Benjamin Button"
+    }
+  },
+  "cntb-35": {
+    "id": "cntb-35",
+    "name": {
+      "en": "Baby Bear",
+      "pt": "Baby Bear"
+    }
+  }
+}
