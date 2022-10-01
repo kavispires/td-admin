@@ -1,23 +1,11 @@
 {
-  "clg-1-en": {
-    "id": "clg-1-en",
-    "text": "Most likely to be raised by wolves"
-  },
   "clg-2-en": {
     "id": "clg-2-en",
     "text": "Most likely to survive a zombie apocalypse"
   },
-  "clg-3-en": {
-    "id": "clg-3-en",
-    "text": "Best Big Game Hunter"
-  },
   "clg-4-en": {
     "id": "clg-4-en",
     "text": "Most annoying"
-  },
-  "clg-5-en": {
-    "id": "clg-5-en",
-    "text": "Most likely to crash a party"
   },
   "clg-6-en": {
     "id": "clg-6-en",
@@ -43,61 +31,21 @@
     "id": "clg-11-en",
     "text": "Most likely to survive in the wilderness"
   },
-  "clg-12-en": {
-    "id": "clg-12-en",
-    "text": "Saved the planet the most times"
-  },
   "clg-13-en": {
     "id": "clg-13-en",
     "text": "Best in a snowball fight"
   },
-  "clg-14-en": {
-    "id": "clg-14-en",
-    "text": "Most likely to be the most successful used car salesman"
-  },
   "clg-15-en": {
     "id": "clg-15-en",
-    "text": "Would win a hot dog eating contest"
-  },
-  "clg-16-en": {
-    "id": "clg-16-en",
-    "text": "Best dressed"
-  },
-  "clg-17-en": {
-    "id": "clg-17-en",
-    "text": "Most likely to win an Olympic gold medal"
-  },
-  "clg-18-en": {
-    "id": "clg-18-en",
-    "text": "Most likely to Headline in Vegas"
-  },
-  "clg-19-en": {
-    "id": "clg-19-en",
-    "text": "Most likely to be muppetized"
+    "text": "Would win a baby formula eating contest"
   },
   "clg-20-en": {
     "id": "clg-20-en",
     "text": "Best Friend"
   },
-  "clg-21-en": {
-    "id": "clg-21-en",
-    "text": "Least Happy to see your daughter bring home"
-  },
-  "clg-22-en": {
-    "id": "clg-22-en",
-    "text": "Worst driver"
-  },
   "clg-23-en": {
     "id": "clg-23-en",
     "text": "Best Belly-Flopper"
-  },
-  "clg-24-en": {
-    "id": "clg-24-en",
-    "text": "Most likely to lose their car in a parking lot"
-  },
-  "clg-25-en": {
-    "id": "clg-25-en",
-    "text": "Last one to be eaten by cannibals"
   },
   "clg-26-en": {
     "id": "clg-26-en",
@@ -105,31 +53,11 @@
   },
   "clg-27-en": {
     "id": "clg-27-en",
-    "text": " Most Likely to receive coal for christmas"
-  },
-  "clg-28-en": {
-    "id": "clg-28-en",
-    "text": "Most likely to be a closet disco dancer"
-  },
-  "clg-29-en": {
-    "id": "clg-29-en",
-    "text": "Would win a mud wrestling contest"
+    "text": " Most Likely to receive coal for Christmas"
   },
   "clg-30-en": {
     "id": "clg-30-en",
-    "text": "Best boss"
-  },
-  "clg-31-en": {
-    "id": "clg-31-en",
-    "text": "The Best at twister"
-  },
-  "clg-32-en": {
-    "id": "clg-32-en",
-    "text": "Best at darts"
-  },
-  "clg-33-en": {
-    "id": "clg-33-en",
-    "text": "Most likely to rescue a kitten from a tree"
+    "text": "Most likely to take control of the Bouncing Castle"
   },
   "clg-34-en": {
     "id": "clg-34-en",
@@ -143,69 +71,17 @@
     "id": "clg-36-en",
     "text": "Best name for a sandwich"
   },
-  "clg-37-en": {
-    "id": "clg-37-en",
-    "text": "First to be kicked off the island"
-  },
   "clg-38-en": {
     "id": "clg-38-en",
     "text": "Most likely to be caught staring at themselves in the mirror"
-  },
-  "clg-39-en": {
-    "id": "clg-39-en",
-    "text": "Most likely to get a job as a circus act"
   },
   "clg-40-en": {
     "id": "clg-40-en",
     "text": "Most loveable"
   },
-  "clg-41-en": {
-    "id": "clg-41-en",
-    "text": "Most likely to be a runaway bride"
-  },
-  "clg-42-en": {
-    "id": "clg-42-en",
-    "text": "Biggest clean freak"
-  },
-  "clg-43-en": {
-    "id": "clg-43-en",
-    "text": "The first to start a fight"
-  },
-  "clg-44-en": {
-    "id": "clg-44-en",
-    "text": "Best babysitter"
-  },
-  "clg-45-en": {
-    "id": "clg-45-en",
-    "text": "Looks best in a swimsuit"
-  },
-  "clg-46-en": {
-    "id": "clg-46-en",
-    "text": "Would make the best talk show host"
-  },
-  "clg-47-en": {
-    "id": "clg-47-en",
-    "text": "Would be the most high maintenance"
-  },
-  "clg-48-en": {
-    "id": "clg-48-en",
-    "text": "Throws the best parties"
-  },
   "clg-49-en": {
     "id": "clg-49-en",
     "text": "The 8th dwarf"
-  },
-  "clg-50-en": {
-    "id": "clg-50-en",
-    "text": "Most unlucky in love"
-  },
-  "clg-51-en": {
-    "id": "clg-51-en",
-    "text": "Most likely to be the fun clown"
-  },
-  "clg-52-en": {
-    "id": "clg-52-en",
-    "text": "Richest"
   },
   "clg-53-en": {
     "id": "clg-53-en",
@@ -259,21 +135,9 @@
     "id": "clg-65-en",
     "text": "Has the loudest flatulence"
   },
-  "clg-66-en": {
-    "id": "clg-66-en",
-    "text": "Worst tipper"
-  },
-  "clg-67-en": {
-    "id": "clg-67-en",
-    "text": "Someone you would take to meet your parents"
-  },
   "clg-68-en": {
     "id": "clg-68-en",
     "text": "Funniest"
-  },
-  "clg-69-en": {
-    "id": "clg-69-en",
-    "text": "Least likely to die"
   },
   "clg-70-en": {
     "id": "clg-70-en",
@@ -303,21 +167,9 @@
     "id": "clg-76-en",
     "text": "Most vicious"
   },
-  "clg-77-en": {
-    "id": "clg-77-en",
-    "text": "Most likely to give their life for another"
-  },
   "clg-78-en": {
     "id": "clg-78-en",
     "text": "If cats chose a leader"
-  },
-  "clg-79-en": {
-    "id": "clg-79-en",
-    "text": "Karaoke Champion"
-  },
-  "clg-80-en": {
-    "id": "clg-80-en",
-    "text": "Has best theme song"
   },
   "clg-81-en": {
     "id": "clg-81-en",
