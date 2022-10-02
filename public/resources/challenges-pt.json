@@ -410,5 +410,13 @@
   "clg-103-pt": {
     "id": "clg-103-pt",
     "text": "Melhor na cama"
+  },
+  "clg-104-pt": {
+    "id": "clg-104-pt",
+    "text": "Mais provável de ficar falando durante um filme?"
+  },
+  "clg-105-pt": {
+    "id": "clg-105-pt",
+    "text": "Mais provável de ser escalado como protagonista de Malhação"
   }
 }
