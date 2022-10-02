@@ -1323,5 +1323,79 @@
       "en": "Ghost face",
       "pt": "Pânico"
     }
+  },
+  "cnt-186": {
+    "id": "cnt-186",
+    "name": {
+      "en": "Dwayne The Rock Johnson",
+      "pt": "Dwayne The Rock Johnson"
+    }
+  },
+  "cnt-187": {
+    "id": "cnt-187",
+    "name": {
+      "en": "A rock",
+      "pt": "Uma pedra"
+    }
+  },
+  "cnt-188": {
+    "id": "cnt-188",
+    "name": {
+      "en": "Pennywise",
+      "pt": "Pennywise"
+    }
+  },
+  "cnt-189": {
+    "id": "cnt-189",
+    "name": {
+      "en": "Anitta",
+      "pt": "Anitta"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-190": {
+    "id": "cnt-190",
+    "name": {
+      "en": "Pablo Vittar",
+      "pt": "Pablo Vittar,"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-191": {
+    "id": "cnt-191",
+    "name": {
+      "en": "Rupaul",
+      "pt": "Rupaul"
+    }
+  },
+  "cnt-192": {
+    "id": "cnt-192",
+    "name": {
+      "en": "Kid Bengala",
+      "pt": "Kid Bengala"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-193": {
+    "id": "cnt-193",
+    "name": {
+      "en": "Leeloo Dallas Multipass",
+      "pt": "Leeloo Dallas Multipass"
+    }
+  },
+  "cnt-194": {
+    "id": "cnt-194",
+    "name": {
+      "en": "Globeleza",
+      "pt": "Globeleza"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-195": {
+    "id": "cnt-195",
+    "name": {
+      "en": "Harry Potter",
+      "pt": "Harry Potter"
+    }
   }
 }
