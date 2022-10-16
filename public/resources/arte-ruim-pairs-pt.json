@@ -226,5 +226,13 @@
   "ap-57-pt": {
     "id": "ap-57-pt",
     "values": ["Folha de maconha", "Folha do outono"]
+  },
+  "ap-58-pt": {
+    "id": "ap-58-pt",
+    "values": ["Dar uns catiripapos", "Levar uns catiripapos"]
+  },
+  "ap-59-pt": {
+    "id": "ap-59-pt",
+    "values": ["Cola bastão", "Desodorante roll-on"]
   }
 }

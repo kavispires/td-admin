@@ -230,40 +230,40 @@ export function Other() {
 
   // const result = parsePairs();
 
-  const cache = {};
-  const duplicated = {};
-  const uniqueSingleWords = () => {
-    const resArr = [];
+  // const cache = {};
+  // const duplicated = {};
+  // const uniqueSingleWords = () => {
+  //   const resArr = [];
 
-    Object.values(rawData).forEach((entry) => {
-      const raw = stringRemoveAccents(entry.text).toLowerCase();
+  //   Object.values(rawData).forEach((entry) => {
+  //     const raw = stringRemoveAccents(entry.text).toLowerCase();
 
-      if (raw.includes(' ')) {
-        console.warn('SPACE IN', raw);
-      }
+  //     if (raw.includes(' ')) {
+  //       console.warn('SPACE IN', raw);
+  //     }
 
-      if (cache[raw]) {
-        duplicated[raw] = true;
-      } else {
-        cache[raw] = true;
-        resArr.push(entry.text.toLowerCase());
-      }
-    });
+  //     if (cache[raw]) {
+  //       duplicated[raw] = true;
+  //     } else {
+  //       cache[raw] = true;
+  //       resArr.push(entry.text.toLowerCase());
+  //     }
+  //   });
 
-    const sortedArr = resArr.sort((a, b) => a.localeCompare(b));
+  //   const sortedArr = resArr.sort((a, b) => a.localeCompare(b));
 
-    return sortedArr.reduce((acc, entry, index) => {
-      const id = `sw-${index + 1}-pt`;
-      acc[id] = {
-        id,
-        text: entry,
-      };
+  //   return sortedArr.reduce((acc, entry, index) => {
+  //     const id = `sw-${index + 1}-pt`;
+  //     acc[id] = {
+  //       id,
+  //       text: entry,
+  //     };
 
-      return acc;
-    }, {});
-  };
-  const result = uniqueSingleWords();
-  console.log(duplicated);
+  //     return acc;
+  //   }, {});
+  // };
+  // const result = uniqueSingleWords();
+  // console.log(duplicated);
 
   // const parseContenders = () =>
   //   rawData.reduce((acc, entry, index) => {
@@ -298,6 +298,24 @@ export function Other() {
   //   }, {});
 
   // const result = parseChallenges();
+
+  const parseQuantitativeQuestions = () =>
+    rawData.reduce((acc, entry, index) => {
+      const id = `qq-${index + 1}-pt`;
+      const e = {
+        id,
+        question: entry.question,
+      };
+
+      if (entry.scale) {
+        e.scale = true;
+      }
+
+      acc[id] = e;
+      return acc;
+    }, {});
+
+  const result = parseQuantitativeQuestions();
 
   const jsonString = useMemo(() => JSON.stringify(result, null, 4), [result]);
 

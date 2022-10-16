@@ -4316,7 +4316,7 @@
   },
   "a-864-pt": {
     "id": "a-864-pt",
-    "text": "Hilda Furação",
+    "text": "Hilda Furacão",
     "level": 1
   },
   "a-865-pt": {
@@ -6123,5 +6123,75 @@
     "id": "a-1225-pt",
     "text": "Em cima do muro",
     "level": 1
+  },
+  "a-1226-pt": {
+    "id": "a-1226-pt",
+    "text": "Ficar de boa",
+    "level": 2
+  },
+  "a-1227-pt": {
+    "id": "a-1227-pt",
+    "text": "Sair à francesa",
+    "level": 2
+  },
+  "a-1228-pt": {
+    "id": "a-1228-pt",
+    "text": "Dinheiro não traz felicidade",
+    "level": 1
+  },
+  "a-1229-pt": {
+    "id": "a-1229-pt",
+    "text": "Oferenda",
+    "level": 2
+  },
+  "a-1230-pt": {
+    "id": "a-1230-pt",
+    "text": "Normas da ABNT",
+    "level": 3
+  },
+  "a-1231-pt": {
+    "id": "a-1231-pt",
+    "text": "A usurpadora",
+    "level": 2
+  },
+  "a-1232-pt": {
+    "id": "a-1232-pt",
+    "text": "Barbie facista",
+    "level": 3
+  },
+  "a-1233-pt": {
+    "id": "a-1233-pt",
+    "text": "Dar uns catiripapos",
+    "level": 2
+  },
+  "a-1234-pt": {
+    "id": "a-1234-pt",
+    "text": "Fazer safadeza",
+    "level": 3
+  },
+  "a-1235-pt": {
+    "id": "a-1235-pt",
+    "text": "Direitos humanos",
+    "level": 3
+  },
+  "a-1236-pt": {
+    "id": "a-1236-pt",
+    "text": "Estar careca de saber",
+    "level": 1
+  },
+  "a-1237-pt": {
+    "id": "a-1237-pt",
+    "text": "É dos carecas que elas gostam mais",
+    "level": 1
+  },
+  "a-1238-pt": {
+    "id": "a-1238-pt",
+    "text": "Tirar o atraso",
+    "level": 1
+  },
+  "a-1239-pt": {
+    "id": "a-1239-pt",
+    "text": "Futuro da nação",
+    "level": 2
   }
 }
