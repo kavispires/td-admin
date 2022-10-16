@@ -1,0 +1,224 @@
+{
+  "qq-1-en": {
+    "id": "qq-1-en",
+    "question": "How many days did your longest trip last?"
+  },
+  "qq-2-en": {
+    "id": "qq-2-en",
+    "question": "What's the maximum amount you would pay when ordering at a high-class restaurant?"
+  },
+  "qq-3-en": {
+    "id": "qq-3-en",
+    "question": "How many keys are on your keychain?"
+  },
+  "qq-4-en": {
+    "id": "qq-4-en",
+    "question": "How afraid of the dentist are you?",
+    "scale": true
+  },
+  "qq-5-en": {
+    "id": "qq-5-en",
+    "question": "How clumsy are you?",
+    "scale": true
+  },
+  "qq-6-en": {
+    "id": "qq-6-en",
+    "question": "How brave do you think you are?"
+  },
+  "qq-7-en": {
+    "id": "qq-7-en",
+    "question": "To what degree do you think things were better \"back in my day\"?",
+    "scale": true
+  },
+  "qq-8-en": {
+    "id": "qq-8-en",
+    "question": "What is your ideal number of vacation days per year?"
+  },
+  "qq-9-en": {
+    "id": "qq-9-en",
+    "question": "Ideally, how many kids would you like to have?"
+  },
+  "qq-10-en": {
+    "id": "qq-10-en",
+    "question": "How much do you enjoy abstract art?",
+    "scale": true
+  },
+  "qq-11-en": {
+    "id": "qq-11-en",
+    "question": "How much do you enjoy hugs?",
+    "scale": true
+  },
+  "qq-12-en": {
+    "id": "qq-12-en",
+    "question": "At what age did you move into your own place for the first time?"
+  },
+  "qq-13-en": {
+    "id": "qq-13-en",
+    "question": "How interested are you in joining a secret society?",
+    "scale": true
+  },
+  "qq-14-en": {
+    "id": "qq-14-en",
+    "question": "How much of a picky eater are you?",
+    "scale": true
+  },
+  "qq-15-en": {
+    "id": "qq-15-en",
+    "question": "What's the price of the most expensive object you've ever broken?"
+  },
+  "qq-16-en": {
+    "id": "qq-16-en",
+    "question": "How ambitious are you in your professional life?",
+    "scale": true
+  },
+  "qq-17-en": {
+    "id": "qq-17-en",
+    "question": "How many different homes have you lived in?"
+  },
+  "qq-18-en": {
+    "id": "qq-18-en",
+    "question": "How interested are you in living on the first Mars colony (5 years including travel)?",
+    "scale": true
+  },
+  "qq-19-en": {
+    "id": "qq-19-en",
+    "question": "How much do you enjoy hosting parties at home?",
+    "scale": true
+  },
+  "qq-20-en": {
+    "id": "qq-20-en",
+    "question": "How much do you enjoy working in a team?",
+    "scale": true
+  },
+  "qq-21-en": {
+    "id": "qq-21-en",
+    "question": "In general, how long do you take to shower?"
+  },
+  "qq-22-en": {
+    "id": "qq-22-en",
+    "question": "How many times per day do you go to the bathroom?"
+  },
+  "qq-23-en": {
+    "id": "qq-23-en",
+    "question": "How long have you lived in your current home?"
+  },
+  "qq-24-en": {
+    "id": "qq-24-en",
+    "question": "How much do you enjoy cooking?",
+    "scale": true
+  },
+  "qq-25-en": {
+    "id": "qq-25-en",
+    "question": "How many board games do you own?"
+  },
+  "qq-26-en": {
+    "id": "qq-26-en",
+    "question": "In general, what time do you wake up on weekends?"
+  },
+  "qq-27-en": {
+    "id": "qq-27-en",
+    "question": "How much do you enjoy the country you live in?",
+    "scale": true
+  },
+  "qq-28-en": {
+    "id": "qq-28-en",
+    "question": "How many pillows do you have on your bed?"
+  },
+  "qq-29-en": {
+    "id": "qq-29-en",
+    "question": "How many pairs of shoes do you own?"
+  },
+  "qq-30-en": {
+    "id": "qq-30-en",
+    "question": "What's the maximum amount you would pay to visit a theme park with living dinosaurs?"
+  },
+  "qq-31-en": {
+    "id": "qq-31-en",
+    "question": "How physically flexible are you?",
+    "scale": true
+  },
+  "qq-32-en": {
+    "id": "qq-32-en",
+    "question": "How seductive do you think you are?",
+    "scale": true
+  },
+  "qq-33-en": {
+    "id": "qq-33-en",
+    "question": "How many seconds do you think you can last without blinking?"
+  },
+  "qq-34-en": {
+    "id": "qq-34-en",
+    "question": "Of the people around the table, how many do you think you can beat in a 100-meter dash?"
+  },
+  "qq-35-en": {
+    "id": "qq-35-en",
+    "question": "In how many different languages can you say \"I love you\"?"
+  },
+  "qq-36-en": {
+    "id": "qq-36-en",
+    "question": "What is the maximum amount you would pay for a house concert by your favorite band?"
+  },
+  "qq-37-en": {
+    "id": "qq-37-en",
+    "question": "How much do you enjoy Disney movies?",
+    "scale": true
+  },
+  "qq-38-en": {
+    "id": "qq-38-en",
+    "question": "How satisfied are you with how your day has gone so far?",
+    "scale": true
+  },
+  "qq-39-en": {
+    "id": "qq-39-en",
+    "question": "How long does it take you to get to work or school?"
+  },
+  "qq-40-en": {
+    "id": "qq-40-en",
+    "question": "If you could time travel and spend a day in another year, which year would you choose?"
+  },
+  "qq-41-en": {
+    "id": "qq-41-en",
+    "question": "If you could choose, how tall would you like to be?"
+  },
+  "qq-42-en": {
+    "id": "qq-42-en",
+    "question": "How interested are you in leading your country?",
+    "scale": true
+  },
+  "qq-43-en": {
+    "id": "qq-43-en",
+    "question": "What is your ideal home size (not counting the backyard)?"
+  },
+  "qq-44-en": {
+    "id": "qq-44-en",
+    "question": "How much do you enjoy documentaries?",
+    "scale": true
+  },
+  "qq-45-en": {
+    "id": "qq-45-en",
+    "question": "How long has your longest friendship lasted?"
+  },
+  "qq-46-en": {
+    "id": "qq-46-en",
+    "question": "How much do you struggle throwing something away because \"it might be useful later\"?",
+    "scale": true
+  },
+  "qq-47-en": {
+    "id": "qq-47-en",
+    "question": "How active is your imagination?",
+    "scale": true
+  },
+  "qq-48-en": {
+    "id": "qq-48-en",
+    "question": "How old do you think you'll live to be?"
+  },
+  "qq-49-en": {
+    "id": "qq-49-en",
+    "question": "How much do you enjoy costume parties?",
+    "scale": true
+  },
+  "qq-50-en": {
+    "id": "qq-50-en",
+    "question": "How much money would you need to receive right now to feel financially comfortable?"
+  }
+}
