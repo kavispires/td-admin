@@ -5922,36 +5922,91 @@
   "a-1185-en": {
     "id": "a-1185-en",
     "text": "Apex predator",
-    "level": 0
+    "level": 2
   },
   "a-1186-en": {
     "id": "a-1186-en",
     "text": "Wire mob",
-    "level": 0
+    "level": 3
   },
   "a-1187-en": {
     "id": "a-1187-en",
     "text": "Graphic design is my passion",
-    "level": 0
+    "level": 3
   },
   "a-1188-en": {
     "id": "a-1188-en",
     "text": "Open to network",
-    "level": 0
+    "level": 2
   },
   "a-1189-en": {
     "id": "a-1189-en",
     "text": "Best regards",
-    "level": 0
+    "level": 3
   },
   "a-1190-en": {
     "id": "a-1190-en",
     "text": "Royal flush",
-    "level": 0
+    "level": 1
   },
   "a-1191-en": {
     "id": "a-1191-en",
     "text": "Cheater",
-    "level": 0
+    "level": 3
+  },
+  "a-1192-en": {
+    "id": "a-1192-en",
+    "text": "Prison wife",
+    "level": 1
+  },
+  "a-1193-en": {
+    "id": "a-1193-en",
+    "text": "Gentrification",
+    "level": 3
+  },
+  "a-1194-en": {
+    "id": "a-1194-en",
+    "text": "Africa by Toto",
+    "level": 3
+  },
+  "a-1195-en": {
+    "id": "a-1195-en",
+    "text": "Here goes nothing",
+    "level": 3
+  },
+  "a-1196-en": {
+    "id": "a-1196-en",
+    "text": "Ridiculously photogenic guy",
+    "level": 1
+  },
+  "a-1197-en": {
+    "id": "a-1197-en",
+    "text": "Snitches get stitches",
+    "level": 2
+  },
+  "a-1198-en": {
+    "id": "a-1198-en",
+    "text": "On the plus side",
+    "level": 1
+  },
+  "a-1199-en": {
+    "id": "a-1199-en",
+    "text": "Thirst trap",
+    "level": 2
+  },
+  "a-1200-en": {
+    "id": "a-1200-en",
+    "text": "Hold accountable",
+    "level": 3
+  },
+  "a-1201-en": {
+    "id": "a-1201-en",
+    "text": "Flash mob",
+    "level": 2
+  },
+  "a-1202-en": {
+    "id": "a-1202-en",
+    "text": "Gender reveal party",
+    "level": 1
   }
 }
