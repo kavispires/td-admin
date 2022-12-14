@@ -1,0 +1,227 @@
+{
+  "dc-1-en": {
+    "id": "dc-1-en",
+    "text": "I have 27 cats",
+    "type": "fun-fact"
+  },
+  "dc-2-en": {
+    "id": "dc-2-en",
+    "text": "I hate smiles and joy",
+    "type": "fun-fact"
+  },
+  "dc-3-en": {
+    "id": "dc-3-en",
+    "text": "I'm always late",
+    "type": "fun-fact"
+  },
+  "dc-4-en": {
+    "id": "dc-4-en",
+    "text": "I live in a hole in the ground",
+    "type": "fun-fact"
+  },
+  "dc-5-en": {
+    "id": "dc-5-en",
+    "text": "I think the world has too many trees",
+    "type": "fun-fact"
+  },
+  "dc-6-en": {
+    "id": "dc-6-en",
+    "text": "My hands are always sticky",
+    "type": "fun-fact"
+  },
+  "dc-7-en": {
+    "id": "dc-7-en",
+    "text": "I like pain",
+    "type": "fun-fact"
+  },
+  "dc-8-en": {
+    "id": "dc-8-en",
+    "text": "I am allergic to hair",
+    "type": "fun-fact"
+  },
+  "dc-9-en": {
+    "id": "dc-9-en",
+    "text": "I like birds",
+    "type": "fun-fact"
+  },
+  "dc-10-en": {
+    "id": "dc-10-en",
+    "text": "I'm really cold, all the time!",
+    "type": "fun-fact"
+  },
+  "dc-11-en": {
+    "id": "dc-11-en",
+    "text": "I'm not interested in anything sexual",
+    "type": "fun-fact"
+  },
+  "dc-12-en": {
+    "id": "dc-12-en",
+    "text": "I love doing crimes",
+    "type": "fun-fact"
+  },
+  "dc-13-en": {
+    "id": "dc-13-en",
+    "text": "I'm extremely superficial",
+    "type": "fun-fact"
+  },
+  "dc-14-en": {
+    "id": "dc-14-en",
+    "text": "I only date rich people",
+    "type": "fun-fact"
+  },
+  "dc-15-en": {
+    "id": "dc-15-en",
+    "text": "I am terrified of commitment",
+    "type": "fun-fact"
+  },
+  "dc-16-en": {
+    "id": "dc-16-en",
+    "text": "I love surprises",
+    "type": "fun-fact"
+  },
+  "dc-17-en": {
+    "id": "dc-17-en",
+    "text": "I only go out at night",
+    "type": "fun-fact"
+  },
+  "dc-18-en": {
+    "id": "dc-18-en",
+    "text": "I'm a superhero in need of a sidekick",
+    "type": "fun-fact"
+  },
+  "dc-19-en": {
+    "id": "dc-19-en",
+    "text": "I am incredibly dumb",
+    "type": "fun-fact"
+  },
+  "dc-20-en": {
+    "id": "dc-20-en",
+    "text": "I really believe in magic",
+    "type": "fun-fact"
+  },
+  "dc-21-en": {
+    "id": "dc-21-en",
+    "text": "Dead things",
+    "type": "interest"
+  },
+  "dc-22-en": {
+    "id": "dc-22-en",
+    "text": "Frugal lifestyles",
+    "type": "interest"
+  },
+  "dc-23-en": {
+    "id": "dc-23-en",
+    "text": "Finding a sugar daddy",
+    "type": "interest"
+  },
+  "dc-24-en": {
+    "id": "dc-24-en",
+    "text": "Getting stepped on",
+    "type": "interest"
+  },
+  "dc-25-en": {
+    "id": "dc-25-en",
+    "text": "Living in a zoo someday",
+    "type": "interest"
+  },
+  "dc-26-en": {
+    "id": "dc-26-en",
+    "text": "Surgically attaching myself to someone",
+    "type": "interest"
+  },
+  "dc-27-en": {
+    "id": "dc-27-en",
+    "text": "Guns",
+    "type": "interest"
+  },
+  "dc-28-en": {
+    "id": "dc-28-en",
+    "text": "Dating someone really old",
+    "type": "interest"
+  },
+  "dc-29-en": {
+    "id": "dc-29-en",
+    "text": "Dying in each other's arms",
+    "type": "interest"
+  },
+  "dc-30-en": {
+    "id": "dc-30-en",
+    "text": "Clingy types",
+    "type": "interest"
+  },
+  "dc-31-en": {
+    "id": "dc-31-en",
+    "text": "Getting a higher education",
+    "type": "interest"
+  },
+  "dc-32-en": {
+    "id": "dc-32-en",
+    "text": "Fighting publicly",
+    "type": "interest"
+  },
+  "dc-33-en": {
+    "id": "dc-33-en",
+    "text": "Speeding up global warming",
+    "type": "interest"
+  },
+  "dc-34-en": {
+    "id": "dc-34-en",
+    "text": "The smell of fire",
+    "type": "interest"
+  },
+  "dc-35-en": {
+    "id": "dc-35-en",
+    "text": "Healthy living",
+    "type": "interest"
+  },
+  "dc-36-en": {
+    "id": "dc-36-en",
+    "text": "will elevate my status in society",
+    "type": "need"
+  },
+  "dc-37-en": {
+    "id": "dc-37-en",
+    "text": "has a tragic backstory",
+    "type": "need"
+  },
+  "dc-38-en": {
+    "id": "dc-38-en",
+    "text": "can cure me for my many diseases",
+    "type": "need"
+  },
+  "dc-39-en": {
+    "id": "dc-39-en",
+    "text": "can help me survive the apocalypse",
+    "type": "need"
+  },
+  "dc-40-en": {
+    "id": "dc-40-en",
+    "text": "is good with kids",
+    "type": "need"
+  },
+  "dc-41-en": {
+    "id": "dc-41-en",
+    "text": "can defeat my enemies",
+    "type": "need"
+  },
+  "dc-42-en": {
+    "id": "dc-42-en",
+    "text": "lives dangerously",
+    "type": "need"
+  },
+  "dc-43-en": {
+    "id": "dc-43-en",
+    "text": "can help me evade the law",
+    "type": "need"
+  },
+  "dc-44-en": {
+    "id": "dc-44-en",
+    "text": "tastes delicious",
+    "type": "need"
+  },
+  "dc-45-en": {
+    "id": "dc-45-en",
+    "text": "makes me feel safe",
+    "type": "need"
+  }
+}

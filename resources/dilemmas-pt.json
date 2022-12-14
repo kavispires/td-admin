@@ -1,0 +1,498 @@
+{
+  "dlm-1-pt": {
+    "id": "dlm-1-pt",
+    "prompt": "No karaokê você canta",
+    "left": "Quase como Mariah Carey",
+    "right": "Tipo... muito ruim"
+  },
+  "dlm-2-pt": {
+    "id": "dlm-2-pt",
+    "prompt": "Pedir em casamento na frente de",
+    "left": "seus sogros",
+    "right": "Um estádio lotado no telão"
+  },
+  "dlm-3-pt": {
+    "id": "dlm-3-pt",
+    "prompt": "Presente de última hora",
+    "left": "Um presente de natal re-embrulhado",
+    "right": "Flores colhidas no parque"
+  },
+  "dlm-4-pt": {
+    "id": "dlm-4-pt",
+    "prompt": "Reusar",
+    "left": "Preservativo",
+    "right": "Papel higiênico",
+    "nsfw": true
+  },
+  "dlm-5-pt": {
+    "id": "dlm-5-pt",
+    "prompt": "Presidente",
+    "left": "Anitta",
+    "right": "Greta Thunberg"
+  },
+  "dlm-6-pt": {
+    "id": "dlm-6-pt",
+    "prompt": "Viva no mundo do",
+    "left": "Star Wars, como um Jedi",
+    "right": "X-men, como um mutante"
+  },
+  "dlm-7-pt": {
+    "id": "dlm-7-pt",
+    "prompt": "Fazer amizade",
+    "left": "Com um alienígena",
+    "right": "Com um robô"
+  },
+  "dlm-8-pt": {
+    "id": "dlm-8-pt",
+    "prompt": "Orgasmo incrível sempre",
+    "left": "Para voce",
+    "right": "Para seus parceiros",
+    "nsfw": true
+  },
+  "dlm-9-pt": {
+    "id": "dlm-9-pt",
+    "prompt": "Crise da meia-idade",
+    "left": "Você fica endividado por coisas desnecessárias",
+    "right": "Você deixa tudo para criar cabras em uma aldeia"
+  },
+  "dlm-10-pt": {
+    "id": "dlm-10-pt",
+    "prompt": "supercombo",
+    "left": "coca e cocaína",
+    "right": "ácido e melancia",
+    "nsfw": true
+  },
+  "dlm-11-pt": {
+    "id": "dlm-11-pt",
+    "prompt": "Dirija como",
+    "left": "Uma vovó em uma manhã de domingo",
+    "right": "Schumacher com pressa"
+  },
+  "dlm-12-pt": {
+    "id": "dlm-12-pt",
+    "prompt": "Casa ideal",
+    "left": "Uma sala de estar grande",
+    "right": "Cozinha grande"
+  },
+  "dlm-13-pt": {
+    "id": "dlm-13-pt",
+    "prompt": "Spa",
+    "left": "Em traje de banho",
+    "right": "Nu"
+  },
+  "dlm-14-pt": {
+    "id": "dlm-14-pt",
+    "prompt": "Receber banho",
+    "left": "do seu pai",
+    "right": "do papa"
+  },
+  "dlm-15-pt": {
+    "id": "dlm-15-pt",
+    "prompt": "O seu prato no final do almoço",
+    "left": "Limpinho e a barriga dói",
+    "right": "Deixa um pouquinho no canto"
+  },
+  "dlm-16-pt": {
+    "id": "dlm-16-pt",
+    "prompt": "Sua risada",
+    "left": "Tipo foca",
+    "right": "Tipo porco"
+  },
+  "dlm-17-pt": {
+    "id": "dlm-17-pt",
+    "prompt": "Sentado ao seu lado em um avião",
+    "left": "Um piadista",
+    "right": "Hannibal Lecter"
+  },
+  "dlm-18-pt": {
+    "id": "dlm-18-pt",
+    "prompt": "Aumente sua confiança",
+    "left": "2-3 doses",
+    "right": "Trilha sonora de Rocky"
+  },
+  "dlm-19-pt": {
+    "id": "dlm-19-pt",
+    "prompt": "Cirurgia plástica",
+    "left": "Tudo que der!",
+    "right": "Em cima do meu cadáver!"
+  },
+  "dlm-20-pt": {
+    "id": "dlm-20-pt",
+    "prompt": "Perder",
+    "left": "Todos os seus dentes",
+    "right": "Um dia da sua vida cada vez que você beija alguém"
+  },
+  "dlm-21-pt": {
+    "id": "dlm-21-pt",
+    "prompt": "Num avião",
+    "left": "Você dorme",
+    "right": "Você reza"
+  },
+  "dlm-22-pt": {
+    "id": "dlm-22-pt",
+    "prompt": "Dia depois de uma festa",
+    "left": "Pizza do dia anterior",
+    "right": "Só água"
+  },
+  "dlm-23-pt": {
+    "id": "dlm-23-pt",
+    "prompt": "Na frente de uma pessoa nua",
+    "left": "Você encara",
+    "right": "Você olha para o chão"
+  },
+  "dlm-24-pt": {
+    "id": "dlm-24-pt",
+    "prompt": "Desculpa perfeita",
+    "left": "Problema familiar",
+    "right": "Problema de saúde"
+  },
+  "dlm-25-pt": {
+    "id": "dlm-25-pt",
+    "prompt": "Escrava sexual de",
+    "left": "Pessoa à sua esquerda",
+    "right": "Pessoa à sua direita",
+    "nsfw": true
+  },
+  "dlm-26-pt": {
+    "id": "dlm-26-pt",
+    "prompt": "Lutar contra",
+    "left": "Um tigre",
+    "right": "Um tubarão"
+  },
+  "dlm-27-pt": {
+    "id": "dlm-27-pt",
+    "prompt": "Dirigir",
+    "left": "O Batmóvel",
+    "right": "O carro Caça-Fantasmas"
+  },
+  "dlm-28-pt": {
+    "id": "dlm-28-pt",
+    "prompt": "Atraído sexualmente por",
+    "left": "Maçanetas",
+    "right": "Aspiradores",
+    "nsfw": true
+  },
+  "dlm-29-pt": {
+    "id": "dlm-29-pt",
+    "prompt": "O jeito que você anda",
+    "left": "Vaqueiro",
+    "right": "Bailarina"
+  },
+  "dlm-30-pt": {
+    "id": "dlm-30-pt",
+    "prompt": "Ir no shopping fazer compras",
+    "left": "Com prazer!",
+    "right": "Não, obrigado..."
+  },
+  "dlm-31-pt": {
+    "id": "dlm-31-pt",
+    "prompt": "Pagar por",
+    "left": "Netflix",
+    "right": "Disney+"
+  },
+  "dlm-32-pt": {
+    "id": "dlm-32-pt",
+    "prompt": "Noite sozinho",
+    "left": "Quebra-cabeça 1000 peças",
+    "right": "Romance de 1000 páginas"
+  },
+  "dlm-33-pt": {
+    "id": "dlm-33-pt",
+    "prompt": "No supermercado",
+    "left": "Você pega 10 vezes mais do que precisa",
+    "right": "Você esquece metade da sua lista"
+  },
+  "dlm-34-pt": {
+    "id": "dlm-34-pt",
+    "prompt": "Duas pessoas brigando",
+    "left": "Você os filma",
+    "right": "Você os separa"
+  },
+  "dlm-35-pt": {
+    "id": "dlm-35-pt",
+    "prompt": "Espirrar enquanto está bêbado",
+    "left": "Você peida ao mesmo tempo",
+    "right": "Você vomita na boca",
+    "nsfw": true
+  },
+  "dlm-36-pt": {
+    "id": "dlm-36-pt",
+    "prompt": "Seu amigo está sendo traído",
+    "left": "Você conta",
+    "right": "Você mantém o segredo"
+  },
+  "dlm-37-pt": {
+    "id": "dlm-37-pt",
+    "prompt": "Masturbação",
+    "left": "3 vezes por ano",
+    "right": "3 vezes por dia",
+    "nsfw": true
+  },
+  "dlm-38-pt": {
+    "id": "dlm-38-pt",
+    "prompt": "Algemado para o resto da vida",
+    "left": "Numa escada",
+    "right": "Numa cabra"
+  },
+  "dlm-39-pt": {
+    "id": "dlm-39-pt",
+    "prompt": "Comer pudim",
+    "left": "Da bunda de uma celebridade da sua escolha",
+    "right": "Da boca de Gollum",
+    "nsfw": true
+  },
+  "dlm-40-pt": {
+    "id": "dlm-40-pt",
+    "prompt": "Seu futuro",
+    "left": "Morto em 10 anos",
+    "right": "Imortalidade"
+  },
+  "dlm-41-pt": {
+    "id": "dlm-41-pt",
+    "prompt": "Lamber um corpo lambuzado de",
+    "left": "Chocolate",
+    "right": "guacamole",
+    "nsfw": true
+  },
+  "dlm-42-pt": {
+    "id": "dlm-42-pt",
+    "prompt": "Campeão do Mundo de",
+    "left": "Pedra Papel Tesoura",
+    "right": "Leia a luz, luz verde"
+  },
+  "dlm-43-pt": {
+    "id": "dlm-43-pt",
+    "prompt": "Bater com um taco de beisebol",
+    "left": "Ninho de vespas",
+    "right": "Seu vizinho"
+  },
+  "dlm-44-pt": {
+    "id": "dlm-44-pt",
+    "prompt": "Rádio",
+    "left": "Sucessos clássicos",
+    "right": "Os 100 melhores"
+  },
+  "dlm-45-pt": {
+    "id": "dlm-45-pt",
+    "prompt": "Na rua",
+    "left": "Pisar em bosta de cachorro",
+    "right": "Pombo faz cocô em você"
+  },
+  "dlm-46-pt": {
+    "id": "dlm-46-pt",
+    "prompt": "Casa de férias",
+    "left": "Vaticano",
+    "right": "Versalhes"
+  },
+  "dlm-47-pt": {
+    "id": "dlm-47-pt",
+    "prompt": "Mobiliário",
+    "left": "IKEA",
+    "right": "antiguidades dos avós"
+  },
+  "dlm-48-pt": {
+    "id": "dlm-48-pt",
+    "prompt": "Conspiração",
+    "left": "Primeiros passos na Lua",
+    "right": "Assassinato de JFK"
+  },
+  "dlm-49-pt": {
+    "id": "dlm-49-pt",
+    "prompt": "Videogame",
+    "left": "Mario Kart",
+    "right": "Minecraft"
+  },
+  "dlm-50-pt": {
+    "id": "dlm-50-pt",
+    "prompt": "Beira Mar",
+    "left": "Praia lotada",
+    "right": "Praia deserta"
+  },
+  "dlm-51-pt": {
+    "id": "dlm-51-pt",
+    "prompt": "Dar uma cagada",
+    "left": "Com alguém na cabine do lado",
+    "right": "Ao falar ao telefone"
+  },
+  "dlm-52-pt": {
+    "id": "dlm-52-pt",
+    "prompt": "Grátis",
+    "left": "Camisinhas",
+    "right": "Cenouras"
+  },
+  "dlm-53-pt": {
+    "id": "dlm-53-pt",
+    "prompt": "Falar igual o",
+    "left": "Yoda",
+    "right": "Darth Vader"
+  },
+  "dlm-54-pt": {
+    "id": "dlm-54-pt",
+    "prompt": "O mais difícil de encontrar",
+    "left": "O ponto G",
+    "right": "Wally",
+    "nsfw": true
+  },
+  "dlm-55-pt": {
+    "id": "dlm-55-pt",
+    "prompt": "Computador",
+    "left": "Mac",
+    "right": "Windows"
+  },
+  "dlm-56-pt": {
+    "id": "dlm-56-pt",
+    "prompt": "No seu quarto",
+    "left": "Mosquito",
+    "right": "Bebê"
+  },
+  "dlm-57-pt": {
+    "id": "dlm-57-pt",
+    "prompt": "Melhor amigo",
+    "left": "Danny Devito",
+    "right": "Dwayne The Rock Johnson"
+  },
+  "dlm-58-pt": {
+    "id": "dlm-58-pt",
+    "prompt": "Vida amorosa",
+    "left": "Vida dupla muito complicada",
+    "right": "Abstinência"
+  },
+  "dlm-59-pt": {
+    "id": "dlm-59-pt",
+    "prompt": "Como estragar uma pizza",
+    "left": "Anchovas",
+    "right": "azeitonas"
+  },
+  "dlm-60-pt": {
+    "id": "dlm-60-pt",
+    "prompt": "No seu café",
+    "left": "Um pouco de leite",
+    "right": "Um pouco de Wiskey"
+  },
+  "dlm-61-pt": {
+    "id": "dlm-61-pt",
+    "prompt": "Traída",
+    "left": "Você os perdoa... 2 anos depois",
+    "right": "Você ateou fogo no apartamento dele(a)"
+  },
+  "dlm-62-pt": {
+    "id": "dlm-62-pt",
+    "prompt": "Desafio do Verdade ou Desafio",
+    "left": "Ficar com alguém",
+    "right": "Cheire uma pimenta malagueta"
+  },
+  "dlm-63-pt": {
+    "id": "dlm-63-pt",
+    "prompt": "Quando você leva uma multa",
+    "left": "$50 e esquecemos que aconteceu?",
+    "right": "Meus impostos pagam seu salário!"
+  },
+  "dlm-64-pt": {
+    "id": "dlm-64-pt",
+    "prompt": "Seu padrão de namoro",
+    "left": "Vamos levá-lo mês a mês",
+    "right": "Até que a morte nos separe"
+  },
+  "dlm-65-pt": {
+    "id": "dlm-65-pt",
+    "prompt": "Fetiche",
+    "left": "Pés",
+    "right": "Látex",
+    "nsfw": true
+  },
+  "dlm-66-pt": {
+    "id": "dlm-66-pt",
+    "prompt": "James Bond",
+    "left": "Sean Connery",
+    "right": "Daniel Craig"
+  },
+  "dlm-67-pt": {
+    "id": "dlm-67-pt",
+    "prompt": "Para conseguir uma promoção",
+    "left": "Muuuitas horas extras",
+    "right": "1 hora na cama com seu chefe",
+    "nsfw": true
+  },
+  "dlm-68-pt": {
+    "id": "dlm-68-pt",
+    "prompt": "Sua pele coberta de",
+    "left": "Pêlos",
+    "right": "Escamas"
+  },
+  "dlm-69-pt": {
+    "id": "dlm-69-pt",
+    "prompt": "Seu carro",
+    "left": "Optimus Prime",
+    "right": "Relâmpago Mcqueen"
+  },
+  "dlm-70-pt": {
+    "id": "dlm-70-pt",
+    "prompt": "Você na escola",
+    "left": "Hermione Granger",
+    "right": "Bart Simpson"
+  },
+  "dlm-71-pt": {
+    "id": "dlm-71-pt",
+    "prompt": "Vestindo roupas",
+    "left": "Limpo, mas úmido",
+    "right": "Seco, mas sujo"
+  },
+  "dlm-72-pt": {
+    "id": "dlm-72-pt",
+    "prompt": "Acordar todos os dias com o",
+    "left": "Hino Nacional Brasileiro",
+    "right": "Som repetitivo de um triângulo"
+  },
+  "dlm-73-pt": {
+    "id": "dlm-73-pt",
+    "prompt": "Tesão instantânea",
+    "left": "Aragorn",
+    "right": "Legolas",
+    "nsfw": true
+  },
+  "dlm-74-pt": {
+    "id": "dlm-74-pt",
+    "prompt": "Encontro",
+    "left": "Um policial para suas algemas",
+    "right": "Um jóquei para seu chicote",
+    "nsfw": true
+  },
+  "dlm-75-pt": {
+    "id": "dlm-75-pt",
+    "prompt": "Na TV",
+    "left": "Reprises de Grey's Anatomy",
+    "right": "Documentário sobre larvas de moscas"
+  },
+  "dlm-76-pt": {
+    "id": "dlm-76-pt",
+    "prompt": "Quando você está chapado",
+    "left": "Construir Legos",
+    "right": "Assistir Planeta Terra",
+    "nsfw": true
+  },
+  "dlm-77-pt": {
+    "id": "dlm-77-pt",
+    "prompt": "Andar descalço em",
+    "left": "Lego",
+    "right": "excremento de alce"
+  },
+  "dlm-78-pt": {
+    "id": "dlm-78-pt",
+    "prompt": "Encontrar no seu carro",
+    "left": "Uma camisinha usada",
+    "right": "Um esquilo morto",
+    "nsfw": true
+  },
+  "dlm-79-pt": {
+    "id": "dlm-79-pt",
+    "prompt": "Terminar namoro",
+    "left": "Não é você, sou eu",
+    "right": "As coisas estavam indo rápido demais"
+  },
+  "dlm-80-pt": {
+    "id": "dlm-80-pt",
+    "prompt": "Irritante na fila do caixa",
+    "left": "Caixa que conversa com todo mundo",
+    "right": "Velho que conta todas as suas moedas"
+  }
+}

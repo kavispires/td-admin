@@ -1,0 +1,861 @@
+{
+  "fq-1-pt": {
+    "id": "fq-1-pt",
+    "prompt": "Quantos dias durou sua viagem mais longa?"
+  },
+  "fq-2-pt": {
+    "id": "fq-2-pt",
+    "prompt": "Qual o valor máximo que você pagaria para jantar num restaurante chique?"
+  },
+  "fq-3-pt": {
+    "id": "fq-3-pt",
+    "prompt": "Quantas chaves estão no seu chaveiro?"
+  },
+  "fq-4-pt": {
+    "id": "fq-4-pt",
+    "prompt": "Você tem medo de dentista?",
+    "scale": true
+  },
+  "fq-5-pt": {
+    "id": "fq-5-pt",
+    "prompt": "Quão desastrado você é?",
+    "scale": true
+  },
+  "fq-6-pt": {
+    "id": "fq-6-pt",
+    "prompt": "Quão corajoso você acha que é?"
+  },
+  "fq-7-pt": {
+    "id": "fq-7-pt",
+    "prompt": "Até que ponto você acha que as coisas eram melhores \"na minha época\"?",
+    "scale": true
+  },
+  "fq-8-pt": {
+    "id": "fq-8-pt",
+    "prompt": "Qual é o seu número ideal de dias de férias por ano?"
+  },
+  "fq-9-pt": {
+    "id": "fq-9-pt",
+    "prompt": "Idealmente, quantos filhos você gostaria de ter?"
+  },
+  "fq-10-pt": {
+    "id": "fq-10-pt",
+    "prompt": "Quanto você gosta de arte abstrata?",
+    "scale": true
+  },
+  "fq-11-pt": {
+    "id": "fq-11-pt",
+    "prompt": "Quanto você gosta de abraços?",
+    "scale": true
+  },
+  "fq-12-pt": {
+    "id": "fq-12-pt",
+    "prompt": "Com que idade você se mudou da casa dos seus pais pela primeira vez?"
+  },
+  "fq-13-pt": {
+    "id": "fq-13-pt",
+    "prompt": "Quão interessado você está em se juntar a uma sociedade secreta?",
+    "scale": true
+  },
+  "fq-14-pt": {
+    "id": "fq-14-pt",
+    "prompt": "Quanto de um comedor exigente você é?",
+    "scale": true
+  },
+  "fq-15-pt": {
+    "id": "fq-15-pt",
+    "prompt": "Qual é o preço do objeto mais caro que você já quebrou?"
+  },
+  "fq-16-pt": {
+    "id": "fq-16-pt",
+    "prompt": "Quão ambicioso você é em sua vida profissional?",
+    "scale": true
+  },
+  "fq-17-pt": {
+    "id": "fq-17-pt",
+    "prompt": "Em quantas casas diferentes você já morou?"
+  },
+  "fq-18-pt": {
+    "id": "fq-18-pt",
+    "prompt": "Quão interessado você está em viver na primeira colônia de Marte (5 anos incluindo viagens)?",
+    "scale": true
+  },
+  "fq-19-pt": {
+    "id": "fq-19-pt",
+    "prompt": "Quanto você gosta de fazer festas em casa?",
+    "scale": true
+  },
+  "fq-20-pt": {
+    "id": "fq-20-pt",
+    "prompt": "Quanto você gosta de trabalhar em equipe?",
+    "scale": true
+  },
+  "fq-21-pt": {
+    "id": "fq-21-pt",
+    "prompt": "Em geral, quanto tempo você leva para tomar banho?"
+  },
+  "fq-22-pt": {
+    "id": "fq-22-pt",
+    "prompt": "Quantas vezes por dia você vai ao banheiro?"
+  },
+  "fq-23-pt": {
+    "id": "fq-23-pt",
+    "prompt": "Há quanto tempo você mora na sua casa atual?"
+  },
+  "fq-24-pt": {
+    "id": "fq-24-pt",
+    "prompt": "Quanto você gosta de cozinhar?",
+    "scale": true
+  },
+  "fq-25-pt": {
+    "id": "fq-25-pt",
+    "prompt": "Quantos jogos de tabuleiro você possui?"
+  },
+  "fq-26-pt": {
+    "id": "fq-26-pt",
+    "prompt": "Em geral, a que horas você acorda nos finais de semana?"
+  },
+  "fq-27-pt": {
+    "id": "fq-27-pt",
+    "prompt": "Quanto você gosta do país em que vive?",
+    "scale": true
+  },
+  "fq-28-pt": {
+    "id": "fq-28-pt",
+    "prompt": "Quantos travesseiros você tem na sua cama?"
+  },
+  "fq-29-pt": {
+    "id": "fq-29-pt",
+    "prompt": "Quantos pares de sapatos tens?"
+  },
+  "fq-30-pt": {
+    "id": "fq-30-pt",
+    "prompt": "Qual o valor máximo que você pagaria para visitar um parque temático com dinossauros vivos?"
+  },
+  "fq-31-pt": {
+    "id": "fq-31-pt",
+    "prompt": "Quão fisicamente flexível você é?",
+    "scale": true
+  },
+  "fq-32-pt": {
+    "id": "fq-32-pt",
+    "prompt": "Quão sedutor você pensa que é?",
+    "scale": true
+  },
+  "fq-33-pt": {
+    "id": "fq-33-pt",
+    "prompt": "Quantos segundos você acha que pode durar sem piscar?"
+  },
+  "fq-34-pt": {
+    "id": "fq-34-pt",
+    "prompt": "Das pessoas ao redor da mesa, quantas você acha que pode vencer em uma corrida de 100 metros?"
+  },
+  "fq-35-pt": {
+    "id": "fq-35-pt",
+    "prompt": "Em quantas línguas diferentes você pode dizer \"eu te amo\"?"
+  },
+  "fq-36-pt": {
+    "id": "fq-36-pt",
+    "prompt": "Qual é o valor máximo que você pagaria por um show em casa da sua banda favorita?"
+  },
+  "fq-37-pt": {
+    "id": "fq-37-pt",
+    "prompt": "Quanto você gosta de filmes da Disney?",
+    "scale": true
+  },
+  "fq-38-pt": {
+    "id": "fq-38-pt",
+    "prompt": "Quão satisfeito você está com a forma como o seu dia foi até agora?",
+    "scale": true
+  },
+  "fq-39-pt": {
+    "id": "fq-39-pt",
+    "prompt": "Quanto tempo você leva para chegar ao trabalho ou à escola?"
+  },
+  "fq-40-pt": {
+    "id": "fq-40-pt",
+    "prompt": "Se você pudesse viajar no tempo e passar um dia em outro ano, qual ano você escolheria?"
+  },
+  "fq-41-pt": {
+    "id": "fq-41-pt",
+    "prompt": "Se você pudesse escolher, qual a altura que gostaria de ter?"
+  },
+  "fq-42-pt": {
+    "id": "fq-42-pt",
+    "prompt": "Quão interessado você está em liderar seu país?",
+    "scale": true
+  },
+  "fq-43-pt": {
+    "id": "fq-43-pt",
+    "prompt": "Qual é o tamanho ideal da sua casa (sem contar o quintal)?"
+  },
+  "fq-44-pt": {
+    "id": "fq-44-pt",
+    "prompt": "Quanto você gosta de documentários?",
+    "scale": true
+  },
+  "fq-45-pt": {
+    "id": "fq-45-pt",
+    "prompt": "Quanto tempo durou sua amizade mais longa?"
+  },
+  "fq-46-pt": {
+    "id": "fq-46-pt",
+    "prompt": "Quanto você luta para jogar algo fora porque \"pode ​​ser útil mais tarde\"?",
+    "scale": true
+  },
+  "fq-47-pt": {
+    "id": "fq-47-pt",
+    "prompt": "Quão ativa é a sua imaginação?",
+    "scale": true
+  },
+  "fq-48-pt": {
+    "id": "fq-48-pt",
+    "prompt": "Quantos anos você acha que vai viver?"
+  },
+  "fq-49-pt": {
+    "id": "fq-49-pt",
+    "prompt": "Quanto você gosta de festas a fantasia?",
+    "scale": true
+  },
+  "fq-50-pt": {
+    "id": "fq-50-pt",
+    "prompt": "Quanto dinheiro você precisaria receber agora para se sentir financeiramente confortável?"
+  },
+  "fq-51-pt": {
+    "id": "fq-51-pt",
+    "prompt": "Quantos amigos você tem no Facebook?"
+  },
+  "fq-52-pt": {
+    "id": "fq-52-pt",
+    "prompt": "Quão assustado você tem de aranhas?",
+    "scale": true
+  },
+  "fq-53-pt": {
+    "id": "fq-53-pt",
+    "prompt": "Quantos cômodos há em sua casa?",
+    "scale": true
+  },
+  "fq-54-pt": {
+    "id": "fq-54-pt",
+    "prompt": "Em geral, quanto tempo você gasta em sua aparência pela manhã? (roupas, maquiagem, cabelo e barba)"
+  },
+  "fq-55-pt": {
+    "id": "fq-55-pt",
+    "prompt": "Quanto você gosta de estar na água",
+    "scale": true
+  },
+  "fq-56-pt": {
+    "id": "fq-56-pt",
+    "prompt": "Idealmente, quantos dias de neve haveria por ano?"
+  },
+  "fq-57-pt": {
+    "id": "fq-57-pt",
+    "prompt": "Em geral, com que antecedência você chega a algum lugar para uma reunião importante?"
+  },
+  "fq-58-pt": {
+    "id": "fq-58-pt",
+    "prompt": "Quanto você gosta de falar com estranhos",
+    "scale": true
+  },
+  "fq-59-pt": {
+    "id": "fq-59-pt",
+    "prompt": "Qual a importância das tradições para você?",
+    "scale": true
+  },
+  "fq-60-pt": {
+    "id": "fq-60-pt",
+    "prompt": "Quantas tatuagens você tem?"
+  },
+  "fq-61-pt": {
+    "id": "fq-61-pt",
+    "prompt": "Quanto tempo dura a sua noite de sono ideal?"
+  },
+  "fq-62-pt": {
+    "id": "fq-62-pt",
+    "prompt": "Por quanto tempo você consegue manter o equilíbrio enquanto está em apenas um pé?"
+  },
+  "fq-63-pt": {
+    "id": "fq-63-pt",
+    "prompt": "SE você ganhasse férias com tudo incluído em uma ilha particular, quanto tempo você gostaria de ficar lá?"
+  },
+  "fq-64-pt": {
+    "id": "fq-64-pt",
+    "prompt": "O quanto você gosta de outras pessoas?",
+    "scale": true
+  },
+  "fq-65-pt": {
+    "id": "fq-65-pt",
+    "prompt": "Quantos esportes diferentes, fora da escola, você praticou por pelo menos um ano?"
+  },
+  "fq-66-pt": {
+    "id": "fq-66-pt",
+    "prompt": "Quantos nomes e nomes do meio você tem?"
+  },
+  "fq-67-pt": {
+    "id": "fq-67-pt",
+    "prompt": "Em geral, quantas vezes por mês você come fast food?"
+  },
+  "fq-68-pt": {
+    "id": "fq-68-pt",
+    "prompt": "Com que facilidade você se ofende?",
+    "scale": true
+  },
+  "fq-69-pt": {
+    "id": "fq-69-pt",
+    "prompt": "O quanto você gosta de quadrinhos?",
+    "scale": true
+  },
+  "fq-70-pt": {
+    "id": "fq-70-pt",
+    "prompt": "Quanto você gosta de fazer compras?",
+    "scale": true
+  },
+  "fq-71-pt": {
+    "id": "fq-71-pt",
+    "prompt": "Em geral, quantos filmes você assiste por semana?"
+  },
+  "fq-72-pt": {
+    "id": "fq-72-pt",
+    "prompt": "Em geral, quantas vezes por mês você vai a restaurantes sentados (sem pedidos para viagem ou fast food)?"
+  },
+  "fq-73-pt": {
+    "id": "fq-73-pt",
+    "prompt": "Em geral, quantas vezes por mês você se exercita?"
+  },
+  "fq-74-pt": {
+    "id": "fq-74-pt",
+    "prompt": "Quanto você gostaria de estudar em Hogwarts?",
+    "scale": true
+  },
+  "fq-75-pt": {
+    "id": "fq-75-pt",
+    "prompt": "Quantos anos você tinha quando começou seu primeiro emprego?"
+  },
+  "fq-76-pt": {
+    "id": "fq-76-pt",
+    "prompt": "Quantos anos você tinha em sua memória mais antiga?"
+  },
+  "fq-77-pt": {
+    "id": "fq-77-pt",
+    "prompt": "Em geral, quantas vezes por semana você vai ao supermercado?"
+  },
+  "fq-78-pt": {
+    "id": "fq-78-pt",
+    "prompt": "Quão mal-humorado você fica quando está com fome?",
+    "scale": true
+  },
+  "fq-79-pt": {
+    "id": "fq-79-pt",
+    "prompt": "Das pessoas ao redor da mesa, quantas você acha que poderiam vencer no Scrabble?"
+  },
+  "fq-80-pt": {
+    "id": "fq-80-pt",
+    "prompt": "Em média, a que horas você acorda nos finais de semana?"
+  },
+  "fq-81-pt": {
+    "id": "fq-81-pt",
+    "prompt": "Quanto você gosta de encontros familiares?",
+    "scale": true
+  },
+  "fq-82-pt": {
+    "id": "fq-82-pt",
+    "prompt": "Por quantos segundos você acha que consegue prender a respiração?"
+  },
+  "fq-83-pt": {
+    "id": "fq-83-pt",
+    "prompt": "Até que ponto você se descreveria como um mau perdedor?",
+    "scale": true
+  },
+  "fq-84-pt": {
+    "id": "fq-84-pt",
+    "prompt": "Em geral, quantas vezes por ano você vai ao cinema?"
+  },
+  "fq-85-pt": {
+    "id": "fq-85-pt",
+    "prompt": "Quão mal-humorado você fica quando não dorme o suficiente?",
+    "scale": true
+  },
+  "fq-86-pt": {
+    "id": "fq-86-pt",
+    "prompt": "Quanto você gosta de fazer listas?",
+    "scale": true
+  },
+  "fq-87-pt": {
+    "id": "fq-87-pt",
+    "prompt": "Quantos primos você tem?"
+  },
+  "fq-88-pt": {
+    "id": "fq-88-pt",
+    "prompt": "Quão criativo você é?",
+    "scale": true
+  },
+  "fq-89-pt": {
+    "id": "fq-89-pt",
+    "prompt": "Quantas vezes por ano você visitaria a Disneylândia se toda a sua viagem (incluindo ingressos e viagens) fosse gratuita?"
+  },
+  "fq-90-pt": {
+    "id": "fq-90-pt",
+    "prompt": "O quanto você concorda com a frase \"dinheiro pode comprar felicidade\"",
+    "scale": true
+  },
+  "fq-91-pt": {
+    "id": "fq-91-pt",
+    "prompt": "Qual a probabilidade de você seguir as regras, em geral?",
+    "scale": true
+  },
+  "fq-92-pt": {
+    "id": "fq-92-pt",
+    "prompt": "Quantas xícaras de café e/ou chá você bebeu até hoje?"
+  },
+  "fq-93-pt": {
+    "id": "fq-93-pt",
+    "prompt": "Quão grande de um amante dos animais você é?",
+    "scale": true
+  },
+  "fq-94-pt": {
+    "id": "fq-94-pt",
+    "prompt": "Quantos chapéus, bonés ou gorros você possui?"
+  },
+  "fq-95-pt": {
+    "id": "fq-95-pt",
+    "prompt": "Quantos M&M's você acha que cabe na boca ao mesmo tempo?"
+  },
+  "fq-96-pt": {
+    "id": "fq-96-pt",
+    "prompt": "Você é bom em cozinhar sem uma receita?",
+    "scale": true
+  },
+  "fq-97-pt": {
+    "id": "fq-97-pt",
+    "prompt": "Quantos anos de sua vida você abriria mão para se tornar um bilionário instantaneamente?"
+  },
+  "fq-98-pt": {
+    "id": "fq-98-pt",
+    "prompt": "Das pessoas na mesa, quantas você acha que poderia vencer na queda de braço?"
+  },
+  "fq-99-pt": {
+    "id": "fq-99-pt",
+    "prompt": "Em geral, a que horas você vai para a cama durante a semana?"
+  },
+  "fq-100-pt": {
+    "id": "fq-100-pt",
+    "prompt": "Quanto tempo durou o seu relacionamento romântico mais longo?"
+  },
+  "fq-101-pt": {
+    "id": "fq-101-pt",
+    "prompt": "Quanto você gosta de comemorar seu aniversário?",
+    "scale": true
+  },
+  "fq-102-pt": {
+    "id": "fq-102-pt",
+    "prompt": "O quanto você tem medo do escuro?",
+    "scale": true
+  },
+  "fq-103-pt": {
+    "id": "fq-103-pt",
+    "prompt": "Quão bem vestido você acha que está hoje?",
+    "scale": true
+  },
+  "fq-104-pt": {
+    "id": "fq-104-pt",
+    "prompt": "Quanto você gosta de filmes de terror?"
+  },
+  "fq-105-pt": {
+    "id": "fq-105-pt",
+    "prompt": "Quão preguiçoso você é?"
+  },
+  "fq-106-pt": {
+    "id": "fq-106-pt",
+    "prompt": "Quantas vezes na sua vida você trocou um pneu? (bicicleta, moto ou carro)"
+  },
+  "fq-107-pt": {
+    "id": "fq-107-pt",
+    "prompt": "Quantos anos de sua vida você abriria mão para ter acesso ilimitado ao teletransporte?"
+  },
+  "fq-108-pt": {
+    "id": "fq-108-pt",
+    "prompt": "Quanto você gosta de ler enquanto está no banheiro?",
+    "scale": true
+  },
+  "fq-109-pt": {
+    "id": "fq-109-pt",
+    "prompt": "O quanto você tem medo de altura?",
+    "scale": true
+  },
+  "fq-110-pt": {
+    "id": "fq-110-pt",
+    "prompt": "Se você pudesse escolher ficar em uma idade para o resto de sua vida, que idade seria?"
+  },
+  "fq-111-pt": {
+    "id": "fq-111-pt",
+    "prompt": "Quão confortável você se sente com pessoas idosas?",
+    "scale": true
+  },
+  "fq-112-pt": {
+    "id": "fq-112-pt",
+    "prompt": "Quão confortável você está com nudez, em geral?",
+    "scale": true
+  },
+  "fq-113-pt": {
+    "id": "fq-113-pt",
+    "prompt": "Quantas flexões você acha que consegue fazer seguidas?"
+  },
+  "fq-114-pt": {
+    "id": "fq-114-pt",
+    "prompt": "Quantos museus você visitou nos últimos 12 meses?"
+  },
+  "fq-115-pt": {
+    "id": "fq-115-pt",
+    "prompt": "Qual ano da história você acha mais fascinante?"
+  },
+  "fq-116-pt": {
+    "id": "fq-116-pt",
+    "prompt": "Quão supersticioso você é?",
+    "scale": true
+  },
+  "fq-117-pt": {
+    "id": "fq-117-pt",
+    "prompt": "Qual é o seu tamanho de sapato?"
+  },
+  "fq-118-pt": {
+    "id": "fq-118-pt",
+    "prompt": "Quão interessado você está em estrelar um reality show?",
+    "scale": true
+  },
+  "fq-119-pt": {
+    "id": "fq-119-pt",
+    "prompt": "Quantos anos você tem por dentro?"
+  },
+  "fq-120-pt": {
+    "id": "fq-120-pt",
+    "prompt": "O quanto você gosta de jogar videogame?",
+    "scale": true
+  },
+  "fq-121-pt": {
+    "id": "fq-121-pt",
+    "prompt": "O quanto você gosta do seu primeiro nome?",
+    "scale": true
+  },
+  "fq-122-pt": {
+    "id": "fq-122-pt",
+    "prompt": "Quantas vezes você esquiou ou praticou snowboard?"
+  },
+  "fq-123-pt": {
+    "id": "fq-123-pt",
+    "prompt": "Quão interessado você está em conhecer o Papa?",
+    "scale": true
+  },
+  "fq-124-pt": {
+    "id": "fq-124-pt",
+    "prompt": "O quanto você gosta de ir a shows?",
+    "scale": true
+  },
+  "fq-125-pt": {
+    "id": "fq-125-pt",
+    "prompt": "Quanto você gosta de novas tecnologias?",
+    "scale": true
+  },
+  "fq-126-pt": {
+    "id": "fq-126-pt",
+    "prompt": "Quão interessado você está em ter um retrato seu em um museu?",
+    "scale": true
+  },
+  "fq-127-pt": {
+    "id": "fq-127-pt",
+    "prompt": "Quanto você gosta de se exercitar?",
+    "scale": true
+  },
+  "fq-128-pt": {
+    "id": "fq-128-pt",
+    "prompt": "Se você ganhasse uma viagem à Lua, quanto tempo você gostaria que ela durasse?"
+  },
+  "fq-129-pt": {
+    "id": "fq-129-pt",
+    "prompt": "Quão interessado você está em ser uma celebridade?",
+    "scale": true
+  },
+  "fq-130-pt": {
+    "id": "fq-130-pt",
+    "prompt": "Quantos aplicativos você instalou no seu celular?"
+  },
+  "fq-131-pt": {
+    "id": "fq-131-pt",
+    "prompt": "O quanto você se importa com o que os outros pensam de você?",
+    "scale": true
+  },
+  "fq-132-pt": {
+    "id": "fq-132-pt",
+    "prompt": "Em geral, quantos livros você lê em um ano?"
+  },
+  "fq-133-pt": {
+    "id": "fq-133-pt",
+    "prompt": "Quão bem você serviria a um apocalipse zumbi?",
+    "scale": true
+  },
+  "fq-134-pt": {
+    "id": "fq-134-pt",
+    "prompt": "Qual a importância da família para você?",
+    "scale": true
+  },
+  "fq-135-pt": {
+    "id": "fq-135-pt",
+    "prompt": "Quanto você gosta de musicais?",
+    "scale": true
+  },
+  "fq-136-pt": {
+    "id": "fq-136-pt",
+    "prompt": "Quão interessado você está em fazer bungee jumping?",
+    "scale": true
+  },
+  "fq-137-pt": {
+    "id": "fq-137-pt",
+    "prompt": "Quanto tempo dura a soneca perfeita?"
+  },
+  "fq-138-pt": {
+    "id": "fq-138-pt",
+    "prompt": "Quão saudáveis são seus hábitos alimentares regulares?",
+    "scale": true
+  },
+  "fq-139-pt": {
+    "id": "fq-139-pt",
+    "prompt": "Quantos anos de sua vida você abriria mão para poder tocar o instrumento musical de sua escolha de forma imediata e perfeita?"
+  },
+  "fq-140-pt": {
+    "id": "fq-140-pt",
+    "prompt": "Em geral, quantas vezes por ano você vai ao cabeleireiro?"
+  },
+  "fq-141-pt": {
+    "id": "fq-141-pt",
+    "prompt": "Quanto tempo seria o seu cruzeiro ideal sem escalas no Mediterrâneo?"
+  },
+  "fq-142-pt": {
+    "id": "fq-142-pt",
+    "prompt": "Até que ponto você deve sempre ter a última palavra?",
+    "scale": true
+  },
+  "fq-143-pt": {
+    "id": "fq-143-pt",
+    "prompt": "Quanto você gosta de karaokê?",
+    "scale": true
+  },
+  "fq-144-pt": {
+    "id": "fq-144-pt",
+    "prompt": "Em geral, quanto dinheiro você carrega com você?"
+  },
+  "fq-145-pt": {
+    "id": "fq-145-pt",
+    "prompt": "Quantos relacionamentos românticos você teve duraram mais de um ano?"
+  },
+  "fq-146-pt": {
+    "id": "fq-146-pt",
+    "prompt": "Quanto você se sente como um \"adulto\"?",
+    "scale": true
+  },
+  "fq-147-pt": {
+    "id": "fq-147-pt",
+    "prompt": "Em geral, quantas vezes por semana você cozinha?"
+  },
+  "fq-148-pt": {
+    "id": "fq-148-pt",
+    "prompt": "Quanto você gosta de contar piadas?",
+    "scale": true
+  },
+  "fq-149-pt": {
+    "id": "fq-149-pt",
+    "prompt": "Quão confortável você está falando ao telefone?",
+    "scale": true
+  },
+  "fq-150-pt": {
+    "id": "fq-150-pt",
+    "prompt": "Em geral, quanto tempo você espera por um amigo que está atrasado antes de ligar ou enviar uma mensagem de texto?"
+  },
+  "fq-151-pt": {
+    "id": "fq-151-pt",
+    "prompt": "Qual década do século 20 tem seu tipo de música preferido?"
+  },
+  "fq-152-pt": {
+    "id": "fq-152-pt",
+    "prompt": "Quantas garrafas de licor forte você possui atualmente?",
+    "scale": true
+  },
+  "fq-153-pt": {
+    "id": "fq-153-pt",
+    "prompt": "Qual a importância da comida para você?",
+    "scale": true
+  },
+  "fq-154-pt": {
+    "id": "fq-154-pt",
+    "prompt": "Em geral, quanto tempo depois do seu primeiro alarme matinal você finalmente sai da cama?"
+  },
+  "fq-155-pt": {
+    "id": "fq-155-pt",
+    "prompt": "Quanto você gosta de jardinagem?",
+    "scale": true
+  },
+  "fq-156-pt": {
+    "id": "fq-156-pt",
+    "prompt": "Quão confortável você está em falar em público",
+    "scale": true
+  },
+  "fq-157-pt": {
+    "id": "fq-157-pt",
+    "prompt": "Em um restaurante, qual é o tempo máximo que você espera por uma mesa?"
+  },
+  "fq-158-pt": {
+    "id": "fq-158-pt",
+    "prompt": "Quanto você gosta do seu penteado?",
+    "scale": true
+  },
+  "fq-159-pt": {
+    "id": "fq-159-pt",
+    "prompt": "Em quantos continentes você já pisou? (África, Antártida, Ásia, Europa, América do Norte, Oceania, América do Sul)"
+  },
+  "fq-160-pt": {
+    "id": "fq-160-pt",
+    "prompt": "Quão longe você acha que pode jogar seu sapato?"
+  },
+  "fq-161-pt": {
+    "id": "fq-161-pt",
+    "prompt": "Quão confortável você está com as crianças?",
+    "scale": true
+  },
+  "fq-162-pt": {
+    "id": "fq-162-pt",
+    "prompt": "Se não houvesse restrições ou limitações, quantos animais de estimação você teria?"
+  },
+  "fq-163-pt": {
+    "id": "fq-163-pt",
+    "prompt": "Em quantos idiomas você pode usar palavrões?"
+  },
+  "fq-164-pt": {
+    "id": "fq-164-pt",
+    "prompt": "Com que intensidade você diz \"Awwwww\" quando vê um gatinho?",
+    "scale": true
+  },
+  "fq-165-pt": {
+    "id": "fq-165-pt",
+    "prompt": "Quantos tipos diferentes de coleções você tem?"
+  },
+  "fq-166-pt": {
+    "id": "fq-166-pt",
+    "prompt": "Quão aberto você está para novas experiências?",
+    "scale": true
+  },
+  "fq-167-pt": {
+    "id": "fq-167-pt",
+    "prompt": "Com que cuidado você separa o lixo para reciclagem?",
+    "scale": true
+  },
+  "fq-168-pt": {
+    "id": "fq-168-pt",
+    "prompt": "Quão interessado você está em atuar em filmes de Hollywood?",
+    "scale": true
+  },
+  "fq-169-pt": {
+    "id": "fq-169-pt",
+    "prompt": "Quão feminista você é?",
+    "scale": true
+  },
+  "fq-170-pt": {
+    "id": "fq-170-pt",
+    "prompt": "Há quanto tempo você pratica seu hobby favorito?"
+  },
+  "fq-171-pt": {
+    "id": "fq-171-pt",
+    "prompt": "Quão tímido você é?",
+    "scale": true
+  },
+  "fq-172-pt": {
+    "id": "fq-172-pt",
+    "prompt": "Quanto você precisaria ser pago para passar um ano trabalhando em uma estação de pesquisa na Antártida?"
+  },
+  "fq-173-pt": {
+    "id": "fq-173-pt",
+    "prompt": "Quão boa é a sua memória?",
+    "scale": true
+  },
+  "fq-174-pt": {
+    "id": "fq-174-pt",
+    "prompt": "Durante uma viagem de um dia à costa, qual é o momento ideal para passar na praia?"
+  },
+  "fq-175-pt": {
+    "id": "fq-175-pt",
+    "prompt": "Quantas vezes você acha que pode repetir \"ela vê queijo\" sem errar?"
+  },
+  "fq-176-pt": {
+    "id": "fq-176-pt",
+    "prompt": "Qual foi o maior período de dias que você passou dormindo em uma barraca?"
+  },
+  "fq-177-pt": {
+    "id": "fq-177-pt",
+    "prompt": "Quão interessado você está em saltar de paraquedas?",
+    "scale": true
+  },
+  "fq-178-pt": {
+    "id": "fq-178-pt",
+    "prompt": "Quantos vasos de plantas você tem em sua casa?"
+  },
+  "fq-179-pt": {
+    "id": "fq-179-pt",
+    "prompt": "Quantos frascos diferentes de perfume você possui?"
+  },
+  "fq-180-pt": {
+    "id": "fq-180-pt",
+    "prompt": "Quão interessado você está em se tornar um espião?",
+    "scale": true
+  },
+  "fq-181-pt": {
+    "id": "fq-181-pt",
+    "prompt": "Quantos anos de sua vida você abriria mão para poder falar todas as línguas do mundo?"
+  },
+  "fq-182-pt": {
+    "id": "fq-182-pt",
+    "prompt": "Em geral, quantas refeições você faz por semana que incluem carne?"
+  },
+  "fq-183-pt": {
+    "id": "fq-183-pt",
+    "prompt": "Quantas vezes você viu \"Titanic\"?"
+  },
+  "fq-184-pt": {
+    "id": "fq-184-pt",
+    "prompt": "Quanto de uma pessoa \"faça as coisas no último minuto\" você é?",
+    "scale": true
+  },
+  "fq-185-pt": {
+    "id": "fq-185-pt",
+    "prompt": "O quanto você gosta de dançar",
+    "scale": true
+  },
+  "fq-186-pt": {
+    "id": "fq-186-pt",
+    "prompt": "Se você recebesse $ 50.000 em dinheiro agora, quanto tempo levaria para gastar tudo?"
+  },
+  "fq-187-pt": {
+    "id": "fq-187-pt",
+    "prompt": "Quanto você gosta de consertar as coisas sozinho?",
+    "scale": true
+  },
+  "fq-188-pt": {
+    "id": "fq-188-pt",
+    "prompt": "Qual é o valor máximo que você pagaria para fazer uma viagem de uma semana ao espaço?"
+  },
+  "fq-189-pt": {
+    "id": "fq-189-pt",
+    "prompt": "Até que ponto você é alguém que se apressa nas coisas?",
+    "scale": true
+  },
+  "fq-190-pt": {
+    "id": "fq-190-pt",
+    "prompt": "O quanto você está disposto a compartilhar sua comida?",
+    "scale": true
+  },
+  "fq-191-pt": {
+    "id": "fq-191-pt",
+    "prompt": "Em geral, quantas bebidas alcoólicas você toma por semana? (vinho, cerveja, coquetéis, licores, etc.)"
+  },
+  "fq-192-pt": {
+    "id": "fq-192-pt",
+    "prompt": "Quanto seu humor é afetado pelo clima?",
+    "scale": true
+  }
+}
