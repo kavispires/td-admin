@@ -1,6 +1,6 @@
 {
   "name": "tdr",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "homepage": "http://www.kavispires.com/tdr/",
   "private": true,
   "dependencies": {
