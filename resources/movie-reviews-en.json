@@ -1,0 +1,32 @@
+{
+  "mr-1-en": {
+    "id": "mr-1-en",
+    "text": "I had no idea Japanese horror movies were so scary",
+    "type": "good"
+  },
+  "mr-2-en": {
+    "id": "mr-2-en",
+    "text": "Toooo maaaanyyy sloooow-mooootion sceeeeenes",
+    "type": "bad"
+  },
+  "mr-3-en": {
+    "id": "mr-3-en",
+    "text": "This goes straight to the podium with the best sports movies.",
+    "type": "good"
+  },
+  "mr-4-en": {
+    "id": "mr-4-en",
+    "text": "Of all the films to have zombies in, why THIS ONE?",
+    "type": "bad"
+  },
+  "mr-5-en": {
+    "id": "mr-5-en",
+    "text": "Pure adrenaline from start to finish!",
+    "type": "good"
+  },
+  "mr-6-en": {
+    "id": "mr-6-en",
+    "text": "The scene with two actual twin actors is the only decent part of the movie.",
+    "type": "bad"
+  }
+}
