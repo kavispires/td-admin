@@ -31,12 +31,12 @@
   },
   "dc-7-pt": {
     "id": "dc-7-pt",
-    "text": "eu gosto de dor",
+    "text": "Eu gosto de dor",
     "type": "fun-fact"
   },
   "dc-8-pt": {
     "id": "dc-8-pt",
-    "text": "sou alérgico a cabelo",
+    "text": "Sou alérgico a cabelo",
     "type": "fun-fact"
   },
   "dc-9-pt": {
@@ -56,12 +56,12 @@
   },
   "dc-12-pt": {
     "id": "dc-12-pt",
-    "text": "eu amo fazer crimes",
+    "text": "Eu amo fazer crimes",
     "type": "fun-fact"
   },
   "dc-13-pt": {
     "id": "dc-13-pt",
-    "text": "sou extremamente superficial",
+    "text": "Sou extremamente superficial",
     "type": "fun-fact"
   },
   "dc-14-pt": {
@@ -71,17 +71,17 @@
   },
   "dc-15-pt": {
     "id": "dc-15-pt",
-    "text": "tenho pavor de compromisso",
+    "text": "Tenho pavor de compromisso",
     "type": "fun-fact"
   },
   "dc-16-pt": {
     "id": "dc-16-pt",
-    "text": "eu amo surpresas",
+    "text": "Eu amo surpresas",
     "type": "fun-fact"
   },
   "dc-17-pt": {
     "id": "dc-17-pt",
-    "text": "Só saio a noite",
+    "text": "Só saio à noite",
     "type": "fun-fact"
   },
   "dc-18-pt": {
@@ -106,7 +106,7 @@
   },
   "dc-22-pt": {
     "id": "dc-22-pt",
-    "text": "Estilo de vida frugal",
+    "text": "Alguém mão de vaca como eu",
     "type": "interest"
   },
   "dc-23-pt": {
@@ -146,22 +146,22 @@
   },
   "dc-30-pt": {
     "id": "dc-30-pt",
-    "text": "Gente pegajosa",
+    "text": "Alguém grudento",
     "type": "interest"
   },
   "dc-31-pt": {
     "id": "dc-31-pt",
-    "text": "Obtendo um ensino superior",
+    "text": "Obter um ensino superior",
     "type": "interest"
   },
   "dc-32-pt": {
     "id": "dc-32-pt",
-    "text": "Lutando publicamente",
+    "text": "Brigar em público",
     "type": "interest"
   },
   "dc-33-pt": {
     "id": "dc-33-pt",
-    "text": "Acelerando o aquecimento global",
+    "text": "Acelerar o aquecimento global",
     "type": "interest"
   },
   "dc-34-pt": {
@@ -176,52 +176,52 @@
   },
   "dc-36-pt": {
     "id": "dc-36-pt",
-    "text": "vai elevar meu status na sociedade",
+    "text": "Vai elevar meu status na sociedade",
     "type": "need"
   },
   "dc-37-pt": {
     "id": "dc-37-pt",
-    "text": "tem uma história trágica",
+    "text": "Tenha uma história trágica",
     "type": "need"
   },
   "dc-38-pt": {
     "id": "dc-38-pt",
-    "text": "pode me curar de minhas muitas doenças",
+    "text": "Possa me curar de minhas muitas doenças",
     "type": "need"
   },
   "dc-39-pt": {
     "id": "dc-39-pt",
-    "text": "pode me ajudar a sobreviver ao apocalipse",
+    "text": "Possa me ajudar a sobreviver ao apocalipse",
     "type": "need"
   },
   "dc-40-pt": {
     "id": "dc-40-pt",
-    "text": "é bom com crianças",
+    "text": "Seja bom com crianças",
     "type": "need"
   },
   "dc-41-pt": {
     "id": "dc-41-pt",
-    "text": "pode derrotar meus inimigos",
+    "text": "Possa derrotar meus inimigos",
     "type": "need"
   },
   "dc-42-pt": {
     "id": "dc-42-pt",
-    "text": "vive perigosamente",
+    "text": "Viva perigosamente",
     "type": "need"
   },
   "dc-43-pt": {
     "id": "dc-43-pt",
-    "text": "pode me ajudar a fugir da lei",
+    "text": "Possa me ajudar a fugir da lei",
     "type": "need"
   },
   "dc-44-pt": {
     "id": "dc-44-pt",
-    "text": "tem um gosto delicioso",
+    "text": "Tenha um gosto delicioso",
     "type": "need"
   },
   "dc-45-pt": {
     "id": "dc-45-pt",
-    "text": "me faz sentir seguro",
+    "text": "Me faça sentir seguro",
     "type": "need"
   }
 }
