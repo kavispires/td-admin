@@ -1,0 +1,32 @@
+{
+  "mr-1-pt": {
+    "id": "mr-1-pt",
+    "text": "Não fazia ideia que os filmes de terror japoneses eram tão assustadores",
+    "type": "good"
+  },
+  "mr-2-pt": {
+    "id": "mr-2-pt",
+    "text": "Muuuuuitas ceeeennnas em câaaamera lenta",
+    "type": "bad"
+  },
+  "mr-3-pt": {
+    "id": "mr-3-pt",
+    "text": "Isso vai direto ao pódio com os melhores filmes esportivos.",
+    "type": "good"
+  },
+  "mr-4-pt": {
+    "id": "mr-4-pt",
+    "text": "De todos os filmes com zumbis, por que ESSE?",
+    "type": "bad"
+  },
+  "mr-5-pt": {
+    "id": "mr-5-pt",
+    "text": "Pura adrenalina do início ao fim!",
+    "type": "good"
+  },
+  "mr-6-pt": {
+    "id": "mr-6-pt",
+    "text": "A cena com dois atores gêmeos reais é a única parte decente do filme.",
+    "type": "bad"
+  }
+}
