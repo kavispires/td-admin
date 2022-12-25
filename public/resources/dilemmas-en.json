@@ -316,9 +316,10 @@
   },
   "dlm-52-pt": {
     "id": "dlm-52-pt",
-    "prompt": "Free for like",
+    "prompt": "Free for life",
     "left": "Condoms",
-    "right": "Carrots"
+    "right": "Carrots",
+    "nsfw": true
   },
   "dlm-53-pt": {
     "id": "dlm-53-pt",

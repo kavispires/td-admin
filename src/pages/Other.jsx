@@ -299,16 +299,36 @@ export function Other() {
 
   // const result = parseChallenges();
 
+  // const parseQuantitativeQuestions = () =>
+  //   rawData.reduce((acc, entry, index) => {
+  //     const id = `qq-${index + 1}-pt`;
+  //     const e = {
+  //       id,
+  //       question: entry.question,
+  //     };
+
+  //     if (entry.scale) {
+  //       e.scale = true;
+  //     }
+
+  //     acc[id] = e;
+  //     return acc;
+  //   }, {});
+
+  // const result = parseQuantitativeQuestions();
+
   const parseQuantitativeQuestions = () =>
     rawData.reduce((acc, entry, index) => {
-      const id = `qq-${index + 1}-pt`;
+      const id = `dlm-${index + 1}-pt`;
       const e = {
         id,
-        question: entry.question,
+        prompt: entry.Prompt,
+        left: entry.Left,
+        right: entry.Right,
       };
 
-      if (entry.scale) {
-        e.scale = true;
+      if (entry.NSFW) {
+        e.nsfw = true;
       }
 
       acc[id] = e;
