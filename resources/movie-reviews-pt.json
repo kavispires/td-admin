@@ -1,32 +1,122 @@
 {
   "mr-1-pt": {
     "id": "mr-1-pt",
-    "text": "Não fazia ideia que os filmes de terror japoneses eram tão assustadores",
+    "text": "Pura adrenalina do início ao fim!",
     "type": "good"
   },
   "mr-2-pt": {
     "id": "mr-2-pt",
-    "text": "Muuuuuitas ceeeennnas em câaaamera lenta",
+    "text": "A cena com dois atores gêmeos reais é a única parte decente do filme.",
     "type": "bad"
   },
   "mr-3-pt": {
     "id": "mr-3-pt",
-    "text": "Isso vai direto ao pódio com os melhores filmes esportivos.",
+    "text": "Posso ser um motoqueiro machão, mas tenho que dizer: chorei como um bebê!",
     "type": "good"
   },
   "mr-4-pt": {
     "id": "mr-4-pt",
-    "text": "De todos os filmes com zumbis, por que ESSE?",
+    "text": "A subtrama romântica é muuuito chata!",
     "type": "bad"
   },
   "mr-5-pt": {
     "id": "mr-5-pt",
-    "text": "Pura adrenalina do início ao fim!",
+    "text": "Melhor filme de ficção científica de todos os tempos, mesmo que seja bem antigo!",
     "type": "good"
   },
   "mr-6-pt": {
     "id": "mr-6-pt",
-    "text": "A cena com dois atores gêmeos reais é a única parte decente do filme.",
+    "text": "Um curta-metragem feito com baixo orçamento e mostra!",
+    "type": "bad"
+  },
+  "mr-7-pt": {
+    "id": "mr-7-pt",
+    "text": "Finalmente, todo um elenco de famílias não tradicionais #top #films",
+    "type": "good"
+  },
+  "mr-8-pt": {
+    "id": "mr-8-pt",
+    "text": "Vamos lá, um cozinheiro que se torna um chef de topo em poucos meses? Não é realmente crível.",
+    "type": "bad"
+  },
+  "mr-9-pt": {
+    "id": "mr-9-pt",
+    "text": "Comédias bobas como essa são exatamente o que é preciso para me deixar no espírito festivo.",
+    "type": "good"
+  },
+  "mr-10-pt": {
+    "id": "mr-10-pt",
+    "text": "Agora isso é uma prequela ruim para um filme clássico! Que vergonha para eles!",
+    "type": "bad"
+  },
+  "mr-11-pt": {
+    "id": "mr-11-pt",
+    "text": "O filme é baseado em uma história infantil, mas é feito de adultos. Incrível!",
+    "type": "good"
+  },
+  "mr-12-pt": {
+    "id": "mr-12-pt",
+    "text": "Primeiro foi um livro. Então um jogo. Em seguida, uma série de TV. Agora temos o filme. Quando isso vai acabar?",
+    "type": "bad"
+  },
+  "mr-13-pt": {
+    "id": "mr-13-pt",
+    "text": "Eu amo faroeste espaguete e este não é exceção. Ótima cinematografia.",
+    "type": "good"
+  },
+  "mr-14-pt": {
+    "id": "mr-14-pt",
+    "text": "O final com um cliffhanger, mas não haverá continuação para esta história. Que perda de tempo.",
+    "type": "bad"
+  },
+  "mr-15-pt": {
+    "id": "mr-15-pt",
+    "text": "As cenas ultraviolentas são uma festa para os olhos dos fãs do gênero.",
+    "type": "good"
+  },
+  "mr-16-pt": {
+    "id": "mr-16-pt",
+    "text": "O filme existe apenas para vender gadgets e mercadorias. Mas não estou comprando nada disso.",
+    "type": "bad"
+  },
+  "mr-17-pt": {
+    "id": "mr-17-pt",
+    "text": "Esse vai direto pro pódio dos melhores filmes esportivos.",
+    "type": "good"
+  },
+  "mr-18-pt": {
+    "id": "mr-18-pt",
+    "text": "O ator que interpreta o pirata é tão expressivo quanto uma prancha de madeira.",
+    "type": "bad"
+  },
+  "mr-19-pt": {
+    "id": "mr-19-pt",
+    "text": "Não fazia ideia que os filmes de terror japoneses eram tão assustadores",
+    "type": "good"
+  },
+  "mr-20-pt": {
+    "id": "mr-20-pt",
+    "text": "Um filme de três horas rodado na mesma sala? Não, obrigado.",
+    "type": "bad"
+  },
+  "mr-21-pt": {
+    "id": "mr-21-pt",
+    "text": "Um grande filme sobre uma investigação jornalística que aconteceu há 50 anos.",
+    "type": "good"
+  },
+  "mr-22-pt": {
+    "id": "mr-22-pt",
+    "text": "Muuuuuitas ceeeennnas em câaaamera lenta...",
+    "type": "bad"
+  },
+  "mr-23-pt": {
+    "id": "mr-23-pt",
+    "text": "Uma boa e velha história de detetive.",
+    "type": "good"
+  },
+  "mr-24-pt": {
+    "id": "mr-24-pt",
+    "text": "De todos os filmes com zumbis, por que ESSE?",
     "type": "bad"
   }
 }
