@@ -2,22 +2,26 @@
   "mr-1-pt": {
     "id": "mr-1-pt",
     "text": "Pura adrenalina do início ao fim!",
-    "type": "good"
+    "type": "good",
+    "highlights": ["Pura adrenalina"]
   },
   "mr-2-pt": {
     "id": "mr-2-pt",
     "text": "A cena com dois atores gêmeos reais é a única parte decente do filme.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["dois atores gêmeos"]
   },
   "mr-3-pt": {
     "id": "mr-3-pt",
     "text": "Posso ser um motoqueiro machão, mas tenho que dizer: chorei como um bebê!",
-    "type": "good"
+    "type": "good",
+    "highlights": ["chorei"]
   },
   "mr-4-pt": {
     "id": "mr-4-pt",
     "text": "A subtrama romântica é muuuito chata!",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["subtrama romântica"]
   },
   "mr-5-pt": {
     "id": "mr-5-pt",
@@ -66,7 +70,7 @@
   },
   "mr-14-pt": {
     "id": "mr-14-pt",
-    "text": "O final com um cliffhanger, mas não haverá continuação para esta história. Que perda de tempo.",
+    "text": "Termina sem final deixando a gente no suspense, mas não vai ter continuação. Que perda de tempo.",
     "type": "bad"
   },
   "mr-15-pt": {
@@ -76,7 +80,7 @@
   },
   "mr-16-pt": {
     "id": "mr-16-pt",
-    "text": "O filme existe apenas para vender gadgets e mercadorias. Mas não estou comprando nada disso.",
+    "text": "O filme existe apenas para vender brinquedo e bugigangas. Não está me convencendo muito não.",
     "type": "bad"
   },
   "mr-17-pt": {
@@ -96,12 +100,12 @@
   },
   "mr-20-pt": {
     "id": "mr-20-pt",
-    "text": "Um filme de três horas rodado na mesma sala? Não, obrigado.",
+    "text": "Um filme de três horas filmado na mesma sala? Não, obrigado.",
     "type": "bad"
   },
   "mr-21-pt": {
     "id": "mr-21-pt",
-    "text": "Um grande filme sobre uma investigação jornalística que aconteceu há 50 anos.",
+    "text": "Um filmaço sobre uma investigação jornalística que aconteceu há 50 anos.",
     "type": "good"
   },
   "mr-22-pt": {
@@ -111,12 +115,12 @@
   },
   "mr-23-pt": {
     "id": "mr-23-pt",
-    "text": "Uma boa e velha história de detetive.",
+    "text": "A boa e velha história de detetive.",
     "type": "good"
   },
   "mr-24-pt": {
     "id": "mr-24-pt",
-    "text": "De todos os filmes com zumbis, por que ESSE?",
+    "text": "De todos os filmes com zumbis, por que ESSA bosta?",
     "type": "bad"
   }
 }
