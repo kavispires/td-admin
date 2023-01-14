@@ -26,101 +26,121 @@
   "mr-5-pt": {
     "id": "mr-5-pt",
     "text": "Melhor filme de ficção científica de todos os tempos, mesmo que seja bem antigo!",
-    "type": "good"
+    "type": "good",
+    "highlights": ["ficção científica"]
   },
   "mr-6-pt": {
     "id": "mr-6-pt",
-    "text": "Um curta-metragem feito com baixo orçamento e mostra!",
-    "type": "bad"
+    "text": "Um curta-metragem feito com baixo orçamento e tá bem na cara!",
+    "type": "bad",
+    "highlights": ["baixo orçamento"]
   },
   "mr-7-pt": {
     "id": "mr-7-pt",
-    "text": "Finalmente, todo um elenco de famílias não tradicionais #top #films",
-    "type": "good"
+    "text": "Finalmente, um elenco todo de famílias não-tradicionais #top #filmaço",
+    "type": "good",
+    "highlights": ["famílias não-tradicionais"]
   },
   "mr-8-pt": {
     "id": "mr-8-pt",
     "text": "Vamos lá, um cozinheiro que se torna um chef de topo em poucos meses? Não é realmente crível.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["cozinheiro"]
   },
   "mr-9-pt": {
     "id": "mr-9-pt",
-    "text": "Comédias bobas como essa são exatamente o que é preciso para me deixar no espírito festivo.",
-    "type": "good"
+    "text": "Comédias bobas como essa são exatamente o que é preciso para me animar.",
+    "type": "good",
+    "highlights": ["Comédias bobas", "animar"]
   },
   "mr-10-pt": {
     "id": "mr-10-pt",
     "text": "Agora isso é uma prequela ruim para um filme clássico! Que vergonha para eles!",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["prequela"]
   },
   "mr-11-pt": {
     "id": "mr-11-pt",
-    "text": "O filme é baseado em uma história infantil, mas é feito de adultos. Incrível!",
-    "type": "good"
+    "text": "O filme é baseado em uma história infantil, mas é feito para adultos. Incrível!",
+    "type": "good",
+    "highlights": ["história infantil", "para adultos"]
   },
   "mr-12-pt": {
     "id": "mr-12-pt",
     "text": "Primeiro foi um livro. Então um jogo. Em seguida, uma série de TV. Agora temos o filme. Quando isso vai acabar?",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["livro", "jogo", "série de TV"]
   },
   "mr-13-pt": {
     "id": "mr-13-pt",
-    "text": "Eu amo faroeste espaguete e este não é exceção. Ótima cinematografia.",
-    "type": "good"
+    "text": "Eu amo velho-oeste e este não é exceção. Ótima cinematografia.",
+    "type": "good",
+    "highlights": ["velho-oeste"]
   },
   "mr-14-pt": {
     "id": "mr-14-pt",
     "text": "Termina sem final deixando a gente no suspense, mas não vai ter continuação. Que perda de tempo.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["sem final"]
   },
   "mr-15-pt": {
     "id": "mr-15-pt",
     "text": "As cenas ultraviolentas são uma festa para os olhos dos fãs do gênero.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["cenas ultraviolentas"]
   },
   "mr-16-pt": {
     "id": "mr-16-pt",
     "text": "O filme existe apenas para vender brinquedo e bugigangas. Não está me convencendo muito não.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["brinquedo"]
   },
   "mr-17-pt": {
     "id": "mr-17-pt",
     "text": "Esse vai direto pro pódio dos melhores filmes esportivos.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["filmes esportivos"]
   },
   "mr-18-pt": {
     "id": "mr-18-pt",
-    "text": "O ator que interpreta o pirata é tão expressivo quanto uma prancha de madeira.",
-    "type": "bad"
+    "text": "O ator que interpreta o pirata é mais sem graça que chuchu.",
+    "type": "bad",
+    "highlights": ["pirata"]
   },
   "mr-19-pt": {
     "id": "mr-19-pt",
-    "text": "Não fazia ideia que os filmes de terror japoneses eram tão assustadores",
-    "type": "good"
+    "text": "Não fazia ideia que um filme de terror japonês eram tão assustadores",
+    "type": "good",
+    "highlights": ["terror japonês"]
   },
   "mr-20-pt": {
     "id": "mr-20-pt",
-    "text": "Um filme de três horas filmado na mesma sala? Não, obrigado.",
-    "type": "bad"
+    "text": "Um filme de três horas filmado no mesmo lugar? Não, obrigado.",
+    "type": "bad",
+    "highlights": ["três horas", "mesmo lugar"]
   },
   "mr-21-pt": {
     "id": "mr-21-pt",
     "text": "Um filmaço sobre uma investigação jornalística que aconteceu há 50 anos.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["investigação jornalística", "há 50 anos"]
   },
   "mr-22-pt": {
     "id": "mr-22-pt",
     "text": "Muuuuuitas ceeeennnas em câaaamera lenta...",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["câaaamera lenta"]
   },
   "mr-23-pt": {
     "id": "mr-23-pt",
     "text": "A boa e velha história de detetive.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["detetive"]
   },
   "mr-24-pt": {
     "id": "mr-24-pt",
     "text": "De todos os filmes com zumbis, por que ESSA bosta?",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["zumbis"]
   }
 }

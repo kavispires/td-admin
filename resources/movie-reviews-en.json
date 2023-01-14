@@ -2,121 +2,145 @@
   "mr-1-en": {
     "id": "mr-1-en",
     "text": "Pure adrenaline from start to finish!",
-    "type": "good"
+    "type": "good",
+    "highlights": ["adrenaline"]
   },
   "mr-2-en": {
     "id": "mr-2-en",
     "text": "The scene with two actual twin actors is the only decent part of the movie.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["twin actors"]
   },
   "mr-3-en": {
     "id": "mr-3-en",
     "text": "I may be a hardcore biker but I have to say: I cried like a baby!",
-    "type": "good"
+    "type": "good",
+    "highlights": ["cried like a baby"]
   },
   "mr-4-en": {
     "id": "mr-4-en",
     "text": "The romantic subplot is sooooo boring!",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["romantic subplot"]
   },
   "mr-5-en": {
     "id": "mr-5-en",
     "text": "Best sci-fi movie EVER, even if it's quite old!",
-    "type": "good"
+    "type": "good",
+    "highlights": ["sci-fi movie"]
   },
   "mr-6-en": {
     "id": "mr-6-en",
     "text": "A short movie made on a low budget and it shows!",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["low budget"]
   },
   "mr-7-en": {
     "id": "mr-7-en",
     "text": "Finally, a whole cast of non-traditional families #top #films",
-    "type": "good"
+    "type": "good",
+    "highlights": ["non-traditional families"]
   },
   "mr-8-en": {
     "id": "mr-8-en",
     "text": "Come on, a cook that becomes a top chef in a few months? Not really believable.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["top chef"]
   },
   "mr-9-en": {
     "id": "mr-9-en",
     "text": "Silly comedies like this are just what it takes to get me in the festive spirit.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["Silly comedies"]
   },
   "mr-10-en": {
     "id": "mr-10-en",
     "text": "Now that's a bad prequel to a classic film! Shame on them!",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["bad prequel", "classic film"]
   },
   "mr-11-en": {
     "id": "mr-11-en",
     "text": "The film is based on a children's story but is made of adults. Amazing!",
-    "type": "good"
+    "type": "good",
+    "highlights": ["children's story", "adults"]
   },
   "mr-12-en": {
     "id": "mr-12-en",
     "text": "First it was a book. Then a game. Then a TV series. Now we have the movie. When will it end?",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["book", "game", "TV series"]
   },
   "mr-13-en": {
     "id": "mr-13-en",
     "text": "I love spaghetti westerns and this is no exception. Great cinematography.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["spaghetti westerns"]
   },
   "mr-14-en": {
     "id": "mr-14-en",
     "text": "The end with a cliffhanger but there will be no sequel to this story. What a waste of time.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["cliffhanger"]
   },
   "mr-15-en": {
     "id": "mr-15-en",
     "text": "The ultra violent scenes are a feast for the eyes for fans of the genre.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["ultra violent"]
   },
   "mr-16-en": {
     "id": "mr-16-en",
     "text": "The film exists just to sell gadgets and merchandise. But I'm buying none of it.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["sell gadgets and merchandise"]
   },
   "mr-17-en": {
     "id": "mr-17-en",
     "text": "This goes straight to the podium with the best sports movies.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["sports movies"]
   },
   "mr-18-en": {
     "id": "mr-18-en",
     "text": "The actor playing the pirate is as expressive as a wooden plank.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["pirate"]
   },
   "mr-19-en": {
     "id": "mr-19-en",
     "text": "I had no idea Japanese horror movies were so scary.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["Japanese horror"]
   },
   "mr-20-en": {
     "id": "mr-20-en",
     "text": "A three-hour movie all shot in the same room? No, thank you.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["three-hour movie", "same room"]
   },
   "mr-21-en": {
     "id": "mr-21-en",
     "text": "A great film about a journalistic investigation that happened 50 years ago.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["journalistic investigation", "50 years ago"]
   },
   "mr-22-en": {
     "id": "mr-22-en",
     "text": "Toooo maaaanyyy sloooow-mooootion sceeeeenes.",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["sloooow-mooootion"]
   },
   "mr-23-en": {
     "id": "mr-23-en",
     "text": "A good old-fashioned detective story.",
-    "type": "good"
+    "type": "good",
+    "highlights": ["detective"]
   },
   "mr-24-en": {
     "id": "mr-24-en",
     "text": "Of all the films to have zombies in, why THIS ONE?",
-    "type": "bad"
+    "type": "bad",
+    "highlights": ["zombies"]
   }
 }
