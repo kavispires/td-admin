@@ -6008,5 +6008,35 @@
     "id": "a-1202-en",
     "text": "Gender reveal party",
     "level": 1
+  },
+  "a-1203-en": {
+    "id": "a-1203-en",
+    "text": "Carbon footprint",
+    "level": 1
+  },
+  "a-1204-en": {
+    "id": "a-1204-en",
+    "text": "Stupid question",
+    "level": 2
+  },
+  "a-1205-en": {
+    "id": "a-1205-en",
+    "text": "Honey trap",
+    "level": 3
+  },
+  "a-1206-en": {
+    "id": "a-1206-en",
+    "text": "Reality check",
+    "level": 2
+  },
+  "a-1207-en": {
+    "id": "a-1207-en",
+    "text": "Learn from your mistakes",
+    "level": 3
+  },
+  "a-1208-en": {
+    "id": "a-1208-en",
+    "text": "Bazinga!",
+    "level": 2
   }
 }
