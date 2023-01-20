@@ -142,5 +142,366 @@
     "text": "Of all the films to have zombies in, why THIS ONE?",
     "type": "bad",
     "highlights": ["zombies"]
+  },
+
+  "mr-25-en": {
+    "id": "mr-25-en",
+    "text": "A bittersweet comedy you have to see, highly recommended.",
+    "type": "good",
+    "highlights": ["bittersweet comedy"]
+  },
+  "mr-26-en": {
+    "id": "mr-26-en",
+    "text": "I missed the first ten minutes and so I got lost in the overcomplicated plot.",
+    "type": "bad",
+    "highlights": ["overcomplicated plot"]
+  },
+  "mr-27-en": {
+    "id": "mr-27-en",
+    "text": "A fun and light-hearted B-movie",
+    "type": "good",
+    "highlights": ["fun", "B-movie"]
+  },
+  "mr-28-en": {
+    "id": "mr-28-en",
+    "text": "I have never heard of the comic book that inspired this story. I hope it's better than the movie!",
+    "type": "bad",
+    "highlights": ["comic book"]
+  },
+  "mr-29-en": {
+    "id": "mr-29-en",
+    "text": "Handsome archaeologist: CHECK! Thrilling adventures: CHECK! What else could you ask for?",
+    "type": "good",
+    "highlights": ["archaeologist", "Thrilling adventures"]
+  },
+  "mr-30-en": {
+    "id": "mr-30-en",
+    "text": "The underlying political message seems a bit controversial to me, what was the point in making this movie?",
+    "type": "bad",
+    "highlights": ["political message", "controversial"]
+  },
+  "mr-31-en": {
+    "id": "mr-31-en",
+    "text": "The classic \"they hate each other but they need to work together\" plot still works!",
+    "type": "good",
+    "highlights": ["hate each other", "work together"]
+  },
+  "mr-32-en": {
+    "id": "mr-32-en",
+    "text": "The film is ok but who translated the original title so badly?",
+    "type": "bad",
+    "highlights": ["original title so badly"]
+  },
+  "mr-33-en": {
+    "id": "mr-33-en",
+    "text": "Talking animals on the big screen: always a blast!",
+    "type": "good",
+    "highlights": ["Talking animals"]
+  },
+  "mr-34-en": {
+    "id": "mr-34-en",
+    "text": "The celebrated \"twist ending\" was obvious after about 20 minutes...",
+    "type": "bad",
+    "highlights": ["twist ending", "obvious"]
+  },
+  "mr-35-en": {
+    "id": "mr-35-en",
+    "text": "I doubted this could work as a silent movie. I was so wrong.",
+    "type": "good",
+    "highlights": ["silent movie"]
+  },
+  "mr-36-en": {
+    "id": "mr-36-en",
+    "text": "European critics call it a \"masterpiece\". I call it a \"sleeping pill\".",
+    "type": "bad",
+    "highlights": ["sleeping pill"]
+  },
+  "mr-37-en": {
+    "id": "mr-37-en",
+    "text": "You will find yourself whistling the title track from this cheerful musical for days.",
+    "type": "good",
+    "highlights": ["cheerful musical"]
+  },
+  "mr-38-en": {
+    "id": "mr-38-en",
+    "text": "Are you telling me this mess took TEN years to make?",
+    "type": "bad",
+    "highlights": ["TEN years to make"]
+  },
+  "mr-39-en": {
+    "id": "mr-39-en",
+    "text": "Best animated movie I've seen recently. Excellent use of 3D!",
+    "type": "good",
+    "highlights": ["animated movie", "3D"]
+  },
+  "mr-40-en": {
+    "id": "mr-40-en",
+    "text": "I only liked the final act with the giant robots.",
+    "type": "bad",
+    "highlights": ["giant robots"]
+  },
+  "mr-41-en": {
+    "id": "mr-41-en",
+    "text": "That's a fun parody of the classic movie, right from the title.",
+    "type": "good",
+    "highlights": ["parody"]
+  },
+  "mr-42-en": {
+    "id": "mr-42-en",
+    "text": "THREE... TWO... ONE... aaaand the bomb is disarmed at the very last second. So original.",
+    "type": "bad",
+    "highlights": ["bomb"]
+  },
+  "mr-43-en": {
+    "id": "mr-43-en",
+    "text": "They made the story of a criminal trial compelling to watch... Kudos!",
+    "type": "good",
+    "highlights": ["criminal trial"]
+  },
+  "mr-44-en": {
+    "id": "mr-44-en",
+    "text": "I did not expect this to be during World War II. That's so confusing.",
+    "type": "bad",
+    "highlights": ["World War II", "confusing"]
+  },
+  "mr-45-en": {
+    "id": "mr-45-en",
+    "text": "A compelling disaster movie.",
+    "type": "good",
+    "highlights": ["disaster movie"]
+  },
+  "mr-46-en": {
+    "id": "mr-46-en",
+    "text": "All the characters are subtitled... in different languages. Who thought of that?",
+    "type": "bad",
+    "highlights": ["subtitled", "different languages"]
+  },
+  "mr-47-en": {
+    "id": "mr-47-en",
+    "text": "A very delicate, introspective film. So lovely!",
+    "type": "good",
+    "highlights": ["delicate, introspective film"]
+  },
+  "mr-48-en": {
+    "id": "mr-48-en",
+    "text": "The book was better.",
+    "type": "bad",
+    "highlights": ["book"]
+  },
+  "mr-49-en": {
+    "id": "mr-49-en",
+    "text": "Fighting scenes in this movie are perfectly choreographed!",
+    "type": "good",
+    "highlights": ["Fighting scenes"]
+  },
+  "mr-50-en": {
+    "id": "mr-50-en",
+    "text": "A truly terrible movie. Nice costumes, though.",
+    "type": "bad",
+    "highlights": ["costumes"]
+  },
+  "mr-51-en": {
+    "id": "mr-51-en",
+    "text": "I love the movie. As a plus, now I know how to plan a prison break.",
+    "type": "good",
+    "highlights": ["prison break"]
+  },
+  "mr-52-en": {
+    "id": "mr-52-en",
+    "text": "I was loving it... until it completely switched genre in the final act.",
+    "type": "bad",
+    "highlights": ["switched genre"]
+  },
+  "mr-53-en": {
+    "id": "mr-53-en",
+    "text": "I was amazed to find a pacifist point of view in a war movie. Very moving.",
+    "type": "good",
+    "highlights": ["pacifist", "war movie"]
+  },
+  "mr-54-en": {
+    "id": "mr-54-en",
+    "text": "So... it was all a dream in the end? I want two hours of my life back.",
+    "type": "bad",
+    "highlights": ["dream"]
+  },
+  "mr-55-en": {
+    "id": "mr-55-en",
+    "text": "As soon as they start talking with their Victorian British accent I am in love.",
+    "type": "good",
+    "highlights": ["Victorian British accent"]
+  },
+  "mr-56-en": {
+    "id": "mr-56-en",
+    "text": "The dream sequence at the end is too long and confusing.",
+    "type": "bad",
+    "highlights": ["dream sequence"]
+  },
+  "mr-57-en": {
+    "id": "mr-57-en",
+    "text": "They weren't my favorite rock band, but after watching their biopic I bought all of their albums!",
+    "type": "good",
+    "highlights": ["rock band", "biopic"]
+  },
+  "mr-58-en": {
+    "id": "mr-58-en",
+    "text": "Parents beware! Not a film for kids!",
+    "type": "bad",
+    "highlights": ["Not a film for kids"]
+  },
+  "mr-59-en": {
+    "id": "mr-59-en",
+    "text": "Another superhero movie... and this is super-cool! Wow!",
+    "type": "good",
+    "highlights": ["superhero movie"]
+  },
+  "mr-60-en": {
+    "id": "mr-60-en",
+    "text": "It was a bad idea to cast a comedian for a dramatic role.",
+    "type": "bad",
+    "highlights": ["comedian for a dramatic role"]
+  },
+  "mr-61-en": {
+    "id": "mr-61-en",
+    "text": "This heist movie is going to steal a lot of awards. Do you see what I did there? LOL.",
+    "type": "good",
+    "highlights": ["heist movie"]
+  },
+  "mr-62-en": {
+    "id": "mr-62-en",
+    "text": "The only good thing about this movie is the location, I will book a holiday there.",
+    "type": "bad",
+    "highlights": ["location"]
+  },
+  "mr-63-en": {
+    "id": "mr-63-en",
+    "text": "Powerful wizards, majestic dragons, magic swords... an amazing fantasy movie",
+    "type": "good",
+    "highlights": ["wizards", "dragons"]
+  },
+  "mr-64-en": {
+    "id": "mr-64-en",
+    "text": "All the characters are too stupid to be believable.",
+    "type": "bad",
+    "highlights": ["characters are too stupid"]
+  },
+  "mr-65-en": {
+    "id": "mr-65-en",
+    "text": "If you don't appreciate this classic gangster movie you will be sleeping with the fishes.",
+    "type": "good",
+    "highlights": [" gangster movie"]
+  },
+  "mr-66-en": {
+    "id": "mr-66-en",
+    "text": "They say this is an \"experimental filme\". I say the experiment has failed.",
+    "type": "bad",
+    "highlights": ["experimental filme"]
+  },
+  "mr-67-en": {
+    "id": "mr-67-en",
+    "text": "There are many movies about dance companies, but this is the best.",
+    "type": "good",
+    "highlights": ["dance companies"]
+  },
+  "mr-68-en": {
+    "id": "mr-68-en",
+    "text": "Spoiler: The \"hero\" is a vampire. That's probably why this movie sucks.",
+    "type": "bad",
+    "highlights": ["vampire"]
+  },
+  "mr-69-en": {
+    "id": "mr-69-en",
+    "text": "The main character is the anti-hero we need right now.",
+    "type": "good",
+    "highlights": ["anti-hero"]
+  },
+  "mr-70-en": {
+    "id": "mr-70-en",
+    "text": "The title alone screams \"boring movie\". Why didn't I listen to it?",
+    "type": "bad",
+    "highlights": ["boring"]
+  },
+  "mr-71-en": {
+    "id": "mr-71-en",
+    "text": "Prepare the handkerchiefs, you will cry a lot at this true story!",
+    "type": "good",
+    "highlights": ["cry a lot"]
+  },
+  "mr-72-en": {
+    "id": "mr-72-en",
+    "text": "So many plot holes. Did anyone check the final script?",
+    "type": "bad",
+    "highlights": ["plot holes"]
+  },
+  "mr-73-en": {
+    "id": "mr-73-en",
+    "text": "Shooting this in black and white was a great idea for such a poetic movie.",
+    "type": "good",
+    "highlights": ["black and white", "poetic movie"]
+  },
+  "mr-74-en": {
+    "id": "mr-74-en",
+    "text": "I'm not convinced about the idea of using puppets instead of actors to tell this story.",
+    "type": "bad",
+    "highlights": ["puppets instead of actors"]
+  },
+  "mr-75-en": {
+    "id": "mr-75-en",
+    "text": "I have seem this new movie about time travel next Monday and I loved it.",
+    "type": "good",
+    "highlights": ["time travel"]
+  },
+  "mr-76-en": {
+    "id": "mr-76-en",
+    "text": "A cast of adults playing the parts of kids. Cringe!",
+    "type": "bad",
+    "highlights": ["adults playing the parts of kids"]
+  },
+  "mr-77-en": {
+    "id": "mr-77-en",
+    "text": "An original modern adaptation of a classic fairy tale. Five stars!",
+    "type": "good",
+    "highlights": ["classic fairy tale"]
+  },
+  "mr-78-en": {
+    "id": "mr-78-en",
+    "text": "This is the last movie of the trilogy and is definitely the worst...",
+    "type": "bad",
+    "highlights": ["trilogy"]
+  },
+  "mr-79-en": {
+    "id": "mr-79-en",
+    "text": "The movie has let me know about this woman, a real hero of our time!",
+    "type": "good",
+    "highlights": ["woman"]
+  },
+  "mr-80-en": {
+    "id": "mr-80-en",
+    "text": "I prefer the theater play, way more deep.",
+    "type": "bad",
+    "highlights": ["theater play"]
+  },
+  "mr-81-en": {
+    "id": "mr-81-en",
+    "text": "A mythological movie that is really... mythical!",
+    "type": "good",
+    "highlights": ["mythological"]
+  },
+  "mr-82-en": {
+    "id": "mr-82-en",
+    "text": "Too short and messy. It would have worked better as a miniseries of six episodes.",
+    "type": "bad",
+    "highlights": ["short and messy"]
+  },
+  "mr-83-en": {
+    "id": "mr-83-en",
+    "text": "There's a lot of debate, but for me, this is the best chapter of this spy story saga.",
+    "type": "good",
+    "highlights": ["spy story saga"]
+  },
+  "mr-84-en": {
+    "id": "mr-84-en",
+    "text": "Maybe they should have spent a little more to fix the bad special effects. They look so cheesy.",
+    "type": "bad",
+    "highlights": ["bad special effects"]
   }
 }

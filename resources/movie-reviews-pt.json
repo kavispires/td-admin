@@ -13,7 +13,7 @@
   },
   "mr-3-pt": {
     "id": "mr-3-pt",
-    "text": "Posso ser um motoqueiro machão, mas tenho que dizer: chorei como um bebê!",
+    "text": "Posso ser um motoqueiro machão, mas tenho que dizer: chorei igual um bebê!",
     "type": "good",
     "highlights": ["chorei"]
   },
@@ -31,7 +31,7 @@
   },
   "mr-6-pt": {
     "id": "mr-6-pt",
-    "text": "Um curta-metragem feito com baixo orçamento e tá bem na cara!",
+    "text": "Um curta-metragem de baixo orçamento e tá bem na cara!",
     "type": "bad",
     "highlights": ["baixo orçamento"]
   },
@@ -43,21 +43,21 @@
   },
   "mr-8-pt": {
     "id": "mr-8-pt",
-    "text": "Vamos lá, um cozinheiro que se torna um chef de topo em poucos meses? Não é realmente crível.",
+    "text": "Vamos lá, um cozinheiro que se torna um chef top de linha em poucos meses? Não dá pra acreditar muito não.",
     "type": "bad",
     "highlights": ["cozinheiro"]
   },
   "mr-9-pt": {
     "id": "mr-9-pt",
-    "text": "Comédias bobas como essa são exatamente o que é preciso para me animar.",
+    "text": "Comédias bestas como essa são exatamente o que eu preciso para me dar uma animada.",
     "type": "good",
     "highlights": ["Comédias bobas", "animar"]
   },
   "mr-10-pt": {
     "id": "mr-10-pt",
-    "text": "Agora isso é uma prequela ruim para um filme clássico! Que vergonha para eles!",
+    "text": "Uma prequência medíocre para um filme clássico! Que vergonha!",
     "type": "bad",
-    "highlights": ["prequela"]
+    "highlights": ["prequência", "filme clássico"]
   },
   "mr-11-pt": {
     "id": "mr-11-pt",
@@ -85,7 +85,7 @@
   },
   "mr-15-pt": {
     "id": "mr-15-pt",
-    "text": "As cenas ultraviolentas são uma festa para os olhos dos fãs do gênero.",
+    "text": "As cenas ultraviolentas são um show para os olhos dos fãs do gênero.",
     "type": "good",
     "highlights": ["cenas ultraviolentas"]
   },

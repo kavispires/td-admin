@@ -27,7 +27,7 @@
   "mv-6-pt": {
     "id": "mv-6-pt",
     "prefix": "A noviça",
-    "suffix": "rebelde"
+    "suffix": "rebelte"
   },
   "mv-7-pt": {
     "id": "mv-7-pt",
@@ -216,7 +216,7 @@
   },
   "mv-44-pt": {
     "id": "mv-44-pt",
-    "prefix": "Coracão",
+    "prefix": "Coração",
     "suffix": "Valente"
   },
   "mv-45-pt": {
@@ -438,5 +438,725 @@
     "id": "mv-88-pt",
     "prefix": "Quem vai ficar",
     "suffix": "com Mary?"
+  },
+  "mv-89-pt": {
+    "id": "mv-89-pt",
+    "prefix": "Soldado",
+    "suffix": "Universal"
+  },
+  "mv-90-pt": {
+    "id": "mv-90-pt",
+    "prefix": "Um herói",
+    "suffix": "de brinquedo"
+  },
+  "mv-91-pt": {
+    "id": "mv-91-pt",
+    "prefix": "Amor",
+    "suffix": "à Queima-Roupa"
+  },
+  "mv-92-pt": {
+    "id": "mv-92-pt",
+    "prefix": "Gigolô",
+    "suffix": "por Acidente"
+  },
+  "mv-93-pt": {
+    "id": "mv-93-pt",
+    "prefix": "O Fabuloso Destino",
+    "suffix": "de Amelie Poulain"
+  },
+  "mv-94-pt": {
+    "id": "mv-94-pt",
+    "prefix": "O Brilho Eterno",
+    "suffix": "de Uma Mente Sem Lembranças"
+  },
+  "mv-95-pt": {
+    "id": "mv-95-pt",
+    "prefix": "Ilha",
+    "suffix": "do medo"
+  },
+  "mv-96-pt": {
+    "id": "mv-96-pt",
+    "prefix": "Onde os Fracos",
+    "suffix": "Não Tem Vez"
+  },
+  "mv-97-pt": {
+    "id": "mv-97-pt",
+    "prefix": "Gangues",
+    "suffix": "de Nova York"
+  },
+  "mv-98-pt": {
+    "id": "mv-98-pt",
+    "prefix": "Tropa",
+    "suffix": "de Elite"
+  },
+  "mv-99-pt": {
+    "id": "mv-99-pt",
+    "prefix": "Piratas",
+    "suffix": "do Caribe"
+  },
+  "mv-100-pt": {
+    "id": "mv-100-pt",
+    "prefix": "Cisne",
+    "suffix": "Negro"
+  },
+  "mv-101-pt": {
+    "id": "mv-101-pt",
+    "prefix": "Rebobine",
+    "suffix": "Por favor"
+  },
+  "mv-102-pt": {
+    "id": "mv-102-pt",
+    "prefix": "O Auto",
+    "suffix": "da Compadecida"
+  },
+  "mv-103-pt": {
+    "id": "mv-103-pt",
+    "prefix": "Homens",
+    "suffix": "de Honra"
+  },
+  "mv-104-pt": {
+    "id": "mv-104-pt",
+    "prefix": "Sempre",
+    "suffix": "ao Seu Lado"
+  },
+  "mv-105-pt": {
+    "id": "mv-105-pt",
+    "prefix": "Bastardos",
+    "suffix": "Inglórios"
+  },
+  "mv-106-pt": {
+    "id": "mv-106-pt",
+    "prefix": "Procurando",
+    "suffix": "Nemo"
+  },
+  "mv-107-pt": {
+    "id": "mv-107-pt",
+    "prefix": "A Viagem",
+    "suffix": "de Chihiro"
+  },
+  "mv-108-pt": {
+    "id": "mv-108-pt",
+    "prefix": "Diário",
+    "suffix": "de uma paixão"
+  },
+  "mv-109-pt": {
+    "id": "mv-109-pt",
+    "prefix": "Prenda-me",
+    "suffix": "se for capaz"
+  },
+  "mv-110-pt": {
+    "id": "mv-110-pt",
+    "prefix": "A Paixão",
+    "suffix": "de Cristo"
+  },
+  "mv-111-pt": {
+    "id": "mv-111-pt",
+    "prefix": "Menina",
+    "suffix": "de Ouro"
+  },
+  "mv-112-pt": {
+    "id": "mv-112-pt",
+    "prefix": "O Castelo",
+    "suffix": "Animado"
+  },
+  "mv-113-pt": {
+    "id": "mv-113-pt",
+    "prefix": "V",
+    "suffix": "de Vingança"
+  },
+  "mv-114-pt": {
+    "id": "mv-114-pt",
+    "prefix": "A Era",
+    "suffix": "do Gelo"
+  },
+  "mv-115-pt": {
+    "id": "mv-115-pt",
+    "prefix": "Diamantes",
+    "suffix": "de Sangue"
+  },
+  "mv-116-pt": {
+    "id": "mv-116-pt",
+    "prefix": "Um amor",
+    "suffix": "para Recordar"
+  },
+  "mv-117-pt": {
+    "id": "mv-117-pt",
+    "prefix": "Chamas",
+    "suffix": "de Vingança"
+  },
+  "mv-118-pt": {
+    "id": "mv-118-pt",
+    "prefix": "Sobre Meninos",
+    "suffix": "e Lobos"
+  },
+  "mv-119-pt": {
+    "id": "mv-119-pt",
+    "prefix": "Quem quer ser",
+    "suffix": "um milionário"
+  },
+  "mv-120-pt": {
+    "id": "mv-120-pt",
+    "prefix": "Memórias",
+    "suffix": "de uma Gueixa"
+  },
+  "mv-121-pt": {
+    "id": "mv-121-pt",
+    "prefix": "O Diabo",
+    "suffix": "Veste Prada"
+  },
+  "mv-122-pt": {
+    "id": "mv-122-pt",
+    "prefix": "Um virgem",
+    "suffix": "de 40 anos"
+  },
+  "mv-123-pt": {
+    "id": "mv-123-pt",
+    "prefix": "Um corpo",
+    "suffix": "que cai"
+  },
+  "mv-124-pt": {
+    "id": "mv-124-pt",
+    "prefix": "O bebê",
+    "suffix": "de Rosemary"
+  },
+  "mv-125-pt": {
+    "id": "mv-125-pt",
+    "prefix": "Carrie",
+    "suffix": "a estranha"
+  },
+  "mv-126-pt": {
+    "id": "mv-126-pt",
+    "prefix": "Era uma vez",
+    "suffix": "na América"
+  },
+  "mv-127-pt": {
+    "id": "mv-127-pt",
+    "prefix": "Ela",
+    "suffix": "é demais!"
+  },
+  "mv-128-pt": {
+    "id": "mv-128-pt",
+    "prefix": "Janela",
+    "suffix": "Indiscreta"
+  },
+  "mv-129-pt": {
+    "id": "mv-129-pt",
+    "prefix": "Branca de neve",
+    "suffix": "e os sete anões"
+  },
+  "mv-130-pt": {
+    "id": "mv-130-pt",
+    "prefix": "A escolha",
+    "suffix": "de Sophia"
+  },
+  "mv-131-pt": {
+    "id": "mv-131-pt",
+    "prefix": "O mágico",
+    "suffix": "de Oz"
+  },
+  "mv-132-pt": {
+    "id": "mv-132-pt",
+    "prefix": "O sol",
+    "suffix": "é para todos"
+  },
+  "mv-133-pt": {
+    "id": "mv-133-pt",
+    "prefix": "O labirinto",
+    "suffix": "do Fauno"
+  },
+  "mv-134-pt": {
+    "id": "mv-134-pt",
+    "prefix": "Mad Max",
+    "suffix": "Estrada da Fúria"
+  },
+  "mv-135-pt": {
+    "id": "mv-135-pt",
+    "prefix": "Garganta",
+    "suffix": "do diabo"
+  },
+  "mv-136-pt": {
+    "id": "mv-136-pt",
+    "prefix": "O tigre",
+    "suffix": "e o dragão"
+  },
+  "mv-137-pt": {
+    "id": "mv-137-pt",
+    "prefix": "Spring Breakers",
+    "suffix": "Garotas perigosas"
+  },
+  "mv-138-pt": {
+    "id": "mv-138-pt",
+    "prefix": "O lobo",
+    "suffix": "de Wall Street"
+  },
+  "mv-139-pt": {
+    "id": "mv-139-pt",
+    "prefix": "O segredo",
+    "suffix": "de Brokeback Mountain"
+  },
+  "mv-140-pt": {
+    "id": "mv-140-pt",
+    "prefix": "Azul é a cor",
+    "suffix": "mais quente"
+  },
+  "mv-141-pt": {
+    "id": "mv-141-pt",
+    "prefix": "O grande hotel",
+    "suffix": "Budapeste"
+  },
+  "mv-142-pt": {
+    "id": "mv-142-pt",
+    "prefix": "Meia noite",
+    "suffix": "em Paris"
+  },
+  "mv-143-pt": {
+    "id": "mv-143-pt",
+    "prefix": "Entre facas",
+    "suffix": "e segredos"
+  },
+  "mv-144-pt": {
+    "id": "mv-144-pt",
+    "prefix": "O grande",
+    "suffix": "truque"
+  },
+  "mv-145-pt": {
+    "id": "mv-145-pt",
+    "prefix": "Gente",
+    "suffix": "grande"
+  },
+  "mv-146-pt": {
+    "id": "mv-146-pt",
+    "prefix": "Alexandre",
+    "suffix": "o grande"
+  },
+  "mv-147-pt": {
+    "id": "mv-147-pt",
+    "prefix": "Terapia",
+    "suffix": "do sexo"
+  },
+  "mv-148-pt": {
+    "id": "mv-148-pt",
+    "prefix": "A vizinha",
+    "suffix": "da mulher na janela"
+  },
+  "mv-149-pt": {
+    "id": "mv-149-pt",
+    "prefix": "Contatos imediatos",
+    "suffix": "de terceiro grau"
+  },
+  "mv-150-pt": {
+    "id": "mv-150-pt",
+    "prefix": "Se beber",
+    "suffix": "não case"
+  },
+  "mv-151-pt": {
+    "id": "mv-151-pt",
+    "prefix": "Noivo neurótico",
+    "suffix": "noiva nervosa"
+  },
+  "mv-152-pt": {
+    "id": "mv-152-pt",
+    "prefix": "Não olhe",
+    "suffix": "para cima"
+  },
+  "mv-153-pt": {
+    "id": "mv-153-pt",
+    "prefix": "A noite",
+    "suffix": "do jogo"
+  },
+  "mv-154-pt": {
+    "id": "mv-154-pt",
+    "prefix": "A verdade",
+    "suffix": "nua e crua"
+  },
+  "mv-155-pt": {
+    "id": "mv-155-pt",
+    "prefix": "Namorada",
+    "suffix": "de aluguel"
+  },
+  "mv-156-pt": {
+    "id": "mv-156-pt",
+    "prefix": "Esposa",
+    "suffix": "de mentirinha"
+  },
+  "mv-157-pt": {
+    "id": "mv-157-pt",
+    "prefix": "Uma ladra",
+    "suffix": "sem limites"
+  },
+  "mv-158-pt": {
+    "id": "mv-158-pt",
+    "prefix": "Segurança",
+    "suffix": "de shopping"
+  },
+  "mv-159-pt": {
+    "id": "mv-159-pt",
+    "prefix": "30 minutos",
+    "suffix": "ou menos"
+  },
+  "mv-160-pt": {
+    "id": "mv-160-pt",
+    "prefix": "Penetras",
+    "suffix": "bons de bico"
+  },
+  "mv-161-pt": {
+    "id": "mv-161-pt",
+    "prefix": "Truque",
+    "suffix": "de mestre"
+  },
+  "mv-162-pt": {
+    "id": "mv-162-pt",
+    "prefix": "O melhor trabalho",
+    "suffix": "do mundo"
+  },
+  "mv-163-pt": {
+    "id": "mv-163-pt",
+    "prefix": "Uma noite",
+    "suffix": "no museu"
+  },
+  "mv-164-pt": {
+    "id": "mv-164-pt",
+    "prefix": "A noite",
+    "suffix": "é delas"
+  },
+  "mv-165-pt": {
+    "id": "mv-165-pt",
+    "prefix": "Comer e coçar",
+    "suffix": "é só começar"
+  },
+  "mv-166-pt": {
+    "id": "mv-166-pt",
+    "prefix": "Oito mulheres",
+    "suffix": "e um segredo"
+  },
+  "mv-167-pt": {
+    "id": "mv-167-pt",
+    "prefix": "O que esperar",
+    "suffix": "quando você está esperando"
+  },
+  "mv-168-pt": {
+    "id": "mv-168-pt",
+    "prefix": "Cara",
+    "suffix": "cadê meu carro"
+  },
+  "mv-169-pt": {
+    "id": "mv-169-pt",
+    "prefix": "Quatro amigas",
+    "suffix": "e um jeans viajante"
+  },
+  "mv-170-pt": {
+    "id": "mv-170-pt",
+    "prefix": "Jogo de amor",
+    "suffix": "em Las Vegas"
+  },
+  "mv-171-pt": {
+    "id": "mv-171-pt",
+    "prefix": "Não sei como",
+    "suffix": "ela consegue"
+  },
+  "mv-172-pt": {
+    "id": "mv-172-pt",
+    "prefix": "Como perder um homem",
+    "suffix": "em dez dias"
+  },
+  "mv-173-pt": {
+    "id": "mv-173-pt",
+    "prefix": "Corra Lola,",
+    "suffix": "corra"
+  },
+  "mv-174-pt": {
+    "id": "mv-174-pt",
+    "prefix": "Os pinguins",
+    "suffix": "do papai"
+  },
+  "mv-175-pt": {
+    "id": "mv-175-pt",
+    "prefix": "Entrando",
+    "suffix": "numa fria"
+  },
+  "mv-176-pt": {
+    "id": "mv-176-pt",
+    "prefix": "Sob o céu",
+    "suffix": "da Toscana"
+  },
+  "mv-177-pt": {
+    "id": "mv-177-pt",
+    "prefix": "A máfia",
+    "suffix": "no divã"
+  },
+  "mv-178-pt": {
+    "id": "mv-178-pt",
+    "prefix": "Família",
+    "suffix": "do bagulho"
+  },
+  "mv-179-pt": {
+    "id": "mv-179-pt",
+    "prefix": "Gênios",
+    "suffix": "do crime"
+  },
+  "mv-180-pt": {
+    "id": "mv-180-pt",
+    "prefix": "Velozes",
+    "suffix": "e furiosos"
+  },
+  "mv-181-pt": {
+    "id": "mv-181-pt",
+    "prefix": "A vigilante",
+    "suffix": "do amanhã"
+  },
+  "mv-182-pt": {
+    "id": "mv-182-pt",
+    "prefix": "Quarteto",
+    "suffix": "Fantástico"
+  },
+  "mv-183-pt": {
+    "id": "mv-183-pt",
+    "prefix": "Anjos",
+    "suffix": "da lei"
+  },
+  "mv-184-pt": {
+    "id": "mv-184-pt",
+    "prefix": "Que horas",
+    "suffix": "ela volta?"
+  },
+  "mv-185-pt": {
+    "id": "mv-185-pt",
+    "prefix": "Bicho",
+    "suffix": "de sete cabeças"
+  },
+  "mv-186-pt": {
+    "id": "mv-186-pt",
+    "prefix": "Dois Filhos",
+    "suffix": "de Francisco"
+  },
+  "mv-187-pt": {
+    "id": "mv-187-pt",
+    "prefix": "Ó paí",
+    "suffix": ", ó"
+  },
+  "mv-188-pt": {
+    "id": "mv-188-pt",
+    "prefix": "Der pernas",
+    "suffix": "pro ar"
+  },
+  "mv-189-pt": {
+    "id": "mv-189-pt",
+    "prefix": "O homem",
+    "suffix": "que copiava"
+  },
+  "mv-190-pt": {
+    "id": "mv-190-pt",
+    "prefix": "O pagador",
+    "suffix": "de promessas"
+  },
+  "mv-191-pt": {
+    "id": "mv-191-pt",
+    "prefix": "Paixão",
+    "suffix": "de aluguel"
+  },
+  "mv-192-pt": {
+    "id": "mv-192-pt",
+    "prefix": "A barraca",
+    "suffix": "do beijo"
+  },
+  "mv-193-pt": {
+    "id": "mv-193-pt",
+    "prefix": "Em busca",
+    "suffix": "da felicidade"
+  },
+  "mv-194-pt": {
+    "id": "mv-194-pt",
+    "prefix": "As vantagens",
+    "suffix": "de ser invisível"
+  },
+  "mv-195-pt": {
+    "id": "mv-195-pt",
+    "prefix": "Tick Tick",
+    "suffix": "Boom"
+  },
+  "mv-196-pt": {
+    "id": "mv-196-pt",
+    "prefix": "Em ritmo",
+    "suffix": "de fuga"
+  },
+  "mv-197-pt": {
+    "id": "mv-197-pt",
+    "prefix": "De repente",
+    "suffix": "30"
+  },
+  "mv-198-pt": {
+    "id": "mv-198-pt",
+    "prefix": "O jogo",
+    "suffix": "da imitação"
+  },
+  "mv-199-pt": {
+    "id": "mv-199-pt",
+    "prefix": "Teoria",
+    "suffix": "de tudo"
+  },
+  "mv-200-pt": {
+    "id": "mv-200-pt",
+    "prefix": "O lado bom",
+    "suffix": "da vida"
+  },
+  "mv-201-pt": {
+    "id": "mv-201-pt",
+    "prefix": "Para Roma",
+    "suffix": "com amor"
+  },
+  "mv-202-pt": {
+    "id": "mv-202-pt",
+    "prefix": "As Férias",
+    "suffix": "da minha vida"
+  },
+  "mv-203-pt": {
+    "id": "mv-203-pt",
+    "prefix": "Rota",
+    "suffix": "de fuga"
+  },
+  "mv-204-pt": {
+    "id": "mv-204-pt",
+    "prefix": "Sex Tape",
+    "suffix": ": perdidos na nuvem"
+  },
+  "mv-205-pt": {
+    "id": "mv-205-pt",
+    "prefix": "A garota",
+    "suffix": "do trem"
+  },
+  "mv-206-pt": {
+    "id": "mv-206-pt",
+    "prefix": "A bela",
+    "suffix": "e a Fera"
+  },
+  "mv-207-pt": {
+    "id": "mv-207-pt",
+    "prefix": "Nove semanas e meia",
+    "suffix": "de amor"
+  },
+  "mv-208-pt": {
+    "id": "mv-208-pt",
+    "prefix": "O amante",
+    "suffix": "de Lady Chatterley"
+  },
+  "mv-209-pt": {
+    "id": "mv-209-pt",
+    "prefix": "O amante",
+    "suffix": "da rainha"
+  },
+  "mv-210-pt": {
+    "id": "mv-210-pt",
+    "prefix": "Conduzindo",
+    "suffix": "Miss Daisy"
+  },
+  "mv-211-pt": {
+    "id": "mv-211-pt",
+    "prefix": "O céu",
+    "suffix": "da meia noite"
+  },
+  "mv-212-pt": {
+    "id": "mv-212-pt",
+    "prefix": "Mudança",
+    "suffix": "de hábito"
+  },
+  "mv-213-pt": {
+    "id": "mv-213-pt",
+    "prefix": "Cantando",
+    "suffix": "na chuva"
+  },
+  "mv-214-pt": {
+    "id": "mv-214-pt",
+    "prefix": "A fantástica fábrica",
+    "suffix": "de chocolates"
+  },
+  "mv-215-pt": {
+    "id": "mv-215-pt",
+    "prefix": "Alice",
+    "suffix": "no país das maravilhas"
+  },
+  "mv-216-pt": {
+    "id": "mv-216-pt",
+    "prefix": "Bonequinha",
+    "suffix": "de luxo"
+  },
+  "mv-217-pt": {
+    "id": "mv-217-pt",
+    "prefix": "A invenção",
+    "suffix": "de Hugo Cabret"
+  },
+  "mv-218-pt": {
+    "id": "mv-218-pt",
+    "prefix": "Brilho eterno",
+    "suffix": "de uma mente sem lembranças"
+  },
+  "mv-219-pt": {
+    "id": "mv-219-pt",
+    "prefix": "O curioso caso",
+    "suffix": "de Benjamin Button"
+  },
+  "mv-220-pt": {
+    "id": "mv-220-pt",
+    "prefix": "O guia do mochileiro",
+    "suffix": "das galáxias"
+  },
+  "mv-221-pt": {
+    "id": "mv-221-pt",
+    "prefix": "O lar",
+    "suffix": "das crianças peculiares"
+  },
+  "mv-222-pt": {
+    "id": "mv-222-pt",
+    "prefix": "Priscila",
+    "suffix": "a rainha do deserto"
+  },
+  "mv-223-pt": {
+    "id": "mv-223-pt",
+    "prefix": "Querida",
+    "suffix": ", encolhi as crianças"
+  },
+  "mv-224-pt": {
+    "id": "mv-224-pt",
+    "prefix": "A espiã",
+    "suffix": "que sabia de menos"
+  },
+  "mv-225-pt": {
+    "id": "mv-225-pt",
+    "prefix": "De penas",
+    "suffix": "pro Ar"
+  },
+  "mv-226-pt": {
+    "id": "mv-226-pt",
+    "prefix": "Super Xuxa",
+    "suffix": "contra o Baixo Astral"
+  },
+  "mv-227-pt": {
+    "id": "mv-227-pt",
+    "prefix": "Perdido",
+    "suffix": "em Marte"
+  },
+  "mv-228-pt": {
+    "id": "mv-228-pt",
+    "prefix": "Deu a louca",
+    "suffix": "na Chapeuzinho"
+  },
+  "mv-229-pt": {
+    "id": "mv-229-pt",
+    "prefix": "Família",
+    "suffix": "do bagulho"
+  },
+  "mv-230-pt": {
+    "id": "mv-230-pt",
+    "prefix": "10 coisas",
+    "suffix": "que odeio em você"
+  },
+  "mv-231-pt": {
+    "id": "mv-231-pt",
+    "prefix": "Tudo em todo lugar",
+    "suffix": "ao mesmo tempo"
+  },
+  "mv-232-pt": {
+    "id": "mv-232-pt",
+    "prefix": "O clã",
+    "suffix": "das adagas voadoras"
   }
 }
