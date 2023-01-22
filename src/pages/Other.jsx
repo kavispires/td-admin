@@ -8,6 +8,7 @@ import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { checkForDuplicates, findSimilar, stringRemoveAccents } from '../utils';
 import { SEARCH_THRESHOLD } from '../utils/constants';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
+import rawData from './rawData.json';
 
 const { Text, Title } = Typography;
 
@@ -317,25 +318,42 @@ export function Other() {
 
   // const result = parseQuantitativeQuestions();
 
-  const parseQuantitativeQuestions = () =>
-    rawData.reduce((acc, entry, index) => {
-      const id = `dlm-${index + 1}-pt`;
+  // const parseQuantitativeQuestions = () =>
+  //   rawData.reduce((acc, entry, index) => {
+  //     const id = `dlm-${index + 1}-pt`;
+  //     const e = {
+  //       id,
+  //       prompt: entry.Prompt,
+  //       left: entry.Left,
+  //       right: entry.Right,
+  //     };
+
+  //     if (entry.NSFW) {
+  //       e.nsfw = true;
+  //     }
+
+  //     acc[id] = e;
+  //     return acc;
+  //   }, {});
+
+  // const result = parseQuantitativeQuestions();
+
+  const parseMovies = () => {
+    const result = {};
+    rawData.forEach((entry, index) => {
+      const id = `mr-${index + 1}-pt`;
       const e = {
         id,
-        prompt: entry.Prompt,
-        left: entry.Left,
-        right: entry.Right,
+        text: entry.text.trim(),
+        type: entry.type,
+        highlights: [''],
       };
+      result[id] = e;
+    });
+    return result;
+  };
 
-      if (entry.NSFW) {
-        e.nsfw = true;
-      }
-
-      acc[id] = e;
-      return acc;
-    }, {});
-
-  const result = parseQuantitativeQuestions();
+  const result = parseMovies();
 
   const jsonString = useMemo(() => JSON.stringify(result, null, 4), [result]);
 
@@ -366,5 +384,3 @@ function parse(a) {
 }
 
 const db = [];
-
-const rawData = [];

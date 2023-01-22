@@ -1,4 +1,5 @@
 import { SEARCH_THRESHOLD } from './constants';
+import stringSimilarity from 'string-similarity';
 
 /**
  *
@@ -55,10 +56,12 @@ export const findSimilar = (str: string, data: PlainObject, property = 'text') =
     const val = typeof entry[property] === 'string' ? entry[property] : JSON.stringify(entry[property]);
     const entryStr = stringRemoveAccents(val.toLowerCase());
 
-    if (entryStr.includes(value)) {
+    if (entryStr.includes(value) || stringSimilarity.compareTwoStrings(str, entryStr) > 0.5) {
       similar[entry.id] = val;
     }
   });
 
   return similar;
 };
+
+export const findBestMatch = (str: string, list: string[]) => {};
