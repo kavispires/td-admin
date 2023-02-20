@@ -6,36 +6,23 @@
     "negative": [
       "alive",
       "bright",
-
       "danger",
-
       "defense",
-
       "fast",
-
       "food",
-
       "heavy",
-
       "liquid",
-
       "metal",
-
       "plant",
-
       "power",
-
       "sharp",
-
       "tool",
-
       "valuable",
-
       "warm",
-
+      "human",
       "weapon"
     ],
-    "irrelevant": ["beautiful", "big", "clothes", "flight", "human", "round", "solid"]
+    "irrelevant": ["beautiful", "big", "clothes", "flight", "round", "solid"]
   },
   {
     "id": "2",
@@ -43,31 +30,18 @@
     "positive": ["alive", "big", "food", "plant"],
     "negative": [
       "bright",
-
       "clothes",
-
       "defense",
-
       "fast",
-
       "flight",
-
       "human",
-
       "knowledge",
-
       "metal",
-
       "power",
-
       "sharp",
-
       "tool",
-
       "valuable",
-
       "warm",
-
       "weapon"
     ],
     "irrelevant": ["beautiful", "danger", "heavy", "liquid", "long", "round", "solid"]
@@ -79,27 +53,16 @@
     "negative": [
       "alive",
       "beautiful",
-
       "clothes",
-
       "fast",
-
       "flight",
-
       "food",
-
       "heavy",
-
       "knowledge",
-
       "liquid",
-
       "plant",
-
       "round",
-
       "valuable",
-
       "warm"
     ],
     "irrelevant": ["big", "bright", "defense", "human", "long", "power", "solid", "tool"]
@@ -228,7 +191,7 @@
       "warm",
       "weapon"
     ],
-    "irrelevant": ["defense", "human", "solid"]
+    "irrelevant": ["round", "defense", "human", "solid"]
   },
   {
     "id": "9",
@@ -618,7 +581,7 @@
   },
   {
     "id": "24",
-    "name": "muffin",
+    "name": "cupcake",
     "positive": ["food"],
     "negative": [
       "alive",
@@ -730,7 +693,7 @@
   {
     "id": "28",
     "name": "dumbbell",
-    "positive": ["heavy", "metal", "power", "solid"],
+    "positive": ["heavy", "metal", "power"],
     "negative": [
       "alive",
       "beautiful",
@@ -748,9 +711,10 @@
       "sharp",
       "tool",
       "valuable",
+      "big",
       "warm"
     ],
-    "irrelevant": ["big", "danger", "round", "weapon"]
+    "irrelevant": ["danger", "round", "weapon", "solid"]
   },
   {
     "id": "29",
