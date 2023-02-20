@@ -2,7 +2,7 @@
   {
     "name": "yoga-mat",
     "id": "1",
-    "positive": ["knowledge", "knowledge", "long", "long"],
+    "positive": ["knowledge", "long"],
     "negative": [
       "alive",
       "bright",
@@ -35,123 +35,74 @@
 
       "weapon"
     ],
-    "irrelevant": [
-      "beautiful",
-      "beautiful",
-      "big",
-      "big",
-      "clothes",
-      "clothes",
-      "flight",
-      "flight",
-      "human",
-      "human",
-      "round",
-      "round",
-      "solid",
-      "solid"
-    ]
+    "irrelevant": ["beautiful", "big", "clothes", "flight", "human", "round", "solid"]
   },
   {
     "id": "2",
     "name": "palm tree",
-    "positive": ["alive", "big", "big", "food", "food", "plant", "plant"],
+    "positive": ["alive", "big", "food", "plant"],
     "negative": [
       "bright",
-      "bright",
+
       "clothes",
-      "clothes",
+
       "defense",
-      "defense",
+
       "fast",
-      "fast",
+
       "flight",
-      "flight",
+
       "human",
-      "human",
+
       "knowledge",
-      "knowledge",
+
       "metal",
-      "metal",
+
       "power",
-      "power",
+
       "sharp",
-      "sharp",
+
       "tool",
-      "tool",
+
       "valuable",
-      "valuable",
+
       "warm",
-      "warm",
-      "weapon",
+
       "weapon"
     ],
-    "irrelevant": [
-      "beautiful",
-      "beautiful",
-      "danger",
-      "danger",
-      "heavy",
-      "heavy",
-      "liquid",
-      "liquid",
-      "long",
-      "long",
-      "round",
-      "round",
-      "solid",
-      "solid"
-    ]
+    "irrelevant": ["beautiful", "danger", "heavy", "liquid", "long", "round", "solid"]
   },
   {
     "id": "3",
     "name": "sword",
-    "positive": ["danger", "danger", "metal", "metal", "sharp", "sharp", "weapon", "weapon"],
+    "positive": ["danger", "metal", "sharp", "weapon"],
     "negative": [
       "alive",
       "beautiful",
-      "beautiful",
+
       "clothes",
-      "clothes",
+
       "fast",
-      "fast",
+
       "flight",
-      "flight",
+
       "food",
-      "food",
+
       "heavy",
-      "heavy",
+
       "knowledge",
-      "knowledge",
+
       "liquid",
-      "liquid",
+
       "plant",
-      "plant",
+
       "round",
-      "round",
+
       "valuable",
-      "valuable",
-      "warm",
+
       "warm"
     ],
-    "irrelevant": [
-      "big",
-      "big",
-      "bright",
-      "bright",
-      "defense",
-      "defense",
-      "human",
-      "human",
-      "long",
-      "long",
-      "power",
-      "power",
-      "solid",
-      "solid",
-      "tool",
-      "tool"
-    ]
+    "irrelevant": ["big", "bright", "defense", "human", "long", "power", "solid", "tool"]
   },
   {
     "id": "4",
@@ -906,5 +857,209 @@
       "weapon"
     ],
     "irrelevant": ["knowledge", "bright", "defense", "flight", "human", "long", "solid"]
+  },
+  {
+    "id": "33",
+    "name": "magnet",
+    "positive": ["metal", "power"],
+    "negative": [
+      "alive",
+      "beautiful",
+      "big",
+      "bright",
+      "clothes",
+      "danger",
+      "defense",
+      "fast",
+      "flight",
+      "food",
+      "human",
+      "knowledge",
+      "liquid",
+      "long",
+      "plant",
+      "round",
+      "sharp",
+      "valuable",
+      "warm",
+      "weapon"
+    ],
+    "irrelevant": ["heavy", "solid", "tool"]
+  },
+  {
+    "id": "34",
+    "name": "horseshoe",
+    "positive": ["bright", "metal"],
+    "negative": [
+      "alive",
+      "big",
+      "danger",
+      "fast",
+      "flight",
+      "food",
+      "human",
+      "long",
+      "liquid",
+      "knowledge",
+      "plant",
+      "power",
+      "valuable",
+      "warm",
+      "weapon"
+    ],
+    "irrelevant": ["beautiful", "clothes", "defense", "heavy", "round", "solid", "tool"]
+  },
+  {
+    "id": "34",
+    "name": "stable",
+    "positive": ["big", "defense"],
+    "negative": [
+      "alive",
+      "beautiful",
+      "bright",
+      "fast",
+      "danger",
+      "clothes",
+      "flight",
+      "food",
+      "human",
+      "knowledge",
+      "liquid",
+      "long",
+      "metal",
+      "plant",
+      "power",
+      "round",
+      "sharp",
+      "warm",
+      "valuable",
+      "tool",
+      "weapon"
+    ],
+    "irrelevant": ["heavy", "solid"]
+  },
+  {
+    "id": "35",
+    "name": "house",
+    "positive": ["alive", "big", "fast"],
+    "negative": [
+      "bright",
+      "clothes",
+      "danger",
+      "defense",
+      "flight",
+      "human",
+      "knowledge",
+      "liquid",
+      "metal",
+      "plant",
+      "round",
+      "sharp",
+      "valuable",
+      "tool",
+      "solid",
+      "weapon"
+    ],
+    "irrelevant": ["beautiful", "food", "heavy", "long", "power", "warm"]
+  },
+  {
+    "id": "36",
+    "name": "spray bottle",
+    "positive": ["liquid"],
+    "negative": [
+      "alive",
+      "beautiful",
+      "big",
+      "bright",
+      "clothes",
+      "flight",
+      "food",
+      "heavy",
+      "knowledge",
+      "long",
+      "metal",
+      "sharp",
+      "round",
+      "power",
+      "plant",
+      "valuable",
+      "warm",
+      "weapon"
+    ],
+    "irrelevant": ["danger", "defense", "fast", "human", "solid", "tool"]
+  },
+  {
+    "id": "37",
+    "name": "paint roller",
+    "positive": ["liquid", "round", "tool"],
+    "negative": [
+      "alive",
+      "big",
+      "bright",
+      "clothes",
+      "danger",
+      "defense",
+      "fast",
+      "flight",
+      "food",
+      "heavy",
+      "human",
+      "knowledge",
+      "metal",
+      "sharp",
+      "power",
+      "plant",
+      "valuable",
+      "warm",
+      "weapon"
+    ],
+    "irrelevant": ["beautiful", "long", "solid"]
+  },
+  {
+    "id": "39",
+    "name": "fire",
+    "positive": ["beautiful", "danger", "warm"],
+    "negative": [
+      "alive",
+      "big",
+      "clothes",
+      "defense",
+      "fast",
+      "flight",
+      "heavy",
+      "human",
+      "knowledge",
+      "liquid",
+      "long",
+      "metal",
+      "sharp",
+      "power",
+      "plant",
+      "solid",
+      "tool",
+      "valuable"
+    ],
+    "irrelevant": ["bright", "round", "food", "weapon"]
+  },
+  {
+    "id": "40",
+    "name": "fire extinguisher",
+    "positive": ["defense", "tool"],
+    "negative": [
+      "alive",
+      "beautiful",
+      "big",
+      "bright",
+      "clothes",
+      "flight",
+      "food",
+      "human",
+      "knowledge",
+      "plant",
+      "sharp",
+      "warm",
+      "valuable"
+    ],
+    "irrelevant": ["danger", "fast", "heavy", "liquid", "long", "metal", "power", "round", "solid", "weapon"]
   }
 ]
