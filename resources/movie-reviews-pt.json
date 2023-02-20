@@ -51,7 +51,7 @@
     "id": "mr-9-pt",
     "text": "Comédias bestas como essa são exatamente o que eu preciso para me dar uma animada.",
     "type": "good",
-    "highlights": ["Comédias bobas", "animar"]
+    "highlights": ["Comédias bestas", "animada"]
   },
   "mr-10-pt": {
     "id": "mr-10-pt",
@@ -109,7 +109,7 @@
   },
   "mr-19-pt": {
     "id": "mr-19-pt",
-    "text": "Não fazia ideia que um filme de terror japonês eram tão assustadores",
+    "text": "Não fazia ideia que um filme de terror japonês poderia ser tão assustador",
     "type": "good",
     "highlights": ["terror japonês"]
   },
@@ -142,5 +142,365 @@
     "text": "De todos os filmes com zumbis, por que ESSA bosta?",
     "type": "bad",
     "highlights": ["zumbis"]
+  },
+  "mr-25-pt": {
+    "id": "mr-25-pt",
+    "text": "Uma comédia comovente que você precisa ver, altamente recomendada.",
+    "type": "good",
+    "highlights": ["comédia comovente"]
+  },
+  "mr-26-pt": {
+    "id": "mr-26-pt",
+    "text": "Perdi os primeiros dez minutos e me perdi no enredo supercomplicado.",
+    "type": "bad",
+    "highlights": ["enredo supercomplicado"]
+  },
+  "mr-27-pt": {
+    "id": "mr-27-pt",
+    "text": "Um filme de baixo orçamento divertido e leve",
+    "type": "good",
+    "highlights": ["baixo orçamento"]
+  },
+  "mr-28-pt": {
+    "id": "mr-28-pt",
+    "text": "Eu nunca ouvi falar da história em quadrinhos que inspirou esta história. Espero que seja melhor que o filme!",
+    "type": "bad",
+    "highlights": ["história em quadrinhos"]
+  },
+  "mr-29-pt": {
+    "id": "mr-29-pt",
+    "text": "Arqueólogo bonitão: SIM! Aventuras emocionantes: SIM! O que mais você poderia pedir?",
+    "type": "good",
+    "highlights": ["Arqueólogo bonitão", "Aventuras"]
+  },
+  "mr-30-pt": {
+    "id": "mr-30-pt",
+    "text": "A mensagem política subjacente parece um pouco controversa para mim, qual foi o objetivo de fazer este filme?",
+    "type": "bad",
+    "highlights": ["mensagem política"]
+  },
+  "mr-31-pt": {
+    "id": "mr-31-pt",
+    "text": "O clássico enredo \"eles se odeiam, mas precisam trabalhar juntos\" ainda funciona!",
+    "type": "good",
+    "highlights": ["eles se odeiam, mas precisam trabalhar juntos"]
+  },
+  "mr-32-pt": {
+    "id": "mr-32-pt",
+    "text": "O filme é bom, mas quem traduziu tão mal o título original?",
+    "type": "bad",
+    "highlights": ["traduziu tão mal o título original"]
+  },
+  "mr-33-pt": {
+    "id": "mr-33-pt",
+    "text": "Animais falantes no telão: sempre sensacional!",
+    "type": "good",
+    "highlights": ["Animais falantes"]
+  },
+  "mr-34-pt": {
+    "id": "mr-34-pt",
+    "text": "A célebre \"reviravolta no final\" ficou óbvia nos primeiros 20 minutos...",
+    "type": "bad",
+    "highlights": ["reviravolta no final", "óbvia"]
+  },
+  "mr-35-pt": {
+    "id": "mr-35-pt",
+    "text": "Eu duvidava que isso pudesse funcionar como um filme mudo. Eu estava muito errado.",
+    "type": "good",
+    "highlights": ["filme mudo"]
+  },
+  "mr-36-pt": {
+    "id": "mr-36-pt",
+    "text": "Os críticos europeus chamam de \"obra-prima\". Eu chamo de \"sonífero\".",
+    "type": "bad",
+    "highlights": ["sonífero"]
+  },
+  "mr-37-pt": {
+    "id": "mr-37-pt",
+    "text": "Você vai se pegar assobiando a música principal deste musical por dias.",
+    "type": "good",
+    "highlights": ["musical"]
+  },
+  "mr-38-pt": {
+    "id": "mr-38-pt",
+    "text": "Você está me dizendo essa porcaria levou DEZ anos para ficar pronta?",
+    "type": "bad",
+    "highlights": ["DEZ anos"]
+  },
+  "mr-39-pt": {
+    "id": "mr-39-pt",
+    "text": "Melhor filme de animação que vi recentemente. Excelente uso do 3D!",
+    "type": "good",
+    "highlights": ["filme de animação", "3D"]
+  },
+  "mr-40-pt": {
+    "id": "mr-40-pt",
+    "text": "Só gostei do ato final com os robôs gigantes.",
+    "type": "bad",
+    "highlights": ["robôs gigantes"]
+  },
+  "mr-41-pt": {
+    "id": "mr-41-pt",
+    "text": "Essa é uma paródia divertida do filme clássico, desde o título.",
+    "type": "good",
+    "highlights": ["paródia divertida", "título"]
+  },
+  "mr-42-pt": {
+    "id": "mr-42-pt",
+    "text": "TRÊS... DOIS... UM... e a bomba é desarmada no último segundo. Tão original.",
+    "type": "bad",
+    "highlights": ["bomba"]
+  },
+  "mr-43-pt": {
+    "id": "mr-43-pt",
+    "text": "Eles fizeram a história de um julgamento criminal bom para assistir ... Tá de parabéns!",
+    "type": "good",
+    "highlights": ["julgamento criminal"]
+  },
+  "mr-44-pt": {
+    "id": "mr-44-pt",
+    "text": "Eu não esperava que isso fosse durante a Segunda Guerra Mundial. Isso é tão confuso.",
+    "type": "bad",
+    "highlights": [""]
+  },
+  "mr-45-pt": {
+    "id": "mr-45-pt",
+    "text": "Um filme de desastre natural convincente.",
+    "type": "good",
+    "highlights": ["desastre natural"]
+  },
+  "mr-46-pt": {
+    "id": "mr-46-pt",
+    "text": "Todos os personagens são legendados... em diferentes idiomas. Quem pensou nisso?",
+    "type": "bad",
+    "highlights": ["legendados", "diferentes idiomas"]
+  },
+  "mr-47-pt": {
+    "id": "mr-47-pt",
+    "text": "Um filme muito delicado e introspectivo. Tão amável!",
+    "type": "good",
+    "highlights": ["delicado", "introspectivo"]
+  },
+  "mr-48-pt": {
+    "id": "mr-48-pt",
+    "text": "O livro era melhor.",
+    "type": "bad",
+    "highlights": ["livro"]
+  },
+  "mr-49-pt": {
+    "id": "mr-49-pt",
+    "text": "As cenas de luta neste filme são perfeitamente coreografadas!",
+    "type": "good",
+    "highlights": ["cenas de luta"]
+  },
+  "mr-50-pt": {
+    "id": "mr-50-pt",
+    "text": "Um filme verdadeiramente terrível. Figurinos belíssimos, no entanto.",
+    "type": "bad",
+    "highlights": ["Figurinos belíssimos"]
+  },
+  "mr-51-pt": {
+    "id": "mr-51-pt",
+    "text": "Eu amo o filme. Além disso, agora sei como planejar uma fuga da prisão.",
+    "type": "good",
+    "highlights": ["fuga da prisão"]
+  },
+  "mr-52-pt": {
+    "id": "mr-52-pt",
+    "text": "Eu estava adorando... até que mudou completamente de gênero no ato final.",
+    "type": "bad",
+    "highlights": ["mudou", "de gênero"]
+  },
+  "mr-53-pt": {
+    "id": "mr-53-pt",
+    "text": "Fiquei surpreso que tem um ponto de vista pacifista num filme de guerra. Muito comovente.",
+    "type": "good",
+    "highlights": ["pacifista", "filme de guerra"]
+  },
+  "mr-54-pt": {
+    "id": "mr-54-pt",
+    "text": "Então... foi tudo um sonho no final? Quero duas horas da minha vida de volta.",
+    "type": "bad",
+    "highlights": ["foi tudo um sonho"]
+  },
+  "mr-55-pt": {
+    "id": "mr-55-pt",
+    "text": "Assim que eles começam a falar com seu sotaque britânico vitoriano, eu já amei.",
+    "type": "good",
+    "highlights": ["sotaque britânico vitoriano"]
+  },
+  "mr-56-pt": {
+    "id": "mr-56-pt",
+    "text": "A sequência do sonho no final é muito longa e confusa.",
+    "type": "bad",
+    "highlights": ["sequência do sonho"]
+  },
+  "mr-57-pt": {
+    "id": "mr-57-pt",
+    "text": "Eles não eram minha banda favorita, mas depois de assistir essa cinebiografia eu comprei todos os álbuns!",
+    "type": "good",
+    "highlights": ["banda", "cinebiografia"]
+  },
+  "mr-58-pt": {
+    "id": "mr-58-pt",
+    "text": "Cuidado pais! Não é um filme para crianças!",
+    "type": "bad",
+    "highlights": ["Não é um filme para crianças"]
+  },
+  "mr-59-pt": {
+    "id": "mr-59-pt",
+    "text": "Outro filme de super-heróis... e esse é superlegal! Uau!",
+    "type": "good",
+    "highlights": ["super-heróis"]
+  },
+  "mr-60-pt": {
+    "id": "mr-60-pt",
+    "text": "Foi uma má ideia escalar um comediante para um papel dramático.",
+    "type": "bad",
+    "highlights": ["comediante", "papel dramático"]
+  },
+  "mr-61-pt": {
+    "id": "mr-61-pt",
+    "text": "Este filme de assalto a banco vai \"roubar\" muitos prêmios. Kkkk",
+    "type": "good",
+    "highlights": ["assalto a banco"]
+  },
+  "mr-62-pt": {
+    "id": "mr-62-pt",
+    "text": "A única coisa boa desse filme é a localização, vou marcar umas férias lá.",
+    "type": "bad",
+    "highlights": ["localização"]
+  },
+  "mr-63-pt": {
+    "id": "mr-63-pt",
+    "text": "Magos poderosos, dragões majestosos, espadas mágicas... um incrível filme de fantasia",
+    "type": "good",
+    "highlights": ["Magos", "dragões", "fantasia"]
+  },
+  "mr-64-pt": {
+    "id": "mr-64-pt",
+    "text": "Todos os personagens são estúpidos demais para serem reais.",
+    "type": "bad",
+    "highlights": ["personagens", "estúpidos"]
+  },
+  "mr-65-pt": {
+    "id": "mr-65-pt",
+    "text": "Se você não gosta desse clássico filme de gângster, vai catar coquinho.",
+    "type": "good",
+    "highlights": ["gângster"]
+  },
+  "mr-66-pt": {
+    "id": "mr-66-pt",
+    "text": "Dizem que é um \"filme experimental\". Eu digo que o experimento falhou.",
+    "type": "bad",
+    "highlights": ["filme experimental"]
+  },
+  "mr-67-pt": {
+    "id": "mr-67-pt",
+    "text": "Existem muitos filmes sobre companhias de dança, mas este é o melhor.",
+    "type": "good",
+    "highlights": ["companhias de dança"]
+  },
+  "mr-68-pt": {
+    "id": "mr-68-pt",
+    "text": "Spoiler: O \"herói\" é um vampiro. Deve ser por isso que o filme suga toda minha vontade de viver.",
+    "type": "bad",
+    "highlights": ["vampiro"]
+  },
+  "mr-69-pt": {
+    "id": "mr-69-pt",
+    "text": "O personagem principal é o anti-herói que precisamos agora.",
+    "type": "good",
+    "highlights": ["anti-herói"]
+  },
+  "mr-70-pt": {
+    "id": "mr-70-pt",
+    "text": "O título por si só grita \"filme chato\". Por que não reparei isso antes de ver?",
+    "type": "bad",
+    "highlights": ["filme chato"]
+  },
+  "mr-71-pt": {
+    "id": "mr-71-pt",
+    "text": "Prepare os lenços, você vai chorar muito com essa história verídica!",
+    "type": "good",
+    "highlights": ["chorar muito", "história verídica"]
+  },
+  "mr-72-pt": {
+    "id": "mr-72-pt",
+    "text": "Tantos buracos na trama. Alguém revisou o roteiro final?",
+    "type": "bad",
+    "highlights": ["buracos na trama"]
+  },
+  "mr-73-pt": {
+    "id": "mr-73-pt",
+    "text": "Filmar em preto e branco foi uma ótima ideia para um filme tão poético.",
+    "type": "good",
+    "highlights": ["preto e branco"]
+  },
+  "mr-74-pt": {
+    "id": "mr-74-pt",
+    "text": "Não estou convencido da ideia de usar marionetes em vez de atores para contar essa história.",
+    "type": "bad",
+    "highlights": [""]
+  },
+  "mr-75-pt": {
+    "id": "mr-75-pt",
+    "text": "Eu vi esse novo filme sobre viagem no tempo na próxima segunda-feira e adorei.",
+    "type": "good",
+    "highlights": ["viagem no tempo"]
+  },
+  "mr-76-pt": {
+    "id": "mr-76-pt",
+    "text": "Um elenco de adultos fazendo o papel de crianças. Que cringe!",
+    "type": "bad",
+    "highlights": ["adultos", "papel de crianças"]
+  },
+  "mr-77-pt": {
+    "id": "mr-77-pt",
+    "text": "Uma adaptação moderna original de um conto de fadas clássico. Cinco estrelas!",
+    "type": "good",
+    "highlights": ["conto de fadas"]
+  },
+  "mr-78-pt": {
+    "id": "mr-78-pt",
+    "text": "Esse é o último filme da trilogia e com certeza é o pior...",
+    "type": "bad",
+    "highlights": ["último filme da trilogia"]
+  },
+  "mr-79-pt": {
+    "id": "mr-79-pt",
+    "text": "O filme me apresentou esta mulher fascinante, uma verdadeira heroína do nosso tempo!",
+    "type": "good",
+    "highlights": ["mulher"]
+  },
+  "mr-80-pt": {
+    "id": "mr-80-pt",
+    "text": "Prefiro a peça de teatro, bem mais profunda.",
+    "type": "bad",
+    "highlights": ["peça de teatro"]
+  },
+  "mr-81-pt": {
+    "id": "mr-81-pt",
+    "text": "Um filme mitológico que é mesmo... mítico!",
+    "type": "good",
+    "highlights": ["mitológico"]
+  },
+  "mr-82-pt": {
+    "id": "mr-82-pt",
+    "text": "Muito curto e bagunçado. Teria funcionado melhor como uma minissérie de seis episódios.",
+    "type": "bad",
+    "highlights": ["Muito curto", "minissérie de seis episódios"]
+  },
+  "mr-83-pt": {
+    "id": "mr-83-pt",
+    "text": "Gerou muito debate, mas para mim, este é o melhor capítulo desta saga de histórias de espionagem.",
+    "type": "good",
+    "highlights": ["espionagem"]
+  },
+  "mr-84-pt": {
+    "id": "mr-84-pt",
+    "text": "Talvez devessem ter gasto um pouco mais para consertar os efeitos especiais péssimos. Ficaram muito porcos.",
+    "type": "bad",
+    "highlights": ["efeitos especiais péssimos"]
   }
 }
