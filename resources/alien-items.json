@@ -233,7 +233,7 @@
   {
     "id": "7",
     "name": "toolbox",
-    "positive": ["metal", "solid", "tool"],
+    "positive": ["tool"],
     "negative": [
       "alive",
       "beautiful",
@@ -253,7 +253,7 @@
       "warm",
       "weapon"
     ],
-    "irrelevant": ["big", "danger", "heavy", "human", "power"]
+    "irrelevant": ["big", "danger", "heavy", "human", "power", "metal", "solid"]
   },
   {
     "id": "8",
