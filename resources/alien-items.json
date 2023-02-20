@@ -1061,5 +1061,86 @@
       "valuable"
     ],
     "irrelevant": ["danger", "fast", "heavy", "liquid", "long", "metal", "power", "round", "solid", "weapon"]
+  },
+  {
+    "id": "41",
+    "name": "chicken",
+    "positive": ["alive", "flight", "food"],
+    "negative": [
+      "beautiful",
+      "big",
+      "bright",
+      "clothes",
+      "danger",
+      "defense",
+      "heavy",
+      "human",
+      "metal",
+      "long",
+      "liquid",
+      "knowledge",
+      "plant",
+      "power",
+      "round",
+      "sharp",
+      "valuable",
+      "tool",
+      "weapon"
+    ],
+    "irrelevant": ["fast", "solid", "warm"]
+  },
+  {
+    "id": "42",
+    "name": "egg",
+    "positive": ["food", "liquid", "round", "warm"],
+    "negative": [
+      "alive",
+      "beautiful",
+      "big",
+      "clothes",
+      "danger",
+      "defense",
+      "fast",
+      "human",
+      "heavy",
+      "flight",
+      "knowledge",
+      "long",
+      "metal",
+      "sharp",
+      "power",
+      "plant",
+      "tool",
+      "valuable",
+      "weapon"
+    ],
+    "irrelevant": ["solid", "bright"]
+  },
+  {
+    "id": "43",
+    "name": "poison",
+    "positive": ["danger", "food", "liquid"],
+    "negative": [
+      "alive",
+      "beautiful",
+      "big",
+      "bright",
+      "defense",
+      "clothes",
+      "flight",
+      "heavy",
+      "human",
+      "metal",
+      "long",
+      "knowledge",
+      "plant",
+      "power",
+      "sharp",
+      "warm",
+      "valuable",
+      "tool",
+      "solid"
+    ],
+    "irrelevant": ["fast", "round", "weapon"]
   }
 ]
