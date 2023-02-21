@@ -270,21 +270,9 @@
   {
     "id": "12",
     "name": "robot",
-    "positive": ["heavy", "knowledge", "metal", "solid", "valuable"],
-    "negative": [
-      "beautiful",
-      "big",
-      "clothes",
-      "flight",
-      "food",
-      "liquid",
-      "long",
-      "plant",
-      "round",
-      "sharp",
-      "warm"
-    ],
-    "irrelevant": ["alive", "bright", "danger", "defense", "fast", "human", "power", "tool", "weapon"]
+    "positive": ["heavy", "knowledge", "metal", "solid", "valuable", "power"],
+    "negative": ["beautiful", "big", "clothes", "flight", "food", "liquid", "long", "plant", "sharp", "warm"],
+    "irrelevant": ["round", "alive", "bright", "danger", "defense", "fast", "human", "tool", "weapon"]
   },
   {
     "id": "13",
@@ -318,7 +306,7 @@
   {
     "id": "14",
     "name": "strawberry",
-    "positive": ["alive", "food", "plant"],
+    "positive": ["food", "plant", "alive"],
     "negative": [
       "big",
       "bright",
@@ -487,7 +475,6 @@
       "food",
       "heavy",
       "human",
-      "knowledge",
       "liquid",
       "long",
       "metal",
@@ -498,7 +485,7 @@
       "warm",
       "weapon"
     ],
-    "irrelevant": ["alive", "big", "round", "solid"]
+    "irrelevant": ["alive", "big", "round", "knowledge", "solid"]
   },
   {
     "id": "21",
@@ -606,7 +593,7 @@
       "warm",
       "weapon"
     ],
-    "irrelevant": ["beautiful", "round", "solid"]
+    "irrelevant": ["beautiful", "round"]
   },
   {
     "id": "25",
@@ -729,7 +716,6 @@
       "defense",
       "fast",
       "flight",
-      "food",
       "heavy",
       "long",
       "metal",
@@ -737,7 +723,7 @@
       "sharp",
       "weapon"
     ],
-    "irrelevant": ["liquid", "power", "round", "warm", "valuable", "tool", "solid"]
+    "irrelevant": ["liquid", "power", "round", "warm", "valuable", "tool", "solid", "food"]
   },
   {
     "id": "30",
@@ -874,7 +860,7 @@
     "irrelevant": ["beautiful", "clothes", "defense", "heavy", "round", "solid", "tool"]
   },
   {
-    "id": "34",
+    "id": "35",
     "name": "stable",
     "positive": ["big", "defense"],
     "negative": [
@@ -903,31 +889,28 @@
     "irrelevant": ["heavy", "solid"]
   },
   {
-    "id": "35",
-    "name": "house",
-    "positive": ["alive", "big", "fast"],
+    "id": "36",
+    "name": "horse",
+    "positive": ["alive", "beautiful", "big", "fast"],
     "negative": [
       "bright",
       "clothes",
-      "danger",
-      "defense",
       "flight",
       "human",
+      "metal",
       "knowledge",
       "liquid",
-      "metal",
       "plant",
       "round",
       "sharp",
       "valuable",
       "tool",
-      "solid",
       "weapon"
     ],
-    "irrelevant": ["beautiful", "food", "heavy", "long", "power", "warm"]
+    "irrelevant": ["danger", "defense", "food", "heavy", "long", "power", "warm", "solid"]
   },
   {
-    "id": "36",
+    "id": "37",
     "name": "spray bottle",
     "positive": ["liquid"],
     "negative": [
@@ -953,7 +936,7 @@
     "irrelevant": ["danger", "defense", "fast", "human", "solid", "tool"]
   },
   {
-    "id": "37",
+    "id": "38",
     "name": "paint roller",
     "positive": ["liquid", "round", "tool"],
     "negative": [
@@ -1106,5 +1089,241 @@
       "solid"
     ],
     "irrelevant": ["fast", "round", "weapon"]
+  },
+  {
+    "id": "44",
+    "name": "trampoline",
+    "positive": ["danger", "round"],
+    "negative": [
+      "alive",
+      "beautiful",
+      "big",
+      "bright",
+      "clothes",
+      "defense",
+      "fast",
+      "food",
+      "heavy",
+      "human",
+      "knowledge",
+      "liquid",
+      "long",
+      "plant",
+      "sharp",
+      "warm",
+      "valuable",
+      "tool",
+      "weapon"
+    ],
+    "irrelevant": ["flight", "metal", "power", "solid"]
+  },
+  {
+    "id": "45",
+    "name": "seal",
+    "positive": ["alive"],
+    "negative": [
+      "clothes",
+      "defense",
+      "fast",
+      "flight",
+      "food",
+      "human",
+      "metal",
+      "long",
+      "knowledge",
+      "plant",
+      "power",
+      "sharp",
+      "warm",
+      "valuable",
+      "tool",
+      "weapon"
+    ],
+    "irrelevant": ["beautiful", "big", "bright", "danger", "heavy", "liquid", "round", "solid"]
+  },
+  {
+    "id": "46",
+    "name": "cow",
+    "positive": ["alive", "big", "food", "heavy"],
+    "negative": [
+      "beautiful",
+      "bright",
+      "fast",
+      "defense",
+      "danger",
+      "flight",
+      "human",
+      "metal",
+      "long",
+      "knowledge",
+      "plant",
+      "power",
+      "sharp",
+      "tool",
+      "weapon"
+    ],
+    "irrelevant": ["clothes", "valuable", "liquid", "round", "warm", "solid"]
+  },
+  {
+    "id": "47",
+    "name": "bag of chips",
+    "positive": ["food"],
+    "negative": [
+      "alive",
+      "beautiful",
+      "big",
+      "bright",
+      "clothes",
+      "danger",
+      "defense",
+      "fast",
+      "flight",
+      "heavy",
+      "human",
+      "metal",
+      "long",
+      "liquid",
+      "knowledge",
+      "power",
+      "round",
+      "sharp",
+      "warm",
+      "valuable",
+      "tool",
+      "weapon"
+    ],
+    "irrelevant": ["plant", "solid"]
+  },
+  {
+    "id": "48",
+    "name": "donut",
+    "positive": ["food", "round"],
+    "negative": [
+      "alive",
+      "big",
+      "bright",
+      "fast",
+      "defense",
+      "danger",
+      "clothes",
+      "flight",
+      "heavy",
+      "human",
+      "metal",
+      "long",
+      "liquid",
+      "knowledge",
+      "plant",
+      "power",
+      "sharp",
+      "warm",
+      "valuable",
+      "tool"
+    ],
+    "irrelevant": ["beautiful", "solid"]
+  },
+  {
+    "id": "49",
+    "name": "watch",
+    "positive": ["beautiful", "clothes", "metal", "round", "valuable"],
+    "negative": [
+      "alive",
+      "big",
+      "danger",
+      "defense",
+      "fast",
+      "flight",
+      "food",
+      "heavy",
+      "human",
+      "liquid",
+      "long",
+      "plant",
+      "power",
+      "sharp",
+      "warm",
+      "tool",
+      "weapon"
+    ],
+    "irrelevant": ["bright", "knowledge", "solid"]
+  },
+  {
+    "id": "50",
+    "name": "pen",
+    "positive": [],
+    "negative": [
+      "alive",
+      "beautiful",
+      "big",
+      "bright",
+      "clothes",
+      "danger",
+      "defense",
+      "fast",
+      "human",
+      "heavy",
+      "food",
+      "flight",
+      "liquid",
+      "metal",
+      "plant",
+      "power",
+      "round",
+      "tool",
+      "valuable",
+      "warm",
+      "weapon"
+    ],
+    "irrelevant": ["knowledge", "long", "sharp", "solid"]
+  },
+  {
+    "id": "51",
+    "name": "ferris wheel",
+    "positive": ["big", "bright", "heavy", "metal", "round"],
+    "negative": [
+      "alive",
+      "clothes",
+      "defense",
+      "fast",
+      "food",
+      "human",
+      "knowledge",
+      "liquid",
+      "long",
+      "plant",
+      "power",
+      "sharp",
+      "tool",
+      "warm",
+      "weapon"
+    ],
+    "irrelevant": ["beautiful", "danger", "flight", "solid", "valuable"]
+  },
+  {
+    "id": "52",
+    "name": "fountain",
+    "positive": ["beautiful", "big", "liquid"],
+    "negative": [
+      "alive",
+      "bright",
+      "fast",
+      "defense",
+      "danger",
+      "clothes",
+      "flight",
+      "food",
+      "human",
+      "knowledge",
+      "long",
+      "metal",
+      "sharp",
+      "power",
+      "plant",
+      "tool",
+      "valuable",
+      "warm",
+      "weapon"
+    ],
+    "irrelevant": ["heavy", "round", "solid"]
   }
 ]
