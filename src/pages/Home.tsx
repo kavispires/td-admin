@@ -6,7 +6,6 @@ import { Menu } from '../components/Menu';
 import { Image } from 'antd';
 
 export function Home() {
-  const [count, setCount] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
 
   const onShowMenu = () => {
