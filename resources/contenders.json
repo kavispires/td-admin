@@ -93,8 +93,8 @@
   "cnt-14": {
     "id": "cnt-14",
     "name": {
-      "en": "Benjamin Franklin",
-      "pt": "Benjamin Franklin"
+      "en": "Ben Franklin",
+      "pt": "Ben Franklin"
     }
   },
   "cnt-15": {
@@ -528,7 +528,7 @@
     "id": "cnt-75",
     "name": {
       "en": "Julius Caesar",
-      "pt": "Júlio Caesar"
+      "pt": "Julius Caesar"
     }
   },
   "cnt-76": {
@@ -790,7 +790,7 @@
     "id": "cnt-112",
     "name": {
       "en": "Satan",
-      "pt": "Satanás"
+      "pt": "Satan"
     }
   },
   "cnt-113": {
@@ -839,7 +839,7 @@
     "id": "cnt-119",
     "name": {
       "en": "Socrates",
-      "pt": "Sócrates"
+      "pt": "Socrates"
     }
   },
   "cnt-120": {
@@ -984,8 +984,8 @@
   "cnt-139": {
     "id": "cnt-139",
     "name": {
-      "en": "Eleven",
-      "pt": "Eleven"
+      "en": "Joyce Byers",
+      "pt": "Joyce Byers"
     }
   },
   "cnt-140": {
@@ -1055,7 +1055,7 @@
   "cnt-149": {
     "id": "cnt-149",
     "name": {
-      "en": "Beetlejuice",
+      "en": "Bettlejuice",
       "pt": "Beetlejuice"
     }
   },
@@ -1091,7 +1091,7 @@
     "id": "cnt-154",
     "name": {
       "en": "Harley Quinn",
-      "pt": "Harley Quinn"
+      "pt": "Arlequina"
     }
   },
   "cnt-155": {
@@ -1357,7 +1357,7 @@
     "id": "cnt-190",
     "name": {
       "en": "Pablo Vittar",
-      "pt": "Pablo Vittar,"
+      "pt": "Pablo Vittar"
     },
     "exclusivity": "pt"
   },
@@ -1396,6 +1396,1111 @@
     "name": {
       "en": "Harry Potter",
       "pt": "Harry Potter"
+    }
+  },
+  "cnt-196": {
+    "id": "cnt-196",
+    "name": {
+      "en": "Luva de Pedreiro",
+      "pt": "Luva de Pedreiro"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-197": {
+    "id": "cnt-197",
+    "name": {
+      "en": "Anitta",
+      "pt": "Anitta"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-198": {
+    "id": "cnt-198",
+    "name": {
+      "en": "Nazaré Tedesco",
+      "pt": "Nazaré Tedesco"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-199": {
+    "id": "cnt-199",
+    "name": {
+      "en": "Joelma",
+      "pt": "Joelma"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-200": {
+    "id": "cnt-200",
+    "name": {
+      "en": "Jaspion",
+      "pt": "Jaspion"
+    }
+  },
+  "cnt-201": {
+    "id": "cnt-201",
+    "name": {
+      "en": "Padre do balão",
+      "pt": "Padre do balão"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-202": {
+    "id": "cnt-202",
+    "name": {
+      "en": "Narcisa",
+      "pt": "Narcisa"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-203": {
+    "id": "cnt-203",
+    "name": {
+      "en": "Leonidas",
+      "pt": "Leônidas"
+    }
+  },
+  "cnt-204": {
+    "id": "cnt-204",
+    "name": {
+      "en": "Jojo Todinho",
+      "pt": "Jojo Todinho"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-205": {
+    "id": "cnt-205",
+    "name": {
+      "en": "Tiazinha",
+      "pt": "Tiazinha"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-206": {
+    "id": "cnt-206",
+    "name": {
+      "en": "Saci Pererê",
+      "pt": "Saci Pererê"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-207": {
+    "id": "cnt-207",
+    "name": {
+      "en": "Wolverine",
+      "pt": "Wolverine"
+    }
+  },
+  "cnt-208": {
+    "id": "cnt-208",
+    "name": {
+      "en": "Glória Maria",
+      "pt": "Glória Maria"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-209": {
+    "id": "cnt-209",
+    "name": {
+      "en": "Mussum",
+      "pt": "Mussum"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-210": {
+    "id": "cnt-210",
+    "name": {
+      "en": "Gretchen",
+      "pt": "Gretchen"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-211": {
+    "id": "cnt-211",
+    "name": {
+      "en": "Hebe Camargo",
+      "pt": "Hebe Camargo"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-212": {
+    "id": "cnt-212",
+    "name": {
+      "en": "Jô Soares",
+      "pt": "Jô Soares"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-213": {
+    "id": "cnt-213",
+    "name": {
+      "en": "Galvão Bueno",
+      "pt": "Galvão Bueno"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-214": {
+    "id": "cnt-214",
+    "name": {
+      "en": "Chacrinha",
+      "pt": "Chacrinha"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-215": {
+    "id": "cnt-215",
+    "name": {
+      "en": "Fofão",
+      "pt": "Fofão"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-216": {
+    "id": "cnt-216",
+    "name": {
+      "en": "Priscila TV Colosso",
+      "pt": "Priscila TV Colosso"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-217": {
+    "id": "cnt-217",
+    "name": {
+      "en": "Cuca",
+      "pt": "Cuca"
+    }
+  },
+  "cnt-218": {
+    "id": "cnt-218",
+    "name": {
+      "en": "Tieta",
+      "pt": "Tieta"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-219": {
+    "id": "cnt-219",
+    "name": {
+      "en": "Eliana",
+      "pt": "Eliana"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-220": {
+    "id": "cnt-220",
+    "name": {
+      "en": "Chicó",
+      "pt": "Chicó"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-221": {
+    "id": "cnt-221",
+    "name": {
+      "en": "Julio (cocoricó)",
+      "pt": "Julio (cocoricó)"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-222": {
+    "id": "cnt-222",
+    "name": {
+      "en": "Raquel",
+      "pt": "Raquel"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-223": {
+    "id": "cnt-223",
+    "name": {
+      "en": "Tonho da Lua",
+      "pt": "Tonho da Lua"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-224": {
+    "id": "cnt-224",
+    "name": {
+      "en": "Mulher da abertura do fantástico",
+      "pt": "Mulher da abertura do fantástico"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-225": {
+    "id": "cnt-225",
+    "name": {
+      "en": "Palmirinha",
+      "pt": "Palmirinha"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-226": {
+    "id": "cnt-226",
+    "name": {
+      "en": "Wednesday",
+      "pt": "Wandinha"
+    }
+  },
+  "cnt-227": {
+    "id": "cnt-227",
+    "name": {
+      "en": "Carlos Alberto de Nobrega",
+      "pt": "Carlos Alberto de Nobrega"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-228": {
+    "id": "cnt-228",
+    "name": {
+      "en": "Suzana Vieira",
+      "pt": "Suzana Vieira"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-229": {
+    "id": "cnt-229",
+    "name": {
+      "en": "Irmão do Jorel",
+      "pt": "Irmão do Jorel"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-230": {
+    "id": "cnt-230",
+    "name": {
+      "en": "Gumball",
+      "pt": "Gumball"
+    }
+  },
+  "cnt-231": {
+    "id": "cnt-231",
+    "name": {
+      "en": "Angry Bird",
+      "pt": "Passarinho do Angry Birds"
+    }
+  },
+  "cnt-232": {
+    "id": "cnt-232",
+    "name": {
+      "en": "Vampeta",
+      "pt": "Vampeta"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-233": {
+    "id": "cnt-233",
+    "name": {
+      "en": "Cumpadri Washington",
+      "pt": "Cumpadri Washington"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-234": {
+    "id": "cnt-234",
+    "name": {
+      "en": "Caco Antibes",
+      "pt": "Caco Antibes"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-235": {
+    "id": "cnt-235",
+    "name": {
+      "en": "Capitão Nascimento",
+      "pt": "Capitão Nascimento"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-236": {
+    "id": "cnt-236",
+    "name": {
+      "en": "Vani",
+      "pt": "Vani"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-237": {
+    "id": "cnt-237",
+    "name": {
+      "en": "Sérgio Malandro",
+      "pt": "Sérgio Malandro"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-238": {
+    "id": "cnt-238",
+    "name": {
+      "en": "Wesley Safadão",
+      "pt": "Wesley Safadão"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-239": {
+    "id": "cnt-239",
+    "name": {
+      "en": "Winderson Nunes",
+      "pt": "Winderson Nunes"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-240": {
+    "id": "cnt-240",
+    "name": {
+      "en": "Regina George",
+      "pt": "Regina George"
+    }
+  },
+  "cnt-241": {
+    "id": "cnt-241",
+    "name": {
+      "en": "Lindsay Lohan",
+      "pt": "Lindsay Lohan"
+    }
+  },
+  "cnt-242": {
+    "id": "cnt-242",
+    "name": {
+      "en": "The Joker",
+      "pt": "Coringa"
+    }
+  },
+  "cnt-243": {
+    "id": "cnt-243",
+    "name": {
+      "en": "Marcelo Adnet",
+      "pt": "Marcelo Adnet"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-244": {
+    "id": "cnt-244",
+    "name": {
+      "en": "William Bonner",
+      "pt": "William Bonner"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-245": {
+    "id": "cnt-245",
+    "name": {
+      "en": "MacGyver",
+      "pt": "MacGyver"
+    }
+  },
+  "cnt-246": {
+    "id": "cnt-246",
+    "name": {
+      "en": "Tom Jobim",
+      "pt": "Tom Jobim"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-247": {
+    "id": "cnt-247",
+    "name": {
+      "en": "Daniel (San) LaRusso",
+      "pt": "Daniel (San) LaRusso"
+    }
+  },
+  "cnt-248": {
+    "id": "cnt-248",
+    "name": {
+      "en": "Edward Scissorhands",
+      "pt": "Edward Mãos de Tesoura"
+    }
+  },
+  "cnt-249": {
+    "id": "cnt-249",
+    "name": {
+      "en": "Chucky",
+      "pt": "Chucky"
+    }
+  },
+  "cnt-250": {
+    "id": "cnt-250",
+    "name": {
+      "en": "Neo",
+      "pt": "Neo"
+    }
+  },
+  "cnt-251": {
+    "id": "cnt-251",
+    "name": {
+      "en": "Gollum",
+      "pt": "Gollum"
+    }
+  },
+  "cnt-252": {
+    "id": "cnt-252",
+    "name": {
+      "en": "Amelie Poulain",
+      "pt": "Amelie Poulain"
+    }
+  },
+  "cnt-253": {
+    "id": "cnt-253",
+    "name": {
+      "en": "Phoeby Buffay",
+      "pt": "Phoeby Buffay"
+    }
+  },
+  "cnt-254": {
+    "id": "cnt-254",
+    "name": {
+      "en": "Lady Di",
+      "pt": "Lady Di"
+    }
+  },
+  "cnt-255": {
+    "id": "cnt-255",
+    "name": {
+      "en": "Lúcifer",
+      "pt": "Lúcifer"
+    }
+  },
+  "cnt-256": {
+    "id": "cnt-256",
+    "name": {
+      "en": "Candyman",
+      "pt": "Candyman"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-257": {
+    "id": "cnt-257",
+    "name": {
+      "en": "Loira do Banheiro",
+      "pt": "Loira do Banheiro"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-258": {
+    "id": "cnt-258",
+    "name": {
+      "en": "Wilson",
+      "pt": "Wilson"
+    }
+  },
+  "cnt-259": {
+    "id": "cnt-259",
+    "name": {
+      "en": "Dory",
+      "pt": "Dory"
+    }
+  },
+  "cnt-260": {
+    "id": "cnt-260",
+    "name": {
+      "en": "Michael Scott",
+      "pt": "Michael Scott"
+    }
+  },
+  "cnt-261": {
+    "id": "cnt-261",
+    "name": {
+      "en": "Mary Poppins",
+      "pt": "Mary Poppins"
+    }
+  },
+  "cnt-262": {
+    "id": "cnt-262",
+    "name": {
+      "en": "Optimus Prime",
+      "pt": "Optimus Prime"
+    }
+  },
+  "cnt-263": {
+    "id": "cnt-263",
+    "name": {
+      "en": "Inspector Gadget",
+      "pt": "Inspetor Bugiganga"
+    }
+  },
+  "cnt-264": {
+    "id": "cnt-264",
+    "name": {
+      "en": "Groot",
+      "pt": "Groot"
+    }
+  },
+  "cnt-265": {
+    "id": "cnt-265",
+    "name": {
+      "en": "Morgan Freeman",
+      "pt": "Morgan Freeman"
+    }
+  },
+  "cnt-266": {
+    "id": "cnt-266",
+    "name": {
+      "en": "Private Ryan",
+      "pt": "Soldado Ryan"
+    }
+  },
+  "cnt-267": {
+    "id": "cnt-267",
+    "name": {
+      "en": "Forrest Gump",
+      "pt": "Forrest Gump"
+    }
+  },
+  "cnt-268": {
+    "id": "cnt-268",
+    "name": {
+      "en": "Marty McFly",
+      "pt": "Marty McFly"
+    }
+  },
+  "cnt-269": {
+    "id": "cnt-269",
+    "name": {
+      "en": "Elon Musk",
+      "pt": "Elon Musk"
+    }
+  },
+  "cnt-270": {
+    "id": "cnt-270",
+    "name": {
+      "en": "Jeff Bezos",
+      "pt": "Jeff Bezos"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-271": {
+    "id": "cnt-271",
+    "name": {
+      "en": "Edward Cullen",
+      "pt": "Edward Cullen"
+    }
+  },
+  "cnt-272": {
+    "id": "cnt-272",
+    "name": {
+      "en": "Taylor Swift",
+      "pt": "Taylor Swift"
+    }
+  },
+  "cnt-273": {
+    "id": "cnt-273",
+    "name": {
+      "en": "Beyoncé",
+      "pt": "Beyoncé"
+    }
+  },
+  "cnt-274": {
+    "id": "cnt-274",
+    "name": {
+      "en": "Freddie Mercury",
+      "pt": "Freddie Mercury"
+    }
+  },
+  "cnt-275": {
+    "id": "cnt-275",
+    "name": {
+      "en": "Dr Fauci",
+      "pt": "Dr Fauci"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-276": {
+    "id": "cnt-276",
+    "name": {
+      "en": "Gkay",
+      "pt": "Gkay"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-277": {
+    "id": "cnt-277",
+    "name": {
+      "en": "Chapolin Colorado",
+      "pt": "Chapolin Colorado"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-278": {
+    "id": "cnt-278",
+    "name": {
+      "en": "Jennifer Coolidge",
+      "pt": "Jennifer Coolidge"
+    }
+  },
+  "cnt-279": {
+    "id": "cnt-279",
+    "name": {
+      "en": "Tiffany Wilson",
+      "pt": "Tiffany Wilson"
+    }
+  },
+  "cnt-280": {
+    "id": "cnt-280",
+    "name": {
+      "en": "Grumpy Cat",
+      "pt": "Gato de Mau Humor"
+    }
+  },
+  "cnt-281": {
+    "id": "cnt-281",
+    "name": {
+      "en": "Jack Dawson",
+      "pt": "Jack Dawson"
+    }
+  },
+  "cnt-282": {
+    "id": "cnt-282",
+    "name": {
+      "en": "Raphael",
+      "pt": "Rafael"
+    }
+  },
+  "cnt-283": {
+    "id": "cnt-283",
+    "name": {
+      "en": "Cuca Beludo",
+      "pt": "Cuca Beludo"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-284": {
+    "id": "cnt-284",
+    "name": {
+      "en": "Tan Mom",
+      "pt": "Tan Mom"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-285": {
+    "id": "cnt-285",
+    "name": {
+      "en": "Betty White",
+      "pt": "Betty White"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-286": {
+    "id": "cnt-286",
+    "name": {
+      "en": "Miley Cyrus",
+      "pt": "Miley Cyrus"
+    }
+  },
+  "cnt-287": {
+    "id": "cnt-287",
+    "name": {
+      "en": "Hannah Montana",
+      "pt": "Hannah Montana"
+    }
+  },
+  "cnt-288": {
+    "id": "cnt-288",
+    "name": {
+      "en": "Suzanne Crazy Eyes",
+      "pt": "Suzanne Crazy Eyes"
+    }
+  },
+  "cnt-289": {
+    "id": "cnt-289",
+    "name": {
+      "en": "Tom Brady",
+      "pt": "Tom Brady"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-290": {
+    "id": "cnt-290",
+    "name": {
+      "en": "Michael Schumacher",
+      "pt": "Michael Schumacher"
+    }
+  },
+  "cnt-291": {
+    "id": "cnt-291",
+    "name": {
+      "en": "Lionel Messi",
+      "pt": "Lionel Messi"
+    }
+  },
+  "cnt-292": {
+    "id": "cnt-292",
+    "name": {
+      "en": "Serena Williams",
+      "pt": "Serena Williams"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-293": {
+    "id": "cnt-293",
+    "name": {
+      "en": "Babadook",
+      "pt": "Babadook"
+    }
+  },
+  "cnt-294": {
+    "id": "cnt-294",
+    "name": {
+      "en": "Him",
+      "pt": "Ele"
+    }
+  },
+  "cnt-295": {
+    "id": "cnt-295",
+    "name": {
+      "en": "Mendigo da Planaltina",
+      "pt": "Mendigo da Planaltina"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-296": {
+    "id": "cnt-296",
+    "name": {
+      "en": "Orko",
+      "pt": "Gorpo"
+    }
+  },
+  "cnt-297": {
+    "id": "cnt-297",
+    "name": {
+      "en": "Monkey D. Luffy",
+      "pt": "Monkey D. Luffy"
+    }
+  },
+  "cnt-298": {
+    "id": "cnt-298",
+    "name": {
+      "en": "Jesus",
+      "pt": "Jesus"
+    }
+  },
+  "cnt-299": {
+    "id": "cnt-299",
+    "name": {
+      "en": "Lizzo",
+      "pt": "Lizzo"
+    }
+  },
+  "cnt-300": {
+    "id": "cnt-300",
+    "name": {
+      "en": "Ted Lasso",
+      "pt": "Ted Lasso"
+    }
+  },
+  "cnt-301": {
+    "id": "cnt-301",
+    "name": {
+      "en": "Bicha Muda",
+      "pt": "Bicha Muda"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-302": {
+    "id": "cnt-302",
+    "name": {
+      "en": "Grávida de Taubaté",
+      "pt": "Grávida de Taubaté"
+    },
+    "exclusivity": "pt"
+  },
+  "cnt-303": {
+    "id": "cnt-303",
+    "name": {
+      "en": "M3gan",
+      "pt": "M3gan"
+    }
+  },
+  "cnt-304": {
+    "id": "cnt-304",
+    "name": {
+      "en": "Michelle Yeoh",
+      "pt": "Michelle Yeoh"
+    }
+  },
+  "cnt-305": {
+    "id": "cnt-305",
+    "name": {
+      "en": "Tony Stark",
+      "pt": "Tony Stark"
+    }
+  },
+  "cnt-306": {
+    "id": "cnt-306",
+    "name": {
+      "en": "Spider-man",
+      "pt": "Spider-man"
+    }
+  },
+  "cnt-307": {
+    "id": "cnt-307",
+    "name": {
+      "en": "Cardi B",
+      "pt": "Cardi B"
+    }
+  },
+  "cnt-308": {
+    "id": "cnt-308",
+    "name": {
+      "en": "Katniss Everdeen",
+      "pt": "Katniss Everdeen"
+    }
+  },
+  "cnt-309": {
+    "id": "cnt-309",
+    "name": {
+      "en": "Tarzan",
+      "pt": "Tarzan"
+    }
+  },
+  "cnt-310": {
+    "id": "cnt-310",
+    "name": {
+      "en": "John McClane",
+      "pt": "John McClane"
+    }
+  },
+  "cnt-311": {
+    "id": "cnt-311",
+    "name": {
+      "en": "Willy Wonka",
+      "pt": "Willy Wonka"
+    }
+  },
+  "cnt-312": {
+    "id": "cnt-312",
+    "name": {
+      "en": "Barbie",
+      "pt": "Barbie"
+    }
+  },
+  "cnt-313": {
+    "id": "cnt-313",
+    "name": {
+      "en": "Jay Gatsby",
+      "pt": "Jay Gatsby"
+    }
+  },
+  "cnt-314": {
+    "id": "cnt-314",
+    "name": {
+      "en": "Fred Flintstone",
+      "pt": "Fred Flintstone"
+    }
+  },
+  "cnt-315": {
+    "id": "cnt-315",
+    "name": {
+      "en": "Zorro",
+      "pt": "Zorro"
+    }
+  },
+  "cnt-316": {
+    "id": "cnt-316",
+    "name": {
+      "en": "Goku",
+      "pt": "Goku"
+    }
+  },
+  "cnt-317": {
+    "id": "cnt-317",
+    "name": {
+      "en": "Sonic the Hedgehog",
+      "pt": "Sonic"
+    }
+  },
+  "cnt-318": {
+    "id": "cnt-318",
+    "name": {
+      "en": "Quasimodo",
+      "pt": "Quasimodo"
+    }
+  },
+  "cnt-319": {
+    "id": "cnt-319",
+    "name": {
+      "en": "Barry B Benson",
+      "pt": "Barry B Benson"
+    }
+  },
+  "cnt-320": {
+    "id": "cnt-320",
+    "name": {
+      "en": "Drag Queen ET",
+      "pt": "ET, a drag queen"
+    }
+  },
+  "cnt-321": {
+    "id": "cnt-321",
+    "name": {
+      "en": "Troll Face",
+      "pt": "Troll Face"
+    }
+  },
+  "cnt-322": {
+    "id": "cnt-322",
+    "name": {
+      "en": "Will Smith",
+      "pt": "Will Smith"
+    }
+  },
+  "cnt-323": {
+    "id": "cnt-323",
+    "name": {
+      "en": "Naruto Uzumaki",
+      "pt": "Naruto Uzumaki"
+    }
+  },
+  "cnt-324": {
+    "id": "cnt-324",
+    "name": {
+      "en": "Kim Kardashian",
+      "pt": "Kim Kardashian"
+    }
+  },
+  "cnt-325": {
+    "id": "cnt-325",
+    "name": {
+      "en": "Tiger Woods",
+      "pt": "Tiger Woods"
+    }
+  },
+  "cnt-326": {
+    "id": "cnt-326",
+    "name": {
+      "en": "Joe Exotic",
+      "pt": "Joe Exotic"
+    }
+  },
+  "cnt-327": {
+    "id": "cnt-327",
+    "name": {
+      "en": "Marie Kondo",
+      "pt": "Marie Kondo"
+    }
+  },
+  "cnt-328": {
+    "id": "cnt-328",
+    "name": {
+      "en": "Sharpay Evans",
+      "pt": "Sharpay Evans"
+    }
+  },
+  "cnt-329": {
+    "id": "cnt-329",
+    "name": {
+      "en": "The Sun",
+      "pt": "O Sol"
+    }
+  },
+  "cnt-330": {
+    "id": "cnt-330",
+    "name": {
+      "en": "King Julien",
+      "pt": "O Rei Julien"
+    }
+  },
+  "cnt-331": {
+    "id": "cnt-331",
+    "name": {
+      "en": "Edna Mode",
+      "pt": "Edna Moda"
+    }
+  },
+  "cnt-332": {
+    "id": "cnt-332",
+    "name": {
+      "en": "Aang",
+      "pt": "Aang"
+    }
+  },
+  "cnt-333": {
+    "id": "cnt-333",
+    "name": {
+      "en": "Jimmy Fallon",
+      "pt": "Jimmy Fallon"
+    },
+    "exclusivity": "en"
+  },
+  "cnt-334": {
+    "id": "cnt-334",
+    "name": {
+      "en": "Gloria Pritchett",
+      "pt": "Gloria Pritchett"
+    }
+  },
+  "cnt-335": {
+    "id": "cnt-335",
+    "name": {
+      "en": "Snoop Dogg",
+      "pt": "Snoop Dogg"
+    }
+  },
+  "cnt-336": {
+    "id": "cnt-336",
+    "name": {
+      "en": "BTS",
+      "pt": "BTS"
+    }
+  },
+  "cnt-337": {
+    "id": "cnt-337",
+    "name": {
+      "en": "Borat",
+      "pt": "Borat"
+    }
+  },
+  "cnt-338": {
+    "id": "cnt-338",
+    "name": {
+      "en": "Eminem",
+      "pt": "Eminem"
+    }
+  },
+  "cnt-339": {
+    "id": "cnt-339",
+    "name": {
+      "en": "Simon Cowell",
+      "pt": "Simon Cowell"
+    }
+  },
+  "cnt-340": {
+    "id": "cnt-340",
+    "name": {
+      "en": "Gordon Ramsay",
+      "pt": "Gordon Ramsay"
+    }
+  },
+  "cnt-341": {
+    "id": "cnt-341",
+    "name": {
+      "en": "Analise Keating",
+      "pt": "Analise Keating"
+    }
+  },
+  "cnt-342": {
+    "id": "cnt-342",
+    "name": {
+      "en": "Rocky Balboa",
+      "pt": "Rocky Balboa"
+    }
+  },
+  "cnt-343": {
+    "id": "cnt-343",
+    "name": {
+      "en": "Woody Woodpecker",
+      "pt": "Pica-pau"
+    }
+  },
+  "cnt-344": {
+    "id": "cnt-344",
+    "name": {
+      "en": "Oprah Winfrey",
+      "pt": "Oprah Winfrey"
+    }
+  },
+  "cnt-345": {
+    "id": "cnt-345",
+    "name": {
+      "en": "Michelle Obama",
+      "pt": "Michelle Obama"
     }
   }
 }
