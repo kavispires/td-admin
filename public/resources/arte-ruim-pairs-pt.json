@@ -238,5 +238,9 @@
   "ap-60-pt": {
     "id": "ap-60-pt",
     "values": ["Mancha na pele", "Sanguessuga"]
+  },
+  "ap-61-pt": {
+    "id": "ap-61-pt",
+    "values": ["Gente bonita", "Gente feia"]
   }
 }

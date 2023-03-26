@@ -129,7 +129,7 @@
   },
   "ap-33-en": {
     "id": "ap-33-en",
-    "values": ["bicycle", "motercycle"]
+    "values": ["bicycle", "motorcycle"]
   },
   "ap-34-en": {
     "id": "ap-34-en",
@@ -210,5 +210,9 @@
   "ap-53-en": {
     "id": "ap-53-en",
     "values": ["Avengers", "x-men"]
+  },
+  "ap-54-en": {
+    "id": "ap-54-en",
+    "values": ["beautiful people", "ugly people"]
   }
 }
