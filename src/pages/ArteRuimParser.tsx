@@ -7,13 +7,14 @@ import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
 import { SearchDuplicates } from '../components/SearchDuplicates';
 import { useResourceState } from '../hooks/useResourceState';
-import { checkForDuplicates } from '../utils';
-import { DEFAULT_LANGUAGE, RESOURCE_NAMES } from '../utils/constants';
+import { checkForDuplicates, findSimilar, stringRemoveAccents } from '../utils';
+import { DEFAULT_LANGUAGE, RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
 
 const { Text, Title } = Typography;
 
 export function ArteRuimParser() {
   useTitle('Arte Ruim - Parser');
+  const [searchResults, setSearchResults] = useState({});
 
   const initialState = { language: DEFAULT_LANGUAGE, resourceName: RESOURCE_NAMES.ARTE_RUIM_CARDS };
 
@@ -37,6 +38,14 @@ export function ArteRuimParser() {
 
     const dataArray: any[] = Object.values(response ?? {});
     const lastId = Number(dataArray[dataArray.length - 1].id.split('-')[1]) || 1;
+
+    if (parsedInput.at(-1) && parsedInput.at(-1).length > SEARCH_THRESHOLD) {
+      const str = stringRemoveAccents(parsedInput.at(-1).trim().toLowerCase());
+
+      setSearchResults(findSimilar(str, response, property));
+    } else {
+      setSearchResults({});
+    }
 
     const result = parsedInput.reduce(
       (acc: Record<CardId, ArteRuimCard>, text: string, index: number) => {
@@ -99,6 +108,16 @@ export function ArteRuimParser() {
             <aside className="parser-controls">
               <ArteRuimLevels data={response} />
               <Divider />
+
+              <Typography.Title level={3}>Similar Results for Last Entry</Typography.Title>
+              <Input.TextArea
+                name="search-results"
+                id=""
+                cols={10}
+                rows={5}
+                readOnly
+                value={JSON.stringify(searchResults, null, 4)}
+              />
 
               <SearchDuplicates response={response} property={property} />
             </aside>
