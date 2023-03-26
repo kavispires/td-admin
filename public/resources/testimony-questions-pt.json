@@ -217,7 +217,7 @@
   },
   "t-55-pt": {
     "id": "t-55-pt",
-    "question": "Ele(a) mora na zona sul?"
+    "question": "Ele(a) mora na zona sul (área rica)?"
   },
   "t-56-pt": {
     "id": "t-56-pt",
@@ -515,8 +515,44 @@
     "id": "t-129-pt",
     "question": "Ele(a) sabe dançar uma coreografia do É o Tchan?"
   },
-  "t-130-pt": {
-    "id": "t-130-pt",
-    "question": "Ele(a) tem samba no pé?"
+  "t-131-pt": {
+    "id": "t-131-pt",
+    "question": "Ele(a) é gostoso(a)?"
+  },
+  "t-132-pt": {
+    "id": "t-132-pt",
+    "question": "Ele(a) dorme pelado(a)?"
+  },
+  "t-133-pt": {
+    "id": "t-133-pt",
+    "question": "Ele(a) tem sotaque?"
+  },
+  "t-134-pt": {
+    "id": "t-134-pt",
+    "question": "Ele(a) acha a Gretchen é um ícone nacional?"
+  },
+  "t-135-pt": {
+    "id": "t-135-pt",
+    "question": "Ele(a) tem medo da Loira do Banheiro?"
+  },
+  "t-136-pt": {
+    "id": "t-136-pt",
+    "question": "Ele(a) participaria do Big Brother?"
+  },
+  "t-137-pt": {
+    "id": "t-137-pt",
+    "question": "Ele(a) tem medo de altura?"
+  },
+  "t-138-pt": {
+    "id": "t-138-pt",
+    "question": "Ele(a) grava dancinha de Tik Tok?"
+  },
+  "t-139-pt": {
+    "id": "t-139-pt",
+    "question": "Ele(a) sofre de ansiedade?"
+  },
+  "t-140-pt": {
+    "id": "t-140-pt",
+    "question": "Ele(a) fica pelado(a) em vestiários sem problema algum?"
   }
 }

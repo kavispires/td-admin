@@ -474,5 +474,25 @@
   "t-120-en": {
     "id": "t-120-en",
     "question": "Have they been called a Karen?"
+  },
+  "t-121-en": {
+    "id": "t-121-en",
+    "question": "Are they hot?"
+  },
+  "t-122-en": {
+    "id": "t-122-en",
+    "question": "Do they sleep naked?"
+  },
+  "t-123-en": {
+    "id": "t-123-en",
+    "question": "Would they choose a Carnivore as their spirit animal?"
+  },
+  "t-124-en": {
+    "id": "t-124-en",
+    "question": "Do they have an accent?"
+  },
+  "t-125-en": {
+    "id": "t-125-en",
+    "question": "Do they record Tik Tok dances?"
   }
 }
