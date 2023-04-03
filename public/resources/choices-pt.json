@@ -1,0 +1,167 @@
+{
+  "ch-1-pt": {
+    "id": "ch-1-pt",
+    "type": "this-that",
+    "options": ["Nunca ter que dormir", "Nunca ter que comer"]
+  },
+  "ch-2-pt": {
+    "id": "ch-2-pt",
+    "type": "this-that",
+    "options": ["Ser demitido", "Tem que demitir seu melhor amigo"]
+  },
+  "ch-3-pt": {
+    "id": "ch-3-pt",
+    "type": "this-that",
+    "options": ["Seja admirado por sua coragem", "Seja celebrado por sua imaginação"]
+  },
+  "ch-4-pt": {
+    "id": "ch-4-pt",
+    "type": "this-that",
+    "options": ["Ter uma universidade com o seu nome", "Tenha um sanduíche com o seu nome"]
+  },
+  "ch-5-pt": {
+    "id": "ch-5-pt",
+    "type": "this-that",
+    "options": ["Velejar pelo oceano", "Pegar o trem pelo país"]
+  },
+  "ch-6-pt": {
+    "id": "ch-6-pt",
+    "type": "this-that",
+    "options": ["Alguém trouxe brigadeiro", "Alguém trouxe coxinha"]
+  },
+  "ch-7-pt": {
+    "id": "ch-7-pt",
+    "type": "this-that",
+    "options": ["Assistir um cachorro tendo um sonho", "Ver um bebê comendo sorvete pela primeira vez"]
+  },
+  "ch-8-pt": {
+    "id": "ch-8-pt",
+    "type": "this-that",
+    "options": ["Rosto super distinto", "Rosto incrivelmente genérico"]
+  },
+  "ch-9-pt": {
+    "id": "ch-9-pt",
+    "type": "this-that",
+    "options": ["Trazer uma sobremesa que você mesmo fez", "Trazer uma sobremesa que você comprou na loja"]
+  },
+  "ch-10-pt": {
+    "id": "ch-10-pt",
+    "type": "this-that",
+    "options": ["Ouvir os pensamentos de um cachorro", "Comunique-se com um golfinho"]
+  },
+  "ch-11-pt": {
+    "id": "ch-11-pt",
+    "type": "this-that",
+    "options": ["Jaleco de médico", "Macacão de voo"]
+  },
+  "ch-12-pt": {
+    "id": "ch-12-pt",
+    "type": "this-that",
+    "options": ["Pastilhas para tosse de frutas", "Pastilhas para tosse de hortelã"]
+  },
+  "ch-13-pt": {
+    "id": "ch-13-pt",
+    "type": "this-that",
+    "options": ["Sotaque italiano", "Sotaque britânico"]
+  },
+  "ch-14-pt": {
+    "id": "ch-14-pt",
+    "type": "this-that",
+    "options": ["Esportes de salão", "Esportes ao ar livre"]
+  },
+  "ch-15-pt": {
+    "id": "ch-15-pt",
+    "type": "this-that",
+    "options": ["Andar de cavalo", "Andar de moto"]
+  },
+  "ch-16-pt": {
+    "id": "ch-1-pt",
+    "type": "best-of-three",
+    "prompt": "Qual animal faz do zoológico um zoológico?",
+    "options": ["Tigre", "Elefante", "Girafa"]
+  },
+  "ch-17-pt": {
+    "id": "ch-2-pt",
+    "type": "best-of-three",
+    "prompt": "Qual o trabalho mais fácil num noticiário?",
+    "options": ["Esportes", "Trânsito", "Tempo"]
+  },
+  "ch-18-pt": {
+    "id": "ch-3-pt",
+    "type": "best-of-three",
+    "prompt": "Qual é o cenário mais assustador para fim do mundo ?",
+    "options": ["Invasão alienígena", "Apocalipse zumbi", "Rebelião de robôs"]
+  },
+  "ch-19-pt": {
+    "id": "ch-4-pt",
+    "type": "best-of-three",
+    "prompt": "Qual cor de giz de cera eles fazem mais tons?",
+    "options": ["Vermelho", "Azul", "Verde"]
+  },
+  "ch-20-pt": {
+    "id": "ch-5-pt",
+    "type": "best-of-three",
+    "prompt": "Qual é o fenômeno mais mortal?",
+    "options": ["Furacões", "Tornados", "Terremotos"]
+  },
+  "ch-21-pt": {
+    "id": "ch-6-pt",
+    "type": "best-of-three",
+    "prompt": "Qual é o mais fácil de falsificar?",
+    "options": ["Tocar gaita", "Sapateado", "Beatboxing"]
+  },
+  "ch-22-pt": {
+    "id": "ch-7-pt",
+    "type": "best-of-three",
+    "prompt": "Quem seria o melhor namorado?",
+    "options": ["Frankenstein", "Lobisomem", "Drácula"]
+  },
+  "ch-23-pt": {
+    "id": "ch-8-pt",
+    "type": "best-of-three",
+    "prompt": "Qual é a faculdade mais útil?",
+    "options": ["Artes", "Música", "Teatro"]
+  },
+  "ch-24-pt": {
+    "id": "ch-9-pt",
+    "type": "best-of-three",
+    "prompt": "Qual continente tem todos os melhores animais?",
+    "options": ["África", "Ásia", "Austrália"]
+  },
+  "ch-25-pt": {
+    "id": "ch-10-pt",
+    "type": "best-of-three",
+    "prompt": "Qual é a fruta com as sementes mais irritantes?",
+    "options": ["Melancia", "Uva", "Limão"]
+  },
+  "ch-26-pt": {
+    "id": "ch-11-pt",
+    "type": "best-of-three",
+    "prompt": "Qual é o artista baseado em adereços mais divertido?",
+    "options": ["Um mágico", "um malabarista", "um ventríloquo"]
+  },
+  "ch-27-pt": {
+    "id": "ch-12-pt",
+    "type": "best-of-three",
+    "prompt": "O que é mais mortal da natureza?",
+    "options": ["Cobras", "Abelhas assassinas", "Tubarões"]
+  },
+  "ch-28-pt": {
+    "id": "ch-13-pt",
+    "type": "best-of-three",
+    "prompt": "O que é mais embaraçoso fazer durante o sono?",
+    "options": ["Roncar", "Falar", "Babar"]
+  },
+  "ch-29-pt": {
+    "id": "ch-14-pt",
+    "type": "best-of-three",
+    "prompt": "Qual é o melhor lanche do cinema?",
+    "options": ["Pipoca", "Doces", "Frango com farofa"]
+  },
+  "ch-30-pt": {
+    "id": "ch-15-pt",
+    "type": "best-of-three",
+    "prompt": "Qual é a melhor doença para fingir para sair da escola?",
+    "options": ["Dor de barriga", "Dor de cabeça", "Tosse"]
+  }
+}

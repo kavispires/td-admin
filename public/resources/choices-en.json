@@ -1,0 +1,168 @@
+{
+  "ch-1-en": {
+    "id": "ch-1-en",
+    "type": "this-that",
+    "options": ["Never have to sleep", "Never have to eat"]
+  },
+  "ch-2-en": {
+    "id": "ch-2-en",
+    "type": "this-that",
+    "options": ["Get fired", "Have to fire your best friend"]
+  },
+  "ch-3-en": {
+    "id": "ch-3-en",
+    "type": "this-that",
+    "options": ["Be admired for your courage", "Be celebrated for your imagination"]
+  },
+  "ch-4-en": {
+    "id": "ch-4-en",
+    "type": "this-that",
+    "options": ["Have a college named after you", "Have a deli sandwich named after you"]
+  },
+  "ch-5-en": {
+    "id": "ch-5-en",
+    "type": "this-that",
+    "options": ["Take a boat across the ocean", "Take a train across the country"]
+  },
+  "ch-6-en": {
+    "id": "ch-6-en",
+    "type": "this-that",
+    "options": ["Somebody brought bagels", "Somebody brought doughnuts"]
+  },
+  "ch-7-en": {
+    "id": "ch-7-en",
+    "type": "this-that",
+    "options": ["Watch a dog having a dream", "See a baby eat ice cream for the first time"]
+  },
+  "ch-8-en": {
+    "id": "ch-8-en",
+    "type": "this-that",
+    "options": ["Super distinticve face", "Incredibly generic face"]
+  },
+  "ch-9-en": {
+    "id": "ch-9-en",
+    "type": "this-that",
+    "options": ["Bring a dessert you made yourself", "Bring a dessert you got from the store"]
+  },
+  "ch-10-en": {
+    "id": "ch-10-en",
+    "type": "this-that",
+    "options": ["Hear a dog's thoughts", "Communicate with a dolphin"]
+  },
+  "ch-11-en": {
+    "id": "ch-11-en",
+    "type": "this-that",
+    "options": ["Hospital scrubs", "Flight jumpsuit"]
+  },
+  "ch-12-en": {
+    "id": "ch-12-en",
+    "type": "this-that",
+    "options": ["Fruity cough drops", "Minty cough drops"]
+  },
+  "ch-13-en": {
+    "id": "ch-13-en",
+    "type": "this-that",
+    "options": ["Italian accent", "British accent"]
+  },
+  "ch-14-en": {
+    "id": "ch-14-en",
+    "type": "this-that",
+    "options": ["Indoor sports", "Outdoor sports"]
+  },
+  "ch-15-en": {
+    "id": "ch-15-en",
+    "type": "this-that",
+    "options": ["Riding up on a horse", "Pulling up on a motorcycle"]
+  },
+
+  "ch-16-en": {
+    "id": "ch-16-en",
+    "type": "best-of-three",
+    "prompt": "What's the animal that makes a zoo a zoo?",
+    "options": ["Tiger", "Elephant", "Giraffe"]
+  },
+  "ch-17-en": {
+    "id": "ch-17-en",
+    "type": "best-of-three",
+    "prompt": "What's the easiest job on a news team?",
+    "options": ["Sports", "Traffic", "Weather"]
+  },
+  "ch-18-en": {
+    "id": "ch-18-en",
+    "type": "best-of-three",
+    "prompt": "What's the scariest end-of-the-world scenario?",
+    "options": ["Alien invasion", "Zombie apocalypse", "Robot uprising"]
+  },
+  "ch-19-en": {
+    "id": "ch-19-en",
+    "type": "best-of-three",
+    "prompt": "Which color crayon do they make the most shades of?",
+    "options": ["Red", "Blue", "Green"]
+  },
+  "ch-20-en": {
+    "id": "ch-20-en",
+    "type": "best-of-three",
+    "prompt": "What's the deadliest phenomenon?",
+    "options": ["Hurricanes", "Tornados", "Earthquakes"]
+  },
+  "ch-21-en": {
+    "id": "ch-21-en",
+    "type": "best-of-three",
+    "prompt": "What's the easiest to fake",
+    "options": ["Passable harmonica playing", "Decent tap dancing", "Adequate beatboxing"]
+  },
+  "ch-22-en": {
+    "id": "ch-22-en",
+    "type": "best-of-three",
+    "prompt": "Who would make the best boyfriend?",
+    "options": ["Frankenstein", "Werewolf", "Dracula"]
+  },
+  "ch-23-en": {
+    "id": "ch-23-en",
+    "type": "best-of-three",
+    "prompt": "What's the most useful college major?",
+    "options": ["Fine art", "Music", "Theater"]
+  },
+  "ch-24-en": {
+    "id": "ch-24-en",
+    "type": "best-of-three",
+    "prompt": "Which continent has all the best animals?",
+    "options": ["Africa", "Asia", "Australia"]
+  },
+  "ch-25-en": {
+    "id": "ch-25-en",
+    "type": "best-of-three",
+    "prompt": "What's the fruit with the most annoying seeds?",
+    "options": ["Watermelon", "Grape", "Lemon"]
+  },
+  "ch-26-en": {
+    "id": "ch-26-en",
+    "type": "best-of-three",
+    "prompt": "What's the most entertaining prop-based performer?",
+    "options": ["A magician", "A juggler", "a ventriloquist"]
+  },
+  "ch-27-en": {
+    "id": "ch-27-en",
+    "type": "best-of-three",
+    "prompt": "What is nature's deadliest?",
+    "options": ["Cobras", "Killer bees", "Sharks"]
+  },
+  "ch-28-en": {
+    "id": "ch-28-en",
+    "type": "best-of-three",
+    "prompt": "What's more embarrassing to do in your sleep?",
+    "options": ["Snore", "Talk", "Drool"]
+  },
+  "ch-29-en": {
+    "id": "ch-29-en",
+    "type": "best-of-three",
+    "prompt": "What's the greatest movie snack?",
+    "options": ["Popcorn", "Candy", "Nachos"]
+  },
+  "ch-30-en": {
+    "id": "ch-30-en",
+    "type": "best-of-three",
+    "prompt": "What's the best illness to fake to get out of school?",
+    "options": ["Stomachache", "Headache", "Cough"]
+  }
+}
