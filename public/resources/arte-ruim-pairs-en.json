@@ -214,5 +214,9 @@
   "ap-54-en": {
     "id": "ap-54-en",
     "values": ["beautiful people", "ugly people"]
+  },
+  "ap-55-en": {
+    "id": "ap-55-en",
+    "values": ["drone", "helicopter"]
   }
 }

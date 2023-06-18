@@ -242,5 +242,13 @@
   "ap-61-pt": {
     "id": "ap-61-pt",
     "values": ["Gente bonita", "Gente feia"]
+  },
+  "ap-62-pt": {
+    "id": "ap-62-pt",
+    "values": ["Chapéu de cozinheiro", "Chapéu de formando"]
+  },
+  "ap-63-pt": {
+    "id": "ap-63-pt",
+    "values": ["Drone", "Helicóptero"]
   }
 }
