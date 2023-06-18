@@ -261,7 +261,7 @@
     "id": "mr-44-pt",
     "text": "Eu não esperava que isso fosse durante a Segunda Guerra Mundial. Isso é tão confuso.",
     "type": "bad",
-    "highlights": [""]
+    "highlights": ["Segunda Guerra Mundial"]
   },
   "mr-45-pt": {
     "id": "mr-45-pt",
@@ -415,7 +415,7 @@
   },
   "mr-70-pt": {
     "id": "mr-70-pt",
-    "text": "O título por si só grita \"filme chato\". Por que não reparei isso antes de ver?",
+    "text": "Só de ver o título já dá pra saber: \"filme chato\". Por que não reparei isso antes de ver?",
     "type": "bad",
     "highlights": ["filme chato"]
   },
@@ -441,7 +441,7 @@
     "id": "mr-74-pt",
     "text": "Não estou convencido da ideia de usar marionetes em vez de atores para contar essa história.",
     "type": "bad",
-    "highlights": [""]
+    "highlights": ["marionetes"]
   },
   "mr-75-pt": {
     "id": "mr-75-pt",
@@ -502,5 +502,17 @@
     "text": "Talvez devessem ter gasto um pouco mais para consertar os efeitos especiais péssimos. Ficaram muito porcos.",
     "type": "bad",
     "highlights": ["efeitos especiais péssimos"]
+  },
+  "mr-85-pt": {
+    "id": "mr-85-pt",
+    "text": "A cena de nudez frontal foi muito de bom gosto e apropriada, tive até que desabotoar a blusa.",
+    "type": "good",
+    "highlights": ["nudez frontal"]
+  },
+  "mr-86-pt": {
+    "id": "mr-86-pt",
+    "text": "Mais cenas picantes do que diálogos, parecia que estava assistindo um filme pornô.",
+    "type": "bad",
+    "highlights": ["cenas picantes"]
   }
 }
