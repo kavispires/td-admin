@@ -3,9 +3,9 @@ import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 
 import { useMemo } from 'react';
 
-import { SearchDuplicates } from '../components/SearchDuplicates';
+import { SearchDuplicates } from '../SearchDuplicates';
 
-import { SEARCH_PROPERTY } from '../utils/constants';
+import { SEARCH_PROPERTY } from '../../utils/constants';
 
 const { Title } = Typography;
 

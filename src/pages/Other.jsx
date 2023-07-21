@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Alert, Divider, Input, Layout, PageHeader, Typography } from 'antd';
+import { Alert, Divider, Input, Layout, Typography } from 'antd';
 import { useEffect, useMemo, useState } from 'react';
 
 import { useAsync, useTitle } from 'react-use';
@@ -359,7 +359,7 @@ export function Other() {
 
   return (
     <Layout>
-      <PageHeader title="Other" onBack={() => {}} />
+      {/* <PageHeader title="Other" onBack={() => {}} /> */}
 
       <Divider />
 

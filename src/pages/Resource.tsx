@@ -1,63 +1,67 @@
 import { Layout, Tabs } from 'antd';
-import { ResourceCards } from 'components/ResourceCards';
-import { ResourceJson } from 'components/ResourceJson';
-import { ResourceTable } from 'components/ResourceTable';
+import { ResourceCards } from 'components/Resource/ResourceCards';
+import { ResourceJson } from 'components/Resource/ResourceJson';
+import { ResourceTable } from 'components/Resource/ResourceTable';
 import { useState } from 'react';
 import { useTitle } from 'react-use';
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
-import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
+import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { useQueryParams } from '../hooks/useQueryParams';
 import { useResourceState } from '../hooks/useResourceState';
 import { RESOURCE_NAMES } from '../utils/constants';
+import { Header } from 'components/Layout/Header';
+import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { ResourceDisplayMode } from 'components/Resource/ResourceDisplayMode';
 
 const resourceNames = Object.values(RESOURCE_NAMES);
 
 export function Resource() {
   useTitle('Resource Viewer');
-  const [activeTab, setActiveTab] = useState('json');
+  // const [activeTab, setActiveTab] = useState('json');
 
-  const { resourceName, language, loading, error, updateResource, hasResponseData, response } =
-    useResourceState(resourceNames, {});
+  const {
+    resourceName = '',
+    language = '',
+    isLoading,
+    error,
+    hasResponseData,
+    response,
+  } = useResourceState(resourceNames);
 
-  const { params } = useQueryParams({ resourceName, language }, updateResource);
+  const {
+    queryParams: { display = 'json' },
+  } = useQueryParams();
 
   return (
-    <Layout className="container">
-      <ResourceSelectionBar
-        title={`Data for ${resourceName}-${language}`}
-        initialValues={{
-          resourceName,
-          language,
-        }}
-        resourceNames={resourceNames}
-        values={params}
-        updateState={updateResource}
-        hasResponseData={hasResponseData}
-        loading={loading}
-        error={error}
+    <Layout className="layout">
+      <Header
+        title="Resource"
+        subtitle={Boolean(resourceName && language) ? `Data for ${resourceName}-${language}` : ''}
       />
 
-      <Layout.Content className="content">
-        <DataLoadingWrapper loading={loading} error={error} hasResponseData={hasResponseData}>
-          <Tabs
-            defaultActiveKey={activeTab}
-            onChange={(tabKey) => setActiveTab(tabKey)}
-            className="page-content-tabs"
-          >
-            <Tabs.TabPane tab="JSON" key="json">
+      <Layout hasSider>
+        <Layout.Sider className="sider">
+          <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResourceSelectionFilters resourceNames={resourceNames} />
+          <ResourceDisplayMode />
+        </Layout.Sider>
+
+        <Layout.Content className="content">
+          <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
+            {display === 'json' && (
               <ResourceJson response={response ?? {}} resourceName={resourceName ?? ''} />
-            </Tabs.TabPane>
+            )}
 
-            <Tabs.TabPane tab="Cards" key="cards">
+            {display === 'cards' && (
               <ResourceCards response={response ?? {}} resourceName={resourceName ?? ''} />
-            </Tabs.TabPane>
+            )}
 
-            <Tabs.TabPane tab="Table" key="table">
+            {display === 'table' && (
               <ResourceTable response={response ?? {}} resourceName={resourceName ?? ''} />
-            </Tabs.TabPane>
-          </Tabs>
-        </DataLoadingWrapper>
-      </Layout.Content>
+            )}
+          </DataLoadingWrapper>
+        </Layout.Content>
+      </Layout>
     </Layout>
   );
 }

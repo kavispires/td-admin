@@ -4,11 +4,12 @@ import { useTitle } from 'react-use';
 
 import { ArteRuimLevels } from '../components/ArteRuimLevels';
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
-import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
+import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { SearchDuplicates } from '../components/SearchDuplicates';
 import { useResourceState } from '../hooks/useResourceState';
 import { checkForDuplicates, findSimilar, stringRemoveAccents } from '../utils';
 import { DEFAULT_LANGUAGE, RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
+import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
 
 const { Text, Title } = Typography;
 
@@ -16,14 +17,13 @@ export function ArteRuimParser() {
   useTitle('Arte Ruim - Parser');
   const [searchResults, setSearchResults] = useState({});
 
-  const initialState = { language: DEFAULT_LANGUAGE, resourceName: RESOURCE_NAMES.ARTE_RUIM_CARDS };
-
   const [output, setOutput] = useState({});
   const [duplicates, setDuplicates] = useState({});
   const property = 'text';
 
-  const { resourceName, language, loading, error, updateResource, hasResponseData, response } =
-    useResourceState([RESOURCE_NAMES.ARTE_RUIM_CARDS], initialState);
+  const { resourceName, language, isLoading, error, hasResponseData, response } = useResourceState([
+    RESOURCE_NAMES.ARTE_RUIM_CARDS,
+  ]);
 
   useEffect(() => {
     if (response) {
@@ -67,18 +67,11 @@ export function ArteRuimParser() {
 
   return (
     <Layout>
-      <ResourceSelectionBar
-        title="Arte Ruim Parser"
-        resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]}
-        initialValues={initialState}
-        updateState={updateResource}
-        hasResponseData={hasResponseData}
-        loading={loading}
-        error={error}
-      />
+      <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+      <ResourceSelectionFilters title="Arte Ruim Parser" resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
 
       <Layout.Content className="content">
-        <DataLoadingWrapper loading={loading} error={error} hasResponseData={hasResponseData}>
+        <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
           <div className="parser-container">
             <div className="parser-main">
               <Title level={2}>Adding Data</Title>
