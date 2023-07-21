@@ -13,8 +13,6 @@ import { ResourceResponseState } from 'components/Resource/ResourceResponseState
 const { Text, Title } = Typography;
 
 export function SingleWordsExpander() {
-  useTitle('Single Words - Expander');
-
   const [output, setOutput] = useState({});
   const [duplicates, setDuplicates] = useState({});
   const [reference, setReference] = useState<Record<CardId, TextCard>>({});
@@ -83,7 +81,7 @@ export function SingleWordsExpander() {
   return (
     <Layout>
       <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
-      <ResourceSelectionFilters title="Single Word" resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]} />
+      <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]} />
 
       <Layout.Content className="content">
         <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>

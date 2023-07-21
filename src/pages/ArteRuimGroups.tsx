@@ -7,6 +7,7 @@ import { ResourceSelectionFilters } from '../components/Resource/ResourceSelecti
 import { useResourceState } from '../hooks/useResourceState';
 import { LOCALHOST_RESOURCE_URL, RESOURCE_NAMES } from '../utils/constants';
 import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { Header } from 'components/Layout/Header';
 
 const { Text, Title } = Typography;
 
@@ -39,8 +40,6 @@ const parseData = (cards: Record<CardId, ArteRuimCard>, groups: Record<string, A
 };
 
 export function ArteRuimGroups() {
-  useTitle('Arte Ruim - Groups');
-
   const [used, setUsed] = useState({});
   const [unused, setUnused] = useState({});
   const [duplicated, setDuplicated] = useState({});
@@ -79,12 +78,14 @@ export function ArteRuimGroups() {
 
   return (
     <Layout>
+      <Header title="Arte Ruim Groups" subtitle={Boolean(language) ? `${language}` : ''} />
+
       <ResourceResponseState
         hasResponseData={hasResponseData && Boolean(groups)}
         isLoading={isLoading || loadingLevel4}
         error={error || errorLevel4}
       />
-      <ResourceSelectionFilters title="Arte Ruim Level 4" resourceNames={['arte-ruim']} />
+      <ResourceSelectionFilters resourceNames={['arte-ruim']} />
 
       <Layout.Content className="content">
         <DataLoadingWrapper

@@ -2,7 +2,6 @@ import { Layout } from 'antd';
 import { ResourceCards } from 'components/Resource/ResourceCards';
 import { ResourceJson } from 'components/Resource/ResourceJson';
 import { ResourceTable } from 'components/Resource/ResourceTable';
-import { useTitle } from 'react-use';
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { useQueryParams } from '../hooks/useQueryParams';
@@ -15,7 +14,6 @@ import { ResourceDisplayMode } from 'components/Resource/ResourceDisplayMode';
 const resourceNames = Object.values(RESOURCE_NAMES);
 
 export function Resource() {
-  useTitle('Resource Viewer');
   // const [activeTab, setActiveTab] = useState('json');
 
   const {
