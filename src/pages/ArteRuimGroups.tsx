@@ -5,7 +5,7 @@ import { useAsync, useTitle } from 'react-use';
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { useResourceState } from '../hooks/useResourceState';
-import { DEFAULT_LANGUAGE, LOCALHOST_RESOURCE_URL, RESOURCE_NAMES } from '../utils/constants';
+import { LOCALHOST_RESOURCE_URL, RESOURCE_NAMES } from '../utils/constants';
 import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
 
 const { Text, Title } = Typography;

@@ -1,8 +1,7 @@
-import { Layout, Tabs } from 'antd';
+import { Layout } from 'antd';
 import { ResourceCards } from 'components/Resource/ResourceCards';
 import { ResourceJson } from 'components/Resource/ResourceJson';
 import { ResourceTable } from 'components/Resource/ResourceTable';
-import { useState } from 'react';
 import { useTitle } from 'react-use';
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';

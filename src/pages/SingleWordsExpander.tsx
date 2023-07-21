@@ -7,7 +7,7 @@ import { ResourceSelectionFilters } from '../components/Resource/ResourceSelecti
 import { SearchDuplicates } from '../components/SearchDuplicates';
 import { useResourceState } from '../hooks/useResourceState';
 import { findSimilar, stringRemoveAccents } from '../utils';
-import { DEFAULT_LANGUAGE, RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
+import { RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
 import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
 
 const { Text, Title } = Typography;
