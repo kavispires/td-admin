@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 
 export function useCrimesHediondosData() {
-  const resultWP = useQuery<CrimesHediondosCard[]>(
+  const resultWP = useQuery<CrimesHediondosCard[], ResponseError>(
     'dmhk-wp',
     async () => {
       const res = await fetch(`${process.env.REACT_APP_TDI_URL}/data/dmhk/wp.json`);
@@ -36,6 +36,7 @@ export function useCrimesHediondosData() {
     isLoading: resultEV.isLoading || resultWP.isLoading,
     isSuccess: resultEV.isSuccess || resultWP.isSuccess,
     isError: resultEV.isError || resultWP.isError,
+    error: resultEV.error || resultWP.error,
     data: [...(resultEV.data ?? []), ...(resultWP.data ?? [])],
   };
 }

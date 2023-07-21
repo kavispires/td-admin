@@ -1,12 +1,13 @@
-import { Button, Image, Input, Layout, Select, Space, Spin, Tag, Typography } from 'antd';
+import { Button, Image, Input, Layout, Select, Space, Spin, Tag } from 'antd';
 import { useCrimesHediondosData } from 'hooks/useCrimesHediondosData';
 import { useCrimesHediondosTags } from 'hooks/useCrimesHediondosTags';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCopyToClipboard } from 'react-use';
 import './CrimesHediondosCategorizer.scss';
-
-const { Title } = Typography;
+import { CopyOutlined } from '@ant-design/icons';
+import { Header } from 'components/Layout/Header';
+import { TagState } from 'components/Resource/ResourceResponseState';
 
 export function CrimesHediondosCategorizer() {
   /**
@@ -19,13 +20,16 @@ export function CrimesHediondosCategorizer() {
    * - Ability to select previous tag or creating brand new one
    * - Navigation buttons
    */
-  const { data, isLoading, isError, isSuccess } = useCrimesHediondosData();
+  const { data, isLoading, isSuccess, error } = useCrimesHediondosData();
 
   return (
     <Layout className="container">
-      <Layout.Content className="content content--padded">
-        <Title level={1}>Crimes Hediondos Categorizer</Title>
+      <Header
+        title="Crimes Hediondos Categorizer"
+        extra={<TagState hasResponseData={!!data} isLoading={isLoading} error={error as ResponseError} />}
+      />
 
+      <Layout.Content className="content content--padded">
         {isLoading && <Spin size="large" />}
 
         {isSuccess && data.length > 1 && <CHDataWrapper data={data} />}
@@ -189,10 +193,18 @@ function JsonDisplay({ jsons }: { jsons: any }) {
 
   return (
     <div className="json-container">
-      <Button size="small" onClick={() => copyToClipboard(JSON.stringify(weapons, null, 2))}>
+      <Button
+        size="small"
+        onClick={() => copyToClipboard(JSON.stringify(weapons, null, 2))}
+        icon={<CopyOutlined />}
+      >
         Copy Weapons
       </Button>
-      <Button size="small" onClick={() => copyToClipboard(JSON.stringify(evidence, null, 2))}>
+      <Button
+        size="small"
+        onClick={() => copyToClipboard(JSON.stringify(evidence, null, 2))}
+        icon={<CopyOutlined />}
+      >
         Copy Evidence
       </Button>
       {weapons && (
