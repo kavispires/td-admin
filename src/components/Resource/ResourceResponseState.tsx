@@ -6,7 +6,7 @@ type TagStateProps = {
   hasResponseData: boolean;
 };
 
-function TagState({ isLoading, error, hasResponseData }: TagStateProps) {
+export function TagState({ isLoading, error, hasResponseData }: TagStateProps) {
   if (isLoading) return <Tag color="blue">Loading...</Tag>;
   if (error) return <Tag color="red">Error</Tag>;
   if (hasResponseData) return <Tag color="green">Loaded</Tag>;
