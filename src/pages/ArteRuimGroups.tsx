@@ -100,7 +100,7 @@ export function ArteRuimGroups() {
             isLoading={isLoading || loadingLevel4}
             error={error || errorLevel4}
           />
-          <ResourceSelectionFilters resourceNames={['arte-ruim']} />
+          <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
         </Layout.Sider>
 
         <Layout.Content className="content">

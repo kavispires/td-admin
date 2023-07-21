@@ -1,6 +1,5 @@
-import { Divider, Input, Layout, Typography } from 'antd';
+import { Input, Layout, Typography } from 'antd';
 import { useEffect, useState } from 'react';
-import { useTitle } from 'react-use';
 
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
@@ -9,10 +8,16 @@ import { useResourceState } from '../hooks/useResourceState';
 import { findSimilar, stringRemoveAccents } from '../utils';
 import { RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
 import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { Header } from 'components/Layout/Header';
+import { useQueryParams } from 'hooks/useQueryParams';
+import { SectionTitle } from 'components/Common/SectionTitle';
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 export function SingleWordsExpander() {
+  // Set default query params
+  useQueryParams({ resourceName: RESOURCE_NAMES.SINGLE_WORDS, language: 'pt' });
+
   const [output, setOutput] = useState({});
   const [duplicates, setDuplicates] = useState({});
   const [reference, setReference] = useState<Record<CardId, TextCard>>({});
@@ -80,48 +85,54 @@ export function SingleWordsExpander() {
 
   return (
     <Layout>
-      <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
-      <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]} />
+      <Header title="Single Word Expander" subtitle={Boolean(language) ? `${language}` : ''} />
 
-      <Layout.Content className="content">
-        <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
-          <div className="parser-container">
-            <div className="parser-main">
-              <Title level={2}>Adding Data</Title>
-              <Text>
-                Database: {Object.keys(response).length} entries / {Object.keys(reference).length}
-              </Text>
-              <Text>Input</Text>
-              <Input.TextArea name="input" id="" cols={15} rows={5} onChange={onInputChange} />
-              <Text>Output ({Object.keys(output).length})</Text>
-              <Input.TextArea
-                name="output"
-                id=""
-                cols={15}
-                rows={15}
-                readOnly
-                value={JSON.stringify(output, null, 4)}
-              />
-              <Text>Duplicates ({Object.keys(duplicates).length})</Text>
+      <Layout hasSider>
+        <Layout.Sider className="sider">
+          <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]} />
+        </Layout.Sider>
 
-              <Input.TextArea
-                name="duplicates"
-                id=""
-                cols={15}
-                rows={3}
-                readOnly
-                value={JSON.stringify(duplicates, null, 4)}
-              />
+        <Layout.Content className="content">
+          <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
+            <div className="parser-container">
+              <div className="parser-main">
+                <SectionTitle>Input New Data</SectionTitle>
+
+                <Input.TextArea name="input" id="" cols={15} rows={5} onChange={onInputChange} />
+
+                <SectionTitle>Output ({Object.keys(output).length})</SectionTitle>
+                <Input.TextArea
+                  name="output"
+                  id=""
+                  cols={15}
+                  rows={13}
+                  readOnly
+                  value={JSON.stringify(output, null, 4)}
+                />
+
+                <SectionTitle>Duplicates ({Object.keys(duplicates).length})</SectionTitle>
+                <Input.TextArea
+                  name="duplicates"
+                  id=""
+                  cols={15}
+                  rows={3}
+                  readOnly
+                  value={JSON.stringify(duplicates, null, 4)}
+                />
+              </div>
+
+              <aside className="parser-controls">
+                <SectionTitle>Database</SectionTitle>
+                <Text>
+                  {Object.keys(response).length} entries / {Object.keys(reference).length}
+                </Text>
+                <SearchDuplicates response={response} property={property} />
+              </aside>
             </div>
-
-            <aside className="parser-controls">
-              <Divider />
-
-              <SearchDuplicates response={response} property={property} />
-            </aside>
-          </div>
-        </DataLoadingWrapper>
-      </Layout.Content>
+          </DataLoadingWrapper>
+        </Layout.Content>
+      </Layout>
     </Layout>
   );
 }
