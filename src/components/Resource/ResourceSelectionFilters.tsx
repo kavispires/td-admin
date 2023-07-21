@@ -5,7 +5,6 @@ import { useQueryParams } from '../../hooks/useQueryParams';
 import { DUAL_LANGUAGE_RESOURCES, LANGUAGES } from '../../utils/constants';
 
 type ResourceSelectionFiltersProps = {
-  title?: string;
   resourceNames: string[];
 };
 

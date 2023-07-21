@@ -1,5 +1,5 @@
-import { Typography } from 'antd';
 import { useMemo } from 'react';
+import { SectionTitle } from './Common/SectionTitle';
 
 type ArteRuimLevelsProps = {
   data: PlainObject;
@@ -28,8 +28,8 @@ export function ArteRuimLevels({ data }: ArteRuimLevelsProps) {
 
   return (
     <div className="">
-      <Typography.Title level={3}>Levels ({total})</Typography.Title>
-      <div>Level 0: {level0}</div>
+      <SectionTitle>Levels ({total})</SectionTitle>
+      <div style={{ color: level0 > 0 ? 'red' : 'inherit' }}>Level 0: {level0}</div>
       <div>Level 1: {level1}</div>
       <div>Level 2: {level2}</div>
       <div>Level 3: {level3}</div>

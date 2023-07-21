@@ -1,7 +1,8 @@
-import { Input, Typography } from 'antd';
+import { Input } from 'antd';
 import { useState } from 'react';
 import { findSimilar, stringRemoveAccents } from '../utils';
 import { SEARCH_THRESHOLD } from '../utils/constants';
+import { SectionTitle } from './Common/SectionTitle';
 
 type SearchDuplicatesProps = {
   response: ObjectDictionary;
@@ -24,7 +25,7 @@ export function SearchDuplicates({ response, property }: SearchDuplicatesProps) 
 
   return (
     <div className="parser-flex-column">
-      <Typography.Title level={2}>Search Similar</Typography.Title>
+      <SectionTitle>Search Similar</SectionTitle>
       <Input type="text" onChange={onSearchSimilar} placeholder="Type here" />
       <Input.TextArea
         name="search-results"

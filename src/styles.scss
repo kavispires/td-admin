@@ -128,25 +128,22 @@ body {
 }
 
 .parser {
-  /* background-color: #282c34;
-  color: white; */
   height: 100vh;
 }
 
 .parser-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 6fr 4fr;
   width: 100%;
+  gap: var(--unit-2);
 }
 
 .parser-main {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  padding: 2em;
 }
 
 .parser-controls {
-  width: 35%;
   text-align: left;
 }
 

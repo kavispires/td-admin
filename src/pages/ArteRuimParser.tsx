@@ -1,22 +1,23 @@
-import { Divider, Input, Layout, Typography } from 'antd';
-import { useEffect, useState } from 'react';
-import { useTitle } from 'react-use';
-
-import { ArteRuimLevels } from '../components/ArteRuimLevels';
-import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
-import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
-import { SearchDuplicates } from '../components/SearchDuplicates';
-import { useResourceState } from '../hooks/useResourceState';
-import { checkForDuplicates, findSimilar, stringRemoveAccents } from '../utils';
-import { RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
+import { Input, Layout } from 'antd';
+import { ArteRuimLevels } from 'components/ArteRuimLevels';
+import { SectionTitle } from 'components/Common/SectionTitle';
+import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
+import { Header } from 'components/Layout/Header';
 import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionFilters';
+import { SearchDuplicates } from 'components/SearchDuplicates';
+import { useQueryParams } from 'hooks/useQueryParams';
+import { useResourceState } from 'hooks/useResourceState';
+import { useEffect, useState } from 'react';
 
-const { Text, Title } = Typography;
+import { checkForDuplicates, findSimilar, stringRemoveAccents } from 'utils';
+import { RESOURCE_NAMES, SEARCH_THRESHOLD } from 'utils/constants';
 
 export function ArteRuimParser() {
-  useTitle('Arte Ruim - Parser');
-  const [searchResults, setSearchResults] = useState({});
+  // Set default query params
+  useQueryParams({ resourceName: RESOURCE_NAMES.ARTE_RUIM_CARDS, language: 'pt' });
 
+  const [searchResults, setSearchResults] = useState({});
   const [output, setOutput] = useState({});
   const [duplicates, setDuplicates] = useState({});
   const property = 'text';
@@ -66,57 +67,64 @@ export function ArteRuimParser() {
   };
 
   return (
-    <Layout>
-      <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
-      <ResourceSelectionFilters title="Arte Ruim Parser" resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
+    <Layout className="layout">
+      <Header title="Arte Ruim" subtitle={Boolean(resourceName && language) ? `Parser (${language})` : ''} />
 
-      <Layout.Content className="content">
-        <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
-          <div className="parser-container">
-            <div className="parser-main">
-              <Title level={2}>Adding Data</Title>
-              <Text>Input</Text>
-              <Input.TextArea name="input" id="" cols={15} rows={5} onChange={onInputChange} />
-              <Text>Output</Text>
-              <Input.TextArea
-                name="output"
-                id=""
-                cols={15}
-                rows={15}
-                readOnly
-                value={JSON.stringify(output, null, 4)}
-              />
-              <Text>Duplicates</Text>
+      <Layout hasSider>
+        <Layout.Sider className="sider">
+          <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
+        </Layout.Sider>
 
-              <Input.TextArea
-                name="duplicates"
-                id=""
-                cols={15}
-                rows={3}
-                readOnly
-                value={JSON.stringify(duplicates)}
-              />
+        <Layout.Content className="content">
+          <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
+            <div className="parser-container">
+              <div className="parser-main">
+                <SectionTitle>Input New Data</SectionTitle>
+                <Input.TextArea name="input" id="" cols={15} rows={5} onChange={onInputChange} />
+
+                <SectionTitle>Output</SectionTitle>
+                <Input.TextArea
+                  name="output"
+                  id=""
+                  cols={15}
+                  rows={14}
+                  readOnly
+                  value={JSON.stringify(output, null, 4)}
+                />
+
+                <SectionTitle>Duplicates</SectionTitle>
+                <Input.TextArea
+                  name="duplicates"
+                  id=""
+                  cols={15}
+                  rows={3}
+                  readOnly
+                  value={JSON.stringify(duplicates)}
+                />
+              </div>
+
+              <aside className="parser-controls">
+                <ArteRuimLevels data={response} />
+
+                <SectionTitle>
+                  Similar Results for Last Entry ({Object.values(searchResults).length})
+                </SectionTitle>
+                <Input.TextArea
+                  name="search-results"
+                  id=""
+                  cols={10}
+                  rows={5}
+                  readOnly
+                  value={JSON.stringify(searchResults, null, 4)}
+                />
+
+                <SearchDuplicates response={response} property={property} />
+              </aside>
             </div>
-
-            <aside className="parser-controls">
-              <ArteRuimLevels data={response} />
-              <Divider />
-
-              <Typography.Title level={3}>Similar Results for Last Entry</Typography.Title>
-              <Input.TextArea
-                name="search-results"
-                id=""
-                cols={10}
-                rows={5}
-                readOnly
-                value={JSON.stringify(searchResults, null, 4)}
-              />
-
-              <SearchDuplicates response={response} property={property} />
-            </aside>
-          </div>
-        </DataLoadingWrapper>
-      </Layout.Content>
+          </DataLoadingWrapper>
+        </Layout.Content>
+      </Layout>
     </Layout>
   );
 }
