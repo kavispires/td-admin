@@ -9,6 +9,7 @@ import { checkForDuplicates, findSimilar, stringRemoveAccents } from '../utils';
 import { SEARCH_THRESHOLD } from '../utils/constants';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import rawData from './rawData.json';
+import { Header } from 'components/Layout/Header';
 
 const { Text, Title } = Typography;
 
@@ -359,7 +360,7 @@ export function Other() {
 
   return (
     <Layout>
-      {/* <PageHeader title="Other" onBack={() => {}} /> */}
+      <Header title="Other" />
 
       <Divider />
 
