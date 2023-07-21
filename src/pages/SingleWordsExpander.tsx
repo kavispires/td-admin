@@ -3,28 +3,26 @@ import { useEffect, useState } from 'react';
 import { useTitle } from 'react-use';
 
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
-import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
+import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { SearchDuplicates } from '../components/SearchDuplicates';
 import { useResourceState } from '../hooks/useResourceState';
 import { findSimilar, stringRemoveAccents } from '../utils';
 import { DEFAULT_LANGUAGE, RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
+import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
 
 const { Text, Title } = Typography;
 
 export function SingleWordsExpander() {
   useTitle('Single Words - Expander');
 
-  const initialState = { language: DEFAULT_LANGUAGE, resourceName: RESOURCE_NAMES.SINGLE_WORDS };
-
   const [output, setOutput] = useState({});
   const [duplicates, setDuplicates] = useState({});
   const [reference, setReference] = useState<Record<CardId, TextCard>>({});
   const property = 'text';
 
-  const { language, loading, error, updateResource, hasResponseData, response } = useResourceState(
-    [RESOURCE_NAMES.SINGLE_WORDS],
-    initialState
-  );
+  const { language, isLoading, error, hasResponseData, response } = useResourceState([
+    RESOURCE_NAMES.SINGLE_WORDS,
+  ]);
 
   useEffect(() => {
     if (response) {
@@ -84,18 +82,11 @@ export function SingleWordsExpander() {
 
   return (
     <Layout>
-      <ResourceSelectionBar
-        title="Single Word Expander"
-        resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]}
-        initialValues={initialState}
-        updateState={updateResource}
-        hasResponseData={hasResponseData}
-        loading={loading}
-        error={error}
-      />
+      <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+      <ResourceSelectionFilters title="Single Word" resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]} />
 
       <Layout.Content className="content">
-        <DataLoadingWrapper loading={loading} error={error} hasResponseData={hasResponseData}>
+        <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
           <div className="parser-container">
             <div className="parser-main">
               <Title level={2}>Adding Data</Title>

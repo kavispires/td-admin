@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import { useAsync, useTitle } from 'react-use';
 
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
-import { ResourceSelectionBar } from '../components/ResourceSelectionBar';
+import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { useResourceState } from '../hooks/useResourceState';
 import { DEFAULT_LANGUAGE, LOCALHOST_RESOURCE_URL, RESOURCE_NAMES } from '../utils/constants';
+import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
 
 const { Text, Title } = Typography;
 
@@ -40,9 +41,6 @@ const parseData = (cards: Record<CardId, ArteRuimCard>, groups: Record<string, A
 export function ArteRuimGroups() {
   useTitle('Arte Ruim - Groups');
 
-  // const availableResources = ['arte-ruim-cards'];
-  const initialState = { language: DEFAULT_LANGUAGE, resourceName: RESOURCE_NAMES.ARTE_RUIM_CARDS };
-
   const [used, setUsed] = useState({});
   const [unused, setUnused] = useState({});
   const [duplicated, setDuplicated] = useState({});
@@ -50,12 +48,11 @@ export function ArteRuimGroups() {
 
   const {
     language,
-    loading,
+    isLoading,
     error,
-    updateResource,
     hasResponseData,
     response: cards,
-  } = useResourceState([RESOURCE_NAMES.ARTE_RUIM_CARDS], initialState);
+  } = useResourceState([RESOURCE_NAMES.ARTE_RUIM_CARDS]);
 
   const {
     value: groups,
@@ -71,30 +68,27 @@ export function ArteRuimGroups() {
   }, [language]);
 
   useEffect(() => {
-    if (!loading && !loadingLevel4 && cards && groups) {
+    if (!isLoading && !loadingLevel4 && cards && groups) {
       const result = parseData(cards, groups);
       setThemes(result.themes);
       setUsed(result.used);
       setUnused(result.unused);
       setDuplicated(result.duplicated);
     }
-  }, [cards, groups, loading, loadingLevel4]);
+  }, [cards, groups, isLoading, loadingLevel4]);
 
   return (
     <Layout>
-      <ResourceSelectionBar
-        title="Arte Ruim Level 4"
-        resourceNames={['arte-ruim']}
-        initialValues={initialState}
-        updateState={updateResource}
+      <ResourceResponseState
         hasResponseData={hasResponseData && Boolean(groups)}
-        loading={loading || loadingLevel4}
+        isLoading={isLoading || loadingLevel4}
         error={error || errorLevel4}
       />
+      <ResourceSelectionFilters title="Arte Ruim Level 4" resourceNames={['arte-ruim']} />
 
       <Layout.Content className="content">
         <DataLoadingWrapper
-          loading={loading || loadingLevel4}
+          isLoading={isLoading || loadingLevel4}
           error={error || errorLevel4}
           hasResponseData={hasResponseData && Boolean(groups)}
         >

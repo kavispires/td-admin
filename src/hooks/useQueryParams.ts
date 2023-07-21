@@ -1,42 +1,46 @@
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-export function useQueryParams(paramsState?: PlainObject, updateFunction?: Function) {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [params, setParams] = useState({});
-  // const [prevParams, setPrevParams] = useState({});
+export function useQueryParams(defaultParams: Record<string, string | number> = {}) {
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(() => {
-    if (location.search && updateFunction) {
-      const qp = new URLSearchParams(location.search);
-      const currentParams: PlainObject = {};
-      for (let pair of qp.entries()) {
-        currentParams[pair[0]] = pair[1];
-      }
-
-      if (
-        currentParams.resourceName !== paramsState?.resourceName ||
-        currentParams.language !== paramsState?.language
-      ) {
-        updateFunction(currentParams);
-        setParams(currentParams);
-      }
+  const addParam = (key: string, value: unknown) => {
+    if (value === undefined || value === '') {
+      searchParams.delete(key);
+    } else {
+      searchParams.set(key, String(value));
     }
-  }, [location.search, paramsState, updateFunction]);
 
-  const updateQueryParams = (newParams: PlainObject) => {
-    const qp = new URLSearchParams();
-    Object.entries(newParams).forEach(([key, value]) => {
-      qp.append(key, value);
-    });
-    setParams(newParams);
-
-    navigate(`${location.pathname}?${qp.toString()}`);
+    setSearchParams(searchParams);
   };
 
+  const removeParam = (key: string, value: unknown) => {
+    searchParams.delete(key);
+    setSearchParams(searchParams);
+  };
+
+  useEffect(() => {
+    Object.entries(defaultParams).forEach(([key, value]) => {
+      if (!searchParams.has(key)) {
+        addParam(key, value);
+      }
+    });
+  }, []); // eslint-disable-line
+
+  const queryParams = searchParams
+    .toString()
+    .split('&')
+    .reduce((qp: Record<string, string>, entry) => {
+      const [key, value] = entry.split('=');
+      if (key && value !== undefined) {
+        qp[key] = value;
+      }
+      return qp;
+    }, {});
+
   return {
-    params,
-    updateQueryParams,
+    addParam,
+    removeParam,
+    queryParams,
   };
 }

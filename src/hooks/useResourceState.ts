@@ -1,37 +1,27 @@
 import { useState } from 'react';
-import { useAsync } from 'react-use';
 import { LOCALHOST_RESOURCE_URL } from '../utils/constants';
-
-type InitialState = {
-  resourceName?: string;
-  language?: Language | null;
-  [key: string]: any;
-};
+import { useQuery } from 'react-query';
+import { useQueryParams } from './useQueryParams';
 
 type ResourceState = {
   resourceName: string | null;
-  setResourceName: Function;
   language?: Language | null;
-  setLanguage: Function;
   response: any;
-  loading: boolean;
-  error?: {
-    message: string;
-  };
+  isLoading: boolean;
+  error?: ResponseError | null;
   hasResponseData: boolean;
-  updateResource: Function;
 };
 
-export function useResourceState(
-  availableResources: AvailableResources,
-  initialState: InitialState = {}
-): ResourceState {
-  const [resourceName, setResourceName] = useState(initialState?.resourceName ?? null);
-  const [language, setLanguage] = useState(initialState.language);
+export function useResourceState(availableResources: AvailableResources): ResourceState {
+  const {
+    queryParams: { resourceName = '', language = '' },
+  } = useQueryParams();
+
   const [response, setResponse] = useState({});
 
-  const { value, loading, error } = useAsync(async () => {
-    if (availableResources && resourceName && language) {
+  const { data, isLoading, error } = useQuery<any, ResponseError>({
+    queryKey: ['resource', resourceName, language],
+    queryFn: async () => {
       const url = process.env.NODE_ENV === 'development' ? LOCALHOST_RESOURCE_URL : process.env.PUBLIC_URL;
       const res = language
         ? await fetch(`${url}/${resourceName}-${language}.json`)
@@ -40,23 +30,16 @@ export function useResourceState(
       const result = res.body ? await res.json() : {};
       setResponse(result);
       return result;
-    }
-  }, [resourceName, language]);
-
-  const updateResource = (obj: InitialState) => {
-    if (obj.language && obj.language !== language) setLanguage(obj.language);
-    if (obj.resourceName && obj.resourceName !== resourceName) setResourceName(obj.resourceName);
-  };
+    },
+    enabled: !!resourceName && availableResources.includes(resourceName),
+  });
 
   return {
     resourceName,
-    setResourceName,
-    language,
-    setLanguage,
+    language: (language as Language) || null,
     response,
-    loading,
+    isLoading,
     error,
-    hasResponseData: Boolean(value),
-    updateResource,
+    hasResponseData: Boolean(data),
   };
 }

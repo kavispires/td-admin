@@ -1,9 +1,7 @@
-import { useState } from 'react';
-
-import logo from 'assets/images/logo.svg';
-
-import { Menu } from '../components/Menu';
 import { Image } from 'antd';
+import logo from 'assets/images/logo.svg';
+import { Header } from 'components/Layout/Header';
+import { useState } from 'react';
 
 export function Home() {
   const [showMenu, setShowMenu] = useState(false);
@@ -20,9 +18,9 @@ export function Home() {
 
   return (
     <div className="home">
+      {showMenu && <Header title="TDR" subtitle="Home" />}
       <header className="home-header" style={styles} onClick={onShowMenu}>
         <Image src={logo} className="home-logo" alt="logo" preview={false} />
-        {showMenu && <Menu />}
       </header>
     </div>
   );

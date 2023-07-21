@@ -45,7 +45,7 @@ type TextCardProps = {
 
 function TextCard({ entry }: TextCardProps): JSX.Element {
   return (
-    <Card title={entry.id} className="resource-cards__card">
+    <Card title={entry.id} className="resource-cards__card" size="small">
       {entry.text}
     </Card>
   );

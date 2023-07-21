@@ -1,18 +1,14 @@
 import { Alert, Empty, Layout, Spin } from 'antd';
 
 type DataLoadingWrapperProps = {
-  loading: boolean;
-  error?:
-    | {
-        message: string;
-      }
-    | undefined;
+  isLoading: boolean;
+  error?: ResponseError;
   hasResponseData: boolean;
   children: any;
 };
 
-export function DataLoadingWrapper({ loading, error, hasResponseData, children }: DataLoadingWrapperProps) {
-  if (loading) {
+export function DataLoadingWrapper({ isLoading, error, hasResponseData, children }: DataLoadingWrapperProps) {
+  if (isLoading) {
     return <Spin tip="Loading">{children}</Spin>;
   }
 

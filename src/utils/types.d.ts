@@ -1,5 +1,9 @@
 type AvailableResources = string[];
 
+type ResponseError = {
+  message: string;
+} | null;
+
 type Language = 'pt' | 'en';
 
 type DualLanguageValue = {
