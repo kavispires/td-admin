@@ -1,0 +1,898 @@
+{
+  "scn-1-en": {
+    "id": "scn-1-en",
+    "text": "Jumping from a moving car"
+  },
+  "scn-2-en": {
+    "id": "scn-2-en",
+    "text": "Taken hostage"
+  },
+  "scn-3-en": {
+    "id": "scn-3-en",
+    "text": "Chased by a Gorilla"
+  },
+  "scn-4-en": {
+    "id": "scn-4-en",
+    "text": "The scuba tank runs out of air at 50 feet below"
+  },
+  "scn-5-en": {
+    "id": "scn-5-en",
+    "text": "Swim in shark-infested waters"
+  },
+  "scn-6-en": {
+    "id": "scn-6-en",
+    "text": "An armed robber in the house"
+  },
+  "scn-7-en": {
+    "id": "scn-7-en",
+    "text": "Stuck in a sinking car"
+  },
+  "scn-8-en": {
+    "id": "scn-8-en",
+    "text": "Jump from a building into a dumpster"
+  },
+  "scn-9-en": {
+    "id": "scn-9-en",
+    "text": "Spend one week in prison"
+  },
+  "scn-10-en": {
+    "id": "scn-10-en",
+    "text": "Surrounded by dozen of snakes"
+  },
+  "scn-11-en": {
+    "id": "scn-11-en",
+    "text": "Your computer is hacked"
+  },
+  "scn-12-en": {
+    "id": "scn-12-en",
+    "text": "Sleep alone in a haunted house for the night"
+  },
+  "scn-13-en": {
+    "id": "scn-13-en",
+    "text": "Stuck in quicksand"
+  },
+  "scn-14-en": {
+    "id": "scn-14-en",
+    "text": "Stuck in the middle of a war zone"
+  },
+  "scn-15-en": {
+    "id": "scn-15-en",
+    "text": "Lost at sea"
+  },
+  "scn-16-en": {
+    "id": "scn-16-en",
+    "text": "Treat your own bullet wound"
+  },
+  "scn-17-en": {
+    "id": "scn-17-en",
+    "text": "Live through a pandemic"
+  },
+  "scn-18-en": {
+    "id": "scn-18-en",
+    "text": "Never see your family again"
+  },
+  "scn-19-en": {
+    "id": "scn-19-en",
+    "text": "Chased by a pack of dogs"
+  },
+  "scn-20-en": {
+    "id": "scn-20-en",
+    "text": "Sail through a typhoon"
+  },
+  "scn-21-en": {
+    "id": "scn-21-en",
+    "text": "House infested with cockroaches"
+  },
+  "scn-22-en": {
+    "id": "scn-22-en",
+    "text": "Wrestle an alligator"
+  },
+  "scn-23-en": {
+    "id": "scn-23-en",
+    "text": "A swarm of killer bees chasing you"
+  },
+  "scn-24-en": {
+    "id": "scn-24-en",
+    "text": "Face an oncoming elephant stampede"
+  },
+  "scn-25-en": {
+    "id": "scn-25-en",
+    "text": "Step barefoot through a rusty nail"
+  },
+  "scn-26-en": {
+    "id": "scn-26-en",
+    "text": "Get lost from your group at night while on safari"
+  },
+  "scn-27-en": {
+    "id": "scn-27-en",
+    "text": "Snowmobile off a 100-foot drop"
+  },
+  "scn-28-en": {
+    "id": "scn-28-en",
+    "text": "Stuck in the middle of a stadium riot"
+  },
+  "scn-29-en": {
+    "id": "scn-29-en",
+    "text": "Bungee jump from the grand canyon"
+  },
+  "scn-30-en": {
+    "id": "scn-30-en",
+    "text": "Fall down a well"
+  },
+  "scn-31-en": {
+    "id": "scn-31-en",
+    "text": "Jump from rooftop to rooftop"
+  },
+  "scn-32-en": {
+    "id": "scn-32-en",
+    "text": "Cross buildings on a wire"
+  },
+  "scn-33-en": {
+    "id": "scn-33-en",
+    "text": "On the fifth floor during a large hotel fire"
+  },
+  "scn-34-en": {
+    "id": "scn-34-en",
+    "text": "Sleep along the Amazon river for a month"
+  },
+  "scn-35-en": {
+    "id": "scn-35-en",
+    "text": "Work alone on the night shift at a graveyard"
+  },
+  "scn-36-en": {
+    "id": "scn-36-en",
+    "text": "Stuck in a car on the edge of a cliff"
+  },
+  "scn-37-en": {
+    "id": "scn-37-en",
+    "text": "Steer your bike down a rocky mountain"
+  },
+  "scn-38-en": {
+    "id": "scn-38-en",
+    "text": "Navigate a minefield"
+  },
+  "scn-39-en": {
+    "id": "scn-39-en",
+    "text": "Gain one pound a day for the next 50 days"
+  },
+  "scn-40-en": {
+    "id": "scn-40-en",
+    "text": "Stop a runaway car with no brakes"
+  },
+  "scn-41-en": {
+    "id": "scn-41-en",
+    "text": "Stalked by a murderous clown"
+  },
+  "scn-42-en": {
+    "id": "scn-42-en",
+    "text": "Treat a severed limb"
+  },
+  "scn-43-en": {
+    "id": "scn-43-en",
+    "text": "Defuse a ticking time bomb"
+  },
+  "scn-44-en": {
+    "id": "scn-44-en",
+    "text": "Stuck naked in public"
+  },
+  "scn-45-en": {
+    "id": "scn-45-en",
+    "text": "Land a plane on water"
+  },
+  "scn-46-en": {
+    "id": "scn-46-en",
+    "text": "Fall down a long flight of stairs"
+  },
+  "scn-47-en": {
+    "id": "scn-47-en",
+    "text": "Chug a gallon of rotten milk"
+  },
+  "scn-48-en": {
+    "id": "scn-48-en",
+    "text": "Overturned kayak in class 5 rapids"
+  },
+  "scn-49-en": {
+    "id": "scn-49-en",
+    "text": "Tongue stuck on an icy pole"
+  },
+  "scn-50-en": {
+    "id": "scn-50-en",
+    "text": "Eat roadkill to survive"
+  },
+  "scn-51-en": {
+    "id": "scn-51-en",
+    "text": "Fall through the ice on a frozen lake"
+  },
+  "scn-52-en": {
+    "id": "scn-52-en",
+    "text": "Stuck outside during a lightning storm"
+  },
+  "scn-53-en": {
+    "id": "scn-53-en",
+    "text": "Wake up to find Tarantulas in your bed"
+  },
+  "scn-54-en": {
+    "id": "scn-54-en",
+    "text": "Confronted by a biker gang"
+  },
+  "scn-55-en": {
+    "id": "scn-55-en",
+    "text": "Swim in leech-infested water"
+  },
+  "scn-56-en": {
+    "id": "scn-56-en",
+    "text": "Fall into the lion exhibit at the zoo"
+  },
+  "scn-57-en": {
+    "id": "scn-57-en",
+    "text": "Skateboard down a hill while holding a baby"
+  },
+  "scn-58-en": {
+    "id": "scn-58-en",
+    "text": "Abducted by aliens"
+  },
+  "scn-59-en": {
+    "id": "scn-59-en",
+    "text": "On a boat overtaken by pirates"
+  },
+  "scn-60-en": {
+    "id": "scn-60-en",
+    "text": "Remove a fish hook from your lip"
+  },
+  "scn-61-en": {
+    "id": "scn-61-en",
+    "text": "Free your leg from a bear trap"
+  },
+  "scn-62-en": {
+    "id": "scn-62-en",
+    "text": "Insomnia for two weeks"
+  },
+  "scn-63-en": {
+    "id": "scn-63-en",
+    "text": "Stuck in an elevator"
+  },
+  "scn-64-en": {
+    "id": "scn-64-en",
+    "text": "Lost at night in a jungle"
+  },
+  "scn-65-en": {
+    "id": "scn-65-en",
+    "text": "Captured by cannibals"
+  },
+  "scn-66-en": {
+    "id": "scn-66-en",
+    "text": "Plane is hijacked"
+  },
+  "scn-67-en": {
+    "id": "scn-67-en",
+    "text": "Accidentally insult a mob boss"
+  },
+  "scn-68-en": {
+    "id": "scn-68-en",
+    "text": "Camp for a week next to a mosquito-filled swamp"
+  },
+  "scn-69-en": {
+    "id": "scn-69-en",
+    "text": "Deliver a baby in the back of a car"
+  },
+  "scn-70-en": {
+    "id": "scn-70-en",
+    "text": "Wake up to the aftermath of a nuclear war"
+  },
+  "scn-71-en": {
+    "id": "scn-71-en",
+    "text": "The parachute fails to open"
+  },
+  "scn-72-en": {
+    "id": "scn-72-en",
+    "text": "Fall into a cactus patch"
+  },
+  "scn-73-en": {
+    "id": "scn-73-en",
+    "text": "Fall over a waterfall"
+  },
+  "scn-74-en": {
+    "id": "scn-74-en",
+    "text": "Stuck on a deserted island"
+  },
+  "scn-75-en": {
+    "id": "scn-75-en",
+    "text": "Jump from a bridge into a rushing river"
+  },
+  "scn-76-en": {
+    "id": "scn-76-en",
+    "text": "Identity is stolen"
+  },
+  "scn-77-en": {
+    "id": "scn-77-en",
+    "text": "Lose your memory"
+  },
+  "scn-78-en": {
+    "id": "scn-78-en",
+    "text": "Scale a 100-foot vertical rock face"
+  },
+  "scn-79-en": {
+    "id": "scn-79-en",
+    "text": "Forced to fight a professional boxer"
+  },
+  "scn-80-en": {
+    "id": "scn-80-en",
+    "text": "Live alone all winter in a mountain cabin"
+  },
+  "scn-81-en": {
+    "id": "scn-81-en",
+    "text": "Ski without poles down a triple-black diamond"
+  },
+  "scn-82-en": {
+    "id": "scn-82-en",
+    "text": "Stuck in an avalanche"
+  },
+  "scn-83-en": {
+    "id": "scn-83-en",
+    "text": "Take a vow of silence for a year"
+  },
+  "scn-84-en": {
+    "id": "scn-84-en",
+    "text": "Play Russian roulette"
+  },
+  "scn-85-en": {
+    "id": "scn-85-en",
+    "text": "Share the same name as nine victims of a serial killer"
+  },
+  "scn-86-en": {
+    "id": "scn-86-en",
+    "text": "Hated by your neighbors on both sides"
+  },
+  "scn-87-en": {
+    "id": "scn-87-en",
+    "text": "Enter the FBI witness protection program"
+  },
+  "scn-88-en": {
+    "id": "scn-88-en",
+    "text": "Stuck in a sandstorm"
+  },
+  "scn-89-en": {
+    "id": "scn-89-en",
+    "text": "Hiking at the base of a volcanic eruption"
+  },
+  "scn-90-en": {
+    "id": "scn-90-en",
+    "text": "Locked in the trunk of a stranger's car"
+  },
+  "scn-91-en": {
+    "id": "scn-91-en",
+    "text": "Learn your family has joined a satanic cult"
+  },
+  "scn-92-en": {
+    "id": "scn-92-en",
+    "text": "Sing the national anthem at a major televised event"
+  },
+  "scn-93-en": {
+    "id": "scn-93-en",
+    "text": "Live in a country run by an evil dictator"
+  },
+  "scn-94-en": {
+    "id": "scn-94-en",
+    "text": "At the beach with an oncoming tsunami"
+  },
+  "scn-95-en": {
+    "id": "scn-95-en",
+    "text": "Surf a 100-foot wave"
+  },
+  "scn-96-en": {
+    "id": "scn-96-en",
+    "text": "Fall down during the running of bulls"
+  },
+  "scn-97-en": {
+    "id": "scn-97-en",
+    "text": "Trapped in a walk-in freezer"
+  },
+  "scn-98-en": {
+    "id": "scn-98-en",
+    "text": "Constant lice"
+  },
+  "scn-99-en": {
+    "id": "scn-99-en",
+    "text": "Stop a runaway camel"
+  },
+  "scn-100-en": {
+    "id": "scn-100-en",
+    "text": "Never take another vacation"
+  },
+  "scn-101-en": {
+    "id": "scn-101-en",
+    "text": "Break-up with a psychopath"
+  },
+  "scn-102-en": {
+    "id": "scn-102-en",
+    "text": "In the clutches of a giant octopus"
+  },
+  "scn-103-en": {
+    "id": "scn-103-en",
+    "text": "Fend off a bear"
+  },
+  "scn-104-en": {
+    "id": "scn-104-en",
+    "text": "Suffer unexplained migraines"
+  },
+  "scn-105-en": {
+    "id": "scn-105-en",
+    "text": "Accidentally walk into a terrorist hideout"
+  },
+  "scn-106-en": {
+    "id": "scn-106-en",
+    "text": "At the bottom of rubble from a collapsed building"
+  },
+  "scn-107-en": {
+    "id": "scn-107-en",
+    "text": "Recurring nightmares for weeks"
+  },
+  "scn-108-en": {
+    "id": "scn-108-en",
+    "text": "Work in a job you hate"
+  },
+  "scn-109-en": {
+    "id": "scn-109-en",
+    "text": "Lose all of your photographs and keepsakes"
+  },
+  "scn-110-en": {
+    "id": "scn-110-en",
+    "text": "Deal every day with a bully at school"
+  },
+  "scn-111-en": {
+    "id": "scn-111-en",
+    "text": "No phone or any other screen for a month"
+  },
+  "scn-112-en": {
+    "id": "scn-112-en",
+    "text": "Discover human remains buried in your basement"
+  },
+  "scn-113-en": {
+    "id": "scn-113-en",
+    "text": "Live with a compulsive cigarette smoker"
+  },
+  "scn-114-en": {
+    "id": "scn-114-en",
+    "text": "Live with a sibling who is better than you at everything"
+  },
+  "scn-115-en": {
+    "id": "scn-115-en",
+    "text": "Tasered by the police"
+  },
+  "scn-116-en": {
+    "id": "scn-116-en",
+    "text": "Ride passenger in the Indy 500"
+  },
+  "scn-117-en": {
+    "id": "scn-117-en",
+    "text": "Receive anonymous threatening voicemails"
+  },
+  "scn-118-en": {
+    "id": "scn-118-en",
+    "text": "Locked in a room with bats"
+  },
+  "scn-119-en": {
+    "id": "scn-119-en",
+    "text": "Participate in the hunger games"
+  },
+  "scn-120-en": {
+    "id": "scn-120-en",
+    "text": "The time machine breaks after taking you to the year 1250"
+  },
+  "scn-121-en": {
+    "id": "scn-121-en",
+    "text": "Stand with an apple on your head for a knife-thrower"
+  },
+  "scn-122-en": {
+    "id": "scn-122-en",
+    "text": "Chase by bandits across a long, rickety bridge"
+  },
+  "scn-123-en": {
+    "id": "scn-123-en",
+    "text": "Trapped in a ring with a raging bull"
+  },
+  "scn-124-en": {
+    "id": "scn-124-en",
+    "text": "Fart loudly during a moment of silence at a funeral"
+  },
+  "scn-125-en": {
+    "id": "scn-125-en",
+    "text": "Infected with a flesh-eating bacteria"
+  },
+  "scn-126-en": {
+    "id": "scn-126-en",
+    "text": "Stuck in the middle of a 20-hour traffic jam"
+  },
+  "scn-127-en": {
+    "id": "scn-127-en",
+    "text": "Surprise air raid attack from a foreign enemy"
+  },
+  "scn-128-en": {
+    "id": "scn-128-en",
+    "text": "Caught in the mouth of a blue whale"
+  },
+  "scn-129-en": {
+    "id": "scn-129-en",
+    "text": "Lose a bet, have to get a face tattoo"
+  },
+  "scn-130-en": {
+    "id": "scn-130-en",
+    "text": "Onboard a downed submarine"
+  },
+  "scn-131-en": {
+    "id": "scn-131-en",
+    "text": "Learn the date of your death"
+  },
+  "scn-132-en": {
+    "id": "scn-132-en",
+    "text": "Attempt to stick a sword down your throat"
+  },
+  "scn-133-en": {
+    "id": "scn-133-en",
+    "text": "Complete 12 months of Navy Seal boot camp"
+  },
+  "scn-134-en": {
+    "id": "scn-134-en",
+    "text": "Hang glide over Niagara Falls"
+  },
+  "scn-135-en": {
+    "id": "scn-135-en",
+    "text": "Wrestle a champion sumo wrestler"
+  },
+  "scn-136-en": {
+    "id": "scn-136-en",
+    "text": "Trend on social media for saying something offensive"
+  },
+  "scn-137-en": {
+    "id": "scn-137-en",
+    "text": "Restrained in a straightjacket at an asylum"
+  },
+  "scn-138-en": {
+    "id": "scn-138-en",
+    "text": "Locked overnight in a construction site port-o-potty"
+  },
+  "scn-139-en": {
+    "id": "scn-139-en",
+    "text": "Adopt five aggressive canines"
+  },
+  "scn-140-en": {
+    "id": "scn-140-en",
+    "text": "Deathly allergic to sugar"
+  },
+  "scn-141-en": {
+    "id": "scn-141-en",
+    "text": "Be the only person in the world to see ghosts"
+  },
+  "scn-142-en": {
+    "id": "scn-142-en",
+    "text": "Juror in a trial of a notorious mob boss"
+  },
+  "scn-143-en": {
+    "id": "scn-143-en",
+    "text": "Superglued hands together"
+  },
+  "scn-144-en": {
+    "id": "scn-144-en",
+    "text": "Stitch a gaping wound on your chest"
+  },
+  "scn-145-en": {
+    "id": "scn-145-en",
+    "text": "Fend off a charging rhino"
+  },
+  "scn-146-en": {
+    "id": "scn-146-en",
+    "text": "Followed on a highway by an angry truck driver"
+  },
+  "scn-147-en": {
+    "id": "scn-147-en",
+    "text": "Juggle three sharp knives"
+  },
+  "scn-148-en": {
+    "id": "scn-148-en",
+    "text": "Perform a front flip off a high-balance beam"
+  },
+  "scn-149-en": {
+    "id": "scn-149-en",
+    "text": "Juggle three flaming torches"
+  },
+  "scn-150-en": {
+    "id": "scn-150-en",
+    "text": "Clean the exterior windows of a skyscraper"
+  },
+  "scn-151-en": {
+    "id": "scn-151-en",
+    "text": "Canoe down a crocodile-infested river"
+  },
+  "scn-152-en": {
+    "id": "scn-152-en",
+    "text": "Attempt to jump a motorcycle across a river"
+  },
+  "scn-153-en": {
+    "id": "scn-153-en",
+    "text": "Recruited to colonize Mars"
+  },
+  "scn-154-en": {
+    "id": "scn-154-en",
+    "text": "Survive four weeks in the woods with a weird stranger"
+  },
+  "scn-155-en": {
+    "id": "scn-155-en",
+    "text": "Have your butt branded with a hot iron stake"
+  },
+  "scn-156-en": {
+    "id": "scn-156-en",
+    "text": "Compete in a real-life joust on horseback"
+  },
+  "scn-157-en": {
+    "id": "scn-157-en",
+    "text": "Drive cross-country with the most annoying person ever"
+  },
+  "scn-158-en": {
+    "id": "scn-158-en",
+    "text": "Shoot out of a cannon"
+  },
+  "scn-159-en": {
+    "id": "scn-159-en",
+    "text": "Hand-feed a mountain lion"
+  },
+  "scn-160-en": {
+    "id": "scn-160-en",
+    "text": "Tied up and tickled for ten minutes"
+  },
+  "scn-161-en": {
+    "id": "scn-161-en",
+    "text": "Roll down a long, steep hill in a barrel"
+  },
+  "scn-162-en": {
+    "id": "scn-162-en",
+    "text": "Work undercover to infiltrate a drug ring"
+  },
+  "scn-163-en": {
+    "id": "scn-163-en",
+    "text": "Dive headfirst in water from a high cliff"
+  },
+  "scn-164-en": {
+    "id": "scn-164-en",
+    "text": "Get on a voodoo priest's \"bad side\""
+  },
+  "scn-165-en": {
+    "id": "scn-165-en",
+    "text": "Have all of your toenails slowly removed"
+  },
+  "scn-166-en": {
+    "id": "scn-166-en",
+    "text": "Eat a bowlful of live maggots"
+  },
+  "scn-167-en": {
+    "id": "scn-167-en",
+    "text": "Betrayed by a lifelong best friend"
+  },
+  "scn-168-en": {
+    "id": "scn-168-en",
+    "text": "Lost in a network of underground caves"
+  },
+  "scn-169-en": {
+    "id": "scn-169-en",
+    "text": "Accidentally staple your finger"
+  },
+  "scn-170-en": {
+    "id": "scn-170-en",
+    "text": "Have severely chapped lips"
+  },
+  "scn-171-en": {
+    "id": "scn-171-en",
+    "text": "Hear rats scurrying above your ceiling"
+  },
+  "scn-172-en": {
+    "id": "scn-172-en",
+    "text": "Have the same name as a famous killer"
+  },
+  "scn-173-en": {
+    "id": "scn-173-en",
+    "text": "Find out your parents are racists"
+  },
+  "scn-174-en": {
+    "id": "scn-174-en",
+    "text": "Live with a really slow internet connection"
+  },
+  "scn-175-en": {
+    "id": "scn-175-en",
+    "text": "Always have an offensive smell"
+  },
+  "scn-176-en": {
+    "id": "scn-176-en",
+    "text": "Live with a nickname you hate"
+  },
+  "scn-177-en": {
+    "id": "scn-177-en",
+    "text": "Accidentally start a large forest fire"
+  },
+  "scn-178-en": {
+    "id": "scn-178-en",
+    "text": "Lose 50 IQ points"
+  },
+  "scn-179-en": {
+    "id": "scn-179-en",
+    "text": "Only eat one food for the rest of your life"
+  },
+  "scn-180-en": {
+    "id": "scn-180-en",
+    "text": "Unexpectedly learn you are to be a new parent"
+  },
+  "scn-181-en": {
+    "id": "scn-181-en",
+    "text": "Sit next to a crying baby on a cross-country flight"
+  },
+  "scn-182-en": {
+    "id": "scn-182-en",
+    "text": "Live next door to a relentlessly barking dog"
+  },
+  "scn-183-en": {
+    "id": "scn-183-en",
+    "text": "Fired from a job you love"
+  },
+  "scn-184-en": {
+    "id": "scn-184-en",
+    "text": "Get dumped by a longtime partner / perceived soulmate"
+  },
+  "scn-185-en": {
+    "id": "scn-185-en",
+    "text": "Wrongly convicted of a felony"
+  },
+  "scn-186-en": {
+    "id": "scn-186-en",
+    "text": "Lose your life savings in a stock market crash"
+  },
+  "scn-187-en": {
+    "id": "scn-187-en",
+    "text": "Ride the world's scariest roller coaster"
+  },
+  "scn-188-en": {
+    "id": "scn-188-en",
+    "text": "Compete in a mayonnaise eating contest"
+  },
+  "scn-189-en": {
+    "id": "scn-189-en",
+    "text": "Drive during a hurricane"
+  },
+  "scn-190-en": {
+    "id": "scn-190-en",
+    "text": "Surrounded by angry birds"
+  },
+  "scn-191-en": {
+    "id": "scn-191-en",
+    "text": "Forced to give yourself an adrenaline shot to the heart"
+  },
+  "scn-192-en": {
+    "id": "scn-192-en",
+    "text": "Covered in poison ivy"
+  },
+  "scn-193-en": {
+    "id": "scn-193-en",
+    "text": "The car breaks down at night on an empty highway"
+  },
+  "scn-194-en": {
+    "id": "scn-194-en",
+    "text": "Grow a tail that cannot be removed"
+  },
+  "scn-195-en": {
+    "id": "scn-195-en",
+    "text": "Lost in the desert without water or protection"
+  },
+  "scn-196-en": {
+    "id": "scn-196-en",
+    "text": "Splash bleach in your eyes"
+  },
+  "scn-197-en": {
+    "id": "scn-197-en",
+    "text": "Hear a constant ringing in your ears"
+  },
+  "scn-198-en": {
+    "id": "scn-198-en",
+    "text": "Forced to duel in an actual sword fight"
+  },
+  "scn-199-en": {
+    "id": "scn-199-en",
+    "text": "Endure several hours of major flight turbulence"
+  },
+  "scn-200-en": {
+    "id": "scn-200-en",
+    "text": "Trapped in a bank during a robbery"
+  },
+  "scn-201-en": {
+    "id": "scn-201-en",
+    "text": "Fall onto subway tracks as a train is approaching"
+  },
+  "scn-202-en": {
+    "id": "scn-202-en",
+    "text": "Exposed to high amounts of radiation"
+  },
+  "scn-203-en": {
+    "id": "scn-203-en",
+    "text": "Discover hidden video cameras in your bedroom"
+  },
+  "scn-204-en": {
+    "id": "scn-204-en",
+    "text": "Wake to discover the world has been taken over by zombies"
+  },
+  "scn-205-en": {
+    "id": "scn-205-en",
+    "text": "Trapped in a rat-infested sewer"
+  },
+  "scn-206-en": {
+    "id": "scn-206-en",
+    "text": "Fall off a cruise ship"
+  },
+  "scn-207-en": {
+    "id": "scn-207-en",
+    "text": "Bit by a rabid animal"
+  },
+  "scn-208-en": {
+    "id": "scn-208-en",
+    "text": "Break up a dog fight"
+  },
+  "scn-209-en": {
+    "id": "scn-209-en",
+    "text": "Remove a dart from your neck"
+  },
+  "scn-210-en": {
+    "id": "scn-210-en",
+    "text": "Remove a large wasp's nest from your roof"
+  },
+  "scn-211-en": {
+    "id": "scn-211-en",
+    "text": "Fly solo in a hot-air balloon"
+  },
+  "scn-212-en": {
+    "id": "scn-212-en",
+    "text": "Forced to give mouth-to-mouth to a baboon"
+  },
+  "scn-213-en": {
+    "id": "scn-213-en",
+    "text": "Discover your spouse is a wanted criminal"
+  },
+  "scn-214-en": {
+    "id": "scn-214-en",
+    "text": "Dismount from a wild bronco"
+  },
+  "scn-215-en": {
+    "id": "scn-215-en",
+    "text": "Surrounded by jellyfish"
+  },
+  "scn-216-en": {
+    "id": "scn-216-en",
+    "text": "Retrieve an object near a poisonous snake"
+  },
+  "scn-217-en": {
+    "id": "scn-217-en",
+    "text": "Stuck outdoors during an oncoming tornado"
+  },
+  "scn-218-en": {
+    "id": "scn-218-en",
+    "text": "House falls into a sinkhole"
+  },
+  "scn-219-en": {
+    "id": "scn-219-en",
+    "text": "Learn your parents are not your parents"
+  },
+  "scn-220-en": {
+    "id": "scn-220-en",
+    "text": "Maneuver on top of a moving train and get inside"
+  },
+  "scn-221-en": {
+    "id": "scn-221-en",
+    "text": "Alone at night during a major earthquake"
+  },
+  "scn-222-en": {
+    "id": "scn-222-en",
+    "text": "Caught in the middle of a shootout"
+  },
+  "scn-223-en": {
+    "id": "scn-223-en",
+    "text": "Develop a strange condition that turns your skin blue"
+  },
+  "scn-224-en": {
+    "id": "scn-224-en",
+    "text": "Rescue a cat from a burning building"
+  }
+}

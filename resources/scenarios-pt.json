@@ -1,0 +1,902 @@
+{
+  "scn-1-pt": {
+    "id": "scn-1-pt",
+    "text": "Saltar de um carro em movimento"
+  },
+  "scn-2-pt": {
+    "id": "scn-2-pt",
+    "text": "Ser feito refém"
+  },
+  "scn-3-pt": {
+    "id": "scn-3-pt",
+    "text": "Ser perseguido por um gorila"
+  },
+  "scn-4-pt": {
+    "id": "scn-4-pt",
+    "text": "O tanque de mergulho fica sem ar a 15 metros embaixo d'água"
+  },
+  "scn-5-pt": {
+    "id": "scn-5-pt",
+    "text": "Nadar em águas infestadas de tubarões"
+  },
+  "scn-6-pt": {
+    "id": "scn-6-pt",
+    "text": "Um ladrão armado em casa"
+  },
+  "scn-7-pt": {
+    "id": "scn-7-pt",
+    "text": "Estar preso em um carro afundando"
+  },
+  "scn-8-pt": {
+    "id": "scn-8-pt",
+    "text": "Saltar de um prédio em uma lixeira"
+  },
+  "scn-9-pt": {
+    "id": "scn-9-pt",
+    "text": "Passar uma semana na prisão"
+  },
+  "scn-10-pt": {
+    "id": "scn-10-pt",
+    "text": "Estar cercado por dezenas de cobras"
+  },
+  "scn-11-pt": {
+    "id": "scn-11-pt",
+    "text": "Ter seu computador foi hackeado"
+  },
+  "scn-12-pt": {
+    "id": "scn-12-pt",
+    "text": "Dormir sozinho em uma casa assombrada durante a noite"
+  },
+  "scn-13-pt": {
+    "id": "scn-13-pt",
+    "text": "Estar preso na areia movediça"
+  },
+  "scn-14-pt": {
+    "id": "scn-14-pt",
+    "text": "Estar preso no meio de uma zona de guerra"
+  },
+  "scn-15-pt": {
+    "id": "scn-15-pt",
+    "text": "Ficar perdido no mar"
+  },
+  "scn-16-pt": {
+    "id": "scn-16-pt",
+    "text": "Tratar a sua própria ferida de um tiro"
+  },
+  "scn-17-pt": {
+    "id": "scn-17-pt",
+    "text": "Viver uma pandemia"
+  },
+  "scn-18-pt": {
+    "id": "scn-18-pt",
+    "text": "Nunca mais ver sua família"
+  },
+  "scn-19-pt": {
+    "id": "scn-19-pt",
+    "text": "Ser perseguido por uma matilha de cães"
+  },
+  "scn-20-pt": {
+    "id": "scn-20-pt",
+    "text": "Velejar por de um tufão"
+  },
+  "scn-21-pt": {
+    "id": "scn-21-pt",
+    "text": "Casa infestada de baratas"
+  },
+  "scn-22-pt": {
+    "id": "scn-22-pt",
+    "text": "Lutar com um crocodilo"
+  },
+  "scn-23-pt": {
+    "id": "scn-23-pt",
+    "text": "Um enxame de abelhas assassinas perseguindo você"
+  },
+  "scn-24-pt": {
+    "id": "scn-24-pt",
+    "text": "Enfrentar uma debandada de elefantes que se aproxima"
+  },
+  "scn-25-pt": {
+    "id": "scn-25-pt",
+    "text": "Pisar descalço em um prego enferrujado"
+  },
+  "scn-26-pt": {
+    "id": "scn-26-pt",
+    "text": "Afastar-se do seu grupo à noite durante o safári"
+  },
+  "scn-27-pt": {
+    "id": "scn-27-pt",
+    "text": "Descer de carrinho de rolimã uma ladeira de 45 graus"
+  },
+  "scn-28-pt": {
+    "id": "scn-28-pt",
+    "text": "Ficar preso no meio de um tumulto no estádio"
+  },
+  "scn-29-pt": {
+    "id": "scn-29-pt",
+    "text": "Pular de bungee jump no Grand Canyon"
+  },
+  "scn-30-pt": {
+    "id": "scn-30-pt",
+    "text": "Cair em um poço"
+  },
+  "scn-31-pt": {
+    "id": "scn-31-pt",
+    "text": "Pular de um prédio para o outro"
+  },
+  "scn-32-pt": {
+    "id": "scn-32-pt",
+    "text": "Cruzar dois prédios na corda bamba"
+  },
+  "scn-33-pt": {
+    "id": "scn-33-pt",
+    "text": "Estar no quinto andar de um hotel durante um grande incêndio"
+  },
+  "scn-34-pt": {
+    "id": "scn-34-pt",
+    "text": "Dormir ao longo do rio Amazonas por um mês"
+  },
+  "scn-35-pt": {
+    "id": "scn-35-pt",
+    "text": "Trabalhar sozinho no turno da noite em um cemitério"
+  },
+  "scn-36-pt": {
+    "id": "scn-36-pt",
+    "text": "Ficar preso em um carro na beira de um penhasco"
+  },
+  "scn-37-pt": {
+    "id": "scn-37-pt",
+    "text": "Dirigir sua bicicleta por uma montanha rochosa"
+  },
+  "scn-38-pt": {
+    "id": "scn-38-pt",
+    "text": "Andar por um campo minado"
+  },
+  "scn-39-pt": {
+    "id": "scn-39-pt",
+    "text": "Ganhar meio quilo por dia nos próximos 50 dias"
+  },
+  "scn-40-pt": {
+    "id": "scn-40-pt",
+    "text": "Parar um carro desgovernado sem freios"
+  },
+  "scn-41-pt": {
+    "id": "scn-41-pt",
+    "text": "Ser perseguido por um palhaço assassino"
+  },
+  "scn-42-pt": {
+    "id": "scn-42-pt",
+    "text": "Tratar um membro amputado"
+  },
+  "scn-43-pt": {
+    "id": "scn-43-pt",
+    "text": "Desarmar uma bomba-relógio"
+  },
+  "scn-44-pt": {
+    "id": "scn-44-pt",
+    "text": "Ficar nu em público sem ter pra onde ir"
+  },
+  "scn-45-pt": {
+    "id": "scn-45-pt",
+    "text": "Pousar um avião na água"
+  },
+  "scn-46-pt": {
+    "id": "scn-46-pt",
+    "text": "Despencar escadaria abaixo"
+  },
+  "scn-47-pt": {
+    "id": "scn-47-pt",
+    "text": "Beber um galão de leite estragado"
+  },
+  "scn-48-pt": {
+    "id": "scn-48-pt",
+    "text": "O caiaque virar em corredeiras classe 5"
+  },
+  "scn-49-pt": {
+    "id": "scn-49-pt",
+    "text": "Ficar com a língua presa num poste congelado"
+  },
+  "scn-50-pt": {
+    "id": "scn-50-pt",
+    "text": "Comer restos de atropelados para sobreviver"
+  },
+  "scn-51-pt": {
+    "id": "scn-51-pt",
+    "text": "Cair no buraco em um lago congelado"
+  },
+  "scn-52-pt": {
+    "id": "scn-52-pt",
+    "text": "Ficar preso do lado de fora durante uma tempestade com raios"
+  },
+  "scn-53-pt": {
+    "id": "scn-53-pt",
+    "text": "Acordar e ter tarântulas em sua cama"
+  },
+  "scn-54-pt": {
+    "id": "scn-54-pt",
+    "text": "Ser confrontado por uma gangue de motoqueiros"
+  },
+  "scn-55-pt": {
+    "id": "scn-55-pt",
+    "text": "Nadar em águas infestadas de sanguessugas"
+  },
+  "scn-56-pt": {
+    "id": "scn-56-pt",
+    "text": "Cair na jaula de leões no zoológico"
+  },
+  "scn-57-pt": {
+    "id": "scn-57-pt",
+    "text": "Descer de skate ladeira abaixo enquanto segura um bebê"
+  },
+  "scn-58-pt": {
+    "id": "scn-58-pt",
+    "text": "Ser abducido por alienígenas"
+  },
+  "scn-59-pt": {
+    "id": "scn-59-pt",
+    "text": "Estar em um barco sendo capturado por piratas"
+  },
+  "scn-60-pt": {
+    "id": "scn-60-pt",
+    "text": "Remover um anzol do seu próprio lábio"
+  },
+  "scn-61-pt": {
+    "id": "scn-61-pt",
+    "text": "Revitar sua perna de uma armadilha de urso"
+  },
+  "scn-62-pt": {
+    "id": "scn-62-pt",
+    "text": "Ter insônia por duas semanas"
+  },
+  "scn-63-pt": {
+    "id": "scn-63-pt",
+    "text": "Ficar preso em um elevador"
+  },
+  "scn-64-pt": {
+    "id": "scn-64-pt",
+    "text": "Ficar perdido à noite em uma selva"
+  },
+  "scn-65-pt": {
+    "id": "scn-65-pt",
+    "text": "Ser capturado por canibais"
+  },
+  "scn-66-pt": {
+    "id": "scn-66-pt",
+    "text": "Ter seu avião sequestrado"
+  },
+  "scn-67-pt": {
+    "id": "scn-67-pt",
+    "text": "Insultar acidentalmente um chefe da máfia"
+  },
+  "scn-68-pt": {
+    "id": "scn-68-pt",
+    "text": "Acampar por uma semana próximo a um pântano cheio de mosquitos"
+  },
+  "scn-69-pt": {
+    "id": "scn-69-pt",
+    "text": "Dar a luz a um bebê no banco de trás de um carro"
+  },
+  "scn-70-pt": {
+    "id": "scn-70-pt",
+    "text": "Acordar pouco depois de uma guerra nuclear"
+  },
+  "scn-71-pt": {
+    "id": "scn-71-pt",
+    "text": "O paraquedas não abrir"
+  },
+  "scn-72-pt": {
+    "id": "scn-72-pt",
+    "text": "Cair em um canteiro de cactos"
+  },
+  "scn-73-pt": {
+    "id": "scn-73-pt",
+    "text": "Cair de uma cachoeira"
+  },
+  "scn-74-pt": {
+    "id": "scn-74-pt",
+    "text": "Estar preso em uma ilha deserta"
+  },
+  "scn-75-pt": {
+    "id": "scn-75-pt",
+    "text": "Pular de uma ponte em um rio caudaloso"
+  },
+  "scn-76-pt": {
+    "id": "scn-76-pt",
+    "text": "Ter sua identidade roubada"
+  },
+  "scn-77-pt": {
+    "id": "scn-77-pt",
+    "text": "Perder sua memória"
+  },
+  "scn-78-pt": {
+    "id": "scn-78-pt",
+    "text": "Escalar uma montanha vertical de 30 metros de altura"
+  },
+  "scn-79-pt": {
+    "id": "scn-79-pt",
+    "text": "Ser forçado a lutar contra um boxeador profissional"
+  },
+  "scn-80-pt": {
+    "id": "scn-80-pt",
+    "text": "Viver sozinho durante todo o inverno em uma cabana na montanha"
+  },
+  "scn-81-pt": {
+    "id": "scn-81-pt",
+    "text": "Esquiar sem bastões em uma montanha considerada nível 5 de periculosidade"
+  },
+  "scn-82-pt": {
+    "id": "scn-82-pt",
+    "text": "Ficar preso em uma avalanche"
+  },
+  "scn-83-pt": {
+    "id": "scn-83-pt",
+    "text": "Fazer um voto de silêncio por um ano"
+  },
+  "scn-84-pt": {
+    "id": "scn-84-pt",
+    "text": "Brincar de roleta russa"
+  },
+  "scn-85-pt": {
+    "id": "scn-85-pt",
+    "text": "Ter o mesmo nome de nove vítimas de um assassino em série"
+  },
+  "scn-86-pt": {
+    "id": "scn-86-pt",
+    "text": "Ser odiado por seus vizinhos dos dois lados"
+  },
+  "scn-87-pt": {
+    "id": "scn-87-pt",
+    "text": "Entrar no programa de proteção a testemunhas do FBI"
+  },
+  "scn-88-pt": {
+    "id": "scn-88-pt",
+    "text": "Ficar preso em uma tempestade de areia"
+  },
+  "scn-89-pt": {
+    "id": "scn-89-pt",
+    "text": "Fazer caminhada na base de uma erupção vulcânica"
+  },
+  "scn-90-pt": {
+    "id": "scn-90-pt",
+    "text": "Acordar trancado no porta-malas do carro desconhecido"
+  },
+  "scn-91-pt": {
+    "id": "scn-91-pt",
+    "text": "Descobrir que sua família se filiou a um culto satânico"
+  },
+  "scn-92-pt": {
+    "id": "scn-92-pt",
+    "text": "Cantar o hino nacional em um grande evento televisionado"
+  },
+  "scn-93-pt": {
+    "id": "scn-93-pt",
+    "text": "Viver em um país governado por um ditador"
+  },
+  "scn-94-pt": {
+    "id": "scn-94-pt",
+    "text": "Estar na praia com um tsunami que se aproximando"
+  },
+  "scn-95-pt": {
+    "id": "scn-95-pt",
+    "text": "Surfar uma onda de 30 metros"
+  },
+  "scn-96-pt": {
+    "id": "scn-96-pt",
+    "text": "Cair enquanto foge de touros correndo"
+  },
+  "scn-97-pt": {
+    "id": "scn-97-pt",
+    "text": "Ficar preso em um freezer de frigorífico"
+  },
+  "scn-98-pt": {
+    "id": "scn-98-pt",
+    "text": "Ter piolhos constantes"
+  },
+  "scn-99-pt": {
+    "id": "scn-99-pt",
+    "text": "Parar um camelo em fuga"
+  },
+  "scn-100-pt": {
+    "id": "scn-100-pt",
+    "text": "Nunca tirar férias mais"
+  },
+  "scn-101-pt": {
+    "id": "scn-101-pt",
+    "text": "Terminar namoro com um psicopata"
+  },
+  "scn-102-pt": {
+    "id": "scn-102-pt",
+    "text": "Estar presos nas garras de um polvo gigante"
+  },
+  "scn-103-pt": {
+    "id": "scn-103-pt",
+    "text": "Afugentar um urso"
+  },
+  "scn-104-pt": {
+    "id": "scn-104-pt",
+    "text": "Sofrer de enxaquecas inexplicáveis"
+  },
+  "scn-105-pt": {
+    "id": "scn-105-pt",
+    "text": "Entrar acidentalmente em um esconderijo terrorista"
+  },
+  "scn-106-pt": {
+    "id": "scn-106-pt",
+    "text": "Estar no fundo dos escombros de um prédio desabado"
+  },
+  "scn-107-pt": {
+    "id": "scn-107-pt",
+    "text": "Pesadelos recorrentes por semanas"
+  },
+  "scn-108-pt": {
+    "id": "scn-108-pt",
+    "text": "Trabalhar em um emprego que você odeia"
+  },
+  "scn-109-pt": {
+    "id": "scn-109-pt",
+    "text": "Perder todas as suas fotografias"
+  },
+  "scn-110-pt": {
+    "id": "scn-110-pt",
+    "text": "Lidar todos os dias com um valentão na escola"
+  },
+  "scn-111-pt": {
+    "id": "scn-111-pt",
+    "text": "Sem telefone ou qualquer outro dispositivo por um mês"
+  },
+  "scn-112-pt": {
+    "id": "scn-112-pt",
+    "text": "Descobrir restos humanos enterrados em seu porão"
+  },
+  "scn-113-pt": {
+    "id": "scn-113-pt",
+    "text": "Viver com um fumante compulsivo"
+  },
+  "scn-114-pt": {
+    "id": "scn-114-pt",
+    "text": "Morar com um irmão que é melhor que você em tudo"
+  },
+  "scn-115-pt": {
+    "id": "scn-115-pt",
+    "text": "Taserizado pela polícia"
+  },
+  "scn-116-pt": {
+    "id": "scn-116-pt",
+    "text": "Passeio de passageiro num carro de Fórmula 1"
+  },
+  "scn-117-pt": {
+    "id": "scn-117-pt",
+    "text": "Receber mensagens de voz ameaçadoras anônimas"
+  },
+  "scn-118-pt": {
+    "id": "scn-118-pt",
+    "text": "Estar trancado em uma sala com morcegos"
+  },
+  "scn-119-pt": {
+    "id": "scn-119-pt",
+    "text": "Participar dos Jogos Vorazes"
+  },
+  "scn-120-pt": {
+    "id": "scn-120-pt",
+    "text": "A máquina do tempo quebra após levá-lo ao ano de 1250"
+  },
+  "scn-121-pt": {
+    "id": "scn-121-pt",
+    "text": "Ficar com uma maçã na cabeça para um atirador de facas"
+  },
+  "scn-122-pt": {
+    "id": "scn-122-pt",
+    "text": "Ser perseguido por bandidos através de uma ponte longa e frágil"
+  },
+  "scn-123-pt": {
+    "id": "scn-123-pt",
+    "text": "Ficar preso em um ringue com um touro furioso"
+  },
+  "scn-124-pt": {
+    "id": "scn-124-pt",
+    "text": "Peidar alto durante um momento de silêncio em um funeral"
+  },
+  "scn-125-pt": {
+    "id": "scn-125-pt",
+    "text": "Estar infectado com uma bactéria carnívora"
+  },
+  "scn-126-pt": {
+    "id": "scn-126-pt",
+    "text": "Ficar preso no meio de um engarrafamento de 20 horas"
+  },
+  "scn-127-pt": {
+    "id": "scn-127-pt",
+    "text": "Ataque aéreo surpresa de um país inimigo"
+  },
+  "scn-128-pt": {
+    "id": "scn-128-pt",
+    "text": "Se pegar na boca de uma baleia azul"
+  },
+  "scn-129-pt": {
+    "id": "scn-129-pt",
+    "text": "Perder uma aposta e ter que fazer uma tatuagem no rosto"
+  },
+  "scn-130-pt": {
+    "id": "scn-130-pt",
+    "text": "Estar a bordo de um submarino abatido"
+  },
+  "scn-131-pt": {
+    "id": "scn-131-pt",
+    "text": "Saiber a data da sua morte"
+  },
+  "scn-132-pt": {
+    "id": "scn-132-pt",
+    "text": "Tentar enfiar uma espada na sua garganta"
+  },
+  "scn-133-pt": {
+    "id": "scn-133-pt",
+    "text": "Completar 12 meses de treinamento do Navy Seal"
+  },
+  "scn-134-pt": {
+    "id": "scn-134-pt",
+    "text": "Voar de asa delta sobre as Cataratas do Niágara"
+  },
+  "scn-135-pt": {
+    "id": "scn-135-pt",
+    "text": "Lutar com um lutador de sumô campeão"
+  },
+  "scn-136-pt": {
+    "id": "scn-136-pt",
+    "text": "Viralizar nas redes sociais por dizer algo ofensivo"
+  },
+  "scn-137-pt": {
+    "id": "scn-137-pt",
+    "text": "Contido em uma camisa de força em um asilo"
+  },
+  "scn-138-pt": {
+    "id": "scn-138-pt",
+    "text": "Trancado durante a noite em um banheiro químico"
+  },
+  "scn-139-pt": {
+    "id": "scn-139-pt",
+    "text": "Adotar cinco cachorros agressivos"
+  },
+  "scn-140-pt": {
+    "id": "scn-140-pt",
+    "text": "Mortalmente alérgico ao açúcar"
+  },
+  "scn-141-pt": {
+    "id": "scn-141-pt",
+    "text": "Ser a única pessoa no mundo a ver fantasmas"
+  },
+  "scn-142-pt": {
+    "id": "scn-142-pt",
+    "text": "Ser jurado em um julgamento de um notório chefe da máfia"
+  },
+  "scn-143-pt": {
+    "id": "scn-143-pt",
+    "text": "Ter as mãos coladas com super bonder"
+  },
+  "scn-144-pt": {
+    "id": "scn-144-pt",
+    "text": "Costurar uma ferida aberta em seu peito"
+  },
+  "scn-145-pt": {
+    "id": "scn-145-pt",
+    "text": "Apaziguar um rinoceronte vindo em sua direção"
+  },
+  "scn-146-pt": {
+    "id": "scn-146-pt",
+    "text": "Ser seguido na estrada por um caminhoneiro bravo"
+  },
+  "scn-147-pt": {
+    "id": "scn-147-pt",
+    "text": "Fazer malabarismos com três facas afiadas"
+  },
+  "scn-148-pt": {
+    "id": "scn-148-pt",
+    "text": "Executar um salto mortal de um trampolim"
+  },
+  "scn-149-pt": {
+    "id": "scn-149-pt",
+    "text": "Fazer malabarismos com três tochas flamejantes"
+  },
+  "scn-150-pt": {
+    "id": "scn-150-pt",
+    "text": "Limpar as janelas externas de um arranha-céu"
+  },
+  "scn-151-pt": {
+    "id": "scn-151-pt",
+    "text": "Descer de canoa um rio infestado de crocodilos"
+  },
+  "scn-152-pt": {
+    "id": "scn-152-pt",
+    "text": "Tentar saltar de motocicleta sobre um rio"
+  },
+  "scn-153-pt": {
+    "id": "scn-153-pt",
+    "text": "Ser recrutado para colonizar Marte"
+  },
+  "scn-154-pt": {
+    "id": "scn-154-pt",
+    "text": "Sobreviver quatro semanas na floresta com um estranho esquisito"
+  },
+  "scn-155-pt": {
+    "id": "scn-155-pt",
+    "text": "Ter sua bunda marcada com uma estaca de ferro quente"
+  },
+  "scn-156-pt": {
+    "id": "scn-156-pt",
+    "text": "Competir em uma duelo medieval a cavalo"
+  },
+  "scn-157-pt": {
+    "id": "scn-157-pt",
+    "text": "Dirigir pelo país com a pessoa mais irritante de todos os tempos"
+  },
+  "scn-158-pt": {
+    "id": "scn-158-pt",
+    "text": "Ser atirado de um canhão"
+  },
+  "scn-159-pt": {
+    "id": "scn-159-pt",
+    "text": "Alimentar manualmente um leão da montanha"
+  },
+  "scn-160-pt": {
+    "id": "scn-160-pt",
+    "text": "Ser amarrado e receber cócegas por dez minutos"
+  },
+  "scn-161-pt": {
+    "id": "scn-161-pt",
+    "text": "Rolar uma colina longa e íngreme em um barril"
+  },
+  "scn-162-pt": {
+    "id": "scn-162-pt",
+    "text": "Trabalhar disfarçado para se infiltrar em uma quadrilha de drogas"
+  },
+  "scn-163-pt": {
+    "id": "scn-163-pt",
+    "text": "Mergulhar de cabeça na água de um penhasco alto"
+  },
+  "scn-164-pt": {
+    "id": "scn-164-pt",
+    "text": "Um macumbeiro não ser com a sua cara"
+  },
+  "scn-165-pt": {
+    "id": "scn-165-pt",
+    "text": "Remover todas as unhas dos pés lentamente"
+  },
+  "scn-166-pt": {
+    "id": "scn-166-pt",
+    "text": "Comer uma tigela cheia de larvas vivas"
+  },
+  "scn-167-pt": {
+    "id": "scn-167-pt",
+    "text": "Ser traído por um melhor amigo ao longo da vida"
+  },
+  "scn-168-pt": {
+    "id": "scn-168-pt",
+    "text": "Estar perdido em uma rede de cavernas subterrâneas"
+  },
+  "scn-169-pt": {
+    "id": "scn-169-pt",
+    "text": "Grampear o dedo sem querer"
+  },
+  "scn-170-pt": {
+    "id": "scn-170-pt",
+    "text": "Ter lábios severamente rachados"
+  },
+  "scn-171-pt": {
+    "id": "scn-171-pt",
+    "text": "Ouvir ratos correndo acima do seu teto"
+  },
+  "scn-172-pt": {
+    "id": "scn-172-pt",
+    "text": "Ter o mesmo nome de um assassino famoso"
+  },
+  "scn-173-pt": {
+    "id": "scn-173-pt",
+    "text": "Descubrir que seus pais são racistas"
+  },
+  "scn-174-pt": {
+    "id": "scn-174-pt",
+    "text": "Viver com uma conexão de internet muito lenta"
+  },
+  "scn-175-pt": {
+    "id": "scn-175-pt",
+    "text": "Sempre ter um cheiro de morrinha"
+  },
+  "scn-176-pt": {
+    "id": "scn-176-pt",
+    "text": "Viver com um apelido que você odeia"
+  },
+  "scn-177-pt": {
+    "id": "scn-177-pt",
+    "text": "Iniciar acidentalmente um grande incêndio florestal"
+  },
+  "scn-178-pt": {
+    "id": "scn-178-pt",
+    "text": "Perder 50 pontos de QI"
+  },
+  "scn-179-pt": {
+    "id": "scn-179-pt",
+    "text": "Comer apenas um tipo de alimento pelo resto da vida"
+  },
+  "scn-180-pt": {
+    "id": "scn-180-pt",
+    "text": "Saiber inesperadamente que você vai ter um filho"
+  },
+  "scn-181-pt": {
+    "id": "scn-181-pt",
+    "text": "Sentar ao lado de um bebê chorando em um voo de 20 horas"
+  },
+  "scn-182-pt": {
+    "id": "scn-182-pt",
+    "text": "Morar ao lado de um cachorro que late incansavelmente"
+  },
+  "scn-183-pt": {
+    "id": "scn-183-pt",
+    "text": "Saber inesperadamente que você vai ter um filho"
+  },
+  "scn-184-pt": {
+    "id": "scn-184-pt",
+    "text": "Levar um toco de um parceiro de longa data / alma gêmea"
+  },
+  "scn-185-pt": {
+    "id": "scn-185-pt",
+    "text": "Ser condenado injustamente por um crime"
+  },
+  "scn-186-pt": {
+    "id": "scn-186-pt",
+    "text": "Perder suas economias de uma vida inteira em um crash do mercado de ações"
+  },
+  "scn-187-pt": {
+    "id": "scn-187-pt",
+    "text": "Andar na montanha-russa mais assustadora do mundo"
+  },
+  "scn-188-pt": {
+    "id": "scn-188-pt",
+    "text": "Competir em um concurso de comer maionese"
+  },
+  "scn-189-pt": {
+    "id": "scn-189-pt",
+    "text": "Dirigir durante um furacão"
+  },
+  "scn-190-pt": {
+    "id": "scn-190-pt",
+    "text": "Estar cercado por pássaros raivosos"
+  },
+  "scn-191-pt": {
+    "id": "scn-191-pt",
+    "text": "Ter que dar a si mesmo uma injeção de adrenalina no coração"
+  },
+  "scn-192-pt": {
+    "id": "scn-192-pt",
+    "text": "Estar coberto de hera venenosa"
+  },
+  "scn-193-pt": {
+    "id": "scn-193-pt",
+    "text": "O carro quebra à noite em uma estrada vazia"
+  },
+  "scn-194-pt": {
+    "id": "scn-194-pt",
+    "text": "Crescer um rabo que não pode ser removido"
+  },
+  "scn-195-pt": {
+    "id": "scn-195-pt",
+    "text": "Ficar perdido no deserto sem água nem proteção"
+  },
+  "scn-196-pt": {
+    "id": "scn-196-pt",
+    "text": "Jogar alvejante nos olhos"
+  },
+  "scn-197-pt": {
+    "id": "scn-197-pt",
+    "text": "Ouvir um zumbido constante em seus ouvidos"
+  },
+  "scn-198-pt": {
+    "id": "scn-198-pt",
+    "text": "Ser forçado a duelar em uma luta de espadas"
+  },
+  "scn-199-pt": {
+    "id": "scn-199-pt",
+    "text": "Suportar várias horas de turbulência extrema em um vôo"
+  },
+  "scn-200-pt": {
+    "id": "scn-200-pt",
+    "text": "Estar preso em um banco durante um assalto"
+  },
+  "scn-201-pt": {
+    "id": "scn-201-pt",
+    "text": "Cair nos trilhos do metrô enquanto um trem se aproxima"
+  },
+  "scn-202-pt": {
+    "id": "scn-202-pt",
+    "text": "Ser exposto a grandes quantidades de radiação"
+  },
+  "scn-203-pt": {
+    "id": "scn-203-pt",
+    "text": "Descobrir câmeras de vídeo escondidas em seu quarto"
+  },
+  "scn-204-pt": {
+    "id": "scn-204-pt",
+    "text": "Acordar no meio de uma apocalipse zumbi"
+  },
+  "scn-205-pt": {
+    "id": "scn-205-pt",
+    "text": "Ficar preso em um esgoto infestado de ratos"
+  },
+  "scn-206-pt": {
+    "id": "scn-206-pt",
+    "text": "Cair de um navio de cruzeiro"
+  },
+  "scn-207-pt": {
+    "id": "scn-207-pt",
+    "text": "Ser mordido por um animal raivoso"
+  },
+  "scn-208-pt": {
+    "id": "scn-208-pt",
+    "text": "Separar uma briga de cachorros"
+  },
+  "scn-209-pt": {
+    "id": "scn-209-pt",
+    "text": "Remover um dardo do seu pescoço"
+  },
+  "scn-210-pt": {
+    "id": "scn-210-pt",
+    "text": "Remover um grande ninho de vespas do seu telhado"
+  },
+  "scn-211-pt": {
+    "id": "scn-211-pt",
+    "text": "Voar sozinho em um balão de ar quente"
+  },
+  "scn-212-pt": {
+    "id": "scn-212-pt",
+    "text": "Ser forçado a fazer boca a boca a um babuíno"
+  },
+  "scn-213-pt": {
+    "id": "scn-213-pt",
+    "text": "Descobrir que seu cônjuge é um criminoso procurado"
+  },
+  "scn-214-pt": {
+    "id": "scn-214-pt",
+    "text": "Descer de um cabelo louco selvagem"
+  },
+  "scn-215-pt": {
+    "id": "scn-215-pt",
+    "text": "Estar cercado por água-vivas"
+  },
+  "scn-216-pt": {
+    "id": "scn-216-pt",
+    "text": "Recuperar um objeto perto de uma cobra venenosa"
+  },
+  "scn-217-pt": {
+    "id": "scn-217-pt",
+    "text": "Ficar preso do lado de fora enquanto um tornado se aproxima"
+  },
+  "scn-218-pt": {
+    "id": "scn-218-pt",
+    "text": "Sua casa ser tragada por um buraco"
+  },
+  "scn-219-pt": {
+    "id": "scn-219-pt",
+    "text": "Descobrir que seus pais não são seus pais"
+  },
+  "scn-220-pt": {
+    "id": "scn-220-pt",
+    "text": "Equilibrar em cima de um trem em movimento e tentar entrar"
+  },
+  "scn-221-pt": {
+    "id": "scn-221-pt",
+    "text": "Estar sozinho à noite durante um grande terremoto"
+  },
+  "scn-222-pt": {
+    "id": "scn-222-pt",
+    "text": "Estar no meio  de um tiroteio"
+  },
+  "scn-223-pt": {
+    "id": "scn-223-pt",
+    "text": "Ter uma doença estranha que deixa sua pele azul"
+  },
+  "scn-224-pt": {
+    "id": "scn-224-pt",
+    "text": "Salvar um gato de um prédio em chamas"
+  },
+  "scn-225-pt": {
+    "id": "scn-225-pt",
+    "text": "Ser a Flávia"
+  }
+}
