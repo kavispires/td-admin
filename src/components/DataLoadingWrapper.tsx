@@ -14,7 +14,7 @@ export function DataLoadingWrapper({ isLoading, error, hasResponseData, children
 
   if (error) {
     return (
-      <Layout.Content className="content">
+      <Layout.Content className="content content--error">
         <Alert message="Error" description={error.message} type="error" />
       </Layout.Content>
     );
@@ -22,7 +22,7 @@ export function DataLoadingWrapper({ isLoading, error, hasResponseData, children
 
   if (hasResponseData === false) {
     return (
-      <Layout.Content className="content">
+      <Layout.Content className="content content--empty">
         <Empty />
       </Layout.Content>
     );
