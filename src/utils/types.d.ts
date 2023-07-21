@@ -11,6 +11,11 @@ type DualLanguageValue = {
   en: string;
 };
 
+type GenericCard = {
+  id: string;
+  [key: string]: any;
+};
+
 type PlainObject = {
   [key: string]: any;
 };

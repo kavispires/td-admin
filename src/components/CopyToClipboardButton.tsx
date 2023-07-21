@@ -9,7 +9,7 @@ type CopyToClipboardButtonProps = {
 export function CopyToClipboardButton({ content }: CopyToClipboardButtonProps) {
   return (
     <CopyToClipboard text={content}>
-      <Button shape="circle" icon={<CopyOutlined />} />
+      <Button shape="circle" icon={<CopyOutlined />} size="small" />
     </CopyToClipboard>
   );
 }
