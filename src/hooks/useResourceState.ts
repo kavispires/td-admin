@@ -22,7 +22,10 @@ export function useResourceState(availableResources: AvailableResources): Resour
   const { data, isLoading, error } = useQuery<any, ResponseError>({
     queryKey: ['resource', resourceName, language],
     queryFn: async () => {
-      const url = process.env.NODE_ENV === 'development' ? LOCALHOST_RESOURCE_URL : process.env.PUBLIC_URL;
+      const url =
+        process.env.NODE_ENV === 'development'
+          ? LOCALHOST_RESOURCE_URL
+          : `${process.env.PUBLIC_URL}/resources`;
       const res = language
         ? await fetch(`${url}/${resourceName}-${language}.json`)
         : await fetch(`${url}/${resourceName}.json`);
