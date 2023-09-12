@@ -1,168 +1,799 @@
 {
   "ch-1-en": {
     "id": "ch-1-en",
-    "type": "this-that",
-    "options": ["Never have to sleep", "Never have to eat"]
+    "type": "best-of-three",
+    "question": "What's the animal that makes a zoo a zoo?",
+    "options": ["Tiger", "Elephant", "Giraffe"]
   },
   "ch-2-en": {
     "id": "ch-2-en",
-    "type": "this-that",
-    "options": ["Get fired", "Have to fire your best friend"]
+    "type": "best-of-three",
+    "question": "What's the easiest job on a news team?",
+    "options": ["Sports", "Traffic", "Weather"]
   },
   "ch-3-en": {
     "id": "ch-3-en",
-    "type": "this-that",
-    "options": ["Be admired for your courage", "Be celebrated for your imagination"]
+    "type": "best-of-three",
+    "question": "What's the scariest end-of-the-world scenario?",
+    "options": ["Alien invasion", "Zombie apocalypse", "Robot uprising"]
   },
   "ch-4-en": {
     "id": "ch-4-en",
-    "type": "this-that",
-    "options": ["Have a college named after you", "Have a deli sandwich named after you"]
+    "type": "best-of-three",
+    "question": "Which color crayon do they make the most shades of?",
+    "options": ["Red", "Blue", "Green"]
   },
   "ch-5-en": {
     "id": "ch-5-en",
-    "type": "this-that",
-    "options": ["Take a boat across the ocean", "Take a train across the country"]
+    "type": "best-of-three",
+    "question": "What's the deadliest phenomenon?",
+    "options": ["Hurricanes", "Tornados", "Earthquakes"]
   },
   "ch-6-en": {
     "id": "ch-6-en",
-    "type": "this-that",
-    "options": ["Somebody brought bagels", "Somebody brought doughnuts"]
+    "type": "best-of-three",
+    "question": "What's the easiest to fake",
+    "options": ["Passable harmonica playing", "Decent tap dancing", "Adequate beatboxing"]
   },
   "ch-7-en": {
     "id": "ch-7-en",
-    "type": "this-that",
-    "options": ["Watch a dog having a dream", "See a baby eat ice cream for the first time"]
+    "type": "best-of-three",
+    "question": "Who would make the best boyfriend?",
+    "options": ["Frankenstein", "Werewolf", "Dracula"]
   },
   "ch-8-en": {
     "id": "ch-8-en",
-    "type": "this-that",
-    "options": ["Super distinticve face", "Incredibly generic face"]
+    "type": "best-of-three",
+    "question": "What's the most useful college major?",
+    "options": ["Fine art", "Music", "Theater"]
   },
   "ch-9-en": {
     "id": "ch-9-en",
-    "type": "this-that",
-    "options": ["Bring a dessert you made yourself", "Bring a dessert you got from the store"]
+    "type": "best-of-three",
+    "question": "Which continent has all the best animals?",
+    "options": ["Africa", "Asia", "Australia"]
   },
   "ch-10-en": {
     "id": "ch-10-en",
-    "type": "this-that",
-    "options": ["Hear a dog's thoughts", "Communicate with a dolphin"]
+    "type": "best-of-three",
+    "question": "What's the fruit with the most annoying seeds?",
+    "options": ["Watermelon", "Grape", "Lemon"]
   },
   "ch-11-en": {
     "id": "ch-11-en",
-    "type": "this-that",
-    "options": ["Hospital scrubs", "Flight jumpsuit"]
+    "type": "best-of-three",
+    "question": "What's the most entertaining prop-based performer?",
+    "options": ["A magician", "A juggler", "a ventriloquist"]
   },
   "ch-12-en": {
     "id": "ch-12-en",
-    "type": "this-that",
-    "options": ["Fruity cough drops", "Minty cough drops"]
+    "type": "best-of-three",
+    "question": "What is nature's deadliest?",
+    "options": ["Cobras", "Killer bees", "Sharks"]
   },
   "ch-13-en": {
     "id": "ch-13-en",
-    "type": "this-that",
-    "options": ["Italian accent", "British accent"]
+    "type": "best-of-three",
+    "question": "What's more embarrassing to do in your sleep?",
+    "options": ["Snore", "Talk", "Drool"]
   },
   "ch-14-en": {
     "id": "ch-14-en",
-    "type": "this-that",
-    "options": ["Indoor sports", "Outdoor sports"]
+    "type": "best-of-three",
+    "question": "What's the greatest movie snack?",
+    "options": ["Popcorn", "Candy", "Nachos"]
   },
   "ch-15-en": {
     "id": "ch-15-en",
-    "type": "this-that",
-    "options": ["Riding up on a horse", "Pulling up on a motorcycle"]
+    "type": "best-of-three",
+    "question": "What's the best illness to fake to get out of school?",
+    "options": ["Stomachache", "Headache", "Cough"]
   },
-
   "ch-16-en": {
     "id": "ch-16-en",
     "type": "best-of-three",
-    "prompt": "What's the animal that makes a zoo a zoo?",
-    "options": ["Tiger", "Elephant", "Giraffe"]
+    "question": "What's the best thing to put melted butter on?",
+    "options": ["Corn-on-the-cob", "Mashed potatoes", "Popcorn"]
   },
   "ch-17-en": {
     "id": "ch-17-en",
     "type": "best-of-three",
-    "prompt": "What's the easiest job on a news team?",
-    "options": ["Sports", "Traffic", "Weather"]
+    "question": "Which museum do people get the most out of?",
+    "options": ["Art museum", "History museum", "Science museum"]
   },
   "ch-18-en": {
     "id": "ch-18-en",
     "type": "best-of-three",
-    "prompt": "What's the scariest end-of-the-world scenario?",
-    "options": ["Alien invasion", "Zombie apocalypse", "Robot uprising"]
+    "question": "What goes best with vanilla ice cream?",
+    "options": ["Oreos", "M&Ms", "Cookie dough"]
   },
   "ch-19-en": {
     "id": "ch-19-en",
     "type": "best-of-three",
-    "prompt": "Which color crayon do they make the most shades of?",
-    "options": ["Red", "Blue", "Green"]
+    "question": "Who's most likely to accidentally give away Batman's secret identity?",
+    "options": ["Commissioner Gordon", "Robin", "Alfred"]
   },
   "ch-20-en": {
     "id": "ch-20-en",
     "type": "best-of-three",
-    "prompt": "What's the deadliest phenomenon?",
-    "options": ["Hurricanes", "Tornados", "Earthquakes"]
+    "question": "What's the hardest-sounding yoga pose?",
+    "options": ["Frog pose", "Grasshopper pose", "Crow pose"]
   },
   "ch-21-en": {
     "id": "ch-21-en",
     "type": "best-of-three",
-    "prompt": "What's the easiest to fake",
-    "options": ["Passable harmonica playing", "Decent tap dancing", "Adequate beatboxing"]
+    "question": "What flavor should green be?",
+    "options": ["Lime", "Apple", "Watermelon"]
   },
   "ch-22-en": {
     "id": "ch-22-en",
     "type": "best-of-three",
-    "prompt": "Who would make the best boyfriend?",
-    "options": ["Frankenstein", "Werewolf", "Dracula"]
+    "question": "Who would make the best boss?",
+    "options": ["The Scarecrow", "The Tin Man", "The Cowardly Lion"]
   },
   "ch-23-en": {
     "id": "ch-23-en",
     "type": "best-of-three",
-    "prompt": "What's the most useful college major?",
-    "options": ["Fine art", "Music", "Theater"]
+    "question": "Which dwarf would win on a reality dating show?",
+    "options": ["Grumpy", "Bashful", "Dopey"]
   },
   "ch-24-en": {
     "id": "ch-24-en",
     "type": "best-of-three",
-    "prompt": "Which continent has all the best animals?",
-    "options": ["Africa", "Asia", "Australia"]
+    "question": "Which bird would win an election for President of Birds?",
+    "options": ["A flamingo", "An owl", "A penguin"]
   },
   "ch-25-en": {
     "id": "ch-25-en",
     "type": "best-of-three",
-    "prompt": "What's the fruit with the most annoying seeds?",
-    "options": ["Watermelon", "Grape", "Lemon"]
+    "question": "Which invention has done the most damage to the world?",
+    "options": ["Fire", "The Wheel", "The Internet"]
   },
   "ch-26-en": {
     "id": "ch-26-en",
     "type": "best-of-three",
-    "prompt": "What's the most entertaining prop-based performer?",
-    "options": ["A magician", "A juggler", "a ventriloquist"]
+    "question": "What's the most disappointing coin?",
+    "options": ["Penny", "Nickel", "Dime"]
   },
   "ch-27-en": {
     "id": "ch-27-en",
     "type": "best-of-three",
-    "prompt": "What is nature's deadliest?",
-    "options": ["Cobras", "Killer bees", "Sharks"]
+    "question": "Are rainbows:",
+    "options": ["Overrated", "Underrated", "Appropriately rated"]
   },
   "ch-28-en": {
     "id": "ch-28-en",
     "type": "best-of-three",
-    "prompt": "What's more embarrassing to do in your sleep?",
-    "options": ["Snore", "Talk", "Drool"]
+    "question": "Who's really putting the work in?",
+    "options": ["Toucan Sam", "Lucky the Leprechaun", "Tony the Tiger"]
   },
   "ch-29-en": {
     "id": "ch-29-en",
     "type": "best-of-three",
-    "prompt": "What's the greatest movie snack?",
-    "options": ["Popcorn", "Candy", "Nachos"]
+    "question": "Which doughnut is usually left for last?",
+    "options": ["Chocolate", "Powdered sugar", "Glazed"]
   },
   "ch-30-en": {
     "id": "ch-30-en",
     "type": "best-of-three",
-    "prompt": "What's the best illness to fake to get out of school?",
-    "options": ["Stomachache", "Headache", "Cough"]
+    "question": "When aliens land, how will the people of Earth react?",
+    "options": ["Attempt to make peace", "Immediately attack", "Barely even notice"]
+  },
+  "ch-31-en": {
+    "id": "ch-31-en",
+    "type": "best-of-three",
+    "question": "What's the greatest kind of table?",
+    "options": ["Ping-pong", "Foosball", "Air hockey"]
+  },
+  "ch-32-en": {
+    "id": "ch-32-en",
+    "type": "best-of-three",
+    "question": "It's just not trail mix without:",
+    "options": ["Raising", "Peanuts", "Chocolate"]
+  },
+  "ch-33-en": {
+    "id": "ch-33-en",
+    "type": "best-of-three",
+    "question": "Which holiday bring us the greatest candy?",
+    "options": ["Easter", "Halloween", "Christmas"]
+  },
+  "ch-34-en": {
+    "id": "ch-34-en",
+    "type": "best-of-three",
+    "question": "What's the champion of syrups?",
+    "options": ["Maple", "Chocolate", "Cough"]
+  },
+  "ch-35-en": {
+    "id": "ch-35-en",
+    "type": "best-of-three",
+    "question": "What's the all-time classic chocolate cereal?",
+    "options": ["Cocoa puffs", "Cocoa pebbles", "Count Chocula"]
+  },
+  "ch-36-en": {
+    "id": "ch-36-en",
+    "type": "best-of-three",
+    "question": "What's the ultimate piece of playground equipment?",
+    "options": ["Swings", "Monkey bars", "Slide"]
+  },
+  "ch-37-en": {
+    "id": "ch-37-en",
+    "type": "best-of-three",
+    "question": "Which fruit goes best on oatmeal?",
+    "options": ["Bananas", "Blueberries", "Strawberries"]
+  },
+  "ch-38-en": {
+    "id": "ch-38-en",
+    "type": "best-of-three",
+    "question": "What's our most useful punctuation mark?",
+    "options": ["Apostrophe", "Period", "Comma"]
+  },
+  "ch-39-en": {
+    "id": "ch-39-en",
+    "type": "best-of-three",
+    "question": "Which animal should we de-extinct?",
+    "options": ["T-Rex", "Dodo", "Woolly Mammoth"]
+  },
+  "ch-40-en": {
+    "id": "ch-40-en",
+    "type": "best-of-three",
+    "question": "What's the worst fruit in a fruit salad?",
+    "options": ["Cantaloupe", "Banana", "Blueberry"]
+  },
+  "ch-41-en": {
+    "id": "ch-41-en",
+    "type": "best-of-three",
+    "question": "What's the best fruit in a fruit salad?",
+    "options": ["Pineapple", "Strawberry", "Grape"]
+  },
+  "ch-42-en": {
+    "id": "ch-42-en",
+    "type": "best-of-three",
+    "question": "if they only grew to the size of a small frog, what would be the best pet to have?",
+    "options": ["Bigfoot", "Loch Ness Monster", "T-Rex"]
+  },
+  "ch-43-en": {
+    "id": "ch-43-en",
+    "type": "best-of-three",
+    "question": "What's the easiest carnival game to win?",
+    "options": ["Milk bottle pyramid", "Ring toss", "Balloon darts"]
+  },
+  "ch-44-en": {
+    "id": "ch-44-en",
+    "type": "best-of-three",
+    "question": "What's the tastiest medicine flavor?",
+    "options": ["Cherry", "Grape", "Bubblegum"]
+  },
+  "ch-45-en": {
+    "id": "ch-45-en",
+    "type": "best-of-three",
+    "question": "Which would make the best fifth suit in a deck of playing cards?",
+    "options": ["Swords", "Coins", "Stars"]
+  },
+  "ch-46-en": {
+    "id": "ch-46-en",
+    "type": "best-of-three",
+    "question": "What's the most underrated childhood game?",
+    "options": ["Simon says", "Duck Duck Goose", "Musical Chairs"]
+  },
+  "ch-47-en": {
+    "id": "ch-47-en",
+    "type": "best-of-three",
+    "question": "What's the most essential baked potato topping?",
+    "options": ["Butter", "Cheese", "Sour cream"]
+  },
+  "ch-48-en": {
+    "id": "ch-48-en",
+    "type": "best-of-three",
+    "question": "What's the most essential Swiss Army Knife tool?",
+    "options": ["Corkscrew", "Can Opener", "Scissors"]
+  },
+  "ch-49-en": {
+    "id": "ch-49-en",
+    "type": "best-of-three",
+    "question": "What's the most beloved Monopoly piece?",
+    "options": ["The racecar", "The Scottie dog", "The top hat"]
+  },
+  "ch-50-en": {
+    "id": "ch-50-en",
+    "type": "best-of-three",
+    "question": "What's the greatest gum flavor?",
+    "options": ["Minty", "Fruity", "Cinnamon"]
+  },
+  "ch-51-en": {
+    "id": "ch-51-en",
+    "type": "best-of-three",
+    "question": "What's the greatest salty snack?",
+    "options": ["Potato chips", "Pretzels", "Tortilla chips"]
+  },
+  "ch-52-en": {
+    "id": "ch-52-en",
+    "type": "best-of-three",
+    "question": "Who would bring more to the relationship?",
+    "options": ["Winnie-the-Pooh", "Tigger", "Eeyore"]
+  },
+  "ch-53-en": {
+    "id": "ch-53-en",
+    "type": "best-of-three",
+    "question": "What's the best thing to watch when you're home sick from school?",
+    "options": ["The Price is Right", "PBS", "Soap operas"]
+  },
+  "ch-54-en": {
+    "id": "ch-54-en",
+    "type": "best-of-three",
+    "question": "What's the most beloved Starburst flavor",
+    "options": ["Pink", "Red", "Yellow"]
+  },
+  "ch-55-en": {
+    "id": "ch-55-en",
+    "type": "best-of-three",
+    "question": "What's the greatest smell from childhood?",
+    "options": ["Crayons", "School paste", "Play-Doh"]
+  },
+  "ch-56-en": {
+    "id": "ch-56-en",
+    "type": "best-of-three",
+    "question": "What's the best way to sleep?",
+    "options": ["With the windows open", "On just-washed sheets", "Under a thick pile of blankets"]
+  },
+  "ch-57-en": {
+    "id": "ch-57-en",
+    "type": "best-of-three",
+    "question": "Which is the greatest muffin?",
+    "options": ["Blueberry", "Chocolate chip", "Cinnamon"]
+  },
+  "ch-58-en": {
+    "id": "ch-58-en",
+    "type": "best-of-three",
+    "question": "Which color would make the coolest baby name?",
+    "options": ["Red", "Blue", "Grey"]
+  },
+  "ch-59-en": {
+    "id": "ch-59-en",
+    "type": "best-of-three",
+    "question": "What sport makes the best movies?",
+    "options": ["Football", "Baseball", "Boxing"]
+  },
+  "ch-60-en": {
+    "id": "ch-60-en",
+    "type": "best-of-three",
+    "question": "Which movie genre deserves more recognition?",
+    "options": ["Sci-fi", "Horror", "Comedy"]
+  },
+  "ch-61-en": {
+    "id": "ch-61-en",
+    "type": "best-of-three",
+    "question": "What are the best song lyrics?",
+    "options": ["Whoa", "La la la la", "Yeah yeah yeah"]
+  },
+  "ch-62-en": {
+    "id": "ch-62-en",
+    "type": "best-of-three",
+    "question": "What's the most essential spice?",
+    "options": ["Cinnamon", "Cumin", "Pepper"]
+  },
+  "ch-63-en": {
+    "id": "ch-63-en",
+    "type": "best-of-three",
+    "question": "What's the cutest item of clothing to put on a dog?",
+    "options": ["A little hat", "A little necktie", "A little raincoat"]
+  },
+  "ch-64-en": {
+    "id": "ch-64-en",
+    "type": "best-of-three",
+    "question": "Which one's doing the real work here?",
+    "options": ["The graham cracker", "The marshmallow", "The chocolate"]
+  },
+  "ch-65-en": {
+    "id": "ch-65-en",
+    "type": "best-of-three",
+    "question": "What's the best place to hang out at a house party?",
+    "options": ["Kitchen", "Basement", "Patio"]
+  },
+  "ch-66-en": {
+    "id": "ch-66-en",
+    "type": "best-of-three",
+    "question": "Which would be the greatest place to get stuck in overnight?",
+    "options": ["Amusement park", "Museum", "Department store"]
+  },
+  "ch-67-en": {
+    "id": "ch-67-en",
+    "type": "best-of-three",
+    "question": "What's the most classic Halloween costume?",
+    "options": ["Vampire", "Pirate", "Superhero"]
+  },
+  "ch-68-en": {
+    "id": "ch-68-en",
+    "type": "best-of-three",
+    "question": "Which would be the easiest Olympic sport to train for and medal in?",
+    "options": ["Archery", "Synchronized Swimming", "Trampoline"]
+  },
+  "ch-69-en": {
+    "id": "ch-69-en",
+    "type": "best-of-three",
+    "question": "What's the greatest fakest artificial flavor?",
+    "options": ["Bubblegum", "Birthday cake", "Cotton candy"]
+  },
+  "ch-70-en": {
+    "id": "ch-70-en",
+    "type": "best-of-three",
+    "question": "What's the most frustrating video game level?",
+    "options": ["Swimming level", "Lava level", "Snow level"]
+  },
+  "ch-71-en": {
+    "id": "ch-71-en",
+    "type": "this-that",
+    "options": ["Never have to sleep", "Never have to eat"]
+  },
+  "ch-72-en": {
+    "id": "ch-72-en",
+    "type": "this-that",
+    "options": ["Get fired", "Have to fire your best friend"]
+  },
+  "ch-73-en": {
+    "id": "ch-73-en",
+    "type": "this-that",
+    "options": ["Be admired for your courage", "Be celebrated for your imagination"]
+  },
+  "ch-74-en": {
+    "id": "ch-74-en",
+    "type": "this-that",
+    "options": ["Have a college named after you", "Have a deli sandwich named after you"]
+  },
+  "ch-75-en": {
+    "id": "ch-75-en",
+    "type": "this-that",
+    "options": ["Take a boat across the ocean", "Take a train across the country"]
+  },
+  "ch-76-en": {
+    "id": "ch-76-en",
+    "type": "this-that",
+    "options": ["Somebody brought bagels", "Somebody brought doughnuts"]
+  },
+  "ch-77-en": {
+    "id": "ch-77-en",
+    "type": "this-that",
+    "options": ["Watch a dog having a dream", "See a baby eat ice cream for the first time"]
+  },
+  "ch-78-en": {
+    "id": "ch-78-en",
+    "type": "this-that",
+    "options": ["Super distinctive face", "Incredibly generic face"]
+  },
+  "ch-79-en": {
+    "id": "ch-79-en",
+    "type": "this-that",
+    "options": ["Bring a dessert you made yourself", "Bring a dessert you got from the store"]
+  },
+  "ch-80-en": {
+    "id": "ch-80-en",
+    "type": "this-that",
+    "options": ["Hear a dog's thoughts", "Communicate with a dolphin"]
+  },
+  "ch-81-en": {
+    "id": "ch-81-en",
+    "type": "this-that",
+    "options": ["Hospital scrubs", "Flight jumpsuit"]
+  },
+  "ch-82-en": {
+    "id": "ch-82-en",
+    "type": "this-that",
+    "options": ["Fruity cough drops", "Minty cough drops"]
+  },
+  "ch-83-en": {
+    "id": "ch-83-en",
+    "type": "this-that",
+    "options": ["Italian accent", "British accent"]
+  },
+  "ch-84-en": {
+    "id": "ch-84-en",
+    "type": "this-that",
+    "options": ["Indoor sports", "Outdoor sports"]
+  },
+  "ch-85-en": {
+    "id": "ch-85-en",
+    "type": "this-that",
+    "options": ["Riding up on a horse", "Pulling up on a motorcycle"]
+  },
+  "ch-86-en": {
+    "id": "ch-86-en",
+    "type": "this-that",
+    "options": ["Pizza cut into squares", "PIzza cut into triangles"]
+  },
+  "ch-87-en": {
+    "id": "ch-87-en",
+    "type": "this-that",
+    "options": ["Ancient Egypt", "Ancient Rome"]
+  },
+  "ch-88-en": {
+    "id": "ch-88-en",
+    "type": "this-that",
+    "options": ["Ice cream in a cup", "Ice cream in cone"]
+  },
+  "ch-89-en": {
+    "id": "ch-89-en",
+    "type": "this-that",
+    "options": ["Let's all share appetizers", "Let's all share dessert"]
+  },
+  "ch-90-en": {
+    "id": "ch-90-en",
+    "type": "this-that",
+    "options": ["Getting really good grades", "Being really good at sports"]
+  },
+  "ch-91-en": {
+    "id": "ch-91-en",
+    "type": "this-that",
+    "options": ["Short pasta", "Long noodles"]
+  },
+  "ch-92-en": {
+    "id": "ch-92-en",
+    "type": "this-that",
+    "options": ["Lean against the wall", "Sit on the floor"]
+  },
+  "ch-93-en": {
+    "id": "ch-93-en",
+    "type": "this-that",
+    "options": ["A car that can fly", "A car that can go underwater"]
+  },
+  "ch-94-en": {
+    "id": "ch-94-en",
+    "type": "this-that",
+    "options": ["Look like a 12-year-old your whole life", "Look like a 62-year-old your whole life"]
+  },
+  "ch-95-en": {
+    "id": "ch-95-en",
+    "type": "this-that",
+    "options": ["Finally putting the holiday decorations up", "Finally taking the holiday decorations down"]
+  },
+  "ch-96-en": {
+    "id": "ch-96-en",
+    "type": "this-that",
+    "options": [
+      "Find out you've been a robot your whole life",
+      "Find out you died years ago and you are a ghost"
+    ]
+  },
+  "ch-97-en": {
+    "id": "ch-97-en",
+    "type": "this-that",
+    "options": ["Live in a treehouse", "Live in a houseboat"]
+  },
+  "ch-98-en": {
+    "id": "ch-98-en",
+    "type": "this-that",
+    "options": ["Brownie from the edge", "Brownie from the middle"]
+  },
+  "ch-99-en": {
+    "id": "ch-99-en",
+    "type": "this-that",
+    "options": ["Unnaturally blue food", "Naturally greyish food"]
+  },
+  "ch-100-en": {
+    "id": "ch-100-en",
+    "type": "this-that",
+    "options": ["Eat in the cafeteria", "Pack a lunch"]
+  },
+  "ch-101-en": {
+    "id": "ch-101-en",
+    "type": "this-that",
+    "options": ["Wintertime foods", "Summertime foods"]
+  },
+  "ch-102-en": {
+    "id": "ch-102-en",
+    "type": "this-that",
+    "options": ["Drink water out of a hose", "Drink water from your cupped hands"]
+  },
+  "ch-103-en": {
+    "id": "ch-103-en",
+    "type": "this-that",
+    "options": [
+      "Doing a little dance after bowling a strike",
+      "Doing a little dance after getting a hole-on-one at the mini golf"
+    ]
+  },
+  "ch-104-en": {
+    "id": "ch-104-en",
+    "type": "this-that",
+    "options": ["Local ice cream places", "Local pizza places"]
+  },
+  "ch-105-en": {
+    "id": "ch-105-en",
+    "type": "this-that",
+    "options": [
+      "Meet your great-great-great-grandparents in the past",
+      "Meet your great-great-great-grandchildren in the future"
+    ]
+  },
+  "ch-106-en": {
+    "id": "ch-106-en",
+    "type": "this-that",
+    "options": ["Do your homework right after school", "Wait until after dinner"]
+  },
+  "ch-107-en": {
+    "id": "ch-107-en",
+    "type": "this-that",
+    "options": ["Shrink to the size of a molecule", "Grow to the size of a house"]
+  },
+  "ch-108-en": {
+    "id": "ch-108-en",
+    "type": "this-that",
+    "options": ["Frosting", "Cookie dough"]
+  },
+  "ch-109-en": {
+    "id": "ch-109-en",
+    "type": "this-that",
+    "options": ["Diving board", "Waterslide"]
+  },
+  "ch-110-en": {
+    "id": "ch-110-en",
+    "type": "this-that",
+    "options": ["Die heroically in a battle", "Die peacefully in your sleep"]
+  },
+  "ch-111-en": {
+    "id": "ch-111-en",
+    "type": "this-that",
+    "options": [
+      "Thinking there's one more step up and hitting empty air",
+      "Thinking there's one more step down and stomping the floor"
+    ]
+  },
+  "ch-112-en": {
+    "id": "ch-112-en",
+    "type": "this-that",
+    "options": ["Fancy cappuccino drink", "Plain old coffee"]
+  },
+  "ch-113-en": {
+    "id": "ch-113-en",
+    "type": "this-that",
+    "options": ["Trail mix", "Party mix"]
+  },
+  "ch-114-en": {
+    "id": "ch-114-en",
+    "type": "this-that",
+    "options": ["Remembering to send a birthday card", "Taking the time to send a postcard"]
+  },
+  "ch-115-en": {
+    "id": "ch-115-en",
+    "type": "this-that",
+    "options": ["Cups facing up", "Cups upside down"]
+  },
+  "ch-116-en": {
+    "id": "ch-116-en",
+    "type": "this-that",
+    "options": ["Dodgeball", "Freeze tag"]
+  },
+  "ch-117-en": {
+    "id": "ch-117-en",
+    "type": "this-that",
+    "options": ["Surprisingly good at origami", "Impressively good at knitting"]
+  },
+  "ch-118-en": {
+    "id": "ch-118-en",
+    "type": "this-that",
+    "options": ["Table", "Booth"]
+  },
+  "ch-119-en": {
+    "id": "ch-119-en",
+    "type": "this-that",
+    "options": ["Way too many pillows", "Way too many stuffed animals"]
+  },
+  "ch-120-en": {
+    "id": "ch-120-en",
+    "type": "this-that",
+    "options": ["Be able to freeze time", "Be able to hear people's thoughts"]
+  },
+  "ch-121-en": {
+    "id": "ch-121-en",
+    "type": "this-that",
+    "options": ["A speech at an award show", "A speech at a wedding"]
+  },
+  "ch-122-en": {
+    "id": "ch-122-en",
+    "type": "this-that",
+    "options": ["Curly fries", "Waffle fries"]
+  },
+  "ch-123-en": {
+    "id": "ch-123-en",
+    "type": "this-that",
+    "options": ["Going out", "Staying in"]
+  },
+  "ch-124-en": {
+    "id": "ch-124-en",
+    "type": "this-that",
+    "options": ["Little foods on a toothpick", "Little foods on a cracker"]
+  },
+  "ch-125-en": {
+    "id": "ch-125-en",
+    "type": "this-that",
+    "options": ["Guitar lessons", "Piano lessons"]
+  },
+  "ch-126-en": {
+    "id": "ch-126-en",
+    "type": "this-that",
+    "options": ["Go out for breakfast", "Go out to dinner"]
+  },
+  "ch-127-en": {
+    "id": "ch-127-en",
+    "type": "this-that",
+    "options": ["Saying something hilarious", "Saying something inspirational"]
+  },
+  "ch-128-en": {
+    "id": "ch-128-en",
+    "type": "this-that",
+    "options": ["Squeeze the toothpaste", "Roll the tube"]
+  },
+  "ch-129-en": {
+    "id": "ch-129-en",
+    "type": "this-that",
+    "options": ["Long drive", "Short flight"]
+  },
+  "ch-130-en": {
+    "id": "ch-130-en",
+    "type": "this-that",
+    "options": ["Making lunch plans", "Canceling lunch plans"]
+  },
+  "ch-131-en": {
+    "id": "ch-131-en",
+    "type": "this-that",
+    "options": ["The ferocity of a great white shark", "The charm of a river otter"]
+  },
+  "ch-132-en": {
+    "id": "ch-132-en",
+    "type": "this-that",
+    "options": ["Talk about how great the book was", "Complain about how bad the movie was"]
+  },
+  "ch-133-en": {
+    "id": "ch-133-en",
+    "type": "this-that",
+    "options": ["Uncomfortably hot", "Confusingly cold"]
+  },
+  "ch-134-en": {
+    "id": "ch-134-en",
+    "type": "this-that",
+    "options": ["Get up way too early", "Stay up way too late"]
+  },
+  "ch-135-en": {
+    "id": "ch-135-en",
+    "type": "this-that",
+    "options": ["Thanksgiving gathering", "Halloween party"]
+  },
+  "ch-136-en": {
+    "id": "ch-136-en",
+    "type": "this-that",
+    "options": ["Compete on a cooking show", "Compete on a singing show"]
+  },
+  "ch-137-en": {
+    "id": "ch-137-en",
+    "type": "this-that",
+    "options": ["The sound of someone eating a juicy peach", "The sound of someone chewing up ice cubes"]
+  },
+  "ch-138-en": {
+    "id": "ch-138-en",
+    "type": "this-that",
+    "options": ["Live in a space station", "Live in a submarine"]
+  },
+  "ch-139-en": {
+    "id": "ch-139-en",
+    "type": "this-that",
+    "options": ["Singing the guitar solo", "Acting out the drum solo"]
+  },
+  "ch-140-en": {
+    "id": "ch-140-en",
+    "type": "this-that",
+    "options": ["Chinese food buffet", "Breakfast buffet"]
+  },
+  "ch-141-en": {
+    "id": "ch-141-en",
+    "type": "this-that",
+    "options": ["TV Shows", "Movies"]
+  },
+  "ch-142-en": {
+    "id": "ch-142-en",
+    "type": "this-that",
+    "options": ["Video Game", "Board Game"]
+  },
+  "ch-143-en": {
+    "id": "ch-143-en",
+    "type": "this-that",
+    "options": ["Lord of the Rings", "Harry Potter"]
   }
 }
