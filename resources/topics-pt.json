@@ -3,1266 +3,1266 @@
     "id": "tpc-1-pt",
     "label": "Coisas que são vermelhas",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-2-pt": {
     "id": "tpc-2-pt",
     "label": "Coisas que fazem barulho",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-3-pt": {
     "id": "tpc-3-pt",
     "label": "Coisas que são pegajosas",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-4-pt": {
     "id": "tpc-4-pt",
     "label": "Coisas que custam R$1 ou menos",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-5-pt": {
     "id": "tpc-5-pt",
     "label": "Coisas que você pode transformar em adubo",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-6-pt": {
     "id": "tpc-6-pt",
     "label": "Coisas que são amarelas",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-7-pt": {
     "id": "tpc-7-pt",
     "label": "Coisas que são menores que uma maçã",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-8-pt": {
     "id": "tpc-8-pt",
     "label": "Coisas feitas de metal",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-9-pt": {
     "id": "tpc-9-pt",
     "label": "Coisas feitas de madeira",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-10-pt": {
     "id": "tpc-10-pt",
     "label": "Coisas que custam muito dinheiro",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-11-pt": {
     "id": "tpc-11-pt",
     "label": "Coisas que são macias",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-12-pt": {
     "id": "tpc-12-pt",
     "label": "Coisas feitas de vidro",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-13-pt": {
     "id": "tpc-13-pt",
     "label": "Coisas que são quentes",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-14-pt": {
     "id": "tpc-14-pt",
     "label": "Coisas feitas de plástico",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-15-pt": {
     "id": "tpc-15-pt",
     "label": "Coisas que são frias",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-16-pt": {
     "id": "tpc-16-pt",
     "label": "Coisas que cheiram mal",
     "category": "things",
-    "level": "2"
+    "level": 2
   },
   "tpc-17-pt": {
     "id": "tpc-17-pt",
     "label": "Coisas que são tipicamente brasileiras",
     "category": "things",
-    "level": "3"
+    "level": 3
   },
   "tpc-18-pt": {
     "id": "tpc-18-pt",
     "label": "Coisas que são cafona",
     "category": "things",
-    "level": "3"
+    "level": 3
   },
   "tpc-19-pt": {
     "id": "tpc-19-pt",
     "label": "Coisas que são maiores que um carro",
     "category": "things",
-    "level": "3"
+    "level": 3
   },
   "tpc-20-pt": {
     "id": "tpc-20-pt",
     "label": "Coisas que são retangulares",
     "category": "things",
-    "level": "3"
+    "level": 3
   },
   "tpc-21-pt": {
     "id": "tpc-21-pt",
     "label": "Coisas que são redondas",
     "category": "things",
-    "level": "3"
+    "level": 3
   },
   "tpc-22-pt": {
     "id": "tpc-22-pt",
     "label": "Coisas que acendem",
     "category": "things",
-    "level": "3"
+    "level": 3
   },
   "tpc-23-pt": {
     "id": "tpc-23-pt",
     "label": "Coisas que podem se fechar",
     "category": "things",
-    "level": "3"
+    "level": 3
   },
   "tpc-24-pt": {
     "id": "tpc-24-pt",
     "label": "Coisas que as pessoas compram regularmente",
     "category": "things",
-    "level": "3"
+    "level": 3
   },
   "tpc-25-pt": {
     "id": "tpc-25-pt",
     "label": "Coisas que são românticas",
     "category": "things",
-    "level": "3"
+    "level": 3
   },
   "tpc-26-pt": {
     "id": "tpc-26-pt",
     "label": "Coisas que estão fora de moda",
     "category": "things",
-    "level": "4"
+    "level": 4
   },
   "tpc-27-pt": {
     "id": "tpc-27-pt",
     "label": "Coisas que são brilhantes",
     "category": "things",
-    "level": "4"
+    "level": 4
   },
   "tpc-28-pt": {
     "id": "tpc-28-pt",
     "label": "Coisas que têm listras",
     "category": "things",
-    "level": "4"
+    "level": 4
   },
   "tpc-29-pt": {
     "id": "tpc-29-pt",
     "label": "Coisas que você não deveria encostar",
     "category": "things",
-    "level": "4"
+    "level": 4
   },
   "tpc-30-pt": {
     "id": "tpc-30-pt",
     "label": "Em um estádio",
     "category": "activities",
-    "level": "2"
+    "level": 2
   },
   "tpc-31-pt": {
     "id": "tpc-31-pt",
     "label": "Esportes coletivos",
     "category": "activities",
-    "level": "3"
+    "level": 3
   },
   "tpc-32-pt": {
     "id": "tpc-32-pt",
     "label": "Equipamentos esportivos",
     "category": "activities",
-    "level": "3"
+    "level": 3
   },
   "tpc-33-pt": {
     "id": "tpc-33-pt",
     "label": "Equipes esportivas profissionais",
     "category": "activities",
-    "level": "3"
+    "level": 3
   },
   "tpc-34-pt": {
     "id": "tpc-34-pt",
     "label": "Futebol",
     "category": "activities",
-    "level": "3"
+    "level": 3
   },
   "tpc-35-pt": {
     "id": "tpc-35-pt",
     "label": "Esportes individuais",
     "category": "activities",
-    "level": "3"
+    "level": 3
   },
   "tpc-36-pt": {
     "id": "tpc-36-pt",
     "label": "Esportes e atividades de inverno",
     "category": "activities",
-    "level": "4"
+    "level": 4
   },
   "tpc-37-pt": {
     "id": "tpc-37-pt",
     "label": "Nos jogos olímpicos",
     "category": "activities",
-    "level": "4"
+    "level": 4
   },
   "tpc-38-pt": {
     "id": "tpc-38-pt",
     "label": "Esportes motorizados",
     "category": "activities",
-    "level": "4"
+    "level": 4
   },
   "tpc-39-pt": {
     "id": "tpc-39-pt",
     "label": "Esportes e atividades aquáticas",
     "category": "activities",
-    "level": "5"
+    "level": 5
   },
   "tpc-40-pt": {
     "id": "tpc-40-pt",
     "label": "Em um jardim",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-41-pt": {
     "id": "tpc-41-pt",
     "label": "Em um banheiro",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-42-pt": {
     "id": "tpc-42-pt",
     "label": "Cidades estrangeiras",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-43-pt": {
     "id": "tpc-43-pt",
     "label": "Tipos de construção",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-44-pt": {
     "id": "tpc-44-pt",
     "label": "Em uma fazenda",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-45-pt": {
     "id": "tpc-45-pt",
     "label": "Em um hospital",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-46-pt": {
     "id": "tpc-46-pt",
     "label": "Em uma geladeira",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-47-pt": {
     "id": "tpc-47-pt",
     "label": "Em uma cozinha",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-48-pt": {
     "id": "tpc-48-pt",
     "label": "Cidades do Brasil",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-49-pt": {
     "id": "tpc-49-pt",
     "label": "Em uma escola",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-50-pt": {
     "id": "tpc-50-pt",
     "label": "Estados e territórios do Brasil",
     "category": "places",
-    "level": "2"
+    "level": 2
   },
   "tpc-51-pt": {
     "id": "tpc-51-pt",
     "label": "Subterrâneo",
     "category": "places",
-    "level": "3"
+    "level": 3
   },
   "tpc-52-pt": {
     "id": "tpc-52-pt",
     "label": "Faculdades e universidades",
     "category": "places",
-    "level": "3"
+    "level": 3
   },
   "tpc-53-pt": {
     "id": "tpc-53-pt",
     "label": "Atrações turísticas",
     "category": "places",
-    "level": "3"
+    "level": 3
   },
   "tpc-54-pt": {
     "id": "tpc-54-pt",
     "label": "No céu",
     "category": "places",
-    "level": "3"
+    "level": 3
   },
   "tpc-55-pt": {
     "id": "tpc-55-pt",
     "label": "Corpos de água",
     "category": "places",
-    "level": "3"
+    "level": 3
   },
   "tpc-56-pt": {
     "id": "tpc-56-pt",
     "label": "Em um hotel",
     "category": "places",
-    "level": "3"
+    "level": 3
   },
   "tpc-57-pt": {
     "id": "tpc-57-pt",
     "label": "No espaço",
     "category": "places",
-    "level": "3"
+    "level": 3
   },
   "tpc-58-pt": {
     "id": "tpc-58-pt",
     "label": "Em um avião",
     "category": "places",
-    "level": "3"
+    "level": 3
   },
   "tpc-59-pt": {
     "id": "tpc-59-pt",
     "label": "Marcos e parques nacionais",
     "category": "places",
-    "level": "3"
+    "level": 3
   },
   "tpc-60-pt": {
     "id": "tpc-60-pt",
     "label": "Ilhas",
     "category": "places",
-    "level": "3"
+    "level": 3
   },
   "tpc-61-pt": {
     "id": "tpc-61-pt",
     "label": "Nordeste",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-62-pt": {
     "id": "tpc-62-pt",
     "label": "Ásia",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-63-pt": {
     "id": "tpc-63-pt",
     "label": "Japão",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-64-pt": {
     "id": "tpc-64-pt",
     "label": "México",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-65-pt": {
     "id": "tpc-65-pt",
     "label": "África",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-66-pt": {
     "id": "tpc-66-pt",
     "label": "Austrália",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-67-pt": {
     "id": "tpc-67-pt",
     "label": "Rússia",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-68-pt": {
     "id": "tpc-68-pt",
     "label": "Europa",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-69-pt": {
     "id": "tpc-69-pt",
     "label": "Índia",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-70-pt": {
     "id": "tpc-70-pt",
     "label": "Canadá",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-71-pt": {
     "id": "tpc-71-pt",
     "label": "América do Sul",
     "category": "places",
-    "level": "4"
+    "level": 4
   },
   "tpc-72-pt": {
     "id": "tpc-72-pt",
     "label": "Civilizações antigas",
     "category": "places",
-    "level": "5"
+    "level": 5
   },
   "tpc-73-pt": {
     "id": "tpc-73-pt",
     "label": "Antártica e Ártico",
     "category": "places",
-    "level": "5"
+    "level": 5
   },
   "tpc-74-pt": {
     "id": "tpc-74-pt",
     "label": "Montanhas e cordilheiras",
     "category": "places",
-    "level": "5"
+    "level": 5
   },
   "tpc-75-pt": {
     "id": "tpc-75-pt",
     "label": "Sabores de sorvete",
     "category": "food",
-    "level": "2"
+    "level": 2
   },
   "tpc-76-pt": {
     "id": "tpc-76-pt",
     "label": "Doces e salgadinhos",
     "category": "food",
-    "level": "2"
+    "level": 2
   },
   "tpc-77-pt": {
     "id": "tpc-77-pt",
     "label": "Lacticínios",
     "category": "food",
-    "level": "2"
+    "level": 2
   },
   "tpc-78-pt": {
     "id": "tpc-78-pt",
     "label": "Sabores de pizza",
     "category": "food",
-    "level": "2"
+    "level": 2
   },
   "tpc-79-pt": {
     "id": "tpc-79-pt",
     "label": "Sobremesas",
     "category": "food",
-    "level": "3"
+    "level": 3
   },
   "tpc-80-pt": {
     "id": "tpc-80-pt",
     "label": "Ingredientes de padaria",
     "category": "food",
-    "level": "3"
+    "level": 3
   },
   "tpc-81-pt": {
     "id": "tpc-81-pt",
     "label": "Frutas",
     "category": "food",
-    "level": "3"
+    "level": 3
   },
   "tpc-82-pt": {
     "id": "tpc-82-pt",
     "label": "Frutos do mar",
     "category": "food",
-    "level": "3"
+    "level": 3
   },
   "tpc-83-pt": {
     "id": "tpc-83-pt",
     "label": "Vegetais",
     "category": "food",
-    "level": "3"
+    "level": 3
   },
   "tpc-84-pt": {
     "id": "tpc-84-pt",
     "label": "Comidas que as pessoas geralmente não gostam",
     "category": "food",
-    "level": "3"
+    "level": 3
   },
   "tpc-85-pt": {
     "id": "tpc-85-pt",
     "label": "Bebidas com gás",
     "category": "food",
-    "level": "3"
+    "level": 3
   },
   "tpc-86-pt": {
     "id": "tpc-86-pt",
     "label": "Comida apimentada",
     "category": "food",
-    "level": "4"
+    "level": 4
   },
   "tpc-87-pt": {
     "id": "tpc-87-pt",
     "label": "Fast Food",
     "category": "food",
-    "level": "4"
+    "level": 4
   },
   "tpc-88-pt": {
     "id": "tpc-88-pt",
     "label": "Especiarias e Ervas",
     "category": "food",
-    "level": "5"
+    "level": 5
   },
   "tpc-89-pt": {
     "id": "tpc-89-pt",
     "label": "Tipos de queijo",
     "category": "food",
-    "level": "5"
+    "level": 5
   },
   "tpc-90-pt": {
     "id": "tpc-90-pt",
     "label": "Nomes de meninos",
     "category": "people",
-    "level": "2"
+    "level": 2
   },
   "tpc-91-pt": {
     "id": "tpc-91-pt",
     "label": "Nomes de meninas",
     "category": "people",
-    "level": "2"
+    "level": 2
   },
   "tpc-92-pt": {
     "id": "tpc-92-pt",
     "label": "Artesanato",
     "category": "people",
-    "level": "2"
+    "level": 2
   },
   "tpc-93-pt": {
     "id": "tpc-93-pt",
     "label": "Coisas que muitas vezes dão errado",
     "category": "people",
-    "level": "2"
+    "level": 2
   },
   "tpc-94-pt": {
     "id": "tpc-94-pt",
     "label": "Coisas que você encontra em uma bolsa",
     "category": "people",
-    "level": "2"
+    "level": 2
   },
   "tpc-95-pt": {
     "id": "tpc-95-pt",
     "label": "Hobbies",
     "category": "people",
-    "level": "2"
+    "level": 2
   },
   "tpc-96-pt": {
     "id": "tpc-96-pt",
     "label": "Empregos",
     "category": "people",
-    "level": "2"
+    "level": 2
   },
   "tpc-97-pt": {
     "id": "tpc-97-pt",
     "label": "Coisas sobre as quais as pessoas costumam mentir",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-98-pt": {
     "id": "tpc-98-pt",
     "label": "Coisas que o mundo seria melhor sem",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-99-pt": {
     "id": "tpc-99-pt",
     "label": "Coisas que descrevem você bem",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-100-pt": {
     "id": "tpc-100-pt",
     "label": "Feriados e festividades",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-101-pt": {
     "id": "tpc-101-pt",
     "label": "Computadores e Tecnologia",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-102-pt": {
     "id": "tpc-102-pt",
     "label": "Sonhos e Aspirações",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-103-pt": {
     "id": "tpc-103-pt",
     "label": "Coisas que você pode ver de onde você está",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-104-pt": {
     "id": "tpc-104-pt",
     "label": "Coisas com as quais você tem ranço",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-105-pt": {
     "id": "tpc-105-pt",
     "label": "Brinquedos e jogos",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-106-pt": {
     "id": "tpc-106-pt",
     "label": "Mobília",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-107-pt": {
     "id": "tpc-107-pt",
     "label": "Coisas que você fará quando se aposentar",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-108-pt": {
     "id": "tpc-108-pt",
     "label": "Coisas que as pessoas escondem dos outros",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-109-pt": {
     "id": "tpc-109-pt",
     "label": "Lembrancinhas",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-110-pt": {
     "id": "tpc-110-pt",
     "label": "Roupas",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-111-pt": {
     "id": "tpc-111-pt",
     "label": "Coisas que você nunca faria",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-112-pt": {
     "id": "tpc-112-pt",
     "label": "Coisas que todo mundo deveria ter",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-113-pt": {
     "id": "tpc-113-pt",
     "label": "Ferramentas e Equipamentos",
     "category": "people",
-    "level": "3"
+    "level": 3
   },
   "tpc-114-pt": {
     "id": "tpc-114-pt",
     "label": "Medicamentos",
     "category": "people",
-    "level": "4"
+    "level": 4
   },
   "tpc-115-pt": {
     "id": "tpc-115-pt",
     "label": "Moedas",
     "category": "people",
-    "level": "4"
+    "level": 4
   },
   "tpc-116-pt": {
     "id": "tpc-116-pt",
     "label": "Coisas das quais as pessoas têm medo",
     "category": "people",
-    "level": "4"
+    "level": 4
   },
   "tpc-117-pt": {
     "id": "tpc-117-pt",
     "label": "Traços de personalidade positivos",
     "category": "people",
-    "level": "4"
+    "level": 4
   },
   "tpc-118-pt": {
     "id": "tpc-118-pt",
     "label": "Traços de personalidade negativos",
     "category": "people",
-    "level": "4"
+    "level": 4
   },
   "tpc-119-pt": {
     "id": "tpc-119-pt",
     "label": "Cuidados pessoais e cosméticos",
     "category": "people",
-    "level": "4"
+    "level": 4
   },
   "tpc-120-pt": {
     "id": "tpc-120-pt",
     "label": "Emoções",
     "category": "people",
-    "level": "4"
+    "level": 4
   },
   "tpc-121-pt": {
     "id": "tpc-121-pt",
     "label": "Marcas de produtos alimentícios",
     "category": "brands",
-    "level": "2"
+    "level": 2
   },
   "tpc-122-pt": {
     "id": "tpc-122-pt",
     "label": "Restaurantes e lojas",
     "category": "brands",
-    "level": "3"
+    "level": 3
   },
   "tpc-123-pt": {
     "id": "tpc-123-pt",
     "label": "Marcas de automóveis",
     "category": "brands",
-    "level": "3"
+    "level": 3
   },
   "tpc-124-pt": {
     "id": "tpc-124-pt",
     "label": "Empresas de tecnologia",
     "category": "brands",
-    "level": "3"
+    "level": 3
   },
   "tpc-125-pt": {
     "id": "tpc-125-pt",
     "label": "Marcas de roupa",
     "category": "brands",
-    "level": "3"
+    "level": 3
   },
   "tpc-126-pt": {
     "id": "tpc-126-pt",
     "label": "Jogos de videogame",
     "category": "brands",
-    "level": "3"
+    "level": 3
   },
   "tpc-127-pt": {
     "id": "tpc-127-pt",
     "label": "Corporações",
     "category": "brands",
-    "level": "3"
+    "level": 3
   },
   "tpc-128-pt": {
     "id": "tpc-128-pt",
     "label": "Produtos de limpeza",
     "category": "brands",
-    "level": "4"
+    "level": 4
   },
   "tpc-129-pt": {
     "id": "tpc-129-pt",
     "label": "Eletrônicos",
     "category": "brands",
-    "level": "4"
+    "level": 4
   },
   "tpc-130-pt": {
     "id": "tpc-130-pt",
     "label": "Bebidas",
     "category": "brands",
-    "level": "4"
+    "level": 4
   },
   "tpc-131-pt": {
     "id": "tpc-131-pt",
     "label": "Instituições de caridade e ONGs",
     "category": "brands",
-    "level": "5"
+    "level": 5
   },
   "tpc-132-pt": {
     "id": "tpc-132-pt",
     "label": "Companhias aéreas",
     "category": "brands",
-    "level": "5"
+    "level": 5
   },
   "tpc-133-pt": {
     "id": "tpc-133-pt",
     "label": "Num concerto",
     "category": "entertainment",
-    "level": "2"
+    "level": 2
   },
   "tpc-134-pt": {
     "id": "tpc-134-pt",
     "label": "Músicos e Bandas",
     "category": "entertainment",
-    "level": "2"
+    "level": 2
   },
   "tpc-135-pt": {
     "id": "tpc-135-pt",
     "label": "Artista solo",
     "category": "entertainment",
-    "level": "2"
+    "level": 2
   },
   "tpc-136-pt": {
     "id": "tpc-136-pt",
     "label": "Filmes infantis",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-137-pt": {
     "id": "tpc-137-pt",
     "label": "Títulos de filmes",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-138-pt": {
     "id": "tpc-138-pt",
     "label": "Personagens animados",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-139-pt": {
     "id": "tpc-139-pt",
     "label": "Instrumentos musicais",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-140-pt": {
     "id": "tpc-140-pt",
     "label": "Livros infantis",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-141-pt": {
     "id": "tpc-141-pt",
     "label": "Novelas",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-142-pt": {
     "id": "tpc-142-pt",
     "label": "Atores",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-143-pt": {
     "id": "tpc-143-pt",
     "label": "Atrizes",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-144-pt": {
     "id": "tpc-144-pt",
     "label": "Celebridades",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-145-pt": {
     "id": "tpc-145-pt",
     "label": "Heróis e personagens principais",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-146-pt": {
     "id": "tpc-146-pt",
     "label": "Série de TV",
     "category": "entertainment",
-    "level": "3"
+    "level": 3
   },
   "tpc-147-pt": {
     "id": "tpc-147-pt",
     "label": "Super-heróis",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-148-pt": {
     "id": "tpc-148-pt",
     "label": "Canais de televisão",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-149-pt": {
     "id": "tpc-149-pt",
     "label": "Contos de fadas e lendas",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-150-pt": {
     "id": "tpc-150-pt",
     "label": "Deuses e Semideuses",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-151-pt": {
     "id": "tpc-151-pt",
     "label": "Musicais e Óperas",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-152-pt": {
     "id": "tpc-152-pt",
     "label": "Jornais e revistas",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-153-pt": {
     "id": "tpc-153-pt",
     "label": "Pinturas",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-154-pt": {
     "id": "tpc-154-pt",
     "label": "Vilões",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-155-pt": {
     "id": "tpc-155-pt",
     "label": "Ficção científica",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-156-pt": {
     "id": "tpc-156-pt",
     "label": "Títulos de livros",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-157-pt": {
     "id": "tpc-157-pt",
     "label": "Autores",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-158-pt": {
     "id": "tpc-158-pt",
     "label": "Monstros e criaturas míticas",
     "category": "entertainment",
-    "level": "4"
+    "level": 4
   },
   "tpc-159-pt": {
     "id": "tpc-159-pt",
     "label": "Editoras",
     "category": "entertainment",
-    "level": "5"
+    "level": 5
   },
   "tpc-160-pt": {
     "id": "tpc-160-pt",
     "label": "Literatura Clássica",
     "category": "entertainment",
-    "level": "5"
+    "level": 5
   },
   "tpc-161-pt": {
     "id": "tpc-161-pt",
     "label": "Vencedores do Oscar",
     "category": "entertainment",
-    "level": "5"
+    "level": 5
   },
   "tpc-162-pt": {
     "id": "tpc-162-pt",
     "label": "Em um laboratório",
     "category": "science",
-    "level": "2"
+    "level": 2
   },
   "tpc-163-pt": {
     "id": "tpc-163-pt",
     "label": "Mamíferos",
     "category": "science",
-    "level": "2"
+    "level": 2
   },
   "tpc-164-pt": {
     "id": "tpc-164-pt",
     "label": "Clima",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-165-pt": {
     "id": "tpc-165-pt",
     "label": "Coisas que requerem eletricidade",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-166-pt": {
     "id": "tpc-166-pt",
     "label": "Flores",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-167-pt": {
     "id": "tpc-167-pt",
     "label": "Animais que põem ovos",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-168-pt": {
     "id": "tpc-168-pt",
     "label": "Animais que vivem na água",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-169-pt": {
     "id": "tpc-169-pt",
     "label": "Cores",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-170-pt": {
     "id": "tpc-170-pt",
     "label": "O corpo humano",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-171-pt": {
     "id": "tpc-171-pt",
     "label": "Partes automotivas",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-172-pt": {
     "id": "tpc-172-pt",
     "label": "Animais domésticos e de fazenda",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-173-pt": {
     "id": "tpc-173-pt",
     "label": "Equipamento para acampamento e trilha",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-174-pt": {
     "id": "tpc-174-pt",
     "label": "Invenções que mudaram o mundo",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-175-pt": {
     "id": "tpc-175-pt",
     "label": "Insetos",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-176-pt": {
     "id": "tpc-176-pt",
     "label": "Animais perigosos",
     "category": "science",
-    "level": "3"
+    "level": 3
   },
   "tpc-177-pt": {
     "id": "tpc-177-pt",
     "label": "Pássaros",
     "category": "science",
-    "level": "4"
+    "level": 4
   },
   "tpc-178-pt": {
     "id": "tpc-178-pt",
     "label": "Árvores e arbustos",
     "category": "science",
-    "level": "4"
+    "level": 4
   },
   "tpc-179-pt": {
     "id": "tpc-179-pt",
     "label": "Ramos da ciência",
     "category": "science",
-    "level": "4"
+    "level": 4
   },
   "tpc-180-pt": {
     "id": "tpc-180-pt",
     "label": "Em um centro espacial",
     "category": "science",
-    "level": "4"
+    "level": 4
   },
   "tpc-181-pt": {
     "id": "tpc-181-pt",
     "label": "Doenças e parasitas",
     "category": "science",
-    "level": "4"
+    "level": 4
   },
   "tpc-182-pt": {
     "id": "tpc-182-pt",
     "label": "Coisas que você pode ver no microscópio",
     "category": "science",
-    "level": "4"
+    "level": 4
   },
   "tpc-183-pt": {
     "id": "tpc-183-pt",
     "label": "Raças de cães",
     "category": "science",
-    "level": "5"
+    "level": 5
   },
   "tpc-184-pt": {
     "id": "tpc-184-pt",
     "label": "Cientistas e Inventores",
     "category": "science",
-    "level": "5"
+    "level": 5
   },
   "tpc-185-pt": {
     "id": "tpc-185-pt",
     "label": "Pedras e Minerais",
     "category": "science",
-    "level": "5"
+    "level": 5
   },
   "tpc-186-pt": {
     "id": "tpc-186-pt",
     "label": "Unidades de medida",
     "category": "science",
-    "level": "5"
+    "level": 5
   },
   "tpc-187-pt": {
     "id": "tpc-187-pt",
     "label": "Elementos químicos",
     "category": "science",
-    "level": "5"
+    "level": 5
   },
   "tpc-188-pt": {
     "id": "tpc-188-pt",
     "label": "Apelidos",
     "category": "language",
-    "level": "3"
+    "level": 3
   },
   "tpc-189-pt": {
     "id": "tpc-189-pt",
     "label": "Adjetivos",
     "category": "language",
-    "level": "3"
+    "level": 3
   },
   "tpc-190-pt": {
     "id": "tpc-190-pt",
     "label": "Verbos",
     "category": "language",
-    "level": "3"
+    "level": 3
   },
   "tpc-191-pt": {
     "id": "tpc-191-pt",
     "label": "Palavras de 4 letras",
     "category": "language",
-    "level": "3"
+    "level": 3
   },
   "tpc-192-pt": {
     "id": "tpc-192-pt",
     "label": "Palavras de 3 letras",
     "category": "language",
-    "level": "3"
+    "level": 3
   },
   "tpc-193-pt": {
     "id": "tpc-193-pt",
     "label": "Palavras de 5 letras",
     "category": "language",
-    "level": "3"
+    "level": 3
   },
   "tpc-194-pt": {
     "id": "tpc-194-pt",
     "label": "Sons de animais",
     "category": "language",
-    "level": "3"
+    "level": 3
   },
   "tpc-195-pt": {
     "id": "tpc-195-pt",
     "label": "Gestos e expressões faciais",
     "category": "language",
-    "level": "3"
+    "level": 3
   },
   "tpc-196-pt": {
     "id": "tpc-196-pt",
     "label": "línguas",
     "category": "language",
-    "level": "3"
+    "level": 3
   },
   "tpc-197-pt": {
     "id": "tpc-197-pt",
     "label": "Siglas e abreviações populares",
     "category": "language",
-    "level": "4"
+    "level": 4
   },
   "tpc-198-pt": {
     "id": "tpc-198-pt",
     "label": "Gíria adolescente",
     "category": "language",
-    "level": "4"
+    "level": 4
   },
   "tpc-199-pt": {
     "id": "tpc-199-pt",
     "label": "Coisas pelas quais as pessoas são chantageadas",
     "category": "adult",
-    "level": "2"
+    "level": 2
   },
   "tpc-200-pt": {
     "id": "tpc-200-pt",
     "label": "Coisas que são úteis para um assalto",
     "category": "adult",
-    "level": "2"
+    "level": 2
   },
   "tpc-201-pt": {
     "id": "tpc-201-pt",
     "label": "Armas",
     "category": "adult",
-    "level": "2"
+    "level": 2
   },
   "tpc-202-pt": {
     "id": "tpc-202-pt",
     "label": "Na cena do crime",
     "category": "adult",
-    "level": "2"
+    "level": 2
   },
   "tpc-203-pt": {
     "id": "tpc-203-pt",
     "label": "Insultos e palavrões",
     "category": "adult",
-    "level": "2"
+    "level": 2
   },
   "tpc-204-pt": {
     "id": "tpc-204-pt",
     "label": "Coisas que você precisa para pegar um criminoso",
     "category": "adult",
-    "level": "3"
+    "level": 3
   },
   "tpc-205-pt": {
     "id": "tpc-205-pt",
     "label": "Crimes",
     "category": "adult",
-    "level": "3"
+    "level": 3
   },
   "tpc-206-pt": {
     "id": "tpc-206-pt",
     "label": "Em uma prisão",
     "category": "adult",
-    "level": "3"
+    "level": 3
   },
   "tpc-207-pt": {
     "id": "tpc-207-pt",
     "label": "Lugares onde você esconderia um cadáver",
     "category": "adult",
-    "level": "3"
+    "level": 3
   },
   "tpc-208-pt": {
     "id": "tpc-208-pt",
     "label": "Veículos de fuga",
     "category": "adult",
-    "level": "3"
+    "level": 3
   },
   "tpc-209-pt": {
     "id": "tpc-209-pt",
     "label": "Causas de morte",
     "category": "adult",
-    "level": "4"
+    "level": 4
   },
   "tpc-210-pt": {
     "id": "tpc-210-pt",
     "label": "Veneno e Drogas",
     "category": "adult",
-    "level": "4"
+    "level": 4
   },
   "tpc-211-pt": {
     "id": "tpc-211-pt",
     "label": "Métodos de Tortura",
     "category": "adult",
-    "level": "5"
+    "level": 5
   }
 }
