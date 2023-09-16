@@ -7,7 +7,7 @@
   "ch-2-pt": {
     "id": "ch-2-pt",
     "type": "this-that",
-    "options": ["Ser demitido", "Tem que demitir seu melhor amigo"]
+    "options": ["Ser demitido", "Ter que demitir seu melhor amigo"]
   },
   "ch-3-pt": {
     "id": "ch-3-pt",
@@ -17,7 +17,7 @@
   "ch-4-pt": {
     "id": "ch-4-pt",
     "type": "this-that",
-    "options": ["Ter uma universidade com o seu nome", "Tenha um sanduíche com o seu nome"]
+    "options": ["Ter uma universidade com o seu nome", "Ter um sanduíche com o seu nome"]
   },
   "ch-5-pt": {
     "id": "ch-5-pt",
@@ -47,7 +47,7 @@
   "ch-10-pt": {
     "id": "ch-10-pt",
     "type": "this-that",
-    "options": ["Ouvir os pensamentos de um cachorro", "Comunique-se com um golfinho"]
+    "options": ["Ouvir os pensamentos de um cachorro", "Comunicar-se com um golfinho"]
   },
   "ch-11-pt": {
     "id": "ch-11-pt",
