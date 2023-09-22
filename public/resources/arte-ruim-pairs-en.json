@@ -218,5 +218,13 @@
   "ap-55-en": {
     "id": "ap-55-en",
     "values": ["drone", "helicopter"]
+  },
+  "ap-56-en": {
+    "id": "ap-56-en",
+    "values": ["footprint", "barefoot"]
+  },
+  "ap-57-en": {
+    "id": "ap-57-en",
+    "values": ["swan", "short-legged flamingo"]
   }
 }
