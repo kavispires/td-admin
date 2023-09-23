@@ -6523,5 +6523,20 @@
     "id": "a-1305-en",
     "text": "Grateful",
     "level": 1
+  },
+  "a-1306-en": {
+    "id": "a-1306-en",
+    "text": "Existential crisis",
+    "level": 2
+  },
+  "a-1307-en": {
+    "id": "a-1307-en",
+    "text": "Give up",
+    "level": 3
+  },
+  "a-1308-en": {
+    "id": "a-1308-en",
+    "text": "Forgiveness",
+    "level": 3
   }
 }
