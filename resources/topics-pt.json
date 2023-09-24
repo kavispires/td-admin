@@ -19,7 +19,7 @@
   },
   "tpc-4-pt": {
     "id": "tpc-4-pt",
-    "label": "Coisas que custam R$1 ou menos",
+    "label": "Coisas que custam R$10 ou menos",
     "category": "things",
     "level": 2
   },
@@ -349,7 +349,7 @@
   },
   "tpc-59-pt": {
     "id": "tpc-59-pt",
-    "label": "Marcos e parques nacionais",
+    "label": "Pontos turísticos",
     "category": "places",
     "level": 3
   },
@@ -949,7 +949,7 @@
   },
   "tpc-159-pt": {
     "id": "tpc-159-pt",
-    "label": "Editoras",
+    "label": "Editoras e Estúdios",
     "category": "entertainment",
     "level": 5
   },
@@ -1264,5 +1264,65 @@
     "label": "Métodos de Tortura",
     "category": "adult",
     "level": 5
+  },
+  "tpc-212-pt": {
+    "id": "tpc-212-pt",
+    "label": "Lugares bom para fazer amor",
+    "category": "adult",
+    "level": 2
+  },
+  "tpc-213-pt": {
+    "id": "tpc-213-pt",
+    "label": "Minha sogra é...",
+    "category": "people",
+    "level": 2
+  },
+  "tpc-214-pt": {
+    "id": "tpc-214-pt",
+    "label": "Coisas que dão saudade",
+    "category": "things",
+    "level": 3
+  },
+  "tpc-215-pt": {
+    "id": "tpc-215-pt",
+    "label": "Rio de Janeiro",
+    "category": "places",
+    "level": 2
+  },
+  "tpc-216-pt": {
+    "id": "tpc-216-pt",
+    "label": "Títulos de músicas",
+    "category": "entertainment",
+    "level": 2
+  },
+  "tpc-217-pt": {
+    "id": "tpc-217-pt",
+    "label": "Nomes para bichos de estimação",
+    "category": "entertainment",
+    "level": 2
+  },
+  "tpc-218-pt": {
+    "id": "tpc-218-pt",
+    "label": "Carnaval",
+    "category": "entertainment",
+    "level": 2
+  },
+  "tpc-219-pt": {
+    "id": "tpc-219-pt",
+    "label": "No parquinho",
+    "category": "places",
+    "level": 3
+  },
+  "tpc-220-pt": {
+    "id": "tpc-220-pt",
+    "label": "Tarde Divertida",
+    "category": "entertainment",
+    "level": 3
+  },
+  "tpc-221-pt": {
+    "id": "tpc-221-pt",
+    "label": "Internet",
+    "category": "entertainment",
+    "level": 2
   }
 }
