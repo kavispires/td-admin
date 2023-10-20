@@ -1,558 +1,767 @@
 {
   "t-1-pt": {
     "id": "t-1-pt",
-    "question": "Ele(a) já foi para um jogo em um estádio?"
+    "question": "Ele(a) já foi para um jogo em um estádio?",
+    "answer": "Assiste jogos em estádio"
   },
   "t-2-pt": {
     "id": "t-2-pt",
-    "question": "Ele(a) gosta de música clássica?"
+    "question": "Ele(a) gosta de música clássica?",
+    "answer": "Gosta de música clássica"
   },
   "t-3-pt": {
     "id": "t-3-pt",
-    "question": "Ele(a) acredita em alienígenas?"
+    "question": "Ele(a) acredita em alienígenas?",
+    "answer": "Acredita em alienígenas"
   },
   "t-4-pt": {
     "id": "t-4-pt",
-    "question": "Ele(a) tem uma caminhonete?"
+    "question": "Ele(a) tem uma caminhonete?",
+    "answer": "Tem uma caminhonete"
   },
   "t-5-pt": {
     "id": "t-5-pt",
-    "question": "Ele(a) come fora com frequência?"
+    "question": "Ele(a) come fora com frequência?",
+    "answer": "Come fora com frequência"
   },
   "t-6-pt": {
     "id": "t-6-pt",
-    "question": "Ele(a) já foi esquiar alguma vez?"
+    "question": "Ele(a) já foi esquiar alguma vez?",
+    "answer": "Já foi esquiar alguma vez"
   },
   "t-7-pt": {
     "id": "t-7-pt",
-    "question": "Ele(a) recicla seu lixo?"
+    "question": "Ele(a) recicla seu lixo?",
+    "answer": "Recicla seu lixo"
   },
   "t-8-pt": {
     "id": "t-8-pt",
-    "question": "Ele(a) gosta de acampar?"
+    "question": "Ele(a) gosta de acampar?",
+    "answer": "Gosta de acampar"
   },
   "t-9-pt": {
     "id": "t-9-pt",
-    "question": "Ele(a) tem muitos adesivos no carro?"
+    "question": "Ele(a) tem muitos adesivos no carro?",
+    "answer": "Tem muitos adesivos no carro"
   },
   "t-10-pt": {
     "id": "t-10-pt",
-    "question": "Ele(a) já participou de um protesto?"
+    "question": "Ele(a) já participou de um protesto?",
+    "answer": "Já participou de um protesto"
   },
   "t-11-pt": {
     "id": "t-11-pt",
-    "question": "Ele(a) fala muito palavrão?"
+    "question": "Ele(a) fala muito palavrão?",
+    "answer": "Fala muito palavrão"
   },
   "t-12-pt": {
     "id": "t-12-pt",
-    "question": "Ele(a) já foi no parque Guanabara?"
+    "question": "Ele(a) já foi no parque Guanabara (parque de diversões local)?",
+    "answer": "Já foi no parque Guanabara (parque de diversões local)"
   },
   "t-13-pt": {
     "id": "t-13-pt",
-    "question": "Ele(a) gosta de arte moderna?"
+    "question": "Ele(a) gosta de arte moderna?",
+    "answer": "Gosta de arte moderna"
   },
   "t-14-pt": {
     "id": "t-14-pt",
-    "question": "Ele(a) bebe com frequência?"
+    "question": "Ele(a) bebe com frequência?",
+    "answer": "Bebe com frequência"
   },
   "t-15-pt": {
     "id": "t-15-pt",
-    "question": "Ele(a) é um fã da Apple?"
+    "question": "Ele(a) é um fã da Apple?",
+    "answer": "É um fã da Apple"
   },
   "t-16-pt": {
     "id": "t-16-pt",
-    "question": "Ele(a) cumprimenta seus vizinhos?"
+    "question": "Ele(a) cumprimenta seus vizinhos?",
+    "answer": "Cumprimenta seus vizinhos"
   },
   "t-17-pt": {
     "id": "t-17-pt",
-    "question": "Ele(a) tem tatuagens?"
+    "question": "Ele(a) tem tatuagens?",
+    "answer": "Tem tatuagens"
   },
   "t-18-pt": {
     "id": "t-18-pt",
-    "question": "Ele(a) morreria primeiro em uma apocalipse zumbi?"
+    "question": "Ele(a) morreria primeiro em uma apocalipse zumbi?",
+    "answer": "Morreria primeiro em uma apocalipse zumbi"
   },
   "t-19-pt": {
     "id": "t-19-pt",
-    "question": "Ele(a) é fã de ficção científica?"
+    "question": "Ele(a) é fã de ficção científica?",
+    "answer": "É fã de ficção científica"
   },
   "t-20-pt": {
     "id": "t-20-pt",
-    "question": "Ele(a) deixa os filhos brincarem no quintal?"
+    "question": "Ele(a) deixa os filhos brincarem na rua?",
+    "answer": "Deixa os filhos brincarem na rua"
   },
   "t-21-pt": {
     "id": "t-21-pt",
-    "question": "Ele(a) tem muitas multas de trânsito?"
+    "question": "Ele(a) já recebeu muitas multas de trânsito?",
+    "answer": "Já recebeu multas de trânsito"
   },
   "t-22-pt": {
     "id": "t-22-pt",
-    "question": "Ele(a) serviu no exército?"
+    "question": "Ele(a) serviu no exército?",
+    "answer": "Serviu no exército"
   },
   "t-23-pt": {
     "id": "t-23-pt",
-    "question": "Ele(a) fala mais de um idioma?"
+    "question": "Ele(a) fala mais de um idioma?",
+    "answer": "Fala mais de um idioma"
   },
   "t-24-pt": {
     "id": "t-24-pt",
-    "question": "Ele(a) faz trabalho voluntário?"
+    "question": "Ele(a) faz trabalho voluntário?",
+    "answer": "Faz trabalho voluntário"
   },
   "t-25-pt": {
     "id": "t-25-pt",
-    "question": "Ele(a) já foi em Porto Seguro?"
+    "question": "Ele(a) já foi em Porto Seguro?",
+    "answer": "Já foi em Porto Seguro"
   },
   "t-26-pt": {
     "id": "t-26-pt",
-    "question": "Ele(a) come muito fast food?"
+    "question": "Ele(a) come muito fast food?",
+    "answer": "Come muito fast food"
   },
   "t-27-pt": {
     "id": "t-27-pt",
-    "question": "Ele(a) foi um escoteiro(a)?"
+    "question": "Ele(a) foi um escoteiro(a)?",
+    "answer": "Foi um escoteiro(a)"
   },
   "t-28-pt": {
     "id": "t-28-pt",
-    "question": "Ele(a) já teve um caso extraconjugal?"
+    "question": "Ele(a) já teve um caso extraconjugal?",
+    "answer": "Já teve um caso extraconjugal"
   },
   "t-29-pt": {
     "id": "t-29-pt",
-    "question": "Ele(a) vai pra casa dos pais no Réveillon?"
+    "question": "Ele(a) vai pra casa dos pais no Réveillon?",
+    "answer": "Vai pra casa dos pais no Réveillon"
   },
   "t-30-pt": {
     "id": "t-30-pt",
-    "question": "Ele(a) mora com os pais?"
+    "question": "Ele(a) mora com os pais?",
+    "answer": "Mora com os pais"
   },
   "t-31-pt": {
     "id": "t-31-pt",
-    "question": "Ele(a) tem um grande círculo social?"
+    "question": "Ele(a) tem um grande círculo social?",
+    "answer": "Tem um grande círculo social"
   },
   "t-32-pt": {
     "id": "t-32-pt",
-    "question": "Ele(a) é proprietário de um imóvel?"
+    "question": "Ele(a) é proprietário de um imóvel?",
+    "answer": "É proprietário de um imóvel"
   },
   "t-33-pt": {
     "id": "t-33-pt",
-    "question": "Ele(a) cheira gostoso?"
+    "question": "Ele(a) cheira gostoso?",
+    "answer": "Cheira gostoso"
   },
   "t-34-pt": {
     "id": "t-34-pt",
-    "question": "Ele(a) é conservador?"
+    "question": "Ele(a) é conservador(a)?",
+    "answer": "É conservador(a)",
+    "nsfw": true
   },
   "t-35-pt": {
     "id": "t-35-pt",
-    "question": "Ele(a) canta bem?"
+    "question": "Ele(a) canta bem?",
+    "answer": "Canta bem"
   },
   "t-36-pt": {
     "id": "t-36-pt",
-    "question": "Ele(a) fez faculdade?"
+    "question": "Ele(a) fez faculdade?",
+    "answer": "Fez faculdade"
   },
   "t-37-pt": {
     "id": "t-37-pt",
-    "question": "Ele(a) é romântico?"
+    "question": "Ele(a) é romântico?",
+    "answer": "É romântico"
   },
   "t-38-pt": {
     "id": "t-38-pt",
-    "question": "Ele(a) se dá bem com seus colegas de trabalho?"
+    "question": "Ele(a) se dá bem com seus colegas de trabalho?",
+    "answer": "Se dá bem com seus colegas de trabalho"
   },
   "t-39-pt": {
     "id": "t-39-pt",
-    "question": "Ele(a) passa muito tempo no banheiro?"
+    "question": "Ele(a) passa muito tempo no banheiro?",
+    "answer": "Passa muito tempo no banheiro"
   },
   "t-40-pt": {
     "id": "t-40-pt",
-    "question": "Ele(a) assiste filmes clássicos?"
+    "question": "Ele(a) assiste filmes clássicos?",
+    "answer": "Assiste filmes clássicos"
   },
   "t-41-pt": {
     "id": "t-41-pt",
-    "question": "Ele(a) gosta de crianças?"
+    "question": "Ele(a) gosta de crianças?",
+    "answer": "Gosta de crianças"
   },
   "t-42-pt": {
     "id": "t-42-pt",
-    "question": "Ele(a) gosta de musicais da Broadway?"
+    "question": "Ele(a) gosta de musicais da Broadway?",
+    "answer": "Gosta de musicais da Broadway"
   },
   "t-43-pt": {
     "id": "t-43-pt",
-    "question": "Ele(a) lê romances?"
+    "question": "Ele(a) lê romances?",
+    "answer": "Lê romances"
   },
   "t-44-pt": {
     "id": "t-44-pt",
-    "question": "Ele(a) vai a boates?"
+    "question": "Ele(a) vai a boates?",
+    "answer": "Vai a boates"
   },
   "t-45-pt": {
     "id": "t-45-pt",
-    "question": "Ele(a) dão os 10% do garçom sem contestar?"
+    "question": "Ele(a) dão os 10% do garçom sem contestar?",
+    "answer": "Dão os 10% do garçom sem contestar"
   },
   "t-46-pt": {
     "id": "t-46-pt",
-    "question": "Ele(a) costuma pular refeições?"
+    "question": "Ele(a) costuma pular refeições?",
+    "answer": "Costuma pular refeições"
   },
   "t-47-pt": {
     "id": "t-47-pt",
-    "question": "Ele(a) pratica algum esporte?"
+    "question": "Ele(a) pratica algum esporte?",
+    "answer": "Pratica algum esporte"
   },
   "t-48-pt": {
     "id": "t-48-pt",
-    "question": "Ele(a) é casado?"
+    "question": "Ele(a) é casado(a)?",
+    "answer": "É casado(a)"
   },
   "t-49-pt": {
     "id": "t-49-pt",
-    "question": "Ele(a) usa transporte público?"
+    "question": "Ele(a) usa transporte público?",
+    "answer": "Usa transporte público"
   },
   "t-50-pt": {
     "id": "t-50-pt",
-    "question": "Ele(a) gosta de jogos de azar?"
+    "question": "Ele(a) gosta de jogos de azar?",
+    "answer": "Gosta de jogos de azar"
   },
   "t-51-pt": {
     "id": "t-51-pt",
-    "question": "Ele(a) consegue economizar dinheiro?"
+    "question": "Ele(a) consegue economizar dinheiro?",
+    "answer": "Consegue economizar dinheiro"
   },
   "t-52-pt": {
     "id": "t-52-pt",
-    "question": "Ele(a) tem temperamento forte?"
+    "question": "Ele(a) tem temperamento forte?",
+    "answer": "Tem temperamento forte"
   },
   "t-53-pt": {
     "id": "t-53-pt",
-    "question": "Ele(a) já participou de um cruzeiro?"
+    "question": "Ele(a) já participou de um cruzeiro?",
+    "answer": "Já participou de um cruzeiro"
   },
   "t-54-pt": {
     "id": "t-54-pt",
-    "question": "Ele(a) assiste Cidade Alerta?"
+    "question": "Ele(a) assiste Cidade Alerta?",
+    "answer": "Assiste Cidade Alerta"
   },
   "t-55-pt": {
     "id": "t-55-pt",
-    "question": "Ele(a) mora na zona sul (área rica)?"
+    "question": "Ele(a) mora na zona sul (área rica)?",
+    "answer": "Mora na zona sul (área rica)"
   },
   "t-56-pt": {
     "id": "t-56-pt",
-    "question": "Ele(a) é artístico?"
+    "question": "Ele(a) é artístico(a)?",
+    "answer": "É artístico(a)"
   },
   "t-57-pt": {
     "id": "t-57-pt",
-    "question": "Ele(a) vai de bicicleta para o trabalho?"
+    "question": "Ele(a) vai de bicicleta para o trabalho?",
+    "answer": "Vai de bicicleta para o trabalho"
   },
   "t-58-pt": {
     "id": "t-58-pt",
-    "question": "Ele(a) fuma maconha?"
+    "question": "Ele(a) fuma maconha?",
+    "answer": "Fuma maconha",
+    "nsfw": true
   },
   "t-59-pt": {
     "id": "t-59-pt",
-    "question": "Ele(a) faz ioga?"
+    "question": "Ele(a) faz ioga?",
+    "answer": "Faz ioga"
   },
   "t-60-pt": {
     "id": "t-60-pt",
-    "question": "Ele(a) usa o feng shui em casa?"
+    "question": "Ele(a) usa o feng shui em casa?",
+    "answer": "Usa o feng shui em casa"
   },
   "t-61-pt": {
     "id": "t-61-pt",
-    "question": "Ele(a) sempre pagam seus impostos?"
+    "question": "Ele(a) sempre paga seus impostos?",
+    "answer": "Sempre paga seus impostos"
   },
   "t-62-pt": {
     "id": "t-62-pt",
-    "question": "Ele(a) tem uma voz irritante?"
+    "question": "Ele(a) tem uma voz irritante?",
+    "answer": "Tem uma voz irritante"
   },
   "t-63-pt": {
     "id": "t-63-pt",
-    "question": "Ele(a) sabe cantar o hino nacional?"
+    "question": "Ele(a) sabe cantar o hino nacional?",
+    "answer": "Sabe cantar o hino nacional"
   },
   "t-64-pt": {
     "id": "t-64-pt",
-    "question": "Ele(a) usa prato descartável em casa?"
+    "question": "Ele(a) usa prato descartável em casa?",
+    "answer": "Usa prato descartável em casa"
   },
   "t-65-pt": {
     "id": "t-65-pt",
-    "question": "Ele(a) assiste a final do Campeonato Brasileiro?"
+    "question": "Ele(a) assiste a final do Campeonato Brasileiro?",
+    "answer": "Assiste a final do Campeonato Brasileiro"
   },
   "t-66-pt": {
     "id": "t-66-pt",
-    "question": "Ele(a) gosta de discutir política?"
+    "question": "Ele(a) gosta de discutir política?",
+    "answer": "Gosta de discutir política",
+    "nsfw": true
   },
   "t-67-pt": {
     "id": "t-67-pt",
-    "question": "Ele(a) monta árvore de Natal?"
+    "question": "Ele(a) monta árvore de Natal?",
+    "answer": "Monta árvore de Natal"
   },
   "t-68-pt": {
     "id": "t-68-pt",
-    "question": "Ele(a) tem uma vitrola?"
+    "question": "Ele(a) tem uma vitrola?",
+    "answer": "Tem uma vitrola"
   },
   "t-69-pt": {
     "id": "t-69-pt",
-    "question": "Ele(a) bebe muito café?"
+    "question": "Ele(a) bebe muito café?",
+    "answer": "Bebe muito café"
   },
   "t-70-pt": {
     "id": "t-70-pt",
-    "question": "Ele(a) tem uma arma em casa?"
+    "question": "Ele(a) tem uma arma em casa?",
+    "answer": "Tem uma arma em casa",
+    "nsfw": true
   },
   "t-71-pt": {
     "id": "t-71-pt",
-    "question": "Ele(a) gosta de cozinhar?"
+    "question": "Ele(a) gosta de cozinhar?",
+    "answer": "Gosta de cozinhar"
   },
   "t-72-pt": {
     "id": "t-72-pt",
-    "question": "Ele(a) é supersticioso?"
+    "question": "Ele(a) é supersticioso(a)?",
+    "answer": "É supersticioso(a)"
   },
   "t-73-pt": {
     "id": "t-73-pt",
-    "question": "Ele(a) ouve heavy metal?"
+    "question": "Ele(a) ouve heavy metal?",
+    "answer": "Ouve heavy metal"
   },
   "t-74-pt": {
     "id": "t-74-pt",
-    "question": "Ele(a) lê revista quadrinhos?"
+    "question": "Ele(a) lê revista quadrinhos?",
+    "answer": "Lê revista quadrinhos"
   },
   "t-75-pt": {
     "id": "t-75-pt",
-    "question": "Ele(a) assiste reality shows?"
+    "question": "Ele(a) assiste reality shows?",
+    "answer": "Assiste reality shows"
   },
   "t-76-pt": {
     "id": "t-76-pt",
-    "question": "Ele(a) é vegetariano?"
+    "question": "Ele(a) é vegetariano(a)?",
+    "answer": "É vegetariano(a)"
   },
   "t-77-pt": {
     "id": "t-77-pt",
-    "question": "Ele(a) viaja para o exterior com frequência?"
+    "question": "Ele(a) viaja para o exterior com frequência?",
+    "answer": "Viaja para o exterior com frequência"
   },
   "t-78-pt": {
     "id": "t-78-pt",
-    "question": "Ele(a) sabe tocar um instrumento musical?"
+    "question": "Ele(a) sabe tocar um instrumento musical?",
+    "answer": "Sabe tocar um instrumento musical"
   },
   "t-79-pt": {
     "id": "t-79-pt",
-    "question": "Ele(a) participa de eventos de caridade?"
+    "question": "Ele(a) participa de eventos de caridade?",
+    "answer": "Participa de eventos de caridade"
   },
   "t-80-pt": {
     "id": "t-80-pt",
-    "question": "Ele(a) paga TV a cabo pra ver jogos de futebol?"
+    "question": "Ele(a) paga TV a cabo pra ver jogos de futebol?",
+    "answer": "Paga TV a cabo pra ver jogos de futebol"
   },
   "t-81-pt": {
     "id": "t-81-pt",
-    "question": "Ele(a) entra em fila pra pegar uma promoção?"
+    "question": "Ele(a) entra em fila pra pegar uma promoção?",
+    "answer": "Entra em fila pra pegar uma promoção"
   },
   "t-82-pt": {
     "id": "t-82-pt",
-    "question": "Ele(a) possui um pau de selfie?"
+    "question": "Ele(a) possui um pau de selfie?",
+    "answer": "Possui um pau de selfie"
   },
   "t-83-pt": {
     "id": "t-83-pt",
-    "question": "Ele(a) gosta de pimenta na comida?"
+    "question": "Ele(a) gosta de pimenta na comida?",
+    "answer": "Gosta de pimenta na comida"
   },
   "t-84-pt": {
     "id": "t-84-pt",
-    "question": "Ele(a) gosta de jogos de tabuleiro?"
+    "question": "Ele(a) gosta de jogos de tabuleiro?",
+    "answer": "Gosta de jogos de tabuleiro"
   },
   "t-85-pt": {
     "id": "t-85-pt",
-    "question": "Ele(a) assiste filmes de terror?"
+    "question": "Ele(a) assiste filmes de terror?",
+    "answer": "Assiste filmes de terror"
   },
   "t-86-pt": {
     "id": "t-86-pt",
-    "question": "Ele(a) é religioso?"
+    "question": "Ele(a) é religioso?",
+    "answer": "É religioso",
+    "nsfw": true
   },
   "t-87-pt": {
     "id": "t-87-pt",
-    "question": "Ele(a) é racista?"
+    "question": "Ele(a) é racista?",
+    "answer": "É racista",
+    "nsfw": true
   },
   "t-88-pt": {
     "id": "t-88-pt",
-    "question": "Ele(a) tem um smartphone no bolso?"
+    "question": "Ele(a) tem um smartphone no bolso?",
+    "answer": "Tem um smartphone no bolso"
   },
   "t-89-pt": {
     "id": "t-89-pt",
-    "question": "Ele(a) tem medo de avião?"
+    "question": "Ele(a) tem medo de avião?",
+    "answer": "Tem medo de avião"
   },
   "t-90-pt": {
     "id": "t-90-pt",
-    "question": "Ele(a) assiste Jornal Nacional?"
+    "question": "Ele(a) assiste Jornal Nacional?",
+    "answer": "Assiste Jornal Nacional"
   },
   "t-91-pt": {
     "id": "t-91-pt",
-    "question": "Ele(a) é um bom motorista?"
+    "question": "Ele(a) é um bom motorista?",
+    "answer": "É um bom motorista",
+    "nsfw": true
   },
   "t-92-pt": {
     "id": "t-92-pt",
-    "question": "Ele(a) é chamado por um apelido?"
+    "question": "Ele(a) é chamado por um apelido?",
+    "answer": "É chamado por um apelido"
   },
   "t-93-pt": {
     "id": "t-93-pt",
-    "question": "Ele(a) joga videogames?"
+    "question": "Ele(a) joga videogames?",
+    "answer": "Joga videogames"
   },
   "t-94-pt": {
     "id": "t-94-pt",
-    "question": "Ele(a) acredita em reencarnação?"
+    "question": "Ele(a) acredita em reencarnação?",
+    "answer": "Acredita em reencarnação"
   },
   "t-95-pt": {
     "id": "t-95-pt",
-    "question": "Ele(a) gosta de abraçar?"
+    "question": "Ele(a) gosta de abraçar?",
+    "answer": "Gosta de abraçar"
   },
   "t-96-pt": {
     "id": "t-96-pt",
-    "question": "Ele(a) fuma?"
+    "question": "Ele(a) fuma?",
+    "answer": "Fuma"
   },
   "t-97-pt": {
     "id": "t-97-pt",
-    "question": "Ele(a) tem antecedentes criminais?"
+    "question": "Ele(a) tem antecedentes criminais?",
+    "answer": "Tem antecedentes criminais"
   },
   "t-98-pt": {
     "id": "t-98-pt",
-    "question": "Ele(a) frequenta uma academia?"
+    "question": "Ele(a) frequenta uma academia?",
+    "answer": "Frequenta uma academia"
   },
   "t-99-pt": {
     "id": "t-99-pt",
-    "question": "Ele(a) assiste a documentários?"
+    "question": "Ele(a) assiste a documentários?",
+    "answer": "Assiste a documentários"
   },
   "t-100-pt": {
     "id": "t-100-pt",
-    "question": "Ele(a) comemora o Dia dos Namorados?"
+    "question": "Ele(a) comemora o Dia dos Namorados?",
+    "answer": "Comemora o Dia dos Namorados"
   },
   "t-101-pt": {
     "id": "t-101-pt",
-    "question": "Ele(a) é virgem?"
+    "question": "Ele(a) é virgem?",
+    "answer": "É virgem",
+    "nsfw": true
   },
   "t-102-pt": {
     "id": "t-102-pt",
-    "question": "Ele(a) acredita em signos e astrologia?"
+    "question": "Ele(a) acredita em signos e astrologia?",
+    "answer": "Acredita em signos e astrologia"
   },
   "t-103-pt": {
     "id": "t-103-pt",
-    "question": "Ele(a) é homossexual?"
+    "question": "Ele(a) é homossexual?",
+    "answer": "É homossexual",
+    "nsfw": true
   },
   "t-104-pt": {
     "id": "t-104-pt",
-    "question": "Ele(a) assiste Sílvio Santos todo domingo?"
+    "question": "Ele(a) assiste Sílvio Santos todo domingo?",
+    "answer": "Assiste Sílvio Santos todo domingo"
   },
   "t-105-pt": {
     "id": "t-105-pt",
-    "question": "Ele(a) pechincham muito?"
+    "question": "Ele(a) pechincham muito?",
+    "answer": "Pechincham muito"
   },
   "t-106-pt": {
     "id": "t-106-pt",
-    "question": "Ele(a) usa máscara para se proteger do COVID?"
+    "question": "Ele(a) usa máscara para se proteger do COVID?",
+    "answer": "Usa máscara para se proteger do COVID"
   },
   "t-107-pt": {
     "id": "t-107-pt",
-    "question": "Ele(a) já pegou COVID?"
+    "question": "Ele(a) já pegou COVID?",
+    "answer": "Já pegou COVID"
   },
   "t-108-pt": {
     "id": "t-108-pt",
-    "question": "Ele(a) é contra vacinas?"
+    "question": "Ele(a) é contra vacinas?",
+    "answer": "É contra vacinas",
+    "nsfw": true
   },
   "t-109-pt": {
     "id": "t-109-pt",
-    "question": "Ele(a) tem muitos amigos?"
+    "question": "Ele(a) tem muitos amigos?",
+    "answer": "Tem muitos amigos"
   },
   "t-110-pt": {
     "id": "t-110-pt",
-    "question": "Ele(a) usa drogas?"
+    "question": "Ele(a) usa drogas?",
+    "answer": "Usa drogas",
+    "nsfw": true
   },
   "t-111-pt": {
     "id": "t-111-pt",
-    "question": "Ele(a) é cringe?"
+    "question": "Ele(a) é cringe?",
+    "answer": "É cringe"
   },
   "t-112-pt": {
     "id": "t-112-pt",
-    "question": "Ele(a) teve um tamagochi quando criança?"
+    "question": "Ele(a) teve um tamagochi quando criança?",
+    "answer": "Teve um tamagochi quando criança"
   },
   "t-113-pt": {
     "id": "t-113-pt",
-    "question": "Ele(a) já vestiu fantasias para apimentar a relação?"
+    "question": "Ele(a) já vestiu fantasias para apimentar a relação?",
+    "answer": "Já vestiu fantasias para apimentar a relação",
+    "nsfw": true
   },
   "t-114-pt": {
     "id": "t-114-pt",
-    "question": "Ele(a) é uma pessoa pontual?"
+    "question": "Ele(a) é uma pessoa pontual?",
+    "answer": "É uma pessoa pontual"
   },
   "t-115-pt": {
     "id": "t-115-pt",
-    "question": "Ele(a) colecionava figurinhas do Campeonato Brasileiro quando criança?"
+    "question": "Ele(a) colecionava figurinhas do Campeonato Brasileiro quando criança?",
+    "answer": "Colecionava figurinhas do Campeonato Brasileiro quando criança"
   },
   "t-116-pt": {
     "id": "t-116-pt",
-    "question": "Ele(a) calça 42?"
+    "question": "Ele(a) calça 42?",
+    "answer": "Calça 42",
+    "nsfw": true
   },
   "t-117-pt": {
     "id": "t-117-pt",
-    "question": "Ele(a) é surdo(a)?"
+    "question": "Ele(a) é surdo(a)?",
+    "answer": "É surdo(a)"
   },
   "t-118-pt": {
     "id": "t-118-pt",
-    "question": "Elx é não-binário?"
+    "question": "Elx é não-binário?",
+    "answer": "É não-binário",
+    "nsfw": true
   },
   "t-119-pt": {
     "id": "t-119-pt",
-    "question": "Ele(a) tem muitas alergias?"
+    "question": "Ele(a) tem muitas alergias?",
+    "answer": "Tem muitas alergias"
   },
   "t-120-pt": {
     "id": "t-120-pt",
-    "question": "Ele(a) guarda rancor?"
+    "question": "Ele(a) guarda rancor?",
+    "answer": "Guarda rancor"
   },
   "t-121-pt": {
     "id": "t-121-pt",
-    "question": "Ele(a) odeia pobre?"
+    "question": "Ele(a) odeia pobre?",
+    "answer": "Odeia pobre",
+    "nsfw": true
   },
   "t-122-pt": {
     "id": "t-122-pt",
-    "question": "Os pais dele(a) são orgulhosos dele(a)?"
+    "question": "Os pais são orgulhosos dele(a)?",
+    "answer": "Os pais são orgulhosos dele(a)"
   },
   "t-123-pt": {
     "id": "t-123-pt",
-    "question": "Eles acham comida baiana exótica?"
+    "question": "Eles acham comida baiana exótica?",
+    "answer": "Acham comida baiana exótica"
   },
   "t-124-pt": {
     "id": "t-124-pt",
-    "question": "Ele(a) prefere cachorros a gatos?"
+    "question": "Ele(a) prefere cachorros a gatos?",
+    "answer": "Prefere cachorros a gatos"
   },
   "t-125-pt": {
     "id": "t-125-pt",
-    "question": "Ele(a) já pegou um porteiro ou faxineira do prédio?"
+    "question": "Ele(a) já pegou um porteiro ou faxineira do prédio?",
+    "answer": "Já pegou um porteiro ou faxineira do prédio",
+    "nsfw": true
   },
   "t-126-pt": {
     "id": "t-126-pt",
-    "question": "Ele(a) acha que fazer peido com o sovaco é um talento?"
+    "question": "Ele(a) acha que fazer peido com o sovaco é um talento?",
+    "answer": "Acha que fazer peido com o sovaco é um talento"
   },
   "t-127-pt": {
     "id": "t-127-pt",
-    "question": "Ele(a) tem colesterol alto?"
+    "question": "Ele(a) tem colesterol alto?",
+    "answer": "Tem colesterol alto"
   },
   "t-128-pt": {
     "id": "t-128-pt",
-    "question": "Ele(a) já doou para o Criança Esperança?"
+    "question": "Ele(a) já doou para o Criança Esperança?",
+    "answer": "Já doou para o Criança Esperança"
   },
   "t-129-pt": {
     "id": "t-129-pt",
-    "question": "Ele(a) sabe dançar uma coreografia do É o Tchan?"
+    "question": "Ele(a) sabe dançar uma coreografia do É o Tchan?",
+    "answer": "Sabe dançar uma coreografia do É o Tchan"
   },
   "t-131-pt": {
     "id": "t-131-pt",
-    "question": "Ele(a) é gostoso(a)?"
+    "question": "Ele(a) é gostoso(a)?",
+    "answer": "É gostoso(a)",
+    "nsfw": true
   },
   "t-132-pt": {
     "id": "t-132-pt",
-    "question": "Ele(a) dorme pelado(a)?"
+    "question": "Ele(a) dorme pelado(a)?",
+    "answer": "Dorme pelado(a)",
+    "nsfw": true
   },
   "t-133-pt": {
     "id": "t-133-pt",
-    "question": "Ele(a) tem sotaque?"
+    "question": "Ele(a) tem sotaque?",
+    "answer": "Tem sotaque"
   },
   "t-134-pt": {
     "id": "t-134-pt",
-    "question": "Ele(a) acha a Gretchen é um ícone nacional?"
+    "question": "Ele(a) acha a Gretchen é um ícone nacional?",
+    "answer": "Acha a Gretchen é um ícone nacional"
   },
   "t-135-pt": {
     "id": "t-135-pt",
-    "question": "Ele(a) tem medo da Loira do Banheiro?"
+    "question": "Ele(a) tem medo da Loira do Banheiro?",
+    "answer": "Tem medo da Loira do Banheiro"
   },
   "t-136-pt": {
     "id": "t-136-pt",
-    "question": "Ele(a) participaria do Big Brother?"
+    "question": "Ele(a) participaria do Big Brother?",
+    "answer": "Participaria do Big Brother"
   },
   "t-137-pt": {
     "id": "t-137-pt",
-    "question": "Ele(a) tem medo de altura?"
+    "question": "Ele(a) tem medo de altura?",
+    "answer": "Tem medo de altura"
   },
   "t-138-pt": {
     "id": "t-138-pt",
-    "question": "Ele(a) grava dancinha de Tik Tok?"
+    "question": "Ele(a) grava dancinha de Tik Tok?",
+    "answer": "Grava dancinha de Tik Tok"
   },
   "t-139-pt": {
     "id": "t-139-pt",
-    "question": "Ele(a) sofre de ansiedade?"
+    "question": "Ele(a) sofre de ansiedade?",
+    "answer": "Sofre de ansiedade"
   },
   "t-140-pt": {
     "id": "t-140-pt",
-    "question": "Ele(a) fica pelado(a) em vestiários sem problema algum?"
+    "question": "Ele(a) fica pelado(a) em vestiários sem problema algum?",
+    "answer": "Fica pelado(a) em vestiários sem problema algum",
+    "nsfw": true
+  },
+  "t-141-pt": {
+    "id": "t-141-pt",
+    "question": "Ele(a) já foi em um show do Roberto Carlos?",
+    "answer": "Já foi em um show do Roberto Carlos"
+  },
+  "t-142-pt": {
+    "id": "t-142-pt",
+    "question": "Ele(a) é tímido?",
+    "answer": "É tímido"
+  },
+  "t-143-pt": {
+    "id": "t-143-pt",
+    "question": "Ele(a) já passou a noite na cadeia?",
+    "answer": "Já passou a noite na cadeia",
+    "nsfw": true
+  },
+  "t-144-pt": {
+    "id": "t-144-pt",
+    "question": "Ele(a) gosta de k-pop?",
+    "answer": "Gosta de k-pop"
+  },
+  "t-145-pt": {
+    "id": "t-145-pt",
+    "question": "Ele(a) ouve funk escondido e publicamente fala mal do gênero",
+    "answer": "Ouve funk escondido e publicamente fala mal do gênero"
+  },
+  "t-146-pt": {
+    "id": "t-146-pt",
+    "question": "Ele(a) já discutiu com um garçom em um restaurante?",
+    "answer": "Já discutiu com um garçom em um restaurante"
+  },
+  "t-147-pt": {
+    "id": "t-147-pt",
+    "question": "Ele(a) sofre de escoliose?",
+    "answer": "Sofre de escoliose"
+  },
+  "t-148-pt": {
+    "id": "t-148-pt",
+    "question": "Ele(a) entende de computador?",
+    "answer": "Entende de computador"
+  },
+  "t-149-pt": {
+    "id": "t-149-pt",
+    "question": "Ele(a) chorou quando o Michael Jackson morreu?",
+    "answer": "Chorou quando o Michael Jackson morreu"
+  },
+  "t-150-pt": {
+    "id": "t-150-pt",
+    "question": "Ele(a) tem um passado misterioso?",
+    "answer": "Tem um passado misterioso"
   }
 }
