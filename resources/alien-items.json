@@ -73,7 +73,9 @@
       "weapon": -3,
       "singular": -1,
       "soft": -1,
-      "solid": 1
+      "solid": 1,
+      "personal": -3,
+      "holdable": -3
     },
     "id": "2",
     "name": {
@@ -114,7 +116,8 @@
       "weapon": 5,
       "soft": -3,
       "solid": 1,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "3",
     "name": {
@@ -155,7 +158,8 @@
       "weapon": 5,
       "soft": -3,
       "solid": 1,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "4",
     "name": {
@@ -196,7 +200,8 @@
       "weapon": -3,
       "soft": 3,
       "solid": 1,
-      "singular": 1
+      "singular": 1,
+      "holdable": -3
     },
     "id": "5",
     "name": {
@@ -237,7 +242,8 @@
       "weapon": -3,
       "singular": 1,
       "solid": 1,
-      "soft": 3
+      "soft": 3,
+      "holdable": 3
     },
     "id": "6",
     "name": {
@@ -278,7 +284,9 @@
       "weapon": 1,
       "singular": -1,
       "solid": 3,
-      "soft": -5
+      "soft": -5,
+      "personal": -3,
+      "holdable": 3
     },
     "id": "7",
     "name": {
@@ -360,7 +368,8 @@
       "weapon": -1,
       "solid": 3,
       "singular": -1,
-      "soft": -1
+      "soft": -1,
+      "personal": 3
     },
     "id": "9",
     "name": {
@@ -401,7 +410,8 @@
       "weapon": -1,
       "solid": 3,
       "singular": 3,
-      "soft": -3
+      "soft": -3,
+      "holdable": -3
     },
     "id": "10",
     "name": {
@@ -442,7 +452,8 @@
       "weapon": -3,
       "singular": -1,
       "solid": 1,
-      "soft": 3
+      "soft": 3,
+      "holdable": 3
     },
     "id": "11",
     "name": {
@@ -729,7 +740,8 @@
       "weapon": -3,
       "solid": 1,
       "singular": 1,
-      "soft": 3
+      "soft": 3,
+      "holdable": 3
     },
     "id": "18",
     "name": {
@@ -770,7 +782,8 @@
       "weapon": -3,
       "singular": 1,
       "soft": -1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "19",
     "name": {
@@ -852,7 +865,8 @@
       "weapon": 1,
       "solid": 3,
       "soft": -1,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "21",
     "name": {
@@ -1140,7 +1154,8 @@
       "weapon": -1,
       "singular": 1,
       "soft": -3,
-      "solid": 3
+      "solid": 3,
+      "holdable": 3
     },
     "id": "28",
     "name": {
@@ -1304,7 +1319,8 @@
       "weapon": -1,
       "solid": 1,
       "singular": 1,
-      "soft": 1
+      "soft": 1,
+      "holdable": 3
     },
     "id": "32",
     "name": {
@@ -1509,7 +1525,8 @@
       "weapon": -3,
       "soft": 1,
       "solid": -1,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "37",
     "name": {
@@ -1550,7 +1567,8 @@
       "weapon": -3,
       "singular": 3,
       "soft": 3,
-      "solid": -1
+      "solid": -1,
+      "holdable": 3
     },
     "id": "38",
     "name": {
@@ -1632,7 +1650,8 @@
       "weapon": -3,
       "singular": 1,
       "soft": -3,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "40",
     "name": {
@@ -2043,7 +2062,8 @@
       "weapon": -3,
       "solid": 1,
       "soft": 1,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "50",
     "name": {
@@ -2166,7 +2186,8 @@
       "weapon": 3,
       "soft": -1,
       "singular": 1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "53",
     "name": {
@@ -2207,7 +2228,8 @@
       "weapon": 3,
       "solid": 1,
       "soft": -1,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "54",
     "name": {
@@ -2412,7 +2434,8 @@
       "weapon": -3,
       "singular": 1,
       "solid": 1,
-      "soft": 5
+      "soft": 5,
+      "holdable": 3
     },
     "id": "59",
     "name": {
@@ -2453,7 +2476,8 @@
       "weapon": -3,
       "soft": 1,
       "solid": 1,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "60",
     "name": {
@@ -2618,7 +2642,8 @@
       "weapon": -1,
       "solid": 1,
       "soft": -3,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "64",
     "name": {
@@ -2659,7 +2684,8 @@
       "weapon": -1,
       "soft": -3,
       "singular": 1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "65",
     "name": {
@@ -2700,7 +2726,8 @@
       "weapon": -1,
       "solid": 3,
       "soft": -5,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "66",
     "name": {
@@ -2865,7 +2892,8 @@
       "weapon": -3,
       "solid": 1,
       "singular": 1,
-      "soft": -1
+      "soft": -1,
+      "holdable": 3
     },
     "id": "70",
     "name": {
@@ -3193,7 +3221,8 @@
       "weapon": -3,
       "soft": 3,
       "singular": 1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "78",
     "name": {
@@ -3398,7 +3427,8 @@
       "weapon": -3,
       "solid": 1,
       "singular": 1,
-      "soft": -1
+      "soft": -1,
+      "holdable": 3
     },
     "id": "83",
     "name": {
@@ -3644,7 +3674,8 @@
       "weapon": 3,
       "solid": 1,
       "singular": 1,
-      "soft": -1
+      "soft": -1,
+      "holdable": 3
     },
     "id": "89",
     "name": {
@@ -3685,7 +3716,8 @@
       "weapon": -3,
       "soft": 3,
       "singular": -3,
-      "solid": -1
+      "solid": -1,
+      "holdable": 3
     },
     "id": "90",
     "name": {
@@ -3890,7 +3922,8 @@
       "weapon": -3,
       "singular": -3,
       "soft": 3,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "95",
     "name": {
@@ -4096,7 +4129,8 @@
       "weapon": -3,
       "solid": 1,
       "soft": 5,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "100",
     "name": {
@@ -4588,7 +4622,8 @@
       "weapon": -3,
       "solid": 1,
       "soft": 3,
-      "singular": -5
+      "singular": -5,
+      "holdable": 3
     },
     "id": "112",
     "name": {
@@ -5080,7 +5115,8 @@
       "weapon": -3,
       "solid": 1,
       "soft": 5,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "124",
     "name": {
@@ -5245,7 +5281,8 @@
       "weapon": -3,
       "singular": 1,
       "soft": 3,
-      "solid": -3
+      "solid": -3,
+      "holdable": 3
     },
     "id": "128",
     "name": {
@@ -5450,7 +5487,8 @@
       "weapon": -3,
       "singular": 1,
       "solid": -1,
-      "soft": -1
+      "soft": -1,
+      "holdable": 3
     },
     "id": "133",
     "name": {
@@ -5491,7 +5529,8 @@
       "weapon": -3,
       "soft": -1,
       "singular": -1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "134",
     "name": {
@@ -5860,7 +5899,8 @@
       "weapon": -3,
       "solid": 1,
       "soft": -1,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "143",
     "name": {
@@ -5942,7 +5982,8 @@
       "weapon": -1,
       "soft": -1,
       "singular": 1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "145",
     "name": {
@@ -5983,7 +6024,8 @@
       "weapon": 5,
       "singular": -1,
       "soft": -3,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "146",
     "name": {
@@ -6024,7 +6066,8 @@
       "weapon": 5,
       "singular": 1,
       "soft": -3,
-      "solid": 3
+      "solid": 3,
+      "holdable": 3
     },
     "id": "147",
     "name": {
@@ -6106,7 +6149,8 @@
       "weapon": -3,
       "singular": -3,
       "soft": -1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "149",
     "name": {
@@ -6393,7 +6437,8 @@
       "weapon": 1,
       "singular": 1,
       "soft": -3,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "156",
     "name": {
@@ -6557,7 +6602,8 @@
       "weapon": -3,
       "solid": 1,
       "soft": 3,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "160",
     "name": {
@@ -6844,7 +6890,8 @@
       "weapon": -3,
       "singular": -3,
       "soft": -1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "167",
     "name": {
@@ -6885,7 +6932,8 @@
       "weapon": -3,
       "singular": 1,
       "soft": -3,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "168",
     "name": {
@@ -6926,7 +6974,8 @@
       "weapon": -1,
       "singular": -3,
       "soft": 3,
-      "solid": -1
+      "solid": -1,
+      "holdable": 3
     },
     "id": "169",
     "name": {
@@ -6967,7 +7016,8 @@
       "weapon": -3,
       "singular": 1,
       "solid": 1,
-      "soft": -1
+      "soft": -1,
+      "holdable": 3
     },
     "id": "170",
     "name": {
@@ -7008,7 +7058,8 @@
       "weapon": -3,
       "soft": -3,
       "singular": 1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "171",
     "name": {
@@ -7049,7 +7100,8 @@
       "weapon": -3,
       "solid": -1,
       "soft": 3,
-      "singular": 1
+      "singular": 1,
+      "holdable": 3
     },
     "id": "172",
     "name": {
@@ -7295,7 +7347,8 @@
       "weapon": -3,
       "solid": -1,
       "singular": 1,
-      "soft": 1
+      "soft": 1,
+      "holdable": 3
     },
     "id": "178",
     "name": {
@@ -7336,7 +7389,8 @@
       "weapon": -3,
       "soft": -3,
       "singular": 1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "179",
     "name": {
@@ -7500,7 +7554,8 @@
       "weapon": -3,
       "soft": -3,
       "solid": 3,
-      "singular": 3
+      "singular": 3,
+      "holdable": 3
     },
     "id": "183",
     "name": {
@@ -7623,7 +7678,8 @@
       "weapon": 5,
       "solid": 1,
       "soft": 3,
-      "singular": -3
+      "singular": -3,
+      "holdable": 3
     },
     "id": "186",
     "name": {
@@ -7787,7 +7843,8 @@
       "weapon": -3,
       "solid": 1,
       "singular": -1,
-      "soft": -1
+      "soft": -1,
+      "holdable": 3
     },
     "id": "190",
     "name": {
@@ -7828,7 +7885,8 @@
       "weapon": -3,
       "singular": -3,
       "soft": -1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "191",
     "name": {
@@ -7869,7 +7927,8 @@
       "weapon": -3,
       "soft": -1,
       "singular": -3,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "192",
     "name": {
@@ -8033,7 +8092,8 @@
       "weapon": -3,
       "singular": -3,
       "solid": 1,
-      "soft": -3
+      "soft": -3,
+      "holdable": 3
     },
     "id": "196",
     "name": {
@@ -8074,7 +8134,8 @@
       "weapon": -3,
       "singular": -3,
       "solid": 1,
-      "soft": 1
+      "soft": 1,
+      "holdable": 3
     },
     "id": "197",
     "name": {
@@ -8156,7 +8217,8 @@
       "weapon": -3,
       "soft": -1,
       "singular": 3,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "199",
     "name": {
@@ -8197,7 +8259,8 @@
       "weapon": -3,
       "soft": -1,
       "singular": -3,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "200",
     "name": {
@@ -8361,7 +8424,8 @@
       "weapon": -3,
       "soft": 1,
       "solid": 1,
-      "singular": -5
+      "singular": -5,
+      "holdable": 3
     },
     "id": "204",
     "name": {
@@ -8443,7 +8507,8 @@
       "weapon": -3,
       "singular": -3,
       "soft": -3,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "206",
     "name": {
@@ -8894,7 +8959,8 @@
       "weapon": 1,
       "soft": -3,
       "singular": 1,
-      "solid": 1
+      "solid": 1,
+      "holdable": 3
     },
     "id": "217",
     "name": {
@@ -9017,7 +9083,8 @@
       "weapon": -3,
       "singular": 1,
       "solid": -1,
-      "soft": 3
+      "soft": 3,
+      "holdable": 3
     },
     "id": "220",
     "name": {
@@ -9305,7 +9372,8 @@
       "weapon": 1,
       "singular": 1,
       "soft": 1,
-      "solid": -3
+      "solid": -3,
+      "holdable": 3
     },
     "id": "227",
     "name": {
@@ -9346,7 +9414,8 @@
       "weapon": -3,
       "soft": 1,
       "singular": 1,
-      "solid": -1
+      "solid": -1,
+      "holdable": 3
     },
     "id": "228",
     "name": {
@@ -9633,7 +9702,8 @@
       "weapon": -3,
       "soft": 1,
       "singular": -3,
-      "solid": -1
+      "solid": -1,
+      "holdable": 3
     },
     "id": "235",
     "name": {
@@ -9839,7 +9909,8 @@
       "weapon": -3,
       "solid": 0,
       "soft": 1,
-      "singular": 0
+      "singular": 0,
+      "holdable": 3
     },
     "id": "240",
     "name": {
@@ -10044,7 +10115,8 @@
       "weapon": -3,
       "singular": 0,
       "solid": 0,
-      "soft": 1
+      "soft": 1,
+      "holdable": 3
     },
     "id": "245",
     "name": {
@@ -10538,7 +10610,8 @@
       "fast": -3,
       "odor": -3,
       "flight": -3,
-      "warm": -3
+      "warm": -3,
+      "holdable": 3
     },
     "id": "257",
     "name": {
@@ -10706,7 +10779,8 @@
       "big": -3,
       "flight": 1,
       "solid": 0,
-      "power": 0
+      "power": 0,
+      "holdable": 3
     },
     "id": "261"
   },
@@ -11194,7 +11268,8 @@
       "singular": -3,
       "flight": 1,
       "tool": 3,
-      "heavy": -3
+      "heavy": -3,
+      "holdable": 3
     },
     "name": {
       "en": "spear",
@@ -11604,7 +11679,8 @@
       "soft": -3,
       "bright": -3,
       "beautiful": -3,
-      "sharp": -3
+      "sharp": -3,
+      "holdable": 3
     },
     "name": {
       "en": "treasure map",
@@ -11690,7 +11766,8 @@
       "odor": -3,
       "power": 0,
       "warm": -3,
-      "singular": 0
+      "singular": 0,
+      "holdable": 3
     },
     "id": "285"
   },
@@ -11810,7 +11887,8 @@
       "liquid": -3,
       "sound": -3,
       "danger": -3,
-      "long": -3
+      "long": -3,
+      "holdable": 3
     },
     "name": {
       "pt": "abridor de garrafa",
@@ -11936,7 +12014,8 @@
       "human": 0,
       "food": 3,
       "valuable": -3,
-      "solid": 0
+      "solid": 0,
+      "holdable": 3
     },
     "id": "291"
   },
@@ -12018,7 +12097,8 @@
       "round": 0,
       "plant": 0,
       "soft": -3,
-      "heavy": -3
+      "heavy": -3,
+      "holdable": 3
     },
     "id": "293"
   },
@@ -12096,7 +12176,8 @@
       "beautiful": -3,
       "machine": 1,
       "food": -3,
-      "tool": 0
+      "tool": 0,
+      "holdable": 3
     },
     "name": {
       "pt": "vara de pescar",
@@ -12224,7 +12305,8 @@
       "defense": -3,
       "warm": -3,
       "odor": -3,
-      "old": 0
+      "old": 0,
+      "holdable": 3
     }
   },
   "299": {
@@ -12875,7 +12957,8 @@
       "warm": -3,
       "tool": 0,
       "flight": -3,
-      "sharp": -3
+      "sharp": -3,
+      "holdable": 3
     },
     "id": "314",
     "name": {
@@ -13095,11 +13178,11 @@
     },
     "attributes": {
       "round": 0,
-      "solid": 0,
-      "human": 0,
+      "solid": 1,
+      "human": -3,
       "metal": -3,
       "machine": -3,
-      "power": 0,
+      "power": -3,
       "sound": -3,
       "long": 3,
       "weapon": -3,
@@ -13120,12 +13203,13 @@
       "alive": -3,
       "defense": -3,
       "warm": -3,
-      "plant": 0,
+      "plant": -3,
       "heavy": -3,
       "flight": -3,
       "valuable": -3,
       "flat": 5,
-      "fast": -3
+      "fast": -3,
+      "holdable": 3
     },
     "id": "320"
   },
@@ -13495,7 +13579,8 @@
       "heavy": -3,
       "singular": 0,
       "valuable": -3,
-      "human": 0
+      "human": 0,
+      "holdable": 3
     }
   },
   "330": {
@@ -13536,7 +13621,8 @@
       "beautiful": -3,
       "human": 0,
       "food": -3,
-      "odor": -3
+      "odor": -3,
+      "holdable": 3
     }
   },
   "331": {
@@ -13861,7 +13947,8 @@
       "flight": -3,
       "power": 0,
       "danger": -3,
-      "alive": -3
+      "alive": -3,
+      "holdable": 3
     },
     "name": {
       "en": "hotdog",
@@ -13988,7 +14075,8 @@
       "knowledge": 0,
       "old": 0,
       "human": 0,
-      "soft": -3
+      "soft": -3,
+      "holdable": 3
     }
   },
   "342": {
@@ -14024,7 +14112,8 @@
       "defense": -3,
       "plant": 0,
       "round": 0,
-      "solid": 0
+      "solid": 0,
+      "holdable": 3
     },
     "id": "342",
     "name": {
@@ -14521,7 +14610,8 @@
       "power": 0,
       "heavy": -3,
       "beautiful": -3,
-      "danger": -3
+      "danger": -3,
+      "holdable": 3
     }
   },
   "355": {
@@ -14562,7 +14652,8 @@
       "old": 0,
       "plant": 0,
       "machine": -3,
-      "danger": -3
+      "danger": -3,
+      "holdable": 3
     }
   },
   "356": {
@@ -14639,7 +14730,8 @@
       "power": 0,
       "tool": 0,
       "sound": -3,
-      "sharp": -3
+      "sharp": -3,
+      "holdable": 3
     },
     "id": "357",
     "name": {
@@ -14685,7 +14777,8 @@
       "tool": 0,
       "singular": 0,
       "valuable": -3,
-      "solid": 0
+      "solid": 0,
+      "holdable": 3
     }
   },
   "359": {
@@ -14971,7 +15064,8 @@
       "liquid": -3,
       "bright": -3,
       "beautiful": -3,
-      "flight": -3
+      "flight": -3,
+      "holdable": 3
     },
     "id": "365"
   },
@@ -15049,7 +15143,8 @@
       "fast": -3,
       "heavy": -3,
       "knowledge": 0,
-      "odor": -3
+      "odor": -3,
+      "holdable": 3
     },
     "id": "367",
     "name": {
@@ -15131,7 +15226,8 @@
       "clothes": 1,
       "sound": -3,
       "big": -3,
-      "liquid": 1
+      "liquid": 1,
+      "holdable": 3
     },
     "id": "369",
     "name": {
@@ -15341,7 +15437,8 @@
       "big": -3,
       "soft": -3,
       "flat": -3,
-      "beautiful": -3
+      "beautiful": -3,
+      "holdable": 3
     }
   },
   "375": {
@@ -15423,7 +15520,8 @@
       "fast": -3,
       "beautiful": -3,
       "soft": -3,
-      "plant": -3
+      "plant": -3,
+      "holdable": 3
     }
   },
   "377": {
@@ -16036,7 +16134,8 @@
       "plant": 0,
       "flat": -3,
       "sharp": -3,
-      "odor": -3
+      "odor": -3,
+      "holdable": 3
     },
     "name": {
       "pt": "regador",
@@ -16117,7 +16216,8 @@
       "flight": -3,
       "sharp": -3,
       "long": 1,
-      "warm": -3
+      "warm": -3,
+      "holdable": 3
     },
     "id": "393",
     "name": {
@@ -16323,7 +16423,8 @@
       "flight": -3,
       "liquid": -3,
       "food": 1,
-      "valuable": -3
+      "valuable": -3,
+      "holdable": 3
     },
     "name": {
       "en": "grater",
@@ -16815,7 +16916,8 @@
       "valuable": -3,
       "flat": -3,
       "fast": -3,
-      "human": -3
+      "human": -3,
+      "holdable": 3
     },
     "name": {
       "en": "cotton candy",
@@ -17231,7 +17333,8 @@
       "defense": -3,
       "weapon": -3,
       "food": -3,
-      "power": -5
+      "power": -5,
+      "holdable": 3
     }
   },
   "421": {
@@ -17391,7 +17494,8 @@
       "solid": 1,
       "power": -3,
       "human": -3,
-      "alive": -3
+      "alive": -3,
+      "holdable": 3
     },
     "name": {
       "pt": "pratos musicais",
@@ -17436,7 +17540,8 @@
       "round": -5,
       "sharp": -3,
       "danger": -3,
-      "heavy": -3
+      "heavy": -3,
+      "holdable": 3
     }
   },
   "426": {
@@ -17476,7 +17581,8 @@
       "alive": -3,
       "warm": -3,
       "sound": 5,
-      "fast": -3
+      "fast": -3,
+      "holdable": 3
     },
     "id": "426"
   },
@@ -17761,7 +17867,8 @@
       "food": -3,
       "clothes": -3,
       "tool": 0,
-      "weapon": -3
+      "weapon": -3,
+      "holdable": 3
     },
     "name": {
       "en": "vibrator",
@@ -18380,7 +18487,8 @@
       "liquid": -3,
       "flight": -3,
       "food": 3,
-      "danger": -3
+      "danger": -3,
+      "holdable": 3
     }
   },
   "449": {
@@ -18595,7 +18703,7 @@
       "pt": "marionete"
     },
     "attributes": {
-      "alive": 0,
+      "alive": 1,
       "beautiful": 0,
       "big": 0,
       "bright": 0,
@@ -18626,7 +18734,8 @@
       "tool": 0,
       "valuable": 0,
       "warm": 0,
-      "weapon": 0
+      "weapon": 0,
+      "holdable": 3
     }
   },
   "455": {
@@ -18759,7 +18868,7 @@
       "pt": "avestruz"
     },
     "attributes": {
-      "alive": 0,
+      "alive": 5,
       "beautiful": 0,
       "big": 0,
       "bright": 0,
@@ -18768,7 +18877,7 @@
       "defense": 0,
       "fast": 0,
       "flat": 0,
-      "flight": 0,
+      "flight": 1,
       "food": 0,
       "heavy": 0,
       "human": 0,
@@ -19036,7 +19145,8 @@
       "tool": 0,
       "valuable": 0,
       "warm": 0,
-      "weapon": 0
+      "weapon": 0,
+      "holdable": 3
     }
   },
   "465": {
@@ -19050,7 +19160,7 @@
       "beautiful": 0,
       "big": 0,
       "bright": 0,
-      "clothes": 0,
+      "clothes": 3,
       "danger": 0,
       "defense": 0,
       "fast": 0,
@@ -19282,7 +19392,8 @@
       "tool": 0,
       "valuable": 0,
       "warm": 0,
-      "weapon": 0
+      "weapon": 0,
+      "holdable": 3
     }
   },
   "471": {
@@ -19301,7 +19412,7 @@
       "defense": 0,
       "fast": 0,
       "flat": 0,
-      "flight": 0,
+      "flight": 5,
       "food": 0,
       "heavy": 0,
       "human": 0,
@@ -19333,7 +19444,7 @@
       "pt": "águia"
     },
     "attributes": {
-      "alive": 0,
+      "alive": 5,
       "beautiful": 0,
       "big": 0,
       "bright": 0,
@@ -19405,7 +19516,8 @@
       "tool": 0,
       "valuable": 0,
       "warm": 0,
-      "weapon": 0
+      "weapon": 0,
+      "holdable": 3
     }
   },
   "474": {
@@ -19424,7 +19536,7 @@
       "defense": 0,
       "fast": 0,
       "flat": 0,
-      "flight": 0,
+      "flight": 5,
       "food": 0,
       "heavy": 0,
       "human": 0,
@@ -19528,7 +19640,8 @@
       "tool": 0,
       "valuable": 0,
       "warm": 0,
-      "weapon": 0
+      "weapon": 0,
+      "holdable": 3
     }
   },
   "477": {
@@ -19610,7 +19723,8 @@
       "tool": 0,
       "valuable": 0,
       "warm": 0,
-      "weapon": 0
+      "weapon": 0,
+      "holdable": 3
     }
   },
   "479": {
@@ -19692,7 +19806,8 @@
       "tool": 0,
       "valuable": 0,
       "warm": 0,
-      "weapon": 0
+      "weapon": 0,
+      "holdable": 3
     }
   },
   "481": {
@@ -19784,7 +19899,7 @@
       "pt": "fliperama"
     },
     "attributes": {
-      "alive": 0,
+      "alive": -3,
       "beautiful": 0,
       "big": 0,
       "bright": 0,
@@ -19825,7 +19940,7 @@
       "pt": "flamingo"
     },
     "attributes": {
-      "alive": 0,
+      "alive": 5,
       "beautiful": 0,
       "big": 0,
       "bright": 0,
@@ -19834,7 +19949,7 @@
       "defense": 0,
       "fast": 0,
       "flat": 0,
-      "flight": 0,
+      "flight": 3,
       "food": 0,
       "heavy": 0,
       "human": 0,
@@ -19907,7 +20022,7 @@
       "pt": "montanha russa"
     },
     "attributes": {
-      "alive": 0,
+      "alive": -3,
       "beautiful": 0,
       "big": 0,
       "bright": 0,
@@ -20020,7 +20135,8 @@
       "tool": 0,
       "valuable": 0,
       "warm": 0,
-      "weapon": 0
+      "weapon": 0,
+      "holdable": 3
     }
   },
   "489": {
@@ -20102,7 +20218,8 @@
       "tool": 0,
       "valuable": 0,
       "warm": 0,
-      "weapon": 0
+      "weapon": 0,
+      "holdable": 3
     }
   },
   "491": {
@@ -20358,7 +20475,7 @@
       "pt": "castellers"
     },
     "attributes": {
-      "alive": 0,
+      "alive": 5,
       "beautiful": 0,
       "big": 0,
       "bright": 0,
@@ -20481,36 +20598,36 @@
       "pt": "atendente de telemarketing"
     },
     "attributes": {
-      "alive": 0,
-      "beautiful": 0,
-      "big": 0,
-      "bright": 0,
+      "alive": 5,
+      "beautiful": -3,
+      "big": -3,
+      "bright": -3,
       "clothes": 0,
-      "danger": 0,
+      "danger": -3,
       "defense": 0,
-      "fast": 0,
-      "flat": 0,
-      "flight": 0,
-      "food": 0,
-      "heavy": 0,
-      "human": 0,
+      "fast": -5,
+      "flat": -3,
+      "flight": -3,
+      "food": -3,
+      "heavy": -3,
+      "human": 5,
       "knowledge": 0,
-      "liquid": 0,
+      "liquid": -3,
       "long": 0,
       "machine": 0,
       "metal": 0,
-      "odor": 0,
+      "odor": -3,
       "old": 0,
-      "plant": 0,
+      "plant": -3,
       "power": 0,
-      "round": 0,
+      "round": -3,
       "sharp": 0,
-      "singular": 0,
-      "soft": 0,
-      "solid": 0,
-      "sound": 0,
-      "tool": 0,
-      "valuable": 0,
+      "singular": -3,
+      "soft": -3,
+      "solid": -3,
+      "sound": 3,
+      "tool": 1,
+      "valuable": -3,
       "warm": 0,
       "weapon": 0
     }
