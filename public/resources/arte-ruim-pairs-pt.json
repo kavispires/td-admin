@@ -250,5 +250,13 @@
   "ap-63-pt": {
     "id": "ap-63-pt",
     "values": ["Drone", "Helicóptero"]
+  },
+  "ap-64-pt": {
+    "id": "ap-64-pt",
+    "values": ["Puts Grila", "Grilado"]
+  },
+  "ap-65-pt": {
+    "id": "ap-65-pt",
+    "values": ["Triângulo das bermudas", "Esquema de pirâmide"]
   }
 }
