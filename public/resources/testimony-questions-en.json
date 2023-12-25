@@ -631,5 +631,81 @@
     "id": "t-125-en",
     "question": "Do they record Tik Tok dances?",
     "answer": "Record Tik Tok dances"
+  },
+  "t-126-en": {
+    "id": "t-126-en",
+    "question": "Are they always late?",
+    "answer": "Are always late"
+  },
+  "t-127-en": {
+    "id": "t-127-en",
+    "question": "Do they have a lot of plants?",
+    "answer": "Have a lot of plants"
+  },
+  "t-128-en": {
+    "id": "t-128-en",
+    "question": "Do they park on the handicap spot even though they are not handicapped?",
+    "answer": "Park on the handicap spot even though they are not handicapped"
+  },
+  "t-129-en": {
+    "id": "t-129-en",
+    "question": "Do they have a lot of credit card debt?",
+    "answer": "Have a lot of credit card debt"
+  },
+  "t-130-en": {
+    "id": "t-130-en",
+    "question": "Do they use they/them as pronouns?",
+    "answer": "Use they/them as pronouns",
+    "nsfw": true
+  },
+  "t-131-en": {
+    "id": "t-131-en",
+    "question": "Do they write reviews on Yelp?",
+    "answer": "Write reviews on Yelp"
+  },
+  "t-132-en": {
+    "id": "t-132-en",
+    "question": "Have they had appendicitis?",
+    "answer": "Have had appendicitis"
+  },
+  "t-133-en": {
+    "id": "t-133-en",
+    "question": "Do they steal wifi from the neighbor?",
+    "answer": "Steal wifi from the neighbor"
+  },
+  "t-134-en": {
+    "id": "t-134-en",
+    "question": "Do they have more than 12 pairs of shoes?",
+    "answer": "Have more than 12 pairs of shoes"
+  },
+  "t-135-en": {
+    "id": "t-135-en",
+    "question": "Are they shy?",
+    "answer": "Are shy"
+  },
+  "t-136-en": {
+    "id": "t-136-en",
+    "question": "Do they cry when Michael Jackson died?",
+    "answer": "Cry when Michael Jackson died"
+  },
+  "t-137-en": {
+    "id": "t-137-en",
+    "question": "Do they have a mysterious past?",
+    "answer": "Have a mysterious past"
+  },
+  "t-138-en": {
+    "id": "t-138-en",
+    "question": "Do they have a lot of followers on social media?",
+    "answer": "Have a lot of followers on social media"
+  },
+  "t-139-en": {
+    "id": "t-139-en",
+    "question": "Are they afraid of heights?",
+    "answer": "Are afraid of heights"
+  },
+  "t-140-en": {
+    "id": "t-140-en",
+    "question": "Do they like K-Pop?",
+    "answer": "Like K-Pop"
   }
 }
