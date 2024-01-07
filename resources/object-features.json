@@ -1,0 +1,182 @@
+{
+  "oft-1": {
+    "id": "oft-1",
+    "title": {
+      "en": "Frequency (Worldwide)",
+      "pt": "Frequência (Mundial)"
+    },
+    "description": {
+      "en": "The quantity of the object occurring worldwide in the present.",
+      "pt": "A quantidade do objeto ocorrendo mundialmente no presente."
+    },
+    "level": 1
+  },
+  "oft-2": {
+    "id": "oft-2",
+    "title": {
+      "en": "Length",
+      "pt": "Comprimento"
+    },
+    "description": {
+      "en": "The length of the longest side of the object.",
+      "pt": "O comprimento do lado mais longo do objeto."
+    },
+    "level": 1
+  },
+  "oft-3": {
+    "id": "oft-3",
+    "title": {
+      "en": "Price",
+      "pt": "Preço"
+    },
+    "description": {
+      "en": "The purchase price of the object.",
+      "pt": "O preço de compra do objeto."
+    },
+    "level": 1
+  },
+  "oft-4": {
+    "id": "oft-4",
+    "title": {
+      "en": "Material",
+      "pt": "Material"
+    },
+    "description": {
+      "en": "The materials the object is made of.",
+      "pt": "Os materiais do qual o objeto é feito."
+    },
+    "level": 1
+  },
+  "oft-5": {
+    "id": "oft-5",
+    "title": {
+      "en": "Intent of use",
+      "pt": "Intenção de uso"
+    },
+    "description": {
+      "en": "The application for which the object is intended.",
+      "pt": "A aplicação para a qual o objeto é destinado a ser usado."
+    },
+    "level": 1
+  },
+  "oft-6": {
+    "id": "oft-6",
+    "title": {
+      "en": "Appearance",
+      "pt": "Aparência"
+    },
+    "description": {
+      "en": "The external appearance of the object.",
+      "pt": "A aparência do objeto."
+    },
+    "level": 1
+  },
+  "oft-7": {
+    "id": "oft-7",
+    "title": {
+      "en": "Importance for Humanity",
+      "pt": "Importância para a Humanidade"
+    },
+    "description": {
+      "en": "How bad would it be for all humanity if the object no longer existed tomorrow?",
+      "pt": "Quão ruim seria para toda a humanidade se o objeto não existisse mais amanhã?"
+    },
+    "level": 2
+  },
+  "oft-8": {
+    "id": "oft-8",
+    "title": {
+      "en": "Complexity of construction",
+      "pt": "Complexidade de construção"
+    },
+    "description": {
+      "en": "The complexity of the object's construction. It does not refer to the production of the object.",
+      "pt": "A complexidade da construção do objeto. Não se refere à produção do objeto."
+    },
+    "level": 2
+  },
+  "oft-9": {
+    "id": "oft-9",
+    "title": {
+      "en": "Movement",
+      "pt": "Movimento"
+    },
+    "description": {
+      "en": "The movement of the object can be derived from parts of the object moving (e.g. a cuckoo clock), a person moving it (e.g. rocking horse) or it being used with a typical movement (e.g. putting a phone to your ear).",
+      "pt": "O movimento do objeto pode ser derivado de partes do objeto em movimento (por exemplo, um relógio cuco), uma pessoa movendo-o (por exemplo, cavalo de balanço) ou sendo usado com um movimento típico (por exemplo, colocando um telefone no ouvido)."
+    },
+    "level": 2
+  },
+  "oft-10": {
+    "id": "oft-10",
+    "title": {
+      "en": "Duration of use",
+      "pt": "Duração de uso"
+    },
+    "description": {
+      "en": "The duration of use from the beginning to the end of an active use. It does not refer to the duration of use over the entire life of the object.",
+      "pt": "A duração do uso desde o início até o final de um uso ativo. Não se refere à duração do uso durante toda a vida do objeto."
+    },
+    "level": 3
+  },
+  "oft-11": {
+    "id": "oft-11",
+    "title": {
+      "en": "Explanation effort",
+      "pt": "Esforço para explicação"
+    },
+    "description": {
+      "en": "The amount of information needed to use this object properly. How extensive would the instructions be that would accompany this object?",
+      "pt": "A quantidade de informações necessárias para usar este objeto corretamente. Quão extensas seriam as instruções que acompanhariam este objeto?"
+    },
+    "level": 3
+  },
+  "oft-12": {
+    "id": "oft-12",
+    "title": {
+      "en": "Frequency of use",
+      "pt": "Frequência de uso"
+    },
+    "description": {
+      "en": "The average number of days per year that the object is used.",
+      "pt": "O número médio de dias por ano que o objeto é usado."
+    },
+    "level": 3
+  },
+  "oft-13": {
+    "id": "oft-13",
+    "title": {
+      "en": "Weight",
+      "pt": "Peso"
+    },
+    "description": {
+      "en": "The weight of the object.",
+      "pt": "O peso do objeto."
+    },
+    "level": 4
+  },
+  "oft-14": {
+    "id": "oft-14",
+    "title": {
+      "en": "Volume",
+      "pt": "Volume"
+    },
+    "description": {
+      "en": "The volume of the object.",
+      "pt": "O volume do objeto."
+    },
+    "level": 4
+  },
+  "oft-15": {
+    "id": "oft-15",
+    "title": {
+      "en": "Height of the lying object",
+      "pt": "Altura do objeto deitado"
+    },
+    "description": {
+      "en": "The height of the object placed so that it has the least height",
+      "pt": "A altura do objeto colocado de modo que tenha a menor altura"
+    },
+    "level": 4
+  }
+}
