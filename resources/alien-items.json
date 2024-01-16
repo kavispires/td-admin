@@ -23616,7 +23616,7 @@
   "514": {
     "id": "514",
     "name": {
-      "pt": "",
+      "pt": "chapeu de marinheiro",
       "en": "sailor hat"
     },
     "attributes": {
@@ -23662,7 +23662,7 @@
   "515": {
     "id": "515",
     "name": {
-      "pt": "",
+      "pt": "prancheta",
       "en": "clipboard"
     },
     "attributes": {
@@ -24859,7 +24859,7 @@
     "id": "541",
     "name": {
       "en": "poker chip",
-      "pt": ""
+      "pt": "ficha de poker"
     },
     "attributes": {
       "alive": -3,
@@ -26238,8 +26238,8 @@
   "571": {
     "id": "571",
     "name": {
-      "en": "",
-      "pt": ""
+      "en": "velvet ropes",
+      "pt": "corda de veludo"
     },
     "attributes": {
       "alive": -3,
@@ -26468,8 +26468,8 @@
   "576": {
     "id": "576",
     "name": {
-      "pt": "",
-      "en": "hamster wheel "
+      "pt": "roda de hamster",
+      "en": "hamster wheel"
     },
     "attributes": {
       "alive": -3,
@@ -26514,8 +26514,8 @@
   "577": {
     "id": "577",
     "name": {
-      "en": "crate",
-      "pt": ""
+      "en": "wooden crate",
+      "pt": "caixote de madeira"
     },
     "attributes": {
       "alive": -3,
@@ -26652,7 +26652,7 @@
   "580": {
     "id": "580",
     "name": {
-      "pt": "",
+      "pt": "segway",
       "en": "segway"
     },
     "attributes": {
@@ -26837,7 +26837,7 @@
   "584": {
     "id": "584",
     "name": {
-      "pt": "",
+      "pt": "bolas de pompoarismo",
       "en": "anal beads"
     },
     "attributes": {
@@ -29644,8 +29644,8 @@
   "645": {
     "id": "645",
     "name": {
-      "en": "unicorn",
-      "pt": "unicórnio"
+      "en": "christ statue",
+      "pt": "cristo redentor"
     },
     "attributes": {
       "alive": -5,
@@ -38342,7 +38342,7 @@
     "id": "834",
     "name": {
       "en": "food truck",
-      "pt": ""
+      "pt": "food truck"
     },
     "attributes": {
       "alive": -3,
@@ -39629,8 +39629,8 @@
   "862": {
     "id": "862",
     "name": {
-      "pt": "",
-      "en": "seahorse"
+      "en": "seahorse",
+      "pt": "cavalo marinho"
     },
     "attributes": {
       "alive": 5,
