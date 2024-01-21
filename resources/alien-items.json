@@ -45,7 +45,8 @@
       "pt": "tapede de ioga"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "2": {
@@ -140,7 +141,8 @@
       "pt": "espada"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "4": {
@@ -189,7 +191,8 @@
       "en": "assault riffle"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "5": {
@@ -236,7 +239,10 @@
     "name": {
       "en": "pig",
       "pt": "porco"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "6": {
     "attributes": {
@@ -284,7 +290,8 @@
       "pt": "carta"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "7": {
@@ -333,7 +340,8 @@
       "pt": "caixa de ferramentas"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "8": {
@@ -382,7 +390,8 @@
       "en": "birthday hat"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "9": {
@@ -431,7 +440,8 @@
       "en": "denture"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "10": {
@@ -480,7 +490,8 @@
       "en": "car"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "11": {
@@ -529,7 +540,8 @@
       "pt": "livro"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "12": {
@@ -578,7 +590,9 @@
       "pt": "robô"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "13": {
@@ -625,7 +639,10 @@
     "name": {
       "pt": "jóia",
       "en": "gem"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "14": {
     "attributes": {
@@ -671,7 +688,10 @@
     "name": {
       "pt": "morango",
       "en": "strawberry"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "15": {
     "attributes": {
@@ -719,7 +739,9 @@
       "en": "boxing gloves"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "16": {
@@ -766,7 +788,10 @@
     "name": {
       "pt": "peixe",
       "en": "fish"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "17": {
     "attributes": {
@@ -814,7 +839,9 @@
       "pt": "carrinho de supermercado"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "18": {
@@ -863,7 +890,8 @@
       "en": "fan"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "19": {
@@ -912,7 +940,8 @@
       "en": "comb"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "20": {
@@ -961,7 +990,8 @@
       "pt": "árvore de natal"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "21": {
@@ -1010,7 +1040,8 @@
       "en": "shovel"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "22": {
@@ -1060,7 +1091,8 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "23": {
@@ -1109,7 +1141,8 @@
       "pt": "piano"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "24": {
@@ -1158,7 +1191,8 @@
       "en": "muffin"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "25": {
@@ -1207,7 +1241,8 @@
       "pt": "pendrive"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "26": {
@@ -1256,7 +1291,9 @@
       "pt": "skate"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "27": {
@@ -1305,7 +1342,8 @@
       "en": "bicycle"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "28": {
@@ -1354,7 +1392,8 @@
       "en": "dumbbell"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "29": {
@@ -1495,7 +1534,8 @@
       "en": "garland"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "32": {
@@ -1544,7 +1584,8 @@
       "pt": "bandeira arco-íris"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "33": {
@@ -1639,7 +1680,8 @@
       "pt": "ferradura"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "35": {
@@ -1783,7 +1825,8 @@
       "pt": "borrifador"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "38": {
@@ -1832,7 +1875,8 @@
       "en": "paint roller"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "39": {
@@ -1879,7 +1923,10 @@
     "name": {
       "pt": "fogo",
       "en": "fire"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "40": {
     "attributes": {
@@ -1924,10 +1971,11 @@
     "id": "40",
     "name": {
       "pt": "extintor de incêndio",
-      "en": "fire extinguisher "
+      "en": "fire extinguisher"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "41": {
@@ -1974,7 +2022,10 @@
     "name": {
       "en": "chicken",
       "pt": "galinha"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "42": {
     "attributes": {
@@ -2069,7 +2120,8 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "44": {
@@ -2118,7 +2170,8 @@
       "en": "trampoline"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "45": {
@@ -2259,7 +2312,8 @@
       "en": "bag of chips"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "48": {
@@ -2308,7 +2362,8 @@
       "en": "donut"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "49": {
@@ -2357,7 +2412,8 @@
       "en": "watch"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "50": {
@@ -2406,7 +2462,9 @@
       "en": "pen"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "51": {
@@ -2553,7 +2611,8 @@
       "pt": "canivete"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "54": {
@@ -2602,7 +2661,8 @@
       "en": "knife"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "55": {
@@ -2651,7 +2711,8 @@
       "en": "glasses"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "56": {
@@ -2700,7 +2761,8 @@
       "en": "safe"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "57": {
@@ -2749,7 +2811,8 @@
       "pt": "sombreiro"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "58": {
@@ -2798,7 +2861,8 @@
       "pt": "chupeta"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "59": {
@@ -2893,7 +2957,8 @@
       "pt": "mamadeira"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "61": {
@@ -2942,7 +3007,8 @@
       "en": "diaper"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "62": {
@@ -2992,7 +3058,8 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "63": {
@@ -3039,7 +3106,10 @@
     "name": {
       "en": "mustache",
       "pt": "bigode"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "64": {
     "attributes": {
@@ -3087,7 +3157,8 @@
       "en": "golf club"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "65": {
@@ -3136,7 +3207,8 @@
       "pt": "grampeador"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "66": {
@@ -3185,7 +3257,8 @@
       "en": "wrench"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "67": {
@@ -3234,7 +3307,8 @@
       "en": "atomic bomb"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "68": {
@@ -3283,7 +3357,8 @@
       "pt": "máscara cirúrgica"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "69": {
@@ -3379,7 +3454,8 @@
       "pt": "lâmpada"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "71": {
@@ -3428,7 +3504,8 @@
       "pt": "bolo"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "72": {
@@ -3475,7 +3552,10 @@
     "name": {
       "en": "branch",
       "pt": "ramo"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "73": {
     "attributes": {
@@ -3572,7 +3652,8 @@
       "en": "barrel"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "75": {
@@ -3621,7 +3702,8 @@
       "en": "shield"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "76": {
@@ -3670,7 +3752,8 @@
       "en": "wedding dress"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "77": {
@@ -3719,7 +3802,8 @@
       "en": "board game"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "78": {
@@ -3768,7 +3852,8 @@
       "pt": "jornal"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "79": {
@@ -3817,7 +3902,8 @@
       "pt": "sorvete"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "80": {
@@ -4004,7 +4090,8 @@
       "pt": "celular"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "84": {
@@ -4053,7 +4140,8 @@
       "en": "window"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "85": {
@@ -4100,7 +4188,10 @@
     "name": {
       "pt": "olho",
       "en": "eye"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "86": {
     "attributes": {
@@ -4146,7 +4237,10 @@
     "name": {
       "pt": "dente",
       "en": "tooth"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "87": {
     "attributes": {
@@ -4286,7 +4380,8 @@
       "pt": "machado"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "90": {
@@ -4430,7 +4525,8 @@
       "pt": "bigorna"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "93": {
@@ -4479,7 +4575,8 @@
       "pt": "foice"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "94": {
@@ -4526,7 +4623,10 @@
     "name": {
       "pt": "madeira",
       "en": "wood"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "95": {
     "attributes": {
@@ -4575,7 +4675,8 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "96": {
@@ -4622,7 +4723,10 @@
     "name": {
       "pt": "osso",
       "en": "bone"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "97": {
     "attributes": {
@@ -4714,7 +4818,11 @@
     "name": {
       "en": "table",
       "pt": "mesa"
-    }
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
   },
   "99": {
     "attributes": {
@@ -4808,7 +4916,8 @@
       "en": "rope"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "101": {
@@ -4857,7 +4966,9 @@
       "en": "statue"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "102": {
@@ -4952,7 +5063,8 @@
       "pt": "canhão"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "104": {
@@ -5001,7 +5113,9 @@
       "en": "chair"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "105": {
@@ -5050,7 +5164,8 @@
       "en": "coffin"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "106": {
@@ -5194,7 +5309,8 @@
       "pt": "leite"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "109": {
@@ -5243,7 +5359,8 @@
       "en": "belt"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "110": {
@@ -5336,7 +5453,10 @@
     "name": {
       "en": "bread",
       "pt": "pão"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "112": {
     "attributes": {
@@ -5384,7 +5504,8 @@
       "en": "money"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "113": {
@@ -5431,7 +5552,10 @@
     "name": {
       "en": "steak",
       "pt": "bife"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "114": {
     "attributes": {
@@ -5479,7 +5603,8 @@
       "en": "toy horse"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "115": {
@@ -5526,7 +5651,11 @@
     "name": {
       "en": "rock",
       "pt": "pedra"
-    }
+    },
+    "categories": [
+      "weapon",
+      "evidence"
+    ]
   },
   "116": {
     "attributes": {
@@ -5618,7 +5747,10 @@
     "name": {
       "en": "parrot",
       "pt": "papagaio"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "118": {
     "attributes": {
@@ -5666,7 +5798,8 @@
       "en": "ring"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "119": {
@@ -5715,7 +5848,8 @@
       "pt": "tigela"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "120": {
@@ -5762,7 +5896,10 @@
     "name": {
       "en": "gold bars",
       "pt": "barras de ouro"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "121": {
     "attributes": {
@@ -5810,7 +5947,8 @@
       "en": "t-shirt"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "122": {
@@ -5859,7 +5997,8 @@
       "en": "tent"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "123": {
@@ -5908,7 +6047,8 @@
       "en": "skirt"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "124": {
@@ -5957,7 +6097,8 @@
       "en": "scroll"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "125": {
@@ -6004,7 +6145,10 @@
     "name": {
       "en": "pineapple",
       "pt": "abacaxi"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "126": {
     "attributes": {
@@ -6053,7 +6197,8 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "127": {
@@ -6151,7 +6296,8 @@
       "pt": "limonada"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "129": {
@@ -6246,7 +6392,8 @@
       "en": "computer"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "131": {
@@ -6295,7 +6442,8 @@
       "en": "alarm clock"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "132": {
@@ -6344,7 +6492,8 @@
       "en": "sweater"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "133": {
@@ -6393,7 +6542,8 @@
       "pt": "aspirador de pó"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "134": {
@@ -6442,7 +6592,8 @@
       "pt": "refrigerante"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "135": {
@@ -6489,7 +6640,11 @@
     "name": {
       "pt": "barata",
       "en": "cockroack"
-    }
+    },
+    "categories": [
+      "weapon",
+      "evidence"
+    ]
   },
   "136": {
     "attributes": {
@@ -6586,7 +6741,8 @@
       "pt": "satélite"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "138": {
@@ -6635,7 +6791,8 @@
       "pt": "globo"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "139": {
@@ -6684,7 +6841,8 @@
       "pt": "bola de discoteca"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "140": {
@@ -6733,7 +6891,8 @@
       "en": "bowling pins"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "141": {
@@ -6782,7 +6941,8 @@
       "en": "crown"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "142": {
@@ -6877,7 +7037,8 @@
       "en": "microphone"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "144": {
@@ -6926,7 +7087,8 @@
       "pt": "usina nuclear"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "145": {
@@ -6975,7 +7137,8 @@
       "pt": "bumerangue"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "146": {
@@ -7024,7 +7187,8 @@
       "pt": "estrela ninja"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "147": {
@@ -7073,7 +7237,8 @@
       "en": "revolver"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "148": {
@@ -7120,7 +7285,10 @@
     "name": {
       "pt": "cachorro",
       "en": "dog"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "149": {
     "attributes": {
@@ -7168,7 +7336,8 @@
       "en": "tongs"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "150": {
@@ -7217,7 +7386,8 @@
       "pt": "urso de pelúcia"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "151": {
@@ -7264,7 +7434,10 @@
     "name": {
       "en": "snake",
       "pt": "cobra"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "152": {
     "attributes": {
@@ -7312,7 +7485,8 @@
       "en": "microwave"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "153": {
@@ -7359,7 +7533,10 @@
     "name": {
       "pt": "aranha",
       "en": "spider"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "154": {
     "attributes": {
@@ -7407,7 +7584,8 @@
       "en": "fridge"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "155": {
@@ -7456,7 +7634,8 @@
       "en": "ball pool"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "156": {
@@ -7505,7 +7684,8 @@
       "en": "hammer"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "157": {
@@ -7603,7 +7783,8 @@
       "pt": "lâmpada elétrica"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "159": {
@@ -7652,7 +7833,8 @@
       "pt": "castelo inflável"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "160": {
@@ -7701,7 +7883,8 @@
       "pt": "desentupidor"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "161": {
@@ -7797,7 +7980,10 @@
     "name": {
       "en": "cat",
       "pt": "gato"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "163": {
     "attributes": {
@@ -7843,7 +8029,10 @@
     "name": {
       "en": "voodoo",
       "pt": "vudu"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "164": {
     "attributes": {
@@ -7891,7 +8080,8 @@
       "pt": "fones de ouvido"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "165": {
@@ -7940,7 +8130,8 @@
       "en": "jigsaw puzzle"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "166": {
@@ -8038,7 +8229,9 @@
       "en": "scooter"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "168": {
@@ -8087,7 +8280,8 @@
       "pt": "canoa"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "169": {
@@ -8134,7 +8328,10 @@
     "name": {
       "en": "yarn",
       "pt": "lã"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "170": {
     "attributes": {
@@ -8182,7 +8379,8 @@
       "pt": "alicate"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "171": {
@@ -8231,7 +8429,9 @@
       "pt": "barbeador"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "172": {
@@ -8280,7 +8480,8 @@
       "en": "coffee"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "173": {
@@ -8327,7 +8528,10 @@
     "name": {
       "en": "cactus",
       "pt": "cacto"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "174": {
     "attributes": {
@@ -8375,7 +8579,8 @@
       "pt": "cadeira de rodas"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "175": {
@@ -8470,7 +8675,8 @@
       "pt": "algema"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "177": {
@@ -8519,7 +8725,8 @@
       "pt": "televisão"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "178": {
@@ -8568,7 +8775,9 @@
       "en": "wine glass"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "179": {
@@ -8617,7 +8826,9 @@
       "pt": "motocicleta"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "180": {
@@ -8666,7 +8877,8 @@
       "pt": "girlanda"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "181": {
@@ -8713,7 +8925,10 @@
     "name": {
       "pt": "abelha",
       "en": "bee"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "182": {
     "attributes": {
@@ -8810,7 +9025,8 @@
       "en": "trophy"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "184": {
@@ -8859,7 +9075,8 @@
       "pt": "disquete"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "185": {
@@ -8906,7 +9123,10 @@
     "name": {
       "en": "gift",
       "pt": "presente"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "186": {
     "attributes": {
@@ -8954,7 +9174,8 @@
       "en": "bow and arrow"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "187": {
@@ -9050,7 +9271,10 @@
     "name": {
       "pt": "trevo",
       "en": "clover"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "189": {
     "attributes": {
@@ -9098,7 +9322,8 @@
       "pt": "bola de futebol"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "190": {
@@ -9147,7 +9372,8 @@
       "pt": "gameboy"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "191": {
@@ -9196,7 +9422,8 @@
       "en": "tamborine"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "192": {
@@ -9245,7 +9472,8 @@
       "pt": "violão"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "193": {
@@ -9294,7 +9522,8 @@
       "pt": "tricículo"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "194": {
@@ -9392,7 +9621,9 @@
       "pt": "escavadeira"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "196": {
@@ -9441,7 +9672,8 @@
       "pt": "câmera"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "197": {
@@ -9490,7 +9722,8 @@
       "en": "umbrella"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "198": {
@@ -9539,7 +9772,8 @@
       "pt": "espantalho"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "199": {
@@ -9588,7 +9822,8 @@
       "pt": "chave"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "200": {
@@ -9637,7 +9872,8 @@
       "en": "joystick"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "201": {
@@ -9686,7 +9922,8 @@
       "pt": "pipoca"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "202": {
@@ -9735,7 +9972,8 @@
       "pt": "vestido"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "203": {
@@ -9782,7 +10020,10 @@
     "name": {
       "pt": "perna",
       "en": "leg"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "204": {
     "attributes": {
@@ -9830,7 +10071,8 @@
       "pt": "maracas"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "205": {
@@ -9879,7 +10121,8 @@
       "pt": "fita cassete"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "206": {
@@ -9928,7 +10171,8 @@
       "pt": "trumpete"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "207": {
@@ -9977,7 +10221,8 @@
       "en": "bowtie"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "208": {
@@ -10026,7 +10271,8 @@
       "en": "medicine"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "209": {
@@ -10075,7 +10321,8 @@
       "en": "syringe"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "210": {
@@ -10122,7 +10369,10 @@
     "name": {
       "en": "shrimp",
       "pt": "camarão"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "211": {
     "attributes": {
@@ -10168,7 +10418,8 @@
     "name": {
       "pt": "milho",
       "en": "corn"
-    }
+    },
+    "categories": []
   },
   "212": {
     "attributes": {
@@ -10216,7 +10467,8 @@
       "pt": "chocolate"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "213": {
@@ -10265,7 +10517,8 @@
       "en": "sneakers"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "214": {
@@ -10314,7 +10567,8 @@
       "en": "sock"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "215": {
@@ -10408,11 +10662,12 @@
     },
     "id": "216",
     "name": {
-      "pt": "quimono",
-      "en": "kimono"
+      "pt": "quimono de artes marciais",
+      "en": "karate gi"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "217": {
@@ -10461,7 +10716,8 @@
       "en": "bat"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "218": {
@@ -10510,7 +10766,8 @@
       "en": "hat"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "219": {
@@ -10608,7 +10865,8 @@
       "pt": "avião de papel"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "221": {
@@ -10657,7 +10915,8 @@
       "pt": "mangueira"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "222": {
@@ -10937,7 +11196,9 @@
       "pt": "arminha de cola quente"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "228": {
@@ -10986,7 +11247,8 @@
       "en": "ketchup"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "229": {
@@ -11035,7 +11297,8 @@
       "en": "trash"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "230": {
@@ -11130,7 +11393,8 @@
       "en": "boombox"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "232": {
@@ -11179,7 +11443,8 @@
       "en": "calculator"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "233": {
@@ -11320,7 +11585,8 @@
       "pt": "esmalte"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "236": {
@@ -11369,7 +11635,8 @@
       "en": "salad"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "237": {
@@ -11418,7 +11685,8 @@
       "en": "headdress"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "238": {
@@ -11514,7 +11782,8 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "240": {
@@ -11563,7 +11832,9 @@
       "en": "broom"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "241": {
@@ -11612,7 +11883,8 @@
       "pt": "papel higiênico"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "242": {
@@ -11661,7 +11933,8 @@
       "en": "candle"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "243": {
@@ -11710,7 +11983,8 @@
       "pt": "âncora"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "244": {
@@ -11755,9 +12029,12 @@
     },
     "id": "244",
     "name": {
-      "pt": "coronavírus",
-      "en": "coronavirus "
-    }
+      "pt": "vírus",
+      "en": "virus"
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "245": {
     "attributes": {
@@ -11805,7 +12082,8 @@
       "en": "luggage"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "246": {
@@ -11903,7 +12181,8 @@
       "en": "x-ray"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "248": {
@@ -11997,7 +12276,10 @@
       "en": "poop",
       "pt": "cocô"
     },
-    "nsfw": true
+    "nsfw": true,
+    "categories": [
+      "evidence"
+    ]
   },
   "250": {
     "attributes": {
@@ -12045,7 +12327,8 @@
       "pt": "cone de trânsito"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "251": {
@@ -12094,7 +12377,8 @@
       "en": "license plate"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "252": {
@@ -12143,7 +12427,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "253": {
@@ -12192,7 +12477,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "254": {
@@ -12241,7 +12528,8 @@
       "en": "eyelashes"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "255": {
@@ -12383,7 +12671,8 @@
       "en": "sticky hand"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "258": {
@@ -12432,7 +12721,8 @@
     },
     "id": "258",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "259": {
@@ -12481,7 +12771,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "260": {
@@ -12530,7 +12822,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "261": {
@@ -12579,7 +12872,8 @@
     },
     "id": "261",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "262": {
@@ -12726,7 +13020,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "265": {
@@ -12821,7 +13116,8 @@
     },
     "id": "266",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "267": {
@@ -12868,7 +13164,10 @@
     "name": {
       "en": "mosquito",
       "pt": "mosquito"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "268": {
     "attributes": {
@@ -12916,7 +13215,8 @@
     },
     "id": "268",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "269": {
@@ -12965,7 +13265,8 @@
       "en": "brick"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "270": {
@@ -13014,7 +13315,8 @@
       "pt": "legos"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "271": {
@@ -13109,7 +13411,8 @@
       "pt": "bandaid"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "273": {
@@ -13158,7 +13461,8 @@
     },
     "id": "273",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "274": {
@@ -13207,7 +13511,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "275": {
@@ -13256,7 +13561,8 @@
     },
     "id": "275",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "276": {
@@ -13397,7 +13703,8 @@
       "en": "dog house"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "279": {
@@ -13446,8 +13753,10 @@
     },
     "id": "279",
     "categories": [
-      "mesmice"
-    ]
+      "mesmice",
+      "evidence"
+    ],
+    "nsfw": true
   },
   "280": {
     "name": {
@@ -13544,7 +13853,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "282": {
@@ -13593,7 +13903,8 @@
     },
     "id": "282",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "283": {
@@ -13737,7 +14048,8 @@
     },
     "id": "285",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "286": {
@@ -13835,7 +14147,8 @@
     },
     "id": "287",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "288": {
@@ -13884,7 +14197,8 @@
       "en": "bottle opener"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "289": {
@@ -13933,7 +14247,8 @@
     },
     "id": "289",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "290": {
@@ -13982,7 +14297,8 @@
       "pt": "tábua de cortar"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "291": {
@@ -14031,7 +14347,8 @@
     },
     "id": "291",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "292": {
@@ -14080,7 +14397,8 @@
     },
     "id": "292",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "293": {
@@ -14129,7 +14447,8 @@
     },
     "id": "293",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "294": {
@@ -14178,7 +14497,9 @@
     },
     "id": "294",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "295": {
@@ -14227,7 +14548,8 @@
     },
     "id": "295",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "296": {
@@ -14276,7 +14598,8 @@
     },
     "id": "296",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "297": {
@@ -14325,7 +14648,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "298": {
@@ -14374,7 +14698,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "299": {
@@ -14423,7 +14748,8 @@
     },
     "id": "299",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "300": {
@@ -14518,7 +14844,8 @@
     },
     "id": "301",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "302": {
@@ -14567,7 +14894,8 @@
     },
     "id": "302",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "303": {
@@ -14616,7 +14944,8 @@
     },
     "id": "303",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "304": {
@@ -14665,7 +14994,8 @@
     },
     "id": "304",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "305": {
@@ -14714,7 +15044,8 @@
       "en": "earrings"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "306": {
@@ -14763,7 +15094,8 @@
       "en": "power strip"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "307": {
@@ -14812,7 +15144,8 @@
     },
     "id": "307",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "308": {
@@ -14859,7 +15192,10 @@
     "name": {
       "pt": "bonsai",
       "en": "bonsai"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "309": {
     "name": {
@@ -14907,7 +15243,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "310": {
@@ -14956,7 +15294,8 @@
     },
     "id": "310",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "311": {
@@ -15005,7 +15344,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "312": {
@@ -15054,7 +15394,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "313": {
@@ -15103,7 +15444,8 @@
     },
     "id": "313",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "314": {
@@ -15152,7 +15494,8 @@
       "pt": "saxofone"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "315": {
@@ -15201,7 +15544,9 @@
       "en": "printer"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "316": {
@@ -15250,7 +15595,8 @@
     },
     "id": "316",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "317": {
@@ -15299,7 +15645,8 @@
       "pt": "ábaco"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "318": {
@@ -15394,7 +15741,8 @@
       "pt": "pasta"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "320": {
@@ -15443,7 +15791,8 @@
     },
     "id": "320",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "321": {
@@ -15492,7 +15841,8 @@
       "en": "microscope"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "322": {
@@ -15541,7 +15891,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "323": {
@@ -15686,7 +16037,10 @@
     "name": {
       "pt": "caranguejo",
       "en": "crab"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "326": {
     "name": {
@@ -15734,7 +16088,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "327": {
@@ -15783,7 +16138,8 @@
     },
     "id": "327",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "328": {
@@ -15881,7 +16237,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "330": {
@@ -15930,7 +16287,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "331": {
@@ -15980,7 +16338,8 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "332": {
@@ -16029,7 +16388,8 @@
     },
     "id": "332",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "333": {
@@ -16078,7 +16438,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "334": {
@@ -16127,7 +16488,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "335": {
@@ -16176,7 +16538,8 @@
       "en": "tablet"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "336": {
@@ -16225,7 +16588,8 @@
       "en": "film reel"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "337": {
@@ -16274,7 +16638,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "338": {
@@ -16323,7 +16688,8 @@
       "pt": "cachorro-quente"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "339": {
@@ -16372,7 +16738,9 @@
       "en": "scarf"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "340": {
@@ -16467,7 +16835,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "342": {
@@ -16516,7 +16885,8 @@
       "en": "fly swatter"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "343": {
@@ -16563,7 +16933,10 @@
       "holdable": -3,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "344": {
     "attributes": {
@@ -16611,7 +16984,8 @@
       "pt": "teclado"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "345": {
@@ -16641,7 +17015,7 @@
       "machine": -3,
       "sharp": -3,
       "clothes": 5,
-      "long": -3,
+      "long": 3,
       "old": -3,
       "knowledge": -3,
       "beautiful": 1,
@@ -16649,7 +17023,7 @@
       "flight": -3,
       "liquid": -3,
       "odor": -3,
-      "soft": -3,
+      "soft": 3,
       "metal": -3,
       "multiple": -3,
       "fragile": -3,
@@ -16660,7 +17034,8 @@
     },
     "id": "345",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "346": {
@@ -16709,7 +17084,8 @@
       "pt": "controle remoto"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "347": {
@@ -16758,7 +17134,8 @@
       "pt": "video game"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "348": {
@@ -16851,7 +17228,10 @@
     "name": {
       "pt": "boneco de neve",
       "en": "snowman"
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "350": {
     "id": "350",
@@ -16899,7 +17279,8 @@
       "pt": "pote de chicletes"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "351": {
@@ -16948,7 +17329,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "352": {
@@ -17046,7 +17428,8 @@
     },
     "id": "353",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "354": {
@@ -17095,7 +17478,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "355": {
@@ -17144,7 +17528,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "356": {
@@ -17188,12 +17573,13 @@
       "construction": -3
     },
     "name": {
-      "en": "barbed wire ",
+      "en": "barbed wire",
       "pt": "arame farpado"
     },
     "id": "356",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "357": {
@@ -17242,7 +17628,8 @@
       "en": "magnifying glass"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "358": {
@@ -17291,7 +17678,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "359": {
@@ -17340,7 +17728,8 @@
     },
     "id": "359",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "360": {
@@ -17389,7 +17778,8 @@
       "pt": "travesseiro"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "361": {
@@ -17529,7 +17919,9 @@
       "toy": -3,
       "construction": -3
     },
-    "categories": []
+    "categories": [
+      "evidence"
+    ]
   },
   "364": {
     "id": "364",
@@ -17672,7 +18064,8 @@
       "en": "sliced bread"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "367": {
@@ -17721,7 +18114,9 @@
       "en": "water filter"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "368": {
@@ -17819,7 +18214,8 @@
       "pt": "batom"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "370": {
@@ -18015,7 +18411,8 @@
     },
     "id": "373",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "374": {
@@ -18064,7 +18461,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "375": {
@@ -18113,7 +18511,8 @@
     },
     "id": "375",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "376": {
@@ -18162,7 +18561,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "377": {
@@ -18211,7 +18611,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "378": {
@@ -18260,7 +18661,8 @@
     },
     "id": "378",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "379": {
@@ -18309,7 +18711,8 @@
     },
     "id": "379",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "380": {
@@ -18358,7 +18761,8 @@
       "en": "paper clip"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "381": {
@@ -18407,7 +18811,9 @@
       "pt": "prego"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "382": {
@@ -18456,7 +18862,8 @@
     },
     "id": "382",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "383": {
@@ -18506,7 +18913,8 @@
     "nsfw": true,
     "id": "383",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "384": {
@@ -18600,7 +19008,11 @@
     "name": {
       "en": "dust",
       "pt": "poeira"
-    }
+    },
+    "categories": [
+      "weapon",
+      "evidence"
+    ]
   },
   "386": {
     "attributes": {
@@ -18890,7 +19302,8 @@
       "en": "watering can"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "392": {
@@ -18988,7 +19401,8 @@
       "pt": "batedor de arame"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "394": {
@@ -19037,7 +19451,8 @@
       "en": "pop-up"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "395": {
@@ -19086,7 +19501,8 @@
     },
     "id": "395",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "396": {
@@ -19141,7 +19557,7 @@
   "397": {
     "name": {
       "pt": "caixa registradora",
-      "en": "cash register "
+      "en": "cash register"
     },
     "id": "397",
     "attributes": {
@@ -19233,7 +19649,8 @@
       "pt": "ralador"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "399": {
@@ -19282,7 +19699,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "400": {
@@ -19331,7 +19750,8 @@
     },
     "id": "400",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "401": {
@@ -19380,7 +19800,8 @@
     },
     "id": "401",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "402": {
@@ -19623,7 +20044,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "407": {
@@ -19672,7 +20094,8 @@
       "en": "purse"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "408": {
@@ -19721,7 +20144,8 @@
     },
     "id": "408",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "409": {
@@ -19770,7 +20194,8 @@
       "en": "dreamcatcher"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "410": {
@@ -19819,7 +20244,8 @@
     },
     "id": "410",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "411": {
@@ -19868,7 +20294,8 @@
       "pt": "chapéu de palha"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "412": {
@@ -19915,7 +20342,10 @@
     "name": {
       "pt": "escorpião",
       "en": "scorpion"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "413": {
     "name": {
@@ -20009,7 +20439,8 @@
       "pt": "disco de vinil"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "415": {
@@ -20058,7 +20489,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "416": {
@@ -20156,7 +20588,8 @@
       "pt": "pés de pato"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "418": {
@@ -20205,7 +20638,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "419": {
@@ -20300,7 +20734,10 @@
       "personal": -3,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "421": {
     "attributes": {
@@ -20348,7 +20785,8 @@
     },
     "id": "421",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "422": {
@@ -20397,7 +20835,8 @@
       "pt": "suspensórios"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "423": {
@@ -20446,7 +20885,8 @@
     },
     "id": "423",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "424": {
@@ -20495,7 +20935,8 @@
       "en": "cymbals"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "425": {
@@ -20542,7 +20983,11 @@
       "personal": -3,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
   },
   "426": {
     "name": {
@@ -20590,7 +21035,8 @@
     },
     "id": "426",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "427": {
@@ -20639,7 +21085,8 @@
       "en": "crayons"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "428": {
@@ -20688,7 +21135,8 @@
     },
     "id": "428",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "429": {
@@ -20737,7 +21185,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "430": {
@@ -20786,7 +21235,8 @@
       "en": "skin care face mask"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "431": {
@@ -20934,7 +21384,9 @@
       "pt": "vibrator"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "434": {
@@ -20981,7 +21433,10 @@
       "holdable": -3,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "435": {
     "name": {
@@ -21029,7 +21484,8 @@
     },
     "id": "435",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "436": {
@@ -21076,7 +21532,10 @@
       "holdable": -3,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "437": {
     "name": {
@@ -21173,7 +21632,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "439": {
@@ -21222,7 +21682,8 @@
       "en": "carpet"
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "440": {
@@ -21418,7 +21879,8 @@
     },
     "id": "443",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "444": {
@@ -21467,7 +21929,8 @@
     },
     "id": "444",
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "445": {
@@ -21514,7 +21977,10 @@
       "en": "flower",
       "pt": "flor"
     },
-    "id": "445"
+    "id": "445",
+    "categories": [
+      "evidence"
+    ]
   },
   "446": {
     "attributes": {
@@ -21560,7 +22026,10 @@
     "name": {
       "en": "electricity",
       "pt": "eletricidade"
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "447": {
     "name": {
@@ -21654,7 +22123,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "449": {
@@ -21890,7 +22361,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "454": {
@@ -21939,7 +22411,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "455": {
@@ -21988,7 +22461,8 @@
       "construction": 3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "456": {
@@ -22037,7 +22511,8 @@
       "construction": 3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "457": {
@@ -22086,7 +22561,8 @@
       "construction": 5
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "458": {
@@ -22279,7 +22755,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "462": {
@@ -22426,7 +22903,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "465": {
@@ -22475,7 +22954,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "466": {
@@ -22573,7 +23053,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "468": {
@@ -22622,7 +23103,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "469": {
@@ -22864,7 +23346,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "474": {
@@ -22959,7 +23442,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "476": {
@@ -23008,7 +23492,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "477": {
@@ -23057,7 +23542,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "478": {
@@ -23106,7 +23592,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "479": {
@@ -23155,7 +23642,8 @@
       "construction": 1
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "480": {
@@ -23204,7 +23692,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "481": {
@@ -23253,7 +23743,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "482": {
@@ -23446,7 +23937,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "486": {
@@ -23544,7 +24036,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "488": {
@@ -23593,7 +24086,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "489": {
@@ -23691,7 +24185,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "491": {
@@ -23738,7 +24233,11 @@
       "holdable": -3,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon",
+      "evidence"
+    ]
   },
   "492": {
     "id": "492",
@@ -23786,7 +24285,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "493": {
@@ -23884,7 +24384,8 @@
       "construction": 3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "495": {
@@ -23931,7 +24432,10 @@
       "holdable": -3,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "496": {
     "id": "496",
@@ -24215,7 +24719,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "502": {
@@ -24264,7 +24769,8 @@
       "construction": 3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "503": {
@@ -24313,7 +24819,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "504": {
@@ -24362,7 +24869,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "505": {
@@ -24455,7 +24963,10 @@
       "fragile": -3,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "507": {
     "id": "507",
@@ -24503,7 +25014,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "508": {
@@ -24552,7 +25064,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "509": {
@@ -24697,7 +25210,10 @@
       "fragile": 5,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "512": {
     "id": "512",
@@ -24797,7 +25313,7 @@
   "514": {
     "id": "514",
     "name": {
-      "pt": "",
+      "pt": "chapéu de marinheiro",
       "en": "sailor hat"
     },
     "attributes": {
@@ -24840,13 +25356,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "515": {
     "id": "515",
     "name": {
-      "pt": "",
+      "pt": "prancheta",
       "en": "clipboard"
     },
     "attributes": {
@@ -24889,14 +25406,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "516": {
     "id": "516",
     "name": {
-      "en": "thermometer ",
-      "pt": "termômetro "
+      "en": "thermometer",
+      "pt": "termômetro"
     },
     "attributes": {
       "alive": -3,
@@ -24987,14 +25505,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "518": {
     "id": "518",
     "name": {
-      "pt": "hamburger ",
-      "en": "hamburger "
+      "pt": "hamburger",
+      "en": "hamburger"
     },
     "attributes": {
       "alive": -3,
@@ -25036,7 +25555,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "519": {
@@ -25134,7 +25654,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "521": {
@@ -25187,7 +25709,7 @@
     "id": "522",
     "name": {
       "en": "fossil",
-      "pt": "fossil "
+      "pt": "fossil"
     },
     "attributes": {
       "alive": -5,
@@ -25275,14 +25797,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "524": {
     "id": "524",
     "name": {
       "en": "basketball",
-      "pt": "bola de basquete "
+      "pt": "bola de basquete"
     },
     "attributes": {
       "alive": -3,
@@ -25324,7 +25847,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "525": {
@@ -25373,7 +25897,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "526": {
@@ -25468,7 +25993,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "528": {
@@ -25567,7 +26093,7 @@
     "id": "530",
     "name": {
       "en": "hand",
-      "pt": "mão "
+      "pt": "mão"
     },
     "attributes": {
       "alive": 3,
@@ -25607,7 +26133,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "531": {
     "id": "531",
@@ -25655,7 +26184,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "532": {
@@ -25702,13 +26232,16 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "533": {
     "id": "533",
     "name": {
       "en": "popsicle sticks",
-      "pt": "palitos de picolé "
+      "pt": "palitos de picolé"
     },
     "attributes": {
       "alive": -3,
@@ -25750,7 +26283,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "534": {
@@ -25799,14 +26333,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "535": {
     "id": "535",
     "name": {
       "pt": "policial",
-      "en": "policeman "
+      "en": "policeman"
     },
     "attributes": {
       "alive": 3,
@@ -25897,7 +26432,7 @@
   "537": {
     "id": "537",
     "name": {
-      "en": "duster ",
+      "en": "duster",
       "pt": "espanador"
     },
     "attributes": {
@@ -25940,7 +26475,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "538": {
@@ -26084,7 +26620,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "541": {
@@ -26133,14 +26670,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "542": {
     "id": "542",
     "name": {
       "en": "slot machine",
-      "pt": "caça níquel "
+      "pt": "caça níquel"
     },
     "attributes": {
       "alive": -3,
@@ -26182,7 +26720,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "543": {
@@ -26277,13 +26816,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "545": {
     "id": "545",
     "name": {
-      "en": "bullet ",
+      "en": "bullet",
       "pt": "bala"
     },
     "attributes": {
@@ -26326,14 +26866,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "546": {
     "id": "546",
     "name": {
-      "en": "hourglass ",
-      "pt": "ampulheta "
+      "en": "hourglass",
+      "pt": "ampulheta"
     },
     "attributes": {
       "alive": -3,
@@ -26375,7 +26916,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "547": {
@@ -26424,7 +26966,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "548": {
@@ -26476,8 +27019,8 @@
   "549": {
     "id": "549",
     "name": {
-      "en": "flour ",
-      "pt": "farinha "
+      "en": "flour",
+      "pt": "farinha"
     },
     "attributes": {
       "alive": -3,
@@ -26566,14 +27109,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "551": {
     "id": "551",
     "name": {
-      "en": "subway ",
-      "pt": "subway "
+      "en": "subway",
+      "pt": "subway"
     },
     "attributes": {
       "alive": -3,
@@ -26615,14 +27159,15 @@
       "construction": 1
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "552": {
     "id": "552",
     "name": {
       "pt": "macaco",
-      "en": "monkey "
+      "en": "monkey"
     },
     "attributes": {
       "alive": 5,
@@ -26667,8 +27212,8 @@
   "553": {
     "id": "553",
     "name": {
-      "en": "chili ",
-      "pt": "pimenta "
+      "en": "chili",
+      "pt": "pimenta"
     },
     "attributes": {
       "alive": 1,
@@ -26713,7 +27258,7 @@
   "554": {
     "id": "554",
     "name": {
-      "pt": "biquini ",
+      "pt": "biquini",
       "en": "bikini"
     },
     "attributes": {
@@ -26756,13 +27301,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "555": {
     "id": "555",
     "name": {
-      "en": "raincoat ",
+      "en": "raincoat",
       "pt": "capa de chuva"
     },
     "attributes": {
@@ -26805,14 +27351,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "556": {
     "id": "556",
     "name": {
-      "en": "bracelet ",
-      "pt": "pulseira de missangas "
+      "en": "bracelet",
+      "pt": "pulseira de missangas"
     },
     "attributes": {
       "alive": -3,
@@ -26854,7 +27401,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "557": {
@@ -26903,14 +27451,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "558": {
     "id": "558",
     "name": {
-      "pt": "monóculo ",
-      "en": "monocle "
+      "pt": "monóculo",
+      "en": "monocle"
     },
     "attributes": {
       "alive": -3,
@@ -26950,7 +27499,11 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
   },
   "559": {
     "id": "559",
@@ -26996,13 +27549,17 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
   },
   "560": {
     "id": "560",
     "name": {
       "en": "wand",
-      "pt": "varinha mágica "
+      "pt": "varinha mágica"
     },
     "attributes": {
       "alive": -3,
@@ -27050,7 +27607,7 @@
   "561": {
     "id": "561",
     "name": {
-      "pt": "chuveiro ",
+      "pt": "chuveiro",
       "en": "shower"
     },
     "attributes": {
@@ -27142,7 +27699,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "563": {
@@ -27191,7 +27749,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "564": {
@@ -27240,13 +27799,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "565": {
     "id": "565",
     "name": {
-      "en": "incense ",
+      "en": "incense",
       "pt": "incenso"
     },
     "attributes": {
@@ -27289,13 +27849,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "566": {
     "id": "566",
     "name": {
-      "pt": "carvão ",
+      "pt": "carvão",
       "en": "charcoal"
     },
     "attributes": {
@@ -27338,7 +27899,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "567": {
@@ -27393,8 +27955,8 @@
   "568": {
     "id": "568",
     "name": {
-      "pt": "pinguim ",
-      "en": "penguin "
+      "pt": "pinguim",
+      "en": "penguin"
     },
     "attributes": {
       "alive": 5,
@@ -27439,8 +28001,8 @@
   "569": {
     "id": "569",
     "name": {
-      "pt": "xícara de chá ",
-      "en": "tea mug "
+      "pt": "xícara de chá",
+      "en": "tea mug"
     },
     "attributes": {
       "alive": -3,
@@ -27489,7 +28051,7 @@
     "id": "570",
     "name": {
       "en": "grapea",
-      "pt": "uvas "
+      "pt": "uvas"
     },
     "attributes": {
       "alive": 1,
@@ -27577,14 +28139,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "572": {
     "id": "572",
     "name": {
-      "en": "submarine ",
-      "pt": "submarino "
+      "en": "submarine",
+      "pt": "submarino"
     },
     "attributes": {
       "alive": -3,
@@ -27632,7 +28195,7 @@
   "573": {
     "id": "573",
     "name": {
-      "pt": "ressonância magnética ",
+      "pt": "ressonância magnética",
       "en": "mri machine"
     },
     "attributes": {
@@ -27675,13 +28238,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "574": {
     "id": "574",
     "name": {
-      "en": "toothpicks ",
+      "en": "toothpicks",
       "pt": "palitos de dente"
     },
     "attributes": {
@@ -27724,14 +28288,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "575": {
     "id": "575",
     "name": {
       "pt": "palheta pantone",
-      "en": "pantone palette "
+      "en": "pantone palette"
     },
     "attributes": {
       "alive": -3,
@@ -27779,8 +28344,8 @@
   "576": {
     "id": "576",
     "name": {
-      "pt": "",
-      "en": "hamster wheel "
+      "pt": "rodinha de hamster",
+      "en": "hamster wheel"
     },
     "attributes": {
       "alive": -3,
@@ -27822,14 +28387,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "577": {
     "id": "577",
     "name": {
       "en": "crate",
-      "pt": ""
+      "pt": "caixote"
     },
     "attributes": {
       "alive": -3,
@@ -27871,7 +28437,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "578": {
@@ -27924,7 +28491,7 @@
     "id": "579",
     "name": {
       "pt": "peru assado",
-      "en": "roasted turkey "
+      "en": "roasted turkey"
     },
     "attributes": {
       "alive": -5,
@@ -27964,7 +28531,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "580": {
     "id": "580",
@@ -28012,7 +28582,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "581": {
@@ -28061,14 +28632,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "582": {
     "id": "582",
     "name": {
       "pt": "bombeiro",
-      "en": "firefighter "
+      "en": "firefighter"
     },
     "attributes": {
       "alive": 3,
@@ -28160,7 +28732,7 @@
   "584": {
     "id": "584",
     "name": {
-      "pt": "",
+      "pt": "bolinhas de pompoarismo",
       "en": "anal beads"
     },
     "attributes": {
@@ -28204,14 +28776,15 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "585": {
     "id": "585",
     "name": {
       "en": "cotton swab",
-      "pt": "cotonete "
+      "pt": "cotonete"
     },
     "attributes": {
       "alive": -3,
@@ -28253,14 +28826,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "586": {
     "id": "586",
     "name": {
       "en": "carnival mask",
-      "pt": "máscara de carnaval "
+      "pt": "máscara de carnaval"
     },
     "attributes": {
       "alive": -3,
@@ -28302,7 +28876,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "587": {
@@ -28351,14 +28926,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "588": {
     "id": "588",
     "name": {
       "en": "aztec symbol",
-      "pt": "símbolo azteca "
+      "pt": "símbolo azteca"
     },
     "attributes": {
       "alive": -3,
@@ -28446,7 +29022,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "590": {
@@ -28495,14 +29072,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "591": {
     "id": "591",
     "name": {
       "pt": "trono",
-      "en": "throne "
+      "en": "throne"
     },
     "attributes": {
       "alive": -3,
@@ -28550,7 +29128,7 @@
   "592": {
     "id": "592",
     "name": {
-      "en": "fencing ",
+      "en": "fencing",
       "pt": "esgrima"
     },
     "attributes": {
@@ -28639,7 +29217,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "594": {
@@ -28688,7 +29267,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "595": {
@@ -28835,7 +29415,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "598": {
@@ -28933,7 +29514,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "600": {
@@ -28982,7 +29564,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "601": {
@@ -29077,7 +29661,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "603": {
@@ -29175,7 +29760,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "605": {
@@ -29224,7 +29811,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "606": {
@@ -29463,7 +30051,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "611": {
@@ -29510,7 +30099,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "612": {
     "id": "612",
@@ -29556,7 +30148,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "613": {
     "id": "613",
@@ -29604,7 +30199,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "614": {
@@ -29702,7 +30299,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "616": {
@@ -29751,7 +30350,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "617": {
@@ -29849,7 +30449,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "619": {
@@ -29898,7 +30499,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "620": {
@@ -30037,7 +30639,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "623": {
     "id": "623",
@@ -30083,7 +30688,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "624": {
     "id": "624",
@@ -30175,7 +30783,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "626": {
     "id": "626",
@@ -30223,7 +30834,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "627": {
@@ -30321,7 +30933,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "629": {
@@ -30419,7 +31032,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "631": {
@@ -30468,7 +31082,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "632": {
@@ -30563,7 +31178,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "634": {
@@ -30612,7 +31228,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "635": {
@@ -30805,7 +31422,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "639": {
@@ -30903,7 +31521,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "641": {
@@ -30952,7 +31571,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "642": {
@@ -31001,7 +31621,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "643": {
@@ -31050,7 +31671,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "644": {
@@ -31194,7 +31816,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "647": {
@@ -31243,7 +31866,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "648": {
@@ -31292,7 +31916,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "649": {
@@ -31341,7 +31966,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "650": {
@@ -31390,7 +32016,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "651": {
@@ -31530,7 +32157,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "654": {
     "id": "654",
@@ -31676,7 +32306,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "657": {
@@ -31863,7 +32495,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "661": {
@@ -31912,7 +32545,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "662": {
@@ -31961,7 +32595,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "663": {
@@ -32008,7 +32643,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "664": {
     "id": "664",
@@ -32056,7 +32694,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "665": {
@@ -32151,7 +32790,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "667": {
@@ -32430,7 +33070,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "673": {
@@ -32528,7 +33169,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "675": {
@@ -32623,7 +33265,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "677": {
@@ -32672,7 +33315,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "678": {
@@ -32721,7 +33365,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "679": {
@@ -32770,7 +33415,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "680": {
@@ -32819,7 +33465,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "681": {
@@ -32868,7 +33515,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "682": {
@@ -32918,7 +33566,8 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "683": {
@@ -32968,7 +33617,8 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "684": {
@@ -33066,7 +33716,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "686": {
@@ -33213,7 +33864,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "689": {
@@ -33262,7 +33914,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "690": {
@@ -33311,7 +33964,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "691": {
@@ -33360,7 +34014,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "692": {
@@ -33409,7 +34064,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "693": {
@@ -33504,7 +34160,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "695": {
@@ -33553,7 +34210,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "696": {
@@ -33602,7 +34260,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "697": {
@@ -33651,7 +34310,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "698": {
@@ -33700,7 +34360,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "699": {
@@ -33749,7 +34410,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "700": {
@@ -33893,7 +34556,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "703": {
@@ -33942,7 +34606,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "704": {
@@ -33991,7 +34656,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "705": {
@@ -34040,7 +34706,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "706": {
@@ -34089,7 +34756,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "707": {
@@ -34138,7 +34806,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "708": {
@@ -34236,7 +34905,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "710": {
@@ -34579,7 +35249,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "717": {
@@ -34677,7 +35348,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "719": {
@@ -34821,14 +35493,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "722": {
     "id": "722",
     "name": {
       "en": "fire ring",
-      "pt": "arco de fogo "
+      "pt": "arco de fogo"
     },
     "attributes": {
       "alive": -3,
@@ -34876,8 +35549,8 @@
   "723": {
     "id": "723",
     "name": {
-      "en": "juggling ",
-      "pt": "malabares "
+      "en": "juggling",
+      "pt": "malabares"
     },
     "attributes": {
       "alive": -3,
@@ -34919,14 +35592,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "724": {
     "id": "724",
     "name": {
       "pt": "caçamba",
-      "en": "dumpster "
+      "en": "dumpster"
     },
     "attributes": {
       "alive": -3,
@@ -35017,7 +35691,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "726": {
@@ -35066,7 +35741,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "727": {
@@ -35115,14 +35791,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "728": {
     "id": "728",
     "name": {
-      "pt": "joaninha ",
-      "en": "ladybug "
+      "pt": "joaninha",
+      "en": "ladybug"
     },
     "attributes": {
       "alive": 5,
@@ -35167,8 +35844,8 @@
   "729": {
     "id": "729",
     "name": {
-      "pt": "misto quente ",
-      "en": "grilled cheese "
+      "pt": "misto quente",
+      "en": "grilled cheese"
     },
     "attributes": {
       "alive": -3,
@@ -35213,8 +35890,8 @@
   "730": {
     "id": "730",
     "name": {
-      "en": "sunglasses ",
-      "pt": "óculos escuros "
+      "en": "sunglasses",
+      "pt": "óculos escuros"
     },
     "attributes": {
       "alive": -3,
@@ -35256,13 +35933,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "731": {
     "id": "731",
     "name": {
-      "pt": "tocha ",
+      "pt": "tocha",
       "en": "torch"
     },
     "attributes": {
@@ -35303,12 +35981,15 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "732": {
     "id": "732",
     "name": {
-      "en": "photograph ",
+      "en": "photograph",
       "pt": "retrato"
     },
     "attributes": {
@@ -35351,14 +36032,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "733": {
     "id": "733",
     "name": {
       "en": "pool",
-      "pt": "piscina "
+      "pt": "piscina"
     },
     "attributes": {
       "alive": -3,
@@ -35406,7 +36088,7 @@
   "734": {
     "id": "734",
     "name": {
-      "pt": "bóia de unicórnio ",
+      "pt": "bóia de unicórnio",
       "en": "unicorn floater"
     },
     "attributes": {
@@ -35455,7 +36137,7 @@
   "735": {
     "id": "735",
     "name": {
-      "pt": "batedeira ",
+      "pt": "batedeira",
       "en": "standing mixer"
     },
     "attributes": {
@@ -35498,7 +36180,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "736": {
@@ -35553,8 +36236,8 @@
   "737": {
     "id": "737",
     "name": {
-      "en": "spatula ",
-      "pt": "espátula "
+      "en": "spatula",
+      "pt": "espátula"
     },
     "attributes": {
       "alive": -3,
@@ -35596,13 +36279,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "738": {
     "id": "738",
     "name": {
-      "pt": "lampião ",
+      "pt": "lampião",
       "en": "oil lamp"
     },
     "attributes": {
@@ -35645,7 +36329,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "739": {
@@ -35692,7 +36377,11 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
   },
   "740": {
     "id": "740",
@@ -35743,7 +36432,7 @@
   "741": {
     "id": "741",
     "name": {
-      "en": "elevator ",
+      "en": "elevator",
       "pt": "elevador"
     },
     "attributes": {
@@ -35789,8 +36478,8 @@
   "742": {
     "id": "742",
     "name": {
-      "en": "aquarium ",
-      "pt": "aquário "
+      "en": "aquarium",
+      "pt": "aquário"
     },
     "attributes": {
       "alive": 3,
@@ -35830,7 +36519,11 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
   },
   "743": {
     "id": "743",
@@ -35876,7 +36569,10 @@
       "fragile": 0,
       "toy": 5,
       "construction": -3
-    }
+    },
+    "categories": [
+      "mesmice"
+    ]
   },
   "744": {
     "id": "744",
@@ -35922,7 +36618,11 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
   },
   "745": {
     "id": "745",
@@ -35968,7 +36668,11 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon",
+      "mesmice"
+    ]
   },
   "746": {
     "id": "746",
@@ -36014,7 +36718,11 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
   },
   "747": {
     "id": "747",
@@ -36060,13 +36768,17 @@
       "fragile": 0,
       "toy": 5,
       "construction": -3
-    }
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
   },
   "748": {
     "id": "748",
     "name": {
-      "en": "champagne ",
-      "pt": "champagne "
+      "en": "champagne",
+      "pt": "champagne"
     },
     "attributes": {
       "alive": -3,
@@ -36114,7 +36826,7 @@
   "749": {
     "id": "749",
     "name": {
-      "en": "certificate ",
+      "en": "certificate",
       "pt": "certificado"
     },
     "attributes": {
@@ -36157,7 +36869,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "750": {
@@ -36258,8 +36971,8 @@
   "752": {
     "id": "752",
     "name": {
-      "pt": "iceberg ",
-      "en": "iceberg "
+      "pt": "iceberg",
+      "en": "iceberg"
     },
     "attributes": {
       "alive": -3,
@@ -36304,7 +37017,7 @@
   "753": {
     "id": "753",
     "name": {
-      "en": "surfboard ",
+      "en": "surfboard",
       "pt": "prancha de surf"
     },
     "attributes": {
@@ -36347,13 +37060,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "754": {
     "id": "754",
     "name": {
-      "pt": "feijão ",
+      "pt": "feijão",
       "en": "beans"
     },
     "attributes": {
@@ -36400,7 +37114,7 @@
     "id": "755",
     "name": {
       "en": "nail clipper",
-      "pt": "cortador de unhas "
+      "pt": "cortador de unhas"
     },
     "attributes": {
       "alive": -3,
@@ -36442,14 +37156,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "756": {
     "id": "756",
     "name": {
-      "pt": "sinal de não perturbe ",
-      "en": "do not disturb sign "
+      "pt": "sinal de não perturbe",
+      "en": "do not disturb sign"
     },
     "attributes": {
       "alive": -3,
@@ -36491,7 +37206,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "757": {
@@ -36544,7 +37260,7 @@
     "id": "758",
     "name": {
       "en": "urinal",
-      "pt": "mictório "
+      "pt": "mictório"
     },
     "attributes": {
       "alive": -3,
@@ -36635,7 +37351,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "760": {
@@ -36684,7 +37401,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "761": {
@@ -36733,7 +37451,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "762": {
@@ -36828,7 +37547,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "764": {
@@ -36877,13 +37597,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "765": {
     "id": "765",
     "name": {
-      "en": "funnel ",
+      "en": "funnel",
       "pt": "funil"
     },
     "attributes": {
@@ -36926,7 +37647,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "766": {
@@ -36975,7 +37697,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "767": {
@@ -37024,7 +37747,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "768": {
@@ -37073,7 +37798,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "769": {
@@ -37123,7 +37849,8 @@
     },
     "nsfw": true,
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "770": {
@@ -37219,7 +37946,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "772": {
@@ -37268,7 +37996,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "773": {
@@ -37317,7 +38046,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "774": {
@@ -37366,7 +38096,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "775": {
@@ -37413,7 +38144,11 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon",
+      "evidence"
+    ]
   },
   "776": {
     "id": "776",
@@ -37461,7 +38196,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "777": {
@@ -37510,7 +38246,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "778": {
@@ -37605,7 +38342,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "780": {
@@ -37700,7 +38438,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "782": {
@@ -37749,7 +38488,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "783": {
@@ -37798,7 +38538,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "784": {
@@ -37896,7 +38637,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "786": {
@@ -37945,7 +38687,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "787": {
@@ -37994,7 +38737,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "788": {
@@ -38089,7 +38833,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "790": {
@@ -38138,7 +38883,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "791": {
@@ -38187,13 +38933,14 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "792": {
     "id": "792",
     "name": {
-      "en": "dim sum ",
+      "en": "dim sum",
       "pt": "dim sum"
     },
     "attributes": {
@@ -38236,7 +38983,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "793": {
@@ -38375,7 +39123,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "796": {
     "id": "796",
@@ -38467,7 +39218,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "798": {
     "id": "798",
@@ -38559,7 +39313,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "800": {
     "id": "800",
@@ -38656,7 +39413,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "802": {
@@ -38705,7 +39463,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "803": {
@@ -38754,7 +39513,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "804": {
@@ -38803,7 +39563,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "805": {
@@ -38950,7 +39711,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "808": {
@@ -38999,7 +39761,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "809": {
@@ -39046,7 +39809,11 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
   },
   "810": {
     "id": "810",
@@ -39092,7 +39859,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "811": {
     "id": "811",
@@ -39138,13 +39908,16 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "812": {
     "id": "812",
     "name": {
       "pt": "balão",
-      "en": "ballon"
+      "en": "balloon"
     },
     "attributes": {
       "alive": -3,
@@ -39184,7 +39957,11 @@
       "fragile": 0,
       "toy": 3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon",
+      "evidence"
+    ]
   },
   "813": {
     "id": "813",
@@ -39230,7 +40007,10 @@
       "fragile": 0,
       "toy": 5,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "814": {
     "id": "814",
@@ -39368,7 +40148,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "817": {
     "id": "817",
@@ -39414,7 +40197,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "818": {
     "id": "818",
@@ -39462,7 +40248,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "819": {
@@ -39511,7 +40298,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "820": {
@@ -39606,7 +40394,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "822": {
@@ -39704,7 +40493,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "824": {
@@ -39753,7 +40543,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "825": {
@@ -39802,7 +40593,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "826": {
@@ -39851,7 +40643,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "827": {
@@ -39946,7 +40739,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "829": {
@@ -39995,7 +40789,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "830": {
@@ -40044,7 +40839,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "831": {
@@ -40093,7 +40889,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "832": {
@@ -40189,13 +40986,16 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "834": {
     "id": "834",
     "name": {
       "en": "food truck",
-      "pt": ""
+      "pt": "food truck"
     },
     "attributes": {
       "alive": -3,
@@ -40286,7 +41086,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "836": {
@@ -40479,7 +41280,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "840": {
@@ -40528,7 +41330,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "841": {
@@ -40577,7 +41380,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "842": {
@@ -40762,7 +41566,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "846": {
     "id": "846",
@@ -40808,7 +41615,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "847": {
     "id": "847",
@@ -40900,7 +41710,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "849": {
     "id": "849",
@@ -40946,7 +41759,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "850": {
     "id": "850",
@@ -41187,7 +42003,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "855": {
@@ -41236,7 +42053,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "856": {
@@ -41283,7 +42101,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "857": {
     "id": "857",
@@ -41702,7 +42523,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "866": {
@@ -41841,7 +42663,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "869": {
     "id": "869",
@@ -41938,7 +42763,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "871": {
@@ -41987,7 +42813,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "872": {
@@ -42183,7 +43010,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "876": {
@@ -42232,7 +43060,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "877": {
@@ -42281,7 +43110,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "878": {
@@ -42330,14 +43160,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "879": {
     "id": "879",
     "name": {
       "pt": "mesa de sinuca",
-      "en": "pool table "
+      "en": "pool table"
     },
     "attributes": {
       "alive": -3,
@@ -42428,7 +43259,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "881": {
@@ -42526,7 +43358,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "883": {
@@ -42575,7 +43408,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "884": {
@@ -42624,7 +43458,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "885": {
@@ -42720,7 +43555,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "887": {
     "id": "887",
@@ -42817,7 +43655,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "889": {
@@ -42915,7 +43754,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence",
+      "weapon"
     ]
   },
   "891": {
@@ -43108,7 +43949,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "895": {
@@ -43155,7 +43997,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "896": {
     "id": "896",
@@ -43201,7 +44046,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "897": {
     "id": "897",
@@ -43247,7 +44095,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "898": {
     "id": "898",
@@ -43344,7 +44195,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "900": {
@@ -43442,7 +44294,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "902": {
@@ -43491,7 +44344,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "903": {
@@ -43730,7 +44584,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "908": {
@@ -43923,7 +44778,9 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon",
+      "evidence"
     ]
   },
   "912": {
@@ -43972,7 +44829,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "913": {
@@ -44168,7 +45026,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "917": {
@@ -44217,7 +45076,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "918": {
@@ -44315,7 +45175,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "920": {
@@ -44362,7 +45223,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": 1
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "921": {
     "id": "921",
@@ -44410,7 +45274,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "922": {
@@ -44459,7 +45324,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "923": {
@@ -44508,7 +45374,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "924": {
@@ -44557,7 +45424,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "925": {
@@ -44655,7 +45523,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "927": {
@@ -44704,7 +45573,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "928": {
@@ -44802,7 +45672,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "930": {
@@ -44900,7 +45771,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "932": {
@@ -44949,7 +45821,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "933": {
@@ -44996,7 +45869,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "934": {
     "id": "934",
@@ -45134,7 +46010,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "weapon"
+    ]
   },
   "937": {
     "id": "937",
@@ -45228,7 +46107,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "939": {
@@ -45367,7 +46247,10 @@
       "fragile": 0,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "942": {
     "id": "942",
@@ -45413,7 +46296,10 @@
       "fragile": -3,
       "toy": -3,
       "construction": -3
-    }
+    },
+    "categories": [
+      "evidence"
+    ]
   },
   "943": {
     "id": "943",
@@ -45461,7 +46347,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "944": {
@@ -45510,7 +46397,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "945": {
@@ -45657,7 +46545,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "948": {
@@ -45706,7 +46595,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "949": {
@@ -45755,7 +46645,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "950": {
@@ -45896,14 +46787,15 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "953": {
     "id": "953",
     "name": {
       "en": "jack-in-the-box",
-      "pt": " caixa de surpresa"
+      "pt": "caixa de surpresa"
     },
     "attributes": {
       "alive": -3,
@@ -45945,7 +46837,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "954": {
@@ -45994,7 +46887,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "955": {
@@ -46043,7 +46937,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "evidence"
     ]
   },
   "956": {
@@ -46141,7 +47036,8 @@
       "construction": -3
     },
     "categories": [
-      "mesmice"
+      "mesmice",
+      "weapon"
     ]
   },
   "958": {
@@ -46191,6 +47087,2410 @@
     },
     "categories": [
       "mesmice"
+    ]
+  },
+  "959": {
+    "id": "959",
+    "name": {
+      "pt": "esponja",
+      "en": "sponge"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
+  },
+  "960": {
+    "id": "960",
+    "name": {
+      "pt": "gnomo de jardim",
+      "en": "garden gnome"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "evidence",
+      "mesmice",
+      "weapon"
+    ]
+  },
+  "961": {
+    "id": "961",
+    "name": {
+      "pt": "para-brisas",
+      "en": "windshield"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "962": {
+    "id": "962",
+    "name": {
+      "pt": "lâmpada de lava",
+      "en": "lava lamp"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "963": {
+    "id": "963",
+    "name": {
+      "pt": "código de barras",
+      "en": "barcode"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "964": {
+    "id": "964",
+    "name": {
+      "pt": "lanterna oriental",
+      "en": "asian lantern"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "965": {
+    "id": "965",
+    "name": {
+      "pt": "tubos de ensaio",
+      "en": "test tubes"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "966": {
+    "id": "966",
+    "name": {
+      "pt": "tigela de arroz",
+      "en": "rice bowl"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "967": {
+    "id": "967",
+    "name": {
+      "pt": "equipamento de mergulho",
+      "en": "snorkeling gear"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "968": {
+    "id": "968",
+    "name": {
+      "pt": "papel toalha",
+      "en": "paper towel"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "969": {
+    "id": "969",
+    "name": {
+      "pt": "pia",
+      "en": "sink"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence",
+      "weapon"
+    ]
+  },
+  "970": {
+    "id": "970",
+    "name": {
+      "pt": "detergente",
+      "en": "dish soap"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "971": {
+    "id": "971",
+    "name": {
+      "pt": "cabinet",
+      "en": "shelf"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "weapon",
+      "evidence"
+    ]
+  },
+  "972": {
+    "id": "972",
+    "name": {
+      "pt": "armário",
+      "en": "wardrobe"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence",
+      "weapon"
+    ]
+  },
+  "973": {
+    "id": "973",
+    "name": {
+      "pt": "alfinete",
+      "en": "safety pin"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
+  },
+  "974": {
+    "id": "974",
+    "name": {
+      "pt": "discman",
+      "en": "discman"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "975": {
+    "id": "975",
+    "name": {
+      "pt": "colheres de medida",
+      "en": "measuring spoons"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "976": {
+    "id": "976",
+    "name": {
+      "pt": "carretel de linha",
+      "en": "spool"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "977": {
+    "id": "977",
+    "name": {
+      "pt": "botão",
+      "en": "button"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence",
+      "weapon"
+    ]
+  },
+  "978": {
+    "id": "978",
+    "name": {
+      "pt": "cadeira de balanço",
+      "en": "rocking chair"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "979": {
+    "id": "979",
+    "name": {
+      "pt": "sombrinha de praia",
+      "en": "beach umbrella"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "980": {
+    "id": "980",
+    "name": {
+      "pt": "roteador",
+      "en": "wifi router"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "981": {
+    "id": "981",
+    "name": {
+      "pt": "motor",
+      "en": "car engine"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
+  },
+  "982": {
+    "id": "982",
+    "name": {
+      "pt": "bastão de luz de k-pop",
+      "en": "k-pop light stick"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence",
+      "weapon"
+    ]
+  },
+  "983": {
+    "id": "983",
+    "name": {
+      "pt": "humidificador de ar",
+      "en": "humidifier"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "984": {
+    "id": "984",
+    "name": {
+      "pt": "palco",
+      "en": "stage"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice"
+    ]
+  },
+  "985": {
+    "id": "985",
+    "name": {
+      "pt": "cartão sim",
+      "en": "sim card"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "986": {
+    "id": "986",
+    "name": {
+      "pt": "aparador de pêlos",
+      "en": "trimmer"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "987": {
+    "id": "987",
+    "name": {
+      "pt": "camera film",
+      "en": "camera film"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "988": {
+    "id": "988",
+    "name": {
+      "pt": "teclado musical",
+      "en": "music keyboard"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence",
+      "weapon"
+    ]
+  },
+  "989": {
+    "id": "989",
+    "name": {
+      "pt": "cafeteira",
+      "en": "coffee maker"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "990": {
+    "id": "990",
+    "name": {
+      "pt": "pickups de dj",
+      "en": "dj mixer"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "991": {
+    "id": "991",
+    "name": {
+      "pt": "chá com boba",
+      "en": "boba tea"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "992": {
+    "id": "992",
+    "name": {
+      "pt": "machado de pedra",
+      "en": "stone axe"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "weapon"
+    ]
+  },
+  "993": {
+    "id": "993",
+    "name": {
+      "pt": "tinta spray",
+      "en": "spray paint"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "994": {
+    "id": "994",
+    "name": {
+      "pt": "barba",
+      "en": "beard"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": []
+  },
+  "995": {
+    "id": "995",
+    "name": {
+      "pt": "filtros de café",
+      "en": "coffee filters"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "996": {
+    "id": "996",
+    "name": {
+      "pt": "grade",
+      "en": "barricade"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
+  },
+  "997": {
+    "id": "997",
+    "name": {
+      "pt": "detector de metais",
+      "en": "metal detector"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence",
+      "weapon"
+    ]
+  },
+  "998": {
+    "id": "998",
+    "name": {
+      "pt": "sanfona",
+      "en": "accordion"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "999": {
+    "id": "999",
+    "name": {
+      "pt": "saca rolhas",
+      "en": "corkscrew"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "weapon"
+    ]
+  },
+  "1000": {
+    "id": "1000",
+    "name": {
+      "pt": "vitrola",
+      "en": "turntable"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "evidence",
+      "mesmice"
+    ]
+  },
+  "1001": {
+    "id": "1001",
+    "name": {
+      "pt": "escafandro",
+      "en": "diving helmet"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "1002": {
+    "id": "1002",
+    "name": {
+      "pt": "poncho",
+      "en": "poncho"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "evidence"
+    ]
+  },
+  "1003": {
+    "id": "1003",
+    "name": {
+      "pt": "espada de bambu",
+      "en": "shinai"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "weapon"
+    ]
+  },
+  "1004": {
+    "id": "1004",
+    "name": {
+      "pt": "katana",
+      "en": "katana"
+    },
+    "attributes": {
+      "alive": 0,
+      "beautiful": 0,
+      "big": 0,
+      "bright": 0,
+      "clothes": 0,
+      "danger": 0,
+      "defense": 0,
+      "fast": 0,
+      "flat": 0,
+      "flight": 0,
+      "food": 0,
+      "heavy": 0,
+      "human": 0,
+      "knowledge": 0,
+      "liquid": 0,
+      "long": 0,
+      "machine": 0,
+      "metal": 0,
+      "odor": 0,
+      "old": 0,
+      "plant": 0,
+      "power": 0,
+      "round": 0,
+      "sharp": 0,
+      "soft": 0,
+      "solid": 0,
+      "sound": 0,
+      "tool": 0,
+      "valuable": 0,
+      "warm": 0,
+      "weapon": 0,
+      "holdable": 0,
+      "personal": 0,
+      "multiple": 0,
+      "fragile": 0,
+      "toy": 0,
+      "construction": 0
+    },
+    "categories": [
+      "mesmice",
+      "weapon"
+    ]
+  },
+  "1005": {
+    "id": "1005",
+    "name": {
+      "pt": "serrote",
+      "en": "saw"
+    },
+    "attributes": {
+      "alive": -3,
+      "beautiful": -3,
+      "big": -3,
+      "bright": -3,
+      "clothes": -3,
+      "danger": 3,
+      "defense": -3,
+      "fast": -3,
+      "flat": 3,
+      "flight": -3,
+      "food": -3,
+      "heavy": -3,
+      "human": -3,
+      "knowledge": -3,
+      "liquid": -3,
+      "long": -3,
+      "machine": -3,
+      "metal": 3,
+      "odor": -3,
+      "old": -3,
+      "plant": -3,
+      "power": -3,
+      "round": -3,
+      "sharp": 5,
+      "soft": -3,
+      "solid": 1,
+      "sound": -3,
+      "tool": 3,
+      "valuable": -3,
+      "warm": -3,
+      "weapon": -3,
+      "holdable": 3,
+      "personal": -3,
+      "multiple": -3,
+      "fragile": -3,
+      "toy": -3,
+      "construction": 3
+    },
+    "categories": [
+      "mesmice",
+      "weapon"
+    ]
+  },
+  "1006": {
+    "id": "1006",
+    "name": {
+      "pt": "lâmina de barbear",
+      "en": "razor blade"
+    },
+    "attributes": {
+      "alive": -3,
+      "beautiful": -3,
+      "big": -5,
+      "bright": 1,
+      "clothes": -3,
+      "danger": 3,
+      "defense": -3,
+      "fast": -3,
+      "flat": 3,
+      "flight": -3,
+      "food": -3,
+      "heavy": -5,
+      "human": -3,
+      "knowledge": -3,
+      "liquid": -3,
+      "long": -3,
+      "machine": -3,
+      "metal": 5,
+      "odor": -3,
+      "old": -3,
+      "plant": -3,
+      "power": -3,
+      "round": -3,
+      "sharp": 5,
+      "soft": -3,
+      "solid": -1,
+      "sound": -3,
+      "tool": -1,
+      "valuable": -3,
+      "warm": -3,
+      "weapon": -3,
+      "holdable": -1,
+      "personal": -3,
+      "multiple": -3,
+      "fragile": -3,
+      "toy": -5,
+      "construction": -3
+    },
+    "categories": [
+      "mesmice",
+      "weapon"
     ]
   }
 }
