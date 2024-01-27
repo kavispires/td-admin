@@ -763,5 +763,45 @@
     "id": "t-150-pt",
     "question": "Ele(a) tem um passado misterioso?",
     "answer": "Tem um passado misterioso"
+  },
+  "t-151-pt": {
+    "id": "t-151-pt",
+    "question": "Ele(a) é de Áries com ascendente em Peixes?",
+    "answer": "É de Áries com ascendente em Peixes"
+  },
+  "t-152-pt": {
+    "id": "t-152-pt",
+    "question": "Ele(a) é muito teimoso(a)?",
+    "answer": "É muito teimoso(a)"
+  },
+  "t-153-pt": {
+    "id": "t-153-pt",
+    "question": "Ele(a) é muito ciumento(a)?",
+    "answer": "É muito ciumento(a)"
+  },
+  "t-154-pt": {
+    "id": "t-154-pt",
+    "question": "Ele(a) é muito possessivo(a)?",
+    "answer": "É muito possessivo(a)"
+  },
+  "t-155-pt": {
+    "id": "t-155-pt",
+    "question": "Ele(a) é vingativo(a)?",
+    "answer": "É vingativo(a)"
+  },
+  "t-156-pt": {
+    "id": "t-156-pt",
+    "question": "Ele(a) acha que Chaves é melhor que Friends?",
+    "answer": "Acha que Chaves é melhor que Friends"
+  },
+  "t-157-pt": {
+    "id": "t-157-pt",
+    "question": "Ele(a) apela fácil?",
+    "answer": "Apela fácil"
+  },
+  "t-158-pt": {
+    "id": "t-158-pt",
+    "question": "Ele(a) é muito competitivo(a)?",
+    "answer": "É muito competitivo(a)"
   }
 }
