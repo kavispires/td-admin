@@ -8,6 +8,7 @@ import './CrimesHediondosCategorizer.scss';
 import { CopyOutlined } from '@ant-design/icons';
 import { Header } from 'components/Layout/Header';
 import { TagState } from 'components/Resource/ResourceResponseState';
+import { CHImage } from 'components/CrimesHediondos';
 
 export function CrimesHediondosCategorizer() {
   /**
@@ -130,13 +131,6 @@ function CHDataWrapper({ data }: CHDataWrapperProps) {
   );
 }
 
-function CHImage({ cardId }: { cardId: CardId }) {
-  const imageURL = cardId.replace(/-/g, '/');
-  return (
-    <Image width={100} src={`${process.env.REACT_APP_TDI_URL}/images/${imageURL}.jpg`} preview={false} />
-  );
-}
-
 function CHTagSelect({
   tagsArr,
   currentTags,
@@ -245,7 +239,7 @@ type NavigationProps = {
 
 function Navigation({ goToCard, currentCardIndex, data }: NavigationProps) {
   return (
-    <Space className="h-margin">
+    <Space wrap>
       <Button onClick={() => goToCard(-currentCardIndex)} disabled={currentCardIndex === 10}>
         First (0)
       </Button>

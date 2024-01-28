@@ -1,35 +1,29 @@
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
 export function useCrimesHediondosData() {
-  const resultWP = useQuery<CrimesHediondosCard[], ResponseError>(
-    'dmhk-wp',
-    async () => {
+  const resultWP = useQuery<CrimesHediondosCard[], ResponseError>({
+    queryKey: ['dmhk-wp'],
+    queryFn: async () => {
       const res = await fetch(`${process.env.REACT_APP_TDI_URL}/data/dmhk/wp.json`);
       const jsonResponse = (await res.json()) as Record<string, CrimesHediondosCard>;
       return Object.values(jsonResponse).map((entry) => ({
         ...entry,
-        tags: entry.tags ? entry.tags : [],
+        tags: (entry.tags ? entry.tags : []).filter((tag) => !!tag.trim()),
       }));
     },
-    {
-      retry: 0,
-    }
-  );
+  });
 
-  const resultEV = useQuery<CrimesHediondosCard[]>(
-    'dmhk-ev',
-    async () => {
+  const resultEV = useQuery<CrimesHediondosCard[], ResponseError>({
+    queryKey: ['dmhk-ev'],
+    queryFn: async () => {
       const res = await fetch(`${process.env.REACT_APP_TDI_URL}/data/dmhk/ev.json`);
       const jsonResponse = (await res.json()) as Record<string, CrimesHediondosCard>;
       return Object.values(jsonResponse).map((entry) => ({
         ...entry,
-        tags: entry.tags ? entry.tags : [],
+        tags: (entry.tags ? entry.tags : []).filter((tag) => !!tag.trim()),
       }));
     },
-    {
-      retry: 0,
-    }
-  );
+  });
   // const resultWP = { isLoading: false, isSuccess: true, isError: false, data: [] };
 
   return {

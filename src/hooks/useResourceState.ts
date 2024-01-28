@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { LOCALHOST_RESOURCE_URL } from '../utils/constants';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useQueryParams } from './useQueryParams';
 
 type ResourceState = {
@@ -17,8 +16,6 @@ export function useResourceState(availableResources: AvailableResources): Resour
     queryParams: { resourceName = '', language = '' },
   } = useQueryParams();
 
-  const [response, setResponse] = useState({});
-
   const { data, isLoading, error } = useQuery<any, ResponseError>({
     queryKey: ['resource', resourceName, language],
     queryFn: async () => {
@@ -31,7 +28,7 @@ export function useResourceState(availableResources: AvailableResources): Resour
         : await fetch(`${url}/${resourceName}.json`);
 
       const result = res.body ? await res.json() : {};
-      setResponse(result);
+
       return result;
     },
     enabled: !!resourceName && availableResources.includes(resourceName),
@@ -40,7 +37,7 @@ export function useResourceState(availableResources: AvailableResources): Resour
   return {
     resourceName,
     language: (language as Language) || null,
-    response,
+    response: data,
     isLoading,
     error,
     hasResponseData: Boolean(data),

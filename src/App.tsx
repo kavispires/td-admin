@@ -7,7 +7,7 @@ import { Other } from 'pages/Other';
 import { Resource } from 'pages/Resource';
 import { ResourceGenerator } from 'pages/ResourceGenerator';
 import { SingleWordsExpander } from 'pages/SingleWordsExpander';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 const queryClient = new QueryClient({
