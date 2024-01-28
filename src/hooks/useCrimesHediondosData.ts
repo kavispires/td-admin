@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
+import { CrimesHediondosCard } from 'types';
+import { getTDIUrl } from 'utils';
 
 export function useCrimesHediondosData() {
   const resultWP = useQuery<CrimesHediondosCard[], ResponseError>({
     queryKey: ['dmhk-wp'],
     queryFn: async () => {
-      const res = await fetch(`${process.env.REACT_APP_TDI_URL}/data/dmhk/wp.json`);
+      const res = await fetch(getTDIUrl('data/dmhk/wp.json'));
       const jsonResponse = (await res.json()) as Record<string, CrimesHediondosCard>;
       return Object.values(jsonResponse).map((entry) => ({
         ...entry,
@@ -16,7 +18,7 @@ export function useCrimesHediondosData() {
   const resultEV = useQuery<CrimesHediondosCard[], ResponseError>({
     queryKey: ['dmhk-ev'],
     queryFn: async () => {
-      const res = await fetch(`${process.env.REACT_APP_TDI_URL}/data/dmhk/ev.json`);
+      const res = await fetch(getTDIUrl('data/dmhk/ev.json'));
       const jsonResponse = (await res.json()) as Record<string, CrimesHediondosCard>;
       return Object.values(jsonResponse).map((entry) => ({
         ...entry,

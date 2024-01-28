@@ -1,14 +1,17 @@
-import { Button, Image, Input, Layout, Select, Space, Spin, Tag } from 'antd';
+import './CrimesHediondosCategorizer.scss';
+
+import { Button, Input, Layout, Select, Space, Spin, Tag } from 'antd';
+import { CHImage } from 'components/CrimesHediondos';
+import { Header } from 'components/Layout/Header';
+import { TagState } from 'components/Resource/ResourceResponseState';
 import { useCrimesHediondosData } from 'hooks/useCrimesHediondosData';
 import { useCrimesHediondosTags } from 'hooks/useCrimesHediondosTags';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCopyToClipboard } from 'react-use';
-import './CrimesHediondosCategorizer.scss';
+import { CrimesHediondosCard } from 'types';
+
 import { CopyOutlined } from '@ant-design/icons';
-import { Header } from 'components/Layout/Header';
-import { TagState } from 'components/Resource/ResourceResponseState';
-import { CHImage } from 'components/CrimesHediondos';
 
 export function CrimesHediondosCategorizer() {
   /**
@@ -239,7 +242,7 @@ type NavigationProps = {
 
 function Navigation({ goToCard, currentCardIndex, data }: NavigationProps) {
   return (
-    <Space wrap>
+    <Space className="margin-2" wrap>
       <Button onClick={() => goToCard(-currentCardIndex)} disabled={currentCardIndex === 10}>
         First (0)
       </Button>

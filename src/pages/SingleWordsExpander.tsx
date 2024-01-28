@@ -1,4 +1,8 @@
 import { Input, Layout, Typography } from 'antd';
+import { SectionTitle } from 'components/Common/SectionTitle';
+import { Header } from 'components/Layout/Header';
+import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
 
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
@@ -7,10 +11,7 @@ import { SearchDuplicates } from '../components/SearchDuplicates';
 import { useResourceState } from '../hooks/useResourceState';
 import { findSimilar, stringRemoveAccents } from '../utils';
 import { RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
-import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
-import { Header } from 'components/Layout/Header';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { SectionTitle } from 'components/Common/SectionTitle';
+import { TextCard } from 'types';
 
 const { Text } = Typography;
 

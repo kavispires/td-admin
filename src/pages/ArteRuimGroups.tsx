@@ -11,6 +11,7 @@ import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { useResourceState } from '../hooks/useResourceState';
 import { LOCALHOST_RESOURCE_URL, RESOURCE_NAMES } from '../utils/constants';
+import { ArteRuimCard, ArteRuimGroup } from 'types';
 
 const { Text } = Typography;
 

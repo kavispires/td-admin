@@ -1,5 +1,7 @@
-import { LOCALHOST_RESOURCE_URL } from '../utils/constants';
+import { getTDIUrl } from 'utils';
+
 import { useQuery } from '@tanstack/react-query';
+
 import { useQueryParams } from './useQueryParams';
 
 type ResourceState = {
@@ -19,13 +21,11 @@ export function useResourceState(availableResources: AvailableResources): Resour
   const { data, isLoading, error } = useQuery<any, ResponseError>({
     queryKey: ['resource', resourceName, language],
     queryFn: async () => {
-      const url =
-        process.env.NODE_ENV === 'development'
-          ? LOCALHOST_RESOURCE_URL
-          : `${process.env.PUBLIC_URL}/resources`;
-      const res = language
-        ? await fetch(`${url}/${resourceName}-${language}.json`)
-        : await fetch(`${url}/${resourceName}.json`);
+      const url = language
+        ? getTDIUrl(`${resourceName}-${language}.json`)
+        : getTDIUrl(`${resourceName}.json`);
+
+      const res = await fetch(url);
 
       const result = res.body ? await res.json() : {};
 
