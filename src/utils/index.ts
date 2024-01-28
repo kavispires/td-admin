@@ -1,4 +1,4 @@
-import { LOCALHOST_RESOURCE_URL, SEARCH_THRESHOLD } from './constants';
+import { SEARCH_THRESHOLD } from './constants';
 import stringSimilarity from 'string-similarity';
 
 /**
@@ -69,14 +69,21 @@ export const findBestMatch = (str: string, list: string[]) => {};
 /**
  * Returns the URL of the TDR resource folder.
  */
-export const getTDRUrl = (path: string) => {
-  const prefix = process.env.NODE_ENV === 'development' ? LOCALHOST_RESOURCE_URL : process.env.PUBLIC_URL;
-  return `${prefix}/resources/${path}`;
+export const getTDRUrl = (path: string): string => {
+  const baseUrl =
+    process.env.NODE_ENV === 'development'
+      ? process.env.REACT_APP_LOCAL_URL
+      : process.env.REACT_APP_TD_BASE_URL;
+  const folder = process.env.REACT_APP_TD_RESOURCES;
+
+  return [baseUrl, folder, path].join('/');
 };
 
 /**
  * Returns the URL of the TDI resource.
  */
-export const getTDIUrl = (path: string) => {
-  return `${process.env.REACT_APP_TDI_URL}/${path}`;
+export const getTDIUrl = (path: string): string => {
+  const baseUrl = process.env.REACT_APP_TD_BASE_URL;
+  const folder = process.env.REACT_APP_TDI_DATA;
+  return [baseUrl, folder, path].join('/');
 };

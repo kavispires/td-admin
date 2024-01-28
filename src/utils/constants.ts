@@ -1,7 +1,5 @@
 export const SEARCH_THRESHOLD: number = 2;
 
-export const LOCALHOST_RESOURCE_URL: string = 'http://localhost:3000/tdr/resources';
-
 export const RESOURCE_NAMES = {
   ADJECTIVES: 'adjectives',
   ARTE_RUIM_CARDS: 'arte-ruim-cards',

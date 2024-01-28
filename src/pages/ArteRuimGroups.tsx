@@ -10,8 +10,9 @@ import { useQuery } from '@tanstack/react-query';
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { useResourceState } from '../hooks/useResourceState';
-import { LOCALHOST_RESOURCE_URL, RESOURCE_NAMES } from '../utils/constants';
+import { RESOURCE_NAMES } from '../utils/constants';
 import { ArteRuimCard, ArteRuimGroup } from 'types';
+import { getTDRUrl } from 'utils';
 
 const { Text } = Typography;
 
@@ -68,9 +69,7 @@ export function ArteRuimGroups() {
   } = useQuery<any, ResponseError>({
     queryKey: [RESOURCE_NAMES.ARTE_RUIM_GROUPS, language],
     queryFn: async () => {
-      const response = await fetch(
-        `${LOCALHOST_RESOURCE_URL}/${RESOURCE_NAMES.ARTE_RUIM_GROUPS}-${language}.json`
-      );
+      const response = await fetch(getTDRUrl(`${RESOURCE_NAMES.ARTE_RUIM_GROUPS}-${language}.json`));
       const result = await response.json();
 
       return result;
