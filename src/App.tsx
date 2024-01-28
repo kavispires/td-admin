@@ -9,6 +9,7 @@ import { ResourceGenerator } from 'pages/ResourceGenerator';
 import { SingleWordsExpander } from 'pages/SingleWordsExpander';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { HashRouter, Route, Routes } from 'react-router-dom';
+import { AuthWrapper } from 'components/Layout/AuthWrapper';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,29 +25,32 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ConfigProvider
         theme={{
+          // algorithm: theme.darkAlgorithm,
           token: {
-            fontFamily: "'Lato', sans-serif",
-            colorPrimary: '#748599',
-            colorError: '#F8C1D4',
-            colorWarning: '#F3D6BC',
-            colorSuccess: '#7FB28A',
-            colorInfo: '#2a9d8f',
+            // fontFamily: "'Lato', sans-serif",
+            // colorPrimary: '#748599',
+            // colorError: '#F8C1D4',
+            // colorWarning: '#F3D6BC',
+            // colorSuccess: '#7FB28A',
+            // colorInfo: '#2a9d8f',
           },
         }}
       >
-        <HashRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/resource" element={<Resource />} />
-            <Route path="/resource-generator" element={<ResourceGenerator />} />
+        <AuthWrapper>
+          <HashRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/resource" element={<Resource />} />
+              <Route path="/resource-generator" element={<ResourceGenerator />} />
 
-            <Route path="/arte-ruim-parser" element={<ArteRuimParser />} />
-            <Route path="/arte-ruim-groups" element={<ArteRuimGroups />} />
-            <Route path="/crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
-            <Route path="/single-words" element={<SingleWordsExpander />} />
-            <Route path="/other" element={<Other />} />
-          </Routes>
-        </HashRouter>
+              <Route path="/arte-ruim-parser" element={<ArteRuimParser />} />
+              <Route path="/arte-ruim-groups" element={<ArteRuimGroups />} />
+              <Route path="/crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
+              <Route path="/single-words" element={<SingleWordsExpander />} />
+              <Route path="/other" element={<Other />} />
+            </Routes>
+          </HashRouter>
+        </AuthWrapper>
       </ConfigProvider>
     </QueryClientProvider>
   );
