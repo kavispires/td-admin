@@ -78,6 +78,7 @@ export function Menu() {
       mode="horizontal"
       items={items}
       className="header__menu"
+      theme="dark"
     />
   );
 }

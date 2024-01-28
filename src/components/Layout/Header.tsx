@@ -2,8 +2,10 @@ import { useTitle } from 'react-use';
 
 import { Menu } from './Menu';
 import { ReactNode } from 'react';
+import logo from 'assets/images/logo.svg';
+import { Avatar, Layout, Typography } from 'antd';
 
-type HeaderProps = {
+export type HeaderProps = {
   title: string;
   subtitle?: string;
   extra?: ReactNode;
@@ -13,16 +15,15 @@ export function Header({ title, subtitle, extra }: HeaderProps) {
   useTitle(`${title}${subtitle ? ` — ${subtitle}` : ''}`);
 
   return (
-    <header className="header">
-      <div className="header__main">
-        <h1>
-          <span className="header__title">{title}</span>
+    <>
+      <Layout.Header className="header">
+        <Typography.Title level={1} className="header__h1">
+          <Avatar src={logo} size="large" /> <span className="header__title">{title}</span>
           {Boolean(subtitle) && <span className="header__subtitle"> — {subtitle}</span>}
-        </h1>
-        {extra}
-      </div>
-
+        </Typography.Title>
+        <div>{extra}</div>
+      </Layout.Header>
       <Menu />
-    </header>
+    </>
   );
 }
