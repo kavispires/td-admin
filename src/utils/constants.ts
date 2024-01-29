@@ -36,6 +36,7 @@ export const RESOURCE_NAMES = {
   SUSPECTS: 'suspects',
   TESTIMONY_QUESTIONS: 'testimony-questions',
   THEMES: 'themes',
+  THINGS_QUALITIES: 'things-qualities',
   TOPICS: 'topics',
   TWEETS: 'tweets',
 };
