@@ -1,0 +1,1802 @@
+{
+  "dmhk-ev-001": {
+    "id": "dmhk-ev-001",
+    "type": "evidence",
+    "name": {
+      "en": "paintbrush",
+      "pt": "pincel"
+    },
+    "tags": ["holdable", "art"]
+  },
+  "dmhk-ev-002": {
+    "id": "dmhk-ev-002",
+    "type": "evidence",
+    "name": {
+      "en": "keyboard",
+      "pt": "teclado"
+    },
+    "tags": ["electronic", "personal", "work", "learning"]
+  },
+  "dmhk-ev-003": {
+    "id": "dmhk-ev-003",
+    "type": "evidence",
+    "name": {
+      "en": "map",
+      "pt": "mapa"
+    },
+    "tags": ["paper", "fragile", "reading", "holdable", "leisure"]
+  },
+  "dmhk-ev-004": {
+    "id": "dmhk-ev-004",
+    "type": "evidence",
+    "name": {
+      "en": "comics",
+      "pt": "revista em quadrinhos"
+    },
+    "tags": ["paper", "fragile", "reading", "holdable", "leisure", "child"]
+  },
+  "dmhk-ev-005": {
+    "id": "dmhk-ev-005",
+    "type": "evidence",
+    "name": {
+      "en": "plastic",
+      "pt": "plástico"
+    },
+    "tags": ["holdable", "plastic"]
+  },
+  "dmhk-ev-006": {
+    "id": "dmhk-ev-006",
+    "type": "evidence",
+    "name": {
+      "en": "pipe",
+      "pt": "cano"
+    },
+    "tags": ["metal", "holdable", "heavy", "building"]
+  },
+  "dmhk-ev-007": {
+    "id": "dmhk-ev-007",
+    "type": "evidence",
+    "name": {
+      "en": "pan",
+      "pt": "frigideira"
+    },
+    "tags": ["cooking", "holdable"]
+  },
+  "dmhk-ev-008": {
+    "id": "dmhk-ev-008",
+    "type": "evidence",
+    "name": {
+      "en": "photo frame",
+      "pt": "porta retrato"
+    },
+    "tags": ["holdable", "personal", "home"]
+  },
+  "dmhk-ev-009": {
+    "id": "dmhk-ev-009",
+    "type": "evidence",
+    "name": {
+      "en": "laptop",
+      "pt": "notebook"
+    },
+    "tags": ["electronic", "work"]
+  },
+  "dmhk-ev-010": {
+    "id": "dmhk-ev-010",
+    "type": "evidence",
+    "name": {
+      "en": "fly swatter",
+      "pt": "mata-mosca"
+    },
+    "tags": ["holdable", "tool"]
+  },
+  "dmhk-ev-011": {
+    "id": "dmhk-ev-011",
+    "type": "evidence",
+    "name": {
+      "en": "computer mouse",
+      "pt": "mouse"
+    },
+    "tags": ["electronic", "tool", "work", "small"]
+  },
+  "dmhk-ev-012": {
+    "id": "dmhk-ev-012",
+    "type": "evidence",
+    "name": {
+      "en": "menu",
+      "pt": "cardápio"
+    },
+    "tags": ["paper", "reading", "eating", "holdable"]
+  },
+  "dmhk-ev-013": {
+    "id": "dmhk-ev-013",
+    "type": "evidence",
+    "name": {
+      "en": "cleaning cloth",
+      "pt": "pano de chão"
+    },
+    "tags": ["fabric"]
+  },
+  "dmhk-ev-014": {
+    "id": "dmhk-ev-014",
+    "type": "evidence",
+    "name": {
+      "en": "diamond",
+      "pt": "diamante"
+    },
+    "tags": ["mineral", "holdable", "wealth"]
+  },
+  "dmhk-ev-015": {
+    "id": "dmhk-ev-015",
+    "type": "evidence",
+    "name": {
+      "en": "lens",
+      "pt": "lente de contato"
+    },
+    "tags": ["personal", "small", "wearable", "eye"]
+  },
+  "dmhk-ev-016": {
+    "id": "dmhk-ev-016",
+    "type": "evidence",
+    "name": {
+      "en": "blue jeans",
+      "pt": "calça jeans"
+    },
+    "tags": ["wearable", "cord"]
+  },
+  "dmhk-ev-017": {
+    "id": "dmhk-ev-017",
+    "type": "evidence",
+    "name": {
+      "en": "envelope",
+      "pt": "envelope"
+    },
+    "tags": ["paper", "holdable", "fragile"]
+  },
+  "dmhk-ev-018": {
+    "id": "dmhk-ev-018",
+    "type": "evidence",
+    "name": {
+      "en": "speaker",
+      "pt": "caixa de som"
+    },
+    "tags": ["sound", "object"]
+  },
+  "dmhk-ev-019": {
+    "id": "dmhk-ev-019",
+    "type": "evidence",
+    "name": {
+      "en": "match",
+      "pt": "fósforo"
+    },
+    "tags": ["inflammable", "small", "holdable"]
+  },
+  "dmhk-ev-020": {
+    "id": "dmhk-ev-020",
+    "type": "evidence",
+    "name": {
+      "en": "banana",
+      "pt": "banana"
+    },
+    "tags": ["food"]
+  },
+  "dmhk-ev-021": {
+    "id": "dmhk-ev-021",
+    "type": "evidence",
+    "name": {
+      "en": "sponge",
+      "pt": "esponja"
+    },
+    "tags": ["soft", "cooking"]
+  },
+  "dmhk-ev-022": {
+    "id": "dmhk-ev-022",
+    "type": "evidence",
+    "name": {
+      "en": "remote control",
+      "pt": "controle remoto"
+    },
+    "tags": ["electronic", "holdable", "small", "home"]
+  },
+  "dmhk-ev-023": {
+    "id": "dmhk-ev-023",
+    "type": "evidence",
+    "name": {
+      "en": "toothpicks",
+      "pt": "palito de dente"
+    },
+    "tags": ["cooking", "punctureable", "personal", "eating"]
+  },
+  "dmhk-ev-024": {
+    "id": "dmhk-ev-024",
+    "type": "evidence",
+    "name": {
+      "en": "shrimp",
+      "pt": "camarão"
+    },
+    "tags": ["food"]
+  },
+  "dmhk-ev-025": {
+    "id": "dmhk-ev-025",
+    "type": "evidence",
+    "name": {
+      "en": "deck of cards",
+      "pt": "baralho"
+    },
+    "tags": ["paper", "holdable", "game"]
+  },
+  "dmhk-ev-026": {
+    "id": "dmhk-ev-026",
+    "type": "evidence",
+    "name": {
+      "en": "magazine",
+      "pt": "revista"
+    },
+    "tags": ["reading", "paper", "holdable"]
+  },
+  "dmhk-ev-027": {
+    "id": "dmhk-ev-027",
+    "type": "evidence",
+    "name": {
+      "en": "bone",
+      "pt": "osso"
+    },
+    "tags": ["organic"]
+  },
+  "dmhk-ev-028": {
+    "id": "dmhk-ev-028",
+    "type": "evidence",
+    "name": {
+      "en": "mouse ear hat",
+      "pt": "chapéu de mickey"
+    },
+    "tags": ["child", "wearable", "head"]
+  },
+  "dmhk-ev-029": {
+    "id": "dmhk-ev-029",
+    "type": "evidence",
+    "name": {
+      "en": "cockroach",
+      "pt": "barata"
+    },
+    "tags": ["insect", "dirty", "small"]
+  },
+  "dmhk-ev-030": {
+    "id": "dmhk-ev-030",
+    "type": "evidence",
+    "name": {
+      "en": "bra",
+      "pt": "sutiã"
+    },
+    "tags": ["wearable", "personal", "female"]
+  },
+  "dmhk-ev-031": {
+    "id": "dmhk-ev-031",
+    "type": "evidence",
+    "name": {
+      "pt": "dicionário",
+      "en": "dictionary"
+    },
+    "tags": ["reading", "paper", "holdable"]
+  },
+  "dmhk-ev-032": {
+    "id": "dmhk-ev-032",
+    "type": "evidence",
+    "name": {
+      "pt": "tapete de ioga",
+      "en": "yoga mat"
+    },
+    "tags": ["flexible", "personal", "holdable", "sport", "steppable"]
+  },
+  "dmhk-ev-033": {
+    "id": "dmhk-ev-033",
+    "type": "evidence",
+    "name": {
+      "pt": "gato",
+      "en": "cat"
+    },
+    "tags": ["animal", "fur"]
+  },
+  "dmhk-ev-034": {
+    "id": "dmhk-ev-034",
+    "type": "evidence",
+    "name": {
+      "pt": "rosa",
+      "en": "rose"
+    },
+    "tags": ["plant", "thorn", "holdable", "female"]
+  },
+  "dmhk-ev-035": {
+    "id": "dmhk-ev-035",
+    "type": "evidence",
+    "name": {
+      "pt": "pão",
+      "en": "bread"
+    },
+    "tags": ["food", "ingestible"]
+  },
+  "dmhk-ev-036": {
+    "id": "dmhk-ev-036",
+    "type": "evidence",
+    "name": {
+      "pt": "capacete",
+      "en": "helmet"
+    },
+    "tags": ["hard", "wearable", "transport", "head", "outdoors"]
+  },
+  "dmhk-ev-037": {
+    "id": "dmhk-ev-037",
+    "type": "evidence",
+    "name": {
+      "pt": "tempero",
+      "en": "seasoning"
+    },
+    "tags": ["food", "cooking", "powder"]
+  },
+  "dmhk-ev-038": {
+    "id": "dmhk-ev-038",
+    "type": "evidence",
+    "name": {
+      "pt": "dentadura",
+      "en": "dentures"
+    },
+    "tags": ["personal", "mouth-on", "old"]
+  },
+  "dmhk-ev-039": {
+    "id": "dmhk-ev-039",
+    "type": "evidence",
+    "name": {
+      "pt": "guardanapo",
+      "en": "napkin"
+    },
+    "tags": ["fabric", "paper", "eating"]
+  },
+  "dmhk-ev-040": {
+    "id": "dmhk-ev-040",
+    "type": "evidence",
+    "name": {
+      "pt": "caneta",
+      "en": "pen"
+    },
+    "tags": ["stain", "holdable", "writing"]
+  },
+  "dmhk-ev-041": {
+    "id": "dmhk-ev-041",
+    "type": "evidence",
+    "name": {
+      "pt": "batom",
+      "en": "lipstick"
+    },
+    "tags": ["mouth-on", "personal", "stain", "female"]
+  },
+  "dmhk-ev-042": {
+    "id": "dmhk-ev-042",
+    "type": "evidence",
+    "name": {
+      "pt": "ampulheta",
+      "en": "hourglass"
+    },
+    "tags": ["glass", "object", "old"]
+  },
+  "dmhk-ev-043": {
+    "id": "dmhk-ev-043",
+    "type": "evidence",
+    "name": {
+      "pt": "sombrero",
+      "en": "sombrero"
+    },
+    "tags": ["wearable", "head"]
+  },
+  "dmhk-ev-044": {
+    "id": "dmhk-ev-044",
+    "type": "evidence",
+    "name": {
+      "pt": "capa de super herói",
+      "en": "superhero cape"
+    },
+    "tags": ["fabric", "wearable", "child"]
+  },
+  "dmhk-ev-045": {
+    "id": "dmhk-ev-045",
+    "type": "evidence",
+    "name": {
+      "pt": "anel",
+      "en": "ring"
+    },
+    "tags": ["wearable", "small", "metal", "wealth", "feelings", "personal"]
+  },
+  "dmhk-ev-046": {
+    "id": "dmhk-ev-046",
+    "type": "evidence",
+    "name": {
+      "pt": "siringa",
+      "en": "syringe"
+    },
+    "tags": ["injectable", "liquid", "plastic", "drug"]
+  },
+  "dmhk-ev-047": {
+    "id": "dmhk-ev-047",
+    "type": "evidence",
+    "name": {
+      "pt": "tomada",
+      "en": "plug"
+    },
+    "tags": ["electronic", "cord"]
+  },
+  "dmhk-ev-048": {
+    "id": "dmhk-ev-048",
+    "type": "evidence",
+    "name": {
+      "pt": "caixa de ferramentas",
+      "en": "tool box"
+    },
+    "tags": ["tool", "object", "utensils"]
+  },
+  "dmhk-ev-049": {
+    "id": "dmhk-ev-049",
+    "type": "evidence",
+    "name": {
+      "pt": "talão de cheques",
+      "en": "cheque book"
+    },
+    "tags": ["paper", "wealth", "writing"]
+  },
+  "dmhk-ev-050": {
+    "id": "dmhk-ev-050",
+    "type": "evidence",
+    "name": {
+      "pt": "cueca",
+      "en": "briefs"
+    },
+    "tags": ["personal", "male", "wearable"]
+  },
+  "dmhk-ev-051": {
+    "id": "dmhk-ev-051",
+    "type": "evidence",
+    "name": {
+      "pt": "poncho",
+      "en": "poncho"
+    },
+    "tags": ["fabric", "wearable"]
+  },
+  "dmhk-ev-052": {
+    "id": "dmhk-ev-052",
+    "type": "evidence",
+    "name": {
+      "pt": "relógio",
+      "en": "clock"
+    },
+    "tags": ["object", "time"]
+  },
+  "dmhk-ev-053": {
+    "id": "dmhk-ev-053",
+    "type": "evidence",
+    "name": {
+      "pt": "vestido",
+      "en": "dress"
+    },
+    "tags": ["wearable", "female", "fabric"]
+  },
+  "dmhk-ev-054": {
+    "id": "dmhk-ev-054",
+    "type": "evidence",
+    "name": {
+      "pt": "casca de ovo",
+      "en": "eggshell"
+    },
+    "tags": ["organic", "cooking"]
+  },
+  "dmhk-ev-055": {
+    "id": "dmhk-ev-055",
+    "type": "evidence",
+    "name": {
+      "pt": "biscoitos",
+      "en": "cookies"
+    },
+    "tags": ["food", "many"]
+  },
+  "dmhk-ev-056": {
+    "id": "dmhk-ev-056",
+    "type": "evidence",
+    "name": {
+      "pt": "bicicleta",
+      "en": "bicycle"
+    },
+    "tags": ["transport"]
+  },
+  "dmhk-ev-057": {
+    "id": "dmhk-ev-057",
+    "type": "evidence",
+    "name": {
+      "pt": "parafuso",
+      "en": "bolt"
+    },
+    "tags": ["metal", "small", "tool"]
+  },
+  "dmhk-ev-058": {
+    "id": "dmhk-ev-058",
+    "type": "evidence",
+    "name": {
+      "pt": "avental",
+      "en": "apron"
+    },
+    "tags": ["cooking", "wearable", "dirty"]
+  },
+  "dmhk-ev-059": {
+    "id": "dmhk-ev-059",
+    "type": "evidence",
+    "name": {
+      "pt": "munição",
+      "en": "ammo"
+    },
+    "tags": ["small", "firearm"]
+  },
+  "dmhk-ev-060": {
+    "id": "dmhk-ev-060",
+    "type": "evidence",
+    "name": {
+      "pt": "lápis",
+      "en": "pencil"
+    },
+    "tags": ["holdable", "stain", "writing", "child"]
+  },
+  "dmhk-ev-061": {
+    "id": "dmhk-ev-061",
+    "type": "evidence",
+    "name": {
+      "pt": "bolo",
+      "en": "cake"
+    },
+    "tags": ["food", "soft"]
+  },
+  "dmhk-ev-062": {
+    "id": "dmhk-ev-062",
+    "type": "evidence",
+    "name": {
+      "pt": "perfume",
+      "en": "perfume"
+    },
+    "tags": ["smell", "liquid", "wearable"]
+  },
+  "dmhk-ev-063": {
+    "id": "dmhk-ev-063",
+    "type": "evidence",
+    "name": {
+      "pt": "fone de ouvido",
+      "en": "headset"
+    },
+    "tags": ["wearable", "electronic", "head"]
+  },
+  "dmhk-ev-064": {
+    "id": "dmhk-ev-064",
+    "type": "evidence",
+    "name": {
+      "pt": "carteira",
+      "en": "wallet"
+    },
+    "tags": ["wealth", "personal", "holdable"]
+  },
+  "dmhk-ev-065": {
+    "id": "dmhk-ev-065",
+    "type": "evidence",
+    "name": {
+      "pt": "relógio de pulso",
+      "en": "watch"
+    },
+    "tags": ["wearable", "personal", "time"]
+  },
+  "dmhk-ev-066": {
+    "id": "dmhk-ev-066",
+    "type": "evidence",
+    "name": {
+      "en": "detergent",
+      "pt": "detergente"
+    },
+    "tags": ["liquid", "plastic", "smell"]
+  },
+  "dmhk-ev-067": {
+    "id": "dmhk-ev-067",
+    "type": "evidence",
+    "name": {
+      "en": "doll",
+      "pt": "boneca"
+    },
+    "tags": ["child", "small"]
+  },
+  "dmhk-ev-068": {
+    "id": "dmhk-ev-068",
+    "type": "evidence",
+    "name": {
+      "en": "eyeliner",
+      "pt": "delineador"
+    },
+    "tags": ["stain", "personal", "holdable"]
+  },
+  "dmhk-ev-069": {
+    "id": "dmhk-ev-069",
+    "type": "evidence",
+    "name": {
+      "en": "gum",
+      "pt": "chiclete"
+    },
+    "tags": ["ingestible", "mouth-on"]
+  },
+  "dmhk-ev-070": {
+    "id": "dmhk-ev-070",
+    "type": "evidence",
+    "name": {
+      "en": "mail",
+      "pt": "correspondências"
+    },
+    "tags": ["paper", "personal", "reading"]
+  },
+  "dmhk-ev-071": {
+    "id": "dmhk-ev-071",
+    "type": "evidence",
+    "name": {
+      "en": "basket",
+      "pt": "cesto"
+    },
+    "tags": ["object", "container"]
+  },
+  "dmhk-ev-072": {
+    "id": "dmhk-ev-072",
+    "type": "evidence",
+    "name": {
+      "en": "olive oil",
+      "pt": "azeite"
+    },
+    "tags": ["liquid", "cooking", "ingestible", "food"]
+  },
+  "dmhk-ev-073": {
+    "id": "dmhk-ev-073",
+    "type": "evidence",
+    "name": {
+      "en": "puzzle",
+      "pt": "quebra-cabeças"
+    },
+    "tags": ["child", "small", "game"]
+  },
+  "dmhk-ev-074": {
+    "id": "dmhk-ev-074",
+    "type": "evidence",
+    "name": {
+      "en": "flag",
+      "pt": "bandeira"
+    },
+    "tags": ["fabric", "holdable"]
+  },
+  "dmhk-ev-075": {
+    "id": "dmhk-ev-075",
+    "type": "evidence",
+    "name": {
+      "en": "signature",
+      "pt": "assinatura"
+    },
+    "tags": ["paper", "personal", "writing"]
+  },
+  "dmhk-ev-076": {
+    "id": "dmhk-ev-076",
+    "type": "evidence",
+    "name": {
+      "en": "suitcase",
+      "pt": "bagagem"
+    },
+    "tags": ["carry", "personal", "leisure"]
+  },
+  "dmhk-ev-077": {
+    "id": "dmhk-ev-077",
+    "type": "evidence",
+    "name": {
+      "en": "swimsuit",
+      "pt": "bikini"
+    },
+    "tags": ["personal", "wearable", "female"]
+  },
+  "dmhk-ev-078": {
+    "id": "dmhk-ev-078",
+    "type": "evidence",
+    "name": {
+      "en": "coffee",
+      "pt": "café"
+    },
+    "tags": ["drink", "holdable", "warm"]
+  },
+  "dmhk-ev-079": {
+    "id": "dmhk-ev-079",
+    "type": "evidence",
+    "name": {
+      "en": "vegetables",
+      "pt": "vegetais"
+    },
+    "tags": ["food", "organic"]
+  },
+  "dmhk-ev-080": {
+    "id": "dmhk-ev-080",
+    "type": "evidence",
+    "name": {
+      "en": "raincoat",
+      "pt": "capa de chuva"
+    },
+    "tags": ["wearable", "wet"]
+  },
+  "dmhk-ev-081": {
+    "id": "dmhk-ev-081",
+    "type": "evidence",
+    "name": {
+      "en": "calendar",
+      "pt": "calendário"
+    },
+    "tags": ["paper", "reading", "time"]
+  },
+  "dmhk-ev-082": {
+    "id": "dmhk-ev-082",
+    "type": "evidence",
+    "name": {
+      "en": "cigar",
+      "pt": "charuto"
+    },
+    "tags": ["mouth-on", "warm", "ash"]
+  },
+  "dmhk-ev-083": {
+    "id": "dmhk-ev-083",
+    "type": "evidence",
+    "name": {
+      "en": "tiara",
+      "pt": "tiara"
+    },
+    "tags": ["head", "wealth", "wearable"]
+  },
+  "dmhk-ev-084": {
+    "id": "dmhk-ev-084",
+    "type": "evidence",
+    "name": {
+      "en": "journal",
+      "pt": "diário"
+    },
+    "tags": ["paper", "personal", "reading", "writing", "feelings"]
+  },
+  "dmhk-ev-085": {
+    "id": "dmhk-ev-085",
+    "type": "evidence",
+    "name": {
+      "en": "beads",
+      "pt": "miçangas"
+    },
+    "tags": ["wearable", "female"]
+  },
+  "dmhk-ev-086": {
+    "id": "dmhk-ev-086",
+    "type": "evidence",
+    "name": {
+      "en": "tripod",
+      "pt": "tripé"
+    },
+    "tags": ["metal", "object", "work"]
+  },
+  "dmhk-ev-087": {
+    "id": "dmhk-ev-087",
+    "type": "evidence",
+    "name": {
+      "en": "pants",
+      "pt": "calças"
+    },
+    "tags": ["wearable"]
+  },
+  "dmhk-ev-088": {
+    "id": "dmhk-ev-088",
+    "type": "evidence",
+    "name": {
+      "en": "monocle",
+      "pt": "monóculo"
+    },
+    "tags": ["wearable", "old"]
+  },
+  "dmhk-ev-089": {
+    "id": "dmhk-ev-089",
+    "type": "evidence",
+    "name": {
+      "en": "bell",
+      "pt": "sino"
+    },
+    "tags": ["sound", "holdable"]
+  },
+  "dmhk-ev-090": {
+    "id": "dmhk-ev-090",
+    "type": "evidence",
+    "name": {
+      "en": "yarn",
+      "pt": "novelo"
+    },
+    "tags": ["fabric", "old"]
+  },
+  "dmhk-ev-091": {
+    "id": "dmhk-ev-091",
+    "type": "evidence",
+    "name": {
+      "en": "urn",
+      "pt": "urna funerária"
+    },
+    "tags": ["powder", "fragile", "old"]
+  },
+  "dmhk-ev-092": {
+    "id": "dmhk-ev-092",
+    "type": "evidence",
+    "name": {
+      "en": "hairpin",
+      "pt": "grampo"
+    },
+    "tags": ["head", "metal", "female"]
+  },
+  "dmhk-ev-093": {
+    "id": "dmhk-ev-093",
+    "type": "evidence",
+    "name": {
+      "en": "gloves",
+      "pt": "luvas"
+    },
+    "tags": ["wearable"]
+  },
+  "dmhk-ev-094": {
+    "id": "dmhk-ev-094",
+    "type": "evidence",
+    "name": {
+      "en": "hat",
+      "pt": "chapéu"
+    },
+    "tags": ["head", "wearable"]
+  },
+  "dmhk-ev-095": {
+    "id": "dmhk-ev-095",
+    "type": "evidence",
+    "name": {
+      "en": "robe",
+      "pt": "roupão"
+    },
+    "tags": ["wearable", "personal"]
+  },
+  "dmhk-ev-096": {
+    "id": "dmhk-ev-096",
+    "type": "evidence",
+    "name": {
+      "en": "cassete tape",
+      "pt": "fita cassete"
+    },
+    "tags": ["sound", "small", "object", "holdable"]
+  },
+  "dmhk-ev-097": {
+    "id": "dmhk-ev-097",
+    "type": "evidence",
+    "name": {
+      "en": "salt",
+      "pt": "sal"
+    },
+    "tags": ["cooking", "powder", "eating", "holdable"]
+  },
+  "dmhk-ev-098": {
+    "id": "dmhk-ev-098",
+    "type": "evidence",
+    "name": {
+      "en": "ash tray",
+      "pt": "cinzeiro"
+    },
+    "tags": ["ash", "object", "holdable"]
+  },
+  "dmhk-ev-099": {
+    "id": "dmhk-ev-099",
+    "type": "evidence",
+    "name": {
+      "en": "lock",
+      "pt": "cadeado"
+    },
+    "tags": ["metal", "hard", "holdable", "building"]
+  },
+  "dmhk-ev-100": {
+    "id": "dmhk-ev-100",
+    "type": "evidence",
+    "name": {
+      "en": "peanut",
+      "pt": "amendoim"
+    },
+    "tags": ["food", "ingestible"]
+  },
+  "dmhk-ev-101": {
+    "id": "dmhk-ev-101",
+    "type": "evidence",
+    "name": {
+      "en": "toy",
+      "pt": "brinquedo"
+    },
+    "tags": ["child", "holdable", "leisure"]
+  },
+  "dmhk-ev-102": {
+    "id": "dmhk-ev-102",
+    "type": "evidence",
+    "name": {
+      "en": "coins",
+      "pt": "moedas"
+    },
+    "tags": ["metal", "wealth", "holdable", "small"]
+  },
+  "dmhk-ev-103": {
+    "id": "dmhk-ev-103",
+    "type": "evidence",
+    "name": {
+      "en": "carton",
+      "pt": "caixa de papelão"
+    },
+    "tags": ["paper", "container"]
+  },
+  "dmhk-ev-104": {
+    "id": "dmhk-ev-104",
+    "type": "evidence",
+    "name": {
+      "en": "ink",
+      "pt": "tinta"
+    },
+    "tags": ["stain", "liquid", "old"]
+  },
+  "dmhk-ev-105": {
+    "id": "dmhk-ev-105",
+    "type": "evidence",
+    "name": {
+      "en": "food ingredients",
+      "pt": "ingredientes culinários"
+    },
+    "tags": ["cooking", "food", "ingestible", "eating", "holdable"]
+  },
+  "dmhk-ev-106": {
+    "id": "dmhk-ev-106",
+    "type": "evidence",
+    "name": {
+      "en": "umbrella",
+      "pt": "guarda-chuva"
+    },
+    "tags": ["holdable", "wet"]
+  },
+  "dmhk-ev-107": {
+    "id": "dmhk-ev-107",
+    "type": "evidence",
+    "name": {
+      "en": "castanets",
+      "pt": "castanholas"
+    },
+    "tags": ["sound", "holdable"]
+  },
+  "dmhk-ev-108": {
+    "id": "dmhk-ev-108",
+    "type": "evidence",
+    "name": {
+      "en": "dragon fruit",
+      "pt": "pitaia"
+    },
+    "tags": ["food", "holdable"]
+  },
+  "dmhk-ev-109": {
+    "id": "dmhk-ev-109",
+    "type": "evidence",
+    "name": {
+      "en": "bracelet",
+      "pt": "bracelete"
+    },
+    "tags": ["wearable", "metal", "wealth", "female"]
+  },
+  "dmhk-ev-110": {
+    "id": "dmhk-ev-110",
+    "type": "evidence",
+    "name": {
+      "en": "maze",
+      "pt": "labirinto"
+    },
+    "tags": ["child"]
+  },
+  "dmhk-ev-111": {
+    "id": "dmhk-ev-111",
+    "type": "evidence",
+    "name": {
+      "en": "cotton",
+      "pt": "algodão"
+    },
+    "tags": ["fabric", "soft", "holdable"]
+  },
+  "dmhk-ev-112": {
+    "id": "dmhk-ev-112",
+    "type": "evidence",
+    "name": {
+      "en": "light bulb",
+      "pt": "lâmpada"
+    },
+    "tags": ["electricity", "bright"]
+  },
+  "dmhk-ev-113": {
+    "id": "dmhk-ev-113",
+    "type": "evidence",
+    "name": {
+      "en": "carnival mask",
+      "pt": "máscara de carnaval"
+    },
+    "tags": ["wearable", "face"]
+  },
+  "dmhk-ev-114": {
+    "id": "dmhk-ev-114",
+    "type": "evidence",
+    "name": {
+      "en": "skull",
+      "pt": "caveira"
+    },
+    "tags": ["organic", "object", "holdable", "head"]
+  },
+  "dmhk-ev-115": {
+    "id": "dmhk-ev-115",
+    "type": "evidence",
+    "name": {
+      "en": "spring",
+      "pt": "mola"
+    },
+    "tags": ["metal", "machine"]
+  },
+  "dmhk-ev-116": {
+    "id": "dmhk-ev-116",
+    "type": "evidence",
+    "name": {
+      "en": "powder",
+      "pt": "pó"
+    },
+    "tags": ["powder"]
+  },
+  "dmhk-ev-117": {
+    "id": "dmhk-ev-117",
+    "type": "evidence",
+    "name": {
+      "en": "violin",
+      "pt": "violino"
+    },
+    "tags": ["sound", "holdable"]
+  },
+  "dmhk-ev-118": {
+    "id": "dmhk-ev-118",
+    "type": "evidence",
+    "name": {
+      "en": "uniform",
+      "pt": "uniforme"
+    },
+    "tags": ["wearable", "child"]
+  },
+  "dmhk-ev-119": {
+    "id": "dmhk-ev-119",
+    "type": "evidence",
+    "name": {
+      "en": "instant noodles",
+      "pt": "miojo"
+    },
+    "tags": ["food"]
+  },
+  "dmhk-ev-120": {
+    "id": "dmhk-ev-120",
+    "type": "evidence",
+    "name": {
+      "en": "chopsticks",
+      "pt": "pauzinhos"
+    },
+    "tags": ["eating", "utensils"]
+  },
+  "dmhk-ev-121": {
+    "id": "dmhk-ev-121",
+    "type": "evidence",
+    "name": {
+      "en": "iron",
+      "pt": "ferro"
+    },
+    "tags": ["metal", "heavy", "holdable"]
+  },
+  "dmhk-ev-122": {
+    "id": "dmhk-ev-122",
+    "type": "evidence",
+    "name": {
+      "en": "office supplies",
+      "pt": "material de escritório"
+    },
+    "tags": ["tool", "work", "writing"]
+  },
+  "dmhk-ev-123": {
+    "id": "dmhk-ev-123",
+    "type": "evidence",
+    "name": {
+      "en": "eggs",
+      "pt": "ovos"
+    },
+    "tags": ["cooking", "animal", "holdable", "fragile"]
+  },
+  "dmhk-ev-124": {
+    "id": "dmhk-ev-124",
+    "type": "evidence",
+    "name": {
+      "en": "diaper",
+      "pt": "fralda"
+    },
+    "tags": ["child", "personal", "wearable", "old"]
+  },
+  "dmhk-ev-125": {
+    "id": "dmhk-ev-125",
+    "type": "evidence",
+    "name": {
+      "en": "candy",
+      "pt": "pirulito"
+    },
+    "tags": ["food", "child", "holdable"]
+  },
+  "dmhk-ev-126": {
+    "id": "dmhk-ev-126",
+    "type": "evidence",
+    "name": {
+      "en": "cigarette butt",
+      "pt": "bituca de cigarro"
+    },
+    "tags": ["ash", "mouth-on", "personal"]
+  },
+  "dmhk-ev-127": {
+    "id": "dmhk-ev-127",
+    "type": "evidence",
+    "name": {
+      "en": "telephone",
+      "pt": "telefone"
+    },
+    "tags": ["electronic", "sound"]
+  },
+  "dmhk-ev-128": {
+    "id": "dmhk-ev-128",
+    "type": "evidence",
+    "name": {
+      "en": "diary",
+      "pt": "diário"
+    },
+    "tags": ["paper", "personal", "reading", "writing"]
+  },
+  "dmhk-ev-129": {
+    "id": "dmhk-ev-129",
+    "type": "evidence",
+    "name": {
+      "en": "hair",
+      "pt": "cabelo"
+    },
+    "tags": ["personal", "organic", "head", "fur"]
+  },
+  "dmhk-ev-130": {
+    "id": "dmhk-ev-130",
+    "type": "evidence",
+    "name": {
+      "en": "flute",
+      "pt": "flauta"
+    },
+    "tags": ["sound", "mouth-on", "holdable"]
+  },
+  "dmhk-ev-131": {
+    "id": "dmhk-ev-131",
+    "type": "evidence",
+    "name": {
+      "en": "broom",
+      "pt": "vassoura"
+    },
+    "tags": ["holdable", "tool"]
+  },
+  "dmhk-ev-132": {
+    "id": "dmhk-ev-132",
+    "type": "evidence",
+    "name": {
+      "en": "key",
+      "pt": "chave"
+    },
+    "tags": ["metal", "small", "holdable"]
+  },
+  "dmhk-ev-133": {
+    "id": "dmhk-ev-133",
+    "type": "evidence",
+    "name": {
+      "en": "juice",
+      "pt": "suco"
+    },
+    "tags": ["drink", "ingestible", "glass"]
+  },
+  "dmhk-ev-134": {
+    "id": "dmhk-ev-134",
+    "type": "evidence",
+    "name": {
+      "en": "dice",
+      "pt": "dados"
+    },
+    "tags": ["child", "holdable", "small", "game"]
+  },
+  "dmhk-ev-135": {
+    "id": "dmhk-ev-135",
+    "type": "evidence",
+    "name": {
+      "en": "blood",
+      "pt": "sangue"
+    },
+    "tags": ["stain", "organic", "personal"]
+  },
+  "dmhk-ev-136": {
+    "id": "dmhk-ev-136",
+    "type": "evidence",
+    "name": {
+      "en": "dog fur",
+      "pt": "pelo de cachorro"
+    },
+    "tags": ["fur", "small"]
+  },
+  "dmhk-ev-137": {
+    "id": "dmhk-ev-137",
+    "type": "evidence",
+    "name": {
+      "en": "nail",
+      "pt": "prego"
+    },
+    "tags": ["metal", "tool", "small", "machine"]
+  },
+  "dmhk-ev-138": {
+    "id": "dmhk-ev-138",
+    "type": "evidence",
+    "name": {
+      "en": "book",
+      "pt": "livro"
+    },
+    "tags": ["reading", "paper", "holdable"]
+  },
+  "dmhk-ev-139": {
+    "id": "dmhk-ev-139",
+    "type": "evidence",
+    "name": {
+      "en": "necklace",
+      "pt": "colar"
+    },
+    "tags": ["wearable", "personal", "wealth", "metal", "female", "cord"]
+  },
+  "dmhk-ev-140": {
+    "id": "dmhk-ev-140",
+    "type": "evidence",
+    "name": {
+      "en": "backpack",
+      "pt": "mochila"
+    },
+    "tags": ["personal", "carry", "child"]
+  },
+  "dmhk-ev-141": {
+    "id": "dmhk-ev-141",
+    "type": "evidence",
+    "name": {
+      "en": "needle and thread",
+      "pt": "agulha e linha"
+    },
+    "tags": ["small", "fabric", "metal", "holdable", "old"]
+  },
+  "dmhk-ev-142": {
+    "id": "dmhk-ev-142",
+    "type": "evidence",
+    "name": {
+      "en": "fax",
+      "pt": "fax"
+    },
+    "tags": ["electronic", "paper", "sound", "old", "work"]
+  },
+  "dmhk-ev-143": {
+    "id": "dmhk-ev-143",
+    "type": "evidence",
+    "name": {
+      "en": "internet cable",
+      "pt": "cabo de rede"
+    },
+    "tags": ["electronic", "cord"]
+  },
+  "dmhk-ev-144": {
+    "id": "dmhk-ev-144",
+    "type": "evidence",
+    "name": {
+      "en": "panties",
+      "pt": "calcinha"
+    },
+    "tags": ["personal", "female", "wearable"]
+  },
+  "dmhk-ev-145": {
+    "id": "dmhk-ev-145",
+    "type": "evidence",
+    "name": {
+      "en": "toy blocks",
+      "pt": "blocos de brinquedo"
+    },
+    "tags": ["object", "small", "child", "holdable"]
+  },
+  "dmhk-ev-146": {
+    "id": "dmhk-ev-146",
+    "type": "evidence",
+    "name": {
+      "en": "safety pin",
+      "pt": "alfinete"
+    },
+    "tags": ["child", "small", "metal", "sting"]
+  },
+  "dmhk-ev-147": {
+    "id": "dmhk-ev-147",
+    "type": "evidence",
+    "name": {
+      "en": "notebook",
+      "pt": "caderno"
+    },
+    "tags": ["reading", "writing", "paper", "holdable"]
+  },
+  "dmhk-ev-148": {
+    "id": "dmhk-ev-148",
+    "type": "evidence",
+    "name": {
+      "en": "surgical mask",
+      "pt": "máscara de cirurgia"
+    },
+    "tags": ["paper", "wearable", "medical", "face"]
+  },
+  "dmhk-ev-149": {
+    "id": "dmhk-ev-149",
+    "type": "evidence",
+    "name": {
+      "en": "surveillance camera",
+      "pt": "câmera de segurança"
+    },
+    "tags": ["electronic", "virtual", "object"]
+  },
+  "dmhk-ev-150": {
+    "id": "dmhk-ev-150",
+    "type": "evidence",
+    "name": {
+      "en": "mask",
+      "pt": "máscara"
+    },
+    "tags": ["wearable", "face"]
+  },
+  "dmhk-ev-151": {
+    "id": "dmhk-ev-151",
+    "type": "evidence",
+    "name": {
+      "en": "certificate",
+      "pt": "certificado"
+    },
+    "tags": ["reading", "personal"]
+  },
+  "dmhk-ev-152": {
+    "id": "dmhk-ev-152",
+    "type": "evidence",
+    "name": {
+      "en": "tack",
+      "pt": "tachinha"
+    },
+    "tags": ["sting", "small", "metal"]
+  },
+  "dmhk-ev-153": {
+    "id": "dmhk-ev-153",
+    "type": "evidence",
+    "name": {
+      "en": "film",
+      "pt": "filme"
+    },
+    "tags": ["small", "holdable"]
+  },
+  "dmhk-ev-154": {
+    "id": "dmhk-ev-154",
+    "type": "evidence",
+    "name": {
+      "en": "horseshoe",
+      "pt": "ferradura"
+    },
+    "tags": ["metal", "animal"]
+  },
+  "dmhk-ev-155": {
+    "id": "dmhk-ev-155",
+    "type": "evidence",
+    "name": {
+      "en": "snacks",
+      "pt": "lanche"
+    },
+    "tags": ["food", "child"]
+  },
+  "dmhk-ev-156": {
+    "id": "dmhk-ev-156",
+    "type": "evidence",
+    "name": {
+      "en": "rake",
+      "pt": "ancinho"
+    },
+    "tags": ["metal", "tool", "outdoors"]
+  },
+  "dmhk-ev-157": {
+    "id": "dmhk-ev-157",
+    "type": "evidence",
+    "name": {
+      "en": "badge",
+      "pt": "distintivo"
+    },
+    "tags": ["metal", "power"]
+  },
+  "dmhk-ev-158": {
+    "id": "dmhk-ev-158",
+    "type": "evidence",
+    "name": {
+      "en": "take out",
+      "pt": "marmitex"
+    },
+    "tags": ["plastic", "food", "holdable"]
+  },
+  "dmhk-ev-159": {
+    "id": "dmhk-ev-159",
+    "type": "evidence",
+    "name": {
+      "en": "fishing rod",
+      "pt": "vara de pescar"
+    },
+    "tags": ["metal", "cord", "holdable", "sport", "outdoors", "wet"]
+  },
+  "dmhk-ev-160": {
+    "id": "dmhk-ev-160",
+    "type": "evidence",
+    "name": {
+      "en": "fingerprint",
+      "pt": "impressão digital"
+    },
+    "tags": ["touch", "personal"]
+  },
+  "dmhk-ev-161": {
+    "id": "dmhk-ev-161",
+    "type": "evidence",
+    "name": {
+      "en": "adapter",
+      "pt": "adaptador"
+    },
+    "tags": ["electronic", "metal"]
+  },
+  "dmhk-ev-162": {
+    "id": "dmhk-ev-162",
+    "type": "evidence",
+    "name": {
+      "en": "earrings",
+      "pt": "brincos"
+    },
+    "tags": ["wealth", "wearable", "head", "female"]
+  },
+  "dmhk-ev-163": {
+    "id": "dmhk-ev-163",
+    "type": "evidence",
+    "name": {
+      "en": "feta cheese",
+      "pt": "queijo feta"
+    },
+    "tags": ["food", "soft"]
+  },
+  "dmhk-ev-164": {
+    "id": "dmhk-ev-164",
+    "type": "evidence",
+    "name": {
+      "en": "timber",
+      "pt": "madeira"
+    },
+    "tags": ["organic", "plant", "carry", "large"]
+  },
+  "dmhk-ev-165": {
+    "id": "dmhk-ev-165",
+    "type": "evidence",
+    "name": {
+      "en": "rubber stamp",
+      "pt": "carimbo"
+    },
+    "tags": ["stain", "holdable", "work"]
+  },
+  "dmhk-ev-166": {
+    "id": "dmhk-ev-166",
+    "type": "evidence",
+    "name": {
+      "en": "oil stain",
+      "pt": "marca de olho"
+    },
+    "tags": ["stain", "mineral"]
+  },
+  "dmhk-ev-167": {
+    "id": "dmhk-ev-167",
+    "type": "evidence",
+    "name": {
+      "en": "betting chips",
+      "pt": "fichas de aposta"
+    },
+    "tags": ["small", "wealth", "game"]
+  },
+  "dmhk-ev-168": {
+    "id": "dmhk-ev-168",
+    "type": "evidence",
+    "name": {
+      "en": "flamenco skirt",
+      "pt": "saia de flamenco"
+    },
+    "tags": ["wearable", "female"]
+  },
+  "dmhk-ev-169": {
+    "id": "dmhk-ev-169",
+    "type": "evidence",
+    "name": {
+      "en": "teapot",
+      "pt": "bule"
+    },
+    "tags": ["drink", "container", "holdable", "warm"]
+  },
+  "dmhk-ev-170": {
+    "id": "dmhk-ev-170",
+    "type": "evidence",
+    "name": {
+      "en": "cowboy hat",
+      "pt": "chapéu de cowboy"
+    },
+    "tags": ["head", "wearable"]
+  },
+  "dmhk-ev-171": {
+    "id": "dmhk-ev-171",
+    "type": "evidence",
+    "name": {
+      "en": "graffiti",
+      "pt": "pichação"
+    },
+    "tags": ["stain", "outdoors"]
+  },
+  "dmhk-ev-172": {
+    "id": "dmhk-ev-172",
+    "type": "evidence",
+    "name": {
+      "en": "purse",
+      "pt": "bolsa"
+    },
+    "tags": ["personal", "wealth", "holdable", "female"]
+  },
+  "dmhk-ev-173": {
+    "id": "dmhk-ev-173",
+    "type": "evidence",
+    "name": {
+      "en": "soap",
+      "pt": "sabonete"
+    },
+    "tags": ["personal", "wet"]
+  },
+  "dmhk-ev-174": {
+    "id": "dmhk-ev-174",
+    "type": "evidence",
+    "name": {
+      "en": "numbers",
+      "pt": "números"
+    },
+    "tags": ["writing", "idea"]
+  },
+  "dmhk-ev-175": {
+    "id": "dmhk-ev-175",
+    "type": "evidence",
+    "name": {
+      "en": "boot",
+      "pt": "bota"
+    },
+    "tags": ["wearable", "steppable", "personal"]
+  },
+  "dmhk-ev-176": {
+    "id": "dmhk-ev-176",
+    "type": "evidence",
+    "name": {
+      "en": "dog leash",
+      "pt": "coleira"
+    },
+    "tags": ["leather", "cord", "animal"]
+  },
+  "dmhk-ev-177": {
+    "id": "dmhk-ev-177",
+    "type": "evidence",
+    "name": {
+      "en": "bucket",
+      "pt": "balde"
+    },
+    "tags": ["container", "plastic", "carry"]
+  },
+  "dmhk-ev-178": {
+    "id": "dmhk-ev-178",
+    "type": "evidence",
+    "name": {
+      "en": "pizza",
+      "pt": "pizza"
+    },
+    "tags": ["food"]
+  },
+  "dmhk-ev-179": {
+    "id": "dmhk-ev-179",
+    "type": "evidence",
+    "name": {
+      "en": "switch",
+      "pt": "interruptor"
+    },
+    "tags": ["electricity", "touch", "plastic"]
+  },
+  "dmhk-ev-180": {
+    "id": "dmhk-ev-180",
+    "type": "evidence",
+    "name": {
+      "en": "shards of glass",
+      "pt": "cacos de vidro"
+    },
+    "tags": ["glass", "small", "many"]
+  },
+  "dmhk-ev-181": {
+    "id": "dmhk-ev-181",
+    "type": "evidence",
+    "name": {
+      "en": "superhero mask",
+      "pt": "máscara de super-herói"
+    },
+    "tags": ["face", "wearable"]
+  },
+  "dmhk-ev-182": {
+    "id": "dmhk-ev-182",
+    "type": "evidence",
+    "name": {
+      "en": "fabric",
+      "pt": "tecido"
+    },
+    "tags": ["fabric", "soft"]
+  },
+  "dmhk-ev-183": {
+    "id": "dmhk-ev-183",
+    "type": "evidence",
+    "name": {
+      "en": "postal stamp",
+      "pt": "selo"
+    },
+    "tags": ["paper"]
+  },
+  "dmhk-ev-184": {
+    "id": "dmhk-ev-184",
+    "type": "evidence",
+    "name": {
+      "en": "fiber optics",
+      "pt": "cabo de fibra óptica"
+    },
+    "tags": ["electricity", "cord"]
+  },
+  "dmhk-ev-185": {
+    "id": "dmhk-ev-185",
+    "type": "evidence",
+    "name": {
+      "en": "spinning top",
+      "pt": "peão"
+    },
+    "tags": ["child", "holdable", "leisure"]
+  },
+  "dmhk-ev-186": {
+    "id": "dmhk-ev-186",
+    "type": "evidence",
+    "name": {
+      "en": "hockey mask",
+      "pt": "máscara de hockey"
+    },
+    "tags": ["face", "wearable"]
+  },
+  "dmhk-ev-187": {
+    "id": "dmhk-ev-187",
+    "type": "evidence",
+    "name": {
+      "en": "ghost mask",
+      "pt": "máscara do pânico"
+    },
+    "tags": ["face", "wearable"]
+  },
+  "dmhk-ev-188": {
+    "id": "dmhk-ev-188",
+    "type": "evidence",
+    "name": {
+      "en": "luchador mask",
+      "pt": "máscara de luchador"
+    },
+    "tags": ["face", "wearable"]
+  },
+  "dmhk-ev-189": {
+    "id": "dmhk-ev-189",
+    "type": "evidence",
+    "name": {
+      "en": "fingernails",
+      "pt": "unhas"
+    },
+    "tags": ["personal", "dirty", "small", "many"]
+  },
+  "dmhk-ev-190": {
+    "id": "dmhk-ev-190",
+    "type": "evidence",
+    "name": {
+      "en": "mark",
+      "pt": "marca"
+    },
+    "tags": ["stain"]
+  },
+  "dmhk-ev-191": {
+    "id": "dmhk-ev-191",
+    "type": "evidence",
+    "name": {
+      "en": "password",
+      "pt": "senha"
+    },
+    "tags": ["personal", "idea", "virtual"]
+  },
+  "dmhk-ev-192": {
+    "id": "dmhk-ev-192",
+    "type": "evidence",
+    "name": {
+      "en": "curtains",
+      "pt": "cortinas"
+    },
+    "tags": ["fabric", "home"]
+  },
+  "dmhk-ev-193": {
+    "id": "dmhk-ev-193",
+    "type": "evidence",
+    "name": {
+      "en": "fan",
+      "pt": "ventilador"
+    },
+    "tags": ["electronic", "building", "home"]
+  },
+  "dmhk-ev-194": {
+    "id": "dmhk-ev-194",
+    "type": "evidence",
+    "name": {
+      "en": "gear",
+      "pt": "engrenagem"
+    },
+    "tags": ["metal", "small", "machine"]
+  },
+  "dmhk-ev-195": {
+    "id": "dmhk-ev-195",
+    "type": "evidence",
+    "name": {
+      "en": "fleas",
+      "pt": "pulgas"
+    },
+    "tags": ["insect", "dirty", "animal", "many"]
+  },
+  "dmhk-ev-196": {
+    "id": "dmhk-ev-196",
+    "type": "evidence",
+    "name": {
+      "en": "insect",
+      "pt": "inseto"
+    },
+    "tags": ["insect", "small"]
+  },
+  "dmhk-ev-197": {
+    "id": "dmhk-ev-197",
+    "type": "evidence",
+    "name": {
+      "en": "electric circuit",
+      "pt": "circuito elétrico"
+    },
+    "tags": ["electronic", "machine"]
+  },
+  "dmhk-ev-198": {
+    "id": "dmhk-ev-198",
+    "type": "evidence",
+    "name": {
+      "en": "dust",
+      "pt": "poeira"
+    },
+    "tags": ["dirty", "inhaleable", "building", "home"]
+  },
+  "dmhk-ev-199": {
+    "id": "dmhk-ev-199",
+    "type": "evidence",
+    "name": {
+      "en": "website",
+      "pt": "website"
+    },
+    "tags": ["virtual", "reading"]
+  },
+  "dmhk-ev-200": {
+    "id": "dmhk-ev-200",
+    "type": "evidence",
+    "name": {
+      "en": "paint",
+      "pt": "tinta"
+    },
+    "tags": ["stain", "art"]
+  }
+}
