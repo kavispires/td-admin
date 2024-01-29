@@ -6,7 +6,7 @@ export function useCrimesHediondosData() {
   const resultWP = useQuery<CrimesHediondosCard[], ResponseError>({
     queryKey: ['dmhk-wp'],
     queryFn: async () => {
-      const res = await fetch(getTDIUrl('data/dmhk/wp.json'));
+      const res = await fetch(getTDIUrl('dmhk/wp.json'));
       const jsonResponse = (await res.json()) as Record<string, CrimesHediondosCard>;
       return Object.values(jsonResponse).map((entry) => ({
         ...entry,
@@ -18,7 +18,7 @@ export function useCrimesHediondosData() {
   const resultEV = useQuery<CrimesHediondosCard[], ResponseError>({
     queryKey: ['dmhk-ev'],
     queryFn: async () => {
-      const res = await fetch(getTDIUrl('data/dmhk/ev.json'));
+      const res = await fetch(getTDIUrl('dmhk/ev.json'));
       const jsonResponse = (await res.json()) as Record<string, CrimesHediondosCard>;
       return Object.values(jsonResponse).map((entry) => ({
         ...entry,

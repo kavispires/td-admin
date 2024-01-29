@@ -22,6 +22,7 @@ export const RESOURCE_NAMES = {
   MOVIES: 'movies',
   NAMING_PROMPTS: 'naming-prompts',
   OPPOSING_IDEAS: 'opposing-ideas',
+  OBJECT_FEATURES: 'object-features',
   QUANTITATIVE_QUESTIONS: 'quantitative-questions',
   SCENARIOS: 'scenarios',
   SINGLE_WORDS: 'single-words',

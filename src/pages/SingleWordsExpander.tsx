@@ -1,9 +1,11 @@
 import { Input, Layout, Typography } from 'antd';
 import { SectionTitle } from 'components/Common/SectionTitle';
-import { Header } from 'components/Layout/Header';
+import { PageLayout } from 'components/Layout';
+import { PageSider } from 'components/Layout/PageSider';
 import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
+import { TextCard } from 'types';
 
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
@@ -11,7 +13,6 @@ import { SearchDuplicates } from '../components/SearchDuplicates';
 import { useResourceState } from '../hooks/useResourceState';
 import { findSimilar, stringRemoveAccents } from '../utils';
 import { RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
-import { TextCard } from 'types';
 
 const { Text } = Typography;
 
@@ -85,14 +86,12 @@ export function SingleWordsExpander() {
   };
 
   return (
-    <Layout>
-      <Header title="Single Word Expander" subtitle={Boolean(language) ? `${language}` : ''} />
-
+    <PageLayout title="Single Word Expander" subtitle={Boolean(language) ? `${language}` : ''}>
       <Layout hasSider>
-        <Layout.Sider className="sider">
+        <PageSider>
           <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
           <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]} />
-        </Layout.Sider>
+        </PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
@@ -126,7 +125,7 @@ export function SingleWordsExpander() {
               <aside className="parser-controls">
                 <SectionTitle>Database</SectionTitle>
                 <Text>
-                  {Object.keys(response).length} entries / {Object.keys(reference).length}
+                  {Object.keys(response ?? {}).length} entries / {Object.keys(reference ?? {}).length}
                 </Text>
                 <SearchDuplicates response={response} property={property} />
               </aside>
@@ -134,7 +133,7 @@ export function SingleWordsExpander() {
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>
-    </Layout>
+    </PageLayout>
   );
 }
 

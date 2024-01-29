@@ -11,6 +11,7 @@ import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionF
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceState } from 'hooks/useResourceState';
 import { RESOURCE_NAMES } from 'utils/constants';
+import { PageSider } from 'components/Layout/PageSider';
 
 const resourceNames = Object.values(RESOURCE_NAMES);
 
@@ -37,18 +38,16 @@ export function Resource() {
       subtitle={Boolean(resourceName && language) ? `Data for ${resourceName}-${language}` : ''}
     >
       <Layout hasSider>
-        <Layout.Sider className="sider">
-          <div className="sider__content">
-            <ResourceResponseState
-              hasResponseData={hasResponseData}
-              isLoading={isLoading}
-              error={error}
-              isIdle={!enabled}
-            />
-            <ResourceSelectionFilters resourceNames={resourceNames} />
-            <ResourceDisplayMode />
-          </div>
-        </Layout.Sider>
+        <PageSider>
+          <ResourceResponseState
+            hasResponseData={hasResponseData}
+            isLoading={isLoading}
+            error={error}
+            isIdle={!enabled}
+          />
+          <ResourceSelectionFilters resourceNames={resourceNames} />
+          <ResourceDisplayMode />
+        </PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper

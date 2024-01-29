@@ -1,13 +1,12 @@
 import { Input, Layout } from 'antd';
-import { useState } from 'react';
-import { useTitle } from 'react-use';
-import { Header } from 'components/Layout/Header';
-import { INITIAL_PARAMETERS, Parameters, ResourceParameters } from 'components/Resource/ResourceParameters';
 import { SectionTitle } from 'components/Common/SectionTitle';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
+import { PageLayout } from 'components/Layout';
+import { PageSider } from 'components/Layout/PageSider';
+import { INITIAL_PARAMETERS, Parameters, ResourceParameters } from 'components/Resource/ResourceParameters';
+import { useState } from 'react';
 
 export function ResourceGenerator() {
-  useTitle('Resource Generator');
   const [parameters, setParameters] = useState<Parameters>(INITIAL_PARAMETERS);
   const [input, setInput] = useState('');
 
@@ -15,13 +14,11 @@ export function ResourceGenerator() {
   const stringifiedResult = JSON.stringify(result, null, 4);
 
   return (
-    <Layout className="container">
-      <Header title="Resource Generator" />
-
+    <PageLayout title="Resource Generator">
       <Layout hasSider>
-        <Layout.Sider className="sider">
+        <PageSider>
           <ResourceParameters onUpdateParameters={setParameters} />
-        </Layout.Sider>
+        </PageSider>
 
         <Layout.Content className="content page-content page-content--5-5">
           <div className="one-side">
@@ -42,7 +39,7 @@ export function ResourceGenerator() {
           </div>
         </Layout.Content>
       </Layout>
-    </Layout>
+    </PageLayout>
   );
 }
 

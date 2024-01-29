@@ -2,7 +2,8 @@ import { Input, Layout } from 'antd';
 import { ArteRuimLevels } from 'components/ArteRuimLevels';
 import { SectionTitle } from 'components/Common/SectionTitle';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { Header } from 'components/Layout/Header';
+import { PageLayout } from 'components/Layout';
+import { PageSider } from 'components/Layout/PageSider';
 import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
 import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionFilters';
 import { SearchDuplicates } from 'components/SearchDuplicates';
@@ -68,14 +69,12 @@ export function ArteRuimParser() {
   };
 
   return (
-    <Layout className="layout">
-      <Header title="Arte Ruim" subtitle={Boolean(resourceName && language) ? `Parser (${language})` : ''} />
-
+    <PageLayout title="Arte Ruim" subtitle={Boolean(resourceName && language) ? `Parser (${language})` : ''}>
       <Layout hasSider>
-        <Layout.Sider className="sider">
+        <PageSider>
           <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
           <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
-        </Layout.Sider>
+        </PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
@@ -106,7 +105,7 @@ export function ArteRuimParser() {
               </div>
 
               <aside className="parser-controls">
-                <ArteRuimLevels data={response} />
+                {Boolean(response) && <ArteRuimLevels data={response} />}
 
                 <SectionTitle>
                   Similar Results for Last Entry ({Object.values(searchResults).length})
@@ -126,6 +125,6 @@ export function ArteRuimParser() {
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>
-    </Layout>
+    </PageLayout>
   );
 }

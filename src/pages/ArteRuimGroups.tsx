@@ -1,9 +1,11 @@
 import { Input, Layout, List, Typography } from 'antd';
 import { SectionTitle } from 'components/Common/SectionTitle';
-import { Header } from 'components/Layout/Header';
+import { PageLayout } from 'components/Layout';
 import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
+import { ArteRuimCard, ArteRuimGroup } from 'types';
+import { getTDRUrl } from 'utils';
 
 import { useQuery } from '@tanstack/react-query';
 
@@ -11,8 +13,7 @@ import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { useResourceState } from '../hooks/useResourceState';
 import { RESOURCE_NAMES } from '../utils/constants';
-import { ArteRuimCard, ArteRuimGroup } from 'types';
-import { getTDRUrl } from 'utils';
+import { PageSider } from 'components/Layout/PageSider';
 
 const { Text } = Typography;
 
@@ -91,18 +92,16 @@ export function ArteRuimGroups() {
   }, [cards, groups, isLoading, loadingLevel4]);
 
   return (
-    <Layout>
-      <Header title="Arte Ruim Groups" subtitle={Boolean(language) ? `${language}` : ''} />
-
+    <PageLayout title="Arte Ruim Groups" subtitle={Boolean(language) ? `${language}` : ''}>
       <Layout hasSider>
-        <Layout.Sider className="sider">
+        <PageSider>
           <ResourceResponseState
             hasResponseData={hasResponseData && Boolean(groups)}
             isLoading={isLoading || loadingLevel4}
             error={error || errorLevel4}
           />
           <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
-        </Layout.Sider>
+        </PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper
@@ -159,6 +158,6 @@ export function ArteRuimGroups() {
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>
-    </Layout>
+    </PageLayout>
   );
 }

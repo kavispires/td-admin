@@ -2,7 +2,7 @@ import './CrimesHediondosCategorizer.scss';
 
 import { Button, Input, Layout, Select, Space, Spin, Tag } from 'antd';
 import { CHImage } from 'components/CrimesHediondos';
-import { Header } from 'components/Layout/Header';
+import { PageLayout } from 'components/Layout';
 import { TagState } from 'components/Resource/ResourceResponseState';
 import { useCrimesHediondosData } from 'hooks/useCrimesHediondosData';
 import { useCrimesHediondosTags } from 'hooks/useCrimesHediondosTags';
@@ -27,18 +27,16 @@ export function CrimesHediondosCategorizer() {
   const { data, isLoading, isSuccess, error } = useCrimesHediondosData();
 
   return (
-    <Layout className="container">
-      <Header
-        title="Crimes Hediondos Categorizer"
-        extra={<TagState hasResponseData={!!data} isLoading={isLoading} error={error as ResponseError} />}
-      />
-
+    <PageLayout
+      title="Crimes Hediondos Categorizer"
+      extra={<TagState hasResponseData={!!data} isLoading={isLoading} error={error as ResponseError} />}
+    >
       <Layout.Content className="content content--padded">
         {isLoading && <Spin size="large" />}
 
         {isSuccess && data.length > 1 && <CHDataWrapper data={data} />}
       </Layout.Content>
-    </Layout>
+    </PageLayout>
   );
 }
 
@@ -110,7 +108,7 @@ function CHDataWrapper({ data }: CHDataWrapperProps) {
 
       <Navigation goToCard={goToCard} currentCardIndex={currentCardIndex} data={data} />
 
-      <Space>
+      <Space className="my-4">
         <Button size="large" type="primary" onClick={onSave}>
           Save
         </Button>
