@@ -5,9 +5,9 @@ import { PageLayout } from 'components/Layout';
 export function Home() {
   return (
     <PageLayout title="TDR">
-      <Layout className="layout-center">
+      <Layout.Content className="content-center">
         <Image src={logo} className="home-logo" alt="logo" preview={false} width={512} />
-      </Layout>
+      </Layout.Content>
     </PageLayout>
   );
 }

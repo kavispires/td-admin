@@ -1,4 +1,5 @@
-import { Table } from 'antd';
+import { Col, Row, Table, Typography } from 'antd';
+
 import { useMemo } from 'react';
 
 type ResourceCardsProps = {
@@ -29,8 +30,14 @@ export function ResourceTable({ response, resourceName }: ResourceCardsProps) {
   }, [list]);
 
   return (
-    <div className="page-content">
-      <Table columns={columns} dataSource={list} />
-    </div>
+    <>
+      <Typography.Title level={2}>Table ({list.length})</Typography.Title>
+
+      <Row gutter={16}>
+        <Col span={24}>
+          <Table columns={columns} dataSource={list} />
+        </Col>
+      </Row>
+    </>
   );
 }

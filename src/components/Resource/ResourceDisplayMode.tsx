@@ -1,4 +1,5 @@
-import { Divider, Form, Segmented } from 'antd';
+import { AppstoreOutlined, FileTextOutlined, TableOutlined } from '@ant-design/icons';
+import { Divider, Form, Segmented, Tooltip } from 'antd';
 import { SegmentedValue } from 'antd/es/segmented';
 import { useQueryParams } from 'hooks/useQueryParams';
 
@@ -9,20 +10,33 @@ export function ResourceDisplayMode() {
     <div className="sider-content">
       <Form.Item label="Display">
         <Segmented
+          block
           value={queryParams.display ?? 'json'}
           onChange={(mode: SegmentedValue) => addParam('display', mode)}
           options={[
             {
-              label: 'JSON',
+              label: (
+                <Tooltip title="JSON">
+                  <FileTextOutlined />
+                </Tooltip>
+              ),
               value: 'json',
             },
             {
-              label: 'Table',
+              label: (
+                <Tooltip title="Table">
+                  <TableOutlined />
+                </Tooltip>
+              ),
               value: 'table',
             },
             {
-              label: 'Cards',
-              value: 'card',
+              label: (
+                <Tooltip title="Cards">
+                  <AppstoreOutlined />
+                </Tooltip>
+              ),
+              value: 'cards',
             },
           ]}
         />

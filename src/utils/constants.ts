@@ -17,7 +17,7 @@ export const RESOURCE_NAMES = {
   OPPOSING_IDEAS: 'opposing-ideas',
   SINGLE_WORDS: 'single-words',
   SPY_LOCATIONS: 'spy-locations',
-  SPY_QUESTIONS: 'spy-questions',
+  // SPY_QUESTIONS: 'spy-questions',
   TESTIMONY_QUESTIONS: 'testimony-questions',
   THEMES: 'themes',
   TOPICS: 'topics',

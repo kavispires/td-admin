@@ -1,4 +1,4 @@
-import { Input, Typography } from 'antd';
+import { Col, Input, Row, Typography } from 'antd';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 
 import { useMemo } from 'react';
@@ -6,8 +6,6 @@ import { useMemo } from 'react';
 import { SearchDuplicates } from '../SearchDuplicates';
 
 import { SEARCH_PROPERTY } from '../../utils/constants';
-
-const { Title } = Typography;
 
 type ResourceJsonProps = {
   response: any;
@@ -20,16 +18,19 @@ export function ResourceJson({ response, resourceName }: ResourceJsonProps) {
   const jsonString = useMemo(() => JSON.stringify(response, null, 4), [response]);
 
   return (
-    <div className="page-content page-content--6-4">
-      <main>
-        <Title level={2}>
-          JSON <CopyToClipboardButton content={jsonString} />
-        </Title>
-        <Input.TextArea name="output" id="" cols={15} rows={15} readOnly value={jsonString} />
-      </main>
-      <aside>
-        <SearchDuplicates response={response} property={property} />
-      </aside>
-    </div>
+    <>
+      <Typography.Title level={2}>
+        JSON <CopyToClipboardButton content={jsonString} />
+      </Typography.Title>
+
+      <Row gutter={16}>
+        <Col span={16}>
+          <Input.TextArea name="output" id="" cols={15} rows={30} readOnly value={jsonString} />
+        </Col>
+        <Col span={8}>
+          <SearchDuplicates response={response} property={property} />
+        </Col>
+      </Row>
+    </>
   );
 }

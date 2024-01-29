@@ -1,8 +1,9 @@
-import { getTDIUrl } from 'utils';
+import { getTDRUrl } from 'utils';
 
 import { useQuery } from '@tanstack/react-query';
 
 import { useQueryParams } from './useQueryParams';
+import { DUAL_LANGUAGE_RESOURCES } from 'utils/constants';
 
 type ResourceState = {
   resourceName: string | null;
@@ -11,6 +12,7 @@ type ResourceState = {
   isLoading: boolean;
   error?: ResponseError | null;
   hasResponseData: boolean;
+  enabled: boolean;
 };
 
 export function useResourceState(availableResources: AvailableResources): ResourceState {
@@ -18,12 +20,15 @@ export function useResourceState(availableResources: AvailableResources): Resour
     queryParams: { resourceName = '', language = '' },
   } = useQueryParams();
 
+  const enabled = !!resourceName && availableResources.includes(resourceName);
+
   const { data, isLoading, error } = useQuery<any, ResponseError>({
     queryKey: ['resource', resourceName, language],
     queryFn: async () => {
-      const url = language
-        ? getTDIUrl(`${resourceName}-${language}.json`)
-        : getTDIUrl(`${resourceName}.json`);
+      const url =
+        language && !DUAL_LANGUAGE_RESOURCES.includes(resourceName)
+          ? getTDRUrl(`${resourceName}-${language}.json`)
+          : getTDRUrl(`${resourceName}.json`);
 
       const res = await fetch(url);
 
@@ -31,7 +36,7 @@ export function useResourceState(availableResources: AvailableResources): Resour
 
       return result;
     },
-    enabled: !!resourceName && availableResources.includes(resourceName),
+    enabled,
   });
 
   return {
@@ -39,6 +44,7 @@ export function useResourceState(availableResources: AvailableResources): Resour
     language: (language as Language) || null,
     response: data,
     isLoading,
+    enabled,
     error,
     hasResponseData: Boolean(data),
   };

@@ -1,4 +1,5 @@
-import { Card } from 'antd';
+import { Col, Row, Typography } from 'antd';
+import { CardEntry } from 'components/ResourceCards';
 
 type ResourceCardsProps = {
   response: any;
@@ -8,45 +9,19 @@ type ResourceCardsProps = {
 export function ResourceCards({ response, resourceName }: ResourceCardsProps) {
   const list: any[] = Object.values(response);
 
-  const getCard = () => {
-    switch (resourceName) {
-      case 'adjectives':
-      case 'categories':
-      case 'challenges':
-        return TextCard;
-      default:
-        return TextCard;
-    }
-  };
-
-  const CardC = getCard();
-
   return (
-    <div className="page-content">
-      <ul className="resource-cards">
+    <>
+      <Typography.Title level={2}>Cards ({list.length})</Typography.Title>
+
+      <Row gutter={[16, 16]}>
         {list.map((entry) => {
           return (
-            <li key={entry.id} className="resource-cards__entry">
-              <CardC entry={entry} />
-            </li>
+            <Col xs={6} sm={6} md={4} lg={8} xl={6} key={entry.id}>
+              <CardEntry entry={entry} kind={resourceName ?? ''} />
+            </Col>
           );
         })}
-      </ul>
-    </div>
-  );
-}
-
-type TextCardProps = {
-  entry: {
-    id: string;
-    text: string;
-  };
-};
-
-function TextCard({ entry }: TextCardProps): JSX.Element {
-  return (
-    <Card title={entry.id} className="resource-cards__card" size="small">
-      {entry.text}
-    </Card>
+      </Row>
+    </>
   );
 }

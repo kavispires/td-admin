@@ -43,7 +43,8 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  // font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;
+  background: orange;
 }
 
 .page-layout {
@@ -75,33 +76,38 @@ body {
     font-weight: lighter;
     opacity: 0.85;
   }
-}
 
-.layout-center {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &__menu {
+    position: sticky;
+    top: 64px;
+    z-index: 1;
+  }
 }
 
 .sider {
-  background: transparent !important;
+  // background: transparent !important;
   padding: var(--unit-2) 0;
-  border-right: 1px solid #e8e8e8;
+  border-right: 1px solid rgba(253, 253, 253, 0.12);
+  // overflow: auto;
+  // height: 100%;
+  &__content {
+    position: sticky;
+    top: 128px;
+  }
 }
 
 .sider-content {
   padding: 0 var(--unit-2);
 }
 
+.content-center {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
 .content {
   padding: 0 var(--unit-2) var(--unit-2) var(--unit-2);
-
-  &--empty {
-    min-height: 50vh;
-    display: grid;
-    place-items: center;
-  }
 }
 
 .page-content-tabs {
@@ -152,23 +158,13 @@ body {
   overflow-y: auto;
 }
 
-.resource-cards {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
-  overflow-y: auto;
-  justify-content: space-between;
+.resource-card {
+  width: 100%;
+  height: 100%;
+  flex: 1;
 
-  &__entry {
-    margin-bottom: 1rem;
-    flex: 1;
-  }
-
-  &__card {
-    width: 200px;
-    height: 100%;
-    flex: 1;
+  &__list {
+    margin: 0;
+    padding-inline-start: 16px;
   }
 }
