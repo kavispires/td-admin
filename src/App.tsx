@@ -1,9 +1,14 @@
-import { ConfigProvider, theme, App as AntApp } from 'antd';
+import { App as AntApp, ConfigProvider, theme } from 'antd';
 import { AuthWrapper } from 'components/Layout';
 import { ArteRuimGroups } from 'pages/ArteRuimGroups';
 import { ArteRuimParser } from 'pages/ArteRuimParser';
 import { CrimesHediondosCategorizer } from 'pages/CrimesHediondosCategorizer';
 import { Home } from 'pages/Home';
+import { ImagesAlienItems } from 'pages/ImagesAlienItems';
+import { ImagesCrimeEvidence } from 'pages/ImagesCrimeEvidence';
+import { ImagesCrimeWeapons } from 'pages/ImagesCrimeWeapons';
+import { ImagesImageCards } from 'pages/ImagesImageCards';
+import { ImagesSuspects } from 'pages/ImagesSuspects';
 import { Other } from 'pages/Other';
 import { Resource } from 'pages/Resource';
 import { ResourceGenerator } from 'pages/ResourceGenerator';
@@ -45,9 +50,16 @@ function App() {
                 <Route path="/resource" element={<Resource />} />
                 <Route path="/resource-generator" element={<ResourceGenerator />} />
 
-                <Route path="/arte-ruim-parser" element={<ArteRuimParser />} />
-                <Route path="/arte-ruim-groups" element={<ArteRuimGroups />} />
-                <Route path="/crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
+                <Route path="/game/arte-ruim-parser" element={<ArteRuimParser />} />
+                <Route path="/game//arte-ruim-groups" element={<ArteRuimGroups />} />
+                <Route path="/game//crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
+
+                <Route path="/images/image-cards" element={<ImagesImageCards />} />
+                <Route path="/images/suspects" element={<ImagesSuspects />} />
+                <Route path="/images/alien-items" element={<ImagesAlienItems />} />
+                <Route path="/images/weapons" element={<ImagesCrimeWeapons />} />
+                <Route path="/images/evidence" element={<ImagesCrimeEvidence />} />
+
                 <Route path="/single-words" element={<SingleWordsExpander />} />
                 <Route path="/other" element={<Other />} />
               </Routes>

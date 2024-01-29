@@ -1,9 +1,16 @@
 import { Menu as AntMenu } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { BuildOutlined, FolderAddOutlined, FolderViewOutlined, HddOutlined } from '@ant-design/icons';
+import {
+  BuildOutlined,
+  FileImageOutlined,
+  FolderAddOutlined,
+  FolderViewOutlined,
+  HddOutlined,
+} from '@ant-design/icons';
 
 import type { MenuProps } from 'antd';
+
 const items: MenuProps['items'] = [
   {
     label: 'Resource',
@@ -26,11 +33,11 @@ const items: MenuProps['items'] = [
         children: [
           {
             label: 'Parser',
-            key: '/arte-ruim-parser',
+            key: '/game/arte-ruim-parser',
           },
           {
             label: 'Groups',
-            key: '/arte-ruim-groups',
+            key: '/game/arte-ruim-groups',
           },
         ],
       },
@@ -40,7 +47,7 @@ const items: MenuProps['items'] = [
         children: [
           {
             label: 'Categorizer',
-            key: '/crimes-hediondos-categorizer',
+            key: '/game/crimes-hediondos-categorizer',
           },
         ],
       },
@@ -58,6 +65,39 @@ const items: MenuProps['items'] = [
       {
         label: 'Other',
         key: '/other',
+      },
+    ],
+  },
+  {
+    label: 'Images',
+    key: 'images',
+    icon: <FileImageOutlined />,
+    children: [
+      {
+        label: 'Image Cards',
+        key: '/images/image-cards',
+      },
+      {
+        label: 'Suspects',
+        key: '/images/suspects',
+      },
+      {
+        label: 'Alien Items',
+        key: '/images/alien-items',
+      },
+      {
+        type: 'group',
+        label: 'Crimes',
+        children: [
+          {
+            label: 'Weapons',
+            key: '/images/weapons',
+          },
+          {
+            label: 'Evidence',
+            key: '/images/evidence',
+          },
+        ],
       },
     ],
   },
