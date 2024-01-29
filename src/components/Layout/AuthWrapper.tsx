@@ -1,6 +1,6 @@
 import type { User } from 'firebase/auth';
 
-import { Alert, Spin } from 'antd';
+import { Alert, App, Spin } from 'antd';
 import { ReactNode, useState } from 'react';
 import { useEffectOnce } from 'react-use';
 import { auth } from 'services/firebase';
@@ -12,11 +12,12 @@ type AuthWrapperProps = {
 export function AuthWrapper({ children }: AuthWrapperProps) {
   const [authenticatedUser, setAuthenticatedUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  const { message } = App.useApp();
   useEffectOnce(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         setAuthenticatedUser(user);
+        message.info('You are logged in!');
       } else {
         setAuthenticatedUser(null);
       }

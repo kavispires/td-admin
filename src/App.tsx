@@ -1,4 +1,4 @@
-import { ConfigProvider, theme } from 'antd';
+import { ConfigProvider, theme, App as AntApp } from 'antd';
 import { AuthWrapper } from 'components/Layout';
 import { ArteRuimGroups } from 'pages/ArteRuimGroups';
 import { ArteRuimParser } from 'pages/ArteRuimParser';
@@ -37,21 +37,23 @@ function App() {
           },
         }}
       >
-        <AuthWrapper>
-          <HashRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/resource" element={<Resource />} />
-              <Route path="/resource-generator" element={<ResourceGenerator />} />
+        <AntApp>
+          <AuthWrapper>
+            <HashRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/resource" element={<Resource />} />
+                <Route path="/resource-generator" element={<ResourceGenerator />} />
 
-              <Route path="/arte-ruim-parser" element={<ArteRuimParser />} />
-              <Route path="/arte-ruim-groups" element={<ArteRuimGroups />} />
-              <Route path="/crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
-              <Route path="/single-words" element={<SingleWordsExpander />} />
-              <Route path="/other" element={<Other />} />
-            </Routes>
-          </HashRouter>
-        </AuthWrapper>
+                <Route path="/arte-ruim-parser" element={<ArteRuimParser />} />
+                <Route path="/arte-ruim-groups" element={<ArteRuimGroups />} />
+                <Route path="/crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
+                <Route path="/single-words" element={<SingleWordsExpander />} />
+                <Route path="/other" element={<Other />} />
+              </Routes>
+            </HashRouter>
+          </AuthWrapper>
+        </AntApp>
       </ConfigProvider>
     </QueryClientProvider>
   );
