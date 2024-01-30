@@ -169,3 +169,21 @@ body {
     padding-inline-start: 16px;
   }
 }
+
+.image-card {
+  border-radius: var(--unit-1);
+  margin: var(--unit-1);
+  transition: 500ms transform;
+
+  // &__preview-mask {
+  //   border-radius: get-unit(5);
+  // }
+
+  // &:hover {
+  //   transform: scale(1.05);
+  // }
+
+  .ant-image-img {
+    border-radius: var(--unit-1);
+  }
+}
