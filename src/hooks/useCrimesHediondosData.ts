@@ -1,12 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
 import { CrimesHediondosCard } from 'types';
-import { getTDRUrl } from 'utils';
+
+import { useQuery } from '@tanstack/react-query';
+
+import { useBaseUrl } from './useBaseUrl';
 
 export function useCrimesHediondosData() {
+  const { getUrl } = useBaseUrl('tdr');
+
   const resultWP = useQuery<CrimesHediondosCard[], ResponseError>({
     queryKey: ['dmhk-wp'],
     queryFn: async () => {
-      const res = await fetch(getTDRUrl('crime-weapon.json'));
+      const res = await fetch(getUrl('crime-weapon.json'));
       const jsonResponse = (await res.json()) as Record<string, CrimesHediondosCard>;
       return Object.values(jsonResponse).map((entry) => ({
         ...entry,
@@ -18,7 +22,7 @@ export function useCrimesHediondosData() {
   const resultEV = useQuery<CrimesHediondosCard[], ResponseError>({
     queryKey: ['dmhk-ev'],
     queryFn: async () => {
-      const res = await fetch(getTDRUrl('crime-evidence.json'));
+      const res = await fetch(getUrl('crime-evidence.json'));
       const jsonResponse = (await res.json()) as Record<string, CrimesHediondosCard>;
       return Object.values(jsonResponse).map((entry) => ({
         ...entry,

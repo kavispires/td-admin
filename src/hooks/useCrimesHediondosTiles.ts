@@ -1,12 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
 import { CrimeTile } from 'types';
-import { getTDRUrl } from 'utils';
+
+import { useQuery } from '@tanstack/react-query';
+
+import { useBaseUrl } from './useBaseUrl';
 
 export function useCrimesHediondosTiles() {
+  const { getUrl } = useBaseUrl('tdr');
+
   const query = useQuery<Dictionary<CrimeTile>, ResponseError>({
     queryKey: ['dmhk-scene'],
     queryFn: async () => {
-      const res = await fetch(getTDRUrl('crime-tiles.json'));
+      const res = await fetch(getUrl('crime-tiles.json'));
       return (await res.json()) as Dictionary<CrimeTile>;
     },
   });

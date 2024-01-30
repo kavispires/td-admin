@@ -5,7 +5,6 @@ import { ResourceResponseState } from 'components/Resource/ResourceResponseState
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
 import { ArteRuimCard, ArteRuimGroup } from 'types';
-import { getTDRUrl } from 'utils';
 
 import { useQuery } from '@tanstack/react-query';
 
@@ -14,6 +13,7 @@ import { ResourceSelectionFilters } from '../components/Resource/ResourceSelecti
 import { useResourceState } from '../hooks/useResourceState';
 import { RESOURCE_NAMES } from '../utils/constants';
 import { PageSider } from 'components/Layout/PageSider';
+import { useBaseUrl } from 'hooks/useBaseUrl';
 
 const { Text } = Typography;
 
@@ -49,6 +49,7 @@ const parseData = (cards: Record<CardId, ArteRuimCard>, groups: Record<string, A
 export function ArteRuimGroups() {
   // Set default query params
   useQueryParams({ resourceName: RESOURCE_NAMES.ARTE_RUIM_CARDS, language: 'pt' });
+  const { getUrl } = useBaseUrl('tdr');
 
   const [used, setUsed] = useState({});
   const [unused, setUnused] = useState({});
@@ -70,7 +71,7 @@ export function ArteRuimGroups() {
   } = useQuery<any, ResponseError>({
     queryKey: [RESOURCE_NAMES.ARTE_RUIM_GROUPS, language],
     queryFn: async () => {
-      const response = await fetch(getTDRUrl(`${RESOURCE_NAMES.ARTE_RUIM_GROUPS}-${language}.json`));
+      const response = await fetch(getUrl(`${RESOURCE_NAMES.ARTE_RUIM_GROUPS}-${language}.json`));
       const result = await response.json();
 
       return result;

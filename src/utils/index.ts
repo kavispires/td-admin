@@ -65,25 +65,3 @@ export const findSimilar = (str: string, data: PlainObject, property = 'text') =
 };
 
 export const findBestMatch = (str: string, list: string[]) => {};
-
-/**
- * Returns the URL of the TDR resource folder.
- */
-export const getTDRUrl = (path: string): string => {
-  const baseUrl =
-    process.env.NODE_ENV === 'development'
-      ? process.env.REACT_APP_LOCAL_URL
-      : process.env.REACT_APP_TD_BASE_URL;
-  const folder = process.env.REACT_APP_TD_RESOURCES;
-
-  return [baseUrl, folder, path].join('/');
-};
-
-/**
- * Returns the URL of the TDI resource.
- */
-export const getTDIUrl = (path: string): string => {
-  const baseUrl = process.env.REACT_APP_TD_BASE_URL;
-  const folder = process.env.REACT_APP_TDI_DATA;
-  return [baseUrl, folder, path].join('/');
-};
