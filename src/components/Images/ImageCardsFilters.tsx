@@ -1,7 +1,7 @@
 import { Divider, Form, InputNumber, Select } from 'antd';
 import { useMemo } from 'react';
 
-type FiltersProps = {
+type ImageCardsFiltersProps = {
   decksData: NumberDictionary;
   selectedDeck: string;
   setSelectedDeck: (deck: string) => void;
@@ -9,13 +9,13 @@ type FiltersProps = {
   setCardsPerRow: (cardsPerRow: number) => void;
 };
 
-export function Filters({
+export function ImageCardsFilters({
   decksData,
   selectedDeck,
   setSelectedDeck,
   cardsPerRow,
   setCardsPerRow,
-}: FiltersProps) {
+}: ImageCardsFiltersProps) {
   const deckOptions = useMemo(() => {
     return Object.keys(decksData)
       .filter((deck) => deck.startsWith('td-'))
@@ -32,7 +32,6 @@ export function Filters({
           ))}
         </Select>
       </Form.Item>
-      <Divider />
       <Form.Item label="Cards Per Row">
         <InputNumber
           min={1}

@@ -51,8 +51,8 @@ function App() {
                 <Route path="/resource-generator" element={<ResourceGenerator />} />
 
                 <Route path="/game/arte-ruim-parser" element={<ArteRuimParser />} />
-                <Route path="/game//arte-ruim-groups" element={<ArteRuimGroups />} />
-                <Route path="/game//crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
+                <Route path="/game/arte-ruim-groups" element={<ArteRuimGroups />} />
+                <Route path="/game/crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
 
                 <Route path="/images/image-cards" element={<ImagesImageCards />} />
                 <Route path="/images/suspects" element={<ImagesSuspects />} />

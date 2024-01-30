@@ -1,6 +1,6 @@
 import { Image, Layout, Space, Typography } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { Filters } from 'components/Images/Filters';
+import { ImageCardsFilters } from 'components/Images/ImageCardsFilters';
 import { ImageCard } from 'components/Images/ImageCard';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
@@ -16,7 +16,7 @@ const DECK = Array(252).fill(1);
 export function ImagesImageCards() {
   // Set default query params
   const qp = useQueryParams({ deck: 'd1' });
-  const deck = qp.queryParams.deck;
+  const { deck = 'd1' } = qp.queryParams;
 
   const { isLoading, error, data } = useTDIData();
   const hasResponseData = !isEmpty(data);
@@ -28,7 +28,7 @@ export function ImagesImageCards() {
       <Layout hasSider>
         <PageSider>
           <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
-          <Filters
+          <ImageCardsFilters
             decksData={data}
             selectedDeck={deck}
             setSelectedDeck={(d) => qp.addParam('deck', d)}
@@ -50,7 +50,7 @@ export function ImagesImageCards() {
                     const num = e + i < 10 ? `0${e + i}` : `${e + i}`;
                     const id = `td-${deck}-${num}`;
 
-                    return <ImageCard id={id} width={cardWidth} />;
+                    return <ImageCard id={id} width={cardWidth} key={id} />;
                   })}
               </Space>
             </Image.PreviewGroup>

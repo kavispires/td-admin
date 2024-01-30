@@ -7,6 +7,8 @@
 
 $unit: 3px;
 
+$border-color: rgba(253, 253, 253, 0.12);
+
 @for $i from 1 through 12 {
   .m-#{$i} {
     margin: $unit * $i;
@@ -88,7 +90,7 @@ body {
 .sider {
   // background: transparent !important;
   padding: var(--unit-2) 0;
-  border-right: 1px solid rgba(253, 253, 253, 0.12);
+  border-right: 1px solid $border-color;
   // overflow: auto;
   // height: 100%;
   &__content {
@@ -185,5 +187,28 @@ body {
 
   .ant-image-img {
     border-radius: var(--unit-1);
+  }
+}
+
+.suspect {
+  &__info {
+    border: 1px solid $border-color;
+    padding: var(--unit-1);
+    border-radius: var(--unit-1);
+    font-size: 0.85em;
+  }
+}
+
+.statistic {
+  font-weight: bold;
+  &__section {
+    font-size: 0.85em;
+  }
+
+  &__list {
+    padding-inline-start: 16px;
+    font-size: 0.85em;
+    margin: 0;
+    margin-bottom: var(--unit-1);
   }
 }
