@@ -51,6 +51,16 @@ const items: MenuProps['items'] = [
           },
         ],
       },
+      {
+        type: 'group',
+        label: 'Daily',
+        children: [
+          {
+            label: 'Setup',
+            key: '/game/daily-setup',
+          },
+        ],
+      },
     ],
   },
   {

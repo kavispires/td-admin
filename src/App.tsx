@@ -16,6 +16,7 @@ import { SingleWordsExpander } from 'pages/SingleWordsExpander';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { DailySetup } from 'pages/DailySetup';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,6 +54,7 @@ function App() {
                 <Route path="/game/arte-ruim-parser" element={<ArteRuimParser />} />
                 <Route path="/game/arte-ruim-groups" element={<ArteRuimGroups />} />
                 <Route path="/game/crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
+                <Route path="/game/daily-setup" element={<DailySetup />} />
 
                 <Route path="/images/image-cards" element={<ImagesImageCards />} />
                 <Route path="/images/suspects" element={<ImagesSuspects />} />

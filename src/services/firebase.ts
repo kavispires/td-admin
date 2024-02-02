@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   UserCredential,
 } from 'firebase/auth';
+import { Firestore, getFirestore } from 'firebase/firestore';
 
 const buildKey = () => {
   return [
@@ -32,6 +33,7 @@ const firebaseApp: FirebaseApp = initializeApp(firebaseConfig);
 
 export const analytics = getAnalytics(firebaseApp);
 export const auth: Auth = getAuth(firebaseApp);
+export const firestore: Firestore = getFirestore(firebaseApp);
 
 export default firebaseApp;
 

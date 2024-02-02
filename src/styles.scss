@@ -212,3 +212,9 @@ body {
     margin-bottom: var(--unit-1);
   }
 }
+
+.canvas {
+  background: white;
+  border: 3px solid brown;
+  border-radius: var(--unit-1);
+}
