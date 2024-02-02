@@ -18,10 +18,8 @@ export const RESOURCE_NAMES = {
   DATING_CANDIDATE_BODIES: 'dating-candidate-bodies',
   DATING_CANDIDATE_HEADS: 'dating-candidate-heads',
   DILEMMAS: 'dilemmas',
-  GALERIA_DE_SONHOS: 'galeria-de-sonhos',
+  DRAWING_WORDS: 'drawing-words',
   GROUP_QUESTIONS: 'group-questions',
-  LABIRINTO_SECRETO: 'labirinto-secreto',
-  LINHAS_CRUZADAS: 'linhas-cruzadas',
   MONSTER_ORIENTATION: 'monster-orientation',
   MOVIE_REVIEWS: 'movie-reviews',
   MOVIES: 'movies',
@@ -35,9 +33,11 @@ export const RESOURCE_NAMES = {
   SPY_QUESTIONS: 'spy-questions',
   SUSPECTS: 'suspects',
   TESTIMONY_QUESTIONS: 'testimony-questions',
+  THEME_WORDS: 'theme-words',
   THING_PROMPTS: 'thing-prompts',
   THINGS_QUALITIES: 'things-qualities',
   TOPICS: 'topics',
+  TREE_WORDS: 'tree-words',
   TWEETS: 'tweets',
 };
 
