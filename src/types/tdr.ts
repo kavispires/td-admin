@@ -1,6 +1,7 @@
 /**
  * Generic text card
- * Used for: adjectives, categories, challenges, characters, galeria-de-sonhos, labirinto-secreto, linhas-cruzadas, scenarios, single-words, things-qualities
+ * Used for: adjectives, categories, challenges, characters, galeria-de-sonhos, labirinto-secreto,
+ * linhas-cruzadas, scenarios, single-words, spy-questions, things-qualities
  */
 export type TextCard = {
   /**

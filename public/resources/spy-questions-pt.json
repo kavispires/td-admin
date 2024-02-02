@@ -1,52 +1,202 @@
-[
-  "Quem é seu chefe?",
-  "Qual foi a maior emoção que você já teve no trabalho?",
-  "Desculpe,  mas quem é você mesmo?",
-  "Como é o Plano de Previdência do seu trabalho?",
-  "Você acha que esse lugar é perigoso?",
-  "Como você chegou aqui hoje?",
-  "Quanto tempo você levou para chegar aqui hoje?",
-  "O que você consegue ver pela janela?",
-  "Qual é a melhor coisa desse trabalho?",
-  "O que seria necessário para eu fazer o seu trabalho?",
-  "Este edifício é antigo?",
-  "Quem é aquela pessoa ali?",
-  "Além de mim,  quem foi a última pessoa com quem você falou?",
-  "Como foi sua ida para o trabalho esta manhã?",
-  "Que horas foi seu último intervalo?",
-  "Eles trabalham em turnos aqui?",
-  "Se eu lhe dissesse que <insira o nome aqui> é o espião,  você ficaria surpreso?",
-  "O que é isso na sua mão?",
-  "O que é isso na sua outra mão?",
-  "Como foi sua última festa de Natal?",
-  "O que você comeu no almoço hoje?",
-  "Quais são suas responsabilidades?",
-  "O que é esse alarme?",
-  "Qual é o seu maior desafio na jornada de trabalho?",
-  "Qual é a parte mais satisfatória do seu trabalho?",
-  "Quais são os benefícios dos funcionários de trabalhar aqui?",
-  "Qual é o seu período de aviso prévio?",
-  "Por que seu antecessor desistiu?",
-  "Quem é aquele no canto?",
-  "O que é isso no canto?",
-  "O que tem do lado desse lugar/prédio?",
-  "O que tem na vitrine/entrada?",
-  "Qual é o maior problema com o que você está vestindo?",
-  "Quais revistas você assina?",
-  "Se você é o espião,  qual seria seu codinome?",
-  "Qual é a sua peça favorita de mobiliário de trabalho?",
-  "Se eu ficasse coberto de óleo,  o que você pensaria?",
-  "Qual é a sua próxima promoção?",
-  "Quem é o seu colega de trabalho mais irritante?",
-  "Que cheiro é esse?",
-  "Que horas seu trabalho termina?",
-  "Quais são suas ambições aqui?",
-  "Como você descreveria as pessoas ao seu redor?",
-  "Desculpe,  mas quem é você de novo?",
-  "Por que você falou com a última pessoa com quem falou?",
-  "Qual é o seu tipo favorito de mesa?",
-  "Qual ferramenta você mais usa em seu trabalho?",
-  "Você traria sua família aqui?",
-  "O que te traz aqui hoje?",
-  "Por que você recomendaria este lugar para um amigo?"
-]
+{
+  "spyq-1-pt": {
+    "id": "spyq-1-pt",
+    "text": "Quem é seu chefe?"
+  },
+  "spyq-2-pt": {
+    "id": "spyq-2-pt",
+    "text": "Qual foi a maior emoção que você já teve no trabalho?"
+  },
+  "spyq-3-pt": {
+    "id": "spyq-3-pt",
+    "text": "Desculpe,  mas quem é você mesmo?"
+  },
+  "spyq-4-pt": {
+    "id": "spyq-4-pt",
+    "text": "Como é o Plano de Previdência do seu trabalho?"
+  },
+  "spyq-5-pt": {
+    "id": "spyq-5-pt",
+    "text": "Você acha que esse lugar é perigoso?"
+  },
+  "spyq-6-pt": {
+    "id": "spyq-6-pt",
+    "text": "Como você chegou aqui hoje?"
+  },
+  "spyq-7-pt": {
+    "id": "spyq-7-pt",
+    "text": "Quanto tempo você levou para chegar aqui hoje?"
+  },
+  "spyq-8-pt": {
+    "id": "spyq-8-pt",
+    "text": "O que você consegue ver pela janela?"
+  },
+  "spyq-9-pt": {
+    "id": "spyq-9-pt",
+    "text": "Qual é a melhor coisa desse trabalho?"
+  },
+  "spyq-10-pt": {
+    "id": "spyq-10-pt",
+    "text": "O que seria necessário para eu fazer o seu trabalho?"
+  },
+  "spyq-11-pt": {
+    "id": "spyq-11-pt",
+    "text": "Este edifício é antigo?"
+  },
+  "spyq-12-pt": {
+    "id": "spyq-12-pt",
+    "text": "Quem é aquela pessoa ali?"
+  },
+  "spyq-13-pt": {
+    "id": "spyq-13-pt",
+    "text": "Além de mim,  quem foi a última pessoa com quem você falou?"
+  },
+  "spyq-14-pt": {
+    "id": "spyq-14-pt",
+    "text": "Como foi sua ida para o trabalho esta manhã?"
+  },
+  "spyq-15-pt": {
+    "id": "spyq-15-pt",
+    "text": "Que horas foi seu último intervalo?"
+  },
+  "spyq-16-pt": {
+    "id": "spyq-16-pt",
+    "text": "Eles trabalham em turnos aqui?"
+  },
+  "spyq-17-pt": {
+    "id": "spyq-17-pt",
+    "text": "Se eu lhe dissesse que <insira o nome aqui> é o espião,  você ficaria surpreso?"
+  },
+  "spyq-18-pt": {
+    "id": "spyq-18-pt",
+    "text": "O que é isso na sua mão?"
+  },
+  "spyq-19-pt": {
+    "id": "spyq-19-pt",
+    "text": "O que é isso na sua outra mão?"
+  },
+  "spyq-20-pt": {
+    "id": "spyq-20-pt",
+    "text": "Como foi sua última festa de Natal?"
+  },
+  "spyq-21-pt": {
+    "id": "spyq-21-pt",
+    "text": "O que você comeu no almoço hoje?"
+  },
+  "spyq-22-pt": {
+    "id": "spyq-22-pt",
+    "text": "Quais são suas responsabilidades?"
+  },
+  "spyq-23-pt": {
+    "id": "spyq-23-pt",
+    "text": "O que é esse alarme?"
+  },
+  "spyq-24-pt": {
+    "id": "spyq-24-pt",
+    "text": "Qual é o seu maior desafio na jornada de trabalho?"
+  },
+  "spyq-25-pt": {
+    "id": "spyq-25-pt",
+    "text": "Qual é a parte mais satisfatória do seu trabalho?"
+  },
+  "spyq-26-pt": {
+    "id": "spyq-26-pt",
+    "text": "Quais são os benefícios dos funcionários de trabalhar aqui?"
+  },
+  "spyq-27-pt": {
+    "id": "spyq-27-pt",
+    "text": "Qual é o seu período de aviso prévio?"
+  },
+  "spyq-28-pt": {
+    "id": "spyq-28-pt",
+    "text": "Por que seu antecessor desistiu?"
+  },
+  "spyq-29-pt": {
+    "id": "spyq-29-pt",
+    "text": "Quem é aquele no canto?"
+  },
+  "spyq-30-pt": {
+    "id": "spyq-30-pt",
+    "text": "O que é isso no canto?"
+  },
+  "spyq-31-pt": {
+    "id": "spyq-31-pt",
+    "text": "O que tem do lado desse lugar/prédio?"
+  },
+  "spyq-32-pt": {
+    "id": "spyq-32-pt",
+    "text": "O que tem na vitrine/entrada?"
+  },
+  "spyq-33-pt": {
+    "id": "spyq-33-pt",
+    "text": "Qual é o maior problema com o que você está vestindo?"
+  },
+  "spyq-34-pt": {
+    "id": "spyq-34-pt",
+    "text": "Quais revistas você assina?"
+  },
+  "spyq-35-pt": {
+    "id": "spyq-35-pt",
+    "text": "Se você é o espião,  qual seria seu codinome?"
+  },
+  "spyq-36-pt": {
+    "id": "spyq-36-pt",
+    "text": "Qual é a sua peça favorita de mobiliário de trabalho?"
+  },
+  "spyq-37-pt": {
+    "id": "spyq-37-pt",
+    "text": "Se eu ficasse coberto de óleo,  o que você pensaria?"
+  },
+  "spyq-38-pt": {
+    "id": "spyq-38-pt",
+    "text": "Qual é a sua próxima promoção?"
+  },
+  "spyq-39-pt": {
+    "id": "spyq-39-pt",
+    "text": "Quem é o seu colega de trabalho mais irritante?"
+  },
+  "spyq-40-pt": {
+    "id": "spyq-40-pt",
+    "text": "Que cheiro é esse?"
+  },
+  "spyq-41-pt": {
+    "id": "spyq-41-pt",
+    "text": "Que horas seu trabalho termina?"
+  },
+  "spyq-42-pt": {
+    "id": "spyq-42-pt",
+    "text": "Quais são suas ambições aqui?"
+  },
+  "spyq-43-pt": {
+    "id": "spyq-43-pt",
+    "text": "Como você descreveria as pessoas ao seu redor?"
+  },
+  "spyq-44-pt": {
+    "id": "spyq-44-pt",
+    "text": "Desculpe,  mas quem é você de novo?"
+  },
+  "spyq-45-pt": {
+    "id": "spyq-45-pt",
+    "text": "Por que você falou com a última pessoa com quem falou?"
+  },
+  "spyq-46-pt": {
+    "id": "spyq-46-pt",
+    "text": "Qual é o seu tipo favorito de mesa?"
+  },
+  "spyq-47-pt": {
+    "id": "spyq-47-pt",
+    "text": "Qual ferramenta você mais usa em seu trabalho?"
+  },
+  "spyq-48-pt": {
+    "id": "spyq-48-pt",
+    "text": "Você traria sua família aqui?"
+  },
+  "spyq-49-pt": {
+    "id": "spyq-49-pt",
+    "text": "O que te traz aqui hoje?"
+  },
+  "spyq-50-pt": {
+    "id": "spyq-50-pt",
+    "text": "Por que você recomendaria este lugar para um amigo?"
+  }
+}

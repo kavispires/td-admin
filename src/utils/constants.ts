@@ -32,7 +32,7 @@ export const RESOURCE_NAMES = {
   SPECTRUMS: 'spectrums',
   SINGLE_WORDS: 'single-words',
   SPY_LOCATIONS: 'spy-locations',
-  // SPY_QUESTIONS: 'spy-questions',
+  SPY_QUESTIONS: 'spy-questions',
   SUSPECTS: 'suspects',
   TESTIMONY_QUESTIONS: 'testimony-questions',
   THING_PROMPTS: 'thing-prompts',
