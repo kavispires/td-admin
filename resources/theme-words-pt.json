@@ -1,0 +1,802 @@
+{
+  "gs-1-pt": {
+    "id": "gs-1-pt",
+    "text": "Aniversário"
+  },
+  "gs-2-pt": {
+    "id": "gs-2-pt",
+    "text": "Atenção"
+  },
+  "gs-3-pt": {
+    "id": "gs-3-pt",
+    "text": "Segredo"
+  },
+  "gs-4-pt": {
+    "id": "gs-4-pt",
+    "text": "Paris"
+  },
+  "gs-5-pt": {
+    "id": "gs-5-pt",
+    "text": "Aventura"
+  },
+  "gs-6-pt": {
+    "id": "gs-6-pt",
+    "text": "Show biz"
+  },
+  "gs-7-pt": {
+    "id": "gs-7-pt",
+    "text": "África"
+  },
+  "gs-8-pt": {
+    "id": "gs-8-pt",
+    "text": "Vitamina"
+  },
+  "gs-9-pt": {
+    "id": "gs-9-pt",
+    "text": "América"
+  },
+  "gs-10-pt": {
+    "id": "gs-10-pt",
+    "text": "Saúde"
+  },
+  "gs-11-pt": {
+    "id": "gs-11-pt",
+    "text": "Raiva"
+  },
+  "gs-12-pt": {
+    "id": "gs-12-pt",
+    "text": "Olímpico"
+  },
+  "gs-13-pt": {
+    "id": "gs-13-pt",
+    "text": "Artista"
+  },
+  "gs-14-pt": {
+    "id": "gs-14-pt",
+    "text": "Rotina"
+  },
+  "gs-15-pt": {
+    "id": "gs-15-pt",
+    "text": "Ásia"
+  },
+  "gs-16-pt": {
+    "id": "gs-16-pt",
+    "text": "Clarividência"
+  },
+  "gs-17-pt": {
+    "id": "gs-17-pt",
+    "text": "Outono"
+  },
+  "gs-18-pt": {
+    "id": "gs-18-pt",
+    "text": "Templo"
+  },
+  "gs-19-pt": {
+    "id": "gs-19-pt",
+    "text": "Aniversário"
+  },
+  "gs-20-pt": {
+    "id": "gs-20-pt",
+    "text": "Império"
+  },
+  "gs-21-pt": {
+    "id": "gs-21-pt",
+    "text": "Tédio"
+  },
+  "gs-22-pt": {
+    "id": "gs-22-pt",
+    "text": "Limite"
+  },
+  "gs-23-pt": {
+    "id": "gs-23-pt",
+    "text": "Patrão"
+  },
+  "gs-24-pt": {
+    "id": "gs-24-pt",
+    "text": "Xamã"
+  },
+  "gs-25-pt": {
+    "id": "gs-25-pt",
+    "text": "Carnaval"
+  },
+  "gs-26-pt": {
+    "id": "gs-26-pt",
+    "text": "Ritual"
+  },
+  "gs-27-pt": {
+    "id": "gs-27-pt",
+    "text": "Cassino"
+  },
+  "gs-28-pt": {
+    "id": "gs-28-pt",
+    "text": "Argumento"
+  },
+  "gs-29-pt": {
+    "id": "gs-29-pt",
+    "text": "Cemitério"
+  },
+  "gs-30-pt": {
+    "id": "gs-30-pt",
+    "text": "Paixão"
+  },
+  "gs-31-pt": {
+    "id": "gs-31-pt",
+    "text": "Desafio"
+  },
+  "gs-32-pt": {
+    "id": "gs-32-pt",
+    "text": "Vaqueiro"
+  },
+  "gs-33-pt": {
+    "id": "gs-33-pt",
+    "text": "Chance"
+  },
+  "gs-34-pt": {
+    "id": "gs-34-pt",
+    "text": "Passagem"
+  },
+  "gs-35-pt": {
+    "id": "gs-35-pt",
+    "text": "Natal"
+  },
+  "gs-36-pt": {
+    "id": "gs-36-pt",
+    "text": "Espelho"
+  },
+  "gs-37-pt": {
+    "id": "gs-37-pt",
+    "text": "Cinema"
+  },
+  "gs-38-pt": {
+    "id": "gs-38-pt",
+    "text": "Relíquia"
+  },
+  "gs-39-pt": {
+    "id": "gs-39-pt",
+    "text": "Circo"
+  },
+  "gs-40-pt": {
+    "id": "gs-40-pt",
+    "text": "Memória"
+  },
+  "gs-41-pt": {
+    "id": "gs-41-pt",
+    "text": "Casulo"
+  },
+  "gs-42-pt": {
+    "id": "gs-42-pt",
+    "text": "Política"
+  },
+  "gs-43-pt": {
+    "id": "gs-43-pt",
+    "text": "País"
+  },
+  "gs-44-pt": {
+    "id": "gs-44-pt",
+    "text": "Tóquio"
+  },
+  "gs-45-pt": {
+    "id": "gs-45-pt",
+    "text": "Crime"
+  },
+  "gs-46-pt": {
+    "id": "gs-46-pt",
+    "text": "Mel"
+  },
+  "gs-47-pt": {
+    "id": "gs-47-pt",
+    "text": "Curioso"
+  },
+  "gs-48-pt": {
+    "id": "gs-48-pt",
+    "text": "Convite"
+  },
+  "gs-49-pt": {
+    "id": "gs-49-pt",
+    "text": "Derrota"
+  },
+  "gs-50-pt": {
+    "id": "gs-50-pt",
+    "text": "Mediterrâneo"
+  },
+  "gs-51-pt": {
+    "id": "gs-51-pt",
+    "text": "Deserto"
+  },
+  "gs-52-pt": {
+    "id": "gs-52-pt",
+    "text": "Liberdade"
+  },
+  "gs-53-pt": {
+    "id": "gs-53-pt",
+    "text": "Sonho"
+  },
+  "gs-54-pt": {
+    "id": "gs-54-pt",
+    "text": "Ancestral"
+  },
+  "gs-55-pt": {
+    "id": "gs-55-pt",
+    "text": "Egito"
+  },
+  "gs-56-pt": {
+    "id": "gs-56-pt",
+    "text": "Tentação"
+  },
+  "gs-57-pt": {
+    "id": "gs-57-pt",
+    "text": "Duende"
+  },
+  "gs-58-pt": {
+    "id": "gs-58-pt",
+    "text": "Inteligente"
+  },
+  "gs-59-pt": {
+    "id": "gs-59-pt",
+    "text": "Inglaterra"
+  },
+  "gs-60-pt": {
+    "id": "gs-60-pt",
+    "text": "Tribunal"
+  },
+  "gs-61-pt": {
+    "id": "gs-61-pt",
+    "text": "Fuga"
+  },
+  "gs-62-pt": {
+    "id": "gs-62-pt",
+    "text": "Sorte"
+  },
+  "gs-63-pt": {
+    "id": "gs-63-pt",
+    "text": "Medo"
+  },
+  "gs-64-pt": {
+    "id": "gs-64-pt",
+    "text": "Amazonas"
+  },
+  "gs-65-pt": {
+    "id": "gs-65-pt",
+    "text": "Luta"
+  },
+  "gs-66-pt": {
+    "id": "gs-66-pt",
+    "text": "Coringa"
+  },
+  "gs-67-pt": {
+    "id": "gs-67-pt",
+    "text": "Jogo"
+  },
+  "gs-68-pt": {
+    "id": "gs-68-pt",
+    "text": "Efêmero"
+  },
+  "gs-69-pt": {
+    "id": "gs-69-pt",
+    "text": "Generoso"
+  },
+  "gs-70-pt": {
+    "id": "gs-70-pt",
+    "text": "Orgulho"
+  },
+  "gs-71-pt": {
+    "id": "gs-71-pt",
+    "text": "Gênio"
+  },
+  "gs-72-pt": {
+    "id": "gs-72-pt",
+    "text": "Titânico"
+  },
+  "gs-73-pt": {
+    "id": "gs-73-pt",
+    "text": "Guia"
+  },
+  "gs-74-pt": {
+    "id": "gs-74-pt",
+    "text": "Discoteca"
+  },
+  "gs-75-pt": {
+    "id": "gs-75-pt",
+    "text": "Hábito"
+  },
+  "gs-76-pt": {
+    "id": "gs-76-pt",
+    "text": "Padrinho"
+  },
+  "gs-77-pt": {
+    "id": "gs-77-pt",
+    "text": "Dia das Bruxas"
+  },
+  "gs-78-pt": {
+    "id": "gs-78-pt",
+    "text": "Tempestade"
+  },
+  "gs-79-pt": {
+    "id": "gs-79-pt",
+    "text": "Felicidade"
+  },
+  "gs-80-pt": {
+    "id": "gs-80-pt",
+    "text": "Trambique"
+  },
+  "gs-81-pt": {
+    "id": "gs-81-pt",
+    "text": "Inferno"
+  },
+  "gs-82-pt": {
+    "id": "gs-82-pt",
+    "text": "Legado"
+  },
+  "gs-83-pt": {
+    "id": "gs-83-pt",
+    "text": "Esconderijo"
+  },
+  "gs-84-pt": {
+    "id": "gs-84-pt",
+    "text": "Utopia"
+  },
+  "gs-85-pt": {
+    "id": "gs-85-pt",
+    "text": "Colmeia"
+  },
+  "gs-86-pt": {
+    "id": "gs-86-pt",
+    "text": "Maia"
+  },
+  "gs-87-pt": {
+    "id": "gs-87-pt",
+    "text": "Feriado"
+  },
+  "gs-88-pt": {
+    "id": "gs-88-pt",
+    "text": "Punk"
+  },
+  "gs-89-pt": {
+    "id": "gs-89-pt",
+    "text": "Investigação"
+  },
+  "gs-90-pt": {
+    "id": "gs-90-pt",
+    "text": "Galáxia"
+  },
+  "gs-91-pt": {
+    "id": "gs-91-pt",
+    "text": "Itália"
+  },
+  "gs-92-pt": {
+    "id": "gs-92-pt",
+    "text": "Poeira"
+  },
+  "gs-93-pt": {
+    "id": "gs-93-pt",
+    "text": "Ciúmes"
+  },
+  "gs-94-pt": {
+    "id": "gs-94-pt",
+    "text": "Equilíbrio"
+  },
+  "gs-95-pt": {
+    "id": "gs-95-pt",
+    "text": "Alegria"
+  },
+  "gs-96-pt": {
+    "id": "gs-96-pt",
+    "text": "Pôquer"
+  },
+  "gs-97-pt": {
+    "id": "gs-97-pt",
+    "text": "Criador"
+  },
+  "gs-98-pt": {
+    "id": "gs-98-pt",
+    "text": "Farsa"
+  },
+  "gs-99-pt": {
+    "id": "gs-99-pt",
+    "text": "Preguiçoso"
+  },
+  "gs-100-pt": {
+    "id": "gs-100-pt",
+    "text": "Britânico"
+  },
+  "gs-101-pt": {
+    "id": "gs-101-pt",
+    "text": "Canção de ninar"
+  },
+  "gs-102-pt": {
+    "id": "gs-102-pt",
+    "text": "Tirano"
+  },
+  "gs-103-pt": {
+    "id": "gs-103-pt",
+    "text": "Máfia"
+  },
+  "gs-104-pt": {
+    "id": "gs-104-pt",
+    "text": "Fagulha"
+  },
+  "gs-105-pt": {
+    "id": "gs-105-pt",
+    "text": "Magia"
+  },
+  "gs-106-pt": {
+    "id": "gs-106-pt",
+    "text": "Egoísta"
+  },
+  "gs-107-pt": {
+    "id": "gs-107-pt",
+    "text": "Sereia"
+  },
+  "gs-108-pt": {
+    "id": "gs-108-pt",
+    "text": "Arqueologia"
+  },
+  "gs-109-pt": {
+    "id": "gs-109-pt",
+    "text": "Bagunça"
+  },
+  "gs-110-pt": {
+    "id": "gs-110-pt",
+    "text": "Sacrifício"
+  },
+  "gs-111-pt": {
+    "id": "gs-111-pt",
+    "text": "Idade Média"
+  },
+  "gs-112-pt": {
+    "id": "gs-112-pt",
+    "text": "Vírus"
+  },
+  "gs-113-pt": {
+    "id": "gs-113-pt",
+    "text": "Erro"
+  },
+  "gs-114-pt": {
+    "id": "gs-114-pt",
+    "text": "Pacífico"
+  },
+  "gs-115-pt": {
+    "id": "gs-115-pt",
+    "text": "Mistério"
+  },
+  "gs-116-pt": {
+    "id": "gs-116-pt",
+    "text": "Encontro"
+  },
+  "gs-117-pt": {
+    "id": "gs-117-pt",
+    "text": "Vizinho"
+  },
+  "gs-118-pt": {
+    "id": "gs-118-pt",
+    "text": "Absurdo"
+  },
+  "gs-119-pt": {
+    "id": "gs-119-pt",
+    "text": "Pesadelo"
+  },
+  "gs-120-pt": {
+    "id": "gs-120-pt",
+    "text": "Paz"
+  },
+  "gs-121-pt": {
+    "id": "gs-121-pt",
+    "text": "Ogro"
+  },
+  "gs-122-pt": {
+    "id": "gs-122-pt",
+    "text": "Eterno"
+  },
+  "gs-123-pt": {
+    "id": "gs-123-pt",
+    "text": "Dor"
+  },
+  "gs-124-pt": {
+    "id": "gs-124-pt",
+    "text": "Mangá"
+  },
+  "gs-125-pt": {
+    "id": "gs-125-pt",
+    "text": "Paraíso"
+  },
+  "gs-126-pt": {
+    "id": "gs-126-pt",
+    "text": "Notícia"
+  },
+  "gs-127-pt": {
+    "id": "gs-127-pt",
+    "text": "Festa"
+  },
+  "gs-128-pt": {
+    "id": "gs-128-pt",
+    "text": "Tabu"
+  },
+  "gs-129-pt": {
+    "id": "gs-129-pt",
+    "text": "Pirata"
+  },
+  "gs-130-pt": {
+    "id": "gs-130-pt",
+    "text": "Fraude"
+  },
+  "gs-131-pt": {
+    "id": "gs-131-pt",
+    "text": "Prazer"
+  },
+  "gs-132-pt": {
+    "id": "gs-132-pt",
+    "text": "Trama"
+  },
+  "gs-133-pt": {
+    "id": "gs-133-pt",
+    "text": "Polícia"
+  },
+  "gs-134-pt": {
+    "id": "gs-134-pt",
+    "text": "Experiência"
+  },
+  "gs-135-pt": {
+    "id": "gs-135-pt",
+    "text": "Poluição"
+  },
+  "gs-136-pt": {
+    "id": "gs-136-pt",
+    "text": "Atlântida"
+  },
+  "gs-137-pt": {
+    "id": "gs-137-pt",
+    "text": "Poder"
+  },
+  "gs-138-pt": {
+    "id": "gs-138-pt",
+    "text": "Astronômico"
+  },
+  "gs-139-pt": {
+    "id": "gs-139-pt",
+    "text": "Pré-histórico"
+  },
+  "gs-140-pt": {
+    "id": "gs-140-pt",
+    "text": "Aula"
+  },
+  "gs-141-pt": {
+    "id": "gs-141-pt",
+    "text": "Presente"
+  },
+  "gs-142-pt": {
+    "id": "gs-142-pt",
+    "text": "Filosofia"
+  },
+  "gs-143-pt": {
+    "id": "gs-143-pt",
+    "text": "Lucro"
+  },
+  "gs-144-pt": {
+    "id": "gs-144-pt",
+    "text": "Apocalipse"
+  },
+  "gs-145-pt": {
+    "id": "gs-145-pt",
+    "text": "Religião"
+  },
+  "gs-146-pt": {
+    "id": "gs-146-pt",
+    "text": "Austrália"
+  },
+  "gs-147-pt": {
+    "id": "gs-147-pt",
+    "text": "Revolução"
+  },
+  "gs-148-pt": {
+    "id": "gs-148-pt",
+    "text": "Ímpar"
+  },
+  "gs-149-pt": {
+    "id": "gs-149-pt",
+    "text": "Ridículo"
+  },
+  "gs-150-pt": {
+    "id": "gs-150-pt",
+    "text": "Caribe"
+  },
+  "gs-151-pt": {
+    "id": "gs-151-pt",
+    "text": "Espantalho"
+  },
+  "gs-152-pt": {
+    "id": "gs-152-pt",
+    "text": "Graça"
+  },
+  "gs-153-pt": {
+    "id": "gs-153-pt",
+    "text": "Escola"
+  },
+  "gs-154-pt": {
+    "id": "gs-154-pt",
+    "text": "Marte"
+  },
+  "gs-155-pt": {
+    "id": "gs-155-pt",
+    "text": "Chinelo"
+  },
+  "gs-156-pt": {
+    "id": "gs-156-pt",
+    "text": "Espírito"
+  },
+  "gs-157-pt": {
+    "id": "gs-157-pt",
+    "text": "Macio"
+  },
+  "gs-158-pt": {
+    "id": "gs-158-pt",
+    "text": "Monstruoso"
+  },
+  "gs-159-pt": {
+    "id": "gs-159-pt",
+    "text": "Mola"
+  },
+  "gs-160-pt": {
+    "id": "gs-160-pt",
+    "text": "Anônimo"
+  },
+  "gs-161-pt": {
+    "id": "gs-161-pt",
+    "text": "Espião"
+  },
+  "gs-162-pt": {
+    "id": "gs-162-pt",
+    "text": "Casa"
+  },
+  "gs-163-pt": {
+    "id": "gs-163-pt",
+    "text": "Desconhecido"
+  },
+  "gs-164-pt": {
+    "id": "gs-164-pt",
+    "text": "Engraçado"
+  },
+  "gs-165-pt": {
+    "id": "gs-165-pt",
+    "text": "Verão"
+  },
+  "gs-166-pt": {
+    "id": "gs-166-pt",
+    "text": "Independência"
+  },
+  "gs-167-pt": {
+    "id": "gs-167-pt",
+    "text": "Surpresa"
+  },
+  "gs-168-pt": {
+    "id": "gs-168-pt",
+    "text": "Anel"
+  },
+  "gs-169-pt": {
+    "id": "gs-169-pt",
+    "text": "Conto"
+  },
+  "gs-170-pt": {
+    "id": "gs-170-pt",
+    "text": "Narcisista"
+  },
+  "gs-171-pt": {
+    "id": "gs-171-pt",
+    "text": "Teatro"
+  },
+  "gs-172-pt": {
+    "id": "gs-172-pt",
+    "text": "Alquimia"
+  },
+  "gs-173-pt": {
+    "id": "gs-173-pt",
+    "text": "Turista"
+  },
+  "gs-174-pt": {
+    "id": "gs-174-pt",
+    "text": "Cancelamento"
+  },
+  "gs-175-pt": {
+    "id": "gs-175-pt",
+    "text": "Tradição"
+  },
+  "gs-176-pt": {
+    "id": "gs-176-pt",
+    "text": "Audácia"
+  },
+  "gs-177-pt": {
+    "id": "gs-177-pt",
+    "text": "Tesouro"
+  },
+  "gs-178-pt": {
+    "id": "gs-178-pt",
+    "text": "Charme"
+  },
+  "gs-179-pt": {
+    "id": "gs-179-pt",
+    "text": "Inútil"
+  },
+  "gs-180-pt": {
+    "id": "gs-180-pt",
+    "text": "Afinidade"
+  },
+  "gs-181-pt": {
+    "id": "gs-181-pt",
+    "text": "Dia dos namorados"
+  },
+  "gs-182-pt": {
+    "id": "gs-182-pt",
+    "text": "Miragem"
+  },
+  "gs-183-pt": {
+    "id": "gs-183-pt",
+    "text": "Vampiro"
+  },
+  "gs-184-pt": {
+    "id": "gs-184-pt",
+    "text": "Ausência"
+  },
+  "gs-185-pt": {
+    "id": "gs-185-pt",
+    "text": "Vingança"
+  },
+  "gs-186-pt": {
+    "id": "gs-186-pt",
+    "text": "Antiguidade"
+  },
+  "gs-187-pt": {
+    "id": "gs-187-pt",
+    "text": "Vitória"
+  },
+  "gs-188-pt": {
+    "id": "gs-188-pt",
+    "text": "Alienígena"
+  },
+  "gs-189-pt": {
+    "id": "gs-189-pt",
+    "text": "Casamento"
+  },
+  "gs-190-pt": {
+    "id": "gs-190-pt",
+    "text": "Córsega"
+  },
+  "gs-191-pt": {
+    "id": "gs-191-pt",
+    "text": "Inverno"
+  },
+  "gs-192-pt": {
+    "id": "gs-192-pt",
+    "text": "Selvagem"
+  },
+  "gs-193-pt": {
+    "id": "gs-193-pt",
+    "text": "Maravilha"
+  },
+  "gs-194-pt": {
+    "id": "gs-194-pt",
+    "text": "Disciplina"
+  },
+  "gs-195-pt": {
+    "id": "gs-195-pt",
+    "text": "Zumbi"
+  },
+  "gs-196-pt": {
+    "id": "gs-196-pt",
+    "text": "Adolescência"
+  },
+  "gs-197-pt": {
+    "id": "gs-197-pt",
+    "text": "Brasil"
+  },
+  "gs-198-pt": {
+    "id": "gs-198-pt",
+    "text": "Popular"
+  },
+  "gs-199-pt": {
+    "id": "gs-199-pt",
+    "text": "Game"
+  },
+  "gs-200-pt": {
+    "id": "gs-200-pt",
+    "text": "Tendência"
+  }
+}

@@ -1,0 +1,3302 @@
+{
+  "lc-1-pt": {
+    "id": "lc-1-pt",
+    "text": "táxi"
+  },
+  "lc-2-pt": {
+    "id": "lc-2-pt",
+    "text": "banheiro"
+  },
+  "lc-3-pt": {
+    "id": "lc-3-pt",
+    "text": "zebra"
+  },
+  "lc-4-pt": {
+    "id": "lc-4-pt",
+    "text": "abraço"
+  },
+  "lc-5-pt": {
+    "id": "lc-5-pt",
+    "text": "sal e pimenta"
+  },
+  "lc-6-pt": {
+    "id": "lc-6-pt",
+    "text": "nachos"
+  },
+  "lc-7-pt": {
+    "id": "lc-7-pt",
+    "text": "pretzel"
+  },
+  "lc-8-pt": {
+    "id": "lc-8-pt",
+    "text": "pera"
+  },
+  "lc-9-pt": {
+    "id": "lc-9-pt",
+    "text": "empadão"
+  },
+  "lc-10-pt": {
+    "id": "lc-10-pt",
+    "text": "lavador de janelas"
+  },
+  "lc-11-pt": {
+    "id": "lc-11-pt",
+    "text": "bolo formigueiro"
+  },
+  "lc-12-pt": {
+    "id": "lc-12-pt",
+    "text": "bombeiro"
+  },
+  "lc-13-pt": {
+    "id": "lc-13-pt",
+    "text": "adesivo de pára-choque"
+  },
+  "lc-14-pt": {
+    "id": "lc-14-pt",
+    "text": "burro"
+  },
+  "lc-15-pt": {
+    "id": "lc-15-pt",
+    "text": "guaxinim"
+  },
+  "lc-16-pt": {
+    "id": "lc-16-pt",
+    "text": "rosa"
+  },
+  "lc-17-pt": {
+    "id": "lc-17-pt",
+    "text": "robô"
+  },
+  "lc-18-pt": {
+    "id": "lc-18-pt",
+    "text": "pão de queijo"
+  },
+  "lc-19-pt": {
+    "id": "lc-19-pt",
+    "text": "castelo de areia"
+  },
+  "lc-20-pt": {
+    "id": "lc-20-pt",
+    "text": "chips"
+  },
+  "lc-21-pt": {
+    "id": "lc-21-pt",
+    "text": "vô"
+  },
+  "lc-22-pt": {
+    "id": "lc-22-pt",
+    "text": "peixe fora d'água"
+  },
+  "lc-23-pt": {
+    "id": "lc-23-pt",
+    "text": "touro"
+  },
+  "lc-24-pt": {
+    "id": "lc-24-pt",
+    "text": "bebê chorão"
+  },
+  "lc-25-pt": {
+    "id": "lc-25-pt",
+    "text": "algodão doce"
+  },
+  "lc-26-pt": {
+    "id": "lc-26-pt",
+    "text": "enrolado de salsicha"
+  },
+  "lc-27-pt": {
+    "id": "lc-27-pt",
+    "text": "foguete"
+  },
+  "lc-28-pt": {
+    "id": "lc-28-pt",
+    "text": "roda de hamster"
+  },
+  "lc-29-pt": {
+    "id": "lc-29-pt",
+    "text": "vestido de bolinhas"
+  },
+  "lc-30-pt": {
+    "id": "lc-30-pt",
+    "text": "agulha e linha"
+  },
+  "lc-31-pt": {
+    "id": "lc-31-pt",
+    "text": "marinheiro"
+  },
+  "lc-32-pt": {
+    "id": "lc-32-pt",
+    "text": "estrela cadente"
+  },
+  "lc-33-pt": {
+    "id": "lc-33-pt",
+    "text": "bola fogo"
+  },
+  "lc-34-pt": {
+    "id": "lc-34-pt",
+    "text": "elefante"
+  },
+  "lc-35-pt": {
+    "id": "lc-35-pt",
+    "text": "sundae de chocolate"
+  },
+  "lc-36-pt": {
+    "id": "lc-36-pt",
+    "text": "pista de boliche"
+  },
+  "lc-37-pt": {
+    "id": "lc-37-pt",
+    "text": "pintura a dedo"
+  },
+  "lc-38-pt": {
+    "id": "lc-38-pt",
+    "text": "meias"
+  },
+  "lc-39-pt": {
+    "id": "lc-39-pt",
+    "text": "colete salva-vidas"
+  },
+  "lc-40-pt": {
+    "id": "lc-40-pt",
+    "text": "gato gordo"
+  },
+  "lc-41-pt": {
+    "id": "lc-41-pt",
+    "text": "palafitas"
+  },
+  "lc-42-pt": {
+    "id": "lc-42-pt",
+    "text": "iglu"
+  },
+  "lc-43-pt": {
+    "id": "lc-43-pt",
+    "text": "mal hálito"
+  },
+  "lc-44-pt": {
+    "id": "lc-44-pt",
+    "text": "mamãe"
+  },
+  "lc-45-pt": {
+    "id": "lc-45-pt",
+    "text": "puff"
+  },
+  "lc-46-pt": {
+    "id": "lc-46-pt",
+    "text": "polvo"
+  },
+  "lc-47-pt": {
+    "id": "lc-47-pt",
+    "text": "gambá"
+  },
+  "lc-48-pt": {
+    "id": "lc-48-pt",
+    "text": "termômetro"
+  },
+  "lc-49-pt": {
+    "id": "lc-49-pt",
+    "text": "beija-flor"
+  },
+  "lc-50-pt": {
+    "id": "lc-50-pt",
+    "text": "porco"
+  },
+  "lc-51-pt": {
+    "id": "lc-51-pt",
+    "text": "espada"
+  },
+  "lc-52-pt": {
+    "id": "lc-52-pt",
+    "text": "olho"
+  },
+  "lc-53-pt": {
+    "id": "lc-53-pt",
+    "text": "fritas com queijo"
+  },
+  "lc-54-pt": {
+    "id": "lc-54-pt",
+    "text": "melancia"
+  },
+  "lc-55-pt": {
+    "id": "lc-55-pt",
+    "text": "bronzeador"
+  },
+  "lc-56-pt": {
+    "id": "lc-56-pt",
+    "text": "luvas de boxe"
+  },
+  "lc-57-pt": {
+    "id": "lc-57-pt",
+    "text": "montanha russa"
+  },
+  "lc-58-pt": {
+    "id": "lc-58-pt",
+    "text": "gaita de fole"
+  },
+  "lc-59-pt": {
+    "id": "lc-59-pt",
+    "text": "coco"
+  },
+  "lc-60-pt": {
+    "id": "lc-60-pt",
+    "text": "unicórnio"
+  },
+  "lc-61-pt": {
+    "id": "lc-61-pt",
+    "text": "cemitério"
+  },
+  "lc-62-pt": {
+    "id": "lc-62-pt",
+    "text": "posto de gasolina"
+  },
+  "lc-63-pt": {
+    "id": "lc-63-pt",
+    "text": "aeroporto"
+  },
+  "lc-64-pt": {
+    "id": "lc-64-pt",
+    "text": "fast food"
+  },
+  "lc-65-pt": {
+    "id": "lc-65-pt",
+    "text": "cheesecake"
+  },
+  "lc-66-pt": {
+    "id": "lc-66-pt",
+    "text": "cozinheiro"
+  },
+  "lc-67-pt": {
+    "id": "lc-67-pt",
+    "text": "ilha"
+  },
+  "lc-68-pt": {
+    "id": "lc-68-pt",
+    "text": "equilibrista na corda bamba"
+  },
+  "lc-69-pt": {
+    "id": "lc-69-pt",
+    "text": "pés"
+  },
+  "lc-70-pt": {
+    "id": "lc-70-pt",
+    "text": "frango"
+  },
+  "lc-71-pt": {
+    "id": "lc-71-pt",
+    "text": "sapo boi"
+  },
+  "lc-72-pt": {
+    "id": "lc-72-pt",
+    "text": "ovos mexidos"
+  },
+  "lc-73-pt": {
+    "id": "lc-73-pt",
+    "text": "giz de cera"
+  },
+  "lc-74-pt": {
+    "id": "lc-74-pt",
+    "text": "vovó"
+  },
+  "lc-75-pt": {
+    "id": "lc-75-pt",
+    "text": "osso da sorte"
+  },
+  "lc-76-pt": {
+    "id": "lc-76-pt",
+    "text": "piñata"
+  },
+  "lc-77-pt": {
+    "id": "lc-77-pt",
+    "text": "peixe frito"
+  },
+  "lc-78-pt": {
+    "id": "lc-78-pt",
+    "text": "rapunzel"
+  },
+  "lc-79-pt": {
+    "id": "lc-79-pt",
+    "text": "bocejar"
+  },
+  "lc-80-pt": {
+    "id": "lc-80-pt",
+    "text": "sardas"
+  },
+  "lc-81-pt": {
+    "id": "lc-81-pt",
+    "text": "vegetais"
+  },
+  "lc-82-pt": {
+    "id": "lc-82-pt",
+    "text": "perfume"
+  },
+  "lc-83-pt": {
+    "id": "lc-83-pt",
+    "text": "mosca"
+  },
+  "lc-84-pt": {
+    "id": "lc-84-pt",
+    "text": "banco de praça"
+  },
+  "lc-85-pt": {
+    "id": "lc-85-pt",
+    "text": "jujuba"
+  },
+  "lc-86-pt": {
+    "id": "lc-86-pt",
+    "text": "bateria"
+  },
+  "lc-87-pt": {
+    "id": "lc-87-pt",
+    "text": "melhores amigos"
+  },
+  "lc-88-pt": {
+    "id": "lc-88-pt",
+    "text": "dama de honra"
+  },
+  "lc-89-pt": {
+    "id": "lc-89-pt",
+    "text": "rocambole"
+  },
+  "lc-90-pt": {
+    "id": "lc-90-pt",
+    "text": "ganso"
+  },
+  "lc-91-pt": {
+    "id": "lc-91-pt",
+    "text": "formigas"
+  },
+  "lc-92-pt": {
+    "id": "lc-92-pt",
+    "text": "borboleta"
+  },
+  "lc-93-pt": {
+    "id": "lc-93-pt",
+    "text": "surfista"
+  },
+  "lc-94-pt": {
+    "id": "lc-94-pt",
+    "text": "bule"
+  },
+  "lc-95-pt": {
+    "id": "lc-95-pt",
+    "text": "areia movediça"
+  },
+  "lc-96-pt": {
+    "id": "lc-96-pt",
+    "text": "brownies"
+  },
+  "lc-97-pt": {
+    "id": "lc-97-pt",
+    "text": "pentear"
+  },
+  "lc-98-pt": {
+    "id": "lc-98-pt",
+    "text": "passarinho tomando banho"
+  },
+  "lc-99-pt": {
+    "id": "lc-99-pt",
+    "text": "quadradinho de 8"
+  },
+  "lc-100-pt": {
+    "id": "lc-100-pt",
+    "text": "gorila"
+  },
+  "lc-101-pt": {
+    "id": "lc-101-pt",
+    "text": "Irmão do Jorel"
+  },
+  "lc-102-pt": {
+    "id": "lc-102-pt",
+    "text": "pai"
+  },
+  "lc-103-pt": {
+    "id": "lc-103-pt",
+    "text": "assento"
+  },
+  "lc-104-pt": {
+    "id": "lc-104-pt",
+    "text": "Fazenda"
+  },
+  "lc-105-pt": {
+    "id": "lc-105-pt",
+    "text": "espião"
+  },
+  "lc-106-pt": {
+    "id": "lc-106-pt",
+    "text": "carro conversível"
+  },
+  "lc-107-pt": {
+    "id": "lc-107-pt",
+    "text": "marciano"
+  },
+  "lc-108-pt": {
+    "id": "lc-108-pt",
+    "text": "balão em forma de animal"
+  },
+  "lc-109-pt": {
+    "id": "lc-109-pt",
+    "text": "jangada"
+  },
+  "lc-110-pt": {
+    "id": "lc-110-pt",
+    "text": "trenó"
+  },
+  "lc-111-pt": {
+    "id": "lc-111-pt",
+    "text": "Cinderela"
+  },
+  "lc-112-pt": {
+    "id": "lc-112-pt",
+    "text": "churrasco"
+  },
+  "lc-113-pt": {
+    "id": "lc-113-pt",
+    "text": "trança"
+  },
+  "lc-114-pt": {
+    "id": "lc-114-pt",
+    "text": "tesoura"
+  },
+  "lc-115-pt": {
+    "id": "lc-115-pt",
+    "text": "fábrica"
+  },
+  "lc-116-pt": {
+    "id": "lc-116-pt",
+    "text": "fogo no rabo"
+  },
+  "lc-117-pt": {
+    "id": "lc-117-pt",
+    "text": "banana Split"
+  },
+  "lc-118-pt": {
+    "id": "lc-118-pt",
+    "text": "vampiro"
+  },
+  "lc-119-pt": {
+    "id": "lc-119-pt",
+    "text": "pão de forma"
+  },
+  "lc-120-pt": {
+    "id": "lc-120-pt",
+    "text": "Coelho"
+  },
+  "lc-121-pt": {
+    "id": "lc-121-pt",
+    "text": "bolo de aniversário"
+  },
+  "lc-122-pt": {
+    "id": "lc-122-pt",
+    "text": "corte"
+  },
+  "lc-123-pt": {
+    "id": "lc-123-pt",
+    "text": "refrigerante"
+  },
+  "lc-124-pt": {
+    "id": "lc-124-pt",
+    "text": "aveia"
+  },
+  "lc-125-pt": {
+    "id": "lc-125-pt",
+    "text": "Jardim Zoológico"
+  },
+  "lc-126-pt": {
+    "id": "lc-126-pt",
+    "text": "abajur"
+  },
+  "lc-127-pt": {
+    "id": "lc-127-pt",
+    "text": "pauzinhos japoneses"
+  },
+  "lc-128-pt": {
+    "id": "lc-128-pt",
+    "text": "bambolê"
+  },
+  "lc-129-pt": {
+    "id": "lc-129-pt",
+    "text": "toboágua"
+  },
+  "lc-130-pt": {
+    "id": "lc-130-pt",
+    "text": "careta"
+  },
+  "lc-131-pt": {
+    "id": "lc-131-pt",
+    "text": "gêmeos"
+  },
+  "lc-132-pt": {
+    "id": "lc-132-pt",
+    "text": "funcionário do zoológico"
+  },
+  "lc-133-pt": {
+    "id": "lc-133-pt",
+    "text": "caçamba"
+  },
+  "lc-134-pt": {
+    "id": "lc-134-pt",
+    "text": "muletas"
+  },
+  "lc-135-pt": {
+    "id": "lc-135-pt",
+    "text": "chuteiras"
+  },
+  "lc-136-pt": {
+    "id": "lc-136-pt",
+    "text": "relógio de bolso"
+  },
+  "lc-137-pt": {
+    "id": "lc-137-pt",
+    "text": "trono"
+  },
+  "lc-138-pt": {
+    "id": "lc-138-pt",
+    "text": "pote de biscoitos"
+  },
+  "lc-139-pt": {
+    "id": "lc-139-pt",
+    "text": "escova"
+  },
+  "lc-140-pt": {
+    "id": "lc-140-pt",
+    "text": "moinho de vento"
+  },
+  "lc-141-pt": {
+    "id": "lc-141-pt",
+    "text": "soltar pipa"
+  },
+  "lc-142-pt": {
+    "id": "lc-142-pt",
+    "text": "vasilhas e panelas"
+  },
+  "lc-143-pt": {
+    "id": "lc-143-pt",
+    "text": "lupa"
+  },
+  "lc-144-pt": {
+    "id": "lc-144-pt",
+    "text": "pizza"
+  },
+  "lc-145-pt": {
+    "id": "lc-145-pt",
+    "text": "coala"
+  },
+  "lc-146-pt": {
+    "id": "lc-146-pt",
+    "text": "marionetes"
+  },
+  "lc-147-pt": {
+    "id": "lc-147-pt",
+    "text": "pista de corrida"
+  },
+  "lc-148-pt": {
+    "id": "lc-148-pt",
+    "text": "roupão"
+  },
+  "lc-149-pt": {
+    "id": "lc-149-pt",
+    "text": "Tigre dentes de sabre"
+  },
+  "lc-150-pt": {
+    "id": "lc-150-pt",
+    "text": "tapa-olho"
+  },
+  "lc-151-pt": {
+    "id": "lc-151-pt",
+    "text": "bola de cristal"
+  },
+  "lc-152-pt": {
+    "id": "lc-152-pt",
+    "text": "regador"
+  },
+  "lc-153-pt": {
+    "id": "lc-153-pt",
+    "text": "arco e flecha"
+  },
+  "lc-154-pt": {
+    "id": "lc-154-pt",
+    "text": "estacionamento"
+  },
+  "lc-155-pt": {
+    "id": "lc-155-pt",
+    "text": "bola de boliche"
+  },
+  "lc-156-pt": {
+    "id": "lc-156-pt",
+    "text": "gola alta"
+  },
+  "lc-157-pt": {
+    "id": "lc-157-pt",
+    "text": "Galo"
+  },
+  "lc-158-pt": {
+    "id": "lc-158-pt",
+    "text": "cogumelos"
+  },
+  "lc-159-pt": {
+    "id": "lc-159-pt",
+    "text": "abacaxi"
+  },
+  "lc-160-pt": {
+    "id": "lc-160-pt",
+    "text": "casa de boneca"
+  },
+  "lc-161-pt": {
+    "id": "lc-161-pt",
+    "text": "caranguejo"
+  },
+  "lc-162-pt": {
+    "id": "lc-162-pt",
+    "text": "espaço sideral"
+  },
+  "lc-163-pt": {
+    "id": "lc-163-pt",
+    "text": "bailarina"
+  },
+  "lc-164-pt": {
+    "id": "lc-164-pt",
+    "text": "libélula"
+  },
+  "lc-165-pt": {
+    "id": "lc-165-pt",
+    "text": "aplaudir"
+  },
+  "lc-166-pt": {
+    "id": "lc-166-pt",
+    "text": "regata"
+  },
+  "lc-167-pt": {
+    "id": "lc-167-pt",
+    "text": "bicicleta com rodinhas"
+  },
+  "lc-168-pt": {
+    "id": "lc-168-pt",
+    "text": "show de rock"
+  },
+  "lc-169-pt": {
+    "id": "lc-169-pt",
+    "text": "formigueiro"
+  },
+  "lc-170-pt": {
+    "id": "lc-170-pt",
+    "text": "gato"
+  },
+  "lc-171-pt": {
+    "id": "lc-171-pt",
+    "text": "luvas"
+  },
+  "lc-172-pt": {
+    "id": "lc-172-pt",
+    "text": "Câmera"
+  },
+  "lc-173-pt": {
+    "id": "lc-173-pt",
+    "text": "dança"
+  },
+  "lc-174-pt": {
+    "id": "lc-174-pt",
+    "text": "queimadura de sol"
+  },
+  "lc-175-pt": {
+    "id": "lc-175-pt",
+    "text": "high five"
+  },
+  "lc-176-pt": {
+    "id": "lc-176-pt",
+    "text": "pato branco"
+  },
+  "lc-177-pt": {
+    "id": "lc-177-pt",
+    "text": "Palmeira"
+  },
+  "lc-178-pt": {
+    "id": "lc-178-pt",
+    "text": "barril"
+  },
+  "lc-179-pt": {
+    "id": "lc-179-pt",
+    "text": "cerveja artesanal"
+  },
+  "lc-180-pt": {
+    "id": "lc-180-pt",
+    "text": "ninho"
+  },
+  "lc-181-pt": {
+    "id": "lc-181-pt",
+    "text": "zelador"
+  },
+  "lc-182-pt": {
+    "id": "lc-182-pt",
+    "text": "panda"
+  },
+  "lc-183-pt": {
+    "id": "lc-183-pt",
+    "text": "dinamite"
+  },
+  "lc-184-pt": {
+    "id": "lc-184-pt",
+    "text": "nadadeiras"
+  },
+  "lc-185-pt": {
+    "id": "lc-185-pt",
+    "text": "caminhão de lixo"
+  },
+  "lc-186-pt": {
+    "id": "lc-186-pt",
+    "text": "lobo mau"
+  },
+  "lc-187-pt": {
+    "id": "lc-187-pt",
+    "text": "cabo-de-guerra"
+  },
+  "lc-188-pt": {
+    "id": "lc-188-pt",
+    "text": "peruca"
+  },
+  "lc-189-pt": {
+    "id": "lc-189-pt",
+    "text": "percevejo"
+  },
+  "lc-190-pt": {
+    "id": "lc-190-pt",
+    "text": "escudo"
+  },
+  "lc-191-pt": {
+    "id": "lc-191-pt",
+    "text": "asinha de frango"
+  },
+  "lc-192-pt": {
+    "id": "lc-192-pt",
+    "text": "ovo frito"
+  },
+  "lc-193-pt": {
+    "id": "lc-193-pt",
+    "text": "flamingo"
+  },
+  "lc-194-pt": {
+    "id": "lc-194-pt",
+    "text": "uvas"
+  },
+  "lc-195-pt": {
+    "id": "lc-195-pt",
+    "text": "cachecol"
+  },
+  "lc-196-pt": {
+    "id": "lc-196-pt",
+    "text": "carrinho bate-bate"
+  },
+  "lc-197-pt": {
+    "id": "lc-197-pt",
+    "text": "chá de bebê"
+  },
+  "lc-198-pt": {
+    "id": "lc-198-pt",
+    "text": "vagão"
+  },
+  "lc-199-pt": {
+    "id": "lc-199-pt",
+    "text": "axila"
+  },
+  "lc-200-pt": {
+    "id": "lc-200-pt",
+    "text": "binóculos"
+  },
+  "lc-201-pt": {
+    "id": "lc-201-pt",
+    "text": "magnético"
+  },
+  "lc-202-pt": {
+    "id": "lc-202-pt",
+    "text": "bola de futebol"
+  },
+  "lc-203-pt": {
+    "id": "lc-203-pt",
+    "text": "Chiclete"
+  },
+  "lc-204-pt": {
+    "id": "lc-204-pt",
+    "text": "Formiga-de-fogo"
+  },
+  "lc-205-pt": {
+    "id": "lc-205-pt",
+    "text": "rena"
+  },
+  "lc-206-pt": {
+    "id": "lc-206-pt",
+    "text": "batom"
+  },
+  "lc-207-pt": {
+    "id": "lc-207-pt",
+    "text": "pingue-pongue"
+  },
+  "lc-208-pt": {
+    "id": "lc-208-pt",
+    "text": "capacete"
+  },
+  "lc-209-pt": {
+    "id": "lc-209-pt",
+    "text": "feijoada"
+  },
+  "lc-210-pt": {
+    "id": "lc-210-pt",
+    "text": "aparelho ortodôntico"
+  },
+  "lc-211-pt": {
+    "id": "lc-211-pt",
+    "text": "tornozelo"
+  },
+  "lc-212-pt": {
+    "id": "lc-212-pt",
+    "text": "pingente de gelo"
+  },
+  "lc-213-pt": {
+    "id": "lc-213-pt",
+    "text": "cerejeira"
+  },
+  "lc-214-pt": {
+    "id": "lc-214-pt",
+    "text": "sorriso"
+  },
+  "lc-215-pt": {
+    "id": "lc-215-pt",
+    "text": "carro de corrida"
+  },
+  "lc-216-pt": {
+    "id": "lc-216-pt",
+    "text": "alpiste"
+  },
+  "lc-217-pt": {
+    "id": "lc-217-pt",
+    "text": "televisão"
+  },
+  "lc-218-pt": {
+    "id": "lc-218-pt",
+    "text": "beijo"
+  },
+  "lc-219-pt": {
+    "id": "lc-219-pt",
+    "text": "guerra de bolas de neve"
+  },
+  "lc-220-pt": {
+    "id": "lc-220-pt",
+    "text": "Bela adormecida"
+  },
+  "lc-221-pt": {
+    "id": "lc-221-pt",
+    "text": "palhaço"
+  },
+  "lc-222-pt": {
+    "id": "lc-222-pt",
+    "text": "cesta de basquete"
+  },
+  "lc-223-pt": {
+    "id": "lc-223-pt",
+    "text": "apito"
+  },
+  "lc-224-pt": {
+    "id": "lc-224-pt",
+    "text": "Cola"
+  },
+  "lc-225-pt": {
+    "id": "lc-225-pt",
+    "text": "lava-jato"
+  },
+  "lc-226-pt": {
+    "id": "lc-226-pt",
+    "text": "tartaruga"
+  },
+  "lc-227-pt": {
+    "id": "lc-227-pt",
+    "text": "dançarina de havaiana"
+  },
+  "lc-228-pt": {
+    "id": "lc-228-pt",
+    "text": "cartola"
+  },
+  "lc-229-pt": {
+    "id": "lc-229-pt",
+    "text": "cabana"
+  },
+  "lc-230-pt": {
+    "id": "lc-230-pt",
+    "text": "malabarista"
+  },
+  "lc-231-pt": {
+    "id": "lc-231-pt",
+    "text": "sonho"
+  },
+  "lc-232-pt": {
+    "id": "lc-232-pt",
+    "text": "papel higiênico"
+  },
+  "lc-233-pt": {
+    "id": "lc-233-pt",
+    "text": "trenó de Papai Noel"
+  },
+  "lc-234-pt": {
+    "id": "lc-234-pt",
+    "text": "esponja"
+  },
+  "lc-235-pt": {
+    "id": "lc-235-pt",
+    "text": "rã"
+  },
+  "lc-236-pt": {
+    "id": "lc-236-pt",
+    "text": "caminhão de sorvete"
+  },
+  "lc-237-pt": {
+    "id": "lc-237-pt",
+    "text": "pica-pau"
+  },
+  "lc-238-pt": {
+    "id": "lc-238-pt",
+    "text": "casa na árvore"
+  },
+  "lc-239-pt": {
+    "id": "lc-239-pt",
+    "text": "duende"
+  },
+  "lc-240-pt": {
+    "id": "lc-240-pt",
+    "text": "submarino"
+  },
+  "lc-241-pt": {
+    "id": "lc-241-pt",
+    "text": "petisco"
+  },
+  "lc-242-pt": {
+    "id": "lc-242-pt",
+    "text": "monstro"
+  },
+  "lc-243-pt": {
+    "id": "lc-243-pt",
+    "text": "picolé"
+  },
+  "lc-244-pt": {
+    "id": "lc-244-pt",
+    "text": "burrito"
+  },
+  "lc-245-pt": {
+    "id": "lc-245-pt",
+    "text": "os três porquinhos"
+  },
+  "lc-246-pt": {
+    "id": "lc-246-pt",
+    "text": "sofá"
+  },
+  "lc-247-pt": {
+    "id": "lc-247-pt",
+    "text": "sobremesa"
+  },
+  "lc-248-pt": {
+    "id": "lc-248-pt",
+    "text": "tuba"
+  },
+  "lc-249-pt": {
+    "id": "lc-249-pt",
+    "text": "babá"
+  },
+  "lc-250-pt": {
+    "id": "lc-250-pt",
+    "text": "controle remoto"
+  },
+  "lc-251-pt": {
+    "id": "lc-251-pt",
+    "text": "Casa de passarinho"
+  },
+  "lc-252-pt": {
+    "id": "lc-252-pt",
+    "text": "caixa de correio"
+  },
+  "lc-253-pt": {
+    "id": "lc-253-pt",
+    "text": "vaso de flores"
+  },
+  "lc-254-pt": {
+    "id": "lc-254-pt",
+    "text": "lanterna"
+  },
+  "lc-255-pt": {
+    "id": "lc-255-pt",
+    "text": "toboágua"
+  },
+  "lc-256-pt": {
+    "id": "lc-256-pt",
+    "text": "acampamento"
+  },
+  "lc-257-pt": {
+    "id": "lc-257-pt",
+    "text": "Pinha"
+  },
+  "lc-258-pt": {
+    "id": "lc-258-pt",
+    "text": "lava-louças"
+  },
+  "lc-259-pt": {
+    "id": "lc-259-pt",
+    "text": "nariz entupido"
+  },
+  "lc-260-pt": {
+    "id": "lc-260-pt",
+    "text": "vácuo"
+  },
+  "lc-261-pt": {
+    "id": "lc-261-pt",
+    "text": "homem das cavernas"
+  },
+  "lc-262-pt": {
+    "id": "lc-262-pt",
+    "text": "poste de telefone"
+  },
+  "lc-263-pt": {
+    "id": "lc-263-pt",
+    "text": "misto quente"
+  },
+  "lc-264-pt": {
+    "id": "lc-264-pt",
+    "text": "frisbee"
+  },
+  "lc-265-pt": {
+    "id": "lc-265-pt",
+    "text": "camelo"
+  },
+  "lc-266-pt": {
+    "id": "lc-266-pt",
+    "text": "canguru"
+  },
+  "lc-267-pt": {
+    "id": "lc-267-pt",
+    "text": "urso"
+  },
+  "lc-268-pt": {
+    "id": "lc-268-pt",
+    "text": "cotovelo"
+  },
+  "lc-269-pt": {
+    "id": "lc-269-pt",
+    "text": "tamanduá"
+  },
+  "lc-270-pt": {
+    "id": "lc-270-pt",
+    "text": "colete"
+  },
+  "lc-271-pt": {
+    "id": "lc-271-pt",
+    "text": "Presidente"
+  },
+  "lc-272-pt": {
+    "id": "lc-272-pt",
+    "text": "beliche"
+  },
+  "lc-273-pt": {
+    "id": "lc-273-pt",
+    "text": "pé Grande"
+  },
+  "lc-274-pt": {
+    "id": "lc-274-pt",
+    "text": "pneu furado"
+  },
+  "lc-275-pt": {
+    "id": "lc-275-pt",
+    "text": "cenouras"
+  },
+  "lc-276-pt": {
+    "id": "lc-276-pt",
+    "text": "mac & cheese"
+  },
+  "lc-277-pt": {
+    "id": "lc-277-pt",
+    "text": "joaninha"
+  },
+  "lc-278-pt": {
+    "id": "lc-278-pt",
+    "text": "sujeira"
+  },
+  "lc-279-pt": {
+    "id": "lc-279-pt",
+    "text": "cera de ouvido"
+  },
+  "lc-280-pt": {
+    "id": "lc-280-pt",
+    "text": "fivela"
+  },
+  "lc-281-pt": {
+    "id": "lc-281-pt",
+    "text": "chinelo"
+  },
+  "lc-282-pt": {
+    "id": "lc-282-pt",
+    "text": "cabra"
+  },
+  "lc-283-pt": {
+    "id": "lc-283-pt",
+    "text": "Super herói"
+  },
+  "lc-284-pt": {
+    "id": "lc-284-pt",
+    "text": "fralda"
+  },
+  "lc-285-pt": {
+    "id": "lc-285-pt",
+    "text": "pirata"
+  },
+  "lc-286-pt": {
+    "id": "lc-286-pt",
+    "text": "esconde-esconde"
+  },
+  "lc-287-pt": {
+    "id": "lc-287-pt",
+    "text": "terremoto"
+  },
+  "lc-288-pt": {
+    "id": "lc-288-pt",
+    "text": "porta"
+  },
+  "lc-289-pt": {
+    "id": "lc-289-pt",
+    "text": "Pia da cozinha"
+  },
+  "lc-290-pt": {
+    "id": "lc-290-pt",
+    "text": "mortal de costas"
+  },
+  "lc-291-pt": {
+    "id": "lc-291-pt",
+    "text": "andar na ponta dos pês"
+  },
+  "lc-292-pt": {
+    "id": "lc-292-pt",
+    "text": "Frankenstein"
+  },
+  "lc-293-pt": {
+    "id": "lc-293-pt",
+    "text": "despertador"
+  },
+  "lc-294-pt": {
+    "id": "lc-294-pt",
+    "text": "centopeia"
+  },
+  "lc-295-pt": {
+    "id": "lc-295-pt",
+    "text": "tapete voador"
+  },
+  "lc-296-pt": {
+    "id": "lc-296-pt",
+    "text": "Ônibus de dois andares"
+  },
+  "lc-297-pt": {
+    "id": "lc-297-pt",
+    "text": "picada"
+  },
+  "lc-298-pt": {
+    "id": "lc-298-pt",
+    "text": "bruxa"
+  },
+  "lc-299-pt": {
+    "id": "lc-299-pt",
+    "text": "banho de espuma"
+  },
+  "lc-300-pt": {
+    "id": "lc-300-pt",
+    "text": "bomba"
+  },
+  "lc-301-pt": {
+    "id": "lc-301-pt",
+    "text": "bicicleta"
+  },
+  "lc-302-pt": {
+    "id": "lc-302-pt",
+    "text": "gota"
+  },
+  "lc-303-pt": {
+    "id": "lc-303-pt",
+    "text": "Drácula"
+  },
+  "lc-304-pt": {
+    "id": "lc-304-pt",
+    "text": "ketchup"
+  },
+  "lc-305-pt": {
+    "id": "lc-305-pt",
+    "text": "estrela"
+  },
+  "lc-306-pt": {
+    "id": "lc-306-pt",
+    "text": "janela quebrada"
+  },
+  "lc-307-pt": {
+    "id": "lc-307-pt",
+    "text": "remédio"
+  },
+  "lc-308-pt": {
+    "id": "lc-308-pt",
+    "text": "Cavaleiro"
+  },
+  "lc-309-pt": {
+    "id": "lc-309-pt",
+    "text": "furadeira"
+  },
+  "lc-310-pt": {
+    "id": "lc-310-pt",
+    "text": "bumerangue"
+  },
+  "lc-311-pt": {
+    "id": "lc-311-pt",
+    "text": "cubos de gelo"
+  },
+  "lc-312-pt": {
+    "id": "lc-312-pt",
+    "text": "prancha de surfe"
+  },
+  "lc-313-pt": {
+    "id": "lc-313-pt",
+    "text": "girafa"
+  },
+  "lc-314-pt": {
+    "id": "lc-314-pt",
+    "text": "auto-estrada"
+  },
+  "lc-315-pt": {
+    "id": "lc-315-pt",
+    "text": "umbigo"
+  },
+  "lc-316-pt": {
+    "id": "lc-316-pt",
+    "text": "de mãos dadas"
+  },
+  "lc-317-pt": {
+    "id": "lc-317-pt",
+    "text": "trigêmeos"
+  },
+  "lc-318-pt": {
+    "id": "lc-318-pt",
+    "text": "urso de pelúcia"
+  },
+  "lc-319-pt": {
+    "id": "lc-319-pt",
+    "text": "máquina de costura"
+  },
+  "lc-320-pt": {
+    "id": "lc-320-pt",
+    "text": "cavalo de pau"
+  },
+  "lc-321-pt": {
+    "id": "lc-321-pt",
+    "text": "eletricidade"
+  },
+  "lc-322-pt": {
+    "id": "lc-322-pt",
+    "text": "pular corda"
+  },
+  "lc-323-pt": {
+    "id": "lc-323-pt",
+    "text": "enguia elétrica"
+  },
+  "lc-324-pt": {
+    "id": "lc-324-pt",
+    "text": "farol"
+  },
+  "lc-325-pt": {
+    "id": "lc-325-pt",
+    "text": "suborno"
+  },
+  "lc-326-pt": {
+    "id": "lc-326-pt",
+    "text": "Barra de sabão"
+  },
+  "lc-327-pt": {
+    "id": "lc-327-pt",
+    "text": "Papai Noel"
+  },
+  "lc-328-pt": {
+    "id": "lc-328-pt",
+    "text": "chefe"
+  },
+  "lc-329-pt": {
+    "id": "lc-329-pt",
+    "text": "motocicleta"
+  },
+  "lc-330-pt": {
+    "id": "lc-330-pt",
+    "text": "mochila"
+  },
+  "lc-331-pt": {
+    "id": "lc-331-pt",
+    "text": "varinha mágica"
+  },
+  "lc-332-pt": {
+    "id": "lc-332-pt",
+    "text": "vitória Régia"
+  },
+  "lc-333-pt": {
+    "id": "lc-333-pt",
+    "text": "lagarta"
+  },
+  "lc-334-pt": {
+    "id": "lc-334-pt",
+    "text": "sopa"
+  },
+  "lc-335-pt": {
+    "id": "lc-335-pt",
+    "text": "britadeira"
+  },
+  "lc-336-pt": {
+    "id": "lc-336-pt",
+    "text": "prato principal"
+  },
+  "lc-337-pt": {
+    "id": "lc-337-pt",
+    "text": "boneca"
+  },
+  "lc-338-pt": {
+    "id": "lc-338-pt",
+    "text": "jogador de basquete"
+  },
+  "lc-339-pt": {
+    "id": "lc-339-pt",
+    "text": "observação de pássaros"
+  },
+  "lc-340-pt": {
+    "id": "lc-340-pt",
+    "text": "pular"
+  },
+  "lc-341-pt": {
+    "id": "lc-341-pt",
+    "text": "bússola"
+  },
+  "lc-342-pt": {
+    "id": "lc-342-pt",
+    "text": "agricultor"
+  },
+  "lc-343-pt": {
+    "id": "lc-343-pt",
+    "text": "cadeira de balanço"
+  },
+  "lc-344-pt": {
+    "id": "lc-344-pt",
+    "text": "baú de tesouro"
+  },
+  "lc-345-pt": {
+    "id": "lc-345-pt",
+    "text": "travesseiros"
+  },
+  "lc-346-pt": {
+    "id": "lc-346-pt",
+    "text": "batata assada"
+  },
+  "lc-347-pt": {
+    "id": "lc-347-pt",
+    "text": "ferro-velho"
+  },
+  "lc-348-pt": {
+    "id": "lc-348-pt",
+    "text": "fonte de água"
+  },
+  "lc-349-pt": {
+    "id": "lc-349-pt",
+    "text": "bebida"
+  },
+  "lc-350-pt": {
+    "id": "lc-350-pt",
+    "text": "campo de futebol"
+  },
+  "lc-351-pt": {
+    "id": "lc-351-pt",
+    "text": "moça da cantina"
+  },
+  "lc-352-pt": {
+    "id": "lc-352-pt",
+    "text": "líder de torcida"
+  },
+  "lc-353-pt": {
+    "id": "lc-353-pt",
+    "text": "skate"
+  },
+  "lc-354-pt": {
+    "id": "lc-354-pt",
+    "text": "taco de hóquei"
+  },
+  "lc-355-pt": {
+    "id": "lc-355-pt",
+    "text": "halloween"
+  },
+  "lc-356-pt": {
+    "id": "lc-356-pt",
+    "text": "Rei"
+  },
+  "lc-357-pt": {
+    "id": "lc-357-pt",
+    "text": "praia"
+  },
+  "lc-358-pt": {
+    "id": "lc-358-pt",
+    "text": "água-viva"
+  },
+  "lc-359-pt": {
+    "id": "lc-359-pt",
+    "text": "bola de praia"
+  },
+  "lc-360-pt": {
+    "id": "lc-360-pt",
+    "text": "arranha-céu"
+  },
+  "lc-361-pt": {
+    "id": "lc-361-pt",
+    "text": "camarão"
+  },
+  "lc-362-pt": {
+    "id": "lc-362-pt",
+    "text": "anel de diamante"
+  },
+  "lc-363-pt": {
+    "id": "lc-363-pt",
+    "text": "cadeira de rodas"
+  },
+  "lc-364-pt": {
+    "id": "lc-364-pt",
+    "text": "hamster"
+  },
+  "lc-365-pt": {
+    "id": "lc-365-pt",
+    "text": "poodle"
+  },
+  "lc-366-pt": {
+    "id": "lc-366-pt",
+    "text": "pinguim"
+  },
+  "lc-367-pt": {
+    "id": "lc-367-pt",
+    "text": "sentar no formigueiro"
+  },
+  "lc-368-pt": {
+    "id": "lc-368-pt",
+    "text": "brócolis"
+  },
+  "lc-369-pt": {
+    "id": "lc-369-pt",
+    "text": "Cílio"
+  },
+  "lc-370-pt": {
+    "id": "lc-370-pt",
+    "text": "cachorro"
+  },
+  "lc-371-pt": {
+    "id": "lc-371-pt",
+    "text": "marshmallow"
+  },
+  "lc-372-pt": {
+    "id": "lc-372-pt",
+    "text": "baleia"
+  },
+  "lc-373-pt": {
+    "id": "lc-373-pt",
+    "text": "microscópio"
+  },
+  "lc-374-pt": {
+    "id": "lc-374-pt",
+    "text": "pote de ouro"
+  },
+  "lc-375-pt": {
+    "id": "lc-375-pt",
+    "text": "avião"
+  },
+  "lc-376-pt": {
+    "id": "lc-376-pt",
+    "text": "pão com manteiga"
+  },
+  "lc-377-pt": {
+    "id": "lc-377-pt",
+    "text": "alvo"
+  },
+  "lc-378-pt": {
+    "id": "lc-378-pt",
+    "text": "pavão"
+  },
+  "lc-379-pt": {
+    "id": "lc-379-pt",
+    "text": "panquecas"
+  },
+  "lc-380-pt": {
+    "id": "lc-380-pt",
+    "text": "Abelha rainha"
+  },
+  "lc-381-pt": {
+    "id": "lc-381-pt",
+    "text": "cookie"
+  },
+  "lc-382-pt": {
+    "id": "lc-382-pt",
+    "text": "bolhas"
+  },
+  "lc-383-pt": {
+    "id": "lc-383-pt",
+    "text": "embrulho para presente"
+  },
+  "lc-384-pt": {
+    "id": "lc-384-pt",
+    "text": "telescópio"
+  },
+  "lc-385-pt": {
+    "id": "lc-385-pt",
+    "text": "café com leite"
+  },
+  "lc-386-pt": {
+    "id": "lc-386-pt",
+    "text": "aperto de mão"
+  },
+  "lc-387-pt": {
+    "id": "lc-387-pt",
+    "text": "pistola de água"
+  },
+  "lc-388-pt": {
+    "id": "lc-388-pt",
+    "text": "balanço"
+  },
+  "lc-389-pt": {
+    "id": "lc-389-pt",
+    "text": "xilofone"
+  },
+  "lc-390-pt": {
+    "id": "lc-390-pt",
+    "text": "picles"
+  },
+  "lc-391-pt": {
+    "id": "lc-391-pt",
+    "text": "Comboio"
+  },
+  "lc-392-pt": {
+    "id": "lc-392-pt",
+    "text": "Tubarão martelo"
+  },
+  "lc-393-pt": {
+    "id": "lc-393-pt",
+    "text": "navio pirata"
+  },
+  "lc-394-pt": {
+    "id": "lc-394-pt",
+    "text": "peixe-gato"
+  },
+  "lc-395-pt": {
+    "id": "lc-395-pt",
+    "text": "milkshake"
+  },
+  "lc-396-pt": {
+    "id": "lc-396-pt",
+    "text": "crocodilo"
+  },
+  "lc-397-pt": {
+    "id": "lc-397-pt",
+    "text": "ginasta"
+  },
+  "lc-398-pt": {
+    "id": "lc-398-pt",
+    "text": "cavalo marinho"
+  },
+  "lc-399-pt": {
+    "id": "lc-399-pt",
+    "text": "anéis de cebola"
+  },
+  "lc-400-pt": {
+    "id": "lc-400-pt",
+    "text": "fada"
+  },
+  "lc-401-pt": {
+    "id": "lc-401-pt",
+    "text": "canoa"
+  },
+  "lc-402-pt": {
+    "id": "lc-402-pt",
+    "text": "retrato de família"
+  },
+  "lc-403-pt": {
+    "id": "lc-403-pt",
+    "text": "marcador de páginas"
+  },
+  "lc-404-pt": {
+    "id": "lc-404-pt",
+    "text": "chocolate quente"
+  },
+  "lc-405-pt": {
+    "id": "lc-405-pt",
+    "text": "amarelinha"
+  },
+  "lc-406-pt": {
+    "id": "lc-406-pt",
+    "text": "coruja"
+  },
+  "lc-407-pt": {
+    "id": "lc-407-pt",
+    "text": "salada"
+  },
+  "lc-408-pt": {
+    "id": "lc-408-pt",
+    "text": "jiboia"
+  },
+  "lc-409-pt": {
+    "id": "lc-409-pt",
+    "text": "barriga caída"
+  },
+  "lc-410-pt": {
+    "id": "lc-410-pt",
+    "text": "esqueleto"
+  },
+  "lc-411-pt": {
+    "id": "lc-411-pt",
+    "text": "biscoitos de animais"
+  },
+  "lc-412-pt": {
+    "id": "lc-412-pt",
+    "text": "biscoito da sorte"
+  },
+  "lc-413-pt": {
+    "id": "lc-413-pt",
+    "text": "prancha de mergulho"
+  },
+  "lc-414-pt": {
+    "id": "lc-414-pt",
+    "text": "secador de cabelo"
+  },
+  "lc-415-pt": {
+    "id": "lc-415-pt",
+    "text": "cobertor"
+  },
+  "lc-416-pt": {
+    "id": "lc-416-pt",
+    "text": "xampu"
+  },
+  "lc-417-pt": {
+    "id": "lc-417-pt",
+    "text": "jacaré"
+  },
+  "lc-418-pt": {
+    "id": "lc-418-pt",
+    "text": "espiga de milho"
+  },
+  "lc-419-pt": {
+    "id": "lc-419-pt",
+    "text": "pára-quedismo"
+  },
+  "lc-420-pt": {
+    "id": "lc-420-pt",
+    "text": "plantar bananeira"
+  },
+  "lc-421-pt": {
+    "id": "lc-421-pt",
+    "text": "bebê"
+  },
+  "lc-422-pt": {
+    "id": "lc-422-pt",
+    "text": "minhoca"
+  },
+  "lc-423-pt": {
+    "id": "lc-423-pt",
+    "text": "dinheiro"
+  },
+  "lc-424-pt": {
+    "id": "lc-424-pt",
+    "text": "pudim"
+  },
+  "lc-425-pt": {
+    "id": "lc-425-pt",
+    "text": "cão de guarda"
+  },
+  "lc-426-pt": {
+    "id": "lc-426-pt",
+    "text": "cofrinho"
+  },
+  "lc-427-pt": {
+    "id": "lc-427-pt",
+    "text": "cárie"
+  },
+  "lc-428-pt": {
+    "id": "lc-428-pt",
+    "text": "cachorro quente"
+  },
+  "lc-429-pt": {
+    "id": "lc-429-pt",
+    "text": "helicóptero"
+  },
+  "lc-430-pt": {
+    "id": "lc-430-pt",
+    "text": "avestruz"
+  },
+  "lc-431-pt": {
+    "id": "lc-431-pt",
+    "text": "almôndegas"
+  },
+  "lc-432-pt": {
+    "id": "lc-432-pt",
+    "text": "parada"
+  },
+  "lc-433-pt": {
+    "id": "lc-433-pt",
+    "text": "balão de ar quente"
+  },
+  "lc-434-pt": {
+    "id": "lc-434-pt",
+    "text": "walkie-talkie"
+  },
+  "lc-435-pt": {
+    "id": "lc-435-pt",
+    "text": "polichinelos"
+  },
+  "lc-436-pt": {
+    "id": "lc-436-pt",
+    "text": "violão"
+  },
+  "lc-437-pt": {
+    "id": "lc-437-pt",
+    "text": "cereal"
+  },
+  "lc-438-pt": {
+    "id": "lc-438-pt",
+    "text": "macarrão parafuso"
+  },
+  "lc-439-pt": {
+    "id": "lc-439-pt",
+    "text": "chave"
+  },
+  "lc-440-pt": {
+    "id": "lc-440-pt",
+    "text": "bola de cabelo"
+  },
+  "lc-441-pt": {
+    "id": "lc-441-pt",
+    "text": "colar"
+  },
+  "lc-442-pt": {
+    "id": "lc-442-pt",
+    "text": "guarda-chuva"
+  },
+  "lc-443-pt": {
+    "id": "lc-443-pt",
+    "text": "empadão de frango"
+  },
+  "lc-444-pt": {
+    "id": "lc-444-pt",
+    "text": "Barra de chocolate"
+  },
+  "lc-445-pt": {
+    "id": "lc-445-pt",
+    "text": "aréola"
+  },
+  "lc-446-pt": {
+    "id": "lc-446-pt",
+    "text": "locomotiva"
+  },
+  "lc-447-pt": {
+    "id": "lc-447-pt",
+    "text": "odor corporal"
+  },
+  "lc-448-pt": {
+    "id": "lc-448-pt",
+    "text": "ovos"
+  },
+  "lc-449-pt": {
+    "id": "lc-449-pt",
+    "text": "limbo"
+  },
+  "lc-450-pt": {
+    "id": "lc-450-pt",
+    "text": "mapa do tesouro"
+  },
+  "lc-451-pt": {
+    "id": "lc-451-pt",
+    "text": "capa de chuva"
+  },
+  "lc-452-pt": {
+    "id": "lc-452-pt",
+    "text": "ratoeira"
+  },
+  "lc-453-pt": {
+    "id": "lc-453-pt",
+    "text": "fogos de artifício"
+  },
+  "lc-454-pt": {
+    "id": "lc-454-pt",
+    "text": "Carrossel"
+  },
+  "lc-455-pt": {
+    "id": "lc-455-pt",
+    "text": "salto de esqui"
+  },
+  "lc-456-pt": {
+    "id": "lc-456-pt",
+    "text": "sanduíche"
+  },
+  "lc-457-pt": {
+    "id": "lc-457-pt",
+    "text": "girassol"
+  },
+  "lc-458-pt": {
+    "id": "lc-458-pt",
+    "text": "encanador"
+  },
+  "lc-459-pt": {
+    "id": "lc-459-pt",
+    "text": "cortador de unha"
+  },
+  "lc-460-pt": {
+    "id": "lc-460-pt",
+    "text": "Pipoca"
+  },
+  "lc-461-pt": {
+    "id": "lc-461-pt",
+    "text": "pôr do sol"
+  },
+  "lc-462-pt": {
+    "id": "lc-462-pt",
+    "text": "raio"
+  },
+  "lc-463-pt": {
+    "id": "lc-463-pt",
+    "text": "caminhão de lixo"
+  },
+  "lc-464-pt": {
+    "id": "lc-464-pt",
+    "text": "a fada dos Dentes"
+  },
+  "lc-465-pt": {
+    "id": "lc-465-pt",
+    "text": "jardim zoológico"
+  },
+  "lc-466-pt": {
+    "id": "lc-466-pt",
+    "text": "árvore de Natal"
+  },
+  "lc-467-pt": {
+    "id": "lc-467-pt",
+    "text": "cartão postal"
+  },
+  "lc-468-pt": {
+    "id": "lc-468-pt",
+    "text": "planta de casa"
+  },
+  "lc-469-pt": {
+    "id": "lc-469-pt",
+    "text": "máscara"
+  },
+  "lc-470-pt": {
+    "id": "lc-470-pt",
+    "text": "tesouro"
+  },
+  "lc-471-pt": {
+    "id": "lc-471-pt",
+    "text": "videogame"
+  },
+  "lc-472-pt": {
+    "id": "lc-472-pt",
+    "text": "gangorra"
+  },
+  "lc-473-pt": {
+    "id": "lc-473-pt",
+    "text": "fantasma"
+  },
+  "lc-474-pt": {
+    "id": "lc-474-pt",
+    "text": "Tubarão branco"
+  },
+  "lc-475-pt": {
+    "id": "lc-475-pt",
+    "text": "favo de mel"
+  },
+  "lc-476-pt": {
+    "id": "lc-476-pt",
+    "text": "diamante"
+  },
+  "lc-477-pt": {
+    "id": "lc-477-pt",
+    "text": "rebocador"
+  },
+  "lc-478-pt": {
+    "id": "lc-478-pt",
+    "text": "catapora"
+  },
+  "lc-479-pt": {
+    "id": "lc-479-pt",
+    "text": "pijamas"
+  },
+  "lc-480-pt": {
+    "id": "lc-480-pt",
+    "text": "pônei"
+  },
+  "lc-481-pt": {
+    "id": "lc-481-pt",
+    "text": "delegacia de polícia"
+  },
+  "lc-482-pt": {
+    "id": "lc-482-pt",
+    "text": "Barra de chocolate"
+  },
+  "lc-483-pt": {
+    "id": "lc-483-pt",
+    "text": "agulha num palheiro"
+  },
+  "lc-484-pt": {
+    "id": "lc-484-pt",
+    "text": "fogueira"
+  },
+  "lc-485-pt": {
+    "id": "lc-485-pt",
+    "text": "tatuagem"
+  },
+  "lc-486-pt": {
+    "id": "lc-486-pt",
+    "text": "morcego"
+  },
+  "lc-487-pt": {
+    "id": "lc-487-pt",
+    "text": "brincos"
+  },
+  "lc-488-pt": {
+    "id": "lc-488-pt",
+    "text": "corpo de bombeiros"
+  },
+  "lc-489-pt": {
+    "id": "lc-489-pt",
+    "text": "o final do arco-íris"
+  },
+  "lc-490-pt": {
+    "id": "lc-490-pt",
+    "text": "abóbora de halloween"
+  },
+  "lc-491-pt": {
+    "id": "lc-491-pt",
+    "text": "raquete de tênis"
+  },
+  "lc-492-pt": {
+    "id": "lc-492-pt",
+    "text": "hóquei"
+  },
+  "lc-493-pt": {
+    "id": "lc-493-pt",
+    "text": "colmeia"
+  },
+  "lc-494-pt": {
+    "id": "lc-494-pt",
+    "text": "quadra de tênis"
+  },
+  "lc-495-pt": {
+    "id": "lc-495-pt",
+    "text": "vaqueira"
+  },
+  "lc-496-pt": {
+    "id": "lc-496-pt",
+    "text": "teclado"
+  },
+  "lc-497-pt": {
+    "id": "lc-497-pt",
+    "text": "Ponte"
+  },
+  "lc-498-pt": {
+    "id": "lc-498-pt",
+    "text": "piano"
+  },
+  "lc-499-pt": {
+    "id": "lc-499-pt",
+    "text": "peregrino"
+  },
+  "lc-500-pt": {
+    "id": "lc-500-pt",
+    "text": "sombrero"
+  },
+  "lc-501-pt": {
+    "id": "lc-501-pt",
+    "text": "ratoeira"
+  },
+  "lc-502-pt": {
+    "id": "lc-502-pt",
+    "text": "Natal"
+  },
+  "lc-503-pt": {
+    "id": "lc-503-pt",
+    "text": "jeitinho brasileiro"
+  },
+  "lc-504-pt": {
+    "id": "lc-504-pt",
+    "text": "viúva Negra"
+  },
+  "lc-505-pt": {
+    "id": "lc-505-pt",
+    "text": "curupira"
+  },
+  "lc-506-pt": {
+    "id": "lc-506-pt",
+    "text": "banheira"
+  },
+  "lc-507-pt": {
+    "id": "lc-507-pt",
+    "text": "sonâmbulo"
+  },
+  "lc-508-pt": {
+    "id": "lc-508-pt",
+    "text": "tábua de frios"
+  },
+  "lc-509-pt": {
+    "id": "lc-509-pt",
+    "text": "lesma"
+  },
+  "lc-510-pt": {
+    "id": "lc-510-pt",
+    "text": "limusine"
+  },
+  "lc-511-pt": {
+    "id": "lc-511-pt",
+    "text": "Pato"
+  },
+  "lc-512-pt": {
+    "id": "lc-512-pt",
+    "text": "roda gigante"
+  },
+  "lc-513-pt": {
+    "id": "lc-513-pt",
+    "text": "brinde"
+  },
+  "lc-514-pt": {
+    "id": "lc-514-pt",
+    "text": "interruptor"
+  },
+  "lc-515-pt": {
+    "id": "lc-515-pt",
+    "text": "doce de leite"
+  },
+  "lc-516-pt": {
+    "id": "lc-516-pt",
+    "text": "rinoceronte"
+  },
+  "lc-517-pt": {
+    "id": "lc-517-pt",
+    "text": "tiranossauro Rex"
+  },
+  "lc-518-pt": {
+    "id": "lc-518-pt",
+    "text": "mulher barbada"
+  },
+  "lc-519-pt": {
+    "id": "lc-519-pt",
+    "text": "onça"
+  },
+  "lc-520-pt": {
+    "id": "lc-520-pt",
+    "text": "estátua da liberdade"
+  },
+  "lc-521-pt": {
+    "id": "lc-521-pt",
+    "text": "indiano"
+  },
+  "lc-522-pt": {
+    "id": "lc-522-pt",
+    "text": "aquário"
+  },
+  "lc-523-pt": {
+    "id": "lc-523-pt",
+    "text": "pirulito"
+  },
+  "lc-524-pt": {
+    "id": "lc-524-pt",
+    "text": "alce"
+  },
+  "lc-525-pt": {
+    "id": "lc-525-pt",
+    "text": "peixinho dourado"
+  },
+  "lc-526-pt": {
+    "id": "lc-526-pt",
+    "text": "troféu"
+  },
+  "lc-527-pt": {
+    "id": "lc-527-pt",
+    "text": "gnomo de jardim"
+  },
+  "lc-528-pt": {
+    "id": "lc-528-pt",
+    "text": "óculos de sol"
+  },
+  "lc-529-pt": {
+    "id": "lc-529-pt",
+    "text": "tarântula"
+  },
+  "lc-530-pt": {
+    "id": "lc-530-pt",
+    "text": "vulcão"
+  },
+  "lc-531-pt": {
+    "id": "lc-531-pt",
+    "text": "batatinha quente"
+  },
+  "lc-532-pt": {
+    "id": "lc-532-pt",
+    "text": "macaco"
+  },
+  "lc-533-pt": {
+    "id": "lc-533-pt",
+    "text": "juiz"
+  },
+  "lc-534-pt": {
+    "id": "lc-534-pt",
+    "text": "peru"
+  },
+  "lc-535-pt": {
+    "id": "lc-535-pt",
+    "text": "ninja"
+  },
+  "lc-536-pt": {
+    "id": "lc-536-pt",
+    "text": "Vara de pescar"
+  },
+  "lc-537-pt": {
+    "id": "lc-537-pt",
+    "text": "mostarda"
+  },
+  "lc-538-pt": {
+    "id": "lc-538-pt",
+    "text": "orca"
+  },
+  "lc-539-pt": {
+    "id": "lc-539-pt",
+    "text": "tubo respiratório para mergulho"
+  },
+  "lc-540-pt": {
+    "id": "lc-540-pt",
+    "text": "carro de luxo"
+  },
+  "lc-541-pt": {
+    "id": "lc-541-pt",
+    "text": "piquenique"
+  },
+  "lc-542-pt": {
+    "id": "lc-542-pt",
+    "text": "lava"
+  },
+  "lc-543-pt": {
+    "id": "lc-543-pt",
+    "text": "banda de rock"
+  },
+  "lc-544-pt": {
+    "id": "lc-544-pt",
+    "text": "afta"
+  },
+  "lc-545-pt": {
+    "id": "lc-545-pt",
+    "text": "cupcake"
+  },
+  "lc-546-pt": {
+    "id": "lc-546-pt",
+    "text": "piscina"
+  },
+  "lc-547-pt": {
+    "id": "lc-547-pt",
+    "text": "coiote"
+  },
+  "lc-548-pt": {
+    "id": "lc-548-pt",
+    "text": "carta de amor"
+  },
+  "lc-549-pt": {
+    "id": "lc-549-pt",
+    "text": "esporte fino"
+  },
+  "lc-550-pt": {
+    "id": "lc-550-pt",
+    "text": "floco de neve"
+  },
+  "lc-551-pt": {
+    "id": "lc-551-pt",
+    "text": "moicano"
+  },
+  "lc-552-pt": {
+    "id": "lc-552-pt",
+    "text": "cuecas"
+  },
+  "lc-553-pt": {
+    "id": "lc-553-pt",
+    "text": "tábua de passar roupa"
+  },
+  "lc-554-pt": {
+    "id": "lc-554-pt",
+    "text": "estádio"
+  },
+  "lc-555-pt": {
+    "id": "lc-555-pt",
+    "text": "zumbi"
+  },
+  "lc-556-pt": {
+    "id": "lc-556-pt",
+    "text": "casca de banana"
+  },
+  "lc-557-pt": {
+    "id": "lc-557-pt",
+    "text": "taco"
+  },
+  "lc-558-pt": {
+    "id": "lc-558-pt",
+    "text": "aquário"
+  },
+  "lc-559-pt": {
+    "id": "lc-559-pt",
+    "text": "golfinho"
+  },
+  "lc-560-pt": {
+    "id": "lc-560-pt",
+    "text": "Telefone"
+  },
+  "lc-561-pt": {
+    "id": "lc-561-pt",
+    "text": "balé"
+  },
+  "lc-562-pt": {
+    "id": "lc-562-pt",
+    "text": "arco-íris"
+  },
+  "lc-563-pt": {
+    "id": "lc-563-pt",
+    "text": "homem na Lua"
+  },
+  "lc-564-pt": {
+    "id": "lc-564-pt",
+    "text": "naufrágio"
+  },
+  "lc-565-pt": {
+    "id": "lc-565-pt",
+    "text": "lobisomem"
+  },
+  "lc-566-pt": {
+    "id": "lc-566-pt",
+    "text": "flauta"
+  },
+  "lc-567-pt": {
+    "id": "lc-567-pt",
+    "text": "enjoado"
+  },
+  "lc-568-pt": {
+    "id": "lc-568-pt",
+    "text": "hidrante"
+  },
+  "lc-569-pt": {
+    "id": "lc-569-pt",
+    "text": "abacate"
+  },
+  "lc-570-pt": {
+    "id": "lc-570-pt",
+    "text": "extintor de incêndio"
+  },
+  "lc-571-pt": {
+    "id": "lc-571-pt",
+    "text": "trilhos"
+  },
+  "lc-572-pt": {
+    "id": "lc-572-pt",
+    "text": "bife"
+  },
+  "lc-573-pt": {
+    "id": "lc-573-pt",
+    "text": "estrela do Mar"
+  },
+  "lc-574-pt": {
+    "id": "lc-574-pt",
+    "text": "cesto de frutas"
+  },
+  "lc-575-pt": {
+    "id": "lc-575-pt",
+    "text": "cronômetro"
+  },
+  "lc-576-pt": {
+    "id": "lc-576-pt",
+    "text": "Pato de borracha"
+  },
+  "lc-577-pt": {
+    "id": "lc-577-pt",
+    "text": "lambreta"
+  },
+  "lc-578-pt": {
+    "id": "lc-578-pt",
+    "text": "ônibus escolar"
+  },
+  "lc-579-pt": {
+    "id": "lc-579-pt",
+    "text": "Paraíso"
+  },
+  "lc-580-pt": {
+    "id": "lc-580-pt",
+    "text": "lagosta"
+  },
+  "lc-581-pt": {
+    "id": "lc-581-pt",
+    "text": "chulé"
+  },
+  "lc-582-pt": {
+    "id": "lc-582-pt",
+    "text": "mata-moscas"
+  },
+  "lc-583-pt": {
+    "id": "lc-583-pt",
+    "text": "mico leão dourado"
+  },
+  "lc-584-pt": {
+    "id": "lc-584-pt",
+    "text": "lacuna"
+  },
+  "lc-585-pt": {
+    "id": "lc-585-pt",
+    "text": "chorar de rir"
+  },
+  "lc-586-pt": {
+    "id": "lc-586-pt",
+    "text": "teia de aranha"
+  },
+  "lc-587-pt": {
+    "id": "lc-587-pt",
+    "text": "aspargo"
+  },
+  "lc-588-pt": {
+    "id": "lc-588-pt",
+    "text": "boneco de neve"
+  },
+  "lc-589-pt": {
+    "id": "lc-589-pt",
+    "text": "Café da manhã na cama"
+  },
+  "lc-590-pt": {
+    "id": "lc-590-pt",
+    "text": "campo de golfe"
+  },
+  "lc-591-pt": {
+    "id": "lc-591-pt",
+    "text": "Dia dos Namorados"
+  },
+  "lc-592-pt": {
+    "id": "lc-592-pt",
+    "text": "mesa de sinuca"
+  },
+  "lc-593-pt": {
+    "id": "lc-593-pt",
+    "text": "colchão d'água"
+  },
+  "lc-594-pt": {
+    "id": "lc-594-pt",
+    "text": "barba"
+  },
+  "lc-595-pt": {
+    "id": "lc-595-pt",
+    "text": "tênis"
+  },
+  "lc-596-pt": {
+    "id": "lc-596-pt",
+    "text": "professora"
+  },
+  "lc-597-pt": {
+    "id": "lc-597-pt",
+    "text": "luvas"
+  },
+  "lc-598-pt": {
+    "id": "lc-598-pt",
+    "text": "cabrito"
+  },
+  "lc-599-pt": {
+    "id": "lc-599-pt",
+    "text": "sinal vermelho"
+  },
+  "lc-600-pt": {
+    "id": "lc-600-pt",
+    "text": "biscoito de cachorro"
+  },
+  "lc-601-pt": {
+    "id": "lc-601-pt",
+    "text": "castelo"
+  },
+  "lc-602-pt": {
+    "id": "lc-602-pt",
+    "text": "roupa de banho"
+  },
+  "lc-603-pt": {
+    "id": "lc-603-pt",
+    "text": "tutu"
+  },
+  "lc-604-pt": {
+    "id": "lc-604-pt",
+    "text": "rosquinhas"
+  },
+  "lc-605-pt": {
+    "id": "lc-605-pt",
+    "text": "mãe"
+  },
+  "lc-606-pt": {
+    "id": "lc-606-pt",
+    "text": "pula-pula"
+  },
+  "lc-607-pt": {
+    "id": "lc-607-pt",
+    "text": "sereia"
+  },
+  "lc-608-pt": {
+    "id": "lc-608-pt",
+    "text": "Jardim"
+  },
+  "lc-609-pt": {
+    "id": "lc-609-pt",
+    "text": "peixe-espada"
+  },
+  "lc-610-pt": {
+    "id": "lc-610-pt",
+    "text": "gigante"
+  },
+  "lc-611-pt": {
+    "id": "lc-611-pt",
+    "text": "bruxo"
+  },
+  "lc-612-pt": {
+    "id": "lc-612-pt",
+    "text": "cachorro-quente"
+  },
+  "lc-613-pt": {
+    "id": "lc-613-pt",
+    "text": "pular"
+  },
+  "lc-614-pt": {
+    "id": "lc-614-pt",
+    "text": "laquê"
+  },
+  "lc-615-pt": {
+    "id": "lc-615-pt",
+    "text": "barraca de limonada"
+  },
+  "lc-616-pt": {
+    "id": "lc-616-pt",
+    "text": "Polo Norte"
+  },
+  "lc-617-pt": {
+    "id": "lc-617-pt",
+    "text": "camisa"
+  },
+  "lc-618-pt": {
+    "id": "lc-618-pt",
+    "text": "tabuleiro de damas"
+  },
+  "lc-619-pt": {
+    "id": "lc-619-pt",
+    "text": "relógio cuco"
+  },
+  "lc-620-pt": {
+    "id": "lc-620-pt",
+    "text": "trava-língua"
+  },
+  "lc-621-pt": {
+    "id": "lc-621-pt",
+    "text": "anjo"
+  },
+  "lc-622-pt": {
+    "id": "lc-622-pt",
+    "text": "apreensivo"
+  },
+  "lc-623-pt": {
+    "id": "lc-623-pt",
+    "text": "músculo"
+  },
+  "lc-624-pt": {
+    "id": "lc-624-pt",
+    "text": "mágico"
+  },
+  "lc-625-pt": {
+    "id": "lc-625-pt",
+    "text": "bagagem"
+  },
+  "lc-626-pt": {
+    "id": "lc-626-pt",
+    "text": "abridor de lata"
+  },
+  "lc-627-pt": {
+    "id": "lc-627-pt",
+    "text": "férias"
+  },
+  "lc-628-pt": {
+    "id": "lc-628-pt",
+    "text": "Dragão"
+  },
+  "lc-629-pt": {
+    "id": "lc-629-pt",
+    "text": "escavação"
+  },
+  "lc-630-pt": {
+    "id": "lc-630-pt",
+    "text": "waffle"
+  },
+  "lc-631-pt": {
+    "id": "lc-631-pt",
+    "text": "torta de maçã"
+  },
+  "lc-632-pt": {
+    "id": "lc-632-pt",
+    "text": "vaga-lume"
+  },
+  "lc-633-pt": {
+    "id": "lc-633-pt",
+    "text": "novela das 8"
+  },
+  "lc-634-pt": {
+    "id": "lc-634-pt",
+    "text": "estrangeiro"
+  },
+  "lc-635-pt": {
+    "id": "lc-635-pt",
+    "text": "lâmpada elétrica"
+  },
+  "lc-636-pt": {
+    "id": "lc-636-pt",
+    "text": "nariz"
+  },
+  "lc-637-pt": {
+    "id": "lc-637-pt",
+    "text": "picada de abelha"
+  },
+  "lc-638-pt": {
+    "id": "lc-638-pt",
+    "text": "pé de galinha"
+  },
+  "lc-639-pt": {
+    "id": "lc-639-pt",
+    "text": "trampolim"
+  },
+  "lc-640-pt": {
+    "id": "lc-640-pt",
+    "text": "dálmata"
+  },
+  "lc-641-pt": {
+    "id": "lc-641-pt",
+    "text": "buldogue"
+  },
+  "lc-642-pt": {
+    "id": "lc-642-pt",
+    "text": "Shopping"
+  },
+  "lc-643-pt": {
+    "id": "lc-643-pt",
+    "text": "x-tudo"
+  },
+  "lc-644-pt": {
+    "id": "lc-644-pt",
+    "text": "nota falsa"
+  },
+  "lc-645-pt": {
+    "id": "lc-645-pt",
+    "text": "rabo de cavalo"
+  },
+  "lc-646-pt": {
+    "id": "lc-646-pt",
+    "text": "frigideira"
+  },
+  "lc-647-pt": {
+    "id": "lc-647-pt",
+    "text": "gangorra"
+  },
+  "lc-648-pt": {
+    "id": "lc-648-pt",
+    "text": "bacon"
+  },
+  "lc-649-pt": {
+    "id": "lc-649-pt",
+    "text": "lula"
+  },
+  "lc-650-pt": {
+    "id": "lc-650-pt",
+    "text": "lareira"
+  },
+  "lc-651-pt": {
+    "id": "lc-651-pt",
+    "text": "vaqueiro"
+  },
+  "lc-652-pt": {
+    "id": "lc-652-pt",
+    "text": "conto de fadas"
+  },
+  "lc-653-pt": {
+    "id": "lc-653-pt",
+    "text": "harmônica"
+  },
+  "lc-654-pt": {
+    "id": "lc-654-pt",
+    "text": "Cruzeiro"
+  },
+  "lc-655-pt": {
+    "id": "lc-655-pt",
+    "text": "ponto de ônibus"
+  },
+  "lc-656-pt": {
+    "id": "lc-656-pt",
+    "text": "capoeira"
+  },
+  "lc-657-pt": {
+    "id": "lc-657-pt",
+    "text": "carona"
+  },
+  "lc-658-pt": {
+    "id": "lc-658-pt",
+    "text": "Lago"
+  },
+  "lc-659-pt": {
+    "id": "lc-659-pt",
+    "text": "concha"
+  },
+  "lc-660-pt": {
+    "id": "lc-660-pt",
+    "text": "maçã"
+  },
+  "lc-661-pt": {
+    "id": "lc-661-pt",
+    "text": "sessão da tarde"
+  },
+  "lc-662-pt": {
+    "id": "lc-662-pt",
+    "text": "a casa branca"
+  },
+  "lc-663-pt": {
+    "id": "lc-663-pt",
+    "text": "Branca de Neve"
+  },
+  "lc-664-pt": {
+    "id": "lc-664-pt",
+    "text": "tigre"
+  },
+  "lc-665-pt": {
+    "id": "lc-665-pt",
+    "text": "jogador de baseball"
+  },
+  "lc-666-pt": {
+    "id": "lc-666-pt",
+    "text": "capivara grávida"
+  },
+  "lc-667-pt": {
+    "id": "lc-667-pt",
+    "text": "lua"
+  },
+  "lc-668-pt": {
+    "id": "lc-668-pt",
+    "text": "presunto"
+  },
+  "lc-669-pt": {
+    "id": "lc-669-pt",
+    "text": "Chapeuzinho Vermelho"
+  },
+  "lc-670-pt": {
+    "id": "lc-670-pt",
+    "text": "gênio da lâmpada"
+  },
+  "lc-671-pt": {
+    "id": "lc-671-pt",
+    "text": "alpinista"
+  },
+  "lc-672-pt": {
+    "id": "lc-672-pt",
+    "text": "disco voador"
+  },
+  "lc-673-pt": {
+    "id": "lc-673-pt",
+    "text": "cesto de lixo"
+  },
+  "lc-674-pt": {
+    "id": "lc-674-pt",
+    "text": "sela"
+  },
+  "lc-675-pt": {
+    "id": "lc-675-pt",
+    "text": "chuveiro"
+  },
+  "lc-676-pt": {
+    "id": "lc-676-pt",
+    "text": "bufê de salada"
+  },
+  "lc-677-pt": {
+    "id": "lc-677-pt",
+    "text": "deserto"
+  },
+  "lc-678-pt": {
+    "id": "lc-678-pt",
+    "text": "bolo de cenoura"
+  },
+  "lc-679-pt": {
+    "id": "lc-679-pt",
+    "text": "cortador de grama"
+  },
+  "lc-680-pt": {
+    "id": "lc-680-pt",
+    "text": "drive thru"
+  },
+  "lc-681-pt": {
+    "id": "lc-681-pt",
+    "text": "salto alto"
+  },
+  "lc-682-pt": {
+    "id": "lc-682-pt",
+    "text": "jacuzzi"
+  },
+  "lc-683-pt": {
+    "id": "lc-683-pt",
+    "text": "dedos"
+  },
+  "lc-684-pt": {
+    "id": "lc-684-pt",
+    "text": "videira"
+  },
+  "lc-685-pt": {
+    "id": "lc-685-pt",
+    "text": "karatê"
+  },
+  "lc-686-pt": {
+    "id": "lc-686-pt",
+    "text": "parquinho"
+  },
+  "lc-687-pt": {
+    "id": "lc-687-pt",
+    "text": "estar na nuvens"
+  },
+  "lc-688-pt": {
+    "id": "lc-688-pt",
+    "text": "reboque"
+  },
+  "lc-689-pt": {
+    "id": "lc-689-pt",
+    "text": "microfone"
+  },
+  "lc-690-pt": {
+    "id": "lc-690-pt",
+    "text": "Pinóquio"
+  },
+  "lc-691-pt": {
+    "id": "lc-691-pt",
+    "text": "baú de brinquedos"
+  },
+  "lc-692-pt": {
+    "id": "lc-692-pt",
+    "text": "pernas de saracura"
+  },
+  "lc-693-pt": {
+    "id": "lc-693-pt",
+    "text": "cócegas"
+  },
+  "lc-694-pt": {
+    "id": "lc-694-pt",
+    "text": "micro-ondas"
+  },
+  "lc-695-pt": {
+    "id": "lc-695-pt",
+    "text": "jogador de futebol"
+  },
+  "lc-696-pt": {
+    "id": "lc-696-pt",
+    "text": "casa flutuante"
+  },
+  "lc-697-pt": {
+    "id": "lc-697-pt",
+    "text": "neblina"
+  },
+  "lc-698-pt": {
+    "id": "lc-698-pt",
+    "text": "gangorra"
+  },
+  "lc-699-pt": {
+    "id": "lc-699-pt",
+    "text": "nave espacial"
+  },
+  "lc-700-pt": {
+    "id": "lc-700-pt",
+    "text": "flores"
+  },
+  "lc-701-pt": {
+    "id": "lc-701-pt",
+    "text": "fantoche"
+  },
+  "lc-702-pt": {
+    "id": "lc-702-pt",
+    "text": "pá"
+  },
+  "lc-703-pt": {
+    "id": "lc-703-pt",
+    "text": "leão"
+  },
+  "lc-704-pt": {
+    "id": "lc-704-pt",
+    "text": "cacto seco"
+  },
+  "lc-705-pt": {
+    "id": "lc-705-pt",
+    "text": "iceberg"
+  },
+  "lc-706-pt": {
+    "id": "lc-706-pt",
+    "text": "raio X"
+  },
+  "lc-707-pt": {
+    "id": "lc-707-pt",
+    "text": "casa de pão de mel"
+  },
+  "lc-708-pt": {
+    "id": "lc-708-pt",
+    "text": "joaninha"
+  },
+  "lc-709-pt": {
+    "id": "lc-709-pt",
+    "text": "vaca"
+  },
+  "lc-710-pt": {
+    "id": "lc-710-pt",
+    "text": "ambulância"
+  },
+  "lc-711-pt": {
+    "id": "lc-711-pt",
+    "text": "apontador"
+  },
+  "lc-712-pt": {
+    "id": "lc-712-pt",
+    "text": "astronauta"
+  },
+  "lc-713-pt": {
+    "id": "lc-713-pt",
+    "text": "calculadora"
+  },
+  "lc-714-pt": {
+    "id": "lc-714-pt",
+    "text": "dormir de conchinha"
+  },
+  "lc-715-pt": {
+    "id": "lc-715-pt",
+    "text": "batatas fritas"
+  },
+  "lc-716-pt": {
+    "id": "lc-716-pt",
+    "text": "descalço"
+  },
+  "lc-717-pt": {
+    "id": "lc-717-pt",
+    "text": "fio dental"
+  },
+  "lc-718-pt": {
+    "id": "lc-718-pt",
+    "text": "primeira base"
+  },
+  "lc-719-pt": {
+    "id": "lc-719-pt",
+    "text": "gafanhoto"
+  },
+  "lc-720-pt": {
+    "id": "lc-720-pt",
+    "text": "Esquilo"
+  },
+  "lc-721-pt": {
+    "id": "lc-721-pt",
+    "text": "circo"
+  },
+  "lc-722-pt": {
+    "id": "lc-722-pt",
+    "text": "tudo de bom"
+  },
+  "lc-723-pt": {
+    "id": "lc-723-pt",
+    "text": "coelho da Páscoa"
+  },
+  "lc-724-pt": {
+    "id": "lc-724-pt",
+    "text": "duende"
+  },
+  "lc-725-pt": {
+    "id": "lc-725-pt",
+    "text": "kart"
+  },
+  "lc-726-pt": {
+    "id": "lc-726-pt",
+    "text": "cacho de bananas"
+  },
+  "lc-727-pt": {
+    "id": "lc-727-pt",
+    "text": "bibliotecária"
+  },
+  "lc-728-pt": {
+    "id": "lc-728-pt",
+    "text": "snowboard"
+  },
+  "lc-729-pt": {
+    "id": "lc-729-pt",
+    "text": "Copo com canudinho"
+  },
+  "lc-730-pt": {
+    "id": "lc-730-pt",
+    "text": "computador"
+  },
+  "lc-731-pt": {
+    "id": "lc-731-pt",
+    "text": "hortelã"
+  },
+  "lc-732-pt": {
+    "id": "lc-732-pt",
+    "text": "piscada"
+  },
+  "lc-733-pt": {
+    "id": "lc-733-pt",
+    "text": "hipopótamo"
+  },
+  "lc-734-pt": {
+    "id": "lc-734-pt",
+    "text": "artista"
+  },
+  "lc-735-pt": {
+    "id": "lc-735-pt",
+    "text": "merendeira"
+  },
+  "lc-736-pt": {
+    "id": "lc-736-pt",
+    "text": "minigolfe"
+  },
+  "lc-737-pt": {
+    "id": "lc-737-pt",
+    "text": "peguete"
+  },
+  "lc-738-pt": {
+    "id": "lc-738-pt",
+    "text": "zíper"
+  },
+  "lc-739-pt": {
+    "id": "lc-739-pt",
+    "text": "médico"
+  },
+  "lc-740-pt": {
+    "id": "lc-740-pt",
+    "text": "abelha"
+  },
+  "lc-741-pt": {
+    "id": "lc-741-pt",
+    "text": "mãe de pet"
+  },
+  "lc-742-pt": {
+    "id": "lc-742-pt",
+    "text": "guerra de travesseiro"
+  },
+  "lc-743-pt": {
+    "id": "lc-743-pt",
+    "text": "pão com manteiga"
+  },
+  "lc-744-pt": {
+    "id": "lc-744-pt",
+    "text": "rainha"
+  },
+  "lc-745-pt": {
+    "id": "lc-745-pt",
+    "text": "perna quebrada"
+  },
+  "lc-746-pt": {
+    "id": "lc-746-pt",
+    "text": "leitor"
+  },
+  "lc-747-pt": {
+    "id": "lc-747-pt",
+    "text": "barco a vela"
+  },
+  "lc-748-pt": {
+    "id": "lc-748-pt",
+    "text": "botas para neve"
+  },
+  "lc-749-pt": {
+    "id": "lc-749-pt",
+    "text": "abelha"
+  },
+  "lc-750-pt": {
+    "id": "lc-750-pt",
+    "text": "cadeia"
+  },
+  "lc-751-pt": {
+    "id": "lc-751-pt",
+    "text": "gelinho/chup-chup"
+  },
+  "lc-752-pt": {
+    "id": "lc-752-pt",
+    "text": "esquimó"
+  },
+  "lc-753-pt": {
+    "id": "lc-753-pt",
+    "text": "Desodorante"
+  },
+  "lc-754-pt": {
+    "id": "lc-754-pt",
+    "text": "torre com sino"
+  },
+  "lc-755-pt": {
+    "id": "lc-755-pt",
+    "text": "pulga"
+  },
+  "lc-756-pt": {
+    "id": "lc-756-pt",
+    "text": "Ação de graças"
+  },
+  "lc-757-pt": {
+    "id": "lc-757-pt",
+    "text": "limonada"
+  },
+  "lc-758-pt": {
+    "id": "lc-758-pt",
+    "text": "abelhas assassinas"
+  },
+  "lc-759-pt": {
+    "id": "lc-759-pt",
+    "text": "coroa"
+  },
+  "lc-760-pt": {
+    "id": "lc-760-pt",
+    "text": "tornado"
+  },
+  "lc-761-pt": {
+    "id": "lc-761-pt",
+    "text": "goleiro"
+  },
+  "lc-762-pt": {
+    "id": "lc-762-pt",
+    "text": "espirro"
+  },
+  "lc-763-pt": {
+    "id": "lc-763-pt",
+    "text": "penas"
+  },
+  "lc-764-pt": {
+    "id": "lc-764-pt",
+    "text": "cata-vento"
+  },
+  "lc-765-pt": {
+    "id": "lc-765-pt",
+    "text": "sobrancelha"
+  },
+  "lc-766-pt": {
+    "id": "lc-766-pt",
+    "text": "bolo de frutas"
+  },
+  "lc-767-pt": {
+    "id": "lc-767-pt",
+    "text": "Salva-vidas"
+  },
+  "lc-768-pt": {
+    "id": "lc-768-pt",
+    "text": "gravata-borboleta"
+  },
+  "lc-769-pt": {
+    "id": "lc-769-pt",
+    "text": "Sorvete de Casquinha"
+  },
+  "lc-770-pt": {
+    "id": "lc-770-pt",
+    "text": "Páscoa"
+  },
+  "lc-771-pt": {
+    "id": "lc-771-pt",
+    "text": "boneco de gengibre"
+  },
+  "lc-772-pt": {
+    "id": "lc-772-pt",
+    "text": "peixe voador"
+  },
+  "lc-773-pt": {
+    "id": "lc-773-pt",
+    "text": "canteiro de abóboras"
+  },
+  "lc-774-pt": {
+    "id": "lc-774-pt",
+    "text": "doce romeu e julieta"
+  },
+  "lc-775-pt": {
+    "id": "lc-775-pt",
+    "text": "apaixonados"
+  },
+  "lc-776-pt": {
+    "id": "lc-776-pt",
+    "text": "carteiro"
+  },
+  "lc-777-pt": {
+    "id": "lc-777-pt",
+    "text": "maca"
+  },
+  "lc-778-pt": {
+    "id": "lc-778-pt",
+    "text": "linguagem de sinais"
+  },
+  "lc-779-pt": {
+    "id": "lc-779-pt",
+    "text": "sobrecoxa"
+  },
+  "lc-780-pt": {
+    "id": "lc-780-pt",
+    "text": "tanque"
+  },
+  "lc-781-pt": {
+    "id": "lc-781-pt",
+    "text": "lenha"
+  },
+  "lc-782-pt": {
+    "id": "lc-782-pt",
+    "text": "andar de cavalinho"
+  },
+  "lc-783-pt": {
+    "id": "lc-783-pt",
+    "text": "saco de dormir"
+  },
+  "lc-784-pt": {
+    "id": "lc-784-pt",
+    "text": "gelatina"
+  },
+  "lc-785-pt": {
+    "id": "lc-785-pt",
+    "text": "queda de braço"
+  },
+  "lc-786-pt": {
+    "id": "lc-786-pt",
+    "text": "cavalo"
+  },
+  "lc-787-pt": {
+    "id": "lc-787-pt",
+    "text": "palito de dente"
+  },
+  "lc-788-pt": {
+    "id": "lc-788-pt",
+    "text": "vidro embaçado"
+  },
+  "lc-789-pt": {
+    "id": "lc-789-pt",
+    "text": "celular"
+  },
+  "lc-790-pt": {
+    "id": "lc-790-pt",
+    "text": "pixação"
+  },
+  "lc-791-pt": {
+    "id": "lc-791-pt",
+    "text": "dinossauro"
+  },
+  "lc-792-pt": {
+    "id": "lc-792-pt",
+    "text": "Princesa"
+  },
+  "lc-793-pt": {
+    "id": "lc-793-pt",
+    "text": "cientista"
+  },
+  "lc-794-pt": {
+    "id": "lc-794-pt",
+    "text": "águia"
+  },
+  "lc-795-pt": {
+    "id": "lc-795-pt",
+    "text": "espantalho"
+  },
+  "lc-796-pt": {
+    "id": "lc-796-pt",
+    "text": "saxofone"
+  },
+  "lc-797-pt": {
+    "id": "lc-797-pt",
+    "text": "sumô"
+  },
+  "lc-798-pt": {
+    "id": "lc-798-pt",
+    "text": "cantar no chuveiro"
+  },
+  "lc-799-pt": {
+    "id": "lc-799-pt",
+    "text": "planilha"
+  },
+  "lc-800-pt": {
+    "id": "lc-800-pt",
+    "text": "árvore de maçã"
+  },
+  "lc-801-pt": {
+    "id": "lc-801-pt",
+    "text": "um ator"
+  },
+  "lc-802-pt": {
+    "id": "lc-802-pt",
+    "text": "uma atriz"
+  },
+  "lc-803-pt": {
+    "id": "lc-803-pt",
+    "text": "um animal"
+  },
+  "lc-804-pt": {
+    "id": "lc-804-pt",
+    "text": "um atleta"
+  },
+  "lc-805-pt": {
+    "id": "lc-805-pt",
+    "text": "um livro"
+  },
+  "lc-806-pt": {
+    "id": "lc-806-pt",
+    "text": "um desenho"
+  },
+  "lc-807-pt": {
+    "id": "lc-807-pt",
+    "text": "uma comida"
+  },
+  "lc-808-pt": {
+    "id": "lc-808-pt",
+    "text": "um jogo"
+  },
+  "lc-809-pt": {
+    "id": "lc-809-pt",
+    "text": "um personagem de filme"
+  },
+  "lc-810-pt": {
+    "id": "lc-810-pt",
+    "text": "um filme"
+  },
+  "lc-811-pt": {
+    "id": "lc-811-pt",
+    "text": "um cantor"
+  },
+  "lc-812-pt": {
+    "id": "lc-812-pt",
+    "text": "uma canção"
+  },
+  "lc-813-pt": {
+    "id": "lc-813-pt",
+    "text": "um esporte"
+  },
+  "lc-814-pt": {
+    "id": "lc-814-pt",
+    "text": "um super-herói"
+  },
+  "lc-815-pt": {
+    "id": "lc-815-pt",
+    "text": "um brinquedo"
+  },
+  "lc-816-pt": {
+    "id": "lc-816-pt",
+    "text": "um personagem de TV"
+  },
+  "lc-817-pt": {
+    "id": "lc-817-pt",
+    "text": "um programa de TV"
+  },
+  "lc-818-pt": {
+    "id": "lc-818-pt",
+    "text": "uma celebridade"
+  },
+  "lc-819-pt": {
+    "id": "lc-819-pt",
+    "text": "um político"
+  },
+  "lc-820-pt": {
+    "id": "lc-820-pt",
+    "text": "um aparelho"
+  },
+  "lc-821-pt": {
+    "id": "lc-821-pt",
+    "text": "um inseto"
+  },
+  "lc-822-pt": {
+    "id": "lc-822-pt",
+    "text": "uma doença"
+  },
+  "lc-823-pt": {
+    "id": "lc-823-pt",
+    "text": "um hobby"
+  },
+  "lc-824-pt": {
+    "id": "lc-824-pt",
+    "text": "um país"
+  },
+  "lc-825-pt": {
+    "id": "lc-825-pt",
+    "text": "um aplicativo"
+  }
+}
