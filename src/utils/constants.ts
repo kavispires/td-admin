@@ -35,7 +35,7 @@ export const RESOURCE_NAMES = {
   // SPY_QUESTIONS: 'spy-questions',
   SUSPECTS: 'suspects',
   TESTIMONY_QUESTIONS: 'testimony-questions',
-  THEMES: 'themes',
+  THING_PROMPTS: 'thing-prompts',
   THINGS_QUALITIES: 'things-qualities',
   TOPICS: 'topics',
   TWEETS: 'tweets',
@@ -50,6 +50,7 @@ export const DUAL_LANGUAGE_RESOURCES = [
   RESOURCE_NAMES.DATING_CANDIDATE_BODIES,
   RESOURCE_NAMES.DATING_CANDIDATE_HEADS,
   RESOURCE_NAMES.MONSTER_ORIENTATION,
+  RESOURCE_NAMES.OBJECT_FEATURES,
   RESOURCE_NAMES.SUSPECTS,
 ];
 
@@ -76,6 +77,6 @@ export const SEARCH_PROPERTY: Record<string, string> = {
   'spy-locations': '',
   'spy-questions': '',
   'testimony-questions': 'question',
-  themes: 'text',
+  'thing-prompts': 'text',
   topics: 'text',
 };
