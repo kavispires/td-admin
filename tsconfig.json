@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "downlevelIteration": true,
     "lib": ["dom", "dom.iterable", "esnext", "es6"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -24,8 +23,8 @@
     "alwaysStrict": true,
     "baseUrl": "src",
     "paths": {
-      "@*": ["src/*"]
-    }
+      "@*": ["src/*"],
+    },
   },
-  "include": ["src"]
+  "include": ["src"],
 }

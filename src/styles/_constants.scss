@@ -1,0 +1,23 @@
+@use './functions' as *;
+
+$canvas-size: 500px;
+
+// Small smartphones (portrait view)
+$screen-xs-max: 400px;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-max: 576px;
+
+// Small tablets (portrait view)
+$screen-md-max: 768px;
+
+// Tablets and small desktops
+$screen-lg-max: 992px;
+
+// Border-radius
+$border-radius: get-unit(2);
+
+// Delimiting width for large components
+$max-width-container: 1920px;
+
+$max-width: 960px;

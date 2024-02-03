@@ -65,3 +65,21 @@ export const findSimilar = (str: string, data: PlainObject, property = 'text') =
 };
 
 export const findBestMatch = (str: string, list: string[]) => {};
+
+/**
+ * Creates array of given length filled with indexes
+ * @param length the length of the array
+ * @param startAt the starting value
+ * @returns
+ */
+export const makeArray = (length = 1, startAt = 0): number[] =>
+  new Array(length).fill(0).map((e, i) => e + i + startAt);
+
+/**
+ * Remove duplicated elements from a list
+ * @param arr
+ * @returns
+ */
+export const removeDuplicates = <T>(arr: T[]): T[] => {
+  return Array.from(new Set(arr));
+};

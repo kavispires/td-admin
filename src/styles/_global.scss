@@ -1,14 +1,6 @@
-:root {
-  --unit-1: 6px;
-  --unit-2: 12px;
-  --unit-4: 24px;
-  --unit-8: 48px;
-}
-
-$unit: 3px;
-
 $border-color: rgba(253, 253, 253, 0.12);
 
+$unit: 3px;
 @for $i from 1 through 12 {
   .m-#{$i} {
     margin: $unit * $i;
@@ -63,7 +55,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: var(--unit-2);
+  padding-left: get-unit(2);
 
   h1 {
     text-align: left;
@@ -89,7 +81,7 @@ body {
 
 .sider {
   // background: transparent !important;
-  padding: var(--unit-2) 0;
+  padding: get-unit(2 0);
   border-right: 1px solid $border-color;
   // overflow: auto;
   // height: 100%;
@@ -100,7 +92,7 @@ body {
 }
 
 .sider-content {
-  padding: 0 var(--unit-2);
+  padding: 0 get-unit(2);
 }
 
 .content-center {
@@ -110,7 +102,7 @@ body {
 }
 
 .content {
-  padding: 0 var(--unit-2) var(--unit-2) var(--unit-2);
+  padding: get-unit(0 2 2 2);
 }
 
 .page-content-tabs {
@@ -119,8 +111,8 @@ body {
 
 .page-content {
   display: grid;
-  gap: var(--unit-2);
-  padding: 0 var(--unit-2);
+  gap: get-unit(2);
+  padding: 0 get-unit(2);
 
   &--5-5 {
     grid-template-columns: 5fr 5fr;
@@ -139,7 +131,7 @@ body {
   display: grid;
   grid-template-columns: 6fr 4fr;
   width: 100%;
-  gap: var(--unit-2);
+  gap: get-unit(2);
 }
 
 .parser-main {
@@ -173,8 +165,8 @@ body {
 }
 
 .image-card {
-  border-radius: var(--unit-1);
-  margin: var(--unit-1);
+  border-radius: get-unit(1);
+  margin: get-unit(1);
   transition: 500ms transform;
 
   // &__preview-mask {
@@ -186,15 +178,15 @@ body {
   // }
 
   .ant-image-img {
-    border-radius: var(--unit-1);
+    border-radius: get-unit(1);
   }
 }
 
 .suspect {
   &__info {
     border: 1px solid $border-color;
-    padding: var(--unit-1);
-    border-radius: var(--unit-1);
+    padding: get-unit(1);
+    border-radius: get-unit(1);
     font-size: 0.85em;
   }
 }
@@ -209,18 +201,18 @@ body {
     padding-inline-start: 16px;
     font-size: 0.85em;
     margin: 0;
-    margin-bottom: var(--unit-1);
+    margin-bottom: get-unit(1);
   }
 }
 
 .canvas {
   background: white;
   border: 3px solid brown;
-  border-radius: var(--unit-1);
+  border-radius: get-unit(1);
 }
 
 .sprite {
   background: rgba(208, 202, 186, 0.85);
-  padding: var(--unit-1);
-  border-radius: var(--unit-1);
+  padding: get-unit(1);
+  border-radius: get-unit(1);
 }

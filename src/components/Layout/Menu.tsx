@@ -88,16 +88,40 @@ const items: MenuProps['items'] = [
         key: '/images/sprites',
       },
       {
+        type: 'group',
         label: 'Image Cards',
-        key: '/images/image-cards',
+        children: [
+          {
+            label: 'Decks',
+            key: '/images/image-cards',
+          },
+          {
+            label: 'Classifier',
+            key: '/images/classifier',
+            disabled: true,
+          },
+          {
+            label: 'Relationships',
+            key: '/images/relationships',
+            disabled: true,
+          },
+        ],
       },
       {
-        label: 'Suspects',
-        key: '/images/suspects',
-      },
-      {
-        label: 'Alien Items',
-        key: '/images/alien-items',
+        type: 'group',
+        label: 'Items',
+        children: [
+          {
+            label: 'Classifier',
+            key: '/images/item-classifier',
+            disabled: true,
+          },
+          {
+            label: 'Alien Attributes',
+            key: '/images/item-attribution',
+            disabled: true,
+          },
+        ],
       },
       {
         type: 'group',
@@ -112,6 +136,10 @@ const items: MenuProps['items'] = [
             key: '/images/evidence',
           },
         ],
+      },
+      {
+        label: 'Suspects',
+        key: '/images/suspects',
       },
     ],
   },

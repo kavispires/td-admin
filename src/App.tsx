@@ -3,11 +3,13 @@ import { AuthWrapper } from 'components/Layout';
 import { ArteRuimGroups } from 'pages/ArteRuimGroups';
 import { ArteRuimParser } from 'pages/ArteRuimParser';
 import { CrimesHediondosCategorizer } from 'pages/CrimesHediondosCategorizer';
+import { DailySetup } from 'pages/DailySetup';
 import { Home } from 'pages/Home';
 import { AlienItems } from 'pages/Images/AlienItems';
 import { CrimeEvidence } from 'pages/Images/CrimeEvidence';
 import { CrimeWeapons } from 'pages/Images/CrimeWeapons';
 import { ImageCards } from 'pages/Images/ImageCards';
+import { Sprites } from 'pages/Images/Sprites';
 import { Suspects } from 'pages/Images/Suspects';
 import { Other } from 'pages/Other';
 import { Resource } from 'pages/Resource';
@@ -16,8 +18,6 @@ import { SingleWordsExpander } from 'pages/SingleWordsExpander';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { DailySetup } from 'pages/DailySetup';
-import { Sprites } from 'pages/Images/Sprites';
 
 const queryClient = new QueryClient({
   defaultOptions: {

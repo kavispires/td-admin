@@ -1,0 +1,64 @@
+.image-card-categorizer-card {
+  width: 100%;
+}
+
+.image-card-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+  &__data {
+    min-width: 300px;
+  }
+
+  &__select {
+    display: block;
+    width: 100%;
+    max-width: 50vw;
+    min-width: 300px;
+  }
+}
+
+.image-card-categorizer-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  margin: 2rem 0;
+}
+
+.image-cards-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  &__button {
+    background: #cccccc;
+
+    &:hover {
+      transform: none !important;
+    }
+
+    &--active {
+      outline: 3px solid hotPink;
+    }
+  }
+}
+
+.image-card-categorizer-group-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  margin: 1rem 0;
+}
+
+.sample-size-select {
+  min-width: 10ch;
+}

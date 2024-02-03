@@ -1,4 +1,4 @@
-import './styles.scss';
+import './styles/index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
