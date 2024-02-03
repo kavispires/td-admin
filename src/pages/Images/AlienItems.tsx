@@ -4,7 +4,7 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useQueryParams } from 'hooks/useQueryParams';
 
-export function ImagesAlienItems() {
+export function AlienItems() {
   // Set default query params
   useQueryParams({ deck: 1 });
 

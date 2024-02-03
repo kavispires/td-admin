@@ -84,6 +84,10 @@ const items: MenuProps['items'] = [
     icon: <FileImageOutlined />,
     children: [
       {
+        label: 'Sprites',
+        key: '/images/sprites',
+      },
+      {
         label: 'Image Cards',
         key: '/images/image-cards',
       },

@@ -1,3 +1,6 @@
+import { AlienSign, Emoji, Glyph, Item } from 'components/Sprites';
+import { keyBy } from 'lodash';
+
 export const SEARCH_THRESHOLD: number = 2;
 
 export const RESOURCE_NAMES = {
@@ -80,3 +83,43 @@ export const SEARCH_PROPERTY: Record<string, string> = {
   'thing-prompts': 'text',
   topics: 'text',
 };
+
+export const TOTAL_ITEMS = 1280;
+
+export const SPRITE_LIBRARY = keyBy(
+  [
+    {
+      key: 'alien-signs',
+      name: 'Alien Signs',
+      prefix: 'sign',
+      quantity: 36,
+      startAt: 0,
+      component: AlienSign,
+    },
+    {
+      key: 'emojis',
+      name: 'Emojis',
+      prefix: 'emoji',
+      quantity: 30,
+      startAt: 1,
+      component: Emoji,
+    },
+    {
+      key: 'glyphs',
+      name: 'Glyphs',
+      prefix: 'glyph',
+      quantity: 365,
+      startAt: 1,
+      component: Glyph,
+    },
+    {
+      key: 'items',
+      name: 'Items',
+      prefix: 'item',
+      quantity: TOTAL_ITEMS,
+      startAt: 1,
+      component: Item,
+    },
+  ],
+  'key'
+);

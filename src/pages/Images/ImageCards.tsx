@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 const DECK = Array(252).fill(1);
 
-export function ImagesImageCards() {
+export function ImageCards() {
   // Set default query params
   const qp = useQueryParams({ deck: 'd1' });
   const { deck = 'd1' } = qp.queryParams;

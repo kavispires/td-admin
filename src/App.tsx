@@ -4,11 +4,11 @@ import { ArteRuimGroups } from 'pages/ArteRuimGroups';
 import { ArteRuimParser } from 'pages/ArteRuimParser';
 import { CrimesHediondosCategorizer } from 'pages/CrimesHediondosCategorizer';
 import { Home } from 'pages/Home';
-import { ImagesAlienItems } from 'pages/ImagesAlienItems';
-import { ImagesCrimeEvidence } from 'pages/ImagesCrimeEvidence';
-import { ImagesCrimeWeapons } from 'pages/ImagesCrimeWeapons';
-import { ImagesImageCards } from 'pages/ImagesImageCards';
-import { ImagesSuspects } from 'pages/ImagesSuspects';
+import { AlienItems } from 'pages/Images/AlienItems';
+import { CrimeEvidence } from 'pages/Images/CrimeEvidence';
+import { CrimeWeapons } from 'pages/Images/CrimeWeapons';
+import { ImageCards } from 'pages/Images/ImageCards';
+import { Suspects } from 'pages/Images/Suspects';
 import { Other } from 'pages/Other';
 import { Resource } from 'pages/Resource';
 import { ResourceGenerator } from 'pages/ResourceGenerator';
@@ -17,6 +17,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { DailySetup } from 'pages/DailySetup';
+import { Sprites } from 'pages/Images/Sprites';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -56,11 +57,12 @@ function App() {
                 <Route path="/game/crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
                 <Route path="/game/daily-setup" element={<DailySetup />} />
 
-                <Route path="/images/image-cards" element={<ImagesImageCards />} />
-                <Route path="/images/suspects" element={<ImagesSuspects />} />
-                <Route path="/images/alien-items" element={<ImagesAlienItems />} />
-                <Route path="/images/weapons" element={<ImagesCrimeWeapons />} />
-                <Route path="/images/evidence" element={<ImagesCrimeEvidence />} />
+                <Route path="/images/image-cards" element={<ImageCards />} />
+                <Route path="/images/suspects" element={<Suspects />} />
+                <Route path="/images/alien-items" element={<AlienItems />} />
+                <Route path="/images/weapons" element={<CrimeWeapons />} />
+                <Route path="/images/evidence" element={<CrimeEvidence />} />
+                <Route path="images/sprites" element={<Sprites />} />
 
                 <Route path="/single-words" element={<SingleWordsExpander />} />
                 <Route path="/other" element={<Other />} />
