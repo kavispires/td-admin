@@ -267,19 +267,6 @@ export function useImageCardsRelationshipData(): UseImageCardsRelationshipDataRe
       const querySnapshot = await getDoc(docRef);
       return (querySnapshot.data() ?? {}) as ImageCardRelationship;
     },
-    onSuccess: (a) => {
-      notification.info({
-        message: 'Data loaded',
-        placement: 'bottomLeft',
-      });
-      setDirty(false);
-    },
-    onError: () => {
-      notification.error({
-        message: 'Error loading data',
-        placement: 'bottomLeft',
-      });
-    },
   });
 
   const {

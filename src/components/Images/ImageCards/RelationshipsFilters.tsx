@@ -2,7 +2,7 @@ import { BarChartOutlined, SaveOutlined } from '@ant-design/icons';
 import { Avatar, Button, Form } from 'antd';
 import { PageSider, SiderContent } from 'components/Layout';
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
-import { FilterSelect, FilterSwitch } from 'components/Common';
+import { FilterSelect, FilterSwitch, ResponseState } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { isEmpty } from 'lodash';
 
@@ -58,7 +58,7 @@ const CARD_SIZE_OPTIONS = [
 
 export function RelationshipsFilters() {
   const {
-    query: { isDirty, isSaving, save, stats, data },
+    query: { isDirty, isSaving, save, stats, data, isLoading, isError },
     randomGroups: { filters },
     showIds,
     setShowIds,
@@ -86,6 +86,13 @@ export function RelationshipsFilters() {
           Save
         </Button>
       </SiderContent>
+
+      <ResponseState
+        isLoading={isLoading || isSaving}
+        isDirty={isDirty}
+        isError={isError}
+        hasResponseData={!isEmpty(data)}
+      />
 
       <SiderContent>
         <FilterSwitch
