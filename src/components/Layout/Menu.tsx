@@ -104,6 +104,10 @@ const items: MenuProps['items'] = [
             label: 'Relationships',
             key: '/images/relationships',
           },
+          {
+            label: 'Connections Visualizer',
+            key: '/images/connections',
+          },
         ],
       },
       {

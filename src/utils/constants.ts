@@ -123,3 +123,62 @@ export const SPRITE_LIBRARY = keyBy(
   ],
   'key'
 );
+
+/**
+ * Options for the sample size selector
+ */
+export const TAGS_SELECTOR_OPTIONS = [
+  { label: 'Any', value: '' },
+  { label: '= 0', value: 0 },
+  { label: '< 3', value: 3 },
+  { label: '< 5', value: 5 },
+  { label: '< 10', value: 10 },
+];
+
+/**
+ * Options for the sample size selector
+ */
+export const SAMPLE_SIZE_OPTIONS = [
+  {
+    label: '9',
+    value: 9,
+  },
+  {
+    label: '15',
+    value: 15,
+  },
+  {
+    label: '30',
+    value: 30,
+  },
+  {
+    label: '50',
+    value: 50,
+  },
+  {
+    label: '100',
+    value: 100,
+  },
+];
+
+/**
+ * Options for the card size selector
+ */
+export const CARD_SIZE_OPTIONS = [
+  {
+    label: 'Small',
+    value: 100,
+  },
+  {
+    label: 'Medium',
+    value: 150,
+  },
+  {
+    label: 'Large',
+    value: 200,
+  },
+  {
+    label: 'X-Large',
+    value: 250,
+  },
+];

@@ -1,46 +1,26 @@
 import { Button } from 'antd';
+import { PageSider, SiderContent } from 'components/Layout';
+import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 import { FilterSelect, FilterSwitch, ResponseState } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
-import { PageSider, SiderContent } from 'components/Layout';
 import { isEmpty } from 'lodash';
-import { CARD_SIZE_OPTIONS, SAMPLE_SIZE_OPTIONS, TAGS_SELECTOR_OPTIONS } from 'utils/constants';
-
-import { SaveOutlined } from '@ant-design/icons';
-
-import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
+import { CARD_SIZE_OPTIONS, SAMPLE_SIZE_OPTIONS } from 'utils/constants';
 import { RelationshipsStats } from './RelationshipsStats';
 
-export function RelationshipsFilters() {
+export function ConnectionsFilters() {
   const {
-    query: { isDirty, isSaving, save, data, isLoading, isError },
-    randomGroups: { filters },
+    query: { isDirty, isSaving, data, isLoading, isError },
     showIds,
     setShowIds,
-    tagThreshold,
-    setTagThreshold,
     sampleSize,
     setSampleSize,
     cardSize,
     setCardSize,
+    randomGroups: { nextSet },
   } = useImagesRelationshipsContext();
 
   return (
     <PageSider>
-      <SiderContent>
-        <Button
-          type="primary"
-          size="large"
-          icon={<SaveOutlined />}
-          onClick={() => save({})}
-          disabled={!isDirty}
-          loading={isSaving}
-          danger
-          block
-        >
-          Save
-        </Button>
-      </SiderContent>
-
       <ResponseState
         isLoading={isLoading || isSaving}
         isDirty={isDirty}
@@ -49,20 +29,7 @@ export function RelationshipsFilters() {
       />
 
       <SiderContent>
-        <FilterSwitch
-          label="Use Cycles"
-          value={filters.useCycles}
-          onChange={() => filters.toggleUseCycles()}
-        />
-
         <FilterSwitch label="Show Ids" value={showIds} onChange={(c) => setShowIds(c)} />
-
-        <FilterSelect
-          onChange={(value) => setTagThreshold(value)}
-          value={tagThreshold}
-          options={TAGS_SELECTOR_OPTIONS}
-          label="Tag Count"
-        />
 
         <FilterSelect
           onChange={(value) => setSampleSize(value)}
@@ -77,6 +44,10 @@ export function RelationshipsFilters() {
           options={CARD_SIZE_OPTIONS}
           label="Card Size"
         />
+
+        <Button onClick={nextSet} block type="primary">
+          New Random Sample
+        </Button>
       </SiderContent>
 
       <SiderContent>
