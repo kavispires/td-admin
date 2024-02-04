@@ -3,6 +3,8 @@ import { Avatar, Button, Form } from 'antd';
 import { PageSider, SiderContent } from 'components/Layout';
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 import { FilterSelect, FilterSwitch } from 'components/Common';
+import { DownloadButton } from 'components/Common/DownloadButton';
+import { isEmpty } from 'lodash';
 
 const TAGS_SELECTOR_OPTIONS = [
   { label: 'Any', value: '' },
@@ -56,7 +58,7 @@ const CARD_SIZE_OPTIONS = [
 
 export function RelationshipsFilters() {
   const {
-    query: { isDirty, isSaving, save, stats },
+    query: { isDirty, isSaving, save, stats, data },
     randomGroups: { filters },
     showIds,
     setShowIds,
@@ -133,6 +135,16 @@ export function RelationshipsFilters() {
             <li>Single Match: {stats.single}</li>
           </ul>
         </Form.Item>
+      </SiderContent>
+
+      <SiderContent>
+        <DownloadButton
+          data={data}
+          fileName="imageCardsRelationships.json"
+          loading={isSaving}
+          disabled={isEmpty(data)}
+          block
+        />
       </SiderContent>
     </PageSider>
   );

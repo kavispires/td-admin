@@ -83,3 +83,17 @@ export const makeArray = (length = 1, startAt = 0): number[] =>
 export const removeDuplicates = <T>(arr: T[]): T[] => {
   return Array.from(new Set(arr));
 };
+
+/**
+ * Converts a object into a downloadable file and prompts download
+ * @param obj
+ * @param filename
+ */
+export function downloadObjectAsFile(obj: PlainObject, filename: string): void {
+  const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' });
+  const anchorElement = document.createElement('a');
+  anchorElement.href = window.URL.createObjectURL(blob);
+  anchorElement.download = filename;
+  anchorElement.click();
+  window.URL.revokeObjectURL(anchorElement.href);
+}
