@@ -4,7 +4,7 @@ import { ImageCardsFilters } from 'components/Images/ImageCardsFilters';
 import { ImageCard } from 'components/Images/ImageCard';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { ResponseState } from 'components/Common';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTDIData } from 'hooks/useTDIData';
@@ -27,7 +27,7 @@ export function ImageCards() {
     <PageLayout title="Images" subtitle="Image Cards">
       <Layout hasSider>
         <PageSider>
-          <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
           <ImageCardsFilters
             decksData={data}
             selectedDeck={deck}

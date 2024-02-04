@@ -3,7 +3,7 @@ import { PageLayout } from 'components/Layout';
 import { ResourceCards } from 'components/Resource/ResourceCards';
 import { ResourceDisplayMode } from 'components/Resource/ResourceDisplayMode';
 import { ResourceJson } from 'components/Resource/ResourceJson';
-import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { ResponseState } from 'components/Common';
 import { ResourceTable } from 'components/Resource/ResourceTable';
 
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
@@ -39,7 +39,7 @@ export function Resource() {
     >
       <Layout hasSider>
         <PageSider>
-          <ResourceResponseState
+          <ResponseState
             hasResponseData={hasResponseData}
             isLoading={isLoading}
             error={error}

@@ -2,7 +2,7 @@ import { Input, Layout, Typography } from 'antd';
 import { SectionTitle } from 'components/Common/SectionTitle';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { ResponseState } from 'components/Common';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
 import { TextCard } from 'types';
@@ -89,7 +89,7 @@ export function SingleWordsExpander() {
     <PageLayout title="Single Word Expander" subtitle={Boolean(language) ? `${language}` : ''}>
       <Layout hasSider>
         <PageSider>
-          <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
           <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]} />
         </PageSider>
 

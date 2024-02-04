@@ -1,7 +1,9 @@
 import { Input, Layout, List, Typography } from 'antd';
+import { ResponseState } from 'components/Common';
 import { SectionTitle } from 'components/Common/SectionTitle';
 import { PageLayout } from 'components/Layout';
-import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { PageSider } from 'components/Layout/PageSider';
+import { useBaseUrl } from 'hooks/useBaseUrl';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
 import { ArteRuimCard, ArteRuimGroup } from 'types';
@@ -12,8 +14,6 @@ import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { useResourceState } from '../hooks/useResourceState';
 import { RESOURCE_NAMES } from '../utils/constants';
-import { PageSider } from 'components/Layout/PageSider';
-import { useBaseUrl } from 'hooks/useBaseUrl';
 
 const { Text } = Typography;
 
@@ -96,7 +96,7 @@ export function ArteRuimGroups() {
     <PageLayout title="Arte Ruim Groups" subtitle={Boolean(language) ? `${language}` : ''}>
       <Layout hasSider>
         <PageSider>
-          <ResourceResponseState
+          <ResponseState
             hasResponseData={hasResponseData && Boolean(groups)}
             isLoading={isLoading || loadingLevel4}
             error={error || errorLevel4}

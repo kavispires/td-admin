@@ -1,13 +1,14 @@
 import { AppstoreOutlined, FileTextOutlined, TableOutlined } from '@ant-design/icons';
-import { Divider, Form, Segmented, Tooltip } from 'antd';
+import { Form, Segmented, Tooltip } from 'antd';
 import { SegmentedValue } from 'antd/es/segmented';
+import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 
 export function ResourceDisplayMode() {
   const { queryParams, addParam } = useQueryParams();
 
   return (
-    <div className="sider-content">
+    <SiderContent>
       <Form.Item label="Display">
         <Segmented
           block
@@ -41,7 +42,6 @@ export function ResourceDisplayMode() {
           ]}
         />
       </Form.Item>
-      <Divider />
-    </div>
+    </SiderContent>
   );
 }

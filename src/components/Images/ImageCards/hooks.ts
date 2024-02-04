@@ -15,10 +15,21 @@ const getRandomDeck = () => random(1, TOTAL_DECKS);
 
 const getRandomCardId = () => `td-d${getRandomDeck()}-${getRandomCardNumber()}`;
 
+export type UseRandomCardReturnValue = {
+  cardId: string;
+  deck: number;
+  onRandomCard: () => void;
+  card: ImageCardData;
+  add: (key: keyof ImageCardData, value: string) => void;
+  remove: (key: keyof ImageCardData, value: string) => void;
+  update: (key: keyof ImageCardData, value: string[]) => void;
+  toggleHighlight: () => void;
+};
+
 export function useRandomCard(
   cardData: FirebaseImageCardLibrary,
   setDirty: (value: React.SetStateAction<boolean>) => void
-) {
+): UseRandomCardReturnValue {
   const [deck, setDeck] = useState(getRandomDeck());
   const [cardNumber, setCardNumber] = useState(getRandomCardNumber());
   const cardId = `td-d${deck}-${cardNumber}`;
@@ -332,12 +343,24 @@ export function useImageCardsRelationshipData(): UseImageCardsRelationshipDataRe
   };
 }
 
+export type UseRandomGroupReturnValue = {
+  cardIds: string[];
+  cards: string[][];
+  selection: string[];
+  onSelect: (id: string) => void;
+  relate: () => void;
+  nextSet: () => void;
+  deselectAll: () => void;
+  cycles: number;
+  filters: { useCycles: boolean; toggleUseCycles: () => void };
+};
+
 export function useRandomGroups(
   cardData: ImageCardRelationship,
   setDirty: (value: React.SetStateAction<boolean>) => void,
   sampleSize: number,
   tagThreshold: number
-) {
+): UseRandomGroupReturnValue {
   const [cardIds, setCardIds] = useState<string[]>([]);
   const [cards, setCards] = useState<string[][]>([]);
   const [cycledCards, setCycleCards] = useState<string[]>([]);

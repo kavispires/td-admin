@@ -4,7 +4,7 @@ import { SectionTitle } from 'components/Common/SectionTitle';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { ResponseState } from 'components/Common';
 import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionFilters';
 import { SearchDuplicates } from 'components/SearchDuplicates';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -72,7 +72,7 @@ export function ArteRuimParser() {
     <PageLayout title="Arte Ruim" subtitle={Boolean(resourceName && language) ? `Parser (${language})` : ''}>
       <Layout hasSider>
         <PageSider>
-          <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
           <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
         </PageSider>
 

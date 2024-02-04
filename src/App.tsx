@@ -18,6 +18,7 @@ import { SingleWordsExpander } from 'pages/SingleWordsExpander';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ImageCardsRelationships } from 'pages/Images/ImageCardsRelationships';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -58,6 +59,7 @@ function App() {
                 <Route path="/game/daily-setup" element={<DailySetup />} />
 
                 <Route path="/images/image-cards" element={<ImageCards />} />
+                <Route path="/images/relationships" element={<ImageCardsRelationships />} />
                 <Route path="/images/suspects" element={<Suspects />} />
                 <Route path="/images/alien-items" element={<AlienItems />} />
                 <Route path="/images/weapons" element={<CrimeWeapons />} />

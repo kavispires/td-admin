@@ -1,4 +1,4 @@
-import { Divider } from 'antd';
+import { SiderContent } from 'components/Layout';
 import { capitalize, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import { SuspectCard } from 'types';
@@ -56,7 +56,7 @@ export function SuspectsStats({ data }: SuspectsStatsProps) {
   }, [data]);
 
   return (
-    <div className="sider-content">
+    <SiderContent>
       <div className="statistic">Stats</div>
       <div className="statistic__section">Ethnicity</div>
       <ul className="statistic__list">
@@ -82,7 +82,6 @@ export function SuspectsStats({ data }: SuspectsStatsProps) {
           </li>
         ))}
       </ul>
-      <Divider />
-    </div>
+    </SiderContent>
   );
 }

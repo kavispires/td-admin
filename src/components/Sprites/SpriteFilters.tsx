@@ -1,27 +1,21 @@
-import { Divider, Form, Select } from 'antd';
+import { FilterSelect } from 'components/Common';
+import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { SPRITE_LIBRARY } from 'utils/constants';
+
+const SPRITES = Object.values(SPRITE_LIBRARY).map((entry) => ({ value: entry.key, label: entry.name }));
 
 export function SpriteFilters() {
   const qp = useQueryParams({});
 
   return (
-    <div className="sider-content">
-      <Form.Item label="Library">
-        <Select
-          style={{ minWidth: '150px' }}
-          onChange={(value) => qp.addParam('sprite', value)}
-          value={qp.queryParams.sprite}
-        >
-          {Object.values(SPRITE_LIBRARY).map((entry) => (
-            <Select.Option key={entry.key} value={entry.key}>
-              {entry.name}
-            </Select.Option>
-          ))}
-        </Select>
-      </Form.Item>
-
-      <Divider />
-    </div>
+    <SiderContent>
+      <FilterSelect
+        label="Library"
+        value={qp.queryParams.sprite}
+        onChange={(value) => qp.addParam('sprite', value)}
+        options={SPRITES}
+      />
+    </SiderContent>
   );
 }

@@ -5,7 +5,7 @@ import { useLoadDailySetup } from 'components/Daily/hooks';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { ResponseState } from 'components/Common';
 import { useState } from 'react';
 
 export function DailySetup() {
@@ -17,11 +17,7 @@ export function DailySetup() {
     <PageLayout title="Daily Setup">
       <Layout hasSider>
         <PageSider>
-          <ResourceResponseState
-            isLoading={dataLoad.isLoading}
-            error={null}
-            hasResponseData={!dataLoad.isLoading}
-          />
+          <ResponseState isLoading={dataLoad.isLoading} error={null} hasResponseData={!dataLoad.isLoading} />
           <SideFilters language={language} setLanguage={setLanguage} />
         </PageSider>
 

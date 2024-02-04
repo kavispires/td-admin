@@ -103,7 +103,6 @@ const items: MenuProps['items'] = [
           {
             label: 'Relationships',
             key: '/images/relationships',
-            disabled: true,
           },
         ],
       },

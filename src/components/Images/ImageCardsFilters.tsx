@@ -1,4 +1,5 @@
-import { Divider, Form, InputNumber, Select } from 'antd';
+import { FilterNumber, FilterSelect } from 'components/Common';
+import { SiderContent } from 'components/Layout';
 import { useMemo } from 'react';
 
 type ImageCardsFiltersProps = {
@@ -22,26 +23,15 @@ export function ImageCardsFilters({
       .map((deck) => deck.replace('td-', ''));
   }, [decksData]);
   return (
-    <div className="sider-content">
-      <Form.Item label="Deck">
-        <Select style={{ minWidth: '150px' }} onChange={setSelectedDeck} value={selectedDeck}>
-          {deckOptions.map((deck) => (
-            <Select.Option key={deck} value={deck}>
-              {deck}
-            </Select.Option>
-          ))}
-        </Select>
-      </Form.Item>
-      <Form.Item label="Cards Per Row">
-        <InputNumber
-          min={1}
-          max={8}
-          value={cardsPerRow}
-          onChange={(v) => setCardsPerRow(v ?? 8)}
-          style={{ minWidth: '150px' }}
-        />
-      </Form.Item>
-      <Divider />
-    </div>
+    <SiderContent>
+      <FilterSelect label="Deck" value={selectedDeck} onChange={setSelectedDeck} options={deckOptions} />
+      <FilterNumber
+        label="Cards Per Row"
+        min={1}
+        max={8}
+        value={cardsPerRow}
+        onChange={(v) => setCardsPerRow(v ?? 8)}
+      />
+    </SiderContent>
   );
 }

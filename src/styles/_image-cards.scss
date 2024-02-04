@@ -5,13 +5,14 @@
 .image-card-card {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
   justify-content: center;
+  border-radius: get-unit(2);
 
   &__image {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
 
     justify-content: center;
   }
@@ -38,16 +39,18 @@
 .image-cards-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: get-unit(2);
 
   &__button {
-    background: #cccccc;
+    background: get-color('gray', 1);
+    border-radius: get-unit(1);
 
     &:hover {
       transform: none !important;
     }
 
     &--active {
-      outline: 3px solid hotPink;
+      outline: get-unit(3) solid get-color('pink');
     }
   }
 }

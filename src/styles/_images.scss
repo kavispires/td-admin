@@ -1,0 +1,46 @@
+.image-card {
+  border-radius: get-unit(1);
+  margin: get-unit(1);
+  transition: 500ms transform;
+
+  // &__preview-mask {
+  //   border-radius: get-unit(5);
+  // }
+
+  // &:hover {
+  //   transform: scale(1.05);
+  // }
+
+  .ant-image-img {
+    border-radius: get-unit(1);
+  }
+}
+
+.suspect {
+  &__info {
+    border: 1px solid $border-color;
+    padding: get-unit(1);
+    border-radius: get-unit(1);
+    font-size: 0.85em;
+  }
+}
+
+.statistic {
+  font-weight: bold;
+  &__section {
+    font-size: 0.85em;
+  }
+
+  &__list {
+    padding-inline-start: 16px;
+    font-size: 0.85em;
+    margin: 0;
+    margin-bottom: get-unit(1);
+  }
+}
+
+.sprite {
+  background: rgba(208, 202, 186, 0.85);
+  padding: get-unit(1);
+  border-radius: get-unit(1);
+}

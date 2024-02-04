@@ -1,4 +1,5 @@
-import { Divider, Form, InputNumber, Select } from 'antd';
+import { FilterNumber, FilterSelect } from 'components/Common';
+import { SiderContent } from 'components/Layout';
 
 type SuspectsFiltersProps = {
   selectedVersion: string;
@@ -9,6 +10,22 @@ type SuspectsFiltersProps = {
   setSortBy: (sortBy: string) => void;
 };
 
+const VERSIONS = [
+  { value: 'ct', label: 'Cartoon' },
+  { value: 'ai', label: 'AI' },
+  { value: 'md', label: 'Models' },
+  { value: 'wc', label: 'Wacky' },
+  { value: 'original', label: 'Original' },
+];
+
+const SORT_BY = [
+  { value: 'id', label: 'Id' },
+  { value: 'name.pt', label: 'Name (PT)' },
+  { value: 'name.en', label: 'Name (EN)' },
+  { value: 'ethnicity', label: 'Ethnicity' },
+  { value: 'gender', label: 'Gender' },
+];
+
 export function SuspectsFilters({
   selectedVersion,
   setSelectedVersion,
@@ -18,35 +35,15 @@ export function SuspectsFilters({
   setSortBy,
 }: SuspectsFiltersProps) {
   return (
-    <div className="sider-content">
-      <Form.Item label="Version">
-        <Select style={{ minWidth: '150px' }} onChange={setSelectedVersion} value={selectedVersion}>
-          <Select.Option value="ct">Cartoon</Select.Option>
-          <Select.Option value="ai">AI</Select.Option>
-          <Select.Option value="md">Models</Select.Option>
-          <Select.Option value="wc">Wacky</Select.Option>
-          <Select.Option value="original">Original</Select.Option>
-        </Select>
-      </Form.Item>
-      <Form.Item label="Cards Per Row">
-        <InputNumber
-          min={1}
-          max={8}
-          value={cardsPerRow}
-          onChange={(v) => setCardsPerRow(v ?? 8)}
-          style={{ minWidth: '150px' }}
-        />
-      </Form.Item>
-      <Form.Item label="Sort By">
-        <Select style={{ minWidth: '150px' }} onChange={setSortBy} value={sortBy}>
-          <Select.Option value="id">Id</Select.Option>
-          <Select.Option value="name.pt">Name (PT)</Select.Option>
-          <Select.Option value="name.en">Name (EN)</Select.Option>
-          <Select.Option value="ethnicity">Ethnicity</Select.Option>
-          <Select.Option value="gender">Gender</Select.Option>
-        </Select>
-      </Form.Item>
-      <Divider />
-    </div>
+    <SiderContent>
+      <FilterSelect
+        label="Version"
+        value={selectedVersion}
+        onChange={setSelectedVersion}
+        options={VERSIONS}
+      />
+      <FilterNumber label="Cards Per Row" value={cardsPerRow} onChange={setCardsPerRow} min={1} max={8} />
+      <FilterSelect label="Sort By" value={sortBy} onChange={setSortBy} options={SORT_BY} />
+    </SiderContent>
   );
 }

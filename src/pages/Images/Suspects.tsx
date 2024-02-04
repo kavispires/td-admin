@@ -6,7 +6,7 @@ import { SuspectsFilters } from 'components/Images/SuspectsFilters';
 import { SuspectsStats } from 'components/Images/SuspectsStats';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { ResourceResponseState } from 'components/Resource/ResourceResponseState';
+import { ResponseState } from 'components/Common';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTDResource } from 'hooks/useTDResource';
@@ -40,7 +40,7 @@ export function Suspects() {
     <PageLayout title="Images" subtitle="Suspects">
       <Layout hasSider>
         <PageSider>
-          <ResourceResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
           <SuspectsFilters
             selectedVersion={version}
             setSelectedVersion={(d) => qp.addParam('version', d)}

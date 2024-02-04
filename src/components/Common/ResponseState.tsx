@@ -1,4 +1,5 @@
-import { Divider, Form, Tag } from 'antd';
+import { Form, Tag } from 'antd';
+import { SiderContent } from 'components/Layout';
 
 type TagStateProps = {
   isLoading: boolean;
@@ -15,13 +16,12 @@ export function TagState({ isLoading, isIdle, error, hasResponseData }: TagState
   return <Tag>No Data</Tag>;
 }
 
-export function ResourceResponseState(props: TagStateProps) {
+export function ResponseState(props: TagStateProps) {
   return (
-    <div className="sider-content">
+    <SiderContent>
       <Form.Item label="Status">
         <TagState {...props} />
       </Form.Item>
-      <Divider />
-    </div>
+    </SiderContent>
   );
 }

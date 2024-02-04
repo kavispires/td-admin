@@ -1,29 +1,28 @@
 $border-color: rgba(253, 253, 253, 0.12);
 
-$unit: 3px;
 @for $i from 1 through 12 {
   .m-#{$i} {
-    margin: $unit * $i;
+    margin: get-unit($i);
   }
 
   .mx-#{$i} {
-    margin-left: $unit * $i;
-    margin-right: $unit * $i;
+    margin-left: get-unit($i);
+    margin-right: get-unit($i);
   }
 
   .my-#{$i} {
-    padding-top: $unit * $i;
-    padding-bottom: $unit * $i;
+    padding-top: get-unit($i);
+    padding-bottom: get-unit($i);
   }
 
   .px-#{$i} {
-    padding-left: $unit * $i;
-    padding-right: $unit * $i;
+    padding-left: get-unit($i);
+    padding-right: get-unit($i);
   }
 
   .py-#{$i} {
-    padding-top: $unit * $i;
-    padding-bottom: $unit * $i;
+    padding-top: get-unit($i);
+    padding-bottom: get-unit($i);
   }
 }
 
@@ -81,7 +80,7 @@ body {
 
 .sider {
   // background: transparent !important;
-  padding: get-unit(2 0);
+  padding: get-unit(4 0);
   border-right: 1px solid $border-color;
   // overflow: auto;
   // height: 100%;
@@ -92,7 +91,7 @@ body {
 }
 
 .sider-content {
-  padding: 0 get-unit(2);
+  padding: 0 get-unit(4);
 }
 
 .content-center {
@@ -102,7 +101,7 @@ body {
 }
 
 .content {
-  padding: get-unit(0 2 2 2);
+  padding: get-unit(0 4 4 4);
 }
 
 .page-content-tabs {
@@ -111,8 +110,8 @@ body {
 
 .page-content {
   display: grid;
-  gap: get-unit(2);
-  padding: 0 get-unit(2);
+  gap: get-unit(4);
+  padding: get-unit(0 4);
 
   &--5-5 {
     grid-template-columns: 5fr 5fr;
@@ -131,7 +130,7 @@ body {
   display: grid;
   grid-template-columns: 6fr 4fr;
   width: 100%;
-  gap: get-unit(2);
+  gap: get-unit(4);
 }
 
 .parser-main {
@@ -164,55 +163,8 @@ body {
   }
 }
 
-.image-card {
-  border-radius: get-unit(1);
-  margin: get-unit(1);
-  transition: 500ms transform;
-
-  // &__preview-mask {
-  //   border-radius: get-unit(5);
-  // }
-
-  // &:hover {
-  //   transform: scale(1.05);
-  // }
-
-  .ant-image-img {
-    border-radius: get-unit(1);
-  }
-}
-
-.suspect {
-  &__info {
-    border: 1px solid $border-color;
-    padding: get-unit(1);
-    border-radius: get-unit(1);
-    font-size: 0.85em;
-  }
-}
-
-.statistic {
-  font-weight: bold;
-  &__section {
-    font-size: 0.85em;
-  }
-
-  &__list {
-    padding-inline-start: 16px;
-    font-size: 0.85em;
-    margin: 0;
-    margin-bottom: get-unit(1);
-  }
-}
-
 .canvas {
   background: white;
   border: 3px solid brown;
-  border-radius: get-unit(1);
-}
-
-.sprite {
-  background: rgba(208, 202, 186, 0.85);
-  padding: get-unit(1);
   border-radius: get-unit(1);
 }

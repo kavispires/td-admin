@@ -3,7 +3,7 @@ import './CrimesHediondosCategorizer.scss';
 import { Button, Input, Layout, Select, Space, Spin, Tag } from 'antd';
 import { CHImage } from 'components/CrimesHediondos';
 import { PageLayout } from 'components/Layout';
-import { TagState } from 'components/Resource/ResourceResponseState';
+import { TagState } from 'components/Common/ResponseState';
 import { useCrimesHediondosData } from 'hooks/useCrimesHediondosData';
 import { useCrimesHediondosTags } from 'hooks/useCrimesHediondosTags';
 import { useEffect, useState } from 'react';
