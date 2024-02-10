@@ -68,8 +68,6 @@ export function ConnectionsContent() {
     );
   }, [cardIds, data]);
 
-  console.log(dataSource);
-
   return (
     <DataLoadingWrapper isLoading={query.isLoading} error={query.error} hasResponseData={true}>
       <div ref={ref} className="my-6">
