@@ -42,7 +42,7 @@
     "id": "1",
     "name": {
       "en": "ioga mat",
-      "pt": "tapede de ioga"
+      "pt": "tapete de ioga"
     },
     "categories": [
       "mesmice",
@@ -7649,8 +7649,8 @@
     },
     "id": "152",
     "name": {
-      "pt": "microondas",
-      "en": "microwave"
+      "en": "microwave",
+      "pt": "micro-ondas"
     },
     "categories": [
       "mesmice",
@@ -9063,7 +9063,7 @@
     "id": "180",
     "name": {
       "en": "chritmas wreath",
-      "pt": "girlanda"
+      "pt": "guirlanda"
     },
     "categories": [
       "mesmice",
@@ -9718,7 +9718,7 @@
     "id": "193",
     "name": {
       "en": "unicycle",
-      "pt": "tricículo"
+      "pt": "monociclo"
     },
     "categories": [
       "mesmice",
@@ -10379,7 +10379,7 @@
     "id": "206",
     "name": {
       "en": "trumpet",
-      "pt": "trumpete"
+      "pt": "trompete"
     },
     "categories": [
       "mesmice",
@@ -16535,8 +16535,8 @@
   "329": {
     "id": "329",
     "name": {
-      "pt": "motoserra",
-      "en": "chainsaw"
+      "en": "chainsaw",
+      "pt": "motosserra"
     },
     "attributes": {
       "clothes": -3,
@@ -18912,7 +18912,7 @@
     "id": "376",
     "name": {
       "en": "baton",
-      "pt": "cacetete"
+      "pt": "cassetete"
     },
     "attributes": {
       "weapon": 3,
@@ -22681,7 +22681,7 @@
     "id": "451",
     "name": {
       "en": "horn",
-      "pt": "chife"
+      "pt": "chifre"
     },
     "attributes": {
       "alive": -3,
@@ -34488,7 +34488,7 @@
     "id": "687",
     "name": {
       "en": "sausage",
-      "pt": "linguíça"
+      "pt": "linguiça"
     },
     "attributes": {
       "alive": -3,
@@ -39851,8 +39851,8 @@
   "794": {
     "id": "794",
     "name": {
-      "en": "marshmellow",
-      "pt": "marshmellow"
+      "en": "marshmallow",
+      "pt": "marshmallow"
     },
     "attributes": {
       "alive": -3,
@@ -40398,7 +40398,7 @@
     "id": "805",
     "name": {
       "en": "guillotine",
-      "pt": "gilhotina"
+      "pt": "guilhotina"
     },
     "attributes": {
       "alive": -3,
@@ -45815,7 +45815,7 @@
     "id": "914",
     "name": {
       "en": "volleyball's net",
-      "pt": "rede de volei"
+      "pt": "rede de vôlei"
     },
     "attributes": {
       "alive": -3,
@@ -52743,8 +52743,8 @@
   "1052": {
     "id": "1052",
     "name": {
-      "pt": "asteróide",
-      "en": "asteroid"
+      "en": "asteroid",
+      "pt": "asteroide"
     },
     "attributes": {
       "alive": 0,
@@ -57300,7 +57300,7 @@
     "id": "1143",
     "name": {
       "en": "ultrasound",
-      "pt": "ultrasom"
+      "pt": "ultrassom"
     },
     "attributes": {
       "alive": 0,
@@ -64139,7 +64139,7 @@
     "id": "1280",
     "name": {
       "en": "dinosaur",
-      "pt": "dinosauro"
+      "pt": "dinossauro"
     },
     "attributes": {
       "alive": 0,
