@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, getDocs, collection } from 'firebase/firestore';
 
 import {
   QueryKey,
@@ -14,6 +14,7 @@ import { DailyEntry, DailyHistory, DataDrawing, DataSuffixCounts } from './types
 import { sampleSize, shuffle } from 'lodash';
 import { getNextDay } from './utils';
 import { firestore } from 'services/firebase';
+import { removeDuplicates } from 'utils';
 
 function getDocQueryFunction<T>(path: string, docId: string) {
   return async () => {
@@ -23,8 +24,6 @@ function getDocQueryFunction<T>(path: string, docId: string) {
     return (querySnapshot.data() ?? {}) as T;
   };
 }
-
-const MINIMUM_DRAWINGS = 3;
 
 const LANGUAGE_PREFIX = {
   SUFFIX_DATA: {
@@ -54,7 +53,21 @@ export type UseLoadDailySetup = {
   round5sample: DailyEntry[];
 };
 
-export function useLoadDailySetup(enabled: boolean, queryLanguage?: Language): UseLoadDailySetup {
+/**
+ * Custom hook for loading daily setup data.
+ *
+ * @param enabled - Indicates whether the loading is enabled or not.
+ * @param queryLanguage - Optional language parameter for the query.
+ * @param drawingsCount - The number of drawings to load.
+ * @param batchSize - The size of the batch to load.
+ * @returns An object containing the loading status, daily entries, latest date, latest number, and round 5 sample.
+ */
+export function useLoadDailySetup(
+  enabled: boolean,
+  queryLanguage: Language,
+  drawingsCount: number,
+  batchSize: number
+): UseLoadDailySetup {
   const { notification } = App.useApp();
   console.log('useLoadDailySetup', { enabled, queryLanguage });
 
@@ -149,14 +162,14 @@ export function useLoadDailySetup(enabled: boolean, queryLanguage?: Language): U
     console.log({ totalCardCount: Object.keys(drawings).length });
 
     const atLeastTwoDrawingsList = Object.values(drawings).filter(
-      (e) => e.drawings.length >= MINIMUM_DRAWINGS && e.cardId && !e.cardId?.includes('--')
+      (e) => e.drawings.length >= drawingsCount && e.cardId && !e.cardId?.includes('--')
     );
 
     console.log({ shortlistCardCount: atLeastTwoDrawingsList.length });
 
     const shortList = Object.values(atLeastTwoDrawingsList).filter((e) => !usedCards.includes(e.cardId));
 
-    const shuffledShortList = sampleSize(shuffle(shortList), 45);
+    const shuffledShortList = sampleSize(shuffle(shortList), batchSize);
 
     let lastDate = latestDate;
 
@@ -170,7 +183,7 @@ export function useLoadDailySetup(enabled: boolean, queryLanguage?: Language): U
         number: latestNumber + index + 1,
       };
     });
-  }, [drawingsQuery, usedCards, latestDate, queryLanguage, latestNumber]);
+  }, [drawingsQuery, usedCards, latestDate, queryLanguage, latestNumber, batchSize, drawingsCount]);
 
   const round5sample = useMemo(() => {
     const drawings = (drawingsQuery ?? []).reduce((acc: Record<CardId, DailyEntry>, drawingEntry) => {
@@ -212,6 +225,14 @@ export function useLoadDailySetup(enabled: boolean, queryLanguage?: Language): U
   };
 }
 
+/**
+ * Custom hook for loading drawings.
+ *
+ * @param enabled - Indicates whether the loading of drawings is enabled.
+ * @param libraryCount - The number of libraries to load drawings from.
+ * @param queryLanguage - The language for the query.
+ * @returns The result of the useQueries hook.
+ */
 function useLoadDrawings(enabled: boolean, libraryCount: number, queryLanguage: Language) {
   const { notification } = App.useApp();
   const docPrefix = `drawings${queryLanguage === 'pt' ? 'PT' : 'EN'}`;
@@ -234,6 +255,12 @@ function useLoadDrawings(enabled: boolean, libraryCount: number, queryLanguage: 
   return useQueries({ queries });
 }
 
+/**
+ * Custom hook for saving daily setup.
+ *
+ * @param queryLanguage The language for the query.
+ * @returns An object containing the state and functions for saving daily setup.
+ */
 export function useSaveDailySetup(queryLanguage: Language) {
   const { notification } = App.useApp();
   const queryClient = useQueryClient();
@@ -242,7 +269,25 @@ export function useSaveDailySetup(queryLanguage: Language) {
 
   const [isDirty, setIsDirty] = useState(false);
 
-  const query = useMutation<any, Error, DailyEntry[], QueryKey>(
+  const historyQuery = useQuery<any, Error, DailyHistory, QueryKey>({
+    queryKey: [source, 'history'],
+    queryFn: getDocQueryFunction<DataSuffixCounts>(source, 'history'),
+    enabled: Boolean(source),
+    onSuccess: () => {
+      notification.info({
+        message: 'Data Daily History loaded',
+        placement: 'bottomLeft',
+      });
+    },
+    onError: () => {
+      notification.error({
+        message: 'Error loading daily history',
+        placement: 'bottomLeft',
+      });
+    },
+  });
+
+  const mutation = useMutation<any, Error, DailyEntry[], QueryKey>(
     async (data) => {
       const saves = data.map((entry) => {
         const docRef = doc(firestore, `${source}/${entry.id}`);
@@ -250,10 +295,16 @@ export function useSaveDailySetup(queryLanguage: Language) {
       });
 
       const docRec = doc(firestore, `${source}/history`);
+      const previousHistory = historyQuery.data as DailyHistory;
+
+      if (!previousHistory) {
+        throw new Error('No previous history');
+      }
+
       const history: DailyHistory = {
         latestDate: data[data.length - 1].id,
         latestNumber: data[data.length - 1].number,
-        used: data.map((e) => e.cardId),
+        used: removeDuplicates([...previousHistory.used, ...data.map((e) => e.cardId)]),
       };
       setDoc(docRec, history);
 
@@ -280,7 +331,73 @@ export function useSaveDailySetup(queryLanguage: Language) {
   return {
     isDirty,
     setIsDirty,
-    save: query.mutateAsync,
-    isLoading: query.isLoading,
+    save: mutation.mutateAsync,
+    isLoading: mutation.isLoading,
   };
+}
+
+export function useTempDaily(enabled = true) {
+  const { notification } = App.useApp();
+
+  const source = LANGUAGE_PREFIX.DAILY['pt'];
+
+  const mutation = useMutation<any, Error, DailyHistory, QueryKey>({
+    mutationFn: async (data) => {
+      const docRec = doc(firestore, `${source}/history`);
+      setDoc(docRec, data);
+    },
+    onSuccess: () => {
+      notification.info({
+        message: 'New history data saved',
+        placement: 'bottomLeft',
+      });
+    },
+  });
+
+  // Load docs
+  // Get used ids
+  // Rewrite history
+
+  const historyQuery = useQuery<any, Error, DailyHistory, QueryKey>({
+    queryKey: [source, 'history'],
+    queryFn: getDocQueryFunction<DataSuffixCounts>(source, 'history'),
+    enabled,
+    onSuccess: (data) => {
+      notification.info({
+        message: 'Data Daily History loaded',
+        placement: 'bottomLeft',
+      });
+    },
+    onError: () => {
+      notification.error({
+        message: 'Error loading daily history',
+        placement: 'bottomLeft',
+      });
+    },
+  });
+
+  useQuery<any, Error, string[], QueryKey>({
+    queryKey: [source, 'allDocs'],
+    queryFn: async () => {
+      const querySnapshot = await getDocs(collection(firestore, source));
+      const ids: string[] = [];
+      querySnapshot.forEach((doc) => {
+        const snapshot = doc.data() as DailyEntry;
+        console.log('Getting', snapshot.id);
+        if (snapshot.dataIds) {
+          ids.push(...snapshot.dataIds.map((e) => e.split('::')[0]));
+        }
+      });
+      return removeDuplicates(ids);
+    },
+    enabled: Boolean(historyQuery.data?.used),
+    onSuccess: (data) => {
+      const history = historyQuery.data as DailyHistory;
+
+      mutation.mutateAsync({
+        ...history,
+        used: data,
+      });
+    },
+  });
 }

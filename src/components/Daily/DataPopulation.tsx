@@ -1,5 +1,5 @@
 // Ant Design Resources
-import { TableColumnsType, Table, Button } from 'antd';
+import { TableColumnsType, Table, Button, Flex } from 'antd';
 // Components
 
 import { UseLoadDailySetup, useSaveDailySetup } from './hooks';
@@ -69,15 +69,19 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
   return (
     <div>
       {dataLoad.isLoading && <div>Loading...</div>}
-      <h1>Total: {dataLoad.entries.length}</h1>
+      <Flex justify="space-between" align="center">
+        <h1>Total: {dataLoad.entries.length}</h1>
+        <Button
+          onClick={() => save(dataLoad.entries)}
+          loading={isMutating}
+          disabled={(dataLoad.entries ?? []).length === 0}
+          type="primary"
+          size="large"
+        >
+          Save
+        </Button>
+      </Flex>
       <Table columns={columns} dataSource={dataLoad.entries ?? []} />
-      <Button
-        onClick={() => save(dataLoad.entries)}
-        loading={isMutating}
-        disabled={(dataLoad.entries ?? []).length === 0}
-      >
-        Save
-      </Button>
     </div>
   );
 }

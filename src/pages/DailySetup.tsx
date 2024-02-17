@@ -10,15 +10,24 @@ import { useState } from 'react';
 
 export function DailySetup() {
   const [language, setLanguage] = useState('');
+  const [drawingsCount, setDrawingsCount] = useState(3);
+  const [batchSize, setBatchSize] = useState(45);
 
-  const dataLoad = useLoadDailySetup(Boolean(language), language as Language);
+  const dataLoad = useLoadDailySetup(Boolean(language), language as Language, drawingsCount, batchSize);
 
   return (
     <PageLayout title="Daily Setup">
       <Layout hasSider>
         <PageSider>
           <ResponseState isLoading={dataLoad.isLoading} error={null} hasResponseData={!dataLoad.isLoading} />
-          <SideFilters language={language} setLanguage={setLanguage} />
+          <SideFilters
+            language={language}
+            setLanguage={setLanguage}
+            drawingsCount={drawingsCount}
+            setDrawingsCount={setDrawingsCount}
+            batchSize={batchSize}
+            setBatchSize={setBatchSize}
+          />
         </PageSider>
 
         <Layout.Content className="content">
