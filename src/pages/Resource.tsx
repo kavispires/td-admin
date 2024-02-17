@@ -16,8 +16,6 @@ import { PageSider } from 'components/Layout/PageSider';
 const resourceNames = Object.values(RESOURCE_NAMES);
 
 export function Resource() {
-  // const [activeTab, setActiveTab] = useState('json');
-
   const {
     resourceName = '',
     language = '',
