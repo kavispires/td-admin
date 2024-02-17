@@ -660,6 +660,12 @@
     "question": "Ele(a) sabe dançar uma coreografia do É o Tchan?",
     "answer": "Sabe dançar uma coreografia do É o Tchan"
   },
+  "t-130-pt": {
+    "id": "t-130-pt",
+    "question": "Ele(a) já ficou em pânico por conta de um teste de gravidez?",
+    "answer": "Já ficou em pânico por conta de um teste de gravidez",
+    "nsfw": true
+  },
   "t-131-pt": {
     "id": "t-131-pt",
     "question": "Ele(a) é gostoso(a)?",
@@ -966,5 +972,16 @@
     "id": "t-190-pt",
     "question": "Ele(a) é sedentário?",
     "answer": "É sedentário"
+  },
+  "t-191-pt": {
+    "id": "t-191-pt",
+    "question": "Ele(a) vai na igreja?",
+    "answer": "Vai na igreja",
+    "nsfw": true
+  },
+  "t-192-pt": {
+    "id": "t-192-pt",
+    "question": "Ele(a) já escondeu o celular na cueca/calcinha para não ser assaltado?",
+    "answer": "Já escondeu o celular na cueca/calcinha para não ser assaltado"
   }
 }
