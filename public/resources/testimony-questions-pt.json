@@ -567,8 +567,8 @@
   },
   "t-112-pt": {
     "id": "t-112-pt",
-    "question": "Ele(a) teve um tamagochi quando criança?",
-    "answer": "Teve um tamagochi quando criança"
+    "question": "Ele(a) teve um Tamagochi quando criança?",
+    "answer": "Teve um Tamagochi quando criança"
   },
   "t-113-pt": {
     "id": "t-113-pt",
@@ -803,5 +803,168 @@
     "id": "t-158-pt",
     "question": "Ele(a) é muito competitivo(a)?",
     "answer": "É muito competitivo(a)"
+  },
+  "t-159-pt": {
+    "id": "t-159-pt",
+    "question": "Ele(a) é muito preguiçoso(a)?",
+    "answer": "É muito preguiçoso(a)"
+  },
+  "t-160-pt": {
+    "id": "t-160-pt",
+    "question": "Ele(a) é muito desorganizado(a)?",
+    "answer": "É muito desorganizado(a)"
+  },
+  "t-161-pt": {
+    "id": "t-161-pt",
+    "question": "Ele(a) é muito indeciso(a)?",
+    "answer": "É muito indeciso(a)"
+  },
+  "t-162-pt": {
+    "id": "t-162-pt",
+    "question": "Ele(a) é muito estressado(a)?",
+    "answer": "É muito estressado(a)"
+  },
+  "t-163-pt": {
+    "id": "t-163-pt",
+    "question": "Ele(a) gosta de filmes do Adam Sandler?",
+    "answer": "Gosta de filmes do Adam Sandler"
+  },
+  "t-164-pt": {
+    "id": "t-164-pt",
+    "question": "Ele(a) dança bem?",
+    "answer": "Dança bem"
+  },
+  "t-165-pt": {
+    "id": "t-165-pt",
+    "question": "Ele(a) é extrovertido(a)?",
+    "answer": "É extrovertido(a)"
+  },
+  "t-166-pt": {
+    "id": "t-166-pt",
+    "question": "Ele(a) é carinhoso(a)?",
+    "answer": "É carinhoso(a)"
+  },
+  "t-167-pt": {
+    "id": "t-167-pt",
+    "question": "Ele(a) roe unha?",
+    "answer": "Roe unha"
+  },
+  "t-168-pt": {
+    "id": "t-168-pt",
+    "question": "Ele(a) é safado(a)?",
+    "answer": "É safado(a)",
+    "nsfw": true
+  },
+  "t-169-pt": {
+    "id": "t-169-pt",
+    "question": "Ele(a) acha que a Terra é plana?",
+    "answer": "Acha que a Terra é plana"
+  },
+  "t-170-pt": {
+    "id": "t-170-pt",
+    "question": "Ele(a) vai ao cinema usando Havaianas?",
+    "answer": "Vai ao cinema usando Havaianas"
+  },
+  "t-171-pt": {
+    "id": "t-171-pt",
+    "question": "Ele(a) odeia horário de verão?",
+    "answer": "Odeia horário de verão"
+  },
+  "t-172-pt": {
+    "id": "t-172-pt",
+    "question": "Ele(a) já testemunhou um crime?",
+    "answer": "Já testemunhou um crime"
+  },
+  "t-173-pt": {
+    "id": "t-173-pt",
+    "question": "Ele(a) já viu alguém morrer na frente dele(a)?",
+    "answer": "Já viu alguém morrer na frente dele(a)"
+  },
+  "t-174-pt": {
+    "id": "t-174-pt",
+    "question": "Ele(a) é herdeiro?",
+    "answer": "É herdeiro"
+  },
+  "t-175-pt": {
+    "id": "t-175-pt",
+    "question": "Ele(a) tem OnlyFans?",
+    "answer": "Tem OnlyFans",
+    "nsfw": true
+  },
+  "t-176-pt": {
+    "id": "t-176-pt",
+    "question": "Ele(a) perdeu um irmão quando criança num acidente horrível?",
+    "answer": "Perdeu um irmão quando criança num acidente horrível"
+  },
+  "t-177-pt": {
+    "id": "t-177-pt",
+    "question": "Ele(a) faz(fez) curso de comunicação porque se acha muito comunicativo(a)?",
+    "answer": "Faz(fez) curso de comunicação porque se acha muito comunicativo(a)"
+  },
+  "t-178-pt": {
+    "id": "t-178-pt",
+    "question": "Ele(a) tem medo de cobra?",
+    "answer": "Tem medo de cobra"
+  },
+  "t-179-pt": {
+    "id": "t-179-pt",
+    "question": "Ele(a) tem medo de altura?",
+    "answer": "Tem medo de altura"
+  },
+  "t-180-pt": {
+    "id": "t-180-pt",
+    "question": "Ele(a) se sente um pouco desconfortável na presença de palhaços??",
+    "answer": "Se sente um pouco desconfortável na presença de palhaços"
+  },
+  "t-181-pt": {
+    "id": "t-181-pt",
+    "question": "Ele(a) é fez L com mão?",
+    "answer": "É fez L com mão"
+  },
+  "t-182-pt": {
+    "id": "t-182-pt",
+    "question": "Ele(a) é bolsominion?",
+    "answer": "É bolsominion"
+  },
+  "t-183-pt": {
+    "id": "t-183-pt",
+    "question": "Ele(a) biscoita no Instagram?",
+    "answer": "Biscoita no Instagram"
+  },
+  "t-184-pt": {
+    "id": "t-184-pt",
+    "question": "Ele(a) é muito vaidoso(a)?",
+    "answer": "É muito vaidoso(a)"
+  },
+  "t-185-pt": {
+    "id": "t-185-pt",
+    "question": "Ele(a) sempre pensa que x.com é site pornô desde que o Twitter virou X?",
+    "answer": "Sempre pensa que x.com é site pornô desde que o Twitter virou X"
+  },
+  "t-186-pt": {
+    "id": "t-186-pt",
+    "question": "Ele(a) sabe o que é um Eletroencefalografista?",
+    "answer": "Sabe o que é um Eletroencefalografista"
+  },
+  "t-187-pt": {
+    "id": "t-187-pt",
+    "question": "Ele(a) ainda usa o Netflix do ex mesmo tendo terminado há 2 anos?",
+    "answer": "Ainda usa o Netflix do ex mesmo tendo terminado há 2 anos"
+  },
+  "t-188-pt": {
+    "id": "t-188-pt",
+    "question": "Ele(a) compartilha memes?",
+    "answer": "Compartilha memes"
+  },
+  "t-189-pt": {
+    "id": "t-189-pt",
+    "question": "Ele(a) tem um(a) amante?",
+    "answer": "Tem um(a) amante",
+    "nsfw": true
+  },
+  "t-190-pt": {
+    "id": "t-190-pt",
+    "question": "Ele(a) é sedentário?",
+    "answer": "É sedentário"
   }
 }
