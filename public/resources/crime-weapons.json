@@ -1325,7 +1325,7 @@
     "id": "dmhk-wp-133",
     "type": "weapon",
     "name": {
-      "pt": "",
+      "pt": "triturador de madeira",
       "en": "wood chipper"
     },
     "tags": [""],
@@ -1336,7 +1336,7 @@
     "id": "dmhk-wp-134",
     "type": "weapon",
     "name": {
-      "pt": "",
+      "pt": "serra de arco",
       "en": "hacksaw"
     },
     "tags": [""],

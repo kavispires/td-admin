@@ -566,3 +566,35 @@ export type Tweet = {
    */
   text: string;
 };
+
+// ITEM Interfaces
+
+export type Item = {
+  /**
+   * Unique identifier for the item
+   */
+  id: string;
+  /**
+   * The name of the item
+   */
+  name: DualLanguageValue;
+  /**
+   * The groups the item can be used in
+   */
+  groups?: string[];
+  /**
+   * Flag indicating if it's nsfw
+   */
+  nsfw?: boolean;
+};
+
+export type NewAlienItem = {
+  /**
+   * Unique identifier for the card
+   */
+  id: string;
+  /**
+   * The dictionary of attribute keys and their values
+   */
+  attributes: Record<string, -5 | -3 | -1 | 0 | 1 | 3 | 5>;
+};
