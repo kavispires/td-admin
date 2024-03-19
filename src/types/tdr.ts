@@ -581,7 +581,7 @@ export type Item = {
   /**
    * The groups the item can be used in
    */
-  groups?: string[];
+  groups: string[];
   /**
    * Flag indicating if it's nsfw
    */

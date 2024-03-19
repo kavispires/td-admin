@@ -84,7 +84,7 @@ export const SEARCH_PROPERTY: Record<string, string> = {
   topics: 'text',
 };
 
-export const TOTAL_ITEMS = 1280;
+export const TOTAL_ITEMS = 1418;
 
 export const SPRITE_LIBRARY = keyBy(
   [

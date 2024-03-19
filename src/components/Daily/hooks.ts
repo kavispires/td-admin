@@ -1,29 +1,22 @@
+import { App } from 'antd';
+import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
+import { sampleSize, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
-import { doc, getDoc, setDoc, getDocs, collection } from 'firebase/firestore';
+import { firestore } from 'services/firebase';
+import { removeDuplicates } from 'utils';
 
 import {
   QueryKey,
   useMutation,
+  useQueries,
   useQuery,
   useQueryClient,
-  useQueries,
   UseQueryOptions,
 } from '@tanstack/react-query';
-import { App } from 'antd';
-import { DailyEntry, DailyHistory, DataDrawing, DataSuffixCounts } from './types';
-import { sampleSize, shuffle } from 'lodash';
-import { getNextDay } from './utils';
-import { firestore } from 'services/firebase';
-import { removeDuplicates } from 'utils';
 
-function getDocQueryFunction<T>(path: string, docId: string) {
-  return async () => {
-    console.log(`${path}/${docId}`);
-    const docRef = doc(firestore, `${path}/${docId}`);
-    const querySnapshot = await getDoc(docRef);
-    return (querySnapshot.data() ?? {}) as T;
-  };
-}
+import { DailyEntry, DailyHistory, DataDrawing, DataSuffixCounts } from './types';
+import { getNextDay } from './utils';
+import { getDocQueryFunction } from 'hooks/useTDFirebaseDoc';
 
 const LANGUAGE_PREFIX = {
   SUFFIX_DATA: {
