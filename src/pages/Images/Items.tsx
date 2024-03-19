@@ -21,7 +21,7 @@ function ItemsPage() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
-            {showSearch && <ItemSearch />}
+            {showSearch && !isLoading && <ItemSearch />}
             <ItemListing />
           </DataLoadingWrapper>
         </Layout.Content>

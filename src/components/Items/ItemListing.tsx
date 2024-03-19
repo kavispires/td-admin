@@ -2,23 +2,29 @@ import { Col, Pagination, Row, Typography } from 'antd';
 import { useItemsPagination } from 'hooks/useItemsPagination';
 
 import { ItemCard } from './ItemCard';
+import { capitalize } from 'lodash';
 
 export function ItemListing() {
-  const { page, onChange, total, pageSize, onPageSizeChange } = useItemsPagination();
+  const { page, currentPage, onChange, total, pageSize, onPageSizeChange, listingType } =
+    useItemsPagination();
 
   const pagination = (
     <Pagination
       onChange={onChange}
+      current={currentPage}
       total={total}
       pageSizeOptions={[16, 32, 64, 128]}
       pageSize={pageSize}
       onShowSizeChange={onPageSizeChange}
+      className="fixed-pagination"
     />
   );
 
   return (
     <>
-      <Typography.Title level={2}>Listing ({total})</Typography.Title>
+      <Typography.Title level={2}>
+        Listing - {capitalize(listingType)} items ({total})
+      </Typography.Title>
 
       {pagination}
 

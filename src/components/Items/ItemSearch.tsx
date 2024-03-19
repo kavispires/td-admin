@@ -1,12 +1,12 @@
 import { AutoComplete, Divider, Space, Typography } from 'antd';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Item as ItemT } from 'types';
 
 import { ItemCard } from './ItemCard';
 import { useItemsContext } from 'context/ItemsContext';
 
 export function ItemSearch() {
-  const { items, namesDict, names } = useItemsContext();
+  const { items, namesDict, names, isLoading } = useItemsContext();
   const [activeItem, setActiveItem] = useState<ItemT | null>(null);
 
   const onSelect = (name: string) => {
@@ -16,7 +16,7 @@ export function ItemSearch() {
   };
 
   return (
-    <>
+    <Fragment key={`item-search-${isLoading}`}>
       <Typography.Title level={2}>Search for an item</Typography.Title>
 
       <div>
@@ -40,6 +40,6 @@ export function ItemSearch() {
         </Space>
       )}
       <Divider />
-    </>
+    </Fragment>
   );
 }

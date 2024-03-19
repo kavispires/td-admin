@@ -1,4 +1,4 @@
-import { isEmpty, merge } from 'lodash';
+import { cloneDeep, isEmpty } from 'lodash';
 import { useMemo, useState } from 'react';
 import { Item } from 'types';
 
@@ -13,20 +13,8 @@ export function useItemsData() {
   const queryClient = useQueryClient();
 
   // Gather basic item data
-  const tdrItemsQuery = useTDResource<Dictionary<Item>>('items');
+  const tdrItemsQuery = useTDResource<Item>('items');
   const firebaseItemsQuery = useGetFirebaseDoc<Dictionary<Item>>('data', 'items');
-
-  const items = useMemo(() => {
-    if (tdrItemsQuery.isLoading || firebaseItemsQuery.isLoading) return {};
-    console.log('%cMerging items data...', 'color: #f0f');
-    return merge(tdrItemsQuery.data ?? {}, firebaseItemsQuery.data ?? {});
-  }, [tdrItemsQuery.data, firebaseItemsQuery.data, tdrItemsQuery.isLoading, firebaseItemsQuery.isLoading]);
-
-  const [modifiedItems, setModifiedItems] = useState<Dictionary<Item>>({});
-  const isDirty = !isEmpty(modifiedItems);
-  const addItemToUpdate = (id: string, item: Item) => {
-    setModifiedItems((prev) => ({ ...prev, [id]: item }));
-  };
 
   const mutation = useUpdateFirebaseDoc('data', 'items', {
     onSuccess: () => {
@@ -43,6 +31,26 @@ export function useItemsData() {
       });
     },
   });
+
+  const [modifiedItems, setModifiedItems] = useState<Dictionary<Item>>({});
+
+  const items = useMemo(() => {
+    if (tdrItemsQuery.isLoading || firebaseItemsQuery.isLoading || mutation.isLoading) return {};
+    console.log('%cMerging items data...', 'color: #f0f');
+    return cloneDeep({ ...(tdrItemsQuery.data ?? {}), ...(firebaseItemsQuery.data ?? {}), ...modifiedItems });
+  }, [
+    tdrItemsQuery.data,
+    firebaseItemsQuery.data,
+    tdrItemsQuery.isLoading,
+    firebaseItemsQuery.isLoading,
+    mutation.isLoading,
+    modifiedItems,
+  ]);
+
+  const isDirty = !isEmpty(modifiedItems);
+  const addItemToUpdate = (id: string, item: Item) => {
+    setModifiedItems((prev) => ({ ...prev, [id]: item }));
+  };
 
   const firebaseData = firebaseItemsQuery.data;
 

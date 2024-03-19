@@ -14,7 +14,7 @@ type ItemCardProps = {
 
 export function ItemCard({ item, editMode = false }: ItemCardProps) {
   const { groups } = useItemsContext();
-  const { isEditing, toggleEditMode, onEdit, isDirty, onModify, onReset } = useItemUpdate(item);
+  const { isEditing, toggleEditMode, onEdit, isDirty, onModify, onReset } = useItemUpdate(item, editMode);
 
   return (
     <Card
