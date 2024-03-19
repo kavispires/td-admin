@@ -35,7 +35,7 @@ export function ItemSearch() {
       </div>
 
       {Boolean(activeItem) && (
-        <Space direction="vertical" className="my-4">
+        <Space direction="vertical" className="my-4" key={activeItem?.id}>
           <ItemCard item={activeItem!} />
         </Space>
       )}

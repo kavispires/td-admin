@@ -5,14 +5,14 @@ import { QueryKey, useQuery, UseQueryOptions } from '@tanstack/react-query';
 
 export function getDocQueryFunction<TData>(path: string, docId: string) {
   return async () => {
-    console.log(`Querying ${path}/${docId} from firebase`);
+    console.log(`%cQuerying ${path}/${docId} from firebase`, 'color: #f0f');
     const docRef = doc(firestore, `${path}/${docId}`);
     const querySnapshot = await getDoc(docRef);
     return (querySnapshot.data() ?? {}) as TData;
   };
 }
 
-export function useTDFirebaseDoc<TData>(
+export function useGetFirebaseDoc<TData>(
   path: string,
   docId: string,
   options?: UseQueryOptions<any, Error, TData, QueryKey>

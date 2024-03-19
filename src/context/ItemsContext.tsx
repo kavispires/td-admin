@@ -13,6 +13,11 @@ export type ItemsContextType = {
   groupsDict: Dictionary<string>;
   groups: { value: string }[];
   listing: Item[];
+  isDirty: boolean;
+  addItemToUpdate: (id: string, item: Item) => void;
+  itemsToUpdate: Dictionary<Item>;
+  isSaving: boolean;
+  save: () => void;
 };
 
 const ItemsContext = createContext<ItemsContextType>({
@@ -25,6 +30,11 @@ const ItemsContext = createContext<ItemsContextType>({
   groupsDict: {},
   groups: [],
   listing: [],
+  isDirty: false,
+  addItemToUpdate: () => {},
+  itemsToUpdate: {},
+  isSaving: false,
+  save: () => {},
 });
 
 type ItemsProviderProps = {
@@ -32,7 +42,7 @@ type ItemsProviderProps = {
 };
 
 export const ItemsProvider = ({ children }: ItemsProviderProps) => {
-  const { items, isLoading, error } = useItemsData();
+  const { items, isLoading, error, isSaving, save, addItemToUpdate, itemsToUpdate, isDirty } = useItemsData();
 
   const { namesDict, names, groupsDict, groups, listing } = useMemo(() => {
     const groupsDict: Dictionary<string> = {};
@@ -91,6 +101,11 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         groupsDict,
         groups,
         hasResponseData: listing.length > 0,
+        isDirty,
+        addItemToUpdate,
+        isSaving,
+        save,
+        itemsToUpdate,
       }}
     >
       {children}

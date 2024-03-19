@@ -16,7 +16,7 @@ import {
 
 import { DailyEntry, DailyHistory, DataDrawing, DataSuffixCounts } from './types';
 import { getNextDay } from './utils';
-import { getDocQueryFunction } from 'hooks/useTDFirebaseDoc';
+import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
 
 const LANGUAGE_PREFIX = {
   SUFFIX_DATA: {
