@@ -93,20 +93,20 @@ const items: MenuProps['items'] = [
         children: [
           {
             label: 'Decks',
-            key: '/images/image-cards',
+            key: '/image-cards/decks',
           },
           {
             label: 'Classifier',
-            key: '/images/classifier',
+            key: '/image-cards/classifier',
             disabled: true,
           },
           {
             label: 'Relationships',
-            key: '/images/relationships',
+            key: '/image-cards/relationships',
           },
           {
             label: 'Connections Visualizer',
-            key: '/images/connections',
+            key: '/image-cards/connections',
           },
         ],
       },
@@ -115,13 +115,23 @@ const items: MenuProps['items'] = [
         label: 'Items',
         children: [
           {
-            label: 'Classifier',
-            key: '/images/item-classifier',
+            label: 'Listing',
+            key: '/items',
             disabled: true,
           },
           {
-            label: 'Alien Attributes',
-            key: '/images/item-attribution',
+            label: 'Classifier',
+            key: '/items/classifier',
+            disabled: true,
+          },
+          {
+            label: 'Attributes',
+            key: '/items/attribution',
+            disabled: true,
+          },
+          {
+            label: 'Crimes History',
+            key: '/items/crimes-history',
             disabled: true,
           },
         ],
