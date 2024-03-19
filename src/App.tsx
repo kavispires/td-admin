@@ -5,7 +5,7 @@ import { ArteRuimParser } from 'pages/ArteRuimParser';
 import { CrimesHediondosCategorizer } from 'pages/CrimesHediondosCategorizer';
 import { DailySetup } from 'pages/DailySetup';
 import { Home } from 'pages/Home';
-import { AlienItems } from 'pages/Images/AlienItems';
+import { Items } from 'pages/Images/Items';
 import { CrimeEvidence } from 'pages/Images/CrimeEvidence';
 import { CrimeWeapons } from 'pages/Images/CrimeWeapons';
 import { ImageCards } from 'pages/Images/ImageCards';
@@ -51,6 +51,7 @@ function App() {
             <HashRouter>
               <Routes>
                 <Route path="/" element={<Home />} />
+
                 <Route path="/resource" element={<Resource />} />
                 <Route path="/resource-generator" element={<ResourceGenerator />} />
 
@@ -59,14 +60,25 @@ function App() {
                 <Route path="/game/crimes-hediondos-categorizer" element={<CrimesHediondosCategorizer />} />
                 <Route path="/game/daily-setup" element={<DailySetup />} />
 
-                <Route path="/images/image-cards" element={<ImageCards />} />
-                <Route path="/images/relationships" element={<ImageCardsRelationships />} />
-                <Route path="/images/connections" element={<ImageCardsConnections />} />
-                <Route path="/images/suspects" element={<Suspects />} />
-                <Route path="/images/alien-items" element={<AlienItems />} />
-                <Route path="/images/weapons" element={<CrimeWeapons />} />
-                <Route path="/images/evidence" element={<CrimeEvidence />} />
-                <Route path="images/sprites" element={<Sprites />} />
+                <Route path="/image-cards">
+                  <Route path="decks" element={<ImageCards />} />
+                  <Route path="relationships" element={<ImageCardsRelationships />} />
+                  <Route path="connections" element={<ImageCardsConnections />} />
+                </Route>
+
+                <Route path="/items">
+                  <Route path="" element={<Items />} />
+                  <Route path="listing" element={<Items />} />
+                  <Route path="attributes" element={<Items />} />
+                  <Route path="crime" element={<Items />} />
+                </Route>
+
+                <Route path="/images">
+                  <Route path="suspects" element={<Suspects />} />
+                  <Route path="weapons" element={<CrimeWeapons />} />
+                  <Route path="evidence" element={<CrimeEvidence />} />
+                  <Route path="sprites" element={<Sprites />} />
+                </Route>
 
                 <Route path="/single-words" element={<SingleWordsExpander />} />
                 <Route path="/other" element={<Other />} />
