@@ -1,11 +1,11 @@
 import { Card, Input, Select, Space } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
-import { useItems } from 'hooks/useItems';
 import { useState } from 'react';
 import { Item as ItemT } from 'types';
 
 import { EditOutlined } from '@ant-design/icons';
+import { useItemsContext } from 'context/ItemsContext';
 
 type ItemCardProps = {
   item: ItemT;
@@ -13,13 +13,13 @@ type ItemCardProps = {
 };
 
 export function ItemCard({ item, editMode = false }: ItemCardProps) {
-  const { groups } = useItems();
+  const { groups } = useItemsContext();
   const [isEditing, setEditing] = useState(editMode);
 
   return (
     <Card
       title={item.id}
-      style={{ maxWidth: 250 }}
+      style={{ maxWidth: 300 }}
       actions={[<EditOutlined key="edit" onClick={() => setEditing((e) => !e)} />]}
     >
       <Item id={item.id} width={150} title={`${item.name.en} | ${item.name.pt}`} />
@@ -31,7 +31,7 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
           size="small"
           defaultValue={item.name.en}
           readOnly={!isEditing}
-          key={item.name.en}
+          key={`en-${item.name.en}`}
         />
 
         <Input
@@ -41,7 +41,7 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
           size="small"
           defaultValue={item.name.pt}
           readOnly={!isEditing}
-          key={item.name.pt}
+          key={`pt-${item.name.pt}`}
         />
 
         <div>

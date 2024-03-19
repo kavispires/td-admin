@@ -20,7 +20,6 @@ export function useTDFirebaseDoc<TData>(
   return useQuery<any, Error, TData, QueryKey>({
     queryKey: ['firebase', path, docId],
     queryFn: getDocQueryFunction<TData>(path, docId),
-
     ...options,
   });
 }

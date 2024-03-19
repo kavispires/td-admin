@@ -1,28 +1,22 @@
 import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemListing } from 'components/Items/ItemListing';
-import { ItemListingFilters } from 'components/Items/ItemListingFilters';
-import { ItemSearch } from 'components/Items/ItemSearch';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { ItemsProvider, useItemsContext } from 'context/ItemsContext';
-import { useState } from 'react';
 
-function ItemsPage() {
+export function ItemsAttributionPage() {
   const { isLoading, error, hasResponseData } = useItemsContext();
-  const [showSearch, setShowSearch] = useState(true);
 
   return (
-    <PageLayout title="Items" subtitle="Listing">
+    <PageLayout title="Items" subtitle="Attribution">
       <Layout hasSider>
         <PageSider>
-          <ItemListingFilters showSearch={showSearch} toggleSearch={() => setShowSearch((p) => !p)} />
+          <div>Options</div>
         </PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
-            {showSearch && <ItemSearch />}
-            <ItemListing />
+            Content
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>
@@ -30,10 +24,10 @@ function ItemsPage() {
   );
 }
 
-export function Items() {
+export function ItemsAttribution() {
   return (
     <ItemsProvider>
-      <ItemsPage />
+      <ItemsAttributionPage />
     </ItemsProvider>
   );
 }

@@ -117,7 +117,6 @@ const items: MenuProps['items'] = [
           {
             label: 'Listing',
             key: '/items',
-            disabled: true,
           },
           {
             label: 'Classifier',

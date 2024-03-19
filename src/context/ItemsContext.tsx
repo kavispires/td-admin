@@ -1,19 +1,10 @@
-import { useMemo } from 'react';
-
-import { useTDResource } from './useTDResource';
+import { useItemsData } from 'hooks/useItemsData';
+import { orderBy } from 'lodash';
+import { ReactNode, useContext, createContext, useMemo } from 'react';
 import { Item } from 'types';
-import { useTDFirebaseDoc } from './useTDFirebaseDoc';
-import { isEmpty, merge, orderBy } from 'lodash';
 
-type UseItemsOptions = {
-  enabled?: boolean;
-  enableAttributes?: boolean;
-  enableCriminology?: boolean;
-};
-
-type UseItemsReturnValue = {
+export type ItemsContextType = {
   items: Dictionary<Item>;
-  list: Item[];
   isLoading: boolean;
   error: ResponseError;
   hasResponseData: boolean;
@@ -21,20 +12,29 @@ type UseItemsReturnValue = {
   names: { value: string }[];
   groupsDict: Dictionary<string>;
   groups: { value: string }[];
+  listing: Item[];
 };
 
-export function useItems({ enabled = true }: UseItemsOptions = {}): UseItemsReturnValue {
-  // Gather basic item data
-  const tdrItemsQuery = useTDResource<Dictionary<Item>>('items', enabled);
-  const firebaseItemsQuery = useTDFirebaseDoc<Dictionary<Item>>('data', 'items', { enabled });
+const ItemsContext = createContext<ItemsContextType>({
+  items: {},
+  isLoading: true,
+  error: null,
+  hasResponseData: false,
+  namesDict: {},
+  names: [],
+  groupsDict: {},
+  groups: [],
+  listing: [],
+});
 
-  const items = useMemo(() => {
-    if (tdrItemsQuery.isLoading || firebaseItemsQuery.isLoading) return {};
-    return merge(tdrItemsQuery.data ?? {}, firebaseItemsQuery.data ?? {});
-  }, [tdrItemsQuery.data, firebaseItemsQuery.data, tdrItemsQuery.isLoading, firebaseItemsQuery.isLoading]);
+type ItemsProviderProps = {
+  children: ReactNode;
+};
 
-  // Creates dictionary of item names and groups
-  const { namesDict, names, groupsDict, groups, list } = useMemo(() => {
+export const ItemsProvider = ({ children }: ItemsProviderProps) => {
+  const { items, isLoading, error } = useItemsData();
+
+  const { namesDict, names, groupsDict, groups, listing } = useMemo(() => {
     const groupsDict: Dictionary<string> = {};
     const duplicationCheckEn: Dictionary<string> = {};
     const duplicationCheckPt: Dictionary<string> = {};
@@ -74,24 +74,28 @@ export function useItems({ enabled = true }: UseItemsOptions = {}): UseItemsRetu
       console.warn('Possible duplicated items', duplicatedNames);
     }
 
-    const list = orderBy(Object.values(items), 'id', 'asc');
+    const listing = orderBy(Object.values(items), [(item) => Number(item.id)], 'asc');
 
-    return { namesDict, names, groupsDict, groups, list };
+    return { namesDict, names, groupsDict, groups, listing };
   }, [items]);
 
-  // TODO: Load attributes
+  return (
+    <ItemsContext.Provider
+      value={{
+        items,
+        listing,
+        isLoading,
+        error,
+        namesDict,
+        names,
+        groupsDict,
+        groups,
+        hasResponseData: listing.length > 0,
+      }}
+    >
+      {children}
+    </ItemsContext.Provider>
+  );
+};
 
-  // TODO: Load crime classifications
-
-  return {
-    items,
-    list,
-    isLoading: tdrItemsQuery.isLoading || firebaseItemsQuery.isLoading,
-    error: tdrItemsQuery.error || firebaseItemsQuery.error,
-    hasResponseData: !isEmpty(items),
-    namesDict,
-    names,
-    groupsDict,
-    groups,
-  };
-}
+export const useItemsContext = () => useContext(ItemsContext);
