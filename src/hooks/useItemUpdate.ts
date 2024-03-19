@@ -9,8 +9,12 @@ export function useItemUpdate(currentItem: ItemT) {
   const [editableItem, setEditableItem] = useState<ItemT>(cloneDeep(currentItem));
   const originalItem = itemsToUpdate[currentItem.id] ?? currentItem;
 
-  const onEdit = (value: Partial<ItemT>) => {
-    setEditableItem({ ...editableItem, ...value });
+  const onEdit = (change: Partial<ItemT>) => {
+    const newItem = { ...editableItem, ...change };
+    if (Object.keys(change).includes('nsfw') && change.nsfw === false) {
+      delete newItem.nsfw;
+    }
+    setEditableItem(newItem);
   };
 
   const onModify = async () => {

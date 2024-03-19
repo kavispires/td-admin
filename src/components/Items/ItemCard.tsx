@@ -1,9 +1,9 @@
-import { Card, Input, Select, Space } from 'antd';
+import { Card, Form, Input, Select, Space, Switch } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { Item as ItemT } from 'types';
 
-import { EditOutlined, RollbackOutlined, SaveOutlined } from '@ant-design/icons';
+import { EditOutlined, FireFilled, RollbackOutlined, SaveOutlined } from '@ant-design/icons';
 import { useItemsContext } from 'context/ItemsContext';
 import { useItemUpdate } from 'hooks/useItemUpdate';
 
@@ -67,6 +67,20 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
             onChange={(value) => onEdit({ groups: value })}
           />
         </div>
+
+        {(isEditing || item.nsfw) && (
+          <div>
+            <Form.Item label="nsfw" valuePropName="checked">
+              <Switch
+                checked={item.nsfw}
+                onChange={(checked) => onEdit({ nsfw: checked })}
+                size="small"
+                checkedChildren={<FireFilled style={{ color: 'hotpink' }} />}
+                disabled={!isEditing}
+              />
+            </Form.Item>
+          </div>
+        )}
       </Space>
     </Card>
   );
