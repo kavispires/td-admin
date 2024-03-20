@@ -14,7 +14,10 @@ type ItemCardProps = {
 
 export function ItemCard({ item, editMode = false }: ItemCardProps) {
   const { groups } = useItemsContext();
-  const { isEditing, toggleEditMode, onEdit, isDirty, onModify, onReset } = useItemUpdate(item, editMode);
+  const { isEditing, toggleEditMode, onEdit, isDirty, onModify, onReset, editableItem } = useItemUpdate(
+    item,
+    editMode
+  );
 
   return (
     <Card
@@ -39,7 +42,7 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
           defaultValue={item.name.en}
           readOnly={!isEditing}
           key={`en-${item.name.en}`}
-          onChange={(e) => onEdit({ name: { ...item.name, en: e.target.value } })}
+          onChange={(e) => onEdit({ name: { ...editableItem.name, en: e.target.value } })}
         />
 
         <Input
@@ -50,7 +53,7 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
           defaultValue={item.name.pt}
           readOnly={!isEditing}
           key={`pt-${item.name.pt}`}
-          onChange={(e) => onEdit({ name: { ...item.name, pt: e.target.value } })}
+          onChange={(e) => onEdit({ name: { ...editableItem.name, pt: e.target.value } })}
         />
 
         <div>

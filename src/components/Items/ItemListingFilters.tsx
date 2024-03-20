@@ -5,6 +5,7 @@ import { SiderContent } from 'components/Layout';
 import { useItemsContext } from 'context/ItemsContext';
 import { capitalize, orderBy } from 'lodash';
 import { useMemo } from 'react';
+import { AddNewItem } from './AddNewItem';
 
 type ItemListingFiltersProps = {
   showSearch: boolean;
@@ -40,8 +41,18 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
         label="Group"
         value={listingType}
         onChange={(value) => setListingType(value)}
-        options={[{ label: 'All', value: 'all' }, { label: 'NSFW', value: 'nswf' }, ...groupOptions]}
+        options={[
+          { label: 'All', value: 'all' },
+          { label: 'NSFW', value: 'nswf' },
+          { label: 'SFW', value: '!nswf' },
+          ...groupOptions,
+          { label: 'No groups', value: '!all' },
+        ]}
       />
+
+      <Divider />
+
+      <AddNewItem />
     </SiderContent>
   );
 }

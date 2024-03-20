@@ -31,6 +31,7 @@ export function useItemUpdate(currentItem: ItemT, editMode = false) {
   return {
     isEditing,
     toggleEditMode: () => setEditing((e) => !e),
+    editableItem,
     onEdit,
     isDirty,
     onModify,
