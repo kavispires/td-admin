@@ -1,0 +1,427 @@
+{
+  "tdc-1-pt": {
+    "id": "tdc-1-pt",
+    "text": "Leve o suficiente para transportar",
+    "type": "attribute"
+  },
+  "tdc-2-pt": {
+    "id": "tdc-2-pt",
+    "text": "É frio",
+    "type": "attribute"
+  },
+  "tdc-3-pt": {
+    "id": "tdc-3-pt",
+    "text": "Caberia em um microondas",
+    "type": "attribute"
+  },
+  "tdc-4-pt": {
+    "id": "tdc-4-pt",
+    "text": "Tem em diferentes formatos",
+    "type": "attribute"
+  },
+  "tdc-5-pt": {
+    "id": "tdc-5-pt",
+    "text": "Tem asas",
+    "type": "attribute"
+  },
+  "tdc-6-pt": {
+    "id": "tdc-6-pt",
+    "text": "Se move",
+    "type": "attribute"
+  },
+  "tdc-7-pt": {
+    "id": "tdc-7-pt",
+    "text": "Feito de metal",
+    "type": "attribute"
+  },
+  "tdc-8-pt": {
+    "id": "tdc-8-pt",
+    "text": "Comestível",
+    "type": "attribute"
+  },
+  "tdc-9-pt": {
+    "id": "tdc-9-pt",
+    "text": "Pode ser dobrado",
+    "type": "attribute"
+  },
+  "tdc-10-pt": {
+    "id": "tdc-10-pt",
+    "text": "Conhecido por sua cor",
+    "type": "attribute"
+  },
+  "tdc-11-pt": {
+    "id": "tdc-11-pt",
+    "text": "Move-se por conta própria",
+    "type": "attribute"
+  },
+  "tdc-12-pt": {
+    "id": "tdc-12-pt",
+    "text": "Textura áspera",
+    "type": "attribute"
+  },
+  "tdc-13-pt": {
+    "id": "tdc-13-pt",
+    "text": "Reflexivo",
+    "type": "attribute"
+  },
+  "tdc-14-pt": {
+    "id": "tdc-14-pt",
+    "text": "Inflamável",
+    "type": "attribute"
+  },
+  "tdc-15-pt": {
+    "id": "tdc-15-pt",
+    "text": "Tem um buraco(s)",
+    "type": "attribute"
+  },
+  "tdc-16-pt": {
+    "id": "tdc-16-pt",
+    "text": "Flexível",
+    "type": "attribute"
+  },
+  "tdc-17-pt": {
+    "id": "tdc-17-pt",
+    "text": "Faz barulho",
+    "type": "attribute"
+  },
+  "tdc-18-pt": {
+    "id": "tdc-18-pt",
+    "text": "Tem rodas",
+    "type": "attribute"
+  },
+  "tdc-19-pt": {
+    "id": "tdc-19-pt",
+    "text": "Muda de forma",
+    "type": "attribute"
+  },
+  "tdc-20-pt": {
+    "id": "tdc-20-pt",
+    "text": "É uma ferramenta",
+    "type": "attribute"
+  },
+  "tdc-21-pt": {
+    "id": "tdc-21-pt",
+    "text": "Pode ser uma arma",
+    "type": "attribute"
+  },
+  "tdc-22-pt": {
+    "id": "tdc-22-pt",
+    "text": "Ser vivo",
+    "type": "attribute"
+  },
+  "tdc-23-pt": {
+    "id": "tdc-23-pt",
+    "text": "É perigoso",
+    "type": "attribute"
+  },
+  "tdc-24-pt": {
+    "id": "tdc-24-pt",
+    "text": "É valioso",
+    "type": "attribute"
+  },
+  "tdc-25-pt": {
+    "id": "tdc-25-pt",
+    "text": "Pode machucar ao tocar",
+    "type": "attribute"
+  },
+  "tdc-26-pt": {
+    "id": "tdc-26-pt",
+    "text": "Pode ser jogado",
+    "type": "attribute"
+  },
+  "tdc-27-pt": {
+    "id": "tdc-27-pt",
+    "text": "Dá para entrar",
+    "type": "attribute"
+  },
+  "tdc-28-pt": {
+    "id": "tdc-28-pt",
+    "text": "Possui partes líquidas",
+    "type": "attribute"
+  },
+  "tdc-29-pt": {
+    "id": "tdc-29-pt",
+    "text": "Você pode colocar sua boca nisso",
+    "type": "attribute"
+  },
+  "tdc-30-pt": {
+    "id": "tdc-30-pt",
+    "text": "É delicado",
+    "type": "attribute"
+  },
+  "tdc-31-pt": {
+    "id": "tdc-31-pt",
+    "text": "Transtime informação",
+    "type": "attribute"
+  },
+  "tdc-32-pt": {
+    "id": "tdc-32-pt",
+    "text": "Exatamente 5 letras",
+    "type": "word"
+  },
+  "tdc-33-pt": {
+    "id": "tdc-33-pt",
+    "text": "7 ou mais letras",
+    "type": "word"
+  },
+  "tdc-34-pt": {
+    "id": "tdc-34-pt",
+    "text": "Não tem vogais repetidas",
+    "type": "word"
+  },
+  "tdc-35-pt": {
+    "id": "tdc-35-pt",
+    "text": "mais vogais do que consoantes",
+    "type": "word"
+  },
+  "tdc-36-pt": {
+    "id": "tdc-36-pt",
+    "text": "mesma letra duas vezes",
+    "type": "word"
+  },
+  "tdc-37-pt": {
+    "id": "tdc-37-pt",
+    "text": "começa com uma vogal",
+    "type": "word"
+  },
+  "tdc-38-pt": {
+    "id": "tdc-38-pt",
+    "text": "termina com uma consoante",
+    "type": "word"
+  },
+  "tdc-39-pt": {
+    "id": "tdc-39-pt",
+    "text": "Tem exatamente duas sílabas",
+    "type": "word"
+  },
+  "tdc-40-pt": {
+    "id": "tdc-40-pt",
+    "text": "tem três consoantes consecutivas",
+    "type": "word"
+  },
+  "tdc-41-pt": {
+    "id": "tdc-41-pt",
+    "text": "Contém a letra \"m\"",
+    "type": "word"
+  },
+  "tdc-42-pt": {
+    "id": "tdc-42-pt",
+    "text": "É um homófono para outra palavra",
+    "type": "word"
+  },
+  "tdc-43-pt": {
+    "id": "tdc-43-pt",
+    "text": "Contém acentos",
+    "type": "word"
+  },
+  "tdc-44-pt": {
+    "id": "tdc-44-pt",
+    "text": "É uma palavra composta",
+    "type": "word"
+  },
+  "tdc-45-pt": {
+    "id": "tdc-45-pt",
+    "text": "Tem vogais repetidas",
+    "type": "word"
+  },
+  "tdc-46-pt": {
+    "id": "tdc-46-pt",
+    "text": "Tem exatamente três sílabas",
+    "type": "word"
+  },
+  "tdc-47-pt": {
+    "id": "tdc-47-pt",
+    "text": "Tem mais de uma palavra",
+    "type": "word"
+  },
+  "tdc-48-pt": {
+    "id": "tdc-48-pt",
+    "text": "Não termina com \"a\" ou \"o\"",
+    "type": "word"
+  },
+  "tdc-49-pt": {
+    "id": "tdc-49-pt",
+    "text": "Também é um verbo",
+    "type": "word"
+  },
+  "tdc-50-pt": {
+    "id": "tdc-50-pt",
+    "text": "É um nome próprio",
+    "type": "word"
+  },
+  "tdc-51-pt": {
+    "id": "tdc-51-pt",
+    "text": "mais consoantes que vogais",
+    "type": "word"
+  },
+  "tdc-52-pt": {
+    "id": "tdc-52-pt",
+    "text": "Termina com um \"s\"",
+    "type": "word"
+  },
+  "tdc-53-pt": {
+    "id": "tdc-53-pt",
+    "text": "Tem consoantes repetidas",
+    "type": "word"
+  },
+  "tdc-54-pt": {
+    "id": "tdc-54-pt",
+    "text": "Você poderia encontrá-lo em um casamento",
+    "type": "context"
+  },
+  "tdc-55-pt": {
+    "id": "tdc-55-pt",
+    "text": "Inventado ou descoberto nos últimos 50 anos",
+    "type": "context"
+  },
+  "tdc-56-pt": {
+    "id": "tdc-56-pt",
+    "text": "Relacionado a esportes",
+    "type": "context"
+  },
+  "tdc-57-pt": {
+    "id": "tdc-57-pt",
+    "text": "Encontrado em uma casa",
+    "type": "context"
+  },
+  "tdc-58-pt": {
+    "id": "tdc-58-pt",
+    "text": "Usado na cozinha",
+    "type": "context"
+  },
+  "tdc-59-pt": {
+    "id": "tdc-59-pt",
+    "text": "Seria um bom presente de aniversário",
+    "type": "context"
+  },
+  "tdc-60-pt": {
+    "id": "tdc-60-pt",
+    "text": "Usado em um hospital",
+    "type": "context"
+  },
+  "tdc-61-pt": {
+    "id": "tdc-61-pt",
+    "text": "Relacionado ao corpo humano",
+    "type": "context"
+  },
+  "tdc-62-pt": {
+    "id": "tdc-62-pt",
+    "text": "Visto no zoológico",
+    "type": "context"
+  },
+  "tdc-63-pt": {
+    "id": "tdc-63-pt",
+    "text": "Encontrado na natureza",
+    "type": "context"
+  },
+  "tdc-64-pt": {
+    "id": "tdc-64-pt",
+    "text": "Associado a um feriado",
+    "type": "context"
+  },
+  "tdc-65-pt": {
+    "id": "tdc-65-pt",
+    "text": "Associado à ciência",
+    "type": "context"
+  },
+  "tdc-66-pt": {
+    "id": "tdc-66-pt",
+    "text": "Coisa comum que as pessoas compram",
+    "type": "context"
+  },
+  "tdc-67-pt": {
+    "id": "tdc-67-pt",
+    "text": "Visto em filmes de terror",
+    "type": "context"
+  },
+  "tdc-68-pt": {
+    "id": "tdc-68-pt",
+    "text": "Associado a um período de tempo específico",
+    "type": "context"
+  },
+  "tdc-69-pt": {
+    "id": "tdc-69-pt",
+    "text": "Comprado no shopping",
+    "type": "context"
+  },
+  "tdc-70-pt": {
+    "id": "tdc-70-pt",
+    "text": "As pessoas precisam disso",
+    "type": "context"
+  },
+  "tdc-71-pt": {
+    "id": "tdc-71-pt",
+    "text": "Causa felicidade",
+    "type": "context"
+  },
+  "tdc-72-pt": {
+    "id": "tdc-72-pt",
+    "text": "Usado para proteção",
+    "type": "context"
+  },
+  "tdc-73-pt": {
+    "id": "tdc-73-pt",
+    "text": "Relacionado à morte",
+    "type": "context"
+  },
+  "tdc-74-pt": {
+    "id": "tdc-74-pt",
+    "text": "Mal",
+    "type": "context"
+  },
+  "tdc-75-pt": {
+    "id": "tdc-75-pt",
+    "text": "Traz conhecimento",
+    "type": "context"
+  },
+  "tdc-76-pt": {
+    "id": "tdc-76-pt",
+    "text": "Relacionado a pessoas idosas",
+    "type": "context"
+  },
+  "tdc-77-pt": {
+    "id": "tdc-77-pt",
+    "text": "Relacionado à música",
+    "type": "context"
+  },
+  "tdc-78-pt": {
+    "id": "tdc-78-pt",
+    "text": "Relacionado a homens",
+    "type": "context"
+  },
+  "tdc-79-pt": {
+    "id": "tdc-79-pt",
+    "text": "Relacionado a mulheres",
+    "type": "context"
+  },
+  "tdc-80-pt": {
+    "id": "tdc-80-pt",
+    "text": "Difícil de acessar",
+    "type": "context"
+  },
+  "tdc-81-pt": {
+    "id": "tdc-81-pt",
+    "text": "Tem cedilha",
+    "type": "word"
+  },
+  "tdc-82-pt": {
+    "id": "tdc-82-pt",
+    "text": "substantivo feminino",
+    "type": "word"
+  },
+  "tdc-83-pt": {
+    "id": "tdc-83-pt",
+    "text": "substantivo masculino",
+    "type": "word"
+  },
+  "tdc-84-pt": {
+    "id": "tdc-84-pt",
+    "text": "duas consoantes consecutivas",
+    "type": "word"
+  },
+  "tdc-85-pt": {
+    "id": "tdc-85-pt",
+    "text": "duas vogais consecutivas",
+    "type": "word"
+  }
+}

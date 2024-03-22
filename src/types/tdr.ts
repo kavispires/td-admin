@@ -225,7 +225,7 @@ export type DatingCandidateCard = {
    */
   id: CardId;
   /**
-   * the text of the card
+   * The text of the card
    */
   text: string;
   /**
@@ -251,6 +251,21 @@ export type DatingCandidateImageCard = {
    * The type of the card
    */
   type: 'head' | 'body';
+};
+
+export type DiagramTopics = {
+  /**
+   * Unique identifier for the card
+   */
+  id: CardId;
+  /**
+   * The text of the card
+   */
+  text: string;
+  /**
+   * The type of the card
+   */
+  type: 'attribute' | 'word' | 'context';
 };
 
 export type DilemmaCard = {
@@ -567,8 +582,10 @@ export type Tweet = {
   text: string;
 };
 
-// ITEM Interfaces
-
+/**
+ * Item Card
+ * Used for: items
+ */
 export type Item = {
   /**
    * Unique identifier for the item
@@ -588,7 +605,10 @@ export type Item = {
   nsfw?: boolean;
 };
 
-export type NewAlienItem = {
+/**
+ * Item Atributes
+ */
+export type ItemAtributes = {
   /**
    * Unique identifier for the card
    */
