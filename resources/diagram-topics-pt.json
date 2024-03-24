@@ -241,7 +241,7 @@
   },
   "tdc-49-pt": {
     "id": "tdc-49-pt",
-    "text": "Também é um verbo",
+    "text": "Vira um verbo se color um R no final",
     "type": "word"
   },
   "tdc-50-pt": {
@@ -316,7 +316,7 @@
   },
   "tdc-64-pt": {
     "id": "tdc-64-pt",
-    "text": "Associado a um feriado",
+    "text": "Associado a um feriado ou data comemorativa",
     "type": "context"
   },
   "tdc-65-pt": {
@@ -347,11 +347,6 @@
   "tdc-70-pt": {
     "id": "tdc-70-pt",
     "text": "As pessoas precisam disso",
-    "type": "context"
-  },
-  "tdc-71-pt": {
-    "id": "tdc-71-pt",
-    "text": "Causa felicidade",
     "type": "context"
   },
   "tdc-72-pt": {
