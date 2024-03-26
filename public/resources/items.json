@@ -1,13 +1,13 @@
 {
   "0": {
-    "name": {
-      "en": "mark",
-      "pt": "sinal"
-    },
     "groups": [
       "evidence"
     ],
-    "id": "0"
+    "id": "0",
+    "name": {
+      "en": "mark",
+      "pt": "sinal"
+    }
   },
   "1": {
     "id": "1",
@@ -23,14 +23,15 @@
     ]
   },
   "2": {
-    "id": "2",
     "name": {
       "en": "coconut tree",
       "pt": "coqueiro"
     },
+    "id": "2",
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "3": {
@@ -43,6 +44,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -56,6 +58,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -68,7 +71,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "6": {
@@ -80,7 +84,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "7": {
@@ -93,7 +98,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "8": {
@@ -105,7 +111,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "9": {
@@ -118,7 +125,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "10": {
@@ -131,6 +139,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -144,7 +153,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "12": {
@@ -158,6 +168,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -169,7 +180,8 @@
     },
     "groups": [
       "alien",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "14": {
@@ -181,7 +193,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "15": {
@@ -195,6 +208,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -207,7 +221,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "17": {
@@ -233,7 +248,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "19": {
@@ -246,7 +262,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "20": {
@@ -259,7 +276,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "21": {
@@ -272,6 +290,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -285,7 +304,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ],
     "nsfw": true
   },
@@ -299,7 +319,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "24": {
@@ -311,7 +332,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "25": {
@@ -324,7 +346,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "26": {
@@ -338,6 +361,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -351,7 +375,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "28": {
@@ -364,6 +389,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -375,7 +401,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "30": {
@@ -386,7 +413,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "31": {
@@ -399,7 +427,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "32": {
@@ -422,7 +451,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "34": {
@@ -435,7 +465,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "35": {
@@ -447,30 +478,33 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "36": {
     "id": "36",
     "name": {
-      "pt": "cavalo",
-      "en": "horse"
+      "en": "horse",
+      "pt": "cavalo"
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "37": {
     "id": "37",
     "name": {
       "en": "spray",
-      "pt": "borrifador"
+      "pt": "spray"
     },
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "38": {
@@ -494,6 +528,7 @@
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
@@ -507,7 +542,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "41": {
@@ -519,7 +555,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "42": {
@@ -530,7 +567,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "43": {
@@ -543,6 +581,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ],
     "nsfw": true
@@ -556,7 +595,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "45": {
@@ -567,7 +607,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "46": {
@@ -578,14 +619,15 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "47": {
     "id": "47",
     "name": {
-      "pt": "pacote de chips",
-      "en": "bag of chips"
+      "pt": "chips",
+      "en": "chips"
     },
     "groups": [
       "alien",
@@ -604,7 +646,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "49": {
@@ -617,7 +660,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "50": {
@@ -631,6 +675,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -643,7 +688,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "52": {
@@ -655,7 +701,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "53": {
@@ -668,6 +715,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -681,6 +729,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -694,7 +743,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "56": {
@@ -707,7 +757,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "57": {
@@ -719,7 +770,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "58": {
@@ -731,7 +783,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "59": {
@@ -742,7 +795,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "60": {
@@ -755,7 +809,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "61": {
@@ -768,7 +823,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "62": {
@@ -781,7 +837,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ],
     "nsfw": true
   },
@@ -794,7 +851,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "64": {
@@ -820,7 +878,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "66": {
@@ -832,6 +891,7 @@
     "groups": [
       "alien",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -844,6 +904,7 @@
     "groups": [
       "alien",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -867,7 +928,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ],
     "nsfw": true
   },
@@ -881,7 +943,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "71": {
@@ -894,7 +957,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "72": {
@@ -905,7 +969,8 @@
     },
     "groups": [
       "alien",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "73": {
@@ -917,7 +982,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "74": {
@@ -930,7 +996,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "75": {
@@ -943,7 +1010,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "76": {
@@ -955,7 +1023,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "77": {
@@ -980,7 +1049,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "79": {
@@ -993,7 +1063,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "80": {
@@ -1014,7 +1085,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "82": {
@@ -1025,7 +1097,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "83": {
@@ -1038,7 +1111,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "84": {
@@ -1051,7 +1125,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "85": {
@@ -1063,7 +1138,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "86": {
@@ -1075,7 +1151,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "87": {
@@ -1086,7 +1163,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "88": {
@@ -1097,7 +1175,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "89": {
@@ -1110,6 +1189,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1121,19 +1201,21 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "91": {
+    "groups": [
+      "alien",
+      "mesmice",
+      "thing"
+    ],
     "id": "91",
     "name": {
       "pt": "bote salva-vidas",
       "en": "lifeboat"
-    },
-    "groups": [
-      "alien",
-      "mesmice"
-    ]
+    }
   },
   "92": {
     "id": "92",
@@ -1145,6 +1227,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1158,6 +1241,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1170,7 +1254,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "95": {
@@ -1183,7 +1268,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ],
     "nsfw": true
   },
@@ -1196,7 +1282,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "97": {
@@ -1207,7 +1294,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "98": {
@@ -1220,7 +1308,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "99": {
@@ -1231,7 +1320,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "100": {
@@ -1244,6 +1334,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1258,6 +1349,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1269,7 +1361,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "103": {
@@ -1282,6 +1375,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1296,6 +1390,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1309,7 +1404,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "106": {
@@ -1320,7 +1416,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "107": {
@@ -1332,7 +1429,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "108": {
@@ -1345,7 +1443,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "109": {
@@ -1358,6 +1457,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1369,7 +1469,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "111": {
@@ -1381,7 +1482,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "112": {
@@ -1394,7 +1496,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "113": {
@@ -1406,7 +1509,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "114": {
@@ -1431,6 +1535,7 @@
       "alien",
       "dream",
       "evidence",
+      "thing",
       "weapon"
     ]
   },
@@ -1442,7 +1547,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "117": {
@@ -1454,7 +1560,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "118": {
@@ -1467,7 +1574,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "119": {
@@ -1479,7 +1587,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "120": {
@@ -1503,7 +1612,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "122": {
@@ -1515,7 +1625,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "123": {
@@ -1528,7 +1639,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "124": {
@@ -1541,7 +1653,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "125": {
@@ -1553,7 +1666,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "126": {
@@ -1566,7 +1680,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ],
     "nsfw": true
   },
@@ -1579,7 +1694,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "128": {
@@ -1592,7 +1708,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "129": {
@@ -1603,7 +1720,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "130": {
@@ -1616,7 +1734,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "131": {
@@ -1629,7 +1748,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "132": {
@@ -1642,7 +1762,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "133": {
@@ -1655,7 +1776,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "134": {
@@ -1668,7 +1790,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "135": {
@@ -1681,6 +1804,7 @@
       "alien",
       "dream",
       "evidence",
+      "thing",
       "weapon"
     ]
   },
@@ -1692,7 +1816,8 @@
     },
     "groups": [
       "alien",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "137": {
@@ -1705,7 +1830,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "138": {
@@ -1717,7 +1843,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "139": {
@@ -1754,7 +1881,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "142": {
@@ -1765,7 +1893,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "143": {
@@ -1778,7 +1907,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "144": {
@@ -1803,7 +1933,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "146": {
@@ -1829,6 +1960,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1841,6 +1973,7 @@
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
@@ -1853,7 +1986,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "150": {
@@ -1872,12 +2006,13 @@
   "151": {
     "id": "151",
     "name": {
-      "en": "snake",
-      "pt": "cobra"
+      "pt": "cobra",
+      "en": "snake"
     },
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
@@ -1891,6 +2026,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1903,6 +2039,7 @@
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
@@ -1916,7 +2053,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "155": {
@@ -1941,6 +2079,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -1990,7 +2129,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "161": {
@@ -2013,7 +2153,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "163": {
@@ -2025,34 +2166,37 @@
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
   "164": {
     "id": "164",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
     "name": {
       "en": "headphones",
       "pt": "fones de ouvido"
-    },
-    "groups": [
-      "alien",
-      "dream",
-      "evidence",
-      "mesmice"
-    ]
+    }
   },
   "165": {
-    "id": "165",
     "name": {
-      "pt": "quebra-cabeça",
-      "en": "jigsaw puzzle"
+      "en": "jigsaw puzzle",
+      "pt": "quebra-cabeça"
     },
     "groups": [
       "alien",
       "dream",
       "evidence",
-      "mesmice"
-    ]
+      "mesmice",
+      "thing"
+    ],
+    "id": "165"
   },
   "166": {
     "id": "166",
@@ -2063,7 +2207,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "167": {
@@ -2077,6 +2222,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -2090,6 +2236,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -2102,6 +2249,7 @@
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
@@ -2115,7 +2263,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "171": {
@@ -2129,6 +2278,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -2141,7 +2291,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "173": {
@@ -2153,7 +2304,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "174": {
@@ -2166,7 +2318,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "175": {
@@ -2189,7 +2342,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "177": {
@@ -2202,7 +2356,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "178": {
@@ -2229,36 +2384,38 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
   "180": {
-    "id": "180",
-    "name": {
-      "en": "Christmas wreath",
-      "pt": "guirlanda"
-    },
     "groups": [
       "alien",
       "dream",
       "evidence",
-      "mesmice"
-    ]
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "en": "Christmas wreath",
+      "pt": "guirlanda"
+    },
+    "id": "180"
   },
   "181": {
-    "id": "181",
-    "name": {
-      "pt": "abelha",
-      "en": "bee"
-    },
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
-    ]
+    ],
+    "name": {
+      "en": "bee",
+      "pt": "abelha"
+    },
+    "id": "181"
   },
   "182": {
-    "id": "182",
     "name": {
       "en": "castle",
       "pt": "castelo"
@@ -2266,46 +2423,51 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
-    ]
+      "mesmice",
+      "thing"
+    ],
+    "id": "182"
   },
   "183": {
-    "id": "183",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
     "name": {
       "pt": "troféu",
       "en": "trophy"
     },
-    "groups": [
-      "alien",
-      "dream",
-      "evidence",
-      "mesmice"
-    ]
+    "id": "183"
   },
   "184": {
     "id": "184",
-    "name": {
-      "en": "floppy disk",
-      "pt": "disquete"
-    },
     "groups": [
       "alien",
       "dream",
       "evidence",
-      "mesmice"
-    ]
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "en": "floppy disk",
+      "pt": "disquete"
+    }
   },
   "185": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
     "id": "185",
     "name": {
       "en": "gift",
       "pt": "presente"
-    },
-    "groups": [
-      "alien",
-      "dream",
-      "evidence"
-    ]
+    }
   },
   "186": {
     "id": "186",
@@ -2321,17 +2483,17 @@
   },
   "187": {
     "id": "187",
+    "groups": [
+      "alien",
+      "mesmice",
+      "thing"
+    ],
     "name": {
       "pt": "refeição",
       "en": "meal"
-    },
-    "groups": [
-      "alien",
-      "mesmice"
-    ]
+    }
   },
   "188": {
-    "id": "188",
     "name": {
       "pt": "trevo",
       "en": "clover"
@@ -2339,8 +2501,10 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
-    ]
+      "evidence",
+      "thing"
+    ],
+    "id": "188"
   },
   "189": {
     "id": "189",
@@ -2356,19 +2520,19 @@
     ]
   },
   "190": {
-    "id": "190",
     "name": {
       "en": "Gameboy",
       "pt": "Gameboy"
     },
+    "id": "190",
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "191": {
-    "id": "191",
     "name": {
       "pt": "pandeiro",
       "en": "tamborine"
@@ -2377,24 +2541,26 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
-    ]
+      "mesmice",
+      "thing"
+    ],
+    "id": "191"
   },
   "192": {
-    "id": "192",
     "name": {
       "en": "guitar",
       "pt": "violão"
     },
+    "id": "192",
     "groups": [
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "193": {
-    "id": "193",
     "name": {
       "en": "unicycle",
       "pt": "monociclo"
@@ -2403,8 +2569,10 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
-    ]
+      "mesmice",
+      "thing"
+    ],
+    "id": "193"
   },
   "194": {
     "id": "194",
@@ -2418,18 +2586,19 @@
     ]
   },
   "195": {
-    "id": "195",
     "name": {
-      "en": "excavator",
-      "pt": "escavadeira"
+      "pt": "escavadeira",
+      "en": "excavator"
     },
     "groups": [
       "alien",
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
-    ]
+    ],
+    "id": "195"
   },
   "196": {
     "id": "196",
@@ -2445,15 +2614,16 @@
     ]
   },
   "197": {
-    "id": "197",
     "name": {
-      "pt": "guarda-chuva",
-      "en": "umbrella"
+      "en": "umbrella",
+      "pt": "guarda-chuva"
     },
+    "id": "197",
     "groups": [
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -2471,17 +2641,18 @@
     ]
   },
   "199": {
-    "id": "199",
-    "name": {
-      "en": "key",
-      "pt": "chave"
-    },
     "groups": [
       "alien",
       "dream",
       "evidence",
-      "mesmice"
-    ]
+      "mesmice",
+      "thing"
+    ],
+    "id": "199",
+    "name": {
+      "pt": "chave",
+      "en": "key"
+    }
   },
   "200": {
     "id": "200",
@@ -2499,18 +2670,18 @@
   "201": {
     "id": "201",
     "name": {
-      "en": "popcorn",
-      "pt": "pipoca"
+      "pt": "pipoca",
+      "en": "popcorn"
     },
     "groups": [
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "202": {
-    "id": "202",
     "name": {
       "en": "dress",
       "pt": "vestido"
@@ -2519,32 +2690,36 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
-    ]
+      "mesmice",
+      "thing"
+    ],
+    "id": "202"
   },
   "203": {
-    "id": "203",
     "name": {
       "pt": "perna",
       "en": "leg"
     },
-    "groups": [
-      "alien",
-      "dream",
-      "evidence"
-    ]
-  },
-  "204": {
-    "id": "204",
-    "name": {
-      "en": "maracas",
-      "pt": "maracas"
-    },
+    "id": "203",
     "groups": [
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "thing"
+    ]
+  },
+  "204": {
+    "name": {
+      "en": "maracas",
+      "pt": "maracas"
+    },
+    "id": "204",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
     ]
   },
   "205": {
@@ -2570,7 +2745,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "207": {
@@ -2587,40 +2763,43 @@
     ]
   },
   "208": {
-    "id": "208",
     "name": {
-      "pt": "remédio",
-      "en": "medicine"
+      "en": "medicine",
+      "pt": "remédio"
     },
+    "id": "208",
     "groups": [
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
   "209": {
     "id": "209",
     "name": {
-      "pt": "seringa",
-      "en": "syringe"
+      "en": "syringe",
+      "pt": "seringa"
     },
     "groups": [
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
   "210": {
     "id": "210",
     "name": {
-      "en": "shrimp",
-      "pt": "camarão"
+      "pt": "camarão",
+      "en": "shrimp"
     },
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
@@ -2632,59 +2811,64 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "212": {
-    "id": "212",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
     "name": {
       "en": "chocolate",
       "pt": "chocolate"
     },
-    "groups": [
-      "alien",
-      "dream",
-      "evidence",
-      "mesmice"
-    ]
+    "id": "212"
   },
   "213": {
-    "id": "213",
     "name": {
       "pt": "tênis",
       "en": "sneakers"
     },
+    "id": "213",
     "groups": [
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "214": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
     "id": "214",
     "name": {
       "pt": "meia",
       "en": "sock"
-    },
+    }
+  },
+  "215": {
     "groups": [
       "alien",
       "dream",
-      "evidence",
-      "mesmice"
-    ]
-  },
-  "215": {
-    "id": "215",
+      "mesmice",
+      "thing"
+    ],
     "name": {
       "en": "roller skates",
       "pt": "patins"
     },
-    "groups": [
-      "alien",
-      "dream",
-      "mesmice"
-    ]
+    "id": "215"
   },
   "216": {
     "id": "216",
@@ -2699,42 +2883,44 @@
     ]
   },
   "217": {
-    "name": {
-      "en": "baseball bat",
-      "pt": "bastão de baseball"
-    },
+    "id": "217",
     "groups": [
       "alien",
       "dream",
       "mesmice",
       "weapon"
     ],
-    "id": "217"
+    "name": {
+      "en": "baseball bat",
+      "pt": "bastão de baseball"
+    }
   },
   "218": {
-    "name": {
-      "pt": "boné",
-      "en": "cap"
-    },
     "id": "218",
     "groups": [
       "alien",
       "dream",
       "evidence",
-      "mesmice"
-    ]
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "en": "cap",
+      "pt": "boné"
+    }
   },
   "219": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing"
+    ],
     "id": "219",
     "name": {
       "pt": "avião",
       "en": "plane"
-    },
-    "groups": [
-      "alien",
-      "dream",
-      "mesmice"
-    ]
+    }
   },
   "220": {
     "id": "220",
@@ -2769,7 +2955,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ],
     "nsfw": true
   },
@@ -2911,7 +3098,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "235": {
@@ -2924,7 +3112,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "236": {
@@ -2937,7 +3126,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "237": {
@@ -2950,7 +3140,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "238": {
@@ -2961,7 +3152,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "239": {
@@ -2974,7 +3166,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ],
     "nsfw": true
   },
@@ -2989,6 +3182,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -3002,7 +3196,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "242": {
@@ -3015,7 +3210,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "243": {
@@ -3028,7 +3224,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "244": {
@@ -3101,7 +3298,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ],
     "nsfw": true
   },
@@ -3172,22 +3370,22 @@
   },
   "255": {
     "name": {
-      "en": "security pad",
-      "pt": "painel de segurança"
+      "pt": "painel de segurança",
+      "en": "security pad"
     },
     "id": "255",
     "groups": [
       "alien",
       "dream",
-      "mesmice",
-      "evidence"
+      "evidence",
+      "mesmice"
     ]
   },
   "256": {
     "id": "256",
     "name": {
-      "pt": "sistema reprodutor feminino",
-      "en": "reproductive system"
+      "pt": "útero",
+      "en": "uterus"
     },
     "groups": [
       "alien"
@@ -3229,6 +3427,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -3242,7 +3441,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "261": {
@@ -3439,7 +3639,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "277": {
@@ -3449,7 +3650,8 @@
       "en": "hopscotch"
     },
     "groups": [
-      "alien"
+      "alien",
+      "thing"
     ]
   },
   "278": {
@@ -3474,7 +3676,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ],
     "nsfw": true
   },
@@ -3486,7 +3689,8 @@
     },
     "groups": [
       "alien",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "281": {
@@ -4087,7 +4291,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "329": {
@@ -4100,6 +4305,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -4113,6 +4319,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -4125,6 +4332,7 @@
     "groups": [
       "alien",
       "mesmice",
+      "thing",
       "weapon"
     ],
     "nsfw": true
@@ -4139,6 +4347,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -4152,7 +4361,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "334": {
@@ -4165,6 +4375,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -4187,11 +4398,11 @@
       "evidence",
       "mesmice"
     ],
+    "id": "336",
     "name": {
       "pt": "película",
       "en": "film reel"
-    },
-    "id": "336"
+    }
   },
   "337": {
     "id": "337",
@@ -4756,6 +4967,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -4769,7 +4981,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "383": {
@@ -4793,7 +5006,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ],
     "nsfw": true
   },
@@ -4807,6 +5021,7 @@
       "alien",
       "dream",
       "evidence",
+      "thing",
       "weapon"
     ]
   },
@@ -4817,7 +5032,8 @@
       "pt": "quiuí"
     },
     "groups": [
-      "alien"
+      "alien",
+      "thing"
     ]
   },
   "387": {
@@ -5059,7 +5275,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ],
     "nsfw": true
   },
@@ -5073,7 +5290,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "408": {
@@ -5086,7 +5304,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "409": {
@@ -5111,7 +5330,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "411": {
@@ -5183,7 +5403,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "417": {
@@ -5196,7 +5417,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "418": {
@@ -5209,7 +5431,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "419": {
@@ -5226,12 +5449,13 @@
   "420": {
     "id": "420",
     "name": {
-      "pt": "marijuana",
+      "pt": "maconha",
       "en": "weed"
     },
     "groups": [
       "alien",
-      "evidence"
+      "evidence",
+      "thing"
     ],
     "nsfw": true
   },
@@ -5257,6 +5481,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -5270,7 +5495,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "424": {
@@ -5381,7 +5607,8 @@
     },
     "groups": [
       "alien",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "433": {
@@ -5394,6 +5621,7 @@
       "alien",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ],
     "nsfw": true
@@ -5419,7 +5647,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "436": {
@@ -5431,6 +5660,7 @@
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
@@ -5740,16 +5970,16 @@
     ]
   },
   "462": {
-    "id": "462",
-    "name": {
-      "en": "dice",
-      "pt": "dados"
-    },
     "groups": [
       "alien",
       "dream",
       "mesmice"
-    ]
+    ],
+    "name": {
+      "pt": "dados",
+      "en": "dice"
+    },
+    "id": "462"
   },
   "463": {
     "id": "463",
@@ -5802,7 +6032,6 @@
     ]
   },
   "467": {
-    "id": "467",
     "groups": [
       "alien",
       "dream",
@@ -5810,6 +6039,7 @@
       "mesmice",
       "weapon"
     ],
+    "id": "467",
     "name": {
       "pt": "supositórios",
       "en": "suppositories"
@@ -6162,15 +6392,15 @@
     ]
   },
   "496": {
-    "name": {
-      "en": "beam scales",
-      "pt": "balança"
-    },
-    "id": "496",
     "groups": [
       "alien",
       "mesmice"
-    ]
+    ],
+    "id": "496",
+    "name": {
+      "en": "beam scales",
+      "pt": "balança"
+    }
   },
   "497": {
     "id": "497",
@@ -7335,16 +7565,16 @@
     ]
   },
   "594": {
-    "name": {
-      "en": "grappling hook",
-      "pt": "gancho de escalada"
-    },
     "groups": [
       "alien",
       "dream",
       "mesmice",
       "weapon"
     ],
+    "name": {
+      "pt": "gancho de escalada",
+      "en": "grappling hook"
+    },
     "id": "594"
   },
   "595": {
@@ -8372,7 +8602,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "680": {
@@ -8385,6 +8616,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -8398,7 +8630,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "682": {
@@ -8423,7 +8656,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ],
     "nsfw": true
   },
@@ -8449,7 +8683,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "686": {
@@ -9434,7 +9669,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "767": {
@@ -9448,6 +9684,7 @@
       "dream",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -9569,7 +9806,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "778": {
@@ -9580,7 +9818,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "779": {
@@ -9593,6 +9832,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -9604,7 +9844,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "781": {
@@ -9629,6 +9870,7 @@
     "groups": [
       "alien",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -11066,11 +11308,11 @@
       "alien",
       "dream"
     ],
-    "id": "904",
     "name": {
       "en": "aspargus",
       "pt": "aspargo"
-    }
+    },
+    "id": "904"
   },
   "905": {
     "id": "905",
@@ -11711,11 +11953,11 @@
       "en": "bench press",
       "pt": "supino"
     },
-    "id": "958",
     "groups": [
       "alien",
       "mesmice"
-    ]
+    ],
+    "id": "958"
   },
   "959": {
     "id": "959",
@@ -11938,7 +12180,7 @@
   "976": {
     "id": "976",
     "name": {
-      "pt": "carretel de linha",
+      "pt": "carretel",
       "en": "spool"
     },
     "groups": [
@@ -12747,14 +12989,14 @@
     ]
   },
   "1042": {
+    "groups": [
+      "dream"
+    ],
     "id": "1042",
     "name": {
       "en": "loch ness monster",
       "pt": "monstro do lago ness"
-    },
-    "groups": [
-      "dream"
-    ]
+    }
   },
   "1043": {
     "id": "1043",
@@ -12913,8 +13155,8 @@
   },
   "1058": {
     "name": {
-      "en": "solar system",
-      "pt": "sistema solar"
+      "pt": "sistema solar",
+      "en": "solar system"
     },
     "id": "1058",
     "groups": [
@@ -13448,11 +13690,11 @@
     "groups": [
       "dream"
     ],
-    "id": "1105",
     "name": {
-      "en": "hydra",
-      "pt": "hidra"
-    }
+      "pt": "hidra",
+      "en": "hydra"
+    },
+    "id": "1105"
   },
   "1106": {
     "id": "1106",
@@ -14015,7 +14257,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1153": {
@@ -14028,7 +14271,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1154": {
@@ -14053,7 +14297,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ],
     "nsfw": true
   },
@@ -14088,7 +14333,8 @@
       "en": "fingerprint"
     },
     "groups": [
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1159": {
@@ -14098,7 +14344,8 @@
       "en": "footprint"
     },
     "groups": [
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1160": {
@@ -14121,7 +14368,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1162": {
@@ -14134,7 +14382,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1163": {
@@ -14156,7 +14405,8 @@
     },
     "groups": [
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1165": {
@@ -14167,7 +14417,8 @@
     },
     "groups": [
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1166": {
@@ -14182,14 +14433,14 @@
     ]
   },
   "1167": {
+    "groups": [
+      "dream"
+    ],
     "name": {
       "pt": "mancha de óleo",
       "en": "oil stain"
     },
-    "id": "1167",
-    "groups": [
-      "dream"
-    ]
+    "id": "1167"
   },
   "1168": {
     "id": "1168",
@@ -14201,7 +14452,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1169": {
@@ -14211,7 +14463,8 @@
       "en": "graffiti"
     },
     "groups": [
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1170": {
@@ -14222,7 +14475,8 @@
     },
     "groups": [
       "alien",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1171": {
@@ -14234,6 +14488,7 @@
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
@@ -14249,7 +14504,6 @@
     ]
   },
   "1173": {
-    "id": "1173",
     "name": {
       "en": "monkey wrench",
       "pt": "chave de grifo"
@@ -14259,7 +14513,8 @@
       "evidence",
       "mesmice",
       "weapon"
-    ]
+    ],
+    "id": "1173"
   },
   "1174": {
     "id": "1174",
@@ -14284,7 +14539,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1176": {
@@ -14307,7 +14563,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1178": {
@@ -14330,7 +14587,8 @@
     },
     "groups": [
       "alien",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1180": {
@@ -14378,7 +14636,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1184": {
@@ -14391,7 +14650,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1185": {
@@ -14416,7 +14676,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1187": {
@@ -14428,7 +14689,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1188": {
@@ -14439,6 +14701,7 @@
     },
     "groups": [
       "alien",
+      "thing",
       "weapon"
     ],
     "nsfw": true
@@ -14451,7 +14714,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1190": {
@@ -14463,7 +14727,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1191": {
@@ -14476,7 +14741,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1192": {
@@ -14488,6 +14754,7 @@
     "groups": [
       "alien",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -14500,7 +14767,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1194": {
@@ -14535,7 +14803,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1197": {
@@ -14618,7 +14887,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1204": {
@@ -14630,7 +14900,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1205": {
@@ -14641,7 +14912,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1206": {
@@ -14652,7 +14924,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1207": {
@@ -14663,7 +14936,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1208": {
@@ -14674,7 +14948,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1209": {
@@ -14685,7 +14960,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1210": {
@@ -14698,7 +14974,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1211": {
@@ -14710,7 +14987,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1212": {
@@ -14723,7 +15001,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1213": {
@@ -14754,21 +15033,22 @@
       "en": "mail"
     },
     "groups": [
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1216": {
+    "name": {
+      "pt": "servidor",
+      "en": "server"
+    },
     "groups": [
       "alien",
       "dream",
       "evidence",
       "mesmice"
     ],
-    "id": "1216",
-    "name": {
-      "en": "server",
-      "pt": "servidor"
-    }
+    "id": "1216"
   },
   "1217": {
     "id": "1217",
@@ -14803,21 +15083,22 @@
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
   "1220": {
-    "id": "1220",
+    "name": {
+      "en": "chalk",
+      "pt": "giz"
+    },
     "groups": [
       "alien",
       "dream",
       "evidence",
       "mesmice"
     ],
-    "name": {
-      "pt": "giz",
-      "en": "chalk"
-    }
+    "id": "1220"
   },
   "1221": {
     "id": "1221",
@@ -14844,17 +15125,17 @@
     ]
   },
   "1223": {
+    "name": {
+      "pt": "atestado médico",
+      "en": "prescription"
+    },
     "groups": [
       "alien",
       "dream",
       "evidence",
       "mesmice"
     ],
-    "id": "1223",
-    "name": {
-      "pt": "atestado médico",
-      "en": "prescription"
-    }
+    "id": "1223"
   },
   "1224": {
     "id": "1224",
@@ -14910,7 +15191,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1229": {
@@ -14936,14 +15218,14 @@
     ]
   },
   "1231": {
-    "id": "1231",
-    "name": {
-      "en": "grim reaper",
-      "pt": "dona morte"
-    },
     "groups": [
       "dream"
-    ]
+    ],
+    "id": "1231",
+    "name": {
+      "pt": "dona morte",
+      "en": "grim reaper"
+    }
   },
   "1232": {
     "id": "1232",
@@ -15058,11 +15340,11 @@
       "dream",
       "evidence"
     ],
-    "id": "1241",
     "name": {
       "pt": "pêssego",
       "en": "peach"
-    }
+    },
+    "id": "1241"
   },
   "1242": {
     "id": "1242",
@@ -15073,6 +15355,7 @@
     "groups": [
       "alien",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -15086,7 +15369,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1244": {
@@ -15133,7 +15417,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1248": {
@@ -15144,7 +15429,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1249": {
@@ -15191,7 +15477,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1253": {
@@ -15226,7 +15513,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1256": {
@@ -15239,7 +15527,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1257": {
@@ -15263,7 +15552,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1259": {
@@ -15274,7 +15564,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1260": {
@@ -15324,7 +15615,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1264": {
@@ -15379,7 +15671,8 @@
     "groups": [
       "alien",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1269": {
@@ -15390,8 +15683,10 @@
     },
     "groups": [
       "alien",
-      "evidence"
-    ]
+      "evidence",
+      "thing"
+    ],
+    "nsfw": true
   },
   "1270": {
     "id": "1270",
@@ -15426,7 +15721,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1273": {
@@ -15437,7 +15733,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1274": {
@@ -15448,7 +15745,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1275": {
@@ -15460,7 +15758,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1276": {
@@ -15482,7 +15781,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1278": {
@@ -15493,7 +15793,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1279": {
@@ -15503,7 +15804,8 @@
       "pt": "constelação"
     },
     "groups": [
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1280": {
@@ -15513,7 +15815,8 @@
       "pt": "dinossauro"
     },
     "groups": [
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1281": {
@@ -15549,7 +15852,8 @@
     },
     "groups": [
       "alien",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1284": {
@@ -15561,7 +15865,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1285": {
@@ -15573,7 +15878,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1286": {
@@ -15583,6 +15889,7 @@
       "en": "pentagram"
     },
     "groups": [
+      "thing",
       "weapon"
     ]
   },
@@ -15605,7 +15912,8 @@
     },
     "groups": [
       "alien",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1289": {
@@ -15624,7 +15932,7 @@
   "1290": {
     "id": "1290",
     "name": {
-      "pt": "recipiente?",
+      "pt": "contêineres",
       "en": "containers"
     },
     "groups": [
@@ -15676,7 +15984,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1295": {
@@ -15688,7 +15997,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1296": {
@@ -15700,7 +16010,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1297": {
@@ -15712,7 +16023,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1298": {
@@ -15749,7 +16061,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1301": {
@@ -15761,7 +16074,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1302": {
@@ -15786,7 +16100,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1304": {
@@ -15799,7 +16114,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1305": {
@@ -15812,7 +16128,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1306": {
@@ -15824,7 +16141,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1307": {
@@ -15861,7 +16179,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1310": {
@@ -15873,7 +16192,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1311": {
@@ -15909,7 +16229,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1314": {
@@ -15921,7 +16242,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1315": {
@@ -15933,7 +16255,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1316": {
@@ -15950,14 +16273,14 @@
     "nsfw": true
   },
   "1317": {
-    "id": "1317",
+    "groups": [
+      "dream"
+    ],
     "name": {
       "en": "phoenix",
       "pt": "fênix"
     },
-    "groups": [
-      "dream"
-    ]
+    "id": "1317"
   },
   "1318": {
     "id": "1318",
@@ -15966,7 +16289,8 @@
       "en": "minotaur"
     },
     "groups": [
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1319": {
@@ -15989,7 +16313,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ],
     "nsfw": true
   },
@@ -16027,6 +16352,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -16040,6 +16366,7 @@
       "alien",
       "dream",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -16051,7 +16378,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1326": {
@@ -16062,7 +16390,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1327": {
@@ -16073,7 +16402,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1328": {
@@ -16084,7 +16414,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1329": {
@@ -16094,7 +16425,8 @@
       "en": "ogre"
     },
     "groups": [
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1330": {
@@ -16104,7 +16436,8 @@
       "en": "genie"
     },
     "groups": [
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1331": {
@@ -16149,7 +16482,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1335": {
@@ -16183,7 +16517,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1338": {
@@ -16195,6 +16530,7 @@
     "groups": [
       "alien",
       "dream",
+      "thing",
       "weapon"
     ]
   },
@@ -16269,7 +16605,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1345": {
@@ -16294,7 +16631,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1347": {
@@ -16305,7 +16643,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1348": {
@@ -16365,7 +16704,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1353": {
@@ -16378,7 +16718,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1354": {
@@ -16390,7 +16731,8 @@
     "groups": [
       "alien",
       "dream",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1355": {
@@ -16465,7 +16807,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1361": {
@@ -16512,7 +16855,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1365": {
@@ -16593,7 +16937,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1372": {
@@ -16640,7 +16985,8 @@
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "thing"
     ],
     "nsfw": true
   },
@@ -16666,7 +17012,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1378": {
@@ -16701,7 +17048,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1381": {
@@ -16713,7 +17061,8 @@
     "groups": [
       "alien",
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1382": {
@@ -16726,7 +17075,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1383": {
@@ -16750,7 +17100,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1385": {
@@ -16760,7 +17111,8 @@
       "en": "princess"
     },
     "groups": [
-      "dream"
+      "dream",
+      "thing"
     ]
   },
   "1386": {
@@ -16773,7 +17125,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1387": {
@@ -16822,7 +17175,8 @@
     },
     "groups": [
       "dream",
-      "evidence"
+      "evidence",
+      "thing"
     ]
   },
   "1391": {
@@ -16847,7 +17201,8 @@
       "alien",
       "dream",
       "evidence",
-      "mesmice"
+      "mesmice",
+      "thing"
     ]
   },
   "1393": {
@@ -17062,15 +17417,15 @@
     ]
   },
   "1413": {
-    "name": {
-      "en": "dance dance revolution mat",
-      "pt": "tapete de dança"
-    },
     "groups": [
       "alien",
       "evidence",
       "mesmice"
     ],
+    "name": {
+      "pt": "tapete de dança",
+      "en": "dance dance revolution mat"
+    },
     "id": "1413"
   },
   "1414": {
@@ -17129,11 +17484,11 @@
     ]
   },
   "1419": {
-    "id": "1419",
     "name": {
-      "en": "goal post",
-      "pt": "baliza"
+      "pt": "baliza",
+      "en": "goal post"
     },
+    "id": "1419",
     "groups": [
       "alien",
       "mesmice"
@@ -17142,8 +17497,8 @@
   "1420": {
     "id": "1420",
     "name": {
-      "pt": "roupa de mergulho",
-      "en": "wetsuit"
+      "en": "wetsuit",
+      "pt": "roupa de mergulho"
     },
     "groups": [
       "alien",
@@ -17158,28 +17513,28 @@
     },
     "id": "1421",
     "groups": [
-      "mesmice",
-      "alien"
+      "alien",
+      "mesmice"
     ]
   },
   "1422": {
+    "groups": [
+      "alien",
+      "evidence",
+      "mesmice"
+    ],
     "id": "1422",
     "name": {
       "pt": "chocalho de vaca",
       "en": "cowbell"
-    },
-    "groups": [
-      "alien",
-      "mesmice",
-      "evidence"
-    ]
+    }
   },
   "1423": {
-    "name": {
-      "en": "photo booth",
-      "pt": "cabine fotográfica"
-    },
     "id": "1423",
+    "name": {
+      "pt": "cabine fotográfica",
+      "en": "photo booth"
+    },
     "groups": [
       "alien",
       "mesmice"
@@ -17187,37 +17542,37 @@
   },
   "1424": {
     "id": "1424",
-    "name": {
-      "en": "air pump",
-      "pt": "bomba de ar"
-    },
     "groups": [
       "alien",
       "mesmice"
-    ]
+    ],
+    "name": {
+      "pt": "bomba de ar",
+      "en": "air pump"
+    }
   },
   "1425": {
+    "id": "1425",
     "groups": [
-      "mesmice",
-      "alien"
+      "alien",
+      "mesmice"
     ],
     "name": {
       "pt": "escova de dentes elétrica",
       "en": "electric toothbrush"
-    },
-    "id": "1425"
+    }
   },
   "1426": {
-    "name": {
-      "pt": "corda de bungee jumping",
-      "en": "bungee jumping rope"
-    },
     "id": "1426",
+    "name": {
+      "en": "bungee jumping rope",
+      "pt": "corda de bungee jumping"
+    },
     "groups": [
-      "mesmice",
       "alien",
-      "weapon",
-      "evidence"
+      "evidence",
+      "mesmice",
+      "weapon"
     ]
   },
   "1427": {
@@ -17225,57 +17580,57 @@
       "alien",
       "mesmice"
     ],
-    "nsfw": true,
     "id": "1427",
+    "nsfw": true,
     "name": {
-      "en": "cigarette machine",
-      "pt": "máquina de tabaco"
+      "pt": "máquina de tabaco",
+      "en": "cigarette machine"
     }
   },
   "1428": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
     "name": {
       "pt": "espátula",
       "en": "scraper"
     },
-    "groups": [
-      "dream",
-      "mesmice",
-      "alien"
-    ],
     "id": "1428"
   },
   "1429": {
+    "groups": [
+      "alien",
+      "mesmice"
+    ],
     "name": {
       "pt": "casaco de invejo",
       "en": "winter coat"
     },
-    "id": "1429",
-    "groups": [
-      "mesmice",
-      "alien"
-    ]
+    "id": "1429"
   },
   "1430": {
-    "id": "1430",
     "name": {
-      "pt": "nível de bolha",
-      "en": "spirit level"
+      "en": "spirit level",
+      "pt": "nível de bolha"
     },
     "groups": [
       "alien",
       "mesmice"
-    ]
+    ],
+    "id": "1430"
   },
   "1431": {
+    "id": "1431",
     "groups": [
       "alien",
       "mesmice"
     ],
     "name": {
-      "en": "hiking backpack",
-      "pt": "mochila de trilha"
-    },
-    "id": "1431"
+      "pt": "mochila de trilha",
+      "en": "hiking backpack"
+    }
   },
   "1432": {
     "id": "1432",
@@ -17295,135 +17650,135 @@
       "pt": "soundbar"
     },
     "groups": [
-      "evidence",
-      "alien"
+      "alien",
+      "evidence"
     ],
     "id": "1433"
   },
   "1434": {
-    "groups": [
-      "mesmice",
-      "alien"
-    ],
-    "id": "1434",
     "name": {
-      "en": "smartwatch",
-      "pt": "relógio inteligente"
-    }
+      "pt": "relógio inteligente",
+      "en": "smartwatch"
+    },
+    "id": "1434",
+    "groups": [
+      "alien",
+      "mesmice"
+    ]
   },
   "1435": {
-    "groups": [
-      "mesmice",
-      "alien"
-    ],
     "id": "1435",
+    "groups": [
+      "alien",
+      "mesmice"
+    ],
     "name": {
       "en": "snow shovel",
       "pt": "pá de neve"
     }
   },
   "1436": {
-    "id": "1436",
-    "name": {
-      "en": "sled",
-      "pt": "trenó"
-    },
     "groups": [
       "alien",
       "dream"
-    ]
+    ],
+    "name": {
+      "pt": "trenó",
+      "en": "sled"
+    },
+    "id": "1436"
   },
   "1437": {
     "groups": [
-      "mesmice",
-      "alien"
+      "alien",
+      "mesmice"
     ],
     "id": "1437",
     "name": {
-      "en": "reception bell",
-      "pt": "campainha de recepção"
+      "pt": "campainha de recepção",
+      "en": "reception bell"
     }
   },
   "1438": {
     "groups": [
-      "mesmice",
-      "alien"
-    ],
-    "id": "1438",
-    "name": {
-      "pt": "cortador de pizza",
-      "en": "pizza cutter"
-    }
-  },
-  "1439": {
-    "id": "1439",
-    "groups": [
-      "mesmice",
-      "weapon",
-      "alien"
-    ],
-    "name": {
-      "pt": "pá limpa-neve",
-      "en": "snow plow"
-    }
-  },
-  "1440": {
-    "groups": [
-      "evidence",
       "alien",
       "mesmice"
     ],
     "name": {
-      "en": "pipe organ",
-      "pt": "órgão de tubos"
+      "pt": "cortador de pizza",
+      "en": "pizza cutter"
     },
-    "id": "1440"
+    "id": "1438"
   },
-  "1441": {
+  "1439": {
+    "name": {
+      "pt": "pá limpa-neve",
+      "en": "snow plow"
+    },
     "groups": [
       "alien",
       "mesmice",
-      "dream",
-      "evidence"
+      "weapon"
     ],
-    "id": "1441",
+    "id": "1439"
+  },
+  "1440": {
+    "id": "1440",
     "name": {
-      "en": "pepper spray",
-      "pt": "spray de pimenta"
+      "en": "pipe organ",
+      "pt": "órgão de tubos"
+    },
+    "groups": [
+      "alien",
+      "evidence",
+      "mesmice"
+    ]
+  },
+  "1441": {
+    "id": "1441",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "name": {
+      "pt": "spray de pimenta",
+      "en": "pepper spray"
     }
   },
   "1442": {
+    "id": "1442",
     "name": {
       "pt": "laser",
       "en": "laser pointer"
     },
-    "id": "1442",
     "groups": [
       "alien",
-      "mesmice",
-      "dream"
+      "dream",
+      "mesmice"
     ]
   },
   "1443": {
-    "name": {
-      "en": "toy mouse",
-      "pt": "ratinho de brinquedo"
-    },
     "id": "1443",
     "groups": [
       "alien"
-    ]
+    ],
+    "name": {
+      "pt": "ratinho de brinquedo",
+      "en": "toy mouse"
+    }
   },
   "1444": {
     "groups": [
       "alien",
       "dream",
-      "mesmice",
-      "evidence"
+      "evidence",
+      "mesmice"
     ],
     "name": {
-      "en": "mouse trap",
-      "pt": "ratoeira"
+      "pt": "ratoeira",
+      "en": "mouse trap"
     },
     "id": "1444"
   },
@@ -17433,82 +17788,82 @@
       "pt": "relógio cuco"
     },
     "groups": [
-      "mesmice",
       "alien",
-      "evidence"
+      "evidence",
+      "mesmice"
     ],
     "id": "1445"
   },
   "1446": {
-    "groups": [
-      "alien",
-      "dream"
-    ],
     "id": "1446",
     "name": {
       "pt": "caixa de areria",
       "en": "litter box"
-    }
-  },
-  "1447": {
-    "name": {
-      "en": "jukebox",
-      "pt": "jukebox"
     },
     "groups": [
-      "evidence",
       "alien",
+      "dream"
+    ]
+  },
+  "1447": {
+    "id": "1447",
+    "groups": [
+      "alien",
+      "evidence",
       "mesmice"
     ],
-    "id": "1447"
+    "name": {
+      "pt": "jukebox",
+      "en": "jukebox"
+    }
   },
   "1448": {
-    "id": "1448",
     "groups": [
       "alien",
-      "mesmice",
-      "evidence"
+      "evidence",
+      "mesmice"
     ],
     "name": {
-      "en": "dog whistle",
-      "pt": "apito para cães"
-    }
+      "pt": "apito para cães",
+      "en": "dog whistle"
+    },
+    "id": "1448"
   },
   "1449": {
-    "groups": [
-      "alien",
-      "mesmice",
-      "evidence"
-    ],
     "id": "1449",
     "name": {
-      "pt": "estrado",
-      "en": "pallet"
-    }
+      "en": "pallet",
+      "pt": "estrado"
+    },
+    "groups": [
+      "alien",
+      "evidence",
+      "mesmice"
+    ]
   },
   "1450": {
     "groups": [
-      "weapon",
       "alien",
-      "dream"
+      "dream",
+      "weapon"
     ],
     "name": {
-      "en": "bowling ball",
-      "pt": "bola de boliche"
+      "pt": "bola de boliche",
+      "en": "bowling ball"
     },
     "id": "1450"
   },
   "1451": {
-    "groups": [
-      "mesmice",
-      "alien",
-      "dream"
-    ],
     "id": "1451",
     "name": {
       "en": "electric blanket",
       "pt": "cobertor elétrico"
-    }
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice"
+    ]
   },
   "1452": {
     "id": "1452",
@@ -17518,17 +17873,17 @@
       "mesmice"
     ],
     "name": {
-      "en": "pinball machine",
-      "pt": "pinball"
+      "pt": "pinball",
+      "en": "pinball machine"
     }
   },
   "1453": {
     "id": "1453",
     "groups": [
       "alien",
-      "mesmice",
       "dream",
       "evidence",
+      "mesmice",
       "weapon"
     ],
     "name": {
@@ -17537,36 +17892,36 @@
     }
   },
   "1454": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
     "name": {
       "pt": "CD",
       "en": "CD"
     },
-    "id": "1454",
-    "groups": [
-      "mesmice",
-      "alien",
-      "dream",
-      "evidence"
-    ]
+    "id": "1454"
   },
   "1455": {
+    "id": "1455",
     "groups": [
-      "mesmice",
+      "alien",
       "dream",
-      "alien"
+      "mesmice"
     ],
     "name": {
-      "en": "massage chair",
-      "pt": "cadeira de massagem"
-    },
-    "id": "1455"
+      "pt": "cadeira de massagem",
+      "en": "massage chair"
+    }
   },
   "1456": {
-    "name": {
-      "en": "clothesline",
-      "pt": "varal"
-    },
     "id": "1456",
+    "name": {
+      "pt": "varal",
+      "en": "clothesline"
+    },
     "groups": [
       "alien",
       "dream",
@@ -17574,186 +17929,1748 @@
     ]
   },
   "1457": {
+    "id": "1457",
     "groups": [
       "alien"
     ],
     "name": {
       "pt": "bruschetta",
       "en": "bruschetta"
-    },
-    "id": "1457"
+    }
   },
   "1458": {
+    "id": "1458",
+    "groups": [
+      "alien",
+      "dream"
+    ],
     "name": {
       "pt": "ricota",
       "en": "ricotta"
-    },
-    "groups": [
-      "alien",
-      "dream"
-    ],
-    "id": "1458"
+    }
   },
   "1459": {
     "name": {
-      "en": "balsamic vinegar",
-      "pt": "vinagre balsâmico"
+      "pt": "vinagre balsâmico",
+      "en": "balsamic vinegar"
+    },
+    "id": "1459",
+    "groups": [
+      "alien",
+      "dream"
+    ]
+  },
+  "1460": {
+    "name": {
+      "en": "cereal",
+      "pt": "cereal matinal"
     },
     "groups": [
       "alien",
-      "dream"
+      "dream",
+      "mesmice"
     ],
-    "id": "1459"
-  },
-  "1460": {
-    "id": "1460",
-    "groups": [
-      "alien",
-      "mesmice",
-      "dream"
-    ],
-    "name": {
-      "pt": "cereal matinal",
-      "en": "cereal"
-    }
+    "id": "1460"
   },
   "1461": {
-    "id": "1461",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
     "name": {
       "en": "appetizers",
       "pt": "aperitivos"
     },
-    "groups": [
-      "alien",
-      "dream",
-      "evidence"
-    ]
+    "id": "1461"
   },
   "1462": {
-    "name": {
-      "pt": "molho",
-      "en": "sauce"
-    },
     "groups": [
       "alien",
       "dream"
     ],
+    "name": {
+      "pt": "molho",
+      "en": "sauce"
+    },
     "id": "1462"
   },
   "1463": {
+    "id": "1463",
+    "name": {
+      "en": "sliced cheese",
+      "pt": "queijo fatiado"
+    },
     "groups": [
       "alien"
-    ],
-    "name": {
-      "pt": "queijo fatiado",
-      "en": "sliced cheese"
-    },
-    "id": "1463"
+    ]
   },
   "1464": {
-    "name": {
-      "pt": "maquininha de cartão",
-      "en": "payment terminal"
-    },
     "id": "1464",
     "groups": [
-      "mesmice",
       "alien",
-      "evidence"
-    ]
+      "evidence",
+      "mesmice"
+    ],
+    "name": {
+      "en": "payment terminal",
+      "pt": "maquininha de cartão"
+    }
   },
   "1465": {
     "id": "1465",
+    "name": {
+      "pt": "manteiga",
+      "en": "butter"
+    },
     "groups": [
       "alien",
       "dream",
       "evidence"
-    ],
-    "name": {
-      "pt": "manteiga",
-      "en": "butter"
-    }
+    ]
   },
   "1466": {
+    "id": "1466",
+    "groups": [
+      "alien",
+      "evidence",
+      "mesmice",
+      "weapon"
+    ],
     "name": {
       "en": "peanut butter",
       "pt": "manteiga de amendoim"
-    },
-    "groups": [
-      "evidence",
-      "weapon",
-      "mesmice",
-      "alien"
-    ],
-    "id": "1466"
+    }
   },
   "1467": {
     "groups": [
       "alien",
       "dream"
     ],
+    "id": "1467",
     "name": {
-      "pt": "panquecas",
-      "en": "pancakes"
-    },
-    "id": "1467"
+      "en": "pancakes",
+      "pt": "panquecas"
+    }
   },
   "1468": {
+    "name": {
+      "en": "fuse box",
+      "pt": "caixa de força"
+    },
     "groups": [
       "alien",
       "evidence",
       "mesmice"
     ],
-    "id": "1468",
-    "name": {
-      "en": "fuse box",
-      "pt": "caixa de força"
-    }
+    "id": "1468"
   },
   "1469": {
     "id": "1469",
     "groups": [
-      "dream",
-      "mesmice",
       "alien",
-      "evidence"
+      "dream",
+      "evidence",
+      "mesmice"
     ],
     "name": {
-      "pt": "fita isolante",
-      "en": "insulating tape"
+      "en": "insulating tape",
+      "pt": "fita isolante"
     }
   },
   "1470": {
-    "groups": [
-      "alien",
-      "mesmice"
-    ],
-    "id": "1470",
     "name": {
-      "en": "curling stone",
-      "pt": "pedra de curling"
-    }
-  },
-  "1471": {
-    "name": {
-      "pt": "bate de críquete",
-      "en": "cricket bat"
+      "pt": "pedra de curling",
+      "en": "curling stone"
     },
     "groups": [
       "alien",
-      "weapon",
       "mesmice"
     ],
+    "id": "1470"
+  },
+  "1471": {
+    "groups": [
+      "alien",
+      "mesmice",
+      "weapon"
+    ],
+    "name": {
+      "en": "cricket bat",
+      "pt": "bate de críquete"
+    },
     "id": "1471"
   },
   "1472": {
+    "name": {
+      "pt": "arena de sumô",
+      "en": "sumo arena"
+    },
+    "groups": [
+      "alien"
+    ],
+    "id": "1472"
+  },
+  "1473": {
+    "groups": [
+      "dream",
+      "mesmice"
+    ],
+    "id": "1473",
+    "name": {
+      "en": "obstacle",
+      "pt": "obstáculo"
+    }
+  },
+  "1474": {
+    "id": "1474",
+    "name": {
+      "en": "soccer field",
+      "pt": "campo de futebol"
+    },
+    "groups": [
+      "alien",
+      "dream"
+    ]
+  },
+  "1475": {
+    "id": "1475",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "name": {
+      "en": "tennis ball",
+      "pt": "bola de tênis"
+    }
+  },
+  "1476": {
+    "id": "1476",
+    "name": {
+      "pt": "alvo de dardos",
+      "en": "dart board"
+    },
+    "groups": [
+      "dream",
+      "evidence",
+      "mesmice"
+    ]
+  },
+  "1477": {
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "id": "1477",
+    "name": {
+      "en": "basketball court",
+      "pt": "quadra de basquete"
+    }
+  },
+  "1478": {
+    "name": {
+      "en": "volleyball",
+      "pt": "bola de volley"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "id": "1478"
+  },
+  "1479": {
+    "id": "1479",
+    "groups": [
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "pt": "peteca",
+      "en": "shuttlecock"
+    }
+  },
+  "1480": {
+    "name": {
+      "en": "lube",
+      "pt": "lubrificante"
+    },
+    "id": "1480",
+    "nsfw": true,
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ]
+  },
+  "1481": {
+    "groups": [
+      "alien",
+      "evidence",
+      "thing"
+    ],
+    "name": {
+      "pt": "cebolinha",
+      "en": "green onions"
+    },
+    "id": "1481"
+  },
+  "1482": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "name": {
+      "en": "blueberries",
+      "pt": "mirtilo"
+    },
+    "id": "1482"
+  },
+  "1483": {
+    "id": "1483",
+    "name": {
+      "pt": "código binário",
+      "en": "binary coe"
+    },
+    "groups": [
+      "dream",
+      "evidence",
+      "thing"
+    ]
+  },
+  "1484": {
+    "groups": [
+      "evidence"
+    ],
+    "name": {
+      "pt": "código de computador",
+      "en": "computer code"
+    },
+    "id": "1484"
+  },
+  "1485": {
+    "name": {
+      "pt": "cálice",
+      "en": "chalice"
+    },
+    "id": "1485",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ]
+  },
+  "1486": {
+    "name": {
+      "en": "torii gate",
+      "pt": "torii"
+    },
+    "groups": [
+      "alien",
+      "thing"
+    ],
+    "id": "1486"
+  },
+  "1487": {
+    "name": {
+      "en": "lotus",
+      "pt": "lótus"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "id": "1487"
+  },
+  "1488": {
+    "name": {
+      "en": "Hunnakah candle",
+      "pt": "vela de Hanukkah"
+    },
+    "groups": [
+      "alien",
+      "evidence",
+      "mesmice",
+      "thing",
+      "weapon"
+    ],
+    "id": "1488"
+  },
+  "1489": {
+    "name": {
+      "en": "ouija board",
+      "pt": "ouija"
+    },
+    "id": "1489",
+    "groups": [
+      "alien",
+      "mesmice",
+      "thing"
+    ]
+  },
+  "1490": {
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "id": "1490",
+    "name": {
+      "pt": "poça",
+      "en": "pond"
+    }
+  },
+  "1491": {
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "id": "1491",
+    "name": {
+      "en": "mansion",
+      "pt": "mansão"
+    }
+  },
+  "1492": {
+    "name": {
+      "en": "column",
+      "pt": "coluna"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing"
+    ],
+    "id": "1492"
+  },
+  "1493": {
+    "id": "1493",
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "name": {
+      "pt": "apartamentos",
+      "en": "apartments"
+    }
+  },
+  "1494": {
+    "name": {
+      "pt": "copo descartável",
+      "en": "plastic cup"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing"
+    ],
+    "id": "1494"
+  },
+  "1495": {
+    "id": "1495",
+    "name": {
+      "en": "glass",
+      "pt": "copo"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ]
+  },
+  "1496": {
+    "id": "1496",
+    "name": {
+      "en": "charger",
+      "pt": "carregador"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing",
+      "weapon"
+    ]
+  },
+  "1497": {
+    "id": "1497",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "en": "ipod",
+      "pt": "ipod"
+    }
+  },
+  "1498": {
+    "id": "1498",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "pt": "GPS",
+      "en": "GPS"
+    }
+  },
+  "1499": {
+    "id": "1499",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "en": "webcam",
+      "pt": "webcam"
+    }
+  },
+  "1500": {
+    "name": {
+      "en": "message in a bottle",
+      "pt": "mensagem na garrafa"
+    },
+    "id": "1500",
+    "groups": [
+      "alien",
+      "evidence"
+    ]
+  },
+  "1501": {
+    "id": "1501",
+    "groups": [
+      "dream",
+      "evidence"
+    ],
+    "name": {
+      "en": "virus",
+      "pt": "vírus"
+    }
+  },
+  "1502": {
+    "id": "1502",
+    "groups": [
+      "dream"
+    ],
+    "name": {
+      "pt": "smiley",
+      "en": "smiley"
+    }
+  },
+  "1503": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "pt": "adesivo",
+      "en": "sticker"
+    },
+    "id": "1503"
+  },
+  "1504": {
+    "name": {
+      "pt": "reciclado",
+      "en": "recycle bins"
+    },
+    "id": "1504",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ]
+  },
+  "1505": {
+    "name": {
+      "pt": "desenho",
+      "en": "drawing"
+    },
+    "id": "1505",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ]
+  },
+  "1506": {
+    "groups": [
+      "alien",
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "en": "cargo ship",
+      "pt": "navio cargueiro"
+    },
+    "id": "1506"
+  },
+  "1507": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "name": {
+      "en": "tofu",
+      "pt": "tofu"
+    },
+    "id": "1507"
+  },
+  "1508": {
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "name": {
+      "pt": "galpão",
+      "en": "warehouse"
+    },
+    "id": "1508"
+  },
+  "1509": {
+    "id": "1509",
+    "name": {
+      "en": "soup",
+      "pt": "sopa"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing",
+      "weapon"
+    ]
+  },
+  "1510": {
+    "name": {
+      "pt": "fisioterapia",
+      "en": "physical therapy"
+    },
+    "groups": [
+      "dream"
+    ],
+    "id": "1510"
+  },
+  "1511": {
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "id": "1511",
+    "name": {
+      "en": "family",
+      "pt": "família"
+    }
+  },
+  "1512": {
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "name": {
+      "en": "dunes",
+      "pt": "dunas"
+    },
+    "id": "1512"
+  },
+  "1513": {
+    "id": "1513",
+    "name": {
+      "pt": "luzinhas",
+      "en": "lights"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ]
+  },
+  "1514": {
+    "id": "1514",
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "name": {
+      "pt": "político",
+      "en": "politician"
+    }
+  },
+  "1515": {
+    "name": {
+      "pt": "deserto",
+      "en": "desert"
+    },
+    "groups": [
+      "dream"
+    ],
+    "id": "1515"
+  },
+  "1516": {
+    "groups": [
+      "dream"
+    ],
+    "name": {
+      "pt": "cânion",
+      "en": "canyon"
+    },
+    "id": "1516"
+  },
+  "1517": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "pt": "estrada",
+      "en": "road"
+    },
+    "id": "1517"
+  },
+  "1518": {
+    "name": {
+      "en": "savannah",
+      "pt": "savana"
+    },
+    "groups": [
+      "dream"
+    ],
+    "id": "1518"
+  },
+  "1519": {
+    "groups": [
+      "dream",
+      "thing"
+    ],
+    "id": "1519",
+    "name": {
+      "en": "ocean",
+      "pt": "oceano"
+    }
+  },
+  "1520": {
+    "id": "1520",
+    "name": {
+      "en": "fiels",
+      "pt": "campos"
+    },
+    "groups": [
+      "dream"
+    ]
+  },
+  "1521": {
+    "groups": [
+      "dream"
+    ],
+    "id": "1521",
+    "name": {
+      "pt": "colinas",
+      "en": "hills"
+    }
+  },
+  "1522": {
+    "id": "1522",
+    "name": {
+      "en": "forest",
+      "pt": "floresta"
+    },
+    "groups": [
+      "dream"
+    ]
+  },
+  "1523": {
+    "name": {
+      "pt": "árvore morta",
+      "en": "dead tree"
+    },
+    "id": "1523",
+    "groups": [
+      "alien"
+    ]
+  },
+  "1524": {
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "id": "1524",
+    "name": {
+      "pt": "bambu",
+      "en": "bamboo"
+    }
+  },
+  "1525": {
+    "id": "1525",
+    "groups": [
+      "dream"
+    ],
+    "name": {
+      "en": "blizzard",
+      "pt": "nevasca"
+    }
+  },
+  "1526": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "id": "1526",
+    "name": {
+      "en": "ram mémory",
+      "pt": "memória ram"
+    }
+  },
+  "1527": {
+    "groups": [
+      "dream"
+    ],
+    "name": {
+      "pt": "brasil",
+      "en": "brazil"
+    },
+    "id": "1527"
+  },
+  "1528": {
+    "id": "1528",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "name": {
+      "en": "pollution",
+      "pt": "poluição"
+    }
+  },
+  "1529": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "en": "pictures",
+      "pt": "fotos"
+    },
+    "id": "1529"
+  },
+  "1530": {
+    "name": {
+      "en": "diploma",
+      "pt": "diploma"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "id": "1530"
+  },
+  "1531": {
+    "id": "1531",
+    "name": {
+      "en": "sesame seeds",
+      "pt": "gergelim"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ]
+  },
+  "1532": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "name": {
+      "pt": "gaivota",
+      "en": "seegull"
+    },
+    "id": "1532"
+  },
+  "1533": {
+    "id": "1533",
+    "name": {
+      "pt": "castanhas",
+      "en": "nuts"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ]
+  },
+  "1534": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "name": {
+      "en": "kiwi",
+      "pt": "kiwi"
+    },
+    "id": "1534"
+  },
+  "1535": {
+    "name": {
+      "pt": "cebola",
+      "en": "onion"
+    },
+    "id": "1535",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ]
+  },
+  "1536": {
+    "name": {
+      "pt": "papel alumínio",
+      "en": "aluminum foil"
+    },
+    "id": "1536",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ]
+  },
+  "1537": {
+    "groups": [
+      "dream",
+      "thing"
+    ],
+    "id": "1537",
+    "name": {
+      "en": "pharmacy",
+      "pt": "farmácia"
+    }
+  },
+  "1538": {
+    "name": {
+      "en": "sugar cane",
+      "pt": "cana"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "id": "1538"
+  },
+  "1539": {
+    "id": "1539",
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "name": {
+      "pt": "burrito",
+      "en": "burrito"
+    }
+  },
+  "1540": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "id": "1540",
+    "name": {
+      "en": "storybook",
+      "pt": "fábulas"
+    }
+  },
+  "1541": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "name": {
+      "en": "dam",
+      "pt": "barragem"
+    },
+    "id": "1541"
+  },
+  "1542": {
+    "name": {
+      "en": "bouncer",
+      "pt": "segurança"
+    },
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "id": "1542"
+  },
+  "1543": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "id": "1543",
+    "name": {
+      "en": "binders",
+      "pt": "pastas"
+    }
+  },
+  "1544": {
+    "name": {
+      "pt": "mexido",
+      "en": "fried rice"
+    },
+    "id": "1544",
+    "groups": [
+      "alien",
+      "dream"
+    ]
+  },
+  "1545": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "name": {
+      "en": "dog food",
+      "pt": "ração"
+    },
+    "id": "1545"
+  },
+  "1546": {
+    "name": {
+      "pt": "bingo",
+      "en": "bingo"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "id": "1546"
+  },
+  "1547": {
+    "id": "1547",
+    "groups": [
+      "dream"
+    ],
+    "name": {
+      "en": "meeting",
+      "pt": "reunião"
+    }
+  },
+  "1548": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing"
+    ],
+    "name": {
+      "en": "bank",
+      "pt": "banco"
+    },
+    "id": "1548"
+  },
+  "1549": {
+    "nsfw": true,
+    "id": "1549",
+    "groups": [
+      "alien",
+      "evidence",
+      "thing"
+    ],
+    "name": {
+      "pt": "chocolate da verdade",
+      "en": "weed chocolate"
+    }
+  },
+  "1550": {
+    "name": {
+      "en": "IUD",
+      "pt": "DIU"
+    },
+    "id": "1550",
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "nsfw": true
+  },
+  "1551": {
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "name": {
+      "en": "gas station",
+      "pt": "posto de gasolina"
+    },
+    "id": "1551"
+  },
+  "1552": {
+    "name": {
+      "en": "soap opera",
+      "pt": "novela"
+    },
+    "groups": [
+      "dream"
+    ],
+    "id": "1552"
+  },
+  "1553": {
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "id": "1553",
+    "name": {
+      "pt": "cipó",
+      "en": "vines"
+    }
+  },
+  "1554": {
+    "groups": [
+      "dream"
+    ],
+    "id": "1554",
+    "name": {
+      "pt": "depilação",
+      "en": "waxing"
+    }
+  },
+  "1555": {
+    "id": "1555",
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "name": {
+      "en": "car dealership",
+      "pt": "concessionária"
+    }
+  },
+  "1556": {
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "name": {
+      "pt": "professora",
+      "en": "teacher"
+    },
+    "id": "1556"
+  },
+  "1557": {
+    "groups": [
+      "dream"
+    ],
+    "id": "1557",
+    "name": {
+      "pt": "supermercado",
+      "en": "supermarket"
+    }
+  },
+  "1558": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "id": "1558",
+    "name": {
+      "en": "movie script",
+      "pt": "roteiro"
+    }
+  },
+  "1559": {
+    "name": {
+      "en": "boutique",
+      "pt": "boutique"
+    },
+    "groups": [
+      "dream"
+    ],
+    "id": "1559"
+  },
+  "1560": {
+    "id": "1560",
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "name": {
+      "en": "bass drum",
+      "pt": "bumbo"
+    }
+  },
+  "1561": {
+    "name": {
+      "pt": "lavanderia",
+      "en": "laundry mat"
+    },
+    "id": "1561",
+    "groups": [
+      "alien",
+      "dream"
+    ]
+  },
+  "1562": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "name": {
+      "pt": "torta",
+      "en": "pie"
+    },
+    "id": "1562"
+  },
+  "1563": {
+    "id": "1563",
+    "name": {
+      "pt": "correios",
+      "en": "post office"
+    },
+    "groups": [
+      "alien",
+      "dream"
+    ]
+  },
+  "1564": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing"
+    ],
+    "id": "1564",
+    "name": {
+      "pt": "frigobar",
+      "en": "minifridge"
+    }
+  },
+  "1565": {
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "name": {
+      "pt": "milkshake",
+      "en": "milkshake"
+    },
+    "id": "1565"
+  },
+  "1566": {
+    "name": {
+      "en": "celery",
+      "pt": "salsão"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "id": "1566"
+  },
+  "1567": {
+    "groups": [
+      "alien",
+      "evidence"
+    ],
+    "id": "1567",
+    "name": {
+      "en": "mawashi",
+      "pt": "cueca de sumô"
+    }
+  },
+  "1568": {
+    "id": "1568",
     "groups": [
       "alien"
     ],
     "name": {
-      "en": "sumo arena",
-      "pt": "arena de sumô"
+      "en": "sumo fighter",
+      "pt": "lutador de sumô"
+    }
+  },
+  "1569": {
+    "name": {
+      "pt": "alavanca",
+      "en": "lever"
     },
-    "id": "1472"
+    "id": "1569",
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing"
+    ]
+  },
+  "1570": {
+    "id": "1570",
+    "name": {
+      "pt": "polia",
+      "en": "pulley"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ]
+  },
+  "1571": {
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "id": "1571",
+    "name": {
+      "pt": "guitarra",
+      "en": "electric guitar"
+    }
+  },
+  "1572": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "name": {
+      "pt": "flash",
+      "en": "flash"
+    },
+    "id": "1572"
+  },
+  "1573": {
+    "name": {
+      "pt": "vishnu",
+      "en": "vishnu"
+    },
+    "groups": [
+      "thing"
+    ],
+    "id": "1573"
+  },
+  "1574": {
+    "name": {
+      "pt": "colesterol",
+      "en": "cholesterol"
+    },
+    "groups": [
+      "dream",
+      "thing"
+    ],
+    "id": "1574"
+  },
+  "1575": {
+    "id": "1575",
+    "name": {
+      "en": "rainbow",
+      "pt": "arco-íris"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ]
+  },
+  "1576": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing"
+    ],
+    "id": "1576",
+    "name": {
+      "en": "sandals",
+      "pt": "sandálias"
+    }
+  },
+  "1577": {
+    "id": "1577",
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "name": {
+      "pt": "Coliseu",
+      "en": "colosseum"
+    }
+  },
+  "1578": {
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "id": "1578",
+    "name": {
+      "en": "ear",
+      "pt": "orelha"
+    }
+  },
+  "1579": {
+    "id": "1579",
+    "groups": [
+      "alien"
+    ],
+    "name": {
+      "pt": "consultório dentário",
+      "en": "dental clinic"
+    }
+  },
+  "1580": {
+    "name": {
+      "en": "blood pressure gauge",
+      "pt": "medidor de pressão sanguínea"
+    },
+    "id": "1580",
+    "groups": [
+      "alien",
+      "evidence",
+      "mesmice"
+    ]
+  },
+  "1581": {
+    "id": "1581",
+    "name": {
+      "pt": "saliva",
+      "en": "saliva"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ]
+  },
+  "1582": {
+    "name": {
+      "pt": "temperos",
+      "en": "spices"
+    },
+    "id": "1582",
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ]
+  },
+  "1583": {
+    "groups": [
+      "alien",
+      "dream",
+      "thing",
+      "weapon"
+    ],
+    "name": {
+      "pt": "halteres",
+      "en": "barbells"
+    },
+    "id": "1583"
+  },
+  "1584": {
+    "name": {
+      "pt": "condor",
+      "en": "condor"
+    },
+    "id": "1584",
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ]
+  },
+  "1585": {
+    "name": {
+      "en": "turnstile",
+      "pt": "catraca"
+    },
+    "id": "1585",
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing"
+    ]
+  },
+  "1586": {
+    "id": "1586",
+    "name": {
+      "pt": "óvulo",
+      "en": "ovum"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "nsfw": true
+  },
+  "1587": {
+    "groups": [
+      "dream",
+      "thing"
+    ],
+    "id": "1587",
+    "name": {
+      "pt": "buraco",
+      "en": "hole"
+    }
+  },
+  "1588": {
+    "name": {
+      "en": "pistachio",
+      "pt": "pistache"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "id": "1588"
+  },
+  "1589": {
+    "id": "1589",
+    "name": {
+      "en": "audience",
+      "pt": "plateia"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ]
+  },
+  "1590": {
+    "id": "1590",
+    "groups": [
+      "alien",
+      "mesmice"
+    ],
+    "name": {
+      "pt": "tear",
+      "en": "loom"
+    }
+  },
+  "1591": {
+    "name": {
+      "pt": "saco",
+      "en": "ballsack"
+    },
+    "nsfw": true,
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "id": "1591"
+  },
+  "1592": {
+    "id": "1592",
+    "name": {
+      "en": "social media",
+      "pt": "redes sociais"
+    },
+    "groups": [
+      "dream",
+      "evidence"
+    ]
+  },
+  "1593": {
+    "name": {
+      "en": "wheat",
+      "pt": "trigo"
+    },
+    "groups": [
+      "dream"
+    ],
+    "id": "1593"
+  },
+  "1594": {
+    "name": {
+      "pt": "lasanha",
+      "en": "lasagna"
+    },
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "id": "1594"
+  },
+  "1595": {
+    "name": {
+      "pt": "mímico",
+      "en": "mime"
+    },
+    "id": "1595",
+    "groups": [
+      "alien",
+      "dream"
+    ]
+  },
+  "1596": {
+    "groups": [
+      "alien",
+      "mesmice"
+    ],
+    "id": "1596",
+    "name": {
+      "pt": "torre de controle",
+      "en": "control tower"
+    }
+  },
+  "1597": {
+    "groups": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "name": {
+      "en": "breast pump",
+      "pt": "bomba de amamentação"
+    },
+    "id": "1597"
+  },
+  "1598": {
+    "id": "1598",
+    "name": {
+      "en": "axolotl",
+      "pt": "axolote"
+    },
+    "groups": [
+      "alien",
+      "thing"
+    ]
+  },
+  "1599": {
+    "id": "1599",
+    "name": {
+      "en": "humming bird",
+      "pt": "beija-flor"
+    },
+    "groups": [
+      "alien",
+      "dream",
+      "thing"
+    ]
+  },
+  "1600": {
+    "name": {
+      "en": "mochi",
+      "pt": "mochi"
+    },
+    "groups": [
+      "alien",
+      "thing"
+    ],
+    "id": "1600"
+  },
+  "1601": {
+    "name": {
+      "pt": "onda",
+      "en": "wave"
+    },
+    "id": "1601",
+    "groups": [
+      "alien",
+      "dream"
+    ]
+  },
+  "1602": {
+    "name": {
+      "en": "barn",
+      "pt": "celeiro"
+    },
+    "groups": [
+      "alien",
+      "dream"
+    ],
+    "id": "1602"
+  },
+  "1603": {
+    "groups": [
+      "dream"
+    ],
+    "id": "1603",
+    "name": {
+      "pt": "farofa",
+      "en": "cassava flour"
+    }
   }
 }
