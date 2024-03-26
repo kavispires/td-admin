@@ -67,7 +67,7 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
             variant={isEditing ? 'outlined' : 'borderless'}
             size="small"
             key={String(item.groups)}
-            onChange={(value) => onEdit({ groups: value })}
+            onChange={(value) => onEdit({ groups: value.sort() })}
           />
         </div>
 

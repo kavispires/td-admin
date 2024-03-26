@@ -74,7 +74,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         duplicationCheckPt[entry.name.pt] = entry.id;
       }
 
-      entry.groups.forEach((group) => {
+      entry?.groups?.forEach((group) => {
         groupsDict[group] = group;
       });
 
@@ -102,16 +102,16 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
       case 'all':
         return orderedList;
       case '!all':
-        return orderedList.filter((item) => !item.groups.length);
+        return orderedList.filter((item) => !item?.groups?.length ?? true);
       case 'nswf':
         return orderedList.filter((item) => item.nsfw);
       case '!nswf':
         return orderedList.filter((item) => !item.nsfw);
       default:
         if (listingType.startsWith('!')) {
-          return orderedList.filter((item) => !item.groups.includes(listingType.slice(1)));
+          return orderedList.filter((item) => !item?.groups?.includes(listingType.slice(1)));
         }
-        return orderedList.filter((item) => item.groups.includes(listingType));
+        return orderedList.filter((item) => item?.groups?.includes(listingType));
     }
   }, [items, listingType]);
 
