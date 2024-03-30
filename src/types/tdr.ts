@@ -606,9 +606,9 @@ export type Item = {
 };
 
 /**
- * Item Atributes
+ * Item Atributes Values
  */
-export type ItemAtributes = {
+export type ItemAtributesValues = {
   /**
    * Unique identifier for the card
    */
@@ -617,4 +617,30 @@ export type ItemAtributes = {
    * The dictionary of attribute keys and their values
    */
   attributes: Record<string, -5 | -3 | -1 | 0 | 1 | 3 | 5>;
+};
+
+/**
+ * Item Attributes
+ */
+export type ItemAttributes = {
+  /**
+   * Unique identifier for the attribute (first 3 letters)
+   */
+  id: string;
+  /**
+   * The name of the attribute
+   */
+  name: DualLanguageValue;
+  /**
+   * The description of the attribute
+   */
+  description: DualLanguageValue;
+  /**
+   * The level of difficulty
+   */
+  level: number;
+  /**
+   * Present on the original game
+   */
+  default: boolean;
 };
