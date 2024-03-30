@@ -160,7 +160,7 @@ export type CrimesHediondosCard = {
   /**
    * The type of the card
    */
-  type: 'weapon' | 'evidence';
+  type: 'weapon' | 'evidence' | string;
   /**
    * The name of the card
    */
@@ -253,7 +253,7 @@ export type DatingCandidateImageCard = {
   type: 'head' | 'body';
 };
 
-export type DiagramTopics = {
+export type DiagramTopic = {
   /**
    * Unique identifier for the card
    */
