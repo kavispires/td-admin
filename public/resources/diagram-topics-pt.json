@@ -96,7 +96,7 @@
   },
   "tdc-20-pt": {
     "id": "tdc-20-pt",
-    "text": "É um tipo de ferramenta",
+    "text": "É um tipo de ferramenta ou utensílio",
     "type": "attribute"
   },
   "tdc-21-pt": {
@@ -126,7 +126,7 @@
   },
   "tdc-26-pt": {
     "id": "tdc-26-pt",
-    "text": "Pode ser jogada",
+    "text": "Pode ser jogada com facilidade",
     "type": "attribute"
   },
   "tdc-27-pt": {
@@ -141,12 +141,12 @@
   },
   "tdc-29-pt": {
     "id": "tdc-29-pt",
-    "text": "Você pode colocar sua boca nisso",
+    "text": "Você pode colocar sua boca nisso sem problemas",
     "type": "attribute"
   },
   "tdc-30-pt": {
     "id": "tdc-30-pt",
-    "text": "É delicada",
+    "text": "É delicada/frágil",
     "type": "attribute"
   },
   "tdc-31-pt": {
@@ -196,7 +196,7 @@
   },
   "tdc-40-pt": {
     "id": "tdc-40-pt",
-    "text": "Tem três consoantes consecutivas",
+    "text": "Tem duas consoantes consecutivas",
     "type": "word"
   },
   "tdc-41-pt": {
@@ -266,7 +266,7 @@
   },
   "tdc-54-pt": {
     "id": "tdc-54-pt",
-    "text": "Você poderia encontrá-la em um casamento",
+    "text": "Relacionado a casamento",
     "type": "context"
   },
   "tdc-55-pt": {
@@ -341,12 +341,12 @@
   },
   "tdc-69-pt": {
     "id": "tdc-69-pt",
-    "text": "Comprada no shopping",
+    "text": "Pode ser comprada facilmente no shopping hoje",
     "type": "context"
   },
   "tdc-70-pt": {
     "id": "tdc-70-pt",
-    "text": "As pessoas precisam disso",
+    "text": "As pessoas precisam disso no dia a dia",
     "type": "context"
   },
   "tdc-72-pt": {
@@ -376,7 +376,7 @@
   },
   "tdc-77-pt": {
     "id": "tdc-77-pt",
-    "text": "Relacionada à música",
+    "text": "Relacionada a música",
     "type": "context"
   },
   "tdc-78-pt": {
@@ -411,12 +411,17 @@
   },
   "tdc-84-pt": {
     "id": "tdc-84-pt",
-    "text": "Tem duas consoantes consecutivas",
+    "text": "Tem duas vogais consecutivas",
     "type": "word"
   },
   "tdc-85-pt": {
     "id": "tdc-85-pt",
-    "text": "Tem duas vogais consecutivas",
-    "type": "word"
+    "text": "Relacionada a crianças",
+    "type": "context"
+  },
+  "tdc-86-pt": {
+    "id": "tdc-86-pt",
+    "text": "Usa energia ou pode ser ligada",
+    "type": "context"
   }
 }
