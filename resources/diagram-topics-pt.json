@@ -96,7 +96,7 @@
   },
   "tdc-20-pt": {
     "id": "tdc-20-pt",
-    "text": "É um tipo de ferramenta",
+    "text": "É um tipo de ferramenta ou utensílio",
     "type": "attribute"
   },
   "tdc-21-pt": {
@@ -126,7 +126,7 @@
   },
   "tdc-26-pt": {
     "id": "tdc-26-pt",
-    "text": "Pode ser jogada",
+    "text": "Pode ser jogada com facilidade",
     "type": "attribute"
   },
   "tdc-27-pt": {
@@ -146,7 +146,7 @@
   },
   "tdc-30-pt": {
     "id": "tdc-30-pt",
-    "text": "É delicada",
+    "text": "É delicada/frágil",
     "type": "attribute"
   },
   "tdc-31-pt": {
@@ -346,7 +346,7 @@
   },
   "tdc-70-pt": {
     "id": "tdc-70-pt",
-    "text": "As pessoas precisam disso",
+    "text": "As pessoas precisam disso no dia a dia",
     "type": "context"
   },
   "tdc-72-pt": {
@@ -376,7 +376,7 @@
   },
   "tdc-77-pt": {
     "id": "tdc-77-pt",
-    "text": "Relacionada à música",
+    "text": "Relacionada a música",
     "type": "context"
   },
   "tdc-78-pt": {
@@ -416,7 +416,12 @@
   },
   "tdc-85-pt": {
     "id": "tdc-85-pt",
-    "text": "Relacionado a crianças",
+    "text": "Relacionada a crianças",
+    "type": "context"
+  },
+  "tdc-86-pt": {
+    "id": "tdc-86-pt",
+    "text": "Usa energia ou pode ser ligada",
     "type": "context"
   }
 }
