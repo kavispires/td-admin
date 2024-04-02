@@ -1,22 +1,30 @@
 import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
+import { ItemAttributionCard } from 'components/Items/ItemAttributionCard';
+import { ItemAttributionFilters } from 'components/Items/ItemAttributionFilters';
+import { ItemAttributionNavigation } from 'components/Items/ItemAttributionNavigation';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { ItemsProvider, useItemsContext } from 'context/ItemsContext';
+import {
+  ItemsAttributeValuesProvider,
+  useItemsAttributeValuesContext,
+} from 'context/ItemsAttributeValuesContext';
 
 export function ItemsAttributionPage() {
-  const { isLoading, error, hasResponseData } = useItemsContext();
+  const { isLoading, error, hasResponseData } = useItemsAttributeValuesContext();
 
   return (
     <PageLayout title="Items" subtitle="Attribution">
       <Layout hasSider>
         <PageSider>
-          <div>Options</div>
+          <ItemAttributionFilters />
         </PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
-            Content
+            <ItemAttributionNavigation />
+            <ItemAttributionCard />
+            <ItemAttributionNavigation />
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>
@@ -26,8 +34,8 @@ export function ItemsAttributionPage() {
 
 export function ItemsAttribution() {
   return (
-    <ItemsProvider>
+    <ItemsAttributeValuesProvider>
       <ItemsAttributionPage />
-    </ItemsProvider>
+    </ItemsAttributeValuesProvider>
   );
 }

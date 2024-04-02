@@ -126,7 +126,6 @@ const items: MenuProps['items'] = [
           {
             label: 'Attributes',
             key: '/items/attribution',
-            disabled: true,
           },
           {
             label: 'Crimes History',

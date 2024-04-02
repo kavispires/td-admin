@@ -1,0 +1,38 @@
+.item-attribution-card {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: get-unit(1);
+}
+
+.sticky-top {
+  position: sticky;
+  top: get-unit(45);
+  z-index: 1;
+  display: block;
+}
+
+.attribute-button-container {
+  .ant-space-item {
+    border-radius: $border-radius;
+
+    &:nth-child(odd) {
+      background-color: get-color('white', 5, 0.2);
+    }
+
+    &:nth-child(even) {
+      background-color: get-color('white', 5, 0.1);
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 15ch 1fr 3ch;
+    align-items: center;
+    padding: get-unit(1 2);
+    gap: get-unit(1);
+  }
+
+  &__label {
+    text-transform: uppercase;
+  }
+}

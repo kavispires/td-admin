@@ -20,6 +20,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ImageCardsRelationships } from 'pages/Images/ImageCardsRelationships';
 import { ImageCardsConnections } from 'pages/Images/ImageCardsConnections';
+import { ItemsAttribution } from 'pages/Images/ItemsAttribution';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -71,7 +72,7 @@ function App() {
                 <Route path="/items">
                   <Route path="" element={<Items />} />
                   <Route path="listing" element={<Items />} />
-                  <Route path="attributes" element={<Items />} />
+                  <Route path="attribution" element={<ItemsAttribution />} />
                   <Route path="crime" element={<Items />} />
                 </Route>
 

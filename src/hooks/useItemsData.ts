@@ -16,6 +16,9 @@ export function useItemsData() {
   const tdrItemsQuery = useTDResource<Item>('items');
   const firebaseItemsQuery = useGetFirebaseDoc<Dictionary<Item>>('data', 'items');
 
+  // Keeps track of items that have been modified
+  const [modifiedItems, setModifiedItems] = useState<Dictionary<Item>>({});
+
   const mutation = useUpdateFirebaseDoc('data', 'items', {
     onSuccess: () => {
       notification.success({
@@ -31,8 +34,6 @@ export function useItemsData() {
       });
     },
   });
-
-  const [modifiedItems, setModifiedItems] = useState<Dictionary<Item>>({});
 
   const items = useMemo(() => {
     if (tdrItemsQuery.isLoading || firebaseItemsQuery.isLoading || mutation.isLoading) return {};

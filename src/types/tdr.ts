@@ -616,7 +616,7 @@ export type ItemAtributesValues = {
   /**
    * The dictionary of attribute keys and their values
    */
-  attributes: Record<string, -5 | -3 | -1 | 0 | 1 | 3 | 5>;
+  attributes: Record<string, -10 | -5 | -1 | 5 | 10 | number>;
 };
 
 /**
@@ -643,4 +643,8 @@ export type ItemAttributes = {
    * Present on the original game
    */
   default: boolean;
+  /**
+   * Priority value when sorting ties
+   */
+  priority: number;
 };
