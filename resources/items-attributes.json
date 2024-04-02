@@ -10,7 +10,8 @@
       "pt": "vida, ser, organismo, animado"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 11
   },
   "bea": {
     "id": "bea",
@@ -23,7 +24,8 @@
       "pt": "atraente, charmoso, colorido, festivo"
     },
     "default": true,
-    "level": 2
+    "level": 2,
+    "priority": 7
   },
   "big": {
     "id": "big",
@@ -36,7 +38,8 @@
       "pt": "tamanho, magnitude"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 36
   },
   "bri": {
     "id": "bri",
@@ -49,7 +52,8 @@
       "pt": "luz, brilhante, reflexivo"
     },
     "default": true,
-    "level": 2
+    "level": 2,
+    "priority": 17
   },
   "clo": {
     "id": "clo",
@@ -62,7 +66,8 @@
       "pt": "Vestíveis, moda, roupas"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 6
   },
   "dan": {
     "id": "dan",
@@ -75,7 +80,8 @@
       "pt": "perigo, risco, ameaça"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 19
   },
   "def": {
     "id": "def",
@@ -88,7 +94,8 @@
       "pt": "escudo, proteção, cobertura"
     },
     "default": true,
-    "level": 2
+    "level": 2,
+    "priority": 21
   },
   "fas": {
     "id": "fas",
@@ -101,7 +108,8 @@
       "pt": "movimento, velocidade, rapidez"
     },
     "default": true,
-    "level": 2
+    "level": 2,
+    "priority": 22
   },
   "fla": {
     "id": "fla",
@@ -114,7 +122,8 @@
       "pt": "superfície, liso, nivelado"
     },
     "default": false,
-    "level": 2
+    "level": 2,
+    "priority": 31
   },
   "fli": {
     "id": "fli",
@@ -127,7 +136,8 @@
       "pt": "voador, plana, tem asas"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 10
   },
   "foo": {
     "id": "foo",
@@ -140,7 +150,8 @@
       "pt": "comestível, sustento, usado para comer ou cozinhar"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 1
   },
   "hea": {
     "id": "hea",
@@ -153,7 +164,8 @@
       "pt": "peso, massa, pode ser carregado por alguém ou algo"
     },
     "default": true,
-    "level": 3
+    "level": 3,
+    "priority": 35
   },
   "hum": {
     "id": "hum",
@@ -166,7 +178,8 @@
       "pt": "pessoa, usado por pessoas, tem características humanas"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 9
   },
   "kno": {
     "id": "kno",
@@ -179,7 +192,8 @@
       "pt": "sabedoria, inteligência, tecnologia, ideia"
     },
     "default": true,
-    "level": 2
+    "level": 2,
+    "priority": 16
   },
   "liq": {
     "id": "liq",
@@ -192,7 +206,8 @@
       "pt": "fluido, aquático, água"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 5
   },
   "lon": {
     "id": "lon",
@@ -205,7 +220,8 @@
       "pt": "alto, comprido"
     },
     "default": false,
-    "level": 2
+    "level": 2,
+    "priority": 25
   },
   "mac": {
     "id": "mac",
@@ -218,7 +234,8 @@
       "pt": "tem engrenagens, usa energia, funciona"
     },
     "default": false,
-    "level": 2
+    "level": 2,
+    "priority": 15
   },
   "met": {
     "id": "met",
@@ -231,7 +248,8 @@
       "pt": "tem partes metálicas brilhantes, feito de metal"
     },
     "default": false,
-    "level": 2
+    "level": 2,
+    "priority": 26
   },
   "odo": {
     "id": "odo",
@@ -244,7 +262,8 @@
       "pt": "cheiro, odor, aroma"
     },
     "default": false,
-    "level": 2
+    "level": 2,
+    "priority": 27
   },
   "old": {
     "id": "old",
@@ -257,7 +276,8 @@
       "pt": "idoso, envelhecido, fora de moda, antigo"
     },
     "default": false,
-    "level": 2
+    "level": 2,
+    "priority": 28
   },
   "pla": {
     "id": "pla",
@@ -270,7 +290,8 @@
       "pt": "vegetação, flora, verde, madeira"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 3
   },
   "pow": {
     "id": "pow",
@@ -283,7 +304,8 @@
       "pt": "força, energia, força, eletricidade"
     },
     "default": true,
-    "level": 2
+    "level": 2,
+    "priority": 12
   },
   "rou": {
     "id": "rou",
@@ -296,7 +318,8 @@
       "pt": "circular, esfera, oval"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 18
   },
   "sha": {
     "id": "sha",
@@ -309,7 +332,8 @@
       "pt": "pontiagudo, cortante, lâmina"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 8
   },
   "sof": {
     "id": "sof",
@@ -322,7 +346,8 @@
       "pt": "gentil, suave, pelúcia, pegajoso, flexível"
     },
     "default": false,
-    "level": 3
+    "level": 3,
+    "priority": 32
   },
   "sol": {
     "id": "sol",
@@ -335,7 +360,8 @@
       "pt": "duro, firme, rígido, inflexível"
     },
     "default": true,
-    "level": 3
+    "level": 3,
+    "priority": 37
   },
   "sou": {
     "id": "sou",
@@ -348,7 +374,8 @@
       "pt": "faz som naturalmente ou por design ou interação"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 14
   },
   "too": {
     "id": "too",
@@ -361,7 +388,8 @@
       "pt": "instrumento, dispositivo, implemento"
     },
     "default": true,
-    "level": 2
+    "level": 2,
+    "priority": 24
   },
   "val": {
     "id": "val",
@@ -374,7 +402,8 @@
       "pt": "precioso, raro, caro, valor sentimental"
     },
     "default": true,
-    "level": 3
+    "level": 3,
+    "priority": 4
   },
   "war": {
     "id": "war",
@@ -387,7 +416,8 @@
       "pt": "calor, aconchegante, temperatura"
     },
     "default": true,
-    "level": 2
+    "level": 2,
+    "priority": 13
   },
   "wea": {
     "id": "wea",
@@ -400,7 +430,8 @@
       "pt": "artilharia, ofensiva, used in combat"
     },
     "default": true,
-    "level": 1
+    "level": 1,
+    "priority": 2
   },
   "hol": {
     "id": "hol",
@@ -413,7 +444,8 @@
       "pt": "você normalmente segura ou tem uma alça"
     },
     "default": false,
-    "level": 2
+    "level": 2,
+    "priority": 33
   },
   "per": {
     "id": "per",
@@ -426,7 +458,8 @@
       "pt": "Pertencente a uma pessoa, usado por uma única pessoa"
     },
     "default": false,
-    "level": 3
+    "level": 3,
+    "priority": 34
   },
   "mul": {
     "id": "mul",
@@ -439,7 +472,8 @@
       "pt": "normalmente encontrado em pares, grupos ou conjuntos, ou as pessoas possuem mais de um"
     },
     "default": false,
-    "level": 3
+    "level": 3,
+    "priority": 30
   },
   "fra": {
     "id": "fra",
@@ -452,7 +486,8 @@
       "pt": "delicado, facilmente quebrável, sensível"
     },
     "default": false,
-    "level": 3
+    "level": 3,
+    "priority": 29
   },
   "toy": {
     "id": "toy",
@@ -465,7 +500,8 @@
       "pt": "brinquedo, diversão, para crianças"
     },
     "default": false,
-    "level": 2
+    "level": 2,
+    "priority": 23
   },
   "con": {
     "id": "con",
@@ -478,6 +514,21 @@
       "pt": "construção, estrutura, arquitetura, housing"
     },
     "default": false,
-    "level": 2
+    "level": 2,
+    "priority": 20
+  },
+  "tec": {
+    "id": "tec",
+    "name": {
+      "en": "Technology",
+      "pt": "Tecnologia"
+    },
+    "description": {
+      "en": "electronics, digital, computer, internet",
+      "pt": "eletrônica, digital, computador, internet"
+    },
+    "default": false,
+    "level": 2,
+    "priority": 12
   }
 }
