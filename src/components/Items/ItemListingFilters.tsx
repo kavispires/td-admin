@@ -7,6 +7,7 @@ import { capitalize, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import { AddNewItem } from './AddNewItem';
 import { Item } from 'types';
+import { sortJsonKeys } from 'utils';
 
 type ItemListingFiltersProps = {
   showSearch: boolean;
@@ -64,37 +65,39 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
 }
 
 function prepareFileForDownload(items: Dictionary<Item>) {
-  return Object.values(items).reduce((acc: Dictionary<Item>, item) => {
-    item.groups = (item?.groups ?? []).sort();
+  return sortJsonKeys(
+    Object.values(items).reduce((acc: Dictionary<Item>, item) => {
+      item.groups = (item?.groups ?? []).sort();
 
-    if (item.groups.length === 0) {
-      delete item.groups;
+      if (item.groups.length === 0) {
+        delete item.groups;
 
-      acc[item.id] = item;
-      return acc;
-    }
+        acc[item.id] = item;
+        return acc;
+      }
 
-    if (
-      item.groups.includes('thing') &&
-      item.name.en.split(' ').length === 1 &&
-      item.name.pt.split(' ').length === 1
-    ) {
       if (
-        item.groups.includes('evidence') ||
-        item.groups.includes('dream') ||
-        item.groups.includes('alien') ||
-        item.groups.includes('mesmice')
+        item.groups.includes('thing') &&
+        item.name.en.split(' ').length === 1 &&
+        item.name.pt.split(' ').length === 1
       ) {
-        item.groups = item.groups.filter((group) => group !== 'thing');
+        if (
+          item.groups.includes('evidence') ||
+          item.groups.includes('dream') ||
+          item.groups.includes('alien') ||
+          item.groups.includes('mesmice')
+        ) {
+          item.groups = item.groups.filter((group) => group !== 'thing');
+        }
+
+        acc[item.id] = item;
       }
 
       acc[item.id] = item;
-    }
 
-    acc[item.id] = item;
-
-    return acc;
-  }, {});
+      return acc;
+    }, {})
+  );
 
   // Remove thing from groups if both names are single word and evidence, dream, alien, or mesmice are in the groups
 

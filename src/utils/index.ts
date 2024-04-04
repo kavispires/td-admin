@@ -1,3 +1,4 @@
+import { chain, isObject } from 'lodash';
 import { SEARCH_THRESHOLD } from './constants';
 import stringSimilarity from 'string-similarity';
 
@@ -97,3 +98,35 @@ export function downloadObjectAsFile(obj: PlainObject, filename: string): void {
   anchorElement.click();
   window.URL.revokeObjectURL(anchorElement.href);
 }
+
+/**
+ * Sorts the keys of a JSON object based on a predefined order.
+ * The keys 'id', 'name', 'title', and 'type' will be placed first in the sorted object,
+ * followed by the remaining keys in alphabetical order.
+ *
+ * @param library - The JSON object to sort.
+ * @returns The sorted JSON object.
+ */
+export const sortJsonKeys = (library: PlainObject): PlainObject => {
+  function sortKeys(obj: any): any {
+    if (isObject(obj) && !Array.isArray(obj)) {
+      const sortedKeys = Object.keys(obj)
+        .filter((key) => ['id', 'name', 'title', 'type'].includes(key))
+        .concat(
+          Object.keys(obj)
+            .filter((key) => !['id', 'name', 'title', 'type'].includes(key))
+            .sort()
+        );
+
+      return chain(obj)
+        .toPairs()
+        .sortBy(([key, _]) => sortedKeys.indexOf(key))
+        .map(([key, value]) => [key, sortKeys(value)])
+        .fromPairs()
+        .value();
+    }
+    return obj;
+  }
+
+  return sortKeys(library);
+};
