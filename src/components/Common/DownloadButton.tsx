@@ -10,9 +10,12 @@ type DownloadButtonProps = {
  * Button to download a JSON object as a file
  */
 export function DownloadButton({ data, fileName, loading, ...props }: DownloadButtonProps) {
-  const readyData = typeof data === 'function' ? data() : data;
   return (
-    <Button onClick={() => downloadObjectAsFile(readyData, fileName)} loading={loading} {...props}>
+    <Button
+      onClick={() => downloadObjectAsFile(typeof data === 'function' ? data() : data, fileName)}
+      loading={loading}
+      {...props}
+    >
       Download JSON
     </Button>
   );

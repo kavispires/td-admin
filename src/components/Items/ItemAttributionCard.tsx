@@ -1,12 +1,13 @@
-import { Affix, Card, Divider, Flex, Input, Radio, Space, Typography } from 'antd';
+import { Affix, Card, Divider, Flex, Input, Radio, Space, Tooltip, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { ItemAttributes } from 'types';
 
-import { CheckCircleFilled, IdcardOutlined } from '@ant-design/icons';
+import { CheckCircleFilled, IdcardOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 
 import { ItemAttributeStats } from './ItemAttributeStats';
+import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 export function ItemAttributionCard() {
   const { activeItem, attributesList, itemAttributeValues, onAttributeChange } =
@@ -77,11 +78,11 @@ export function ItemAttributionCard() {
 }
 
 const attributeOptions = [
-  { label: 'Opposite', value: -10 },
-  { label: 'Unrelated', value: -4 },
-  { label: 'Irrelevant', value: -1 },
-  { label: 'Related', value: 5 },
-  { label: 'Deterministic', value: 10 },
+  { label: 'Opposite', value: ATTRIBUTE_VALUE.OPPOSITE },
+  { label: 'Unrelated', value: ATTRIBUTE_VALUE.UNRELATED },
+  { label: 'Irrelevant', value: ATTRIBUTE_VALUE.IRRELEVANT },
+  { label: 'Related', value: ATTRIBUTE_VALUE.RELATED },
+  { label: 'Deterministic', value: ATTRIBUTE_VALUE.DETERMINISTIC },
 ];
 
 type AttributionValueButtonsProps = {
@@ -95,7 +96,12 @@ function AttributionValueButtons({ attribute, value, onChange }: AttributionValu
 
   return (
     <div key={attribute.id} className="attribute-button-container__row">
-      <span className="attribute-button-container__label">{attribute.name.en}</span>
+      <span className="attribute-button-container__label">
+        {attribute.name.en}{' '}
+        <Tooltip title={attribute.description.en}>
+          <QuestionCircleOutlined />
+        </Tooltip>
+      </span>
 
       <Radio.Group
         options={attributeOptions}

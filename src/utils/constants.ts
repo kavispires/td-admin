@@ -186,3 +186,11 @@ export const CARD_SIZE_OPTIONS = [
     value: 250,
   },
 ];
+
+export const ATTRIBUTE_VALUE = {
+  OPPOSITE: -10,
+  UNRELATED: -3,
+  IRRELEVANT: -1,
+  RELATED: 5,
+  DETERMINISTIC: 10,
+};

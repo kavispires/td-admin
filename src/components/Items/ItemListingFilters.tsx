@@ -67,8 +67,10 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
 function prepareFileForDownload(items: Dictionary<Item>) {
   return sortJsonKeys(
     Object.values(items).reduce((acc: Dictionary<Item>, item) => {
+      // Sort groups
       item.groups = (item?.groups ?? []).sort();
 
+      // Remove groups if no group is present
       if (item.groups.length === 0) {
         delete item.groups;
 
@@ -76,6 +78,7 @@ function prepareFileForDownload(items: Dictionary<Item>) {
         return acc;
       }
 
+      // Remove thing from group if either evidence, dream, alien, or mesmice is present and both pt and en names are single words
       if (
         item.groups.includes('thing') &&
         item.name.en.split(' ').length === 1 &&
@@ -98,8 +101,4 @@ function prepareFileForDownload(items: Dictionary<Item>) {
       return acc;
     }, {})
   );
-
-  // Remove thing from groups if both names are single word and evidence, dream, alien, or mesmice are in the groups
-
-  // Sort groups
 }

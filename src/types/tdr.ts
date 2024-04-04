@@ -616,7 +616,11 @@ export type ItemAtributesValues = {
   /**
    * The dictionary of attribute keys and their values
    */
-  attributes: Record<string, -10 | -5 | -1 | 5 | 10 | number>;
+  attributes: Record<string, -10 | -3 | -1 | 5 | 10 | number>;
+  /**
+   * Indicates if all attributes have been assigned numbers
+   */
+  complete?: boolean;
 };
 
 /**

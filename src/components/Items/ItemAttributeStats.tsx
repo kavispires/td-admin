@@ -2,6 +2,7 @@ import { CheckCircleFilled, CloseCircleOutlined } from '@ant-design/icons';
 import { Flex, Progress, Tag, Typography } from 'antd';
 import { useMemo } from 'react';
 import { ItemAtributesValues, ItemAttributes } from 'types';
+import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 type ItemAttributeStatsProps = {
   attributesList: ItemAttributes[];
@@ -19,15 +20,15 @@ export function ItemAttributeStats({ attributesList, itemAttributeValues }: Item
     let irrelevantCount = 0;
     const value = Object.values(itemAttributeValues.attributes).reduce((acc: number, v) => {
       if (v <= 0) {
-        if (v === -1) {
+        if (v === ATTRIBUTE_VALUE.IRRELEVANT) {
           irrelevantCount += 1;
         }
-        if (v === -10) {
+        if (v === ATTRIBUTE_VALUE.OPPOSITE) {
           isOpposing = true;
         }
         return acc;
       }
-      if (v === 10) {
+      if (v === ATTRIBUTE_VALUE.DETERMINISTIC) {
         isDeterministic = true;
       }
 

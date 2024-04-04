@@ -10,6 +10,7 @@ export type ItemsAttributeValuesContextType = {
   hasResponseData: boolean;
   isDirty: boolean;
   itemAttributeValues: ItemAtributesValues;
+  itemsAttributeValues: Dictionary<ItemAtributesValues>;
   jumpToItem: (direction: string) => void;
   activeItem: Item;
   onAttributeChange: (attributeId: string, value: number) => void;
@@ -37,6 +38,7 @@ const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextTyp
     id: '-1',
     attributes: {},
   },
+  itemsAttributeValues: {},
   onAttributeChange: () => {},
   isSaving: false,
   save: () => {},
@@ -121,6 +123,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         hasResponseData: availableItemIds.length > 0 && !isEmpty(attributes),
         isDirty,
         itemAttributeValues,
+        itemsAttributeValues,
         jumpToItem,
         activeItem,
         onAttributeChange,
