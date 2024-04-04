@@ -1,18 +1,23 @@
 import { Button, Divider, Flex } from 'antd';
+import { FilterSelect } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
+import { useItemViewQueryParams } from 'hooks/useItemViewQueryParams';
 import { ItemAtributesValues } from 'types';
 import { sortJsonKeys } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 
+import { ItemAttributionClassifierFilters, ItemAttributionStats } from './ItemAttributionFilersSections';
+
 export function ItemAttributionFilters() {
-  const { isDirty, save, itemsAttributeValues, attributesList, jumpToItem } =
-    useItemsAttributeValuesContext();
+  const { isDirty, save, itemsAttributeValues, attributesList } = useItemsAttributeValuesContext();
+
+  const { view, setView } = useItemViewQueryParams();
 
   return (
     <SiderContent>
-      <Flex vertical gap={6}>
+      <Flex vertical gap={12}>
         <Button block danger type="primary" disabled={!isDirty} onClick={save} size="large">
           Save
         </Button>
@@ -25,9 +30,17 @@ export function ItemAttributionFilters() {
       </Flex>
       <Divider />
 
-      <Button block onClick={() => jumpToItem('random')}>
-        Random Item
-      </Button>
+      <ItemAttributionStats />
+
+      <FilterSelect
+        label="View"
+        value={view}
+        onChange={setView}
+        options={['classifier', 'sample', 'stats']}
+      />
+      <Divider />
+
+      {view === 'classifier' && <ItemAttributionClassifierFilters />}
     </SiderContent>
   );
 }

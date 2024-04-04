@@ -1,5 +1,6 @@
 import { CheckCircleFilled, CloseCircleOutlined } from '@ant-design/icons';
-import { Flex, Progress, Tag, Typography } from 'antd';
+import { Flex, Progress, Typography } from 'antd';
+import { Stat } from 'components/Common/Stat';
 import { useMemo } from 'react';
 import { ItemAtributesValues, ItemAttributes } from 'types';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
@@ -46,32 +47,22 @@ export function ItemAttributeStats({ attributesList, itemAttributeValues }: Item
       <Progress percent={completion} size="small" />
       <Typography.Text strong>Stats</Typography.Text>
       <Flex vertical>
-        <Typography.Text>
-          Deterministic{' '}
-          <Tag>
-            {isDeterministic ? (
-              <CheckCircleFilled style={{ color: 'green' }} />
-            ) : (
-              <CloseCircleOutlined style={{ color: 'red' }} />
-            )}
-          </Tag>
-        </Typography.Text>
-        <Typography.Text>
-          Opposing{' '}
-          <Tag>
-            {isOpposing ? (
-              <CheckCircleFilled style={{ color: 'blue' }} />
-            ) : (
-              <CloseCircleOutlined style={{ color: 'grey' }} />
-            )}
-          </Tag>
-        </Typography.Text>
-        <Typography.Text>
-          Value <Tag>{value}</Tag>
-        </Typography.Text>
-        <Typography.Text>
-          Reliability <Tag>{relevancy}%</Tag>
-        </Typography.Text>
+        <Stat label="Deterministic">
+          {isDeterministic ? (
+            <CheckCircleFilled style={{ color: 'green' }} />
+          ) : (
+            <CloseCircleOutlined style={{ color: 'red' }} />
+          )}
+        </Stat>
+        <Stat label="Opposing">
+          {isOpposing ? (
+            <CheckCircleFilled style={{ color: 'CornflowerBlue' }} />
+          ) : (
+            <CloseCircleOutlined style={{ color: 'grey' }} />
+          )}
+        </Stat>
+        <Stat label="Value">{value}</Stat>
+        <Stat label="Reliability">{relevancy}%</Stat>
       </Flex>
     </div>
   );

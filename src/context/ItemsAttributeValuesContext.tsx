@@ -17,6 +17,7 @@ export type ItemsAttributeValuesContextType = {
   isSaving: boolean;
   save: () => void;
   attributesList: ItemAttributes[];
+  availableItemIds: string[];
 };
 
 const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextType>({
@@ -43,6 +44,7 @@ const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextTyp
   isSaving: false,
   save: () => {},
   attributesList: [],
+  availableItemIds: [],
 });
 
 type ItemsAttributeValuesProviderProps = {
@@ -118,6 +120,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
     <ItemsAttributeValuesContext.Provider
       value={{
         items,
+        availableItemIds,
         isLoading,
         error,
         hasResponseData: availableItemIds.length > 0 && !isEmpty(attributes),
