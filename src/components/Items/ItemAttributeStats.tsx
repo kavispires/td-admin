@@ -2,11 +2,11 @@ import { CheckCircleFilled, CloseCircleOutlined } from '@ant-design/icons';
 import { Flex, Progress, Typography } from 'antd';
 import { Stat } from 'components/Common/Stat';
 import { useMemo } from 'react';
-import { ItemAtributesValues, ItemAttributes } from 'types';
+import { ItemAtributesValues, ItemAttribute } from 'types';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 type ItemAttributeStatsProps = {
-  attributesList: ItemAttributes[];
+  attributesList: ItemAttribute[];
   itemAttributeValues: ItemAtributesValues;
 };
 
@@ -14,7 +14,7 @@ export function ItemAttributeStats({ attributesList, itemAttributeValues }: Item
   const { completion, isDeterministic, value, isOpposing, relevancy } = useMemo(() => {
     const total = attributesList.length;
     const completed = Object.keys(itemAttributeValues.attributes).length;
-    const completion = Math.round((completed / total) * 100);
+    const completion = Math.floor((completed / total) * 100);
 
     let isDeterministic = false;
     let isOpposing = false;
@@ -36,7 +36,7 @@ export function ItemAttributeStats({ attributesList, itemAttributeValues }: Item
       return acc + v;
     }, 0);
 
-    const relevancy = Math.round(((completed - irrelevantCount) / total) * 100);
+    const relevancy = Math.floor(((completed - irrelevantCount) / total) * 100);
 
     return { completion, isDeterministic, value, isOpposing, relevancy };
   }, [attributesList, itemAttributeValues.attributes]);

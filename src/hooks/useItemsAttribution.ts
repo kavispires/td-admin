@@ -1,6 +1,6 @@
 import { cloneDeep, isEmpty } from 'lodash';
 import { useMemo, useState } from 'react';
-import { Item, ItemAtributesValues, ItemAttributes } from 'types';
+import { Item, ItemAtributesValues, ItemAttribute } from 'types';
 
 import { useGetFirebaseDoc } from './useGetFirebaseDoc';
 import { useTDResource } from './useTDResource';
@@ -14,7 +14,7 @@ export function useItemsAttribution() {
 
   // Gather basic item data
   const tdrItemsQuery = useTDResource<Item>('items');
-  const tdrAttributesQuery = useTDResource<ItemAttributes>('items-attributes');
+  const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes');
   const tdrItemsAttributesValuesQuery = useTDResource<ItemAtributesValues>('items-attribute-values');
   const firebaseItemsAttributeValuesQuery = useGetFirebaseDoc<
     Dictionary<string>,

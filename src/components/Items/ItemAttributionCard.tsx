@@ -1,22 +1,26 @@
-import { Affix, Card, Divider, Flex, Input, Radio, Space, Tooltip, Typography } from 'antd';
+import { Affix, Button, Card, Divider, Flex, Input, Space, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { ItemAttributes } from 'types';
 
-import { CheckCircleFilled, IdcardOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { IdcardOutlined } from '@ant-design/icons';
 
 import { ItemAttributeStats } from './ItemAttributeStats';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
+import { AttributionValueButtons } from './AttributionValueButtons';
 
 export function ItemAttributionCard() {
-  const { activeItem, attributesList, itemAttributeValues, onAttributeChange } =
+  const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem } =
     useItemsAttributeValuesContext();
 
   if (!activeItem)
     return (
       <Card>
-        <Typography.Text type="secondary">No item selected. Press Random Item!</Typography.Text>
+        <Typography.Text type="secondary">
+          No item selected.{' '}
+          <Button size="small" type="primary" onClick={() => jumpToItem('random')}>
+            Random Item
+          </Button>
+        </Typography.Text>
       </Card>
     );
 
@@ -74,46 +78,5 @@ export function ItemAttributionCard() {
         </Space>
       </div>
     </Card>
-  );
-}
-
-const attributeOptions = [
-  { label: 'Opposite', value: ATTRIBUTE_VALUE.OPPOSITE },
-  { label: 'Unrelated', value: ATTRIBUTE_VALUE.UNRELATED },
-  { label: 'Irrelevant', value: ATTRIBUTE_VALUE.IRRELEVANT },
-  { label: 'Related', value: ATTRIBUTE_VALUE.RELATED },
-  { label: 'Deterministic', value: ATTRIBUTE_VALUE.DETERMINISTIC },
-];
-
-type AttributionValueButtonsProps = {
-  attribute: ItemAttributes;
-  value?: number;
-  onChange: (attributeId: string, value: number) => void;
-};
-
-function AttributionValueButtons({ attribute, value, onChange }: AttributionValueButtonsProps) {
-  if (!attribute) return <></>;
-
-  return (
-    <div key={attribute.id} className="attribute-button-container__row">
-      <span className="attribute-button-container__label">
-        {attribute.name.en}{' '}
-        <Tooltip title={attribute.description.en}>
-          <QuestionCircleOutlined />
-        </Tooltip>
-      </span>
-
-      <Radio.Group
-        options={attributeOptions}
-        onChange={({ target: { value: v } }) => onChange(attribute.id, v)}
-        value={value}
-        optionType="button"
-        buttonStyle="solid"
-      />
-
-      <span>
-        <CheckCircleFilled style={{ color: value && value > 7 ? 'green' : 'transparent' }} />
-      </span>
-    </div>
   );
 }

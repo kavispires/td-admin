@@ -42,9 +42,10 @@ type FilterNumberProps = {
   onChange: (value: number) => void;
   min?: number;
   max?: number;
+  step?: number;
 };
 
-export function FilterNumber({ label, value, onChange, min = 0, max = 100 }: FilterNumberProps) {
+export function FilterNumber({ label, value, onChange, min = 0, max = 100, step }: FilterNumberProps) {
   return (
     <Form.Item label={label}>
       <InputNumber
@@ -52,7 +53,8 @@ export function FilterNumber({ label, value, onChange, min = 0, max = 100 }: Fil
         max={max}
         value={value}
         onChange={(v) => onChange(v ?? max)}
-        style={{ minWidth: '150px' }}
+        style={{ minWidth: '150px', width: '100%' }}
+        step={step}
       />
     </Form.Item>
   );

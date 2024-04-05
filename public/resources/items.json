@@ -6690,7 +6690,7 @@
     "id": "833",
     "name": {
       "en": "pet bowl",
-      "pt": "vasilha do animal de estimação"
+      "pt": "vasilha de ração"
     },
     "groups": ["alien", "evidence"]
   },
@@ -8412,7 +8412,7 @@
       "en": "drowning",
       "pt": "afogado"
     },
-    "groups": ["alien", "weapon"]
+    "groups": ["weapon"]
   },
   "1049": {
     "id": "1049",
@@ -8895,12 +8895,12 @@
     "groups": ["alien", "dream", "mesmice", "weapon"]
   },
   "1109": {
-    "id": "1109",
     "name": {
       "en": "allergies",
       "pt": "alergias"
     },
-    "groups": ["alien", "weapon"]
+    "id": "1109",
+    "groups": ["dream", "weapon"]
   },
   "1110": {
     "id": "1110",
@@ -9452,7 +9452,7 @@
     "id": "1178",
     "name": {
       "en": "tattoo machine",
-      "pt": "maquina de tatuar"
+      "pt": "máquina de tatuar"
     },
     "groups": ["alien", "evidence", "mesmice"]
   },

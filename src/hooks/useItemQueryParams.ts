@@ -1,12 +1,17 @@
 import { useSearchParams } from 'react-router-dom';
 
-export function useItemViewQueryParams() {
+export function useItemQueryParams() {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams);
-  searchParams.get('view');
+
+  const addQueryParam = (key: string, value: string) => {
+    searchParams.set(key, `${value}`);
+    setSearchParams(searchParams);
+  };
 
   return {
     view: searchParams.get('view') ?? 'classifier',
     setView: (value: string) => setSearchParams({ view: value }),
+    addQueryParam,
+    searchParams,
   };
 }

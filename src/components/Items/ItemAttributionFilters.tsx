@@ -3,17 +3,21 @@ import { FilterSelect } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useItemViewQueryParams } from 'hooks/useItemViewQueryParams';
+import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { ItemAtributesValues } from 'types';
 import { sortJsonKeys } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 
-import { ItemAttributionClassifierFilters, ItemAttributionStats } from './ItemAttributionFilersSections';
+import {
+  ItemAttributionClassifierFilters,
+  ItemAttributionSamplerFilters,
+  ItemAttributionStats,
+} from './ItemAttributionFilersSections';
 
 export function ItemAttributionFilters() {
   const { isDirty, save, itemsAttributeValues, attributesList } = useItemsAttributeValuesContext();
 
-  const { view, setView } = useItemViewQueryParams();
+  const { view, setView } = useItemQueryParams();
 
   return (
     <SiderContent>
@@ -36,11 +40,12 @@ export function ItemAttributionFilters() {
         label="View"
         value={view}
         onChange={setView}
-        options={['classifier', 'sample', 'stats']}
+        options={['classifier', 'sampler', 'stats']}
       />
       <Divider />
 
       {view === 'classifier' && <ItemAttributionClassifierFilters />}
+      {view === 'sampler' && <ItemAttributionSamplerFilters />}
     </SiderContent>
   );
 }

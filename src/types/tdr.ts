@@ -624,9 +624,9 @@ export type ItemAtributesValues = {
 };
 
 /**
- * Item Attributes
+ * Item Attribute
  */
-export type ItemAttributes = {
+export type ItemAttribute = {
   /**
    * Unique identifier for the attribute (first 3 letters)
    */

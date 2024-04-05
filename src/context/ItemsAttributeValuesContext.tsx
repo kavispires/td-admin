@@ -1,7 +1,7 @@
 import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { isEmpty, orderBy, random } from 'lodash';
 import { ReactNode, useContext, createContext, useMemo, useState } from 'react';
-import { Item, ItemAtributesValues, ItemAttributes } from 'types';
+import { Item, ItemAtributesValues, ItemAttribute } from 'types';
 
 export type ItemsAttributeValuesContextType = {
   items: Dictionary<Item>;
@@ -16,8 +16,9 @@ export type ItemsAttributeValuesContextType = {
   onAttributeChange: (attributeId: string, value: number) => void;
   isSaving: boolean;
   save: () => void;
-  attributesList: ItemAttributes[];
+  attributesList: ItemAttribute[];
   availableItemIds: string[];
+  addAttributesToUpdate: (itemId: string, attributes: ItemAtributesValues) => void;
 };
 
 const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextType>({
@@ -45,6 +46,7 @@ const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextTyp
   save: () => {},
   attributesList: [],
   availableItemIds: [],
+  addAttributesToUpdate: () => {},
 });
 
 type ItemsAttributeValuesProviderProps = {
@@ -133,6 +135,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         isSaving,
         save,
         attributesList,
+        addAttributesToUpdate,
       }}
     >
       {children}
