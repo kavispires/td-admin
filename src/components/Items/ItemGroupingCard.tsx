@@ -43,7 +43,7 @@ export function ItemGroupingCard() {
   const unrelateButton = isUnsetSet && (
     <Popconfirm
       key="unrelate-button"
-      title={`Are you sure everything is unrelated to ${attribute.name.pt}?`}
+      title={`Are you sure everything is unrelated to ${attribute.name.en}?`}
       onConfirm={updatePageItemsAsUnrelated}
     >
       <Button type="primary" danger disabled={pageIds.length === 0}>
