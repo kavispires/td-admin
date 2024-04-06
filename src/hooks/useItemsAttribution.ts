@@ -7,9 +7,10 @@ import { useTDResource } from './useTDResource';
 import { useQueryClient } from '@tanstack/react-query';
 import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
 import { App } from 'antd';
+import { getNewItem, getNewItemAttributeValues } from 'utils';
 
 export function useItemsAttribution() {
-  const { notification } = App.useApp();
+  const { notification, message } = App.useApp();
   const queryClient = useQueryClient();
 
   // Gather basic item data
@@ -81,6 +82,22 @@ export function useItemsAttribution() {
 
   const save = () => {
     mutation.mutate(stringifyItemsAttributeValuesData({ ...firebaseData, ...modifiedAttributeValues }));
+  };
+
+  const getItem = (id: string) => {
+    if (tdrItemsQuery.data?.[id]) {
+      return tdrItemsQuery.data[id];
+    }
+    message.info(`Item ${id} not found in TDR. Creating a new item...`);
+    getNewItem({ id });
+  };
+
+  const getItemAttributeValues = (id: string) => {
+    if (itemsAttributeValues[id]) {
+      return itemsAttributeValues[id];
+    }
+    message.info(`Item ${id} not found in itemsAttributeValues. Creating a new item attribute...`);
+    return getNewItemAttributeValues({ id });
   };
 
   return {

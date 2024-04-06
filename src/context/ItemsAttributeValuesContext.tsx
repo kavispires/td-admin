@@ -3,6 +3,7 @@ import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { isEmpty, orderBy, random } from 'lodash';
 import { ReactNode, useContext, createContext, useMemo, useState } from 'react';
 import { Item, ItemAtributesValues, ItemAttribute } from 'types';
+import { getNewItem, getNewItemAttributeValues } from 'utils';
 
 export type ItemsAttributeValuesContextType = {
   items: Dictionary<Item>;
@@ -30,18 +31,8 @@ const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextTyp
   hasResponseData: false,
   isDirty: false,
   jumpToItem: () => {},
-  activeItem: {
-    id: '-1',
-    name: {
-      en: '',
-      pt: '',
-    },
-    groups: [],
-  },
-  itemAttributeValues: {
-    id: '-1',
-    attributes: {},
-  },
+  activeItem: getNewItem(),
+  itemAttributeValues: getNewItemAttributeValues(),
   itemsAttributeValues: {},
   onAttributeChange: () => {},
   isSaving: false,

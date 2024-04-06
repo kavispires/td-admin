@@ -1,6 +1,7 @@
-import { chain, isObject } from 'lodash';
+import { chain, cloneDeep, isObject, merge } from 'lodash';
 import { SEARCH_THRESHOLD } from './constants';
 import stringSimilarity from 'string-similarity';
+import { Item, ItemAtributesValues } from 'types';
 
 /**
  *
@@ -140,4 +141,45 @@ export const getCurrentDateTime = (): string => {
   const minutes = String(now.getMinutes()).padStart(2, '0');
 
   return `${year}/${month}/${day} ${hours}:${minutes}`;
+};
+
+/**
+ * Creates a new item with default values and merges it with the provided partial item.
+ *
+ * @param partialItem - The partial item to merge with the default values.
+ * @returns The new item with merged values.
+ */
+export const getNewItem = (partialItem: Partial<Item> = {}): Item => {
+  return cloneDeep(
+    merge(
+      {
+        id: '',
+        name: { en: '', pt: '' },
+        groups: [],
+        attributes: {},
+      },
+      partialItem
+    )
+  );
+};
+
+/**
+ * Creates a new `ItemAtributesValues` object by merging the provided `partialItemAttributeValues`
+ * with a default object that has an empty `id` and an empty `attributes` object.
+ *
+ * @param partialItemAttributeValues - The partial item attribute values to merge.
+ * @returns The new `ItemAtributesValues` object.
+ */
+export const getNewItemAttributeValues = (
+  partialItemAttributeValues: Partial<ItemAtributesValues> = {}
+): ItemAtributesValues => {
+  return cloneDeep(
+    merge(
+      {
+        id: '',
+        attributes: {},
+      },
+      partialItemAttributeValues
+    )
+  );
 };
