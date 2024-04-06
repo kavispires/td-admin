@@ -7,10 +7,21 @@ import { IdcardOutlined } from '@ant-design/icons';
 
 import { ItemAttributeStats } from './ItemAttributeStats';
 import { AttributionValueButtons } from './AttributionValueButtons';
+import { useItemQueryParams } from 'hooks/useItemQueryParams';
+import { useMemo } from 'react';
 
 export function ItemAttributionCard() {
   const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem } =
     useItemsAttributeValuesContext();
+  const { searchParams } = useItemQueryParams();
+  const showOnlyUnset = searchParams.get('scope') === 'unset';
+  const filteredAttributesList = useMemo(
+    () =>
+      showOnlyUnset
+        ? attributesList.filter((attribute) => !itemAttributeValues.attributes[attribute.id])
+        : attributesList,
+    [showOnlyUnset] // eslint-disable-line react-hooks/exhaustive-deps
+  );
 
   if (!activeItem)
     return (
@@ -62,7 +73,7 @@ export function ItemAttributionCard() {
         </Affix>
 
         <Space size="small" direction="vertical" className="my-4 attribute-button-container" wrap>
-          {attributesList.map((attribute) => (
+          {filteredAttributesList.map((attribute) => (
             <AttributionValueButtons
               key={attribute.id}
               attribute={attribute}

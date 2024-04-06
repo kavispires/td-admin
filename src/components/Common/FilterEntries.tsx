@@ -64,11 +64,12 @@ type FilterSwitchProps = {
   label: ReactNode;
   value: boolean;
   onChange: (value: boolean) => void;
+  className?: string;
 };
 
-export function FilterSwitch({ label, value, onChange }: FilterSwitchProps) {
+export function FilterSwitch({ label, value, onChange, className }: FilterSwitchProps) {
   return (
-    <Form.Item label={label} valuePropName="checked">
+    <Form.Item label={label} valuePropName="checked" className={className}>
       <Switch checked={value} onChange={onChange} size="small" />
     </Form.Item>
   );

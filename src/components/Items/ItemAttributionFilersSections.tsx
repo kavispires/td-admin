@@ -1,5 +1,5 @@
 import { Button, Divider, Flex, Typography } from 'antd';
-import { FilterNumber, FilterSelect } from 'components/Common';
+import { FilterNumber, FilterSelect, FilterSwitch } from 'components/Common';
 import { Stat } from 'components/Common/Stat';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
@@ -44,7 +44,7 @@ export function ItemAttributionStats() {
     <>
       <Flex vertical>
         <Typography.Text strong className="mb-2">
-          Item Stats
+          Items Stats
         </Typography.Text>
         <Stat label="Total">{total}</Stat>
         <Stat label="Complete">
@@ -62,12 +62,19 @@ export function ItemAttributionStats() {
 
 export function ItemAttributionClassifierFilters() {
   const { jumpToItem } = useItemsAttributeValuesContext();
+  const { searchParams, addQueryParam } = useItemQueryParams();
 
   return (
     <>
       <Button block onClick={() => jumpToItem('random')} type="primary">
         Random Item
       </Button>
+      <FilterSwitch
+        label="Unset Only"
+        value={searchParams.get('scope') === 'unset'}
+        onChange={(value) => addQueryParam('scope', value ? 'unset' : '')}
+        className="mt-4"
+      />
     </>
   );
 }
