@@ -1,15 +1,14 @@
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useItemQueryParams } from './useItemQueryParams';
 import { sample as lodashSample, shuffle } from 'lodash';
 import { useState } from 'react';
-import { ItemAtributesValues, ItemAttribute } from 'types';
-import { App } from 'antd';
+import { ItemAttribute } from 'types';
+
+import { useItemQueryParams } from './useItemQueryParams';
 
 export function useItemSampler() {
-  const { activeItem, attributesList, availableItemIds, addAttributesToUpdate, itemsAttributeValues } =
+  const { attributesList, availableItemIds, addAttributesToUpdate, itemsAttributeValues } =
     useItemsAttributeValuesContext();
   const { searchParams } = useItemQueryParams();
-  const { message } = App.useApp();
 
   const [sampleIds, setSampleIds] = useState<string[]>([]);
   const [attribute, setAttribute] = useState<ItemAttribute>();
@@ -40,11 +39,10 @@ export function useItemSampler() {
   };
 
   const updateAttributeValue = (itemId: string, attributeId: string, value: number) => {
-    const currentItemAttributeValues = itemsAttributeValues[activeItem?.id] ?? {
-      id: activeItem?.id,
+    const currentItemAttributeValues = itemsAttributeValues[itemId] ?? {
+      id: itemId,
       attributes: {},
     };
-    console.log(currentItemAttributeValues);
 
     addAttributesToUpdate(itemId, {
       ...currentItemAttributeValues,
@@ -53,8 +51,6 @@ export function useItemSampler() {
         [attributeId]: value,
       },
     });
-
-    // message.error(`Error while trying to update attribute value for ${itemId} and ${attributeId}`);
   };
 
   return {

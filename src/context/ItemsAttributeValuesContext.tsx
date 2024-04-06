@@ -19,6 +19,7 @@ export type ItemsAttributeValuesContextType = {
   attributesList: ItemAttribute[];
   availableItemIds: string[];
   addAttributesToUpdate: (itemId: string, attributes: ItemAtributesValues) => void;
+  addMultipleAttributesToUpdate: (itemsArr: ItemAtributesValues[]) => void;
 };
 
 const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextType>({
@@ -47,6 +48,7 @@ const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextTyp
   attributesList: [],
   availableItemIds: [],
   addAttributesToUpdate: () => {},
+  addMultipleAttributesToUpdate: () => {},
 });
 
 type ItemsAttributeValuesProviderProps = {
@@ -64,6 +66,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
     isDirty,
     attributes,
     itemsAttributeValues,
+    addMultipleAttributesToUpdate,
   } = useItemsAttribution();
 
   // Filter items that have the alien group only
@@ -136,6 +139,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         save,
         attributesList,
         addAttributesToUpdate,
+        addMultipleAttributesToUpdate,
       }}
     >
       {children}

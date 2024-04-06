@@ -4,6 +4,7 @@ import { Stat } from 'components/Common/Stat';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useMemo } from 'react';
+import { ATTRIBUTE_GROUP_VALUES } from 'utils/constants';
 
 export function ItemAttributionStats() {
   const { itemsAttributeValues, availableItemIds, attributesList } = useItemsAttributeValuesContext();
@@ -89,6 +90,40 @@ export function ItemAttributionSamplerFilters() {
         min={3}
         max={21}
         step={3}
+      />
+    </>
+  );
+}
+
+export function ItemAttributionGroupingFilters() {
+  const { searchParams, addQueryParam } = useItemQueryParams();
+  const { attributesList } = useItemsAttributeValuesContext();
+
+  const options = useMemo(() => {
+    return attributesList.map(({ id, name }) => ({ label: name.en, value: id }));
+  }, [attributesList]);
+
+  return (
+    <>
+      <FilterSelect
+        label="Attribute"
+        value={searchParams.get('attribute') || 'ali'}
+        onChange={(v) => addQueryParam('attribute', v)}
+        options={options}
+      />
+
+      <FilterSelect
+        label="Scope"
+        value={searchParams.get('scope') || 'unset'}
+        onChange={(v) => addQueryParam('scope', v)}
+        options={[{ value: 'unset', label: 'Unset' }, ...ATTRIBUTE_GROUP_VALUES]}
+      />
+
+      <FilterSelect
+        label="Results per page"
+        value={searchParams.get('pageSize') || 12}
+        onChange={(v) => addQueryParam('pageSize', v)}
+        options={[12, 24, 48, 96]}
       />
     </>
   );

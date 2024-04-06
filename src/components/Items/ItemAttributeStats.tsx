@@ -18,11 +18,11 @@ export function ItemAttributeStats({ attributesList, itemAttributeValues }: Item
 
     let isDeterministic = false;
     let isOpposing = false;
-    let irrelevantCount = 0;
+    let unclearCount = 0;
     const value = Object.values(itemAttributeValues.attributes).reduce((acc: number, v) => {
       if (v <= 0) {
-        if (v === ATTRIBUTE_VALUE.IRRELEVANT) {
-          irrelevantCount += 1;
+        if (v === ATTRIBUTE_VALUE.UNCLEAR) {
+          unclearCount += 1;
         }
         if (v === ATTRIBUTE_VALUE.OPPOSITE) {
           isOpposing = true;
@@ -36,7 +36,7 @@ export function ItemAttributeStats({ attributesList, itemAttributeValues }: Item
       return acc + v;
     }, 0);
 
-    const relevancy = Math.floor(((completed - irrelevantCount) / total) * 100);
+    const relevancy = Math.floor(((completed - unclearCount) / total) * 100);
 
     return { completion, isDeterministic, value, isOpposing, relevancy };
   }, [attributesList, itemAttributeValues.attributes]);

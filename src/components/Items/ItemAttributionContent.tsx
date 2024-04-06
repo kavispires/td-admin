@@ -3,6 +3,7 @@ import { ItemAttributionCard } from './ItemAttributionCard';
 import { ItemAttributionNavigation } from './ItemAttributionNavigation';
 import { Card, Typography } from 'antd';
 import { ItemSamplerCard } from './ItemSamplerCard';
+import { ItemGroupingCard } from './ItemGroupingCard';
 
 export function ItemAttributionClassifierContent() {
   const { view } = useItemQueryParams();
@@ -19,6 +20,10 @@ export function ItemAttributionClassifierContent() {
 
   if (view === 'sampler') {
     return <ItemSamplerCard />;
+  }
+
+  if (view === 'grouping') {
+    return <ItemGroupingCard />;
   }
 
   return (

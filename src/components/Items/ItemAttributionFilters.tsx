@@ -10,6 +10,7 @@ import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 import {
   ItemAttributionClassifierFilters,
+  ItemAttributionGroupingFilters,
   ItemAttributionSamplerFilters,
   ItemAttributionStats,
 } from './ItemAttributionFilersSections';
@@ -40,12 +41,13 @@ export function ItemAttributionFilters() {
         label="View"
         value={view}
         onChange={setView}
-        options={['classifier', 'sampler', 'stats']}
+        options={['classifier', 'sampler', 'grouping', 'stats']}
       />
       <Divider />
 
       {view === 'classifier' && <ItemAttributionClassifierFilters />}
       {view === 'sampler' && <ItemAttributionSamplerFilters />}
+      {view === 'grouping' && <ItemAttributionGroupingFilters />}
     </SiderContent>
   );
 }

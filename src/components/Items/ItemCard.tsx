@@ -32,7 +32,7 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
           : [<EditOutlined key="edit" onClick={toggleEditMode} />]
       }
     >
-      <Item id={item.id} width={150} title={`${item.name.en} | ${item.name.pt}`} />
+      <Item id={item.id} width={124} title={`${item.name.en} | ${item.name.pt}`} />
       <Space size="small" direction="vertical" className="my-4">
         <Input
           prefix={<LanguageFlag language="en" width="1em" />}

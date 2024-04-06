@@ -621,6 +621,10 @@ export type ItemAtributesValues = {
    * Indicates if all attributes have been assigned numbers
    */
   complete?: boolean;
+  /**
+   * The timestamp of the last update
+   */
+  updatedAt?: number;
 };
 
 /**

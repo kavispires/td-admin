@@ -1,4 +1,4 @@
-import { cloneDeep, isEmpty } from 'lodash';
+import { cloneDeep, isEmpty, mapKeys } from 'lodash';
 import { useMemo, useState } from 'react';
 import { Item, ItemAtributesValues, ItemAttribute } from 'types';
 
@@ -65,7 +65,16 @@ export function useItemsAttribution() {
 
   const isDirty = !isEmpty(modifiedAttributeValues);
   const addAttributesToUpdate = (id: string, item: ItemAtributesValues) => {
-    setModifiedAttributeValues((prev) => ({ ...prev, [id]: item }));
+    setModifiedAttributeValues((prev) => ({ ...prev, [id]: { ...item, updatedAt: Date.now() } }));
+  };
+  const addMultipleAttributesToUpdate = (itemsArr: ItemAtributesValues[]) => {
+    setModifiedAttributeValues((prev) => ({
+      ...prev,
+      ...mapKeys(
+        itemsArr.map((item) => ({ ...item, updatedAt: Date.now() })),
+        'id'
+      ),
+    }));
   };
 
   const firebaseData = firebaseItemsAttributeValuesQuery.data;
@@ -76,7 +85,6 @@ export function useItemsAttribution() {
 
   return {
     items: tdrItemsQuery.data ?? {},
-
     attributes: tdrAttributesQuery.data ?? {},
     itemsAttributeValues,
     isLoading:
@@ -93,6 +101,7 @@ export function useItemsAttribution() {
     isSaving: mutation.isLoading,
     save,
     addAttributesToUpdate,
+    addMultipleAttributesToUpdate,
     attributesToUpdate: modifiedAttributeValues,
     isDirty,
   };

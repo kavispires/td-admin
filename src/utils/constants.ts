@@ -1,5 +1,5 @@
 import { AlienSign, Emoji, Glyph, Item } from 'components/Sprites';
-import { keyBy } from 'lodash';
+import { capitalize, keyBy } from 'lodash';
 
 export const SEARCH_THRESHOLD: number = 2;
 
@@ -190,7 +190,12 @@ export const CARD_SIZE_OPTIONS = [
 export const ATTRIBUTE_VALUE = {
   OPPOSITE: -10,
   UNRELATED: -3,
-  IRRELEVANT: -1,
+  UNCLEAR: -1,
   RELATED: 5,
   DETERMINISTIC: 10,
 };
+
+export const ATTRIBUTE_GROUP_VALUES = Object.keys(ATTRIBUTE_VALUE).map((key) => ({
+  value: key.toLowerCase(),
+  label: capitalize(key),
+}));
