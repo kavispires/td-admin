@@ -1,9 +1,10 @@
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { ItemAttributionCard } from './ItemAttributionCard';
 import { ItemAttributionNavigation } from './ItemAttributionNavigation';
-import { Card, Typography } from 'antd';
+import { Card, Flex, Typography } from 'antd';
 import { ItemSamplerCard } from './ItemSamplerCard';
 import { ItemGroupingCard } from './ItemGroupingCard';
+import { GoToTopButton } from 'components/Common/GoToTopButton';
 
 export function ItemAttributionClassifierContent() {
   const { view } = useItemQueryParams();
@@ -13,7 +14,9 @@ export function ItemAttributionClassifierContent() {
       <>
         <ItemAttributionNavigation />
         <ItemAttributionCard />
-        <ItemAttributionNavigation />
+        <Flex justify="flex-end" className="my-4">
+          <GoToTopButton />
+        </Flex>
       </>
     );
   }

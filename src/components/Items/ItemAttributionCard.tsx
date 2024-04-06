@@ -29,12 +29,7 @@ export function ItemAttributionCard() {
       <div className="item-attribution-card">
         <Affix offsetTop={120}>
           <Flex vertical gap={6} key={activeItem.id}>
-            <Item
-              id={activeItem.id}
-              width={150}
-              title={`${activeItem.name.en} | ${activeItem.name.pt}`}
-              // className="sticky-top"
-            />
+            <Item id={activeItem.id} width={150} title={`${activeItem.name.en} | ${activeItem.name.pt}`} />
             <Input
               prefix={<IdcardOutlined />}
               placeholder="Id"

@@ -1,3 +1,4 @@
+import { App } from 'antd';
 import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { isEmpty, orderBy, random } from 'lodash';
 import { ReactNode, useContext, createContext, useMemo, useState } from 'react';
@@ -11,7 +12,7 @@ export type ItemsAttributeValuesContextType = {
   isDirty: boolean;
   itemAttributeValues: ItemAtributesValues;
   itemsAttributeValues: Dictionary<ItemAtributesValues>;
-  jumpToItem: (direction: string) => void;
+  jumpToItem: (direction: string, itemId?: string) => void;
   activeItem: Item;
   onAttributeChange: (attributeId: string, value: number) => void;
   isSaving: boolean;
@@ -68,6 +69,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
     itemsAttributeValues,
     addMultipleAttributesToUpdate,
   } = useItemsAttribution();
+  const { message } = App.useApp();
 
   // Filter items that have the alien group only
   const availableItemIds = useMemo(() => {
@@ -84,7 +86,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
   const activeItem = items[availableItemIds[itemIndex]];
   const itemAttributeValues = itemsAttributeValues[activeItem?.id] ?? { id: activeItem?.id, attributes: {} };
 
-  const jumpToItem = (direction: string) => {
+  const jumpToItem = (direction: string, itemId?: string) => {
     if (direction === 'next') {
       setItemIndex((prev) => (prev + 1) % availableItemIds.length);
     }
@@ -106,6 +108,15 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
     }
     if (direction === 'previous10') {
       setItemIndex((prev) => (prev - 10 + availableItemIds.length) % availableItemIds.length);
+    }
+
+    if (direction === 'goTo' && itemId !== undefined) {
+      const index = availableItemIds.indexOf(itemId);
+      if (index !== -1) {
+        setItemIndex(index);
+      } else {
+        message.error(`Item ${itemId} is not available for attribution.`);
+      }
     }
   };
 
