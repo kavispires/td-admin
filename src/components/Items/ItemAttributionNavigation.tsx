@@ -1,3 +1,8 @@
+import { Button, Popover } from 'antd';
+import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
+import { useTDResource } from 'hooks/useTDResource';
+import { Item } from 'types';
+
 import {
   DoubleLeftOutlined,
   DoubleRightOutlined,
@@ -6,8 +11,7 @@ import {
   VerticalLeftOutlined,
   VerticalRightOutlined,
 } from '@ant-design/icons';
-import { Button, Popover } from 'antd';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
+
 import { ItemsTypeahead } from './ItemsTypeahead';
 
 export function ItemAttributionNavigation() {
@@ -40,6 +44,13 @@ export function ItemAttributionNavigation() {
 }
 
 function GoToItemPopOverContent() {
-  const { jumpToItem, items } = useItemsAttributeValuesContext();
-  return <ItemsTypeahead items={items} isPending={false} onFinish={(itemId) => jumpToItem('goTo', itemId)} />;
+  const tdrItemsQuery = useTDResource<Item>('items');
+  const { jumpToItem } = useItemsAttributeValuesContext();
+  return (
+    <ItemsTypeahead
+      items={tdrItemsQuery.data ?? {}}
+      isPending={false}
+      onFinish={(itemId) => jumpToItem('goTo', itemId)}
+    />
+  );
 }

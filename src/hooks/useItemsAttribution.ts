@@ -1,13 +1,19 @@
-import { cloneDeep, isEmpty, mapKeys } from 'lodash';
+import { App } from 'antd';
+import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import { Item, ItemAtributesValues, ItemAttribute } from 'types';
+import { getNewItem, getNewItemAttributeValues } from 'utils';
+
+import { useQueryClient } from '@tanstack/react-query';
 
 import { useGetFirebaseDoc } from './useGetFirebaseDoc';
 import { useTDResource } from './useTDResource';
-import { useQueryClient } from '@tanstack/react-query';
 import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
-import { App } from 'antd';
-import { getNewItem, getNewItemAttributeValues } from 'utils';
+
+/**
+ * This is to avoid new items being generated and unused just for the sake of placeholders.
+ */
+const globalNewItemsAttributesValues: Dictionary<ItemAtributesValues> = {};
 
 export function useItemsAttribution() {
   const { notification, message } = App.useApp();
@@ -42,27 +48,12 @@ export function useItemsAttribution() {
     },
   });
 
-  const itemsAttributeValues = useMemo(() => {
-    if (
-      tdrItemsAttributesValuesQuery.isLoading ||
-      firebaseItemsAttributeValuesQuery.isLoading ||
-      mutation.isLoading
-    )
-      return {};
-    console.log('%cMerging items-attribute-values data...', 'color: #f0f');
-    return cloneDeep({
+  const savedItemsAttributeValues = useMemo(() => {
+    return {
       ...(tdrItemsAttributesValuesQuery.data ?? {}),
       ...(firebaseItemsAttributeValuesQuery.data ?? {}),
-      ...modifiedAttributeValues,
-    });
-  }, [
-    tdrItemsAttributesValuesQuery.data,
-    firebaseItemsAttributeValuesQuery.data,
-    tdrItemsAttributesValuesQuery.isLoading,
-    firebaseItemsAttributeValuesQuery.isLoading,
-    mutation.isLoading,
-    modifiedAttributeValues,
-  ]);
+    };
+  }, [tdrItemsAttributesValuesQuery.data, firebaseItemsAttributeValuesQuery.data]);
 
   const isDirty = !isEmpty(modifiedAttributeValues);
   const addAttributesToUpdate = (id: string, item: ItemAtributesValues) => {
@@ -84,26 +75,45 @@ export function useItemsAttribution() {
     mutation.mutate(stringifyItemsAttributeValuesData({ ...firebaseData, ...modifiedAttributeValues }));
   };
 
+  // Filter items that have the alien group only
+  const availableItemIds = useMemo(() => {
+    const items = tdrItemsQuery.data ?? {};
+    return orderBy(
+      Object.keys(items).filter((id) => {
+        return (items[id]?.groups ?? []).includes('alien');
+      }),
+      (id) => Number(id),
+      'asc'
+    );
+  }, [tdrItemsQuery.data]);
+
   const getItem = (id: string) => {
-    if (tdrItemsQuery.data?.[id]) {
+    if ((tdrItemsQuery.data ?? {})?.[id]) {
       return tdrItemsQuery.data[id];
     }
-    message.info(`Item ${id} not found in TDR. Creating a new item...`);
-    getNewItem({ id });
+    if (id) {
+      message.info(`Item ${id} not found in TDR. Creating a new item...`);
+    }
+    return getNewItem({ id });
   };
 
   const getItemAttributeValues = (id: string) => {
-    if (itemsAttributeValues[id]) {
-      return itemsAttributeValues[id];
+    const storedValue = savedItemsAttributeValues?.[id] ?? {};
+    const modifiedValue = modifiedAttributeValues[id] ?? {};
+
+    if (isEmpty(storedValue) && isEmpty(modifiedValue)) {
+      globalNewItemsAttributesValues[id] = getNewItemAttributeValues({ id });
+      return globalNewItemsAttributesValues[id];
     }
-    message.info(`Item ${id} not found in itemsAttributeValues. Creating a new item attribute...`);
-    return getNewItemAttributeValues({ id });
+
+    return merge(globalNewItemsAttributesValues?.[id] ?? {}, storedValue, modifiedValue);
   };
 
   return {
-    items: tdrItemsQuery.data ?? {},
+    availableItemIds,
+    getItem,
+    getItemAttributeValues,
     attributes: tdrAttributesQuery.data ?? {},
-    itemsAttributeValues,
     isLoading:
       tdrItemsQuery.isLoading ||
       tdrAttributesQuery.isLoading ||

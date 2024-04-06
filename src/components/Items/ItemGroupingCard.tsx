@@ -1,19 +1,19 @@
 import { Button, Card, Flex, Input, Pagination, Popconfirm, Typography } from 'antd';
+import { GoToTopButton } from 'components/Common/GoToTopButton';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
+import { useItemGrouping } from 'hooks/useItemGrouping';
+import { useItemQueryParams } from 'hooks/useItemQueryParams';
+import { isEmpty } from 'lodash';
+import { useMedia } from 'react-use';
 
 import { IdcardOutlined } from '@ant-design/icons';
 
-import { isEmpty } from 'lodash';
 import { AttributionValueButtons } from './AttributionValueButtons';
-import { useItemGrouping } from 'hooks/useItemGrouping';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
-import { GoToTopButton } from 'components/Common/GoToTopButton';
-import { useMedia } from 'react-use';
 
 export function ItemGroupingCard() {
-  const { items, itemsAttributeValues } = useItemsAttributeValuesContext();
+  const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
   const { attribute, pageIds, group, updateAttributeValue, updatePageItemsAsUnrelated, pagination } =
     useItemGrouping();
   const { searchParams } = useItemQueryParams();
@@ -63,8 +63,8 @@ export function ItemGroupingCard() {
       actions={[unrelateButton, <GoToTopButton key="go-to-top" />, paginationComponent].filter(Boolean)}
     >
       {pageIds.map((itemId) => {
-        const itemAttributes = itemsAttributeValues[itemId] ?? { id: itemId, attributes: {} };
-        const item = items[itemId];
+        const itemAttributes = getItemAttributeValues(itemId);
+        const item = getItem(itemId);
 
         return (
           <Card.Grid key={itemId} style={{ width: isNarrow ? '50%' : '25%' }}>

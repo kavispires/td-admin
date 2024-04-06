@@ -3,24 +3,32 @@ import { FilterNumber, FilterSelect } from 'components/Common';
 import { Stat } from 'components/Common/Stat';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
+import { isEmpty } from 'lodash';
 import { useMemo } from 'react';
 import { ATTRIBUTE_GROUP_VALUES } from 'utils/constants';
 
 export function ItemAttributionStats() {
-  const { itemsAttributeValues, availableItemIds, attributesList } = useItemsAttributeValuesContext();
+  const { getItemAttributeValues, availableItemIds, attributesList } = useItemsAttributeValuesContext();
 
   const { total, complete, completionPercentage, hasDataCount, initiatedPercentage, progress } =
     useMemo(() => {
       const total = availableItemIds.length;
-      const someData = Object.keys(itemsAttributeValues).length;
-      const complete = Object.values(itemsAttributeValues).filter(
-        ({ complete, attributes }) =>
-          Boolean(complete) || Object.values(attributes).length === attributesList.length
-      ).length;
+      let someData = 0;
+      let complete = 0;
+      let currentProgress = 0;
+      const itemsAttributes = availableItemIds.map((id) => getItemAttributeValues(id));
+      itemsAttributes.forEach(({ complete: isComplete, attributes }) => {
+        if (!isEmpty(attributes)) {
+          someData += 1;
+        }
+        if (Object.values(attributes).length === attributesList.length) {
+          complete += 1;
+        }
+
+        currentProgress += Object.values(attributes).length;
+      });
+
       const progressTotal = Object.values(attributesList).length * availableItemIds.length;
-      const progressCurrent = Object.values(itemsAttributeValues).reduce((acc, { attributes }) => {
-        return acc + Object.values(attributes).length;
-      }, 0);
 
       return {
         total,
@@ -28,9 +36,9 @@ export function ItemAttributionStats() {
         completionPercentage: total > 0 ? ((complete / total) * 100).toFixed(1) : 0,
         hasDataCount: someData,
         initiatedPercentage: total > 0 ? Math.floor((someData / total) * 100) : 0,
-        progress: ((progressCurrent / progressTotal) * 100).toFixed(1),
+        progress: ((currentProgress / progressTotal) * 100).toFixed(1),
       };
-    }, [itemsAttributeValues, availableItemIds.length, attributesList]);
+    }, [attributesList, availableItemIds, getItemAttributeValues]);
 
   return (
     <>

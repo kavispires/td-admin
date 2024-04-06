@@ -2,17 +2,17 @@ import { Button, Card, Divider, Flex, Input, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
+import { useItemSampler } from 'hooks/useItemSampler';
+import { isEmpty } from 'lodash';
+import { Fragment } from 'react';
 
 import { IdcardOutlined } from '@ant-design/icons';
 
-import { isEmpty } from 'lodash';
-import { useItemSampler } from 'hooks/useItemSampler';
-import { Fragment } from 'react';
 import { AttributionValueButtons } from './AttributionValueButtons';
 
 export function ItemSamplerCard() {
-  const { items } = useItemsAttributeValuesContext();
-  const { sampleIds, itemsAttributeValues, attribute, onGetSample, updateAttributeValue } = useItemSampler();
+  const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
+  const { sampleIds, attribute, onGetSample, updateAttributeValue } = useItemSampler();
 
   if (isEmpty(sampleIds) && isEmpty(attribute)) {
     return (
@@ -44,8 +44,8 @@ export function ItemSamplerCard() {
     >
       <Flex vertical gap={6}>
         {sampleIds.map((itemId) => {
-          const itemAttributes = itemsAttributeValues[itemId] ?? { id: itemId, attributes: {} };
-          const item = items[itemId];
+          const itemAttributes = getItemAttributeValues(itemId);
+          const item = getItem(itemId);
 
           return (
             <Fragment key={item.id}>

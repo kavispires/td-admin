@@ -3,16 +3,17 @@ import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { isEmpty, orderBy, random } from 'lodash';
 import { ReactNode, useContext, createContext, useMemo, useState } from 'react';
 import { Item, ItemAtributesValues, ItemAttribute } from 'types';
-import { getNewItem, getNewItemAttributeValues } from 'utils';
+import { getNewItem, getNewItemAttributeValues, sortJsonKeys } from 'utils';
 
 export type ItemsAttributeValuesContextType = {
-  items: Dictionary<Item>;
+  getItem: (itemId: string) => Item;
+  getItemAttributeValues: (itemId: string) => ItemAtributesValues;
   isLoading: boolean;
   error: ResponseError;
   hasResponseData: boolean;
   isDirty: boolean;
   itemAttributeValues: ItemAtributesValues;
-  itemsAttributeValues: Dictionary<ItemAtributesValues>;
+  prepareItemsAttributesFileForDownload: () => Dictionary<ItemAtributesValues>;
   jumpToItem: (direction: string, itemId?: string) => void;
   activeItem: Item;
   onAttributeChange: (attributeId: string, value: number) => void;
@@ -25,7 +26,8 @@ export type ItemsAttributeValuesContextType = {
 };
 
 const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextType>({
-  items: {},
+  getItem: () => getNewItem(),
+  getItemAttributeValues: () => getNewItemAttributeValues(),
   isLoading: true,
   error: null,
   hasResponseData: false,
@@ -33,7 +35,6 @@ const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextTyp
   jumpToItem: () => {},
   activeItem: getNewItem(),
   itemAttributeValues: getNewItemAttributeValues(),
-  itemsAttributeValues: {},
   onAttributeChange: () => {},
   isSaving: false,
   save: () => {},
@@ -41,6 +42,7 @@ const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextTyp
   availableItemIds: [],
   addAttributesToUpdate: () => {},
   addMultipleAttributesToUpdate: () => {},
+  prepareItemsAttributesFileForDownload: () => ({}),
 });
 
 type ItemsAttributeValuesProviderProps = {
@@ -49,7 +51,9 @@ type ItemsAttributeValuesProviderProps = {
 
 export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesProviderProps) => {
   const {
-    items,
+    getItem,
+    getItemAttributeValues,
+    availableItemIds,
     isLoading,
     error,
     isSaving,
@@ -57,25 +61,13 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
     addAttributesToUpdate,
     isDirty,
     attributes,
-    itemsAttributeValues,
     addMultipleAttributesToUpdate,
   } = useItemsAttribution();
   const { message } = App.useApp();
 
-  // Filter items that have the alien group only
-  const availableItemIds = useMemo(() => {
-    return orderBy(
-      Object.keys(items).filter((id) => {
-        return (items[id]?.groups ?? []).includes('alien');
-      }),
-      (id) => Number(id),
-      'asc'
-    );
-  }, [items]);
-
   const [itemIndex, setItemIndex] = useState(random(0, availableItemIds.length - 1));
-  const activeItem = items[availableItemIds[itemIndex]];
-  const itemAttributeValues = itemsAttributeValues[activeItem?.id] ?? { id: activeItem?.id, attributes: {} };
+  const activeItem = getItem(availableItemIds[itemIndex]);
+  const itemAttributeValues = getItemAttributeValues(activeItem.id);
 
   const jumpToItem = (direction: string, itemId?: string) => {
     if (direction === 'next') {
@@ -123,17 +115,41 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
     });
   };
 
+  const prepareItemsAttributesFileForDownload = () => {
+    return sortJsonKeys(
+      availableItemIds.reduce((acc: Dictionary<ItemAtributesValues>, itemId) => {
+        // Get items and only the ones with attributes
+        const item = getItemAttributeValues(itemId);
+
+        if (isEmpty(item.attributes)) {
+          return acc;
+        }
+
+        // Assess item completion
+        if (Object.keys(item.attributes).length === attributesList.length) {
+          item.complete = true;
+        } else {
+          delete item.complete;
+        }
+
+        acc[item.id] = item;
+
+        return acc;
+      }, {})
+    );
+  };
+
   return (
     <ItemsAttributeValuesContext.Provider
       value={{
-        items,
+        getItem,
+        getItemAttributeValues,
         availableItemIds,
         isLoading,
         error,
         hasResponseData: availableItemIds.length > 0 && !isEmpty(attributes),
         isDirty,
         itemAttributeValues,
-        itemsAttributeValues,
         jumpToItem,
         activeItem,
         onAttributeChange,
@@ -142,6 +158,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         attributesList,
         addAttributesToUpdate,
         addMultipleAttributesToUpdate,
+        prepareItemsAttributesFileForDownload,
       }}
     >
       {children}

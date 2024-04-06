@@ -6,7 +6,7 @@ import { ItemAttribute } from 'types';
 import { useItemQueryParams } from './useItemQueryParams';
 
 export function useItemSampler() {
-  const { attributesList, availableItemIds, addAttributesToUpdate, itemsAttributeValues } =
+  const { attributesList, availableItemIds, addAttributesToUpdate, getItemAttributeValues } =
     useItemsAttributeValuesContext();
   const { searchParams } = useItemQueryParams();
 
@@ -27,7 +27,7 @@ export function useItemSampler() {
       if (selected.length === sampleSize) break;
 
       const itemId = options[i];
-      const currentAttributeValues = itemsAttributeValues?.[itemId]?.attributes ?? {};
+      const currentAttributeValues = getItemAttributeValues(itemId).attributes;
 
       if (!currentAttributeValues[attributeKey]) {
         selected.push(itemId);
@@ -39,10 +39,7 @@ export function useItemSampler() {
   };
 
   const updateAttributeValue = (itemId: string, attributeId: string, value: number) => {
-    const currentItemAttributeValues = itemsAttributeValues[itemId] ?? {
-      id: itemId,
-      attributes: {},
-    };
+    const currentItemAttributeValues = getItemAttributeValues(itemId);
 
     addAttributesToUpdate(itemId, {
       ...currentItemAttributeValues,
@@ -55,7 +52,6 @@ export function useItemSampler() {
 
   return {
     sampleIds,
-    itemsAttributeValues,
     attribute,
     onGetSample,
     updateAttributeValue,

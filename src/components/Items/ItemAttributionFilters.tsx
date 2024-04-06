@@ -4,9 +4,6 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
-import { ItemAtributesValues } from 'types';
-import { sortJsonKeys } from 'utils';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 import {
   ItemAttributionClassifierFilters,
@@ -16,7 +13,7 @@ import {
 } from './ItemAttributionFilersSections';
 
 export function ItemAttributionFilters() {
-  const { isDirty, save, itemsAttributeValues, attributesList } = useItemsAttributeValuesContext();
+  const { isDirty, save, prepareItemsAttributesFileForDownload } = useItemsAttributeValuesContext();
 
   const { view, setView } = useItemQueryParams();
 
@@ -27,7 +24,7 @@ export function ItemAttributionFilters() {
           Save
         </Button>
         <DownloadButton
-          data={() => prepareFileForDownload(itemsAttributeValues, attributesList.length)}
+          data={() => prepareItemsAttributesFileForDownload()}
           fileName="items-attribute-values.json"
           disabled={isDirty}
           block
@@ -49,32 +46,5 @@ export function ItemAttributionFilters() {
       {view === 'sampler' && <ItemAttributionSamplerFilters />}
       {view === 'grouping' && <ItemAttributionGroupingFilters />}
     </SiderContent>
-  );
-}
-
-function prepareFileForDownload(
-  itemsAttributeValues: Dictionary<ItemAtributesValues>,
-  totalAttributes: number
-) {
-  return sortJsonKeys(
-    Object.values(itemsAttributeValues).reduce((acc: Dictionary<ItemAtributesValues>, item) => {
-      // Assess item completion
-      if (Object.keys(item.attributes).length === totalAttributes) {
-        item.complete = true;
-      } else {
-        delete item.complete;
-      }
-
-      // Verify -4/-5 beef
-      Object.keys(item.attributes).forEach((key) => {
-        if (item.attributes[key] === -5 || item.attributes[key] === -4) {
-          item.attributes[key] = ATTRIBUTE_VALUE.UNRELATED;
-        }
-      });
-
-      acc[item.id] = item;
-
-      return acc;
-    }, {})
   );
 }

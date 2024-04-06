@@ -9,7 +9,7 @@ export function useItemGrouping() {
   const {
     attributesList,
     addAttributesToUpdate,
-    itemsAttributeValues,
+    getItemAttributeValues,
     availableItemIds,
     addMultipleAttributesToUpdate,
   } = useItemsAttributeValuesContext();
@@ -25,35 +25,20 @@ export function useItemGrouping() {
   const [previousScope, setPreviousScope] = useState<string>('unset');
 
   const group = useMemo(() => {
-    if (scope === 'unset') {
-      const notInitiatedItemIds = availableItemIds.filter((id) => !itemsAttributeValues[id]);
-      const unsetItems = Object.values(itemsAttributeValues)
-        .filter((item) => item.attributes?.[attributeKey] === undefined)
-        .map((item) => item.id);
+    const itemsAttributes = availableItemIds.map((id) => getItemAttributeValues(id));
+    const scopeValue =
+      scope === 'unset' ? undefined : ATTRIBUTE_VALUE[scope.toUpperCase() as keyof typeof ATTRIBUTE_VALUE];
 
-      return orderBy(
-        [...notInitiatedItemIds, ...unsetItems],
-        [(id) => itemsAttributeValues[id]?.updatedAt, (id) => Number(id)],
-        ['desc', 'asc']
-      );
-    }
-
-    const scopeValue = ATTRIBUTE_VALUE[scope.toUpperCase() as keyof typeof ATTRIBUTE_VALUE];
+    const filteredItemIds = itemsAttributes
+      .filter((item) => item.attributes?.[attributeKey] === scopeValue)
+      .map((item) => item.id);
 
     return orderBy(
-      Object.values(itemsAttributeValues).reduce((acc: string[], item) => {
-        const value = item.attributes?.[attributeKey];
-
-        if (value === scopeValue) {
-          acc.push(item.id);
-        }
-
-        return acc;
-      }, []),
-      [(id) => itemsAttributeValues[id]?.updatedAt, (id) => Number(id)],
+      filteredItemIds,
+      [(id) => getItemAttributeValues(id)?.updatedAt, (id) => Number(id)],
       ['desc', 'asc']
     );
-  }, [attributeKey, scope, itemsAttributeValues]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [attributeKey, scope]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const pageIds = useMemo(() => {
     if (previousAttribute !== attributeKey || previousScope !== scope) {
@@ -71,10 +56,7 @@ export function useItemGrouping() {
   const attribute = attributesList.find((a) => a.id === attributeKey);
 
   const updateAttributeValue = (itemId: string, attributeId: string, value: number) => {
-    const currentItemAttributeValues = itemsAttributeValues[itemId] ?? {
-      id: itemId,
-      attributes: {},
-    };
+    const currentItemAttributeValues = getItemAttributeValues(itemId);
 
     addAttributesToUpdate(itemId, {
       ...currentItemAttributeValues,
@@ -88,7 +70,7 @@ export function useItemGrouping() {
   const updatePageItemsAsUnrelated = () => {
     addMultipleAttributesToUpdate(
       pageIds.map((id) => {
-        const prev = itemsAttributeValues[id] ?? { id, attributes: {} };
+        const prev = getItemAttributeValues(id);
         if (!prev.attributes[attributeKey]) {
           prev.attributes[attributeKey] = ATTRIBUTE_VALUE.UNRELATED;
         }
