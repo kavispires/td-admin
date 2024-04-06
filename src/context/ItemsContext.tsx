@@ -8,8 +8,6 @@ export type ItemsContextType = {
   isLoading: boolean;
   error: ResponseError;
   hasResponseData: boolean;
-  namesDict: Dictionary<string>;
-  names: { value: string }[];
   groupsDict: Dictionary<string>;
   groups: { value: string }[];
   listing: Item[];
@@ -28,8 +26,6 @@ const ItemsContext = createContext<ItemsContextType>({
   isLoading: true,
   error: null,
   hasResponseData: false,
-  namesDict: {},
-  names: [],
   groupsDict: {},
   groups: [],
   listing: [],
@@ -50,18 +46,16 @@ type ItemsProviderProps = {
 export const ItemsProvider = ({ children }: ItemsProviderProps) => {
   const { items, isLoading, error, isSaving, save, addItemToUpdate, itemsToUpdate, isDirty } = useItemsData();
 
-  const { namesDict, names, groupsDict, groups } = useMemo(() => {
-    console.log('Recomputing items context data...');
+  const { groupsDict, groups } = useMemo(() => {
+    console.log('Recomputing item groups typeahead...');
     const groupsDict: Dictionary<string> = {};
     const duplicationCheckEn: Dictionary<string> = {};
     const duplicationCheckPt: Dictionary<string> = {};
     const duplicatedNames: string[][] = [];
 
-    const namesDict = Object.values(items).reduce((acc: Dictionary<string>, entry) => {
+    Object.values(items).forEach((entry) => {
       const nameEn = `${entry.name.en} (${entry.id})`;
       const namePt = `${entry.name.pt} (${entry.id})`;
-      acc[nameEn] = entry.id;
-      acc[namePt] = entry.id;
 
       if (duplicationCheckEn[entry.name.en]) {
         duplicatedNames.push([`${entry.name.en} (${duplicationCheckEn[entry.name.en]})`, nameEn]);
@@ -77,13 +71,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
       entry?.groups?.forEach((group) => {
         groupsDict[group] = group;
       });
-
-      return acc;
-    }, {});
-
-    const names = orderBy(Object.keys(namesDict), [(name) => name.toLowerCase()]).map((name) => ({
-      value: name,
-    }));
+    });
 
     const groups = Object.keys(groupsDict).map((name) => ({ value: name }));
 
@@ -91,7 +79,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
       console.warn('Possible duplicated items', duplicatedNames);
     }
 
-    return { namesDict, names, groupsDict, groups };
+    return { groupsDict, groups };
   }, [items, isSaving, isLoading]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const [listingType, setListingType] = useState('all');
@@ -130,8 +118,6 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         listing,
         isLoading,
         error,
-        namesDict,
-        names,
         groupsDict,
         groups,
         hasResponseData: listing.length > 0,
