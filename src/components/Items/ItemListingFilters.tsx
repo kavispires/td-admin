@@ -50,8 +50,8 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
         onChange={(value) => setListingType(value)}
         options={[
           { label: 'All', value: 'all' },
-          { label: 'NSFW', value: 'nswf' },
-          { label: 'SFW', value: '!nswf' },
+          { label: 'NSFW', value: 'nsfw' },
+          { label: 'SFW', value: '!nsfw' },
           ...groupOptions,
           { label: 'No groups', value: '!all' },
         ]}

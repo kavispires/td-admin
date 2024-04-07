@@ -23,6 +23,7 @@ export type ItemsAttributeValuesContextType = {
   availableItemIds: string[];
   addAttributesToUpdate: (itemId: string, attributes: ItemAtributesValues) => void;
   addMultipleAttributesToUpdate: (itemsArr: ItemAtributesValues[]) => void;
+  attributes: Dictionary<ItemAttribute>;
 };
 
 const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextType>({
@@ -43,6 +44,7 @@ const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextTyp
   addAttributesToUpdate: () => {},
   addMultipleAttributesToUpdate: () => {},
   prepareItemsAttributesFileForDownload: () => ({}),
+  attributes: {},
 });
 
 type ItemsAttributeValuesProviderProps = {
@@ -155,6 +157,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         onAttributeChange,
         isSaving,
         save,
+        attributes,
         attributesList,
         addAttributesToUpdate,
         addMultipleAttributesToUpdate,

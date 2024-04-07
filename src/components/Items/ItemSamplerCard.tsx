@@ -52,14 +52,16 @@ export function ItemSamplerCard() {
               <Flex gap={6}>
                 <Item id={item.id} width={75} title={`${item.name.en} | ${item.name.pt}`} />
                 <Flex vertical gap={6}>
-                  <Input
-                    prefix={<IdcardOutlined />}
-                    placeholder="Id"
-                    variant="borderless"
-                    size="small"
-                    value={item.id}
-                    readOnly
-                  />
+                  <Flex>
+                    <Input
+                      prefix={<IdcardOutlined />}
+                      placeholder="Id"
+                      variant="borderless"
+                      size="small"
+                      value={item.id}
+                      readOnly
+                    />
+                  </Flex>
                   <Input
                     prefix={<LanguageFlag language="en" width="1em" />}
                     placeholder="Name in EN"

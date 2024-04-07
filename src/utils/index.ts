@@ -1,7 +1,7 @@
-import { chain, cloneDeep, isObject, merge } from 'lodash';
-import { SEARCH_THRESHOLD } from './constants';
+import { chain, cloneDeep, isObject, memoize, merge, orderBy } from 'lodash';
+import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX, SEARCH_THRESHOLD } from './constants';
 import stringSimilarity from 'string-similarity';
-import { Item, ItemAtributesValues } from 'types';
+import { Item, ItemAtributesValues, ItemAttribute } from 'types';
 
 /**
  *
@@ -183,3 +183,86 @@ export const getNewItemAttributeValues = (
     )
   );
 };
+
+export const getItemAttributePriorityResponse = (
+  itemAttributesValues: ItemAtributesValues,
+  itemAttributes: Dictionary<ItemAttribute>
+) => {
+  const priorityOrder: string[] = orderBy(
+    Object.values(itemAttributes),
+    ['priority', 'id'],
+    ['asc', 'asc']
+  ).map((attribute) => attribute.id);
+
+  function sortAttributesByPriority(attributeKeys: string[], prefix: string) {
+    return orderBy(attributeKeys, (key) => priorityOrder.indexOf(key), ['asc']).map(
+      (key) => `${prefix}${key}`
+    );
+  }
+
+  let opposite: string[] = [];
+  let deterministic: string[] = [];
+  let related: string[] = [];
+  let unrelated: string[] = [];
+  let unclear: string[] = [];
+
+  Object.entries(itemAttributesValues.attributes).forEach(([attributeId, value]) => {
+    const attribute = itemAttributes[attributeId];
+    if (!attribute) return;
+
+    switch (value) {
+      case ATTRIBUTE_VALUE.OPPOSITE:
+        opposite.push(attributeId);
+        break;
+      case ATTRIBUTE_VALUE.DETERMINISTIC:
+        deterministic.push(attributeId);
+        break;
+      case ATTRIBUTE_VALUE.RELATED:
+        related.push(attributeId);
+        break;
+      case ATTRIBUTE_VALUE.UNRELATED:
+        unrelated.push(attributeId);
+        break;
+      case ATTRIBUTE_VALUE.UNCLEAR:
+      default:
+        unclear.push(attributeId);
+        break;
+    }
+  });
+
+  return [
+    ...sortAttributesByPriority(opposite, ATTRIBUTE_VALUE_PREFIX.OPPOSITE),
+    ...sortAttributesByPriority(deterministic, ATTRIBUTE_VALUE_PREFIX.DETERMINISTIC),
+    ...sortAttributesByPriority(related, ATTRIBUTE_VALUE_PREFIX.RELATED),
+    ...sortAttributesByPriority(unrelated, ATTRIBUTE_VALUE_PREFIX.UNRELATED),
+    ...sortAttributesByPriority(unclear, ATTRIBUTE_VALUE_PREFIX.UNCLEAR),
+  ];
+};
+export const parseAttribute = memoize((keyVariant: string) => {
+  if (keyVariant.length === 3) {
+    return {
+      key: keyVariant,
+      className: '',
+      text: '',
+    };
+  }
+
+  const variant = keyVariant[0];
+  const key = keyVariant.slice(1, 4);
+
+  return {
+    key,
+    className: {
+      [ATTRIBUTE_VALUE_PREFIX.DETERMINISTIC]: 'deterministic',
+      [ATTRIBUTE_VALUE_PREFIX.UNRELATED]: 'unrelated',
+      [ATTRIBUTE_VALUE_PREFIX.UNCLEAR]: 'unclear',
+      [ATTRIBUTE_VALUE_PREFIX.OPPOSITE]: 'opposite',
+    }[variant],
+    text: {
+      [ATTRIBUTE_VALUE_PREFIX.DETERMINISTIC]: 'very',
+      [ATTRIBUTE_VALUE_PREFIX.UNRELATED]: 'not',
+      [ATTRIBUTE_VALUE_PREFIX.UNCLEAR]: 'maybe',
+      [ATTRIBUTE_VALUE_PREFIX.OPPOSITE]: 'very not',
+    }[variant],
+  };
+});

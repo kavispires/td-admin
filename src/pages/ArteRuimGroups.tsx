@@ -28,7 +28,6 @@ const parseData = (cards: Record<CardId, ArteRuimCard>, groups: Record<string, A
   // Get used and unused
   Object.values(groups).forEach((group) => {
     Object.keys(group.cards).forEach((entryId) => {
-      console.log({ entryId });
       if (used[entryId]) {
         duplicated[entryId] = cards[entryId].text;
       } else {
@@ -78,9 +77,6 @@ export function ArteRuimGroups() {
     },
     enabled: Boolean(language),
   });
-
-  console.log({ cards });
-  console.log({ groups });
 
   useEffect(() => {
     if (!isLoading && !loadingLevel4 && cards && groups) {

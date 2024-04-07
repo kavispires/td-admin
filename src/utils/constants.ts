@@ -1,5 +1,5 @@
 import { AlienSign, Emoji, Glyph, Item } from 'components/Sprites';
-import { capitalize, keyBy } from 'lodash';
+import { capitalize, invert, keyBy } from 'lodash';
 
 export const SEARCH_THRESHOLD: number = 2;
 
@@ -193,6 +193,16 @@ export const ATTRIBUTE_VALUE = {
   UNCLEAR: -1,
   RELATED: 5,
   DETERMINISTIC: 10,
+};
+
+export const VALUE_ATTRIBUTE = invert(ATTRIBUTE_VALUE);
+
+export const ATTRIBUTE_VALUE_PREFIX = {
+  OPPOSITE: '^',
+  UNRELATED: '!',
+  UNCLEAR: '~',
+  RELATED: '',
+  DETERMINISTIC: '+',
 };
 
 export const ATTRIBUTE_GROUP_VALUES = Object.keys(ATTRIBUTE_VALUE).map((key) => ({

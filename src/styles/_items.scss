@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: auto auto;
   gap: get-unit(6);
+
+  &__item {
+    max-width: 200px;
+  }
 }
 
 .sticky-top {
@@ -35,4 +39,31 @@
   &__label {
     text-transform: uppercase;
   }
+}
+
+.item-attribute-alien-sign {
+  border-top: get-unit(1) solid transparent;
+  border-bottom: get-unit(1) solid transparent;
+
+  &--opposite {
+    border-top-color: red;
+  }
+
+  &--unrelated {
+    border-top-color: brown;
+  }
+
+  &--deterministic {
+    border-bottom-color: greenyellow;
+  }
+
+  &--unsure {
+    border-top-color: orange;
+    border-bottom-color: orange;
+  }
+}
+
+.item-attribute-value-statement {
+  max-height: 300px;
+  overflow-y: auto;
 }

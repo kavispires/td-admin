@@ -91,9 +91,9 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         return orderedList;
       case '!all':
         return orderedList.filter((item) => !item?.groups?.length ?? true);
-      case 'nswf':
+      case 'nsfw':
         return orderedList.filter((item) => item.nsfw);
-      case '!nswf':
+      case '!nsfw':
         return orderedList.filter((item) => !item.nsfw);
       default:
         if (listingType.startsWith('!')) {

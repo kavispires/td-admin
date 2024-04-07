@@ -655,4 +655,8 @@ export type ItemAttribute = {
    * Priority value when sorting ties
    */
   priority: number;
+  /**
+   *
+   */
+  spriteId: string;
 };

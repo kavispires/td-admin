@@ -2,16 +2,17 @@ import { Affix, Button, Card, Divider, Flex, Input, Space, Typography } from 'an
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-
-import { IdcardOutlined } from '@ant-design/icons';
-
-import { ItemAttributeStats } from './ItemAttributeStats';
-import { AttributionValueButtons } from './AttributionValueButtons';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useMemo } from 'react';
 
+import { IdcardOutlined } from '@ant-design/icons';
+
+import { AttributionValueButtons } from './AttributionValueButtons';
+import { ItemAttributeDescription } from './ItemAttributeDescription';
+import { ItemAttributeStats } from './ItemAttributeStats';
+
 export function ItemAttributionCard() {
-  const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem } =
+  const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem, attributes } =
     useItemsAttributeValuesContext();
   const { searchParams } = useItemQueryParams();
   const showOnlyUnset = searchParams.get('scope') === 'unset';
@@ -38,7 +39,7 @@ export function ItemAttributionCard() {
   return (
     <Card>
       <div className="item-attribution-card">
-        <Affix offsetTop={120}>
+        <Affix offsetTop={120} className="item-attribution-card__item">
           <Flex vertical gap={6} key={activeItem.id}>
             <Item id={activeItem.id} width={150} title={`${activeItem.name.en} | ${activeItem.name.pt}`} />
             <Input
@@ -67,13 +68,17 @@ export function ItemAttributionCard() {
               value={activeItem.name.pt}
               readOnly
             />
-            <Divider />
+            <Divider className="my-2" />
             <ItemAttributeStats attributesList={attributesList} itemAttributeValues={itemAttributeValues} />
+            <Divider className="my-2" />
+            <Typography.Text type="secondary">
+              <ItemAttributeDescription itemAttributeValues={itemAttributeValues} attributes={attributes} />
+            </Typography.Text>
           </Flex>
         </Affix>
 
         <Space size="small" direction="vertical" className="my-4 attribute-button-container" wrap>
-          {filteredAttributesList.map((attribute) => (
+          {filteredAttributesList.map((attribute, index) => (
             <AttributionValueButtons
               key={attribute.id}
               attribute={attribute}
