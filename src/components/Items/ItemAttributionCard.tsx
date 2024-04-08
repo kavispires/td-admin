@@ -1,15 +1,12 @@
-import { Affix, Button, Card, Divider, Flex, Input, Space, Typography } from 'antd';
-import { LanguageFlag } from 'components/Common/LanguageFlag';
-import { Item } from 'components/Sprites';
+import { Affix, Button, Card, Divider, Flex, Space, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useMemo } from 'react';
 
-import { IdcardOutlined } from '@ant-design/icons';
-
 import { AttributionValueButtons } from './AttributionValueButtons';
 import { ItemAttributeDescription } from './ItemAttributeDescription';
 import { ItemAttributeStats } from './ItemAttributeStats';
+import { ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
 
 export function ItemAttributionCard() {
   const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem, attributes } =
@@ -41,33 +38,11 @@ export function ItemAttributionCard() {
       <div className="item-attribution-card">
         <Affix offsetTop={120} className="item-attribution-card__item">
           <Flex vertical gap={6} key={activeItem.id}>
-            <Item id={activeItem.id} width={150} title={`${activeItem.name.en} | ${activeItem.name.pt}`} />
-            <Input
-              prefix={<IdcardOutlined />}
-              placeholder="Id"
-              variant="borderless"
-              size="small"
-              value={activeItem.id}
-              readOnly
-            />
+            <ItemSprite item={activeItem} width={150} />
+            <ItemId item={activeItem} />
+            <ItemName item={activeItem} language="en" />
+            <ItemName item={activeItem} language="pt" />
 
-            <Input
-              prefix={<LanguageFlag language="en" width="1em" />}
-              placeholder="Name in EN"
-              variant="borderless"
-              size="small"
-              value={activeItem.name.en}
-              readOnly
-            />
-
-            <Input
-              prefix={<LanguageFlag language="pt" width="1em" />}
-              placeholder="Name in PT"
-              variant="borderless"
-              size="small"
-              value={activeItem.name.pt}
-              readOnly
-            />
             <Divider className="my-2" />
             <ItemAttributeStats attributesList={attributesList} itemAttributeValues={itemAttributeValues} />
             <Divider className="my-2" />

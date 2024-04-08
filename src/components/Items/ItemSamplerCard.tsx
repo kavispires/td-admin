@@ -1,14 +1,11 @@
-import { Button, Card, Divider, Flex, Input, Typography } from 'antd';
-import { LanguageFlag } from 'components/Common/LanguageFlag';
-import { Item } from 'components/Sprites';
+import { Button, Card, Divider, Flex, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemSampler } from 'hooks/useItemSampler';
 import { isEmpty } from 'lodash';
 import { Fragment } from 'react';
 
-import { IdcardOutlined } from '@ant-design/icons';
-
 import { AttributionValueButtons } from './AttributionValueButtons';
+import { ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
 
 export function ItemSamplerCard() {
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
@@ -50,34 +47,11 @@ export function ItemSamplerCard() {
           return (
             <Fragment key={item.id}>
               <Flex gap={6}>
-                <Item id={item.id} width={75} title={`${item.name.en} | ${item.name.pt}`} />
+                <ItemSprite item={item} width={75} />
                 <Flex vertical gap={6}>
-                  <Flex>
-                    <Input
-                      prefix={<IdcardOutlined />}
-                      placeholder="Id"
-                      variant="borderless"
-                      size="small"
-                      value={item.id}
-                      readOnly
-                    />
-                  </Flex>
-                  <Input
-                    prefix={<LanguageFlag language="en" width="1em" />}
-                    placeholder="Name in EN"
-                    variant="borderless"
-                    size="small"
-                    value={item.name.en}
-                    readOnly
-                  />
-                  <Input
-                    prefix={<LanguageFlag language="pt" width="1em" />}
-                    placeholder="Name in PT"
-                    variant="borderless"
-                    size="small"
-                    value={item.name.pt}
-                    readOnly
-                  />
+                  <ItemId item={item} />
+                  <ItemName item={item} language="en" />
+                  <ItemName item={item} language="pt" />
                 </Flex>
                 <AttributionValueButtons
                   attribute={attribute!}
