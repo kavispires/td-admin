@@ -29,13 +29,12 @@ export function ItemSprite({
 export function ItemId({ item }: ItemBlockProps) {
   return (
     <Input
-      prefix={<IdcardOutlined />}
+      prefix={item.nsfw ? <FireFilled style={{ color: 'hotPink' }} /> : <IdcardOutlined />}
       placeholder="Id"
       variant="borderless"
       size="small"
       value={item.id}
       readOnly
-      suffix={item.nsfw && <FireFilled style={{ color: 'hotPink' }} />}
     />
   );
 }
