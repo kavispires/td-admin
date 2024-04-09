@@ -10,35 +10,45 @@ import { ATTRIBUTE_GROUP_VALUES } from 'utils/constants';
 export function ItemAttributionStats() {
   const { getItemAttributeValues, availableItemIds, attributesList } = useItemsAttributeValuesContext();
 
-  const { total, complete, completionPercentage, hasDataCount, initiatedPercentage, progress } =
-    useMemo(() => {
-      const total = availableItemIds.length;
-      let someData = 0;
-      let complete = 0;
-      let currentProgress = 0;
-      const itemsAttributes = availableItemIds.map((id) => getItemAttributeValues(id));
-      itemsAttributes.forEach(({ complete: isComplete, attributes }) => {
-        if (!isEmpty(attributes)) {
-          someData += 1;
-        }
-        if (Object.values(attributes).length === attributesList.length) {
-          complete += 1;
-        }
+  const {
+    total,
+    complete,
+    completionPercentage,
+    hasDataCount,
+    initiatedPercentage,
+    progress,
+    progressTotal,
+    currentProgress,
+  } = useMemo(() => {
+    const total = availableItemIds.length;
+    let someData = 0;
+    let complete = 0;
+    let currentProgress = 0;
+    const itemsAttributes = availableItemIds.map((id) => getItemAttributeValues(id));
+    itemsAttributes.forEach(({ complete: isComplete, attributes }) => {
+      if (!isEmpty(attributes)) {
+        someData += 1;
+      }
+      if (Object.values(attributes).length === attributesList.length) {
+        complete += 1;
+      }
 
-        currentProgress += Object.values(attributes).length;
-      });
+      currentProgress += Object.values(attributes).length;
+    });
 
-      const progressTotal = Object.values(attributesList).length * availableItemIds.length;
+    const progressTotal = Object.values(attributesList).length * availableItemIds.length;
 
-      return {
-        total,
-        complete,
-        completionPercentage: total > 0 ? ((complete / total) * 100).toFixed(1) : 0,
-        hasDataCount: someData,
-        initiatedPercentage: total > 0 ? Math.floor((someData / total) * 100) : 0,
-        progress: ((currentProgress / progressTotal) * 100).toFixed(1),
-      };
-    }, [attributesList, availableItemIds, getItemAttributeValues]);
+    return {
+      total,
+      complete,
+      completionPercentage: total > 0 ? ((complete / total) * 100).toFixed(1) : 0,
+      hasDataCount: someData,
+      initiatedPercentage: total > 0 ? Math.floor((someData / total) * 100) : 0,
+      progress: ((currentProgress / progressTotal) * 100).toFixed(1),
+      currentProgress,
+      progressTotal,
+    };
+  }, [attributesList, availableItemIds, getItemAttributeValues]);
 
   return (
     <>
@@ -53,6 +63,11 @@ export function ItemAttributionStats() {
         <Stat label="Initiated">
           {hasDataCount} ({initiatedPercentage}%)
         </Stat>
+        <Typography.Text strong className="mt-4 mb-2">
+          Attributes Stats
+        </Typography.Text>
+        <Stat label="Total">{progressTotal}</Stat>
+        <Stat label="Set">{currentProgress}</Stat>
         <Stat label="Progress">{progress}%</Stat>
       </Flex>
       <Divider />

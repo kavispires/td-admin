@@ -45,7 +45,7 @@ export function ItemSamplerCard() {
           const item = getItem(itemId);
 
           return (
-            <Fragment key={item.id}>
+            <Fragment key={`${itemId}-${itemAttributes.updatedAt}`}>
               <Flex gap={6}>
                 <ItemSprite item={item} width={75} />
                 <Flex vertical gap={6}>

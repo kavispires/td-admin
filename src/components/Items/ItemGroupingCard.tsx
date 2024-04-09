@@ -44,7 +44,7 @@ export function ItemGroupingCard() {
       onConfirm={updatePageItemsAsUnrelated}
     >
       <Button type="primary" danger disabled={pageIds.length === 0}>
-        Unrelate Entire Page
+        Unrelate Unset Items on Page
       </Button>
     </Popconfirm>
   );
@@ -64,7 +64,10 @@ export function ItemGroupingCard() {
         const item = getItem(itemId);
 
         return (
-          <Card.Grid key={itemId} style={{ width: isNarrow ? '50%' : '25%' }}>
+          <Card.Grid
+            key={`${itemId}-${itemAttributes.updatedAt}`}
+            style={{ width: isNarrow ? '50%' : '25%' }}
+          >
             <Flex gap={6}>
               <Flex vertical gap={6}>
                 <ItemSprite item={item} width={75} />

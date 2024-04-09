@@ -18,7 +18,7 @@ export function ItemAttributionCard() {
       showOnlyUnset
         ? attributesList.filter((attribute) => !itemAttributeValues.attributes[attribute.id])
         : attributesList,
-    [showOnlyUnset] // eslint-disable-line react-hooks/exhaustive-deps
+    [showOnlyUnset, activeItem.id] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   if (!activeItem)
@@ -35,9 +35,9 @@ export function ItemAttributionCard() {
 
   return (
     <Card>
-      <div className="item-attribution-card">
+      <div className="item-attribution-card" key={`${activeItem.id}`}>
         <Affix offsetTop={120} className="item-attribution-card__item">
-          <Flex vertical gap={6} key={activeItem.id}>
+          <Flex vertical gap={6}>
             <ItemSprite item={activeItem} width={150} />
             <ItemId item={activeItem} />
             <ItemName item={activeItem} language="en" />
