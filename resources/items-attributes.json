@@ -234,7 +234,7 @@
       "en": "tall, lengthy",
       "pt": "alto, comprido"
     },
-    "default": false,
+    "default": true,
     "level": 2,
     "spriteId": "sign-18",
     "priority": 25
@@ -477,7 +477,8 @@
     "default": false,
     "level": 2,
     "spriteId": "sign-14",
-    "priority": 33
+    "priority": 33,
+    "limited": true
   },
   "per": {
     "id": "per",
@@ -492,7 +493,8 @@
     "default": false,
     "level": 3,
     "spriteId": "sign-24",
-    "priority": 34
+    "priority": 34,
+    "limited": true
   },
   "mul": {
     "id": "mul",
@@ -507,7 +509,8 @@
     "default": false,
     "level": 3,
     "spriteId": "sign-21",
-    "priority": 30
+    "priority": 30,
+    "limited": true
   },
   "fra": {
     "id": "fra",
@@ -522,7 +525,8 @@
     "default": false,
     "level": 3,
     "spriteId": "sign-12",
-    "priority": 29
+    "priority": 29,
+    "limited": true
   },
   "toy": {
     "id": "toy",
