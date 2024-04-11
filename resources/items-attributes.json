@@ -471,8 +471,8 @@
       "pt": "Segurável"
     },
     "description": {
-      "en": "you normally hold or has a handle",
-      "pt": "você normalmente segura ou tem uma alça"
+      "en": "you normally hold or has a handle or mainly holds something",
+      "pt": "você normalmente segura ou tem uma alça ou seu trabalho é segurar algo"
     },
     "default": false,
     "level": 2,
