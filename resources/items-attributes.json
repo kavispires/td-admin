@@ -21,8 +21,8 @@
       "pt": "Bonito"
     },
     "description": {
-      "en": "attractiveness, charming, colorful, festive",
-      "pt": "atraente, charmoso, colorido, festivo"
+      "en": "attractiveness, charming, colorful, festive, decoration",
+      "pt": "atraente, charmoso, colorido, festivo, decorativo"
     },
     "default": true,
     "level": 2,
@@ -201,8 +201,8 @@
       "pt": "Conhecimento"
     },
     "description": {
-      "en": "wisdom, smarts, technology, idea",
-      "pt": "sabedoria, inteligência, tecnologia, ideia"
+      "en": "wisdom, smarts, idea, gives information",
+      "pt": "sabedoria, inteligência, ideia, gives information"
     },
     "default": true,
     "level": 2,
@@ -461,7 +461,7 @@
     },
     "default": true,
     "level": 1,
-    "spriteId": "sign-37",
+    "spriteId": "sign-32",
     "priority": 2
   },
   "hol": {
@@ -570,7 +570,7 @@
     },
     "default": false,
     "level": 2,
-    "spriteId": "sign-32",
+    "spriteId": "sign-37",
     "priority": 12
   }
 }
