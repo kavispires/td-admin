@@ -3,7 +3,7 @@ import { ImagesRelationshipsProvider } from 'components/Images/ImageCards/Images
 
 import { PageLayout } from 'components/Layout';
 
-export function ImageCardsRelationships() {
+function ImageCardsRelationships() {
   return (
     <PageLayout title="Image Cards" subtitle="Comparator">
       <ImagesRelationshipsProvider>
@@ -16,3 +16,5 @@ export function ImageCardsRelationships() {
     </PageLayout>
   );
 }
+
+export default ImageCardsRelationships;

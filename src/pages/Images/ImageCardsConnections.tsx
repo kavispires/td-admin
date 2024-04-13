@@ -5,7 +5,7 @@ import { ImagesRelationshipsProvider } from 'components/Images/ImageCards/Images
 
 import { PageLayout } from 'components/Layout';
 
-export function ImageCardsConnections() {
+function ImageCardsConnections() {
   return (
     <PageLayout title="Image Cards" subtitle="Connections">
       <ImagesRelationshipsProvider>
@@ -20,3 +20,5 @@ export function ImageCardsConnections() {
     </PageLayout>
   );
 }
+
+export default ImageCardsConnections;

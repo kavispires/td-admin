@@ -4,7 +4,7 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useQueryParams } from 'hooks/useQueryParams';
 
-export function CrimeEvidence() {
+function CrimeEvidence() {
   // Set default query params
   useQueryParams({ deck: 1 });
 
@@ -28,3 +28,5 @@ export function CrimeEvidence() {
     </PageLayout>
   );
 }
+
+export default CrimeEvidence;

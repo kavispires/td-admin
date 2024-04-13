@@ -16,7 +16,7 @@ import { RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
 
 const { Text } = Typography;
 
-export function SingleWordsExpander() {
+function SingleWordsExpander() {
   // Set default query params
   useQueryParams({ resourceName: RESOURCE_NAMES.SINGLE_WORDS, language: 'pt' });
 
@@ -136,6 +136,8 @@ export function SingleWordsExpander() {
     </PageLayout>
   );
 }
+
+export default SingleWordsExpander;
 
 const isExactDuplicate = (value: string, response: PlainObject, property: string) => {
   const str = stringRemoveAccents(value.trim().toLowerCase());

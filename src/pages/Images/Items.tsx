@@ -30,10 +30,12 @@ function ItemsPage() {
   );
 }
 
-export function Items() {
+function Items() {
   return (
     <ItemsProvider>
       <ItemsPage />
     </ItemsProvider>
   );
 }
+
+export default Items;

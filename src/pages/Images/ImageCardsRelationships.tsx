@@ -5,7 +5,7 @@ import { RelationshipsFilters } from 'components/Images/ImageCards/Relationships
 
 import { PageLayout } from 'components/Layout';
 
-export function ImageCardsRelationships() {
+function ImageCardsRelationships() {
   return (
     <PageLayout title="Image Cards" subtitle="Relationships">
       <ImagesRelationshipsProvider>
@@ -20,3 +20,5 @@ export function ImageCardsRelationships() {
     </PageLayout>
   );
 }
+
+export default ImageCardsRelationships;

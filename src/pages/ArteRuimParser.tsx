@@ -128,3 +128,5 @@ export function ArteRuimParser() {
     </PageLayout>
   );
 }
+
+export default ArteRuimParser;

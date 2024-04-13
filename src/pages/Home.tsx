@@ -2,7 +2,7 @@ import { Image, Layout } from 'antd';
 import logo from 'assets/images/logo.svg';
 import { PageLayout } from 'components/Layout';
 
-export function Home() {
+function Home() {
   return (
     <PageLayout title="TDR">
       <Layout.Content className="content-center">
@@ -11,3 +11,5 @@ export function Home() {
     </PageLayout>
   );
 }
+
+export default Home;

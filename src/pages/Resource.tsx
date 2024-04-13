@@ -15,7 +15,7 @@ import { PageSider } from 'components/Layout/PageSider';
 
 const resourceNames = Object.values(RESOURCE_NAMES);
 
-export function Resource() {
+function Resource() {
   const {
     resourceName = '',
     language = '',
@@ -71,3 +71,5 @@ export function Resource() {
     </PageLayout>
   );
 }
+
+export default Resource;

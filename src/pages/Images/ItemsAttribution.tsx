@@ -9,7 +9,7 @@ import {
   useItemsAttributeValuesContext,
 } from 'context/ItemsAttributeValuesContext';
 
-export function ItemsAttributionPage() {
+function ItemsAttributionPage() {
   const { isLoading, error, hasResponseData } = useItemsAttributeValuesContext();
 
   return (
@@ -29,10 +29,12 @@ export function ItemsAttributionPage() {
   );
 }
 
-export function ItemsAttribution() {
+function ItemsAttribution() {
   return (
     <ItemsAttributeValuesProvider>
       <ItemsAttributionPage />
     </ItemsAttributeValuesProvider>
   );
 }
+
+export default ItemsAttribution;

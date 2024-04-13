@@ -21,6 +21,7 @@ export type TextCard = {
 /**
  * Alien Item
  * Used for: alien-items
+ * @deprecated
  */
 export type AlienItem = {
   /**
@@ -625,6 +626,19 @@ export type ItemAtributesValues = {
    * The timestamp of the last update
    */
   updatedAt?: number;
+  /**
+   * The alien message using prefixes and attribute keys
+   * (^) -10, (!) -3, (~) -1, () 5, (+) 10
+   */
+  message?: string[];
+  /**
+   * The percentage of non-unclear attribute values
+   */
+  reliability?: number;
+  /***
+   * The value of the absolute extreme opposite and all positive values in attributes
+   */
+  score?: number;
 };
 
 /**

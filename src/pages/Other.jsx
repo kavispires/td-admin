@@ -11,9 +11,9 @@ import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import rawData from './rawData.json';
 import { Header } from 'components/Layout/Header';
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
-export function Other() {
+function Other() {
   useTitle('Other');
 
   // const result = Array(50)
@@ -376,6 +376,8 @@ export function Other() {
     </Layout>
   );
 }
+
+export default Other;
 
 function parse(a) {
   return a.map((v) => {

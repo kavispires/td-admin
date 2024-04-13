@@ -45,7 +45,7 @@ const parseData = (cards: Record<CardId, ArteRuimCard>, groups: Record<string, A
   return { themes, used, unused, duplicated };
 };
 
-export function ArteRuimGroups() {
+function ArteRuimGroups() {
   // Set default query params
   useQueryParams({ resourceName: RESOURCE_NAMES.ARTE_RUIM_CARDS, language: 'pt' });
   const { getUrl } = useBaseUrl('tdr');
@@ -158,3 +158,5 @@ export function ArteRuimGroups() {
     </PageLayout>
   );
 }
+
+export default ArteRuimGroups;

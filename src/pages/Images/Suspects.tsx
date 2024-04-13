@@ -14,7 +14,7 @@ import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import { SuspectCard } from 'types';
 
-export function Suspects() {
+function Suspects() {
   // Set default query params
   const qp = useQueryParams({ version: 'ct' });
   const { version = 'ct' } = qp.queryParams;
@@ -91,3 +91,5 @@ export function Suspects() {
     </PageLayout>
   );
 }
+
+export default Suspects;

@@ -6,7 +6,7 @@ import { PageSider } from 'components/Layout/PageSider';
 import { INITIAL_PARAMETERS, Parameters, ResourceParameters } from 'components/Resource/ResourceParameters';
 import { useState } from 'react';
 
-export function ResourceGenerator() {
+function ResourceGenerator() {
   const [parameters, setParameters] = useState<Parameters>(INITIAL_PARAMETERS);
   const [input, setInput] = useState('');
 
@@ -42,6 +42,8 @@ export function ResourceGenerator() {
     </PageLayout>
   );
 }
+
+export default ResourceGenerator;
 
 function parseInput(input: string, parameters: Parameters): Record<string, GenericCard> {
   const { prefix, language, startingId, headers: hasHeaders, transform } = parameters;

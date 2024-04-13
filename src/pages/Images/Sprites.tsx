@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 import { SpriteFilters } from 'components/Sprites/SpriteFilters';
 import { SPRITE_LIBRARY } from 'utils/constants';
 
-export function Sprites() {
+function Sprites() {
   // Set default query params
   const qp = useQueryParams();
   const { sprite } = qp.queryParams;
@@ -50,3 +50,5 @@ export function Sprites() {
     </PageLayout>
   );
 }
+
+export default Sprites;

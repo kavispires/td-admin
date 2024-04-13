@@ -13,7 +13,7 @@ import { CrimesHediondosCard } from 'types';
 
 import { CopyOutlined } from '@ant-design/icons';
 
-export function CrimesHediondosCategorizer() {
+function CrimesHediondosCategorizer() {
   /**
    * TODO
    * - Load weapons or evidence
@@ -265,3 +265,5 @@ function Navigation({ goToCard, currentCardIndex, data }: NavigationProps) {
     </Space>
   );
 }
+
+export default CrimesHediondosCategorizer;
