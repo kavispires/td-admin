@@ -1,0 +1,62 @@
+{
+  "col-1-en": {
+    "id": "col-1-en",
+    "text": "red"
+  },
+  "col-2-en": {
+    "id": "col-2-en",
+    "text": "blue"
+  },
+  "col-3-en": {
+    "id": "col-3-en",
+    "text": "green"
+  },
+  "col-4-en": {
+    "id": "col-4-en",
+    "text": "yellow"
+  },
+  "col-5-en": {
+    "id": "col-5-en",
+    "text": "orange"
+  },
+  "col-6-en": {
+    "id": "col-6-en",
+    "text": "purple"
+  },
+  "col-7-en": {
+    "id": "col-7-en",
+    "text": "pink"
+  },
+  "col-8-en": {
+    "id": "col-8-en",
+    "text": "brown"
+  },
+  "col-9-en": {
+    "id": "col-9-en",
+    "text": "black"
+  },
+  "col-10-en": {
+    "id": "col-10-en",
+    "text": "white"
+  },
+  "col-11-en": {
+    "id": "col-11-en",
+    "text": "gray"
+  },
+  "col-12-en": {
+    "id": "col-12-en",
+    "text": "cyan"
+  },
+  "col-13-en": {
+    "id": "col-13-en",
+    "text": "magenta"
+  },
+  "col-14-en": {
+    "id": "col-14-en",
+    "text": "beige"
+  },
+  "col-15-en": {
+    "id": "col-15-en",
+    "text": "teal"
+  }
+}
