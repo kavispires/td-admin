@@ -1,4 +1,4 @@
-import { lazy, Suspense, ReactNode } from 'react';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { LoadingPage } from 'pages/LoadingPage';

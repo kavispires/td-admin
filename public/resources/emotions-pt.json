@@ -1,0 +1,198 @@
+{
+  "emo-1-pt": {
+    "id": "emo-1-pt",
+    "text": "Alegria"
+  },
+  "emo-2-pt": {
+    "id": "emo-2-pt",
+    "text": "Tristeza"
+  },
+  "emo-3-pt": {
+    "id": "emo-3-pt",
+    "text": "Raiva"
+  },
+  "emo-4-pt": {
+    "id": "emo-4-pt",
+    "text": "Medo"
+  },
+  "emo-5-pt": {
+    "id": "emo-5-pt",
+    "text": "Surpresa"
+  },
+  "emo-6-pt": {
+    "id": "emo-6-pt",
+    "text": "Nojo"
+  },
+  "emo-7-pt": {
+    "id": "emo-7-pt",
+    "text": "Amor"
+  },
+  "emo-8-pt": {
+    "id": "emo-8-pt",
+    "text": "Ódio"
+  },
+  "emo-9-pt": {
+    "id": "emo-9-pt",
+    "text": "Excitação"
+  },
+  "emo-10-pt": {
+    "id": "emo-10-pt",
+    "text": "Ansiedade"
+  },
+  "emo-11-pt": {
+    "id": "emo-11-pt",
+    "text": "Esperança"
+  },
+  "emo-12-pt": {
+    "id": "emo-12-pt",
+    "text": "Culpa"
+  },
+  "emo-13-pt": {
+    "id": "emo-13-pt",
+    "text": "Inveja"
+  },
+  "emo-14-pt": {
+    "id": "emo-14-pt",
+    "text": "Ciúme"
+  },
+  "emo-15-pt": {
+    "id": "emo-15-pt",
+    "text": "Empatia"
+  },
+  "emo-16-pt": {
+    "id": "emo-16-pt",
+    "text": "Simpatia"
+  },
+  "emo-17-pt": {
+    "id": "emo-17-pt",
+    "text": "Compaixão"
+  },
+  "emo-18-pt": {
+    "id": "emo-18-pt",
+    "text": "Tédio"
+  },
+  "emo-19-pt": {
+    "id": "emo-19-pt",
+    "text": "Frustração"
+  },
+  "emo-20-pt": {
+    "id": "emo-20-pt",
+    "text": "Contentamento"
+  },
+  "emo-21-pt": {
+    "id": "emo-21-pt",
+    "text": "Orgulho"
+  },
+  "emo-22-pt": {
+    "id": "emo-22-pt",
+    "text": "Vergonha"
+  },
+  "emo-23-pt": {
+    "id": "emo-23-pt",
+    "text": "Arrependimento"
+  },
+  "emo-24-pt": {
+    "id": "emo-24-pt",
+    "text": "Euforia"
+  },
+  "emo-25-pt": {
+    "id": "emo-25-pt",
+    "text": "Melancolia"
+  },
+  "emo-26-pt": {
+    "id": "emo-26-pt",
+    "text": "Confusão"
+  },
+  "emo-27-pt": {
+    "id": "emo-27-pt",
+    "text": "Curiosidade"
+  },
+  "emo-28-pt": {
+    "id": "emo-28-pt",
+    "text": "Admiração"
+  },
+  "emo-29-pt": {
+    "id": "emo-29-pt",
+    "text": "Desapontamento"
+  },
+  "emo-30-pt": {
+    "id": "emo-30-pt",
+    "text": "Alívio"
+  },
+  "emo-31-pt": {
+    "id": "emo-31-pt",
+    "text": "Nostalgia"
+  },
+  "emo-32-pt": {
+    "id": "emo-32-pt",
+    "text": "Satisfação"
+  },
+  "emo-33-pt": {
+    "id": "emo-33-pt",
+    "text": "Embaraço"
+  },
+  "emo-34-pt": {
+    "id": "emo-34-pt",
+    "text": "Solidão"
+  },
+  "emo-35-pt": {
+    "id": "emo-35-pt",
+    "text": "Excitação"
+  },
+  "emo-36-pt": {
+    "id": "emo-36-pt",
+    "text": "Antecipação"
+  },
+  "emo-37-pt": {
+    "id": "emo-37-pt",
+    "text": "Irritação"
+  },
+  "emo-38-pt": {
+    "id": "emo-38-pt",
+    "text": "Diversão"
+  },
+  "emo-39-pt": {
+    "id": "emo-39-pt",
+    "text": "Espanto"
+  },
+  "emo-40-pt": {
+    "id": "emo-40-pt",
+    "text": "Desprezo"
+  },
+  "emo-41-pt": {
+    "id": "emo-41-pt",
+    "text": "Desgosto"
+  },
+  "emo-42-pt": {
+    "id": "emo-42-pt",
+    "text": "Dúvida"
+  },
+  "emo-43-pt": {
+    "id": "emo-43-pt",
+    "text": "Ansiosidade"
+  },
+  "emo-44-pt": {
+    "id": "emo-44-pt",
+    "text": "Entusiasmo"
+  },
+  "emo-45-pt": {
+    "id": "emo-45-pt",
+    "text": "Exasperação"
+  },
+  "emo-46-pt": {
+    "id": "emo-46-pt",
+    "text": "Descontentamento"
+  },
+  "emo-47-pt": {
+    "id": "emo-47-pt",
+    "text": "Empoderamento"
+  },
+  "emo-48-pt": {
+    "id": "emo-48-pt",
+    "text": "Exaustão"
+  },
+  "emo-49-pt": {
+    "id": "emo-49-pt",
+    "text": "Euforia"
+  }
+}

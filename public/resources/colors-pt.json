@@ -1,0 +1,62 @@
+{
+  "col-1-pt": {
+    "id": "col-1-pt",
+    "text": "vermelho"
+  },
+  "col-2-pt": {
+    "id": "col-2-pt",
+    "text": "azul"
+  },
+  "col-3-pt": {
+    "id": "col-3-pt",
+    "text": "verde"
+  },
+  "col-4-pt": {
+    "id": "col-4-pt",
+    "text": "amarelo"
+  },
+  "col-5-pt": {
+    "id": "col-5-pt",
+    "text": "laranja"
+  },
+  "col-6-pt": {
+    "id": "col-6-pt",
+    "text": "roxo"
+  },
+  "col-7-pt": {
+    "id": "col-7-pt",
+    "text": "rosa"
+  },
+  "col-8-pt": {
+    "id": "col-8-pt",
+    "text": "marrom"
+  },
+  "col-9-pt": {
+    "id": "col-9-pt",
+    "text": "preto"
+  },
+  "col-10-pt": {
+    "id": "col-10-pt",
+    "text": "branco"
+  },
+  "col-11-pt": {
+    "id": "col-11-pt",
+    "text": "cinza"
+  },
+  "col-12-pt": {
+    "id": "col-12-pt",
+    "text": "turquesa"
+  },
+  "col-13-pt": {
+    "id": "col-13-pt",
+    "text": "bege"
+  },
+  "col-14-pt": {
+    "id": "col-14-pt",
+    "text": "coral"
+  },
+  "col-15-pt": {
+    "id": "col-15-pt",
+    "text": "dourado"
+  }
+}

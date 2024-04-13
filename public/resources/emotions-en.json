@@ -1,0 +1,202 @@
+{
+  "emo-1-en": {
+    "id": "emo-1-en",
+    "text": "Joy"
+  },
+  "emo-2-en": {
+    "id": "emo-2-en",
+    "text": "Sadness"
+  },
+  "emo-3-en": {
+    "id": "emo-3-en",
+    "text": "Anger"
+  },
+  "emo-4-en": {
+    "id": "emo-4-en",
+    "text": "Fear"
+  },
+  "emo-5-en": {
+    "id": "emo-5-en",
+    "text": "Surprise"
+  },
+  "emo-6-en": {
+    "id": "emo-6-en",
+    "text": "Disgust"
+  },
+  "emo-7-en": {
+    "id": "emo-7-en",
+    "text": "Love"
+  },
+  "emo-8-en": {
+    "id": "emo-8-en",
+    "text": "Hate"
+  },
+  "emo-9-en": {
+    "id": "emo-9-en",
+    "text": "Excitement"
+  },
+  "emo-10-en": {
+    "id": "emo-10-en",
+    "text": "Anxiety"
+  },
+  "emo-11-en": {
+    "id": "emo-11-en",
+    "text": "Hope"
+  },
+  "emo-12-en": {
+    "id": "emo-12-en",
+    "text": "Guilt"
+  },
+  "emo-13-en": {
+    "id": "emo-13-en",
+    "text": "Envy"
+  },
+  "emo-14-en": {
+    "id": "emo-14-en",
+    "text": "Jealousy"
+  },
+  "emo-15-en": {
+    "id": "emo-15-en",
+    "text": "Empathy"
+  },
+  "emo-16-en": {
+    "id": "emo-16-en",
+    "text": "Sympathy"
+  },
+  "emo-17-en": {
+    "id": "emo-17-en",
+    "text": "Compassion"
+  },
+  "emo-18-en": {
+    "id": "emo-18-en",
+    "text": "Boredom"
+  },
+  "emo-19-en": {
+    "id": "emo-19-en",
+    "text": "Frustration"
+  },
+  "emo-20-en": {
+    "id": "emo-20-en",
+    "text": "Contentment"
+  },
+  "emo-21-en": {
+    "id": "emo-21-en",
+    "text": "Pride"
+  },
+  "emo-22-en": {
+    "id": "emo-22-en",
+    "text": "Shame"
+  },
+  "emo-23-en": {
+    "id": "emo-23-en",
+    "text": "Regret"
+  },
+  "emo-24-en": {
+    "id": "emo-24-en",
+    "text": "Elation"
+  },
+  "emo-25-en": {
+    "id": "emo-25-en",
+    "text": "Melancholy"
+  },
+  "emo-26-en": {
+    "id": "emo-26-en",
+    "text": "Confusion"
+  },
+  "emo-27-en": {
+    "id": "emo-27-en",
+    "text": "Curiosity"
+  },
+  "emo-28-en": {
+    "id": "emo-28-en",
+    "text": "Awe"
+  },
+  "emo-29-en": {
+    "id": "emo-29-en",
+    "text": "Disappointment"
+  },
+  "emo-30-en": {
+    "id": "emo-30-en",
+    "text": "Relief"
+  },
+  "emo-31-en": {
+    "id": "emo-31-en",
+    "text": "Nostalgia"
+  },
+  "emo-32-en": {
+    "id": "emo-32-en",
+    "text": "Satisfaction"
+  },
+  "emo-33-en": {
+    "id": "emo-33-en",
+    "text": "Embarrassment"
+  },
+  "emo-34-en": {
+    "id": "emo-34-en",
+    "text": "Loneliness"
+  },
+  "emo-35-en": {
+    "id": "emo-35-en",
+    "text": "Excitement"
+  },
+  "emo-36-en": {
+    "id": "emo-36-en",
+    "text": "Anticipation"
+  },
+  "emo-37-en": {
+    "id": "emo-37-en",
+    "text": "Irritation"
+  },
+  "emo-38-en": {
+    "id": "emo-38-en",
+    "text": "Amusement"
+  },
+  "emo-39-en": {
+    "id": "emo-39-en",
+    "text": "Astonishment"
+  },
+  "emo-40-en": {
+    "id": "emo-40-en",
+    "text": "Contempt"
+  },
+  "emo-41-en": {
+    "id": "emo-41-en",
+    "text": "Disappointment"
+  },
+  "emo-42-en": {
+    "id": "emo-42-en",
+    "text": "Displeasure"
+  },
+  "emo-43-en": {
+    "id": "emo-43-en",
+    "text": "Doubt"
+  },
+  "emo-44-en": {
+    "id": "emo-44-en",
+    "text": "Eagerness"
+  },
+  "emo-45-en": {
+    "id": "emo-45-en",
+    "text": "Enthusiasm"
+  },
+  "emo-46-en": {
+    "id": "emo-46-en",
+    "text": "Exasperation"
+  },
+  "emo-47-en": {
+    "id": "emo-47-en",
+    "text": "Discontent"
+  },
+  "emo-48-en": {
+    "id": "emo-48-en",
+    "text": "Empowerment"
+  },
+  "emo-49-en": {
+    "id": "emo-49-en",
+    "text": "Exhaustion"
+  },
+  "emo-50-en": {
+    "id": "emo-50-en",
+    "text": "Euphoria"
+  }
+}
