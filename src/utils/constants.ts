@@ -1,4 +1,4 @@
-import { AlienSign, Emoji, Glyph, Item } from 'components/Sprites';
+import { AlienSign, Emoji, Glyph } from 'components/Sprites';
 import { capitalize, invert, keyBy } from 'lodash';
 
 export const SEARCH_THRESHOLD: number = 2;
@@ -96,7 +96,7 @@ export const SPRITE_LIBRARY = keyBy(
       key: 'alien-signs',
       name: 'Alien Signs',
       prefix: 'sign',
-      quantity: 36,
+      quantity: 38,
       startAt: 0,
       component: AlienSign,
     },
@@ -115,14 +115,6 @@ export const SPRITE_LIBRARY = keyBy(
       quantity: 365,
       startAt: 1,
       component: Glyph,
-    },
-    {
-      key: 'items',
-      name: 'Items',
-      prefix: 'item',
-      quantity: TOTAL_ITEMS,
-      startAt: 1,
-      component: Item,
     },
   ],
   'key'

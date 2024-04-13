@@ -5,7 +5,7 @@ import { isEmpty } from 'lodash';
 import { Fragment } from 'react';
 
 import { AttributionValueButtons } from './AttributionValueButtons';
-import { ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
+import { ItemGoTo, ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
 
 export function ItemSamplerCard() {
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
@@ -49,7 +49,10 @@ export function ItemSamplerCard() {
               <Flex gap={6}>
                 <ItemSprite item={item} width={75} />
                 <Flex vertical gap={6}>
-                  <ItemId item={item} />
+                  <Flex gap={6}>
+                    <ItemId item={item} />
+                    <ItemGoTo item={item} />
+                  </Flex>
                   <ItemName item={item} language="en" />
                   <ItemName item={item} language="pt" />
                 </Flex>

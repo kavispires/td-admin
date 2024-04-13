@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemAttributionClassifierContent } from 'components/Items/ItemAttributionContent';
+import { ItemAttributionPageContent } from 'components/Items/ItemAttributionPageContent';
 import { ItemAttributionFilters } from 'components/Items/ItemAttributionFilters';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
@@ -21,7 +21,7 @@ export function ItemsAttributionPage() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
-            <ItemAttributionClassifierContent />
+            <ItemAttributionPageContent />
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>

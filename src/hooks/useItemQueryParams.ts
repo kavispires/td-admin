@@ -8,10 +8,16 @@ export function useItemQueryParams() {
     setSearchParams(searchParams);
   };
 
+  const removeQueryParam = (key: string) => {
+    searchParams.delete(key);
+    setSearchParams(searchParams);
+  };
+
   return {
     view: searchParams.get('view') ?? 'classifier',
     setView: (value: string) => setSearchParams({ view: value }),
     addQueryParam,
+    removeQueryParam,
     searchParams,
   };
 }

@@ -5,8 +5,7 @@ import { AlienSign } from 'components/Sprites';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useMemo } from 'react';
 import { ItemAtributesValues, ItemAttribute } from 'types';
-import { getItemAttributePriorityResponse, parseAttribute } from 'utils';
-import { ATTRIBUTE_VALUE_PREFIX } from 'utils/constants';
+import { filterMessage, getItemAttributePriorityResponse, parseAttribute } from 'utils';
 
 type ItemAttributeDescriptionProps = {
   itemAttributeValues: ItemAtributesValues;
@@ -14,28 +13,21 @@ type ItemAttributeDescriptionProps = {
 };
 
 export function ItemAttributeDescription({ itemAttributeValues, attributes }: ItemAttributeDescriptionProps) {
-  const response = useMemo(
-    () => getItemAttributePriorityResponse(itemAttributeValues, attributes),
-    [itemAttributeValues, attributes]
-  );
   const { searchParams, addQueryParam } = useItemQueryParams();
+  const showUnclear = searchParams.get('showUnclear') === 'true';
+  const showUnrelated = searchParams.get('showUnrelated') === 'true';
+
+  const filteredResponse = useMemo(
+    () =>
+      filterMessage(
+        getItemAttributePriorityResponse(itemAttributeValues, attributes),
+        showUnclear,
+        showUnrelated
+      ),
+    [itemAttributeValues, attributes, showUnclear, showUnrelated]
+  );
 
   const Component = searchParams.get('signs') === 'true' ? AttributeSprite : AttributeText;
-
-  const filteredResponse = response.filter((keyVariant) => {
-    if (searchParams.get('showUnclear') !== 'true' && keyVariant.includes(ATTRIBUTE_VALUE_PREFIX.UNCLEAR)) {
-      return false;
-    }
-
-    if (
-      searchParams.get('showUnrelated') !== 'true' &&
-      keyVariant.includes(ATTRIBUTE_VALUE_PREFIX.UNRELATED)
-    ) {
-      return false;
-    }
-
-    return true;
-  });
 
   return (
     <Flex gap={6} vertical>
@@ -79,17 +71,31 @@ type AttributeSpriteProps = {
   lastElement: boolean;
 };
 
-function AttributeSprite({ keyVariant, attributes }: AttributeSpriteProps) {
-  const { key, className } = parseAttribute(keyVariant);
+export function AttributeSprite({
+  keyVariant,
+  attributes,
+  withText,
+}: AttributeSpriteProps & { withText?: boolean }) {
+  const { key, className, text } = parseAttribute(keyVariant);
 
   return (
-    <>
+    <Flex vertical align="center">
       <AlienSign
         width={50}
         id={attributes[key].spriteId}
         className={clsx('item-attribute-alien-sign', `item-attribute-alien-sign--${className}`)}
       />
-    </>
+      {withText && (
+        <Flex
+          wrap="wrap"
+          justify="center"
+          align="center"
+          style={{ maxWidth: 50, textAlign: 'center', wordBreak: 'break-word' }}
+        >
+          {text} {attributes[key].name.en.toLowerCase()}
+        </Flex>
+      )}
+    </Flex>
   );
 }
 

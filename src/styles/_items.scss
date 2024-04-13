@@ -42,19 +42,24 @@
 }
 
 .item-attribute-alien-sign {
-  border-top: get-unit(1) solid transparent;
-  border-bottom: get-unit(1) solid transparent;
+  border: 5px solid transparent;
+  border: 5px solid transparent;
 
   &--opposite {
     border-top-color: red;
   }
 
   &--unrelated {
-    border-top-color: brown;
+    border-top-color: palevioletred;
   }
 
   &--deterministic {
-    border-bottom-color: greenyellow;
+    border-bottom-color: green;
+  }
+
+  &--unclear {
+    opacity: 0.5;
+    background-color: get-color('yellow', 2, 0.3);
   }
 
   &--unsure {

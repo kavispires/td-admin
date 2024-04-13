@@ -659,4 +659,8 @@ export type ItemAttribute = {
    *
    */
   spriteId: string;
+  /**
+   * Use for attributes that only accept yes/no (unclear) values (-3, -1, 5)
+   */
+  limited?: boolean;
 };

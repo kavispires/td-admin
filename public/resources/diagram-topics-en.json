@@ -1,7 +1,7 @@
 {
   "tdc-1-en": {
     "id": "tdc-1-en",
-    "text": "Light enough to carry",
+    "text": "Light enough for a person to carry",
     "type": "attribute"
   },
   "tdc-2-en": {
@@ -71,7 +71,7 @@
   },
   "tdc-15-en": {
     "id": "tdc-15-en",
-    "text": "Has a hole in it",
+    "text": "Has a hole(s) in it",
     "type": "attribute"
   },
   "tdc-16-en": {
@@ -171,7 +171,7 @@
   },
   "tdc-35-en": {
     "id": "tdc-35-en",
-    "text": "more vowels than consonants",
+    "text": "More vowels than consonants",
     "type": "word"
   },
   "tdc-36-en": {
@@ -181,12 +181,12 @@
   },
   "tdc-37-en": {
     "id": "tdc-37-en",
-    "text": "starts with a vowel",
+    "text": "Starts with a vowel",
     "type": "word"
   },
   "tdc-38-en": {
     "id": "tdc-38-en",
-    "text": "ends with a consonant",
+    "text": "Ends with a consonant",
     "type": "word"
   },
   "tdc-39-en": {
@@ -196,7 +196,7 @@
   },
   "tdc-40-en": {
     "id": "tdc-40-en",
-    "text": "has three consecutive consonants",
+    "text": "Has three consecutive consonants",
     "type": "word"
   },
   "tdc-41-en": {
@@ -266,7 +266,7 @@
   },
   "tdc-54-en": {
     "id": "tdc-54-en",
-    "text": "You could find it at a wedding",
+    "text": "You could normally find it at a wedding",
     "type": "context"
   },
   "tdc-55-en": {
@@ -281,7 +281,7 @@
   },
   "tdc-57-en": {
     "id": "tdc-57-en",
-    "text": "Found in a house",
+    "text": "Easily found in a house",
     "type": "context"
   },
   "tdc-58-en": {
@@ -341,7 +341,7 @@
   },
   "tdc-69-en": {
     "id": "tdc-69-en",
-    "text": "Purchased at the mall",
+    "text": "Purchased at most malls",
     "type": "context"
   },
   "tdc-70-en": {
@@ -351,7 +351,7 @@
   },
   "tdc-71-en": {
     "id": "tdc-71-en",
-    "text": "Causes happiness",
+    "text": "Causes happiness for the common person",
     "type": "context"
   },
   "tdc-72-en": {

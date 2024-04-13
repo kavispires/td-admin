@@ -1,9 +1,10 @@
-import { Input } from 'antd';
+import { Button, Input } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { Item as ItemT } from 'types';
 
 import { FireFilled, IdcardOutlined } from '@ant-design/icons';
+import { useSearchParams } from 'react-router-dom';
 
 type ItemBlockProps = {
   item: ItemT;
@@ -28,14 +29,17 @@ export function ItemSprite({
 
 export function ItemId({ item }: ItemBlockProps) {
   return (
-    <Input
-      prefix={item.nsfw ? <FireFilled style={{ color: 'hotPink' }} /> : <IdcardOutlined />}
-      placeholder="Id"
-      variant="borderless"
-      size="small"
-      value={item.id}
-      readOnly
-    />
+    <span>
+      <Input
+        prefix={item.nsfw ? <FireFilled style={{ color: 'hotPink' }} /> : <IdcardOutlined />}
+        placeholder="Id"
+        variant="borderless"
+        size="small"
+        value={item.id}
+        readOnly
+        style={{ width: '8ch' }}
+      />
+    </span>
   );
 }
 
@@ -49,5 +53,20 @@ export function ItemName({ item, language }: ItemBlockProps & Pick<ItemBlocksAdd
       value={item.name[language]}
       readOnly
     />
+  );
+}
+
+export function ItemGoTo({ item }: ItemBlockProps) {
+  const [, setSearchParams] = useSearchParams();
+  const onGoTo = () => {
+    setSearchParams({ itemId: item.id, view: 'classifier' });
+  };
+
+  return (
+    <span>
+      <Button size="small" shape="round" onClick={onGoTo}>
+        Go to
+      </Button>
+    </span>
   );
 }

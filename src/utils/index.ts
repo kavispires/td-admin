@@ -266,3 +266,17 @@ export const parseAttribute = memoize((keyVariant: string) => {
     }[variant],
   };
 });
+
+export const filterMessage = (message: string[], showUnclear: boolean, showUnrelated: boolean) => {
+  return message.filter((keyVariant) => {
+    if (!showUnclear && keyVariant.includes(ATTRIBUTE_VALUE_PREFIX.UNCLEAR)) {
+      return false;
+    }
+
+    if (!showUnrelated && keyVariant.includes(ATTRIBUTE_VALUE_PREFIX.UNRELATED)) {
+      return false;
+    }
+
+    return true;
+  });
+};

@@ -1,12 +1,13 @@
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { ItemAttributionCard } from './ItemAttributionCard';
 import { ItemAttributionNavigation } from './ItemAttributionNavigation';
-import { Card, Flex, Typography } from 'antd';
+import { Empty, Flex } from 'antd';
 import { ItemSamplerCard } from './ItemSamplerCard';
 import { ItemGroupingCard } from './ItemGroupingCard';
 import { GoToTopButton } from 'components/Common/GoToTopButton';
+import { ItemComparatorCard } from './ItemComparatorCard';
 
-export function ItemAttributionClassifierContent() {
+export function ItemAttributionPageContent() {
   const { view } = useItemQueryParams();
 
   if (view === 'classifier') {
@@ -29,9 +30,9 @@ export function ItemAttributionClassifierContent() {
     return <ItemGroupingCard />;
   }
 
-  return (
-    <Card className="my-4">
-      <Typography.Text type="secondary">Unknown view has been selected</Typography.Text>
-    </Card>
-  );
+  if (view === 'comparator') {
+    return <ItemComparatorCard />;
+  }
+
+  return <Empty className="my-10" description="Unknown view has been selected" />;
 }

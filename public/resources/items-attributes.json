@@ -21,8 +21,8 @@
       "pt": "Bonito"
     },
     "description": {
-      "en": "attractiveness, charming, colorful, festive",
-      "pt": "atraente, charmoso, colorido, festivo"
+      "en": "attractiveness, charming, colorful, festive, decoration",
+      "pt": "atraente, charmoso, colorido, festivo, decorativo"
     },
     "default": true,
     "level": 2,
@@ -201,8 +201,8 @@
       "pt": "Conhecimento"
     },
     "description": {
-      "en": "wisdom, smarts, technology, idea",
-      "pt": "sabedoria, inteligência, tecnologia, ideia"
+      "en": "wisdom, smarts, idea, gives information",
+      "pt": "sabedoria, inteligência, ideia, gives information"
     },
     "default": true,
     "level": 2,
@@ -234,7 +234,7 @@
       "en": "tall, lengthy",
       "pt": "alto, comprido"
     },
-    "default": false,
+    "default": true,
     "level": 2,
     "spriteId": "sign-18",
     "priority": 25
@@ -461,7 +461,7 @@
     },
     "default": true,
     "level": 1,
-    "spriteId": "sign-37",
+    "spriteId": "sign-32",
     "priority": 2
   },
   "hol": {
@@ -471,13 +471,14 @@
       "pt": "Segurável"
     },
     "description": {
-      "en": "you normally hold or has a handle",
-      "pt": "você normalmente segura ou tem uma alça"
+      "en": "you normally hold or has a handle or mainly holds something",
+      "pt": "você normalmente segura ou tem uma alça ou seu trabalho é segurar algo"
     },
     "default": false,
     "level": 2,
     "spriteId": "sign-14",
-    "priority": 33
+    "priority": 33,
+    "limited": true
   },
   "per": {
     "id": "per",
@@ -492,7 +493,8 @@
     "default": false,
     "level": 3,
     "spriteId": "sign-24",
-    "priority": 34
+    "priority": 34,
+    "limited": true
   },
   "mul": {
     "id": "mul",
@@ -507,7 +509,8 @@
     "default": false,
     "level": 3,
     "spriteId": "sign-21",
-    "priority": 30
+    "priority": 30,
+    "limited": true
   },
   "fra": {
     "id": "fra",
@@ -522,7 +525,8 @@
     "default": false,
     "level": 3,
     "spriteId": "sign-12",
-    "priority": 29
+    "priority": 29,
+    "limited": true
   },
   "toy": {
     "id": "toy",
@@ -566,7 +570,7 @@
     },
     "default": false,
     "level": 2,
-    "spriteId": "sign-32",
+    "spriteId": "sign-37",
     "priority": 12
   }
 }

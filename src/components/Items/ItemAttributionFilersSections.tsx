@@ -158,3 +158,29 @@ export function ItemAttributionGroupingFilters() {
     </>
   );
 }
+
+export function ItemAttributionComparatorFilters() {
+  const { searchParams, addQueryParam } = useItemQueryParams();
+  return (
+    <>
+      <FilterSwitch
+        label="Only Complete"
+        value={searchParams.get('showComplete') === 'true'}
+        onChange={(v) => addQueryParam('showComplete', v ? 'true' : '')}
+        className="full-width m-0"
+      />
+      <FilterSwitch
+        label="Show Unrelated"
+        value={searchParams.get('showUnrelated') === 'true'}
+        onChange={(v) => addQueryParam('showUnrelated', v ? 'true' : '')}
+        className="full-width m-0"
+      />
+      <FilterSwitch
+        label="Show Unclear"
+        value={searchParams.get('showUnclear') === 'true'}
+        onChange={(v) => addQueryParam('showUnclear', v ? 'true' : '')}
+        className="full-width m-0"
+      />
+    </>
+  );
+}

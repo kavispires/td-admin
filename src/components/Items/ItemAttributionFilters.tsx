@@ -7,6 +7,7 @@ import { useItemQueryParams } from 'hooks/useItemQueryParams';
 
 import {
   ItemAttributionClassifierFilters,
+  ItemAttributionComparatorFilters,
   ItemAttributionGroupingFilters,
   ItemAttributionSamplerFilters,
   ItemAttributionStats,
@@ -38,13 +39,14 @@ export function ItemAttributionFilters() {
         label="View"
         value={view}
         onChange={setView}
-        options={['classifier', 'sampler', 'grouping', 'stats']}
+        options={['classifier', 'sampler', 'grouping', 'comparator']}
       />
       <Divider />
 
       {view === 'classifier' && <ItemAttributionClassifierFilters />}
       {view === 'sampler' && <ItemAttributionSamplerFilters />}
       {view === 'grouping' && <ItemAttributionGroupingFilters />}
+      {view === 'comparator' && <ItemAttributionComparatorFilters />}
     </SiderContent>
   );
 }

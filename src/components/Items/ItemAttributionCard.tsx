@@ -1,7 +1,7 @@
 import { Affix, Button, Card, Divider, Flex, Space, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { AttributionValueButtons } from './AttributionValueButtons';
 import { ItemAttributeDescription } from './ItemAttributeDescription';
@@ -11,7 +11,16 @@ import { ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
 export function ItemAttributionCard() {
   const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem, attributes } =
     useItemsAttributeValuesContext();
-  const { searchParams } = useItemQueryParams();
+  const { searchParams, removeQueryParam } = useItemQueryParams();
+  const queryParamsItemId = searchParams.get('itemId');
+
+  useEffect(() => {
+    if (queryParamsItemId) {
+      removeQueryParam('itemId');
+      jumpToItem('goTo', queryParamsItemId);
+    }
+  }, [queryParamsItemId, jumpToItem, removeQueryParam]);
+
   const showOnlyUnset = searchParams.get('scope') === 'unset';
   const filteredAttributesList = useMemo(
     () =>

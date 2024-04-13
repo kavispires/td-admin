@@ -13,6 +13,14 @@ const attributeOptions = [
   { label: 'Deterministic', value: ATTRIBUTE_VALUE.DETERMINISTIC },
 ];
 
+const attributeLimitedOptions = [
+  { label: 'Opposite', value: ATTRIBUTE_VALUE.OPPOSITE },
+  { label: 'Unrelated', value: ATTRIBUTE_VALUE.UNRELATED },
+  { label: 'Unclear', value: ATTRIBUTE_VALUE.UNCLEAR },
+  { label: 'Related', value: ATTRIBUTE_VALUE.RELATED },
+  { label: 'Deterministic', value: ATTRIBUTE_VALUE.DETERMINISTIC, disabled: true },
+];
+
 type AttributionValueButtonsProps = {
   attribute: ItemAttribute;
   value?: number;
@@ -31,7 +39,7 @@ export function AttributionValueButtons({
   if (onlyButtons) {
     return (
       <Radio.Group
-        options={attributeOptions}
+        options={attribute.limited ? attributeLimitedOptions : attributeOptions}
         onChange={({ target: { value: v } }) => onChange(attribute.id, v)}
         value={value}
         optionType="button"
@@ -50,7 +58,7 @@ export function AttributionValueButtons({
       </span>
 
       <Radio.Group
-        options={attributeOptions}
+        options={attribute.limited ? attributeLimitedOptions : attributeOptions}
         onChange={({ target: { value: v } }) => onChange(attribute.id, v)}
         value={value}
         optionType="button"

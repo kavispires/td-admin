@@ -44,6 +44,7 @@ export function useItemGrouping() {
     if (previousAttribute !== attributeKey || previousScope !== scope) {
       setPreviousAttribute(attributeKey);
       setPreviousScope(scope);
+      addQueryParam('page', '1');
       return group.slice(0, Number(pageSize));
     }
 

@@ -7,7 +7,7 @@ import { isEmpty } from 'lodash';
 import { useMedia } from 'react-use';
 
 import { AttributionValueButtons } from './AttributionValueButtons';
-import { ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
+import { ItemGoTo, ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
 
 export function ItemGroupingCard() {
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
@@ -72,6 +72,7 @@ export function ItemGroupingCard() {
               <Flex vertical gap={6}>
                 <ItemSprite item={item} width={75} />
                 <ItemId item={item} />
+                <ItemGoTo item={item} />
                 <ItemName item={item} language="en" />
                 <ItemName item={item} language="pt" />
               </Flex>
