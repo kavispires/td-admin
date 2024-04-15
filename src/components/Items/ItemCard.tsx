@@ -1,4 +1,4 @@
-import { Card, Form, Input, Select, Space, Switch } from 'antd';
+import { Card, Form, Input, Select, Space, Switch, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { Item as ItemT } from 'types';
@@ -6,6 +6,7 @@ import { Item as ItemT } from 'types';
 import { EditOutlined, FireFilled, RollbackOutlined, SaveOutlined } from '@ant-design/icons';
 import { useItemsContext } from 'context/ItemsContext';
 import { useItemUpdate } from 'hooks/useItemUpdate';
+import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 
 type ItemCardProps = {
   item: ItemT;
@@ -18,10 +19,11 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
     item,
     editMode
   );
+  const copyToClipboard = useCopyToClipboardFunction();
 
   return (
     <Card
-      title={item.id}
+      title={<Typography.Text onClick={() => copyToClipboard(item.id)}>{item.id}</Typography.Text>}
       style={{ maxWidth: 300 }}
       actions={
         isDirty

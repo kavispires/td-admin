@@ -1,9 +1,7 @@
-import { App, Button, ButtonProps } from 'antd';
-import { truncate } from 'lodash';
-import { useEffect } from 'react';
-import { useCopyToClipboard } from 'react-use';
+import { Button, ButtonProps } from 'antd';
 
 import { CopyOutlined } from '@ant-design/icons';
+import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 
 type CopyToClipboardButtonProps = {
   content: string;
@@ -16,15 +14,7 @@ export function CopyToClipboardButton({
   size,
   ...buttonProps
 }: CopyToClipboardButtonProps) {
-  const [state, copyToClipboard] = useCopyToClipboard();
-  const { message } = App.useApp();
-
-  useEffect(() => {
-    if (state.value) {
-      if (state.value.length > 20)
-        message.info(`Copied to clipboard: ${truncate(state.value, { length: 30, omission: '...' })}`);
-    }
-  }, [state, message]);
+  const copyToClipboard = useCopyToClipboardFunction();
 
   return (
     <Button

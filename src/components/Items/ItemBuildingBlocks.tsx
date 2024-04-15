@@ -5,6 +5,7 @@ import { Item as ItemT } from 'types';
 
 import { FireFilled, IdcardOutlined } from '@ant-design/icons';
 import { useSearchParams } from 'react-router-dom';
+import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 
 type ItemBlockProps = {
   item: ItemT;
@@ -28,6 +29,7 @@ export function ItemSprite({
 }
 
 export function ItemId({ item }: ItemBlockProps) {
+  const copyToClipboard = useCopyToClipboardFunction();
   return (
     <span>
       <Input
@@ -38,6 +40,7 @@ export function ItemId({ item }: ItemBlockProps) {
         value={item.id}
         readOnly
         style={{ width: '8ch' }}
+        onClick={() => copyToClipboard(item.id)}
       />
     </span>
   );
