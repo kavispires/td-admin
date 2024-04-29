@@ -6191,11 +6191,11 @@
     "groups": ["alien"]
   },
   "771": {
+    "id": "771",
     "name": {
       "en": "solider's helmet",
       "pt": "capacete de soldado"
     },
-    "id": "771",
     "groups": ["alien", "evidence", "mesmice"]
   },
   "772": {
@@ -6855,11 +6855,11 @@
     "groups": ["alien", "mesmice"]
   },
   "854": {
-    "id": "854",
     "name": {
-      "en": "platform show",
+      "en": "platform shoe",
       "pt": "sapato plataforma"
     },
+    "id": "854",
     "groups": ["alien", "evidence", "mesmice"]
   },
   "855": {
@@ -9000,11 +9000,11 @@
     "groups": ["weapon"]
   },
   "1122": {
+    "id": "1122",
     "name": {
       "en": "illegal drugs",
       "pt": "drogas"
     },
-    "id": "1122",
     "groups": ["alien", "dream", "evidence", "weapon"],
     "nsfw": true
   },
@@ -14870,19 +14870,19 @@
     "groups": ["alien", "dream", "mesmice", "thing", "weapon"]
   },
   "1853": {
+    "id": "1853",
     "name": {
       "en": "blow darts",
       "pt": "dardos venenosos"
     },
-    "id": "1853",
     "groups": ["alien", "weapon"]
   },
   "1854": {
+    "id": "1854",
     "name": {
       "en": "conveyor belt",
       "pt": "esteira"
     },
-    "id": "1854",
     "groups": ["alien", "dream", "mesmice"]
   },
   "1855": {
@@ -14894,10 +14894,717 @@
     "groups": ["alien", "weapon"]
   },
   "1856": {
+    "id": "1856",
     "name": {
       "en": "mark",
       "pt": "marca"
+    }
+  },
+  "1857": {
+    "id": "1857",
+    "name": {
+      "en": "brush",
+      "pt": "escova"
     },
-    "id": "1856"
+    "groups": ["alien", "dream", "mesmice"]
+  },
+  "1858": {
+    "name": {
+      "en": "apple",
+      "pt": "maçã"
+    },
+    "id": "1858",
+    "groups": ["alien", "dream", "evidence"]
+  },
+  "1859": {
+    "name": {
+      "en": "apricot",
+      "pt": "damasco"
+    },
+    "id": "1859",
+    "groups": ["alien", "dream"]
+  },
+  "1860": {
+    "name": {
+      "en": "fig",
+      "pt": "figo"
+    },
+    "id": "1860",
+    "groups": ["alien", "dream"]
+  },
+  "1861": {
+    "name": {
+      "en": "cherry",
+      "pt": "cereja"
+    },
+    "id": "1861",
+    "groups": ["alien", "dream"]
+  },
+  "1862": {
+    "name": {
+      "en": "fruit salad",
+      "pt": "salada de fruta"
+    },
+    "id": "1862",
+    "groups": ["alien", "dream", "evidence", "thing"]
+  },
+  "1863": {
+    "name": {
+      "en": "chocolate box",
+      "pt": "caixa de chocolates"
+    },
+    "id": "1863",
+    "groups": ["alien"]
+  },
+  "1864": {
+    "id": "1864",
+    "name": {
+      "en": "timezones",
+      "pt": "fuso horário"
+    },
+    "groups": ["dream"]
+  },
+  "1865": {
+    "id": "1865",
+    "name": {
+      "en": "artificial inteligence",
+      "pt": "inteligência artificial"
+    },
+    "groups": ["alien", "dream", "mesmice", "thing"]
+  },
+  "1866": {
+    "name": {
+      "en": "cruise",
+      "pt": "cruzeiro"
+    },
+    "id": "1866",
+    "groups": ["alien", "dream", "mesmice"]
+  },
+  "1867": {
+    "name": {
+      "en": "info book",
+      "pt": "livro de informações"
+    },
+    "id": "1867",
+    "groups": ["alien", "evidence"]
+  },
+  "1868": {
+    "name": {
+      "en": "shower hose",
+      "pt": "chuveirinho"
+    },
+    "id": "1868",
+    "groups": ["alien", "dream"]
+  },
+  "1869": {
+    "name": {
+      "en": "bookstore",
+      "pt": "livraria"
+    },
+    "id": "1869",
+    "groups": ["alien", "dream"]
+  },
+  "1870": {
+    "name": {
+      "en": "ampoule",
+      "pt": "ampola"
+    },
+    "id": "1870",
+    "groups": ["alien", "dream", "mesmice", "weapon"]
+  },
+  "1871": {
+    "id": "1871",
+    "name": {
+      "en": "tower",
+      "pt": "torre"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1872": {
+    "id": "1872",
+    "name": {
+      "en": "pi",
+      "pt": "pi"
+    },
+    "groups": ["dream"]
+  },
+  "1873": {
+    "name": {
+      "en": "birthday",
+      "pt": "aniversário"
+    },
+    "id": "1873",
+    "groups": ["dream"]
+  },
+  "1874": {
+    "id": "1874",
+    "name": {
+      "en": "tentacle",
+      "pt": "tentáculo"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1875": {
+    "name": {
+      "en": "moving truck",
+      "pt": "caminhão de mudança"
+    },
+    "id": "1875",
+    "groups": ["alien", "dream", "mesmice"]
+  },
+  "1876": {
+    "name": {
+      "en": "brownie",
+      "pt": "brownie"
+    },
+    "id": "1876",
+    "groups": ["alien", "dream"]
+  },
+  "1877": {
+    "name": {
+      "en": "flat tire",
+      "pt": " pneu furado"
+    },
+    "id": "1877",
+    "groups": ["alien"]
+  },
+  "1878": {
+    "name": {
+      "en": "hammerhead shark",
+      "pt": "tubarão-martelo"
+    },
+    "id": "1878",
+    "groups": ["alien", "dream"]
+  },
+  "1879": {
+    "id": "1879",
+    "name": {
+      "en": "anglerfish",
+      "pt": "peixe-pescador"
+    },
+    "groups": ["alien"]
+  },
+  "1880": {
+    "id": "1880",
+    "name": {
+      "en": "coral",
+      "pt": "coral"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1881": {
+    "id": "1881",
+    "name": {
+      "en": "cork",
+      "pt": "rolha"
+    },
+    "groups": ["alien", "dream", "mesmice"]
+  },
+  "1882": {
+    "id": "1882",
+    "name": {
+      "en": "sandwich",
+      "pt": "sanduiche"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1883": {
+    "id": "1883",
+    "name": {
+      "en": "chemistry book",
+      "pt": "livro de química"
+    },
+    "groups": ["alien"]
+  },
+  "1884": {
+    "id": "1884",
+    "name": {
+      "en": "award",
+      "pt": "prêmio"
+    },
+    "groups": ["alien", "dream", "mesmice", "weapon"]
+  },
+  "1885": {
+    "name": {
+      "en": "podium",
+      "pt": "pódio"
+    },
+    "id": "1885",
+    "groups": ["alien", "dream", "mesmice"]
+  },
+  "1886": {
+    "name": {
+      "en": "cicada",
+      "pt": "cigarra"
+    },
+    "id": "1886",
+    "groups": ["alien", "dream"]
+  },
+  "1887": {
+    "name": {
+      "en": "saber",
+      "pt": "sabre"
+    },
+    "id": "1887",
+    "groups": ["alien", "dream", "weapon"]
+  },
+  "1888": {
+    "id": "1888",
+    "name": {
+      "en": "ship in a bottle",
+      "pt": "barco na garrafa"
+    },
+    "groups": ["alien", "evidence"]
+  },
+  "1889": {
+    "name": {
+      "en": "paper towel dispenser",
+      "pt": "dispensador de papel toalha"
+    },
+    "id": "1889",
+    "groups": ["alien", "dream", "mesmice"]
+  },
+  "1890": {
+    "name": {
+      "en": "air freshener spray",
+      "pt": "bom ar"
+    },
+    "id": "1890",
+    "groups": ["alien", "dream", "evidence"]
+  },
+  "1891": {
+    "id": "1891",
+    "name": {
+      "en": "machine gun",
+      "pt": "metralhadora"
+    },
+    "groups": ["alien", "dream", "mesmice", "weapon"]
+  },
+  "1892": {
+    "name": {
+      "en": "speargun",
+      "pt": "arbaleta"
+    },
+    "id": "1892",
+    "groups": ["alien", "weapon"]
+  },
+  "1893": {
+    "name": {
+      "en": "Rhinoceros beetle",
+      "pt": "besouro-rinoceronte"
+    },
+    "id": "1893",
+    "groups": ["alien"]
+  },
+  "1894": {
+    "id": "1894",
+    "name": {
+      "en": "black cat",
+      "pt": "gato preto"
+    },
+    "groups": ["alien"]
+  },
+  "1895": {
+    "id": "1895",
+    "name": {
+      "en": "blackberry",
+      "pt": "amora"
+    },
+    "groups": ["alien"]
+  },
+  "1896": {
+    "name": {
+      "en": "raspberry",
+      "pt": "framboesa"
+    },
+    "id": "1896",
+    "groups": ["alien"]
+  },
+  "1897": {
+    "name": {
+      "en": "foot",
+      "pt": "pé"
+    },
+    "id": "1897",
+    "groups": ["alien", "dream", "evidence"]
+  },
+  "1898": {
+    "name": {
+      "en": "convertible car",
+      "pt": "conversível"
+    },
+    "id": "1898",
+    "groups": ["alien", "dream", "evidence", "mesmice"]
+  },
+  "1899": {
+    "name": {
+      "en": "firetruck",
+      "pt": "caminhão de bombeiros"
+    },
+    "id": "1899",
+    "groups": ["alien", "dream", "evidence", "mesmice"]
+  },
+  "1900": {
+    "id": "1900",
+    "name": {
+      "en": "hay",
+      "pt": "feno"
+    },
+    "groups": ["alien", "dream", "evidence"]
+  },
+  "1901": {
+    "id": "1901",
+    "name": {
+      "en": "Ganesha",
+      "pt": "Ganesha"
+    },
+    "groups": ["dream"]
+  },
+  "1902": {
+    "name": {
+      "en": "centipede",
+      "pt": "centopeia"
+    },
+    "id": "1902",
+    "groups": ["alien", "dream"]
+  },
+  "1903": {
+    "id": "1903",
+    "name": {
+      "en": "turnip",
+      "pt": "nabo"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1904": {
+    "id": "1904",
+    "name": {
+      "en": "radish",
+      "pt": "rabanete"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1905": {
+    "name": {
+      "en": "knee pad",
+      "pt": "joelheira"
+    },
+    "id": "1905",
+    "groups": ["alien", "evidence", "mesmice"]
+  },
+  "1906": {
+    "name": {
+      "en": "Hawaiian shirt",
+      "pt": "Camisa florida"
+    },
+    "id": "1906",
+    "groups": ["alien", "evidence"]
+  },
+  "1907": {
+    "name": {
+      "en": "bassoon",
+      "pt": "fagote"
+    },
+    "id": "1907",
+    "groups": ["alien", "mesmice"]
+  },
+  "1908": {
+    "name": {
+      "en": "oboe",
+      "pt": "oboe"
+    },
+    "id": "1908",
+    "groups": ["alien", "dream"]
+  },
+  "1909": {
+    "name": {
+      "en": "flashbang",
+      "pt": "granada de luz e som"
+    },
+    "id": "1909",
+    "groups": ["alien", "weapon"]
+  },
+  "1910": {
+    "id": "1910",
+    "name": {
+      "en": "lounge chair",
+      "pt": "cadeira de praia"
+    },
+    "groups": ["alien", "mesmice"]
+  },
+  "1911": {
+    "name": {
+      "en": "car lubricant",
+      "pt": "óleo lubrificante"
+    },
+    "id": "1911",
+    "groups": ["alien", "mesmice", "weapon"]
+  },
+  "1912": {
+    "name": {
+      "en": "jabuticaba",
+      "pt": "jabuticaba"
+    },
+    "id": "1912",
+    "groups": ["alien", "dream"]
+  },
+  "1913": {
+    "name": {
+      "en": "plank",
+      "pt": "tábua"
+    },
+    "id": "1913",
+    "groups": ["alien", "dream", "evidence", "weapon"]
+  },
+  "1914": {
+    "name": {
+      "en": "sphinx",
+      "pt": "esfinge"
+    },
+    "id": "1914",
+    "groups": ["alien", "dream"]
+  },
+  "1915": {
+    "id": "1915",
+    "name": {
+      "en": "flabellum",
+      "pt": "flabelo"
+    },
+    "groups": ["alien", "evidence"]
+  },
+  "1916": {
+    "id": "1916",
+    "name": {
+      "en": "mosque",
+      "pt": "mesquita"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1917": {
+    "name": {
+      "en": "tweezers",
+      "pt": "pinça"
+    },
+    "id": "1917",
+    "groups": ["alien", "dream", "evidence", "mesmice"]
+  },
+  "1918": {
+    "name": {
+      "en": "açai",
+      "pt": "açaí"
+    },
+    "id": "1918",
+    "groups": ["alien", "dream"]
+  },
+  "1919": {
+    "name": {
+      "en": "sea urchin ",
+      "pt": "ouriço-do-mar"
+    },
+    "id": "1919",
+    "groups": ["alien", "dream"]
+  },
+  "1920": {
+    "name": {
+      "en": "scarab",
+      "pt": "escaravelho"
+    },
+    "id": "1920",
+    "groups": ["alien", "dream"]
+  },
+  "1921": {
+    "id": "1921",
+    "name": {
+      "en": "toaster",
+      "pt": "misteria"
+    },
+    "groups": ["alien", "dream", "weapon"]
+  },
+  "1922": {
+    "id": "1922",
+    "name": {
+      "en": "vibrating panties",
+      "pt": "calcinha vibratória"
+    },
+    "groups": ["alien", "mesmice", "thing"],
+    "nsfw": true
+  },
+  "1923": {
+    "id": "1923",
+    "name": {
+      "en": "paddle",
+      "pt": "palmatória"
+    },
+    "groups": ["alien", "dream", "weapon"],
+    "nsfw": true
+  },
+  "1924": {
+    "name": {
+      "en": "sexshop",
+      "pt": "sexshop"
+    },
+    "id": "1924",
+    "groups": ["alien", "dream"],
+    "nsfw": true
+  },
+  "1925": {
+    "id": "1925",
+    "name": {
+      "en": "maki",
+      "pt": "maki"
+    },
+    "groups": ["alien"]
+  },
+  "1926": {
+    "id": "1926",
+    "name": {
+      "en": "fight",
+      "pt": " briga"
+    },
+    "groups": ["dream"]
+  },
+  "1927": {
+    "id": "1927",
+    "name": {
+      "en": "fly",
+      "pt": "mosquito"
+    },
+    "groups": ["alien", "dream", "evidence"]
+  },
+  "1928": {
+    "id": "1928",
+    "name": {
+      "en": "mantis",
+      "pt": "louva-a-deus"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1929": {
+    "id": "1929",
+    "name": {
+      "en": "missile",
+      "pt": "míssil"
+    },
+    "groups": ["alien", "dream", "mesmice", "weapon"]
+  },
+  "1930": {
+    "id": "1930",
+    "name": {
+      "en": "jet",
+      "pt": "jato"
+    },
+    "groups": ["alien", "dream", "mesmice"]
+  },
+  "1931": {
+    "id": "1931",
+    "name": {
+      "en": "car key",
+      "pt": "chave do carro"
+    },
+    "groups": ["alien", "dream", "mesmice", "thing", "weapon"]
+  },
+  "1932": {
+    "name": {
+      "en": "tram",
+      "pt": "bonde"
+    },
+    "id": "1932",
+    "groups": ["alien", "mesmice"]
+  },
+  "1933": {
+    "name": {
+      "en": "face",
+      "pt": "cara"
+    },
+    "id": "1933",
+    "groups": ["alien", "dream"]
+  },
+  "1934": {
+    "id": "1934",
+    "name": {
+      "en": "library",
+      "pt": "biblioteca"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1935": {
+    "id": "1935",
+    "name": {
+      "en": "mitre",
+      "pt": "mitra"
+    },
+    "groups": ["alien", "dream", "evidence"]
+  },
+  "1936": {
+    "id": "1936",
+    "name": {
+      "en": "novel",
+      "pt": "romance"
+    },
+    "groups": ["alien", "dream", "evidence"]
+  },
+  "1937": {
+    "name": {
+      "en": "melon",
+      "pt": "melão"
+    },
+    "id": "1937",
+    "groups": ["alien", "dream"]
+  },
+  "1938": {
+    "name": {
+      "en": "friends",
+      "pt": "amigos"
+    },
+    "id": "1938",
+    "groups": ["alien", "dream"]
+  },
+  "1939": {
+    "id": "1939",
+    "name": {
+      "en": "conductor",
+      "pt": "maestro"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1940": {
+    "name": {
+      "en": "kid",
+      "pt": "criança"
+    },
+    "id": "1940",
+    "groups": ["alien", "dream"]
+  },
+  "1941": {
+    "name": {
+      "en": "atom",
+      "pt": "átomo"
+    },
+    "id": "1941",
+    "groups": ["alien", "dream"]
+  },
+  "1942": {
+    "name": {
+      "en": "molecule",
+      "pt": "molécula"
+    },
+    "id": "1942",
+    "groups": ["alien", "dream"]
+  },
+  "1943": {
+    "id": "1943",
+    "name": {
+      "en": "stinkbug",
+      "pt": "percevejo"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1944": {
+    "name": {
+      "en": "pirate ship ride",
+      "pt": "barca-pirata"
+    },
+    "id": "1944",
+    "groups": ["alien"]
   }
 }
