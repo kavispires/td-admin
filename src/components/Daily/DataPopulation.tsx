@@ -1,11 +1,12 @@
 // Ant Design Resources
-import { TableColumnsType, Table, Button, Flex } from 'antd';
+import { TableColumnsType, Table, Button, Flex, Space } from 'antd';
 // Components
 
 import { UseLoadDailySetup, useSaveDailySetup } from './hooks';
 
-import { DailyEntry } from './types';
+import { DailyEntry } from './utils/types';
 import { CanvasSVG } from 'components/Daily/CanvasSVG';
+import { ArteRuimCard } from 'types';
 
 type DataPopulationProps = {
   language: string;
@@ -22,45 +23,85 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       key: 'id',
     },
     {
-      title: 'Num',
-      dataIndex: 'number',
-      key: 'number',
+      title: 'Arte Ruim',
+      dataIndex: 'arte-ruim',
+      key: 'arte-ruim',
+      render: ({ number, cardId, text, drawings }) => {
+        return (
+          <Space direction="vertical">
+            <Space>
+              <span>#{number}</span>
+              <span>CardId: {cardId}</span>
+              <span>Count: {drawings.length}</span>
+            </Space>
+            <div>
+              "
+              {text
+                .split('')
+                .map((l: string, i: number) => (i < 2 || l === ' ' ? l : '⏹'))
+                .join('')}
+              "
+            </div>
+            <Space>
+              {drawings.map((d: string) => (
+                <CanvasSVG key={d} drawing={d} width={75} height={75} className="canvas" />
+              ))}
+            </Space>
+          </Space>
+        );
+      },
     },
     {
-      title: 'CardId',
-      dataIndex: 'cardId',
-      key: 'cardId',
+      title: 'Aqui O',
+      dataIndex: 'aqui-o',
+      key: 'aqui-o',
+      render: ({ number, setId, title }) => {
+        return (
+          <Space direction="vertical">
+            <span>#{number}</span>
+            <span>SetId: {setId}</span>
+            <span>Title: {title[language]}</span>
+          </Space>
+        );
+      },
     },
     {
-      title: 'Text',
-      dataIndex: 'text',
-      key: 'text',
-      render: (text) => (
-        <div>
-          {text
-            .split('')
-            .map((l: string, i: number) => (i < 2 || l === ' ' ? l : '⏹'))
-            .join('')}
-        </div>
-      ),
+      title: 'Palavreado',
+      dataIndex: 'palavreado',
+      key: 'palavreado',
+      render: ({ number, words, letters }) => {
+        return (
+          <Space direction="vertical">
+            <span>#{number}</span>
+            <span>Letters: {letters.length}</span>
+            <Space direction="vertical">
+              {words.map((word: string) => (
+                <span>
+                  {word
+                    .split('')
+                    .map((l: string, i: number) => (i < 1 || l === ' ' ? l : '⏹'))
+                    .join('')}
+                </span>
+              ))}
+            </Space>
+          </Space>
+        );
+      },
     },
     {
-      title: 'Count',
-      dataIndex: 'drawings',
-      key: 'count',
-      render: (drawings) => <div>{drawings.length}</div>,
-    },
-    {
-      title: 'Drawings',
-      dataIndex: 'drawings',
-      key: 'drawings',
-      render: (drawings) => (
-        <div>
-          {drawings.map((d: string) => (
-            <CanvasSVG key={d} drawing={d} width={100} height={100} className="canvas" />
-          ))}
-        </div>
-      ),
+      title: 'Artista',
+      dataIndex: 'artista',
+      key: 'artista',
+      render: ({ number, cards }) => {
+        return (
+          <Space direction="vertical">
+            <span>#{number}</span>
+            {cards.map((card: ArteRuimCard, index: number) => (
+              <span key={index}>{card.text}</span>
+            ))}
+          </Space>
+        );
+      },
     },
   ];
 

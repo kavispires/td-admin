@@ -10,6 +10,7 @@ import { SEARCH_THRESHOLD } from '../utils/constants';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import rawData from './rawData.json';
 import { Header } from 'components/Layout/Header';
+import { useTempDaily } from 'components/Daily/hooks';
 
 const { Text } = Typography;
 
@@ -339,24 +340,27 @@ function Other() {
 
   // const result = parseQuantitativeQuestions();
 
-  const parseMovies = () => {
-    const result = {};
-    rawData.forEach((entry, index) => {
-      const id = `mr-${index + 1}-pt`;
-      const e = {
-        id,
-        text: entry.text.trim(),
-        type: entry.type,
-        highlights: [''],
-      };
-      result[id] = e;
-    });
-    return result;
-  };
+  // const parseMovies = () => {
+  //   const result = {};
+  //   rawData.forEach((entry, index) => {
+  //     const id = `mr-${index + 1}-pt`;
+  //     const e = {
+  //       id,
+  //       text: entry.text.trim(),
+  //       type: entry.type,
+  //       highlights: [''],
+  //     };
+  //     result[id] = e;
+  //   });
+  //   return result;
+  // };
 
-  const result = parseMovies();
+  // const result = parseMovies();
 
-  const jsonString = useMemo(() => JSON.stringify(result, null, 4), [result]);
+  const { historyQuery, mutation } = useTempDaily();
+  console.log(historyQuery.data);
+
+  const jsonString = useMemo(() => JSON.stringify(historyQuery.data, null, 4), [historyQuery.data]);
 
   return (
     <Layout>
@@ -366,6 +370,7 @@ function Other() {
 
       <Layout.Content className="content">
         <div className="a">
+          <button onClick={() => mutation.mutate(historyQuery.data)}>save</button>
           <Text>
             Output <CopyToClipboardButton content={jsonString} />
           </Text>

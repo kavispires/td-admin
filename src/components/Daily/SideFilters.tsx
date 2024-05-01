@@ -39,7 +39,7 @@ export function SideFilters({
         label="Batch Size"
         value={batchSize}
         onChange={setBatchSize}
-        options={[15, 30, 45]}
+        options={[5, 15, 30, 45]}
         placeholder="Select a number"
       />
     </SiderContent>

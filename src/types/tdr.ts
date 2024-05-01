@@ -678,3 +678,10 @@ export type ItemAttribute = {
    */
   limited?: boolean;
 };
+
+export type AquiOSet = {
+  id: string;
+  setId?: string;
+  title: DualLanguageValue;
+  itemsIds: string[];
+};

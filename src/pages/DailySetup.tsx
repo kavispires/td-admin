@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 function DailySetup() {
   const [language, setLanguage] = useState('');
-  const [drawingsCount, setDrawingsCount] = useState(3);
+  const [drawingsCount, setDrawingsCount] = useState(2);
   const [batchSize, setBatchSize] = useState(45);
 
   const dataLoad = useLoadDailySetup(Boolean(language), language as Language, drawingsCount, batchSize);
