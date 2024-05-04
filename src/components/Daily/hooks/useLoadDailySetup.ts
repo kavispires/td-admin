@@ -17,7 +17,7 @@ import {
   DailyPalavreadoEntry,
   DataDrawing,
 } from '../utils/types';
-import { getNextDay } from '../utils/utils';
+import { getNextDay, getWordsWithUniqueLetters } from '../utils/utils';
 import { useLoadDrawings } from './useLoadDrawings';
 import { useParsedHistory } from './useParsedHistory';
 
@@ -70,29 +70,32 @@ export function useLoadDailySetup(
   const areDrawingsLoading = drawingsQuery.some((q) => q.isLoading);
   const [arteRuimHistory] = useParsedHistory('arte-ruim', historyQuery.data);
   const arteRuimEntries = useMemo(() => {
-    console.log('Creating Arte Ruim...');
+    console.count('Creating Arte Ruim...');
     const drawings = (drawingsQuery ?? []).reduce(
       (acc: Record<CardId, DailyEntry['arte-ruim']>, drawingEntry) => {
         const drawingsLibrary = (drawingEntry.data ?? {}) as Record<string, DataDrawing>;
         Object.entries(drawingsLibrary).forEach(([key, dataDrawing]) => {
+          const cardId = dataDrawing.cardId ?? dataDrawing.id;
+
           if (dataDrawing.drawing.trim().length < 10) {
-            console.log('Empty drawing', dataDrawing.cardId);
+            console.warn('Empty drawing', cardId);
             return acc;
           }
-          if (acc[dataDrawing.cardId] === undefined) {
-            acc[dataDrawing.cardId] = {
-              id: dataDrawing.cardId,
+
+          if (acc[cardId] === undefined) {
+            acc[cardId] = {
+              id: cardId,
               type: 'arte-ruim',
               language: queryLanguage ?? 'pt',
-              cardId: dataDrawing.cardId,
+              cardId: cardId,
               text: dataDrawing.text,
               drawings: [dataDrawing.drawing],
               number: 0,
               dataIds: [key],
             };
           } else {
-            acc[dataDrawing.cardId].drawings.push(dataDrawing.drawing);
-            acc[dataDrawing.cardId].dataIds.push(key);
+            acc[cardId].drawings.push(dataDrawing.drawing);
+            acc[cardId].dataIds.push(key);
           }
         });
 
@@ -129,10 +132,10 @@ export function useLoadDailySetup(
   const aquiOSetsQuery = useTDResource<AquiOSet>('aqui-o-sets');
   const [aquiOHistory] = useParsedHistory('aqui-o', historyQuery.data);
   const aquiOEntries = useMemo(() => {
-    console.log('Creating Aqui Ó...');
+    console.count('Creating Aqui Ó...');
     // Filter complete sets only
     const completeSets = shuffle(
-      Object.values(aquiOSetsQuery.data).filter((setEntry) => setEntry.itemsIds.length >= 20)
+      Object.values(aquiOSetsQuery.data).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length >= 20)
     );
     // Filter not-used sets only
     let notUsedSets = completeSets.filter((setEntry) => !aquiOHistory.used.includes(setEntry.id));
@@ -168,12 +171,12 @@ export function useLoadDailySetup(
   const wordsQuery = useLoadWordLibrary(4, queryLanguage, true, true);
   const [palavreadoHistory] = useParsedHistory('palavreado', historyQuery.data);
   const palavreadoEntries = useMemo(() => {
-    console.log('Creating Palavreado...');
+    console.count('Creating Palavreado...');
     let lastDate = palavreadoHistory.latestDate;
     // Get list, if not enough, get from complete
     const entries: Dictionary<DailyPalavreadoEntry> = {};
     for (let i = 0; i < batchSize; i++) {
-      const words = sampleSize(wordsQuery.data, 4);
+      const words = getWordsWithUniqueLetters(wordsQuery.data);
       const letters = shuffle(words.join('').split(''));
       const id = getNextDay(lastDate);
       lastDate = id;
@@ -192,7 +195,7 @@ export function useLoadDailySetup(
   const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`);
   const [artistaHistory] = useParsedHistory('artista', historyQuery.data);
   const artistaEntries = useMemo(() => {
-    console.log('Creating Artista...');
+    console.count('Creating Artista...');
     let lastDate = artistaHistory.latestDate;
     // Get list, if not enough, get from complete
     const entries: Dictionary<DailyArtistaEntry> = {};
@@ -201,7 +204,7 @@ export function useLoadDailySetup(
       const availableCardsIds = Object.keys(arteRuimCardsQuery.data ?? {}).filter(
         (cardId) => !arteRuimHistory.used.includes(cardId)
       );
-      const cards = sampleSize(availableCardsIds, 12).map((cardId) => arteRuimCardsQuery.data[cardId]);
+      const cards = sampleSize(availableCardsIds, 15).map((cardId) => arteRuimCardsQuery.data[cardId]);
       lastDate = id;
       entries[id] = {
         id,
@@ -215,7 +218,7 @@ export function useLoadDailySetup(
 
   // STEP N: Create entries
   const entries = useMemo(() => {
-    console.log('Bundling entries...');
+    console.count('Bundling entries...');
     return arteRuimEntries.map((arteRuim) => {
       return {
         id: arteRuim.id,

@@ -76,7 +76,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
             <span>Letters: {letters.length}</span>
             <Space direction="vertical">
               {words.map((word: string) => (
-                <span>
+                <span key={`${number}-${word}`}>
                   {word
                     .split('')
                     .map((l: string, i: number) => (i < 1 || l === ' ' ? l : '⏹'))
@@ -97,7 +97,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
           <Space direction="vertical">
             <span>#{number}</span>
             {cards.map((card: ArteRuimCard, index: number) => (
-              <span key={index}>{card.text}</span>
+              <span key={`${card.id}-${index}`}>{card.text}</span>
             ))}
           </Space>
         );

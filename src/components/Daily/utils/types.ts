@@ -69,7 +69,8 @@ export type DailyEntry = {
 };
 
 export type DataDrawing = {
-  cardId: CardId;
+  cardId: CardId; // this or id?
+  id: CardId; // this or cardId?
   drawing: string;
   level: number;
   playerId: string;
