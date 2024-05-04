@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { LoadingPage } from 'pages/LoadingPage';
+import { ItemsSets } from 'pages/Images/ItemsSets';
 
 const Home = lazy(() => import('pages/Home' /* webpackChunkName: "Home" */));
 const Resource = lazy(() => import('pages/Resource' /* webpackChunkName: "Resource" */));
@@ -110,6 +111,14 @@ export const routes = (
       element={
         <Suspense fallback={<LoadingPage />}>
           <ItemsAttribution />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/items/sets"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <ItemsSets />
         </Suspense>
       }
     />

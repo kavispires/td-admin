@@ -6855,11 +6855,11 @@
     "groups": ["alien", "mesmice"]
   },
   "854": {
+    "id": "854",
     "name": {
       "en": "platform shoe",
       "pt": "sapato plataforma"
     },
-    "id": "854",
     "groups": ["alien", "evidence", "mesmice"]
   },
   "855": {
@@ -8975,11 +8975,11 @@
     "groups": ["alien", "evidence"]
   },
   "1119": {
-    "id": "1119",
     "name": {
       "en": "liquid drugs",
       "pt": "drogas líquidas"
     },
+    "id": "1119",
     "groups": ["alien", "weapon"],
     "nsfw": true
   },
@@ -9000,11 +9000,11 @@
     "groups": ["weapon"]
   },
   "1122": {
-    "id": "1122",
     "name": {
       "en": "illegal drugs",
       "pt": "drogas"
     },
+    "id": "1122",
     "groups": ["alien", "dream", "evidence", "weapon"],
     "nsfw": true
   },
@@ -14870,11 +14870,11 @@
     "groups": ["alien", "dream", "mesmice", "thing", "weapon"]
   },
   "1853": {
-    "id": "1853",
     "name": {
       "en": "blow darts",
       "pt": "dardos venenosos"
     },
+    "id": "1853",
     "groups": ["alien", "weapon"]
   },
   "1854": {
@@ -14886,11 +14886,11 @@
     "groups": ["alien", "dream", "mesmice"]
   },
   "1855": {
-    "id": "1855",
     "name": {
       "en": "kunai",
       "pt": "kunai"
     },
+    "id": "1855",
     "groups": ["alien", "weapon"]
   },
   "1856": {
@@ -14909,19 +14909,19 @@
     "groups": ["alien", "dream", "mesmice"]
   },
   "1858": {
+    "id": "1858",
     "name": {
       "en": "apple",
       "pt": "maçã"
     },
-    "id": "1858",
     "groups": ["alien", "dream", "evidence"]
   },
   "1859": {
+    "id": "1859",
     "name": {
       "en": "apricot",
       "pt": "damasco"
     },
-    "id": "1859",
     "groups": ["alien", "dream"]
   },
   "1860": {
@@ -14933,27 +14933,27 @@
     "groups": ["alien", "dream"]
   },
   "1861": {
+    "id": "1861",
     "name": {
       "en": "cherry",
       "pt": "cereja"
     },
-    "id": "1861",
     "groups": ["alien", "dream"]
   },
   "1862": {
+    "id": "1862",
     "name": {
       "en": "fruit salad",
       "pt": "salada de fruta"
     },
-    "id": "1862",
     "groups": ["alien", "dream", "evidence", "thing"]
   },
   "1863": {
+    "id": "1863",
     "name": {
       "en": "chocolate box",
       "pt": "caixa de chocolates"
     },
-    "id": "1863",
     "groups": ["alien"]
   },
   "1864": {
@@ -15013,19 +15013,19 @@
     "groups": ["alien", "dream", "mesmice", "weapon"]
   },
   "1871": {
-    "id": "1871",
     "name": {
       "en": "tower",
       "pt": "torre"
     },
+    "id": "1871",
     "groups": ["alien", "dream"]
   },
   "1872": {
-    "id": "1872",
     "name": {
       "en": "pi",
       "pt": "pi"
     },
+    "id": "1872",
     "groups": ["dream"]
   },
   "1873": {
@@ -15045,11 +15045,11 @@
     "groups": ["alien", "dream"]
   },
   "1875": {
+    "id": "1875",
     "name": {
       "en": "moving truck",
       "pt": "caminhão de mudança"
     },
-    "id": "1875",
     "groups": ["alien", "dream", "mesmice"]
   },
   "1876": {
@@ -15061,11 +15061,11 @@
     "groups": ["alien", "dream"]
   },
   "1877": {
+    "id": "1877",
     "name": {
       "en": "flat tire",
       "pt": " pneu furado"
     },
-    "id": "1877",
     "groups": ["alien"]
   },
   "1878": {
@@ -15093,11 +15093,11 @@
     "groups": ["alien", "dream"]
   },
   "1881": {
-    "id": "1881",
     "name": {
       "en": "cork",
       "pt": "rolha"
     },
+    "id": "1881",
     "groups": ["alien", "dream", "mesmice"]
   },
   "1882": {
@@ -15109,35 +15109,35 @@
     "groups": ["alien", "dream"]
   },
   "1883": {
-    "id": "1883",
     "name": {
       "en": "chemistry book",
       "pt": "livro de química"
     },
+    "id": "1883",
     "groups": ["alien"]
   },
   "1884": {
-    "id": "1884",
     "name": {
       "en": "award",
       "pt": "prêmio"
     },
+    "id": "1884",
     "groups": ["alien", "dream", "mesmice", "weapon"]
   },
   "1885": {
+    "id": "1885",
     "name": {
       "en": "podium",
       "pt": "pódio"
     },
-    "id": "1885",
     "groups": ["alien", "dream", "mesmice"]
   },
   "1886": {
+    "id": "1886",
     "name": {
       "en": "cicada",
       "pt": "cigarra"
     },
-    "id": "1886",
     "groups": ["alien", "dream"]
   },
   "1887": {
@@ -15149,11 +15149,11 @@
     "groups": ["alien", "dream", "weapon"]
   },
   "1888": {
-    "id": "1888",
     "name": {
       "en": "ship in a bottle",
       "pt": "barco na garrafa"
     },
+    "id": "1888",
     "groups": ["alien", "evidence"]
   },
   "1889": {
@@ -15165,19 +15165,19 @@
     "groups": ["alien", "dream", "mesmice"]
   },
   "1890": {
+    "id": "1890",
     "name": {
       "en": "air freshener spray",
       "pt": "bom ar"
     },
-    "id": "1890",
     "groups": ["alien", "dream", "evidence"]
   },
   "1891": {
-    "id": "1891",
     "name": {
       "en": "machine gun",
       "pt": "metralhadora"
     },
+    "id": "1891",
     "groups": ["alien", "dream", "mesmice", "weapon"]
   },
   "1892": {
@@ -15205,11 +15205,11 @@
     "groups": ["alien"]
   },
   "1895": {
-    "id": "1895",
     "name": {
       "en": "blackberry",
       "pt": "amora"
     },
+    "id": "1895",
     "groups": ["alien"]
   },
   "1896": {
@@ -15221,11 +15221,11 @@
     "groups": ["alien"]
   },
   "1897": {
+    "id": "1897",
     "name": {
       "en": "foot",
       "pt": "pé"
     },
-    "id": "1897",
     "groups": ["alien", "dream", "evidence"]
   },
   "1898": {
@@ -15237,11 +15237,11 @@
     "groups": ["alien", "dream", "evidence", "mesmice"]
   },
   "1899": {
+    "id": "1899",
     "name": {
       "en": "firetruck",
       "pt": "caminhão de bombeiros"
     },
-    "id": "1899",
     "groups": ["alien", "dream", "evidence", "mesmice"]
   },
   "1900": {
@@ -15261,27 +15261,27 @@
     "groups": ["dream"]
   },
   "1902": {
+    "id": "1902",
     "name": {
       "en": "centipede",
       "pt": "centopeia"
     },
-    "id": "1902",
     "groups": ["alien", "dream"]
   },
   "1903": {
-    "id": "1903",
     "name": {
       "en": "turnip",
       "pt": "nabo"
     },
+    "id": "1903",
     "groups": ["alien", "dream"]
   },
   "1904": {
-    "id": "1904",
     "name": {
       "en": "radish",
       "pt": "rabanete"
     },
+    "id": "1904",
     "groups": ["alien", "dream"]
   },
   "1905": {
@@ -15309,11 +15309,11 @@
     "groups": ["alien", "mesmice"]
   },
   "1908": {
+    "id": "1908",
     "name": {
       "en": "oboe",
       "pt": "oboe"
     },
-    "id": "1908",
     "groups": ["alien", "dream"]
   },
   "1909": {
@@ -15341,11 +15341,11 @@
     "groups": ["alien", "mesmice", "weapon"]
   },
   "1912": {
+    "id": "1912",
     "name": {
       "en": "jabuticaba",
       "pt": "jabuticaba"
     },
-    "id": "1912",
     "groups": ["alien", "dream"]
   },
   "1913": {
@@ -15413,28 +15413,28 @@
     "groups": ["alien", "dream"]
   },
   "1921": {
-    "id": "1921",
     "name": {
       "en": "toaster",
       "pt": "misteria"
     },
+    "id": "1921",
     "groups": ["alien", "dream", "weapon"]
   },
   "1922": {
-    "id": "1922",
     "name": {
       "en": "vibrating panties",
       "pt": "calcinha vibratória"
     },
+    "id": "1922",
     "groups": ["alien", "mesmice", "thing"],
     "nsfw": true
   },
   "1923": {
-    "id": "1923",
     "name": {
       "en": "paddle",
       "pt": "palmatória"
     },
+    "id": "1923",
     "groups": ["alien", "dream", "weapon"],
     "nsfw": true
   },
@@ -15448,19 +15448,19 @@
     "nsfw": true
   },
   "1925": {
-    "id": "1925",
     "name": {
       "en": "maki",
       "pt": "maki"
     },
+    "id": "1925",
     "groups": ["alien"]
   },
   "1926": {
-    "id": "1926",
     "name": {
       "en": "fight",
       "pt": " briga"
     },
+    "id": "1926",
     "groups": ["dream"]
   },
   "1927": {
@@ -15472,11 +15472,11 @@
     "groups": ["alien", "dream", "evidence"]
   },
   "1928": {
-    "id": "1928",
     "name": {
       "en": "mantis",
       "pt": "louva-a-deus"
     },
+    "id": "1928",
     "groups": ["alien", "dream"]
   },
   "1929": {
@@ -15496,11 +15496,11 @@
     "groups": ["alien", "dream", "mesmice"]
   },
   "1931": {
-    "id": "1931",
     "name": {
       "en": "car key",
       "pt": "chave do carro"
     },
+    "id": "1931",
     "groups": ["alien", "dream", "mesmice", "thing", "weapon"]
   },
   "1932": {
@@ -15512,43 +15512,43 @@
     "groups": ["alien", "mesmice"]
   },
   "1933": {
+    "id": "1933",
     "name": {
       "en": "face",
       "pt": "cara"
     },
-    "id": "1933",
     "groups": ["alien", "dream"]
   },
   "1934": {
-    "id": "1934",
     "name": {
       "en": "library",
       "pt": "biblioteca"
     },
+    "id": "1934",
     "groups": ["alien", "dream"]
   },
   "1935": {
-    "id": "1935",
     "name": {
       "en": "mitre",
       "pt": "mitra"
     },
+    "id": "1935",
     "groups": ["alien", "dream", "evidence"]
   },
   "1936": {
-    "id": "1936",
     "name": {
       "en": "novel",
       "pt": "romance"
     },
+    "id": "1936",
     "groups": ["alien", "dream", "evidence"]
   },
   "1937": {
+    "id": "1937",
     "name": {
       "en": "melon",
       "pt": "melão"
     },
-    "id": "1937",
     "groups": ["alien", "dream"]
   },
   "1938": {
@@ -15568,19 +15568,19 @@
     "groups": ["alien", "dream"]
   },
   "1940": {
+    "id": "1940",
     "name": {
       "en": "kid",
       "pt": "criança"
     },
-    "id": "1940",
     "groups": ["alien", "dream"]
   },
   "1941": {
+    "id": "1941",
     "name": {
       "en": "atom",
       "pt": "átomo"
     },
-    "id": "1941",
     "groups": ["alien", "dream"]
   },
   "1942": {
@@ -15592,11 +15592,11 @@
     "groups": ["alien", "dream"]
   },
   "1943": {
-    "id": "1943",
     "name": {
       "en": "stinkbug",
       "pt": "percevejo"
     },
+    "id": "1943",
     "groups": ["alien", "dream"]
   },
   "1944": {
@@ -15606,5 +15606,183 @@
     },
     "id": "1944",
     "groups": ["alien"]
+  },
+  "1945": {
+    "id": "1945",
+    "name": {
+      "en": "card game",
+      "pt": "cartinhas de jogo"
+    },
+    "groups": ["alien", "evidence"]
+  },
+  "1946": {
+    "name": {
+      "en": "chess clock",
+      "pt": "cronômetro de xadrez"
+    },
+    "id": "1946",
+    "groups": ["alien", "mesmice"]
+  },
+  "1947": {
+    "name": {
+      "en": "tetris",
+      "pt": "tetris"
+    },
+    "id": "1947",
+    "groups": ["alien", "dream"]
+  },
+  "1948": {
+    "name": {
+      "en": "meeple",
+      "pt": "pecinha"
+    },
+    "id": "1948",
+    "groups": ["alien", "evidence"]
+  },
+  "1949": {
+    "name": {
+      "en": "flat screen tv",
+      "pt": "tv de tela plana"
+    },
+    "id": "1949",
+    "groups": ["alien", "weapon"]
+  },
+  "1950": {
+    "name": {
+      "en": "vulture",
+      "pt": "urubu"
+    },
+    "id": "1950",
+    "groups": ["alien", "dream"]
+  },
+  "1951": {
+    "id": "1951",
+    "name": {
+      "en": "loyalty card",
+      "pt": "cartão de fidelidade"
+    },
+    "groups": ["alien", "mesmice"]
+  },
+  "1952": {
+    "name": {
+      "en": "roundabout",
+      "pt": "rotatória"
+    },
+    "id": "1952",
+    "groups": ["alien", "dream"]
+  },
+  "1953": {
+    "name": {
+      "en": "car pedals",
+      "pt": "pedais de carro"
+    },
+    "id": "1953",
+    "groups": ["alien", "mesmice"]
+  },
+  "1954": {
+    "id": "1954",
+    "name": {
+      "en": "swordfish",
+      "pt": "peixe-espada"
+    },
+    "groups": ["alien", "dream", "weapon"]
+  },
+  "1955": {
+    "id": "1955",
+    "name": {
+      "en": "emotions",
+      "pt": "emoções"
+    },
+    "groups": ["dream"]
+  },
+  "1956": {
+    "id": "1956",
+    "name": {
+      "en": "Manatee",
+      "pt": "peixe-boi"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1957": {
+    "name": {
+      "en": "bison",
+      "pt": "búfalo"
+    },
+    "id": "1957",
+    "groups": ["alien", "dream"]
+  },
+  "1958": {
+    "name": {
+      "en": "orangotang",
+      "pt": "Orangotango"
+    },
+    "id": "1958",
+    "groups": ["alien", "dream"]
+  },
+  "1959": {
+    "id": "1959",
+    "name": {
+      "en": "wolf",
+      "pt": "lobo"
+    },
+    "groups": ["alien", "dream"]
+  },
+  "1960": {
+    "id": "1960",
+    "name": {
+      "en": "wok",
+      "pt": "wok"
+    },
+    "groups": ["alien"]
+  },
+  "1961": {
+    "name": {
+      "en": "kitchen cabinet",
+      "pt": "armários de cozinha"
+    },
+    "id": "1961",
+    "groups": ["alien"]
+  },
+  "1962": {
+    "name": {
+      "en": "swim trunks",
+      "pt": "calção"
+    },
+    "id": "1962",
+    "groups": ["alien"]
+  },
+  "1963": {
+    "id": "1963",
+    "name": {
+      "en": "pencil",
+      "pt": "lápis"
+    },
+    "groups": ["alien", "dream", "mesmice", "weapon"]
+  },
+  "1964": {
+    "name": {
+      "en": "torah",
+      "pt": "Torá"
+    },
+    "id": "1964",
+    "groups": ["alien", "evidence"],
+    "nsfw": true
+  },
+  "1965": {
+    "id": "1965",
+    "name": {
+      "en": "buddah",
+      "pt": "buda"
+    },
+    "groups": ["alien", "dream"],
+    "nsfw": true
+  },
+  "1966": {
+    "id": "1966",
+    "name": {
+      "en": "rabbi",
+      "pt": "rabino"
+    },
+    "groups": ["alien", "dream"]
   }
 }

@@ -201,3 +201,5 @@ export const ATTRIBUTE_GROUP_VALUES = Object.keys(ATTRIBUTE_VALUE).map((key) => 
   value: key.toLowerCase(),
   label: capitalize(key),
 }));
+
+export const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';

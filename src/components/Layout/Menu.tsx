@@ -119,11 +119,6 @@ const items: MenuProps['items'] = [
             key: '/items',
           },
           {
-            label: 'Classifier',
-            key: '/items/classifier',
-            disabled: true,
-          },
-          {
             label: 'Attributes',
             key: '/items/attribution',
           },
@@ -131,6 +126,10 @@ const items: MenuProps['items'] = [
             label: 'Crimes History',
             key: '/items/crimes-history',
             disabled: true,
+          },
+          {
+            label: 'Aqui Ó Sets',
+            key: '/items/sets',
           },
         ],
       },
