@@ -1,13 +1,15 @@
+import { App } from 'antd';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { cloneDeep, merge, padStart, random } from 'lodash';
 import { useEffect, useState } from 'react';
+import { firestore, printFirebase } from 'services/firebase';
+import { removeDuplicates } from 'utils';
+
+import { UseMutateFunction, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+
 import { CARDS_PER_DECK, DEFAULT_ENTRY, TOTAL_DECKS } from './constants';
 import { FirebaseImageCardLibrary, ImageCardData, ImageCardRelationship } from './types';
-import { UseMutateFunction, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { firestore } from 'services/firebase';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { App } from 'antd';
 import { cleanupData } from './utils';
-import { removeDuplicates } from 'utils';
 
 const getRandomCardNumber = () => padStart(String(random(1, CARDS_PER_DECK)), 2, '0');
 
@@ -103,20 +105,22 @@ export function useImageCardsData() {
       const querySnapshot = await getDoc(docRef);
       return (querySnapshot.data() ?? {}) as FirebaseImageCardLibrary;
     },
-    onSuccess: () => {
-      notification.info({
-        message: 'Data loaded',
-        placement: 'bottomLeft',
-      });
-      setDirty(false);
-    },
-    onError: () => {
-      notification.error({
-        message: 'Error loading data',
-        placement: 'bottomLeft',
-      });
-    },
   });
+
+  useEffect(() => {
+    if (isSuccess) {
+      printFirebase('Loaded data/imageCards');
+    }
+  }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      notification.error({
+        message: 'Error loading data/imageCards',
+        placement: 'bottomLeft',
+      });
+    }
+  }, [isError]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const {
     isLoading: isSaving,

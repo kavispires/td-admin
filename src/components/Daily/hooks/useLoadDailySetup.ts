@@ -1,23 +1,19 @@
-import { App } from 'antd';
-import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
 import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
 import { sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
 import { AquiOSet, ArteRuimCard } from 'types';
 
-import { QueryKey, useQuery } from '@tanstack/react-query';
-
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import {
   DailyAquiOEntry,
   DailyArtistaEntry,
   DailyEntry,
-  DailyHistory,
   DailyPalavreadoEntry,
   DataDrawing,
 } from '../utils/types';
 import { getNextDay, getWordsWithUniqueLetters } from '../utils/utils';
+import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 import { useLoadDrawings } from './useLoadDrawings';
 import { useParsedHistory } from './useParsedHistory';
 
@@ -43,27 +39,9 @@ export function useLoadDailySetup(
   drawingsCount: number,
   batchSize: number
 ): UseLoadDailySetup {
-  const { notification } = App.useApp();
-
   // STEP 1: HISTORY
   const source = LANGUAGE_PREFIX.DAILY[queryLanguage ?? 'pt'];
-  const historyQuery = useQuery<any, Error, DailyHistory, QueryKey>({
-    queryKey: [source, 'history'],
-    queryFn: getDocQueryFunction<DailyHistory>(source, 'history'),
-    enabled,
-    onSuccess: () => {
-      notification.info({
-        message: 'Data Daily History loaded',
-        placement: 'bottomLeft',
-      });
-    },
-    onError: () => {
-      notification.error({
-        message: 'Error loading daily history',
-        placement: 'bottomLeft',
-      });
-    },
-  });
+  const historyQuery = useDailyHistoryQuery(source, { enabled });
 
   // STEP 2: ARTE RUIM
   const drawingsQuery = useLoadDrawings(enabled, queryLanguage ?? 'pt');

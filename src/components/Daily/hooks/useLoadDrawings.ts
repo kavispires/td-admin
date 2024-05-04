@@ -1,11 +1,12 @@
 import { App } from 'antd';
 import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { QueryKey, useQueries, useQuery, UseQueryOptions } from '@tanstack/react-query';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import { DataSuffixCounts } from '../utils/types';
+import { printFirebase } from 'services/firebase';
 
 /**
  * Custom hook for loading drawings.
@@ -35,6 +36,21 @@ export function useLoadDrawings(enabled: boolean, queryLanguage: Language) {
       });
     },
   });
+
+  useEffect(() => {
+    if (suffixCountsQuery.isSuccess) {
+      printFirebase('Loaded data/suffixCounts');
+    }
+  }, [suffixCountsQuery.isSuccess]);
+
+  useEffect(() => {
+    if (suffixCountsQuery.isError) {
+      notification.error({
+        message: 'Error loading data/suffixCounts',
+        placement: 'bottomLeft',
+      });
+    }
+  }, [suffixCountsQuery.isError]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const suffixData = LANGUAGE_PREFIX.SUFFIX_DATA[queryLanguage ?? 'pt'];
 

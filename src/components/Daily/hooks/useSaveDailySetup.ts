@@ -1,14 +1,14 @@
 import { App } from 'antd';
 import { doc, setDoc } from 'firebase/firestore';
-import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
 import { useState } from 'react';
 import { firestore } from 'services/firebase';
 import { removeDuplicates } from 'utils';
 
-import { QueryKey, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { QueryKey, useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
-import { DailyEntry, DailyHistory, DataSuffixCounts } from '../utils/types';
+import { DailyEntry, DailyHistory } from '../utils/types';
+import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
 /**
  * Custom hook for saving daily setup.
@@ -24,23 +24,7 @@ export function useSaveDailySetup(queryLanguage: Language) {
 
   const [isDirty, setIsDirty] = useState(false);
 
-  const historyQuery = useQuery<any, Error, DailyHistory, QueryKey>({
-    queryKey: [source, 'history'],
-    queryFn: getDocQueryFunction<DataSuffixCounts>(source, 'history'),
-    enabled: Boolean(source),
-    onSuccess: () => {
-      notification.info({
-        message: 'Data Daily History loaded',
-        placement: 'bottomLeft',
-      });
-    },
-    onError: () => {
-      notification.error({
-        message: 'Error loading daily history',
-        placement: 'bottomLeft',
-      });
-    },
-  });
+  const historyQuery = useDailyHistoryQuery(source, { enabled: Boolean(source) });
 
   const mutation = useMutation<any, Error, DailyEntry[], QueryKey>(
     async (data) => {

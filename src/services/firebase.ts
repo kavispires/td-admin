@@ -64,3 +64,7 @@ export async function signOut(): Promise<void> {
     message.warning(`You've been signed out`);
   });
 }
+
+export function printFirebase(message: string) {
+  console.log(`%c📛 Firebase: ${message}`, 'color: #FFA500');
+}
