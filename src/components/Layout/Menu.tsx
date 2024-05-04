@@ -4,8 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
   BuildOutlined,
   FileImageOutlined,
-  FolderAddOutlined,
   FolderViewOutlined,
+  GiftOutlined,
   HddOutlined,
 } from '@ant-design/icons';
 
@@ -13,14 +13,19 @@ import type { MenuProps } from 'antd';
 
 const items: MenuProps['items'] = [
   {
-    label: 'Resource',
-    key: '/resource',
+    label: 'Resources',
+    key: 'resources',
     icon: <FolderViewOutlined />,
-  },
-  {
-    label: 'Generator',
-    key: '/resource-generator',
-    icon: <FolderAddOutlined />,
+    children: [
+      {
+        label: 'Listing',
+        key: '/resources/listing',
+      },
+      {
+        label: 'Generator',
+        key: '/resources/generator',
+      },
+    ],
   },
   {
     label: 'Game Specific',
@@ -112,29 +117,6 @@ const items: MenuProps['items'] = [
       },
       {
         type: 'group',
-        label: 'Items',
-        children: [
-          {
-            label: 'Listing',
-            key: '/items',
-          },
-          {
-            label: 'Attributes',
-            key: '/items/attribution',
-          },
-          {
-            label: 'Crimes History',
-            key: '/items/crimes-history',
-            disabled: true,
-          },
-          {
-            label: 'Aqui Ó Sets',
-            key: '/items/sets',
-          },
-        ],
-      },
-      {
-        type: 'group',
         label: 'Crimes',
         children: [
           {
@@ -150,6 +132,40 @@ const items: MenuProps['items'] = [
       {
         label: 'Suspects',
         key: '/images/suspects',
+      },
+    ],
+  },
+  {
+    label: 'Items',
+    key: 'items',
+    icon: <GiftOutlined />,
+    children: [
+      {
+        label: 'Listing',
+        key: '/items',
+      },
+      {
+        label: 'Attributes',
+        key: '/items/attribution',
+      },
+      {
+        label: 'Sets',
+        key: '/items/sets',
+      },
+      {
+        label: 'Crimes History',
+        key: '/items/crimes-history',
+        disabled: true,
+      },
+      {
+        label: 'Movies',
+        key: '/items/movies',
+        disabled: true,
+      },
+      {
+        label: 'Quartets',
+        key: '/items/quartets',
+        disabled: true,
       },
     ],
   },

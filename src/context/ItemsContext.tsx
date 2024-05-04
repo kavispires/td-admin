@@ -73,7 +73,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
       });
     });
 
-    const groups = Object.keys(groupsDict).map((name) => ({ value: name }));
+    const groups = orderBy(Object.keys(groupsDict)).map((name) => ({ value: name }));
 
     if (duplicatedNames.length > 0) {
       console.warn('Possible duplicated items', duplicatedNames);

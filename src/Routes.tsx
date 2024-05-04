@@ -49,7 +49,7 @@ export const routes = (
       }
     />
     <Route
-      path="/resource"
+      path="/resources/listing"
       element={
         <Suspense fallback={<LoadingPage />}>
           <Resource />
@@ -57,7 +57,7 @@ export const routes = (
       }
     />
     <Route
-      path="/resource-generator"
+      path="/resources/generator"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ResourceGenerator />
