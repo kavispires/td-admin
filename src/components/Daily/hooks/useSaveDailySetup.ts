@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { firestore } from 'services/firebase';
 import { removeDuplicates } from 'utils';
 
-import { QueryKey, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
-import { DailyEntry, DailyHistory } from '../utils/types';
+import { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
 /**
@@ -26,15 +26,15 @@ export function useSaveDailySetup(queryLanguage: Language) {
 
   const historyQuery = useDailyHistoryQuery(source, { enabled: Boolean(source) });
 
-  const mutation = useMutation<any, Error, DailyEntry[], QueryKey>(
-    async (data) => {
+  const mutation = useMutation({
+    mutationFn: async (data: any[]) => {
       const saves = data.map((entry) => {
         const docRef = doc(firestore, `${source}/${entry.id}`);
         return setDoc(docRef, entry);
       });
 
       const docRec = doc(firestore, `${source}/history`);
-      const previousHistory = historyQuery.data as DailyHistory;
+      const previousHistory = historyQuery.data;
 
       if (!previousHistory) {
         throw new Error('No previous history');
@@ -77,28 +77,30 @@ export function useSaveDailySetup(queryLanguage: Language) {
 
       return Promise.all(saves);
     },
-    {
-      onSuccess: () => {
-        notification.info({
-          message: 'Data saved',
-          placement: 'bottomLeft',
-        });
-        queryClient.invalidateQueries([source, 'history']);
-        setIsDirty(false);
-      },
-      onError: () => {
-        notification.error({
-          message: 'Error saving data',
-          placement: 'bottomLeft',
-        });
-      },
-    }
-  );
+
+    onSuccess: () => {
+      notification.info({
+        message: 'Data saved',
+        placement: 'bottomLeft',
+      });
+      queryClient.invalidateQueries({
+        queryKey: [source, 'history'],
+      });
+      setIsDirty(false);
+    },
+
+    onError: () => {
+      notification.error({
+        message: 'Error saving data',
+        placement: 'bottomLeft',
+      });
+    },
+  });
 
   return {
     isDirty,
     setIsDirty,
     save: mutation.mutateAsync,
-    isLoading: mutation.isLoading,
+    isPending: mutation.isPending,
   };
 }

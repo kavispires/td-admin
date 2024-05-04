@@ -105,7 +105,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
     },
   ];
 
-  const { save, isLoading: isMutating } = useSaveDailySetup(queryLanguage ?? 'pt');
+  const { save, isPending } = useSaveDailySetup(queryLanguage ?? 'pt');
 
   return (
     <div>
@@ -114,7 +114,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
         <h1>Total: {dataLoad.entries.length}</h1>
         <Button
           onClick={() => save(dataLoad.entries)}
-          loading={isMutating}
+          loading={isPending}
           disabled={(dataLoad.entries ?? []).length === 0}
           type="primary"
           size="large"

@@ -24,7 +24,9 @@ export function useItemsData() {
       notification.success({
         message: 'Item updated',
       });
-      queryClient.refetchQueries(['firebase', 'data', 'items']);
+      queryClient.refetchQueries({
+        queryKey: ['firebase', 'data', 'items'],
+      });
       setModifiedItems({});
     },
     onError: (error) => {
@@ -36,7 +38,7 @@ export function useItemsData() {
   });
 
   const items = useMemo(() => {
-    if (tdrItemsQuery.isLoading || firebaseItemsQuery.isLoading || mutation.isLoading) return {};
+    if (tdrItemsQuery.isLoading || firebaseItemsQuery.isLoading || mutation.isPending) return {};
     console.log('%cMerging items data...', 'color: #f0f');
     return cloneDeep({ ...(tdrItemsQuery.data ?? {}), ...(firebaseItemsQuery.data ?? {}), ...modifiedItems });
   }, [
@@ -44,7 +46,7 @@ export function useItemsData() {
     firebaseItemsQuery.data,
     tdrItemsQuery.isLoading,
     firebaseItemsQuery.isLoading,
-    mutation.isLoading,
+    mutation.isPending,
     modifiedItems,
   ]);
 
@@ -64,7 +66,7 @@ export function useItemsData() {
     isLoading: tdrItemsQuery.isLoading || firebaseItemsQuery.isLoading,
     error: tdrItemsQuery.error || firebaseItemsQuery.error,
     firebaseData,
-    isSaving: mutation.isLoading,
+    isSaving: mutation.isPending,
     save,
     addItemToUpdate,
     itemsToUpdate: modifiedItems,

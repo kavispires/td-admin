@@ -22,19 +22,7 @@ export function useLoadDrawings(enabled: boolean, queryLanguage: Language) {
   const suffixCountsQuery = useQuery<any, Error, DataSuffixCounts, QueryKey>({
     queryKey: ['data', 'suffixCounts'],
     queryFn: getDocQueryFunction<DataSuffixCounts>('data', 'suffixCounts'),
-    enabled: enabled,
-    onSuccess: () => {
-      notification.info({
-        message: 'Data Suffix Counts loaded',
-        placement: 'bottomLeft',
-      });
-    },
-    onError: () => {
-      notification.error({
-        message: 'Error loading suffix counts',
-        placement: 'bottomLeft',
-      });
-    },
+    enabled,
   });
 
   useEffect(() => {

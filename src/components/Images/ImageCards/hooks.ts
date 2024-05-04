@@ -123,7 +123,7 @@ export function useImageCardsData() {
   }, [isError]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const {
-    isLoading: isSaving,
+    isPending: isSaving,
     isError: isMutationError,
     isSuccess: isSaved,
     mutate: save,
@@ -140,7 +140,9 @@ export function useImageCardsData() {
         message: 'Saved',
         placement: 'bottomLeft',
       });
-      queryClient.refetchQueries(queryKey);
+      queryClient.refetchQueries({
+        queryKey: queryKey,
+      });
       setDirty(false);
     },
   });
@@ -274,7 +276,7 @@ export function useImageCardsRelationshipData(): UseImageCardsRelationshipDataRe
   });
 
   const {
-    isLoading: isSaving,
+    isPending: isSaving,
     isError: isMutationError,
     isSuccess: isSaved,
     mutate: save,
@@ -291,7 +293,9 @@ export function useImageCardsRelationshipData(): UseImageCardsRelationshipDataRe
         message: 'Saved',
         placement: 'bottomLeft',
       });
-      queryClient.refetchQueries(queryKey);
+      queryClient.refetchQueries({
+        queryKey: queryKey,
+      });
       setDirty(false);
     },
   });

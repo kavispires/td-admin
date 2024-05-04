@@ -37,7 +37,9 @@ export function useItemsAttribution() {
       notification.success({
         message: 'itemsAttributeValues updated',
       });
-      queryClient.refetchQueries(['firebase', 'data', 'itemsAttributeValues']);
+      queryClient.refetchQueries({
+        queryKey: ['firebase', 'data', 'itemsAttributeValues'],
+      });
       setModifiedAttributeValues({});
     },
     onError: (error) => {
@@ -125,7 +127,7 @@ export function useItemsAttribution() {
       tdrItemsAttributesValuesQuery.error ||
       firebaseItemsAttributeValuesQuery.error,
     firebaseData,
-    isSaving: mutation.isLoading,
+    isSaving: mutation.isPending,
     save,
     addAttributesToUpdate,
     addMultipleAttributesToUpdate,
