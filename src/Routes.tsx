@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { LoadingPage } from 'pages/LoadingPage';
-import { ItemsSets } from 'pages/Images/ItemsSets';
+import { ItemsSets } from 'pages/Items/ItemsSets';
 
 const Home = lazy(() => import('pages/Home' /* webpackChunkName: "Home" */));
 const Resource = lazy(() => import('pages/Resource' /* webpackChunkName: "Resource" */));
@@ -14,7 +14,7 @@ const SingleWordsExpander = lazy(
 );
 const Other = lazy(() => import('pages/Other' /* webpackChunkName: "Other" */));
 
-const Items = lazy(() => import('pages/Images/Items' /* webpackChunkName: "Items" */));
+const Items = lazy(() => import('pages/Items/Items' /* webpackChunkName: "Items" */));
 const CrimeEvidence = lazy(
   () => import('pages/Images/CrimeEvidence' /* webpackChunkName: "CrimeEvidence" */)
 );
@@ -31,7 +31,7 @@ const ImageCardsConnections = lazy(
   () => import('pages/Images/ImageCardsConnections' /* webpackChunkName: "ImageCardsConnections" */)
 );
 const ItemsAttribution = lazy(
-  () => import('pages/Images/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */)
+  () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */)
 );
 const DailySetup = lazy(() => import('pages/DailySetup' /* webpackChunkName: "DailySetup" */));
 const CrimesHediondosCategorizer = lazy(
