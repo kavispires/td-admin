@@ -14,11 +14,11 @@ type ItemListingFiltersProps = {
   toggleSearch: () => void;
 };
 export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFiltersProps) {
-  const { isDirty, save, items, listingType, setListingType, groups } = useItemsContext();
+  const { isDirty, save, items, listingType, setListingType, categories } = useItemsContext();
 
-  const groupOptions = useMemo(() => {
+  const categoryOptions = useMemo(() => {
     const includingOptions = orderBy(
-      groups.map(({ value }) => ({ label: capitalize(value), value })),
+      categories.map(({ value }) => ({ label: capitalize(value), value })),
       'label'
     );
     const excludingOptions = includingOptions.map(({ label, value }) => ({
@@ -26,7 +26,7 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
       value: `!${value}`,
     }));
     return [...includingOptions, ...excludingOptions];
-  }, [groups]);
+  }, [categories]);
   return (
     <SiderContent>
       <Flex vertical gap={6}>
@@ -45,15 +45,15 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
       <FilterSwitch label="Show Search" value={showSearch} onChange={toggleSearch} />
 
       <FilterSelect
-        label="Group"
+        label="Category"
         value={listingType}
         onChange={(value) => setListingType(value)}
         options={[
           { label: 'All', value: 'all' },
           { label: 'NSFW', value: 'nsfw' },
           { label: 'SFW', value: '!nsfw' },
-          ...groupOptions,
-          { label: 'No groups', value: '!all' },
+          ...categoryOptions,
+          { label: 'No categories', value: '!all' },
         ]}
       />
 
@@ -67,30 +67,30 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
 function prepareFileForDownload(items: Dictionary<Item>) {
   return sortJsonKeys(
     Object.values(items).reduce((acc: Dictionary<Item>, item) => {
-      // Sort groups
-      item.groups = (item?.groups ?? []).sort();
+      // Sort categories
+      item.categories = (item?.categories ?? []).sort();
 
-      // Remove groups if no group is present
-      if (item.groups.length === 0) {
-        delete item.groups;
+      // Remove categories if no category is present
+      if (item.categories.length === 0) {
+        delete item.categories;
 
         acc[item.id] = item;
         return acc;
       }
 
-      // Remove thing from group if either evidence, dream, alien, or mesmice is present and both pt and en names are single words
+      // Remove thing from category if either evidence, dream, alien, or mesmice is present and both pt and en names are single words
       if (
-        item.groups.includes('thing') &&
+        item.categories.includes('thing') &&
         item.name.en.split(' ').length === 1 &&
         item.name.pt.split(' ').length === 1
       ) {
         if (
-          item.groups.includes('evidence') ||
-          item.groups.includes('dream') ||
-          item.groups.includes('alien') ||
-          item.groups.includes('mesmice')
+          item.categories.includes('evidence') ||
+          item.categories.includes('dream') ||
+          item.categories.includes('alien') ||
+          item.categories.includes('mesmice')
         ) {
-          item.groups = item.groups.filter((group) => group !== 'thing');
+          item.categories = item.categories.filter((category) => category !== 'thing');
         }
 
         acc[item.id] = item;

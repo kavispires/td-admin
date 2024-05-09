@@ -599,7 +599,7 @@ export type Item = {
   /**
    * The groups the item can be used in
    */
-  groups?: string[];
+  categories?: string[];
   /**
    * Flag indicating if it's nsfw
    */
@@ -692,6 +692,48 @@ export type DailyDiscSet = {
    * The title of the set
    */
   title: DualLanguageValue;
+  /**
+   * The items in the set
+   */
+  itemsIds: string[];
+};
+
+export type DailyMovieSet = {
+  /**
+   * The id (the setId in the library OR the date in a daily game)
+   */
+  id: string;
+  /**
+   * The id of the set (only present in the daily game )
+   */
+  setId?: string;
+  /**
+   * The title of the set
+   */
+  title: string;
+  /**
+   * The items in the set
+   */
+  itemsIds: string[];
+  /**
+   * The release year of the movie
+   */
+  year: number;
+};
+
+export type DailyQuartetSet = {
+  /**
+   * The id (the setId in the library OR the date in a daily game)
+   */
+  id: string;
+  /**
+   * The id of the set (only present in the daily game )
+   */
+  setId?: string;
+  /**
+   * The title of the set
+   */
+  title: string;
   /**
    * The items in the set
    */

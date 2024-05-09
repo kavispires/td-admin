@@ -8,8 +8,8 @@ export type ItemsContextType = {
   isLoading: boolean;
   error: ResponseError;
   hasResponseData: boolean;
-  groupsDict: Dictionary<string>;
-  groups: { value: string }[];
+  categoriesDict: Dictionary<string>;
+  categories: { value: string }[];
   listing: Item[];
   isDirty: boolean;
   addItemToUpdate: (id: string, item: Item) => void;
@@ -26,8 +26,8 @@ const ItemsContext = createContext<ItemsContextType>({
   isLoading: true,
   error: null,
   hasResponseData: false,
-  groupsDict: {},
-  groups: [],
+  categoriesDict: {},
+  categories: [],
   listing: [],
   isDirty: false,
   addItemToUpdate: () => {},
@@ -46,9 +46,9 @@ type ItemsProviderProps = {
 export const ItemsProvider = ({ children }: ItemsProviderProps) => {
   const { items, isLoading, error, isSaving, save, addItemToUpdate, itemsToUpdate, isDirty } = useItemsData();
 
-  const { groupsDict, groups } = useMemo(() => {
-    console.log('Recomputing item groups typeahead...');
-    const groupsDict: Dictionary<string> = {};
+  const { categoriesDict, categories } = useMemo(() => {
+    console.log('Recomputing item categories typeahead...');
+    const categoriesDict: Dictionary<string> = {};
     const duplicationCheckEn: Dictionary<string> = {};
     const duplicationCheckPt: Dictionary<string> = {};
     const duplicatedNames: string[][] = [];
@@ -68,18 +68,18 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         duplicationCheckPt[entry.name.pt] = entry.id;
       }
 
-      entry?.groups?.forEach((group) => {
-        groupsDict[group] = group;
+      entry?.categories?.forEach((category) => {
+        categoriesDict[category] = category;
       });
     });
 
-    const groups = orderBy(Object.keys(groupsDict)).map((name) => ({ value: name }));
+    const categories = orderBy(Object.keys(categoriesDict)).map((name) => ({ value: name }));
 
     if (duplicatedNames.length > 0) {
       console.warn('Possible duplicated items', duplicatedNames);
     }
 
-    return { groupsDict, groups };
+    return { categoriesDict, categories };
   }, [items, isSaving, isLoading]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const [listingType, setListingType] = useState('all');
@@ -90,16 +90,16 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
       case 'all':
         return orderedList;
       case '!all':
-        return orderedList.filter((item) => !item?.groups?.length ?? true);
+        return orderedList.filter((item) => !item?.categories?.length ?? true);
       case 'nsfw':
         return orderedList.filter((item) => item.nsfw);
       case '!nsfw':
         return orderedList.filter((item) => !item.nsfw);
       default:
         if (listingType.startsWith('!')) {
-          return orderedList.filter((item) => !item?.groups?.includes(listingType.slice(1)));
+          return orderedList.filter((item) => !item?.categories?.includes(listingType.slice(1)));
         }
-        return orderedList.filter((item) => item?.groups?.includes(listingType));
+        return orderedList.filter((item) => item?.categories?.includes(listingType));
     }
   }, [items, listingType]);
 
@@ -118,8 +118,8 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         listing,
         isLoading,
         error,
-        groupsDict,
-        groups,
+        categoriesDict,
+        categories,
         hasResponseData: listing.length > 0,
         isDirty,
         addItemToUpdate,

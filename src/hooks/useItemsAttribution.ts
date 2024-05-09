@@ -77,12 +77,12 @@ export function useItemsAttribution() {
     mutation.mutate(stringifyItemsAttributeValuesData({ ...firebaseData, ...modifiedAttributeValues }));
   };
 
-  // Filter items that have the alien group only
+  // Filter items that have the alien category only
   const availableItemIds = useMemo(() => {
     const items = tdrItemsQuery.data ?? {};
     return orderBy(
       Object.keys(items).filter((id) => {
-        return (items[id]?.groups ?? []).includes('alien');
+        return (items[id]?.categories ?? []).includes('alien');
       }),
       (id) => Number(id),
       'asc'

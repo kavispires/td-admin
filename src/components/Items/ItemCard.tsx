@@ -14,7 +14,7 @@ type ItemCardProps = {
 };
 
 export function ItemCard({ item, editMode = false }: ItemCardProps) {
-  const { groups } = useItemsContext();
+  const { categories } = useItemsContext();
   const { isEditing, toggleEditMode, onEdit, isDirty, onModify, onReset, editableItem } = useItemUpdate(
     item,
     editMode
@@ -62,14 +62,14 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
           <Select
             mode="multiple"
             style={{ width: '100%' }}
-            placeholder="Please select groups"
-            defaultValue={item.groups}
+            placeholder="Select a category"
+            defaultValue={item.categories}
             disabled={!isEditing}
-            options={groups}
+            options={categories}
             variant={isEditing ? 'outlined' : 'borderless'}
             size="small"
-            key={String(item.groups)}
-            onChange={(value) => onEdit({ groups: value.sort() })}
+            key={String(item.categories)}
+            onChange={(value) => onEdit({ categories: value.sort() })}
           />
         </div>
 
