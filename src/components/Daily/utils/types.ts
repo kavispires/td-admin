@@ -49,6 +49,7 @@ export type DailyPalavreadoEntry = {
   id: DateKey;
   number: number;
   type: 'palavreado';
+  keyword: string;
   words: string[];
   letters: string[];
 };

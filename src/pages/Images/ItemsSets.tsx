@@ -4,10 +4,10 @@ import { ItemsSetsTable } from 'components/Items/ItemSetsTable';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useTDResource } from 'hooks/useTDResource';
-import { AquiOSet } from 'types';
+import { DailyDiscSet } from 'types';
 
 export function ItemsSets() {
-  const { isLoading, error, hasResponseData } = useTDResource<AquiOSet>('aqui-o-sets');
+  const { isLoading, error, hasResponseData } = useTDResource<DailyDiscSet>('daily-disc-sets');
 
   return (
     <PageLayout title="Items" subtitle="Listing">

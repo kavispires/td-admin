@@ -679,9 +679,21 @@ export type ItemAttribute = {
   limited?: boolean;
 };
 
-export type AquiOSet = {
+export type DailyDiscSet = {
+  /**
+   * The id (the setId in the library OR the date in a daily game)
+   */
   id: string;
+  /**
+   * The id of the set (only present in the daily game )
+   */
   setId?: string;
+  /**
+   * The title of the set
+   */
   title: DualLanguageValue;
+  /**
+   * The items in the set
+   */
   itemsIds: string[];
 };

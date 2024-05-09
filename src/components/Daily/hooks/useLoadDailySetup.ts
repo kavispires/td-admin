@@ -2,7 +2,7 @@ import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
 import { sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
-import { AquiOSet, ArteRuimCard } from 'types';
+import { DailyDiscSet, ArteRuimCard } from 'types';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import {
@@ -12,7 +12,7 @@ import {
   DailyPalavreadoEntry,
   DataDrawing,
 } from '../utils/types';
-import { getNextDay, getWordsWithUniqueLetters } from '../utils/utils';
+import { generatePalavreadoGame, getNextDay } from '../utils/utils';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 import { useLoadDrawings } from './useLoadDrawings';
 import { useParsedHistory } from './useParsedHistory';
@@ -107,7 +107,7 @@ export function useLoadDailySetup(
   }, [drawingsQuery, queryLanguage, arteRuimHistory, batchSize, drawingsCount]);
 
   // STEP 3: AQUI Ó
-  const aquiOSetsQuery = useTDResource<AquiOSet>('aqui-o-sets');
+  const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets');
   const [aquiOHistory] = useParsedHistory('aqui-o', historyQuery.data);
   const aquiOEntries = useMemo(() => {
     console.count('Creating Aqui Ó...');
@@ -149,21 +149,21 @@ export function useLoadDailySetup(
   const wordsQuery = useLoadWordLibrary(4, queryLanguage, true, true);
   const [palavreadoHistory] = useParsedHistory('palavreado', historyQuery.data);
   const palavreadoEntries = useMemo(() => {
+    if (!wordsQuery.data || !wordsQuery.data.length) {
+      return {};
+    }
     console.count('Creating Palavreado...');
     let lastDate = palavreadoHistory.latestDate;
     // Get list, if not enough, get from complete
     const entries: Dictionary<DailyPalavreadoEntry> = {};
     for (let i = 0; i < batchSize; i++) {
-      const words = getWordsWithUniqueLetters(wordsQuery.data);
-      const letters = shuffle(words.join('').split(''));
       const id = getNextDay(lastDate);
       lastDate = id;
       entries[id] = {
         id,
         type: 'palavreado',
         number: palavreadoHistory.latestNumber + i + 1,
-        words,
-        letters,
+        ...generatePalavreadoGame(wordsQuery.data ?? []),
       };
     }
     return entries;

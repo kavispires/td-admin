@@ -69,17 +69,19 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Palavreado',
       dataIndex: 'palavreado',
       key: 'palavreado',
-      render: ({ number, words, letters }) => {
+      render: ({ number, words, letters, keyword }) => {
+        console.log({ letters, words, keyword });
         return (
           <Space direction="vertical">
             <span>#{number}</span>
             <span>Letters: {letters.length}</span>
+            <span>Keyword: {keyword}</span>
             <Space direction="vertical">
-              {words.map((word: string) => (
+              {words.map((word: string, index: number) => (
                 <span key={`${number}-${word}`}>
                   {word
                     .split('')
-                    .map((l: string, i: number) => (i < 1 || l === ' ' ? l : '⏹'))
+                    .map((l: string, i: number) => (i === index || l === ' ' ? l : '⏹'))
                     .join('')}
                 </span>
               ))}

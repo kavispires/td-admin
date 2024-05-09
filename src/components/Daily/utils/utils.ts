@@ -1,4 +1,4 @@
-import { sample } from 'lodash';
+import { difference, flatMap, intersection, sample, shuffle, sortBy, uniq } from 'lodash';
 import moment from 'moment';
 
 /**
@@ -52,3 +52,58 @@ export function getWordsWithUniqueLetters(words: string[]): string[] {
 
   return selectedWords;
 }
+
+const usedWords: string[] = [];
+
+const getNewWord = (words: string[], keyword: string, selectedWords: string[], index: number) => {
+  const usedLetters = uniq([...flatMap(selectedWords.map((word) => word.split(''))), ...keyword.split('')]);
+
+  const shortList = shuffle(
+    words.filter((word) => word[index] === keyword[index] && !selectedWords.includes(word))
+  );
+  const rankedList = sortBy(shortList, (word) => {
+    const matchCount = intersection(word.split(''), usedLetters).length;
+
+    return matchCount;
+  });
+
+  return rankedList[0];
+};
+
+const shuffleLetters = (selectedWords: string[]) => {
+  const letters = flatMap(selectedWords.map((word) => word.split('')));
+  const preservedIndexes = [0, 5, 10, 15];
+  const otherLetters = shuffle(letters.filter((_, index) => !preservedIndexes.includes(index)));
+
+  let shuffledLetters: string[] = [];
+  for (let i = 0; i < letters.length; i++) {
+    if (preservedIndexes.includes(i)) {
+      shuffledLetters.push(letters[i]);
+    } else {
+      shuffledLetters.push(otherLetters.shift() ?? '');
+    }
+  }
+
+  return shuffledLetters;
+};
+
+export const generatePalavreadoGame = (words: string[]) => {
+  const shuffledWords = shuffle(difference(words, usedWords));
+
+  // Select a random word from the list and call it 'keyword'
+  const keyword = shuffledWords.pop() ?? '';
+
+  const selectedWords: string[] = [];
+  for (let i = 0; i < 4; i++) {
+    const newWord = getNewWord(words, keyword, selectedWords, i);
+    selectedWords.push(newWord);
+  }
+
+  usedWords.push(keyword, ...selectedWords);
+
+  return {
+    keyword,
+    words: selectedWords,
+    letters: shuffleLetters(selectedWords),
+  };
+};

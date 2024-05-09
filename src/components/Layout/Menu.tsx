@@ -149,7 +149,7 @@ const items: MenuProps['items'] = [
         key: '/items/attribution',
       },
       {
-        label: 'Sets',
+        label: 'Disc Sets',
         key: '/items/sets',
       },
       {

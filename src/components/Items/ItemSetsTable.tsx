@@ -3,13 +3,13 @@ import { fromPairs, isEqual, orderBy, range, sampleSize } from 'lodash';
 import { useState } from 'react';
 
 import type { TableProps } from 'antd';
-import { AquiOSet } from 'types';
+import { DailyDiscSet } from 'types';
 import { useTDResource } from 'hooks/useTDResource';
 import { removeDuplicates } from 'utils';
 import { Item } from 'components/Sprites';
 import { LETTERS } from 'utils/constants';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-function orderSets(givenSets: AquiOSet[]) {
+function orderSets(givenSets: DailyDiscSet[]) {
   return orderBy(givenSets, [
     (s) => removeDuplicates(s.itemsIds).filter(Boolean).length > 20,
     (s) => s.title.pt,
@@ -20,11 +20,11 @@ function orderSets(givenSets: AquiOSet[]) {
 }
 
 export function ItemsSetsTable() {
-  const { data } = useTDResource<AquiOSet>('aqui-o-sets');
+  const { data } = useTDResource<DailyDiscSet>('daily-disc-sets');
   const sets = data ? orderSets(Object.values(data)) : [];
   const copyToClipboard = useCopyToClipboardFunction();
 
-  const columns: TableProps<AquiOSet>['columns'] = [
+  const columns: TableProps<DailyDiscSet>['columns'] = [
     {
       title: 'Title',
       dataIndex: 'title',
@@ -73,7 +73,7 @@ export function ItemsSetsTable() {
   );
 }
 
-function generateUniqueArrays(sets: Dictionary<AquiOSet>, N: number): string[][] {
+function generateUniqueArrays(sets: Dictionary<DailyDiscSet>, N: number): string[][] {
   const result: number[][] = [];
   const nsfwIds = [
     '239',
@@ -120,7 +120,7 @@ function generateUniqueArrays(sets: Dictionary<AquiOSet>, N: number): string[][]
   return result.map((arr) => orderBy(arr.map(String), (id) => Number(id)));
 }
 
-export function generateMiscSets(sets: Dictionary<AquiOSet>) {
+export function generateMiscSets(sets: Dictionary<DailyDiscSet>) {
   const newSets = generateUniqueArrays(sets, LETTERS.length).map((items, i) => ({
     title: {
       pt: `Diversos ${LETTERS[i]}`,
