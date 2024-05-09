@@ -1,4 +1,4 @@
-import { useItemsData } from 'hooks/useItemsData';
+import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { orderBy } from 'lodash';
 import { ReactNode, useContext, createContext, useMemo, useState } from 'react';
 import { Item } from 'types';
@@ -44,7 +44,19 @@ type ItemsProviderProps = {
 };
 
 export const ItemsProvider = ({ children }: ItemsProviderProps) => {
-  const { items, isLoading, error, isSaving, save, addItemToUpdate, itemsToUpdate, isDirty } = useItemsData();
+  const {
+    data: items,
+    isLoading,
+    error,
+    isSaving,
+    save,
+    addEntryToUpdate: addItemToUpdate,
+    entriesToUpdate: itemsToUpdate,
+    isDirty,
+  } = useResourceFirebaseData<Item>({
+    tdrResourceName: 'items',
+    firebaseDataCollectionName: 'items',
+  });
 
   const { categoriesDict, categories } = useMemo(() => {
     console.log('Recomputing item categories typeahead...');
