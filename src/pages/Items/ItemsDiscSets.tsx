@@ -6,11 +6,11 @@ import { PageSider } from 'components/Layout/PageSider';
 import { useTDResource } from 'hooks/useTDResource';
 import { DailyDiscSet } from 'types';
 
-export function ItemsSets() {
+export function ItemsDiscSets() {
   const { isLoading, error, hasResponseData } = useTDResource<DailyDiscSet>('daily-disc-sets');
 
   return (
-    <PageLayout title="Items" subtitle="Listing">
+    <PageLayout title="Items" subtitle="Disc Sets">
       <Layout hasSider>
         <PageSider>
           <>-</>
@@ -25,3 +25,5 @@ export function ItemsSets() {
     </PageLayout>
   );
 }
+
+export default ItemsDiscSets;

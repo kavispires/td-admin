@@ -150,7 +150,7 @@ const items: MenuProps['items'] = [
       },
       {
         label: 'Disc Sets',
-        key: '/items/sets',
+        key: '/items/discs',
       },
       {
         label: 'Crimes History',

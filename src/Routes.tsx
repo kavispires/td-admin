@@ -2,7 +2,6 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { LoadingPage } from 'pages/LoadingPage';
-import { ItemsSets } from 'pages/Items/ItemsSets';
 
 const Home = lazy(() => import('pages/Home' /* webpackChunkName: "Home" */));
 const Resource = lazy(() => import('pages/Resource' /* webpackChunkName: "Resource" */));
@@ -14,7 +13,6 @@ const SingleWordsExpander = lazy(
 );
 const Other = lazy(() => import('pages/Other' /* webpackChunkName: "Other" */));
 
-const Items = lazy(() => import('pages/Items/Items' /* webpackChunkName: "Items" */));
 const CrimeEvidence = lazy(
   () => import('pages/Images/CrimeEvidence' /* webpackChunkName: "CrimeEvidence" */)
 );
@@ -30,9 +28,16 @@ const ImageCardsRelationships = lazy(
 const ImageCardsConnections = lazy(
   () => import('pages/Images/ImageCardsConnections' /* webpackChunkName: "ImageCardsConnections" */)
 );
+const Items = lazy(() => import('pages/Items/Items' /* webpackChunkName: "Items" */));
 const ItemsAttribution = lazy(
   () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */)
 );
+const ItemsDiscSets = lazy(() => import('pages/Items/ItemsDiscSets' /* webpackChunkName: "ItemsDiscSets" */));
+const ItemsMovieSets = lazy(
+  () => import('pages/Items/ItemsMovieSets' /* webpackChunkName: "ItemsMovieSets" */)
+);
+const ItemsQuartets = lazy(() => import('pages/Items/ItemsQuartets' /* webpackChunkName: "ItemsQuartets" */));
+
 const DailySetup = lazy(() => import('pages/DailySetup' /* webpackChunkName: "DailySetup" */));
 const CrimesHediondosCategorizer = lazy(
   () => import('pages/CrimesHediondosCategorizer' /* webpackChunkName: "CrimesHediondosCategorizer" */)
@@ -115,10 +120,26 @@ export const routes = (
       }
     />
     <Route
-      path="/items/sets"
+      path="/items/discs"
       element={
         <Suspense fallback={<LoadingPage />}>
-          <ItemsSets />
+          <ItemsDiscSets />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/items/movies"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <ItemsMovieSets />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/items/quartets"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <ItemsQuartets />
         </Suspense>
       }
     />

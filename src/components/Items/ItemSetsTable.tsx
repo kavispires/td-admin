@@ -1,14 +1,15 @@
 import { Flex, Space, Switch, Table, Typography } from 'antd';
+import { Item } from 'components/Sprites';
+import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { useTDResource } from 'hooks/useTDResource';
 import { fromPairs, isEqual, orderBy, range, sampleSize } from 'lodash';
 import { useState } from 'react';
+import { DailyDiscSet } from 'types';
+import { removeDuplicates } from 'utils';
+import { LETTERS } from 'utils/constants';
 
 import type { TableProps } from 'antd';
-import { DailyDiscSet } from 'types';
-import { useTDResource } from 'hooks/useTDResource';
-import { removeDuplicates } from 'utils';
-import { Item } from 'components/Sprites';
-import { LETTERS } from 'utils/constants';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+
 function orderSets(givenSets: DailyDiscSet[]) {
   return orderBy(givenSets, [
     (s) => removeDuplicates(s.itemsIds).filter(Boolean).length > 20,
