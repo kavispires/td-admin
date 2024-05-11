@@ -65,7 +65,12 @@ export function useSaveDailySetup(queryLanguage: Language) {
         palavreado: {
           latestDate: data[data.length - 1].id,
           latestNumber: data[data.length - 1]['palavreado'].number,
-          used: '[]',
+          used: JSON.stringify(
+            removeDuplicates([
+              ...JSON.parse(previousHistory.palavreado.used),
+              ...data.map((e) => e['palavreado'].keyword),
+            ])
+          ),
         },
         artista: {
           latestDate: data[data.length - 1].id,

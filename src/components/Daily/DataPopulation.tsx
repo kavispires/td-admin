@@ -70,7 +70,6 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       dataIndex: 'palavreado',
       key: 'palavreado',
       render: ({ number, words, letters, keyword }) => {
-        console.log({ letters, words, keyword });
         return (
           <Space direction="vertical">
             <span>#{number}</span>

@@ -87,8 +87,8 @@ const shuffleLetters = (selectedWords: string[]) => {
   return shuffledLetters;
 };
 
-export const generatePalavreadoGame = (words: string[]) => {
-  const shuffledWords = shuffle(difference(words, usedWords));
+export const generatePalavreadoGame = (words: string[], previouslyUsedWords: string[]) => {
+  const shuffledWords = shuffle(difference(words, usedWords, previouslyUsedWords));
 
   // Select a random word from the list and call it 'keyword'
   const keyword = shuffledWords.pop() ?? '';

@@ -163,7 +163,10 @@ export function useLoadDailySetup(
         id,
         type: 'palavreado',
         number: palavreadoHistory.latestNumber + i + 1,
-        ...generatePalavreadoGame(wordsQuery.data ?? []),
+        ...generatePalavreadoGame(wordsQuery.data ?? [], [
+          ...Object.values(entries).map((e) => e.keyword),
+          ...palavreadoHistory.used,
+        ]),
       };
     }
     return entries;
