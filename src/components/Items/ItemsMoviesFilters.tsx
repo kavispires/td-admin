@@ -36,5 +36,5 @@ export function ItemsMoviesFilters({
   );
 }
 function prepareFileForDownload(movies: Dictionary<DailyMovieSet>) {
-  return sortJsonKeys(Object.values(movies));
+  return sortJsonKeys(movies);
 }
