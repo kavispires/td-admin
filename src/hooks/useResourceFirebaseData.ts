@@ -7,11 +7,24 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useGetFirebaseDoc } from './useGetFirebaseDoc';
 import { useTDResource } from './useTDResource';
 import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
+import { deserializeFirebaseData, serializeFirebaseData } from 'utils';
 
-export type UseResourceFirebaseDataProps<TDRData, TFirebaseData> = {
+export type UseResourceFirebaseDataProps = {
   tdrResourceName: string;
   firebaseDataCollectionName: string;
-  select?: (data: Dictionary<TFirebaseData>) => Dictionary<TDRData>;
+  serialize?: boolean;
+};
+
+export type UseResourceFirebaseDataReturnType<TDRData> = {
+  data: Dictionary<TDRData>;
+  isLoading: boolean;
+  error: ResponseError;
+  firebaseData: Dictionary<TDRData> | undefined;
+  isSaving: boolean;
+  save: () => void;
+  addEntryToUpdate: (id: string, item: TDRData) => void;
+  entriesToUpdate: Dictionary<TDRData>;
+  isDirty: boolean;
 };
 
 /**
@@ -26,8 +39,8 @@ export type UseResourceFirebaseDataProps<TDRData, TFirebaseData> = {
 export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = TDRData>({
   tdrResourceName,
   firebaseDataCollectionName,
-  select,
-}: UseResourceFirebaseDataProps<TDRData, TFirebaseData>) {
+  serialize,
+}: UseResourceFirebaseDataProps): UseResourceFirebaseDataReturnType<TDRData> {
   const { notification } = App.useApp();
   const queryClient = useQueryClient();
 
@@ -36,7 +49,7 @@ export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = T
     'data',
     firebaseDataCollectionName,
     {
-      select: select,
+      select: serialize ? deserializeFirebaseData : undefined,
     }
   );
 
@@ -88,7 +101,7 @@ export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = T
   const firebaseData = firebaseQuery.data;
 
   const save = () => {
-    mutation.mutate(modifiedEntries);
+    mutation.mutate(serialize ? serializeFirebaseData(modifiedEntries) : modifiedEntries);
   };
 
   return {

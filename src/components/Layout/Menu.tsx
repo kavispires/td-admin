@@ -145,6 +145,10 @@ const items: MenuProps['items'] = [
         key: '/items',
       },
       {
+        label: 'Groups',
+        key: '/items/groups',
+      },
+      {
         label: 'Attributes',
         key: '/items/attribution',
       },
@@ -160,7 +164,6 @@ const items: MenuProps['items'] = [
       {
         label: 'Movies',
         key: '/items/movies',
-        disabled: true,
       },
       {
         label: 'Quartets',

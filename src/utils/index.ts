@@ -132,6 +132,33 @@ export const sortJsonKeys = (library: PlainObject): PlainObject => {
   return sortKeys(library);
 };
 
+/**
+ * Deserializes the data received from Firebase into a dictionary of specified type.
+ *
+ * @template TData - The type of data to deserialize.
+ * @param data - The data to be deserialized.
+ * @returns A dictionary of deserialized data.
+ */
+export const deserializeFirebaseData = <TData>(data: Dictionary<string>): Dictionary<TData> => {
+  return Object.keys(data).reduce((acc: Dictionary<TData>, key) => {
+    acc[key] = JSON.parse(data[key]);
+    return acc;
+  }, {});
+};
+
+/**
+ * Serializes the data in a dictionary to a dictionary of strings.
+ *
+ * @param data - The dictionary containing the data to be serialized.
+ * @returns A new dictionary with the same keys as the input dictionary, but with the values serialized as strings.
+ */
+export const serializeFirebaseData = <TData>(data: Dictionary<TData>): Dictionary<string> => {
+  return Object.keys(data).reduce((acc: Dictionary<string>, key) => {
+    acc[key] = JSON.stringify(data[key]);
+    return acc;
+  }, {});
+};
+
 export const getCurrentDateTime = (): string => {
   const now = new Date();
   const year = now.getFullYear();

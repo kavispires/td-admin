@@ -2,7 +2,7 @@ import { App } from 'antd';
 import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import { Item, ItemAtributesValues, ItemAttribute } from 'types';
-import { getNewItem, getNewItemAttributeValues } from 'utils';
+import { deserializeFirebaseData, getNewItem, getNewItemAttributeValues, serializeFirebaseData } from 'utils';
 
 import { useQueryClient } from '@tanstack/react-query';
 
@@ -27,7 +27,7 @@ export function useItemsAttribution() {
     Dictionary<string>,
     Dictionary<ItemAtributesValues>
   >('data', 'itemsAttributeValues', {
-    select: parseItemsAttributeValuesData,
+    select: deserializeFirebaseData,
   });
 
   const [modifiedAttributeValues, setModifiedAttributeValues] = useState<Dictionary<ItemAtributesValues>>({});
@@ -74,7 +74,7 @@ export function useItemsAttribution() {
   const firebaseData = firebaseItemsAttributeValuesQuery.data;
 
   const save = () => {
-    mutation.mutate(stringifyItemsAttributeValuesData({ ...firebaseData, ...modifiedAttributeValues }));
+    mutation.mutate(serializeFirebaseData({ ...firebaseData, ...modifiedAttributeValues }));
   };
 
   // Filter items that have the alien category only
@@ -135,17 +135,3 @@ export function useItemsAttribution() {
     isDirty,
   };
 }
-
-const parseItemsAttributeValuesData = (data: Dictionary<string>) => {
-  return Object.keys(data).reduce((acc: Dictionary<ItemAtributesValues>, key) => {
-    acc[key] = JSON.parse(data[key]);
-    return acc;
-  }, {});
-};
-
-const stringifyItemsAttributeValuesData = (data: Dictionary<ItemAtributesValues>) => {
-  return Object.keys(data).reduce((acc: Dictionary<string>, key) => {
-    acc[key] = JSON.stringify(data[key]);
-    return acc;
-  }, {});
-};

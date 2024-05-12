@@ -1,1 +1,2978 @@
-{}
+{
+  "dms-1-pt": {
+    "id": "dms-1-pt",
+    "title": "007 - Cassino Royale",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-2-pt": {
+    "id": "dms-2-pt",
+    "title": "007 - Com 007 Só Se Vive Duas Vezes",
+    "year": 1967,
+    "itemsIds": []
+  },
+  "dms-3-pt": {
+    "id": "dms-3-pt",
+    "title": "007 - Moscou Contra 007",
+    "year": 1963,
+    "itemsIds": []
+  },
+  "dms-4-pt": {
+    "id": "dms-4-pt",
+    "title": "007 - O Amanhã Nunca Morre",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-5-pt": {
+    "id": "dms-5-pt",
+    "title": "007 - O Espião que me Amava",
+    "year": 1977,
+    "itemsIds": []
+  },
+  "dms-6-pt": {
+    "id": "dms-6-pt",
+    "title": "007 - O Mundo Não é o Bastante",
+    "year": 1999,
+    "itemsIds": []
+  },
+  "dms-7-pt": {
+    "id": "dms-7-pt",
+    "title": "007 - Operação Skyfall",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-8-pt": {
+    "id": "dms-8-pt",
+    "title": "007 - Os Diamantes São Eternos",
+    "year": 1971,
+    "itemsIds": []
+  },
+  "dms-9-pt": {
+    "id": "dms-9-pt",
+    "title": "007 - Quantum of Solace",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-10-pt": {
+    "id": "dms-10-pt",
+    "title": "007 - Sem Tempo Para Morrer",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-11-pt": {
+    "id": "dms-11-pt",
+    "title": "007 - Somente Para Seus Olhos",
+    "year": 1981,
+    "itemsIds": []
+  },
+  "dms-12-pt": {
+    "id": "dms-12-pt",
+    "title": "007 - Um Novo Dia Para Morrer",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-13-pt": {
+    "id": "dms-13-pt",
+    "title": "007 - Viva e Deixe Morrer",
+    "year": 1973,
+    "itemsIds": []
+  },
+  "dms-14-pt": {
+    "id": "dms-14-pt",
+    "title": "007 Contra a Chantagem Atômica",
+    "year": 1965,
+    "itemsIds": []
+  },
+  "dms-15-pt": {
+    "id": "dms-15-pt",
+    "title": "007 Contra GoldenEye",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-16-pt": {
+    "id": "dms-16-pt",
+    "title": "007 Contra Goldfinger",
+    "year": 1964,
+    "itemsIds": []
+  },
+  "dms-17-pt": {
+    "id": "dms-17-pt",
+    "title": "007 Contra o Foguete da Morte",
+    "year": 1979,
+    "itemsIds": []
+  },
+  "dms-18-pt": {
+    "id": "dms-18-pt",
+    "title": "007 Contra o Homem com a Pistola de Ouro",
+    "year": 1974,
+    "itemsIds": []
+  },
+  "dms-19-pt": {
+    "id": "dms-19-pt",
+    "title": "007 Contra o Satânico Dr. No",
+    "year": 1962,
+    "itemsIds": []
+  },
+  "dms-20-pt": {
+    "id": "dms-20-pt",
+    "title": "007 Contra Octopussy",
+    "year": 1983,
+    "itemsIds": []
+  },
+  "dms-21-pt": {
+    "id": "dms-21-pt",
+    "title": "007 Contra Spectre",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-22-pt": {
+    "id": "dms-22-pt",
+    "title": "007 Marcado para a Morte",
+    "year": 1987,
+    "itemsIds": []
+  },
+  "dms-23-pt": {
+    "id": "dms-23-pt",
+    "title": "007 Na Mira dos Assassinos",
+    "year": 1985,
+    "itemsIds": []
+  },
+  "dms-24-pt": {
+    "id": "dms-24-pt",
+    "title": "007 Permissão para Matar",
+    "year": 1989,
+    "itemsIds": []
+  },
+  "dms-25-pt": {
+    "id": "dms-25-pt",
+    "title": "10 Coisas que Eu Odeio em Você",
+    "year": 1999,
+    "itemsIds": []
+  },
+  "dms-26-pt": {
+    "id": "dms-26-pt",
+    "title": "300",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-27-pt": {
+    "id": "dms-27-pt",
+    "title": "A Árvore da Vida",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-28-pt": {
+    "id": "dms-28-pt",
+    "title": "A Autópsia",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-29-pt": {
+    "id": "dms-29-pt",
+    "title": "A Bela Adormecida",
+    "year": 1959,
+    "itemsIds": []
+  },
+  "dms-30-pt": {
+    "id": "dms-30-pt",
+    "title": "A Bela e a Fera",
+    "year": 1991,
+    "itemsIds": []
+  },
+  "dms-31-pt": {
+    "id": "dms-31-pt",
+    "title": "A Bruxa",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-32-pt": {
+    "id": "dms-32-pt",
+    "title": "A Bruxa de Blair",
+    "year": 1999,
+    "itemsIds": []
+  },
+  "dms-33-pt": {
+    "id": "dms-33-pt",
+    "title": "A Bruxa de Blair 2 - O Livro das Sombras",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-34-pt": {
+    "id": "dms-34-pt",
+    "title": "A Cada Um o Seu Destino",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-35-pt": {
+    "id": "dms-35-pt",
+    "title": "A Caminho da Lua",
+    "year": 2020,
+    "itemsIds": []
+  },
+  "dms-36-pt": {
+    "id": "dms-36-pt",
+    "title": "A Casa da Mãe Joana",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-37-pt": {
+    "id": "dms-37-pt",
+    "title": "A Casa do Lago",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-38-pt": {
+    "id": "dms-38-pt",
+    "title": "A Casa dos Horrores",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-39-pt": {
+    "id": "dms-39-pt",
+    "title": "A Centopéia Humana",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-40-pt": {
+    "id": "dms-40-pt",
+    "title": "A Chegada",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-41-pt": {
+    "id": "dms-41-pt",
+    "title": "A Colina Escarlate",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-42-pt": {
+    "id": "dms-42-pt",
+    "title": "A Comédia Divina",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-43-pt": {
+    "id": "dms-43-pt",
+    "title": "A Dama de Vermelho",
+    "year": 1984,
+    "itemsIds": []
+  },
+  "dms-44-pt": {
+    "id": "dms-44-pt",
+    "title": "A Entidade",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-45-pt": {
+    "id": "dms-45-pt",
+    "title": "A Era do Gelo",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-46-pt": {
+    "id": "dms-46-pt",
+    "title": "A Família Addams",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-47-pt": {
+    "id": "dms-47-pt",
+    "title": "A Fantástica Fábrica de Chocolate",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-48-pt": {
+    "id": "dms-48-pt",
+    "title": "A Filha do Presidente",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-49-pt": {
+    "id": "dms-49-pt",
+    "title": "A Forma da Água",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-50-pt": {
+    "id": "dms-50-pt",
+    "title": "A Gaiola das Loucas",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-51-pt": {
+    "id": "dms-51-pt",
+    "title": "A Garota Dinamarquesa",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-52-pt": {
+    "id": "dms-52-pt",
+    "title": "A Grande Família - O Filme",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-53-pt": {
+    "id": "dms-53-pt",
+    "title": "A Hora do Pesadelo",
+    "year": 1984,
+    "itemsIds": []
+  },
+  "dms-54-pt": {
+    "id": "dms-54-pt",
+    "title": "A Hora e a Vez de Augusto Matraga",
+    "year": 1965,
+    "itemsIds": []
+  },
+  "dms-55-pt": {
+    "id": "dms-55-pt",
+    "title": "A Lagoa Azul",
+    "year": 1980,
+    "itemsIds": []
+  },
+  "dms-56-pt": {
+    "id": "dms-56-pt",
+    "title": "A Lenda de Chun-Li",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-57-pt": {
+    "id": "dms-57-pt",
+    "title": "A Liga dos Monstros",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-58-pt": {
+    "id": "dms-58-pt",
+    "title": "A Maldição",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-59-pt": {
+    "id": "dms-59-pt",
+    "title": "A Mentira",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-60-pt": {
+    "id": "dms-60-pt",
+    "title": "A Morte do Demônio",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-61-pt": {
+    "id": "dms-61-pt",
+    "title": "A Morte te Dá Parabéns",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-62-pt": {
+    "id": "dms-62-pt",
+    "title": "A Mulher Invisível",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-63-pt": {
+    "id": "dms-63-pt",
+    "title": "A Mulher-Gato",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-64-pt": {
+    "id": "dms-64-pt",
+    "title": "A Múmia",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-65-pt": {
+    "id": "dms-65-pt",
+    "title": "A Noite dos Mortos-Vivos",
+    "year": 1968,
+    "itemsIds": []
+  },
+  "dms-66-pt": {
+    "id": "dms-66-pt",
+    "title": "A Noiva Cadáver",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-67-pt": {
+    "id": "dms-67-pt",
+    "title": "A Nova Onda do Imperador",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-68-pt": {
+    "id": "dms-68-pt",
+    "title": "A Órfã",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-69-pt": {
+    "id": "dms-69-pt",
+    "title": "A Origem",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-70-pt": {
+    "id": "dms-70-pt",
+    "title": "A Paixão de Cristo",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-71-pt": {
+    "id": "dms-71-pt",
+    "title": "A Pequena Sereia",
+    "year": 1989,
+    "itemsIds": []
+  },
+  "dms-72-pt": {
+    "id": "dms-72-pt",
+    "title": "A Possessão de Deborah Logan",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-73-pt": {
+    "id": "dms-73-pt",
+    "title": "A Profecia",
+    "year": 1976,
+    "itemsIds": []
+  },
+  "dms-74-pt": {
+    "id": "dms-74-pt",
+    "title": "A Proposta",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-75-pt": {
+    "id": "dms-75-pt",
+    "title": "A Reconquista",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-76-pt": {
+    "id": "dms-76-pt",
+    "title": "A Rede Social",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-77-pt": {
+    "id": "dms-77-pt",
+    "title": "A Rocha",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-78-pt": {
+    "id": "dms-78-pt",
+    "title": "A Tartaruga Vermelha",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-79-pt": {
+    "id": "dms-79-pt",
+    "title": "A Verdade Nua e Crua",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-80-pt": {
+    "id": "dms-80-pt",
+    "title": "A Viagem de Chihiro",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-81-pt": {
+    "id": "dms-81-pt",
+    "title": "A Vida de Pi",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-82-pt": {
+    "id": "dms-82-pt",
+    "title": "A Visita",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-83-pt": {
+    "id": "dms-83-pt",
+    "title": "Abominável",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-84-pt": {
+    "id": "dms-84-pt",
+    "title": "Abril Despedaçado",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-85-pt": {
+    "id": "dms-85-pt",
+    "title": "Ace Ventura: Um Detetive Diferente",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-86-pt": {
+    "id": "dms-86-pt",
+    "title": "Afinado no Amor",
+    "year": 1998,
+    "itemsIds": []
+  },
+  "dms-87-pt": {
+    "id": "dms-87-pt",
+    "title": "Aladdin",
+    "year": 1992,
+    "itemsIds": []
+  },
+  "dms-88-pt": {
+    "id": "dms-88-pt",
+    "title": "Amor à Distância",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-89-pt": {
+    "id": "dms-89-pt",
+    "title": "Amor à Segunda Vista",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-90-pt": {
+    "id": "dms-90-pt",
+    "title": "Amor a Toda Prova",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-91-pt": {
+    "id": "dms-91-pt",
+    "title": "Amor e Outras Drogas",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-92-pt": {
+    "id": "dms-92-pt",
+    "title": "Amor Sem Escalas",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-93-pt": {
+    "id": "dms-93-pt",
+    "title": "Amor Sob Medida",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-94-pt": {
+    "id": "dms-94-pt",
+    "title": "Anaconda",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-95-pt": {
+    "id": "dms-95-pt",
+    "title": "Annabelle",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-96-pt": {
+    "id": "dms-96-pt",
+    "title": "Apenas Amigos",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-97-pt": {
+    "id": "dms-97-pt",
+    "title": "Apenas Duas Noites",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-98-pt": {
+    "id": "dms-98-pt",
+    "title": "Aquarius",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-99-pt": {
+    "id": "dms-99-pt",
+    "title": "Argo",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-100-pt": {
+    "id": "dms-100-pt",
+    "title": "Arraste-me para o Inferno",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-101-pt": {
+    "id": "dms-101-pt",
+    "title": "As Apimentadas",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-102-pt": {
+    "id": "dms-102-pt",
+    "title": "As Aventuras de Pluto Nash",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-103-pt": {
+    "id": "dms-103-pt",
+    "title": "As Branquelas",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-104-pt": {
+    "id": "dms-104-pt",
+    "title": "As Férias do Pequeno Nicolau",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-105-pt": {
+    "id": "dms-105-pt",
+    "title": "As Loucuras de Dick e Jane",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-106-pt": {
+    "id": "dms-106-pt",
+    "title": "As Patricinhas de Beverly Hills",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-107-pt": {
+    "id": "dms-107-pt",
+    "title": "As Tartarugas Ninja: Fora das Sombras",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-108-pt": {
+    "id": "dms-108-pt",
+    "title": "Até que a Sorte nos Separe",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-109-pt": {
+    "id": "dms-109-pt",
+    "title": "Atividade Paranormal",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-110-pt": {
+    "id": "dms-110-pt",
+    "title": "Atlantis: O Reino Perdido",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-111-pt": {
+    "id": "dms-111-pt",
+    "title": "Austin Powers: Um Agente Nada Discreto",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-112-pt": {
+    "id": "dms-112-pt",
+    "title": "Ave, César!",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-113-pt": {
+    "id": "dms-113-pt",
+    "title": "Bacurau",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-114-pt": {
+    "id": "dms-114-pt",
+    "title": "Bambi",
+    "year": 1942,
+    "itemsIds": []
+  },
+  "dms-115-pt": {
+    "id": "dms-115-pt",
+    "title": "Barrados no Shopping",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-116-pt": {
+    "id": "dms-116-pt",
+    "title": "Batman & Robin",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-117-pt": {
+    "id": "dms-117-pt",
+    "title": "Batman Begins",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-118-pt": {
+    "id": "dms-118-pt",
+    "title": "Batman: O Cavaleiro das Trevas",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-119-pt": {
+    "id": "dms-119-pt",
+    "title": "Beethoven - O Magnífico",
+    "year": 1992,
+    "itemsIds": []
+  },
+  "dms-120-pt": {
+    "id": "dms-120-pt",
+    "title": "Beleza Americana",
+    "year": 1999,
+    "itemsIds": []
+  },
+  "dms-121-pt": {
+    "id": "dms-121-pt",
+    "title": "Bingo: O Rei das Manhãs",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-122-pt": {
+    "id": "dms-122-pt",
+    "title": "Bird Box",
+    "year": 2018,
+    "itemsIds": []
+  },
+  "dms-123-pt": {
+    "id": "dms-123-pt",
+    "title": "Birdman ou (A Inesperada Virtude da Ignorância)",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-124-pt": {
+    "id": "dms-124-pt",
+    "title": "Blade Runner 2049",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-125-pt": {
+    "id": "dms-125-pt",
+    "title": "Bob Esponja: O Incrível Resgate",
+    "year": 2020,
+    "itemsIds": []
+  },
+  "dms-126-pt": {
+    "id": "dms-126-pt",
+    "title": "Branca de Neve e os Sete Anões",
+    "year": 1937,
+    "itemsIds": []
+  },
+  "dms-127-pt": {
+    "id": "dms-127-pt",
+    "title": "Cabra Marcado Para Morrer",
+    "year": 1984,
+    "itemsIds": []
+  },
+  "dms-128-pt": {
+    "id": "dms-128-pt",
+    "title": "Capitã Marvel",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-129-pt": {
+    "id": "dms-129-pt",
+    "title": "Capitão América: Guerra Civil",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-130-pt": {
+    "id": "dms-130-pt",
+    "title": "Capitão América: O Primeiro Vingador",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-131-pt": {
+    "id": "dms-131-pt",
+    "title": "Capitão América: O Soldado Invernal",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-132-pt": {
+    "id": "dms-132-pt",
+    "title": "Capitão Fantástico",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-133-pt": {
+    "id": "dms-133-pt",
+    "title": "Carandiru",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-134-pt": {
+    "id": "dms-134-pt",
+    "title": "Carlota Joaquina - Princesa do Brazil",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-135-pt": {
+    "id": "dms-135-pt",
+    "title": "Carrie, A Estranha",
+    "year": 1976,
+    "itemsIds": []
+  },
+  "dms-136-pt": {
+    "id": "dms-136-pt",
+    "title": "Casa Comigo?",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-137-pt": {
+    "id": "dms-137-pt",
+    "title": "Catwoman",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-138-pt": {
+    "id": "dms-138-pt",
+    "title": "Central do Brasil",
+    "year": 1998,
+    "itemsIds": []
+  },
+  "dms-139-pt": {
+    "id": "dms-139-pt",
+    "title": "Cidade de Deus",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-140-pt": {
+    "id": "dms-140-pt",
+    "title": "Cinderela",
+    "year": 1950,
+    "itemsIds": []
+  },
+  "dms-141-pt": {
+    "id": "dms-141-pt",
+    "title": "Cine Holliúdy",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-142-pt": {
+    "id": "dms-142-pt",
+    "title": "Cisne Negro",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-143-pt": {
+    "id": "dms-143-pt",
+    "title": "Click",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-144-pt": {
+    "id": "dms-144-pt",
+    "title": "Clube da Luta",
+    "year": 1999,
+    "itemsIds": []
+  },
+  "dms-145-pt": {
+    "id": "dms-145-pt",
+    "title": "Coco",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-146-pt": {
+    "id": "dms-146-pt",
+    "title": "Como Perder um Homem em 10 Dias",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-147-pt": {
+    "id": "dms-147-pt",
+    "title": "Como Se Fosse a Primeira Vez",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-148-pt": {
+    "id": "dms-148-pt",
+    "title": "Como Treinar o seu Dragão",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-149-pt": {
+    "id": "dms-149-pt",
+    "title": "Corra que a Polícia Vem Aí! 33 1/3",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-150-pt": {
+    "id": "dms-150-pt",
+    "title": "Corra!",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-151-pt": {
+    "id": "dms-151-pt",
+    "title": "Corrente do Mal",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-152-pt": {
+    "id": "dms-152-pt",
+    "title": "Cruella",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-153-pt": {
+    "id": "dms-153-pt",
+    "title": "Curtindo a Vida Adoidado",
+    "year": 1986,
+    "itemsIds": []
+  },
+  "dms-154-pt": {
+    "id": "dms-154-pt",
+    "title": "De Pernas pro Ar",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-155-pt": {
+    "id": "dms-155-pt",
+    "title": "De Repente 30",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-156-pt": {
+    "id": "dms-156-pt",
+    "title": "De Repente é Amor",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-157-pt": {
+    "id": "dms-157-pt",
+    "title": "Debi & Lóide - Dois Idiotas em Apuros",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-158-pt": {
+    "id": "dms-158-pt",
+    "title": "Deu a Louca na Chapeuzinho",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-159-pt": {
+    "id": "dms-159-pt",
+    "title": "Deus é Brasileiro",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-160-pt": {
+    "id": "dms-160-pt",
+    "title": "Divertida Mente",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-161-pt": {
+    "id": "dms-161-pt",
+    "title": "Dívida de Sangue",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-162-pt": {
+    "id": "dms-162-pt",
+    "title": "Divinos Segredos",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-163-pt": {
+    "id": "dms-163-pt",
+    "title": "Do Que as Mulheres Gostam",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-164-pt": {
+    "id": "dms-164-pt",
+    "title": "Doce Lar",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-165-pt": {
+    "id": "dms-165-pt",
+    "title": "Dona Flor e Seus Dois Maridos",
+    "year": 1976,
+    "itemsIds": []
+  },
+  "dms-166-pt": {
+    "id": "dms-166-pt",
+    "title": "Donnie Darko",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-167-pt": {
+    "id": "dms-167-pt",
+    "title": "Doutor Estranho",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-168-pt": {
+    "id": "dms-168-pt",
+    "title": "Doutor Estranho no Multiverso da Loucura",
+    "year": 2022,
+    "itemsIds": []
+  },
+  "dms-169-pt": {
+    "id": "dms-169-pt",
+    "title": "Drive",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-170-pt": {
+    "id": "dms-170-pt",
+    "title": "Dumbo",
+    "year": 1941,
+    "itemsIds": []
+  },
+  "dms-171-pt": {
+    "id": "dms-171-pt",
+    "title": "Dunkirk",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-172-pt": {
+    "id": "dms-172-pt",
+    "title": "Duro de Espiar",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-173-pt": {
+    "id": "dms-173-pt",
+    "title": "E Se Fosse Verdade",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-174-pt": {
+    "id": "dms-174-pt",
+    "title": "Ele Não Está Tão a Fim de Você",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-175-pt": {
+    "id": "dms-175-pt",
+    "title": "Embriagado de Amor",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-176-pt": {
+    "id": "dms-176-pt",
+    "title": "Encantada",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-177-pt": {
+    "id": "dms-177-pt",
+    "title": "Encanto",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-178-pt": {
+    "id": "dms-178-pt",
+    "title": "Encontro Explosivo",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-179-pt": {
+    "id": "dms-179-pt",
+    "title": "Enquanto Você Dormia",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-180-pt": {
+    "id": "dms-180-pt",
+    "title": "Era Uma Vez em... Hollywood",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-181-pt": {
+    "id": "dms-181-pt",
+    "title": "Ernest & Celestine",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-182-pt": {
+    "id": "dms-182-pt",
+    "title": "Escola de Rock",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-183-pt": {
+    "id": "dms-183-pt",
+    "title": "Esposa de Mentirinha",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-184-pt": {
+    "id": "dms-184-pt",
+    "title": "Esqueceram de Mim",
+    "year": 1990,
+    "itemsIds": []
+  },
+  "dms-185-pt": {
+    "id": "dms-185-pt",
+    "title": "Esqueceram de Mim 2: Perdido em Nova York",
+    "year": 1992,
+    "itemsIds": []
+  },
+  "dms-186-pt": {
+    "id": "dms-186-pt",
+    "title": "Esqueceram de Mim 3",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-187-pt": {
+    "id": "dms-187-pt",
+    "title": "Este é o Meu Garoto",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-188-pt": {
+    "id": "dms-188-pt",
+    "title": "Eternos",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-189-pt": {
+    "id": "dms-189-pt",
+    "title": "Eu, Tu, Eles",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-190-pt": {
+    "id": "dms-190-pt",
+    "title": "Evocação do Mal 2",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-191-pt": {
+    "id": "dms-191-pt",
+    "title": "Fantasia",
+    "year": 1940,
+    "itemsIds": []
+  },
+  "dms-192-pt": {
+    "id": "dms-192-pt",
+    "title": "Ford vs Ferrari",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-193-pt": {
+    "id": "dms-193-pt",
+    "title": "Forrest Gump: O Contador de Histórias",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-194-pt": {
+    "id": "dms-194-pt",
+    "title": "Freddy Got Fingered",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-195-pt": {
+    "id": "dms-195-pt",
+    "title": "Frozen II",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-196-pt": {
+    "id": "dms-196-pt",
+    "title": "Frozen: Uma Aventura Congelante",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-197-pt": {
+    "id": "dms-197-pt",
+    "title": "George, o Rei da Floresta",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-198-pt": {
+    "id": "dms-198-pt",
+    "title": "Gladiador",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-199-pt": {
+    "id": "dms-199-pt",
+    "title": "Glitter - O Brilho de uma Estrela",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-200-pt": {
+    "id": "dms-200-pt",
+    "title": "Godzilla",
+    "year": 1998,
+    "itemsIds": []
+  },
+  "dms-201-pt": {
+    "id": "dms-201-pt",
+    "title": "Golpe Baixo",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-202-pt": {
+    "id": "dms-202-pt",
+    "title": "Gravidade",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-203-pt": {
+    "id": "dms-203-pt",
+    "title": "Guardiões da Galáxia",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-204-pt": {
+    "id": "dms-204-pt",
+    "title": "Guardiões da Galáxia Vol. 2",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-205-pt": {
+    "id": "dms-205-pt",
+    "title": "Guerra dos Mundos",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-206-pt": {
+    "id": "dms-206-pt",
+    "title": "Halloween",
+    "year": 1978,
+    "itemsIds": []
+  },
+  "dms-207-pt": {
+    "id": "dms-207-pt",
+    "title": "Harry e Sally: Feitos um para o Outro",
+    "year": 1989,
+    "itemsIds": []
+  },
+  "dms-208-pt": {
+    "id": "dms-208-pt",
+    "title": "Harry Potter e a Câmara Secreta",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-209-pt": {
+    "id": "dms-209-pt",
+    "title": "Harry Potter e a Ordem da Fênix",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-210-pt": {
+    "id": "dms-210-pt",
+    "title": "Harry Potter e a Pedra Filosofal",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-211-pt": {
+    "id": "dms-211-pt",
+    "title": "Harry Potter e as Relíquias da Morte – Parte 1",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-212-pt": {
+    "id": "dms-212-pt",
+    "title": "Harry Potter e o Cálice de Fogo",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-213-pt": {
+    "id": "dms-213-pt",
+    "title": "Harry Potter e o Enigma do Príncipe",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-214-pt": {
+    "id": "dms-214-pt",
+    "title": "Harry Potter e o Prisioneiro de Azkaban",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-215-pt": {
+    "id": "dms-215-pt",
+    "title": "Hércules em Nova York",
+    "year": 1969,
+    "itemsIds": []
+  },
+  "dms-216-pt": {
+    "id": "dms-216-pt",
+    "title": "Hereditário",
+    "year": 2018,
+    "itemsIds": []
+  },
+  "dms-217-pt": {
+    "id": "dms-217-pt",
+    "title": "Hoje Eu Quero Voltar Sozinho",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-218-pt": {
+    "id": "dms-218-pt",
+    "title": "Homem de Ferro",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-219-pt": {
+    "id": "dms-219-pt",
+    "title": "Homem-Aranha",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-220-pt": {
+    "id": "dms-220-pt",
+    "title": "Homem-Aranha no Aranhaverso",
+    "year": 2018,
+    "itemsIds": []
+  },
+  "dms-221-pt": {
+    "id": "dms-221-pt",
+    "title": "Homem-Aranha: De Volta ao Lar",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-222-pt": {
+    "id": "dms-222-pt",
+    "title": "Homem-Aranha: Longe de Casa",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-223-pt": {
+    "id": "dms-223-pt",
+    "title": "Homem-Aranha: Sem Volta para Casa",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-224-pt": {
+    "id": "dms-224-pt",
+    "title": "Homem-Formiga",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-225-pt": {
+    "id": "dms-225-pt",
+    "title": "Homem-Formiga e a Vespa",
+    "year": 2018,
+    "itemsIds": []
+  },
+  "dms-226-pt": {
+    "id": "dms-226-pt",
+    "title": "Hotel Transilvânia",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-227-pt": {
+    "id": "dms-227-pt",
+    "title": "Independence Day",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-228-pt": {
+    "id": "dms-228-pt",
+    "title": "Interestelar",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-229-pt": {
+    "id": "dms-229-pt",
+    "title": "Invocação do Mal",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-230-pt": {
+    "id": "dms-230-pt",
+    "title": "It: A Coisa",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-231-pt": {
+    "id": "dms-231-pt",
+    "title": "Jogos Mortais - O Final",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-232-pt": {
+    "id": "dms-232-pt",
+    "title": "Joker",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-233-pt": {
+    "id": "dms-233-pt",
+    "title": "Jumanji",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-234-pt": {
+    "id": "dms-234-pt",
+    "title": "Juntos e Misturados",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-235-pt": {
+    "id": "dms-235-pt",
+    "title": "Karatê Kid - A Hora da Verdade",
+    "year": 1984,
+    "itemsIds": []
+  },
+  "dms-236-pt": {
+    "id": "dms-236-pt",
+    "title": "Kill Bill: Volume 1",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-237-pt": {
+    "id": "dms-237-pt",
+    "title": "Kung Fu Panda",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-238-pt": {
+    "id": "dms-238-pt",
+    "title": "La La Land: Cantando Estações",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-239-pt": {
+    "id": "dms-239-pt",
+    "title": "Lady Bird: A Hora de Voar",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-240-pt": {
+    "id": "dms-240-pt",
+    "title": "Legalmente Loira",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-241-pt": {
+    "id": "dms-241-pt",
+    "title": "Letra e Música",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-242-pt": {
+    "id": "dms-242-pt",
+    "title": "Lilo & Stitch",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-243-pt": {
+    "id": "dms-243-pt",
+    "title": "Lisbela e o Prisioneiro",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-244-pt": {
+    "id": "dms-244-pt",
+    "title": "Loucademia de Polícia",
+    "year": 1984,
+    "itemsIds": []
+  },
+  "dms-245-pt": {
+    "id": "dms-245-pt",
+    "title": "Loucademia de Polícia 4: O Cidadão se Defende",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-246-pt": {
+    "id": "dms-246-pt",
+    "title": "Loucas pra Casar",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-247-pt": {
+    "id": "dms-247-pt",
+    "title": "Luca",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-248-pt": {
+    "id": "dms-248-pt",
+    "title": "Macunaíma",
+    "year": 1969,
+    "itemsIds": []
+  },
+  "dms-249-pt": {
+    "id": "dms-249-pt",
+    "title": "Mad Max: Estrada da Fúria",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-250-pt": {
+    "id": "dms-250-pt",
+    "title": "Madagascar",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-251-pt": {
+    "id": "dms-251-pt",
+    "title": "Maluca Paixão",
+    "year": 1998,
+    "itemsIds": []
+  },
+  "dms-252-pt": {
+    "id": "dms-252-pt",
+    "title": "Manchester à Beira-Mar",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-253-pt": {
+    "id": "dms-253-pt",
+    "title": "Mary e Max: Uma Amizade Diferente",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-254-pt": {
+    "id": "dms-254-pt",
+    "title": "Matilda",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-255-pt": {
+    "id": "dms-255-pt",
+    "title": "Me Chame Pelo Seu Nome",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-256-pt": {
+    "id": "dms-256-pt",
+    "title": "Menina de Ouro",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-257-pt": {
+    "id": "dms-257-pt",
+    "title": "Mentes Perigosas",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-258-pt": {
+    "id": "dms-258-pt",
+    "title": "Meu Amigo Totoro",
+    "year": 1988,
+    "itemsIds": []
+  },
+  "dms-259-pt": {
+    "id": "dms-259-pt",
+    "title": "Meu Malvado Favorito",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-260-pt": {
+    "id": "dms-260-pt",
+    "title": "Meu Passado me Condena",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-261-pt": {
+    "id": "dms-261-pt",
+    "title": "Meu Primeiro Amor",
+    "year": 1991,
+    "itemsIds": []
+  },
+  "dms-262-pt": {
+    "id": "dms-262-pt",
+    "title": "MIB: Homens de Preto",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-263-pt": {
+    "id": "dms-263-pt",
+    "title": "Midsommar: O Mal Não Espera a Noite",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-264-pt": {
+    "id": "dms-264-pt",
+    "title": "Minha Mãe é uma Peça",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-265-pt": {
+    "id": "dms-265-pt",
+    "title": "Miss Simpatia",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-266-pt": {
+    "id": "dms-266-pt",
+    "title": "Missão Madrinha de Casamento",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-267-pt": {
+    "id": "dms-267-pt",
+    "title": "Moana",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-268-pt": {
+    "id": "dms-268-pt",
+    "title": "Moana: Um Mar de Aventuras",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-269-pt": {
+    "id": "dms-269-pt",
+    "title": "Moonlight: Sob a Luz do Luar",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-270-pt": {
+    "id": "dms-270-pt",
+    "title": "Mudança de Hábito",
+    "year": 1992,
+    "itemsIds": []
+  },
+  "dms-271-pt": {
+    "id": "dms-271-pt",
+    "title": "Muita Calma Nessa Hora",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-272-pt": {
+    "id": "dms-272-pt",
+    "title": "Mulan",
+    "year": 1998,
+    "itemsIds": []
+  },
+  "dms-273-pt": {
+    "id": "dms-273-pt",
+    "title": "Nasce uma Estrela",
+    "year": 2018,
+    "itemsIds": []
+  },
+  "dms-274-pt": {
+    "id": "dms-274-pt",
+    "title": "O Advogado do Diabo",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-275-pt": {
+    "id": "dms-275-pt",
+    "title": "O Agente Teen",
+    "year": 1993,
+    "itemsIds": []
+  },
+  "dms-276-pt": {
+    "id": "dms-276-pt",
+    "title": "O Amor É Cego",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-277-pt": {
+    "id": "dms-277-pt",
+    "title": "O Amor Não Tem Regras",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-278-pt": {
+    "id": "dms-278-pt",
+    "title": "O Amor Não Tira Férias",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-279-pt": {
+    "id": "dms-279-pt",
+    "title": "O Ano em que Meus Pais Saíram de Férias",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-280-pt": {
+    "id": "dms-280-pt",
+    "title": "O Artista do Desastre",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-281-pt": {
+    "id": "dms-281-pt",
+    "title": "O Ataque dos Tomates Assassinos",
+    "year": 1978,
+    "itemsIds": []
+  },
+  "dms-282-pt": {
+    "id": "dms-282-pt",
+    "title": "O Auto da Compadecida",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-283-pt": {
+    "id": "dms-283-pt",
+    "title": "O Babadook",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-284-pt": {
+    "id": "dms-284-pt",
+    "title": "O Bandido da Luz Vermelha",
+    "year": 1968,
+    "itemsIds": []
+  },
+  "dms-285-pt": {
+    "id": "dms-285-pt",
+    "title": "O Bebê de Rosemary",
+    "year": 1968,
+    "itemsIds": []
+  },
+  "dms-286-pt": {
+    "id": "dms-286-pt",
+    "title": "O Beijo da Mulher Aranha",
+    "year": 1985,
+    "itemsIds": []
+  },
+  "dms-287-pt": {
+    "id": "dms-287-pt",
+    "title": "O Bem-Amado",
+    "year": 1973,
+    "itemsIds": []
+  },
+  "dms-288-pt": {
+    "id": "dms-288-pt",
+    "title": "O Candidato Honesto",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-289-pt": {
+    "id": "dms-289-pt",
+    "title": "O Candidato Vieira",
+    "year": 2018,
+    "itemsIds": []
+  },
+  "dms-290-pt": {
+    "id": "dms-290-pt",
+    "title": "O Cangaceiro",
+    "year": 1953,
+    "itemsIds": []
+  },
+  "dms-291-pt": {
+    "id": "dms-291-pt",
+    "title": "O Cão e a Raposa",
+    "year": 1981,
+    "itemsIds": []
+  },
+  "dms-292-pt": {
+    "id": "dms-292-pt",
+    "title": "O Casamento de Romeu e Julieta",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-293-pt": {
+    "id": "dms-293-pt",
+    "title": "O Casamento do Meu Melhor Amigo",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-294-pt": {
+    "id": "dms-294-pt",
+    "title": "O Casamento dos Meus Sonhos",
+    "year": 1999,
+    "itemsIds": []
+  },
+  "dms-295-pt": {
+    "id": "dms-295-pt",
+    "title": "O Castelo Animado",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-296-pt": {
+    "id": "dms-296-pt",
+    "title": "O Chamado",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-297-pt": {
+    "id": "dms-297-pt",
+    "title": "O Cheiro do Ralo",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-298-pt": {
+    "id": "dms-298-pt",
+    "title": "O Concurso",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-299-pt": {
+    "id": "dms-299-pt",
+    "title": "O Conto da Princesa Kaguya",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-300-pt": {
+    "id": "dms-300-pt",
+    "title": "O Corcunda de Notre Dame",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-301-pt": {
+    "id": "dms-301-pt",
+    "title": "O Curioso Caso de Benjamin Button",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-302-pt": {
+    "id": "dms-302-pt",
+    "title": "O Demolidor",
+    "year": 1993,
+    "itemsIds": []
+  },
+  "dms-303-pt": {
+    "id": "dms-303-pt",
+    "title": "O Dia em que a Terra Parou",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-304-pt": {
+    "id": "dms-304-pt",
+    "title": "O Diabo a Quatro",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-305-pt": {
+    "id": "dms-305-pt",
+    "title": "O Diabo Veste Prada",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-306-pt": {
+    "id": "dms-306-pt",
+    "title": "O Diário da Princesa",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-307-pt": {
+    "id": "dms-307-pt",
+    "title": "O Diário de Bridget Jones",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-308-pt": {
+    "id": "dms-308-pt",
+    "title": "O Enigma do Outro Mundo",
+    "year": 1982,
+    "itemsIds": []
+  },
+  "dms-309-pt": {
+    "id": "dms-309-pt",
+    "title": "O Escorpião Rei",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-310-pt": {
+    "id": "dms-310-pt",
+    "title": "O Exorcismo de Emily Rose",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-311-pt": {
+    "id": "dms-311-pt",
+    "title": "O Exorcista",
+    "year": 1973,
+    "itemsIds": []
+  },
+  "dms-312-pt": {
+    "id": "dms-312-pt",
+    "title": "O Expresso Polar",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-313-pt": {
+    "id": "dms-313-pt",
+    "title": "O Exterminador do Futuro 2: O Julgamento Final",
+    "year": 1991,
+    "itemsIds": []
+  },
+  "dms-314-pt": {
+    "id": "dms-314-pt",
+    "title": "O Exterminador do Futuro 3: A Rebelião das Máquinas",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-315-pt": {
+    "id": "dms-315-pt",
+    "title": "O Fada do Dente",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-316-pt": {
+    "id": "dms-316-pt",
+    "title": "O Farol",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-317-pt": {
+    "id": "dms-317-pt",
+    "title": "O Filho do Máskara",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-318-pt": {
+    "id": "dms-318-pt",
+    "title": "O Fugitivo",
+    "year": 1993,
+    "itemsIds": []
+  },
+  "dms-319-pt": {
+    "id": "dms-319-pt",
+    "title": "O Galinho Chicken Little",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-320-pt": {
+    "id": "dms-320-pt",
+    "title": "O Grande Dragão Branco",
+    "year": 1988,
+    "itemsIds": []
+  },
+  "dms-321-pt": {
+    "id": "dms-321-pt",
+    "title": "O Grande Hotel Budapeste",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-322-pt": {
+    "id": "dms-322-pt",
+    "title": "O Grande Truque",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-323-pt": {
+    "id": "dms-323-pt",
+    "title": "O Guarda-Costas",
+    "year": 1992,
+    "itemsIds": []
+  },
+  "dms-324-pt": {
+    "id": "dms-324-pt",
+    "title": "O Guerreiro Didi e a Ninja Lili",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-325-pt": {
+    "id": "dms-325-pt",
+    "title": "O Guru do Amor",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-326-pt": {
+    "id": "dms-326-pt",
+    "title": "O Guru do Sexo",
+    "year": 1967,
+    "itemsIds": []
+  },
+  "dms-327-pt": {
+    "id": "dms-327-pt",
+    "title": "O Homem do Futuro",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-328-pt": {
+    "id": "dms-328-pt",
+    "title": "O Homem Invisível",
+    "year": 2020,
+    "itemsIds": []
+  },
+  "dms-329-pt": {
+    "id": "dms-329-pt",
+    "title": "O Homem nas Trevas 2",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-330-pt": {
+    "id": "dms-330-pt",
+    "title": "O Homem Que Copiava",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-331-pt": {
+    "id": "dms-331-pt",
+    "title": "O Hospedeiro",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-332-pt": {
+    "id": "dms-332-pt",
+    "title": "O Iluminado",
+    "year": 1980,
+    "itemsIds": []
+  },
+  "dms-333-pt": {
+    "id": "dms-333-pt",
+    "title": "O Incrível Hulk",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-334-pt": {
+    "id": "dms-334-pt",
+    "title": "O Invasor",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-335-pt": {
+    "id": "dms-335-pt",
+    "title": "O Irlandês",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-336-pt": {
+    "id": "dms-336-pt",
+    "title": "O Jogo da Imitação",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-337-pt": {
+    "id": "dms-337-pt",
+    "title": "O Labirinto do Fauno",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-338-pt": {
+    "id": "dms-338-pt",
+    "title": "O Lado Bom da Vida",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-339-pt": {
+    "id": "dms-339-pt",
+    "title": "O Lobo Atrás da Porta",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-340-pt": {
+    "id": "dms-340-pt",
+    "title": "O Lobo de Wall Street",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-341-pt": {
+    "id": "dms-341-pt",
+    "title": "O Magnata",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-342-pt": {
+    "id": "dms-342-pt",
+    "title": "O Máskara",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-343-pt": {
+    "id": "dms-343-pt",
+    "title": "O Massacre da Serra Elétrica",
+    "year": 1974,
+    "itemsIds": []
+  },
+  "dms-344-pt": {
+    "id": "dms-344-pt",
+    "title": "O Menino Maluquinho",
+    "year": 1983,
+    "itemsIds": []
+  },
+  "dms-345-pt": {
+    "id": "dms-345-pt",
+    "title": "O Mentiroso",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-346-pt": {
+    "id": "dms-346-pt",
+    "title": "O Mistério da Casa Assombrada",
+    "year": 1959,
+    "itemsIds": []
+  },
+  "dms-347-pt": {
+    "id": "dms-347-pt",
+    "title": "O Nevoeiro",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-348-pt": {
+    "id": "dms-348-pt",
+    "title": "O Pagador de Promessas",
+    "year": 1962,
+    "itemsIds": []
+  },
+  "dms-349-pt": {
+    "id": "dms-349-pt",
+    "title": "O Pai da Noiva",
+    "year": 1991,
+    "itemsIds": []
+  },
+  "dms-350-pt": {
+    "id": "dms-350-pt",
+    "title": "O Paizão",
+    "year": 1999,
+    "itemsIds": []
+  },
+  "dms-351-pt": {
+    "id": "dms-351-pt",
+    "title": "O Palhaço",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-352-pt": {
+    "id": "dms-352-pt",
+    "title": "O Passageiro do Futuro",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-353-pt": {
+    "id": "dms-353-pt",
+    "title": "O Pequenino",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-354-pt": {
+    "id": "dms-354-pt",
+    "title": "O Pequeno Stuart Little",
+    "year": 1999,
+    "itemsIds": []
+  },
+  "dms-355-pt": {
+    "id": "dms-355-pt",
+    "title": "O Pestinha",
+    "year": 1990,
+    "itemsIds": []
+  },
+  "dms-356-pt": {
+    "id": "dms-356-pt",
+    "title": "O Pianista",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-357-pt": {
+    "id": "dms-357-pt",
+    "title": "O Plano Perfeito",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-358-pt": {
+    "id": "dms-358-pt",
+    "title": "O Poderoso Chefão",
+    "year": 1972,
+    "itemsIds": []
+  },
+  "dms-359-pt": {
+    "id": "dms-359-pt",
+    "title": "O Poderoso Chefinho 2: Negócios da Família",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-360-pt": {
+    "id": "dms-360-pt",
+    "title": "O Professor Aloprado",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-361-pt": {
+    "id": "dms-361-pt",
+    "title": "O Quarteto Fantástico",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-362-pt": {
+    "id": "dms-362-pt",
+    "title": "O Quarto de Jack",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-363-pt": {
+    "id": "dms-363-pt",
+    "title": "O Quatrilho",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-364-pt": {
+    "id": "dms-364-pt",
+    "title": "O Que É Isso, Companheiro?",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-365-pt": {
+    "id": "dms-365-pt",
+    "title": "O Quinto Elemento",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-366-pt": {
+    "id": "dms-366-pt",
+    "title": "O Regresso",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-367-pt": {
+    "id": "dms-367-pt",
+    "title": "O Rei da Água",
+    "year": 1998,
+    "itemsIds": []
+  },
+  "dms-368-pt": {
+    "id": "dms-368-pt",
+    "title": "O Rei Leão",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-369-pt": {
+    "id": "dms-369-pt",
+    "title": "O Ritual",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-370-pt": {
+    "id": "dms-370-pt",
+    "title": "O Segredo da Cabana",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-371-pt": {
+    "id": "dms-371-pt",
+    "title": "O Segredo de Brokeback Mountain",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-372-pt": {
+    "id": "dms-372-pt",
+    "title": "O Senhor dos Anéis: A Sociedade do Anel",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-373-pt": {
+    "id": "dms-373-pt",
+    "title": "O Senhor dos Anéis: As Duas Torres",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-374-pt": {
+    "id": "dms-374-pt",
+    "title": "O Senhor dos Anéis: O Retorno do Rei",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-375-pt": {
+    "id": "dms-375-pt",
+    "title": "O Shaolin do Sertão",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-376-pt": {
+    "id": "dms-376-pt",
+    "title": "O Show de Truman: O Show da Vida",
+    "year": 1998,
+    "itemsIds": []
+  },
+  "dms-377-pt": {
+    "id": "dms-377-pt",
+    "title": "O Silêncio dos Inocentes",
+    "year": 1991,
+    "itemsIds": []
+  },
+  "dms-378-pt": {
+    "id": "dms-378-pt",
+    "title": "O Som ao Redor",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-379-pt": {
+    "id": "dms-379-pt",
+    "title": "O Terminal",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-380-pt": {
+    "id": "dms-380-pt",
+    "title": "O Touro Ferdinando",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-381-pt": {
+    "id": "dms-381-pt",
+    "title": "O Último Mestre do Ar",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-382-pt": {
+    "id": "dms-382-pt",
+    "title": "O Vingador Tóxico",
+    "year": 1984,
+    "itemsIds": []
+  },
+  "dms-383-pt": {
+    "id": "dms-383-pt",
+    "title": "Odeio o Dia dos Namorados",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-384-pt": {
+    "id": "dms-384-pt",
+    "title": "Operação Cupido",
+    "year": 1998,
+    "itemsIds": []
+  },
+  "dms-385-pt": {
+    "id": "dms-385-pt",
+    "title": "Os 3",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-386-pt": {
+    "id": "dms-386-pt",
+    "title": "Os Batutinhas",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-387-pt": {
+    "id": "dms-387-pt",
+    "title": "Os Croods 2: Uma Nova Era",
+    "year": 2020,
+    "itemsIds": []
+  },
+  "dms-388-pt": {
+    "id": "dms-388-pt",
+    "title": "Os Estranhos",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-389-pt": {
+    "id": "dms-389-pt",
+    "title": "Os Flintstones em Viva Rock Vegas",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-390-pt": {
+    "id": "dms-390-pt",
+    "title": "Os Goonies",
+    "year": 1985,
+    "itemsIds": []
+  },
+  "dms-391-pt": {
+    "id": "dms-391-pt",
+    "title": "Os Incríveis",
+    "year": 2004,
+    "itemsIds": []
+  },
+  "dms-392-pt": {
+    "id": "dms-392-pt",
+    "title": "Os Infiltrados",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-393-pt": {
+    "id": "dms-393-pt",
+    "title": "Os Normais - O Filme",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-394-pt": {
+    "id": "dms-394-pt",
+    "title": "Os Oito Odiados",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-395-pt": {
+    "id": "dms-395-pt",
+    "title": "Os Outros",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-396-pt": {
+    "id": "dms-396-pt",
+    "title": "Os Penetras",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-397-pt": {
+    "id": "dms-397-pt",
+    "title": "Os Sem-Floresta",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-398-pt": {
+    "id": "dms-398-pt",
+    "title": "Os Trapalhões na Ilha do Tesouro",
+    "year": 1975,
+    "itemsIds": []
+  },
+  "dms-399-pt": {
+    "id": "dms-399-pt",
+    "title": "Os Vingadores",
+    "year": 2012,
+    "itemsIds": []
+  },
+  "dms-400-pt": {
+    "id": "dms-400-pt",
+    "title": "Pânico",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-401-pt": {
+    "id": "dms-401-pt",
+    "title": "Pantera Negra",
+    "year": 2018,
+    "itemsIds": []
+  },
+  "dms-402-pt": {
+    "id": "dms-402-pt",
+    "title": "Pantera Negra: Wakanda Para Sempre",
+    "year": 2022,
+    "itemsIds": []
+  },
+  "dms-403-pt": {
+    "id": "dms-403-pt",
+    "title": "Parasita",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-404-pt": {
+    "id": "dms-404-pt",
+    "title": "Pegar e Largar",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-405-pt": {
+    "id": "dms-405-pt",
+    "title": "Perdi Meu Corpo",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-406-pt": {
+    "id": "dms-406-pt",
+    "title": "Pets: A Vida Secreta dos Bichos",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-407-pt": {
+    "id": "dms-407-pt",
+    "title": "Pinóquio",
+    "year": 1940,
+    "itemsIds": []
+  },
+  "dms-408-pt": {
+    "id": "dms-408-pt",
+    "title": "Piratas do Caribe: A Maldição do Pérola Negra",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-409-pt": {
+    "id": "dms-409-pt",
+    "title": "Piratas do Caribe: O Baú da Morte",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-410-pt": {
+    "id": "dms-410-pt",
+    "title": "Pixels",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-411-pt": {
+    "id": "dms-411-pt",
+    "title": "Pocahontas",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-412-pt": {
+    "id": "dms-412-pt",
+    "title": "Procurando Nemo",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-413-pt": {
+    "id": "dms-413-pt",
+    "title": "Psicose",
+    "year": 1960,
+    "itemsIds": []
+  },
+  "dms-414-pt": {
+    "id": "dms-414-pt",
+    "title": "Pulp Fiction: Tempo de Violência",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-415-pt": {
+    "id": "dms-415-pt",
+    "title": "Que Horas Ela Volta?",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-416-pt": {
+    "id": "dms-416-pt",
+    "title": "Quem Quer Ser um Milionário?",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-417-pt": {
+    "id": "dms-417-pt",
+    "title": "Quem Vai Ficar com Mary?",
+    "year": 1998,
+    "itemsIds": []
+  },
+  "dms-418-pt": {
+    "id": "dms-418-pt",
+    "title": "Querida, Encolhi as Crianças",
+    "year": 1989,
+    "itemsIds": []
+  },
+  "dms-419-pt": {
+    "id": "dms-419-pt",
+    "title": "Questão de Tempo",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-420-pt": {
+    "id": "dms-420-pt",
+    "title": "Ratatouille",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-421-pt": {
+    "id": "dms-421-pt",
+    "title": "Raya e o Último Dragão",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-422-pt": {
+    "id": "dms-422-pt",
+    "title": "Rindo à Toa",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-423-pt": {
+    "id": "dms-423-pt",
+    "title": "Sai de Baixo - O Filme",
+    "year": 2020,
+    "itemsIds": []
+  },
+  "dms-424-pt": {
+    "id": "dms-424-pt",
+    "title": "Scooby! O Filme",
+    "year": 2020,
+    "itemsIds": []
+  },
+  "dms-425-pt": {
+    "id": "dms-425-pt",
+    "title": "Se Eu Fosse Você",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-426-pt": {
+    "id": "dms-426-pt",
+    "title": "Seu Nome",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-427-pt": {
+    "id": "dms-427-pt",
+    "title": "Sexo Sem Compromisso",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-428-pt": {
+    "id": "dms-428-pt",
+    "title": "Sexta-Feira 13",
+    "year": 1980,
+    "itemsIds": []
+  },
+  "dms-429-pt": {
+    "id": "dms-429-pt",
+    "title": "Sexta-Feira Muito Louca",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-430-pt": {
+    "id": "dms-430-pt",
+    "title": "Shang-Chi e a Lenda dos Dez Anéis",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-431-pt": {
+    "id": "dms-431-pt",
+    "title": "Shaun, o Carneiro - o Filme: A Fazenda Contra-Ataca",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-432-pt": {
+    "id": "dms-432-pt",
+    "title": "Showgirls",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-433-pt": {
+    "id": "dms-433-pt",
+    "title": "Shrek",
+    "year": 2001,
+    "itemsIds": []
+  },
+  "dms-434-pt": {
+    "id": "dms-434-pt",
+    "title": "Simplesmente Acontece",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-435-pt": {
+    "id": "dms-435-pt",
+    "title": "Simplesmente Amor",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-436-pt": {
+    "id": "dms-436-pt",
+    "title": "Sing: Quem Canta Seus Males Espanta",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-437-pt": {
+    "id": "dms-437-pt",
+    "title": "Sintonia de Amor",
+    "year": 1993,
+    "itemsIds": []
+  },
+  "dms-438-pt": {
+    "id": "dms-438-pt",
+    "title": "Sob o Sol da Toscana",
+    "year": 2003,
+    "itemsIds": []
+  },
+  "dms-439-pt": {
+    "id": "dms-439-pt",
+    "title": "Sorte no Amor",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-440-pt": {
+    "id": "dms-440-pt",
+    "title": "Soul",
+    "year": 2020,
+    "itemsIds": []
+  },
+  "dms-441-pt": {
+    "id": "dms-441-pt",
+    "title": "Velocidade Máxima 2",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-442-pt": {
+    "id": "dms-442-pt",
+    "title": "Spirit: O Indomável",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-443-pt": {
+    "id": "dms-443-pt",
+    "title": "Spotlight: Segredos Revelados",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-444-pt": {
+    "id": "dms-444-pt",
+    "title": "Street Fighter - A Última Batalha",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-445-pt": {
+    "id": "dms-445-pt",
+    "title": "Super Escola de Heróis",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-446-pt": {
+    "id": "dms-446-pt",
+    "title": "Super Mario Bros.",
+    "year": 1993,
+    "itemsIds": []
+  },
+  "dms-447-pt": {
+    "id": "dms-447-pt",
+    "title": "Sweeney Todd: O Barbeiro Demoníaco da Rua Fleet",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-448-pt": {
+    "id": "dms-448-pt",
+    "title": "Tá Chovendo Hambúrguer",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-449-pt": {
+    "id": "dms-449-pt",
+    "title": "Tá Dando Onda",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-450-pt": {
+    "id": "dms-450-pt",
+    "title": "Tão Forte e Tão Perto",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-451-pt": {
+    "id": "dms-451-pt",
+    "title": "Tarzan",
+    "year": 1999,
+    "itemsIds": []
+  },
+  "dms-452-pt": {
+    "id": "dms-452-pt",
+    "title": "Terror em Silent Hill",
+    "year": 2006,
+    "itemsIds": []
+  },
+  "dms-453-pt": {
+    "id": "dms-453-pt",
+    "title": "Thor",
+    "year": 2011,
+    "itemsIds": []
+  },
+  "dms-454-pt": {
+    "id": "dms-454-pt",
+    "title": "Thor: Amor e Trovão",
+    "year": 2022,
+    "itemsIds": []
+  },
+  "dms-455-pt": {
+    "id": "dms-455-pt",
+    "title": "Thor: O Mundo Sombrio",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-456-pt": {
+    "id": "dms-456-pt",
+    "title": "Thor: Ragnarok",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-457-pt": {
+    "id": "dms-457-pt",
+    "title": "Titanic",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-458-pt": {
+    "id": "dms-458-pt",
+    "title": "Tô Ryca!",
+    "year": 2016,
+    "itemsIds": []
+  },
+  "dms-459-pt": {
+    "id": "dms-459-pt",
+    "title": "Toy Story",
+    "year": 1995,
+    "itemsIds": []
+  },
+  "dms-460-pt": {
+    "id": "dms-460-pt",
+    "title": "Transformers: A Era da Extinção",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-461-pt": {
+    "id": "dms-461-pt",
+    "title": "Três Anúncios Para um Crime",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-462-pt": {
+    "id": "dms-462-pt",
+    "title": "Três Solteirões e um Bebê",
+    "year": 1990,
+    "itemsIds": []
+  },
+  "dms-463-pt": {
+    "id": "dms-463-pt",
+    "title": "Trolls 2",
+    "year": 2020,
+    "itemsIds": []
+  },
+  "dms-464-pt": {
+    "id": "dms-464-pt",
+    "title": "Tropa de Elite",
+    "year": 2007,
+    "itemsIds": []
+  },
+  "dms-465-pt": {
+    "id": "dms-465-pt",
+    "title": "Tropa de Elite 2: O Inimigo Agora É Outro",
+    "year": 2010,
+    "itemsIds": []
+  },
+  "dms-466-pt": {
+    "id": "dms-466-pt",
+    "title": "Tubarão",
+    "year": 1975,
+    "itemsIds": []
+  },
+  "dms-467-pt": {
+    "id": "dms-467-pt",
+    "title": "Twister",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-468-pt": {
+    "id": "dms-468-pt",
+    "title": "Um Amor Para Recordar",
+    "year": 2002,
+    "itemsIds": []
+  },
+  "dms-469-pt": {
+    "id": "dms-469-pt",
+    "title": "Um Herói de Brinquedo",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-470-pt": {
+    "id": "dms-470-pt",
+    "title": "Um Lugar Chamado Notting Hill",
+    "year": 1999,
+    "itemsIds": []
+  },
+  "dms-471-pt": {
+    "id": "dms-471-pt",
+    "title": "Um Maluco no Golfe",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-472-pt": {
+    "id": "dms-472-pt",
+    "title": "Um Maluco no Pedaço",
+    "year": 1996,
+    "itemsIds": []
+  },
+  "dms-473-pt": {
+    "id": "dms-473-pt",
+    "title": "Um Ninja da Pesada",
+    "year": 1997,
+    "itemsIds": []
+  },
+  "dms-474-pt": {
+    "id": "dms-474-pt",
+    "title": "Um Príncipe em Nova York",
+    "year": 1988,
+    "itemsIds": []
+  },
+  "dms-475-pt": {
+    "id": "dms-475-pt",
+    "title": "Um Sonho Possível",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-476-pt": {
+    "id": "dms-476-pt",
+    "title": "Um Tira no Jardim de Infância",
+    "year": 1990,
+    "itemsIds": []
+  },
+  "dms-477-pt": {
+    "id": "dms-477-pt",
+    "title": "Uma Aventura LEGO",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-478-pt": {
+    "id": "dms-478-pt",
+    "title": "Uma Babá Quase Perfeita",
+    "year": 1993,
+    "itemsIds": []
+  },
+  "dms-479-pt": {
+    "id": "dms-479-pt",
+    "title": "Uma Linda Mulher",
+    "year": 1990,
+    "itemsIds": []
+  },
+  "dms-480-pt": {
+    "id": "dms-480-pt",
+    "title": "Uma Prova de Amor",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-481-pt": {
+    "id": "dms-481-pt",
+    "title": "Up: Altas Aventuras",
+    "year": 2009,
+    "itemsIds": []
+  },
+  "dms-482-pt": {
+    "id": "dms-482-pt",
+    "title": "V de Vingança",
+    "year": 2005,
+    "itemsIds": []
+  },
+  "dms-483-pt": {
+    "id": "dms-483-pt",
+    "title": "Vai que Cola: O Filme",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-484-pt": {
+    "id": "dms-484-pt",
+    "title": "Vai que Dá Certo",
+    "year": 2013,
+    "itemsIds": []
+  },
+  "dms-485-pt": {
+    "id": "dms-485-pt",
+    "title": "Velocidade Máxima",
+    "year": 1994,
+    "itemsIds": []
+  },
+  "dms-486-pt": {
+    "id": "dms-486-pt",
+    "title": "Vingadores: Era de Ultron",
+    "year": 2015,
+    "itemsIds": []
+  },
+  "dms-487-pt": {
+    "id": "dms-487-pt",
+    "title": "Vingadores: Guerra Infinita",
+    "year": 2018,
+    "itemsIds": []
+  },
+  "dms-488-pt": {
+    "id": "dms-488-pt",
+    "title": "Vingadores: Ultimato",
+    "year": 2019,
+    "itemsIds": []
+  },
+  "dms-489-pt": {
+    "id": "dms-489-pt",
+    "title": "Viúva Negra",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-490-pt": {
+    "id": "dms-490-pt",
+    "title": "Viva: A Vida é uma Festa",
+    "year": 2017,
+    "itemsIds": []
+  },
+  "dms-491-pt": {
+    "id": "dms-491-pt",
+    "title": "Vivo",
+    "year": 2021,
+    "itemsIds": []
+  },
+  "dms-492-pt": {
+    "id": "dms-492-pt",
+    "title": "Vovó... Zona",
+    "year": 2000,
+    "itemsIds": []
+  },
+  "dms-493-pt": {
+    "id": "dms-493-pt",
+    "title": "WALL-E",
+    "year": 2008,
+    "itemsIds": []
+  },
+  "dms-494-pt": {
+    "id": "dms-494-pt",
+    "title": "Whiplash: Em Busca da Perfeição",
+    "year": 2014,
+    "itemsIds": []
+  },
+  "dms-495-pt": {
+    "id": "dms-495-pt",
+    "title": "WiFi Ralph: Quebrando a Internet",
+    "year": 2018,
+    "itemsIds": []
+  },
+  "dms-496-pt": {
+    "id": "dms-496-pt",
+    "title": "Zootopia: Essa Cidade é o Bicho",
+    "year": 2016,
+    "itemsIds": []
+  }
+}

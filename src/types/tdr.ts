@@ -679,6 +679,17 @@ export type ItemAttribute = {
   limited?: boolean;
 };
 
+export type ItemGroup = {
+  /**
+   * Unique identifier for the group, usually its name
+   */
+  id: string;
+  /**
+   * The items in the group
+   */
+  itemsIds: string[];
+};
+
 export type DailyDiscSet = {
   /**
    * The id (the setId in the library OR the date in a daily game)
