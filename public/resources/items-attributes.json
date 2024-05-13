@@ -264,7 +264,7 @@
       "en": "has metallic shiny parts, made of metal",
       "pt": "tem partes metálicas brilhantes, feito de metal"
     },
-    "default": false,
+    "default": true,
     "level": 2,
     "spriteId": "sign-20",
     "priority": 26
@@ -399,7 +399,7 @@
       "en": "makes sound naturally or by design or interaction",
       "pt": "faz som naturalmente ou por design ou interação"
     },
-    "default": true,
+    "default": false,
     "level": 1,
     "spriteId": "sign-31",
     "priority": 14

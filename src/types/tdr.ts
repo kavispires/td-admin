@@ -123,6 +123,38 @@ export type ChoiceCard = {
 };
 
 /**
+ * Concept Card
+ * Used for: concepts
+ */
+export type Concept = {
+  /**
+   * Unique identifier for the card
+   */
+  id: CardId;
+  /**
+   * The name of the concept
+   */
+  name: string;
+
+  /**
+   * Other names for the concept
+   */
+  additionalNames: string[];
+  /**
+   * Query terms using when searching for the concept
+   */
+  queryTerms: string;
+  /**
+   * Flag indicating if the concept is default (original to the game)
+   */
+  default: boolean;
+  /**
+   * The type of concept
+   */
+  type: string;
+};
+
+/**
  * Contender Card
  * Used for: contenders
  */

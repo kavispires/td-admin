@@ -13,6 +13,7 @@ export const RESOURCE_NAMES = {
   CHALLENGES: 'challenges',
   CHARACTERS: 'characters',
   CHOICES: 'choices',
+  CONCEPTS: 'concepts',
   CONTENDERS: 'contenders',
   CRIME_EVIDENCE: 'crime-evidence',
   CRIME_TILES: 'crime-tiles',
