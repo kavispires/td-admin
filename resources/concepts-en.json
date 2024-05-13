@@ -1,0 +1,970 @@
+{
+  "ccpt-1-en": {
+    "id": "ccpt-1-en",
+    "name": "object",
+    "additionalNames": ["thing", "package"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-2-en": {
+    "id": "ccpt-2-en",
+    "name": "person",
+    "additionalNames": ["family", "group"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-3-en": {
+    "id": "ccpt-3-en",
+    "name": "woman",
+    "additionalNames": ["female", "wife", "feminine"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-4-en": {
+    "id": "ccpt-4-en",
+    "name": "man",
+    "additionalNames": ["male", "husband", "masculine"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-5-en": {
+    "id": "ccpt-5-en",
+    "name": "work",
+    "additionalNames": ["profession", "craft"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-6-en": {
+    "id": "ccpt-6-en",
+    "name": "recreation",
+    "additionalNames": ["sport", "activity", "hobby"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-7-en": {
+    "id": "ccpt-7-en",
+    "name": "animal",
+    "additionalNames": ["wildlife"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-8-en": {
+    "id": "ccpt-8-en",
+    "name": "plant",
+    "additionalNames": ["flora", "nature"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-9-en": {
+    "id": "ccpt-9-en",
+    "name": "literature",
+    "additionalNames": ["writing", "book"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-10-en": {
+    "id": "ccpt-10-en",
+    "name": "music",
+    "additionalNames": ["song", "note"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-11-en": {
+    "id": "ccpt-11-en",
+    "name": "cinema",
+    "additionalNames": ["movie", "camera"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-12-en": {
+    "id": "ccpt-12-en",
+    "name": "arts",
+    "additionalNames": ["sculpture", "painting", "drawing", "comics"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-13-en": {
+    "id": "ccpt-13-en",
+    "name": "television",
+    "additionalNames": ["broadcast", "series"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-14-en": {
+    "id": "ccpt-14-en",
+    "name": "title",
+    "additionalNames": ["brand", "name"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-15-en": {
+    "id": "ccpt-15-en",
+    "name": "idea",
+    "additionalNames": ["thought", "concept"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-16-en": {
+    "id": "ccpt-16-en",
+    "name": "expression",
+    "additionalNames": ["quote", "speak", "word"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-17-en": {
+    "id": "ccpt-17-en",
+    "name": "location",
+    "additionalNames": ["country", "place"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-18-en": {
+    "id": "ccpt-18-en",
+    "name": "building",
+    "additionalNames": ["construction", "city"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-19-en": {
+    "id": "ccpt-19-en",
+    "name": "date",
+    "additionalNames": ["event", "daytime"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-20-en": {
+    "id": "ccpt-20-en",
+    "name": "holidays",
+    "additionalNames": ["birthday", "celebration"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-21-en": {
+    "id": "ccpt-21-en",
+    "name": "watercraft",
+    "additionalNames": ["maritime", "swim"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-22-en": {
+    "id": "ccpt-22-en",
+    "name": "airborne vehicle",
+    "additionalNames": ["airline", "fly"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-23-en": {
+    "id": "ccpt-23-en",
+    "name": "land vehicle",
+    "additionalNames": ["car", "ride"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-24-en": {
+    "id": "ccpt-24-en",
+    "name": "tools",
+    "additionalNames": ["construction"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-25-en": {
+    "id": "ccpt-25-en",
+    "name": "games",
+    "additionalNames": ["toys", "youth"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-26-en": {
+    "id": "ccpt-26-en",
+    "name": "clothes",
+    "additionalNames": ["accessories", "costume"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-27-en": {
+    "id": "ccpt-27-en",
+    "name": "food",
+    "additionalNames": ["nutrition", "edible"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-28-en": {
+    "id": "ccpt-28-en",
+    "name": "home",
+    "additionalNames": ["interior", "domestic"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-29-en": {
+    "id": "ccpt-29-en",
+    "name": "reality",
+    "additionalNames": ["history"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-30-en": {
+    "id": "ccpt-30-en",
+    "name": "fictional",
+    "additionalNames": ["imaginary", "wish"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-31-en": {
+    "id": "ccpt-31-en",
+    "name": "young",
+    "additionalNames": ["baby", "child", "new"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-32-en": {
+    "id": "ccpt-32-en",
+    "name": "adult",
+    "additionalNames": ["old", "ancient", "past"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-33-en": {
+    "id": "ccpt-33-en",
+    "name": "Slow",
+    "additionalNames": ["lengthy", "turtle"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-34-en": {
+    "id": "ccpt-34-en",
+    "name": "Fast",
+    "additionalNames": ["lively", "hare"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-35-en": {
+    "id": "ccpt-35-en",
+    "name": "defense",
+    "additionalNames": ["protection", "shield"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-36-en": {
+    "id": "ccpt-36-en",
+    "name": "conflict",
+    "additionalNames": ["weapon", "fight"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-37-en": {
+    "id": "ccpt-37-en",
+    "name": "life",
+    "additionalNames": ["love", "heart"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-38-en": {
+    "id": "ccpt-38-en",
+    "name": "death",
+    "additionalNames": ["evil", "disease"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-39-en": {
+    "id": "ccpt-39-en",
+    "name": "joyous",
+    "additionalNames": ["happy", "positive"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-40-en": {
+    "id": "ccpt-40-en",
+    "name": "sad",
+    "additionalNames": ["negative"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-41-en": {
+    "id": "ccpt-41-en",
+    "name": "electronics",
+    "additionalNames": ["computer"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-42-en": {
+    "id": "ccpt-42-en",
+    "name": "mechanical",
+    "additionalNames": ["industrial", "engine"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-43-en": {
+    "id": "ccpt-43-en",
+    "name": "money",
+    "additionalNames": ["rich", "expensive"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-44-en": {
+    "id": "ccpt-44-en",
+    "name": "time",
+    "additionalNames": ["duration"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-45-en": {
+    "id": "ccpt-45-en",
+    "name": "religion",
+    "additionalNames": ["myth", "belief"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-46-en": {
+    "id": "ccpt-46-en",
+    "name": "power",
+    "additionalNames": ["politics"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-47-en": {
+    "id": "ccpt-47-en",
+    "name": "science",
+    "additionalNames": ["mathematics", "chemistry"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-48-en": {
+    "id": "ccpt-48-en",
+    "name": "medical",
+    "additionalNames": ["drug", "cure"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-49-en": {
+    "id": "ccpt-49-en",
+    "name": "head",
+    "additionalNames": ["face"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-50-en": {
+    "id": "ccpt-50-en",
+    "name": "arm",
+    "additionalNames": ["hand", "finger"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-51-en": {
+    "id": "ccpt-51-en",
+    "name": "torso",
+    "additionalNames": ["body", "stomach"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-52-en": {
+    "id": "ccpt-52-en",
+    "name": "leg",
+    "additionalNames": ["foot"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-53-en": {
+    "id": "ccpt-53-en",
+    "name": "ear",
+    "additionalNames": ["sound", "hear"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-54-en": {
+    "id": "ccpt-54-en",
+    "name": "nose",
+    "additionalNames": ["odor", "smell"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-55-en": {
+    "id": "ccpt-55-en",
+    "name": "eye",
+    "additionalNames": ["view", "observe"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-56-en": {
+    "id": "ccpt-56-en",
+    "name": "mouth",
+    "additionalNames": ["flavor", "eat"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-57-en": {
+    "id": "ccpt-57-en",
+    "name": "cloud",
+    "additionalNames": ["rain", "snow", "cold"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-58-en": {
+    "id": "ccpt-58-en",
+    "name": "lightning",
+    "additionalNames": ["electricity", "storm", "anger"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-59-en": {
+    "id": "ccpt-59-en",
+    "name": "night",
+    "additionalNames": ["evening", "dark", "moon"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-60-en": {
+    "id": "ccpt-60-en",
+    "name": "sun",
+    "additionalNames": ["heat", "light", "daytime"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-61-en": {
+    "id": "ccpt-61-en",
+    "name": "fire",
+    "additionalNames": ["burn", "heat"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-62-en": {
+    "id": "ccpt-62-en",
+    "name": "water",
+    "additionalNames": ["liquid", "aquatic"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-63-en": {
+    "id": "ccpt-63-en",
+    "name": "air",
+    "additionalNames": ["wind", "blow"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-64-en": {
+    "id": "ccpt-64-en",
+    "name": "earth",
+    "additionalNames": ["dirt", "ground"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-65-en": {
+    "id": "ccpt-65-en",
+    "name": "rock",
+    "additionalNames": ["mineral", "hard"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-66-en": {
+    "id": "ccpt-66-en",
+    "name": "wood",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-67-en": {
+    "id": "ccpt-67-en",
+    "name": "metal",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-68-en": {
+    "id": "ccpt-68-en",
+    "name": "fabric",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-69-en": {
+    "id": "ccpt-69-en",
+    "name": "plastic",
+    "additionalNames": ["rubber"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-70-en": {
+    "id": "ccpt-70-en",
+    "name": "paper",
+    "additionalNames": ["sheet"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-71-en": {
+    "id": "ccpt-71-en",
+    "name": "opposite",
+    "additionalNames": ["contrary", "inverse"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-72-en": {
+    "id": "ccpt-72-en",
+    "name": "break",
+    "additionalNames": ["separate", "half"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-73-en": {
+    "id": "ccpt-73-en",
+    "name": "fragment",
+    "additionalNames": ["multitude", "powder"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-74-en": {
+    "id": "ccpt-74-en",
+    "name": "part",
+    "additionalNames": ["bit", "piece"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-75-en": {
+    "id": "ccpt-75-en",
+    "name": "inside",
+    "additionalNames": ["internal"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-76-en": {
+    "id": "ccpt-76-en",
+    "name": "grid",
+    "additionalNames": ["network", "prison"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-77-en": {
+    "id": "ccpt-77-en",
+    "name": "zero",
+    "additionalNames": ["nothing", "null"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-78-en": {
+    "id": "ccpt-78-en",
+    "name": "one",
+    "additionalNames": ["unity"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-79-en": {
+    "id": "ccpt-79-en",
+    "name": "line",
+    "additionalNames": ["straight", "smooth", "rise"],
+    "queryTerms": "",
+    "default": false,
+    "type": ""
+  },
+  "ccpt-80-en": {
+    "id": "ccpt-80-en",
+    "name": "curve",
+    "additionalNames": ["arc", "rounded"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-81-en": {
+    "id": "ccpt-81-en",
+    "name": "cross",
+    "additionalNames": ["intersection", "addition"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-82-en": {
+    "id": "ccpt-82-en",
+    "name": "zigzag",
+    "additionalNames": ["sharp", "uneven"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-83-en": {
+    "id": "ccpt-83-en",
+    "name": "spiral",
+    "additionalNames": ["madness", "coil"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-84-en": {
+    "id": "ccpt-84-en",
+    "name": "sinusoidal",
+    "additionalNames": ["ripple", "hair"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-85-en": {
+    "id": "ccpt-85-en",
+    "name": "ring",
+    "additionalNames": ["cycle"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-86-en": {
+    "id": "ccpt-86-en",
+    "name": "circle",
+    "additionalNames": ["button"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-87-en": {
+    "id": "ccpt-87-en",
+    "name": "triangle",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-88-en": {
+    "id": "ccpt-88-en",
+    "name": "star",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-89-en": {
+    "id": "ccpt-89-en",
+    "name": "rectangle",
+    "additionalNames": ["square"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-90-en": {
+    "id": "ccpt-90-en",
+    "name": "flat",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-91-en": {
+    "id": "ccpt-91-en",
+    "name": "pyramid",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-92-en": {
+    "id": "ccpt-92-en",
+    "name": "cylinder",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-93-en": {
+    "id": "ccpt-93-en",
+    "name": "cone",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-94-en": {
+    "id": "ccpt-94-en",
+    "name": "hollow",
+    "additionalNames": ["hole", "pierced"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-95-en": {
+    "id": "ccpt-95-en",
+    "name": "tall",
+    "additionalNames": ["greater", "high"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-96-en": {
+    "id": "ccpt-96-en",
+    "name": "small",
+    "additionalNames": ["lower", "below"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-97-en": {
+    "id": "ccpt-97-en",
+    "name": "huge",
+    "additionalNames": ["wider", "longer"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-98-en": {
+    "id": "ccpt-98-en",
+    "name": "skinny",
+    "additionalNames": ["closer", "brief"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-99-en": {
+    "id": "ccpt-99-en",
+    "name": "top",
+    "additionalNames": ["up", "mount"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-100-en": {
+    "id": "ccpt-100-en",
+    "name": "low",
+    "additionalNames": ["down", "under"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-101-en": {
+    "id": "ccpt-101-en",
+    "name": "left",
+    "additionalNames": ["first", "before"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-102-en": {
+    "id": "ccpt-102-en",
+    "name": "right",
+    "additionalNames": ["end", "after"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-103-en": {
+    "id": "ccpt-103-en",
+    "name": "turn",
+    "additionalNames": ["surround", "cycle"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-104-en": {
+    "id": "ccpt-104-en",
+    "name": "use",
+    "additionalNames": ["activate", "verb", "button"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-105-en": {
+    "id": "ccpt-105-en",
+    "name": "red",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-106-en": {
+    "id": "ccpt-106-en",
+    "name": "orange",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-107-en": {
+    "id": "ccpt-107-en",
+    "name": "yellow",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-108-en": {
+    "id": "ccpt-108-en",
+    "name": "green",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-109-en": {
+    "id": "ccpt-109-en",
+    "name": "blue",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-110-en": {
+    "id": "ccpt-110-en",
+    "name": "purple",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-111-en": {
+    "id": "ccpt-111-en",
+    "name": "pink",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-112-en": {
+    "id": "ccpt-112-en",
+    "name": "brown",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-113-en": {
+    "id": "ccpt-113-en",
+    "name": "black",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-114-en": {
+    "id": "ccpt-114-en",
+    "name": "gray",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-115-en": {
+    "id": "ccpt-115-en",
+    "name": "transparent",
+    "additionalNames": ["clear", "invisible"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-116-en": {
+    "id": "ccpt-116-en",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-117-en": {
+    "id": "ccpt-117-en",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-118-en": {
+    "id": "ccpt-118-en",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-119-en": {
+    "id": "ccpt-119-en",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-120-en": {
+    "id": "ccpt-120-en",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": false,
+    "type": ""
+  },
+  "ccpt-121-en": {
+    "id": "ccpt-121-en",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": false,
+    "type": ""
+  }
+}

@@ -1,0 +1,970 @@
+{
+  "ccpt-1-pt": {
+    "id": "ccpt-1-pt",
+    "name": "objeto",
+    "additionalNames": ["coisa", "pacote"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-2-pt": {
+    "id": "ccpt-2-pt",
+    "name": "pessoa",
+    "additionalNames": ["família", "grupo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-3-pt": {
+    "id": "ccpt-3-pt",
+    "name": "mulher",
+    "additionalNames": ["feminino", "esposa", "feminina"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-4-pt": {
+    "id": "ccpt-4-pt",
+    "name": "homem",
+    "additionalNames": ["masculino", "marido", "masculino"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-5-pt": {
+    "id": "ccpt-5-pt",
+    "name": "trabalho",
+    "additionalNames": ["profissão", "ofício"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-6-pt": {
+    "id": "ccpt-6-pt",
+    "name": "recreação",
+    "additionalNames": ["esporte", "atividade", "hobby"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-7-pt": {
+    "id": "ccpt-7-pt",
+    "name": "animal",
+    "additionalNames": ["fauna", "bicho"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-8-pt": {
+    "id": "ccpt-8-pt",
+    "name": "planta",
+    "additionalNames": ["flora", "natureza"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-9-pt": {
+    "id": "ccpt-9-pt",
+    "name": "literatura",
+    "additionalNames": ["escrita", "livro"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-10-pt": {
+    "id": "ccpt-10-pt",
+    "name": "música",
+    "additionalNames": ["canção", "nota"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-11-pt": {
+    "id": "ccpt-11-pt",
+    "name": "cinema",
+    "additionalNames": ["filme", "câmera"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-12-pt": {
+    "id": "ccpt-12-pt",
+    "name": "artes",
+    "additionalNames": ["escultura", "pintura", "desenho", "quadrinhos"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-13-pt": {
+    "id": "ccpt-13-pt",
+    "name": "televisão",
+    "additionalNames": ["transmissão", "série"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-14-pt": {
+    "id": "ccpt-14-pt",
+    "name": "título",
+    "additionalNames": ["marca", "nome"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-15-pt": {
+    "id": "ccpt-15-pt",
+    "name": "ideia",
+    "additionalNames": ["pensamento", "conceito"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-16-pt": {
+    "id": "ccpt-16-pt",
+    "name": "expressão",
+    "additionalNames": ["citação", "falar", "palavra"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-17-pt": {
+    "id": "ccpt-17-pt",
+    "name": "localização",
+    "additionalNames": ["país", "lugar"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-18-pt": {
+    "id": "ccpt-18-pt",
+    "name": "construção",
+    "additionalNames": ["edifício", "cidade"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-19-pt": {
+    "id": "ccpt-19-pt",
+    "name": "data",
+    "additionalNames": ["evento", "horário"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-20-pt": {
+    "id": "ccpt-20-pt",
+    "name": "feriados",
+    "additionalNames": ["aniversário", "celebração"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-21-pt": {
+    "id": "ccpt-21-pt",
+    "name": "embarcação",
+    "additionalNames": ["marítimo", "nadar"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-22-pt": {
+    "id": "ccpt-22-pt",
+    "name": "veículo aéreo",
+    "additionalNames": ["companhia aérea", "voar"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-23-pt": {
+    "id": "ccpt-23-pt",
+    "name": "veículo terrestre",
+    "additionalNames": ["carro", "passeio"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-24-pt": {
+    "id": "ccpt-24-pt",
+    "name": "ferramentas",
+    "additionalNames": ["construção"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-25-pt": {
+    "id": "ccpt-25-pt",
+    "name": "jogos",
+    "additionalNames": ["brinquedos", "juventude"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-26-pt": {
+    "id": "ccpt-26-pt",
+    "name": "roupas",
+    "additionalNames": ["acessórios", "fantasia"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-27-pt": {
+    "id": "ccpt-27-pt",
+    "name": "comida",
+    "additionalNames": ["nutrição", "comestível"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-28-pt": {
+    "id": "ccpt-28-pt",
+    "name": "casa",
+    "additionalNames": ["interior", "doméstico"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-29-pt": {
+    "id": "ccpt-29-pt",
+    "name": "realidade",
+    "additionalNames": ["história"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-30-pt": {
+    "id": "ccpt-30-pt",
+    "name": "ficção",
+    "additionalNames": ["imaginário", "desejo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-31-pt": {
+    "id": "ccpt-31-pt",
+    "name": "jovem",
+    "additionalNames": ["bebê", "criança", "novo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-32-pt": {
+    "id": "ccpt-32-pt",
+    "name": "adulto",
+    "additionalNames": ["velho", "antigo", "passado"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-33-pt": {
+    "id": "ccpt-33-pt",
+    "name": "Lento",
+    "additionalNames": ["demorado", "tartaruga"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-34-pt": {
+    "id": "ccpt-34-pt",
+    "name": "Rápido",
+    "additionalNames": ["animado", "lebre"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-35-pt": {
+    "id": "ccpt-35-pt",
+    "name": "defesa",
+    "additionalNames": ["proteção", "escudo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-36-pt": {
+    "id": "ccpt-36-pt",
+    "name": "conflito",
+    "additionalNames": ["arma", "luta"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-37-pt": {
+    "id": "ccpt-37-pt",
+    "name": "vida",
+    "additionalNames": ["amor", "coração"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-38-pt": {
+    "id": "ccpt-38-pt",
+    "name": "morte",
+    "additionalNames": ["mal", "doença"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-39-pt": {
+    "id": "ccpt-39-pt",
+    "name": "alegre",
+    "additionalNames": ["feliz", "positivo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-40-pt": {
+    "id": "ccpt-40-pt",
+    "name": "triste",
+    "additionalNames": ["negativo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-41-pt": {
+    "id": "ccpt-41-pt",
+    "name": "eletrônicos",
+    "additionalNames": ["computador"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-42-pt": {
+    "id": "ccpt-42-pt",
+    "name": "mecânico",
+    "additionalNames": ["industrial", "motor"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-43-pt": {
+    "id": "ccpt-43-pt",
+    "name": "dinheiro",
+    "additionalNames": ["rico", "caro"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-44-pt": {
+    "id": "ccpt-44-pt",
+    "name": "tempo",
+    "additionalNames": ["duração"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-45-pt": {
+    "id": "ccpt-45-pt",
+    "name": "religião",
+    "additionalNames": ["mito", "crença"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-46-pt": {
+    "id": "ccpt-46-pt",
+    "name": "poder",
+    "additionalNames": ["política"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-47-pt": {
+    "id": "ccpt-47-pt",
+    "name": "ciência",
+    "additionalNames": ["matemática", "química"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-48-pt": {
+    "id": "ccpt-48-pt",
+    "name": "médico",
+    "additionalNames": ["remédio", "cura"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-49-pt": {
+    "id": "ccpt-49-pt",
+    "name": "cabeça",
+    "additionalNames": ["rosto"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-50-pt": {
+    "id": "ccpt-50-pt",
+    "name": "braço",
+    "additionalNames": ["mão", "dedo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-51-pt": {
+    "id": "ccpt-51-pt",
+    "name": "tronco",
+    "additionalNames": ["corpo", "estômago"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-52-pt": {
+    "id": "ccpt-52-pt",
+    "name": "perna",
+    "additionalNames": ["pé"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-53-pt": {
+    "id": "ccpt-53-pt",
+    "name": "orelha",
+    "additionalNames": ["som", "ouvir"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-54-pt": {
+    "id": "ccpt-54-pt",
+    "name": "nariz",
+    "additionalNames": ["odor", "cheiro"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-55-pt": {
+    "id": "ccpt-55-pt",
+    "name": "olho",
+    "additionalNames": ["visão", "observar"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-56-pt": {
+    "id": "ccpt-56-pt",
+    "name": "boca",
+    "additionalNames": ["sabor", "comer"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-57-pt": {
+    "id": "ccpt-57-pt",
+    "name": "nuvem",
+    "additionalNames": ["chuva", "neve", "frio"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-58-pt": {
+    "id": "ccpt-58-pt",
+    "name": "raio",
+    "additionalNames": ["eletricidade", "tempestade", "raiva"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-59-pt": {
+    "id": "ccpt-59-pt",
+    "name": "noite",
+    "additionalNames": ["tarde", "escuro", "lua"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-60-pt": {
+    "id": "ccpt-60-pt",
+    "name": "sol",
+    "additionalNames": ["calor", "luz", "dia"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-61-pt": {
+    "id": "ccpt-61-pt",
+    "name": "fogo",
+    "additionalNames": ["queimar", "calor"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-62-pt": {
+    "id": "ccpt-62-pt",
+    "name": "água",
+    "additionalNames": ["líquido", "aquático"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-63-pt": {
+    "id": "ccpt-63-pt",
+    "name": "ar",
+    "additionalNames": ["vento", "soprar"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-64-pt": {
+    "id": "ccpt-64-pt",
+    "name": "terra",
+    "additionalNames": ["terra", "chão"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-65-pt": {
+    "id": "ccpt-65-pt",
+    "name": "pedra",
+    "additionalNames": ["mineral", "duro"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-66-pt": {
+    "id": "ccpt-66-pt",
+    "name": "madeira",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-67-pt": {
+    "id": "ccpt-67-pt",
+    "name": "metal",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-68-pt": {
+    "id": "ccpt-68-pt",
+    "name": "tecido",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-69-pt": {
+    "id": "ccpt-69-pt",
+    "name": "plástico",
+    "additionalNames": ["borracha"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-70-pt": {
+    "id": "ccpt-70-pt",
+    "name": "papel",
+    "additionalNames": ["folha"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-71-pt": {
+    "id": "ccpt-71-pt",
+    "name": "oposto",
+    "additionalNames": ["contrário", "inverso"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-72-pt": {
+    "id": "ccpt-72-pt",
+    "name": "quebrar",
+    "additionalNames": ["separar", "metade"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-73-pt": {
+    "id": "ccpt-73-pt",
+    "name": "fragmento",
+    "additionalNames": ["multidão", "pó"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-74-pt": {
+    "id": "ccpt-74-pt",
+    "name": "parte",
+    "additionalNames": ["pedaço"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-75-pt": {
+    "id": "ccpt-75-pt",
+    "name": "dentro",
+    "additionalNames": ["interno"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-76-pt": {
+    "id": "ccpt-76-pt",
+    "name": "grade",
+    "additionalNames": ["rede", "prisão"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-77-pt": {
+    "id": "ccpt-77-pt",
+    "name": "zero",
+    "additionalNames": ["nada", "nulo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-78-pt": {
+    "id": "ccpt-78-pt",
+    "name": "um",
+    "additionalNames": ["unidade"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-79-pt": {
+    "id": "ccpt-79-pt",
+    "name": "linha",
+    "additionalNames": ["reta", "suave", "ascensão"],
+    "queryTerms": "",
+    "default": false,
+    "type": ""
+  },
+  "ccpt-80-pt": {
+    "id": "ccpt-80-pt",
+    "name": "curva",
+    "additionalNames": ["arco", "arredondado"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-81-pt": {
+    "id": "ccpt-81-pt",
+    "name": "cruz",
+    "additionalNames": ["interseção", "adição"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-82-pt": {
+    "id": "ccpt-82-pt",
+    "name": "zigzag",
+    "additionalNames": ["ponta afiada", "irregular"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-83-pt": {
+    "id": "ccpt-83-pt",
+    "name": "espiral",
+    "additionalNames": ["loucura", "enrolado"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-84-pt": {
+    "id": "ccpt-84-pt",
+    "name": "sinusoidal",
+    "additionalNames": ["ondulação", "cabelo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-85-pt": {
+    "id": "ccpt-85-pt",
+    "name": "anel",
+    "additionalNames": ["ciclo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-86-pt": {
+    "id": "ccpt-86-pt",
+    "name": "círculo",
+    "additionalNames": ["botão"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-87-pt": {
+    "id": "ccpt-87-pt",
+    "name": "triângulo",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-88-pt": {
+    "id": "ccpt-88-pt",
+    "name": "estrela",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-89-pt": {
+    "id": "ccpt-89-pt",
+    "name": "retângulo",
+    "additionalNames": ["quadrado"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-90-pt": {
+    "id": "ccpt-90-pt",
+    "name": "plano",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-91-pt": {
+    "id": "ccpt-91-pt",
+    "name": "pirâmide",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-92-pt": {
+    "id": "ccpt-92-pt",
+    "name": "cilindro",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-93-pt": {
+    "id": "ccpt-93-pt",
+    "name": "cone",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-94-pt": {
+    "id": "ccpt-94-pt",
+    "name": "oco",
+    "additionalNames": ["buraco", "perfurado"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-95-pt": {
+    "id": "ccpt-95-pt",
+    "name": "alto",
+    "additionalNames": ["maior", "alto"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-96-pt": {
+    "id": "ccpt-96-pt",
+    "name": "pequeno",
+    "additionalNames": ["inferior", "abaixo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-97-pt": {
+    "id": "ccpt-97-pt",
+    "name": "enorme",
+    "additionalNames": ["maior", "mais longo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-98-pt": {
+    "id": "ccpt-98-pt",
+    "name": "magro",
+    "additionalNames": ["menor", "breve"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-99-pt": {
+    "id": "ccpt-99-pt",
+    "name": "topo",
+    "additionalNames": ["acima", "monte"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-100-pt": {
+    "id": "ccpt-100-pt",
+    "name": "baixo",
+    "additionalNames": ["abaixo", "sob"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-101-pt": {
+    "id": "ccpt-101-pt",
+    "name": "esquerda",
+    "additionalNames": ["primeiro", "antes"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-102-pt": {
+    "id": "ccpt-102-pt",
+    "name": "direita",
+    "additionalNames": ["fim", "depois"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-103-pt": {
+    "id": "ccpt-103-pt",
+    "name": "virar",
+    "additionalNames": ["envolver", "ciclo"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-104-pt": {
+    "id": "ccpt-104-pt",
+    "name": "usar",
+    "additionalNames": ["ativar", "verbo", "botão"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-105-pt": {
+    "id": "ccpt-105-pt",
+    "name": "vermelho",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-106-pt": {
+    "id": "ccpt-106-pt",
+    "name": "laranja",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-107-pt": {
+    "id": "ccpt-107-pt",
+    "name": "amarelo",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-108-pt": {
+    "id": "ccpt-108-pt",
+    "name": "verde",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-109-pt": {
+    "id": "ccpt-109-pt",
+    "name": "azul",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-110-pt": {
+    "id": "ccpt-110-pt",
+    "name": "roxo",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-111-pt": {
+    "id": "ccpt-111-pt",
+    "name": "rosa",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-112-pt": {
+    "id": "ccpt-112-pt",
+    "name": "marrom",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-113-pt": {
+    "id": "ccpt-113-pt",
+    "name": "preto",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-114-pt": {
+    "id": "ccpt-114-pt",
+    "name": "cinza",
+    "additionalNames": [],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-115-pt": {
+    "id": "ccpt-115-pt",
+    "name": "transparente",
+    "additionalNames": ["limpo", "invisível"],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-116-pt": {
+    "id": "ccpt-116-pt",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-117-pt": {
+    "id": "ccpt-117-pt",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-118-pt": {
+    "id": "ccpt-118-pt",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-119-pt": {
+    "id": "ccpt-119-pt",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": true,
+    "type": ""
+  },
+  "ccpt-120-pt": {
+    "id": "ccpt-120-pt",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": false,
+    "type": ""
+  },
+  "ccpt-121-pt": {
+    "id": "ccpt-121-pt",
+    "name": "",
+    "additionalNames": [""],
+    "queryTerms": "",
+    "default": false,
+    "type": ""
+  }
+}
