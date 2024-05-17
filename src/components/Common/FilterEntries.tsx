@@ -1,4 +1,5 @@
-import { Form, InputNumber, Select, Switch } from 'antd';
+import { Form, InputNumber, Segmented, Select, Switch, Tooltip } from 'antd';
+import { SegmentedValue } from 'antd/es/segmented';
 import { ReactNode } from 'react';
 
 type StrOrNum = string | number;
@@ -71,6 +72,29 @@ export function FilterSwitch({ label, value, onChange, className }: FilterSwitch
   return (
     <Form.Item label={label} valuePropName="checked" className={className}>
       <Switch checked={value} onChange={onChange} size="small" />
+    </Form.Item>
+  );
+}
+
+type FilterSegmentsProps = {
+  label: ReactNode;
+  value?: string;
+  onChange: (mode: SegmentedValue) => void;
+  options: { value: string; title: string; icon: ReactNode }[];
+};
+
+export function FilterSegments({ value, label, onChange, options }: FilterSegmentsProps) {
+  return (
+    <Form.Item label={label}>
+      <Segmented
+        block
+        value={value}
+        onChange={onChange}
+        options={options.map((option) => ({
+          label: <Tooltip title={option.title}>{option.icon}</Tooltip>,
+          value: option.value,
+        }))}
+      />
     </Form.Item>
   );
 }

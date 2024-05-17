@@ -1,6 +1,6 @@
 import { AppstoreOutlined, FileTextOutlined, TableOutlined } from '@ant-design/icons';
-import { Form, Segmented, Tooltip } from 'antd';
-import { SegmentedValue } from 'antd/es/segmented';
+import { FilterSegments } from 'components/Common';
+
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 
@@ -9,39 +9,28 @@ export function ResourceDisplayMode() {
 
   return (
     <SiderContent>
-      <Form.Item label="Display">
-        <Segmented
-          block
-          value={queryParams.display ?? 'json'}
-          onChange={(mode: SegmentedValue) => addParam('display', mode)}
-          options={[
-            {
-              label: (
-                <Tooltip title="JSON">
-                  <FileTextOutlined />
-                </Tooltip>
-              ),
-              value: 'json',
-            },
-            {
-              label: (
-                <Tooltip title="Table">
-                  <TableOutlined />
-                </Tooltip>
-              ),
-              value: 'table',
-            },
-            {
-              label: (
-                <Tooltip title="Cards">
-                  <AppstoreOutlined />
-                </Tooltip>
-              ),
-              value: 'cards',
-            },
-          ]}
-        />
-      </Form.Item>
+      <FilterSegments
+        label="Display"
+        value={queryParams.display ?? 'json'}
+        onChange={(mode) => addParam('display', mode)}
+        options={[
+          {
+            title: 'JSON',
+            icon: <FileTextOutlined />,
+            value: 'json',
+          },
+          {
+            title: 'Table',
+            icon: <TableOutlined />,
+            value: 'table',
+          },
+          {
+            title: 'Cards',
+            icon: <AppstoreOutlined />,
+            value: 'cards',
+          },
+        ]}
+      />
     </SiderContent>
   );
 }

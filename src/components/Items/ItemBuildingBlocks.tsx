@@ -59,6 +59,10 @@ export function ItemName({ item, language }: ItemBlockProps & Pick<ItemBlocksAdd
   );
 }
 
+export function ItemNsfw({ item }: ItemBlockProps) {
+  return item.nsfw ? <FireFilled style={{ color: 'hotpink' }} /> : <></>;
+}
+
 export function ItemGoTo({ item }: ItemBlockProps) {
   const [, setSearchParams] = useSearchParams();
   const onGoTo = () => {

@@ -4,8 +4,8 @@ import { useSearchParams } from 'react-router-dom';
 export function useQueryParams(defaultParams: Record<string, string | number> = {}) {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const addParam = (key: string, value: unknown) => {
-    if (value === undefined || value === '') {
+  const addParam = (key: string, value: unknown, defaultValue?: unknown) => {
+    if (value === undefined || value === '' || value === defaultValue) {
       searchParams.delete(key);
     } else {
       searchParams.set(key, String(value));
@@ -14,7 +14,7 @@ export function useQueryParams(defaultParams: Record<string, string | number> = 
     setSearchParams(searchParams);
   };
 
-  const removeParam = (key: string, value: unknown) => {
+  const removeParam = (key: string) => {
     searchParams.delete(key);
     setSearchParams(searchParams);
   };
