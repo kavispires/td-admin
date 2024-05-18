@@ -159,7 +159,6 @@ const items: MenuProps['items'] = [
       {
         label: 'Crimes History',
         key: '/items/crimes-history',
-        disabled: true,
       },
       {
         label: 'Movies',

@@ -38,6 +38,9 @@ const ItemsMovieSets = lazy(
   () => import('pages/Items/ItemsMovieSets' /* webpackChunkName: "ItemsMovieSets" */)
 );
 const ItemsQuartets = lazy(() => import('pages/Items/ItemsQuartets' /* webpackChunkName: "ItemsQuartets" */));
+const ItemsCrimeHistory = lazy(
+  () => import('pages/Items/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */)
+);
 
 const DailySetup = lazy(() => import('pages/DailySetup' /* webpackChunkName: "DailySetup" */));
 const CrimesHediondosCategorizer = lazy(
@@ -141,6 +144,14 @@ export const routes = (
       element={
         <Suspense fallback={<LoadingPage />}>
           <ItemsMovieSets />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/items/crimes-history"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <ItemsCrimeHistory />
         </Suspense>
       }
     />
