@@ -7,10 +7,15 @@ type ItemGroupsCardProps = {
   item: ItemT;
   itemGroups?: string[];
   groupsTypeahead: { label: string; value: string }[];
-  onAddToGroup: (groupId: string, itemId: string) => void;
+  onUpdateItemGroups: (itemId: string, groupIds: string[]) => void;
 };
 
-export function ItemGroupsCard({ item, itemGroups, groupsTypeahead, onAddToGroup }: ItemGroupsCardProps) {
+export function ItemGroupsCard({
+  item,
+  itemGroups,
+  groupsTypeahead,
+  onUpdateItemGroups,
+}: ItemGroupsCardProps) {
   const copyToClipboard = useCopyToClipboardFunction();
 
   // const onInputKeyDown = (event: any) => {
@@ -44,8 +49,8 @@ export function ItemGroupsCard({ item, itemGroups, groupsTypeahead, onAddToGroup
           showSearch
           size="small"
           key={String(itemGroups)}
-          // onChange={(groups) => onUpdateItemGroup(item.id, groups, )}
-          onSelect={(group) => onAddToGroup(group, item.id)}
+          onChange={(groups) => onUpdateItemGroups(item.id, groups)}
+          // onSelect={(group) => onAddToGroup(group, item.id)}
           // onInputKeyDown={onInputKeyDown}
         />
       </Space>

@@ -39,20 +39,27 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
     [data]
   );
 
-  const onAddToGroup = (groupId: string, itemId: string) => {
-    // If group exist, add item to group
-    const group = data[groupId] ?? { itemIds: [] };
-    if (group.itemsIds.includes(itemId)) {
+  const onUpdateItemGroups = (itemId: string, groupIds: string[]) => {
+    // Compare previous groups in items with new groups
+    const previousGroups = grousByItem[itemId] ?? [];
+    const groupsToAdd = groupIds.filter((id) => !previousGroups.includes(id));
+    const groupsToRemove = previousGroups.filter((id) => !groupIds.includes(id));
+
+    // Add item to groups
+    groupsToAdd.forEach((groupId) => {
       addEntryToUpdate(groupId, {
         id: groupId,
-        itemsIds: group.itemsIds.filter((id) => id !== itemId),
+        itemsIds: removeDuplicates([...(data[groupId]?.itemsIds ?? []), itemId]),
       });
-    } else {
+    });
+
+    // Remove item from groups
+    groupsToRemove.forEach((groupId) => {
       addEntryToUpdate(groupId, {
         id: groupId,
-        itemsIds: removeDuplicates([...group.itemsIds, itemId]),
+        itemsIds: removeDuplicates(data[groupId]?.itemsIds.filter((id) => id !== itemId)),
       });
-    }
+    });
   };
 
   return (
@@ -63,7 +70,7 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
           items={itemsTypeaheadQuery.data}
           grousByItem={grousByItem}
           groupsTypeahead={groupsTypeahead}
-          onAddToGroup={onAddToGroup}
+          onUpdateItemGroups={onUpdateItemGroups}
         />
       )}
     </>
@@ -112,14 +119,14 @@ type ItemsGroupsByItemTableProps = {
   items: Dictionary<ItemT>;
   grousByItem: Record<string, string[]>;
   groupsTypeahead: { value: string; label: string }[];
-  onAddToGroup: (groupId: string, itemId: string) => void;
+  onUpdateItemGroups: (itemId: string, groupIds: string[]) => void;
 };
 
 function ItemsGroupsByItemTable({
   items,
   grousByItem,
   groupsTypeahead,
-  onAddToGroup,
+  onUpdateItemGroups,
 }: ItemsGroupsByItemTableProps) {
   const { queryParams, addParam } = useQueryParams();
   const currentPage = Number(queryParams.page ?? '1');
@@ -166,7 +173,7 @@ function ItemsGroupsByItemTable({
               item={item}
               itemGroups={grousByItem[item.id]}
               groupsTypeahead={groupsTypeahead}
-              onAddToGroup={onAddToGroup}
+              onUpdateItemGroups={onUpdateItemGroups}
             />
           </Col>
         ))}
