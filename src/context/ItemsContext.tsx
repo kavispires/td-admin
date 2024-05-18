@@ -1,6 +1,7 @@
+import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { orderBy } from 'lodash';
-import { ReactNode, useContext, createContext, useMemo, useState } from 'react';
+import { createContext, ReactNode, useContext, useMemo } from 'react';
 import { Item } from 'types';
 
 export type ItemsContextType = {
@@ -17,8 +18,6 @@ export type ItemsContextType = {
   isSaving: boolean;
   save: () => void;
   newId: string;
-  listingType: string;
-  setListingType: (type: string) => void;
 };
 
 const ItemsContext = createContext<ItemsContextType>({
@@ -35,8 +34,6 @@ const ItemsContext = createContext<ItemsContextType>({
   isSaving: false,
   save: () => {},
   newId: '-1',
-  listingType: 'all',
-  setListingType: () => {},
 });
 
 type ItemsProviderProps = {
@@ -44,6 +41,8 @@ type ItemsProviderProps = {
 };
 
 export const ItemsProvider = ({ children }: ItemsProviderProps) => {
+  const { queryParams } = useQueryParams();
+
   const {
     data: items,
     isLoading,
@@ -94,11 +93,11 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
     return { categoriesDict, categories };
   }, [items, isSaving, isLoading]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const [listingType, setListingType] = useState('all');
+  const category = queryParams.get('category') ?? 'all';
   const listing = useMemo(() => {
     const orderedList = orderBy(Object.values(items), [(item) => Number(item.id)], 'asc');
 
-    switch (listingType) {
+    switch (category) {
       case 'all':
         return orderedList;
       case '!all':
@@ -108,12 +107,12 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
       case '!nsfw':
         return orderedList.filter((item) => !item.nsfw);
       default:
-        if (listingType.startsWith('!')) {
-          return orderedList.filter((item) => !item?.categories?.includes(listingType.slice(1)));
+        if (category.startsWith('!')) {
+          return orderedList.filter((item) => !item?.categories?.includes(category.slice(1)));
         }
-        return orderedList.filter((item) => item?.categories?.includes(listingType));
+        return orderedList.filter((item) => item?.categories?.includes(category));
     }
-  }, [items, listingType]);
+  }, [items, category]);
 
   // Handle id for new items
   const newId = useMemo(() => {
@@ -139,8 +138,6 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         save,
         itemsToUpdate,
         newId,
-        listingType,
-        setListingType,
       }}
     >
       {children}

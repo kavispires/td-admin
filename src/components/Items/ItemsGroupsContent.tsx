@@ -1,16 +1,17 @@
-import { Col, Flex, Pagination, Row, Table, TableProps, Typography } from 'antd';
+import { Col, Flex, Row, Table, TableProps, Typography } from 'antd';
+import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { useGridPagination } from 'hooks/useGridPagination';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTDResource } from 'hooks/useTDResource';
+import { orderBy } from 'lodash';
 import { useMemo } from 'react';
 import { Item as ItemT, ItemGroup } from 'types';
 import { removeDuplicates } from 'utils';
+
 import { ItemGroupsCard } from './ItemGroupsCard';
-import { orderBy } from 'lodash';
-import { usePaginatedPage } from 'hooks/usePaginatedPage';
-import { useTablePagination } from 'hooks/useTablePagination';
 
 export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { is } = useQueryParams();
@@ -138,39 +139,25 @@ function ItemsGroupsByItemTable({
     [items, grousByItem, showOnlyEmpty]
   );
 
-  const page = usePaginatedPage<ItemT>({
-    data,
-    defaultPageSize: 64,
-  });
-
-  const paginationProps = useTablePagination({
-    total: data.length,
-    defaultPageSize: 64,
-    pageSizeOptions: [16, 32, 64, 128],
-  });
-
-  const pagination = <Pagination {...paginationProps} className="fixed-pagination" />;
+  const { page, pagination } = useGridPagination({ data });
 
   return (
     <>
-      <Typography.Title level={2}>Groups by Items</Typography.Title>
-
-      {pagination}
-
-      <Row gutter={[16, 16]} className="my-4">
-        {page.map((item) => (
-          <Col key={item.id} xs={24} sm={24} md={12} lg={6} xl={4}>
-            <ItemGroupsCard
-              item={item}
-              itemGroups={grousByItem[item.id]}
-              groupsTypeahead={groupsTypeahead}
-              onUpdateItemGroups={onUpdateItemGroups}
-            />
-          </Col>
-        ))}
-      </Row>
-
-      {pagination}
+      <Typography.Title level={2}>Groups by Items ({data.length})</Typography.Title>
+      <PaginationWrapper pagination={pagination}>
+        <Row gutter={[16, 16]} className="my-4">
+          {page.map((item) => (
+            <Col key={item.id} xs={24} sm={24} md={12} lg={6} xl={4}>
+              <ItemGroupsCard
+                item={item}
+                itemGroups={grousByItem[item.id]}
+                groupsTypeahead={groupsTypeahead}
+                onUpdateItemGroups={onUpdateItemGroups}
+              />
+            </Col>
+          ))}
+        </Row>
+      </PaginationWrapper>
     </>
   );
 }

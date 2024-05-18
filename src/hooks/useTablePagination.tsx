@@ -4,7 +4,7 @@ import { useQueryParams } from './useQueryParams';
 /**
  * Options for configuring table pagination.
  */
-type UsePaginationOptions = {
+type UseTablePaginationOptions = {
   /**
    * Only necessary if multiple tables are on the same page.
    */
@@ -37,7 +37,7 @@ export function useTablePagination({
   defaultPageSize = 10,
   pageSizeOptions = [10, 20, 50, 100],
   total,
-}: UsePaginationOptions): TableProps['pagination'] {
+}: UseTablePaginationOptions): TableProps['pagination'] {
   const { queryParams, addParam } = useQueryParams();
   const currentPage = Number(queryParams.get(`${prefix}page`) ?? String(defaultCurrent));
   const pageSize = Number(queryParams.get(`${prefix}pageSize`) ?? String(defaultPageSize));

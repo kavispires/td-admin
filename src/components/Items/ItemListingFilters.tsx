@@ -8,13 +8,15 @@ import { useMemo } from 'react';
 import { AddNewItem } from './AddNewItem';
 import { Item } from 'types';
 import { sortJsonKeys } from 'utils';
+import { useQueryParams } from 'hooks/useQueryParams';
 
 type ItemListingFiltersProps = {
   showSearch: boolean;
   toggleSearch: () => void;
 };
 export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFiltersProps) {
-  const { isDirty, save, items, listingType, setListingType, categories } = useItemsContext();
+  const { queryParams, addParam } = useQueryParams();
+  const { isDirty, save, items, categories } = useItemsContext();
 
   const categoryOptions = useMemo(() => {
     const includingOptions = orderBy(
@@ -46,8 +48,8 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
 
       <FilterSelect
         label="Category"
-        value={listingType}
-        onChange={(value) => setListingType(value)}
+        value={queryParams.get('category') ?? 'all'}
+        onChange={(value) => addParam('category', value, 'all')}
         options={[
           { label: 'All', value: 'all' },
           { label: 'NSFW', value: 'nsfw' },
