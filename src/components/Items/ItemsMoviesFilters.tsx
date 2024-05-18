@@ -13,7 +13,7 @@ export function ItemsMoviesFilters({
   isDirty,
   isSaving,
 }: UseResourceFirebaseDataReturnType<DailyMovieSet>) {
-  const { queryParams, addParam } = useQueryParams();
+  const { is, addParam } = useQueryParams();
   return (
     <SiderContent>
       <Flex vertical gap={12}>
@@ -40,7 +40,7 @@ export function ItemsMoviesFilters({
 
       <FilterSwitch
         label="Pending Only"
-        value={queryParams.emptyOnly === 'true' ? true : false}
+        value={is('emptyOnly')}
         onChange={(mode) => addParam('emptyOnly', mode, false)}
       />
     </SiderContent>

@@ -9,8 +9,8 @@ import { SPRITE_LIBRARY } from 'utils/constants';
 
 function Sprites() {
   // Set default query params
-  const qp = useQueryParams();
-  const { sprite } = qp.queryParams;
+  const { queryParams } = useQueryParams();
+  const sprite = queryParams.get('sprite') ?? '';
 
   const activeSprite = useMemo(() => SPRITE_LIBRARY[sprite] ?? {}, [sprite]);
 

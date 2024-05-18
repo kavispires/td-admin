@@ -15,8 +15,8 @@ const DECK = Array(252).fill(1);
 
 function ImageCards() {
   // Set default query params
-  const qp = useQueryParams({ deck: 'd1' });
-  const { deck = 'd1' } = qp.queryParams;
+  const { queryParams, addParam } = useQueryParams({ deck: 'd1' });
+  const deck = queryParams.get('deck') ?? 'd1';
 
   const { isLoading, error, data } = useTDIData();
   const hasResponseData = !isEmpty(data);
@@ -31,7 +31,7 @@ function ImageCards() {
           <ImageCardsFilters
             decksData={data}
             selectedDeck={deck}
-            setSelectedDeck={(d) => qp.addParam('deck', d)}
+            setSelectedDeck={(d) => addParam('deck', d)}
             cardsPerRow={cardsPerRow}
             setCardsPerRow={setCardsPerRow}
           />

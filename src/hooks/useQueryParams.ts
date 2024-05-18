@@ -19,6 +19,8 @@ export function useQueryParams(defaultParams: Record<string, string | number> = 
     setSearchParams(searchParams);
   };
 
+  const is = (key: string, value = 'true') => searchParams.get(key) === String(value);
+
   useEffect(() => {
     Object.entries(defaultParams).forEach(([key, value]) => {
       if (!searchParams.has(key)) {
@@ -27,20 +29,10 @@ export function useQueryParams(defaultParams: Record<string, string | number> = 
     });
   }, []); // eslint-disable-line
 
-  const queryParams = searchParams
-    .toString()
-    .split('&')
-    .reduce((qp: Record<string, string>, entry) => {
-      const [key, value] = entry.split('=');
-      if (key && value !== undefined) {
-        qp[key] = value;
-      }
-      return qp;
-    }, {});
-
   return {
     addParam,
     removeParam,
-    queryParams,
+    queryParams: searchParams,
+    is,
   };
 }

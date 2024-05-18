@@ -16,10 +16,10 @@ type ResourceState = {
 };
 
 export function useResourceState(availableResources: AvailableResources): ResourceState {
-  const {
-    queryParams: { resourceName = '', language = '' },
-  } = useQueryParams();
+  const { queryParams } = useQueryParams();
   const { getUrl } = useBaseUrl('tdr');
+  const resourceName = queryParams.get('resourceName') ?? '';
+  const language = queryParams.get('language');
 
   const enabled = !!resourceName && availableResources.includes(resourceName);
 

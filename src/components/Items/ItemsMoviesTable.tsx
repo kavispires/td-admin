@@ -30,8 +30,9 @@ export function ItemsMoviesTable({
 }: UseResourceFirebaseDataReturnType<DailyMovieSet>) {
   const copyToClipboard = useCopyToClipboardFunction();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
-  const { queryParams } = useQueryParams();
-  const showOnlyEmpty = queryParams.emptyOnly === 'true';
+  const { is } = useQueryParams();
+  const showOnlyEmpty = is('emptyOnly');
+
   const rows = useMemo(() => {
     const sets = data ? orderSets(Object.values(data)) : [];
     return showOnlyEmpty ? sets.filter((s) => s.itemsIds.length === 0) : sets;

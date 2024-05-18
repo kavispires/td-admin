@@ -39,8 +39,8 @@ export function useTablePagination({
   total,
 }: UsePaginationOptions): TableProps['pagination'] {
   const { queryParams, addParam } = useQueryParams();
-  const currentPage = Number(queryParams[`${prefix}page`] ?? String(defaultCurrent));
-  const pageSize = Number(queryParams[`${prefix}pageSize`] ?? String(defaultPageSize));
+  const currentPage = Number(queryParams.get(`${prefix}page`) ?? String(defaultCurrent));
+  const pageSize = Number(queryParams.get(`${prefix}pageSize`) ?? String(defaultPageSize));
 
   const onChange = (page: number) => {
     addParam(`${prefix}page`, page.toString(), String(defaultCurrent));

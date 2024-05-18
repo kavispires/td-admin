@@ -26,9 +26,8 @@ function Resource() {
     response,
   } = useResourceState(resourceNames);
 
-  const {
-    queryParams: { display = 'json' },
-  } = useQueryParams();
+  const { queryParams } = useQueryParams();
+  const display = queryParams.get('display') ?? 'json';
 
   return (
     <PageLayout

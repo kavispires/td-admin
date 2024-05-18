@@ -30,8 +30,8 @@ export function usePaginatedPage<TData = unknown>({
   defaultPageSize = 10,
 }: UsePaginatedPageOptions<TData>) {
   const { queryParams } = useQueryParams();
-  const currentPage = Number(queryParams[`${prefix}page`] ?? String(defaultCurrent));
-  const pageSize = Number(queryParams[`${prefix}pageSize`] ?? String(defaultPageSize));
+  const currentPage = Number(queryParams.get(`${prefix}page`) ?? String(defaultCurrent));
+  const pageSize = Number(queryParams.get(`${prefix}pageSize`) ?? String(defaultPageSize));
 
   const page = useMemo(() => {
     const start = (currentPage - 1) * pageSize;

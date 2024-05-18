@@ -13,7 +13,7 @@ import { usePaginatedPage } from 'hooks/usePaginatedPage';
 import { useTablePagination } from 'hooks/useTablePagination';
 
 export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
-  const { queryParams } = useQueryParams();
+  const { is } = useQueryParams();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
 
   const grousByItem = useMemo(() => {
@@ -66,8 +66,8 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
 
   return (
     <>
-      {queryParams.display === 'group' && <ItemsGroupsByGroupTable data={data} />}
-      {queryParams.display === 'item' && (
+      {is('display', 'group') && <ItemsGroupsByGroupTable data={data} />}
+      {is('display', 'item') && (
         <ItemsGroupsByItemTable
           items={itemsTypeaheadQuery.data}
           grousByItem={grousByItem}
@@ -130,8 +130,8 @@ function ItemsGroupsByItemTable({
   groupsTypeahead,
   onUpdateItemGroups,
 }: ItemsGroupsByItemTableProps) {
-  const { queryParams } = useQueryParams();
-  const showOnlyEmpty = queryParams.emptyOnly === 'true';
+  const { is } = useQueryParams();
+  const showOnlyEmpty = is('emptyOnly');
 
   const data = useMemo(
     () => (showOnlyEmpty ? Object.values(items).filter((v) => !grousByItem[v.id]) : Object.values(items)),

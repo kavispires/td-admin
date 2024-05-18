@@ -16,8 +16,8 @@ import { SuspectCard } from 'types';
 
 function Suspects() {
   // Set default query params
-  const qp = useQueryParams({ version: 'ct' });
-  const { version = 'ct' } = qp.queryParams;
+  const { queryParams, addParam } = useQueryParams({ version: 'ct' });
+  const version = queryParams.get('version') ?? 'ct';
 
   const { isLoading, error, data, hasResponseData } = useTDResource<SuspectCard>('suspects');
 
@@ -43,7 +43,7 @@ function Suspects() {
           <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
           <SuspectsFilters
             selectedVersion={version}
-            setSelectedVersion={(d) => qp.addParam('version', d)}
+            setSelectedVersion={(d) => addParam('version', d)}
             cardsPerRow={cardsPerRow}
             setCardsPerRow={setCardsPerRow}
             sortBy={sortBy}

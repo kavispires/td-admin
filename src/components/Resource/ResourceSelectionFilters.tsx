@@ -12,7 +12,7 @@ type ResourceSelectionFiltersProps = {
 export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFiltersProps) {
   const { queryParams, addParam } = useQueryParams();
   const [form] = Form.useForm();
-  const [currentResourceName, setCurrentResourceName] = useState(queryParams.resourceName);
+  const [currentResourceName, setCurrentResourceName] = useState(queryParams.get('resourceName') ?? '');
 
   const onFinish = (v: any) => {
     const isDualLanguageResource = DUAL_LANGUAGE_RESOURCES.includes(v.resourceName);
@@ -29,14 +29,14 @@ export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFil
         size="small"
         form={form}
         initialValues={{
-          resourceName: queryParams.resourceName ?? '',
-          language: queryParams.language ?? '',
+          resourceName: queryParams.get('resourceName') ?? '',
+          language: queryParams.get('language') ?? '',
         }}
       >
         <Form.Item label="Resource" name="resourceName">
           <Select
             style={{ minWidth: '150px' }}
-            value={queryParams.resourceName}
+            value={queryParams.get('resourceName')}
             onChange={(e: string) => setCurrentResourceName(e)}
           >
             {resourceNames.map((resourceName) => (
