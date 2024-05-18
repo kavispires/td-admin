@@ -11,6 +11,9 @@ import { ItemsTypeahead } from './ItemsTypeahead';
 import { DeleteFilled } from '@ant-design/icons';
 import { useTDResource } from 'hooks/useTDResource';
 import { Item } from 'components/Sprites';
+import { useQueryParams } from 'hooks/useQueryParams';
+import { useMemo } from 'react';
+import { useTablePagination } from 'hooks/useTablePagination';
 function orderSets(givenSets: DailyMovieSet[]) {
   return orderBy(givenSets, [
     // (s) => removeDuplicates(s.itemsIds).filter(Boolean).length > 0,
@@ -25,9 +28,15 @@ export function ItemsMoviesTable({
   data,
   addEntryToUpdate,
 }: UseResourceFirebaseDataReturnType<DailyMovieSet>) {
-  const sets = data ? orderSets(Object.values(data)) : [];
   const copyToClipboard = useCopyToClipboardFunction();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
+  const { queryParams } = useQueryParams();
+  const showOnlyEmpty = queryParams.emptyOnly === 'true';
+  const rows = useMemo(() => {
+    const sets = data ? orderSets(Object.values(data)) : [];
+    return showOnlyEmpty ? sets.filter((s) => s.itemsIds.length === 0) : sets;
+  }, [data, showOnlyEmpty]);
+  const paginationProps = useTablePagination({ total: rows.length });
 
   const columns: TableProps<DailyMovieSet>['columns'] = [
     {
@@ -74,11 +83,12 @@ export function ItemsMoviesTable({
       <Table
         columns={columns}
         rowKey="id"
-        dataSource={sets}
+        dataSource={rows}
         expandable={{
           expandedRowRender: (record) => <AddItemFlow movie={record} addEntryToUpdate={addEntryToUpdate} />,
           rowExpandable: () => itemsTypeaheadQuery.isSuccess,
         }}
+        pagination={paginationProps}
       />
     </Space>
   );

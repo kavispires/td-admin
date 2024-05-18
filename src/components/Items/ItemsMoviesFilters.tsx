@@ -1,6 +1,8 @@
-import { Button, Flex } from 'antd';
+import { Button, Divider, Flex } from 'antd';
+import { FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { DailyMovieSet } from 'types';
 import { sortJsonKeys } from 'utils';
@@ -11,6 +13,7 @@ export function ItemsMoviesFilters({
   isDirty,
   isSaving,
 }: UseResourceFirebaseDataReturnType<DailyMovieSet>) {
+  const { queryParams, addParam } = useQueryParams();
   return (
     <SiderContent>
       <Flex vertical gap={12}>
@@ -32,6 +35,14 @@ export function ItemsMoviesFilters({
           block
         />
       </Flex>
+
+      <Divider />
+
+      <FilterSwitch
+        label="Pending Only"
+        value={queryParams.emptyOnly === 'true' ? true : false}
+        onChange={(mode) => addParam('emptyOnly', mode, false)}
+      />
     </SiderContent>
   );
 }
