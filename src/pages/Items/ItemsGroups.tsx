@@ -28,7 +28,7 @@ export function ItemsGroups() {
           <DataLoadingWrapper
             isLoading={groupsQuery.isLoading || itemsTypeaheadQuery.isLoading}
             error={groupsQuery.error || itemsTypeaheadQuery.error}
-            hasResponseData={!isEmpty(groupsQuery.data) || !isEmpty(itemsTypeaheadQuery.data)}
+            hasResponseData={!isEmpty(groupsQuery.data) && !isEmpty(itemsTypeaheadQuery.data)}
           >
             <ItemsGroupsContent {...groupsQuery} />
           </DataLoadingWrapper>
