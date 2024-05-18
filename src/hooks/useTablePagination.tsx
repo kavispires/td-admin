@@ -1,14 +1,33 @@
 import { TableProps } from 'antd';
 import { useQueryParams } from './useQueryParams';
 
+/**
+ * Options for configuring table pagination.
+ */
 type UsePaginationOptions = {
   /**
-   * Only necessary if multiple tables are on the same page
+   * Only necessary if multiple tables are on the same page.
    */
   prefix?: string;
+
+  /**
+   * The default current page number.
+   */
   defaultCurrent?: number;
+
+  /**
+   * The default number of items per page.
+   */
   defaultPageSize?: number;
+
+  /**
+   * An array of available page size options.
+   */
   pageSizeOptions?: number[];
+
+  /**
+   * The total number of items in the table.
+   */
   total: number;
 };
 

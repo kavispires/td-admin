@@ -9,6 +9,8 @@ import { Item as ItemT, ItemGroup } from 'types';
 import { removeDuplicates } from 'utils';
 import { ItemGroupsCard } from './ItemGroupsCard';
 import { orderBy } from 'lodash';
+import { usePaginatedPage } from 'hooks/usePaginatedPage';
+import { useTablePagination } from 'hooks/useTablePagination';
 
 export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { queryParams } = useQueryParams();
@@ -128,37 +130,26 @@ function ItemsGroupsByItemTable({
   groupsTypeahead,
   onUpdateItemGroups,
 }: ItemsGroupsByItemTableProps) {
-  const { queryParams, addParam } = useQueryParams();
-  const currentPage = Number(queryParams.page ?? '1');
-  const pageSize = Number(queryParams.pageSize ?? '64');
+  const { queryParams } = useQueryParams();
   const showOnlyEmpty = queryParams.emptyOnly === 'true';
 
-  const page = useMemo(() => {
-    const start = (currentPage - 1) * pageSize;
-    const end = start + pageSize;
-    return Object.values(items)
-      .filter((v) => (showOnlyEmpty ? !grousByItem[v.id] : true))
-      .slice(start, end);
-  }, [currentPage, pageSize, items, showOnlyEmpty, grousByItem]);
-
-  const onChange = (page: number) => {
-    addParam('page', page.toString());
-  };
-  const onPageSizeChange = (_: number, size: number) => {
-    addParam('pageSize', size.toString());
-  };
-
-  const pagination = (
-    <Pagination
-      onChange={onChange}
-      current={currentPage}
-      total={Object.keys(items).length}
-      pageSizeOptions={[16, 32, 64, 128]}
-      pageSize={pageSize}
-      onShowSizeChange={onPageSizeChange}
-      className="fixed-pagination"
-    />
+  const data = useMemo(
+    () => (showOnlyEmpty ? Object.values(items).filter((v) => !grousByItem[v.id]) : Object.values(items)),
+    [items, grousByItem, showOnlyEmpty]
   );
+
+  const page = usePaginatedPage<ItemT>({
+    data,
+    defaultPageSize: 64,
+  });
+
+  const paginationProps = useTablePagination({
+    total: data.length,
+    defaultPageSize: 64,
+    pageSizeOptions: [16, 32, 64, 128],
+  });
+
+  const pagination = <Pagination {...paginationProps} className="fixed-pagination" />;
 
   return (
     <>
