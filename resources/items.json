@@ -23804,5 +23804,913 @@
       "en": "shapes",
       "pt": "formas"
     }
+  },
+  "1998": {
+    "id": "1998",
+    "name": {
+      "en": "pilot",
+      "pt": "piloto"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "1999": {
+    "id": "1999",
+    "name": {
+      "en": "quartz",
+      "pt": "quartzo"
+    },
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2000": {
+    "id": "2000",
+    "name": {
+      "en": "stone",
+      "pt": "pedra"
+    },
+    "categories": [
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2001": {
+    "name": {
+      "en": "amulet",
+      "pt": "amuleto"
+    },
+    "id": "2001",
+    "categories": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2002": {
+    "name": {
+      "en": "bill",
+      "pt": "boleto"
+    },
+    "id": "2002",
+    "categories": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2003": {
+    "name": {
+      "en": "salesperson",
+      "pt": "vendedora"
+    },
+    "id": "2003",
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2004": {
+    "id": "2004",
+    "name": {
+      "en": "sailor",
+      "pt": "marinheiro"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2005": {
+    "id": "2005",
+    "name": {
+      "en": "reporter",
+      "pt": "reporter"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2006": {
+    "id": "2006",
+    "name": {
+      "en": "clerk",
+      "pt": "atendente"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2007": {
+    "id": "2007",
+    "name": {
+      "en": "waiter",
+      "pt": "garçom"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2008": {
+    "name": {
+      "en": "athlete",
+      "pt": "atleta"
+    },
+    "id": "2008",
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2009": {
+    "name": {
+      "en": "scientist",
+      "pt": "cientista"
+    },
+    "id": "2009",
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2010": {
+    "name": {
+      "en": "surgeon",
+      "pt": "cirurgião"
+    },
+    "id": "2010",
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2011": {
+    "id": "2011",
+    "name": {
+      "en": "tv host",
+      "pt": "apresentador"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2012": {
+    "id": "2012",
+    "name": {
+      "en": "runner",
+      "pt": "corredor"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2013": {
+    "name": {
+      "en": "man",
+      "pt": "homem"
+    },
+    "id": "2013",
+    "categories": [
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2014": {
+    "name": {
+      "en": "woman",
+      "pt": "mulher"
+    },
+    "id": "2014",
+    "categories": [
+      "alien",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2015": {
+    "id": "2015",
+    "name": {
+      "en": "man",
+      "pt": "homem"
+    },
+    "categories": [
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2016": {
+    "id": "2016",
+    "name": {
+      "en": "woman",
+      "pt": "mulher"
+    },
+    "categories": [
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2017": {
+    "name": {
+      "en": "teen",
+      "pt": "adolescente"
+    },
+    "id": "2017",
+    "categories": [
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2018": {
+    "name": {
+      "en": "teen",
+      "pt": "adolescente"
+    },
+    "id": "2018",
+    "categories": [
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2019": {
+    "id": "2019",
+    "name": {
+      "en": "rattle",
+      "pt": "chocalho"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2020": {
+    "name": {
+      "en": "woodpecker",
+      "pt": "pica-pau"
+    },
+    "id": "2020",
+    "categories": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2021": {
+    "id": "2021",
+    "name": {
+      "en": "otter",
+      "pt": "lontra"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2022": {
+    "id": "2022",
+    "name": {
+      "en": "pepperoni",
+      "pt": "calabresa"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2023": {
+    "id": "2023",
+    "name": {
+      "en": "photo",
+      "pt": "foto"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2024": {
+    "id": "2024",
+    "name": {
+      "en": "hermit crab",
+      "pt": "caranguejo-eremita"
+    },
+    "categories": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2025": {
+    "name": {
+      "en": "pistol",
+      "pt": "pistola"
+    },
+    "id": "2025",
+    "categories": [
+      "alien",
+      "dream",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2026": {
+    "name": {
+      "en": "conversation",
+      "pt": "conversa"
+    },
+    "id": "2026",
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2027": {
+    "name": {
+      "en": "monster",
+      "pt": "monstro"
+    },
+    "id": "2027",
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2028": {
+    "id": "2028",
+    "name": {
+      "en": "nightmare",
+      "pt": "pesadelo"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2029": {
+    "name": {
+      "en": "hair dye",
+      "pt": "tintura de cabelo"
+    },
+    "id": "2029",
+    "categories": [
+      "alien",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2030": {
+    "name": {
+      "en": "tintura de cabelo",
+      "pt": "camisa de força"
+    },
+    "id": "2030",
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2031": {
+    "name": {
+      "en": "broken bulb",
+      "pt": "lâmpada quebrada"
+    },
+    "id": "2031",
+    "groups": []
+  },
+  "2032": {
+    "name": {
+      "en": "dark web",
+      "pt": "dark web"
+    },
+    "id": "2032",
+    "categories": [
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2033": {
+    "name": {
+      "en": "cocoon",
+      "pt": "casulo"
+    },
+    "id": "2033",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2034": {
+    "id": "2034",
+    "name": {
+      "en": "silk",
+      "pt": "seda"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2035": {
+    "id": "2035",
+    "name": {
+      "en": "pupa",
+      "pt": "crisálida"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2036": {
+    "id": "2036",
+    "name": {
+      "en": "agreement",
+      "pt": "acordo"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2037": {
+    "name": {
+      "en": "mint",
+      "pt": "menta"
+    },
+    "id": "2037",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2038": {
+    "name": {
+      "en": "juicer",
+      "pt": "espremedor"
+    },
+    "id": "2038",
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2039": {
+    "id": "2039",
+    "name": {
+      "en": "ink",
+      "pt": "tinta"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2040": {
+    "id": "2040",
+    "name": {
+      "en": "chromossome",
+      "pt": "cromossomo"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2041": {
+    "id": "2041",
+    "name": {
+      "en": "test page",
+      "pt": "impressão de teste"
+    },
+    "categories": [
+      "alien",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2042": {
+    "id": "2042",
+    "name": {
+      "en": "effervescent tablets",
+      "pt": "comprimidos efervescentes"
+    },
+    "categories": [
+      "alien",
+      "evidence",
+      "mesmice",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2043": {
+    "id": "2043",
+    "name": {
+      "en": "monster truck",
+      "pt": "picape monstro"
+    },
+    "categories": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2044": {
+    "id": "2044",
+    "name": {
+      "en": "cross-stitch",
+      "pt": "bordado"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2045": {
+    "name": {
+      "en": "schedule",
+      "pt": "cronograma"
+    },
+    "id": "2045",
+    "categories": [
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2046": {
+    "id": "2046",
+    "name": {
+      "en": "dough",
+      "pt": "massa"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2047": {
+    "name": {
+      "en": "chicken breasts",
+      "pt": "peito de frango"
+    },
+    "id": "2047",
+    "categories": [
+      "alien",
+      "dream",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2048": {
+    "name": {
+      "en": "completion seal",
+      "pt": "Selo de finalização"
+    },
+    "id": "2048",
+    "groups": []
+  },
+  "2049": {
+    "name": {
+      "en": "red",
+      "pt": "vermelho"
+    },
+    "id": "2049",
+    "groups": []
+  },
+  "2050": {
+    "name": {
+      "en": "orange",
+      "pt": "laranja"
+    },
+    "id": "2050",
+    "groups": []
+  },
+  "2051": {
+    "id": "2051",
+    "name": {
+      "en": "yellow",
+      "pt": "amarelo"
+    },
+    "groups": []
+  },
+  "2052": {
+    "id": "2052",
+    "name": {
+      "en": "green",
+      "pt": "verde"
+    },
+    "groups": []
+  },
+  "2053": {
+    "id": "2053",
+    "name": {
+      "en": "blue",
+      "pt": "azul"
+    },
+    "groups": []
+  },
+  "2054": {
+    "id": "2054",
+    "name": {
+      "en": "purple",
+      "pt": "roxo"
+    },
+    "groups": []
+  },
+  "2055": {
+    "name": {
+      "en": "pink",
+      "pt": "rosa"
+    },
+    "id": "2055",
+    "groups": []
+  },
+  "2056": {
+    "name": {
+      "en": "brown",
+      "pt": "marrom"
+    },
+    "id": "2056",
+    "groups": []
+  },
+  "2057": {
+    "id": "2057",
+    "name": {
+      "en": "grey",
+      "pt": "cinza"
+    },
+    "groups": []
+  },
+  "2058": {
+    "id": "2058",
+    "name": {
+      "en": "white",
+      "pt": "branco"
+    },
+    "groups": []
+  },
+  "2059": {
+    "name": {
+      "en": "black",
+      "pt": "preto"
+    },
+    "id": "2059",
+    "groups": []
+  },
+  "2060": {
+    "name": {
+      "en": "transparent",
+      "pt": "transparente"
+    },
+    "id": "2060",
+    "groups": []
+  },
+  "2061": {
+    "id": "2061",
+    "name": {
+      "en": "nuggets",
+      "pt": "nuggets"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2062": {
+    "id": "2062",
+    "name": {
+      "en": "poster",
+      "pt": "poster"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2063": {
+    "id": "2063",
+    "name": {
+      "en": "cauliflower",
+      "pt": "couve-flor"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2064": {
+    "id": "2064",
+    "name": {
+      "en": "landline",
+      "pt": "telefone fixo"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2065": {
+    "id": "2065",
+    "name": {
+      "en": "phone call",
+      "pt": "ligação"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2066": {
+    "name": {
+      "en": "pile of leaves",
+      "pt": "monte de folhas"
+    },
+    "id": "2066",
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2067": {
+    "id": "2067",
+    "name": {
+      "en": "night",
+      "pt": "noite"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2068": {
+    "id": "2068",
+    "name": {
+      "en": "sunflower",
+      "pt": "girasol"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2069": {
+    "id": "2069",
+    "name": {
+      "en": "calla lily",
+      "pt": "copo de leite"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2070": {
+    "name": {
+      "en": "tulips",
+      "pt": "tulipas"
+    },
+    "id": "2070",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2071": {
+    "name": {
+      "en": "daisies",
+      "pt": "margaridas"
+    },
+    "id": "2071",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2072": {
+    "id": "2072",
+    "name": {
+      "en": "chest expander",
+      "pt": "expansor de peito"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2073": {
+    "name": {
+      "en": "bald",
+      "pt": "careca"
+    },
+    "id": "2073",
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2074": {
+    "id": "2074",
+    "name": {
+      "en": "alert",
+      "pt": "alerta"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2075": {
+    "name": {
+      "en": "scalability",
+      "pt": "escalabilidade"
+    },
+    "id": "2075",
+    "groups": []
+  },
+  "2076": {
+    "name": {
+      "en": "genders",
+      "pt": "gêneros"
+    },
+    "id": "2076",
+    "groups": []
   }
 }
