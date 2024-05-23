@@ -24,6 +24,7 @@ export type ItemsAttributeValuesContextType = {
   addAttributesToUpdate: (itemId: string, attributes: ItemAtributesValues) => void;
   addMultipleAttributesToUpdate: (itemsArr: ItemAtributesValues[]) => void;
   attributes: Dictionary<ItemAttribute>;
+  attributesToUpdate: Dictionary<ItemAtributesValues>;
 };
 
 const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextType>({
@@ -45,6 +46,7 @@ const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextTyp
   addMultipleAttributesToUpdate: () => {},
   prepareItemsAttributesFileForDownload: () => ({}),
   attributes: {},
+  attributesToUpdate: {},
 });
 
 type ItemsAttributeValuesProviderProps = {
@@ -64,6 +66,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
     isDirty,
     attributes,
     addMultipleAttributesToUpdate,
+    attributesToUpdate,
   } = useItemsAttribution();
   const { message } = App.useApp();
 
@@ -162,6 +165,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         addAttributesToUpdate,
         addMultipleAttributesToUpdate,
         prepareItemsAttributesFileForDownload,
+        attributesToUpdate,
       }}
     >
       {children}

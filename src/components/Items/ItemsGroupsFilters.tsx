@@ -1,4 +1,4 @@
-import { Button, Divider, Flex } from 'antd';
+import { Divider, Flex } from 'antd';
 import { FilterSegments, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
@@ -8,29 +8,27 @@ import { ItemGroup } from 'types';
 import { sortJsonKeys } from 'utils';
 
 import { ClusterOutlined, TableOutlined } from '@ant-design/icons';
+import { SaveButton } from 'components/Common/SaveButton';
 
 export function ItemsGroupsFilters({
   data,
   save,
   isDirty,
   isSaving,
+  entriesToUpdate,
 }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { queryParams, addParam, is } = useQueryParams();
 
   return (
     <SiderContent>
       <Flex vertical gap={12}>
-        <Button
-          block
-          danger
-          type="primary"
-          loading={isSaving}
-          disabled={!isDirty}
-          onClick={save}
-          size="large"
-        >
-          Save
-        </Button>
+        <SaveButton
+          isDirty={isDirty}
+          onSave={save}
+          isSaving={isSaving}
+          dirt={JSON.stringify(entriesToUpdate)}
+        />
+
         <DownloadButton
           data={() => prepareFileForDownload(data)}
           fileName="items-groups.json"

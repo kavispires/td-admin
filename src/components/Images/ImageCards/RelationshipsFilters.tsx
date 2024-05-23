@@ -1,11 +1,10 @@
-import { Button } from 'antd';
+import { Flex } from 'antd';
 import { FilterSelect, FilterSwitch, ResponseState } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { SaveButton } from 'components/Common/SaveButton';
 import { PageSider, SiderContent } from 'components/Layout';
 import { isEmpty } from 'lodash';
 import { CARD_SIZE_OPTIONS, SAMPLE_SIZE_OPTIONS, TAGS_SELECTOR_OPTIONS } from 'utils/constants';
-
-import { SaveOutlined } from '@ant-design/icons';
 
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 import { RelationshipsStats } from './RelationshipsStats';
@@ -27,18 +26,22 @@ export function RelationshipsFilters() {
   return (
     <PageSider>
       <SiderContent>
-        <Button
-          type="primary"
-          size="large"
-          icon={<SaveOutlined />}
-          onClick={() => save({})}
-          disabled={!isDirty}
-          loading={isSaving}
-          danger
-          block
-        >
-          Save
-        </Button>
+        <Flex vertical gap={6}>
+          <SaveButton
+            isDirty={isDirty}
+            dirt={JSON.stringify(data)}
+            onSave={() => save({})}
+            isSaving={isSaving}
+          />
+
+          <DownloadButton
+            data={data}
+            fileName="imageCardsRelationships.json"
+            loading={isSaving}
+            disabled={isEmpty(data)}
+            block
+          />
+        </Flex>
       </SiderContent>
 
       <ResponseState
@@ -81,16 +84,6 @@ export function RelationshipsFilters() {
 
       <SiderContent>
         <RelationshipsStats />
-      </SiderContent>
-
-      <SiderContent>
-        <DownloadButton
-          data={data}
-          fileName="imageCardsRelationships.json"
-          loading={isSaving}
-          disabled={isEmpty(data)}
-          block
-        />
       </SiderContent>
     </PageSider>
   );

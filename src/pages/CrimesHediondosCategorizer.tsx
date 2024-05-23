@@ -45,11 +45,10 @@ type CHDataWrapperProps = {
 };
 
 function CHDataWrapper({ data }: CHDataWrapperProps) {
-  const [isProcessing, setProcessing] = useState(false);
-  const { tags, cards, tagsArr, updateCardTags, prepareJson, addTagToCard } = useCrimesHediondosTags(data);
+  const [isProcessing] = useState(false);
+  const { tags, cards, tagsArr, updateCardTags, prepareJson } = useCrimesHediondosTags(data);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [currentTags, setCurrentTags] = useState<string[]>([]);
-  const [showJson, setShowJson] = useState(false);
   const [jsons, setJsons] = useState<any>({});
 
   const card = data[currentCardIndex];

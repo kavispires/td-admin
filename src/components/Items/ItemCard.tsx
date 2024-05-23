@@ -1,12 +1,14 @@
-import { Card, Form, Input, Select, Space, Switch, Typography } from 'antd';
+import { Card, Flex, Form, Input, Select, Space, Switch, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
+import { useItemsContext } from 'context/ItemsContext';
+import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { useItemUpdate } from 'hooks/useItemUpdate';
+import { memoize } from 'lodash';
 import { Item as ItemT } from 'types';
 
 import { EditOutlined, FireFilled, RollbackOutlined, SaveOutlined } from '@ant-design/icons';
-import { useItemsContext } from 'context/ItemsContext';
-import { useItemUpdate } from 'hooks/useItemUpdate';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { useQueryParams } from 'hooks/useQueryParams';
 
 type ItemCardProps = {
   item: ItemT;
@@ -20,6 +22,7 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
     editMode
   );
   const copyToClipboard = useCopyToClipboardFunction();
+  const { is } = useQueryParams();
 
   return (
     <Card
@@ -46,7 +49,6 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
           key={`en-${item.name.en}`}
           onChange={(e) => onEdit({ name: { ...editableItem.name, en: e.target.value } })}
         />
-
         <Input
           prefix={<LanguageFlag language="pt" width="1em" />}
           placeholder="Name in PT"
@@ -57,7 +59,6 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
           key={`pt-${item.name.pt}`}
           onChange={(e) => onEdit({ name: { ...editableItem.name, pt: e.target.value } })}
         />
-
         <div>
           <Select
             mode="multiple"
@@ -72,7 +73,11 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
             onChange={(value) => onEdit({ categories: value.sort() })}
           />
         </div>
-
+        {is('showVerifyThing') && (
+          <div>
+            <VerifyIfThing item={item} />
+          </div>
+        )}
         {(isEditing || item.nsfw) && (
           <div>
             <Form.Item label="nsfw" valuePropName="checked">
@@ -90,3 +95,38 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
     </Card>
   );
 }
+
+type VerifyIfThingProps = {
+  item: ItemT;
+};
+
+const verifyIfThingCheck = memoize((item: ItemT) => {
+  const hasThing = !!item.categories?.includes('thing');
+  const hasMesmice = !!item.categories?.includes('mesmice');
+  const singleWordNameEn = item.name.en.split(' ').length === 1;
+  const singleWordNamePt = item.name.pt.split(' ').length === 1;
+
+  const result = {
+    en: hasThing || (singleWordNameEn && hasMesmice),
+    pt: hasThing || (singleWordNamePt && hasMesmice),
+  };
+
+  if (!result.pt && !result.en) return '';
+
+  return (
+    <>
+      {result.en && <LanguageFlag language="en" width="1em" />}
+      {result.pt && <LanguageFlag language="pt" width="1em" />}
+    </>
+  );
+});
+
+const VerifyIfThing = ({ item }: VerifyIfThingProps) => {
+  const result = verifyIfThingCheck(item);
+
+  if (result) {
+    return <Flex gap={6}>Thing: {result}</Flex>;
+  }
+
+  return <></>;
+};

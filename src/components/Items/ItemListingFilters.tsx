@@ -1,4 +1,4 @@
-import { Button, Divider, Flex } from 'antd';
+import { Divider, Flex } from 'antd';
 import { FilterSelect, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
@@ -9,14 +9,15 @@ import { AddNewItem } from './AddNewItem';
 import { Item } from 'types';
 import { sortJsonKeys } from 'utils';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { SaveButton } from 'components/Common/SaveButton';
 
 type ItemListingFiltersProps = {
   showSearch: boolean;
   toggleSearch: () => void;
 };
 export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFiltersProps) {
-  const { queryParams, addParam } = useQueryParams();
-  const { isDirty, save, items, categories } = useItemsContext();
+  const { isDirty, save, items, categories, itemsToUpdate, isSaving } = useItemsContext();
+  const { queryParams, is, addParam } = useQueryParams();
 
   const categoryOptions = useMemo(() => {
     const includingOptions = orderBy(
@@ -32,9 +33,13 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
   return (
     <SiderContent>
       <Flex vertical gap={6}>
-        <Button block danger type="primary" disabled={!isDirty} onClick={save} size="large">
-          Save
-        </Button>
+        <SaveButton
+          isDirty={isDirty}
+          dirt={JSON.stringify(itemsToUpdate)}
+          onSave={save}
+          isSaving={isSaving}
+        />
+
         <DownloadButton
           data={() => prepareFileForDownload(items)}
           fileName="items.json"
@@ -45,6 +50,13 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
       <Divider />
 
       <FilterSwitch label="Show Search" value={showSearch} onChange={toggleSearch} />
+
+      <FilterSwitch
+        label="Verify Thing"
+        value={is('showVerifyThing')}
+        onChange={(v) => addParam('showVerifyThing', v ? 'true' : '')}
+        className="full-width m-0"
+      />
 
       <FilterSelect
         label="Category"

@@ -64,7 +64,6 @@ export function useGridPagination<TData>({
   };
 
   if (resetter !== previous) {
-    console.count('reset called');
     onChange(defaultCurrent);
   }
 
