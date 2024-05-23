@@ -1,5 +1,6 @@
 import { SaveOutlined } from '@ant-design/icons';
 import { Button, ButtonProps } from 'antd';
+import moment from 'moment';
 import { useEffect } from 'react';
 import { useTimeoutFn } from 'react-use';
 
@@ -28,7 +29,7 @@ export function SaveButton({
 
   useEffect(() => {
     if (isDirty) {
-      console.log('RESET!!');
+      console.log('Save Reset', moment(Date.now()).format('MM/DD/YYYY HH:mm:ss'));
       reset(); // Start or reset the timeout if `isDirty` is true and dirt has changed
     } else {
       cancel(); // Cancel the timeout if `isDirty` becomes false

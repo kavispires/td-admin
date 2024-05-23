@@ -136,7 +136,7 @@ function RemoveItemFlow({ movie, addEntryToUpdate, itemId }: RemoveItemFlowProps
       okText="Yes"
       cancelText="No"
     >
-      <Button icon={<DeleteFilled />} size="small" type="text" ghost />
+      <Button icon={<DeleteFilled />} size="small" type="text" />
     </Popconfirm>
   );
 }

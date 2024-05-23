@@ -1,14 +1,24 @@
 {
   "dms-1-pt": {
-    "id": "dms-1-pt",
     "title": "007 - Cassino Royale",
-    "itemsIds": [],
+    "id": "dms-1-pt",
+    "itemsIds": [
+      "542",
+      "763",
+      "1971",
+      "141"
+    ],
     "year": 2006
   },
   "dms-10-pt": {
     "id": "dms-10-pt",
     "title": "007 - Sem Tempo Para Morrer",
-    "itemsIds": [],
+    "itemsIds": [
+      "763",
+      "1967",
+      "1971",
+      "351"
+    ],
     "year": 2021
   },
   "dms-100-pt": {
@@ -74,7 +84,10 @@
   "dms-11-pt": {
     "title": "007 - Somente Para Seus Olhos",
     "id": "dms-11-pt",
-    "itemsIds": ["1971", "85"],
+    "itemsIds": [
+      "1971",
+      "85"
+    ],
     "year": 1981
   },
   "dms-110-pt": {
@@ -104,7 +117,9 @@
   "dms-114-pt": {
     "id": "dms-114-pt",
     "title": "Bambi",
-    "itemsIds": [],
+    "itemsIds": [
+      "1248"
+    ],
     "year": 1942
   },
   "dms-115-pt": {
@@ -140,13 +155,21 @@
   "dms-12-pt": {
     "title": "007 - Um Novo Dia Para Morrer",
     "id": "dms-12-pt",
-    "itemsIds": ["1054", "1231", "1971", "287"],
+    "itemsIds": [
+      "1054",
+      "1231",
+      "1971",
+      "287"
+    ],
     "year": 2002
   },
   "dms-120-pt": {
     "id": "dms-120-pt",
     "title": "Beleza Americana",
-    "itemsIds": [],
+    "itemsIds": [
+      "1982",
+      "1387"
+    ],
     "year": 1999
   },
   "dms-121-pt": {
@@ -158,7 +181,10 @@
   "dms-122-pt": {
     "id": "dms-122-pt",
     "title": "Bird Box",
-    "itemsIds": [],
+    "itemsIds": [
+      "523",
+      "230"
+    ],
     "year": 2018
   },
   "dms-123-pt": {
@@ -176,7 +202,10 @@
   "dms-125-pt": {
     "id": "dms-125-pt",
     "title": "Bob Esponja: O Incrível Resgate",
-    "itemsIds": [],
+    "itemsIds": [
+      "948",
+      "354"
+    ],
     "year": 2020
   },
   "dms-126-pt": {
@@ -266,13 +295,21 @@
   "dms-139-pt": {
     "id": "dms-139-pt",
     "title": "Cidade de Deus",
-    "itemsIds": [],
+    "itemsIds": [
+      "69",
+      "489",
+      "1768"
+    ],
     "year": 2002
   },
   "dms-14-pt": {
     "title": "007 Contra a Chantagem Atômica",
     "id": "dms-14-pt",
-    "itemsIds": ["6", "1971", "67"],
+    "itemsIds": [
+      "6",
+      "1971",
+      "67"
+    ],
     "year": 1965
   },
   "dms-140-pt": {
@@ -296,25 +333,37 @@
   "dms-143-pt": {
     "title": "Click",
     "id": "dms-143-pt",
-    "itemsIds": ["346"],
+    "itemsIds": [
+      "346"
+    ],
     "year": 2006
   },
   "dms-144-pt": {
-    "id": "dms-144-pt",
     "title": "Clube da Luta",
+    "id": "dms-144-pt",
     "itemsIds": [],
     "year": 1999
   },
   "dms-145-pt": {
-    "id": "dms-145-pt",
     "title": "Coco",
-    "itemsIds": [],
+    "id": "dms-145-pt",
+    "itemsIds": [
+      "192",
+      "352",
+      "57"
+    ],
     "year": 2017
   },
   "dms-146-pt": {
-    "id": "dms-146-pt",
     "title": "Como Perder um Homem em 10 Dias",
-    "itemsIds": [],
+    "id": "dms-146-pt",
+    "itemsIds": [
+      "714",
+      "1856",
+      "1867",
+      "2013",
+      "287"
+    ],
     "year": 2003
   },
   "dms-147-pt": {
@@ -326,7 +375,11 @@
   "dms-148-pt": {
     "id": "dms-148-pt",
     "title": "Como Treinar o seu Dragão",
-    "itemsIds": [],
+    "itemsIds": [
+      "476",
+      "1041",
+      "11"
+    ],
     "year": 2010
   },
   "dms-149-pt": {
@@ -338,7 +391,11 @@
   "dms-15-pt": {
     "title": "007 Contra GoldenEye",
     "id": "dms-15-pt",
-    "itemsIds": ["120", "1971", "85"],
+    "itemsIds": [
+      "120",
+      "1971",
+      "85"
+    ],
     "year": 1995
   },
   "dms-150-pt": {
@@ -350,7 +407,10 @@
   "dms-151-pt": {
     "id": "dms-151-pt",
     "title": "Corrente do Mal",
-    "itemsIds": [],
+    "itemsIds": [
+      "334",
+      "1286"
+    ],
     "year": 2014
   },
   "dms-152-pt": {
@@ -398,13 +458,21 @@
   "dms-159-pt": {
     "id": "dms-159-pt",
     "title": "Deus é Brasileiro",
-    "itemsIds": [],
+    "itemsIds": [
+      "69",
+      "1768",
+      "1527"
+    ],
     "year": 2003
   },
   "dms-16-pt": {
     "id": "dms-16-pt",
     "title": "007 Contra Goldfinger",
-    "itemsIds": ["120", "1971", "1398"],
+    "itemsIds": [
+      "120",
+      "1971",
+      "1398"
+    ],
     "year": 1964
   },
   "dms-160-pt": {
@@ -432,9 +500,12 @@
     "year": 2000
   },
   "dms-164-pt": {
-    "id": "dms-164-pt",
     "title": "Doce Lar",
-    "itemsIds": [],
+    "id": "dms-164-pt",
+    "itemsIds": [
+      "423",
+      "107"
+    ],
     "year": 2002
   },
   "dms-165-pt": {
@@ -452,7 +523,10 @@
   "dms-167-pt": {
     "id": "dms-167-pt",
     "title": "Doutor Estranho",
-    "itemsIds": [],
+    "itemsIds": [
+      "224",
+      "616"
+    ],
     "year": 2016
   },
   "dms-168-pt": {
@@ -470,13 +544,20 @@
   "dms-17-pt": {
     "title": "007 Contra o Foguete da Morte",
     "id": "dms-17-pt",
-    "itemsIds": ["389", "1971", "1231"],
+    "itemsIds": [
+      "389",
+      "1971",
+      "1231"
+    ],
     "year": 1979
   },
   "dms-170-pt": {
     "id": "dms-170-pt",
     "title": "Dumbo",
-    "itemsIds": [],
+    "itemsIds": [
+      "233",
+      "1578"
+    ],
     "year": 1941
   },
   "dms-171-pt": {
@@ -506,7 +587,10 @@
   "dms-175-pt": {
     "id": "dms-175-pt",
     "title": "Embriagado de Amor",
-    "itemsIds": [],
+    "itemsIds": [
+      "1352",
+      "1988"
+    ],
     "year": 2002
   },
   "dms-176-pt": {
@@ -536,7 +620,11 @@
   "dms-18-pt": {
     "id": "dms-18-pt",
     "title": "007 Contra o Homem com a Pistola de Ouro",
-    "itemsIds": ["120", "1971", "147"],
+    "itemsIds": [
+      "120",
+      "1971",
+      "147"
+    ],
     "year": 1974
   },
   "dms-180-pt": {
@@ -662,7 +750,10 @@
   "dms-199-pt": {
     "title": "Glitter - O Brilho de uma Estrela",
     "id": "dms-199-pt",
-    "itemsIds": ["1984", "1060"],
+    "itemsIds": [
+      "1984",
+      "1060"
+    ],
     "year": 2001
   },
   "dms-2-pt": {
@@ -780,9 +871,11 @@
     "year": 1969
   },
   "dms-216-pt": {
-    "id": "dms-216-pt",
     "title": "Hereditário",
-    "itemsIds": [],
+    "id": "dms-216-pt",
+    "itemsIds": [
+      "1668"
+    ],
     "year": 2018
   },
   "dms-217-pt": {
@@ -798,9 +891,13 @@
     "year": 2008
   },
   "dms-219-pt": {
-    "id": "dms-219-pt",
     "title": "Homem-Aranha",
-    "itemsIds": [],
+    "id": "dms-219-pt",
+    "itemsIds": [
+      "153",
+      "2101",
+      "1748"
+    ],
     "year": 2002
   },
   "dms-22-pt": {
@@ -810,15 +907,25 @@
     "year": 1987
   },
   "dms-220-pt": {
-    "id": "dms-220-pt",
     "title": "Homem-Aranha no Aranhaverso",
-    "itemsIds": [],
+    "id": "dms-220-pt",
+    "itemsIds": [
+      "153",
+      "1058",
+      "2015",
+      "1748"
+    ],
     "year": 2018
   },
   "dms-221-pt": {
     "id": "dms-221-pt",
     "title": "Homem-Aranha: De Volta ao Lar",
-    "itemsIds": [],
+    "itemsIds": [
+      "153",
+      "1748",
+      "2101",
+      "107"
+    ],
     "year": 2017
   },
   "dms-222-pt": {
@@ -836,7 +943,10 @@
   "dms-224-pt": {
     "id": "dms-224-pt",
     "title": "Homem-Formiga",
-    "itemsIds": [],
+    "itemsIds": [
+      "2013",
+      "526"
+    ],
     "year": 2015
   },
   "dms-225-pt": {
@@ -872,7 +982,12 @@
   "dms-23-pt": {
     "id": "dms-23-pt",
     "title": "007 Na Mira dos Assassinos",
-    "itemsIds": [],
+    "itemsIds": [
+      "717",
+      "763",
+      "1971",
+      "54"
+    ],
     "year": 1985
   },
   "dms-230-pt": {
@@ -938,7 +1053,11 @@
   "dms-24-pt": {
     "id": "dms-24-pt",
     "title": "007 Permissão para Matar",
-    "itemsIds": [],
+    "itemsIds": [
+      "763",
+      "1971",
+      "147"
+    ],
     "year": 1989
   },
   "dms-240-pt": {
@@ -1004,7 +1123,10 @@
   "dms-25-pt": {
     "id": "dms-25-pt",
     "title": "10 Coisas que Eu Odeio em Você",
-    "itemsIds": ["515", "1336"],
+    "itemsIds": [
+      "515",
+      "1336"
+    ],
     "year": 1999
   },
   "dms-250-pt": {
@@ -1070,7 +1192,11 @@
   "dms-26-pt": {
     "id": "dms-26-pt",
     "title": "300",
-    "itemsIds": ["75", "529", "273"],
+    "itemsIds": [
+      "75",
+      "529",
+      "273"
+    ],
     "year": 2007
   },
   "dms-260-pt": {
@@ -1106,7 +1232,11 @@
   "dms-265-pt": {
     "id": "dms-265-pt",
     "title": "Miss Simpatia",
-    "itemsIds": ["535", "634", "716"],
+    "itemsIds": [
+      "535",
+      "634",
+      "716"
+    ],
     "year": 2000
   },
   "dms-266-pt": {
@@ -1136,13 +1266,19 @@
   "dms-27-pt": {
     "id": "dms-27-pt",
     "title": "A Árvore da Vida",
-    "itemsIds": ["225", "1668"],
+    "itemsIds": [
+      "225",
+      "1668"
+    ],
     "year": 2011
   },
   "dms-270-pt": {
     "id": "dms-270-pt",
     "title": "Mudança de Hábito",
-    "itemsIds": [],
+    "itemsIds": [
+      "875",
+      "1977"
+    ],
     "year": 1992
   },
   "dms-271-pt": {
@@ -1202,7 +1338,10 @@
   "dms-28-pt": {
     "title": "A Autópsia",
     "id": "dms-28-pt",
-    "itemsIds": ["1346", "544"],
+    "itemsIds": [
+      "1346",
+      "544"
+    ],
     "year": 2016
   },
   "dms-280-pt": {
@@ -1268,7 +1407,10 @@
   "dms-29-pt": {
     "id": "dms-29-pt",
     "title": "A Bela Adormecida",
-    "itemsIds": ["525", "1385"],
+    "itemsIds": [
+      "525",
+      "1385"
+    ],
     "year": 1959
   },
   "dms-290-pt": {
@@ -1308,9 +1450,13 @@
     "year": 2004
   },
   "dms-296-pt": {
-    "id": "dms-296-pt",
     "title": "O Chamado",
-    "itemsIds": [],
+    "id": "dms-296-pt",
+    "itemsIds": [
+      "421",
+      "457",
+      "721"
+    ],
     "year": 2002
   },
   "dms-297-pt": {
@@ -1338,9 +1484,13 @@
     "year": 1963
   },
   "dms-30-pt": {
-    "title": "A Bela e a Fera",
     "id": "dms-30-pt",
-    "itemsIds": ["1385", "1043"],
+    "title": "A Bela e a Fera",
+    "itemsIds": [
+      "1043",
+      "1385",
+      "1007"
+    ],
     "year": 1991
   },
   "dms-300-pt": {
@@ -1406,7 +1556,9 @@
   "dms-31-pt": {
     "title": "A Bruxa",
     "id": "dms-31-pt",
-    "itemsIds": ["157"],
+    "itemsIds": [
+      "157"
+    ],
     "year": 2015
   },
   "dms-310-pt": {
@@ -1538,7 +1690,10 @@
   "dms-33-pt": {
     "id": "dms-33-pt",
     "title": "A Bruxa de Blair 2 - O Livro das Sombras",
-    "itemsIds": ["157", "1198"],
+    "itemsIds": [
+      "157",
+      "1198"
+    ],
     "year": 2000
   },
   "dms-330-pt": {
@@ -1670,7 +1825,10 @@
   "dms-35-pt": {
     "title": "A Caminho da Lua",
     "id": "dms-35-pt",
-    "itemsIds": ["1517", "1059"],
+    "itemsIds": [
+      "1517",
+      "1059"
+    ],
     "year": 2020
   },
   "dms-350-pt": {
@@ -1802,7 +1960,10 @@
   "dms-37-pt": {
     "id": "dms-37-pt",
     "title": "A Casa do Lago",
-    "itemsIds": [],
+    "itemsIds": [
+      "107",
+      "1816"
+    ],
     "year": 2006
   },
   "dms-370-pt": {
@@ -2004,9 +2165,13 @@
     "year": 1997
   },
   "dms-40-pt": {
-    "id": "dms-40-pt",
     "title": "A Chegada",
-    "itemsIds": [],
+    "id": "dms-40-pt",
+    "itemsIds": [
+      "1055",
+      "1068",
+      "1405"
+    ],
     "year": 2016
   },
   "dms-400-pt": {
@@ -2070,8 +2235,8 @@
     "year": 2006
   },
   "dms-41-pt": {
-    "id": "dms-41-pt",
     "title": "A Colina Escarlate",
+    "id": "dms-41-pt",
     "itemsIds": [],
     "year": 2015
   },
@@ -2648,7 +2813,11 @@
   "dms-5-pt": {
     "id": "dms-5-pt",
     "title": "007 - O Espião que me Amava",
-    "itemsIds": [],
+    "itemsIds": [
+      "763",
+      "1971",
+      "1988"
+    ],
     "year": 1977
   },
   "dms-50-pt": {
@@ -2672,7 +2841,10 @@
   "dms-53-pt": {
     "id": "dms-53-pt",
     "title": "A Hora do Pesadelo",
-    "itemsIds": [],
+    "itemsIds": [
+      "131",
+      "2028"
+    ],
     "year": 1984
   },
   "dms-54-pt": {
@@ -2684,7 +2856,10 @@
   "dms-55-pt": {
     "id": "dms-55-pt",
     "title": "A Lagoa Azul",
-    "itemsIds": [],
+    "itemsIds": [
+      "2053",
+      "1816"
+    ],
     "year": 1980
   },
   "dms-56-pt": {
@@ -2702,13 +2877,17 @@
   "dms-58-pt": {
     "id": "dms-58-pt",
     "title": "A Maldição",
-    "itemsIds": [],
+    "itemsIds": [
+      "1286"
+    ],
     "year": 2004
   },
   "dms-59-pt": {
     "title": "A Mentira",
     "id": "dms-59-pt",
-    "itemsIds": ["1395"],
+    "itemsIds": [
+      "1395"
+    ],
     "year": 2010
   },
   "dms-6-pt": {
@@ -2720,7 +2899,10 @@
   "dms-60-pt": {
     "title": "A Morte do Demônio",
     "id": "dms-60-pt",
-    "itemsIds": ["1076", "351"],
+    "itemsIds": [
+      "1076",
+      "351"
+    ],
     "year": 2013
   },
   "dms-61-pt": {
@@ -2744,7 +2926,9 @@
   "dms-64-pt": {
     "id": "dms-64-pt",
     "title": "A Múmia",
-    "itemsIds": [],
+    "itemsIds": [
+      "262"
+    ],
     "year": 2017
   },
   "dms-65-pt": {
@@ -2754,21 +2938,31 @@
     "year": 1968
   },
   "dms-66-pt": {
-    "id": "dms-66-pt",
     "title": "A Noiva Cadáver",
-    "itemsIds": [],
+    "id": "dms-66-pt",
+    "itemsIds": [
+      "76",
+      "1346"
+    ],
     "year": 2005
   },
   "dms-67-pt": {
     "id": "dms-67-pt",
     "title": "A Nova Onda do Imperador",
-    "itemsIds": [],
+    "itemsIds": [
+      "1601",
+      "591"
+    ],
     "year": 2000
   },
   "dms-68-pt": {
     "title": "A Órfã",
     "id": "dms-68-pt",
-    "itemsIds": ["1974", "1987", "893"],
+    "itemsIds": [
+      "1974",
+      "1987",
+      "893"
+    ],
     "year": 2009
   },
   "dms-69-pt": {
@@ -2778,15 +2972,23 @@
     "year": 2010
   },
   "dms-7-pt": {
-    "title": "007 - Operação Skyfall",
     "id": "dms-7-pt",
-    "itemsIds": [],
+    "title": "007 - Operação Skyfall",
+    "itemsIds": [
+      "763",
+      "1971",
+      "340"
+    ],
     "year": 2012
   },
   "dms-70-pt": {
     "id": "dms-70-pt",
     "title": "A Paixão de Cristo",
-    "itemsIds": [],
+    "itemsIds": [
+      "69",
+      "547",
+      "1988"
+    ],
     "year": 2004
   },
   "dms-71-pt": {
@@ -2822,13 +3024,19 @@
   "dms-76-pt": {
     "title": "A Rede Social",
     "id": "dms-76-pt",
-    "itemsIds": ["83", "539", "1988"],
+    "itemsIds": [
+      "83",
+      "539",
+      "1988"
+    ],
     "year": 2010
   },
   "dms-77-pt": {
     "id": "dms-77-pt",
     "title": "A Rocha",
-    "itemsIds": ["115"],
+    "itemsIds": [
+      "115"
+    ],
     "year": 1996
   },
   "dms-78-pt": {
@@ -2846,19 +3054,32 @@
   "dms-8-pt": {
     "id": "dms-8-pt",
     "title": "007 - Os Diamantes São Eternos",
-    "itemsIds": [],
+    "itemsIds": [
+      "763",
+      "1130",
+      "1971",
+      "1991"
+    ],
     "year": 1971
   },
   "dms-80-pt": {
     "id": "dms-80-pt",
     "title": "A Viagem de Chihiro",
-    "itemsIds": ["245", "1041", "1793", "485"],
+    "itemsIds": [
+      "245",
+      "1041",
+      "1793",
+      "485"
+    ],
     "year": 2001
   },
   "dms-81-pt": {
     "id": "dms-81-pt",
     "title": "A Vida de Pi",
-    "itemsIds": ["1872", "436"],
+    "itemsIds": [
+      "1872",
+      "436"
+    ],
     "year": 2012
   },
   "dms-82-pt": {
@@ -2876,19 +3097,29 @@
   "dms-84-pt": {
     "title": "Abril Despedaçado",
     "id": "dms-84-pt",
-    "itemsIds": ["287", "623"],
+    "itemsIds": [
+      "287",
+      "623"
+    ],
     "year": 2001
   },
   "dms-85-pt": {
     "id": "dms-85-pt",
     "title": "Ace Ventura: Um Detetive Diferente",
-    "itemsIds": ["311", "1971", "1906"],
+    "itemsIds": [
+      "311",
+      "1971",
+      "1906"
+    ],
     "year": 1994
   },
   "dms-86-pt": {
     "id": "dms-86-pt",
     "title": "Afinado no Amor",
-    "itemsIds": ["789", "1988"],
+    "itemsIds": [
+      "789",
+      "1988"
+    ],
     "year": 1998
   },
   "dms-87-pt": {
@@ -2900,13 +3131,20 @@
   "dms-88-pt": {
     "id": "dms-88-pt",
     "title": "Amor à Distância",
-    "itemsIds": ["714", "1988"],
+    "itemsIds": [
+      "714",
+      "1988"
+    ],
     "year": 2010
   },
   "dms-89-pt": {
     "title": "Amor à Segunda Vista",
     "id": "dms-89-pt",
-    "itemsIds": ["1638", "1988", "1638"],
+    "itemsIds": [
+      "1638",
+      "1988",
+      "1638"
+    ],
     "year": 2002
   },
   "dms-9-pt": {
@@ -2918,37 +3156,56 @@
   "dms-90-pt": {
     "id": "dms-90-pt",
     "title": "Amor a Toda Prova",
-    "itemsIds": [],
+    "itemsIds": [
+      "1258",
+      "1988"
+    ],
     "year": 2011
   },
   "dms-91-pt": {
     "id": "dms-91-pt",
     "title": "Amor e Outras Drogas",
-    "itemsIds": ["1122", "1988", "1032"],
+    "itemsIds": [
+      "1122",
+      "1988",
+      "1032"
+    ],
     "year": 2010
   },
   "dms-92-pt": {
     "id": "dms-92-pt",
     "title": "Amor Sem Escalas",
-    "itemsIds": ["219", "1988", "1993"],
+    "itemsIds": [
+      "219",
+      "1988",
+      "1993"
+    ],
     "year": 2009
   },
   "dms-93-pt": {
-    "id": "dms-93-pt",
     "title": "Amor Sob Medida",
-    "itemsIds": [],
+    "id": "dms-93-pt",
+    "itemsIds": [
+      "1988",
+      "298"
+    ],
     "year": 2015
   },
   "dms-94-pt": {
     "id": "dms-94-pt",
     "title": "Anaconda",
-    "itemsIds": ["151"],
+    "itemsIds": [
+      "151"
+    ],
     "year": 1997
   },
   "dms-95-pt": {
     "title": "Annabelle",
     "id": "dms-95-pt",
-    "itemsIds": ["760", "1286"],
+    "itemsIds": [
+      "760",
+      "1286"
+    ],
     "year": 2014
   },
   "dms-96-pt": {
@@ -2960,13 +3217,18 @@
   "dms-97-pt": {
     "title": "Apenas Duas Noites",
     "id": "dms-97-pt",
-    "itemsIds": ["1059", "1059"],
+    "itemsIds": [
+      "1059",
+      "1059"
+    ],
     "year": 2010
   },
   "dms-98-pt": {
     "id": "dms-98-pt",
     "title": "Aquarius",
-    "itemsIds": ["742"],
+    "itemsIds": [
+      "742"
+    ],
     "year": 2016
   },
   "dms-99-pt": {
