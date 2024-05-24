@@ -10,11 +10,11 @@
     ]
   },
   "1": {
-    "id": "1",
     "name": {
       "en": "ioga mat",
       "pt": "tapete de ioga"
     },
+    "id": "1",
     "categories": [
       "alien",
       "dream",
@@ -207,11 +207,11 @@
     ]
   },
   "16": {
-    "id": "16",
     "name": {
       "en": "fish",
       "pt": "peixe"
     },
+    "id": "16",
     "categories": [
       "alien",
       "dream",
@@ -228,6 +228,7 @@
       "alien",
       "evidence",
       "mesmice",
+      "thing",
       "weapon"
     ]
   },
@@ -379,22 +380,22 @@
     ]
   },
   "29": {
-    "id": "29",
     "name": {
       "en": "brain",
       "pt": "cérebro"
     },
+    "id": "29",
     "categories": [
       "alien",
       "dream"
     ]
   },
   "30": {
-    "id": "30",
     "name": {
       "en": "rabbit",
       "pt": "coelho"
     },
+    "id": "30",
     "categories": [
       "alien",
       "dream"
@@ -450,11 +451,11 @@
     ]
   },
   "35": {
-    "id": "35",
     "name": {
       "en": "stable",
       "pt": "estábulo"
     },
+    "id": "35",
     "categories": [
       "alien",
       "dream",
@@ -485,11 +486,11 @@
     ]
   },
   "38": {
+    "id": "38",
     "name": {
       "en": "paint roller",
       "pt": "rolo de tinta"
     },
-    "id": "38",
     "categories": [
       "alien",
       "evidence",
@@ -574,11 +575,11 @@
     ]
   },
   "45": {
-    "id": "45",
     "name": {
       "en": "seal",
       "pt": "foca"
     },
+    "id": "45",
     "categories": [
       "alien",
       "dream"
@@ -804,11 +805,11 @@
     "nsfw": true
   },
   "63": {
-    "id": "63",
     "name": {
       "en": "mustache",
       "pt": "bigode"
     },
+    "id": "63",
     "categories": [
       "alien",
       "dream",
@@ -15668,13 +15669,13 @@
     ]
   },
   "1286": {
-    "id": "1286",
     "name": {
       "en": "pentagram",
       "pt": "pentagrama"
     },
+    "id": "1286",
     "categories": [
-      "thing",
+      "dream",
       "weapon"
     ]
   },
@@ -16072,6 +16073,7 @@
       "pt": "labirinto"
     },
     "categories": [
+      "dream",
       "evidence"
     ]
   },
@@ -16287,15 +16289,14 @@
     ]
   },
   "1338": {
+    "id": "1338",
     "name": {
       "en": "gallows",
       "pt": "forca"
     },
-    "id": "1338",
     "categories": [
       "alien",
       "dream",
-      "suspect",
       "weapon"
     ]
   },
@@ -19257,12 +19258,13 @@
     ]
   },
   "1593": {
-    "id": "1593",
     "name": {
       "en": "wheat",
       "pt": "trigo"
     },
+    "id": "1593",
     "categories": [
+      "alien",
       "dream"
     ]
   },
@@ -19368,12 +19370,13 @@
     ]
   },
   "1603": {
-    "id": "1603",
     "name": {
       "en": "cassava flour",
       "pt": "farofa"
     },
+    "id": "1603",
     "categories": [
+      "alien",
       "dream"
     ]
   },
@@ -19389,11 +19392,14 @@
     ]
   },
   "1605": {
-    "id": "1605",
     "name": {
       "en": "music",
       "pt": "música"
-    }
+    },
+    "id": "1605",
+    "categories": [
+      "dream"
+    ]
   },
   "1606": {
     "id": "1606",
@@ -19575,12 +19581,13 @@
     ]
   },
   "1622": {
-    "id": "1622",
     "name": {
       "en": "vegetable oil",
       "pt": "óleo"
     },
+    "id": "1622",
     "categories": [
+      "alien",
       "dream",
       "evidence"
     ]
@@ -19834,12 +19841,13 @@
     ]
   },
   "1644": {
-    "id": "1644",
     "name": {
       "en": "airbag",
       "pt": "airbag"
     },
+    "id": "1644",
     "categories": [
+      "alien",
       "dream",
       "weapon"
     ]
@@ -21067,14 +21075,20 @@
     "name": {
       "en": "pendulum ride",
       "pt": "brinquedo pêndulo"
-    }
+    },
+    "categories": [
+      "alien"
+    ]
   },
   "1750": {
     "id": "1750",
     "name": {
       "en": "swing ride",
       "pt": "brinquedo balanço"
-    }
+    },
+    "categories": [
+      "alien"
+    ]
   },
   "1751": {
     "id": "1751",
@@ -21089,12 +21103,13 @@
     ]
   },
   "1752": {
-    "id": "1752",
     "name": {
       "en": "subway route",
       "pt": "rota do metrô"
     },
+    "id": "1752",
     "categories": [
+      "alien",
       "mesmice"
     ]
   },
@@ -21167,11 +21182,14 @@
     ]
   },
   "1759": {
+    "id": "1759",
     "name": {
       "en": "heater",
       "pt": "aquecedor "
     },
-    "id": "1759"
+    "categories": [
+      "alien"
+    ]
   },
   "1760": {
     "name": {
@@ -21284,12 +21302,13 @@
     ]
   },
   "1770": {
+    "id": "1770",
     "name": {
       "en": "tears",
       "pt": "lágrimas"
     },
-    "id": "1770",
     "categories": [
+      "alien",
       "dream"
     ]
   },
@@ -21452,12 +21471,13 @@
     ]
   },
   "1785": {
+    "id": "1785",
     "name": {
       "en": "blister",
       "pt": "afta"
     },
-    "id": "1785",
     "categories": [
+      "alien",
       "dream"
     ]
   },
@@ -21511,6 +21531,7 @@
     },
     "id": "1790",
     "categories": [
+      "alien",
       "dream"
     ],
     "nsfw": true
@@ -21532,6 +21553,7 @@
     },
     "id": "1792",
     "categories": [
+      "alien",
       "dream"
     ],
     "nsfw": true
@@ -22243,7 +22265,10 @@
       "en": "mark",
       "pt": "marca"
     },
-    "id": "1856"
+    "id": "1856",
+    "categories": [
+      "symbol"
+    ]
   },
   "1857": {
     "name": {
@@ -23560,6 +23585,7 @@
       "pt": "selva"
     },
     "categories": [
+      "alien",
       "dream"
     ]
   },
@@ -23689,6 +23715,7 @@
       "pt": "África"
     },
     "categories": [
+      "alien",
       "dream"
     ]
   },
@@ -23720,14 +23747,20 @@
     "name": {
       "en": "male",
       "pt": "masculino"
-    }
+    },
+    "categories": [
+      "symbol"
+    ]
   },
   "1987": {
     "id": "1987",
     "name": {
       "en": "female",
       "pt": "feminino"
-    }
+    },
+    "categories": [
+      "symbol"
+    ]
   },
   "1988": {
     "id": "1988",
@@ -23740,11 +23773,14 @@
     ]
   },
   "1989": {
+    "id": "1989",
     "name": {
       "en": "contrast",
       "pt": "contraste"
     },
-    "id": "1989"
+    "categories": [
+      "symbol"
+    ]
   },
   "1990": {
     "name": {
@@ -23767,46 +23803,64 @@
     ]
   },
   "1992": {
-    "id": "1992",
     "name": {
       "en": "arrow up",
       "pt": "seta pra cima"
-    }
+    },
+    "id": "1992",
+    "categories": [
+      "symbol"
+    ]
   },
   "1993": {
-    "id": "1993",
     "name": {
       "en": "seta pra direita",
       "pt": "arrow right"
-    }
+    },
+    "id": "1993",
+    "categories": [
+      "symbol"
+    ]
   },
   "1994": {
     "id": "1994",
     "name": {
       "en": "arrow down",
       "pt": "seta pra baixo"
-    }
+    },
+    "categories": [
+      "symbol"
+    ]
   },
   "1995": {
+    "id": "1995",
     "name": {
       "en": "arrow left",
       "pt": "seta para esquerda"
     },
-    "id": "1995"
+    "categories": [
+      "symbol"
+    ]
   },
   "1996": {
-    "id": "1996",
     "name": {
       "en": "refresh",
-      "pt": "atualização"
-    }
+      "pt": "ciclo"
+    },
+    "id": "1996",
+    "categories": [
+      "symbol"
+    ]
   },
   "1997": {
-    "id": "1997",
     "name": {
       "en": "shapes",
       "pt": "formas"
-    }
+    },
+    "id": "1997",
+    "categories": [
+      "symbol"
+    ]
   },
   "1998": {
     "id": "1998",
@@ -24222,6 +24276,9 @@
       "en": "broken bulb",
       "pt": "lâmpada quebrada"
     },
+    "categories": [
+      "evidence"
+    ],
     "groups": []
   },
   "2032": {
@@ -24422,22 +24479,22 @@
     "groups": []
   },
   "2048": {
-    "id": "2048",
     "name": {
       "en": "completion seal",
       "pt": "Selo de finalização"
     },
+    "id": "2048",
     "categories": [
       "symbol"
     ],
     "groups": []
   },
   "2049": {
+    "id": "2049",
     "name": {
       "en": "red",
       "pt": "vermelho"
     },
-    "id": "2049",
     "categories": [
       "symbol"
     ],
@@ -24477,11 +24534,11 @@
     "groups": []
   },
   "2053": {
-    "id": "2053",
     "name": {
       "en": "blue",
       "pt": "azul"
     },
+    "id": "2053",
     "categories": [
       "symbol"
     ],
@@ -24499,33 +24556,33 @@
     "groups": []
   },
   "2055": {
-    "id": "2055",
     "name": {
       "en": "pink",
       "pt": "rosa"
     },
+    "id": "2055",
     "categories": [
       "symbol"
     ],
     "groups": []
   },
   "2056": {
-    "id": "2056",
     "name": {
       "en": "brown",
       "pt": "marrom"
     },
+    "id": "2056",
     "categories": [
       "symbol"
     ],
     "groups": []
   },
   "2057": {
-    "id": "2057",
     "name": {
       "en": "grey",
       "pt": "cinza"
     },
+    "id": "2057",
     "categories": [
       "symbol"
     ],
@@ -24554,11 +24611,11 @@
     "groups": []
   },
   "2060": {
+    "id": "2060",
     "name": {
       "en": "transparent",
       "pt": "transparente"
     },
-    "id": "2060",
     "categories": [
       "symbol"
     ],
@@ -24729,11 +24786,11 @@
     "groups": []
   },
   "2074": {
-    "id": "2074",
     "name": {
       "en": "alert",
       "pt": "alerta"
     },
+    "id": "2074",
     "categories": [
       "dream",
       "symbol"
@@ -24771,33 +24828,33 @@
     "groups": []
   },
   "2078": {
+    "id": "2078",
     "name": {
       "en": "location pin",
       "pt": "localizador"
     },
-    "id": "2078",
     "categories": [
       "symbol"
     ],
     "groups": []
   },
   "2079": {
-    "id": "2079",
     "name": {
       "en": "completion badge",
       "pt": "emblema de conclusão"
     },
+    "id": "2079",
     "categories": [
       "symbol"
     ],
     "groups": []
   },
   "2080": {
-    "id": "2080",
     "name": {
       "en": "approval seal",
       "pt": "selo de aprovação"
     },
+    "id": "2080",
     "categories": [
       "symbol"
     ],
@@ -24815,22 +24872,22 @@
     "groups": []
   },
   "2082": {
-    "id": "2082",
     "name": {
       "en": "anxiety",
       "pt": "ansiedade"
     },
+    "id": "2082",
     "categories": [
       "dream"
     ],
     "groups": []
   },
   "2083": {
+    "id": "2083",
     "name": {
       "en": "psychology book",
       "pt": "livro de psicologia"
     },
-    "id": "2083",
     "categories": [
       "alien"
     ],
@@ -24862,11 +24919,11 @@
     "nsfw": true
   },
   "2086": {
+    "id": "2086",
     "name": {
       "en": "incubator",
       "pt": "incubadora"
     },
-    "id": "2086",
     "categories": [
       "alien",
       "dream",
@@ -24889,11 +24946,11 @@
     "groups": []
   },
   "2088": {
-    "id": "2088",
     "name": {
       "en": "hut",
       "pt": "cabana"
     },
+    "id": "2088",
     "categories": [
       "alien",
       "dream"
@@ -24937,11 +24994,11 @@
     "groups": []
   },
   "2092": {
+    "id": "2092",
     "name": {
       "en": "walker",
       "pt": "andador"
     },
-    "id": "2092",
     "categories": [
       "alien",
       "dream",
@@ -24963,11 +25020,11 @@
     "groups": []
   },
   "2094": {
+    "id": "2094",
     "name": {
       "en": "carwash",
       "pt": "lava-jato"
     },
-    "id": "2094",
     "categories": [
       "alien",
       "dream"
@@ -24987,11 +25044,11 @@
     "groups": []
   },
   "2096": {
+    "id": "2096",
     "name": {
       "en": "grandmother",
       "pt": "avó"
     },
-    "id": "2096",
     "categories": [
       "dream",
       "suspect"
@@ -25063,7 +25120,376 @@
       "pt": "drag queen"
     },
     "categories": [
+      "alien",
       "suspect"
+    ],
+    "groups": [],
+    "nsfw": true
+  },
+  "2103": {
+    "name": {
+      "en": "id card",
+      "pt": "identidade"
+    },
+    "id": "2103",
+    "categories": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2104": {
+    "name": {
+      "en": "medical records",
+      "pt": "prontuários médicos"
+    },
+    "id": "2104",
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2105": {
+    "id": "2105",
+    "name": {
+      "en": "dyslexia",
+      "pt": "dislexia"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2106": {
+    "name": {
+      "en": "personality disorder",
+      "pt": "transtorno de personalidade"
+    },
+    "id": "2106",
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2107": {
+    "id": "2107",
+    "name": {
+      "en": "floss",
+      "pt": "fio dental"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2108": {
+    "name": {
+      "en": "motion capture",
+      "pt": "captura de movimento"
+    },
+    "id": "2108",
+    "categories": [
+      "dream",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2109": {
+    "name": {
+      "en": "douche",
+      "pt": "chuca"
+    },
+    "id": "2109",
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "groups": [],
+    "nsfw": true
+  },
+  "2110": {
+    "name": {
+      "en": "ring light",
+      "pt": "ring light"
+    },
+    "id": "2110",
+    "categories": [
+      "alien",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2111": {
+    "name": {
+      "en": "formula",
+      "pt": "papinha"
+    },
+    "id": "2111",
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2112": {
+    "name": {
+      "en": "almond milk",
+      "pt": "leite de amêndoas"
+    },
+    "id": "2112",
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2113": {
+    "id": "2113",
+    "name": {
+      "en": "circle",
+      "pt": "círculo"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2114": {
+    "name": {
+      "en": "square",
+      "pt": "quadrado"
+    },
+    "id": "2114",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2115": {
+    "name": {
+      "en": "triangle",
+      "pt": "triângulo"
+    },
+    "id": "2115",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2116": {
+    "name": {
+      "en": "sphere",
+      "pt": "esfera"
+    },
+    "id": "2116",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2117": {
+    "name": {
+      "en": "cube",
+      "pt": "cubo"
+    },
+    "id": "2117",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2118": {
+    "name": {
+      "en": "pyramid",
+      "pt": "pirâmide"
+    },
+    "id": "2118",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2119": {
+    "id": "2119",
+    "name": {
+      "en": "hexagon",
+      "pt": "hexágono"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2120": {
+    "id": "2120",
+    "name": {
+      "en": "cylinder",
+      "pt": "cilindro"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2121": {
+    "name": {
+      "en": "rectangle",
+      "pt": "retângulo"
+    },
+    "id": "2121",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2122": {
+    "name": {
+      "en": "rhombus",
+      "pt": "losango"
+    },
+    "id": "2122",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2123": {
+    "id": "2123",
+    "name": {
+      "en": "parallelepiped",
+      "pt": "paralelepípedo"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2124": {
+    "id": "2124",
+    "name": {
+      "en": "golden ratio",
+      "pt": "razão áurea"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2125": {
+    "id": "2125",
+    "name": {
+      "en": "silencer",
+      "pt": "silenciador"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2126": {
+    "name": {
+      "en": "cloves",
+      "pt": "cravos"
+    },
+    "id": "2126",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2127": {
+    "id": "2127",
+    "name": {
+      "en": "basil",
+      "pt": "manjericão"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2128": {
+    "id": "2128",
+    "name": {
+      "en": "rosemary",
+      "pt": "alecrim"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2129": {
+    "id": "2129",
+    "name": {
+      "en": "brussels sprouts",
+      "pt": "couve de Bruxelas"
+    },
+    "categories": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2130": {
+    "id": "2130",
+    "name": {
+      "en": "kart",
+      "pt": "kart"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2131": {
+    "id": "2131",
+    "name": {
+      "en": "race track",
+      "pt": "pista"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2132": {
+    "id": "2132",
+    "name": {
+      "en": "date",
+      "pt": "encontro"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2133": {
+    "id": "2133",
+    "name": {
+      "en": "return",
+      "pt": "voltar"
+    },
+    "categories": [
+      "symbol"
     ],
     "groups": []
   }
