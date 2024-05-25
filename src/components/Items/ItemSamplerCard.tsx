@@ -24,12 +24,30 @@ export function ItemSamplerCard() {
     );
   }
 
+  const sample = sampleIds.map((itemId) => ({
+    itemAttributes: getItemAttributeValues(itemId),
+    item: getItem(itemId),
+  }));
+
+  const unsetItems = sample.filter(({ itemAttributes }) => !itemAttributes.attributes[attribute!.id]);
+
+  const onMarkRestAsUnrelated = () => {
+    unsetItems.forEach(({ item }) => {
+      updateAttributeValue(item.id, attribute!.id, -3);
+    });
+  };
+
+  console.log(sample);
+
   return (
     <Card
       className="my-4"
       title={<Typography.Text>{attribute?.name.en}</Typography.Text>}
       actions={[
-        <Button type="primary" block ghost onClick={onGetSample}>
+        <Button onClick={onMarkRestAsUnrelated} danger disabled={unsetItems.length === 0}>
+          Mark rest as unrelated
+        </Button>,
+        <Button type="primary" ghost onClick={onGetSample}>
           Get New Sample
         </Button>,
       ]}
@@ -40,12 +58,9 @@ export function ItemSamplerCard() {
       }
     >
       <Flex vertical gap={6}>
-        {sampleIds.map((itemId) => {
-          const itemAttributes = getItemAttributeValues(itemId);
-          const item = getItem(itemId);
-
+        {sample.map(({ item, itemAttributes }) => {
           return (
-            <Fragment key={`${itemId}-${itemAttributes.updatedAt}`}>
+            <Fragment key={`${item.id}-${itemAttributes.updatedAt}`}>
               <Flex gap={6}>
                 <ItemSprite item={item} width={75} />
                 <Flex vertical gap={6}>
