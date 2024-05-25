@@ -72,3 +72,17 @@
   max-height: 300px;
   overflow-y: auto;
 }
+
+.item-groups-container {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid get-color('white', 5, 0.1);
+  padding: get-unit(1);
+  border-radius: $border-radius;
+}
+
+.item-groups-panel-container {
+  max-width: max(600px, 70vw);
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
