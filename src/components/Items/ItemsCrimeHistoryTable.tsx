@@ -132,7 +132,7 @@ export function ItemsCrimeHistoryTable() {
 
   return (
     <Space direction="vertical">
-      <Table columns={columns} rowKey="id" dataSource={crimes} />
+      <Table columns={columns} rowKey="id" dataSource={crimes} pagination={{ showQuickJumper: true }} />
     </Space>
   );
 }

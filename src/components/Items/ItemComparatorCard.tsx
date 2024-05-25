@@ -86,7 +86,7 @@ export function ItemComparatorCard() {
   return (
     <div className="my-4">
       <Typography.Title level={5}>Item Comparator</Typography.Title>
-      <Table dataSource={itemMessages} columns={columns} />
+      <Table dataSource={itemMessages} columns={columns} pagination={{ showQuickJumper: true }} />
     </div>
   );
 }

@@ -37,7 +37,7 @@ export function ItemsMoviesTable({
     const sets = data ? orderSets(Object.values(data)) : [];
     return showOnlyEmpty ? sets.filter((s) => s.itemsIds.length === 0) : sets;
   }, [data, showOnlyEmpty]);
-  const paginationProps = useTablePagination({ total: rows.length });
+  const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
   const columns: TableProps<DailyMovieSet>['columns'] = [
     {

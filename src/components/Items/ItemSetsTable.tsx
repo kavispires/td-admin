@@ -69,7 +69,7 @@ export function ItemsSetsTable() {
           onChange={() => setSelectedSet(selectedSet === 'set' ? 'misc' : 'set')}
         />
       </Space>
-      <Table columns={columns} dataSource={sets} />
+      <Table columns={columns} dataSource={sets} pagination={{ showQuickJumper: true }} />
     </Space>
   );
 }

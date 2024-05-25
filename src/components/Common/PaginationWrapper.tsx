@@ -7,7 +7,7 @@ type PaginationWrapperProps = {
 };
 
 export function PaginationWrapper({ children, pagination }: PaginationWrapperProps) {
-  const paginationComponent = <Pagination {...pagination} className="fixed-pagination" />;
+  const paginationComponent = <Pagination showQuickJumper {...pagination} className="fixed-pagination" />;
   return (
     <Space direction="vertical">
       {paginationComponent}

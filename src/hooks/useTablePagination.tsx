@@ -29,6 +29,11 @@ type UseTablePaginationOptions = {
    * The total number of items in the table.
    */
   total: number;
+
+  /**
+   * Whether to show the quick jumper input.
+   */
+  showQuickJumper?: boolean;
 };
 
 export function useTablePagination({
@@ -37,6 +42,7 @@ export function useTablePagination({
   defaultPageSize = 10,
   pageSizeOptions = [10, 20, 50, 100],
   total,
+  showQuickJumper,
 }: UseTablePaginationOptions): TableProps['pagination'] {
   const { queryParams, addParam } = useQueryParams();
   const currentPage = Number(queryParams.get(`${prefix}page`) ?? String(defaultCurrent));
@@ -59,5 +65,6 @@ export function useTablePagination({
     pageSizeOptions,
     total,
     hideOnSinglePage: true,
+    showQuickJumper,
   };
 }

@@ -115,7 +115,14 @@ function ItemsGroupsByGroupTable({ data }: Pick<UseResourceFirebaseDataReturnTyp
     },
   ];
 
-  return <Table columns={columns} dataSource={Object.values(data)} className="my-4" />;
+  return (
+    <Table
+      columns={columns}
+      dataSource={Object.values(data)}
+      className="my-4"
+      pagination={{ showQuickJumper: true }}
+    />
+  );
 }
 
 type ItemsGroupsByItemTableProps = {
