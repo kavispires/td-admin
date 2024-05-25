@@ -13578,11 +13578,11 @@
     ]
   },
   "1110": {
-    "id": "1110",
     "name": {
-      "en": "hook",
-      "pt": "gancho"
+      "en": "fish hook",
+      "pt": "anzol"
     },
+    "id": "1110",
     "categories": [
       "alien",
       "mesmice",

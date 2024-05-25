@@ -164,11 +164,12 @@
     "year": 2002
   },
   "dms-120-pt": {
-    "id": "dms-120-pt",
     "title": "Beleza Americana",
+    "id": "dms-120-pt",
     "itemsIds": [
+      "1387",
       "1982",
-      "1387"
+      "373"
     ],
     "year": 1999
   },
@@ -997,9 +998,13 @@
     "year": 2017
   },
   "dms-231-pt": {
-    "id": "dms-231-pt",
     "title": "Jogos Mortais - O Final",
-    "itemsIds": [],
+    "id": "dms-231-pt",
+    "itemsIds": [
+      "77",
+      "1231",
+      "1257"
+    ],
     "year": 2010
   },
   "dms-232-pt": {
@@ -1009,9 +1014,15 @@
     "year": 2019
   },
   "dms-233-pt": {
-    "id": "dms-233-pt",
     "title": "Jumanji",
-    "itemsIds": [],
+    "id": "dms-233-pt",
+    "itemsIds": [
+      "77",
+      "233",
+      "552",
+      "1207",
+      "1972"
+    ],
     "year": 1995
   },
   "dms-234-pt": {
@@ -1033,9 +1044,12 @@
     "year": 2003
   },
   "dms-237-pt": {
-    "id": "dms-237-pt",
     "title": "Kung Fu Panda",
-    "itemsIds": [],
+    "id": "dms-237-pt",
+    "itemsIds": [
+      "216",
+      "861"
+    ],
     "year": 2008
   },
   "dms-238-pt": {
@@ -1353,7 +1367,10 @@
   "dms-281-pt": {
     "id": "dms-281-pt",
     "title": "O Ataque dos Tomates Assassinos",
-    "itemsIds": [],
+    "itemsIds": [
+      "548",
+      "1891"
+    ],
     "year": 1978
   },
   "dms-282-pt": {
@@ -1365,13 +1382,20 @@
   "dms-283-pt": {
     "id": "dms-283-pt",
     "title": "O Babadook",
-    "itemsIds": [],
+    "itemsIds": [
+      "2027",
+      "559"
+    ],
     "year": 2014
   },
   "dms-284-pt": {
     "id": "dms-284-pt",
     "title": "O Bandido da Luz Vermelha",
-    "itemsIds": [],
+    "itemsIds": [
+      "234",
+      "799",
+      "158"
+    ],
     "year": 1968
   },
   "dms-285-pt": {
@@ -1381,9 +1405,13 @@
     "year": 1968
   },
   "dms-286-pt": {
-    "id": "dms-286-pt",
     "title": "O Beijo da Mulher Aranha",
-    "itemsIds": [],
+    "id": "dms-286-pt",
+    "itemsIds": [
+      "1712",
+      "2014",
+      "153"
+    ],
     "year": 1985
   },
   "dms-287-pt": {
@@ -1393,9 +1421,12 @@
     "year": 1973
   },
   "dms-288-pt": {
-    "id": "dms-288-pt",
     "title": "O Candidato Honesto",
-    "itemsIds": [],
+    "id": "dms-288-pt",
+    "itemsIds": [
+      "1514",
+      "1395"
+    ],
     "year": 2014
   },
   "dms-289-pt": {
@@ -2914,13 +2945,19 @@
   "dms-62-pt": {
     "id": "dms-62-pt",
     "title": "A Mulher Invisível",
-    "itemsIds": [],
+    "itemsIds": [
+      "2060",
+      "2014"
+    ],
     "year": 2009
   },
   "dms-63-pt": {
     "id": "dms-63-pt",
     "title": "A Mulher-Gato",
-    "itemsIds": [],
+    "itemsIds": [
+      "2016",
+      "1894"
+    ],
     "year": 2004
   },
   "dms-64-pt": {
@@ -3125,7 +3162,13 @@
   "dms-87-pt": {
     "id": "dms-87-pt",
     "title": "Aladdin",
-    "itemsIds": [],
+    "itemsIds": [
+      "70",
+      "439",
+      "552",
+      "1916",
+      "1411"
+    ],
     "year": 1992
   },
   "dms-88-pt": {
