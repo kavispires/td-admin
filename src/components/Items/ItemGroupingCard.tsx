@@ -53,7 +53,7 @@ export function ItemGroupingCard() {
       className="my-4"
       title={
         <Typography.Text>
-          {attribute?.name.en} ({group.length})
+          {attribute?.name.en} ({group.length}) - {attribute.description.en}
         </Typography.Text>
       }
       extra={paginationComponent}
