@@ -109,14 +109,9 @@
     "text": "Ser vivo",
     "type": "attribute"
   },
-  "tdc-23-pt": {
-    "id": "tdc-23-pt",
-    "text": "É perigoso",
-    "type": "attribute"
-  },
   "tdc-24-pt": {
     "id": "tdc-24-pt",
-    "text": "É valioso",
+    "text": "É valioso para pessoas comuns",
     "type": "attribute"
   },
   "tdc-25-pt": {
@@ -423,5 +418,35 @@
     "id": "tdc-86-pt",
     "text": "Usa energia ou pode ser ligada",
     "type": "context"
+  },
+  "tdc-87-pt": {
+    "id": "tdc-87-pt",
+    "text": "É maior que um carro",
+    "type": "attribute"
+  },
+  "tdc-88-pt": {
+    "id": "tdc-88-pt",
+    "text": "É uma palavra de origem estrangeira",
+    "type": "word"
+  },
+  "tdc-89-pt": {
+    "id": "tdc-89-pt",
+    "text": "Contém as letras estrangeiras \"k\",\"w\", ou \"y\"",
+    "type": "word"
+  },
+  "tdc-90-pt": {
+    "id": "tdc-90-pt",
+    "text": "Contém a letra \"u\"",
+    "type": "word"
+  },
+  "tdc-91-pt": {
+    "id": "tdc-91-pt",
+    "text": "Contém a letra \"q\" ou a letra \"j\"",
+    "type": "word"
+  },
+  "tdc-92-pt": {
+    "id": "tdc-92-pt",
+    "text": "Contém a letra \"h\"",
+    "type": "word"
   }
 }
