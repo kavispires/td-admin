@@ -13,9 +13,10 @@ import { useQueryParams } from 'hooks/useQueryParams';
 type ItemCardProps = {
   item: ItemT;
   editMode?: boolean;
+  simplified?: boolean;
 };
 
-export function ItemCard({ item, editMode = false }: ItemCardProps) {
+export function ItemCard({ item, editMode = false, simplified }: ItemCardProps) {
   const { categories } = useItemsContext();
   const { isEditing, toggleEditMode, onEdit, isDirty, onModify, onReset, editableItem } = useItemUpdate(
     item,
@@ -28,16 +29,19 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
     <Card
       title={<Typography.Text onClick={() => copyToClipboard(item.id)}>{item.id}</Typography.Text>}
       style={{ maxWidth: 250 }}
+      size={simplified ? 'small' : 'default'}
       actions={
-        isDirty
-          ? [
-              <RollbackOutlined key="reset" onClick={onReset} />,
-              <SaveOutlined key="save" onClick={onModify} />,
-            ]
-          : [<EditOutlined key="edit" onClick={toggleEditMode} />]
+        simplified
+          ? undefined
+          : isDirty
+            ? [
+                <RollbackOutlined key="reset" onClick={onReset} />,
+                <SaveOutlined key="save" onClick={onModify} />,
+              ]
+            : [<EditOutlined key="edit" onClick={toggleEditMode} />]
       }
     >
-      <Item id={item.id} width={125} title={`${item.name.en} | ${item.name.pt}`} />
+      <Item id={item.id} width={simplified ? 75 : 125} title={`${item.name.en} | ${item.name.pt}`} />
       <Space size="small" direction="vertical" className="my-4">
         <Input
           prefix={<LanguageFlag language="en" width="1em" />}
@@ -59,37 +63,41 @@ export function ItemCard({ item, editMode = false }: ItemCardProps) {
           key={`pt-${item.name.pt}`}
           onChange={(e) => onEdit({ name: { ...editableItem.name, pt: e.target.value } })}
         />
-        <div>
-          <Select
-            mode="multiple"
-            style={{ width: '100%' }}
-            placeholder="Select a category"
-            defaultValue={item.categories}
-            disabled={!isEditing}
-            options={categories}
-            variant={isEditing ? 'outlined' : 'borderless'}
-            size="small"
-            key={String(item.categories)}
-            onChange={(value) => onEdit({ categories: value.sort() })}
-          />
-        </div>
-        {is('showVerifyThing') && (
-          <div>
-            <VerifyIfThing item={item} />
-          </div>
-        )}
-        {(isEditing || item.nsfw) && (
-          <div>
-            <Form.Item label="nsfw" valuePropName="checked">
-              <Switch
-                checked={item.nsfw}
-                onChange={(checked) => onEdit({ nsfw: checked })}
-                size="small"
-                checkedChildren={<FireFilled style={{ color: 'hotpink' }} />}
+        {!simplified && (
+          <>
+            <div>
+              <Select
+                mode="multiple"
+                style={{ width: '100%' }}
+                placeholder="Select a category"
+                defaultValue={item.categories}
                 disabled={!isEditing}
+                options={categories}
+                variant={isEditing ? 'outlined' : 'borderless'}
+                size="small"
+                key={String(item.categories)}
+                onChange={(value) => onEdit({ categories: value.sort() })}
               />
-            </Form.Item>
-          </div>
+            </div>
+            {is('showVerifyThing') && (
+              <div>
+                <VerifyIfThing item={item} />
+              </div>
+            )}
+            {(isEditing || item.nsfw) && (
+              <div>
+                <Form.Item label="nsfw" valuePropName="checked">
+                  <Switch
+                    checked={item.nsfw}
+                    onChange={(checked) => onEdit({ nsfw: checked })}
+                    size="small"
+                    checkedChildren={<FireFilled style={{ color: 'hotpink' }} />}
+                    disabled={!isEditing}
+                  />
+                </Form.Item>
+              </div>
+            )}
+          </>
         )}
       </Space>
     </Card>

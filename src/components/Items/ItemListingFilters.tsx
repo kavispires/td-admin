@@ -11,11 +11,7 @@ import { sortJsonKeys } from 'utils';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { SaveButton } from 'components/Common/SaveButton';
 
-type ItemListingFiltersProps = {
-  showSearch: boolean;
-  toggleSearch: () => void;
-};
-export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFiltersProps) {
+export function ItemListingFilters() {
   const { isDirty, save, items, categories, itemsToUpdate, isSaving } = useItemsContext();
   const { queryParams, is, addParam } = useQueryParams();
 
@@ -30,6 +26,7 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
     }));
     return [...includingOptions, ...excludingOptions];
   }, [categories]);
+
   return (
     <SiderContent>
       <Flex vertical gap={6}>
@@ -49,7 +46,17 @@ export function ItemListingFilters({ showSearch, toggleSearch }: ItemListingFilt
       </Flex>
       <Divider />
 
-      <FilterSwitch label="Show Search" value={showSearch} onChange={toggleSearch} />
+      <FilterSwitch
+        label="Show Search"
+        value={!is('hideSearch')}
+        onChange={(v) => addParam('hideSearch', v ? '' : 'true', '')}
+      />
+
+      <FilterSwitch
+        label="Show Randomizer"
+        value={is('showRandomizer')}
+        onChange={(v) => addParam('showRandomizer', v ? 'true' : '', '')}
+      />
 
       <FilterSwitch
         label="Verify Thing"
