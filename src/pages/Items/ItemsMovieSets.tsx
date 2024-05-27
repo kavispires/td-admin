@@ -1,6 +1,7 @@
-import { Layout } from 'antd';
+import { Layout, Space } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ItemsMoviesFilters } from 'components/Items/ItemsMoviesFilters';
+import { ItemsMoviesSample } from 'components/Items/ItemsMoviesSample';
 import { ItemsMoviesTable } from 'components/Items/ItemsMoviesTable';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
@@ -27,7 +28,10 @@ export function ItemsMovieSets() {
             error={moviesData.error}
             hasResponseData={!isEmpty(moviesData.data)}
           >
-            <ItemsMoviesTable {...moviesData} />
+            <Space direction="vertical">
+              <ItemsMoviesSample {...moviesData} />
+              <ItemsMoviesTable {...moviesData} />
+            </Space>
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>

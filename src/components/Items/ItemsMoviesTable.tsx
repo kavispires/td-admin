@@ -14,6 +14,7 @@ import { Item } from 'components/Sprites';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
 import { useTablePagination } from 'hooks/useTablePagination';
+
 function orderSets(givenSets: DailyMovieSet[]) {
   return orderBy(givenSets, [
     // (s) => removeDuplicates(s.itemsIds).filter(Boolean).length > 0,
@@ -37,6 +38,7 @@ export function ItemsMoviesTable({
     const sets = data ? orderSets(Object.values(data)) : [];
     return showOnlyEmpty ? sets.filter((s) => s.itemsIds.length === 0) : sets;
   }, [data, showOnlyEmpty]);
+
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
   const columns: TableProps<DailyMovieSet>['columns'] = [
@@ -100,7 +102,7 @@ type AddItemFlowProps = {
   addEntryToUpdate: (id: string, item: DailyMovieSet) => void;
 };
 
-function AddItemFlow({ movie, addEntryToUpdate }: AddItemFlowProps) {
+export function AddItemFlow({ movie, addEntryToUpdate }: AddItemFlowProps) {
   const onUpdate = (itemId: string) => {
     addEntryToUpdate(movie.id, {
       ...movie,
@@ -121,7 +123,7 @@ type RemoveItemFlowProps = {
   itemId: string;
 };
 
-function RemoveItemFlow({ movie, addEntryToUpdate, itemId }: RemoveItemFlowProps) {
+export function RemoveItemFlow({ movie, addEntryToUpdate, itemId }: RemoveItemFlowProps) {
   const onRemove = () => {
     addEntryToUpdate(movie.id, {
       ...movie,
