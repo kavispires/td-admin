@@ -10,6 +10,15 @@ export function getToday(): string {
   return moment().format('YYYY-MM-DD');
 }
 
+/**
+ * Returns the date of yesterday in the format 'YYYY-MM-DD'.
+ *
+ * @returns {string} The date of yesterday in 'YYYY-MM-DD' format.
+ */
+export function getYesterday(): string {
+  return moment().subtract(1, 'days').format('YYYY-MM-DD');
+}
+
 export function getNextDay(dateString: string): string {
   const inputDate = moment(dateString, 'YYYY-MM-DD');
   const nextDate = inputDate.add(1, 'days');

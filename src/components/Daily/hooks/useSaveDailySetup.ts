@@ -77,6 +77,16 @@ export function useSaveDailySetup(queryLanguage: Language) {
           latestNumber: data[data.length - 1]['artista'].number,
           used: '[]',
         },
+        filmaco: {
+          latestDate: data[data.length - 1].id,
+          latestNumber: data[data.length - 1]['filmaco'].number,
+          used: JSON.stringify(
+            removeDuplicates([
+              ...JSON.parse(previousHistory?.['filmaco']?.used ?? '[]'),
+              ...data.map((e) => e['filmaco'].setId),
+            ])
+          ),
+        },
       };
       setDoc(docRec, newHistory);
 

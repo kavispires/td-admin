@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { DailyHistory, ParsedDailyHistoryEntry } from '../utils/types';
-import { getToday } from '../utils/utils';
+import { getYesterday } from '../utils/utils';
 
 export function useParsedHistory(
   key: keyof DailyHistory,
@@ -9,7 +9,7 @@ export function useParsedHistory(
   const history = useMemo(
     () =>
       data?.[key] ?? {
-        latestDate: getToday(),
+        latestDate: getYesterday(),
         latestNumber: 0,
         used: '[]',
       },
@@ -19,7 +19,7 @@ export function useParsedHistory(
   const parsedHistory: ParsedDailyHistoryEntry = useMemo(() => {
     return {
       latestNumber: history?.latestNumber ?? 0,
-      latestDate: history?.latestDate ?? getToday(),
+      latestDate: history?.latestDate ?? getYesterday(),
       used: JSON.parse(history?.used ?? '[]'),
     };
   }, [history]);

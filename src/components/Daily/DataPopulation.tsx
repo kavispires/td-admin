@@ -90,12 +90,33 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       },
     },
     {
+      title: 'Filmaço',
+      dataIndex: 'filmaco',
+      key: 'filmaco',
+      render: ({ number, setId, year, title }) => {
+        return (
+          <Space direction="vertical">
+            <span>#{number}</span>
+            <span>SetId: {setId}</span>
+            <span>Year: {year}</span>
+            <span>
+              Title:{' '}
+              {title
+                .split('')
+                .map((l: string, i: number) => (i < 1 || l === ' ' ? l : '⏹'))
+                .join('')}
+            </span>
+          </Space>
+        );
+      },
+    },
+    {
       title: 'Artista',
       dataIndex: 'artista',
       key: 'artista',
       render: ({ number, cards }) => {
         return (
-          <Space direction="vertical">
+          <Space direction="vertical" style={{ maxHeight: 200, overflowY: 'auto' }}>
             <span>#{number}</span>
             {cards.map((card: ArteRuimCard, index: number) => (
               <span key={`${card.id}-${index}`}>{card.text}</span>

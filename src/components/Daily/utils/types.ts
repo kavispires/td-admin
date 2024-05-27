@@ -23,6 +23,7 @@ export type DailyHistory = {
   'aqui-o': DailyHistoryEntry;
   palavreado: DailyHistoryEntry;
   artista: DailyHistoryEntry;
+  filmaco?: DailyHistoryEntry;
 };
 
 export type DailyArteRuimEntry = {
@@ -61,12 +62,23 @@ export type DailyArtistaEntry = {
   cards: ArteRuimCard[];
 };
 
+export type DailyFilmacoEntry = {
+  id: DateKey;
+  number: number;
+  type: 'filmaco';
+  setId: string;
+  title: string;
+  itemsIds: string[];
+  year: number;
+};
+
 export type DailyEntry = {
   id: DateKey;
   'arte-ruim': DailyArteRuimEntry;
   'aqui-o': DailyAquiOEntry;
   palavreado: DailyPalavreadoEntry;
   artista: DailyArtistaEntry;
+  filmaco: DailyFilmacoEntry;
 };
 
 export type DataDrawing = {

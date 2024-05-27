@@ -2,13 +2,14 @@ import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
 import { sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
-import { DailyDiscSet, ArteRuimCard } from 'types';
+import { DailyDiscSet, ArteRuimCard, DailyMovieSet } from 'types';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import {
   DailyAquiOEntry,
   DailyArtistaEntry,
   DailyEntry,
+  DailyFilmacoEntry,
   DailyPalavreadoEntry,
   DataDrawing,
 } from '../utils/types';
@@ -48,6 +49,10 @@ export function useLoadDailySetup(
   const areDrawingsLoading = drawingsQuery.some((q) => q.isLoading);
   const [arteRuimHistory] = useParsedHistory('arte-ruim', historyQuery.data);
   const arteRuimEntries = useMemo(() => {
+    if (areDrawingsLoading || !historyQuery.isSuccess) {
+      return [];
+    }
+
     console.count('Creating Arte Ruim...');
     const drawings = (drawingsQuery ?? []).reduce(
       (acc: Record<CardId, DailyEntry['arte-ruim']>, drawingEntry) => {
@@ -104,12 +109,24 @@ export function useLoadDailySetup(
         number: arteRuimHistory.latestNumber + index + 1,
       };
     });
-  }, [drawingsQuery, queryLanguage, arteRuimHistory, batchSize, drawingsCount]);
+  }, [
+    drawingsQuery,
+    queryLanguage,
+    arteRuimHistory,
+    batchSize,
+    drawingsCount,
+    areDrawingsLoading,
+    historyQuery.isSuccess,
+  ]);
 
   // STEP 3: AQUI Ó
   const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets');
   const [aquiOHistory] = useParsedHistory('aqui-o', historyQuery.data);
   const aquiOEntries = useMemo(() => {
+    if (!aquiOSetsQuery.isSuccess || !historyQuery.isSuccess) {
+      return {};
+    }
+
     console.count('Creating Aqui Ó...');
     // Filter complete sets only
     const completeSets = shuffle(
@@ -128,7 +145,7 @@ export function useLoadDailySetup(
     for (let i = 0; i < batchSize; i++) {
       const setEntry = notUsedSets[i];
       if (!setEntry) {
-        break;
+        console.error('No aqui-o sets left');
       }
       const id = getNextDay(lastDate);
       lastDate = id;
@@ -143,13 +160,13 @@ export function useLoadDailySetup(
     }
 
     return entries;
-  }, [aquiOSetsQuery, aquiOHistory, batchSize]);
+  }, [aquiOSetsQuery, aquiOHistory, batchSize, historyQuery.isSuccess]);
 
   // STEP 4: Palavreado
   const wordsQuery = useLoadWordLibrary(4, queryLanguage, true, true);
   const [palavreadoHistory] = useParsedHistory('palavreado', historyQuery.data);
   const palavreadoEntries = useMemo(() => {
-    if (!wordsQuery.data || !wordsQuery.data.length) {
+    if (!wordsQuery.data || !wordsQuery.data.length || !historyQuery.isSuccess) {
       return {};
     }
     console.count('Creating Palavreado...');
@@ -170,13 +187,18 @@ export function useLoadDailySetup(
       };
     }
     return entries;
-  }, [wordsQuery, palavreadoHistory, batchSize]);
+  }, [wordsQuery, palavreadoHistory, batchSize, historyQuery.isSuccess]);
 
   // STEP 5: Artista
   const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`);
   const [artistaHistory] = useParsedHistory('artista', historyQuery.data);
   const artistaEntries = useMemo(() => {
+    if (!arteRuimCardsQuery.isSuccess || !historyQuery.isSuccess) {
+      return {};
+    }
+
     console.count('Creating Artista...');
+
     let lastDate = artistaHistory.latestDate;
     // Get list, if not enough, get from complete
     const entries: Dictionary<DailyArtistaEntry> = {};
@@ -195,7 +217,53 @@ export function useLoadDailySetup(
       };
     }
     return entries;
-  }, [arteRuimCardsQuery, arteRuimHistory, artistaHistory, batchSize]);
+  }, [arteRuimCardsQuery, arteRuimHistory, artistaHistory, batchSize, historyQuery.isSuccess]);
+
+  // STEP 6: Filmaço
+  const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets');
+  const [filmacoHistory] = useParsedHistory('filmaco', historyQuery.data);
+  const filmacoEntries = useMemo(() => {
+    if (!movieSetsQuery.isSuccess || !historyQuery.isSuccess) {
+      return {};
+    }
+
+    console.count('Creating Filmaço...');
+
+    // Filter complete sets only
+    const completeSets = shuffle(
+      Object.values(movieSetsQuery.data).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length > 0)
+    );
+    // Filter not-used sets only
+    let notUsedSets = completeSets.filter((setEntry) => !filmacoHistory.used.includes(setEntry.id));
+
+    if (notUsedSets.length < batchSize) {
+      notUsedSets.push(...shuffle(completeSets));
+    }
+
+    let lastDate = filmacoHistory.latestDate;
+    // Get list, if not enough, get from complete
+    const entries: Dictionary<DailyFilmacoEntry> = {};
+    for (let i = 0; i < batchSize; i++) {
+      const setEntry = notUsedSets[i];
+      if (!setEntry) {
+        console.error('No filmaço sets left');
+        break;
+      }
+      const id = getNextDay(lastDate);
+      lastDate = id;
+      entries[id] = {
+        id,
+        type: 'filmaco',
+        number: filmacoHistory.latestNumber + i + 1,
+        setId: setEntry.id,
+        title: setEntry.title,
+        itemsIds: setEntry.itemsIds,
+        year: setEntry.year,
+      };
+    }
+
+    return entries;
+  }, [movieSetsQuery, filmacoHistory, batchSize, historyQuery.isSuccess]);
 
   // STEP N: Create entries
   const entries = useMemo(() => {
@@ -207,12 +275,19 @@ export function useLoadDailySetup(
         'aqui-o': aquiOEntries[arteRuim.id],
         palavreado: palavreadoEntries[arteRuim.id],
         artista: artistaEntries[arteRuim.id],
+        filmaco: filmacoEntries[arteRuim.id],
       };
     });
-  }, [arteRuimEntries, aquiOEntries, palavreadoEntries, artistaEntries]);
+  }, [arteRuimEntries, aquiOEntries, palavreadoEntries, artistaEntries, filmacoEntries]);
 
   return {
-    isLoading: areDrawingsLoading || historyQuery.isLoading,
+    isLoading:
+      areDrawingsLoading ||
+      historyQuery.isLoading ||
+      wordsQuery.isLoading ||
+      arteRuimCardsQuery.isLoading ||
+      aquiOSetsQuery.isLoading ||
+      movieSetsQuery.isLoading,
     entries,
   };
 }
