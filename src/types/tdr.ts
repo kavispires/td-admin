@@ -728,10 +728,6 @@ export type DailyDiscSet = {
    */
   id: string;
   /**
-   * The id of the set (only present in the daily game )
-   */
-  setId?: string;
-  /**
    * The title of the set
    */
   title: DualLanguageValue;
@@ -746,10 +742,6 @@ export type DailyMovieSet = {
    * The id (the setId in the library OR the date in a daily game)
    */
   id: string;
-  /**
-   * The id of the set (only present in the daily game )
-   */
-  setId?: string;
   /**
    * The title of the set
    */
@@ -770,10 +762,6 @@ export type DailyQuartetSet = {
    */
   id: string;
   /**
-   * The id of the set (only present in the daily game )
-   */
-  setId?: string;
-  /**
    * The title of the set
    */
   title: string;
@@ -781,4 +769,8 @@ export type DailyQuartetSet = {
    * The items in the set
    */
   itemsIds: string[];
+  /**
+   * The level of difficulty of the set
+   */
+  level: number;
 };

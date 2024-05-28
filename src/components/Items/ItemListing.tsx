@@ -12,7 +12,6 @@ export function ItemListing() {
   const listingType = queryParams.get('type') ?? 'all';
   const { listing } = useItemsContext();
 
-  // TODO: when type change, page should reset
   const { page, pagination } = useGridPagination({ data: listing, resetter: listingType });
 
   return (

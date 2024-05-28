@@ -1,14 +1,15 @@
-import { Card, Flex, Form, Input, Select, Space, Switch, Typography } from 'antd';
+import { Button, Card, Flex, Form, Input, Popover, Select, Space, Switch, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { useItemsContext } from 'context/ItemsContext';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useItemUpdate } from 'hooks/useItemUpdate';
-import { memoize } from 'lodash';
+import { memoize, snakeCase } from 'lodash';
 import { Item as ItemT } from 'types';
 
-import { EditOutlined, FireFilled, RollbackOutlined, SaveOutlined } from '@ant-design/icons';
+import { EditOutlined, FireFilled, MenuOutlined, RollbackOutlined, SaveOutlined } from '@ant-design/icons';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { useToggle } from 'react-use';
 
 type ItemCardProps = {
   item: ItemT;
@@ -28,6 +29,7 @@ export function ItemCard({ item, editMode = false, simplified }: ItemCardProps) 
   return (
     <Card
       title={<Typography.Text onClick={() => copyToClipboard(item.id)}>{item.id}</Typography.Text>}
+      extra={<ItemPopoverOptions item={item} />}
       style={{ maxWidth: 250 }}
       size={simplified ? 'small' : 'default'}
       actions={
@@ -138,3 +140,105 @@ const VerifyIfThing = ({ item }: VerifyIfThingProps) => {
 
   return <></>;
 };
+
+export type EscapeRoomItemCard = {
+  /**
+   * The unique identifier of the card.
+   * Usually used to verify the end game played cards condition.
+   */
+  id: string;
+  /**
+   * The type of the card.
+   */
+  type: 'item';
+  /**
+   * The header of the card
+   */
+  header: {
+    /**
+     * The title of the header in both languages.
+     */
+    title: DualLanguageValue;
+    /**
+     * Illustrative small icon in the header.
+     */
+    iconId?: string;
+  };
+  /**
+   * The metadata of the card.
+   */
+  metadata?: {
+    /**
+     * The level of the card to determine the difficulty.
+     */
+    level: 'basic';
+    /**
+     * When played, adds this keyword to the result.
+     */
+    keyword?: string;
+  };
+  content: {
+    /**
+     * The item id for the Item Sprite
+     */
+    itemId: string;
+    /**
+     * Descriptive text of the item, usually its name
+     */
+    caption?: DualLanguageValue;
+  };
+};
+
+const buildEscapeRoomItemCard = (item: ItemT): EscapeRoomItemCard => ({
+  id: item.id,
+  type: 'item',
+  header: {
+    title: {
+      en: 'Item',
+      pt: 'Item',
+    },
+    iconId: '2077',
+  },
+  metadata: {
+    level: 'basic',
+    keyword: snakeCase(item.name.en).toUpperCase(),
+  },
+  content: {
+    itemId: item.id,
+    caption: item.name,
+  },
+});
+
+export function ItemPopoverOptions({ item }: Pick<ItemCardProps, 'item'>) {
+  const [open, toggleOpen] = useToggle(false);
+  const copyToClipboard = useCopyToClipboardFunction();
+  return (
+    <Popover
+      content={
+        <Space direction="vertical">
+          <Button size="small" onClick={() => copyToClipboard(JSON.stringify(item, null, 2))}>
+            Complete Item
+          </Button>
+          <Button size="small" onClick={() => copyToClipboard(item.name.en)}>
+            EN Name
+          </Button>
+          <Button size="small" onClick={() => copyToClipboard(item.name.pt)}>
+            PT Name
+          </Button>
+          <Button
+            size="small"
+            onClick={() => copyToClipboard(JSON.stringify(buildEscapeRoomItemCard(item), null, 2))}
+          >
+            Escape Room Item
+          </Button>
+        </Space>
+      }
+      title="Copy"
+      trigger="click"
+      open={open}
+      onOpenChange={toggleOpen}
+    >
+      <Button type="text" icon={<MenuOutlined />} />
+    </Popover>
+  );
+}
