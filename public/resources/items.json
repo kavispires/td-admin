@@ -17583,11 +17583,11 @@
     ]
   },
   "1449": {
-    "id": "1449",
     "name": {
       "en": "pallet",
-      "pt": "estrado"
+      "pt": "palete"
     },
+    "id": "1449",
     "categories": [
       "alien",
       "evidence",
@@ -24258,7 +24258,7 @@
   "2030": {
     "id": "2030",
     "name": {
-      "en": "tintura de cabelo",
+      "en": "strait jacket",
       "pt": "camisa de força"
     },
     "categories": [
@@ -25490,6 +25490,765 @@
     },
     "categories": [
       "symbol"
+    ],
+    "groups": []
+  },
+  "2134": {
+    "id": "2134",
+    "name": {
+      "en": "tabloid",
+      "pt": "revista de fofoca"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2135": {
+    "id": "2135",
+    "name": {
+      "en": "oil truck",
+      "pt": "caminhões-tanque"
+    },
+    "categories": [
+      "alien",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2136": {
+    "id": "2136",
+    "name": {
+      "en": "witch's broom",
+      "pt": "vassoura de bruxa"
+    },
+    "categories": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2137": {
+    "id": "2137",
+    "name": {
+      "en": "costume hat",
+      "pt": "chapéu de festa junia"
+    },
+    "categories": [
+      "alien",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2138": {
+    "name": {
+      "en": "rickshaw",
+      "pt": "riquixá"
+    },
+    "id": "2138",
+    "categories": [
+      "alien",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2139": {
+    "name": {
+      "en": "Taj Mahal",
+      "pt": "Taj Mahal"
+    },
+    "id": "2139",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2140": {
+    "name": {
+      "en": "snow cone",
+      "pt": "raspadinha"
+    },
+    "id": "2140",
+    "categories": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2141": {
+    "id": "2141",
+    "name": {
+      "en": "ticket booth",
+      "pt": "bilheteria"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2142": {
+    "id": "2142",
+    "name": {
+      "en": "deerstalker",
+      "pt": "chapéu de caçador"
+    },
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2143": {
+    "id": "2143",
+    "name": {
+      "en": "nightcap",
+      "pt": "touca de dormir"
+    },
+    "categories": [
+      "alien",
+      "evidence",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2144": {
+    "id": "2144",
+    "name": {
+      "en": "mariachi hat",
+      "pt": "chapéu de mariachi"
+    },
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2145": {
+    "id": "2145",
+    "name": {
+      "en": "french beret",
+      "pt": "boina"
+    },
+    "groups": []
+  },
+  "2146": {
+    "id": "2146",
+    "name": {
+      "en": "bycocket",
+      "pt": "chapéu de arqueiro"
+    },
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2147": {
+    "id": "2147",
+    "name": {
+      "en": "capotain",
+      "pt": "chapéu de peregrino"
+    },
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2148": {
+    "name": {
+      "en": "military beret",
+      "pt": "boina militar"
+    },
+    "id": "2148",
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2149": {
+    "id": "2149",
+    "name": {
+      "en": "pamela",
+      "pt": "chapéu pamela"
+    },
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2150": {
+    "id": "2150",
+    "name": {
+      "en": "rastacap",
+      "pt": "chapéu rastafári"
+    },
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2151": {
+    "id": "2151",
+    "name": {
+      "en": "Mandarin hat",
+      "pt": "chapéu mandarim"
+    },
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2152": {
+    "id": "2152",
+    "name": {
+      "en": "pharaoh headdress",
+      "pt": "coroa de faraó"
+    },
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2153": {
+    "name": {
+      "en": "cangaceiro hat",
+      "pt": "chapéu de cangaceiro"
+    },
+    "id": "2153",
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2154": {
+    "name": {
+      "en": "pirate hat",
+      "pt": "chapéu de pirata"
+    },
+    "id": "2154",
+    "categories": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2155": {
+    "name": {
+      "en": "plague doctor mask",
+      "pt": "máscara de médico da peste"
+    },
+    "id": "2155",
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2156": {
+    "name": {
+      "en": "eye patch",
+      "pt": "tapa-olho"
+    },
+    "id": "2156",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2157": {
+    "id": "2157",
+    "name": {
+      "en": "wooden leg",
+      "pt": "perna de pau"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2158": {
+    "name": {
+      "en": "hook",
+      "pt": "gancho"
+    },
+    "id": "2158",
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2159": {
+    "name": {
+      "en": "dungeon",
+      "pt": "calabouço"
+    },
+    "id": "2159",
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2160": {
+    "id": "2160",
+    "name": {
+      "en": "pina colada",
+      "pt": "pina colada"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2161": {
+    "name": {
+      "en": "ghost stories",
+      "pt": "livro de histórias de terror"
+    },
+    "id": "2161",
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2162": {
+    "id": "2162",
+    "name": {
+      "en": "aerobics",
+      "pt": "aeróbica"
+    },
+    "categories": [
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2163": {
+    "name": {
+      "en": "tire on fire",
+      "pt": "fogo no pneu"
+    },
+    "id": "2163",
+    "categories": [
+      "alien",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2164": {
+    "name": {
+      "en": "burn barrel",
+      "pt": "barril de fogo"
+    },
+    "id": "2164",
+    "categories": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2165": {
+    "id": "2165",
+    "name": {
+      "en": "propeller",
+      "pt": "hélice"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2166": {
+    "name": {
+      "en": "maid",
+      "pt": "empregada"
+    },
+    "id": "2166",
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2167": {
+    "id": "2167",
+    "name": {
+      "en": "check mark",
+      "pt": "visto"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2168": {
+    "name": {
+      "en": "x",
+      "pt": "x"
+    },
+    "id": "2168",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2169": {
+    "id": "2169",
+    "name": {
+      "en": "minus",
+      "pt": "menos"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2170": {
+    "name": {
+      "en": "plus",
+      "pt": "mais"
+    },
+    "id": "2170",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2171": {
+    "name": {
+      "en": "scout's uniform",
+      "pt": "uniforme de escoteiro"
+    },
+    "id": "2171",
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2172": {
+    "name": {
+      "en": "agave",
+      "pt": "agave"
+    },
+    "id": "2172",
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2173": {
+    "id": "2173",
+    "name": {
+      "en": "aztec pyramid",
+      "pt": "pirâmide asteca"
+    },
+    "categories": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2174": {
+    "name": {
+      "en": "magic",
+      "pt": "mágica"
+    },
+    "id": "2174",
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2175": {
+    "name": {
+      "en": "magical forest",
+      "pt": "floresta mágica"
+    },
+    "id": "2175",
+    "categories": [
+      "dream",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2176": {
+    "id": "2176",
+    "name": {
+      "en": "seasons",
+      "pt": "estações"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2177": {
+    "id": "2177",
+    "name": {
+      "en": "Oscar",
+      "pt": "Oscar"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2178": {
+    "name": {
+      "en": "gladiator helmet",
+      "pt": "capacete de gladiador"
+    },
+    "id": "2178",
+    "categories": [
+      "alien",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2179": {
+    "id": "2179",
+    "name": {
+      "en": "canary",
+      "pt": "canário"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2180": {
+    "id": "2180",
+    "name": {
+      "en": "bird",
+      "pt": "passarinho"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2181": {
+    "name": {
+      "en": "crane",
+      "pt": "garça"
+    },
+    "id": "2181",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2182": {
+    "id": "2182",
+    "name": {
+      "en": "cardinal",
+      "pt": "cardeal"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2183": {
+    "name": {
+      "en": "buddy",
+      "pt": "buddy"
+    },
+    "id": "2183",
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2184": {
+    "name": {
+      "en": "pickup truck",
+      "pt": "caminhonete"
+    },
+    "id": "2184",
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2185": {
+    "name": {
+      "en": "prophecy",
+      "pt": "profecia"
+    },
+    "id": "2185",
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2186": {
+    "id": "2186",
+    "name": {
+      "en": "illuminati",
+      "pt": "illuminati"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2187": {
+    "name": {
+      "en": "decorative skull",
+      "pt": "caveira decorada"
+    },
+    "id": "2187",
+    "categories": [
+      "alien",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2188": {
+    "id": "2188",
+    "name": {
+      "en": "Virgin Mary statue",
+      "pt": "Estátua de Nossa Senhora"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": [],
+    "nsfw": true
+  },
+  "2189": {
+    "name": {
+      "en": "quadriga",
+      "pt": "quadriga"
+    },
+    "id": "2189",
+    "categories": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2190": {
+    "name": {
+      "en": "debate",
+      "pt": "debate"
+    },
+    "id": "2190",
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2191": {
+    "id": "2191",
+    "name": {
+      "en": "gavel",
+      "pt": "martelo"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2192": {
+    "id": "2192",
+    "name": {
+      "en": "street",
+      "pt": "rua"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2193": {
+    "name": {
+      "en": "dwarf",
+      "pt": "anão"
+    },
+    "id": "2193",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2194": {
+    "name": {
+      "en": "rearview mirror",
+      "pt": "espelho retrovisor"
+    },
+    "id": "2194",
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2195": {
+    "id": "2195",
+    "name": {
+      "en": "side mirror",
+      "pt": "espelho retrovisor lateral"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2196": {
+    "id": "2196",
+    "name": {
+      "en": "orphanage",
+      "pt": "orfanato"
+    },
+    "categories": [
+      "alien",
+      "dream"
     ],
     "groups": []
   }
