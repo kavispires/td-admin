@@ -28,9 +28,13 @@
     "year": 2009
   },
   "dms-101-pt": {
-    "id": "dms-101-pt",
     "title": "As Apimentadas",
-    "itemsIds": [],
+    "id": "dms-101-pt",
+    "itemsIds": [
+      "2014",
+      "2016",
+      "553"
+    ],
     "year": 2000
   },
   "dms-102-pt": {
@@ -40,9 +44,15 @@
     "year": 2002
   },
   "dms-103-pt": {
-    "id": "dms-103-pt",
     "title": "As Branquelas",
-    "itemsIds": [],
+    "id": "dms-103-pt",
+    "itemsIds": [
+      "2055",
+      "2100",
+      "2100",
+      "2058",
+      "407"
+    ],
     "year": 1994
   },
   "dms-104-pt": {
@@ -125,7 +135,10 @@
   "dms-115-pt": {
     "id": "dms-115-pt",
     "title": "Barrados no Shopping",
-    "itemsIds": [],
+    "itemsIds": [
+      "1783",
+      "636"
+    ],
     "year": 1995
   },
   "dms-116-pt": {
@@ -174,9 +187,12 @@
     "year": 1999
   },
   "dms-121-pt": {
-    "id": "dms-121-pt",
     "title": "Bingo: O Rei das Manhãs",
-    "itemsIds": [],
+    "id": "dms-121-pt",
+    "itemsIds": [
+      "318",
+      "141"
+    ],
     "year": 2017
   },
   "dms-122-pt": {
@@ -191,7 +207,10 @@
   "dms-123-pt": {
     "id": "dms-123-pt",
     "title": "Birdman ou (A Inesperada Virtude da Ignorância)",
-    "itemsIds": [],
+    "itemsIds": [
+      "2180",
+      "2013"
+    ],
     "year": 2014
   },
   "dms-124-pt": {
@@ -314,8 +333,8 @@
     "year": 1965
   },
   "dms-140-pt": {
-    "id": "dms-140-pt",
     "title": "Cinderela",
+    "id": "dms-140-pt",
     "itemsIds": [],
     "year": 1950
   },
@@ -387,9 +406,12 @@
     "year": 2010
   },
   "dms-149-pt": {
-    "id": "dms-149-pt",
     "title": "Corra que a Polícia Vem Aí! 33 1/3",
-    "itemsIds": [],
+    "id": "dms-149-pt",
+    "itemsIds": [
+      "1782",
+      "1116"
+    ],
     "year": 1994
   },
   "dms-15-pt": {
@@ -424,8 +446,8 @@
     "year": 2021
   },
   "dms-153-pt": {
-    "id": "dms-153-pt",
     "title": "Curtindo a Vida Adoidado",
+    "id": "dms-153-pt",
     "itemsIds": [],
     "year": 1986
   },
@@ -483,8 +505,8 @@
     "year": 1964
   },
   "dms-160-pt": {
-    "id": "dms-160-pt",
     "title": "Divertida Mente",
+    "id": "dms-160-pt",
     "itemsIds": [
       "1955"
     ],
@@ -653,8 +675,8 @@
     "year": 2012
   },
   "dms-182-pt": {
-    "id": "dms-182-pt",
     "title": "Escola de Rock",
+    "id": "dms-182-pt",
     "itemsIds": [
       "1394",
       "1571"
@@ -664,7 +686,11 @@
   "dms-183-pt": {
     "id": "dms-183-pt",
     "title": "Esposa de Mentirinha",
-    "itemsIds": [],
+    "itemsIds": [
+      "76",
+      "2014",
+      "1395"
+    ],
     "year": 2011
   },
   "dms-184-pt": {
@@ -698,8 +724,8 @@
     "year": 2021
   },
   "dms-189-pt": {
-    "id": "dms-189-pt",
     "title": "Eu, Tu, Eles",
+    "id": "dms-189-pt",
     "itemsIds": [
       "2016",
       "1511",
@@ -734,9 +760,13 @@
     "year": 2019
   },
   "dms-193-pt": {
-    "id": "dms-193-pt",
     "title": "Forrest Gump: O Contador de Histórias",
-    "itemsIds": [],
+    "id": "dms-193-pt",
+    "itemsIds": [
+      "1540",
+      "435",
+      "2101"
+    ],
     "year": 1994
   },
   "dms-194-pt": {
@@ -752,8 +782,8 @@
     "year": 2019
   },
   "dms-196-pt": {
-    "title": "Frozen: Uma Aventura Congelante",
     "id": "dms-196-pt",
+    "title": "Frozen: Uma Aventura Congelante",
     "itemsIds": [
       "226",
       "1385",
@@ -768,8 +798,8 @@
     "year": 1997
   },
   "dms-198-pt": {
-    "id": "dms-198-pt",
     "title": "Gladiador",
+    "id": "dms-198-pt",
     "itemsIds": [
       "2178",
       "2189"
@@ -798,8 +828,8 @@
     "year": 1983
   },
   "dms-200-pt": {
-    "title": "Godzilla",
     "id": "dms-200-pt",
+    "title": "Godzilla",
     "itemsIds": [
       "1486",
       "1280"
@@ -831,8 +861,8 @@
     "year": 2017
   },
   "dms-205-pt": {
-    "id": "dms-205-pt",
     "title": "Guerra dos Mundos",
+    "id": "dms-205-pt",
     "itemsIds": [
       "368",
       "1055",
@@ -859,8 +889,8 @@
     "year": 2002
   },
   "dms-209-pt": {
-    "id": "dms-209-pt",
     "title": "Harry Potter e a Ordem da Fênix",
+    "id": "dms-209-pt",
     "itemsIds": [
       "55",
       "157",
@@ -896,7 +926,13 @@
   "dms-212-pt": {
     "id": "dms-212-pt",
     "title": "Harry Potter e o Cálice de Fogo",
-    "itemsIds": [],
+    "itemsIds": [
+      "157",
+      "55",
+      "446",
+      "1485",
+      "39"
+    ],
     "year": 2005
   },
   "dms-213-pt": {
@@ -985,8 +1021,8 @@
     "year": 2019
   },
   "dms-223-pt": {
-    "id": "dms-223-pt",
     "title": "Homem-Aranha: Sem Volta para Casa",
+    "id": "dms-223-pt",
     "itemsIds": [],
     "year": 2021
   },
@@ -1006,14 +1042,17 @@
     "year": 2018
   },
   "dms-226-pt": {
-    "id": "dms-226-pt",
     "title": "Hotel Transilvânia",
-    "itemsIds": [],
+    "id": "dms-226-pt",
+    "itemsIds": [
+      "2089",
+      "1089"
+    ],
     "year": 2012
   },
   "dms-227-pt": {
-    "title": "Independence Day",
     "id": "dms-227-pt",
+    "title": "Independence Day",
     "itemsIds": [
       "1053",
       "939"
@@ -1044,8 +1083,8 @@
     "year": 1985
   },
   "dms-230-pt": {
-    "title": "It: A Coisa",
     "id": "dms-230-pt",
+    "title": "It: A Coisa",
     "itemsIds": [
       "318",
       "812",
@@ -1059,14 +1098,19 @@
     "itemsIds": [
       "77",
       "1231",
-      "1257"
+      "1257",
+      "275"
     ],
     "year": 2010
   },
   "dms-232-pt": {
     "id": "dms-232-pt",
     "title": "Joker",
-    "itemsIds": [],
+    "itemsIds": [
+      "318",
+      "2052",
+      "2054"
+    ],
     "year": 2019
   },
   "dms-233-pt": {
@@ -1115,8 +1159,8 @@
     "year": 2016
   },
   "dms-239-pt": {
-    "title": "Lady Bird: A Hora de Voar",
     "id": "dms-239-pt",
+    "title": "Lady Bird: A Hora de Voar",
     "itemsIds": [
       "2014",
       "230"
@@ -1198,11 +1242,12 @@
     "year": 2015
   },
   "dms-25-pt": {
-    "id": "dms-25-pt",
     "title": "10 Coisas que Eu Odeio em Você",
+    "id": "dms-25-pt",
     "itemsIds": [
       "515",
-      "1336"
+      "1336",
+      "2234"
     ],
     "year": 1999
   },
@@ -1245,8 +1290,8 @@
     "year": 2017
   },
   "dms-256-pt": {
-    "id": "dms-256-pt",
     "title": "Menina de Ouro",
+    "id": "dms-256-pt",
     "itemsIds": [
       "2018",
       "120"
@@ -1330,7 +1375,11 @@
   "dms-267-pt": {
     "id": "dms-267-pt",
     "title": "Moana",
-    "itemsIds": [],
+    "itemsIds": [
+      "513",
+      "1601",
+      "1793"
+    ],
     "year": 2016
   },
   "dms-268-pt": {
@@ -1388,8 +1437,8 @@
     "year": 2018
   },
   "dms-274-pt": {
-    "id": "dms-274-pt",
     "title": "O Advogado do Diabo",
+    "id": "dms-274-pt",
     "itemsIds": [
       "1197",
       "644",
@@ -1398,9 +1447,12 @@
     "year": 1997
   },
   "dms-275-pt": {
-    "id": "dms-275-pt",
     "title": "O Agente Teen",
-    "itemsIds": [],
+    "id": "dms-275-pt",
+    "itemsIds": [
+      "1971",
+      "2017"
+    ],
     "year": 1993
   },
   "dms-276-pt": {
@@ -1551,8 +1603,8 @@
     "year": 2005
   },
   "dms-293-pt": {
-    "id": "dms-293-pt",
     "title": "O Casamento do Meu Melhor Amigo",
+    "id": "dms-293-pt",
     "itemsIds": [
       "1250",
       "1402"
@@ -1562,7 +1614,10 @@
   "dms-294-pt": {
     "id": "dms-294-pt",
     "title": "O Casamento dos Meus Sonhos",
-    "itemsIds": [],
+    "itemsIds": [
+      "76",
+      "1333"
+    ],
     "year": 1999
   },
   "dms-295-pt": {
@@ -1676,8 +1731,8 @@
     "year": 1982
   },
   "dms-309-pt": {
-    "id": "dms-309-pt",
     "title": "O Escorpião Rei",
+    "id": "dms-309-pt",
     "itemsIds": [
       "412",
       "141"
@@ -1695,19 +1750,33 @@
   "dms-310-pt": {
     "id": "dms-310-pt",
     "title": "O Exorcismo de Emily Rose",
-    "itemsIds": [],
+    "itemsIds": [
+      "2018",
+      "1286",
+      "2191",
+      "1218",
+      "82"
+    ],
     "year": 2005
   },
   "dms-311-pt": {
-    "id": "dms-311-pt",
     "title": "O Exorcista",
-    "itemsIds": [],
+    "id": "dms-311-pt",
+    "itemsIds": [
+      "82",
+      "1076",
+      "2018",
+      "1286"
+    ],
     "year": 1973
   },
   "dms-312-pt": {
     "id": "dms-312-pt",
     "title": "O Expresso Polar",
-    "itemsIds": [],
+    "itemsIds": [
+      "550",
+      "1266"
+    ],
     "year": 2004
   },
   "dms-313-pt": {
@@ -1723,9 +1792,13 @@
     "year": 2003
   },
   "dms-315-pt": {
-    "id": "dms-315-pt",
     "title": "O Fada do Dente",
-    "itemsIds": [],
+    "id": "dms-315-pt",
+    "itemsIds": [
+      "86",
+      "2073",
+      "1044"
+    ],
     "year": 2010
   },
   "dms-316-pt": {
@@ -1753,8 +1826,8 @@
     "year": 2005
   },
   "dms-32-pt": {
-    "id": "dms-32-pt",
     "title": "A Bruxa de Blair",
+    "id": "dms-32-pt",
     "itemsIds": [
       "157",
       "1522",
@@ -1782,8 +1855,8 @@
     "year": 2006
   },
   "dms-323-pt": {
-    "title": "O Guarda-Costas",
     "id": "dms-323-pt",
+    "title": "O Guarda-Costas",
     "itemsIds": [
       "1705",
       "1542"
@@ -1799,7 +1872,10 @@
   "dms-325-pt": {
     "id": "dms-325-pt",
     "title": "O Guru do Amor",
-    "itemsIds": [],
+    "itemsIds": [
+      "800",
+      "1988"
+    ],
     "year": 2008
   },
   "dms-326-pt": {
@@ -1881,8 +1957,8 @@
     "year": 2014
   },
   "dms-337-pt": {
-    "title": "O Labirinto do Fauno",
     "id": "dms-337-pt",
+    "title": "O Labirinto do Fauno",
     "itemsIds": [
       "1319",
       "1735"
@@ -1933,18 +2009,22 @@
   "dms-343-pt": {
     "id": "dms-343-pt",
     "title": "O Massacre da Serra Elétrica",
-    "itemsIds": [],
+    "itemsIds": [
+      "611",
+      "329",
+      "1933"
+    ],
     "year": 1974
   },
   "dms-344-pt": {
-    "id": "dms-344-pt",
     "title": "O Menino Maluquinho",
+    "id": "dms-344-pt",
     "itemsIds": [
       "808",
       "2017",
       "2030"
     ],
-    "year": 1983
+    "year": 1995
   },
   "dms-345-pt": {
     "id": "dms-345-pt",
@@ -1974,8 +2054,8 @@
     "year": 1962
   },
   "dms-349-pt": {
-    "id": "dms-349-pt",
     "title": "O Pai da Noiva",
+    "id": "dms-349-pt",
     "itemsIds": [
       "2099",
       "76"
@@ -2028,20 +2108,25 @@
     "year": 1990
   },
   "dms-356-pt": {
-    "id": "dms-356-pt",
     "title": "O Pianista",
-    "itemsIds": [],
+    "id": "dms-356-pt",
+    "itemsIds": [
+      "2013",
+      "23"
+    ],
     "year": 2002
   },
   "dms-357-pt": {
-    "id": "dms-357-pt",
     "title": "O Plano Perfeito",
-    "itemsIds": [],
+    "id": "dms-357-pt",
+    "itemsIds": [
+      "1180"
+    ],
     "year": 2006
   },
   "dms-358-pt": {
-    "title": "O Poderoso Chefão",
     "id": "dms-358-pt",
+    "title": "O Poderoso Chefão",
     "itemsIds": [
       "644",
       "1608"
@@ -2067,8 +2152,8 @@
     "year": 1996
   },
   "dms-361-pt": {
-    "title": "O Quarteto Fantástico",
     "id": "dms-361-pt",
+    "title": "O Quarteto Fantástico",
     "itemsIds": [
       "115",
       "39",
@@ -2078,8 +2163,8 @@
     "year": 2015
   },
   "dms-362-pt": {
-    "title": "O Quarto de Jack",
     "id": "dms-362-pt",
+    "title": "O Quarto de Jack",
     "itemsIds": [
       "1974",
       "510"
@@ -2099,8 +2184,8 @@
     "year": 1997
   },
   "dms-365-pt": {
-    "id": "dms-365-pt",
     "title": "O Quinto Elemento",
+    "id": "dms-365-pt",
     "itemsIds": [
       "39",
       "248",
@@ -2123,8 +2208,8 @@
     "year": 1998
   },
   "dms-368-pt": {
-    "id": "dms-368-pt",
     "title": "O Rei Leão",
+    "id": "dms-368-pt",
     "itemsIds": [
       "141",
       "81"
@@ -2188,8 +2273,8 @@
     "year": 2016
   },
   "dms-376-pt": {
-    "id": "dms-376-pt",
     "title": "O Show de Truman: O Show da Vida",
+    "id": "dms-376-pt",
     "itemsIds": [
       "2101",
       "684",
@@ -2198,8 +2283,8 @@
     "year": 1998
   },
   "dms-377-pt": {
-    "id": "dms-377-pt",
     "title": "O Silêncio dos Inocentes",
+    "id": "dms-377-pt",
     "itemsIds": [
       "2125",
       "1787"
@@ -2227,7 +2312,9 @@
   "dms-380-pt": {
     "id": "dms-380-pt",
     "title": "O Touro Ferdinando",
-    "itemsIds": [],
+    "itemsIds": [
+      "2226"
+    ],
     "year": 2017
   },
   "dms-381-pt": {
@@ -2297,8 +2384,8 @@
     "year": 1985
   },
   "dms-391-pt": {
-    "title": "Os Incríveis",
     "id": "dms-391-pt",
+    "title": "Os Incríveis",
     "itemsIds": [
       "1511",
       "1748",
@@ -2326,9 +2413,12 @@
     "year": 2015
   },
   "dms-395-pt": {
-    "id": "dms-395-pt",
     "title": "Os Outros",
-    "itemsIds": [],
+    "id": "dms-395-pt",
+    "itemsIds": [
+      "276",
+      "2100"
+    ],
     "year": 2001
   },
   "dms-396-pt": {
@@ -2338,8 +2428,8 @@
     "year": 2012
   },
   "dms-397-pt": {
-    "id": "dms-397-pt",
     "title": "Os Sem-Floresta",
+    "id": "dms-397-pt",
     "itemsIds": [
       "2168",
       "1522"
@@ -2390,19 +2480,19 @@
     "year": 2018
   },
   "dms-402-pt": {
-    "id": "dms-402-pt",
     "title": "Pantera Negra: Wakanda Para Sempre",
+    "id": "dms-402-pt",
     "itemsIds": [
       "1744",
-      "2059",
       "1991",
-      "1983"
+      "2059",
+      "2242"
     ],
     "year": 2022
   },
   "dms-403-pt": {
-    "id": "dms-403-pt",
     "title": "Parasita",
+    "id": "dms-403-pt",
     "itemsIds": [
       "1081"
     ],
@@ -2423,18 +2513,29 @@
   "dms-406-pt": {
     "id": "dms-406-pt",
     "title": "Pets: A Vida Secreta dos Bichos",
-    "itemsIds": [],
+    "itemsIds": [
+      "148",
+      "162",
+      "1827",
+      "1707"
+    ],
     "year": 2016
   },
   "dms-407-pt": {
-    "id": "dms-407-pt",
     "title": "Pinóquio",
-    "itemsIds": [],
+    "id": "dms-407-pt",
+    "itemsIds": [
+      "94",
+      "454",
+      "1395",
+      "1974",
+      "700"
+    ],
     "year": 1940
   },
   "dms-408-pt": {
-    "title": "Piratas do Caribe: A Maldição do Pérola Negra",
     "id": "dms-408-pt",
+    "title": "Piratas do Caribe: A Maldição do Pérola Negra",
     "itemsIds": [
       "2154",
       "513",
@@ -2519,7 +2620,10 @@
   "dms-418-pt": {
     "id": "dms-418-pt",
     "title": "Querida, Encolhi as Crianças",
-    "itemsIds": [],
+    "itemsIds": [
+      "2239",
+      "2075"
+    ],
     "year": 1989
   },
   "dms-419-pt": {
@@ -2535,8 +2639,8 @@
     "year": 2017
   },
   "dms-420-pt": {
-    "id": "dms-420-pt",
     "title": "Ratatouille",
+    "id": "dms-420-pt",
     "itemsIds": [
       "281",
       "506",
@@ -2583,8 +2687,8 @@
     "year": 2016
   },
   "dms-427-pt": {
-    "title": "Sexo Sem Compromisso",
     "id": "dms-427-pt",
+    "title": "Sexo Sem Compromisso",
     "itemsIds": [
       "583",
       "2045"
@@ -2598,8 +2702,8 @@
     "year": 1980
   },
   "dms-429-pt": {
-    "title": "Sexta-Feira Muito Louca",
     "id": "dms-429-pt",
+    "title": "Sexta-Feira Muito Louca",
     "itemsIds": [
       "287",
       "2030"
@@ -2649,8 +2753,8 @@
     "year": 2014
   },
   "dms-435-pt": {
-    "id": "dms-435-pt",
     "title": "Simplesmente Amor",
+    "id": "dms-435-pt",
     "itemsIds": [
       "1988",
       "180"
@@ -2664,9 +2768,12 @@
     "year": 2016
   },
   "dms-437-pt": {
-    "id": "dms-437-pt",
     "title": "Sintonia de Amor",
-    "itemsIds": [],
+    "id": "dms-437-pt",
+    "itemsIds": [
+      "605",
+      "1988"
+    ],
     "year": 1993
   },
   "dms-438-pt": {
@@ -2678,7 +2785,10 @@
   "dms-439-pt": {
     "id": "dms-439-pt",
     "title": "Sorte no Amor",
-    "itemsIds": [],
+    "itemsIds": [
+      "1988",
+      "188"
+    ],
     "year": 2006
   },
   "dms-44-pt": {
@@ -2755,8 +2865,8 @@
     "year": 2007
   },
   "dms-45-pt": {
-    "title": "A Era do Gelo",
     "id": "dms-45-pt",
+    "title": "A Era do Gelo",
     "itemsIds": [
       "226",
       "287"
@@ -2782,9 +2892,14 @@
     "year": 2006
   },
   "dms-453-pt": {
-    "id": "dms-453-pt",
     "title": "Thor",
-    "itemsIds": [],
+    "id": "dms-453-pt",
+    "itemsIds": [
+      "1332",
+      "156",
+      "446",
+      "1748"
+    ],
     "year": 2011
   },
   "dms-454-pt": {
@@ -2813,7 +2928,10 @@
   "dms-457-pt": {
     "id": "dms-457-pt",
     "title": "Titanic",
-    "itemsIds": [],
+    "itemsIds": [
+      "752",
+      "1866"
+    ],
     "year": 1997
   },
   "dms-458-pt": {
@@ -2823,8 +2941,8 @@
     "year": 2016
   },
   "dms-459-pt": {
-    "title": "Toy Story",
     "id": "dms-459-pt",
+    "title": "Toy Story",
     "itemsIds": [
       "943",
       "641",
@@ -2834,8 +2952,8 @@
     "year": 1995
   },
   "dms-46-pt": {
-    "title": "A Família Addams",
     "id": "dms-46-pt",
+    "title": "A Família Addams",
     "itemsIds": [
       "1511",
       "2059",
@@ -2880,14 +2998,16 @@
     "year": 2010
   },
   "dms-466-pt": {
-    "id": "dms-466-pt",
     "title": "Tubarão",
-    "itemsIds": [],
+    "id": "dms-466-pt",
+    "itemsIds": [
+      "362"
+    ],
     "year": 1975
   },
   "dms-467-pt": {
-    "title": "Twister",
     "id": "dms-467-pt",
+    "title": "Twister",
     "itemsIds": [
       "449"
     ],
@@ -2948,8 +3068,8 @@
     "year": 1997
   },
   "dms-474-pt": {
-    "id": "dms-474-pt",
     "title": "Um Príncipe em Nova York",
+    "id": "dms-474-pt",
     "itemsIds": [
       "141",
       "2015",
@@ -2972,7 +3092,9 @@
   "dms-477-pt": {
     "id": "dms-477-pt",
     "title": "Uma Aventura LEGO",
-    "itemsIds": [],
+    "itemsIds": [
+      "270"
+    ],
     "year": 2014
   },
   "dms-478-pt": {
@@ -3066,8 +3188,8 @@
     "year": 2021
   },
   "dms-49-pt": {
-    "id": "dms-49-pt",
     "title": "A Forma da Água",
+    "id": "dms-49-pt",
     "itemsIds": [
       "1997",
       "248"
@@ -3095,7 +3217,10 @@
   "dms-493-pt": {
     "id": "dms-493-pt",
     "title": "WALL-E",
-    "itemsIds": [],
+    "itemsIds": [
+      "12",
+      "229"
+    ],
     "year": 2008
   },
   "dms-494-pt": {
@@ -3111,8 +3236,8 @@
     "year": 2018
   },
   "dms-496-pt": {
-    "id": "dms-496-pt",
     "title": "Zootopia: Essa Cidade é o Bicho",
+    "id": "dms-496-pt",
     "itemsIds": [
       "1277",
       "30",
@@ -3131,8 +3256,8 @@
     "year": 1977
   },
   "dms-50-pt": {
-    "id": "dms-50-pt",
     "title": "A Gaiola das Loucas",
+    "id": "dms-50-pt",
     "itemsIds": [
       "401",
       "2030",
