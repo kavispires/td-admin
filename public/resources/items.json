@@ -11158,7 +11158,7 @@
     "id": "906",
     "name": {
       "en": "ballot box",
-      "pt": "urna de votos"
+      "pt": "urna"
     },
     "categories": [
       "alien",
@@ -23711,8 +23711,8 @@
   "1983": {
     "id": "1983",
     "name": {
-      "en": "Africa",
-      "pt": "África"
+      "en": "African mask",
+      "pt": "Máscara africana"
     },
     "categories": [
       "alien",
@@ -24055,11 +24055,11 @@
     "groups": []
   },
   "2013": {
-    "id": "2013",
     "name": {
-      "en": "man",
-      "pt": "homem"
+      "en": "blonde man",
+      "pt": "homem loiro"
     },
+    "id": "2013",
     "categories": [
       "dream",
       "suspect"
@@ -24079,11 +24079,11 @@
     "groups": []
   },
   "2015": {
-    "name": {
-      "en": "man",
-      "pt": "homem"
-    },
     "id": "2015",
+    "name": {
+      "en": "black man",
+      "pt": "homem negro"
+    },
     "categories": [
       "suspect"
     ],
@@ -24092,8 +24092,8 @@
   "2016": {
     "id": "2016",
     "name": {
-      "en": "woman",
-      "pt": "mulher"
+      "en": "black woman",
+      "pt": "mulher negra"
     },
     "categories": [
       "suspect"
@@ -24101,22 +24101,22 @@
     "groups": []
   },
   "2017": {
-    "id": "2017",
     "name": {
-      "en": "teen",
-      "pt": "adolescente"
+      "en": "teenage boy",
+      "pt": "adolescente (m)"
     },
+    "id": "2017",
     "categories": [
       "suspect"
     ],
     "groups": []
   },
   "2018": {
-    "id": "2018",
     "name": {
-      "en": "teen",
-      "pt": "adolescente"
+      "en": "teenage girl",
+      "pt": "adolescente (f)"
     },
+    "id": "2018",
     "categories": [
       "suspect"
     ],
@@ -24256,11 +24256,11 @@
     "groups": []
   },
   "2030": {
-    "id": "2030",
     "name": {
       "en": "strait jacket",
       "pt": "camisa de força"
     },
+    "id": "2030",
     "categories": [
       "alien",
       "dream",
@@ -25094,8 +25094,8 @@
   "2100": {
     "id": "2100",
     "name": {
-      "en": "woman",
-      "pt": "mulher"
+      "en": "blonde woman",
+      "pt": "mulher loira"
     },
     "categories": [
       "suspect"
@@ -25494,11 +25494,11 @@
     "groups": []
   },
   "2134": {
-    "id": "2134",
     "name": {
       "en": "tabloid",
       "pt": "revista de fofoca"
     },
+    "id": "2134",
     "categories": [
       "alien",
       "dream",
@@ -25508,11 +25508,11 @@
     "groups": []
   },
   "2135": {
-    "id": "2135",
     "name": {
       "en": "oil truck",
       "pt": "caminhões-tanque"
     },
+    "id": "2135",
     "categories": [
       "alien",
       "mesmice"
@@ -25543,11 +25543,11 @@
     "groups": []
   },
   "2138": {
+    "id": "2138",
     "name": {
       "en": "rickshaw",
       "pt": "riquixá"
     },
-    "id": "2138",
     "categories": [
       "alien",
       "mesmice"
@@ -25555,11 +25555,11 @@
     "groups": []
   },
   "2139": {
+    "id": "2139",
     "name": {
       "en": "Taj Mahal",
       "pt": "Taj Mahal"
     },
-    "id": "2139",
     "categories": [
       "alien",
       "dream"
@@ -25567,11 +25567,11 @@
     "groups": []
   },
   "2140": {
+    "id": "2140",
     "name": {
       "en": "snow cone",
       "pt": "raspadinha"
     },
-    "id": "2140",
     "categories": [
       "alien",
       "dream",
@@ -25580,11 +25580,11 @@
     "groups": []
   },
   "2141": {
-    "id": "2141",
     "name": {
       "en": "ticket booth",
       "pt": "bilheteria"
     },
+    "id": "2141",
     "categories": [
       "alien",
       "dream",
@@ -25594,11 +25594,11 @@
     "groups": []
   },
   "2142": {
-    "id": "2142",
     "name": {
       "en": "deerstalker",
       "pt": "chapéu de caçador"
     },
+    "id": "2142",
     "categories": [
       "alien",
       "evidence"
@@ -25606,11 +25606,11 @@
     "groups": []
   },
   "2143": {
-    "id": "2143",
     "name": {
       "en": "nightcap",
       "pt": "touca de dormir"
     },
+    "id": "2143",
     "categories": [
       "alien",
       "evidence",
@@ -25631,11 +25631,11 @@
     "groups": []
   },
   "2145": {
-    "id": "2145",
     "name": {
       "en": "french beret",
       "pt": "boina"
     },
+    "id": "2145",
     "groups": []
   },
   "2146": {
@@ -25651,11 +25651,11 @@
     "groups": []
   },
   "2147": {
-    "id": "2147",
     "name": {
       "en": "capotain",
       "pt": "chapéu de peregrino"
     },
+    "id": "2147",
     "categories": [
       "alien",
       "evidence"
@@ -25687,11 +25687,11 @@
     "groups": []
   },
   "2150": {
-    "id": "2150",
     "name": {
       "en": "rastacap",
       "pt": "chapéu rastafári"
     },
+    "id": "2150",
     "categories": [
       "alien",
       "evidence"
@@ -25723,11 +25723,11 @@
     "groups": []
   },
   "2153": {
+    "id": "2153",
     "name": {
       "en": "cangaceiro hat",
       "pt": "chapéu de cangaceiro"
     },
-    "id": "2153",
     "categories": [
       "alien",
       "evidence"
@@ -25758,11 +25758,11 @@
     "groups": []
   },
   "2156": {
+    "id": "2156",
     "name": {
       "en": "eye patch",
       "pt": "tapa-olho"
     },
-    "id": "2156",
     "categories": [
       "alien",
       "dream"
@@ -25782,11 +25782,11 @@
     "groups": []
   },
   "2158": {
+    "id": "2158",
     "name": {
       "en": "hook",
       "pt": "gancho"
     },
-    "id": "2158",
     "categories": [
       "alien",
       "dream",
@@ -25807,11 +25807,11 @@
     "groups": []
   },
   "2160": {
-    "id": "2160",
     "name": {
       "en": "pina colada",
       "pt": "pina colada"
     },
+    "id": "2160",
     "categories": [
       "alien",
       "dream",
@@ -25820,11 +25820,11 @@
     "groups": []
   },
   "2161": {
+    "id": "2161",
     "name": {
       "en": "ghost stories",
       "pt": "livro de histórias de terror"
     },
-    "id": "2161",
     "categories": [
       "alien",
       "evidence"
@@ -25856,22 +25856,22 @@
     "groups": []
   },
   "2164": {
+    "id": "2164",
     "name": {
       "en": "burn barrel",
       "pt": "barril de fogo"
     },
-    "id": "2164",
     "categories": [
       "alien"
     ],
     "groups": []
   },
   "2165": {
-    "id": "2165",
     "name": {
       "en": "propeller",
       "pt": "hélice"
     },
+    "id": "2165",
     "categories": [
       "alien",
       "dream",
@@ -25881,11 +25881,11 @@
     "groups": []
   },
   "2166": {
+    "id": "2166",
     "name": {
       "en": "maid",
       "pt": "empregada"
     },
-    "id": "2166",
     "categories": [
       "alien",
       "dream",
@@ -25894,11 +25894,11 @@
     "groups": []
   },
   "2167": {
-    "id": "2167",
     "name": {
       "en": "check mark",
       "pt": "visto"
     },
+    "id": "2167",
     "categories": [
       "symbol"
     ],
@@ -25916,11 +25916,11 @@
     "groups": []
   },
   "2169": {
-    "id": "2169",
     "name": {
       "en": "minus",
       "pt": "menos"
     },
+    "id": "2169",
     "categories": [
       "symbol"
     ],
@@ -25938,11 +25938,11 @@
     "groups": []
   },
   "2171": {
+    "id": "2171",
     "name": {
       "en": "scout's uniform",
       "pt": "uniforme de escoteiro"
     },
-    "id": "2171",
     "categories": [
       "alien",
       "evidence"
@@ -25962,22 +25962,22 @@
     "groups": []
   },
   "2173": {
-    "id": "2173",
     "name": {
       "en": "aztec pyramid",
       "pt": "pirâmide asteca"
     },
+    "id": "2173",
     "categories": [
       "alien"
     ],
     "groups": []
   },
   "2174": {
+    "id": "2174",
     "name": {
       "en": "magic",
       "pt": "mágica"
     },
-    "id": "2174",
     "categories": [
       "dream"
     ],
@@ -25996,11 +25996,11 @@
     "groups": []
   },
   "2176": {
-    "id": "2176",
     "name": {
       "en": "seasons",
       "pt": "estações"
     },
+    "id": "2176",
     "categories": [
       "dream"
     ],
@@ -26021,11 +26021,11 @@
     "groups": []
   },
   "2178": {
+    "id": "2178",
     "name": {
       "en": "gladiator helmet",
       "pt": "capacete de gladiador"
     },
-    "id": "2178",
     "categories": [
       "alien",
       "thing"
@@ -26081,11 +26081,11 @@
     "groups": []
   },
   "2183": {
+    "id": "2183",
     "name": {
       "en": "buddy",
       "pt": "buddy"
     },
-    "id": "2183",
     "categories": [
       "alien",
       "dream",
@@ -26094,11 +26094,11 @@
     "groups": []
   },
   "2184": {
+    "id": "2184",
     "name": {
       "en": "pickup truck",
       "pt": "caminhonete"
     },
-    "id": "2184",
     "categories": [
       "alien",
       "dream",
@@ -26107,11 +26107,11 @@
     "groups": []
   },
   "2185": {
+    "id": "2185",
     "name": {
       "en": "prophecy",
       "pt": "profecia"
     },
-    "id": "2185",
     "categories": [
       "dream"
     ],
@@ -26129,11 +26129,11 @@
     "groups": []
   },
   "2187": {
+    "id": "2187",
     "name": {
       "en": "decorative skull",
       "pt": "caveira decorada"
     },
-    "id": "2187",
     "categories": [
       "alien",
       "thing"
@@ -26176,11 +26176,11 @@
     "groups": []
   },
   "2191": {
-    "id": "2191",
     "name": {
       "en": "gavel",
       "pt": "martelo"
     },
+    "id": "2191",
     "categories": [
       "alien",
       "dream",
@@ -26190,11 +26190,11 @@
     "groups": []
   },
   "2192": {
-    "id": "2192",
     "name": {
       "en": "street",
       "pt": "rua"
     },
+    "id": "2192",
     "categories": [
       "alien",
       "dream"
@@ -26202,11 +26202,11 @@
     "groups": []
   },
   "2193": {
+    "id": "2193",
     "name": {
       "en": "dwarf",
       "pt": "anão"
     },
-    "id": "2193",
     "categories": [
       "alien",
       "dream"
@@ -26227,11 +26227,11 @@
     "groups": []
   },
   "2195": {
-    "id": "2195",
     "name": {
       "en": "side mirror",
       "pt": "espelho retrovisor lateral"
     },
+    "id": "2195",
     "categories": [
       "alien",
       "dream",
@@ -26241,14 +26241,648 @@
     "groups": []
   },
   "2196": {
-    "id": "2196",
     "name": {
       "en": "orphanage",
       "pt": "orfanato"
     },
+    "id": "2196",
     "categories": [
       "alien",
       "dream"
+    ],
+    "groups": []
+  },
+  "2197": {
+    "name": {
+      "en": "luffa",
+      "pt": "bucha"
+    },
+    "id": "2197",
+    "categories": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2198": {
+    "name": {
+      "en": "chick",
+      "pt": "pintinho"
+    },
+    "id": "2198",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2199": {
+    "id": "2199",
+    "name": {
+      "en": "copy machine",
+      "pt": "copiadora"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2200": {
+    "id": "2200",
+    "name": {
+      "en": "high heels",
+      "pt": "salto alto"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2201": {
+    "id": "2201",
+    "name": {
+      "en": "cowboy boots",
+      "pt": "botas de cowboy"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2202": {
+    "name": {
+      "en": "shoebox",
+      "pt": "caixa de sapato"
+    },
+    "id": "2202",
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2203": {
+    "id": "2203",
+    "name": {
+      "en": "sandals",
+      "pt": "sandália"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2204": {
+    "id": "2204",
+    "name": {
+      "en": "crocs",
+      "pt": "crocs"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2205": {
+    "name": {
+      "en": "shoe rack",
+      "pt": "sapateira"
+    },
+    "id": "2205",
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2206": {
+    "id": "2206",
+    "name": {
+      "en": "explosion",
+      "pt": "explosão"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2207": {
+    "id": "2207",
+    "name": {
+      "en": "flail",
+      "pt": "mangual"
+    },
+    "categories": [
+      "alien",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2208": {
+    "id": "2208",
+    "name": {
+      "en": "staff",
+      "pt": "cajado"
+    },
+    "categories": [
+      "dream",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2209": {
+    "id": "2209",
+    "name": {
+      "en": "toy gun",
+      "pt": "arminha de brinquedo"
+    },
+    "categories": [
+      "alien",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2210": {
+    "name": {
+      "en": "electric chair",
+      "pt": "cadeia elétrica"
+    },
+    "id": "2210",
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice",
+      "thing",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2211": {
+    "id": "2211",
+    "name": {
+      "en": "blackmail",
+      "pt": "chantagem"
+    },
+    "categories": [
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2212": {
+    "name": {
+      "en": "magazine",
+      "pt": "carregador"
+    },
+    "id": "2212",
+    "categories": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2213": {
+    "name": {
+      "en": "monocular",
+      "pt": "monóculo"
+    },
+    "id": "2213",
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2214": {
+    "id": "2214",
+    "name": {
+      "en": "arrows",
+      "pt": "flechas"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2215": {
+    "name": {
+      "en": "mechanical bull",
+      "pt": "touro mecânico"
+    },
+    "id": "2215",
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2216": {
+    "id": "2216",
+    "name": {
+      "en": "past",
+      "pt": "passado"
+    },
+    "categories": [
+      "dream",
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2217": {
+    "name": {
+      "en": "future",
+      "pt": "futuro"
+    },
+    "id": "2217",
+    "categories": [
+      "evidence",
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2218": {
+    "id": "2218",
+    "name": {
+      "en": "wall clock",
+      "pt": "relógio de parede"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "evidence",
+      "mesmice"
+    ],
+    "groups": []
+  },
+  "2219": {
+    "name": {
+      "en": "movement",
+      "pt": "movimentos"
+    },
+    "id": "2219",
+    "categories": [
+      "dream",
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2220": {
+    "name": {
+      "en": "cyborg",
+      "pt": "cyborg"
+    },
+    "id": "2220",
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2221": {
+    "id": "2221",
+    "name": {
+      "en": "virtual space",
+      "pt": "espaço virtual"
+    },
+    "categories": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2222": {
+    "name": {
+      "en": "drop tower",
+      "pt": "elevador"
+    },
+    "id": "2222",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2223": {
+    "id": "2223",
+    "name": {
+      "en": "duck pond",
+      "pt": "pescaria"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2224": {
+    "name": {
+      "en": "ring toss",
+      "pt": "jogo das argolas"
+    },
+    "id": "2224",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2225": {
+    "id": "2225",
+    "name": {
+      "en": "Whack-a-Mole",
+      "pt": "Acerte o Rato"
+    },
+    "categories": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2226": {
+    "name": {
+      "en": "bull",
+      "pt": "touro"
+    },
+    "id": "2226",
+    "categories": [
+      "alien",
+      "dream",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2227": {
+    "id": "2227",
+    "name": {
+      "en": "good",
+      "pt": "bom"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2228": {
+    "id": "2228",
+    "name": {
+      "en": "evil",
+      "pt": "mal"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2229": {
+    "name": {
+      "en": "happy",
+      "pt": "feliz"
+    },
+    "id": "2229",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2230": {
+    "name": {
+      "en": "sad",
+      "pt": "triste"
+    },
+    "id": "2230",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2231": {
+    "id": "2231",
+    "name": {
+      "en": "angry",
+      "pt": "raiva"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2232": {
+    "name": {
+      "en": "scared",
+      "pt": "assustado"
+    },
+    "id": "2232",
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2233": {
+    "id": "2233",
+    "name": {
+      "en": "dizzy/crazy",
+      "pt": "tonto/doido"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2234": {
+    "id": "2234",
+    "name": {
+      "en": "you",
+      "pt": "você"
+    },
+    "categories": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2235": {
+    "name": {
+      "en": "asian man",
+      "pt": "asiático"
+    },
+    "id": "2235",
+    "categories": [
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2236": {
+    "name": {
+      "en": "asian woman",
+      "pt": "asiática"
+    },
+    "id": "2236",
+    "categories": [
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2237": {
+    "id": "2237",
+    "name": {
+      "en": "adult man",
+      "pt": "homem adulto"
+    },
+    "categories": [
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2238": {
+    "id": "2238",
+    "name": {
+      "en": "adult woman",
+      "pt": "mulher adulta"
+    },
+    "categories": [
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2239": {
+    "name": {
+      "en": "kids",
+      "pt": "crianças"
+    },
+    "id": "2239",
+    "categories": [
+      "alien",
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2240": {
+    "name": {
+      "en": "caveman",
+      "pt": "homem das cavernas"
+    },
+    "id": "2240",
+    "categories": [
+      "dream",
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2241": {
+    "id": "2241",
+    "name": {
+      "en": "North America",
+      "pt": "América do norte"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2242": {
+    "id": "2242",
+    "name": {
+      "en": "Africa",
+      "pt": "África"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2243": {
+    "id": "2243",
+    "name": {
+      "en": "Europe",
+      "pt": "Europa"
+    },
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2244": {
+    "name": {
+      "en": "South America",
+      "pt": "América do Sul"
+    },
+    "id": "2244",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2245": {
+    "name": {
+      "en": "Asia",
+      "pt": "Ásia"
+    },
+    "id": "2245",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2246": {
+    "name": {
+      "en": "Oceania",
+      "pt": "Oceania"
+    },
+    "id": "2246",
+    "categories": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2247": {
+    "id": "2247",
+    "name": {
+      "en": "Sydney Opera House",
+      "pt": "Sydney Opera House"
+    },
+    "categories": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2248": {
+    "id": "2248",
+    "name": {
+      "en": "butcher shop",
+      "pt": "açougue"
+    },
+    "categories": [
+      "alien",
+      "dream",
+      "mesmice"
     ],
     "groups": []
   }
