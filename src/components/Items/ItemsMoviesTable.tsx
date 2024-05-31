@@ -1,20 +1,20 @@
 import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
-
+import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { useTablePagination } from 'hooks/useTablePagination';
+import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
-import { DailyMovieSet, type Item as ItemT } from 'types';
+import { useMemo } from 'react';
+import { DailyMovieSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 
-import type { TableProps } from 'antd';
-import { ItemsTypeahead } from './ItemsTypeahead';
 import { DeleteFilled } from '@ant-design/icons';
-import { useTDResource } from 'hooks/useTDResource';
-import { Item } from 'components/Sprites';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { useMemo } from 'react';
-import { useTablePagination } from 'hooks/useTablePagination';
 
+import { ItemsTypeahead } from './ItemsTypeahead';
+
+import type { TableProps } from 'antd';
 function orderSets(givenSets: DailyMovieSet[]) {
   return orderBy(givenSets, [
     // (s) => removeDuplicates(s.itemsIds).filter(Boolean).length > 0,
@@ -39,20 +39,29 @@ export function ItemsMoviesTable({
     return showOnlyEmpty ? sets.filter((s) => s.itemsIds.length === 0) : sets;
   }, [data, showOnlyEmpty]);
 
+  const completeMoviesCount = rows.filter((s) => s.itemsIds.length > 0).length;
+
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
   const columns: TableProps<DailyMovieSet>['columns'] = [
     {
       title: 'Title',
       dataIndex: 'title',
-      // key: 'title',
-      render: (title) => <span key={title}>{title}</span>,
+      render: (title, record) => (
+        <MovieEditableCell
+          property="title"
+          value={title}
+          movie={record}
+          addEntryToUpdate={addEntryToUpdate}
+        />
+      ),
     },
     {
       title: 'Year',
       dataIndex: 'year',
-      // key: 'year',
-      render: (year) => <span>{year}</span>,
+      render: (year, record) => (
+        <MovieEditableCell property="year" value={year} movie={record} addEntryToUpdate={addEntryToUpdate} />
+      ),
     },
     Table.EXPAND_COLUMN,
     {
@@ -60,29 +69,26 @@ export function ItemsMoviesTable({
       dataIndex: 'itemsIds',
       key: 'itemsIds',
       render: (itemsIds: string[], record) => (
-        <Flex gap={6} wrap="wrap" key={`items-${record.title}`}>
-          {itemsIds.map((itemId) => (
-            <Flex key={`${record.title}-${itemId}`} gap={2} vertical>
-              <Item id={itemId} width={60} />
-              <Flex justify="center">
-                <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
-                <RemoveItemFlow movie={record} addEntryToUpdate={addEntryToUpdate} itemId={itemId} />
-              </Flex>
-            </Flex>
-          ))}
-        </Flex>
+        <MovieItemsCell
+          movie={record}
+          itemsIds={itemsIds}
+          copyToClipboard={copyToClipboard}
+          addEntryToUpdate={addEntryToUpdate}
+        />
       ),
     },
     {
       title: 'Count',
       dataIndex: 'itemsIds',
-      // key: 'count',
       render: (itemsIds: string[]) => removeDuplicates(itemsIds).filter(Boolean).length,
     },
   ];
 
   return (
     <Space direction="vertical">
+      <Typography.Title level={5}>
+        Total Movies: {rows.length} | Complete Movies: {completeMoviesCount}
+      </Typography.Title>
       <Table
         columns={columns}
         rowKey="id"
@@ -140,5 +146,59 @@ export function RemoveItemFlow({ movie, addEntryToUpdate, itemId }: RemoveItemFl
     >
       <Button icon={<DeleteFilled />} size="small" type="text" />
     </Popconfirm>
+  );
+}
+
+type MovieItemsCellProps = {
+  movie: DailyMovieSet;
+  itemsIds: string[];
+  copyToClipboard: ReturnType<typeof useCopyToClipboardFunction>;
+  addEntryToUpdate: AddItemFlowProps['addEntryToUpdate'];
+};
+
+export function MovieItemsCell({ movie, itemsIds, copyToClipboard, addEntryToUpdate }: MovieItemsCellProps) {
+  return (
+    <Flex gap={6} wrap="wrap" key={`items-${movie.title}`}>
+      {itemsIds.map((itemId) => (
+        <Flex key={`${movie.title}-${itemId}`} gap={2} vertical>
+          <Item id={itemId} width={60} />
+          <Flex justify="center">
+            <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
+            <RemoveItemFlow movie={movie} addEntryToUpdate={addEntryToUpdate} itemId={itemId} />
+          </Flex>
+        </Flex>
+      ))}
+    </Flex>
+  );
+}
+
+type MovieEditableCellProps = {
+  value: string | number;
+  movie: DailyMovieSet;
+  addEntryToUpdate: AddItemFlowProps['addEntryToUpdate'];
+  property: keyof DailyMovieSet;
+};
+
+export function MovieEditableCell({ value, movie, addEntryToUpdate, property }: MovieEditableCellProps) {
+  const handleChange = (newValue: string) => {
+    if (typeof value === 'number') {
+      return newValue !== String(value)
+        ? addEntryToUpdate(movie.id, { ...movie, [property]: Number(newValue) })
+        : null;
+    }
+
+    return newValue !== value ? addEntryToUpdate(movie.id, { ...movie, [property]: newValue.trim() }) : null;
+  };
+
+  return (
+    <Space>
+      <Typography.Text
+        editable={{
+          onChange: handleChange,
+        }}
+      >
+        {String(value)}
+      </Typography.Text>
+    </Space>
   );
 }

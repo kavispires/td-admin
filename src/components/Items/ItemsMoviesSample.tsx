@@ -1,18 +1,15 @@
-import { Button, Divider, Space } from 'antd';
+import { Button, Divider, Space, Table } from 'antd';
+import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { useTDResource } from 'hooks/useTDResource';
 import { sample } from 'lodash';
 import { useState } from 'react';
-import { DailyMovieSet, type Item as ItemT } from 'types';
-import { Flex, Table, Typography } from 'antd';
-
+import { DailyMovieSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 
-import type { TableProps } from 'antd';
-import { Item } from 'components/Sprites';
-import { AddItemFlow, RemoveItemFlow } from './ItemsMoviesTable';
-import { useTDResource } from 'hooks/useTDResource';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { AddItemFlow, MovieEditableCell, MovieItemsCell } from './ItemsMoviesTable';
 
+import type { TableProps } from 'antd';
 export function ItemsMoviesSample({
   data,
   addEntryToUpdate,
@@ -29,14 +26,21 @@ export function ItemsMoviesSample({
     {
       title: 'Title',
       dataIndex: 'title',
-      // key: 'title',
-      render: (title) => <span key={title}>{title}</span>,
+      render: (title, record) => (
+        <MovieEditableCell
+          property="title"
+          value={title}
+          movie={record}
+          addEntryToUpdate={addEntryToUpdate}
+        />
+      ),
     },
     {
       title: 'Year',
       dataIndex: 'year',
-      // key: 'year',
-      render: (year) => <span>{year}</span>,
+      render: (year, record) => (
+        <MovieEditableCell property="year" value={year} movie={record} addEntryToUpdate={addEntryToUpdate} />
+      ),
     },
     Table.EXPAND_COLUMN,
     {
@@ -44,17 +48,12 @@ export function ItemsMoviesSample({
       dataIndex: 'itemsIds',
       key: 'itemsIds',
       render: (itemsIds: string[], record) => (
-        <Flex gap={6} wrap="wrap" key={`items-${record.title}`}>
-          {itemsIds.map((itemId) => (
-            <Flex key={`${record.title}-${itemId}`} gap={2} vertical>
-              <Item id={itemId} width={60} />
-              <Flex justify="center">
-                <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
-                <RemoveItemFlow movie={record} addEntryToUpdate={addEntryToUpdate} itemId={itemId} />
-              </Flex>
-            </Flex>
-          ))}
-        </Flex>
+        <MovieItemsCell
+          movie={record}
+          itemsIds={itemsIds}
+          copyToClipboard={copyToClipboard}
+          addEntryToUpdate={addEntryToUpdate}
+        />
       ),
     },
     {
