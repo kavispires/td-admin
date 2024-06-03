@@ -12,7 +12,7 @@ import {
   ItemAttributionGroupingFilters,
   ItemAttributionSamplerFilters,
   ItemAttributionStats,
-} from './ItemAttributionFilersSections';
+} from './ItemAttributionFiltersSections';
 
 export function ItemAttributionFilters() {
   const { isDirty, save, prepareItemsAttributesFileForDownload, isSaving, attributesToUpdate } =

@@ -130,7 +130,10 @@ export function ItemAttributionGroupingFilters() {
   const { attributesList } = useItemsAttributeValuesContext();
 
   const options = useMemo(() => {
-    return attributesList.map(({ id, name }) => ({ label: name.en, value: id }));
+    return attributesList.map(({ id, name, ...rest }) => ({
+      label: `${name.en}${rest.default ? '*' : ''}`,
+      value: id,
+    }));
   }, [attributesList]);
 
   return (
