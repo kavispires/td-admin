@@ -142,9 +142,12 @@
     "year": 1995
   },
   "dms-116-pt": {
-    "id": "dms-116-pt",
     "title": "Batman & Robin",
-    "itemsIds": [],
+    "id": "dms-116-pt",
+    "itemsIds": [
+      "300",
+      "2180"
+    ],
     "year": 1997
   },
   "dms-117-pt": {
@@ -1685,7 +1688,11 @@
   "dms-302-pt": {
     "id": "dms-302-pt",
     "title": "O Demolidor",
-    "itemsIds": [],
+    "itemsIds": [
+      "352",
+      "2101",
+      "1067"
+    ],
     "year": 1993
   },
   "dms-303-pt": {
@@ -2240,7 +2247,11 @@
   "dms-371-pt": {
     "id": "dms-371-pt",
     "title": "O Segredo de Brokeback Mountain",
-    "itemsIds": [],
+    "itemsIds": [
+      "641",
+      "450",
+      "32"
+    ],
     "year": 2005
   },
   "dms-372-pt": {
@@ -3493,7 +3504,10 @@
   "dms-79-pt": {
     "id": "dms-79-pt",
     "title": "A Verdade Nua e Crua",
-    "itemsIds": [],
+    "itemsIds": [
+      "1342",
+      "1820"
+    ],
     "year": 2009
   },
   "dms-8-pt": {
