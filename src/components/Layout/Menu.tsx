@@ -167,7 +167,6 @@ const items: MenuProps['items'] = [
       {
         label: 'Quartets',
         key: '/items/quartets',
-        disabled: true,
       },
     ],
   },

@@ -50,8 +50,6 @@ export function ItemsTypeahead({
   useDebounce(
     () => {
       if (typedText) {
-        console.log('DEBOUNCE!');
-        // setSearchText(searchText);
         handleSearch(typedText);
       }
     },
