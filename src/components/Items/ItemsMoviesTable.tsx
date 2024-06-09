@@ -159,8 +159,8 @@ type MovieItemsCellProps = {
 export function MovieItemsCell({ movie, itemsIds, copyToClipboard, addEntryToUpdate }: MovieItemsCellProps) {
   return (
     <Flex gap={6} wrap="wrap" key={`items-${movie.title}`}>
-      {itemsIds.map((itemId) => (
-        <Flex key={`${movie.title}-${itemId}`} gap={2} vertical>
+      {itemsIds.map((itemId, index) => (
+        <Flex key={`${movie.title}-${itemId}-${index}`} gap={2} vertical>
           <Item id={itemId} width={60} />
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>

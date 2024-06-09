@@ -19,7 +19,20 @@ export function ItemsMoviesSample({
   const copyToClipboard = useCopyToClipboardFunction();
 
   const onGetSample = () => {
-    setSampleEntryId(sample(Object.keys(data ?? {})) ?? null);
+    let newSampleId = sample(Object.keys(data ?? {}));
+    let tries = 0;
+
+    // Tries a maximum of 15 times to find a sample with no itemsIds
+
+    while (tries < 15 && (data[String(newSampleId)]?.itemsIds ?? []).length > 0) {
+      newSampleId = sample(Object.keys(data ?? {}));
+
+      tries++;
+    }
+
+    if (tries >= 15) return console.warn('Could not find a sample with no itemsIds');
+
+    setSampleEntryId(newSampleId ?? null);
   };
 
   const columns: TableProps<DailyMovieSet>['columns'] = [
