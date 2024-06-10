@@ -112,13 +112,13 @@ type VerifyIfThingProps = {
 
 const verifyIfThingCheck = memoize((item: ItemT) => {
   const hasThing = !!item.decks?.includes('thing');
-  const hasMesmice = !!item.decks?.includes('mesmice');
+  const hasManufactured = !!item.decks?.includes('manufactured');
   const singleWordNameEn = item.name.en.split(' ').length === 1;
   const singleWordNamePt = item.name.pt.split(' ').length === 1;
 
   const result = {
-    en: hasThing || (singleWordNameEn && hasMesmice),
-    pt: hasThing || (singleWordNamePt && hasMesmice),
+    en: hasThing || (singleWordNameEn && hasManufactured),
+    pt: hasThing || (singleWordNamePt && hasManufactured),
   };
 
   if (!result.pt && !result.en) return '';

@@ -99,7 +99,7 @@ function prepareFileForDownload(items: Dictionary<Item>) {
         return acc;
       }
 
-      // Remove thing from deck if either evidence, dream, alien, or mesmice is present and both pt and en names are single words
+      // Remove thing from deck if either evidence, dream, alien, or manufactured is present and both pt and en names are single words
       if (
         item.decks.includes('thing') &&
         item.name.en.split(' ').length === 1 &&
@@ -109,7 +109,7 @@ function prepareFileForDownload(items: Dictionary<Item>) {
           item.decks.includes('evidence') ||
           item.decks.includes('dream') ||
           item.decks.includes('alien') ||
-          item.decks.includes('mesmice')
+          item.decks.includes('manufactured')
         ) {
           item.decks = item.decks.filter((deck) => deck !== 'thing');
         }
