@@ -77,12 +77,12 @@ export function useItemsAttribution() {
     mutation.mutate(serializeFirebaseData({ ...firebaseData, ...modifiedAttributeValues }));
   };
 
-  // Filter items that have the alien category only
+  // Filter items that have the alien deck only
   const availableItemIds = useMemo(() => {
     const items = tdrItemsQuery.data ?? {};
     return orderBy(
       Object.keys(items).filter((id) => {
-        return (items[id]?.categories ?? []).includes('alien');
+        return (items[id]?.decks ?? []).includes('alien');
       }),
       (id) => Number(id),
       'asc'

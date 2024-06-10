@@ -9,8 +9,8 @@ export type ItemsContextType = {
   isLoading: boolean;
   error: ResponseError;
   hasResponseData: boolean;
-  categoriesDict: Dictionary<string>;
-  categories: { value: string }[];
+  decksDict: Dictionary<string>;
+  decks: { value: string }[];
   listing: Item[];
   isDirty: boolean;
   addItemToUpdate: (id: string, item: Item) => void;
@@ -25,8 +25,8 @@ const ItemsContext = createContext<ItemsContextType>({
   isLoading: true,
   error: null,
   hasResponseData: false,
-  categoriesDict: {},
-  categories: [],
+  decksDict: {},
+  decks: [],
   listing: [],
   isDirty: false,
   addItemToUpdate: () => {},
@@ -57,9 +57,9 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
     firebaseDataCollectionName: 'items',
   });
 
-  const { categoriesDict, categories } = useMemo(() => {
-    console.log('Recomputing item categories typeahead...');
-    const categoriesDict: Dictionary<string> = {};
+  const { decksDict, decks } = useMemo(() => {
+    console.log('Recomputing item decks typeahead...');
+    const decksDict: Dictionary<string> = {};
     const duplicationCheckEn: Dictionary<string> = {};
     const duplicationCheckPt: Dictionary<string> = {};
     const duplicatedNames: string[][] = [];
@@ -79,40 +79,40 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         duplicationCheckPt[entry.name.pt] = entry.id;
       }
 
-      entry?.categories?.forEach((category) => {
-        categoriesDict[category] = category;
+      entry?.decks?.forEach((deck) => {
+        decksDict[deck] = deck;
       });
     });
 
-    const categories = orderBy(Object.keys(categoriesDict)).map((name) => ({ value: name }));
+    const decks = orderBy(Object.keys(decksDict)).map((name) => ({ value: name }));
 
     if (duplicatedNames.length > 0) {
       console.warn('Possible duplicated items', duplicatedNames);
     }
 
-    return { categoriesDict, categories };
+    return { decksDict, decks };
   }, [items, isSaving, isLoading]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const category = queryParams.get('category') ?? 'all';
+  const deck = queryParams.get('deck') ?? 'all';
   const listing = useMemo(() => {
     const orderedList = orderBy(Object.values(items), [(item) => Number(item.id)], 'asc');
 
-    switch (category) {
+    switch (deck) {
       case 'all':
         return orderedList;
       case '!all':
-        return orderedList.filter((item) => !item?.categories?.length ?? true);
+        return orderedList.filter((item) => !item?.decks?.length ?? true);
       case 'nsfw':
         return orderedList.filter((item) => item.nsfw);
       case '!nsfw':
         return orderedList.filter((item) => !item.nsfw);
       default:
-        if (category.startsWith('!')) {
-          return orderedList.filter((item) => !item?.categories?.includes(category.slice(1)));
+        if (deck.startsWith('!')) {
+          return orderedList.filter((item) => !item?.decks?.includes(deck.slice(1)));
         }
-        return orderedList.filter((item) => item?.categories?.includes(category));
+        return orderedList.filter((item) => item?.decks?.includes(deck));
     }
-  }, [items, category]);
+  }, [items, deck]);
 
   // Handle id for new items
   const newId = useMemo(() => {
@@ -129,8 +129,8 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         listing,
         isLoading,
         error,
-        categoriesDict,
-        categories,
+        decksDict,
+        decks,
         hasResponseData: listing.length > 0,
         isDirty,
         addItemToUpdate,

@@ -23,23 +23,21 @@ export function ItemsCrimeHistoryTable() {
   const suspects = useMemo(
     () =>
       shuffle(
-        Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.categories?.includes('suspect'))
+        Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.decks?.includes('suspect'))
       ),
     [itemsTypeaheadQuery.data]
   );
 
   const weapons = useMemo(
     () =>
-      shuffle(
-        Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.categories?.includes('weapon'))
-      ),
+      shuffle(Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.decks?.includes('weapon'))),
     [itemsTypeaheadQuery.data]
   );
 
   const evidence = useMemo(
     () =>
       shuffle(
-        Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.categories?.includes('evidence'))
+        Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.decks?.includes('evidence'))
       ),
     [itemsTypeaheadQuery.data]
   );

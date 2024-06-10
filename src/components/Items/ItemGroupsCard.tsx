@@ -40,7 +40,7 @@ export function ItemGroupsCard({
         <Select
           mode="multiple"
           style={{ width: '100%' }}
-          placeholder="Select a category"
+          placeholder="Select a group"
           defaultValue={itemGroups}
           options={groupsTypeahead}
           showSearch

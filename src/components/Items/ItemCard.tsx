@@ -18,7 +18,7 @@ type ItemCardProps = {
 };
 
 export function ItemCard({ item, editMode = false, simplified }: ItemCardProps) {
-  const { categories } = useItemsContext();
+  const { decks } = useItemsContext();
   const { isEditing, toggleEditMode, onEdit, isDirty, onModify, onReset, editableItem } = useItemUpdate(
     item,
     editMode
@@ -71,14 +71,14 @@ export function ItemCard({ item, editMode = false, simplified }: ItemCardProps) 
               <Select
                 mode="multiple"
                 style={{ width: '100%' }}
-                placeholder="Select a category"
-                defaultValue={item.categories}
+                placeholder="Select a deck"
+                defaultValue={item.decks}
                 disabled={!isEditing}
-                options={categories}
+                options={decks}
                 variant={isEditing ? 'outlined' : 'borderless'}
                 size="small"
-                key={String(item.categories)}
-                onChange={(value) => onEdit({ categories: value.sort() })}
+                key={String(item.decks)}
+                onChange={(value) => onEdit({ decks: value.sort() })}
               />
             </div>
             {is('showVerifyThing') && (
@@ -111,8 +111,8 @@ type VerifyIfThingProps = {
 };
 
 const verifyIfThingCheck = memoize((item: ItemT) => {
-  const hasThing = !!item.categories?.includes('thing');
-  const hasMesmice = !!item.categories?.includes('mesmice');
+  const hasThing = !!item.decks?.includes('thing');
+  const hasMesmice = !!item.decks?.includes('mesmice');
   const singleWordNameEn = item.name.en.split(' ').length === 1;
   const singleWordNamePt = item.name.pt.split(' ').length === 1;
 

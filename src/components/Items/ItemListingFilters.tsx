@@ -12,12 +12,12 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { SaveButton } from 'components/Common/SaveButton';
 
 export function ItemListingFilters() {
-  const { isDirty, save, items, categories, itemsToUpdate, isSaving } = useItemsContext();
+  const { isDirty, save, items, decks, itemsToUpdate, isSaving } = useItemsContext();
   const { queryParams, is, addParam } = useQueryParams();
 
-  const categoryOptions = useMemo(() => {
+  const deckOptions = useMemo(() => {
     const includingOptions = orderBy(
-      categories.map(({ value }) => ({ label: capitalize(value), value })),
+      decks.map(({ value }) => ({ label: capitalize(value), value })),
       'label'
     );
     const excludingOptions = includingOptions.map(({ label, value }) => ({
@@ -25,7 +25,7 @@ export function ItemListingFilters() {
       value: `!${value}`,
     }));
     return [...includingOptions, ...excludingOptions];
-  }, [categories]);
+  }, [decks]);
 
   return (
     <SiderContent>
@@ -66,15 +66,15 @@ export function ItemListingFilters() {
       />
 
       <FilterSelect
-        label="Category"
-        value={queryParams.get('category') ?? 'all'}
-        onChange={(value) => addParam('category', value, 'all')}
+        label="Deck"
+        value={queryParams.get('deck') ?? 'all'}
+        onChange={(value) => addParam('deck', value, 'all')}
         options={[
           { label: 'All', value: 'all' },
           { label: 'NSFW', value: 'nsfw' },
           { label: 'SFW', value: '!nsfw' },
-          ...categoryOptions,
-          { label: 'No categories', value: '!all' },
+          ...deckOptions,
+          { label: 'No decks', value: '!all' },
         ]}
       />
 
@@ -88,30 +88,30 @@ export function ItemListingFilters() {
 function prepareFileForDownload(items: Dictionary<Item>) {
   return sortJsonKeys(
     Object.values(items).reduce((acc: Dictionary<Item>, item) => {
-      // Sort categories
-      item.categories = (item?.categories ?? []).sort();
+      // Sort deck
+      item.decks = (item?.decks ?? []).sort();
 
-      // Remove categories if no category is present
-      if (item.categories.length === 0) {
-        delete item.categories;
+      // Remove decks if no deck is present
+      if (item.decks.length === 0) {
+        delete item.decks;
 
         acc[item.id] = item;
         return acc;
       }
 
-      // Remove thing from category if either evidence, dream, alien, or mesmice is present and both pt and en names are single words
+      // Remove thing from deck if either evidence, dream, alien, or mesmice is present and both pt and en names are single words
       if (
-        item.categories.includes('thing') &&
+        item.decks.includes('thing') &&
         item.name.en.split(' ').length === 1 &&
         item.name.pt.split(' ').length === 1
       ) {
         if (
-          item.categories.includes('evidence') ||
-          item.categories.includes('dream') ||
-          item.categories.includes('alien') ||
-          item.categories.includes('mesmice')
+          item.decks.includes('evidence') ||
+          item.decks.includes('dream') ||
+          item.decks.includes('alien') ||
+          item.decks.includes('mesmice')
         ) {
-          item.categories = item.categories.filter((category) => category !== 'thing');
+          item.decks = item.decks.filter((deck) => deck !== 'thing');
         }
 
         acc[item.id] = item;
