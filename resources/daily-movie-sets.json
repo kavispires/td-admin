@@ -522,9 +522,12 @@
     "year": 2002
   },
   "dms-162-pt": {
-    "id": "dms-162-pt",
     "title": "Divinos Segredos",
-    "itemsIds": [],
+    "id": "dms-162-pt",
+    "itemsIds": [
+      "1768",
+      "1707"
+    ],
     "year": 2002
   },
   "dms-163-pt": {
@@ -697,9 +700,13 @@
     "year": 2011
   },
   "dms-184-pt": {
-    "id": "dms-184-pt",
     "title": "Esqueceram de Mim",
-    "itemsIds": [],
+    "id": "dms-184-pt",
+    "itemsIds": [
+      "1974",
+      "107",
+      "1372"
+    ],
     "year": 1990
   },
   "dms-185-pt": {
@@ -721,9 +728,11 @@
     "year": 2012
   },
   "dms-188-pt": {
-    "id": "dms-188-pt",
     "title": "Eternos",
-    "itemsIds": [],
+    "id": "dms-188-pt",
+    "itemsIds": [
+      "1991"
+    ],
     "year": 2021
   },
   "dms-189-pt": {
@@ -757,9 +766,12 @@
     "year": 1940
   },
   "dms-192-pt": {
-    "id": "dms-192-pt",
     "title": "Ford vs Ferrari",
-    "itemsIds": [],
+    "id": "dms-192-pt",
+    "itemsIds": [
+      "10",
+      "437"
+    ],
     "year": 2019
   },
   "dms-193-pt": {
@@ -795,9 +807,13 @@
     "year": 2013
   },
   "dms-197-pt": {
-    "id": "dms-197-pt",
     "title": "George, o Rei da Floresta",
-    "itemsIds": [],
+    "id": "dms-197-pt",
+    "itemsIds": [
+      "1522",
+      "2101",
+      "141"
+    ],
     "year": 1997
   },
   "dms-198-pt": {
@@ -846,9 +862,12 @@
     "year": 2005
   },
   "dms-202-pt": {
-    "id": "dms-202-pt",
     "title": "Gravidade",
-    "itemsIds": [],
+    "id": "dms-202-pt",
+    "itemsIds": [
+      "1368",
+      "1858"
+    ],
     "year": 2013
   },
   "dms-203-pt": {
@@ -953,7 +972,11 @@
   "dms-215-pt": {
     "id": "dms-215-pt",
     "title": "Hércules em Nova York",
-    "itemsIds": [],
+    "itemsIds": [
+      "625",
+      "1492",
+      "404"
+    ],
     "year": 1969
   },
   "dms-216-pt": {
@@ -1221,15 +1244,22 @@
     "year": 1994
   },
   "dms-246-pt": {
-    "id": "dms-246-pt",
     "title": "Loucas pra Casar",
-    "itemsIds": [],
+    "id": "dms-246-pt",
+    "itemsIds": [
+      "2030",
+      "76"
+    ],
     "year": 2015
   },
   "dms-247-pt": {
     "id": "dms-247-pt",
     "title": "Luca",
-    "itemsIds": [],
+    "itemsIds": [
+      "1106",
+      "519",
+      "1974"
+    ],
     "year": 2021
   },
   "dms-248-pt": {
@@ -1310,7 +1340,11 @@
   "dms-258-pt": {
     "id": "dms-258-pt",
     "title": "Meu Amigo Totoro",
-    "itemsIds": [],
+    "itemsIds": [
+      "1621",
+      "30",
+      "2057"
+    ],
     "year": 1988
   },
   "dms-259-pt": {
@@ -1793,9 +1827,14 @@
     "year": 1991
   },
   "dms-314-pt": {
-    "id": "dms-314-pt",
     "title": "O Exterminador do Futuro 3: A Rebelião das Máquinas",
-    "itemsIds": [],
+    "id": "dms-314-pt",
+    "itemsIds": [
+      "2220",
+      "2217",
+      "1014",
+      "1228"
+    ],
     "year": 2003
   },
   "dms-315-pt": {
@@ -1815,9 +1854,13 @@
     "year": 2019
   },
   "dms-317-pt": {
-    "id": "dms-317-pt",
     "title": "O Filho do Máskara",
-    "itemsIds": [],
+    "id": "dms-317-pt",
+    "itemsIds": [
+      "587",
+      "1974",
+      "2052"
+    ],
     "year": 2005
   },
   "dms-318-pt": {
@@ -1827,9 +1870,12 @@
     "year": 1993
   },
   "dms-319-pt": {
-    "id": "dms-319-pt",
     "title": "O Galinho Chicken Little",
-    "itemsIds": [],
+    "id": "dms-319-pt",
+    "itemsIds": [
+      "2198",
+      "2075"
+    ],
     "year": 2005
   },
   "dms-32-pt": {
@@ -1942,7 +1988,11 @@
   "dms-333-pt": {
     "id": "dms-333-pt",
     "title": "O Incrível Hulk",
-    "itemsIds": [],
+    "itemsIds": [
+      "2101",
+      "625",
+      "2052"
+    ],
     "year": 2008
   },
   "dms-334-pt": {
@@ -2127,7 +2177,8 @@
     "id": "dms-357-pt",
     "title": "O Plano Perfeito",
     "itemsIds": [
-      "1180"
+      "1180",
+      "2080"
     ],
     "year": 2006
   },
@@ -2278,9 +2329,13 @@
     "year": 2003
   },
   "dms-375-pt": {
-    "id": "dms-375-pt",
     "title": "O Shaolin do Sertão",
-    "itemsIds": [],
+    "id": "dms-375-pt",
+    "itemsIds": [
+      "216",
+      "2153",
+      "173"
+    ],
     "year": 2016
   },
   "dms-376-pt": {
@@ -2858,15 +2913,23 @@
     "year": 1993
   },
   "dms-447-pt": {
-    "id": "dms-447-pt",
     "title": "Sweeney Todd: O Barbeiro Demoníaco da Rua Fleet",
-    "itemsIds": [],
+    "id": "dms-447-pt",
+    "itemsIds": [
+      "1240",
+      "1605",
+      "1076",
+      "2192"
+    ],
     "year": 2007
   },
   "dms-448-pt": {
-    "id": "dms-448-pt",
     "title": "Tá Chovendo Hambúrguer",
-    "itemsIds": [],
+    "id": "dms-448-pt",
+    "itemsIds": [
+      "1252",
+      "518"
+    ],
     "year": 2009
   },
   "dms-449-pt": {
@@ -2975,7 +3038,11 @@
   "dms-460-pt": {
     "id": "dms-460-pt",
     "title": "Transformers: A Era da Extinção",
-    "itemsIds": [],
+    "itemsIds": [
+      "10",
+      "12",
+      "522"
+    ],
     "year": 2014
   },
   "dms-461-pt": {
@@ -3027,7 +3094,10 @@
   "dms-468-pt": {
     "id": "dms-468-pt",
     "title": "Um Amor Para Recordar",
-    "itemsIds": [],
+    "itemsIds": [
+      "1372",
+      "1988"
+    ],
     "year": 2002
   },
   "dms-469-pt": {
@@ -3356,9 +3426,13 @@
     "year": 2013
   },
   "dms-61-pt": {
-    "id": "dms-61-pt",
     "title": "A Morte te Dá Parabéns",
-    "itemsIds": [],
+    "id": "dms-61-pt",
+    "itemsIds": [
+      "1231",
+      "1873",
+      "1187"
+    ],
     "year": 2017
   },
   "dms-62-pt": {
