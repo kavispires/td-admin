@@ -1,14 +1,14 @@
-import { Flex, Space, Switch, Table, Typography } from 'antd';
+import { Flex, Space, Table, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useTDResource } from 'hooks/useTDResource';
 import { fromPairs, isEqual, orderBy, range, sampleSize } from 'lodash';
-import { useState } from 'react';
 import { DailyDiscSet } from 'types';
 import { removeDuplicates } from 'utils';
 import { LETTERS } from 'utils/constants';
 
 import type { TableProps } from 'antd';
+import { useTablePagination } from 'hooks/useTablePagination';
 
 function orderSets(givenSets: DailyDiscSet[]) {
   return orderBy(givenSets, [
@@ -24,6 +24,8 @@ export function ItemsSetsTable() {
   const { data } = useTDResource<DailyDiscSet>('daily-disc-sets');
   const sets = data ? orderSets(Object.values(data)) : [];
   const copyToClipboard = useCopyToClipboardFunction();
+
+  const paginationProps = useTablePagination({ total: sets.length, showQuickJumper: true });
 
   const columns: TableProps<DailyDiscSet>['columns'] = [
     {
@@ -57,19 +59,9 @@ export function ItemsSetsTable() {
     },
   ];
 
-  const [selectedSet, setSelectedSet] = useState('set');
-
   return (
     <Space direction="vertical">
-      <Space>
-        <Switch
-          checkedChildren="Set"
-          unCheckedChildren="Misc"
-          defaultChecked
-          onChange={() => setSelectedSet(selectedSet === 'set' ? 'misc' : 'set')}
-        />
-      </Space>
-      <Table columns={columns} dataSource={sets} pagination={{ showQuickJumper: true }} />
+      <Table columns={columns} dataSource={sets} pagination={paginationProps} />
     </Space>
   );
 }
