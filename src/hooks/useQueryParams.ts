@@ -14,6 +14,17 @@ export function useQueryParams(defaultParams: Record<string, string | number> = 
     setSearchParams(searchParams);
   };
 
+  const addParams = (params: Record<string, unknown>, defaultValues: Record<string, unknown> = {}) => {
+    Object.entries(params).forEach(([key, value]) => {
+      if (defaultValues[key] === value) {
+        searchParams.delete(key);
+      } else {
+        searchParams.set(key, String(value));
+      }
+    });
+    setSearchParams(searchParams);
+  };
+
   const removeParam = (key: string) => {
     searchParams.delete(key);
     setSearchParams(searchParams);
@@ -31,6 +42,7 @@ export function useQueryParams(defaultParams: Record<string, string | number> = 
 
   return {
     addParam,
+    addParams,
     removeParam,
     queryParams: searchParams,
     is,

@@ -17,7 +17,7 @@ export function ItemsGroupsFilters({
   isSaving,
   entriesToUpdate,
 }: UseResourceFirebaseDataReturnType<ItemGroup>) {
-  const { queryParams, addParam, is } = useQueryParams();
+  const { queryParams, addParam, addParams, is } = useQueryParams();
 
   return (
     <SiderContent>
@@ -41,7 +41,7 @@ export function ItemsGroupsFilters({
       <FilterSegments
         label="Display"
         value={queryParams.get('display') ?? 'group'}
-        onChange={(mode) => addParam('display', mode)}
+        onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1 })}
         options={[
           {
             title: 'By Groups',
@@ -60,6 +60,7 @@ export function ItemsGroupsFilters({
         label="No Groups Only"
         value={is('emptyOnly')}
         onChange={(mode) => addParam('emptyOnly', mode, false)}
+        disabled={!is('display', 'item')}
       />
     </SiderContent>
   );

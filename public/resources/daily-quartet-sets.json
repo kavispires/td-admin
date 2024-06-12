@@ -1828,14 +1828,14 @@
   },
   "dqs-0303-br": {
     "id": "dqs-0303-br",
-    "title": "",
-    "itemsIds": [],
+    "title": "Contém camadas",
+    "itemsIds": ["71", "2274", "1751"],
     "level": 0
   },
   "dqs-0304-br": {
     "id": "dqs-0304-br",
-    "title": "",
-    "itemsIds": [],
+    "title": "Sonequinha",
+    "itemsIds": ["912", "915", ""],
     "level": 0
   },
   "dqs-0305-br": {

@@ -1,4 +1,4 @@
-import { Col, Flex, Row, Table, TableProps, Typography } from 'antd';
+import { Button, Col, Drawer, Flex, Row, Space, Table, TableProps, Typography } from 'antd';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
@@ -7,14 +7,16 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Item as ItemT, ItemGroup } from 'types';
 import { removeDuplicates } from 'utils';
 
 import { ItemGroupsCard } from './ItemGroupsCard';
+import { useTablePagination } from 'hooks/useTablePagination';
+import { TransparentButton } from 'components/Common';
 
 export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
-  const { is } = useQueryParams();
+  const { is, queryParams } = useQueryParams();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
 
   const grousByItem = useMemo(() => {
@@ -67,9 +69,18 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
 
   return (
     <>
-      {is('display', 'group') && <ItemsGroupsByGroupTable data={data} />}
+      {(is('display', 'group') || !queryParams.has('display')) && (
+        <ItemsGroupsByGroupTable
+          data={data}
+          items={itemsTypeaheadQuery.data}
+          grousByItem={grousByItem}
+          groupsTypeahead={groupsTypeahead}
+          onUpdateItemGroups={onUpdateItemGroups}
+        />
+      )}
       {is('display', 'item') && (
         <ItemsGroupsByItemTable
+          data={data}
           items={itemsTypeaheadQuery.data}
           grousByItem={grousByItem}
           groupsTypeahead={groupsTypeahead}
@@ -80,8 +91,27 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
   );
 }
 
-function ItemsGroupsByGroupTable({ data }: Pick<UseResourceFirebaseDataReturnType<ItemGroup>, 'data'>) {
+type ItemsGroupsTablesProps = {
+  items: Dictionary<ItemT>;
+  grousByItem: Record<string, string[]>;
+  groupsTypeahead: { value: string; label: string }[];
+  onUpdateItemGroups: (itemId: string, groupIds: string[]) => void;
+} & Pick<UseResourceFirebaseDataReturnType<ItemGroup>, 'data'>;
+
+function ItemsGroupsByGroupTable({
+  data,
+  items,
+  grousByItem,
+  groupsTypeahead,
+  onUpdateItemGroups,
+}: ItemsGroupsTablesProps) {
   const copyToClipboard = useCopyToClipboardFunction();
+  const [selectedItemId, setSelectedItemId] = useState<null | string>(null);
+
+  const paginationProps = useTablePagination({
+    showQuickJumper: true,
+    total: Object.keys(data).length,
+  });
 
   const columns: TableProps<ItemGroup>['columns'] = [
     {
@@ -98,7 +128,9 @@ function ItemsGroupsByGroupTable({ data }: Pick<UseResourceFirebaseDataReturnTyp
         <Flex gap={6} wrap="wrap" key={`items-${record.id}`}>
           {itemsIds.map((itemId) => (
             <Flex key={`${record.id}-${itemId}`} gap={2} vertical>
-              <Item id={itemId} width={60} />
+              <TransparentButton onClick={() => setSelectedItemId(itemId)}>
+                <Item id={itemId} width={60} />
+              </TransparentButton>
               <Flex justify="center">
                 <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
               </Flex>
@@ -113,31 +145,50 @@ function ItemsGroupsByGroupTable({ data }: Pick<UseResourceFirebaseDataReturnTyp
       key: 'count',
       render: (itemsIds: string[]) => removeDuplicates(itemsIds).filter(Boolean).length,
     },
+    {
+      title: 'Actions',
+      dataIndex: 'itemsIds',
+      key: 'actions',
+      render: (itemsIds: string[]) => (
+        <Space direction="vertical" size="small">
+          <Button size="small" onClick={() => copyToClipboard(JSON.stringify(itemsIds))}>
+            Copy Ids
+          </Button>
+        </Space>
+      ),
+    },
   ];
 
+  const selectedItem = selectedItemId ? items[selectedItemId] : null;
+
   return (
-    <Table
-      columns={columns}
-      dataSource={Object.values(data)}
-      className="my-4"
-      pagination={{ showQuickJumper: true }}
-    />
+    <>
+      <Table
+        columns={columns}
+        dataSource={Object.values(data)}
+        className="my-4"
+        pagination={paginationProps}
+      />
+      <Drawer title="Edit Item Group" onClose={() => setSelectedItemId(null)} open={!!selectedItem}>
+        {selectedItem && (
+          <ItemGroupsCard
+            item={selectedItem}
+            itemGroups={grousByItem[selectedItem.id]}
+            groupsTypeahead={groupsTypeahead}
+            onUpdateItemGroups={onUpdateItemGroups}
+          />
+        )}
+      </Drawer>
+    </>
   );
 }
-
-type ItemsGroupsByItemTableProps = {
-  items: Dictionary<ItemT>;
-  grousByItem: Record<string, string[]>;
-  groupsTypeahead: { value: string; label: string }[];
-  onUpdateItemGroups: (itemId: string, groupIds: string[]) => void;
-};
 
 function ItemsGroupsByItemTable({
   items,
   grousByItem,
   groupsTypeahead,
   onUpdateItemGroups,
-}: ItemsGroupsByItemTableProps) {
+}: ItemsGroupsTablesProps) {
   const { is } = useQueryParams();
   const showOnlyEmpty = is('emptyOnly');
 

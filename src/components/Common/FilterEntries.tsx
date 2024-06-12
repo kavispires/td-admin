@@ -66,12 +66,13 @@ type FilterSwitchProps = {
   value: boolean;
   onChange: (value: boolean) => void;
   className?: string;
+  disabled?: boolean;
 };
 
-export function FilterSwitch({ label, value, onChange, className }: FilterSwitchProps) {
+export function FilterSwitch({ label, value, onChange, className, disabled }: FilterSwitchProps) {
   return (
     <Form.Item label={label} valuePropName="checked" className={className}>
-      <Switch checked={value} onChange={onChange} size="small" />
+      <Switch checked={value} onChange={onChange} size="small" disabled={disabled} />
     </Form.Item>
   );
 }
