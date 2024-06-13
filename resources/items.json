@@ -23407,11 +23407,11 @@
     ]
   },
   "1957": {
+    "id": "1957",
     "name": {
       "en": "bison",
       "pt": "bisão"
     },
-    "id": "1957",
     "decks": [
       "alien",
       "dream"
@@ -27147,11 +27147,11 @@
     "groups": []
   },
   "2270": {
-    "id": "2270",
     "name": {
       "en": "stilts",
       "pt": "pernas de pau"
     },
+    "id": "2270",
     "decks": [
       "alien",
       "dream"
@@ -27183,11 +27183,11 @@
     "groups": []
   },
   "2273": {
-    "id": "2273",
     "name": {
       "en": "beads",
       "pt": "miçangas"
     },
+    "id": "2273",
     "decks": [
       "alien",
       "dream",
@@ -27196,11 +27196,11 @@
     "groups": []
   },
   "2274": {
-    "id": "2274",
     "name": {
       "en": "soil",
       "pt": "solo"
     },
+    "id": "2274",
     "decks": [
       "alien",
       "dream"
@@ -27220,22 +27220,22 @@
     "groups": []
   },
   "2276": {
+    "id": "2276",
     "name": {
       "en": "crying",
       "pt": "choro"
     },
-    "id": "2276",
     "decks": [
       "symbol"
     ],
     "groups": []
   },
   "2277": {
+    "id": "2277",
     "name": {
       "en": "laughter",
       "pt": "risada"
     },
-    "id": "2277",
     "decks": [
       "dream",
       "symbol"
@@ -27243,11 +27243,11 @@
     "groups": []
   },
   "2278": {
-    "id": "2278",
     "name": {
       "en": "blur",
       "pt": "borrão"
     },
+    "id": "2278",
     "decks": [
       "symbol"
     ],
@@ -27290,11 +27290,11 @@
     "groups": []
   },
   "2282": {
+    "id": "2282",
     "name": {
       "en": "baby walker",
       "pt": "andador de bebê"
     },
-    "id": "2282",
     "decks": [
       "alien",
       "dream",
@@ -27315,11 +27315,11 @@
     "groups": []
   },
   "2284": {
+    "id": "2284",
     "name": {
       "en": "wedding album",
       "pt": "álbum de casamento"
     },
-    "id": "2284",
     "decks": [
       "alien",
       "dream"
@@ -27339,11 +27339,11 @@
     "groups": []
   },
   "2286": {
+    "id": "2286",
     "name": {
       "en": "wasp",
       "pt": "vespa"
     },
-    "id": "2286",
     "decks": [
       "alien",
       "dream"
@@ -27399,11 +27399,11 @@
     "groups": []
   },
   "2291": {
+    "id": "2291",
     "name": {
       "en": "zipline",
       "pt": "tirolesa"
     },
-    "id": "2291",
     "decks": [
       "dream",
       "manufactured"
@@ -27499,11 +27499,11 @@
     "groups": []
   },
   "2299": {
+    "id": "2299",
     "name": {
       "en": "mitosis",
       "pt": "mitose"
     },
-    "id": "2299",
     "decks": [
       "alien",
       "dream"
@@ -27523,11 +27523,11 @@
     "groups": []
   },
   "2301": {
-    "id": "2301",
     "name": {
       "en": "C clef",
       "pt": "clave de sol"
     },
+    "id": "2301",
     "decks": [
       "dream",
       "symbol"
@@ -27558,11 +27558,11 @@
     "groups": []
   },
   "2304": {
-    "id": "2304",
     "name": {
       "en": "windsurf",
       "pt": "windsurf"
     },
+    "id": "2304",
     "decks": [
       "alien",
       "dream"
@@ -27570,22 +27570,22 @@
     "groups": []
   },
   "2305": {
+    "id": "2305",
     "name": {
       "en": "horoscope",
       "pt": "horóscopo"
     },
-    "id": "2305",
     "decks": [
       "symbol"
     ],
     "groups": []
   },
   "2306": {
-    "id": "2306",
     "name": {
       "en": "aries",
       "pt": "áries"
     },
+    "id": "2306",
     "decks": [
       "symbol"
     ],
@@ -27603,22 +27603,22 @@
     "groups": []
   },
   "2308": {
-    "id": "2308",
     "name": {
       "en": "Taurus",
       "pt": "Touro"
     },
+    "id": "2308",
     "decks": [
       "symbol"
     ],
     "groups": []
   },
   "2309": {
-    "id": "2309",
     "name": {
       "en": "Taurus sign",
       "pt": "símbolo de Touro"
     },
+    "id": "2309",
     "decks": [
       "symbol"
     ],
@@ -27647,11 +27647,11 @@
     "groups": []
   },
   "2312": {
+    "id": "2312",
     "name": {
       "en": "Cancer",
       "pt": "Câncer"
     },
-    "id": "2312",
     "decks": [
       "symbol"
     ],
@@ -27669,11 +27669,11 @@
     "groups": []
   },
   "2314": {
-    "id": "2314",
     "name": {
       "en": "Leo",
       "pt": "Leão"
     },
+    "id": "2314",
     "decks": [
       "symbol"
     ],
@@ -27691,11 +27691,11 @@
     "groups": []
   },
   "2316": {
-    "id": "2316",
     "name": {
       "en": "Virgo",
       "pt": "Virgem"
     },
+    "id": "2316",
     "decks": [
       "symbol"
     ],
@@ -27757,22 +27757,22 @@
     "groups": []
   },
   "2322": {
+    "id": "2322",
     "name": {
       "en": "Sagitarius",
       "pt": "Sagitário"
     },
-    "id": "2322",
     "decks": [
       "symbol"
     ],
     "groups": []
   },
   "2323": {
-    "id": "2323",
     "name": {
       "en": "Sagittarius sign",
       "pt": "Símbolo de Sagitário"
     },
+    "id": "2323",
     "decks": [
       "symbol"
     ],
@@ -27801,11 +27801,11 @@
     "groups": []
   },
   "2326": {
-    "id": "2326",
     "name": {
       "en": "Aquarius",
       "pt": "Aquário"
     },
+    "id": "2326",
     "decks": [
       "symbol"
     ],
@@ -27823,11 +27823,11 @@
     "groups": []
   },
   "2328": {
+    "id": "2328",
     "name": {
       "en": "Pisces",
       "pt": "Peixes"
     },
-    "id": "2328",
     "decks": [
       "symbol"
     ],
@@ -27841,6 +27841,514 @@
     "id": "2329",
     "decks": [
       "symbol"
+    ],
+    "groups": []
+  },
+  "2330": {
+    "id": "2330",
+    "name": {
+      "en": "converse",
+      "pt": "all stars"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2331": {
+    "name": {
+      "en": "shoe",
+      "pt": "sapato"
+    },
+    "id": "2331",
+    "decks": [
+      "alien",
+      "dream",
+      "evidence",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2332": {
+    "id": "2332",
+    "name": {
+      "en": "shoe",
+      "pt": "tamanco"
+    },
+    "decks": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2333": {
+    "id": "2333",
+    "name": {
+      "en": "rubber boots",
+      "pt": "galochas"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2334": {
+    "name": {
+      "en": "knee high boot",
+      "pt": "bota"
+    },
+    "id": "2334",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2335": {
+    "id": "2335",
+    "name": {
+      "en": "wedge",
+      "pt": "sandália"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2336": {
+    "id": "2336",
+    "name": {
+      "en": "cleats",
+      "pt": "chuteira"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2337": {
+    "id": "2337",
+    "name": {
+      "en": "energy drink",
+      "pt": "energético"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2338": {
+    "id": "2338",
+    "name": {
+      "en": "avocado",
+      "pt": "abacate"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2339": {
+    "id": "2339",
+    "name": {
+      "en": "cemetary",
+      "pt": "cemitério"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2340": {
+    "name": {
+      "en": "Pegasus",
+      "pt": "Pégasus"
+    },
+    "id": "2340",
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2341": {
+    "name": {
+      "en": "centaur",
+      "pt": "centauro"
+    },
+    "id": "2341",
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2342": {
+    "name": {
+      "en": "kraken",
+      "pt": "kraken"
+    },
+    "id": "2342",
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2343": {
+    "name": {
+      "en": "anubis",
+      "pt": "anubis"
+    },
+    "id": "2343",
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2344": {
+    "name": {
+      "en": "banshee",
+      "pt": "demônio da morte"
+    },
+    "id": "2344",
+    "decks": [
+      "suspect"
+    ],
+    "groups": []
+  },
+  "2345": {
+    "id": "2345",
+    "name": {
+      "en": "chimera",
+      "pt": "Quimera"
+    },
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2346": {
+    "name": {
+      "en": "Manticore",
+      "pt": "Manticora"
+    },
+    "id": "2346",
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2347": {
+    "id": "2347",
+    "name": {
+      "en": "cyclops",
+      "pt": "cíclope"
+    },
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2348": {
+    "name": {
+      "en": "cerberus",
+      "pt": "Cérbero"
+    },
+    "id": "2348",
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2349": {
+    "name": {
+      "en": "Quetzalcoatl",
+      "pt": "Quetzalcóatl"
+    },
+    "id": "2349",
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2350": {
+    "name": {
+      "en": "Troll",
+      "pt": "trol"
+    },
+    "id": "2350",
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2351": {
+    "id": "2351",
+    "name": {
+      "en": "Curupira",
+      "pt": "Curupira"
+    },
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2352": {
+    "id": "2352",
+    "name": {
+      "en": "gondola",
+      "pt": "gôndola"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2353": {
+    "name": {
+      "en": "french press",
+      "pt": "cafeteira francesa"
+    },
+    "id": "2353",
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2354": {
+    "id": "2354",
+    "name": {
+      "en": "african hat",
+      "pt": "chapéu africano"
+    },
+    "decks": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2355": {
+    "id": "2355",
+    "name": {
+      "en": "island freezer",
+      "pt": "congeladore"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2356": {
+    "id": "2356",
+    "name": {
+      "en": "rice cooker",
+      "pt": "panela de arroz"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2357": {
+    "name": {
+      "en": "Antarctica",
+      "pt": "Antártica"
+    },
+    "id": "2357",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2358": {
+    "name": {
+      "en": "hex key",
+      "pt": "chave Allen"
+    },
+    "id": "2358",
+    "decks": [
+      "alien",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2359": {
+    "id": "2359",
+    "name": {
+      "en": "golf ball",
+      "pt": "bola de golfe"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2360": {
+    "id": "2360",
+    "name": {
+      "en": "pilates ball",
+      "pt": "bola de pilates"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2361": {
+    "id": "2361",
+    "name": {
+      "en": "album",
+      "pt": "cd"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2362": {
+    "id": "2362",
+    "name": {
+      "en": "record label",
+      "pt": "gravadora"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2363": {
+    "name": {
+      "en": "record plaque",
+      "pt": "disco de ouro"
+    },
+    "id": "2363",
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2364": {
+    "name": {
+      "en": "autograph",
+      "pt": "autógrafo"
+    },
+    "id": "2364",
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2365": {
+    "id": "2365",
+    "name": {
+      "en": "beet",
+      "pt": "beterraba"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2366": {
+    "name": {
+      "en": "Chimichurri",
+      "pt": "Chimichurri"
+    },
+    "id": "2366",
+    "decks": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2367": {
+    "name": {
+      "en": "live sports broadcast",
+      "pt": "jogo televisionado"
+    },
+    "id": "2367",
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2368": {
+    "name": {
+      "en": "salami",
+      "pt": "salame"
+    },
+    "id": "2368",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2369": {
+    "name": {
+      "en": "flamenco hat",
+      "pt": "chapéu de flamenco"
+    },
+    "id": "2369",
+    "decks": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2370": {
+    "id": "2370",
+    "name": {
+      "en": "cappuccino",
+      "pt": "cappuccino"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2371": {
+    "id": "2371",
+    "name": {
+      "en": "dress shirt",
+      "pt": "camisa social"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
     ],
     "groups": []
   }
