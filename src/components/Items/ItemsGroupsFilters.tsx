@@ -9,6 +9,7 @@ import { sortJsonKeys } from 'utils';
 
 import { ClusterOutlined, TableOutlined } from '@ant-design/icons';
 import { SaveButton } from 'components/Common/SaveButton';
+import { cloneDeep, isEmpty, omitBy } from 'lodash';
 
 export function ItemsGroupsFilters({
   data,
@@ -26,7 +27,7 @@ export function ItemsGroupsFilters({
           isDirty={isDirty}
           onSave={save}
           isSaving={isSaving}
-          dirt={JSON.stringify(entriesToUpdate)}
+          dirt={JSON.stringify(prepareObjectToSave(entriesToUpdate))}
         />
 
         <DownloadButton
@@ -65,7 +66,12 @@ export function ItemsGroupsFilters({
     </SiderContent>
   );
 }
+
+function prepareObjectToSave(groups: Dictionary<ItemGroup>) {
+  return omitBy(cloneDeep(groups), (group) => isEmpty(group.itemsIds));
+}
+
 function prepareFileForDownload(groups: Dictionary<ItemGroup>) {
   // TODO
-  return sortJsonKeys(groups);
+  return sortJsonKeys(prepareObjectToSave(groups));
 }
