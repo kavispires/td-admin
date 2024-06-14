@@ -7,6 +7,7 @@ import { UseLoadDailySetup, useSaveDailySetup } from './hooks';
 import { DailyEntry } from './utils/types';
 import { CanvasSVG } from 'components/Daily/CanvasSVG';
 import { ArteRuimCard } from 'types';
+import { Item } from 'components/Sprites';
 
 type DataPopulationProps = {
   language: string;
@@ -55,12 +56,17 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Aqui O',
       dataIndex: 'aqui-o',
       key: 'aqui-o',
-      render: ({ number, setId, title }) => {
+      render: ({ number, setId, title, itemsIds }) => {
         return (
           <Space direction="vertical">
             <span>#{number}</span>
             <span>SetId: {setId}</span>
             <span>Title: {title[language]}</span>
+            <Flex gap={6}>
+              <Item id={itemsIds[1]} width={50} />
+              <Item id={itemsIds[5]} width={50} />
+              <Item id={itemsIds[10]} width={50} />
+            </Flex>
           </Space>
         );
       },
