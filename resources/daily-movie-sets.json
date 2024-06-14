@@ -1388,9 +1388,12 @@
     "year": 2019
   },
   "dms-264-pt": {
-    "id": "dms-264-pt",
     "title": "Minha Mãe é uma Peça",
-    "itemsIds": [],
+    "id": "dms-264-pt",
+    "itemsIds": [
+      "2098",
+      "165"
+    ],
     "year": 2013
   },
   "dms-265-pt": {
@@ -1573,9 +1576,14 @@
     "year": 1968
   },
   "dms-285-pt": {
-    "id": "dms-285-pt",
     "title": "O Bebê de Rosemary",
-    "itemsIds": [],
+    "id": "dms-285-pt",
+    "itemsIds": [
+      "1286",
+      "59",
+      "2014",
+      "915"
+    ],
     "year": 1968
   },
   "dms-286-pt": {
@@ -1892,7 +1900,11 @@
   "dms-320-pt": {
     "id": "dms-320-pt",
     "title": "O Grande Dragão Branco",
-    "itemsIds": [],
+    "itemsIds": [
+      "2075",
+      "1041",
+      "2058"
+    ],
     "year": 1988
   },
   "dms-321-pt": {
@@ -3522,9 +3534,12 @@
     "year": 2004
   },
   "dms-71-pt": {
-    "id": "dms-71-pt",
     "title": "A Pequena Sereia",
-    "itemsIds": [],
+    "id": "dms-71-pt",
+    "itemsIds": [
+      "1401",
+      "1106"
+    ],
     "year": 1989
   },
   "dms-72-pt": {

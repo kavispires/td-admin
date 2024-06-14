@@ -28351,5 +28351,199 @@
       "evidence"
     ],
     "groups": []
+  },
+  "2372": {
+    "id": "2372",
+    "name": {
+      "en": "hair clip",
+      "pt": "presilha"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2373": {
+    "id": "2373",
+    "name": {
+      "en": "dust pan",
+      "pt": "pazinha"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2374": {
+    "id": "2374",
+    "name": {
+      "en": "fan",
+      "pt": "ventilador"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2375": {
+    "name": {
+      "en": "kidney stones",
+      "pt": "pedras nos rins"
+    },
+    "id": "2375",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2376": {
+    "id": "2376",
+    "name": {
+      "en": "anti-theft gates",
+      "pt": "antenas antifurto"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2377": {
+    "name": {
+      "en": "power wash",
+      "pt": "lavagem com jato de alta pressão"
+    },
+    "id": "2377",
+    "decks": [
+      "alien",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2378": {
+    "name": {
+      "en": "dreidel",
+      "pt": "pião de Hanukkah"
+    },
+    "id": "2378",
+    "decks": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2379": {
+    "id": "2379",
+    "name": {
+      "en": "leaf blower",
+      "pt": "soprador de folhas"
+    },
+    "decks": [
+      "alien",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2380": {
+    "name": {
+      "en": "orders",
+      "pt": "pedidos"
+    },
+    "id": "2380",
+    "decks": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2381": {
+    "name": {
+      "en": "synagogue",
+      "pt": "sinagoga"
+    },
+    "id": "2381",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2382": {
+    "id": "2382",
+    "name": {
+      "en": "tomato sauce",
+      "pt": "molho de tomate"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2383": {
+    "name": {
+      "en": "e-mail",
+      "pt": "e-mail"
+    },
+    "id": "2383",
+    "decks": [
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2384": {
+    "id": "2384",
+    "name": {
+      "en": "Cupid",
+      "pt": "Cupido"
+    },
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2385": {
+    "id": "2385",
+    "name": {
+      "en": "speedometer",
+      "pt": "velocímetro"
+    },
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2386": {
+    "id": "2386",
+    "name": {
+      "en": "finger gun",
+      "pt": "arminha de dedo"
+    },
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2387": {
+    "name": {
+      "en": "nicotine patch",
+      "pt": "adesivo de nicotina"
+    },
+    "id": "2387",
+    "decks": [
+      "alien",
+      "evidence",
+      "manufactured"
+    ],
+    "groups": []
   }
 }
