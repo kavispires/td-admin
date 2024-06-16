@@ -10,7 +10,7 @@ import {
   VerticalRightOutlined,
 } from '@ant-design/icons';
 
-import { ItemsTypeahead } from './ItemsTypeahead';
+import { ItemsTypeahead } from '../ItemsTypeahead';
 
 export function ItemAttributionNavigation() {
   const { jumpToItem } = useItemsAttributeValuesContext();

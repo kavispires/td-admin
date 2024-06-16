@@ -34,5 +34,9 @@ export function ItemAttributionPageContent() {
     return <ItemComparatorCard />;
   }
 
+  if (view === 'simulator') {
+    return <Empty className="my-10" description="Simulator view has not been implemented yet" />;
+  }
+
   return <Empty className="my-10" description="Unknown view has been selected" />;
 }

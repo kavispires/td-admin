@@ -5,7 +5,7 @@ import { isEmpty } from 'lodash';
 import { Fragment } from 'react';
 
 import { AttributionValueButtons } from './AttributionValueButtons';
-import { ItemGoTo, ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
+import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 
 export function ItemSamplerCard() {
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();

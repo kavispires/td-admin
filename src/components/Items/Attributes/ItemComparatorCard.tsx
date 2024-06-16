@@ -4,7 +4,7 @@ import { ItemMessageObject, useItemsComparator } from 'hooks/useItemsComparator'
 import { Item } from 'types';
 
 import { AttributeSprite } from './ItemAttributeDescription';
-import { ItemGoTo, ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
+import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 
 export function ItemComparatorCard() {
   const { attributes } = useItemsAttributeValuesContext();

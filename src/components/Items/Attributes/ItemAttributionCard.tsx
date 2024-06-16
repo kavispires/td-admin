@@ -6,7 +6,7 @@ import { useEffect, useMemo } from 'react';
 import { AttributionValueButtons } from './AttributionValueButtons';
 import { ItemAttributeDescription } from './ItemAttributeDescription';
 import { ItemAttributeStats } from './ItemAttributeStats';
-import { ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
+import { ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 
 export function ItemAttributionCard() {
   const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem, attributes } =

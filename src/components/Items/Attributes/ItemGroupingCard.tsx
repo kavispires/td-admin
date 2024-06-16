@@ -6,8 +6,8 @@ import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { isEmpty } from 'lodash';
 import { useMedia } from 'react-use';
 
+import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
-import { ItemGoTo, ItemId, ItemName, ItemSprite } from './ItemBuildingBlocks';
 
 export function ItemGroupingCard() {
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
