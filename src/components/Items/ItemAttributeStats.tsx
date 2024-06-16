@@ -26,6 +26,7 @@ export function ItemAttributeStats({ attributesList, itemAttributeValues }: Item
         }
         if (v === ATTRIBUTE_VALUE.OPPOSITE) {
           isOpposing = true;
+          acc += v / 2;
         }
         return acc;
       }

@@ -5,6 +5,9 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
+import { ItemAtributesValues, ItemAttribute } from 'types';
+import { getItemAttributePriorityResponse, sortJsonKeys } from 'utils';
+import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 import {
   ItemAttributionClassifierFilters,
@@ -15,7 +18,7 @@ import {
 } from './ItemAttributionFiltersSections';
 
 export function ItemAttributionFilters() {
-  const { isDirty, save, prepareItemsAttributesFileForDownload, isSaving, attributesToUpdate } =
+  const { isDirty, save, prepareItemsAttributesFileForDownload, attributes, isSaving, attributesToUpdate } =
     useItemsAttributeValuesContext();
 
   const { view, setView } = useItemQueryParams();
@@ -31,7 +34,7 @@ export function ItemAttributionFilters() {
         />
 
         <DownloadButton
-          data={() => prepareItemsAttributesFileForDownload()}
+          data={() => prepareFileForDownload(prepareItemsAttributesFileForDownload(), attributes)}
           fileName="items-attribute-values.json"
           disabled={isDirty}
           block
@@ -55,4 +58,50 @@ export function ItemAttributionFilters() {
       {view === 'comparator' && <ItemAttributionComparatorFilters />}
     </SiderContent>
   );
+}
+
+function prepareFileForDownload(
+  itemsAttributes: Dictionary<ItemAtributesValues>,
+  attributes: Dictionary<ItemAttribute>
+) {
+  const total = Object.keys(attributes).length;
+
+  Object.keys(itemsAttributes).forEach((key) => {
+    const itemAttributeValues = itemsAttributes[key];
+
+    // Check completion
+    const completed = Object.keys(itemAttributeValues.attributes).length;
+
+    if (completed === total) {
+      // Add completion
+      itemAttributeValues.complete = true;
+
+      // Add score
+      let unclearCount = 0;
+      const score = Object.values(itemAttributeValues.attributes).reduce((acc: number, v) => {
+        if (v <= 0) {
+          if (v === ATTRIBUTE_VALUE.UNCLEAR) {
+            unclearCount += 1;
+          }
+          if (v === ATTRIBUTE_VALUE.OPPOSITE) {
+            acc += v / 2;
+          }
+          return acc;
+        }
+
+        return acc + v;
+      }, 0);
+      itemAttributeValues.score = score;
+
+      // Add reliability
+      itemAttributeValues.reliability = Math.floor(((completed - unclearCount) / total) * 100);
+
+      // Add key with only relevant attributes
+      itemAttributeValues.key = getItemAttributePriorityResponse(itemAttributeValues, attributes, true).join(
+        ''
+      );
+    }
+  });
+
+  return sortJsonKeys(itemsAttributes);
 }

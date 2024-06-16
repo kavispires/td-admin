@@ -213,7 +213,11 @@ export const getNewItemAttributeValues = (
 
 export const getItemAttributePriorityResponse = (
   itemAttributesValues: ItemAtributesValues,
-  itemAttributes: Dictionary<ItemAttribute>
+  itemAttributes: Dictionary<ItemAttribute>,
+  /**
+   * Ignore attributes that are UNRELATED or UNCLEAR
+   */
+  onlyRelevant?: boolean
 ) => {
   const priorityOrder: string[] = orderBy(
     Object.values(itemAttributes),
@@ -261,8 +265,9 @@ export const getItemAttributePriorityResponse = (
     ...sortAttributesByPriority(opposite, ATTRIBUTE_VALUE_PREFIX.OPPOSITE),
     ...sortAttributesByPriority(deterministic, ATTRIBUTE_VALUE_PREFIX.DETERMINISTIC),
     ...sortAttributesByPriority(related, ATTRIBUTE_VALUE_PREFIX.RELATED),
-    ...sortAttributesByPriority(unrelated, ATTRIBUTE_VALUE_PREFIX.UNRELATED),
-    ...sortAttributesByPriority(unclear, ATTRIBUTE_VALUE_PREFIX.UNCLEAR),
+
+    ...(onlyRelevant ? [] : sortAttributesByPriority(unrelated, ATTRIBUTE_VALUE_PREFIX.UNRELATED)),
+    ...(onlyRelevant ? [] : sortAttributesByPriority(unclear, ATTRIBUTE_VALUE_PREFIX.UNCLEAR)),
   ];
 };
 export const parseAttribute = memoize((keyVariant: string) => {

@@ -194,8 +194,8 @@ export const ATTRIBUTE_VALUE_PREFIX = {
   OPPOSITE: '^',
   UNRELATED: '!',
   UNCLEAR: '~',
-  RELATED: '',
-  DETERMINISTIC: '+',
+  RELATED: '+',
+  DETERMINISTIC: '*',
 };
 
 export const ATTRIBUTE_GROUP_VALUES = Object.keys(ATTRIBUTE_VALUE).map((key) => ({

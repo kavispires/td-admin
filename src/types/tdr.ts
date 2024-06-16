@@ -660,9 +660,9 @@ export type ItemAtributesValues = {
   updatedAt?: number;
   /**
    * The alien message using prefixes and attribute keys
-   * (^) -10, (!) -3, (~) -1, () 5, (+) 10
+   * (^) -10, (!) -3, (~) -1, (+) 5, (*) 10
    */
-  message?: string[];
+  key?: string;
   /**
    * The percentage of non-unclear attribute values
    */
