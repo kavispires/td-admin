@@ -14,6 +14,7 @@ import { removeDuplicates } from 'utils';
 import { ItemGroupsCard } from './ItemGroupsCard';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { TransparentButton } from 'components/Common';
+import { ItemsTypeahead } from './ItemsTypeahead';
 
 export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { is, queryParams } = useQueryParams();
@@ -67,6 +68,13 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
     });
   };
 
+  const onUpdateGroupItems = (groupId: string, itemIds: string[]) => {
+    addEntryToUpdate(groupId, {
+      id: groupId,
+      itemsIds: removeDuplicates(itemIds),
+    });
+  };
+
   return (
     <>
       {(is('display', 'group') || !queryParams.has('display')) && (
@@ -76,6 +84,7 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
           grousByItem={grousByItem}
           groupsTypeahead={groupsTypeahead}
           onUpdateItemGroups={onUpdateItemGroups}
+          onUpdateGroupItems={onUpdateGroupItems}
         />
       )}
       {is('display', 'item') && (
@@ -85,6 +94,7 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
           grousByItem={grousByItem}
           groupsTypeahead={groupsTypeahead}
           onUpdateItemGroups={onUpdateItemGroups}
+          onUpdateGroupItems={onUpdateGroupItems}
         />
       )}
     </>
@@ -96,6 +106,7 @@ type ItemsGroupsTablesProps = {
   grousByItem: Record<string, string[]>;
   groupsTypeahead: { value: string; label: string }[];
   onUpdateItemGroups: (itemId: string, groupIds: string[]) => void;
+  onUpdateGroupItems: (groupId: string, itemIds: string[]) => void;
 } & Pick<UseResourceFirebaseDataReturnType<ItemGroup>, 'data'>;
 
 function ItemsGroupsByGroupTable({
@@ -104,8 +115,10 @@ function ItemsGroupsByGroupTable({
   grousByItem,
   groupsTypeahead,
   onUpdateItemGroups,
+  onUpdateGroupItems,
 }: ItemsGroupsTablesProps) {
   const copyToClipboard = useCopyToClipboardFunction();
+  const itemsTypeaheadQuery = useTDResource<ItemT>('items');
   const [selectedItemId, setSelectedItemId] = useState<null | string>(null);
 
   const paginationProps = useTablePagination({
@@ -139,6 +152,7 @@ function ItemsGroupsByGroupTable({
         </Flex>
       ),
     },
+    Table.EXPAND_COLUMN,
     {
       title: 'Count',
       dataIndex: 'itemsIds',
@@ -167,7 +181,14 @@ function ItemsGroupsByGroupTable({
         columns={columns}
         dataSource={Object.values(data)}
         className="my-4"
+        rowKey="id"
         pagination={paginationProps}
+        expandable={{
+          expandedRowRender: (record) => (
+            <AddItemFlow group={record} onUpdateGroupItems={onUpdateGroupItems} />
+          ),
+          rowExpandable: () => itemsTypeaheadQuery.isSuccess,
+        }}
       />
       <Drawer title="Edit Item Group" onClose={() => setSelectedItemId(null)} open={!!selectedItem}>
         {selectedItem && (
@@ -180,6 +201,23 @@ function ItemsGroupsByGroupTable({
         )}
       </Drawer>
     </>
+  );
+}
+
+type AddItemFlowProps = {
+  group: ItemGroup;
+  onUpdateGroupItems: (groupId: string, itemIds: string[]) => void;
+};
+
+export function AddItemFlow({ group, onUpdateGroupItems }: AddItemFlowProps) {
+  const onUpdate = (itemId: string) => {
+    onUpdateGroupItems(group.id, [...group.itemsIds, itemId]);
+  };
+
+  return (
+    <div>
+      <ItemsTypeahead onFinish={onUpdate} />
+    </div>
   );
 }
 

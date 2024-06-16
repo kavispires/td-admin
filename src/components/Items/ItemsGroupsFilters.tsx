@@ -57,12 +57,13 @@ export function ItemsGroupsFilters({
         ]}
       />
 
-      <FilterSwitch
-        label="No Groups Only"
-        value={is('emptyOnly')}
-        onChange={(mode) => addParam('emptyOnly', mode, false)}
-        disabled={!is('display', 'item')}
-      />
+      {is('display', 'item') && (
+        <FilterSwitch
+          label="No Groups Only"
+          value={is('emptyOnly')}
+          onChange={(mode) => addParam('emptyOnly', mode, false)}
+        />
+      )}
     </SiderContent>
   );
 }
