@@ -6,6 +6,7 @@ import { ItemSamplerCard } from './ItemSamplerCard';
 import { ItemGroupingCard } from './ItemGroupingCard';
 import { GoToTopButton } from 'components/Common/GoToTopButton';
 import { ItemComparatorCard } from './ItemComparatorCard';
+import { ItemSimulation } from './ItemSimulation';
 
 export function ItemAttributionPageContent() {
   const { view } = useItemQueryParams();
@@ -35,7 +36,7 @@ export function ItemAttributionPageContent() {
   }
 
   if (view === 'simulator') {
-    return <Empty className="my-10" description="Simulator view has not been implemented yet" />;
+    return <ItemSimulation />;
   }
 
   return <Empty className="my-10" description="Unknown view has been selected" />;
