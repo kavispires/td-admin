@@ -1,4 +1,4 @@
-import { Form, InputNumber, Segmented, Select, Switch, Tooltip } from 'antd';
+import { Checkbox, Form, InputNumber, Segmented, Select, Switch, Tooltip } from 'antd';
 import { SegmentedValue } from 'antd/es/segmented';
 import { ReactNode } from 'react';
 
@@ -73,6 +73,14 @@ export function FilterSwitch({ label, value, onChange, className, disabled }: Fi
   return (
     <Form.Item label={label} valuePropName="checked" className={className}>
       <Switch checked={value} onChange={onChange} size="small" disabled={disabled} />
+    </Form.Item>
+  );
+}
+
+export function FilterCheckBox({ label, value, onChange, disabled, className }: FilterSwitchProps) {
+  return (
+    <Form.Item label={label} valuePropName="checked" className={className}>
+      <Checkbox checked={value} onChange={(e) => onChange(e.target.checked)} disabled={disabled} />
     </Form.Item>
   );
 }

@@ -6,6 +6,7 @@ import { ItemCard } from './ItemCard';
 import { useItemsContext } from 'context/ItemsContext';
 import { sampleSize } from 'lodash';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { CopyOutlined } from '@ant-design/icons';
 
 export function ItemRandomized() {
   const { listing } = useItemsContext();
@@ -25,8 +26,6 @@ export function ItemRandomized() {
   ];
 
   const onMenuClick = ({ key }: { key: string }) => {
-    console.log(key);
-
     if (key === 'copy_ids') {
       const ids = randomItems.map((item) => item.id);
       copyToClipboard(JSON.stringify(ids));
@@ -69,6 +68,7 @@ export function ItemRandomized() {
           menu={{ items, onClick: onMenuClick }}
           disabled={randomItems.length === 0}
           onClick={() => copyToClipboard(JSON.stringify(randomItems, null, 2))}
+          icon={<CopyOutlined />}
         >
           Copy
         </Dropdown.Button>

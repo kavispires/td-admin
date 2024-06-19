@@ -1,13 +1,32 @@
 import { App, Button, Flex, InputNumber, Space, Typography } from 'antd';
-import { FilterNumber, FilterSelect, FilterSwitch, TransparentButton } from 'components/Common';
+import {
+  FilterCheckBox,
+  FilterNumber,
+  FilterSelect,
+  FilterSwitch,
+  TransparentButton,
+} from 'components/Common';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { keys, sampleSize, shuffle, sortBy } from 'lodash';
 import { useState } from 'react';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import clsx from 'clsx';
-import { ItemAtributesValues } from 'types';
-import { LineChartOutlined } from '@ant-design/icons';
+import { ItemAtributesValues, ItemAttribute } from 'types';
+import {
+  CheckSquareOutlined,
+  CloseSquareOutlined,
+  LineChartOutlined,
+  PlusSquareOutlined,
+  QuestionCircleOutlined,
+} from '@ant-design/icons';
+
+type AttributeSummary = {
+  relatedCount: number;
+  deterministicCount: number;
+  unclearCount: number;
+  oppositeCount: number;
+} & ItemAttribute;
 
 export function ItemSimulation() {
   const { attributes, availableItemIds, getItemAttributeValues, getItem } = useItemsAttributeValuesContext();
@@ -17,8 +36,14 @@ export function ItemSimulation() {
   const [reliabilityThreshold, setReliabilityThreshold] = useState<number>(90);
   const [nsfw, setNsfw] = useState<boolean>(false);
   const [selectedItemsIds, setSelectedItemsIds] = useState<string[]>([]);
-  const [selectedAttributeKeys, setSelectedAttributeKeys] = useState<string[]>([]);
+  const [selectedAttributes, setSelectedAttributes] = useState<AttributeSummary[]>([]);
   const [highlightedAttributeKey, setHighlightedAttributeKey] = useState<string | null>(null);
+  const [displays, setDisplays] = useState<BooleanDictionary>({
+    id: true,
+    nameEn: true,
+    namePt: true,
+    reliability: true,
+  });
 
   const onGetSample = () => {
     const keysDict: Record<string, string> = {};
@@ -55,21 +80,69 @@ export function ItemSimulation() {
     setSelectedItemsIds(sortBy(result, (itemId) => Number(itemId)));
 
     // Get the most common attributes
-    const res = getHighestAttributeKeys(
+    const attributesResult = getHighestAttributeKeys(
       result.map((itemId) => getItemAttributeValues(itemId)),
       25
     );
 
-    setSelectedAttributeKeys(res);
+    const dicts = attributesResult.reduce(
+      (
+        acc: {
+          relatedCount: NumberDictionary;
+          deterministicCount: NumberDictionary;
+          unclearCount: NumberDictionary;
+          oppositeCount: NumberDictionary;
+        },
+        key
+      ) => {
+        result.forEach((itemId) => {
+          const itemAttributeValues = getItemAttributeValues(itemId);
+          if (!itemAttributeValues) return;
+          switch (itemAttributeValues.attributes[key]) {
+            case ATTRIBUTE_VALUE.RELATED:
+              acc.relatedCount[key] = (acc.relatedCount[key] || 0) + 1;
+              break;
+            case ATTRIBUTE_VALUE.DETERMINISTIC:
+              acc.deterministicCount[key] = (acc.deterministicCount[key] || 0) + 1;
+              break;
+            case ATTRIBUTE_VALUE.UNCLEAR:
+              acc.unclearCount[key] = (acc.unclearCount[key] || 0) + 1;
+              break;
+            case ATTRIBUTE_VALUE.OPPOSITE:
+              acc.oppositeCount[key] = (acc.oppositeCount[key] || 0) + 1;
+              break;
+          }
+        });
+
+        return acc;
+      },
+      { relatedCount: {}, deterministicCount: {}, unclearCount: {}, oppositeCount: {} }
+    );
+
+    setSelectedAttributes(
+      attributesResult.sort().map((key) => ({
+        ...attributes[key],
+        relatedCount: dicts.relatedCount[key],
+        deterministicCount: dicts.deterministicCount[key],
+        unclearCount: dicts.unclearCount[key],
+        oppositeCount: dicts.oppositeCount[key],
+      }))
+    );
   };
 
-  console.log({ highlightedAttributeKey });
+  const onUpdateDisplays = (key: string) => {
+    setDisplays((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
 
   return (
     <div className="my-4">
       <Typography.Title level={5}>Simulator</Typography.Title>
 
-      <Space wrap align="center">
+      <Typography.Paragraph>
+        Generates a board with items different enough to get Deterministic values in all selected attributes.
+      </Typography.Paragraph>
+
+      <Flex wrap gap={12}>
         <FilterSelect
           label="Grid Size"
           value={gridSize}
@@ -86,9 +159,27 @@ export function ItemSimulation() {
         />
         <FilterSwitch label="NSFW" value={nsfw} onChange={setNsfw} />
         <Button onClick={onGetSample} type="primary">
-          Get Sample
+          Get Sample Board
         </Button>
-      </Space>
+      </Flex>
+      <Flex wrap gap={12}>
+        <FilterCheckBox label="Show Id" value={!!displays.id} onChange={() => onUpdateDisplays('id')} />
+        <FilterCheckBox
+          label="Show Name (EN)"
+          value={!!displays.nameEn}
+          onChange={() => onUpdateDisplays('nameEn')}
+        />
+        <FilterCheckBox
+          label="Show Name (PT)"
+          value={!!displays.namePt}
+          onChange={() => onUpdateDisplays('namePt')}
+        />
+        <FilterCheckBox
+          label="Show Reliability"
+          value={!!displays.reliability}
+          onChange={() => onUpdateDisplays('reliability')}
+        />
+      </Flex>
 
       <div className="simulator-grid" style={{ gridTemplateColumns: `repeat(${Math.sqrt(gridSize)}, 1fr)` }}>
         {selectedItemsIds.map((itemId) => {
@@ -108,43 +199,71 @@ export function ItemSimulation() {
             >
               <Space>
                 <Flex vertical>
-                  <ItemId item={item} />
-                  <span>
-                    <InputNumber
-                      prefix={<LineChartOutlined />}
-                      placeholder="Reliability"
-                      variant="borderless"
-                      size="small"
-                      value={itemAttributeValues.reliability}
-                      readOnly
-                      style={{ width: '8ch' }}
-                      formatter={(value) => `${value}%`}
-                    />
-                  </span>
-                  <ItemGoTo item={item} />
+                  {displays.id && <ItemId item={item} />}
+
+                  {displays.reliability && (
+                    <span>
+                      <InputNumber
+                        prefix={<LineChartOutlined />}
+                        placeholder="Reliability"
+                        variant="borderless"
+                        size="small"
+                        value={itemAttributeValues.reliability}
+                        readOnly
+                        style={{ width: '8ch' }}
+                        formatter={(value) => `${value}%`}
+                      />
+                    </span>
+                  )}
+
+                  {displays.id && <ItemGoTo item={item} />}
                 </Flex>
 
                 <ItemSprite item={item} width={50} />
               </Space>
-              <ItemName item={item} language="en" />
-              <ItemName item={item} language="pt" />
+
+              {displays.nameEn && <ItemName item={item} language="en" />}
+              {displays.namePt && <ItemName item={item} language="pt" />}
             </Space>
           );
         })}
       </div>
 
       <div className="simulator-grid my-4">
-        {selectedAttributeKeys.sort().map((key) => (
+        {selectedAttributes.map((attributeSummary) => (
           <TransparentButton
-            key={key}
+            key={attributeSummary.id}
             className={clsx(
               'simulator-grid__entry',
               'simulator-grid__button',
-              highlightedAttributeKey === key && 'simulator-grid__entry--highlighted'
+              highlightedAttributeKey === attributeSummary.id && 'simulator-grid__entry--highlighted'
             )}
-            onClick={() => setHighlightedAttributeKey(key)}
+            onClick={() => setHighlightedAttributeKey(attributeSummary.id)}
           >
-            {attributes[key].name.en}
+            {attributeSummary.name.en}
+
+            <Flex gap={6} justify="center" className="my-1">
+              <span>
+                <CheckSquareOutlined
+                  style={{ color: attributeSummary.deterministicCount ? 'dodgerblue' : undefined }}
+                />{' '}
+                {attributeSummary.deterministicCount ?? 0}
+              </span>
+              <span>
+                <PlusSquareOutlined style={{ color: attributeSummary.relatedCount ? 'green' : undefined }} />{' '}
+                {attributeSummary.relatedCount ?? 0}
+              </span>
+              <span>
+                <CloseSquareOutlined style={{ color: attributeSummary.oppositeCount ? 'red' : undefined }} />{' '}
+                {attributeSummary.oppositeCount ?? 0}
+              </span>
+              <span>
+                <QuestionCircleOutlined
+                  style={{ color: attributeSummary.unclearCount ? 'gold' : undefined }}
+                />{' '}
+                {attributeSummary.unclearCount ?? 0}
+              </span>
+            </Flex>
           </TransparentButton>
         ))}
       </div>
@@ -174,12 +293,9 @@ function getHighestAttributeKeys(
       }
     });
   });
-  console.log({ attributesCounts });
 
   const deterministicKeys = Object.keys(deterministicKeysDict);
   const nondeterministicKeys = keys(attributesCounts).filter((key) => !deterministicKeys.includes(key));
-
-  console.log({ deterministicKeys });
 
   // 1.b If deterministic keys are exactly the quantity, return them
   if (quantity === deterministicKeys.length) {
@@ -234,8 +350,6 @@ function getHighestAttributeKeys(
     }
     result.push(...sampleSize(nondeterministicTiedGroups[group], quantity - result.length));
   }
-
-  console.log(result);
 
   return result;
 }
