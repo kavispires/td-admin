@@ -1,8 +1,9 @@
-import { SaveOutlined } from '@ant-design/icons';
 import { Button, ButtonProps } from 'antd';
 import moment from 'moment';
 import { useEffect } from 'react';
 import { useTimeoutFn } from 'react-use';
+
+import { SaveOutlined } from '@ant-design/icons';
 
 type SaveButtonProps = {
   isDirty: boolean;
@@ -27,6 +28,7 @@ export function SaveButton({
     }
   }, interval); // 10 minutes in milliseconds
 
+  // Reset the timeout if `isDirty` is true and dirt has
   useEffect(() => {
     if (isDirty) {
       console.log('Save Reset', moment(Date.now()).format('MM/DD/YYYY HH:mm:ss'));
@@ -35,6 +37,24 @@ export function SaveButton({
       cancel(); // Cancel the timeout if `isDirty` becomes false
     }
   }, [isDirty, reset, cancel, dirt]);
+
+  // Prevents the user from leaving the page if there are unsaved changes (browser navigation or refresh)
+  useEffect(() => {
+    const handleBeforeUnload = (event: any) => {
+      if (isDirty) {
+        const message = 'You have unsaved changes, are you sure you want to leave?';
+        // alert(message);
+        event.returnValue = message; // Standard way to set message
+        return message; // For some browsers
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [isDirty]);
 
   return (
     <Button
