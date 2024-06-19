@@ -1,6 +1,6 @@
 import { FilterSelect } from 'components/Common';
 import { SiderContent } from 'components/Layout';
-import { LANGUAGES } from 'utils/constants';
+import { DEFAULT_LANGUAGE } from 'utils/constants';
 
 type SideFiltersProps = {
   language: string;
@@ -25,7 +25,7 @@ export function SideFilters({
         label="Language"
         value={language}
         onChange={setLanguage}
-        options={[LANGUAGES[1]]}
+        options={[DEFAULT_LANGUAGE]}
         placeholder="Select a language"
       />
       <FilterSelect
