@@ -25,7 +25,7 @@ export function SideFilters({
         label="Language"
         value={language}
         onChange={setLanguage}
-        options={LANGUAGES}
+        options={[LANGUAGES[1]]}
         placeholder="Select a language"
       />
       <FilterSelect
