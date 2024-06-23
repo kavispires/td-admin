@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/tdr/static/css/main.f05efa04.css",
-    "main.js": "/tdr/static/js/main.edcf083b.js",
+    "main.js": "/tdr/static/js/main.d65af886.js",
     "Home.js": "/tdr/static/js/Home.8d7f546a.chunk.js",
-    "Resource.js": "/tdr/static/js/Resource.88f09774.chunk.js",
+    "Resource.js": "/tdr/static/js/Resource.b5cad952.chunk.js",
     "ResourceGenerator.js": "/tdr/static/js/ResourceGenerator.3a93feac.chunk.js",
     "SingleWordsExpander.js": "/tdr/static/js/SingleWordsExpander.bf163e8c.chunk.js",
     "Other.js": "/tdr/static/js/Other.2daa9d47.chunk.js",
@@ -17,7 +17,7 @@
     "ImageCardsRelationships.js": "/tdr/static/js/ImageCardsRelationships.0305f389.chunk.js",
     "ImageCardsConnections.js": "/tdr/static/js/ImageCardsConnections.2e018394.chunk.js",
     "Items.js": "/tdr/static/js/Items.fc2c926b.chunk.js",
-    "ItemsAttribution.js": "/tdr/static/js/ItemsAttribution.3e65a51b.chunk.js",
+    "ItemsAttribution.js": "/tdr/static/js/ItemsAttribution.9b0c76ec.chunk.js",
     "ItemsGroups.js": "/tdr/static/js/ItemsGroups.af16215e.chunk.js",
     "ItemsDiscSets.js": "/tdr/static/js/ItemsDiscSets.7597acb2.chunk.js",
     "ItemsMovieSets.js": "/tdr/static/js/ItemsMovieSets.3e20a90f.chunk.js",
@@ -54,9 +54,9 @@
     "static/media/logo.svg": "/tdr/static/media/logo.ca29fdd89f71e5171a2fe40f860099b8.svg",
     "index.html": "/tdr/index.html",
     "main.f05efa04.css.map": "/tdr/static/css/main.f05efa04.css.map",
-    "main.edcf083b.js.map": "/tdr/static/js/main.edcf083b.js.map",
+    "main.d65af886.js.map": "/tdr/static/js/main.d65af886.js.map",
     "Home.8d7f546a.chunk.js.map": "/tdr/static/js/Home.8d7f546a.chunk.js.map",
-    "Resource.88f09774.chunk.js.map": "/tdr/static/js/Resource.88f09774.chunk.js.map",
+    "Resource.b5cad952.chunk.js.map": "/tdr/static/js/Resource.b5cad952.chunk.js.map",
     "ResourceGenerator.3a93feac.chunk.js.map": "/tdr/static/js/ResourceGenerator.3a93feac.chunk.js.map",
     "SingleWordsExpander.bf163e8c.chunk.js.map": "/tdr/static/js/SingleWordsExpander.bf163e8c.chunk.js.map",
     "Other.2daa9d47.chunk.js.map": "/tdr/static/js/Other.2daa9d47.chunk.js.map",
@@ -70,7 +70,7 @@
     "ImageCardsRelationships.0305f389.chunk.js.map": "/tdr/static/js/ImageCardsRelationships.0305f389.chunk.js.map",
     "ImageCardsConnections.2e018394.chunk.js.map": "/tdr/static/js/ImageCardsConnections.2e018394.chunk.js.map",
     "Items.fc2c926b.chunk.js.map": "/tdr/static/js/Items.fc2c926b.chunk.js.map",
-    "ItemsAttribution.3e65a51b.chunk.js.map": "/tdr/static/js/ItemsAttribution.3e65a51b.chunk.js.map",
+    "ItemsAttribution.9b0c76ec.chunk.js.map": "/tdr/static/js/ItemsAttribution.9b0c76ec.chunk.js.map",
     "ItemsGroups.af16215e.chunk.js.map": "/tdr/static/js/ItemsGroups.af16215e.chunk.js.map",
     "ItemsDiscSets.7597acb2.chunk.js.map": "/tdr/static/js/ItemsDiscSets.7597acb2.chunk.js.map",
     "ItemsMovieSets.3e20a90f.chunk.js.map": "/tdr/static/js/ItemsMovieSets.3e20a90f.chunk.js.map",
@@ -107,6 +107,6 @@
   },
   "entrypoints": [
     "static/css/main.f05efa04.css",
-    "static/js/main.edcf083b.js"
+    "static/js/main.d65af886.js"
   ]
 }
