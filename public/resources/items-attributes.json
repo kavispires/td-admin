@@ -385,7 +385,7 @@
       "pt": "duro, firme, rígido, inflexível"
     },
     "default": true,
-    "level": 3,
+    "level": 4,
     "spriteId": "sign-30",
     "priority": 37
   },
@@ -491,7 +491,7 @@
       "pt": "Pertencente a uma pessoa, usado por uma única pessoa"
     },
     "default": false,
-    "level": 3,
+    "level": 4,
     "spriteId": "sign-24",
     "priority": 34,
     "limited": true
@@ -507,7 +507,7 @@
       "pt": "normalmente encontrado em pares, grupos ou conjuntos, ou as pessoas possuem mais de um"
     },
     "default": false,
-    "level": 3,
+    "level": 4,
     "spriteId": "sign-21",
     "priority": 30,
     "limited": true
@@ -523,7 +523,7 @@
       "pt": "delicado, facilmente quebrável, sensível"
     },
     "default": false,
-    "level": 3,
+    "level": 4,
     "spriteId": "sign-12",
     "priority": 29,
     "limited": true
