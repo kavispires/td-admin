@@ -23813,11 +23813,11 @@
     ]
   },
   "1993": {
-    "name": {
-      "en": "seta pra direita",
-      "pt": "arrow right"
-    },
     "id": "1993",
+    "name": {
+      "en": "arrow right",
+      "pt": "seta pra direita"
+    },
     "decks": [
       "symbol"
     ]

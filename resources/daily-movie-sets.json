@@ -234,7 +234,13 @@
   "dms-126-pt": {
     "id": "dms-126-pt",
     "title": "Branca de Neve e os Sete Anões",
-    "itemsIds": [],
+    "itemsIds": [
+      "2058",
+      "1385",
+      "1858",
+      "2193",
+      "2193"
+    ],
     "year": 1937
   },
   "dms-127-pt": {
@@ -270,7 +276,13 @@
   "dms-131-pt": {
     "id": "dms-131-pt",
     "title": "Capitão América: O Soldado Invernal",
-    "itemsIds": [],
+    "itemsIds": [
+      "1748",
+      "1982",
+      "75",
+      "771",
+      "1525"
+    ],
     "year": 2014
   },
   "dms-132-pt": {
@@ -371,12 +383,12 @@
     "year": 1999
   },
   "dms-145-pt": {
-    "title": "Coco",
     "id": "dms-145-pt",
+    "title": "Viva: A Vida é uma Festa",
     "itemsIds": [
+      "57",
       "192",
-      "352",
-      "57"
+      "2187"
     ],
     "year": 2017
   },
@@ -1160,7 +1172,11 @@
   "dms-235-pt": {
     "id": "dms-235-pt",
     "title": "Karatê Kid - A Hora da Verdade",
-    "itemsIds": [],
+    "itemsIds": [
+      "216",
+      "1940",
+      "1967"
+    ],
     "year": 1984
   },
   "dms-236-pt": {
@@ -1944,10 +1960,13 @@
     "year": 2008
   },
   "dms-326-pt": {
-    "id": "dms-326-pt",
     "title": "O Guru do Sexo",
-    "itemsIds": [],
-    "year": 1967
+    "id": "dms-326-pt",
+    "itemsIds": [
+      "800",
+      "583"
+    ],
+    "year": 2002
   },
   "dms-327-pt": {
     "id": "dms-327-pt",
@@ -3291,7 +3310,7 @@
   },
   "dms-490-pt": {
     "id": "dms-490-pt",
-    "title": "Viva: A Vida é uma Festa",
+    "title": "?",
     "itemsIds": [],
     "year": 2017
   },
@@ -3551,7 +3570,9 @@
   "dms-73-pt": {
     "id": "dms-73-pt",
     "title": "A Profecia",
-    "itemsIds": [],
+    "itemsIds": [
+      "2185"
+    ],
     "year": 1976
   },
   "dms-74-pt": {
