@@ -1,4 +1,5 @@
 import { Col, Row, Table, Typography } from 'antd';
+import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 
 import { useMemo } from 'react';
 
@@ -25,7 +26,14 @@ export function ResourceTable({ response, resourceName }: ResourceCardsProps) {
       title: key,
       dataIndex: key,
       key,
-      render: (v: any) => (typeof v === 'string' ? v : JSON.stringify(v)),
+      render: (v: any) => {
+        const content = typeof v === 'string' ? v : JSON.stringify(v, null, 2);
+        return (
+          <span>
+            {content} {!!content.trim() && <CopyToClipboardButton content={content} />}
+          </span>
+        );
+      },
     }));
   }, [list]);
 
