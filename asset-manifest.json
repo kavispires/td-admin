@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tdr/static/css/main.f05efa04.css",
-    "main.js": "/tdr/static/js/main.d65af886.js",
+    "main.css": "/tdr/static/css/main.f4ce9e2f.css",
+    "main.js": "/tdr/static/js/main.27b5c50d.js",
     "Home.js": "/tdr/static/js/Home.8d7f546a.chunk.js",
     "Resource.js": "/tdr/static/js/Resource.b5cad952.chunk.js",
     "ResourceGenerator.js": "/tdr/static/js/ResourceGenerator.3a93feac.chunk.js",
@@ -11,12 +11,12 @@
     "CrimeWeapons.js": "/tdr/static/js/CrimeWeapons.077c9761.chunk.js",
     "ImageCards.js": "/tdr/static/js/ImageCards.36517aca.chunk.js",
     "Sprites.js": "/tdr/static/js/Sprites.7acb6ba7.chunk.js",
-    "Suspects.js": "/tdr/static/js/Suspects.3c07c154.chunk.js",
+    "Suspects.js": "/tdr/static/js/Suspects.ffcd3e78.chunk.js",
     "ArteRuimParser.js": "/tdr/static/js/ArteRuimParser.5ac5a3e3.chunk.js",
     "ArteRuimGroups.js": "/tdr/static/js/ArteRuimGroups.7ea6f11c.chunk.js",
     "ImageCardsRelationships.js": "/tdr/static/js/ImageCardsRelationships.0305f389.chunk.js",
     "ImageCardsConnections.js": "/tdr/static/js/ImageCardsConnections.2e018394.chunk.js",
-    "Items.js": "/tdr/static/js/Items.fc2c926b.chunk.js",
+    "Items.js": "/tdr/static/js/Items.03ef1f36.chunk.js",
     "ItemsAttribution.js": "/tdr/static/js/ItemsAttribution.9b0c76ec.chunk.js",
     "ItemsGroups.js": "/tdr/static/js/ItemsGroups.af16215e.chunk.js",
     "ItemsDiscSets.js": "/tdr/static/js/ItemsDiscSets.7597acb2.chunk.js",
@@ -53,8 +53,8 @@
     "static/js/160.20d662f2.chunk.js": "/tdr/static/js/160.20d662f2.chunk.js",
     "static/media/logo.svg": "/tdr/static/media/logo.ca29fdd89f71e5171a2fe40f860099b8.svg",
     "index.html": "/tdr/index.html",
-    "main.f05efa04.css.map": "/tdr/static/css/main.f05efa04.css.map",
-    "main.d65af886.js.map": "/tdr/static/js/main.d65af886.js.map",
+    "main.f4ce9e2f.css.map": "/tdr/static/css/main.f4ce9e2f.css.map",
+    "main.27b5c50d.js.map": "/tdr/static/js/main.27b5c50d.js.map",
     "Home.8d7f546a.chunk.js.map": "/tdr/static/js/Home.8d7f546a.chunk.js.map",
     "Resource.b5cad952.chunk.js.map": "/tdr/static/js/Resource.b5cad952.chunk.js.map",
     "ResourceGenerator.3a93feac.chunk.js.map": "/tdr/static/js/ResourceGenerator.3a93feac.chunk.js.map",
@@ -64,12 +64,12 @@
     "CrimeWeapons.077c9761.chunk.js.map": "/tdr/static/js/CrimeWeapons.077c9761.chunk.js.map",
     "ImageCards.36517aca.chunk.js.map": "/tdr/static/js/ImageCards.36517aca.chunk.js.map",
     "Sprites.7acb6ba7.chunk.js.map": "/tdr/static/js/Sprites.7acb6ba7.chunk.js.map",
-    "Suspects.3c07c154.chunk.js.map": "/tdr/static/js/Suspects.3c07c154.chunk.js.map",
+    "Suspects.ffcd3e78.chunk.js.map": "/tdr/static/js/Suspects.ffcd3e78.chunk.js.map",
     "ArteRuimParser.5ac5a3e3.chunk.js.map": "/tdr/static/js/ArteRuimParser.5ac5a3e3.chunk.js.map",
     "ArteRuimGroups.7ea6f11c.chunk.js.map": "/tdr/static/js/ArteRuimGroups.7ea6f11c.chunk.js.map",
     "ImageCardsRelationships.0305f389.chunk.js.map": "/tdr/static/js/ImageCardsRelationships.0305f389.chunk.js.map",
     "ImageCardsConnections.2e018394.chunk.js.map": "/tdr/static/js/ImageCardsConnections.2e018394.chunk.js.map",
-    "Items.fc2c926b.chunk.js.map": "/tdr/static/js/Items.fc2c926b.chunk.js.map",
+    "Items.03ef1f36.chunk.js.map": "/tdr/static/js/Items.03ef1f36.chunk.js.map",
     "ItemsAttribution.9b0c76ec.chunk.js.map": "/tdr/static/js/ItemsAttribution.9b0c76ec.chunk.js.map",
     "ItemsGroups.af16215e.chunk.js.map": "/tdr/static/js/ItemsGroups.af16215e.chunk.js.map",
     "ItemsDiscSets.7597acb2.chunk.js.map": "/tdr/static/js/ItemsDiscSets.7597acb2.chunk.js.map",
@@ -106,7 +106,7 @@
     "160.20d662f2.chunk.js.map": "/tdr/static/js/160.20d662f2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f05efa04.css",
-    "static/js/main.d65af886.js"
+    "static/css/main.f4ce9e2f.css",
+    "static/js/main.27b5c50d.js"
   ]
 }
