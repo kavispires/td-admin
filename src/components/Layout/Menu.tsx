@@ -78,6 +78,10 @@ const items: MenuProps['items'] = [
         key: '/single-words',
       },
       {
+        label: 'Movie Maker',
+        key: '/movie-maker',
+      },
+      {
         label: 'Other',
         key: '/other',
       },

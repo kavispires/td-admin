@@ -19,7 +19,27 @@ export function useTDResource<TData>(resourceName: string, enabled = true) {
 
   return {
     ...query,
-    data: query.data ?? {},
+    data: query.data ?? ({} as Dictionary<TData>),
+    hasResponseData,
+  };
+}
+
+export function useTDResourceNonCollection<TData>(resourceName: string, enabled = true) {
+  const { getUrl } = useBaseUrl('tdr');
+
+  const query = useQuery<TData, ResponseError>({
+    queryKey: [resourceName],
+    queryFn: async () => {
+      const res = await fetch(getUrl(`${resourceName}.json`));
+      return (await res.json()) as TData;
+    },
+    enabled,
+  });
+  const hasResponseData = !isEmpty(query.data);
+
+  return {
+    ...query,
+    data: query.data,
     hasResponseData,
   };
 }

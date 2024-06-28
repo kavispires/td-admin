@@ -46,6 +46,7 @@ const DailySetup = lazy(() => import('pages/DailySetup' /* webpackChunkName: "Da
 const CrimesHediondosCategorizer = lazy(
   () => import('pages/CrimesHediondosCategorizer' /* webpackChunkName: "CrimesHediondosCategorizer" */)
 );
+const MovieMaker = lazy(() => import('pages/MovieMaker' /* webpackChunkName: "MovieMaker" */));
 
 export const routes = (
   <Routes>
@@ -239,5 +240,6 @@ export const routes = (
         </Suspense>
       }
     />
+    <Route path="/movie-maker" element={<MovieMaker />} />
   </Routes>
 );
