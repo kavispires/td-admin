@@ -1,4 +1,4 @@
-import { ManOutlined, WomanOutlined } from '@ant-design/icons';
+import { ColumnHeightOutlined, ColumnWidthOutlined, ManOutlined, WomanOutlined } from '@ant-design/icons';
 import { Image, Layout, Space, Tag, Typography } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ImageCard } from 'components/Images/ImageCard';
@@ -19,14 +19,21 @@ function Suspects() {
   const { queryParams, addParam } = useQueryParams({ version: 'ct' });
   const version = queryParams.get('version') ?? 'ct';
 
-  const { isLoading, error, data, hasResponseData } = useTDResource<SuspectCard>('suspects');
+  const query = useTDResource<SuspectCard>('suspects');
 
   const [cardsPerRow, setCardsPerRow] = useState(8);
   const [cardWidth, ref] = useCardWidth(cardsPerRow);
   const [sortBy, setSortBy] = useState('id');
 
   const deck = useMemo(() => {
-    return orderBy(Object.values(data), [sortBy], ['asc']).map((e) => {
+    return orderBy(
+      Object.values(query.data),
+      (e) => {
+        if (sortBy === 'id') return Number(e.id.split('-').at(-1));
+        return e[sortBy as keyof SuspectCard] ?? e.id;
+      },
+      ['asc']
+    ).map((e) => {
       const splitId = e.id.split('-');
       const id = version === 'original' ? e.id : `${splitId[0]}-${version}-${splitId[1]}`;
       return {
@@ -34,13 +41,18 @@ function Suspects() {
         id,
       };
     });
-  }, [data, version, sortBy]);
+  }, [query.data, version, sortBy]);
 
   return (
     <PageLayout title="Images" subtitle="Suspects">
       <Layout hasSider>
         <PageSider>
-          <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResponseState
+            hasResponseData={query.hasResponseData}
+            isLoading={query.isLoading}
+            error={query.error}
+          />
+
           <SuspectsFilters
             selectedVersion={version}
             setSelectedVersion={(d) => addParam('version', d)}
@@ -49,11 +61,15 @@ function Suspects() {
             sortBy={sortBy}
             setSortBy={setSortBy}
           />
-          <SuspectsStats data={data} />
+          <SuspectsStats data={query.data} />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
+          <DataLoadingWrapper
+            isLoading={query.isLoading}
+            error={query.error}
+            hasResponseData={query.hasResponseData}
+          >
             <Typography.Title level={2}>
               Deck {version} ({deck.length})
             </Typography.Title>
@@ -73,10 +89,22 @@ function Suspects() {
                         <div>🇺🇸 {entry.name.en}</div>
                         <div className="suspect__info">
                           <div>
-                            {entry.gender === 'male' ? <ManOutlined /> : <WomanOutlined />} {entry.age}
+                            <div>
+                              {entry.gender === 'male' ? <ManOutlined /> : <WomanOutlined />} {entry.age}
+                            </div>
+                            <div>
+                              <em>{entry.ethnicity}</em>
+                            </div>
                           </div>
                           <div>
-                            <em>{entry.ethnicity}</em>
+                            <ColumnWidthOutlined />
+                            <br />
+                            {entry.build}
+                          </div>
+                          <div>
+                            <ColumnHeightOutlined />
+                            <br />
+                            {entry.height}
                           </div>
                         </div>
                       </div>

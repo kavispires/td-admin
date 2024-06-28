@@ -24,6 +24,9 @@ const SORT_BY = [
   { value: 'name.en', label: 'Name (EN)' },
   { value: 'ethnicity', label: 'Ethnicity' },
   { value: 'gender', label: 'Gender' },
+  { value: 'age', label: 'Age' },
+  { value: 'height', label: 'Height' },
+  { value: 'build', label: 'Build' },
 ];
 
 export function SuspectsFilters({
