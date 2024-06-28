@@ -29,7 +29,6 @@ export function useItemsComparator() {
         grouping: {},
       };
     }
-    console.log('useItemsComparator');
 
     const itemMessages = orderBy(
       availableItemIds
@@ -63,7 +62,6 @@ export function useItemsComparator() {
     if (moreThanOne.length > 0) {
       console.log('More than one', moreThanOne);
     }
-    console.log(grouping);
 
     return {
       itemMessages,

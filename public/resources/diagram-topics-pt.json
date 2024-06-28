@@ -1,7 +1,7 @@
 {
   "tdc-1-pt": {
     "id": "tdc-1-pt",
-    "text": "Leve o suficiente para uma pessoa carregar",
+    "text": "Leve o suficiente para uma pessoa normal carregar",
     "type": "attribute"
   },
   "tdc-2-pt": {
@@ -21,7 +21,7 @@
   },
   "tdc-5-pt": {
     "id": "tdc-5-pt",
-    "text": "Tem asas",
+    "text": "Tem asas ou alças",
     "type": "attribute"
   },
   "tdc-6-pt": {
@@ -36,7 +36,7 @@
   },
   "tdc-8-pt": {
     "id": "tdc-8-pt",
-    "text": "Pessoas comem",
+    "text": "Pessoas normalmente comem",
     "type": "attribute"
   },
   "tdc-9-pt": {
@@ -46,12 +46,12 @@
   },
   "tdc-10-pt": {
     "id": "tdc-10-pt",
-    "text": "Reconhecida por sua cor",
+    "text": "Reconhecida por sua cor (tipo maçãs são vermelhas)",
     "type": "attribute"
   },
   "tdc-11-pt": {
     "id": "tdc-11-pt",
-    "text": "Move-se por conta própria",
+    "text": "Flutua na água",
     "type": "attribute"
   },
   "tdc-12-pt": {
@@ -61,7 +61,7 @@
   },
   "tdc-13-pt": {
     "id": "tdc-13-pt",
-    "text": "Reflete",
+    "text": "Reflete ou brilha",
     "type": "attribute"
   },
   "tdc-14-pt": {
@@ -96,7 +96,7 @@
   },
   "tdc-20-pt": {
     "id": "tdc-20-pt",
-    "text": "É um tipo de ferramenta ou utensílio",
+    "text": "Fácil de limpar",
     "type": "attribute"
   },
   "tdc-21-pt": {
@@ -421,7 +421,7 @@
   },
   "tdc-87-pt": {
     "id": "tdc-87-pt",
-    "text": "É maior que um carro",
+    "text": "É maior que uma pessoa",
     "type": "attribute"
   },
   "tdc-88-pt": {
@@ -448,5 +448,55 @@
     "id": "tdc-92-pt",
     "text": "Contém a letra \"h\"",
     "type": "word"
+  },
+  "tdc-93-pt": {
+    "id": "tdc-93-pt",
+    "text": "As suas primeiras letras estão em ordem alfabética",
+    "type": "word"
+  },
+  "tdc-94-pt": {
+    "id": "tdc-94-pt",
+    "text": "A primeira letra se repete no resto da palavra",
+    "type": "word"
+  },
+  "tdc-95-pt": {
+    "id": "tdc-95-pt",
+    "text": "Useful",
+    "type": "context"
+  },
+  "tdc-96-pt": {
+    "id": "tdc-96-pt",
+    "text": "A maioria das pessoas tem uma",
+    "type": "context"
+  },
+  "tdc-97-pt": {
+    "id": "tdc-97-pt",
+    "text": "A maioria das pessoas já tocaram",
+    "type": "context"
+  },
+  "tdc-98-pt": {
+    "id": "tdc-98-pt",
+    "text": "Normalmente só gente rica tem",
+    "type": "context"
+  },
+  "tdc-99-pt": {
+    "id": "tdc-99-pt",
+    "text": "Te ajudaria a sobreviver na selva",
+    "type": "context"
+  },
+  "tdc-100-pt": {
+    "id": "tdc-100-pt",
+    "text": "Pode ser usado em decoração",
+    "type": "context"
+  },
+  "tdc-101-pt": {
+    "id": "tdc-101-pt",
+    "text": "Normalmente encontrado ao ar livre",
+    "type": "context"
+  },
+  "tdc-102-pt": {
+    "id": "tdc-102-pt",
+    "text": "Passageiros normalmente podem levar em um aeroporto",
+    "type": "context"
   }
 }

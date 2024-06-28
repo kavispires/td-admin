@@ -16,6 +16,10 @@ export type TextCard = {
    * Flag indicating if it's nsfw
    */
   nsfw?: boolean;
+  /**
+   * Flag indicating if it's exclusive to a group
+   */
+  private?: boolean;
 };
 
 /**

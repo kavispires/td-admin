@@ -37,8 +37,6 @@ export function ItemSamplerCard() {
     });
   };
 
-  console.log(sample);
-
   return (
     <Card
       className="my-4"

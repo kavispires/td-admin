@@ -74,7 +74,7 @@ export function ItemsTypeahead({
     const sorted = orderBy(filtered, [
       (option) => {
         const value = String(option?.value ?? '').toUpperCase();
-        // console.log(value);
+
         // Exact match
         if (value === SEARCH) return 0;
 

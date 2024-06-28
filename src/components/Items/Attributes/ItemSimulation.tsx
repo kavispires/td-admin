@@ -21,6 +21,8 @@ import {
   QuestionCircleOutlined,
 } from '@ant-design/icons';
 
+const ROMAN_NUMERALS = ['', 'I', 'II', 'III', 'IV', 'V'];
+
 type AttributeSummary = {
   relatedCount: number;
   deterministicCount: number;
@@ -82,7 +84,8 @@ export function ItemSimulation() {
     // Get the most common attributes
     const attributesResult = getHighestAttributeKeys(
       result.map((itemId) => getItemAttributeValues(itemId)),
-      25
+      25,
+      attributes
     );
 
     const dicts = attributesResult.reduce(
@@ -240,8 +243,7 @@ export function ItemSimulation() {
             )}
             onClick={() => setHighlightedAttributeKey(attributeSummary.id)}
           >
-            {attributeSummary.name.en}
-
+            {attributeSummary.name.en} {ROMAN_NUMERALS[attributeSummary.level]}
             <Flex gap={6} justify="center" className="my-1">
               <span>
                 <CheckSquareOutlined
@@ -273,7 +275,8 @@ export function ItemSimulation() {
 
 function getHighestAttributeKeys(
   selectedItemsAttributesValues: ItemAtributesValues[],
-  quantity: number
+  quantity: number,
+  attributes: Dictionary<ItemAttribute>
 ): string[] {
   // 1. Count the number of times each attribute is present. Make sure to gather any deterministic value
   const attributesCounts: Record<string, number> = {};
@@ -294,8 +297,33 @@ function getHighestAttributeKeys(
     });
   });
 
-  const deterministicKeys = Object.keys(deterministicKeysDict);
-  const nondeterministicKeys = keys(attributesCounts).filter((key) => !deterministicKeys.includes(key));
+  const levelCount: NumberDictionary = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+  };
+
+  /**
+   * Filters the given keys array based on the count of attribute levels and guards against having more than one level 4 attribute.
+   */
+  function filterCountLevelsAndGuardLevel4(keys: string[]) {
+    return keys.filter((key) => {
+      levelCount[attributes[key].level]++;
+
+      if (levelCount[4] > 1) {
+        console.log('Discarding level 4 attribute', key);
+        return false;
+      }
+      return true;
+    });
+  }
+
+  const deterministicKeys = filterCountLevelsAndGuardLevel4(Object.keys(deterministicKeysDict));
+  const nondeterministicKeys = filterCountLevelsAndGuardLevel4(
+    keys(attributesCounts).filter((key) => !deterministicKeys.includes(key))
+  );
+  console.log({ levelCount });
 
   // 1.b If deterministic keys are exactly the quantity, return them
   if (quantity === deterministicKeys.length) {
@@ -303,11 +331,34 @@ function getHighestAttributeKeys(
     return deterministicKeys;
   }
 
-  // 2. Get all keys and sort them by value in descending order
-  const sortedKeys = keys(attributesCounts).sort((a, b) => attributesCounts[b] - attributesCounts[a]);
+  // 2. Get all keys and sort them by value in descending order, but have only one level 5 attribute
+  console.log(attributesCounts);
+  // let hasLevel5Attribute = false;
+  // const sortedKeys = keys(attributesCounts)
+  //   .sort((a, b) => {
+  //     if (attributesCounts[a] !== attributesCounts[b]) {
+  //       return attributesCounts[b] - attributesCounts[a];
+  //     }
+
+  //     return attributes[a].priority - attributes[b].priority;
+  //   })
+  //   .filter((key) => {
+  //     if (attributes[key].level !== 4) return true;
+
+  //     if (!hasLevel5Attribute) {
+  //       console.log('Keeping level 4 attribute', key, attributesCounts[key]);
+  //       hasLevel5Attribute = true;
+  //       return true;
+  //     }
+  //     console.log('Discarding level 4 attribute', key, attributesCounts[key]);
+
+  //     return false;
+  //   });
+
+  // console.log(sortedKeys);
 
   // 2.b. Handle edge cases: empty object or quantity exceeding keys
-  if (sortedKeys.length === 0) {
+  if (deterministicKeys.length === 0) {
     return [];
   }
 
@@ -322,6 +373,7 @@ function getHighestAttributeKeys(
   const sortedDeterministicTiedGroupsKeys = keys(deterministicTiedGroups).sort(
     (a, b) => Number(b) - Number(a)
   );
+  console.log({ sortedDeterministicTiedGroupsKeys });
 
   const nondeterministicTiedGroups = nondeterministicKeys.reduce((acc: Record<string, string[]>, key) => {
     const value = attributesCounts[key];
@@ -331,6 +383,7 @@ function getHighestAttributeKeys(
     acc[value].push(key);
     return acc;
   }, {});
+  console.log(nondeterministicTiedGroups);
   const sortedNondeterministicTiedGroupsKeys = keys(nondeterministicTiedGroups).sort(
     (a, b) => Number(b) - Number(a)
   );
