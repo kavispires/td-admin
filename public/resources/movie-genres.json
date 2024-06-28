@@ -1,0 +1,505 @@
+{
+  "genres": {
+    "action": {
+      "id": "action",
+      "name": {
+        "en": "Action",
+        "pt": "Ação"
+      },
+      "rolesIds": ["protagonist", "sidekick"],
+      "rating": 2
+    },
+    "comedy": {
+      "id": "comedy",
+      "name": {
+        "en": "Comedy",
+        "pt": "Comédia"
+      },
+      "rolesIds": ["protagonist", "comic-relief"],
+      "rating": 1
+    },
+    "drama": {
+      "id": "drama",
+      "name": {
+        "en": "Drama",
+        "pt": "Drama"
+      },
+      "rolesIds": ["protagonist", "family-member"],
+      "rating": 2
+    },
+    "horror": {
+      "id": "horror",
+      "name": {
+        "en": "Horror",
+        "pt": "Terror"
+      },
+      "rolesIds": ["protagonist", "first-to-die"],
+      "rating": 2
+    },
+    "scifi": {
+      "id": "scifi",
+      "name": {
+        "en": "Sci-Fi",
+        "pt": "Ficção Científica"
+      },
+      "rolesIds": ["protagonist", "ally"],
+      "rating": 1
+    }
+  },
+  "subGenres": {
+    "crime": {
+      "id": "crime",
+      "name": {
+        "en": "Crime",
+        "pt": "Crime"
+      },
+      "rating": 2,
+      "rolesIds": ["villain", "henchman", "eye-candy", "family-member", "extra"]
+    },
+    "adventure": {
+      "id": "adventure",
+      "name": {
+        "en": "Adventure",
+        "pt": "Aventura"
+      },
+      "rating": 1,
+      "rolesIds": ["villain", "mentor", "love-interest", "partner", "extra"]
+    },
+    "fantasy": {
+      "id": "fantasy",
+      "name": {
+        "en": "Fantasy",
+        "pt": "Fantasia"
+      },
+      "rating": 1,
+      "rolesIds": ["villain", "mentor", "comic-relief", "best-friend", "extra"]
+    },
+    "war": {
+      "id": "war",
+      "name": {
+        "en": "War",
+        "pt": "Guerra"
+      },
+      "rating": 2,
+      "rolesIds": ["antagonist", "mentor", "partner", "love-interest", "victim"]
+    },
+    "epic": {
+      "id": "epic",
+      "name": {
+        "en": "Epic",
+        "pt": "Épico"
+      },
+      "rating": 2,
+      "rolesIds": ["antagonist", "love-interest", "narrator", "victim"]
+    },
+    "western": {
+      "id": "western",
+      "name": {
+        "en": "Western",
+        "pt": "Faroeste"
+      },
+      "rating": 2,
+      "rolesIds": ["villain", "love-interest", "narrator", "extra"]
+    },
+    "romance": {
+      "id": "romance",
+      "name": {
+        "en": "Romance",
+        "pt": "Romance"
+      },
+      "rating": 1,
+      "rolesIds": ["antagonist", "love-interest", "best-friend", "family-member"]
+    },
+    "supernatural": {
+      "id": "supernatural",
+      "name": {
+        "en": "Supernatural",
+        "pt": "Sobrenatural"
+      },
+      "rating": 2,
+      "rolesIds": ["antagonist", "victim", "mentor", "family-member", "extra"]
+    },
+    "space": {
+      "id": "space",
+      "name": {
+        "en": "Space",
+        "pt": "Espaço"
+      },
+      "rating": 1,
+      "rolesIds": ["antagonist", "family-member", "mentor", "extra"]
+    },
+    "monster": {
+      "id": "monster",
+      "name": {
+        "en": "Monster/Alien",
+        "pt": "Monstro/Alienígena"
+      },
+      "rating": 2,
+      "rolesIds": ["antagonist", "sidekick", "love-interest", "victim"]
+    },
+    "murderer": {
+      "id": "murderer",
+      "name": {
+        "en": "Murderer",
+        "pt": "Assassino"
+      },
+      "rating": 3,
+      "rolesIds": ["villain", "best-friend", "victim", "eye-candy"]
+    },
+    "disaster": {
+      "id": "disaster",
+      "name": {
+        "en": "Disaster",
+        "pt": "Desastre"
+      },
+      "rating": 1,
+      "rolesIds": ["antagonist", "love-interest", "family-member", "victim", "first-to-die"]
+    }
+  },
+  "features": {
+    "superhero": {
+      "id": "superhero",
+      "name": {
+        "en": "Superhero",
+        "pt": "Super-herói"
+      },
+      "probability": 0.1,
+      "rating": 1
+    },
+    "animation": {
+      "id": "animation",
+      "name": {
+        "en": "Animation",
+        "pt": "Animação"
+      },
+      "probability": 0.1,
+      "rating": -1
+    },
+    "musical": {
+      "id": "musical",
+      "name": {
+        "en": "Musical",
+        "pt": "Musical"
+      },
+      "probability": 0.05,
+      "rating": 1
+    },
+    "true-events": {
+      "id": "true-events",
+      "name": {
+        "en": "Based on true events",
+        "pt": "Baseado em fatos retais"
+      },
+      "probability": 0.05,
+      "rating": 2
+    },
+    "mature": {
+      "id": "mature",
+      "name": {
+        "en": "Sensual",
+        "pt": "Sensual"
+      },
+      "probability": 0.05,
+      "rating": 3
+    },
+    "post-apocalyptic": {
+      "id": "post-apocalyptic",
+      "name": {
+        "en": "Post-apocalyptic",
+        "pt": "Pós-apocalíptico"
+      },
+      "probability": 0.05,
+      "rating": 2
+    },
+    "violence": {
+      "id": "violence",
+      "name": {
+        "en": "Violent",
+        "pt": "Violento"
+      },
+      "probability": 0.1,
+      "rating": 2
+    },
+    "evil-wins": {
+      "id": "evil-wins",
+      "name": {
+        "en": "The antagonist wins in the end",
+        "pt": "O antagonista vence no final"
+      },
+      "probability": 0.1,
+      "rating": 1
+    },
+    "flashbacks": {
+      "id": "flashbacks",
+      "name": {
+        "en": "Many Flashbacks",
+        "pt": "Muitos Flashbacks"
+      },
+      "probability": 0.1,
+      "rating": 1
+    },
+    "black-white": {
+      "id": "black-white",
+      "name": {
+        "en": "In black and white",
+        "pt": "em preto e branco"
+      },
+      "probability": 0.05,
+      "rating": 1
+    }
+  },
+  "roles": {
+    "protagonist": {
+      "id": "protagonist",
+      "title": {
+        "en": "Protagonist",
+        "pt": "Protagonista"
+      },
+      "description": {
+        "en": "The main character of the story.",
+        "pt": "O personagem principal da história."
+      },
+      "complexity": 3,
+      "pool": "large",
+      "type": "main"
+    },
+    "antagonist": {
+      "id": "antagonist",
+      "title": {
+        "en": "Antagonist",
+        "pt": "Antagonista"
+      },
+      "description": {
+        "en": "The character who opposes the protagonist.",
+        "pt": "O personagem que se opõe ao protagonista."
+      },
+      "complexity": 3,
+      "pool": "large",
+      "type": "anti"
+    },
+    "sidekick": {
+      "id": "sidekick",
+      "title": {
+        "en": "Sidekick",
+        "pt": "Parceiro"
+      },
+      "description": {
+        "en": "The character who accompanies the protagonist.",
+        "pt": "O personagem que acompanha o protagonista."
+      },
+      "complexity": 2,
+      "pool": "medium",
+      "type": "supporting"
+    },
+    "mentor": {
+      "id": "mentor",
+      "title": {
+        "en": "Mentor",
+        "pt": "Mentor"
+      },
+      "description": {
+        "en": "The character who guides the protagonist.",
+        "pt": "O personagem que guia o protagonista."
+      },
+      "complexity": 2,
+      "pool": "medium",
+      "type": "secondary"
+    },
+    "love-interest": {
+      "id": "love-interest",
+      "title": {
+        "en": "Love Interest",
+        "pt": "Interesse Amoroso"
+      },
+      "description": {
+        "en": "The character who is romantically involved with the protagonist.",
+        "pt": "O personagem que se envolve romanticamente com o protagonista."
+      },
+      "complexity": 2,
+      "pool": "medium",
+      "type": "love"
+    },
+    "comic-relief": {
+      "id": "comic-relief",
+      "title": {
+        "en": "Comic Relief",
+        "pt": "Alívio Cômico"
+      },
+      "description": {
+        "en": "The character who provides humor in the story.",
+        "pt": "O personagem que fornece humor na história."
+      },
+      "complexity": 1,
+      "pool": "small",
+      "type": "secondary"
+    },
+    "villain": {
+      "id": "villain",
+      "title": {
+        "en": "Villain",
+        "pt": "Vilão"
+      },
+      "description": {
+        "en": "The character who is evil and opposes the protagonist.",
+        "pt": "O personagem que é malvado e se opõe ao protagonista."
+      },
+      "complexity": 3,
+      "pool": "large",
+      "type": "anti"
+    },
+    "henchman": {
+      "id": "henchman",
+      "title": {
+        "en": "Henchman",
+        "pt": "Capanga"
+      },
+      "description": {
+        "en": "The character who assists the villain.",
+        "pt": "O personagem que ajuda o vilão."
+      },
+      "complexity": 2,
+      "pool": "medium",
+      "type": "supporting"
+    },
+    "bystander": {
+      "id": "bystander",
+      "title": {
+        "en": "Bystander",
+        "pt": "Pessoa Comum"
+      },
+      "description": {
+        "en": "The character who is not involved in the main conflict.",
+        "pt": "O personagem que não está envolvido no conflito principal."
+      },
+      "complexity": 1,
+      "pool": "small",
+      "type": "secondary"
+    },
+    "extra": {
+      "id": "extra",
+      "title": {
+        "en": "Extra",
+        "pt": "Figurante"
+      },
+      "description": {
+        "en": "The character who has a minor role in the story.",
+        "pt": "O personagem que tem um papel secundário na história."
+      },
+      "complexity": 1,
+      "pool": "small",
+      "type": "secondary"
+    },
+    "ally": {
+      "id": "ally",
+      "title": {
+        "en": "Ally",
+        "pt": "Aliado"
+      },
+      "description": {
+        "en": "The character who helps the protagonist.",
+        "pt": "O personagem que ajuda o protagonista."
+      },
+      "complexity": 2,
+      "pool": "medium",
+      "type": "secondary"
+    },
+    "best-friend": {
+      "id": "best-friend",
+      "title": {
+        "en": "Best Friend",
+        "pt": "Melhor Amigo"
+      },
+      "description": {
+        "en": "The character who is the protagonist's closest friend.",
+        "pt": "O personagem que é o amigo mais próximo do protagonista."
+      },
+      "complexity": 2,
+      "pool": "medium",
+      "type": "secondary"
+    },
+    "family-member": {
+      "id": "family-member",
+      "title": {
+        "en": "Family Member",
+        "pt": "Membro da Família"
+      },
+      "description": {
+        "en": "The character who is related to the protagonist.",
+        "pt": "O personagem que é parente do protagonista."
+      },
+      "complexity": 2,
+      "pool": "medium",
+      "type": "secondary"
+    },
+    "first-to-die": {
+      "id": "first-to-die",
+      "title": {
+        "en": "First to Die",
+        "pt": "Primeiro a Morrer"
+      },
+      "description": {
+        "en": "The character who dies early in the story.",
+        "pt": "O personagem que morre cedo na história."
+      },
+      "complexity": 1,
+      "pool": "small",
+      "type": "secondary"
+    },
+    "narrator": {
+      "id": "narrator",
+      "title": {
+        "en": "Narrator",
+        "pt": "Narrador"
+      },
+      "description": {
+        "en": "The character who tells the story.",
+        "pt": "O personagem que conta a história."
+      },
+      "complexity": 2,
+      "pool": "medium",
+      "type": "secondary"
+    },
+    "eye-candy": {
+      "id": "eye-candy",
+      "title": {
+        "en": "The Eye Candy",
+        "pt": "O(A) Bonitão(Gata)"
+      },
+      "description": {
+        "en": "The character who is attractive but has no depth.",
+        "pt": "O personagem que é atraente mas não tem profundidade."
+      },
+      "complexity": 1,
+      "pool": "small",
+      "type": "visual"
+    },
+    "victim": {
+      "id": "victim",
+      "title": {
+        "en": "Victim",
+        "pt": "Vítima"
+      },
+      "description": {
+        "en": "The character who suffers harm in the story.",
+        "pt": "O personagem que sofre danos na história."
+      },
+      "complexity": 1,
+      "pool": "small",
+      "type": "secondary"
+    },
+    "partner": {
+      "id": "partner",
+      "title": {
+        "en": "Partner",
+        "pt": "Parceiro"
+      },
+      "description": {
+        "en": "The character who works with the protagonist.",
+        "pt": "O personagem que trabalha com o protagonista."
+      },
+      "complexity": 2,
+      "pool": "medium",
+      "type": "secondary"
+    }
+  }
+}

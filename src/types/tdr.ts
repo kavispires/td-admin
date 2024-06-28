@@ -537,6 +537,14 @@ export type SuspectCard = {
    * The age range of the suspect
    */
   age: string;
+  /**
+   * The build of the suspect
+   */
+  build: 'S' | 'M' | 'L' | string;
+  /**
+   * The height of the suspect
+   */
+  height: 'S' | 'M' | 'L' | string;
 };
 
 /**
@@ -777,4 +785,95 @@ export type DailyQuartetSet = {
    * The level of difficulty of the set
    */
   level: number;
+};
+
+type MovieGender = {
+  /**
+   * Unique identifier for the card
+   */
+  id: string;
+  /**
+   * The name of the genre
+   */
+  name: DualLanguageValue;
+  /**
+   * The additive rating level (to determine the audience rating)
+   */
+  rating: number;
+  /**
+   * Lists of roles this genre requires
+   */
+  rolesIds: string[];
+};
+
+type MovieSubGenre = {
+  /**
+   * Unique identifier for the card
+   */
+  id: string;
+  /**
+   * The name of the subgenre
+   */
+  name: DualLanguageValue;
+  /**
+   * The additive rating level (to determine the audience rating)
+   */
+  rating: number;
+  /**
+   * Lists of roles this sub-genre might have
+   */
+  rolesIds: string[];
+};
+
+type MovieRole = {
+  /**
+   * Unique identifier for the card
+   */
+  id: string;
+  /**
+   * The name of the role
+   */
+  title: DualLanguageValue;
+  /**
+   * The description of the role
+   */
+  description: DualLanguageValue;
+  /**
+   * The level of complexity of the role (how many starting traits it requires 1-3)
+   */
+  complexity: number;
+  /**
+   * The number of actors that would audition to this role
+   */
+  pool: number;
+  /**
+   * The type of role (main, supporting, extra) for iconography purposes
+   */
+  type: string;
+};
+
+type MovieFeature = {
+  /**
+   * Unique identifier for the card
+   */
+  id: string;
+  /**
+   * The name of the feature
+   */
+  name: DualLanguageValue;
+  /**
+   * The probability of the feature appearing in the movie (percentage 0-100)
+   */
+  probability: number;
+  /**
+   * The additive rating level (to determine the audience rating) (may be negative)
+   */
+  rating: number;
+};
+
+export type MovieGenres = {
+  genres: Dictionary<MovieGender>;
+  subGenres: Dictionary<MovieSubGenre>;
+  roles: Dictionary<MovieRole>;
+  features: Dictionary<MovieFeature>;
 };

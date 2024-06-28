@@ -7,7 +7,9 @@
     },
     "gender": "male",
     "ethnicity": "black",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "S",
+    "height": "L"
   },
   "us-02": {
     "id": "us-02",
@@ -17,7 +19,9 @@
     },
     "gender": "male",
     "ethnicity": "black",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "S",
+    "height": "M"
   },
   "us-03": {
     "id": "us-03",
@@ -27,7 +31,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "M",
+    "height": "M"
   },
   "us-04": {
     "id": "us-04",
@@ -37,7 +43,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "S",
+    "height": "M"
   },
   "us-05": {
     "id": "us-05",
@@ -47,7 +55,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "18-21"
+    "age": "18-21",
+    "build": "M",
+    "height": "M"
   },
   "us-06": {
     "id": "us-06",
@@ -57,7 +67,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "L",
+    "height": "L"
   },
   "us-07": {
     "id": "us-07",
@@ -67,7 +79,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "18-21"
+    "age": "18-21",
+    "build": "S",
+    "height": "S"
   },
   "us-08": {
     "id": "us-08",
@@ -77,7 +91,9 @@
     },
     "gender": "male",
     "ethnicity": "black",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "L",
+    "height": "L"
   },
   "us-09": {
     "id": "us-09",
@@ -87,7 +103,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "80-90"
+    "age": "80-90",
+    "build": "S",
+    "height": "S"
   },
   "us-10": {
     "id": "us-10",
@@ -97,7 +115,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "M",
+    "height": "L"
   },
   "us-11": {
     "id": "us-11",
@@ -107,7 +127,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "",
+    "height": ""
   },
   "us-12": {
     "id": "us-12",
@@ -117,7 +139,9 @@
     },
     "gender": "female",
     "ethnicity": "black",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "M",
+    "height": ""
   },
   "us-13": {
     "id": "us-13",
@@ -127,7 +151,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-14": {
     "id": "us-14",
@@ -137,7 +163,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-15": {
     "id": "us-15",
@@ -147,7 +175,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "",
+    "height": ""
   },
   "us-16": {
     "id": "us-16",
@@ -157,7 +187,9 @@
     },
     "gender": "female",
     "ethnicity": "indian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-17": {
     "id": "us-17",
@@ -167,7 +199,9 @@
     },
     "gender": "male",
     "ethnicity": "latino",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "L",
+    "height": "M"
   },
   "us-18": {
     "id": "us-18",
@@ -177,7 +211,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "L",
+    "height": "L"
   },
   "us-19": {
     "id": "us-19",
@@ -187,7 +223,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "M",
+    "height": "L"
   },
   "us-20": {
     "id": "us-20",
@@ -197,7 +235,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "S",
+    "height": "M"
   },
   "us-21": {
     "id": "us-21",
@@ -207,7 +247,9 @@
     },
     "gender": "female",
     "ethnicity": "middle-eastern",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "L",
+    "height": "S"
   },
   "us-22": {
     "id": "us-22",
@@ -217,7 +259,9 @@
     },
     "gender": "female",
     "ethnicity": "black",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "L",
+    "height": "M"
   },
   "us-23": {
     "id": "us-23",
@@ -227,7 +271,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "S",
+    "height": "L"
   },
   "us-24": {
     "id": "us-24",
@@ -237,7 +283,9 @@
     },
     "gender": "male",
     "ethnicity": "middle-eastern",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "M",
+    "height": "M"
   },
   "us-25": {
     "id": "us-25",
@@ -247,7 +295,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "S",
+    "height": "M"
   },
   "us-26": {
     "id": "us-26",
@@ -257,7 +307,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "L",
+    "height": "M"
   },
   "us-27": {
     "id": "us-27",
@@ -267,7 +319,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "S",
+    "height": "M"
   },
   "us-28": {
     "id": "us-28",
@@ -277,7 +331,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "S",
+    "height": ""
   },
   "us-29": {
     "id": "us-29",
@@ -287,7 +343,9 @@
     },
     "gender": "male",
     "ethnicity": "black",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "M",
+    "height": "L"
   },
   "us-30": {
     "id": "us-30",
@@ -297,7 +355,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "M",
+    "height": "L"
   },
   "us-31": {
     "id": "us-31",
@@ -307,7 +367,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "S",
+    "height": "L"
   },
   "us-32": {
     "id": "us-32",
@@ -317,7 +379,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "M",
+    "height": "L"
   },
   "us-33": {
     "id": "us-33",
@@ -327,7 +391,9 @@
     },
     "gender": "male",
     "ethnicity": "latino",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "M",
+    "height": "L"
   },
   "us-34": {
     "id": "us-34",
@@ -337,7 +403,9 @@
     },
     "gender": "male",
     "ethnicity": "black",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "L",
+    "height": "L"
   },
   "us-35": {
     "id": "us-35",
@@ -347,7 +415,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "M",
+    "height": "L"
   },
   "us-36": {
     "id": "us-36",
@@ -357,7 +427,9 @@
     },
     "gender": "male",
     "ethnicity": "asian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "S",
+    "height": "L"
   },
   "us-37": {
     "id": "us-37",
@@ -367,7 +439,9 @@
     },
     "gender": "male",
     "ethnicity": "black",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "S",
+    "height": "M"
   },
   "us-38": {
     "id": "us-38",
@@ -377,7 +451,9 @@
     },
     "gender": "female",
     "ethnicity": "asian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "S",
+    "height": "L"
   },
   "us-39": {
     "id": "us-39",
@@ -387,7 +463,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "M",
+    "height": "M"
   },
   "us-40": {
     "id": "us-40",
@@ -397,7 +475,9 @@
     },
     "gender": "female",
     "ethnicity": "black",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "L",
+    "height": "L"
   },
   "us-41": {
     "id": "us-41",
@@ -407,7 +487,9 @@
     },
     "gender": "male",
     "ethnicity": "black",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "M",
+    "height": "L"
   },
   "us-42": {
     "id": "us-42",
@@ -417,7 +499,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "M",
+    "height": "M"
   },
   "us-43": {
     "id": "us-43",
@@ -427,7 +511,9 @@
     },
     "gender": "female",
     "ethnicity": "latino",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "M",
+    "height": "M"
   },
   "us-44": {
     "id": "us-44",
@@ -437,7 +523,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "M",
+    "height": "M"
   },
   "us-45": {
     "id": "us-45",
@@ -447,7 +535,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "M",
+    "height": "M"
   },
   "us-46": {
     "id": "us-46",
@@ -457,7 +547,9 @@
     },
     "gender": "male",
     "ethnicity": "latino",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "M",
+    "height": "M"
   },
   "us-47": {
     "id": "us-47",
@@ -467,7 +559,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "L",
+    "height": "L"
   },
   "us-48": {
     "id": "us-48",
@@ -477,7 +571,9 @@
     },
     "gender": "female",
     "ethnicity": "black",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "S",
+    "height": "M"
   },
   "us-49": {
     "id": "us-49",
@@ -487,7 +583,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "S",
+    "height": "S"
   },
   "us-50": {
     "id": "us-50",
@@ -497,7 +595,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "M",
+    "height": "L"
   },
   "us-51": {
     "id": "us-51",
@@ -507,7 +607,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "S",
+    "height": "L"
   },
   "us-52": {
     "id": "us-52",
@@ -517,7 +619,9 @@
     },
     "gender": "male",
     "ethnicity": "latino",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "M",
+    "height": "L"
   },
   "us-53": {
     "id": "us-53",
@@ -527,7 +631,9 @@
     },
     "gender": "male",
     "ethnicity": "asian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "S",
+    "height": "L"
   },
   "us-54": {
     "id": "us-54",
@@ -537,7 +643,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "L",
+    "height": "L"
   },
   "us-55": {
     "id": "us-55",
@@ -547,7 +655,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-56": {
     "id": "us-56",
@@ -557,7 +667,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "",
+    "height": ""
   },
   "us-57": {
     "id": "us-57",
@@ -567,7 +679,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "",
+    "height": ""
   },
   "us-58": {
     "id": "us-58",
@@ -577,7 +691,9 @@
     },
     "gender": "male",
     "ethnicity": "black",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "",
+    "height": ""
   },
   "us-59": {
     "id": "us-59",
@@ -587,7 +703,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "L",
+    "height": "M"
   },
   "us-60": {
     "id": "us-60",
@@ -597,7 +715,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "M",
+    "height": "L"
   },
   "us-61": {
     "id": "us-61",
@@ -607,7 +727,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "",
+    "height": ""
   },
   "us-62": {
     "id": "us-62",
@@ -617,7 +739,9 @@
     },
     "gender": "male",
     "ethnicity": "latino",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-63": {
     "id": "us-63",
@@ -627,7 +751,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-64": {
     "id": "us-64",
@@ -637,7 +763,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "",
+    "height": ""
   },
   "us-65": {
     "id": "us-65",
@@ -647,7 +775,9 @@
     },
     "gender": "male",
     "ethnicity": "asian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-66": {
     "id": "us-66",
@@ -657,7 +787,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-67": {
     "id": "us-67",
@@ -667,7 +799,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "",
+    "height": ""
   },
   "us-68": {
     "id": "us-68",
@@ -677,7 +811,9 @@
     },
     "gender": "male",
     "ethnicity": "native-american",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "",
+    "height": ""
   },
   "us-69": {
     "id": "us-69",
@@ -687,7 +823,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-70": {
     "id": "us-70",
@@ -697,7 +835,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "80-90"
+    "age": "80-90",
+    "build": "",
+    "height": ""
   },
   "us-71": {
     "id": "us-71",
@@ -707,7 +847,9 @@
     },
     "gender": "male",
     "ethnicity": "black",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "",
+    "height": ""
   },
   "us-72": {
     "id": "us-72",
@@ -717,7 +859,9 @@
     },
     "gender": "male",
     "ethnicity": "mixed",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-73": {
     "id": "us-73",
@@ -727,7 +871,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-74": {
     "id": "us-74",
@@ -737,7 +883,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-75": {
     "id": "us-75",
@@ -747,7 +895,9 @@
     },
     "gender": "female",
     "ethnicity": "black",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-76": {
     "id": "us-76",
@@ -757,7 +907,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-77": {
     "id": "us-77",
@@ -767,7 +919,9 @@
     },
     "gender": "male",
     "ethnicity": "asian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "",
+    "height": ""
   },
   "us-78": {
     "id": "us-78",
@@ -777,7 +931,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-79": {
     "id": "us-79",
@@ -787,7 +943,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-80": {
     "id": "us-80",
@@ -797,7 +955,9 @@
     },
     "gender": "female",
     "ethnicity": "black",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-81": {
     "id": "us-81",
@@ -807,7 +967,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "",
+    "height": ""
   },
   "us-82": {
     "id": "us-82",
@@ -817,7 +979,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "",
+    "height": ""
   },
   "us-83": {
     "id": "us-83",
@@ -827,7 +991,9 @@
     },
     "gender": "male",
     "ethnicity": "mixed",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "",
+    "height": ""
   },
   "us-84": {
     "id": "us-84",
@@ -837,7 +1003,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-85": {
     "id": "us-85",
@@ -847,7 +1015,9 @@
     },
     "gender": "female",
     "ethnicity": "black",
-    "age": "18-21"
+    "age": "18-21",
+    "build": "",
+    "height": ""
   },
   "us-86": {
     "id": "us-86",
@@ -857,7 +1027,9 @@
     },
     "gender": "female",
     "ethnicity": "asian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-87": {
     "id": "us-87",
@@ -867,7 +1039,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "18-21"
+    "age": "18-21",
+    "build": "",
+    "height": ""
   },
   "us-88": {
     "id": "us-88",
@@ -877,7 +1051,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "18-21"
+    "age": "18-21",
+    "build": "",
+    "height": ""
   },
   "us-89": {
     "id": "us-89",
@@ -887,7 +1063,9 @@
     },
     "gender": "female",
     "ethnicity": "black",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-90": {
     "id": "us-90",
@@ -897,7 +1075,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "",
+    "height": ""
   },
   "us-91": {
     "id": "us-91",
@@ -907,7 +1087,9 @@
     },
     "gender": "male",
     "ethnicity": "asian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "",
+    "height": ""
   },
   "us-92": {
     "id": "us-92",
@@ -917,7 +1099,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "",
+    "height": ""
   },
   "us-93": {
     "id": "us-93",
@@ -927,7 +1111,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-94": {
     "id": "us-94",
@@ -937,7 +1123,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-95": {
     "id": "us-95",
@@ -947,7 +1135,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-96": {
     "id": "us-96",
@@ -957,7 +1147,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "",
+    "height": ""
   },
   "us-97": {
     "id": "us-97",
@@ -967,7 +1159,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-98": {
     "id": "us-98",
@@ -977,7 +1171,9 @@
     },
     "gender": "male",
     "ethnicity": "mixed",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "",
+    "height": ""
   },
   "us-99": {
     "id": "us-99",
@@ -987,7 +1183,9 @@
     },
     "gender": "female",
     "ethnicity": "black",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-100": {
     "id": "us-100",
@@ -997,7 +1195,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-101": {
     "id": "us-101",
@@ -1007,7 +1207,9 @@
     },
     "gender": "male",
     "ethnicity": "asian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-102": {
     "id": "us-102",
@@ -1017,7 +1219,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "",
+    "height": ""
   },
   "us-103": {
     "id": "us-103",
@@ -1027,7 +1231,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "",
+    "height": ""
   },
   "us-104": {
     "id": "us-104",
@@ -1037,7 +1243,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "",
+    "height": ""
   },
   "us-105": {
     "id": "us-105",
@@ -1047,7 +1255,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "",
+    "height": ""
   },
   "us-106": {
     "id": "us-106",
@@ -1057,7 +1267,9 @@
     },
     "gender": "female",
     "ethnicity": "black",
-    "age": "40-50"
+    "age": "40-50",
+    "build": "M",
+    "height": "L"
   },
   "us-107": {
     "id": "us-107",
@@ -1067,7 +1279,9 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "60-70"
+    "age": "60-70",
+    "build": "M",
+    "height": "L"
   },
   "us-108": {
     "id": "us-108",
@@ -1077,7 +1291,9 @@
     },
     "gender": "male",
     "ethnicity": "latino",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "M",
+    "height": "L"
   },
   "us-109": {
     "id": "us-109",
@@ -1087,7 +1303,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "21-30"
+    "age": "21-30",
+    "build": "S",
+    "height": "M"
   },
   "us-110": {
     "id": "us-110",
@@ -1097,7 +1315,9 @@
     },
     "gender": "male",
     "ethnicity": "middle-eastern",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "",
+    "height": ""
   },
   "us-111": {
     "id": "us-111",
@@ -1107,7 +1327,9 @@
     },
     "gender": "female",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "M",
+    "height": "L"
   },
   "us-112": {
     "id": "us-112",
@@ -1117,7 +1339,9 @@
     },
     "gender": "male",
     "ethnicity": "black",
-    "age": "50-60"
+    "age": "50-60",
+    "build": "S",
+    "height": "L"
   },
   "us-113": {
     "id": "us-113",
@@ -1127,7 +1351,9 @@
     },
     "gender": "male",
     "ethnicity": "asian",
-    "age": "18-21"
+    "age": "18-21",
+    "build": "S",
+    "height": "M"
   },
   "us-114": {
     "id": "us-114",
@@ -1137,6 +1363,8 @@
     },
     "gender": "male",
     "ethnicity": "caucasian",
-    "age": "30-40"
+    "age": "30-40",
+    "build": "M",
+    "height": "M"
   }
 }
