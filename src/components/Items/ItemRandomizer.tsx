@@ -4,11 +4,11 @@ import { Item as ItemT } from 'types';
 
 import { ItemCard } from './ItemCard';
 import { useItemsContext } from 'context/ItemsContext';
-import { sampleSize } from 'lodash';
+import { chunk, random, sampleSize } from 'lodash';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { CopyOutlined } from '@ant-design/icons';
 
-export function ItemRandomized() {
+export function ItemRandomizer() {
   const { listing } = useItemsContext();
   const [randomItems, setRandomItems] = useState<ItemT[]>([]);
   const copyToClipboard = useCopyToClipboardFunction();
@@ -45,9 +45,22 @@ export function ItemRandomized() {
     }
   };
 
+  const onGenerateMidjourneySample = () => {
+    const str = chunk(sampleSize(listing, random(4, 6) * 6), 6)
+      .map((entries) => entries.map((entry) => entry.name.en).join(', '))
+      .map((entry, index) => `${index + 1}) ${entry}`)
+      .join('\n');
+    copyToClipboard(str);
+  };
+
   return (
     <div>
-      <Typography.Title level={2}>Randomized Sample</Typography.Title>
+      <Typography.Title level={2}>
+        Randomized Sample{' '}
+        <Button size="small" icon={<CopyOutlined />} onClick={onGenerateMidjourneySample}>
+          MJ
+        </Button>
+      </Typography.Title>
 
       <Flex gap={12}>
         <Form.Item label="Quantity"></Form.Item>

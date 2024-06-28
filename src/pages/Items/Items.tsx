@@ -2,7 +2,7 @@ import { Layout, Space } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ItemListing } from 'components/Items/ItemListing';
 import { ItemListingFilters } from 'components/Items/ItemListingFilters';
-import { ItemRandomized } from 'components/Items/ItemRandomized';
+import { ItemRandomizer } from 'components/Items/ItemRandomizer';
 import { ItemSearch } from 'components/Items/ItemSearch';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
@@ -25,7 +25,7 @@ function ItemsPage() {
             {!isLoading && (
               <Space size="large">
                 {!is('hideSearch') && <ItemSearch />}
-                {is('showRandomizer') && <ItemRandomized />}
+                {is('showRandomizer') && <ItemRandomizer />}
               </Space>
             )}
             <ItemListing />
