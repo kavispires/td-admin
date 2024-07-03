@@ -240,6 +240,13 @@ export const routes = (
         </Suspense>
       }
     />
-    <Route path="/movie-maker" element={<MovieMaker />} />
+    <Route
+      path="/movie-maker"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <MovieMaker />
+        </Suspense>
+      }
+    />
   </Routes>
 );
