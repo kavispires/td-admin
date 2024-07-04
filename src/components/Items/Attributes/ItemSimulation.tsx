@@ -88,6 +88,15 @@ export function ItemSimulation() {
       attributes
     );
 
+    // If less than 25 attributes are found, add more by priority
+    if (attributesResult.length < 25) {
+      const remainingAttributes = keys(attributes).filter((key) => !attributesResult.includes(key));
+      const remainingAttributesByPriority = sortBy(remainingAttributes, (key) => attributes[key].priority);
+      const toBeAdded = remainingAttributesByPriority.slice(0, 25 - attributesResult.length);
+      console.log('Adding more attributes by priority', toBeAdded);
+      attributesResult.push(...toBeAdded);
+    }
+
     const dicts = attributesResult.reduce(
       (
         acc: {

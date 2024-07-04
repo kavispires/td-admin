@@ -1,4 +1,4 @@
-import { Button, Card, Flex, Pagination, Popconfirm, Typography } from 'antd';
+import { Button, Card, Empty, Flex, Pagination, Popconfirm, Typography } from 'antd';
 import { GoToTopButton } from 'components/Common/GoToTopButton';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemGrouping } from 'hooks/useItemGrouping';
@@ -9,9 +9,17 @@ import { useMedia } from 'react-use';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
 
+const getStatSentence = (stats: Record<string, number>, scope: string | null) => {
+  if (scope === 'unset' || !scope) {
+    return `${100 - stats.percent}% done, ${stats.group} left`;
+  }
+
+  return `${stats.percent}%  - ${stats.group} items`;
+};
+
 export function ItemGroupingCard() {
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
-  const { attribute, pageIds, group, updateAttributeValue, updatePageItemsAsUnrelated, pagination } =
+  const { attribute, pageIds, updateAttributeValue, updatePageItemsAsUnrelated, pagination, stats } =
     useItemGrouping();
   const { searchParams } = useItemQueryParams();
   const isNarrow = useMedia('(max-width: 1024px)');
@@ -48,17 +56,25 @@ export function ItemGroupingCard() {
       </Button>
     </Popconfirm>
   );
+
   return (
     <Card
       className="my-4"
       title={
         <Typography.Text>
-          {attribute?.name.en} ({group.length}) - {attribute.description.en}
+          {attribute?.name.en} ({getStatSentence(stats, searchParams.get('scope'))}) -{' '}
+          {attribute.description.en}
         </Typography.Text>
       }
       extra={paginationComponent}
       actions={[unrelateButton, <GoToTopButton key="go-to-top" />, paginationComponent].filter(Boolean)}
     >
+      {pageIds.length === 0 && (
+        <Empty
+          description="No items found in this scope for this attribute."
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+        />
+      )}
       {pageIds.map((itemId) => {
         const itemAttributes = getItemAttributeValues(itemId);
         const item = getItem(itemId);

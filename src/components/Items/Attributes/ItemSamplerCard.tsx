@@ -1,4 +1,4 @@
-import { Button, Card, Divider, Flex, Typography } from 'antd';
+import { Button, Card, Divider, Empty, Flex, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemSampler } from 'hooks/useItemSampler';
 import { isEmpty } from 'lodash';
@@ -40,7 +40,11 @@ export function ItemSamplerCard() {
   return (
     <Card
       className="my-4"
-      title={<Typography.Text>{attribute?.name.en}</Typography.Text>}
+      title={
+        <Typography.Text>
+          {attribute?.name.en} - {attribute?.description.en}
+        </Typography.Text>
+      }
       actions={[
         <Button onClick={onMarkRestAsUnrelated} danger disabled={unsetItems.length === 0}>
           Mark rest as unrelated
@@ -56,6 +60,12 @@ export function ItemSamplerCard() {
       }
     >
       <Flex vertical gap={6}>
+        {sample.length === 0 && (
+          <Empty
+            description="No unset items found for this attribute."
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+          />
+        )}
         {sample.map(({ item, itemAttributes }) => {
           return (
             <Fragment key={`${item.id}-${itemAttributes.updatedAt}`}>

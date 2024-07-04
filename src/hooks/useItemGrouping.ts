@@ -83,6 +83,11 @@ export function useItemGrouping() {
 
   return {
     group,
+    stats: {
+      total: availableItemIds.length,
+      group: group.length,
+      percent: Math.round((group.length / availableItemIds.length) * 100),
+    },
     pageIds,
     attribute,
     updateAttributeValue,

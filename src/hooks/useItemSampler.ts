@@ -13,8 +13,7 @@ export function useItemSampler() {
   const [sampleIds, setSampleIds] = useState<string[]>([]);
   const [attribute, setAttribute] = useState<ItemAttribute>();
 
-  // Create sample
-  const onGetSample = () => {
+  const getSample = () => {
     const attributeKey = searchParams.get('attribute') ?? lodashSample(attributesList)?.id ?? 'ali';
     const selectedAttribute =
       attributesList.find((a) => a.id === attributeKey) ?? lodashSample(attributesList);
@@ -34,8 +33,23 @@ export function useItemSampler() {
       }
     }
 
-    setAttribute(selectedAttribute);
-    setSampleIds(selected);
+    return {
+      selectedAttribute,
+      selected,
+    };
+  };
+
+  // Create sample
+  const onGetSample = () => {
+    let tempSample = getSample();
+    let attempts = 0;
+    while (tempSample.selected.length === 0 && attempts < 30) {
+      tempSample = getSample();
+      attempts++;
+    }
+
+    setAttribute(tempSample.selectedAttribute);
+    setSampleIds(tempSample.selected);
   };
 
   const updateAttributeValue = (itemId: string, attributeId: string, value: number) => {
