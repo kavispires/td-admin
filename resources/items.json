@@ -26058,7 +26058,7 @@
   },
   "2181": {
     "name": {
-      "en": "crane",
+      "en": "heron",
       "pt": "garça"
     },
     "id": "2181",
@@ -27138,7 +27138,7 @@
     "id": "2269",
     "name": {
       "en": "raft",
-      "pt": "barca"
+      "pt": "jangada"
     },
     "decks": [
       "alien",

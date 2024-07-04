@@ -1106,7 +1106,13 @@
   "dms-229-pt": {
     "id": "dms-229-pt",
     "title": "Invocação do Mal",
-    "itemsIds": [],
+    "itemsIds": [
+      "1286",
+      "242",
+      "1603",
+      "41",
+      "2065"
+    ],
     "year": 2013
   },
   "dms-23-pt": {
@@ -1380,9 +1386,12 @@
     "year": 2007
   },
   "dms-260-pt": {
-    "id": "dms-260-pt",
     "title": "Meu Passado me Condena",
-    "itemsIds": [],
+    "id": "dms-260-pt",
+    "itemsIds": [
+      "2216",
+      "1242"
+    ],
     "year": 2013
   },
   "dms-261-pt": {
@@ -1394,7 +1403,10 @@
   "dms-262-pt": {
     "id": "dms-262-pt",
     "title": "MIB: Homens de Preto",
-    "itemsIds": [],
+    "itemsIds": [
+      "2059",
+      "730"
+    ],
     "year": 1997
   },
   "dms-263-pt": {
