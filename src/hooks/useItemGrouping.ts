@@ -24,6 +24,9 @@ export function useItemGrouping() {
   const [previousAttribute, setPreviousAttribute] = useState<string>('ali');
   const [previousScope, setPreviousScope] = useState<string>('unset');
 
+  const [sortBy, setSortBy] = useState<string | null>(null);
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
+
   const group = useMemo(() => {
     const itemsAttributes = availableItemIds.map((id) => getItemAttributeValues(id));
     const scopeValue =
@@ -35,10 +38,14 @@ export function useItemGrouping() {
 
     return orderBy(
       filteredItemIds,
-      [(id) => getItemAttributeValues(id)?.updatedAt, (id) => Number(id)],
-      ['desc', 'asc']
+      [
+        (id) => (sortBy ? getItemAttributeValues(id)?.attributes?.[sortBy] : true),
+        (id) => getItemAttributeValues(id)?.updatedAt,
+        (id) => Number(id),
+      ],
+      [sortOrder, 'desc', 'asc']
     );
-  }, [attributeKey, scope]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [attributeKey, scope, sortBy, sortOrder]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const pageIds = useMemo(() => {
     if (previousAttribute !== attributeKey || previousScope !== scope) {
@@ -92,6 +99,12 @@ export function useItemGrouping() {
     attribute,
     updateAttributeValue,
     updatePageItemsAsUnrelated,
+    sorting: {
+      sortBy,
+      setSortBy,
+      sortOrder,
+      setSortOrder,
+    },
     pagination: {
       total: group.length,
       current: Number(page),

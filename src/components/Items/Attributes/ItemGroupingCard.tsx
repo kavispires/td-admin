@@ -1,4 +1,4 @@
-import { Button, Card, Empty, Flex, Pagination, Popconfirm, Typography } from 'antd';
+import { Button, Card, Empty, Flex, Pagination, Popconfirm, Select, Typography } from 'antd';
 import { GoToTopButton } from 'components/Common/GoToTopButton';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemGrouping } from 'hooks/useItemGrouping';
@@ -18,8 +18,9 @@ const getStatSentence = (stats: Record<string, number>, scope: string | null) =>
 };
 
 export function ItemGroupingCard() {
-  const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
-  const { attribute, pageIds, updateAttributeValue, updatePageItemsAsUnrelated, pagination, stats } =
+  const { getItem, getItemAttributeValues, attributesList } = useItemsAttributeValuesContext();
+
+  const { attribute, pageIds, updateAttributeValue, updatePageItemsAsUnrelated, pagination, stats, sorting } =
     useItemGrouping();
   const { searchParams } = useItemQueryParams();
   const isNarrow = useMedia('(max-width: 1024px)');
@@ -44,6 +45,20 @@ export function ItemGroupingCard() {
     />
   );
 
+  const sortingComponent = (
+    <Flex align="center">
+      <Typography.Text className="mr-2">Sort by</Typography.Text>
+      <Select style={{ width: 120 }} value={sorting.sortBy} onChange={(v) => sorting.setSortBy(v)}>
+        <Select.Option value={null}>Last Updated</Select.Option>
+        {attributesList.map((a) => (
+          <Select.Option key={a.id} value={a.id}>
+            {a.name.en}
+          </Select.Option>
+        ))}
+      </Select>
+    </Flex>
+  );
+
   const isUnsetSet = searchParams.get('scope') === 'unset' || !searchParams.get('scope');
   const unrelateButton = isUnsetSet && (
     <Popconfirm
@@ -66,7 +81,13 @@ export function ItemGroupingCard() {
           {attribute.description.en}
         </Typography.Text>
       }
-      extra={paginationComponent}
+      extra={
+        <Flex align="center">
+          {sortingComponent}
+
+          {paginationComponent}
+        </Flex>
+      }
       actions={[unrelateButton, <GoToTopButton key="go-to-top" />, paginationComponent].filter(Boolean)}
     >
       {pageIds.length === 0 && (
