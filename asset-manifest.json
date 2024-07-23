@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tdr/static/css/main.f4ce9e2f.css",
-    "main.js": "/tdr/static/js/main.35f8fed6.js",
+    "main.js": "/tdr/static/js/main.96b3dab0.js",
     "Home.js": "/tdr/static/js/Home.9f49a89c.chunk.js",
     "Resource.js": "/tdr/static/js/Resource.7b462171.chunk.js",
     "ResourceGenerator.js": "/tdr/static/js/ResourceGenerator.4f44672c.chunk.js",
@@ -16,7 +16,7 @@
     "ArteRuimGroups.js": "/tdr/static/js/ArteRuimGroups.64cfc4a6.chunk.js",
     "ImageCardsRelationships.js": "/tdr/static/js/ImageCardsRelationships.0305f389.chunk.js",
     "ImageCardsConnections.js": "/tdr/static/js/ImageCardsConnections.07b8537e.chunk.js",
-    "Items.js": "/tdr/static/js/Items.ca498fca.chunk.js",
+    "Items.js": "/tdr/static/js/Items.1b464bee.chunk.js",
     "ItemsAttribution.js": "/tdr/static/js/ItemsAttribution.f7675d05.chunk.js",
     "ItemsGroups.js": "/tdr/static/js/ItemsGroups.54f35fe4.chunk.js",
     "ItemsDiscSets.js": "/tdr/static/js/ItemsDiscSets.e7a41d43.chunk.js",
@@ -52,11 +52,11 @@
     "static/js/7001.03decc34.chunk.js": "/tdr/static/js/7001.03decc34.chunk.js",
     "static/js/3049.22062b42.chunk.js": "/tdr/static/js/3049.22062b42.chunk.js",
     "static/js/4336.4615dd36.chunk.js": "/tdr/static/js/4336.4615dd36.chunk.js",
-    "static/js/160.58e2c3e9.chunk.js": "/tdr/static/js/160.58e2c3e9.chunk.js",
+    "static/js/160.875e6130.chunk.js": "/tdr/static/js/160.875e6130.chunk.js",
     "static/media/logo.svg": "/tdr/static/media/logo.ca29fdd89f71e5171a2fe40f860099b8.svg",
     "index.html": "/tdr/index.html",
     "main.f4ce9e2f.css.map": "/tdr/static/css/main.f4ce9e2f.css.map",
-    "main.35f8fed6.js.map": "/tdr/static/js/main.35f8fed6.js.map",
+    "main.96b3dab0.js.map": "/tdr/static/js/main.96b3dab0.js.map",
     "Home.9f49a89c.chunk.js.map": "/tdr/static/js/Home.9f49a89c.chunk.js.map",
     "Resource.7b462171.chunk.js.map": "/tdr/static/js/Resource.7b462171.chunk.js.map",
     "ResourceGenerator.4f44672c.chunk.js.map": "/tdr/static/js/ResourceGenerator.4f44672c.chunk.js.map",
@@ -71,7 +71,7 @@
     "ArteRuimGroups.64cfc4a6.chunk.js.map": "/tdr/static/js/ArteRuimGroups.64cfc4a6.chunk.js.map",
     "ImageCardsRelationships.0305f389.chunk.js.map": "/tdr/static/js/ImageCardsRelationships.0305f389.chunk.js.map",
     "ImageCardsConnections.07b8537e.chunk.js.map": "/tdr/static/js/ImageCardsConnections.07b8537e.chunk.js.map",
-    "Items.ca498fca.chunk.js.map": "/tdr/static/js/Items.ca498fca.chunk.js.map",
+    "Items.1b464bee.chunk.js.map": "/tdr/static/js/Items.1b464bee.chunk.js.map",
     "ItemsAttribution.f7675d05.chunk.js.map": "/tdr/static/js/ItemsAttribution.f7675d05.chunk.js.map",
     "ItemsGroups.54f35fe4.chunk.js.map": "/tdr/static/js/ItemsGroups.54f35fe4.chunk.js.map",
     "ItemsDiscSets.e7a41d43.chunk.js.map": "/tdr/static/js/ItemsDiscSets.e7a41d43.chunk.js.map",
@@ -107,10 +107,10 @@
     "7001.03decc34.chunk.js.map": "/tdr/static/js/7001.03decc34.chunk.js.map",
     "3049.22062b42.chunk.js.map": "/tdr/static/js/3049.22062b42.chunk.js.map",
     "4336.4615dd36.chunk.js.map": "/tdr/static/js/4336.4615dd36.chunk.js.map",
-    "160.58e2c3e9.chunk.js.map": "/tdr/static/js/160.58e2c3e9.chunk.js.map"
+    "160.875e6130.chunk.js.map": "/tdr/static/js/160.875e6130.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f4ce9e2f.css",
-    "static/js/main.35f8fed6.js"
+    "static/js/main.96b3dab0.js"
   ]
 }
