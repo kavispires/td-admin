@@ -7788,7 +7788,7 @@
     "id": "626",
     "name": {
       "en": "shower cap",
-      "pt": "toca de banho"
+      "pt": "touca de banho"
     },
     "decks": [
       "alien",
@@ -10571,7 +10571,7 @@
     "id": "856",
     "name": {
       "en": "frog",
-      "pt": "sapo"
+      "pt": "rã"
     },
     "decks": [
       "alien",
@@ -28542,6 +28542,546 @@
     "decks": [
       "alien",
       "evidence",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2388": {
+    "name": {
+      "en": "Daycare",
+      "pt": "Creche"
+    },
+    "id": "2388",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2389": {
+    "id": "2389",
+    "name": {
+      "en": "Water fountain ",
+      "pt": "Bebedouro "
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "manufactured",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2390": {
+    "name": {
+      "en": "Chocolate fountain ",
+      "pt": "Fonte de chocolate "
+    },
+    "id": "2390",
+    "decks": [
+      "alien",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2391": {
+    "id": "2391",
+    "name": {
+      "en": "barcode scanner",
+      "pt": "leitor de código de barras"
+    },
+    "decks": [
+      "alien",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2392": {
+    "id": "2392",
+    "name": {
+      "en": "fog",
+      "pt": "neblina"
+    },
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2393": {
+    "name": {
+      "en": "kibbeh",
+      "pt": "quibe"
+    },
+    "id": "2393",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2394": {
+    "id": "2394",
+    "name": {
+      "en": "dulce de leche",
+      "pt": "doce de leite"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2395": {
+    "name": {
+      "en": "nasal spray",
+      "pt": "spray nasal"
+    },
+    "id": "2395",
+    "decks": [
+      "alien",
+      "manufactured",
+      "thing",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2396": {
+    "id": "2396",
+    "name": {
+      "en": "gaming chair",
+      "pt": "cadeira gamer"
+    },
+    "decks": [
+      "alien",
+      "evidence",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2397": {
+    "name": {
+      "en": "van",
+      "pt": "kombi"
+    },
+    "id": "2397",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2398": {
+    "id": "2398",
+    "name": {
+      "en": "hormones",
+      "pt": "hormônios"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2399": {
+    "name": {
+      "en": "cockatoo",
+      "pt": "cacatua"
+    },
+    "id": "2399",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2400": {
+    "name": {
+      "en": "stork",
+      "pt": "cegonha"
+    },
+    "id": "2400",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2401": {
+    "id": "2401",
+    "name": {
+      "en": "paintball gun",
+      "pt": "arma de paintball"
+    },
+    "decks": [
+      "alien",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2402": {
+    "id": "2402",
+    "name": {
+      "en": "goose",
+      "pt": "ganso"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "evidence"
+    ],
+    "groups": []
+  },
+  "2403": {
+    "id": "2403",
+    "name": {
+      "en": "cacao",
+      "pt": "cacau"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2404": {
+    "id": "2404",
+    "name": {
+      "en": "blood sausage",
+      "pt": "chouriço de sangue"
+    },
+    "decks": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2405": {
+    "id": "2405",
+    "name": {
+      "en": "firestation",
+      "pt": "quartel de bombeiros"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2406": {
+    "id": "2406",
+    "name": {
+      "en": "cancer",
+      "pt": "câncer"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2407": {
+    "name": {
+      "en": "barbarian",
+      "pt": "bárbaro"
+    },
+    "id": "2407",
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2408": {
+    "name": {
+      "en": "toad",
+      "pt": "sapo"
+    },
+    "id": "2408",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2409": {
+    "name": {
+      "en": "zoo",
+      "pt": "zoológico"
+    },
+    "id": "2409",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2410": {
+    "name": {
+      "en": "chandelier",
+      "pt": "candelabro"
+    },
+    "id": "2410",
+    "decks": [
+      "alien",
+      "dream",
+      "weapon"
+    ],
+    "groups": []
+  },
+  "2411": {
+    "id": "2411",
+    "name": {
+      "en": "pine cone",
+      "pt": "pinhão"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2412": {
+    "name": {
+      "en": "arm",
+      "pt": "braço"
+    },
+    "id": "2412",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2413": {
+    "name": {
+      "en": "bellybutton",
+      "pt": "umbigo"
+    },
+    "id": "2413",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": [],
+    "nsfw": true
+  },
+  "2414": {
+    "id": "2414",
+    "name": {
+      "en": "train station",
+      "pt": "estação de trem"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2415": {
+    "id": "2415",
+    "name": {
+      "en": "saint",
+      "pt": "santo"
+    },
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2416": {
+    "name": {
+      "en": "fish market",
+      "pt": "mercado de peixe"
+    },
+    "id": "2416",
+    "decks": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2417": {
+    "name": {
+      "en": "beanie",
+      "pt": "gorro"
+    },
+    "id": "2417",
+    "decks": [
+      "alien",
+      "dream",
+      "manufactured"
+    ],
+    "groups": []
+  },
+  "2418": {
+    "id": "2418",
+    "name": {
+      "en": "souls",
+      "pt": "almas"
+    },
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2419": {
+    "id": "2419",
+    "name": {
+      "en": "arctic station",
+      "pt": "estação ártica"
+    },
+    "decks": [
+      "alien"
+    ],
+    "groups": []
+  },
+  "2420": {
+    "id": "2420",
+    "name": {
+      "en": "gluttony",
+      "pt": "gula"
+    },
+    "decks": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2421": {
+    "name": {
+      "en": "greed",
+      "pt": "avareza"
+    },
+    "id": "2421",
+    "decks": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2422": {
+    "name": {
+      "en": "sloth",
+      "pt": "preguiça"
+    },
+    "id": "2422",
+    "decks": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2423": {
+    "name": {
+      "en": "envy",
+      "pt": "inveja"
+    },
+    "id": "2423",
+    "decks": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2424": {
+    "id": "2424",
+    "name": {
+      "en": "lust",
+      "pt": "luxúria"
+    },
+    "decks": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2425": {
+    "id": "2425",
+    "name": {
+      "en": "pride",
+      "pt": "orgulho"
+    },
+    "decks": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2426": {
+    "id": "2426",
+    "name": {
+      "en": "wrath",
+      "pt": "ira"
+    },
+    "decks": [
+      "symbol"
+    ],
+    "groups": []
+  },
+  "2427": {
+    "name": {
+      "en": "rokurokubi",
+      "pt": "rokurokubi"
+    },
+    "id": "2427",
+    "decks": [
+      "dream"
+    ],
+    "groups": []
+  },
+  "2428": {
+    "id": "2428",
+    "name": {
+      "en": "pink dolphin",
+      "pt": "boto"
+    },
+    "decks": [
+      "alien",
+      "dream",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2429": {
+    "id": "2429",
+    "name": {
+      "en": "eyebrow",
+      "pt": "sobrancelha"
+    },
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2430": {
+    "name": {
+      "en": "stump",
+      "pt": "toco"
+    },
+    "id": "2430",
+    "decks": [
+      "alien",
+      "dream"
+    ],
+    "groups": []
+  },
+  "2431": {
+    "id": "2431",
+    "name": {
+      "en": "quantum physics",
+      "pt": "física quântica"
+    },
+    "decks": [
+      "dream",
+      "thing"
+    ],
+    "groups": []
+  },
+  "2432": {
+    "id": "2432",
+    "name": {
+      "en": "sandpaper",
+      "pt": "lixa"
+    },
+    "decks": [
+      "alien",
+      "dream",
       "manufactured"
     ],
     "groups": []
