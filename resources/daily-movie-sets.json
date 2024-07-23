@@ -62,9 +62,14 @@
     "year": 2014
   },
   "dms-105-pt": {
-    "id": "dms-105-pt",
     "title": "As Loucuras de Dick e Jane",
-    "itemsIds": [],
+    "id": "dms-105-pt",
+    "itemsIds": [
+      "1548",
+      "2030",
+      "2101",
+      "2100"
+    ],
     "year": 2005
   },
   "dms-106-pt": {
@@ -86,9 +91,13 @@
     "year": 2012
   },
   "dms-109-pt": {
-    "id": "dms-109-pt",
     "title": "Atividade Paranormal",
-    "itemsIds": [],
+    "id": "dms-109-pt",
+    "itemsIds": [
+      "276",
+      "442",
+      "196"
+    ],
     "year": 2007
   },
   "dms-11-pt": {
@@ -107,9 +116,13 @@
     "year": 2001
   },
   "dms-111-pt": {
-    "id": "dms-111-pt",
     "title": "Austin Powers: Um Agente Nada Discreto",
-    "itemsIds": [],
+    "id": "dms-111-pt",
+    "itemsIds": [
+      "1971",
+      "55",
+      "9"
+    ],
     "year": 1997
   },
   "dms-112-pt": {
@@ -246,7 +259,11 @@
   "dms-127-pt": {
     "id": "dms-127-pt",
     "title": "Cabra Marcado Para Morrer",
-    "itemsIds": [],
+    "itemsIds": [
+      "1091",
+      "1346",
+      "2168"
+    ],
     "year": 1984
   },
   "dms-128-pt": {
@@ -310,9 +327,12 @@
     "year": 1976
   },
   "dms-136-pt": {
-    "id": "dms-136-pt",
     "title": "Casa Comigo?",
-    "itemsIds": [],
+    "id": "dms-136-pt",
+    "itemsIds": [
+      "118",
+      "1856"
+    ],
     "year": 2010
   },
   "dms-137-pt": {
@@ -322,8 +342,8 @@
     "year": 2004
   },
   "dms-138-pt": {
-    "id": "dms-138-pt",
     "title": "Central do Brasil",
+    "id": "dms-138-pt",
     "itemsIds": [],
     "year": 1998
   },
@@ -405,9 +425,11 @@
     "year": 2003
   },
   "dms-147-pt": {
-    "id": "dms-147-pt",
     "title": "Como Se Fosse a Primeira Vez",
-    "itemsIds": [],
+    "id": "dms-147-pt",
+    "itemsIds": [
+      "1996"
+    ],
     "year": 2004
   },
   "dms-148-pt": {
@@ -440,9 +462,11 @@
     "year": 1995
   },
   "dms-150-pt": {
-    "id": "dms-150-pt",
     "title": "Corra!",
-    "itemsIds": [],
+    "id": "dms-150-pt",
+    "itemsIds": [
+      "2012"
+    ],
     "year": 2017
   },
   "dms-151-pt": {
@@ -457,7 +481,13 @@
   "dms-152-pt": {
     "id": "dms-152-pt",
     "title": "Cruella",
-    "itemsIds": [],
+    "itemsIds": [
+      "148",
+      "2014",
+      "1108",
+      "1989",
+      "527"
+    ],
     "year": 2021
   },
   "dms-153-pt": {
@@ -478,7 +508,11 @@
   "dms-155-pt": {
     "id": "dms-155-pt",
     "title": "De Repente 30",
-    "itemsIds": [],
+    "itemsIds": [
+      "2018",
+      "1993",
+      "2014"
+    ],
     "year": 2004
   },
   "dms-156-pt": {
@@ -496,7 +530,14 @@
   "dms-158-pt": {
     "id": "dms-158-pt",
     "title": "Deu a Louca na Chapeuzinho",
-    "itemsIds": [],
+    "itemsIds": [
+      "2233",
+      "2049",
+      "2018",
+      "1959",
+      "685",
+      "555"
+    ],
     "year": 2005
   },
   "dms-159-pt": {
@@ -661,9 +702,13 @@
     "year": 2010
   },
   "dms-179-pt": {
-    "id": "dms-179-pt",
     "title": "Enquanto Você Dormia",
-    "itemsIds": [],
+    "id": "dms-179-pt",
+    "itemsIds": [
+      "442",
+      "1333",
+      "1996"
+    ],
     "year": 1995
   },
   "dms-18-pt": {
@@ -883,9 +928,15 @@
     "year": 2013
   },
   "dms-203-pt": {
-    "id": "dms-203-pt",
     "title": "Guardiões da Galáxia",
-    "itemsIds": [],
+    "id": "dms-203-pt",
+    "itemsIds": [
+      "75",
+      "1058",
+      "1700",
+      "1523",
+      "942"
+    ],
     "year": 2014
   },
   "dms-204-pt": {
@@ -1074,9 +1125,13 @@
     "year": 2015
   },
   "dms-225-pt": {
-    "id": "dms-225-pt",
     "title": "Homem-Formiga e a Vespa",
-    "itemsIds": [],
+    "id": "dms-225-pt",
+    "itemsIds": [
+      "1748",
+      "2286",
+      "526"
+    ],
     "year": 2018
   },
   "dms-226-pt": {
@@ -1100,7 +1155,10 @@
   "dms-228-pt": {
     "id": "dms-228-pt",
     "title": "Interestelar",
-    "itemsIds": [],
+    "itemsIds": [
+      "1279",
+      "1060"
+    ],
     "year": 2014
   },
   "dms-229-pt": {
@@ -1244,7 +1302,14 @@
   "dms-242-pt": {
     "id": "dms-242-pt",
     "title": "Lilo & Stitch",
-    "itemsIds": [],
+    "itemsIds": [
+      "753",
+      "1793",
+      "1053",
+      "2053",
+      "1068",
+      "1601"
+    ],
     "year": 2002
   },
   "dms-243-pt": {
@@ -1397,7 +1462,10 @@
   "dms-261-pt": {
     "id": "dms-261-pt",
     "title": "Meu Primeiro Amor",
-    "itemsIds": [],
+    "itemsIds": [
+      "1974",
+      "1988"
+    ],
     "year": 1991
   },
   "dms-262-pt": {
@@ -1581,7 +1649,11 @@
   "dms-282-pt": {
     "id": "dms-282-pt",
     "title": "O Auto da Compadecida",
-    "itemsIds": [],
+    "itemsIds": [
+      "2188",
+      "1515",
+      "1527"
+    ],
     "year": 2000
   },
   "dms-283-pt": {
@@ -1696,7 +1768,10 @@
   "dms-295-pt": {
     "id": "dms-295-pt",
     "title": "O Castelo Animado",
-    "itemsIds": [],
+    "itemsIds": [
+      "182",
+      "764"
+    ],
     "year": 2004
   },
   "dms-296-pt": {
@@ -1796,9 +1871,12 @@
     "year": 2001
   },
   "dms-307-pt": {
-    "id": "dms-307-pt",
     "title": "O Diário de Bridget Jones",
-    "itemsIds": [],
+    "id": "dms-307-pt",
+    "itemsIds": [
+      "2100",
+      "1144"
+    ],
     "year": 2001
   },
   "dms-308-pt": {
@@ -1936,15 +2014,20 @@
     "year": 1988
   },
   "dms-321-pt": {
-    "id": "dms-321-pt",
     "title": "O Grande Hotel Budapeste",
-    "itemsIds": [],
+    "id": "dms-321-pt",
+    "itemsIds": [
+      "2089",
+      "2075"
+    ],
     "year": 2014
   },
   "dms-322-pt": {
-    "id": "dms-322-pt",
     "title": "O Grande Truque",
-    "itemsIds": [],
+    "id": "dms-322-pt",
+    "itemsIds": [
+      "1370"
+    ],
     "year": 2006
   },
   "dms-323-pt": {
@@ -2102,8 +2185,13 @@
   },
   "dms-342-pt": {
     "id": "dms-342-pt",
-    "title": "O Máskara",
-    "itemsIds": [],
+    "title": "O Máscara",
+    "itemsIds": [
+      "840",
+      "2051",
+      "430",
+      "2052"
+    ],
     "year": 1994
   },
   "dms-343-pt": {
@@ -2186,7 +2274,11 @@
   "dms-352-pt": {
     "id": "dms-352-pt",
     "title": "O Passageiro do Futuro",
-    "itemsIds": [],
+    "itemsIds": [
+      "485",
+      "2101",
+      "2217"
+    ],
     "year": 2004
   },
   "dms-353-pt": {
@@ -2409,7 +2501,12 @@
   "dms-379-pt": {
     "id": "dms-379-pt",
     "title": "O Terminal",
-    "itemsIds": [],
+    "itemsIds": [
+      "1596",
+      "2101",
+      "219",
+      "2168"
+    ],
     "year": 2004
   },
   "dms-38-pt": {
@@ -2447,14 +2544,22 @@
   "dms-384-pt": {
     "id": "dms-384-pt",
     "title": "Operação Cupido",
-    "itemsIds": [],
+    "itemsIds": [
+      "1787",
+      "1988",
+      "1037",
+      "2214"
+    ],
     "year": 1998
   },
   "dms-385-pt": {
     "id": "dms-385-pt",
-    "title": "Os 3",
-    "itemsIds": [],
-    "year": 2011
+    "title": "Guerra Civil",
+    "itemsIds": [
+      "489",
+      "368"
+    ],
+    "year": 2024
   },
   "dms-386-pt": {
     "id": "dms-386-pt",
@@ -2483,7 +2588,11 @@
   "dms-39-pt": {
     "id": "dms-39-pt",
     "title": "A Centopéia Humana",
-    "itemsIds": [],
+    "itemsIds": [
+      "1902",
+      "224",
+      "1624"
+    ],
     "year": 2009
   },
   "dms-390-pt": {
@@ -2574,9 +2683,11 @@
     "year": 2016
   },
   "dms-400-pt": {
-    "id": "dms-400-pt",
     "title": "Pânico",
-    "itemsIds": [],
+    "id": "dms-400-pt",
+    "itemsIds": [
+      "658"
+    ],
     "year": 1996
   },
   "dms-401-pt": {
@@ -2608,9 +2719,11 @@
     "year": 2019
   },
   "dms-404-pt": {
-    "id": "dms-404-pt",
     "title": "Pegar e Largar",
-    "itemsIds": [],
+    "id": "dms-404-pt",
+    "itemsIds": [
+      "530"
+    ],
     "year": 2006
   },
   "dms-405-pt": {
@@ -2680,7 +2793,12 @@
   "dms-411-pt": {
     "id": "dms-411-pt",
     "title": "Pocahontas",
-    "itemsIds": [],
+    "itemsIds": [
+      "2016",
+      "237",
+      "942",
+      "1599"
+    ],
     "year": 1995
   },
   "dms-412-pt": {
@@ -2715,9 +2833,13 @@
     "year": 2015
   },
   "dms-416-pt": {
-    "id": "dms-416-pt",
     "title": "Quem Quer Ser um Milionário?",
-    "itemsIds": [],
+    "id": "dms-416-pt",
+    "itemsIds": [
+      "112",
+      "1548",
+      "1856"
+    ],
     "year": 2008
   },
   "dms-417-pt": {
@@ -2758,21 +2880,29 @@
     "year": 2007
   },
   "dms-421-pt": {
-    "id": "dms-421-pt",
     "title": "Raya e o Último Dragão",
-    "itemsIds": [],
+    "id": "dms-421-pt",
+    "itemsIds": [
+      "1041",
+      "2236"
+    ],
     "year": 2021
   },
   "dms-422-pt": {
     "id": "dms-422-pt",
     "title": "Rindo à Toa",
-    "itemsIds": [],
+    "itemsIds": [
+      "2277"
+    ],
     "year": 2009
   },
   "dms-423-pt": {
     "id": "dms-423-pt",
     "title": "Sai de Baixo - O Filme",
-    "itemsIds": [],
+    "itemsIds": [
+      "1994",
+      "463"
+    ],
     "year": 2020
   },
   "dms-424-pt": {
@@ -2807,7 +2937,10 @@
   "dms-428-pt": {
     "id": "dms-428-pt",
     "title": "Sexta-Feira 13",
-    "itemsIds": [],
+    "itemsIds": [
+      "287",
+      "2028"
+    ],
     "year": 1980
   },
   "dms-429-pt": {
@@ -2822,7 +2955,11 @@
   "dms-43-pt": {
     "id": "dms-43-pt",
     "title": "A Dama de Vermelho",
-    "itemsIds": [],
+    "itemsIds": [
+      "1833",
+      "2049",
+      "2100"
+    ],
     "year": 1984
   },
   "dms-430-pt": {
@@ -2850,9 +2987,13 @@
     "year": 1995
   },
   "dms-433-pt": {
-    "id": "dms-433-pt",
     "title": "Shrek",
-    "itemsIds": [],
+    "id": "dms-433-pt",
+    "itemsIds": [
+      "1329",
+      "1385",
+      "1829"
+    ],
     "year": 2001
   },
   "dms-434-pt": {
@@ -2873,7 +3014,12 @@
   "dms-436-pt": {
     "id": "dms-436-pt",
     "title": "Sing: Quem Canta Seus Males Espanta",
-    "itemsIds": [],
+    "itemsIds": [
+      "143",
+      "1247",
+      "1285",
+      "5"
+    ],
     "year": 2016
   },
   "dms-437-pt": {
@@ -2888,7 +3034,10 @@
   "dms-438-pt": {
     "id": "dms-438-pt",
     "title": "Sob o Sol da Toscana",
-    "itemsIds": [],
+    "itemsIds": [
+      "1054",
+      "2078"
+    ],
     "year": 2003
   },
   "dms-439-pt": {
@@ -2908,7 +3057,7 @@
   },
   "dms-440-pt": {
     "id": "dms-440-pt",
-    "title": "Soul",
+    "title": "Soul - Uma Aventura com Alma",
     "itemsIds": [],
     "year": 2020
   },
@@ -2927,7 +3076,10 @@
   "dms-443-pt": {
     "id": "dms-443-pt",
     "title": "Spotlight: Segredos Revelados",
-    "itemsIds": [],
+    "itemsIds": [
+      "1271",
+      "1707"
+    ],
     "year": 2015
   },
   "dms-444-pt": {
@@ -2976,9 +3128,12 @@
     "year": 2009
   },
   "dms-449-pt": {
-    "id": "dms-449-pt",
     "title": "Tá Dando Onda",
-    "itemsIds": [],
+    "id": "dms-449-pt",
+    "itemsIds": [
+      "1601",
+      "583"
+    ],
     "year": 2007
   },
   "dms-45-pt": {
@@ -3052,9 +3207,14 @@
     "year": 1997
   },
   "dms-458-pt": {
-    "id": "dms-458-pt",
     "title": "Tô Ryca!",
-    "itemsIds": [],
+    "id": "dms-458-pt",
+    "itemsIds": [
+      "112",
+      "120",
+      "809",
+      "2016"
+    ],
     "year": 2016
   },
   "dms-459-pt": {
@@ -3095,9 +3255,14 @@
     "year": 2017
   },
   "dms-462-pt": {
-    "id": "dms-462-pt",
     "title": "Três Solteirões e um Bebê",
-    "itemsIds": [],
+    "id": "dms-462-pt",
+    "itemsIds": [
+      "2101",
+      "2235",
+      "2237",
+      "59"
+    ],
     "year": 1990
   },
   "dms-463-pt": {
@@ -3187,7 +3352,8 @@
     "id": "dms-473-pt",
     "itemsIds": [
       "505",
-      "1621"
+      "1621",
+      "1111"
     ],
     "year": 1997
   },
@@ -3202,15 +3368,21 @@
     "year": 1988
   },
   "dms-475-pt": {
-    "id": "dms-475-pt",
     "title": "Um Sonho Possível",
-    "itemsIds": [],
+    "id": "dms-475-pt",
+    "itemsIds": [
+      "1333",
+      "1802"
+    ],
     "year": 2009
   },
   "dms-476-pt": {
-    "id": "dms-476-pt",
     "title": "Um Tira no Jardim de Infância",
-    "itemsIds": [],
+    "id": "dms-476-pt",
+    "itemsIds": [
+      "2196",
+      "535"
+    ],
     "year": 1990
   },
   "dms-477-pt": {
@@ -3396,9 +3568,12 @@
     "year": 2015
   },
   "dms-52-pt": {
-    "id": "dms-52-pt",
     "title": "A Grande Família - O Filme",
-    "itemsIds": [],
+    "id": "dms-52-pt",
+    "itemsIds": [
+      "1511",
+      "2075"
+    ],
     "year": 2007
   },
   "dms-53-pt": {
@@ -3507,7 +3682,10 @@
   "dms-65-pt": {
     "id": "dms-65-pt",
     "title": "A Noite dos Mortos-Vivos",
-    "itemsIds": [],
+    "itemsIds": [
+      "1100",
+      "2067"
+    ],
     "year": 1968
   },
   "dms-66-pt": {
