@@ -5,7 +5,7 @@ import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { ItemGroup } from 'types';
-import { sortJsonKeys } from 'utils';
+import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
 
 import { ClusterOutlined, TableOutlined } from '@ant-design/icons';
 import { SaveButton } from 'components/Common/SaveButton';
@@ -73,6 +73,8 @@ function prepareObjectToSave(groups: Dictionary<ItemGroup>) {
 }
 
 function prepareFileForDownload(groups: Dictionary<ItemGroup>) {
-  // TODO
+  Object.keys(groups).forEach((key) => {
+    groups[key].itemsIds = sortItemsIds(removeDuplicates(groups[key].itemsIds));
+  });
   return sortJsonKeys(prepareObjectToSave(groups));
 }

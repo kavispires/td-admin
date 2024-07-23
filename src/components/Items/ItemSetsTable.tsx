@@ -4,7 +4,7 @@ import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useTDResource } from 'hooks/useTDResource';
 import { fromPairs, isEqual, orderBy, range, sampleSize } from 'lodash';
 import { DailyDiscSet } from 'types';
-import { removeDuplicates } from 'utils';
+import { removeDuplicates, sortItemsIds } from 'utils';
 import { LETTERS } from 'utils/constants';
 
 import type { TableProps } from 'antd';
@@ -40,7 +40,7 @@ export function ItemsSetsTable() {
       key: 'itemsIds',
       render: (itemsIds: string[], record) => (
         <Flex gap={6} wrap="wrap" key={`items-${record.title.en}`}>
-          {itemsIds.map((itemId) => (
+          {sortItemsIds(itemsIds).map((itemId) => (
             <Flex key={`${record.title.en}-${itemId}`} gap={2} vertical>
               <Item id={itemId} width={60} />
               <Flex justify="center">

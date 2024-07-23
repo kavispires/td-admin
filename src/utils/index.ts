@@ -312,3 +312,7 @@ export const filterMessage = (message: string[], showUnclear: boolean, showUnrel
     return true;
   });
 };
+
+export const sortItemsIds = (itemsIds: string[]) => {
+  return orderBy(itemsIds, (id) => Number(id));
+};
