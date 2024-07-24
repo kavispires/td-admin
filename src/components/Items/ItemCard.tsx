@@ -67,20 +67,51 @@ export function ItemCard({ item, editMode = false, simplified }: ItemCardProps) 
         />
         {!simplified && (
           <>
-            <div>
-              <Select
-                mode="multiple"
-                style={{ width: '100%' }}
-                placeholder="Select a deck"
-                defaultValue={item.decks}
-                disabled={!isEditing}
-                options={decks}
-                variant={isEditing ? 'outlined' : 'borderless'}
-                size="small"
-                key={String(item.decks)}
-                onChange={(value) => onEdit({ decks: value.sort() })}
-              />
-            </div>
+            {!is('simplified') && (
+              <>
+                <div>
+                  <Select
+                    mode="multiple"
+                    style={{ width: '100%' }}
+                    placeholder="Select a deck"
+                    defaultValue={item.decks}
+                    disabled={!isEditing}
+                    options={decks}
+                    variant={isEditing ? 'outlined' : 'borderless'}
+                    size="small"
+                    key={String(item.decks)}
+                    onChange={(value) => onEdit({ decks: value.sort() })}
+                  />
+                </div>
+
+                <Flex gap={6}>
+                  <LanguageFlag language="en" width="1em" />
+                  <Select
+                    mode="tags"
+                    style={{ width: '100%' }}
+                    placeholder="Other names EN"
+                    defaultValue={item.aliasesEn}
+                    options={[]}
+                    size="small"
+                    onChange={(aliasesEn) => onEdit({ aliasesEn: aliasesEn.sort() })}
+                  />
+                </Flex>
+
+                <Flex gap={6}>
+                  <LanguageFlag language="pt" width="1em" />
+                  <Select
+                    mode="tags"
+                    style={{ width: '100%' }}
+                    placeholder="Other names PT"
+                    defaultValue={item.aliasesPt}
+                    options={[]}
+                    size="small"
+                    onChange={(aliasesPt) => onEdit({ aliasesPt: aliasesPt.sort() })}
+                  />
+                </Flex>
+              </>
+            )}
+
             {is('showVerifyThing') && (
               <div>
                 <VerifyIfThing item={item} />

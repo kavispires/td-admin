@@ -14,17 +14,23 @@ export function ItemListing() {
 
   const { page, pagination } = useGridPagination({ data: listing, resetter: listingType });
 
+  const { is } = useQueryParams();
+  const isSimplified = is('simplified');
+  const colProps = isSimplified
+    ? { xs: 24, sm: 12, md: 8, lg: 4, xl: 3 }
+    : { xs: 24, sm: 24, md: 12, lg: 6, xl: 4 };
+
   return (
     <>
       <Typography.Title level={2}>
         Listing - {capitalize(listingType)} items ({listing.length})
       </Typography.Title>
 
-      <PaginationWrapper pagination={pagination}>
+      <PaginationWrapper pagination={pagination} className="full-width">
         <Row gutter={[16, 16]} className="my-4">
           {page.map((item) => (
-            <Col key={item.id} xs={24} sm={24} md={12} lg={6} xl={4}>
-              <ItemCard item={item} />
+            <Col key={item.id} {...colProps}>
+              <ItemCard item={item} simplified={isSimplified} />
             </Col>
           ))}
         </Row>

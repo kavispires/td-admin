@@ -2,7 +2,7 @@ import { Card, Select, Space, Typography } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { Item as ItemT } from 'types';
 
-import { ItemName, ItemNsfw, ItemSprite } from './ItemBuildingBlocks';
+import { ItemName, ItemNsfw, ItemSprite } from '../ItemBuildingBlocks';
 
 type ItemGroupsCardProps = {
   item: ItemT;

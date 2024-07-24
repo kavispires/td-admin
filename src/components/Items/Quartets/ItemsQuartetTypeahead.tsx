@@ -1,60 +1,36 @@
 import { AutoComplete, AutoCompleteProps, Input } from 'antd';
-import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useDebounce } from 'react-use';
-import { Item } from 'types';
+import { DailyQuartetSet } from 'types';
 
-type ItemsTypeaheadProps = {
-  items?: Dictionary<Item>;
+type ItemsQuartetTypeaheadProps = {
+  quartets?: Dictionary<DailyQuartetSet>;
   isPending?: boolean;
-  onFinish: (id: string) => void;
+  onFinish: (id: string | null) => void;
 } & Omit<AutoCompleteProps, 'options'>;
 
-export function ItemsTypeahead({
-  items,
+export function ItemsQuartetTypeahead({
+  quartets,
   isPending,
-  style,
-  size,
-  placeholder,
-  allowClear,
   onFinish,
+  style,
   ...rest
-}: ItemsTypeaheadProps) {
-  const tdrItemsQuery = useTDResource<Item>('items', !Boolean(items) && !isPending);
+}: ItemsQuartetTypeaheadProps) {
+  const { titlesDict, options } = useMemo(() => {
+    console.log('Recomputing quartets tiles typeahead...');
 
-  const { namesDict, options } = useMemo(() => {
-    console.log('Recomputing item names typeahead...');
+    const titlesDict = Object.values(quartets ?? {}).reduce((acc: Record<string, string>, quartet) => {
+      acc[quartet.title] = quartet.id;
+      return acc;
+    }, {});
 
-    const namesDict = Object.values(items ?? tdrItemsQuery.data ?? {}).reduce(
-      (acc: Dictionary<string>, entry) => {
-        const nameEn = `${entry.name.en} (${entry.id})`;
-        const namePt = `${entry.name.pt} (${entry.id})`;
-        acc[nameEn] = entry.id;
-        acc[namePt] = entry.id;
-        // Other names
-        if (entry.aliasesEn) {
-          entry.aliasesEn.forEach((alias) => {
-            acc[`${alias} (${entry.id})*`] = entry.id;
-          });
-        }
-        if (entry.aliasesPt) {
-          entry.aliasesPt.forEach((alias) => {
-            acc[`${alias} (${entry.id})*`] = entry.id;
-          });
-        }
-
-        return acc;
-      },
-      {}
-    );
-
-    const options = orderBy(Object.keys(namesDict), [(name) => name.toLowerCase()]).map((name) => ({
+    const options = orderBy(Object.keys(titlesDict), [(title) => title.toLowerCase()]).map((name) => ({
       value: name,
     }));
 
-    return { namesDict, options };
-  }, [items, isPending]); // eslint-disable-line react-hooks/exhaustive-deps
+    return { titlesDict, options };
+  }, [quartets, isPending]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const [filteredOptions, setFilteredOptions] = useState<{ value: string }[]>([]);
   const [typedText, setTypedText] = useState('');
@@ -63,9 +39,11 @@ export function ItemsTypeahead({
     () => {
       if (typedText) {
         handleSearch(typedText);
+      } else {
+        onFinish(null);
       }
     },
-    500,
+    350,
     [typedText]
   );
 
@@ -112,15 +90,16 @@ export function ItemsTypeahead({
   const handlePressEnter = () => {
     if (filteredOptions.length > 0) {
       const key = filteredOptions[0].value;
-      if (namesDict[key] !== undefined) {
-        onFinish(namesDict[key]);
+      if (titlesDict[key] !== undefined) {
+        onFinish(titlesDict[key]);
       }
     }
   };
 
   const onSelect = (key: any) => {
-    if (namesDict[key] !== undefined) {
-      onFinish(namesDict[key]);
+    console.log('onSelect', key);
+    if (titlesDict[key] !== undefined) {
+      onFinish(titlesDict[key]);
     }
   };
 
@@ -128,15 +107,15 @@ export function ItemsTypeahead({
     <AutoComplete
       options={filteredOptions}
       style={{ width: 250, ...style }}
-      allowClear={allowClear ?? true}
-      placeholder={placeholder ?? 'Search by name or id...'}
+      allowClear
+      placeholder={'Search quartet by title...'}
       filterOption={(inputValue, option) =>
         String(option?.value ?? '')
           .toUpperCase()
           .indexOf(inputValue?.toUpperCase()) !== -1
       }
       onSearch={setTypedText}
-      notFoundContent={typedText.length > 0 ? 'No items found' : 'Type to search...'}
+      notFoundContent={typedText.length > 0 ? 'No quartets found' : 'Type to search...'}
       onSelect={onSelect}
       {...rest}
     >

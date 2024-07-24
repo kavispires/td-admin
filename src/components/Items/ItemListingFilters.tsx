@@ -1,4 +1,4 @@
-import { Divider, Flex } from 'antd';
+import { Divider, Flex, Typography } from 'antd';
 import { FilterSelect, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
@@ -44,26 +44,48 @@ export function ItemListingFilters() {
           block
         />
       </Flex>
-      <Divider />
+      <Divider className="my-4" />
+
+      <Typography.Text type="secondary">Tools</Typography.Text>
 
       <FilterSwitch
         label="Show Search"
         value={!is('hideSearch')}
         onChange={(v) => addParam('hideSearch', v ? '' : 'true', '')}
+        className="full-width m-0"
       />
 
       <FilterSwitch
         label="Show Randomizer"
         value={is('showRandomizer')}
         onChange={(v) => addParam('showRandomizer', v ? 'true' : '', '')}
+        className="full-width m-0"
       />
 
+      <Typography.Text type="secondary">Display</Typography.Text>
+
       <FilterSwitch
-        label="Verify Thing"
+        label="Simplified UI"
+        value={is('simplified')}
+        onChange={(v) => addParam('simplified', v ? 'true' : '')}
+        className="full-width m-0"
+      />
+      <FilterSwitch
+        label="Thing Verifier"
         value={is('showVerifyThing')}
         onChange={(v) => addParam('showVerifyThing', v ? 'true' : '')}
         className="full-width m-0"
+        disabled={is('simplified')}
       />
+      <FilterSwitch
+        label="Other Names"
+        value={is('showOtherNames')}
+        onChange={(v) => addParam('showOtherNames', v ? 'true' : '')}
+        className="full-width m-0"
+        disabled
+      />
+
+      <Divider className="my-4" />
 
       <FilterSelect
         label="Deck"
@@ -78,7 +100,7 @@ export function ItemListingFilters() {
         ]}
       />
 
-      <Divider />
+      <Divider className="my-4" />
 
       <AddNewItem />
     </SiderContent>

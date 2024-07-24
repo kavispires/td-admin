@@ -1,8 +1,8 @@
 import { Layout, Space } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemsMoviesFilters } from 'components/Items/ItemsMoviesFilters';
-import { ItemsMoviesSample } from 'components/Items/ItemsMoviesSample';
-import { ItemsMoviesTable } from 'components/Items/ItemsMoviesTable';
+import { ItemsMoviesFilters } from 'components/Items/Movies/ItemsMoviesFilters';
+import { ItemsMoviesSample } from 'components/Items/Movies/ItemsMoviesSample';
+import { ItemsMoviesTable } from 'components/Items/Movies/ItemsMoviesTable';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';

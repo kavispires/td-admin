@@ -648,6 +648,14 @@ export type Item = {
    * Flag indicating if it's nsfw
    */
   nsfw?: boolean;
+  /**
+   * Other names for the item in English
+   */
+  aliasesEn?: string[];
+  /**
+   * Other names for the item in Portuguese
+   */
+  aliasesPt?: string[];
 };
 
 /**
@@ -785,6 +793,10 @@ export type DailyQuartetSet = {
    * The level of difficulty of the set
    */
   level: number;
+  /**
+   * The type of quartet (visual, word, general, meaning)
+   */
+  type?: string;
 };
 
 type MovieGender = {

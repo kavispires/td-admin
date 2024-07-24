@@ -14,7 +14,7 @@ import { removeDuplicates } from 'utils';
 import { ItemGroupsCard } from './ItemGroupsCard';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { TransparentButton } from 'components/Common';
-import { ItemsTypeahead } from './ItemsTypeahead';
+import { ItemsTypeahead } from '../ItemsTypeahead';
 
 export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { is, queryParams } = useQueryParams();

@@ -1,7 +1,8 @@
-import { Layout } from 'antd';
+import { Flex, Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemsQuartetsFilters } from 'components/Items/ItemsQuartetsFilters';
-import { ItemsQuartetsTable } from 'components/Items/ItemsQuartetsTable';
+import { ItemsQuartetsContent } from 'components/Items/Quartets/ItemsQuartetsContent';
+import { ItemsQuartetSearch } from 'components/Items/Quartets/ItemsQuartetSearch';
+import { ItemsQuartetsFilters } from 'components/Items/Quartets/ItemsQuartetsFilters';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
@@ -27,7 +28,10 @@ export function ItemsQuartets() {
             error={quartetsData.error}
             hasResponseData={!isEmpty(quartetsData.data)}
           >
-            <ItemsQuartetsTable {...quartetsData} />
+            <Flex vertical gap={24}>
+              <ItemsQuartetSearch {...quartetsData} />
+              <ItemsQuartetsContent {...quartetsData} />
+            </Flex>
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>

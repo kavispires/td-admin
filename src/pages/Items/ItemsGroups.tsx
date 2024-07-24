@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemsGroupsContent } from 'components/Items/ItemsGroupsContent';
-import { ItemsGroupsFilters } from 'components/Items/ItemsGroupsFilters';
+import { ItemsGroupsContent } from 'components/Items/Groups/ItemsGroupsContent';
+import { ItemsGroupsFilters } from 'components/Items/Groups/ItemsGroupsFilters';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
