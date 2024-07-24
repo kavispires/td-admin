@@ -76,11 +76,17 @@
     ]
   },
   "6": {
-    "id": "6",
     "name": {
       "en": "letter",
       "pt": "carta"
     },
+    "id": "6",
+    "aliasesEn": [
+      "envelope"
+    ],
+    "aliasesPt": [
+      "envelope"
+    ],
     "decks": [
       "alien",
       "evidence",
@@ -146,6 +152,12 @@
       "en": "book",
       "pt": "livro"
     },
+    "aliasesEn": [
+      "pages"
+    ],
+    "aliasesPt": [
+      "páginas"
+    ],
     "decks": [
       "alien",
       "dream",
@@ -504,6 +516,12 @@
       "en": "fire",
       "pt": "fogo"
     },
+    "aliasesEn": [
+      "flame"
+    ],
+    "aliasesPt": [
+      "chama"
+    ],
     "decks": [
       "alien",
       "dream",
@@ -20957,7 +20975,7 @@
     "id": "1739",
     "name": {
       "en": "garlic",
-      "pt": "galho"
+      "pt": "alho"
     },
     "decks": [
       "alien",
@@ -25639,11 +25657,11 @@
     "groups": []
   },
   "2146": {
-    "id": "2146",
     "name": {
       "en": "bycoket",
       "pt": "chapéu de arqueiro"
     },
+    "id": "2146",
     "decks": [
       "alien",
       "evidence"
@@ -28431,7 +28449,7 @@
   "2378": {
     "name": {
       "en": "dreidel",
-      "pt": "pião de Hanukkah"
+      "pt": "dreidel"
     },
     "id": "2378",
     "decks": [
