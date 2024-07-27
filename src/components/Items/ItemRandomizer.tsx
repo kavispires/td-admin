@@ -4,7 +4,7 @@ import { Item as ItemT } from 'types';
 
 import { ItemCard } from './ItemCard';
 import { useItemsContext } from 'context/ItemsContext';
-import { chunk, random, sampleSize } from 'lodash';
+import { chunk, sampleSize } from 'lodash';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { CopyOutlined } from '@ant-design/icons';
 
@@ -46,7 +46,7 @@ export function ItemRandomizer() {
   };
 
   const onGenerateMidjourneySample = () => {
-    const str = chunk(sampleSize(listing, random(4, 6) * 6), 6)
+    const str = chunk(sampleSize(listing, 3 * 6), 3)
       .map((entries) => entries.map((entry) => entry.name.en).join(', '))
       .map((entry, index) => `${index + 1}) ${entry}`)
       .join('\n');
