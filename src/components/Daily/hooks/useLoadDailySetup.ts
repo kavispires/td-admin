@@ -8,12 +8,13 @@ import { LANGUAGE_PREFIX } from '../utils/constants';
 import {
   DailyAquiOEntry,
   DailyArtistaEntry,
+  DailyControleDeEstoqueEntry,
   DailyEntry,
   DailyFilmacoEntry,
   DailyPalavreadoEntry,
   DataDrawing,
 } from '../utils/types';
-import { generatePalavreadoGame, getNextDay } from '../utils/utils';
+import { generateControleDeEstoqueGame, generatePalavreadoGame, getNextDay } from '../utils/utils';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 import { useLoadDrawings } from './useLoadDrawings';
 import { useParsedHistory } from './useParsedHistory';
@@ -43,6 +44,7 @@ export function useLoadDailySetup(
   // STEP 1: HISTORY
   const source = LANGUAGE_PREFIX.DAILY[queryLanguage ?? 'pt'];
   const historyQuery = useDailyHistoryQuery(source, { enabled });
+  console.log('historyQuery', historyQuery.data);
 
   // STEP 2: ARTE RUIM
   const drawingsQuery = useLoadDrawings(enabled, queryLanguage ?? 'pt');
@@ -265,6 +267,28 @@ export function useLoadDailySetup(
     return entries;
   }, [movieSetsQuery, filmacoHistory, batchSize, historyQuery.isSuccess]);
 
+  const [controleDeEstoqueHistory] = useParsedHistory('controle-de-estoque', historyQuery.data);
+  // SET 7: Controle de Estoque
+  const controleDeEstoqueEntries = useMemo(() => {
+    if (!historyQuery.isSuccess) {
+      return {};
+    }
+
+    console.count('Creating Controle de Estoque...');
+
+    let lastDate = controleDeEstoqueHistory.latestDate;
+
+    // Get list, if not enough, get from complete
+    const entries: Dictionary<DailyControleDeEstoqueEntry> = {};
+    for (let i = 0; i < batchSize; i++) {
+      const id = getNextDay(lastDate);
+      lastDate = id;
+
+      entries[id] = generateControleDeEstoqueGame(id, controleDeEstoqueHistory.latestNumber + i + 1);
+    }
+    return entries;
+  }, [batchSize, historyQuery.isSuccess, controleDeEstoqueHistory]);
+
   // STEP N: Create entries
   const entries = useMemo(() => {
     console.count('Bundling entries...');
@@ -276,9 +300,17 @@ export function useLoadDailySetup(
         palavreado: palavreadoEntries[arteRuim.id],
         artista: artistaEntries[arteRuim.id],
         filmaco: filmacoEntries[arteRuim.id],
+        'controle-de-estoque': controleDeEstoqueEntries[arteRuim.id],
       };
     });
-  }, [arteRuimEntries, aquiOEntries, palavreadoEntries, artistaEntries, filmacoEntries]);
+  }, [
+    arteRuimEntries,
+    aquiOEntries,
+    palavreadoEntries,
+    artistaEntries,
+    filmacoEntries,
+    controleDeEstoqueEntries,
+  ]);
 
   return {
     isLoading:

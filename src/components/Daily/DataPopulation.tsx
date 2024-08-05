@@ -1,13 +1,11 @@
-// Ant Design Resources
-import { TableColumnsType, Table, Button, Flex, Space } from 'antd';
-// Components
+import { Button, Flex, Space, Table, TableColumnsType } from 'antd';
+import { CanvasSVG } from 'components/Daily/CanvasSVG';
+import { Item } from 'components/Sprites';
+import { WarehouseGood } from 'components/Sprites/WarehouseGood';
+import { ArteRuimCard } from 'types';
 
 import { UseLoadDailySetup, useSaveDailySetup } from './hooks';
-
 import { DailyEntry } from './utils/types';
-import { CanvasSVG } from 'components/Daily/CanvasSVG';
-import { ArteRuimCard } from 'types';
-import { Item } from 'components/Sprites';
 
 type DataPopulationProps = {
   language: string;
@@ -43,7 +41,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
                 .join('')}
               "
             </div>
-            <Space>
+            <Space wrap>
               {drawings.map((d: string) => (
                 <CanvasSVG key={d} drawing={d} width={75} height={75} className="canvas" />
               ))}
@@ -62,7 +60,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
             <span>#{number}</span>
             <span>SetId: {setId}</span>
             <span>Title: {title[language]}</span>
-            <Flex gap={6}>
+            <Flex gap={6} wrap>
               <Item id={itemsIds[1]} width={50} />
               <Item id={itemsIds[5]} width={50} />
               <Item id={itemsIds[10]} width={50} />
@@ -112,6 +110,24 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
                 .map((l: string, i: number) => (i < 1 || l === ' ' ? l : '⏹'))
                 .join('')}
             </span>
+          </Space>
+        );
+      },
+    },
+    {
+      title: 'Controle de Estoque',
+      dataIndex: 'controle-de-estoque',
+      key: 'controle-de-estoque',
+      render: ({ number, title, goods }) => {
+        return (
+          <Space direction="vertical">
+            <span>#{number}</span>
+            <span>Title: {title}</span>
+            <Flex gap={6} wrap>
+              <WarehouseGood id={goods[0]} width={50} />
+              <WarehouseGood id={goods[1]} width={50} />
+              <WarehouseGood id={goods[2]} width={50} />
+            </Flex>
           </Space>
         );
       },

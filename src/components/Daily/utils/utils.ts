@@ -1,5 +1,6 @@
-import { difference, flatMap, intersection, sample, shuffle, sortBy, uniq } from 'lodash';
+import { difference, flatMap, intersection, sample, sampleSize, shuffle, sortBy, uniq } from 'lodash';
 import moment from 'moment';
+import { DailyControleDeEstoqueEntry } from './types';
 
 /**
  * Returns the current date in the format 'YYYY-MM-DD'.
@@ -115,4 +116,51 @@ export const generatePalavreadoGame = (words: string[], previouslyUsedWords: str
     words: selectedWords,
     letters: shuffleLetters(selectedWords),
   };
+};
+
+const TOTAL_GOODS = 192;
+const GOODS_SIZE = 16;
+const ORDER_SIZE = 4;
+const OUT_OF_STOCK_SIZE = 1;
+export const generateControleDeEstoqueGame = (id: string, num: number) => {
+  const [year, month, day] = id.split('-').map(Number);
+  const date = new Date(year, month - 1, day);
+
+  const dayOfWeekIndex = date.getDay();
+
+  const dayOfTheWeek = [
+    'Domingo',
+    'Segunda-feira',
+    'Terça-feira',
+    'Quarta-feira',
+    'Quinta-feira',
+    'Sexta-feira',
+    'Sábado',
+  ][dayOfWeekIndex];
+
+  const entry: DailyControleDeEstoqueEntry = {
+    id,
+    number: num,
+    type: 'controle-de-estoque',
+    language: 'pt',
+    title: dayOfTheWeek,
+    goods: [],
+    orders: [],
+  };
+
+  const goods = sampleSize(
+    Array(TOTAL_GOODS)
+      .fill('')
+      .map((_, i) => `good-${i + 1}`),
+    GOODS_SIZE + OUT_OF_STOCK_SIZE
+  );
+  const outOfStockGood = goods.pop();
+
+  entry.goods = goods;
+  entry.orders = sampleSize(entry.goods, ORDER_SIZE);
+  // Add non-available requests
+  entry.orders.push(outOfStockGood!);
+  entry.orders = shuffle(entry.orders);
+
+  return entry;
 };

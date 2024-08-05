@@ -24,6 +24,7 @@ export type DailyHistory = {
   palavreado: DailyHistoryEntry;
   artista: DailyHistoryEntry;
   filmaco?: DailyHistoryEntry;
+  'controle-de-estoque'?: DailyHistoryEntry;
 };
 
 export type DailyArteRuimEntry = {
@@ -72,6 +73,16 @@ export type DailyFilmacoEntry = {
   year: number;
 };
 
+export type DailyControleDeEstoqueEntry = {
+  id: DateKey;
+  number: number;
+  type: 'controle-de-estoque';
+  language: Language;
+  title: string;
+  goods: string[];
+  orders: string[];
+};
+
 export type DailyEntry = {
   id: DateKey;
   'arte-ruim': DailyArteRuimEntry;
@@ -79,6 +90,7 @@ export type DailyEntry = {
   palavreado: DailyPalavreadoEntry;
   artista: DailyArtistaEntry;
   filmaco: DailyFilmacoEntry;
+  'controle-de-estoque': DailyControleDeEstoqueEntry;
 };
 
 export type DataDrawing = {
