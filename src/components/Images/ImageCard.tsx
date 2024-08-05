@@ -38,7 +38,7 @@ export const ImageCard = ({
   preview = true,
   fileExtension = 'jpg',
 }: ImageCardProps) => {
-  const { getUrl } = useBaseUrl('tdi');
+  const { getUrl } = useBaseUrl('images');
   const imageURL = id.replace(/-/g, '/');
 
   return (

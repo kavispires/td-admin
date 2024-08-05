@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useBaseUrl } from './useBaseUrl';
 
 export function useTDResource<TData>(resourceName: string, enabled = true) {
-  const { getUrl } = useBaseUrl('tdr');
+  const { getUrl } = useBaseUrl('resources');
 
   const query = useQuery<Dictionary<TData>, ResponseError>({
     queryKey: [resourceName],
@@ -25,7 +25,7 @@ export function useTDResource<TData>(resourceName: string, enabled = true) {
 }
 
 export function useTDResourceNonCollection<TData>(resourceName: string, enabled = true) {
-  const { getUrl } = useBaseUrl('tdr');
+  const { getUrl } = useBaseUrl('resources');
 
   const query = useQuery<TData, ResponseError>({
     queryKey: [resourceName],

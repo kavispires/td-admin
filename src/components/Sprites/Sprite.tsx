@@ -36,7 +36,7 @@ type SpriteProps = {
  * @returns a single sprite item
  */
 export function Sprite({ id, source, width = 75, padding = 6, title, className }: SpriteProps) {
-  const { getUrl } = useBaseUrl('tdi');
+  const { getUrl } = useBaseUrl('sprites');
 
   const { isLoading, data, isError } = useQuery({
     queryKey: ['sprite', source],

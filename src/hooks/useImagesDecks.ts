@@ -2,12 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 
 import { useBaseUrl } from './useBaseUrl';
 
-export function useTDIData() {
-  const { getUrl } = useBaseUrl('tdi-data');
+export function useImagesDecks() {
+  const { getUrl } = useBaseUrl('resources');
   const query = useQuery<NumberDictionary, ResponseError>({
-    queryKey: ['tdi-data'],
+    queryKey: ['images-decks'],
     queryFn: async () => {
-      const res = await fetch(getUrl('info.json'));
+      const res = await fetch(getUrl('images-decks.json'));
       return (await res.json()) as NumberDictionary;
     },
   });

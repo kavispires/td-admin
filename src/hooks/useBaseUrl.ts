@@ -4,25 +4,31 @@
  * @param path
  * @returns
  */
-export function useBaseUrl(library: 'tdr' | 'tdi' | 'tdi-data') {
-  let baseUrl: string | undefined = '';
+export function useBaseUrl(library: 'images' | 'sprites' | 'resources' | 'classic') {
+  let baseUrl: string | undefined = process.env.REACT_APP_TD_BASE_URL;
   let folder: string | undefined = '';
 
   switch (library) {
-    case 'tdi':
-      baseUrl = process.env.REACT_APP_TD_BASE_URL;
-      folder = process.env.REACT_APP_TDI_IMAGES;
+    case 'images':
+      folder = process.env.REACT_APP_TD_IMAGES;
       break;
-    case 'tdi-data':
-      baseUrl = process.env.REACT_APP_TD_BASE_URL;
-      folder = process.env.REACT_APP_TDI_DATA;
+    case 'sprites':
+      folder = process.env.REACT_APP_TD_SPRITES;
+      break;
+    case 'resources':
+      folder = process.env.REACT_APP_TD_RESOURCES;
+      break;
+    case 'classic':
+      folder = process.env.REACT_APP_TD_CLASSIC;
       break;
     default:
-      baseUrl =
-        process.env.NODE_ENV === 'development'
-          ? process.env.REACT_APP_LOCAL_URL
-          : process.env.REACT_APP_TD_BASE_URL;
-      folder = process.env.REACT_APP_TD_RESOURCES;
+      // TODO: The default should be removed
+      // baseUrl =
+      //   process.env.NODE_ENV === 'development'
+      //     ? process.env.REACT_APP_LOCAL_URL
+      //     : process.env.REACT_APP_TD_BASE_URL;
+      // folder = process.env.REACT_APP_TD_RESOURCES;
+      throw new Error('Invalid library');
   }
 
   return {

@@ -17,7 +17,7 @@ type ResourceState = {
 
 export function useResourceState(availableResources: AvailableResources): ResourceState {
   const { queryParams } = useQueryParams();
-  const { getUrl } = useBaseUrl('tdr');
+  const { getUrl } = useBaseUrl('resources');
   const resourceName = queryParams.get('resourceName') ?? '';
   const language = queryParams.get('language');
 

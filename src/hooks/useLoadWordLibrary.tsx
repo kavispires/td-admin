@@ -9,7 +9,7 @@ export function useLoadWordLibrary(
   enabled = true,
   selected?: boolean
 ) {
-  const { getUrl } = useBaseUrl('tdr');
+  const { getUrl } = useBaseUrl('resources');
 
   const resourceName = selected
     ? `words-${wordLength}-letters-selected-${language}`

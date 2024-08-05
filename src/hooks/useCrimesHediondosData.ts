@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useBaseUrl } from './useBaseUrl';
 
 export function useCrimesHediondosData() {
-  const { getUrl } = useBaseUrl('tdr');
+  const { getUrl } = useBaseUrl('resources');
 
   const resultWP = useQuery<CrimesHediondosCard[], ResponseError>({
     queryKey: ['dmhk-wp'],

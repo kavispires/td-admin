@@ -7,7 +7,7 @@ import { PageSider } from 'components/Layout/PageSider';
 import { ResponseState } from 'components/Common';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { useTDIData } from 'hooks/useTDIData';
+import { useImagesDecks } from 'hooks/useImagesDecks';
 import { isEmpty } from 'lodash';
 import { useState } from 'react';
 
@@ -18,7 +18,7 @@ function ImageCards() {
   const { queryParams, addParam } = useQueryParams({ deck: 'd1' });
   const deck = queryParams.get('deck') ?? 'd1';
 
-  const { isLoading, error, data } = useTDIData();
+  const { isLoading, error, data } = useImagesDecks();
   const hasResponseData = !isEmpty(data);
   const [cardsPerRow, setCardsPerRow] = useState(8);
   const [cardWidth, ref] = useCardWidth(cardsPerRow);
