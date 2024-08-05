@@ -1,4 +1,5 @@
 import { AlienSign, Emoji, Glyph } from 'components/Sprites';
+import { WarehouseGood } from 'components/Sprites/WarehouseGood';
 import { capitalize, invert, keyBy } from 'lodash';
 
 export const SEARCH_THRESHOLD: number = 2;
@@ -89,7 +90,7 @@ export const SEARCH_PROPERTY: Record<string, string> = {
   topics: 'text',
 };
 
-export const TOTAL_ITEMS = 1418;
+export const TOTAL_ITEMS = 2440;
 
 export const SPRITE_LIBRARY = keyBy(
   [
@@ -116,6 +117,14 @@ export const SPRITE_LIBRARY = keyBy(
       quantity: 365,
       startAt: 1,
       component: Glyph,
+    },
+    {
+      key: 'warehouse-goods',
+      name: 'Warehouse Goods',
+      prefix: 'good',
+      quantity: 192,
+      startAt: 1,
+      component: WarehouseGood,
     },
   ],
   'key'
