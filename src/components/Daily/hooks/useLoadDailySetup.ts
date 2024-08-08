@@ -44,7 +44,6 @@ export function useLoadDailySetup(
   // STEP 1: HISTORY
   const source = LANGUAGE_PREFIX.DAILY[queryLanguage ?? 'pt'];
   const historyQuery = useDailyHistoryQuery(source, { enabled });
-  console.log('historyQuery', historyQuery.data);
 
   // STEP 2: ARTE RUIM
   const drawingsQuery = useLoadDrawings(enabled, queryLanguage ?? 'pt');

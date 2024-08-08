@@ -87,6 +87,11 @@ export function useSaveDailySetup(queryLanguage: Language) {
             ])
           ),
         },
+        'controle-de-estoque': {
+          latestDate: data[data.length - 1].id,
+          latestNumber: data[data.length - 1]['controle-de-estoque'].number,
+          used: '[]',
+        },
       };
       setDoc(docRec, newHistory);
 
