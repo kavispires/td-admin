@@ -4,7 +4,7 @@ import { PageLayout } from 'components/Layout';
 
 function Home() {
   return (
-    <PageLayout title="TDR">
+    <PageLayout title="TD Admin">
       <Layout.Content className="content-center">
         <Image src={logo} className="home-logo" alt="logo" preview={false} width={512} />
       </Layout.Content>

@@ -4,7 +4,7 @@ import { PageLayout } from 'components/Layout';
 
 export function LoadingPage() {
   return (
-    <PageLayout title="TDR">
+    <PageLayout title="TD Admin">
       <Spin tip="Loading" size="large">
         <Layout.Content className="content-center">
           <Image src={logo} className="home-logo" alt="logo" preview={false} width={512} />

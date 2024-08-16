@@ -1,7 +1,7 @@
 {
-  "name": "tdr",
+  "name": "td-admin",
   "version": "6.1.0",
-  "homepage": "http://www.kavispires.com/tdr/",
+  "homepage": "http://www.kavispires.com/td-admin/",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
