@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/td-admin/static/css/main.f4ce9e2f.css",
-    "main.js": "/td-admin/static/js/main.ada9067c.js",
+    "main.js": "/td-admin/static/js/main.050cd4da.js",
     "Home.js": "/td-admin/static/js/Home.a46359f5.chunk.js",
     "Resource.js": "/td-admin/static/js/Resource.20cce45d.chunk.js",
     "ResourceGenerator.js": "/td-admin/static/js/ResourceGenerator.544069cb.chunk.js",
@@ -17,7 +17,7 @@
     "ImageCardsRelationships.js": "/td-admin/static/js/ImageCardsRelationships.6bee7dad.chunk.js",
     "ImageCardsConnections.js": "/td-admin/static/js/ImageCardsConnections.cb94e66b.chunk.js",
     "Items.js": "/td-admin/static/js/Items.0dc00f39.chunk.js",
-    "ItemsAttribution.js": "/td-admin/static/js/ItemsAttribution.e1c8bc96.chunk.js",
+    "ItemsAttribution.js": "/td-admin/static/js/ItemsAttribution.17925200.chunk.js",
     "ItemsGroups.js": "/td-admin/static/js/ItemsGroups.d086246a.chunk.js",
     "ItemsDiscSets.js": "/td-admin/static/js/ItemsDiscSets.2361d8d6.chunk.js",
     "ItemsMovieSets.js": "/td-admin/static/js/ItemsMovieSets.c1f3712a.chunk.js",
@@ -56,7 +56,7 @@
     "index.html": "/td-admin/index.html",
     "static/media/logo.svg": "/td-admin/static/media/logo.290a44ba56847953c116e591c78dfae5.svg",
     "main.f4ce9e2f.css.map": "/td-admin/static/css/main.f4ce9e2f.css.map",
-    "main.ada9067c.js.map": "/td-admin/static/js/main.ada9067c.js.map",
+    "main.050cd4da.js.map": "/td-admin/static/js/main.050cd4da.js.map",
     "Home.a46359f5.chunk.js.map": "/td-admin/static/js/Home.a46359f5.chunk.js.map",
     "Resource.20cce45d.chunk.js.map": "/td-admin/static/js/Resource.20cce45d.chunk.js.map",
     "ResourceGenerator.544069cb.chunk.js.map": "/td-admin/static/js/ResourceGenerator.544069cb.chunk.js.map",
@@ -72,7 +72,7 @@
     "ImageCardsRelationships.6bee7dad.chunk.js.map": "/td-admin/static/js/ImageCardsRelationships.6bee7dad.chunk.js.map",
     "ImageCardsConnections.cb94e66b.chunk.js.map": "/td-admin/static/js/ImageCardsConnections.cb94e66b.chunk.js.map",
     "Items.0dc00f39.chunk.js.map": "/td-admin/static/js/Items.0dc00f39.chunk.js.map",
-    "ItemsAttribution.e1c8bc96.chunk.js.map": "/td-admin/static/js/ItemsAttribution.e1c8bc96.chunk.js.map",
+    "ItemsAttribution.17925200.chunk.js.map": "/td-admin/static/js/ItemsAttribution.17925200.chunk.js.map",
     "ItemsGroups.d086246a.chunk.js.map": "/td-admin/static/js/ItemsGroups.d086246a.chunk.js.map",
     "ItemsDiscSets.2361d8d6.chunk.js.map": "/td-admin/static/js/ItemsDiscSets.2361d8d6.chunk.js.map",
     "ItemsMovieSets.c1f3712a.chunk.js.map": "/td-admin/static/js/ItemsMovieSets.c1f3712a.chunk.js.map",
@@ -111,6 +111,6 @@
   },
   "entrypoints": [
     "static/css/main.f4ce9e2f.css",
-    "static/js/main.ada9067c.js"
+    "static/js/main.050cd4da.js"
   ]
 }
