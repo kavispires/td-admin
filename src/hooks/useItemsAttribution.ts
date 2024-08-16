@@ -26,19 +26,19 @@ export function useItemsAttribution() {
   const firebaseItemsAttributeValuesQuery = useGetFirebaseDoc<
     Dictionary<string>,
     Dictionary<ItemAtributesValues>
-  >('data', 'itemsAttributeValues', {
+  >('tdr', 'itemsAttributeValues', {
     select: deserializeFirebaseData,
   });
 
   const [modifiedAttributeValues, setModifiedAttributeValues] = useState<Dictionary<ItemAtributesValues>>({});
 
-  const mutation = useUpdateFirebaseDoc('data', 'itemsAttributeValues', {
+  const mutation = useUpdateFirebaseDoc('tdr', 'itemsAttributeValues', {
     onSuccess: () => {
       notification.success({
         message: 'itemsAttributeValues updated',
       });
       queryClient.refetchQueries({
-        queryKey: ['firebase', 'data', 'itemsAttributeValues'],
+        queryKey: ['firebase', 'tdr', 'itemsAttributeValues'],
       });
       setModifiedAttributeValues({});
     },

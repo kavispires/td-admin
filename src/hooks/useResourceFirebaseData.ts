@@ -46,7 +46,7 @@ export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = T
 
   const tdrQuery = useTDResource<TDRData>(tdrResourceName);
   const firebaseQuery = useGetFirebaseDoc<Dictionary<TFirebaseData>, Dictionary<TDRData>>(
-    'data',
+    'tdr',
     firebaseDataCollectionName,
     {
       select: serialize ? deserializeFirebaseData : undefined,
@@ -56,13 +56,13 @@ export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = T
   // Keeps track of items that have been modified
   const [modifiedEntries, setModifiedEntries] = useState<Dictionary<TDRData>>({});
 
-  const mutation = useUpdateFirebaseDoc('data', firebaseDataCollectionName, {
+  const mutation = useUpdateFirebaseDoc('tdr', firebaseDataCollectionName, {
     onSuccess: () => {
       notification.success({
         message: `${firebaseDataCollectionName} updated`,
       });
       queryClient.refetchQueries({
-        queryKey: ['firebase', 'data', firebaseDataCollectionName],
+        queryKey: ['firebase', 'tdr', firebaseDataCollectionName],
       });
       setModifiedEntries({});
     },
