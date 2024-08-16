@@ -1,6 +1,5 @@
-import { difference, flatMap, intersection, sample, sampleSize, shuffle, sortBy, uniq } from 'lodash';
+import { sample } from 'lodash';
 import moment from 'moment';
-import { DailyControleDeEstoqueEntry } from './types';
 
 /**
  * Returns the current date in the format 'YYYY-MM-DD'.
@@ -20,11 +19,28 @@ export function getYesterday(): string {
   return moment().subtract(1, 'days').format('YYYY-MM-DD');
 }
 
+/**
+ * Calculates the next day based on the given date string.
+ *
+ * @param dateString - The date string in the format 'YYYY-MM-DD'.
+ * @returns The next day in the format 'YYYY-MM-DD'.
+ */
 export function getNextDay(dateString: string): string {
   const inputDate = moment(dateString, 'YYYY-MM-DD');
   const nextDate = inputDate.add(1, 'days');
 
   return nextDate.format('YYYY-MM-DD');
+}
+
+/**
+ * Checks if a given date is a Saturday.
+ *
+ * @param {string} dateString - The date in 'YYYY-MM-DD' format.
+ * @returns {boolean} True if the date is a Saturday, false otherwise.
+ */
+export function checkSaturday(dateString: string): boolean {
+  const date = moment(dateString, 'YYYY-MM-DD');
+  return date.day() === 6; // 6 represents Saturday in moment.js
 }
 
 const THRESHOLD = 500;
@@ -62,50 +78,3 @@ export function getWordsWithUniqueLetters(words: string[]): string[] {
 
   return selectedWords;
 }
-
-const TOTAL_GOODS = 192;
-const GOODS_SIZE = 16;
-const ORDER_SIZE = 4;
-const OUT_OF_STOCK_SIZE = 1;
-export const generateControleDeEstoqueGame = (id: string, num: number) => {
-  const [year, month, day] = id.split('-').map(Number);
-  const date = new Date(year, month - 1, day);
-
-  const dayOfWeekIndex = date.getDay();
-
-  const dayOfTheWeek = [
-    'Domingo',
-    'Segunda-feira',
-    'Terça-feira',
-    'Quarta-feira',
-    'Quinta-feira',
-    'Sexta-feira',
-    'Sábado',
-  ][dayOfWeekIndex];
-
-  const entry: DailyControleDeEstoqueEntry = {
-    id,
-    number: num,
-    type: 'controle-de-estoque',
-    language: 'pt',
-    title: dayOfTheWeek,
-    goods: [],
-    orders: [],
-  };
-
-  const goods = sampleSize(
-    Array(TOTAL_GOODS)
-      .fill('')
-      .map((_, i) => `good-${i + 1}`),
-    GOODS_SIZE + OUT_OF_STOCK_SIZE
-  );
-  const outOfStockGood = goods.pop();
-
-  entry.goods = goods;
-  entry.orders = sampleSize(entry.goods, ORDER_SIZE);
-  // Add non-available requests
-  entry.orders.push(outOfStockGood!);
-  entry.orders = shuffle(entry.orders);
-
-  return entry;
-};

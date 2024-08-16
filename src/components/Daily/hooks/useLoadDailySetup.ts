@@ -71,15 +71,22 @@ export function useLoadDailySetup(
   }, [aquiOSetsQuery, aquiOHistory, batchSize, historyQuery.isSuccess]);
 
   // STEP 4: Palavreado
-  const wordsQuery = useLoadWordLibrary(4, queryLanguage, true, true);
+  const wordsFourQuery = useLoadWordLibrary(4, queryLanguage, true, true);
+  const wordsFiveQuery = useLoadWordLibrary(5, queryLanguage, true, true);
   const [palavreadoHistory] = useParsedHistory('palavreado', historyQuery.data);
   const palavreadoEntries = useMemo(() => {
-    if (!wordsQuery.data || !wordsQuery.data.length || !historyQuery.isSuccess) {
+    if (
+      !wordsFourQuery.data ||
+      !wordsFourQuery.data.length ||
+      !wordsFiveQuery.data ||
+      !wordsFiveQuery.data.length ||
+      !historyQuery.isSuccess
+    ) {
       return {};
     }
 
-    return buildDailyPalavreadoGames(batchSize, palavreadoHistory, wordsQuery.data);
-  }, [wordsQuery, palavreadoHistory, batchSize, historyQuery.isSuccess]);
+    return buildDailyPalavreadoGames(batchSize, palavreadoHistory, wordsFourQuery.data, wordsFiveQuery.data);
+  }, [wordsFourQuery, wordsFiveQuery, palavreadoHistory, batchSize, historyQuery.isSuccess]);
 
   // STEP 5: Artista
   const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`);
@@ -155,7 +162,8 @@ export function useLoadDailySetup(
     isLoading:
       areDrawingsLoading ||
       historyQuery.isLoading ||
-      wordsQuery.isLoading ||
+      wordsFourQuery.isLoading ||
+      wordsFiveQuery.isLoading ||
       arteRuimCardsQuery.isLoading ||
       aquiOSetsQuery.isLoading ||
       movieSetsQuery.isLoading,

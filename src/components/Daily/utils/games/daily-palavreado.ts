@@ -1,6 +1,6 @@
 import { DailyPalavreadoEntry, ParsedDailyHistoryEntry } from '../types';
 import { difference, flatMap, intersection, shuffle, sortBy, uniq } from 'lodash';
-import { getNextDay } from '../utils';
+import { getNextDay, checkSaturday } from '../utils';
 
 /**
  * Builds a dictionary of DailyPalavreadoEntry games.
@@ -13,26 +13,28 @@ import { getNextDay } from '../utils';
 export const buildDailyPalavreadoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
-  fourLetterWords: string[]
+  fourLetterWords: string[],
+  fiveLetterWords: string[]
 ) => {
   console.count('Creating Palavreado...');
   let lastDate = history.latestDate;
   const usedWords: string[] = [];
 
-  // TODO: on Saturdays use 5 letter words
-
   const entries: Dictionary<DailyPalavreadoEntry> = {};
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
+    const isSaturday = checkSaturday(id);
+    const size = isSaturday ? 5 : 4;
     lastDate = id;
     entries[id] = {
       id,
       type: 'palavreado',
       number: history.latestNumber + i + 1,
       ...generatePalavreadoGame(
-        fourLetterWords,
+        isSaturday ? fiveLetterWords : fourLetterWords,
         [...Object.values(entries).map((e) => e.keyword), ...history.used],
-        usedWords
+        usedWords,
+        size
       ),
     };
   }
