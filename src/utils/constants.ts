@@ -90,7 +90,7 @@ export const SEARCH_PROPERTY: Record<string, string> = {
   topics: 'text',
 };
 
-export const TOTAL_ITEMS = 2440;
+export const TOTAL_ITEMS = 2496;
 
 export const SPRITE_LIBRARY = keyBy(
   [
@@ -122,7 +122,7 @@ export const SPRITE_LIBRARY = keyBy(
       key: 'warehouse-goods',
       name: 'Warehouse Goods',
       prefix: 'good',
-      quantity: 192,
+      quantity: 256,
       startAt: 1,
       component: WarehouseGood,
     },
