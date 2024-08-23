@@ -157,20 +157,30 @@ const items: MenuProps['items'] = [
         key: '/items/attribution',
       },
       {
-        label: 'Disc Sets',
-        key: '/items/discs',
-      },
-      {
         label: 'Crimes History',
         key: '/items/crimes-history',
       },
       {
-        label: 'Movies',
-        key: '/items/movies',
-      },
-      {
-        label: 'Quartets',
-        key: '/items/quartets',
+        type: 'group',
+        label: 'Daily',
+        children: [
+          {
+            label: 'Disc Sets',
+            key: '/items/discs',
+          },
+          {
+            label: 'Movies',
+            key: '/items/movies',
+          },
+          {
+            label: 'Quartets',
+            key: '/items/quartets',
+          },
+          {
+            label: 'Diagram Sets',
+            key: '/items/diagrams',
+          },
+        ],
       },
     ],
   },

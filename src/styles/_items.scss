@@ -108,3 +108,35 @@
     }
   }
 }
+
+.diagram-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: get-unit(2);
+  margin-bottom: get-unit(2);
+
+  & > * {
+    width: 200px;
+    background: get-color('white', 1, 0.1);
+    border-radius: $border-radius;
+    padding: get-unit(1);
+  }
+}
+
+.diagram-list-items {
+  display: flex;
+  gap: get-unit(2);
+  list-style: none;
+  padding: 0;
+  gap: get-unit(1);
+
+  & > li {
+    background: get-color('white', 1, 0.1);
+    border-radius: $border-radius;
+    padding: get-unit(1);
+  }
+}
+
+.diagram-rule-column {
+  max-width: 300px;
+}

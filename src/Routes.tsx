@@ -32,6 +32,9 @@ const Items = lazy(() => import('pages/Items/Items' /* webpackChunkName: "Items"
 const ItemsAttribution = lazy(
   () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */)
 );
+const ItemsDiagramSets = lazy(
+  () => import('pages/Items/ItemsDiagramSets' /* webpackChunkName: "ItemsDiagramSets" */)
+);
 const ItemsGroups = lazy(() => import('pages/Items/ItemsGroups' /* webpackChunkName: "ItemsGroups" */));
 const ItemsDiscSets = lazy(() => import('pages/Items/ItemsDiscSets' /* webpackChunkName: "ItemsDiscSets" */));
 const ItemsMovieSets = lazy(
@@ -129,6 +132,14 @@ export const routes = (
       element={
         <Suspense fallback={<LoadingPage />}>
           <ItemsAttribution />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/items/diagrams"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <ItemsDiagramSets />
         </Suspense>
       }
     />

@@ -303,6 +303,14 @@ export type DiagramTopic = {
    * The type of the card
    */
   type: 'attribute' | 'word' | 'context';
+  /**
+   * The level of the card
+   */
+  level: number;
+  /**
+   * If the topic comes from its original source
+   */
+  og?: boolean;
 };
 
 export type DilemmaCard = {
@@ -797,6 +805,53 @@ export type DailyQuartetSet = {
    * The type of quartet (visual, word, general, meaning)
    */
   type?: string;
+};
+
+export type DailyDiagramRule = {
+  /**
+   * The id (the setId in the library OR the date in a daily game)
+   */
+  id: string;
+  /**
+   * The title of the set
+   */
+  title: string;
+  /**
+   * The level of difficulty of the set
+   */
+  level: number;
+  /**
+   * The type of rules
+   */
+  type: string;
+  /**
+   * Indicates if the rule can be verified by a function
+   */
+  auto?: boolean;
+  /**
+   * The date in milliseconds the rule was last updated
+   */
+  updatedAt: DateMilliseconds;
+};
+
+export type DailyDiagramItem = {
+  /**
+   * The item id
+   */
+  itemId: string;
+  /**
+   * The set name of the item
+   * (if changed, the rules must be re-checked)
+   */
+  name: string;
+  /**
+   * The list of rules the item agrees with
+   */
+  rules: string[];
+  /**
+   * The date in milliseconds the rule was last updated
+   */
+  updatedAt: DateMilliseconds;
 };
 
 type MovieGender = {
