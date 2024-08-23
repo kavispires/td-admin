@@ -60,9 +60,12 @@ export function ThingsByRule({
         <Space size="small">
           <Tag>{thingsByRules[id].length}</Tag>
           <Space size="small" wrap>
-            {thingsByRules[id].map((itemId) => (
+            {thingsByRules[id].slice(0, 20).map((itemId) => (
               <Thing key={itemId} itemId={itemId} name={data[itemId].name} />
             ))}
+            {thingsByRules[id].length > 20 && (
+              <Typography.Text>+{thingsByRules[id].length - 20} more</Typography.Text>
+            )}
           </Space>
         </Space>
       ),

@@ -24,10 +24,9 @@ export function ItemsDiagramSets() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={diagramData.isLoading}
+            isLoading={diagramData.isLoading || diagramData.isSaving}
             error={diagramData.error}
-            // hasResponseData={!isEmpty(diagramData.data)}
-            hasResponseData={true}
+            hasResponseData={!isEmpty(diagramData.data)}
           >
             <Flex vertical gap={24}>
               <ItemsDiagramSetsContent {...diagramData} />

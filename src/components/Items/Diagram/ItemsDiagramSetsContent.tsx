@@ -8,6 +8,7 @@ import { useTDResource } from 'hooks/useTDResource';
 import { RulesByThing } from './RulesByThing';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ThingsByRule } from './ThingsByRule';
+import { orderBy } from 'lodash';
 
 export function ItemsDiagramSetsContent({
   data,
@@ -39,7 +40,7 @@ export function ItemsDiagramSetsContent({
       return acc;
     }, {});
 
-    Object.values(data).forEach((entry) => {
+    orderBy(Object.values(data), ['updatedAt'], ['desc']).forEach((entry) => {
       entry.rules.forEach((ruleId) => {
         dict[ruleId].push(entry.itemId);
       });
