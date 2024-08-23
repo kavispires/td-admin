@@ -140,3 +140,36 @@
 .diagram-rule-column {
   max-width: 300px;
 }
+
+.diagram-simulator {
+  &__rule-1 {
+    border: 5px gold outset;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: grid;
+    place-items: center;
+  }
+  &__rule-2 {
+    border: 5px orangered outset;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: grid;
+    place-items: center;
+  }
+  &__rule-intersection {
+    // border-width: 5px;
+    // border-style: solid;
+    // border-image: linear-gradient(to right, gold, orangered) 1;
+    background:
+      linear-gradient(black, black) padding-box,
+      linear-gradient(to right, gold, orangered) border-box;
+    border: 5px solid transparent;
+    border-radius: 40%;
+    width: 200px;
+    height: 200px;
+    display: grid;
+    place-items: center;
+  }
+}

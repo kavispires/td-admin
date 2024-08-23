@@ -83,6 +83,41 @@ export type DailyControleDeEstoqueEntry = {
   orders: string[];
 };
 
+export type DailyTeoriaDeConjuntosEntry = {
+  id: DateKey;
+  number: number;
+  type: 'teoria-de-conjuntos';
+  title: string;
+  level: number;
+  rule1: {
+    id: string;
+    text: string;
+    level: number;
+    thing: {
+      id: string;
+      name: string;
+    };
+  };
+  rule2: {
+    id: string;
+    text: string;
+    level: number;
+    thing: {
+      id: string;
+      name: string;
+    };
+  };
+  intersectingThing: {
+    id: string;
+    name: string;
+  };
+  things: {
+    id: string;
+    name: string;
+    rule: number;
+  }[];
+};
+
 export type DailyEntry = {
   id: DateKey;
   'arte-ruim': DailyArteRuimEntry;

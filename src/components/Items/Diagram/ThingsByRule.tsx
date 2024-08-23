@@ -1,10 +1,11 @@
 import { Divider, Rate, Space, Table, TableColumnsType, Tag, Typography } from 'antd';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { useMemo } from 'react';
 import { useMeasure } from 'react-use';
 import { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
+
 import { AddItemRules } from './AddItemRules';
-import { Item } from 'components/Sprites';
-import { useMemo } from 'react';
+import { Thing } from './Thing';
 
 type ThingsByRuleProps = {
   data: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
@@ -60,12 +61,7 @@ export function ThingsByRule({
           <Tag>{thingsByRules[id].length}</Tag>
           <Space size="small" wrap>
             {thingsByRules[id].map((itemId) => (
-              <div key={itemId}>
-                <Item id={itemId} width={50} />
-                <Typography.Text code key={itemId}>
-                  {data[itemId].name}
-                </Typography.Text>
-              </div>
+              <Thing key={itemId} itemId={itemId} name={data[itemId].name} />
             ))}
           </Space>
         </Space>
