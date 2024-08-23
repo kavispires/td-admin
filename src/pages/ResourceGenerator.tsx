@@ -80,7 +80,7 @@ function parseInput(input: string, parameters: Parameters): Record<string, Gener
   return data;
 }
 
-function transformText(text: string, transform: Parameters['transform']): string {
+function transformText(text: string, transform: Parameters['transform']): string | number | boolean {
   if (transform === 'capitalize') {
     return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
   }
@@ -90,5 +90,17 @@ function transformText(text: string, transform: Parameters['transform']): string
   if (transform === 'uppercase') {
     return text.toUpperCase();
   }
+  // Transform boolean
+  if (text.toLowerCase() === 'false') {
+    return false;
+  }
+  if (text.toLowerCase() === 'true') {
+    return true;
+  }
+  if (!isNaN(Number(text))) {
+    return Number(text);
+  }
+
+  // Transform number
   return text;
 }
