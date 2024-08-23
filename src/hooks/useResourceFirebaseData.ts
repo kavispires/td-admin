@@ -75,7 +75,8 @@ export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = T
   });
 
   const data = useMemo(() => {
-    if (tdrQuery.isLoading || firebaseQuery.isLoading || mutation.isPending) return {};
+    if (!tdrQuery.isSuccess || !firebaseQuery.isSuccess || mutation.isPending) return {};
+
     console.log(`%cMerging ${tdrResourceName}+${firebaseDataCollectionName} data...`, 'color: #f0f');
     return cloneDeep({
       ...(tdrQuery.data ?? {}),
@@ -87,8 +88,8 @@ export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = T
     firebaseDataCollectionName,
     tdrQuery.data,
     firebaseQuery.data,
-    tdrQuery.isLoading,
-    firebaseQuery.isLoading,
+    tdrQuery.isSuccess,
+    firebaseQuery.isSuccess,
     mutation.isPending,
     modifiedEntries,
   ]);
