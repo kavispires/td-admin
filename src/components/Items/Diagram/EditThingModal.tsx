@@ -57,7 +57,7 @@ export function EditThingModal({
     // If initial state where name is still undefined, ignore
     if (!nameWatch) return;
 
-    if (nameWatch === thing.name) return;
+    if (thing.name && thing.syllables && nameWatch === thing.name) return;
 
     // If name changes, recalculate all rules
     const fields: Record<string, boolean | string | number | undefined> = {
@@ -88,7 +88,7 @@ export function EditThingModal({
   }, [syllables]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Automation: Stressed syllable
-  const stressedSyllable = form.getFieldValue('stressedSyllable');
+  const stressedSyllable = Form.useWatch('stressedSyllable', form);
   useEffect(() => {
     if (stressedSyllable !== undefined) {
       form.setFieldsValue({
@@ -233,10 +233,11 @@ export function EditThingModal({
                   valuePropName="checked"
                   className={clsx(thing.updatedAt < rule.updatedAt && 'diagram-container__outdated-rule')}
                 >
-                  <Radio.Group optionType="button" buttonStyle="solid" disabled>
+                  <Switch checkedChildren="✅" unCheckedChildren="❌" disabled />
+                  {/* <Radio.Group optionType="button" buttonStyle="solid" disabled>
                     <Radio value={true}>✅</Radio>
                     <Radio value={false}>❌</Radio>
-                  </Radio.Group>
+                  </Radio.Group> */}
                 </Form.Item>
               );
             }
