@@ -1,7 +1,7 @@
 import { Affix, Button, Flex, Form, Input, Modal, Radio, Switch } from 'antd';
 import { useEffect, useMemo } from 'react';
 import { DailyDiagramItem, DailyDiagramRule } from 'types';
-import { CONSONANTS, verifiers, VOWELS } from './utils';
+import { CONSONANTS, SYLLABLE_SEPARATOR, verifiers, VOWELS } from './utils';
 import { Item } from 'components/Sprites';
 import { orderBy } from 'lodash';
 import clsx from 'clsx';
@@ -78,7 +78,7 @@ export function EditThingModal({
   const syllables = Form.useWatch('syllables', form);
   useEffect(() => {
     if (syllables) {
-      const syllableCount = syllables.split(':').length;
+      const syllableCount = syllables.split(SYLLABLE_SEPARATOR).length;
       form.setFieldsValue({
         'ddr-3-pt': syllableCount === 2,
         'ddr-4-pt': syllableCount >= 3,
@@ -138,7 +138,7 @@ export function EditThingModal({
     onSaveThing(preparedThing);
   };
 
-  const splitSyllables: string[] = (syllables ?? '').split(':');
+  const splitSyllables: string[] = (syllables ?? '').split(SYLLABLE_SEPARATOR);
 
   return (
     <Modal
@@ -422,11 +422,11 @@ const guessSyllablesSeparation = (word: string): string => {
   syllables = syllables.map((syllable) => {
     for (const doubleLetter of DOUBLE_LETTERS) {
       if (syllable.includes(doubleLetter)) {
-        return syllable.split(doubleLetter).join(`${doubleLetter[0]}:${doubleLetter[1]}`);
+        return syllable.split(doubleLetter).join(`${doubleLetter[0]}${SYLLABLE_SEPARATOR}${doubleLetter[1]}`);
       }
     }
     return syllable;
   });
 
-  return syllables.filter(Boolean).join(':');
+  return syllables.filter(Boolean).join(SYLLABLE_SEPARATOR);
 };

@@ -6,6 +6,7 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { cloneDeep } from 'lodash';
 import { DailyDiagramItem } from 'types';
 import { sortJsonKeys } from 'utils';
 
@@ -58,7 +59,13 @@ export function ItemsDiagramFilters({
   );
 }
 
-function prepareFileForDownload(quartets: Dictionary<DailyDiagramItem>) {
-  // TODO
-  return sortJsonKeys(quartets);
+function prepareFileForDownload(diagramItems: Dictionary<DailyDiagramItem>) {
+  console.log('Preparing file for download...');
+  const copy = cloneDeep(diagramItems);
+  // Object.values(copy).forEach((item) => {
+  //   item.syllables = (item.syllables ?? '').replace(/·/g, SYLLABLE_SEPARATOR);
+  // });
+  // console.log(copy);
+
+  return sortJsonKeys(copy);
 }

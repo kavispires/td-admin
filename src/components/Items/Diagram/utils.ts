@@ -1,6 +1,7 @@
 import { memoize } from 'lodash';
 import { stringRemoveAccents } from 'utils';
 
+export const SYLLABLE_SEPARATOR = '|';
 export const LETTERS = 'abcdefghijklmnopqrstuvwxyz';
 export const CONSONANTS = 'bcdfghjklmnpqrstvwxyz';
 export const VOWELS = 'aeiou';
