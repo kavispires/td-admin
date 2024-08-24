@@ -54,12 +54,16 @@ export const generatePalavreadoGame = (
   words: string[],
   previouslyUsedWords: string[],
   newUsedWords: string[],
-  size = 4
+  size = 4,
+  fixedKeyword?: string
 ) => {
-  const shuffledWords = shuffle(difference(words, newUsedWords, previouslyUsedWords));
+  let shuffledWords = shuffle(difference(words, newUsedWords, previouslyUsedWords));
 
   // Select a random word from the list and call it 'keyword'
-  const keyword = shuffledWords.pop() ?? '';
+  const keyword = fixedKeyword ? fixedKeyword : shuffledWords.pop() ?? '';
+  if (fixedKeyword) {
+    shuffledWords = difference(shuffledWords, [fixedKeyword]);
+  }
 
   const selectedWords: string[] = [];
   for (let i = 0; i < size; i++) {
@@ -72,7 +76,7 @@ export const generatePalavreadoGame = (
   return {
     keyword,
     words: selectedWords,
-    letters: shuffleLetters(selectedWords),
+    letters: shuffleLetters(selectedWords, keyword.length),
   };
 };
 
@@ -100,9 +104,9 @@ const getNewWord = (words: string[], keyword: string, selectedWords: string[], i
   return rankedList[0];
 };
 
-const shuffleLetters = (selectedWords: string[]) => {
+const shuffleLetters = (selectedWords: string[], size: number) => {
   const letters = flatMap(selectedWords.map((word) => word.split('')));
-  const preservedIndexes = [0, 5, 10, 15];
+  const preservedIndexes = size === 4 ? [0, 5, 10, 15] : [0, 6, 12, 18, 24];
   const otherLetters = shuffle(letters.filter((_, index) => !preservedIndexes.includes(index)));
 
   let shuffledLetters: string[] = [];
