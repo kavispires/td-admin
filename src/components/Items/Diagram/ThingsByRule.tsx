@@ -24,6 +24,15 @@ export function ThingsByRule({
 }: ThingsByRuleProps) {
   const [ref, { width: containerWidth }] = useMeasure<HTMLDivElement>();
 
+  const rows = useMemo(
+    () =>
+      Object.values(rules).map((r) => ({
+        ...r,
+        thingsCount: thingsByRules[r.id].length,
+      })),
+    [rules, thingsByRules]
+  );
+
   const stats = useMemo(() => {
     const quantities = Object.values(thingsByRules).map((things) => things.length);
 
@@ -37,7 +46,7 @@ export function ThingsByRule({
     };
   }, [thingsByRules]);
 
-  const columns: TableColumnsType<DailyDiagramRule> = [
+  const columns: TableColumnsType<DailyDiagramRule & { thingsCount: number }> = [
     {
       title: 'Id',
       dataIndex: 'id',
@@ -54,21 +63,22 @@ export function ThingsByRule({
     },
     {
       title: 'Things',
-      dataIndex: 'id',
-      key: 'id',
-      render: (id: string) => (
+      dataIndex: 'thingsCount',
+      key: 'thingsCount',
+      render: (thingsCount: number, record) => (
         <Space size="small">
-          <Tag>{thingsByRules[id].length}</Tag>
+          <Tag>{thingsCount}</Tag>
           <Space size="small" wrap>
-            {thingsByRules[id].slice(0, 20).map((itemId) => (
-              <Thing key={`${id}-${itemId}`} itemId={itemId} name={things[itemId].name} />
+            {thingsByRules[record.id].slice(0, 20).map((itemId) => (
+              <Thing key={`${record.id}-${itemId}`} itemId={itemId} name={things[itemId].name} />
             ))}
-            {thingsByRules[id].length > 20 && (
-              <Typography.Text>+{thingsByRules[id].length - 20} more</Typography.Text>
+            {thingsByRules[record.id].length > 20 && (
+              <Typography.Text>+{thingsCount - 20} more</Typography.Text>
             )}
           </Space>
         </Space>
       ),
+      sorter: (a, b) => a.thingsCount - b.thingsCount,
     },
     {
       title: 'Level',
@@ -106,7 +116,7 @@ export function ThingsByRule({
         </Typography.Text>
       </Space>
 
-      <Table dataSource={Object.values(rules)} columns={columns} />
+      <Table dataSource={rows} columns={columns} />
     </Space>
   );
 }
