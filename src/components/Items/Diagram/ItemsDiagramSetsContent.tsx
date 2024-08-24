@@ -9,6 +9,7 @@ import { RulesByThing } from './RulesByThing';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ThingsByRule } from './ThingsByRule';
 import { orderBy } from 'lodash';
+import { ItemUpdateGuard } from './ItemUpdateGuard';
 
 export function ItemsDiagramSetsContent({
   data,
@@ -59,25 +60,27 @@ export function ItemsDiagramSetsContent({
       isLoading={tdrItemsQuery.isLoading || tdrDiagramRulesQuery.isLoading}
       hasResponseData={tdrItemsQuery.hasResponseData || tdrDiagramRulesQuery.hasResponseData}
     >
-      {(is('display', 'rule') || !queryParams.has('display')) && (
-        <ThingsByRule
-          data={data}
-          addEntryToUpdate={addEntryToUpdate}
-          availableThings={availableThings}
-          rules={rules}
-          thingsByRules={thingsByRules}
-        />
-      )}
+      <ItemUpdateGuard things={data} rules={rules} addEntryToUpdate={addEntryToUpdate}>
+        {(is('display', 'rule') || !queryParams.has('display')) && (
+          <ThingsByRule
+            things={data}
+            addEntryToUpdate={addEntryToUpdate}
+            availableThings={availableThings}
+            rules={rules}
+            thingsByRules={thingsByRules}
+          />
+        )}
 
-      {is('display', 'thing') && (
-        <RulesByThing
-          data={data}
-          addEntryToUpdate={addEntryToUpdate}
-          availableThings={availableThings}
-          rules={rules}
-          thingsByRules={thingsByRules}
-        />
-      )}
+        {is('display', 'thing') && (
+          <RulesByThing
+            things={data}
+            addEntryToUpdate={addEntryToUpdate}
+            availableThings={availableThings}
+            rules={rules}
+            thingsByRules={thingsByRules}
+          />
+        )}
+      </ItemUpdateGuard>
     </DataLoadingWrapper>
   );
 }

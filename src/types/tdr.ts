@@ -825,9 +825,9 @@ export type DailyDiagramRule = {
    */
   type: string;
   /**
-   * Indicates if the rule can be verified by a function
+   * Indicates  how a rule is verified
    */
-  auto?: boolean;
+  method: 'auto' | 'manual' | 'dependency';
   /**
    * The date in milliseconds the rule was last updated
    */
@@ -844,6 +844,16 @@ export type DailyDiagramItem = {
    * (if changed, the rules must be re-checked)
    */
   name: string;
+  /**
+   * Word separated in syllables with : as a separator
+   * e.g. "alien" -> "a:li:en"
+   */
+  syllables?: string;
+  /**
+   * The stressed syllable in the word
+   * 0 is the last syllable, 1 is the second to last, etc.
+   */
+  stressedSyllable?: number;
   /**
    * The list of rules the item agrees with
    */

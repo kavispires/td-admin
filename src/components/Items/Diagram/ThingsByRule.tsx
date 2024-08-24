@@ -4,11 +4,11 @@ import { useMemo } from 'react';
 import { useMeasure } from 'react-use';
 import { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
 
-import { AddItemRules } from './AddItemRules';
+import { AddNewThingFlow } from './AddNewThingFlow';
 import { Thing } from './Thing';
 
 type ThingsByRuleProps = {
-  data: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
+  things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
   addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
   availableThings: ItemT[];
   rules: Dictionary<DailyDiagramRule>;
@@ -16,7 +16,7 @@ type ThingsByRuleProps = {
 };
 
 export function ThingsByRule({
-  data,
+  things,
   addEntryToUpdate,
   availableThings,
   rules,
@@ -61,7 +61,7 @@ export function ThingsByRule({
           <Tag>{thingsByRules[id].length}</Tag>
           <Space size="small" wrap>
             {thingsByRules[id].slice(0, 20).map((itemId) => (
-              <Thing key={itemId} itemId={itemId} name={data[itemId].name} />
+              <Thing key={`${id}-${itemId}`} itemId={itemId} name={things[itemId].name} />
             ))}
             {thingsByRules[id].length > 20 && (
               <Typography.Text>+{thingsByRules[id].length - 20} more</Typography.Text>
@@ -82,11 +82,11 @@ export function ThingsByRule({
   return (
     <Space direction="vertical" ref={ref}>
       <Typography.Title level={4}>
-        Things By Rule (Added: {Object.keys(data).length} | {availableThings.length})
+        Things By Rule (Added: {Object.keys(things).length} | {availableThings.length})
       </Typography.Title>
 
       <Space split={<Divider type="vertical" />}>
-        <AddItemRules
+        <AddNewThingFlow
           addEntryToUpdate={addEntryToUpdate}
           availableThings={availableThings}
           rules={rules}

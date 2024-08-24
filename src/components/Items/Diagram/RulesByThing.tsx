@@ -2,14 +2,14 @@ import { Button, Divider, Space, Typography } from 'antd';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useMeasure } from 'react-use';
 import { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
-import { AddItemRules } from './AddItemRules';
+import { AddNewThingFlow } from './AddNewThingFlow';
 import { DailyTeoriaDeConjuntosEntry } from 'components/Daily/utils/types';
 import { useState } from 'react';
 import { buildDailyTeoriaDeConjuntosGames } from 'components/Daily/utils/games/daily-teoria-de-conjuntos';
 import { DiagramGameSample } from './DiagramGameSample';
 
 type RulesByThingProps = {
-  data: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
+  things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
   addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
   availableThings: ItemT[];
   rules: Dictionary<DailyDiagramRule>;
@@ -17,7 +17,7 @@ type RulesByThingProps = {
 };
 
 export function RulesByThing({
-  data,
+  things,
   addEntryToUpdate,
   availableThings,
   rules,
@@ -38,7 +38,7 @@ export function RulesByThing({
             used: [],
           },
           rules,
-          data
+          things
         )
       )[0]
     );
@@ -47,10 +47,10 @@ export function RulesByThing({
   return (
     <Space direction="vertical" ref={ref}>
       <Typography.Title level={5}>
-        Rules By Items (Added: {Object.keys(data).length} | {availableThings.length})
+        Rules By Items (Added: {Object.keys(things).length} | {availableThings.length})
       </Typography.Title>
 
-      <AddItemRules
+      <AddNewThingFlow
         addEntryToUpdate={addEntryToUpdate}
         availableThings={availableThings}
         rules={rules}

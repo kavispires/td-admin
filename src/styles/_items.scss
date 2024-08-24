@@ -121,6 +121,10 @@
     border-radius: $border-radius;
     padding: get-unit(1);
   }
+
+  &__outdated-rule {
+    outline: 1px solid orangered;
+  }
 }
 
 .diagram-list-items {

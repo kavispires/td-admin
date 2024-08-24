@@ -39,7 +39,6 @@ export const buildDailyTeoriaDeConjuntosGames = (
       ...getRuleSet(things, thingsByRules, rules, used),
     };
   }
-  console.log(entries);
   return entries;
 };
 
@@ -128,6 +127,5 @@ function getRuleSet(
     intersectingThing,
     things: selectedThings,
   };
-  console.log(entry);
   return entry;
 }
