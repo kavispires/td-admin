@@ -25,6 +25,10 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
         return true;
       }
 
+      // if (item.syllables.endsWith('ie') && item.updatedAt < 1724527674296) {
+      //   return true;
+      // }
+
       return lastRuleUpdate > lastUpdate;
     });
   }, [things, rules]);
@@ -39,7 +43,9 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
       // Await the wait function here
       await wait(250);
 
-      setActiveThing(i);
+      if (toUpdateThings.length > 0) {
+        setActiveThing(toUpdateThings[0]);
+      }
     };
 
     console.count('Checking for things that need to update...');

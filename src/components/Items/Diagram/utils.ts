@@ -1,10 +1,10 @@
 import { memoize } from 'lodash';
 import { stringRemoveAccents } from 'utils';
 
-const LETTERS = 'abcdefghijklmnopqrstuvwxyz';
-const CONSONANTS = 'bcdfghjklmnpqrstvwxyz';
-const VOWELS = 'aeiou';
-const accents = /[áéíóúãẽĩõũâêîôûàèìòùäëïöü]/;
+export const LETTERS = 'abcdefghijklmnopqrstuvwxyz';
+export const CONSONANTS = 'bcdfghjklmnpqrstvwxyz';
+export const VOWELS = 'aeiou';
+export const ACCENTS = /[áéíóúãẽĩõũâêîôûàèìòùäëïöü]/;
 
 const cleanupWord = memoize((word: string) => {
   return stringRemoveAccents(word).toLowerCase();
@@ -30,7 +30,7 @@ const countAccents = (word: string) => {
   return word
     .toLowerCase()
     .split('')
-    .filter((letter) => accents.test(letter)).length;
+    .filter((letter) => ACCENTS.test(letter)).length;
 };
 
 const countWords = (text: string) => {

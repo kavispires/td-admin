@@ -1,10 +1,11 @@
 import { Affix, Button, Flex, Form, Input, Modal, Radio, Switch } from 'antd';
 import { useEffect, useMemo } from 'react';
 import { DailyDiagramItem, DailyDiagramRule } from 'types';
-import { verifiers } from './utils';
+import { CONSONANTS, verifiers, VOWELS } from './utils';
 import { Item } from 'components/Sprites';
 import { orderBy } from 'lodash';
 import clsx from 'clsx';
+import { stringRemoveAccents } from 'utils';
 
 export type ThingFormValues = Record<string, boolean | string | number>;
 
@@ -56,9 +57,11 @@ export function EditThingModal({
     // If initial state where name is still undefined, ignore
     if (!nameWatch) return;
 
+    if (nameWatch === thing.name) return;
+
     // If name changes, recalculate all rules
     const fields: Record<string, boolean | string | number | undefined> = {
-      syllables: nameWatch.replace(/ /g, ':'),
+      syllables: guessSyllablesSeparation(nameWatch),
       stressedSyllable: nameWatch.includes(' ') ? -1 : 0,
     };
     Object.keys(rules).forEach((ruleId) => {
@@ -266,7 +269,7 @@ const deserializeThing = (
   return {
     name: thing.name,
     itemId: thing.itemId,
-    syllables: thing.syllables ?? '',
+    syllables: thing.syllables ?? guessSyllablesSeparation(thing.name),
     stressedSyllable: thing.stressedSyllable ?? 0,
 
     ...Object.keys(rules).reduce((acc: Record<string, boolean | undefined>, ruleId) => {
@@ -302,4 +305,127 @@ const serializeThing = (values: Record<string, boolean | string | number>): Dail
     stressedSyllable: stressedSyllable as number,
     rules: Object.keys(thingRules).filter((key) => thingRules[key] === true),
   };
+};
+
+const checkIsVowel = (char: string) => VOWELS.includes(stringRemoveAccents(char));
+const checkIsConsonant = (char: string) => CONSONANTS.includes(stringRemoveAccents(char));
+const LMNRS = ['s', 'r', 'l', 'm', 'n'];
+const DOUBLE_LETTERS = [
+  'rr',
+  'ss',
+  'st',
+  'sc',
+  'lm',
+  'ld',
+  'mp',
+  'mb',
+  'rn',
+  'rm',
+  'rt',
+  'rd',
+  'lt',
+  'ld',
+  'nt',
+  'nd',
+  'sp',
+  'ls',
+];
+const guessSyllablesSeparation = (word: string): string => {
+  let syllables: string[] = [];
+  let currentSyllable = '';
+
+  const stringWithoutAccents = stringRemoveAccents(word);
+
+  for (let i = 0; i < word.length; i++) {
+    const char = stringWithoutAccents[i];
+    // Space makes a syllable
+    if (char === ' ') {
+      syllables.push(currentSyllable);
+      currentSyllable = '';
+      continue;
+    }
+
+    // Hyphen makes a syllable
+    if (char === '-') {
+      syllables.push(currentSyllable + '-');
+      currentSyllable = '';
+      continue;
+    }
+
+    if (checkIsVowel(char) && i < stringWithoutAccents.length - 2) {
+      const nextChar = stringWithoutAccents[i + 1];
+      const nextNextChar = stringWithoutAccents[i + 2];
+      // If the next character is a consonant and the next next character is a consonant, the first pair is a syllable
+      if (LMNRS.includes(nextChar) && checkIsConsonant(nextNextChar)) {
+        currentSyllable += word[i] + word[i + 1];
+        i++; // Skip the next character
+        continue;
+      }
+    }
+
+    // Handle "c" followed by "h", "r", or "l"
+    if (
+      char === 'c' &&
+      i < stringWithoutAccents.length - 2 &&
+      ['h', 'r', 'l'].includes(stringWithoutAccents[i + 1]) &&
+      checkIsVowel(stringWithoutAccents[i + 2])
+    ) {
+      currentSyllable += word[i] + word[i + 1] + word[i + 2];
+      i += 2; // Skip the next two characters
+      continue;
+    }
+
+    // Handle "l" or "n" followed by "h"
+    if (
+      ['l', 'n'].includes(char) &&
+      i < stringWithoutAccents.length - 2 &&
+      stringWithoutAccents[i + 1] === 'h' &&
+      checkIsVowel(stringWithoutAccents[i + 2])
+    ) {
+      currentSyllable += word[i] + word[i + 1] + word[i + 2];
+      i += 2; // Skip the next two characters
+      continue;
+    }
+
+    // Handle consonant followed by vowel followed by consonant cluster
+    if (
+      checkIsConsonant(char) &&
+      i < stringWithoutAccents.length - 3 &&
+      checkIsVowel(stringWithoutAccents[i + 1]) &&
+      LMNRS.includes(stringWithoutAccents[i + 2]) &&
+      checkIsConsonant(stringWithoutAccents[i + 3])
+    ) {
+      currentSyllable += word[i] + word[i + 1] + word[i + 2];
+      i += 2; // Skip the next two characters
+      continue;
+    }
+
+    currentSyllable += word[i];
+
+    if (
+      checkIsVowel(char) &&
+      i < stringWithoutAccents.length - 1 &&
+      !checkIsVowel(stringWithoutAccents[i + 1]) &&
+      !['l', 'r', 'n'].includes(stringWithoutAccents[i + 1])
+    ) {
+      syllables.push(currentSyllable);
+      currentSyllable = '';
+    }
+  }
+
+  if (currentSyllable !== '') {
+    syllables.push(currentSyllable);
+  }
+
+  // As a final effort, if there are syllables with "rr" or "ss", split them but keep the characters. e.g. carro -> car:ro
+  syllables = syllables.map((syllable) => {
+    for (const doubleLetter of DOUBLE_LETTERS) {
+      if (syllable.includes(doubleLetter)) {
+        return syllable.split(doubleLetter).join(`${doubleLetter[0]}:${doubleLetter[1]}`);
+      }
+    }
+    return syllable;
+  });
+
+  return syllables.filter(Boolean).join(':');
 };
