@@ -3,6 +3,7 @@ import { ReactNode, useEffect, useMemo, useState } from 'react';
 import { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { EditThingModal } from './EditThingModal';
 import { wait } from 'utils';
+import { SYLLABLE_SEPARATOR } from './utils';
 
 type ItemUpdateGuardProps = {
   things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
@@ -21,7 +22,7 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
       }, 0);
 
       // Temp until all new fields are in
-      if (!item.syllables || item.stressedSyllable === undefined) {
+      if (!item.syllables || item.stressedSyllable === undefined || item.name.includes(SYLLABLE_SEPARATOR)) {
         return true;
       }
 
