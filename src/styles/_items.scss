@@ -177,3 +177,34 @@
     place-items: center;
   }
 }
+
+.venn-diagram {
+  &__circle-content-left {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    // background: rgba(188, 143, 143, 0.2);
+    border-top-left-radius: 80%;
+    border-bottom-left-radius: 70%;
+  }
+
+  &__circle-content-right {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    // background: rgba(173, 216, 230, 0.2);
+    border-top-right-radius: 80%;
+    border-bottom-right-radius: 70%;
+  }
+
+  &__circle-content-intersection {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    // background: rgba(144, 238, 144, 0.2);
+    border-radius: 50%;
+  }
+}

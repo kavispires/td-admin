@@ -68,11 +68,15 @@ function getRuleSet(
   used.push(ruleId);
   const level = rules[selectedRules[0]].level + rules[selectedRules[1]].level - 1;
 
-  const itemsOnlyInRule1 = difference(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]);
+  const itemsOnlyInRule1 = shuffle(
+    difference(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]])
+  );
 
-  const itemsOnlyInRule2 = difference(thingsByRules[selectedRules[1]], thingsByRules[selectedRules[0]]);
+  const itemsOnlyInRule2 = shuffle(
+    difference(thingsByRules[selectedRules[1]], thingsByRules[selectedRules[0]])
+  );
 
-  const commonItems = intersection(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]);
+  const commonItems = shuffle(intersection(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]));
 
   // Get one unique initial thing that only fits rule 1
   const selectedInitialThingId1 = itemsOnlyInRule1.pop();

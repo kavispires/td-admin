@@ -1,5 +1,5 @@
 import { ClusterOutlined, TableOutlined } from '@ant-design/icons';
-import { Divider, Flex } from 'antd';
+import { Button, Divider, Flex } from 'antd';
 import { FilterSegments } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
@@ -55,6 +55,12 @@ export function ItemsDiagramFilters({
           },
         ]}
       />
+
+      <Divider />
+
+      <Button size="small" block onClick={() => addParams({ display: 'simulator' })}>
+        Simulator
+      </Button>
     </SiderContent>
   );
 }

@@ -10,6 +10,7 @@ import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ThingsByRule } from './ThingsByRule';
 import { orderBy } from 'lodash';
 import { ItemUpdateGuard } from './ItemUpdateGuard';
+import { GameSimulator } from './GameSimulator';
 
 export function ItemsDiagramSetsContent({
   data,
@@ -78,6 +79,15 @@ export function ItemsDiagramSetsContent({
             availableThings={availableThings}
             rules={rules}
             thingsByRules={thingsByRules}
+          />
+        )}
+
+        {is('display', 'simulator') && (
+          <GameSimulator
+            things={data}
+            addEntryToUpdate={addEntryToUpdate}
+            availableThings={availableThings}
+            rules={rules}
           />
         )}
       </ItemUpdateGuard>
