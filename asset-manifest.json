@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/td-admin/static/css/main.b5378aab.css",
-    "main.js": "/td-admin/static/js/main.bdfcf7ba.js",
+    "main.js": "/td-admin/static/js/main.d87bd8db.js",
     "Home.js": "/td-admin/static/js/Home.a46359f5.chunk.js",
     "Resource.js": "/td-admin/static/js/Resource.20cce45d.chunk.js",
     "ResourceGenerator.js": "/td-admin/static/js/ResourceGenerator.db97b728.chunk.js",
@@ -19,7 +19,7 @@
     "Items.js": "/td-admin/static/js/Items.0dc00f39.chunk.js",
     "ItemsAttribution.js": "/td-admin/static/js/ItemsAttribution.17925200.chunk.js",
     "ItemsDiagramSets.css": "/td-admin/static/css/ItemsDiagramSets.91b2e354.chunk.css",
-    "ItemsDiagramSets.js": "/td-admin/static/js/ItemsDiagramSets.0003c7dc.chunk.js",
+    "ItemsDiagramSets.js": "/td-admin/static/js/ItemsDiagramSets.422295c9.chunk.js",
     "ItemsGroups.js": "/td-admin/static/js/ItemsGroups.d086246a.chunk.js",
     "ItemsDiscSets.js": "/td-admin/static/js/ItemsDiscSets.95dce815.chunk.js",
     "ItemsMovieSets.js": "/td-admin/static/js/ItemsMovieSets.21b74825.chunk.js",
@@ -59,7 +59,7 @@
     "index.html": "/td-admin/index.html",
     "static/media/logo.svg": "/td-admin/static/media/logo.290a44ba56847953c116e591c78dfae5.svg",
     "main.b5378aab.css.map": "/td-admin/static/css/main.b5378aab.css.map",
-    "main.bdfcf7ba.js.map": "/td-admin/static/js/main.bdfcf7ba.js.map",
+    "main.d87bd8db.js.map": "/td-admin/static/js/main.d87bd8db.js.map",
     "Home.a46359f5.chunk.js.map": "/td-admin/static/js/Home.a46359f5.chunk.js.map",
     "Resource.20cce45d.chunk.js.map": "/td-admin/static/js/Resource.20cce45d.chunk.js.map",
     "ResourceGenerator.db97b728.chunk.js.map": "/td-admin/static/js/ResourceGenerator.db97b728.chunk.js.map",
@@ -77,7 +77,7 @@
     "Items.0dc00f39.chunk.js.map": "/td-admin/static/js/Items.0dc00f39.chunk.js.map",
     "ItemsAttribution.17925200.chunk.js.map": "/td-admin/static/js/ItemsAttribution.17925200.chunk.js.map",
     "ItemsDiagramSets.91b2e354.chunk.css.map": "/td-admin/static/css/ItemsDiagramSets.91b2e354.chunk.css.map",
-    "ItemsDiagramSets.0003c7dc.chunk.js.map": "/td-admin/static/js/ItemsDiagramSets.0003c7dc.chunk.js.map",
+    "ItemsDiagramSets.422295c9.chunk.js.map": "/td-admin/static/js/ItemsDiagramSets.422295c9.chunk.js.map",
     "ItemsGroups.d086246a.chunk.js.map": "/td-admin/static/js/ItemsGroups.d086246a.chunk.js.map",
     "ItemsDiscSets.95dce815.chunk.js.map": "/td-admin/static/js/ItemsDiscSets.95dce815.chunk.js.map",
     "ItemsMovieSets.21b74825.chunk.js.map": "/td-admin/static/js/ItemsMovieSets.21b74825.chunk.js.map",
@@ -117,6 +117,6 @@
   },
   "entrypoints": [
     "static/css/main.b5378aab.css",
-    "static/js/main.bdfcf7ba.js"
+    "static/js/main.d87bd8db.js"
   ]
 }
