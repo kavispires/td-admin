@@ -4,6 +4,7 @@ import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { INITIAL_PARAMETERS, Parameters, ResourceParameters } from 'components/Resource/ResourceParameters';
+import { set } from 'lodash';
 import { useState } from 'react';
 
 function ResourceGenerator() {
@@ -45,6 +46,17 @@ function ResourceGenerator() {
 
 export default ResourceGenerator;
 
+const isDualLanguageHeader = (header: string) => header.endsWith('_en') || header.endsWith('_pt');
+const getDualLanguageHeader = (header: string) => header.slice(0, -3);
+const getDualLanguagePath = (header: string) => {
+  if (isDualLanguageHeader(header)) {
+    const pathPrefix = header.slice(0, -3);
+    const pathSuffix = header.endsWith('_en') ? 'en' : 'pt';
+    return `${pathPrefix}.${pathSuffix}`;
+  }
+  return header;
+};
+
 function parseInput(input: string, parameters: Parameters): Record<string, GenericCard> {
   const { prefix, language, startingId, headers: hasHeaders, transform } = parameters;
 
@@ -52,15 +64,29 @@ function parseInput(input: string, parameters: Parameters): Record<string, Gener
     return {};
   }
 
+  const isDualLanguage = language === 'dualLanguage';
+
   const lines = input.split('\n');
-  const headers = lines[0].split('\t');
+
+  let headers = lines[0].split('\t').map((header) => header.trim());
+  const originalHeaders = [...headers];
+  if (isDualLanguage) {
+    headers = headers.map((header) => {
+      if (isDualLanguageHeader(header)) {
+        return getDualLanguageHeader(header);
+      }
+      return header;
+    });
+  }
 
   const data: Record<string, GenericCard> = {};
 
   for (let i = hasHeaders ? 1 : 0; i < lines.length; i++) {
     const currentLine = lines[i].split('\t');
 
-    const id = `${prefix}-${startingId + (hasHeaders ? -1 : 0) + i}-${language}`;
+    const id = isDualLanguage
+      ? `${prefix}-${startingId + (hasHeaders ? -1 : 0) + i}`
+      : `${prefix}-${startingId + (hasHeaders ? -1 : 0) + i}-${language}`;
 
     const card: GenericCard = {
       id,
@@ -68,7 +94,7 @@ function parseInput(input: string, parameters: Parameters): Record<string, Gener
 
     if (hasHeaders) {
       for (let j = 0; j < headers.length; j++) {
-        card[headers[j]] = transformText(currentLine[j]?.trim(), transform);
+        set(card, getDualLanguagePath(originalHeaders[j]), transformText(currentLine[j]?.trim(), transform));
       }
     } else {
       card.text = transformText(currentLine[0]?.trim(), transform);

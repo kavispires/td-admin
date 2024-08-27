@@ -43,6 +43,9 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
                 {entry}
               </Select.Option>
             ))}
+            <Select.Option key="random" value="dualLanguage">
+              Dual Language
+            </Select.Option>
           </Select>
         </Form.Item>
         <Form.Item label="Starting Id" name="startingId">
@@ -68,7 +71,7 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
           </Select>
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" disabled={!form.getFieldValue('prefix')}>
             Generate
           </Button>
         </Form.Item>
