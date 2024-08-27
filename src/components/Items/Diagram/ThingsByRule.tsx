@@ -1,4 +1,4 @@
-import { Divider, Rate, Space, Table, TableColumnsType, Tag, Typography } from 'antd';
+import { Divider, Rate, Space, Switch, Table, TableColumnsType, Tag, Typography } from 'antd';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useMemo } from 'react';
 import { useMeasure } from 'react-use';
@@ -6,6 +6,7 @@ import { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
 
 import { AddNewThingFlow } from './AddNewThingFlow';
 import { Thing } from './Thing';
+import { useQueryParams } from 'hooks/useQueryParams';
 
 type ThingsByRuleProps = {
   things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
@@ -23,6 +24,7 @@ export function ThingsByRule({
   thingsByRules,
 }: ThingsByRuleProps) {
   const [ref, { width: containerWidth }] = useMeasure<HTMLDivElement>();
+  const { is, addParam } = useQueryParams();
 
   const rows = useMemo(
     () =>
@@ -62,20 +64,43 @@ export function ThingsByRule({
       render: (title: string) => <Typography.Text>{title}</Typography.Text>,
     },
     {
+      title: 'Type',
+      dataIndex: 'type',
+      key: 'type',
+      sorter: (a, b) => a.type.localeCompare(b.type),
+    },
+    {
+      title: 'Method',
+      dataIndex: 'method',
+      key: 'method',
+      sorter: (a, b) => a.method.localeCompare(b.method),
+    },
+    {
       title: 'Things',
       dataIndex: 'thingsCount',
       key: 'thingsCount',
       render: (thingsCount: number, record) => (
         <Space size="small">
           <Tag>{thingsCount}</Tag>
-          <Space size="small" wrap>
-            {thingsByRules[record.id].slice(0, 20).map((itemId) => (
-              <Thing key={`${record.id}-${itemId}`} itemId={itemId} name={things[itemId].name} />
-            ))}
-            {thingsByRules[record.id].length > 20 && (
-              <Typography.Text>+{thingsCount - 20} more</Typography.Text>
-            )}
-          </Space>
+          {is('showThings') ? (
+            <Space size="small" wrap>
+              {thingsByRules[record.id].slice(0, 20).map((itemId) => (
+                <Thing key={`${record.id}-${itemId}`} itemId={itemId} name={things[itemId].name} />
+              ))}
+              {thingsByRules[record.id].length > 20 && (
+                <Typography.Text>+{thingsCount - 20} more</Typography.Text>
+              )}
+            </Space>
+          ) : (
+            <Space size="small" wrap>
+              {thingsByRules[record.id].slice(0, 5).map((itemId) => (
+                <Thing key={`${record.id}-${itemId}`} itemId={itemId} name={things[itemId].name} />
+              ))}
+              {thingsByRules[record.id].length > 5 && (
+                <Typography.Text>+{thingsCount - 5} more</Typography.Text>
+              )}
+            </Space>
+          )}
         </Space>
       ),
       sorter: (a, b) => a.thingsCount - b.thingsCount,
@@ -92,10 +117,10 @@ export function ThingsByRule({
   return (
     <Space direction="vertical" ref={ref}>
       <Typography.Title level={4}>
-        Things By Rule (Added: {Object.keys(things).length} | {availableThings.length})
+        Things By Rule (Added: {Object.keys(things).length} | {availableThings.length}){' '}
       </Typography.Title>
 
-      <Space split={<Divider type="vertical" />}>
+      <Space split={<Divider type="vertical" />} wrap>
         <AddNewThingFlow
           addEntryToUpdate={addEntryToUpdate}
           availableThings={availableThings}
@@ -114,6 +139,13 @@ export function ThingsByRule({
         <Typography.Text strong>
           Min Things: <Tag>{stats.minThings}</Tag>
         </Typography.Text>
+
+        <Switch
+          checked={is('showThings')}
+          onChange={(e) => addParam('showThings', e)}
+          checkedChildren="Hide things"
+          unCheckedChildren="Show things"
+        />
       </Space>
 
       <Table dataSource={rows} columns={columns} />

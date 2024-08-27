@@ -25,6 +25,11 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
         return true;
       }
 
+      // Prevent updating items that have the syllables field but it's not correct
+      if (item.syllables && item.syllables?.replace(/\|/g, '') !== item.name.replace(/\s/g, '')) {
+        return true;
+      }
+
       // if (item.syllables.endsWith('ie') && item.updatedAt < 1724527674296) {
       //   return true;
       // }
