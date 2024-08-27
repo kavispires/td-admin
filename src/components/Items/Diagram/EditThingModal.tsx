@@ -1,7 +1,14 @@
 import { Affix, Button, Flex, Form, Input, Modal, Radio, Switch } from 'antd';
 import { useEffect, useMemo } from 'react';
 import { DailyDiagramItem, DailyDiagramRule } from 'types';
-import { CONSONANTS, SYLLABLE_SEPARATOR, verifiers, VOWELS } from './utils';
+import {
+  CONSONANTS,
+  stressSyllableDependencyVerifier,
+  SYLLABLE_SEPARATOR,
+  syllableDependencyVerifier,
+  verifiers,
+  VOWELS,
+} from './utils';
 import { Item } from 'components/Sprites';
 import { orderBy } from 'lodash';
 import clsx from 'clsx';
@@ -18,6 +25,7 @@ type EditThingModalProps = {
   width?: number;
   itemAliases?: string[];
   subtitle?: string;
+  okButtonText?: string;
 };
 
 export function EditThingModal({
@@ -29,6 +37,7 @@ export function EditThingModal({
   width,
   itemAliases,
   subtitle,
+  okButtonText,
 }: EditThingModalProps) {
   // Sort rules properly by type
   const orderedRules = useMemo(() => {
@@ -39,7 +48,12 @@ export function EditThingModal({
         return index === -1 ? Infinity : index;
       },
       // Sort by type
-      (r) => (r.type === 'grammar' ? 0 : 1),
+      (r) => {
+        const index = ['grammar', 'comparison', 'order', 'count', 'contain', 'ends'].indexOf(r.type);
+        return index === -1 ? Infinity : index;
+      },
+      // Sort by partial title
+      (r) => r.title.slice(0, 7),
       // Sort by id
       (r) => Number(r.id.split('-')[1]),
     ]);
@@ -62,7 +76,7 @@ export function EditThingModal({
     // If name changes, recalculate all rules
     const fields: Record<string, boolean | string | number | undefined> = {
       syllables: guessSyllablesSeparation(nameWatch),
-      stressedSyllable: nameWatch.includes(' ') ? -1 : 0,
+      stressedSyllable: thing.stressedSyllable ?? nameWatch.includes(' ') ? -1 : 0,
     };
     Object.keys(rules).forEach((ruleId) => {
       if (verifiers[ruleId]) {
@@ -78,11 +92,20 @@ export function EditThingModal({
   const syllables = Form.useWatch('syllables', form);
   useEffect(() => {
     if (syllables) {
-      const syllableCount = syllables.split(SYLLABLE_SEPARATOR).length;
+      const syllableRulesUpdate = Object.keys(rules).reduce((acc: Record<string, boolean>, ruleId) => {
+        if (syllableDependencyVerifier[ruleId]) {
+          acc[ruleId] = syllableDependencyVerifier[ruleId](syllables);
+        }
+        return acc;
+      }, {});
       form.setFieldsValue({
-        'ddr-3-pt': syllableCount === 2,
-        'ddr-4-pt': syllableCount >= 3,
-        stressedSyllable: nameWatch.includes(' ') ? -1 : undefined,
+        ...syllableRulesUpdate,
+        stressedSyllable:
+          syllables === thing.syllables
+            ? thing.stressedSyllable
+            : thing.stressedSyllable ?? nameWatch.includes(' ')
+              ? -1
+              : undefined,
       });
     }
   }, [syllables]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -91,10 +114,15 @@ export function EditThingModal({
   const stressedSyllable = Form.useWatch('stressedSyllable', form);
   useEffect(() => {
     if (stressedSyllable !== undefined) {
+      const stressSyllableRulesUpdate = Object.keys(rules).reduce((acc: Record<string, boolean>, ruleId) => {
+        if (stressSyllableDependencyVerifier[ruleId]) {
+          acc[ruleId] = stressSyllableDependencyVerifier[ruleId](syllables, stressedSyllable);
+        }
+        return acc;
+      }, {});
+
       form.setFieldsValue({
-        'ddr-43-pt': stressedSyllable === 0,
-        'ddr-44-pt': stressedSyllable === 1,
-        'ddr-45-pt': stressedSyllable === 2,
+        ...stressSyllableRulesUpdate,
       });
     }
   }, [stressedSyllable]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -153,7 +181,7 @@ export function EditThingModal({
       onCancel={onCancel}
       maskClosable={false}
       okButtonProps={{ disabled: hasUndefinedValues, htmlType: 'submit', size: 'large' }}
-      okText="Add Item"
+      okText={okButtonText ?? 'Add Item'}
     >
       <Form
         form={form}
@@ -202,7 +230,7 @@ export function EditThingModal({
             <Affix offsetTop={50}>
               <Flex justify="center" align="center">
                 <Button type="primary" htmlType="submit" size="large" disabled={hasUndefinedValues}>
-                  Add Item
+                  {okButtonText ?? 'Add Item'}
                 </Button>
               </Flex>
             </Affix>
@@ -234,10 +262,6 @@ export function EditThingModal({
                   className={clsx(thing.updatedAt < rule.updatedAt && 'diagram-container__outdated-rule')}
                 >
                   <Switch checkedChildren="✅" unCheckedChildren="❌" disabled />
-                  {/* <Radio.Group optionType="button" buttonStyle="solid" disabled>
-                    <Radio value={true}>✅</Radio>
-                    <Radio value={false}>❌</Radio>
-                  </Radio.Group> */}
                 </Form.Item>
               );
             }

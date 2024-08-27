@@ -1,7 +1,8 @@
 import { DailyTeoriaDeConjuntosEntry, ParsedDailyHistoryEntry } from '../types';
-import { capitalize, difference, intersection, sample, sampleSize, shuffle } from 'lodash';
+import { cloneDeep, difference, intersection, sample, sampleSize, shuffle } from 'lodash';
 import { getNextDay } from '../utils';
 import { DailyDiagramItem, DailyDiagramRule } from 'types';
+import { getIsThingOutdated, getLatestRuleUpdate } from 'components/Items/Diagram/utils';
 
 export const buildDailyTeoriaDeConjuntosGames = (
   batchSize: number,
@@ -13,6 +14,8 @@ export const buildDailyTeoriaDeConjuntosGames = (
   let lastDate = history.latestDate;
   const used: string[] = [...history.used];
 
+  const latestRuleUpdate = getLatestRuleUpdate(rules);
+
   const thingsByRules = (() => {
     const dict = Object.values(rules).reduce((acc: Record<string, string[]>, rule) => {
       acc[rule.id] = [];
@@ -20,9 +23,12 @@ export const buildDailyTeoriaDeConjuntosGames = (
     }, {});
 
     Object.values(things).forEach((entry) => {
-      entry.rules.forEach((ruleId) => {
-        dict[ruleId].push(entry.itemId);
-      });
+      // Only use things that are not outdated
+      if (!getIsThingOutdated(entry, latestRuleUpdate)) {
+        entry.rules.forEach((ruleId) => {
+          dict[ruleId].push(entry.itemId);
+        });
+      }
     });
     return dict;
   })();
@@ -36,7 +42,7 @@ export const buildDailyTeoriaDeConjuntosGames = (
       id,
       type: 'teoria-de-conjuntos',
       number: history.latestNumber + i + 1,
-      ...getRuleSet(things, thingsByRules, rules, used),
+      ...getRuleSet(things, thingsByRules, rules, used, latestRuleUpdate),
     };
   }
   return entries;
@@ -46,27 +52,54 @@ function getRuleSet(
   things: Dictionary<DailyDiagramItem>,
   thingsByRules: Record<string, string[]>,
   rules: Dictionary<DailyDiagramRule>,
-  used: string[]
+  used: string[],
+  latestRuleUpdate: number
 ) {
-  const availableThingsIds = shuffle(Object.keys(things).filter((id) => !used.includes(id)));
+  const availableThingsIds = shuffle(
+    Object.keys(things).filter(
+      (id) => !used.includes(id) && !getIsThingOutdated(things[id], latestRuleUpdate)
+    )
+  );
 
   // Get one random initial thing
   const initialThingId = sample(availableThingsIds);
   if (!initialThingId) throw new Error('No available things to choose from');
   used.push(initialThingId);
 
-  const title = capitalize(things[initialThingId].name);
   const intersectingThing = {
     id: initialThingId,
     name: things[initialThingId].name,
   };
 
-  // Get two random rules belonging to the thing
-  const selectedRules = sampleSize(things[initialThingId].rules, 2);
-  const ruleId = `${selectedRules[0]}-${selectedRules[1]}`;
-  if (selectedRules.length !== 2) throw new Error('No rules found for this thing');
+  // Group rules by type than get a random pair of rules of different types
+  const thingsRulesByType = things[initialThingId].rules.reduce((acc: Record<string, string[]>, ruleId) => {
+    const type = rules[ruleId].type;
+    if (!acc[type]) acc[type] = [];
+    acc[type].push(ruleId);
+    return acc;
+  }, {});
+  // Delete any rule with less than 2 rules
+  Object.keys(thingsRulesByType).forEach((type) => {
+    if (thingsRulesByType[type].length < 2) delete thingsRulesByType[type];
+  });
+
+  const twoRandomTypes = sampleSize(Object.keys(thingsRulesByType), 2);
+
+  if (twoRandomTypes.length !== 2) throw new Error('No types found for this thing');
+  const selectedRules = [
+    sample(thingsRulesByType[twoRandomTypes[0]]),
+    sample(thingsRulesByType[twoRandomTypes[1]]),
+  ];
+  if (!selectedRules[0] || !selectedRules[1]) throw new Error('No rules found for this thing');
+
+  const ruleId = [selectedRules[0], selectedRules[1]].sort().join('-');
   used.push(ruleId);
+
   const level = rules[selectedRules[0]].level + rules[selectedRules[1]].level - 1;
+
+  const availableThingsByRules = cloneDeep(thingsByRules);
+  // Removed the initial thing from the available things
+  delete availableThingsByRules[initialThingId];
 
   const itemsOnlyInRule1 = shuffle(
     difference(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]])
@@ -121,6 +154,23 @@ function getRuleSet(
     name: things[id].name,
     rule: gabarito[id],
   }));
+
+  // Build title
+  const TITLES: Record<string, string> = {
+    contain: 'Inclusão',
+    starts: 'Inicialização',
+    ends: 'Terminação',
+    grammar: 'Gramática',
+    order: 'Sequência',
+    count: 'Contagem',
+    comparison: 'Comparação',
+    repetition: 'Repetição',
+  };
+
+  const title = shuffle([
+    TITLES?.[rules[rule1.id].type] ?? 'Desconhecido',
+    TITLES?.[rules[rule2.id].type] ?? 'Desconhecido',
+  ]).join(' vs ');
 
   // Create the DailyTeoriaDeConjuntosEntry object
   const entry: Omit<DailyTeoriaDeConjuntosEntry, 'id' | 'type' | 'number'> = {

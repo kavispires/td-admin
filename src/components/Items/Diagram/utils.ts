@@ -1,4 +1,5 @@
 import { memoize } from 'lodash';
+import { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { stringRemoveAccents } from 'utils';
 
 export const SYLLABLE_SEPARATOR = '|';
@@ -43,15 +44,15 @@ export const verifiers: Record<string, (word: string) => boolean> = {
   'ddr-7-pt': (word: string) => {
     return LETTERS.indexOf(cleanupWord(word)[0]) < LETTERS.indexOf(cleanupWord(word)[1]);
   },
-  // Less than 5 letters
-  'ddr-8-pt': (word: string) => countLetters(word) <= 5,
+  // has 4 or less letters
+  'ddr-8-pt': (word: string) => countLetters(word) <= 4,
   // Has exactly 5 letters
   'ddr-9-pt': (word: string) => countLetters(word) === 5,
-  // Has between 4 and 6 letters
-  'ddr-10-pt': (word: string) => countLetters(word) >= 4 && countLetters(word) <= 6,
-  // Has between 6 and 8 letters
-  'ddr-11-pt': (word: string) => countLetters(word) >= 6 && countLetters(word) <= 8,
-  // Has more than 7 letters
+  // Has 6 letters
+  'ddr-10-pt': (word: string) => countLetters(word) === 6,
+  // Has between 7
+  'ddr-11-pt': (word: string) => countLetters(word) === 7,
+  // Has more than 8 letters
   'ddr-12-pt': (word: string) => countLetters(word) > 7,
   // Has more than 1 word
   'ddr-13-pt': (word: string) => countWords(word) > 1,
@@ -121,49 +122,120 @@ export const verifiers: Record<string, (word: string) => boolean> = {
   'ddr-25-pt': (word: string) => VOWELS.includes(cleanupWord(word)[0]),
   // starts with a consonant
   'ddr-26-pt': (word: string) => CONSONANTS.includes(cleanupWord(word)[0]),
-  // Double consecutive letters
+  // Double consecutive consonants
   'ddr-27-pt': (word: string) => {
-    return word.split('').some((letter, index) => letter === word[index + 1]);
+    return cleanupWord(word)
+      .split('')
+      .some((letter, index) => CONSONANTS.includes(letter) && word[index + 1] === letter);
   },
   // Has an A
   'ddr-28-pt': (word: string) => cleanupWord(word).includes('a'),
-  // Has an R
-  'ddr-29-pt': (word: string) => cleanupWord(word).includes('r'),
+  // Has an E
+  'ddr-29-pt': (word: string) => cleanupWord(word).includes('e'),
   // Has an U
   'ddr-30-pt': (word: string) => cleanupWord(word).includes('u'),
   // Has a Q or J
   'ddr-31-pt': (word: string) => cleanupWord(word).includes('q') || cleanupWord(word).includes('j'),
   // Has a C or Ç
   'ddr-32-pt': (word: string) => cleanupWord(word).includes('c') || cleanupWord(word).includes('ç'),
-  // Has an M
-  'ddr-33-pt': (word: string) => cleanupWord(word).includes('m'),
+  // Has an M or N followed by a consonant
+  'ddr-33-pt': (word: string) => {
+    return cleanupWord(word)
+      .split('')
+      .some((letter, index) => {
+        if (['m', 'n'].includes(letter) && CONSONANTS.includes(word[index + 1])) {
+          return true;
+        }
+        return false;
+      });
+  },
   // Has an H
   'ddr-34-pt': (word: string) => cleanupWord(word).includes('h'),
-  // Has P or B
-  'ddr-35-pt': (word: string) => cleanupWord(word).includes('p') || cleanupWord(word).includes('b'),
+  // Has H preceded by a consonant
+  'ddr-35-pt': (word: string) => {
+    return cleanupWord(word)
+      .split('')
+      .some((letter, index) => {
+        if (letter === 'h' && CONSONANTS.includes(word[index - 1])) {
+          return true;
+        }
+        return false;
+      });
+  },
   // Has K, W or Y
   'ddr-36-pt': (word: string) =>
     cleanupWord(word).includes('k') || cleanupWord(word).includes('w') || cleanupWord(word).includes('y'),
   // Has an accent
   'ddr-37-pt': (word: string) => countAccents(word) > 0,
-  // Does not end with an A or O
-  'ddr-38-pt': (word: string) => !['a', 'o'].includes(cleanupWord(word).slice(-1)),
+  // Ends with a vowel
+  'ddr-38-pt': (word: string) => {
+    return VOWELS.includes(cleanupWord(word).slice(-1));
+  },
   // Ends with a consonant
   'ddr-39-pt': (word: string) => CONSONANTS.includes(cleanupWord(word).slice(-1)),
   // Ends with an S
   'ddr-40-pt': (word: string) => cleanupWord(word).slice(-1) === 's',
-  // Does not have repeated vowels
-  'ddr-41-pt': (word: string) => {
-    const vowels = cleanupWord(word)
-      .split('')
-      .filter((letter) => VOWELS.includes(letter));
-    return new Set(vowels).size === vowels.length;
+  // Has an I
+  'ddr-47-pt': (word: string) => cleanupWord(word).includes('i'),
+  // Has an O
+  'ddr-48-pt': (word: string) => cleanupWord(word).includes('o'),
+};
+
+export const syllableDependencyVerifier: Record<string, (syllables: string) => boolean> = {
+  // Has 2 syllables
+  'ddr-3-pt': (syllables: string) => syllables.split(SYLLABLE_SEPARATOR).length === 2,
+  // Has 3 syllables
+  'ddr-4-pt': (syllables: string) => syllables.split(SYLLABLE_SEPARATOR).length === 3,
+  // Has 4 syllables
+  'ddr-22-pt': (syllables: string) => syllables.split(SYLLABLE_SEPARATOR).length === 4,
+  // Has two consecutive vowels on the same syllable
+  'ddr-41-pt': (syllables: string) => {
+    return syllables.split(SYLLABLE_SEPARATOR).some((syllable) => {
+      return syllable.split('').some((letter, index) => {
+        if (VOWELS.includes(letter) && VOWELS.includes(syllable[index + 1])) {
+          return true;
+        }
+        return false;
+      });
+    });
   },
-  // Does not have repeated consonants
-  'ddr-42-pt': (word: string) => {
-    const consonants = cleanupWord(word)
-      .split('')
-      .filter((letter) => CONSONANTS.includes(letter));
-    return new Set(consonants).size === consonants.length;
+  // Has two consecutive vowels on different syllables
+  'ddr-42-pt': (syllables: string) => {
+    return syllables.split(SYLLABLE_SEPARATOR).some((syllable, index) => {
+      if (index === 0) {
+        return false;
+      }
+      return syllable[0] === syllables.split(SYLLABLE_SEPARATOR)[index - 1].slice(-1);
+    });
   },
+  // Single syllable word
+  'ddr-46-pt': (syllables: string) => syllables.split(SYLLABLE_SEPARATOR).length === 1,
+};
+
+export const stressSyllableDependencyVerifier: Record<
+  string,
+  (syllables: string, stress: number) => boolean
+> = {
+  // The stress syllable is on the last syllable (oxitona)
+  'ddr-43-pt': (_syllables: string, stress: number) => {
+    return stress === 0;
+  },
+  // The stress syllable is on the second to last syllable (paroxitona)
+  'ddr-44-pt': (_syllables: string, stress: number) => {
+    return stress === 1;
+  },
+  // The stress syllable is on the third to last syllable (proparoxitona)
+  'ddr-45-pt': (_syllables: string, stress: number) => {
+    return stress === 2;
+  },
+};
+
+export const getLatestRuleUpdate = (rules: Dictionary<DailyDiagramRule>) => {
+  return Object.values(rules).reduce((acc, rule) => {
+    return Math.max(acc, rule.updatedAt);
+  }, 0);
+};
+
+export const getIsThingOutdated = (thing: DailyDiagramItem, latestRuleUpdate: number) => {
+  return latestRuleUpdate > thing.updatedAt;
 };

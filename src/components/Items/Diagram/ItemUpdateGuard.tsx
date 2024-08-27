@@ -3,7 +3,7 @@ import { ReactNode, useEffect, useMemo, useState } from 'react';
 import { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { EditThingModal } from './EditThingModal';
 import { wait } from 'utils';
-import { SYLLABLE_SEPARATOR } from './utils';
+import { getLatestRuleUpdate, SYLLABLE_SEPARATOR } from './utils';
 
 type ItemUpdateGuardProps = {
   things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
@@ -15,11 +15,10 @@ type ItemUpdateGuardProps = {
 export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: ItemUpdateGuardProps) {
   // If any rules has been added or updated AFTER the last time the user has updated the item, the user will be warned to update the item
   const toUpdateThings = useMemo(() => {
+    const latestRuleUpdate = getLatestRuleUpdate(rules);
+
     return Object.values(things).filter((item) => {
-      const lastUpdate = item.updatedAt;
-      const lastRuleUpdate = Object.values(rules).reduce((acc, rule) => {
-        return Math.max(acc, rule.updatedAt);
-      }, 0);
+      const latestThingUpdate = item.updatedAt;
 
       // Temp until all new fields are in
       if (!item.syllables || item.stressedSyllable === undefined || item.name.includes(SYLLABLE_SEPARATOR)) {
@@ -30,7 +29,7 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
       //   return true;
       // }
 
-      return lastRuleUpdate > lastUpdate;
+      return latestRuleUpdate > latestThingUpdate;
     });
   }, [things, rules]);
 
@@ -69,6 +68,7 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
           onCancel={() => setActiveThing(null)}
           thing={activeThing}
           rules={rules}
+          okButtonText="Update"
         />
       )}
       <>{children}</>

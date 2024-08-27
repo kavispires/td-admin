@@ -123,7 +123,7 @@
   }
 
   &__outdated-rule {
-    outline: 1px solid orangered;
+    background: get-color('orange', 7, 0.5);
   }
 }
 
