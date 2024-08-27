@@ -46,7 +46,7 @@ export function ItemRandomizer() {
   };
 
   const onGenerateMidjourneySample = () => {
-    const str = chunk(sampleSize(listing, 3 * 6), 3)
+    const str = chunk(sampleSize(listing, sampleQuantity * 15), sampleQuantity)
       .map((entries) => entries.map((entry) => entry.name.en).join(', '))
       .map((entry, index) => `${index + 1}) ${entry}`)
       .join('\n');
