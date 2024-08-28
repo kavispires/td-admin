@@ -25,6 +25,7 @@ export const buildDailyAquiOGames = (
   let notUsedSets = completeSets.filter((setEntry) => !history.used.includes(setEntry.id));
 
   if (notUsedSets.length < batchSize) {
+    console.log('🔆 Not enough aqui-o sets left, shuffling...');
     notUsedSets.push(...shuffle(completeSets));
   }
 

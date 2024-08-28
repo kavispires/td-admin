@@ -35,7 +35,7 @@ export const buildDailyArteRuimGames = (
 
         // Skip empty drawings
         if (dataDrawing.drawing.trim().length < 10) {
-          console.warn('Empty drawing', cardId);
+          console.log('🔆 Empty drawing', cardId);
           return acc;
         }
 

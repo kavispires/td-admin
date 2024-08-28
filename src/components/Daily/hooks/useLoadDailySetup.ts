@@ -137,6 +137,9 @@ export function useLoadDailySetup(
 
   // STEP N: Create entries
   const entries = useMemo(() => {
+    if (arteRuimEntries.length === 0) {
+      return [];
+    }
     console.count('Bundling entries...');
     return arteRuimEntries.map((arteRuim) => {
       return {
