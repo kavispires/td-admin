@@ -60,7 +60,7 @@ export function useLoadDailySetup(
   ]);
 
   // STEP 3: AQUI Ó
-  const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets');
+  const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets', enabled);
   const [aquiOHistory] = useParsedHistory('aqui-o', historyQuery.data);
   const aquiOEntries = useMemo(() => {
     if (!aquiOSetsQuery.isSuccess || !historyQuery.isSuccess) {
@@ -89,7 +89,7 @@ export function useLoadDailySetup(
   }, [wordsFourQuery, wordsFiveQuery, palavreadoHistory, batchSize, historyQuery.isSuccess]);
 
   // STEP 5: Artista
-  const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`);
+  const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`, enabled);
   const [artistaHistory] = useParsedHistory('artista', historyQuery.data);
   const artistaEntries = useMemo(() => {
     if (!arteRuimCardsQuery.isSuccess || !historyQuery.isSuccess) {
@@ -115,7 +115,7 @@ export function useLoadDailySetup(
   ]);
 
   // STEP 6: Filmaço
-  const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets');
+  const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets', enabled);
   const [filmacoHistory] = useParsedHistory('filmaco', historyQuery.data);
   const filmacoEntries = useMemo(() => {
     if (!movieSetsQuery.isSuccess || !historyQuery.isSuccess) {
