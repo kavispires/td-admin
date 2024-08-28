@@ -157,7 +157,7 @@ function getRuleSet(
 
   // Build title
   const TITLES: Record<string, string> = {
-    contain: 'Inclusão',
+    contains: 'Inclusão',
     starts: 'Inicialização',
     ends: 'Terminação',
     grammar: 'Gramática',
@@ -167,10 +167,10 @@ function getRuleSet(
     repetition: 'Repetição',
   };
 
-  const title = shuffle([
+  const title = [
     TITLES?.[rules[rule1.id].type] ?? 'Desconhecido',
     TITLES?.[rules[rule2.id].type] ?? 'Desconhecido',
-  ]).join(' vs ');
+  ].join(' vs ');
 
   // Create the DailyTeoriaDeConjuntosEntry object
   const entry: Omit<DailyTeoriaDeConjuntosEntry, 'id' | 'type' | 'number'> = {

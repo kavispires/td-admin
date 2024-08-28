@@ -49,7 +49,7 @@ export function EditThingModal({
       },
       // Sort by type
       (r) => {
-        const index = ['grammar', 'comparison', 'order', 'count', 'contain', 'ends'].indexOf(r.type);
+        const index = ['grammar', 'comparison', 'order', 'count', 'contains', 'ends'].indexOf(r.type);
         return index === -1 ? Infinity : index;
       },
       // Sort by partial title

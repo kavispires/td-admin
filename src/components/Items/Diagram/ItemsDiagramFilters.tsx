@@ -63,7 +63,7 @@ export function ItemsDiagramFilters({
       </Button>
 
       <Typography.Paragraph type="secondary" className="my-6">
-        v2.0
+        v2.0.1
       </Typography.Paragraph>
     </SiderContent>
   );
