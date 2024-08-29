@@ -239,3 +239,143 @@ export const getLatestRuleUpdate = (rules: Dictionary<DailyDiagramRule>) => {
 export const getIsThingOutdated = (thing: DailyDiagramItem, latestRuleUpdate: number) => {
   return latestRuleUpdate > thing.updatedAt;
 };
+
+const checkIsVowel = (char: string) => VOWELS.includes(stringRemoveAccents(char));
+const checkIsConsonant = (char: string) => CONSONANTS.includes(stringRemoveAccents(char));
+const LMNRS = ['s', 'r', 'l', 'm', 'n'];
+const DOUBLE_LETTERS = [
+  'rr',
+  'ss',
+  'st',
+  'sc',
+  'lm',
+  'ld',
+  'mp',
+  'mb',
+  'rn',
+  'rm',
+  'rt',
+  'rd',
+  'lt',
+  'ld',
+  'nt',
+  'nd',
+  'sp',
+  'ls',
+];
+/**
+ * Guesses the separation of syllables in a given word.
+ * @param word - The word for which to guess the syllables separation.
+ * @returns The guessed syllables separation as a string.
+ */
+export const guessSyllablesSeparation = (word: string): string => {
+  let syllables: string[] = [];
+  let currentSyllable = '';
+
+  const stringWithoutAccents = stringRemoveAccents(word);
+
+  for (let i = 0; i < word.length; i++) {
+    const char = stringWithoutAccents[i];
+    // Space makes a syllable
+    if (char === ' ') {
+      syllables.push(currentSyllable);
+      currentSyllable = '';
+      continue;
+    }
+
+    // Hyphen makes a syllable
+    if (char === '-') {
+      syllables.push(currentSyllable + '-');
+      currentSyllable = '';
+      continue;
+    }
+
+    if (checkIsVowel(char) && i < stringWithoutAccents.length - 2) {
+      const nextChar = stringWithoutAccents[i + 1];
+      const nextNextChar = stringWithoutAccents[i + 2];
+      // If the next character is a consonant and the next next character is a consonant, the first pair is a syllable
+      if (LMNRS.includes(nextChar) && checkIsConsonant(nextNextChar)) {
+        currentSyllable += word[i] + word[i + 1];
+        i++; // Skip the next character
+        continue;
+      }
+    }
+
+    // Handle "c" followed by "h", "r", or "l"
+    if (
+      char === 'c' &&
+      i < stringWithoutAccents.length - 2 &&
+      ['h', 'r', 'l'].includes(stringWithoutAccents[i + 1]) &&
+      checkIsVowel(stringWithoutAccents[i + 2])
+    ) {
+      currentSyllable += word[i] + word[i + 1] + word[i + 2];
+      i += 2; // Skip the next two characters
+      continue;
+    }
+
+    // Handle "l" or "n" followed by "h"
+    if (
+      ['l', 'n'].includes(char) &&
+      i < stringWithoutAccents.length - 2 &&
+      stringWithoutAccents[i + 1] === 'h' &&
+      checkIsVowel(stringWithoutAccents[i + 2])
+    ) {
+      currentSyllable += word[i] + word[i + 1] + word[i + 2];
+      i += 2; // Skip the next two characters
+      continue;
+    }
+
+    // Handle consonant followed by vowel followed by consonant cluster
+    if (
+      checkIsConsonant(char) &&
+      i < stringWithoutAccents.length - 3 &&
+      checkIsVowel(stringWithoutAccents[i + 1]) &&
+      LMNRS.includes(stringWithoutAccents[i + 2]) &&
+      checkIsConsonant(stringWithoutAccents[i + 3])
+    ) {
+      currentSyllable += word[i] + word[i + 1] + word[i + 2];
+      i += 2; // Skip the next two characters
+      continue;
+    }
+
+    currentSyllable += word[i];
+
+    if (
+      checkIsVowel(char) &&
+      i < stringWithoutAccents.length - 1 &&
+      !checkIsVowel(stringWithoutAccents[i + 1]) &&
+      !['l', 'r', 'n'].includes(stringWithoutAccents[i + 1])
+    ) {
+      syllables.push(currentSyllable);
+      currentSyllable = '';
+    }
+  }
+
+  if (currentSyllable !== '') {
+    syllables.push(currentSyllable);
+  }
+
+  // As a final effort, if there are syllables with "rr" or "ss", split them but keep the characters. e.g. carro -> car:ro
+  syllables = syllables.map((syllable) => {
+    for (const doubleLetter of DOUBLE_LETTERS) {
+      if (syllable.includes(doubleLetter)) {
+        return syllable.split(doubleLetter).join(`${doubleLetter[0]}${SYLLABLE_SEPARATOR}${doubleLetter[1]}`);
+      }
+    }
+    return syllable;
+  });
+
+  return syllables.filter(Boolean).join(SYLLABLE_SEPARATOR);
+};
+
+/**
+ * Separates the syllables of a given word.
+ * @param word - The word to separate syllables from.
+ * @returns The word with syllables separated by '|'.
+ */
+export function separateSyllables(word: string): string {
+  const syllablePattern =
+    /([^aeiouáéíóúâêîôûàèìòùãõäëïöüAEIOUÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃÕÄËÏÖÜ]*[aeiouáéíóúâêîôûàèìòùãõäëïöüAEIOUÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃÕÄËÏÖÜ]{1,3}[^aeiouáéíóúâêîôûàèìòùãõäëïöüAEIOUÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃÕÄËÏÖÜ]*)(?=[^aeiouáéíóúâêîôûàèìòùãõäëïöüAEIOUÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃÕÄËÏÖÜ]|$)/gi;
+
+  return word.replace(syllablePattern, '$1|').slice(0, -1);
+}

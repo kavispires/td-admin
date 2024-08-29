@@ -57,6 +57,12 @@ export function AddNewThingFlow({ addEntryToUpdate, availableThings, rules, widt
     onActivateThing();
   };
 
+  const onGiveAnotherThing = async () => {
+    setActiveThing(null);
+    await wait(100);
+    onActivateThing();
+  };
+
   return (
     <>
       <Button size="large" onClick={onActivateThing}>
@@ -71,6 +77,7 @@ export function AddNewThingFlow({ addEntryToUpdate, availableThings, rules, widt
           rules={rules}
           width={width * 0.9}
           itemAliases={aliases as string[]}
+          onGiveAnotherThing={onGiveAnotherThing}
         />
       )}
     </>
