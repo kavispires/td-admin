@@ -125,7 +125,7 @@ export function AddItemFlow({ movie, addEntryToUpdate }: AddItemFlowProps) {
 
 type RemoveItemFlowProps = {
   movie: DailyMovieSet;
-  addEntryToUpdate: (id: string, item: DailyMovieSet) => void;
+  addEntryToUpdate: (id: string, updatedMovie: DailyMovieSet) => void;
   itemId: string;
 };
 

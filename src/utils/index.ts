@@ -87,6 +87,16 @@ export const removeDuplicates = <T>(arr: T[]): T[] => {
 };
 
 /**
+ * Checks if an array has any duplicate elements.
+ * @param arr - The array to check for duplicates.
+ * @returns A boolean indicating whether the array has duplicates.
+ * @template T - The type of elements in the array.
+ */
+export const hasDuplicates = <T>(arr: T[]): boolean => {
+  return new Set(arr).size !== arr.length;
+};
+
+/**
  * Converts a object into a downloadable file and prompts download
  * @param obj
  * @param filename
