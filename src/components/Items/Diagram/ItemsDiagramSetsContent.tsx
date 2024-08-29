@@ -22,6 +22,7 @@ export function ItemsDiagramSetsContent({
   const availableThings = useMemo(() => {
     return Object.values(tdrItemsQuery.data ?? {}).filter((item) => {
       if (data && data[item.id] !== undefined) return false;
+      if (item.nsfw) return false;
       if (item.decks?.includes('thing')) return true;
       const isNameSingleWord = item.name.pt.split(' ').length === 1;
 
