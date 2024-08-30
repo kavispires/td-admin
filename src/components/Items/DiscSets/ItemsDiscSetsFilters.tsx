@@ -1,12 +1,13 @@
-import { Button, Divider, Flex } from 'antd';
+import { Divider, Flex } from 'antd';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { cloneDeep, isEmpty, omitBy } from 'lodash';
 import { DailyDiscSet } from 'types';
 import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
 
-import { SaveButton } from 'components/Common/SaveButton';
-import { cloneDeep, isEmpty, omitBy } from 'lodash';
+import { AddNewSetFlow } from './AddNewSetFlow';
 
 export function ItemsDiscSetsFilters({
   data,
@@ -34,19 +35,7 @@ export function ItemsDiscSetsFilters({
         />
       </Flex>
       <Divider />
-      <Button
-        type="dashed"
-        block
-        onClick={() =>
-          addEntryToUpdate('?', {
-            id: '?',
-            title: { pt: '', en: '' },
-            itemsIds: [],
-          })
-        }
-      >
-        Add New Set
-      </Button>
+      <AddNewSetFlow addEntryToUpdate={addEntryToUpdate} ids={Object.keys(data)} />
     </SiderContent>
   );
 }

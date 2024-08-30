@@ -14,6 +14,7 @@ import { DeleteFilled } from '@ant-design/icons';
 import { ItemsDiscSetExpandedRow } from './ItemsDiscSetExpandedRow';
 
 import type { TableProps } from 'antd';
+import { CopyIdsButton } from '../CopyIdsButton';
 function orderSets(givenSets: DailyDiscSet[]) {
   return orderBy(givenSets, [
     // (s) => removeDuplicates(s.itemsIds).filter(Boolean).length > 20,
@@ -166,6 +167,7 @@ export function DiscItemsCell({ disc, itemsIds, copyToClipboard, addEntryToUpdat
           </Flex>
         </Flex>
       ))}
+      <CopyIdsButton ids={itemsIds} />
     </Flex>
   );
 }

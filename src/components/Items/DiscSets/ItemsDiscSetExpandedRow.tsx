@@ -1,13 +1,16 @@
-import { DailyDiscSet, Item as ItemT } from 'types';
-import { ItemsTypeahead } from '../ItemsTypeahead';
-import { removeDuplicates, sortItemsIds } from 'utils';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { Button, Flex, Input, Typography } from 'antd';
-import { useTDResource } from 'hooks/useTDResource';
-import { useState } from 'react';
+import { Button, Flex, Typography } from 'antd';
 import { Item } from 'components/Sprites';
+import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { useTDResource } from 'hooks/useTDResource';
 import { sampleSize } from 'lodash';
+import { useState } from 'react';
+import { DailyDiscSet, Item as ItemT } from 'types';
+import { removeDuplicates, sortItemsIds } from 'utils';
+
 import { PlusOutlined } from '@ant-design/icons';
+
+import { ItemsTypeahead } from '../ItemsTypeahead';
+import { PasteIds } from '../ParseIds';
 
 type ItemsDiscSetExpandedRowProps = {
   disc: DailyDiscSet;
@@ -79,42 +82,5 @@ function RandomSample({ onUpdate }: RandomSampleProps) {
         ))}
       </Flex>
     </div>
-  );
-}
-
-type PasteIdsProps = {
-  onUpdateBatch: (itemId: string[]) => void;
-};
-
-function PasteIds({ onUpdateBatch }: PasteIdsProps) {
-  const [str, setStr] = useState('');
-
-  const onAdd = () => {
-    try {
-      // Remove any enclosing square brackets
-      let parsedStr = str.replace(/^\[|\]$/g, '');
-
-      // Split the string by commas, possibly surrounded by spaces
-      const idArray = parsedStr
-        .split(/\s*,\s*/)
-        .map((item) => item.replace(/^"|"$/g, ''))
-        .filter(Boolean);
-
-      onUpdateBatch(idArray);
-
-      setStr('');
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
-  return (
-    <Typography.Paragraph>
-      Paste IDs (from groups)
-      <Input.TextArea value={str} onChange={(e) => setStr(e.target.value)} />
-      <Button size="small" onClick={onAdd}>
-        Add
-      </Button>
-    </Typography.Paragraph>
   );
 }

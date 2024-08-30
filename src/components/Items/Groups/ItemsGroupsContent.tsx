@@ -1,4 +1,4 @@
-import { Button, Col, Drawer, Flex, Row, Space, Table, TableProps, Typography } from 'antd';
+import { Col, Drawer, Flex, Row, Table, TableProps, Typography } from 'antd';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
@@ -15,6 +15,7 @@ import { ItemGroupsCard } from './ItemGroupsCard';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { TransparentButton } from 'components/Common';
 import { ItemsTypeahead } from '../ItemsTypeahead';
+import { CopyIdsButton } from '../CopyIdsButton';
 
 export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { is, queryParams } = useQueryParams();
@@ -163,13 +164,7 @@ function ItemsGroupsByGroupTable({
       title: 'Actions',
       dataIndex: 'itemsIds',
       key: 'actions',
-      render: (itemsIds: string[]) => (
-        <Space direction="vertical" size="small">
-          <Button size="small" onClick={() => copyToClipboard(JSON.stringify(itemsIds))}>
-            Copy Ids
-          </Button>
-        </Space>
-      ),
+      render: (itemsIds: string[]) => <CopyIdsButton ids={itemsIds} />,
     },
   ];
 
