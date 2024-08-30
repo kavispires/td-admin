@@ -68,7 +68,6 @@ export function EditThingModal({
   // Automation: If name is changed, recalculates all rules
   const nameWatch = Form.useWatch('name', form);
   useEffect(() => {
-    console.log('Name changed', nameWatch);
     // If initial state where name is still undefined, ignore
     if (!nameWatch) return;
 

@@ -20,13 +20,12 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
     return Object.values(things).filter((item) => {
       const latestThingUpdate = item.updatedAt;
 
-      // Temp until all new fields are in
-      if (!item.syllables || item.stressedSyllable === undefined || item.name.includes(SYLLABLE_SEPARATOR)) {
-        return true;
-      }
-
       // Prevent updating items that have the syllables field but it's not correct
-      if (item.syllables && item.syllables?.replace(/\|/g, '') !== item.name.replace(/\s/g, '')) {
+      if (
+        item.syllables &&
+        item.syllables.split(SYLLABLE_SEPARATOR).join('') !== item.name.replace(/\s/g, '')
+      ) {
+        console.log('❗️ Name and syllables do not match', item.name, item.syllables);
         return true;
       }
 

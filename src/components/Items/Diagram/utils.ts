@@ -377,5 +377,7 @@ export function separateSyllables(word: string): string {
   const syllablePattern =
     /([^aeiouáéíóúâêîôûàèìòùãõäëïöüAEIOUÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃÕÄËÏÖÜ]*[aeiouáéíóúâêîôûàèìòùãõäëïöüAEIOUÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃÕÄËÏÖÜ]{1,3}[^aeiouáéíóúâêîôûàèìòùãõäëïöüAEIOUÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃÕÄËÏÖÜ]*)(?=[^aeiouáéíóúâêîôûàèìòùãõäëïöüAEIOUÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙÃÕÄËÏÖÜ]|$)/gi;
 
-  return word.replace(syllablePattern, '$1|').slice(0, -1);
+  const proposed = word.replace(syllablePattern, '$1|').slice(0, -1);
+
+  return proposed.replace(/\s/g, '');
 }

@@ -97,7 +97,6 @@ export function ItemsQuartetTypeahead({
   };
 
   const onSelect = (key: any) => {
-    console.log('onSelect', key);
     if (titlesDict[key] !== undefined) {
       onFinish(titlesDict[key]);
     }

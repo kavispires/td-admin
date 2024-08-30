@@ -16,7 +16,7 @@ export function ItemsDiagramSets() {
   });
 
   return (
-    <PageLayout title="Items" subtitle="Quartet Sets">
+    <PageLayout title="Items" subtitle="Diagram Sets">
       <Layout hasSider>
         <PageSider>
           <ItemsDiagramFilters {...diagramData} />
