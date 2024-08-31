@@ -92,6 +92,17 @@ export function useSaveDailySetup(queryLanguage: Language) {
           latestNumber: data[data.length - 1]['controle-de-estoque'].number,
           used: '[]',
         },
+        'teoria-de-conjuntos': {
+          latestDate: data[data.length - 1].id,
+          latestNumber: data[data.length - 1]['teoria-de-conjuntos'].number,
+          used: JSON.stringify(
+            removeDuplicates([
+              ...JSON.parse(previousHistory?.['teoria-de-conjuntos']?.used ?? '[]'),
+              ...data.map((e) => e['teoria-de-conjuntos'].setId),
+              ...data.map((e) => e['teoria-de-conjuntos'].intersectingThing.id),
+            ])
+          ),
+        },
       };
       setDoc(docRec, newHistory);
 

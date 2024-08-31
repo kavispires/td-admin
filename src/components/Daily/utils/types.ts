@@ -25,6 +25,7 @@ export type DailyHistory = {
   artista: DailyHistoryEntry;
   filmaco?: DailyHistoryEntry;
   'controle-de-estoque'?: DailyHistoryEntry;
+  'teoria-de-conjuntos'?: DailyHistoryEntry;
 };
 
 export type DailyArteRuimEntry = {
@@ -89,6 +90,7 @@ export type DailyTeoriaDeConjuntosEntry = {
   type: 'teoria-de-conjuntos';
   title: string;
   level: number;
+  setId: string;
   rule1: {
     id: string;
     text: string;

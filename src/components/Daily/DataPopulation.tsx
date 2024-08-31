@@ -133,6 +133,22 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       },
     },
     {
+      title: 'Teoria de Conjuntos',
+      dataIndex: 'teoria-de-conjuntos',
+      key: 'teoria-de-conjuntos',
+      render: ({ number, title, intersectingThing }) => {
+        return (
+          <Space direction="vertical">
+            <span>#{number}</span>
+            <span>Title: {title}</span>
+            <Flex gap={6} wrap>
+              <Item id={intersectingThing.id} width={50} />
+            </Flex>
+          </Space>
+        );
+      },
+    },
+    {
       title: 'Artista',
       dataIndex: 'artista',
       key: 'artista',

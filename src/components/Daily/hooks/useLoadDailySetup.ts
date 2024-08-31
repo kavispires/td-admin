@@ -1,7 +1,7 @@
 import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
 import { useMemo } from 'react';
-import { DailyDiscSet, ArteRuimCard, DailyMovieSet } from 'types';
+import { DailyDiscSet, ArteRuimCard, DailyMovieSet, DailyDiagramItem, DailyDiagramRule } from 'types';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import { DailyEntry } from '../utils/types';
@@ -14,6 +14,7 @@ import { buildDailyPalavreadoGames } from '../utils/games/daily-palavreado';
 import { buildDailyFilmacoGames } from '../utils/games/daily-filmaco';
 import { buildDailyControleDeEstoqueGames } from '../utils/games/daily-controle-de-estoque';
 import { buildDailyArtistaGames } from '../utils/games/daily-artista';
+import { buildDailyTeoriaDeConjuntosGames } from '../utils/games/daily-teoria-de-conjuntos';
 
 export type UseLoadDailySetup = {
   isLoading: boolean;
@@ -125,8 +126,8 @@ export function useLoadDailySetup(
     return buildDailyFilmacoGames(batchSize, filmacoHistory, movieSetsQuery.data);
   }, [movieSetsQuery, filmacoHistory, batchSize, historyQuery.isSuccess]);
 
-  const [controleDeEstoqueHistory] = useParsedHistory('controle-de-estoque', historyQuery.data);
   // SET 7: Controle de Estoque
+  const [controleDeEstoqueHistory] = useParsedHistory('controle-de-estoque', historyQuery.data);
   const controleDeEstoqueEntries = useMemo(() => {
     if (!historyQuery.isSuccess) {
       return {};
@@ -134,6 +135,23 @@ export function useLoadDailySetup(
 
     return buildDailyControleDeEstoqueGames(batchSize, controleDeEstoqueHistory);
   }, [batchSize, historyQuery.isSuccess, controleDeEstoqueHistory]);
+
+  // SET 8: Teoria de Conjuntos
+  const [teoriaDeConjuntosHistory] = useParsedHistory('teoria-de-conjuntos', historyQuery.data);
+  const thingsQuery = useTDResource<DailyDiagramItem>('daily-diagram-items', enabled);
+  const rulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules', enabled);
+  const teoriaDeConjuntosHistoryEntries = useMemo(() => {
+    if (!historyQuery.isSuccess || !thingsQuery.isSuccess || !rulesQuery.isSuccess) {
+      return {};
+    }
+
+    return buildDailyTeoriaDeConjuntosGames(
+      batchSize,
+      teoriaDeConjuntosHistory,
+      rulesQuery.data,
+      thingsQuery.data
+    );
+  }, [batchSize, historyQuery.isSuccess, teoriaDeConjuntosHistory, rulesQuery, thingsQuery]);
 
   // STEP N: Create entries
   const entries = useMemo(() => {
@@ -150,6 +168,7 @@ export function useLoadDailySetup(
         artista: artistaEntries[arteRuim.id],
         filmaco: filmacoEntries[arteRuim.id],
         'controle-de-estoque': controleDeEstoqueEntries[arteRuim.id],
+        'teoria-de-conjuntos': teoriaDeConjuntosHistoryEntries[arteRuim.id],
       };
     });
   }, [
@@ -159,6 +178,7 @@ export function useLoadDailySetup(
     artistaEntries,
     filmacoEntries,
     controleDeEstoqueEntries,
+    teoriaDeConjuntosHistoryEntries,
   ]);
 
   return {
@@ -169,7 +189,9 @@ export function useLoadDailySetup(
       wordsFiveQuery.isLoading ||
       arteRuimCardsQuery.isLoading ||
       aquiOSetsQuery.isLoading ||
-      movieSetsQuery.isLoading,
+      movieSetsQuery.isLoading ||
+      thingsQuery.isLoading ||
+      rulesQuery.isLoading,
     entries,
   };
 }

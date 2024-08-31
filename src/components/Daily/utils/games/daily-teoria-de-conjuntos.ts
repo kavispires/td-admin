@@ -171,10 +171,12 @@ function getRuleSet(
     TITLES?.[rules[rule1.id].type] ?? 'Desconhecido',
     TITLES?.[rules[rule2.id].type] ?? 'Desconhecido',
   ].join(' vs ');
+  const setId = [rule1.id, rule2.id].sort().join('::');
 
   // Create the DailyTeoriaDeConjuntosEntry object
   const entry: Omit<DailyTeoriaDeConjuntosEntry, 'id' | 'type' | 'number'> = {
     title,
+    setId,
     level,
     rule1,
     rule2,
