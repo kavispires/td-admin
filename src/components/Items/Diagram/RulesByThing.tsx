@@ -14,6 +14,7 @@ type RulesByThingProps = {
   availableThings: ItemT[];
   rules: Dictionary<DailyDiagramRule>;
   thingsByRules: Record<string, string[]>;
+  setActiveThing: React.Dispatch<React.SetStateAction<DailyDiagramItem | null>>;
 };
 
 export function RulesByThing({

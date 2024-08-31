@@ -1,11 +1,10 @@
 import { Divider, Rate, Space, Switch, Table, TableColumnsType, Tag, Typography } from 'antd';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useMemo } from 'react';
-import { useMeasure } from 'react-use';
 import { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
 
 import { AddNewThingFlow } from './AddNewThingFlow';
-import { Thing } from './Thing';
+import { ThingButton } from './Thing';
 import { useQueryParams } from 'hooks/useQueryParams';
 
 type ThingsByRuleProps = {
@@ -14,6 +13,8 @@ type ThingsByRuleProps = {
   availableThings: ItemT[];
   rules: Dictionary<DailyDiagramRule>;
   thingsByRules: Record<string, string[]>;
+  setActiveThing: React.Dispatch<React.SetStateAction<DailyDiagramItem | null>>;
+  containerWidth: number;
 };
 
 export function ThingsByRule({
@@ -22,8 +23,9 @@ export function ThingsByRule({
   availableThings,
   rules,
   thingsByRules,
+  setActiveThing,
+  containerWidth,
 }: ThingsByRuleProps) {
-  const [ref, { width: containerWidth }] = useMeasure<HTMLDivElement>();
   const { is, addParam } = useQueryParams();
 
   const rows = useMemo(
@@ -85,7 +87,11 @@ export function ThingsByRule({
           {is('showThings') ? (
             <Space size="small" wrap>
               {thingsByRules[record.id].slice(0, 20).map((itemId) => (
-                <Thing key={`${record.id}-${itemId}`} itemId={itemId} name={things[itemId].name} />
+                <ThingButton
+                  key={`${record.id}-${itemId}`}
+                  thing={things[itemId]}
+                  onActivateThing={setActiveThing}
+                />
               ))}
               {thingsByRules[record.id].length > 20 && (
                 <Typography.Text>+{thingsCount - 20} more</Typography.Text>
@@ -94,7 +100,11 @@ export function ThingsByRule({
           ) : (
             <Space size="small" wrap>
               {thingsByRules[record.id].slice(0, 5).map((itemId) => (
-                <Thing key={`${record.id}-${itemId}`} itemId={itemId} name={things[itemId].name} />
+                <ThingButton
+                  key={`${record.id}-${itemId}`}
+                  thing={things[itemId]}
+                  onActivateThing={setActiveThing}
+                />
               ))}
               {thingsByRules[record.id].length > 5 && (
                 <Typography.Text>+{thingsCount - 5} more</Typography.Text>
@@ -115,7 +125,7 @@ export function ThingsByRule({
   ];
 
   return (
-    <Space direction="vertical" ref={ref}>
+    <Space direction="vertical">
       <Typography.Title level={4}>
         Things By Rule (Added: {Object.keys(things).length} | {availableThings.length}){' '}
       </Typography.Title>
