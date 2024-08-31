@@ -29,12 +29,18 @@ export function AddNewSetFlow({ addEntryToUpdate, ids }: AddNewSetFlowProps) {
     const selection: PlainObject = {};
     if (nameEn && nameEn.length > 2) {
       const id = camelCase(nameEn);
-      const sim = stringSimilarity.findBestMatch(id, ids);
-      sim.ratings.forEach((rating) => {
-        if (rating.rating > 0.4) {
-          selection[rating.target] = rating.rating;
+      if (id) {
+        try {
+          const sim = stringSimilarity.findBestMatch(id, ids);
+          sim.ratings.forEach((rating) => {
+            if (rating.rating > 0.4) {
+              selection[rating.target] = rating.rating;
+            }
+          });
+        } catch (e) {
+          console.error(e);
         }
-      });
+      }
     }
     return Object.keys(selection);
   }, [nameEn, ids]);

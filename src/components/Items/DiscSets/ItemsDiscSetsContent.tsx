@@ -38,13 +38,21 @@ export function ItemsDiscSetsContent({
 
   const columns: TableProps<DailyDiscSet>['columns'] = [
     {
+      title: 'Id',
+      dataIndex: 'id',
+      key: 'id',
+      sorter: (a, b) => a.title.en.localeCompare(b.title.en),
+    },
+    {
       title: 'Title',
       dataIndex: 'title',
-      key: 'title.pt',
+      key: 'title',
+      sorter: (a, b) => a.title.en.localeCompare(b.title.en),
       render: (title, record) => (
         <DiscEditableTitleCell value={title} disc={record} addEntryToUpdate={addEntryToUpdate} />
       ),
     },
+
     Table.EXPAND_COLUMN,
     {
       title: 'Items',
