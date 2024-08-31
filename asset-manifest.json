@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/td-admin/static/css/main.0796c204.css",
-    "main.js": "/td-admin/static/js/main.7706ce80.js",
+    "main.js": "/td-admin/static/js/main.22db8eaa.js",
     "Home.js": "/td-admin/static/js/Home.a46359f5.chunk.js",
     "Resource.js": "/td-admin/static/js/Resource.0960a503.chunk.js",
     "ResourceGenerator.js": "/td-admin/static/js/ResourceGenerator.2b93fafc.chunk.js",
@@ -19,9 +19,9 @@
     "Items.js": "/td-admin/static/js/Items.fafdd2e7.chunk.js",
     "ItemsAttribution.js": "/td-admin/static/js/ItemsAttribution.2bf56df9.chunk.js",
     "ItemsDiagramSets.css": "/td-admin/static/css/ItemsDiagramSets.91b2e354.chunk.css",
-    "ItemsDiagramSets.js": "/td-admin/static/js/ItemsDiagramSets.3f7e58c2.chunk.js",
+    "ItemsDiagramSets.js": "/td-admin/static/js/ItemsDiagramSets.55311d29.chunk.js",
     "ItemsGroups.js": "/td-admin/static/js/ItemsGroups.ef07db43.chunk.js",
-    "ItemsDiscSets.js": "/td-admin/static/js/ItemsDiscSets.459cf84a.chunk.js",
+    "ItemsDiscSets.js": "/td-admin/static/js/ItemsDiscSets.861a18c0.chunk.js",
     "ItemsMovieSets.js": "/td-admin/static/js/ItemsMovieSets.8bb90371.chunk.js",
     "ItemsQuartets.js": "/td-admin/static/js/ItemsQuartets.6e8e4f24.chunk.js",
     "ItemsCrimeHistory.js": "/td-admin/static/js/ItemsCrimeHistory.3367abcb.chunk.js",
@@ -60,7 +60,7 @@
     "index.html": "/td-admin/index.html",
     "static/media/logo.svg": "/td-admin/static/media/logo.290a44ba56847953c116e591c78dfae5.svg",
     "main.0796c204.css.map": "/td-admin/static/css/main.0796c204.css.map",
-    "main.7706ce80.js.map": "/td-admin/static/js/main.7706ce80.js.map",
+    "main.22db8eaa.js.map": "/td-admin/static/js/main.22db8eaa.js.map",
     "Home.a46359f5.chunk.js.map": "/td-admin/static/js/Home.a46359f5.chunk.js.map",
     "Resource.0960a503.chunk.js.map": "/td-admin/static/js/Resource.0960a503.chunk.js.map",
     "ResourceGenerator.2b93fafc.chunk.js.map": "/td-admin/static/js/ResourceGenerator.2b93fafc.chunk.js.map",
@@ -78,9 +78,9 @@
     "Items.fafdd2e7.chunk.js.map": "/td-admin/static/js/Items.fafdd2e7.chunk.js.map",
     "ItemsAttribution.2bf56df9.chunk.js.map": "/td-admin/static/js/ItemsAttribution.2bf56df9.chunk.js.map",
     "ItemsDiagramSets.91b2e354.chunk.css.map": "/td-admin/static/css/ItemsDiagramSets.91b2e354.chunk.css.map",
-    "ItemsDiagramSets.3f7e58c2.chunk.js.map": "/td-admin/static/js/ItemsDiagramSets.3f7e58c2.chunk.js.map",
+    "ItemsDiagramSets.55311d29.chunk.js.map": "/td-admin/static/js/ItemsDiagramSets.55311d29.chunk.js.map",
     "ItemsGroups.ef07db43.chunk.js.map": "/td-admin/static/js/ItemsGroups.ef07db43.chunk.js.map",
-    "ItemsDiscSets.459cf84a.chunk.js.map": "/td-admin/static/js/ItemsDiscSets.459cf84a.chunk.js.map",
+    "ItemsDiscSets.861a18c0.chunk.js.map": "/td-admin/static/js/ItemsDiscSets.861a18c0.chunk.js.map",
     "ItemsMovieSets.8bb90371.chunk.js.map": "/td-admin/static/js/ItemsMovieSets.8bb90371.chunk.js.map",
     "ItemsQuartets.6e8e4f24.chunk.js.map": "/td-admin/static/js/ItemsQuartets.6e8e4f24.chunk.js.map",
     "ItemsCrimeHistory.3367abcb.chunk.js.map": "/td-admin/static/js/ItemsCrimeHistory.3367abcb.chunk.js.map",
@@ -119,6 +119,6 @@
   },
   "entrypoints": [
     "static/css/main.0796c204.css",
-    "static/js/main.7706ce80.js"
+    "static/js/main.22db8eaa.js"
   ]
 }
