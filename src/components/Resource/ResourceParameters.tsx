@@ -30,6 +30,8 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
     onUpdateParameters(v);
   };
 
+  const prefix = Form.useWatch(['prefix'], form);
+
   return (
     <SiderContent>
       <Form form={form} layout="vertical" onFinish={onFinish} size="small" initialValues={INITIAL_PARAMETERS}>
@@ -71,7 +73,7 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
           </Select>
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" disabled={!form.getFieldValue('prefix')}>
+          <Button type="primary" htmlType="submit" disabled={!prefix?.trim()}>
             Generate
           </Button>
         </Form.Item>

@@ -5,13 +5,13 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { INITIAL_PARAMETERS, Parameters, ResourceParameters } from 'components/Resource/ResourceParameters';
 import { set } from 'lodash';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 function ResourceGenerator() {
   const [parameters, setParameters] = useState<Parameters>(INITIAL_PARAMETERS);
   const [input, setInput] = useState('');
 
-  const result = parseInput(input, parameters);
+  const result = useMemo(() => parseInput(input, parameters), [input, parameters]);
   const stringifiedResult = JSON.stringify(result, null, 4);
 
   return (
