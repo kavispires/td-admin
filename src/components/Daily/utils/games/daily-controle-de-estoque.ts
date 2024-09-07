@@ -25,7 +25,7 @@ export const buildDailyControleDeEstoqueGames = (batchSize: number, history: Par
   return entries;
 };
 
-const TOTAL_GOODS = 192;
+const TOTAL_GOODS = 256;
 const GOODS_SIZE = 16;
 const ORDER_SIZE = 4;
 const OUT_OF_STOCK_SIZE = 1;
