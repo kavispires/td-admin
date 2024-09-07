@@ -15,6 +15,7 @@ import { DeleteFilled } from '@ant-design/icons';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 
 import type { TableProps } from 'antd';
+import { useMovieUsedHistory } from './useMovieUsedHistory';
 function orderSets(givenSets: DailyMovieSet[]) {
   return orderBy(givenSets, [
     // (s) => removeDuplicates(s.itemsIds).filter(Boolean).length > 0,
@@ -31,6 +32,8 @@ export function ItemsMoviesTable({
 }: UseResourceFirebaseDataReturnType<DailyMovieSet>) {
   const copyToClipboard = useCopyToClipboardFunction();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
+  const usedHistory = useMovieUsedHistory();
+
   const { is } = useQueryParams();
   const showOnlyEmpty = is('emptyOnly');
 
@@ -55,6 +58,7 @@ export function ItemsMoviesTable({
           addEntryToUpdate={addEntryToUpdate}
         />
       ),
+      sorter: (a, b) => a.title.localeCompare(b.title),
     },
     {
       title: 'Year',
@@ -62,6 +66,7 @@ export function ItemsMoviesTable({
       render: (year, record) => (
         <MovieEditableCell property="year" value={year} movie={record} addEntryToUpdate={addEntryToUpdate} />
       ),
+      sorter: (a, b) => a.year - b.year,
     },
     Table.EXPAND_COLUMN,
     {
@@ -76,11 +81,26 @@ export function ItemsMoviesTable({
           addEntryToUpdate={addEntryToUpdate}
         />
       ),
+      sorter: (a, b) => a.itemsIds.length - b.itemsIds.length,
     },
     {
       title: 'Count',
       dataIndex: 'itemsIds',
       render: (itemsIds: string[]) => removeDuplicates(itemsIds).filter(Boolean).length,
+    },
+    {
+      title: 'Used',
+      dataIndex: 'id',
+      render: (id: string) => (usedHistory[id] ? 'Yes' : 'No'),
+      sorter: (a, b) => {
+        if (usedHistory[a.id] && !usedHistory[b.id]) {
+          return -1;
+        } else if (!usedHistory[a.id] && usedHistory[b.id]) {
+          return 1;
+        } else {
+          return b.itemsIds.length - a.itemsIds.length;
+        }
+      },
     },
   ];
 
