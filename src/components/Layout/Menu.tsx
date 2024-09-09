@@ -10,6 +10,7 @@ import {
 } from '@ant-design/icons';
 
 import type { MenuProps } from 'antd';
+import { useGlobalContext } from 'context/GlobalContext';
 
 const items: MenuProps['items'] = [
   {
@@ -189,6 +190,7 @@ const items: MenuProps['items'] = [
 export function Menu() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { pendingSave } = useGlobalContext();
 
   const onClick: MenuProps['onClick'] = (e) => {
     navigate(e.key);
@@ -202,6 +204,7 @@ export function Menu() {
       items={items}
       className="header__menu"
       theme="dark"
+      disabled={pendingSave}
     />
   );
 }
