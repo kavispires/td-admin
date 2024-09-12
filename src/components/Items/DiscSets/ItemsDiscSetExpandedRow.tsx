@@ -2,7 +2,7 @@ import { Button, Flex, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTDResource } from 'hooks/useTDResource';
-import { sampleSize } from 'lodash';
+import { difference, sampleSize } from 'lodash';
 import { useState } from 'react';
 import { DailyDiscSet, Item as ItemT } from 'types';
 import { removeDuplicates, sortItemsIds } from 'utils';
@@ -39,7 +39,7 @@ export function ItemsDiscSetExpandedRow({ disc, addEntryToUpdate }: ItemsDiscSet
         <ItemsTypeahead onFinish={onUpdate} />
       </div>
 
-      <RandomSample onUpdate={onUpdate} />
+      <RandomSample onUpdate={onUpdate} disc={disc} />
 
       <PasteIds onUpdateBatch={onUpdateBatch} />
     </Flex>
@@ -48,16 +48,19 @@ export function ItemsDiscSetExpandedRow({ disc, addEntryToUpdate }: ItemsDiscSet
 
 type RandomSampleProps = {
   onUpdate: (itemId: string) => void;
+  disc: DailyDiscSet;
 };
 
-function RandomSample({ onUpdate }: RandomSampleProps) {
+function RandomSample({ onUpdate, disc }: RandomSampleProps) {
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
-  const [sampledItems, setSampledItems] = useState<string[]>(
-    sampleSize(Object.keys(itemsTypeaheadQuery.data ?? {}), 5)
-  );
+  const getSample = (quantity: number) => {
+    return difference(sampleSize(Object.keys(itemsTypeaheadQuery.data ?? {}), quantity), disc.itemsIds);
+  };
+
+  const [sampledItems, setSampledItems] = useState<string[]>(getSample(5));
 
   const onSample = () => {
-    setSampledItems(sampleSize(Object.keys(itemsTypeaheadQuery.data ?? {}), 20));
+    setSampledItems(getSample(20));
   };
 
   return (
