@@ -1,6 +1,6 @@
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { sample as lodashSample, shuffle } from 'lodash';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ItemAttribute } from 'types';
 
 import { useItemQueryParams } from './useItemQueryParams';
@@ -52,6 +52,12 @@ export function useItemSampler() {
     setSampleIds(tempSample.selected);
   };
 
+  const itemsLeftForAttribute = useMemo(() => {
+    if (!attribute) return 0;
+
+    return availableItemIds.filter((id) => !getItemAttributeValues(id).attributes[attribute?.id]).length;
+  }, [attribute, availableItemIds]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const updateAttributeValue = (itemId: string, attributeId: string, value: number) => {
     const currentItemAttributeValues = getItemAttributeValues(itemId);
 
@@ -67,6 +73,7 @@ export function useItemSampler() {
   return {
     sampleIds,
     attribute,
+    itemsLeftForAttribute,
     onGetSample,
     updateAttributeValue,
   };

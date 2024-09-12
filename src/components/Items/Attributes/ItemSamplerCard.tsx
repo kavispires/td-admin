@@ -9,7 +9,7 @@ import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 
 export function ItemSamplerCard() {
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
-  const { sampleIds, attribute, onGetSample, updateAttributeValue } = useItemSampler();
+  const { sampleIds, attribute, onGetSample, updateAttributeValue, itemsLeftForAttribute } = useItemSampler();
 
   if (isEmpty(sampleIds) && isEmpty(attribute)) {
     return (
@@ -42,7 +42,7 @@ export function ItemSamplerCard() {
       className="my-4"
       title={
         <Typography.Text>
-          {attribute?.name.en} - {attribute?.description.en}
+          {attribute?.name.en} - {attribute?.description.en} ({itemsLeftForAttribute} items left)
         </Typography.Text>
       }
       actions={[
