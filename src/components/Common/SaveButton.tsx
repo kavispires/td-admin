@@ -41,7 +41,7 @@ export function SaveButton({
       togglePendingSave(false);
       cancel(); // Cancel the timeout if `isDirty` becomes false
     }
-  }, [isDirty, reset, cancel, dirt]);
+  }, [isDirty, reset, cancel, dirt]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Prevents the user from leaving the page if there are unsaved changes (browser navigation or refresh)
   useEffect(() => {

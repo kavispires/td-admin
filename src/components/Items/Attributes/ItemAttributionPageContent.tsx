@@ -7,6 +7,7 @@ import { ItemGroupingCard } from './ItemGroupingCard';
 import { GoToTopButton } from 'components/Common/GoToTopButton';
 import { ItemComparatorCard } from './ItemComparatorCard';
 import { ItemSimulation } from './ItemSimulation';
+import { ItemStats } from './ItemStats';
 
 export function ItemAttributionPageContent() {
   const { view } = useItemQueryParams();
@@ -37,6 +38,10 @@ export function ItemAttributionPageContent() {
 
   if (view === 'simulator') {
     return <ItemSimulation />;
+  }
+
+  if (view === 'stats') {
+    return <ItemStats />;
   }
 
   return <Empty className="my-10" description="Unknown view has been selected" />;

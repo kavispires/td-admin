@@ -48,7 +48,7 @@ export function ItemAttributionFilters() {
         label="View"
         value={view}
         onChange={setView}
-        options={['classifier', 'sampler', 'grouping', 'comparator', 'simulator']}
+        options={['classifier', 'sampler', 'grouping', 'comparator', 'simulator', 'stats']}
       />
       <Divider />
 
