@@ -94,13 +94,17 @@ type FilterSegmentsProps = {
 
 export function FilterSegments({ value, label, onChange, options }: FilterSegmentsProps) {
   return (
-    <Form.Item label={label}>
+    <Form.Item label={label} layout={options.length > 2 ? 'vertical' : 'horizontal'}>
       <Segmented
         block
         value={value}
         onChange={onChange}
         options={options.map((option) => ({
-          label: <Tooltip title={option.title}>{option.icon}</Tooltip>,
+          label: (
+            <Tooltip arrow trigger="hover" title={option.title}>
+              {option.icon}
+            </Tooltip>
+          ),
           value: option.value,
         }))}
       />

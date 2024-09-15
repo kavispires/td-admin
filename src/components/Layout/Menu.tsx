@@ -48,24 +48,12 @@ const items: MenuProps['items'] = [
         ],
       },
       {
-        type: 'group',
         label: 'Crimes Hediondos',
-        children: [
-          {
-            label: 'Categorizer',
-            key: '/game/crimes-hediondos-categorizer',
-          },
-        ],
+        key: '/game/crimes-hediondos',
       },
       {
-        type: 'group',
-        label: 'Daily',
-        children: [
-          {
-            label: 'Setup',
-            key: '/game/daily-setup',
-          },
-        ],
+        label: 'Daily Setup',
+        key: '/game/daily-setup',
       },
     ],
   },
@@ -98,6 +86,10 @@ const items: MenuProps['items'] = [
         key: '/images/sprites',
       },
       {
+        label: 'Suspects',
+        key: '/images/suspects',
+      },
+      {
         type: 'group',
         label: 'Image Cards',
         children: [
@@ -119,24 +111,6 @@ const items: MenuProps['items'] = [
             key: '/image-cards/connections',
           },
         ],
-      },
-      {
-        type: 'group',
-        label: 'Crimes',
-        children: [
-          {
-            label: 'Weapons',
-            key: '/images/weapons',
-          },
-          {
-            label: 'Evidence',
-            key: '/images/evidence',
-          },
-        ],
-      },
-      {
-        label: 'Suspects',
-        key: '/images/suspects',
       },
     ],
   },

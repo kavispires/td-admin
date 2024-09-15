@@ -1,7 +1,7 @@
 import './CrimesHediondosCategorizer.scss';
 
 import { Button, Input, Layout, Select, Space, Spin, Tag } from 'antd';
-import { CHImage } from 'components/CrimesHediondos';
+
 import { PageLayout } from 'components/Layout';
 import { TagState } from 'components/Common/ResponseState';
 import { useCrimesHediondosData } from 'hooks/useCrimesHediondosData';
@@ -12,6 +12,7 @@ import { useCopyToClipboard } from 'react-use';
 import { CrimesHediondosCard } from 'types';
 
 import { CopyOutlined } from '@ant-design/icons';
+import { CrimeItemCard } from 'components/CrimesHediondos';
 
 function CrimesHediondosCategorizer() {
   /**
@@ -88,7 +89,7 @@ function CHDataWrapper({ data }: CHDataWrapperProps) {
   return (
     <div className="h-container">
       <div className="h-image-container">
-        <CHImage cardId={card.id} />
+        <CrimeItemCard item={card} cardWidth={75} />
         <h3>
           <span>{card.name.en}</span> | <span>{card.name.pt}</span>
         </h3>

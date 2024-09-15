@@ -12,11 +12,6 @@ const SingleWordsExpander = lazy(
   () => import('pages/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */)
 );
 const Other = lazy(() => import('pages/Other' /* webpackChunkName: "Other" */));
-
-const CrimeEvidence = lazy(
-  () => import('pages/Images/CrimeEvidence' /* webpackChunkName: "CrimeEvidence" */)
-);
-const CrimeWeapons = lazy(() => import('pages/Images/CrimeWeapons' /* webpackChunkName: "CrimeWeapons" */));
 const ImageCards = lazy(() => import('pages/Images/ImageCards' /* webpackChunkName: "ImageCards" */));
 const Sprites = lazy(() => import('pages/Images/Sprites' /* webpackChunkName: "Sprites" */));
 const Suspects = lazy(() => import('pages/Images/Suspects' /* webpackChunkName: "Suspects" */));
@@ -46,9 +41,7 @@ const ItemsCrimeHistory = lazy(
 );
 
 const DailySetup = lazy(() => import('pages/DailySetup' /* webpackChunkName: "DailySetup" */));
-const CrimesHediondosCategorizer = lazy(
-  () => import('pages/CrimesHediondosCategorizer' /* webpackChunkName: "CrimesHediondosCategorizer" */)
-);
+const CrimesHediondos = lazy(() => import('pages/CrimesHediondos' /* webpackChunkName: "CrimesHediondos" */));
 const MovieMaker = lazy(() => import('pages/MovieMaker' /* webpackChunkName: "MovieMaker" */));
 
 export const routes = (
@@ -95,10 +88,10 @@ export const routes = (
       }
     />
     <Route
-      path="/game/crimes-hediondos-categorizer"
+      path="/game/crimes-hediondos"
       element={
         <Suspense fallback={<LoadingPage />}>
-          <CrimesHediondosCategorizer />
+          <CrimesHediondos />
         </Suspense>
       }
     />
@@ -189,23 +182,6 @@ export const routes = (
       element={
         <Suspense fallback={<LoadingPage />}>
           <Suspects />
-        </Suspense>
-      }
-    />
-
-    <Route
-      path="/images/evidence"
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <CrimeEvidence />
-        </Suspense>
-      }
-    />
-    <Route
-      path="/images/weapons"
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <CrimeWeapons />
         </Suspense>
       }
     />

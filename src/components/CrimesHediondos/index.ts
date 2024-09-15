@@ -1,1 +1,1 @@
-export * from './CHImage';
+export * from './CrimeItemCard';

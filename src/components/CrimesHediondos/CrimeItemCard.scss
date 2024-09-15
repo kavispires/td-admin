@@ -1,0 +1,59 @@
+@use 'styles/sass' as *;
+
+.crime-item-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid transparent;
+
+  &--selected {
+    border: 2px dashed get-color('yellow');
+    background-color: get-color('yellow', 6);
+    border-radius: $border-radius;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.6rem;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  &__item-container {
+    filter: brightness(0.85) saturate(50%) drop-shadow(5px 5px 3px get-color('black', 5, 0.5));
+    border-radius: $border-radius;
+
+    &--weapon {
+      background: get-color('blue', 7);
+      border: 2px solid get-color('blue', 9);
+      background: linear-gradient(
+        40deg,
+        get-color('blue', 9) 0%,
+        get-color('blue', 7) 59%,
+        get-color('blue', 8) 88%,
+        get-color('blue', 7) 100%
+      );
+    }
+
+    &--evidence {
+      background: get-color('red', 6);
+      border: 2px solid get-color('red', 8);
+      background: linear-gradient(
+        40deg,
+        get-color('red', 8) 0%,
+        get-color('red', 6) 59%,
+        get-color('red', 7) 88%,
+        get-color('red', 6) 100%
+      );
+    }
+  }
+
+  &__item {
+    margin: get-unit(10 2);
+    background: transparent !important;
+  }
+}

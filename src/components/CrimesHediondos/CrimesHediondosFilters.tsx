@@ -1,0 +1,91 @@
+import { Divider, Flex } from 'antd';
+import { FilterSegments, FilterSwitch } from 'components/Common';
+import { DownloadButton } from 'components/Common/DownloadButton';
+import { SaveButton } from 'components/Common/SaveButton';
+import { SiderContent } from 'components/Layout';
+import { useQueryParams } from 'hooks/useQueryParams';
+import { cloneDeep } from 'lodash';
+import { CrimesHediondosCard } from 'types';
+import { sortJsonKeys } from 'utils';
+
+import { EnvironmentOutlined, SkinOutlined, TableOutlined } from '@ant-design/icons';
+import { CrimesHediondosContentProps } from './CrimesHediondosContent';
+
+export function CrimesHediondosFilters({ weaponsQuery, evidenceQuery }: CrimesHediondosContentProps) {
+  const { queryParams, addParam, addParams, is } = useQueryParams();
+
+  return (
+    <SiderContent>
+      <Flex vertical gap={12}>
+        <span>Weapons</span>
+        <SaveButton
+          isDirty={weaponsQuery.isDirty}
+          onSave={weaponsQuery.save}
+          isSaving={weaponsQuery.isSaving}
+          dirt={JSON.stringify(weaponsQuery.entriesToUpdate)}
+        />
+
+        <DownloadButton
+          data={() => prepareFileForDownload(weaponsQuery.data)}
+          fileName="crime-weapons.json"
+          disabled={weaponsQuery.isDirty}
+          block
+        />
+
+        <span>Evidence</span>
+        <SaveButton
+          isDirty={evidenceQuery.isDirty}
+          onSave={evidenceQuery.save}
+          isSaving={evidenceQuery.isSaving}
+          dirt={JSON.stringify(evidenceQuery.entriesToUpdate)}
+        />
+
+        <DownloadButton
+          data={() => prepareFileForDownload(evidenceQuery.data)}
+          fileName="crime-evidence.json"
+          disabled={evidenceQuery.isDirty}
+          block
+        />
+      </Flex>
+      <Divider />
+
+      <FilterSegments
+        label="Display"
+        value={queryParams.get('display') ?? 'listing'}
+        onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1 })}
+        options={[
+          {
+            title: 'Listing',
+            icon: <TableOutlined />,
+            value: 'listing',
+          },
+          {
+            title: 'Items',
+            icon: <SkinOutlined />,
+            value: 'classifier',
+          },
+          {
+            title: 'Scenes',
+            icon: <EnvironmentOutlined />,
+            value: 'scenes',
+          },
+        ]}
+      />
+
+      {is('display', 'item') && (
+        <FilterSwitch
+          label="No Groups Only"
+          value={is('emptyOnly')}
+          onChange={(mode) => addParam('emptyOnly', mode, false)}
+        />
+      )}
+    </SiderContent>
+  );
+}
+
+function prepareFileForDownload(diagramItems: Dictionary<CrimesHediondosCard>) {
+  console.log('Preparing file for download...');
+  const copy = cloneDeep(diagramItems);
+
+  return sortJsonKeys(copy);
+}

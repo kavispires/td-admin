@@ -10,7 +10,7 @@ export function useCrimesHediondosData() {
   const resultWP = useQuery<CrimesHediondosCard[], ResponseError>({
     queryKey: ['dmhk-wp'],
     queryFn: async () => {
-      const res = await fetch(getUrl('crime-weapon.json'));
+      const res = await fetch(getUrl('crime-weapons.json'));
       const jsonResponse = (await res.json()) as Record<string, CrimesHediondosCard>;
       return Object.values(jsonResponse).map((entry) => ({
         ...entry,
