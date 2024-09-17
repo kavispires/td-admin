@@ -1,6 +1,6 @@
 import { DailyPalavreadoEntry, ParsedDailyHistoryEntry } from '../types';
 import { difference, flatMap, intersection, shuffle, sortBy, uniq } from 'lodash';
-import { getNextDay, checkSaturday } from '../utils';
+import { getNextDay, checkWeekend } from '../utils';
 
 /**
  * Builds a dictionary of DailyPalavreadoEntry games.
@@ -23,15 +23,15 @@ export const buildDailyPalavreadoGames = (
   const entries: Dictionary<DailyPalavreadoEntry> = {};
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
-    const isSaturday = checkSaturday(id);
-    const size = isSaturday ? 5 : 4;
+    const isWeekend = checkWeekend(id);
+    const size = isWeekend ? 5 : 4;
     lastDate = id;
     entries[id] = {
       id,
       type: 'palavreado',
       number: history.latestNumber + i + 1,
       ...generatePalavreadoGame(
-        isSaturday ? fiveLetterWords : fourLetterWords,
+        isWeekend ? fiveLetterWords : fourLetterWords,
         [...Object.values(entries).map((e) => e.keyword), ...history.used],
         usedWords,
         size
@@ -60,7 +60,7 @@ export const generatePalavreadoGame = (
   let shuffledWords = shuffle(difference(words, newUsedWords, previouslyUsedWords));
 
   // Select a random word from the list and call it 'keyword'
-  const keyword = fixedKeyword ? fixedKeyword : shuffledWords.pop() ?? '';
+  const keyword = fixedKeyword ? fixedKeyword : (shuffledWords.pop() ?? '');
   if (fixedKeyword) {
     shuffledWords = difference(shuffledWords, [fixedKeyword]);
   }

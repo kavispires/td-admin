@@ -33,14 +33,14 @@ export function getNextDay(dateString: string): string {
 }
 
 /**
- * Checks if a given date is a Saturday.
+ * Checks if a given date is a Saturday or Sunday.
  *
  * @param {string} dateString - The date in 'YYYY-MM-DD' format.
- * @returns {boolean} True if the date is a Saturday, false otherwise.
+ * @returns {boolean} True if the date is a Saturday or Sunday, false otherwise.
  */
-export function checkSaturday(dateString: string): boolean {
+export function checkWeekend(dateString: string): boolean {
   const date = moment(dateString, 'YYYY-MM-DD');
-  return date.day() === 6; // 6 represents Saturday in moment.js
+  return [6, 0].includes(date.day()); // 0 represents Sunday and 6 represents Saturday in moment.js
 }
 
 const THRESHOLD = 500;
