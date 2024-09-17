@@ -1,35 +1,21 @@
 import { Button, Input, Space, Table, TableColumnsType, Tag } from 'antd';
-import { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
-import { CrimesHediondosCard } from 'types';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-import { CrimeItemCard } from './CrimeItemCard';
-import { CheckCircleFilled } from '@ant-design/icons';
-import { useTablePagination } from 'hooks/useTablePagination';
-import { CardEditTags } from './CardEditTags';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { cloneDeep } from 'lodash';
-import { useState } from 'react';
 import { Name } from 'components/Common/Name';
+import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
+import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
+import { useTablePagination } from 'hooks/useTablePagination';
+import { cloneDeep } from 'lodash';
+import { CrimesHediondosCard } from 'types';
 
-export function CrimeTable({
-  rows,
-  allTags,
-  addEvidenceToUpdate,
-  addWeaponToUpdate,
-}: CrimesHediondosInnerContentProps) {
+import { CheckCircleFilled } from '@ant-design/icons';
+
+import { CardEditTags } from './CardEditTags';
+import { CrimeItemCard } from './CrimeItemCard';
+import { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
+
+export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInnerContentProps) {
   const onCopyToClipboard = useCopyToClipboardFunction();
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
-  const [expandedRowKeys, setExpandedRowKeys] = useState<string[]>([]);
-
-  const onUpdateCard = (card: CrimesHediondosCard) => {
-    if (card.type === 'weapon') {
-      addWeaponToUpdate(card.id, card);
-    } else if (card.type === 'evidence') {
-      addEvidenceToUpdate(card.id, card);
-    } else {
-      throw new Error('Invalid card type');
-    }
-  };
 
   const editName = (name: string, language: 'pt' | 'en', card: CrimesHediondosCard) => {
     const copy = cloneDeep(card);
@@ -106,7 +92,7 @@ export function CrimeTable({
       dataIndex: 'tags',
       key: 'tags',
       render: (tags: string[]) => (
-        <Space size="small">
+        <Space size="small" wrap>
           {tags.map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
@@ -121,6 +107,28 @@ export function CrimeTable({
     },
   ];
 
+  const expandableProps = useTableExpandableRows<CrimesHediondosCard>({
+    maxExpandedRows: 1,
+    expandedRowRender: (record) => (
+      <CardEditTags card={record} allTags={allTags} onUpdateCard={onUpdateCard} />
+    ),
+  });
+
+  const onCopyPageCards = () => {
+    if (paginationProps) {
+      const { current = 1, pageSize = 10 } = paginationProps;
+      const pageRows = rows.slice((current - 1) * pageSize, current * pageSize);
+
+      const result: string[] = [];
+
+      pageRows.forEach((row, index) => {
+        result.push(`${index + 1}) ${row.name.en} - Current tags: ${(row.tags ?? []).join(', ')}`);
+      });
+      console.log(result);
+      onCopyToClipboard(result.join('\n'));
+    }
+  };
+
   return (
     <div className="my-4">
       <Space className="mb-4">
@@ -131,25 +139,13 @@ export function CrimeTable({
         >
           Copy AllTags
         </Button>
+        <Button onClick={onCopyPageCards}>Copy Page Cards</Button>
       </Space>
       <Table
         columns={columns}
         dataSource={rows}
         rowKey="id"
-        expandable={{
-          expandedRowKeys,
-          expandedRowRender: (record) => (
-            <CardEditTags
-              card={record}
-              allTags={allTags}
-              addEvidenceToUpdate={addEvidenceToUpdate}
-              addWeaponToUpdate={addWeaponToUpdate}
-            />
-          ),
-          rowExpandable: () => true,
-          defaultExpandAllRows: false,
-          onExpand: (e, r) => setExpandedRowKeys(e ? [r.id] : []),
-        }}
+        expandable={expandableProps}
         pagination={paginationProps}
       />
     </div>

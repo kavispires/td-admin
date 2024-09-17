@@ -5,7 +5,7 @@ import { CrimeTable } from './CrimeTable';
 import { useMemo } from 'react';
 import { orderBy } from 'lodash';
 import './CrimesHediondos.scss';
-import { TagTable } from './TagTable';
+import { TagsTable } from './TagsTable';
 
 export type CrimesHediondosContentProps = {
   weaponsQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
@@ -15,8 +15,7 @@ export type CrimesHediondosContentProps = {
 export type CrimesHediondosInnerContentProps = {
   rows: CrimesHediondosCard[];
   allTags: { label: string; value: string; count: number }[];
-  addWeaponToUpdate: UseResourceFirebaseDataReturnType<CrimesHediondosCard>['addEntryToUpdate'];
-  addEvidenceToUpdate: UseResourceFirebaseDataReturnType<CrimesHediondosCard>['addEntryToUpdate'];
+  onUpdateCard: (card: CrimesHediondosCard) => void;
 };
 
 export function CrimesHediondosContent({ weaponsQuery, evidenceQuery }: CrimesHediondosContentProps) {
@@ -42,20 +41,31 @@ export function CrimesHediondosContent({ weaponsQuery, evidenceQuery }: CrimesHe
     );
   }, [rows]);
 
+  const onUpdateCard = (card: CrimesHediondosCard) => {
+    if (card.type === 'weapon') {
+      weaponsQuery.addEntryToUpdate(card.id, card);
+    } else if (card.type === 'evidence') {
+      evidenceQuery.addEntryToUpdate(card.id, card);
+    } else {
+      throw new Error('Invalid card type');
+    }
+  };
+
   return (
     <>
       {(is('display', 'cards') || !queryParams.has('display')) && (
-        <CrimeTable
-          rows={rows}
-          allTags={allTags}
-          addWeaponToUpdate={weaponsQuery.addEntryToUpdate}
-          addEvidenceToUpdate={evidenceQuery.addEntryToUpdate}
-        />
+        <CrimeTable rows={rows} allTags={allTags} onUpdateCard={onUpdateCard} />
       )}
 
       {is('display', 'tags') && (
         <>
-          <TagTable />
+          <TagsTable
+            rows={rows}
+            weapons={weaponsQuery.data}
+            evidence={evidenceQuery.data}
+            onUpdateCard={onUpdateCard}
+            allTags={allTags}
+          />
         </>
       )}
 

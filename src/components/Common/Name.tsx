@@ -4,7 +4,7 @@ import { LanguageFlag } from './LanguageFlag';
 type NameProps = {
   name: DualLanguageValue;
   language: 'en' | 'pt';
-} & InputProps;
+} & Omit<InputProps, 'name'>;
 
 export function Name({ name, language, ...rest }: NameProps) {
   return (
