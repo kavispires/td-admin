@@ -8,7 +8,7 @@ import { cloneDeep } from 'lodash';
 import { CrimesHediondosCard } from 'types';
 import { sortJsonKeys } from 'utils';
 
-import { EnvironmentOutlined, SkinOutlined, TableOutlined } from '@ant-design/icons';
+import { EnvironmentOutlined, SkinOutlined, TagOutlined } from '@ant-design/icons';
 import { CrimesHediondosContentProps } from './CrimesHediondosContent';
 
 export function CrimesHediondosFilters({ weaponsQuery, evidenceQuery }: CrimesHediondosContentProps) {
@@ -55,14 +55,14 @@ export function CrimesHediondosFilters({ weaponsQuery, evidenceQuery }: CrimesHe
         onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1 })}
         options={[
           {
-            title: 'Listing',
-            icon: <TableOutlined />,
-            value: 'listing',
+            title: 'Cards',
+            icon: <SkinOutlined />,
+            value: 'cards',
           },
           {
-            title: 'Items',
-            icon: <SkinOutlined />,
-            value: 'classifier',
+            title: 'Tags',
+            icon: <TagOutlined />,
+            value: 'tags',
           },
           {
             title: 'Scenes',
