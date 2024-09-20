@@ -104,6 +104,34 @@ export type ArteRuimPair = {
 };
 
 /**
+ * Boss Idea card
+ * Used for: warehouse-boss-ideas
+ */
+export type BossIdeaCard = {
+  id: string;
+  /**
+   * The title of the boss idea.
+   */
+  title: DualLanguageValue;
+  /**
+   * The boss idea speech bubble.
+   */
+  subtitle: DualLanguageValue;
+  /**
+   * The instructions of the idea
+   */
+  description: DualLanguageValue;
+  /**
+   * The level of difficulty
+   */
+  difficulty: number;
+  /**
+   * The original rule
+   */
+  ogRule?: string;
+};
+
+/**
  * Choice Card
  * Used for: choices
  */
