@@ -1,5 +1,4 @@
-import { Col, Row, Typography } from 'antd';
-
+import { Typography } from 'antd';
 import { ItemCard } from './ItemCard';
 import { capitalize } from 'lodash';
 import { useItemsContext } from 'context/ItemsContext';
@@ -16,9 +15,6 @@ export function ItemListing() {
 
   const { is } = useQueryParams();
   const isSimplified = is('simplified');
-  const colProps = isSimplified
-    ? { xs: 24, sm: 12, md: 8, lg: 4, xl: 3 }
-    : { xs: 24, sm: 24, md: 12, lg: 6, xl: 4 };
 
   return (
     <>
@@ -27,13 +23,11 @@ export function ItemListing() {
       </Typography.Title>
 
       <PaginationWrapper pagination={pagination} className="full-width">
-        <Row gutter={[16, 16]} className="my-4">
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
           {page.map((item) => (
-            <Col key={item.id} {...colProps}>
-              <ItemCard item={item} simplified={isSimplified} />
-            </Col>
+            <ItemCard item={item} simplified={isSimplified} />
           ))}
-        </Row>
+        </div>
       </PaginationWrapper>
     </>
   );
