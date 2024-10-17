@@ -1,63 +1,71 @@
-import { Button, Card, Image, Layout, Space } from 'antd';
+import { Button, Flex, Image, Layout, Modal, Tag } from 'antd';
 
-import { CheckCircleFilled } from '@ant-design/icons';
-
-import './dev-image-cards.scss';
 import { UseImageCardsRelationshipDataReturnValue, useRandomCards } from './hooks';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { RelationshipCountTag } from './RelationshipCountTag';
 import { ImageCard } from '../ImageCard';
+import { useQueryParams } from 'hooks/useQueryParams';
+import { useKey, useWindowSize } from 'react-use';
 
 type ComparatorProps = {
   query: UseImageCardsRelationshipDataReturnValue;
 };
 
 export function Comparator({ query }: ComparatorProps) {
-  const [cardWidth] = useCardWidth(2);
+  const { width } = useWindowSize();
+  const [cardWidth] = useCardWidth(1, { minWidth: width / 3 });
 
-  const { data, isDirty, setDirty, isSuccess, isSaving, save } = query;
+  const { data, setDirty } = query;
 
   // Selects a random deck, but gives option select for a specific deck (1-10)
-  const { cardAId, cardA, cardBId, cardB, relate, unrelate, areRelated, onRandomCards } = useRandomCards(
-    data,
-    setDirty
-  );
+  const { cardAId, cardA, cardBId, cardB, relate, unrelate } = useRandomCards(data, setDirty);
+
+  const { addParam, is } = useQueryParams();
+
+  useKey('1', unrelate);
+  useKey('2', relate);
 
   return (
-    <Layout.Content className="dev-content">
-      {isSaving && <div>Saving...</div>}
-      {isSuccess && !isSaving && (
-        <Space className="space-container" direction="vertical">
-          <Button onClick={onRandomCards}>New Random Cards</Button>
-          <Card title={`${cardAId} X ${cardBId}`} extra={areRelated && <CheckCircleFilled />}>
-            <div className="image-card-card">
-              <Image.PreviewGroup>
-                <div className="image-card-card__image">
-                  <ImageCard id={cardAId} width={cardWidth} />
-                  <RelationshipCountTag card={cardA} />
-                </div>
-                <div className="image-card-card__image">
-                  <ImageCard id={cardBId} width={cardWidth} />
-                  <RelationshipCountTag card={cardB} />
-                </div>
-              </Image.PreviewGroup>
-            </div>
+    <Layout.Content className="dev-content py-4">
+      <Button block onClick={() => addParam('open', 'true')}>
+        Open Modal
+      </Button>
 
-            <Space className="image-card-categorizer-options">
-              <Button onClick={unrelate} size="large" block>
-                Unrelated
-              </Button>
-              <Button onClick={relate} size="large" block type="primary">
-                Related
-              </Button>
-            </Space>
-          </Card>
+      <Modal
+        title={`Card A: ${cardAId}`}
+        open={is('open')}
+        width={width * 0.95}
+        onCancel={() => addParam('open', 'false')}
+        footer={null}
+      >
+        <Image.PreviewGroup>
+          <Flex className="center" wrap="wrap" justify="center">
+            <Flex vertical>
+              <ImageCard id={cardAId} width={cardWidth} />
+              <Flex>
+                <RelationshipCountTag card={cardA} />
+                <Tag>{cardAId}</Tag>
+              </Flex>
+            </Flex>
+            <Flex vertical>
+              <ImageCard id={cardBId} width={cardWidth} />
+              <Flex>
+                <RelationshipCountTag card={cardB} />
+                <Tag>{cardBId}</Tag>
+              </Flex>
+            </Flex>
+          </Flex>
+        </Image.PreviewGroup>
 
-          <Button type="primary" onClick={() => save({})} disabled={!isDirty} loading={isSaving}>
-            Save
+        <Flex gap={32} className="my-10">
+          <Button onClick={unrelate} size="large" block>
+            Unrelated
           </Button>
-        </Space>
-      )}
+          <Button onClick={relate} size="large" block type="primary">
+            Related
+          </Button>
+        </Flex>
+      </Modal>
     </Layout.Content>
   );
 }

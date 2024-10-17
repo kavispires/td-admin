@@ -1,20 +1,32 @@
 import { Layout } from 'antd';
-import { ImagesRelationshipsProvider } from 'components/Images/ImageCards/ImagesRelationshipsContext';
+import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
+import { Comparator } from 'components/Images/ImageCards/Comparator';
+import { ComparatorFilters } from 'components/Images/ImageCards/ComparatorFilters';
+import { useImageCardsRelationshipData } from 'components/Images/ImageCards/hooks';
 
 import { PageLayout } from 'components/Layout';
+import { isEmpty } from 'lodash';
 
-function ImageCardsRelationships() {
+function ImageCardsComparator() {
+  const query = useImageCardsRelationshipData();
+
   return (
     <PageLayout title="Image Cards" subtitle="Comparator">
-      <ImagesRelationshipsProvider>
+      <DataLoadingWrapper
+        isLoading={query.isLoading}
+        error={query.error}
+        hasResponseData={!isEmpty(query.data)}
+      >
         <Layout hasSider>
-          {/* <RelationshipsFilters /> */}
+          <ComparatorFilters query={query} />
 
-          <Layout.Content className="content">{/* <RelationshipsContent /> */}</Layout.Content>
+          <Layout.Content className="content">
+            <Comparator query={query} />
+          </Layout.Content>
         </Layout>
-      </ImagesRelationshipsProvider>
+      </DataLoadingWrapper>
     </PageLayout>
   );
 }
 
-export default ImageCardsRelationships;
+export default ImageCardsComparator;

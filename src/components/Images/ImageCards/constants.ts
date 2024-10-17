@@ -1,6 +1,6 @@
 import { ImageCardData } from './types';
 
-export const TOTAL_DECKS = 10;
+export const TOTAL_DECKS = 12;
 
 export const CARDS_PER_DECK = 252;
 

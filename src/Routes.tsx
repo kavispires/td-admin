@@ -20,6 +20,9 @@ const ArteRuimGroups = lazy(() => import('pages/ArteRuimGroups' /* webpackChunkN
 const ImageCardsRelationships = lazy(
   () => import('pages/Images/ImageCardsRelationships' /* webpackChunkName: "ImageCardsRelationships" */)
 );
+const ImageCardsComparator = lazy(
+  () => import('pages/Images/ImageCardsComparator' /* webpackChunkName: "ImageCardsComparator" */)
+);
 const ImageCardsConnections = lazy(
   () => import('pages/Images/ImageCardsConnections' /* webpackChunkName: "ImageCardsConnections" */)
 );
@@ -199,6 +202,14 @@ export const routes = (
       element={
         <Suspense fallback={<LoadingPage />}>
           <ImageCardsRelationships />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/image-cards/comparator"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <ImageCardsComparator />
         </Suspense>
       }
     />

@@ -98,9 +98,8 @@ const items: MenuProps['items'] = [
             key: '/image-cards/decks',
           },
           {
-            label: 'Classifier',
-            key: '/image-cards/classifier',
-            disabled: true,
+            label: 'Comparator',
+            key: '/image-cards/comparator',
           },
           {
             label: 'Relationships',

@@ -10,6 +10,7 @@ import { UseMutateFunction, useMutation, useQuery, useQueryClient } from '@tanst
 import { CARDS_PER_DECK, DEFAULT_ENTRY, TOTAL_DECKS } from './constants';
 import { FirebaseImageCardLibrary, ImageCardData, ImageCardRelationship } from './types';
 import { cleanupData } from './utils';
+import { useQueryParams } from 'hooks/useQueryParams';
 
 const getRandomCardNumber = () => padStart(String(random(1, CARDS_PER_DECK)), 2, '0');
 
@@ -174,6 +175,8 @@ export function useRandomCards(
   const cardAId = `td-d${deckA}-${cardNumberA}`;
   const cardBId = `td-d${deckB}-${cardNumberB}`;
   const [unrelatedCount, setUnrelatedCount] = useState(0);
+  const { queryParams } = useQueryParams();
+  const unrelatedThreshold = Number(queryParams.get('cycle') ?? 3);
 
   const cardA = cardData?.[cardAId] ?? [];
   const cardB = cardData?.[cardBId] ?? [];
@@ -189,9 +192,9 @@ export function useRandomCards(
   const relate = () => {
     setUnrelatedCount(0);
     cardA.push(cardBId);
-    cardData[cardAId] = cardA;
+    cardData[cardAId] = removeDuplicates(cardA);
     cardB.push(cardAId);
-    cardData[cardBId] = cardB;
+    cardData[cardBId] = removeDuplicates(cardB);
     setDirty(true);
     setDeckA(deckB);
     setCardNumberA(cardNumberB);
@@ -200,7 +203,7 @@ export function useRandomCards(
   };
 
   const unrelate = () => {
-    if (unrelatedCount >= 10) {
+    if (unrelatedCount >= unrelatedThreshold) {
       setUnrelatedCount(0);
       onRandomCards();
     } else {
@@ -240,6 +243,7 @@ export type UseImageCardsRelationshipDataReturnValue = {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
+  error: Error | null;
   hasData: boolean;
   refetch: () => void;
   isSaving: boolean;
@@ -263,6 +267,7 @@ export function useImageCardsRelationshipData(): UseImageCardsRelationshipDataRe
     isLoading,
     isSuccess,
     isError,
+    error,
     isFetched,
     isRefetching,
     refetch,
@@ -326,6 +331,7 @@ export function useImageCardsRelationshipData(): UseImageCardsRelationshipDataRe
     isLoading,
     isSuccess,
     isError,
+    error,
     hasData: isSuccess && Object.keys(data).length > 0,
     refetch,
     isSaving,
