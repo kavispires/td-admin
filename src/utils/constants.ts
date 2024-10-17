@@ -42,6 +42,8 @@ export const RESOURCE_NAMES = {
   SPY_LOCATIONS: 'spy-locations',
   SPY_QUESTIONS: 'spy-questions',
   SUSPECTS: 'suspects',
+  TEENAGE_RUMORS: 'teenage-rumors',
+  TEENAGE_STUDENTS: 'teenage-students',
   TESTIMONY_QUESTIONS: 'testimony-questions',
   THEME_WORDS: 'theme-words',
   THING_PROMPTS: 'thing-prompts',
@@ -67,6 +69,8 @@ export const DUAL_LANGUAGE_RESOURCES = [
   RESOURCE_NAMES.MONSTER_ORIENTATION,
   RESOURCE_NAMES.OBJECT_FEATURES,
   RESOURCE_NAMES.SUSPECTS,
+  RESOURCE_NAMES.TEENAGE_RUMORS,
+  RESOURCE_NAMES.TEENAGE_STUDENTS,
 ];
 
 export const LANGUAGES: Language[] = ['pt', 'en'];
