@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import { DailyQuartetSet } from 'types';
 
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
+import { NewQuartetModal } from './NewQuartetModal';
 
 function orderSets(givenSets: DailyQuartetSet[]) {
   return orderBy(givenSets, [
@@ -38,6 +39,7 @@ export function ItemsQuartetsContent({
         Total Quartets: {rows.length} | Complete Quartets: {completeQuartetsCount}
       </Typography.Title>
       <ItemsQuartetsTable rows={rows} addEntryToUpdate={addEntryToUpdate} />
+      <NewQuartetModal data={data} addEntryToUpdate={addEntryToUpdate} />
     </Space>
   );
 }

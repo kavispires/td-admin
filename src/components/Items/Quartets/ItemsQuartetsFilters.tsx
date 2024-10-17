@@ -1,4 +1,4 @@
-import { Divider, Flex } from 'antd';
+import { Button, Divider, Flex } from 'antd';
 import { FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
@@ -41,10 +41,30 @@ export function ItemsQuartetsFilters({
         value={is('emptyOnly')}
         onChange={(mode) => addParam('emptyOnly', mode, false)}
       />
+
+      <Button block onClick={() => addParam('newQuartet', 'true', false)} disabled={is('newQuartet')}>
+        Add New Quartet
+      </Button>
     </SiderContent>
   );
 }
 
 function prepareFileForDownload(quartets: Dictionary<DailyQuartetSet>) {
+  // let latestId = 1;
+  // console.log(quartets);
+  // const clearedIds = Object.values(quartets).reduce((acc: Dictionary<DailyQuartetSet>, quartet) => {
+  //   const { id, ...rest } = quartet;
+  //   if (!rest.title) {
+  //     return acc;
+  //   }
+
+  //   const newId = `dqs-${String(latestId).padStart(4, '0')}-pt`;
+  //   acc[newId] = { ...rest, id: newId };
+  //   console.log(rest.title);
+  //   latestId += 1;
+  //   return acc;
+  // }, {});
+  // console.log(clearedIds);
+
   return sortJsonKeys(quartets);
 }

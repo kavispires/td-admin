@@ -18,9 +18,10 @@ const TYPES = ['general', 'visual', 'word', 'thematic', 'attribute'].map((t) => 
 type ItemsQuartetsTableProps = {
   rows: DailyQuartetSet[];
   addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyQuartetSet>['addEntryToUpdate'];
+  expandedRowKeys?: string[];
 };
 
-export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTableProps) {
+export function ItemsQuartetsTable({ rows, addEntryToUpdate, expandedRowKeys }: ItemsQuartetsTableProps) {
   const copyToClipboard = useCopyToClipboardFunction();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
 
@@ -100,6 +101,7 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
       expandable={{
         expandedRowRender: (record) => <AddItemFlow quartet={record} addEntryToUpdate={addEntryToUpdate} />,
         rowExpandable: () => itemsTypeaheadQuery.isSuccess,
+        expandedRowKeys,
       }}
       pagination={paginationProps}
     />
