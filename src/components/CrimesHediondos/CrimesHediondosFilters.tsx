@@ -5,13 +5,17 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
-import { CrimesHediondosCard } from 'types';
+import { CrimeSceneTile, CrimesHediondosCard } from 'types';
 import { sortJsonKeys } from 'utils';
 
 import { EnvironmentOutlined, SkinOutlined, TagOutlined } from '@ant-design/icons';
 import { CrimesHediondosContentProps } from './CrimesHediondosContent';
 
-export function CrimesHediondosFilters({ weaponsQuery, evidenceQuery }: CrimesHediondosContentProps) {
+export function CrimesHediondosFilters({
+  weaponsQuery,
+  evidenceQuery,
+  scenesQuery,
+}: CrimesHediondosContentProps) {
   const { queryParams, addParam, addParams, is } = useQueryParams();
 
   return (
@@ -44,6 +48,21 @@ export function CrimesHediondosFilters({ weaponsQuery, evidenceQuery }: CrimesHe
           data={() => prepareFileForDownload(evidenceQuery.data)}
           fileName="crime-evidence.json"
           disabled={evidenceQuery.isDirty}
+          block
+        />
+
+        <span>Scenes</span>
+        <SaveButton
+          isDirty={scenesQuery.isDirty}
+          onSave={scenesQuery.save}
+          isSaving={scenesQuery.isSaving}
+          dirt={JSON.stringify(scenesQuery.entriesToUpdate)}
+        />
+
+        <DownloadButton
+          data={() => prepareFileForDownload(scenesQuery.data)}
+          fileName="crime-scenes.json"
+          disabled={scenesQuery.isDirty}
           block
         />
       </Flex>
@@ -83,7 +102,7 @@ export function CrimesHediondosFilters({ weaponsQuery, evidenceQuery }: CrimesHe
   );
 }
 
-function prepareFileForDownload(diagramItems: Dictionary<CrimesHediondosCard>) {
+function prepareFileForDownload(diagramItems: Dictionary<CrimesHediondosCard | CrimeSceneTile>) {
   console.log('Preparing file for download...');
   const copy = cloneDeep(diagramItems);
 

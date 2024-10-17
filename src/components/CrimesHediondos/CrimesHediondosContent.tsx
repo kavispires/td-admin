@@ -1,15 +1,17 @@
 import { useQueryParams } from 'hooks/useQueryParams';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { CrimesHediondosCard } from 'types';
+import { CrimeSceneTile, CrimesHediondosCard } from 'types';
 import { CrimeTable } from './CrimeTable';
 import { useMemo } from 'react';
 import { orderBy } from 'lodash';
 import './CrimesHediondos.scss';
 import { TagsTable } from './TagsTable';
+import { SceneTable } from './SceneTable';
 
 export type CrimesHediondosContentProps = {
   weaponsQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
   evidenceQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
+  scenesQuery: UseResourceFirebaseDataReturnType<CrimeSceneTile>;
 };
 
 export type CrimesHediondosInnerContentProps = {
@@ -18,7 +20,11 @@ export type CrimesHediondosInnerContentProps = {
   onUpdateCard: (card: CrimesHediondosCard) => void;
 };
 
-export function CrimesHediondosContent({ weaponsQuery, evidenceQuery }: CrimesHediondosContentProps) {
+export function CrimesHediondosContent({
+  weaponsQuery,
+  evidenceQuery,
+  scenesQuery,
+}: CrimesHediondosContentProps) {
   const { is, queryParams } = useQueryParams();
 
   const rows = useMemo(() => {
@@ -58,22 +64,16 @@ export function CrimesHediondosContent({ weaponsQuery, evidenceQuery }: CrimesHe
       )}
 
       {is('display', 'tags') && (
-        <>
-          <TagsTable
-            rows={rows}
-            weapons={weaponsQuery.data}
-            evidence={evidenceQuery.data}
-            onUpdateCard={onUpdateCard}
-            allTags={allTags}
-          />
-        </>
+        <TagsTable
+          rows={rows}
+          weapons={weaponsQuery.data}
+          evidence={evidenceQuery.data}
+          onUpdateCard={onUpdateCard}
+          allTags={allTags}
+        />
       )}
 
-      {is('display', 'scenes') && (
-        <div>
-          <div>?</div>
-        </div>
-      )}
+      {is('display', 'scenes') && <SceneTable sceneQuery={scenesQuery} allTags={allTags} objects={rows} />}
     </>
   );
 }
