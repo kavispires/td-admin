@@ -108,6 +108,7 @@ export function ItemListingFilters() {
 }
 
 function prepareFileForDownload(items: Dictionary<Item>) {
+  console.log(items);
   return sortJsonKeys(
     Object.values(items).reduce((acc: Dictionary<Item>, item) => {
       // Sort deck
@@ -116,11 +117,9 @@ function prepareFileForDownload(items: Dictionary<Item>) {
       // Remove decks if no deck is present
       if (item.decks.length === 0) {
         delete item.decks;
-
-        acc[item.id] = item;
-        return acc;
       }
 
+      acc[item.id] = item;
       return acc;
     }, {})
   );
