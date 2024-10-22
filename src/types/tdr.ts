@@ -664,6 +664,11 @@ export type Tweet = {
 };
 
 /**
+ * Unique identifier for an item.
+ */
+export type ItemId = string;
+
+/**
  * Item Card
  * Used for: items
  */
@@ -671,7 +676,7 @@ export type Item = {
   /**
    * Unique identifier for the item
    */
-  id: string;
+  id: ItemId;
   /**
    * The name of the item
    */
@@ -699,9 +704,9 @@ export type Item = {
  */
 export type ItemAtributesValues = {
   /**
-   * Unique identifier for the card
+   * Unique identifier for the item
    */
-  id: string;
+  id: ItemId;
   /**
    * The dictionary of attribute keys and their values
    */
@@ -775,7 +780,7 @@ export type ItemGroup = {
   /**
    * The items in the group
    */
-  itemsIds: string[];
+  itemsIds: ItemId[];
 };
 
 export type DailyDiscSet = {
@@ -790,7 +795,7 @@ export type DailyDiscSet = {
   /**
    * The items in the set
    */
-  itemsIds: string[];
+  itemsIds: ItemId[];
 };
 
 export type DailyMovieSet = {
@@ -805,7 +810,7 @@ export type DailyMovieSet = {
   /**
    * The items in the set
    */
-  itemsIds: string[];
+  itemsIds: ItemId[];
   /**
    * The release year of the movie
    */
@@ -824,7 +829,7 @@ export type DailyQuartetSet = {
   /**
    * The items in the set
    */
-  itemsIds: string[];
+  itemsIds: ItemId[];
   /**
    * The level of difficulty of the set
    */

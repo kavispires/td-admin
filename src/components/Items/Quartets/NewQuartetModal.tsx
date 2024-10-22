@@ -1,14 +1,11 @@
-import { Button, Flex, Modal, Typography } from 'antd';
+import { Modal } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useMemo, useState } from 'react';
-import { DailyQuartetSet, Item as ItemT } from 'types';
+import { DailyQuartetSet } from 'types';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
-import { useTDResource } from 'hooks/useTDResource';
-import { difference, sampleSize } from 'lodash';
-import { Item } from 'components/Sprites';
-import { PlusOutlined } from '@ant-design/icons';
 import { removeDuplicates } from 'utils';
+import { InspirationSample } from './InspirationSample';
 
 type NewQuartetModalProps = {
   data: UseResourceFirebaseDataReturnType<DailyQuartetSet>['data'];
@@ -68,51 +65,9 @@ export function NewQuartetModal({ data, addEntryToUpdate }: NewQuartetModalProps
             addEntryToUpdate={onLocalUpdate}
             expandedRowKeys={[activeQuartet.id]}
           />
-          <RandomSample onUpdate={onAddSampledItem} quartet={activeQuartet} />
+          <InspirationSample onUpdate={onAddSampledItem} quartet={activeQuartet} />
         </>
       )}
     </Modal>
-  );
-}
-
-type RandomSampleProps = {
-  onUpdate: (itemId: string) => void;
-  quartet: DailyQuartetSet;
-};
-
-function RandomSample({ onUpdate, quartet }: RandomSampleProps) {
-  const itemsTypeaheadQuery = useTDResource<ItemT>('items');
-  const getSample = (quantity: number) => {
-    return difference(sampleSize(Object.keys(itemsTypeaheadQuery.data ?? {}), quantity), quartet.itemsIds);
-  };
-
-  const [sampledItems, setSampledItems] = useState<string[]>(getSample(5));
-
-  const onSample = () => {
-    setSampledItems(getSample(20));
-  };
-
-  return (
-    <div className="mt-2">
-      <Typography.Paragraph>
-        Random Sample{' '}
-        <Button size="small" onClick={onSample}>
-          Get
-        </Button>
-      </Typography.Paragraph>
-      <Flex gap={16} wrap="wrap">
-        {sampledItems.map((itemId, index) => (
-          <Flex key={`sample-${itemId}-${index}`} gap={2} vertical>
-            <Item id={itemId} width={60} />
-            <Flex justify="center" gap={6}>
-              <Typography.Text>{itemId}</Typography.Text>
-              <Button size="small" shape="circle" onClick={() => onUpdate(itemId)}>
-                <PlusOutlined />
-              </Button>
-            </Flex>
-          </Flex>
-        ))}
-      </Flex>
-    </div>
   );
 }

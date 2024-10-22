@@ -12,6 +12,8 @@ import { CheckCircleFilled, DeleteFilled } from '@ant-design/icons';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 
 import type { TableProps } from 'antd';
+import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
+import { InspirationSample } from './InspirationSample';
 
 const TYPES = ['general', 'visual', 'word', 'thematic', 'attribute'].map((t) => ({ label: t, value: t }));
 
@@ -93,16 +95,18 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate, expandedRowKeys }: 
     },
   ];
 
+  const expandableProps = useTableExpandableRows<DailyQuartetSet>({
+    maxExpandedRows: 1,
+    expandedRowRender: (record) => <AddItemFlow quartet={record} addEntryToUpdate={addEntryToUpdate} />,
+    rowExpandable: () => itemsTypeaheadQuery.isSuccess,
+  });
+
   return (
     <Table
       columns={columns}
       rowKey="id"
       dataSource={rows}
-      expandable={{
-        expandedRowRender: (record) => <AddItemFlow quartet={record} addEntryToUpdate={addEntryToUpdate} />,
-        rowExpandable: () => itemsTypeaheadQuery.isSuccess,
-        expandedRowKeys,
-      }}
+      expandable={expandableProps}
       pagination={paginationProps}
     />
   );
@@ -124,6 +128,7 @@ export function AddItemFlow({ quartet, addEntryToUpdate }: AddItemFlowProps) {
   return (
     <div>
       <ItemsTypeahead onFinish={onUpdate} />
+      <InspirationSample quartet={quartet} onUpdate={onUpdate} initialQuantity={0} />
     </div>
   );
 }

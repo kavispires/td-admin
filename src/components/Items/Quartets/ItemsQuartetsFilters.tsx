@@ -1,5 +1,6 @@
+import { GlobalOutlined, TableOutlined } from '@ant-design/icons';
 import { Button, Divider, Flex } from 'antd';
-import { FilterSwitch } from 'components/Common';
+import { FilterSegments, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
@@ -15,7 +16,7 @@ export function ItemsQuartetsFilters({
   isSaving,
   entriesToUpdate,
 }: UseResourceFirebaseDataReturnType<DailyQuartetSet>) {
-  const { is, addParam } = useQueryParams();
+  const { is, addParam, queryParams, addParams } = useQueryParams();
   return (
     <SiderContent>
       <Flex vertical gap={12}>
@@ -45,6 +46,26 @@ export function ItemsQuartetsFilters({
       <Button block onClick={() => addParam('newQuartet', 'true', false)} disabled={is('newQuartet')}>
         Add New Quartet
       </Button>
+
+      <Divider />
+
+      <FilterSegments
+        label="Display"
+        value={queryParams.get('display') ?? 'table'}
+        onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1, display: 'table' })}
+        options={[
+          {
+            title: 'Table',
+            icon: <TableOutlined />,
+            value: 'table',
+          },
+          {
+            title: 'Simulator',
+            icon: <GlobalOutlined />,
+            value: 'simulator',
+          },
+        ]}
+      />
     </SiderContent>
   );
 }
