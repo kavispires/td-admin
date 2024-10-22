@@ -2,7 +2,7 @@ import { Button, Divider, Dropdown, Flex, Form, InputNumber, Space, Typography }
 import { useState } from 'react';
 import { Item as ItemT } from 'types';
 
-import { ItemCard } from './ItemCard';
+import { ItemCard } from '../ItemCard';
 import { useItemsContext } from 'context/ItemsContext';
 import { chunk, sampleSize } from 'lodash';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';

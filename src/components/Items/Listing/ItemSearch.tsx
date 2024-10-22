@@ -2,9 +2,9 @@ import { Button, Divider, Space, Typography } from 'antd';
 import { Fragment, useState } from 'react';
 import { Item as ItemT } from 'types';
 
-import { ItemCard } from './ItemCard';
+import { ItemCard } from '../ItemCard';
 import { useItemsContext } from 'context/ItemsContext';
-import { ItemsTypeahead } from './ItemsTypeahead';
+import { ItemsTypeahead } from '../ItemsTypeahead';
 import { EnvironmentOutlined } from '@ant-design/icons';
 import { useQueryParams } from 'hooks/useQueryParams';
 

@@ -5,12 +5,12 @@ import { SiderContent } from 'components/Layout';
 import { useItemsContext } from 'context/ItemsContext';
 import { capitalize, cloneDeep, orderBy } from 'lodash';
 import { useMemo } from 'react';
-import { AddNewItem } from './AddNewItem';
 import { Item } from 'types';
 import { sortJsonKeys } from 'utils';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { SaveButton } from 'components/Common/SaveButton';
 import { OpenAIOutlined } from '@ant-design/icons';
+import { AddNewItem } from './AddNewItem';
 
 export function ItemListingFilters() {
   const { isDirty, save, items, decks, itemsToUpdate, isSaving } = useItemsContext();

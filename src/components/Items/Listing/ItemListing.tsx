@@ -1,5 +1,5 @@
 import { Typography } from 'antd';
-import { ItemCard } from './ItemCard';
+import { ItemCard } from '../ItemCard';
 import { capitalize } from 'lodash';
 import { useItemsContext } from 'context/ItemsContext';
 import { useGridPagination } from 'hooks/useGridPagination';
@@ -8,7 +8,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 
 export function ItemListing() {
   const { queryParams } = useQueryParams();
-  const listingType = queryParams.get('type') ?? 'all';
+  const listingType = queryParams.get('deck') ?? 'all';
   const { listing } = useItemsContext();
 
   const { page, pagination } = useGridPagination({ data: listing, resetter: listingType });
@@ -25,7 +25,7 @@ export function ItemListing() {
       <PaginationWrapper pagination={pagination} className="full-width">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
           {page.map((item) => (
-            <ItemCard item={item} simplified={isSimplified} />
+            <ItemCard key={item.id} item={item} simplified={isSimplified} />
           ))}
         </div>
       </PaginationWrapper>

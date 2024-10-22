@@ -1,7 +1,7 @@
 import { Button, Modal } from 'antd';
 import { useItemsContext } from 'context/ItemsContext';
 import { useState } from 'react';
-import { ItemCard } from './ItemCard';
+import { ItemCard } from '../ItemCard';
 import { cloneDeep } from 'lodash';
 
 const PLACEHOLDER_ITEM = {
