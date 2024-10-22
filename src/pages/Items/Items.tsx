@@ -23,7 +23,7 @@ function ItemsPage() {
         <Layout.Content className="content">
           <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
             {!isLoading && (
-              <Space size="large">
+              <Space size="large" align="start">
                 {!is('hideSearch') && <ItemSearch />}
                 {is('showRandomizer') && <ItemRandomizer />}
               </Space>
