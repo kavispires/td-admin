@@ -3,13 +3,14 @@ import { FilterSelect, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsContext } from 'context/ItemsContext';
-import { capitalize, orderBy } from 'lodash';
+import { capitalize, cloneDeep, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import { AddNewItem } from './AddNewItem';
 import { Item } from 'types';
 import { sortJsonKeys } from 'utils';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { SaveButton } from 'components/Common/SaveButton';
+import { OpenAIOutlined } from '@ant-design/icons';
 
 export function ItemListingFilters() {
   const { isDirty, save, items, decks, itemsToUpdate, isSaving } = useItemsContext();
@@ -103,12 +104,23 @@ export function ItemListingFilters() {
       <Divider className="my-4" />
 
       <AddNewItem />
+
+      <Divider className="my-4" />
+
+      <DownloadButton
+        data={() => prepareOpenAIFileForDownload(items)}
+        fileName="items-gpt.json"
+        disabled={isDirty}
+        block
+        icon={<OpenAIOutlined />}
+      >
+        Open AI JSON
+      </DownloadButton>
     </SiderContent>
   );
 }
 
 function prepareFileForDownload(items: Dictionary<Item>) {
-  console.log(items);
   return sortJsonKeys(
     Object.values(items).reduce((acc: Dictionary<Item>, item) => {
       // Sort deck
@@ -120,6 +132,39 @@ function prepareFileForDownload(items: Dictionary<Item>) {
       }
 
       acc[item.id] = item;
+      return acc;
+    }, {})
+  );
+}
+
+type OpenAiItem = {
+  id: string;
+  names: {
+    'en-US': string;
+    'pt-BR': string;
+  };
+  aliases: {
+    'en-US'?: string[];
+    'pt-BR'?: string[];
+  };
+};
+
+function prepareOpenAIFileForDownload(items: Dictionary<Item>) {
+  return sortJsonKeys(
+    Object.values(cloneDeep(items)).reduce((acc: Dictionary<OpenAiItem>, item) => {
+      const entry = {
+        id: item.id,
+        names: {
+          'en-US': item.name.en,
+          'pt-BR': item.name.pt,
+        },
+        aliases: {
+          'en-US': item.aliasesEn,
+          'pt-BR': item.aliasesPt,
+        },
+      };
+
+      acc[entry.id] = entry;
       return acc;
     }, {})
   );
