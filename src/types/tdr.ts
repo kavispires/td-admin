@@ -155,6 +155,28 @@ export type ChoiceCard = {
 };
 
 /**
+ *
+ */
+export type CityLocation = {
+  /**
+   * Unique identifier for the card
+   */
+  id: string;
+  /**
+   * The name of the contender
+   */
+  name: DualLanguageValue;
+  /**
+   * The category of the location
+   */
+  category: string;
+  /**
+   * Flag indicating if it's NSFW
+   */
+  nsfw?: boolean;
+};
+
+/**
  * Concept Card
  * Used for: concepts
  */
@@ -167,7 +189,6 @@ export type Concept = {
    * The name of the concept
    */
   name: string;
-
   /**
    * Other names for the concept
    */
@@ -646,6 +667,10 @@ export type TopicCard = {
    * The level of difficulty
    */
   level: number;
+  /**
+   * Flag indicating if it's nsfw
+   */
+  nsfw?: boolean;
 };
 
 /**
