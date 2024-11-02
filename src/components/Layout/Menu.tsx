@@ -52,6 +52,10 @@ const items: MenuProps['items'] = [
         key: '/game/crimes-hediondos',
       },
       {
+        label: 'Fofoca Quente',
+        key: '/game/fofoca-quente',
+      },
+      {
         label: 'Daily Setup',
         key: '/game/daily-setup',
       },

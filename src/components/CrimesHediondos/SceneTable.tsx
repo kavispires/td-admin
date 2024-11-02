@@ -79,7 +79,7 @@ export function SceneTable({ sceneQuery, allTags, objects }: SceneTableProps) {
             {values.map((value, index) => (
               <li key={value.en}>
                 <Typography>
-                  {value.en} / {value.pt}
+                  {value.en} / {value.pt} <Tag>{record.tags?.[index]?.length ?? 0}</Tag>
                 </Typography>
 
                 <EditSceneValueTags
@@ -136,12 +136,13 @@ function EditSceneValueTags({ scene, valueIndex, addEntryToUpdate }: EditSceneVa
   const [isEditing, toggleEditing] = useToggle(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const currentTags = scene.tags?.[valueIndex] ?? [];
+  const currentTags = scene?.tags?.[valueIndex] ?? [];
 
   const handleAdd = () => {
     const copy = cloneDeep(scene);
     copy.tags = copy.tags ?? {};
     copy.tags[valueIndex] = [...selectedTags.filter(Boolean)];
+    console.log(copy.tags);
     addEntryToUpdate(copy.id, copy);
     setSelectedTags([]);
     toggleEditing();
@@ -178,7 +179,7 @@ function EditSceneValueTags({ scene, valueIndex, addEntryToUpdate }: EditSceneVa
 
   return (
     <>
-      {scene.tags?.[valueIndex].map((tag) => (
+      {scene?.tags?.[valueIndex]?.map((tag) => (
         <Tag key={tag} color="green">
           {tag}
         </Tag>
