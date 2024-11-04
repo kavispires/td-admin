@@ -155,7 +155,8 @@ export type ChoiceCard = {
 };
 
 /**
- *
+ * City Location Card
+ * Used for: planejamento-urbano
  */
 export type CityLocation = {
   /**

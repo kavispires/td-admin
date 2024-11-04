@@ -11,6 +11,7 @@ import { PlusOutlined } from '@ant-design/icons';
 
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { PasteIds } from '../ParseIds';
+import { useEffect } from 'react';
 
 type ItemsDiscSetExpandedRowProps = {
   disc: DailyDiscSet;
@@ -53,15 +54,31 @@ type RandomSampleProps = {
 
 function RandomSample({ onUpdate, disc }: RandomSampleProps) {
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
+  const [usedSampleIds, setUsedSampleIds] = useState<string[]>([...disc.itemsIds]);
+
   const getSample = (quantity: number) => {
-    return difference(sampleSize(Object.keys(itemsTypeaheadQuery.data ?? {}), quantity), disc.itemsIds);
+    const availableItems = difference(Object.keys(itemsTypeaheadQuery.data ?? {}), usedSampleIds);
+    return sampleSize(availableItems, quantity);
   };
 
   const [sampledItems, setSampledItems] = useState<string[]>(getSample(5));
 
   const onSample = () => {
-    setSampledItems(getSample(20));
+    const newSample = getSample(30);
+    setSampledItems(newSample);
+    setUsedSampleIds([...usedSampleIds, ...newSample]);
   };
+
+  useEffect(() => {
+    setUsedSampleIds([...disc.itemsIds]);
+  }, [disc.id]);
+
+  useEffect(() => {
+    if (sampledItems.length === 0) {
+      onSample();
+      setUsedSampleIds([...disc.itemsIds]);
+    }
+  }, [sampledItems]);
 
   return (
     <div>
