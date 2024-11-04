@@ -135,7 +135,7 @@ export const verifiers: Record<string, (word: string) => boolean> = {
   // Has an U
   'ddr-30-pt': (word: string) => cleanupWord(word).includes('u'),
   // Has a Q or J
-  'ddr-31-pt': (word: string) => cleanupWord(word).includes('q') || cleanupWord(word).includes('j'),
+  'ddr-31-pt': (word: string) => cleanupWord(word).includes('q'),
   // Has a C or Ç
   'ddr-32-pt': (word: string) => cleanupWord(word).includes('c') || cleanupWord(word).includes('ç'),
   // Has an M or N followed by a consonant
@@ -179,28 +179,41 @@ export const verifiers: Record<string, (word: string) => boolean> = {
   'ddr-47-pt': (word: string) => cleanupWord(word).includes('i'),
   // Has an O
   'ddr-48-pt': (word: string) => cleanupWord(word).includes('o'),
+  // Has an X
+  'ddr-49-pt': (word: string) => cleanupWord(word).includes('x'),
+  // Has an J
+  'ddr-52-pt': (word: string) => cleanupWord(word).includes('j'),
 };
 
-export const syllableDependencyVerifier: Record<string, (syllables: string) => boolean> = {
+export const syllableDependencyVerifier: Record<
+  string,
+  (word: string, syllables: string, isAcronym: boolean) => boolean
+> = {
   // Has 2 syllables
-  'ddr-3-pt': (syllables: string) => syllables.split(SYLLABLE_SEPARATOR).length === 2,
+  'ddr-3-pt': (word: string, syllables: string) =>
+    countWords(word) === 1 && syllables.split(SYLLABLE_SEPARATOR).length === 2,
   // Has 3 syllables
-  'ddr-4-pt': (syllables: string) => syllables.split(SYLLABLE_SEPARATOR).length === 3,
+  'ddr-4-pt': (word: string, syllables: string) =>
+    countWords(word) === 1 && syllables.split(SYLLABLE_SEPARATOR).length === 3,
   // Has 4 syllables
-  'ddr-22-pt': (syllables: string) => syllables.split(SYLLABLE_SEPARATOR).length === 4,
+  'ddr-22-pt': (word: string, syllables: string) =>
+    countWords(word) === 1 && syllables.split(SYLLABLE_SEPARATOR).length === 4,
   // Has two consecutive vowels on the same syllable
-  'ddr-41-pt': (syllables: string) => {
-    return syllables.split(SYLLABLE_SEPARATOR).some((syllable) => {
-      return syllable.split('').some((letter, index) => {
-        if (VOWELS.includes(letter) && VOWELS.includes(syllable[index + 1])) {
-          return true;
-        }
-        return false;
-      });
-    });
+  'ddr-41-pt': (word: string, syllables: string) => {
+    return (
+      countWords(word) === 1 &&
+      syllables.split(SYLLABLE_SEPARATOR).some((syllable) => {
+        return syllable.split('').some((letter, index) => {
+          if (VOWELS.includes(letter) && VOWELS.includes(syllable[index + 1])) {
+            return true;
+          }
+          return false;
+        });
+      })
+    );
   },
   // Has two consecutive vowels on different syllables
-  'ddr-42-pt': (syllables: string) => {
+  'ddr-42-pt': (_: string, syllables: string) => {
     return syllables.split(SYLLABLE_SEPARATOR).some((syllable, index) => {
       if (index === 0) {
         return false;
@@ -209,24 +222,25 @@ export const syllableDependencyVerifier: Record<string, (syllables: string) => b
     });
   },
   // Single syllable word
-  'ddr-46-pt': (syllables: string) => syllables.split(SYLLABLE_SEPARATOR).length === 1,
+  'ddr-46-pt': (word: string, syllables: string, isAcronym: boolean) =>
+    countWords(word) === 1 && !isAcronym && syllables.split(SYLLABLE_SEPARATOR).length === 1,
 };
 
 export const stressSyllableDependencyVerifier: Record<
   string,
-  (syllables: string, stress: number) => boolean
+  (word: string, syllables: string, stress: number) => boolean
 > = {
   // The stress syllable is on the last syllable (oxitona)
-  'ddr-43-pt': (_syllables: string, stress: number) => {
-    return stress === 0;
+  'ddr-43-pt': (word: string, _, stress: number) => {
+    return countWords(word) === 1 && stress === 0;
   },
   // The stress syllable is on the second to last syllable (paroxitona)
-  'ddr-44-pt': (_syllables: string, stress: number) => {
-    return stress === 1;
+  'ddr-44-pt': (word: string, _, stress: number) => {
+    return countWords(word) === 1 && stress === 1;
   },
   // The stress syllable is on the third to last syllable (proparoxitona)
-  'ddr-45-pt': (_syllables: string, stress: number) => {
-    return stress === 2;
+  'ddr-45-pt': (word: string, _, stress: number) => {
+    return countWords(word) === 1 && stress === 2;
   },
 };
 

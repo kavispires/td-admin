@@ -21,7 +21,7 @@ type EditThingModalProps = {
   onCancel: () => void;
   thing: DailyDiagramItem;
   rules: Dictionary<DailyDiagramRule>;
-  width?: number;
+  width?: number | string;
   itemAliases?: string[];
   subtitle?: string;
   okButtonText?: string;
@@ -76,7 +76,7 @@ export function EditThingModal({
     // If name changes, recalculate all rules
     const fields: Record<string, boolean | string | number | undefined> = {
       syllables: separateSyllables(nameWatch),
-      stressedSyllable: thing.stressedSyllable ?? nameWatch.includes(' ') ? -1 : 0,
+      stressedSyllable: (thing.stressedSyllable ?? nameWatch.includes(' ')) ? -1 : 0,
     };
     Object.keys(rules).forEach((ruleId) => {
       if (verifiers[ruleId]) {
@@ -90,11 +90,23 @@ export function EditThingModal({
 
   // Automation: Syllables
   const syllables = Form.useWatch('syllables', form);
+  const isAcronym = !!form.getFieldValue('ddr-51-pt');
+
+  useEffect(() => {
+    if (isAcronym) {
+      form.setFieldsValue({ stressedSyllable: undefined });
+      form.setFieldsValue({ 'ddr-43-pt': false });
+      form.setFieldsValue({ 'ddr-44-pt': false });
+      form.setFieldsValue({ 'ddr-45-pt': false });
+      form.setFieldsValue({ 'ddr-46-pt': false });
+    }
+  }, [isAcronym]); // eslint-disable-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     if (syllables) {
       const syllableRulesUpdate = Object.keys(rules).reduce((acc: Record<string, boolean>, ruleId) => {
         if (syllableDependencyVerifier[ruleId]) {
-          acc[ruleId] = syllableDependencyVerifier[ruleId](syllables);
+          acc[ruleId] = syllableDependencyVerifier[ruleId](nameWatch, syllables, isAcronym);
         }
         return acc;
       }, {});
@@ -103,20 +115,20 @@ export function EditThingModal({
         stressedSyllable:
           syllables === thing.syllables
             ? thing.stressedSyllable
-            : thing.stressedSyllable ?? nameWatch.includes(' ')
+            : (thing.stressedSyllable ?? nameWatch.includes(' '))
               ? -1
               : undefined,
       });
     }
-  }, [syllables]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [nameWatch, syllables, isAcronym]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Automation: Stressed syllable
   const stressedSyllable = Form.useWatch('stressedSyllable', form);
   useEffect(() => {
-    if (stressedSyllable !== undefined) {
+    if (!isAcronym && stressedSyllable !== undefined) {
       const stressSyllableRulesUpdate = Object.keys(rules).reduce((acc: Record<string, boolean>, ruleId) => {
         if (stressSyllableDependencyVerifier[ruleId]) {
-          acc[ruleId] = stressSyllableDependencyVerifier[ruleId](syllables, stressedSyllable);
+          acc[ruleId] = stressSyllableDependencyVerifier[ruleId](nameWatch, syllables, stressedSyllable);
         }
         return acc;
       }, {});
@@ -127,19 +139,29 @@ export function EditThingModal({
     }
   }, [stressedSyllable]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Automation: Male vs Female nouns
+  // Automation: Male vs Female nouns vs Both genders
   const rule1 = form.getFieldValue('ddr-1-pt');
+  const rule2 = form.getFieldValue('ddr-2-pt');
+  const rule5 = form.getFieldValue('ddr-50-pt');
   useEffect(() => {
     if (rule1 === true) {
       form.setFieldsValue({ 'ddr-2-pt': false });
+      form.setFieldsValue({ 'ddr-50-pt': false });
     }
   }, [rule1]); // eslint-disable-line react-hooks/exhaustive-deps
-  const rule2 = form.getFieldValue('ddr-2-pt');
   useEffect(() => {
     if (rule2 === true) {
       form.setFieldsValue({ 'ddr-1-pt': false });
+      form.setFieldsValue({ 'ddr-50-pt': false });
     }
   }, [rule2]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (rule5 === true) {
+      form.setFieldsValue({ 'ddr-1-pt': false });
+      form.setFieldsValue({ 'ddr-2-pt': false });
+    }
+  }, [rule5]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Automation: syllable count
   const rule3 = form.getFieldValue('ddr-3-pt');
   useEffect(() => {
@@ -153,6 +175,7 @@ export function EditThingModal({
       form.setFieldsValue({ 'ddr-3-pt': false });
     }
   }, [rule4]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Automation: has hyphen
   useEffect(() => {
     const hasHyphen = nameWatch?.includes('-');

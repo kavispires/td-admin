@@ -73,6 +73,7 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
           thing={activeThing}
           rules={rules}
           okButtonText="Update"
+          width="90vw"
         />
       )}
       <>{children}</>
