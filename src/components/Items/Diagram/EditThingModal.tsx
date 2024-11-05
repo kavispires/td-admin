@@ -90,7 +90,7 @@ export function EditThingModal({
 
   // Automation: Syllables
   const syllables = Form.useWatch('syllables', form);
-  const isAcronym = !!form.getFieldValue('ddr-51-pt');
+  const isAcronym = form.getFieldValue('ddr-51-pt');
 
   useEffect(() => {
     if (isAcronym) {
@@ -99,6 +99,9 @@ export function EditThingModal({
       form.setFieldsValue({ 'ddr-44-pt': false });
       form.setFieldsValue({ 'ddr-45-pt': false });
       form.setFieldsValue({ 'ddr-46-pt': false });
+    }
+    if (isAcronym === undefined) {
+      form.setFieldsValue({ 'ddr-51-pt': false });
     }
   }, [isAcronym]); // eslint-disable-line react-hooks/exhaustive-deps
 

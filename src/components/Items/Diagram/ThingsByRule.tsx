@@ -6,6 +6,7 @@ import { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
 import { AddNewThingFlow } from './AddNewThingFlow';
 import { ThingButton } from './Thing';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { useTablePagination } from 'hooks/useTablePagination';
 
 type ThingsByRuleProps = {
   things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
@@ -36,6 +37,8 @@ export function ThingsByRule({
       })),
     [rules, thingsByRules]
   );
+
+  const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
   const stats = useMemo(() => {
     const quantities = Object.values(thingsByRules).map((things) => things.length);
@@ -158,7 +161,7 @@ export function ThingsByRule({
         />
       </Space>
 
-      <Table dataSource={rows} columns={columns} />
+      <Table dataSource={rows} columns={columns} pagination={paginationProps} />
     </Space>
   );
 }
