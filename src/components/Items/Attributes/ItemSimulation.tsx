@@ -20,6 +20,7 @@ import {
   PlusSquareOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
+import { DailyAliemSimulator } from './DailyAlienSimulator';
 
 const ROMAN_NUMERALS = ['', 'I', 'II', 'III', 'IV', 'V'];
 
@@ -148,7 +149,7 @@ export function ItemSimulation() {
 
   return (
     <div className="my-4">
-      <Typography.Title level={5}>Simulator</Typography.Title>
+      <Typography.Title level={3}>Simulator</Typography.Title>
 
       <Typography.Paragraph>
         Generates a board with items different enough to get Deterministic values in all selected attributes.
@@ -278,6 +279,8 @@ export function ItemSimulation() {
           </TransparentButton>
         ))}
       </div>
+
+      <DailyAliemSimulator />
     </div>
   );
 }
