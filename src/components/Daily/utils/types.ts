@@ -23,9 +23,10 @@ export type DailyHistory = {
   'aqui-o': DailyHistoryEntry;
   palavreado: DailyHistoryEntry;
   artista: DailyHistoryEntry;
-  filmaco?: DailyHistoryEntry;
-  'controle-de-estoque'?: DailyHistoryEntry;
-  'teoria-de-conjuntos'?: DailyHistoryEntry;
+  filmaco: DailyHistoryEntry;
+  'controle-de-estoque': DailyHistoryEntry;
+  'teoria-de-conjuntos': DailyHistoryEntry;
+  'comunicacao-alienigena': DailyHistoryEntry;
 };
 
 export type DailyArteRuimEntry = {
@@ -120,6 +121,31 @@ export type DailyTeoriaDeConjuntosEntry = {
   }[];
 };
 
+type DailyAlienGameAttribute = {
+  id: string;
+  name: string;
+  description: string;
+  spriteId: string;
+  itemsIds: string[];
+};
+
+type DailyAlienGameRequest = {
+  spritesIds: string[];
+  itemId: string;
+};
+
+export type DailyComunicacaoAlienigenaEntry = {
+  id: string;
+  setId: string;
+  number: number;
+  type: 'comunicação-alienígena';
+  attributes: DailyAlienGameAttribute[];
+  requests: DailyAlienGameRequest[];
+  solution: string;
+  itemsIds: string[];
+  valid?: boolean;
+};
+
 export type DailyEntry = {
   id: DateKey;
   'arte-ruim': DailyArteRuimEntry;
@@ -128,6 +154,8 @@ export type DailyEntry = {
   artista: DailyArtistaEntry;
   filmaco: DailyFilmacoEntry;
   'controle-de-estoque': DailyControleDeEstoqueEntry;
+  'teoria-de-conjuntos': DailyTeoriaDeConjuntosEntry;
+  'comunicacao-alienigena': DailyComunicacaoAlienigenaEntry;
 };
 
 export type DataDrawing = {

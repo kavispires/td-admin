@@ -1,11 +1,11 @@
-import { Button, Flex, Space, Table, TableColumnsType } from 'antd';
+import { Alert, Button, Flex, Space, Table, TableColumnsType } from 'antd';
 import { CanvasSVG } from 'components/Daily/CanvasSVG';
-import { Item } from 'components/Sprites';
+import { AlienSign, Item } from 'components/Sprites';
 import { WarehouseGood } from 'components/Sprites/WarehouseGood';
 import { ArteRuimCard } from 'types';
 
 import { UseLoadDailySetup, useSaveDailySetup } from './hooks';
-import { DailyEntry } from './utils/types';
+import { DailyComunicacaoAlienigenaEntry, DailyEntry } from './utils/types';
 
 type DataPopulationProps = {
   language: string;
@@ -144,6 +144,27 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
             <Flex gap={6} wrap>
               <Item id={intersectingThing.id} width={50} />
             </Flex>
+          </Space>
+        );
+      },
+    },
+    {
+      title: 'Comunicação Alienígena',
+      dataIndex: 'comunicacao-alienigena',
+      key: 'comunicacao-alienigena',
+      render: (entry) => {
+        if (!entry) {
+          return <Alert message="No entry" type="error" />;
+        }
+
+        return (
+          <Space direction="vertical">
+            <span>#{entry.number}</span>
+            {(entry.attributes as DailyComunicacaoAlienigenaEntry['attributes']).map((req) => (
+              <Space key={req.spriteId}>
+                <AlienSign id={`sign-${req.spriteId}`} width={50} />
+              </Space>
+            ))}
           </Space>
         );
       },

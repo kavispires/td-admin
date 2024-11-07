@@ -1,7 +1,15 @@
 import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
 import { useMemo } from 'react';
-import { DailyDiscSet, ArteRuimCard, DailyMovieSet, DailyDiagramItem, DailyDiagramRule } from 'types';
+import {
+  DailyDiscSet,
+  ArteRuimCard,
+  DailyMovieSet,
+  DailyDiagramItem,
+  DailyDiagramRule,
+  ItemAttribute,
+  ItemAtributesValues,
+} from 'types';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import { DailyEntry } from '../utils/types';
@@ -15,6 +23,7 @@ import { buildDailyFilmacoGames } from '../utils/games/daily-filmaco';
 import { buildDailyControleDeEstoqueGames } from '../utils/games/daily-controle-de-estoque';
 import { buildDailyArtistaGames } from '../utils/games/daily-artista';
 import { buildDailyTeoriaDeConjuntosGames } from '../utils/games/daily-teoria-de-conjuntos';
+import { buildDailyComunicacaoAlienigenaGames } from '../utils/games/daily-comunicacao-alienigena';
 
 export type UseLoadDailySetup = {
   isLoading: boolean;
@@ -153,6 +162,34 @@ export function useLoadDailySetup(
     );
   }, [batchSize, historyQuery.isSuccess, teoriaDeConjuntosHistory, rulesQuery, thingsQuery]);
 
+  // SET 9: Comunicação Alienígena
+  const [comunicacaoAlienigenaHistory] = useParsedHistory('comunicacao-alienigena', historyQuery.data);
+  const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes', enabled);
+  const tdrItemsAttributesValuesQuery = useTDResource<ItemAtributesValues>('items-attribute-values', enabled);
+  const comunicacaoAlienigenaEntries = useMemo(() => {
+    if (
+      !historyQuery.isSuccess ||
+      !tdrAttributesQuery.isSuccess ||
+      !tdrItemsAttributesValuesQuery.isSuccess
+    ) {
+      return {};
+    }
+
+    return buildDailyComunicacaoAlienigenaGames(
+      batchSize,
+      comunicacaoAlienigenaHistory,
+      tdrAttributesQuery.data,
+      tdrItemsAttributesValuesQuery.data
+    );
+  }, [
+    batchSize,
+    historyQuery.isSuccess,
+    comunicacaoAlienigenaHistory,
+    tdrAttributesQuery,
+    tdrItemsAttributesValuesQuery,
+  ]);
+  console.log(comunicacaoAlienigenaEntries);
+
   // STEP N: Create entries
   const entries = useMemo(() => {
     if (arteRuimEntries.length === 0) {
@@ -169,6 +206,7 @@ export function useLoadDailySetup(
         filmaco: filmacoEntries[arteRuim.id],
         'controle-de-estoque': controleDeEstoqueEntries[arteRuim.id],
         'teoria-de-conjuntos': teoriaDeConjuntosHistoryEntries[arteRuim.id],
+        'comunicacao-alienigena': comunicacaoAlienigenaEntries[arteRuim.id],
       };
     });
   }, [
@@ -179,6 +217,7 @@ export function useLoadDailySetup(
     filmacoEntries,
     controleDeEstoqueEntries,
     teoriaDeConjuntosHistoryEntries,
+    comunicacaoAlienigenaEntries,
   ]);
 
   return {
@@ -191,7 +230,9 @@ export function useLoadDailySetup(
       aquiOSetsQuery.isLoading ||
       movieSetsQuery.isLoading ||
       thingsQuery.isLoading ||
-      rulesQuery.isLoading,
+      rulesQuery.isLoading ||
+      tdrAttributesQuery.isLoading ||
+      tdrItemsAttributesValuesQuery.isLoading,
     entries,
   };
 }

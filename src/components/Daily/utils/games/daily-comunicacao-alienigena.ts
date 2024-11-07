@@ -1,128 +1,63 @@
-import { Alert, Button, Divider, Flex, Space, Typography } from 'antd';
-import { keys, sample, sampleSize, shuffle, values } from 'lodash';
-import { useState } from 'react';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { ItemAtributesValues, ItemAttribute } from 'types';
-import { useTDResource } from 'hooks/useTDResource';
-import { AlienSign, Item } from 'components/Sprites';
+import { DailyComunicacaoAlienigenaEntry, ParsedDailyHistoryEntry } from '../types';
+import { keys, sample, sampleSize, shuffle, values } from 'lodash';
+import { getNextDay } from '../utils';
 import { makeArray } from 'utils';
+import { ATTRIBUTE_VALUE } from 'utils/constants';
 
-export function DailyAliemSimulator() {
-  const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes');
-  const tdrItemsAttributesValuesQuery = useTDResource<ItemAtributesValues>('items-attribute-values');
-
-  const [simulation, setSimulation] = useState<DailyAlienGame | null>(null);
-
-  // Choose 3 random attributes that are not limited
-  // Get examples for each attribute of items that have value 10 in that attribute but are -3 in the other two
-
-  const onSimulate = () => {
-    setSimulation(generateDailyAlienGame(tdrAttributesQuery.data, tdrItemsAttributesValuesQuery.data));
-  };
-
-  const onSimulateMany = () => {
-    const simulations: Dictionary<DailyAlienGame> = {};
-    let tries = 0;
-    while (tries < 300 || keys(simulations).length === 15) {
-      const simulation = generateDailyAlienGame(tdrAttributesQuery.data, tdrItemsAttributesValuesQuery.data);
-      if (simulation.valid && !simulations[simulation.setId]) {
-        simulations[simulation.setId] = simulation;
-      }
-      if (keys(simulations).length >= 15) {
-        break;
-      }
-      tries += 1;
-    }
-    console.log('TRIES', tries);
-    console.log(Object.values(simulations).map((e, i) => ({ ...e, number: e.number - i })));
-  };
-
-  return (
-    <div className="my-4">
-      <Typography.Title level={3}>Daily Simulator</Typography.Title>
-
-      <Typography.Paragraph>Generates a daily game for Alien Communication</Typography.Paragraph>
-
-      <Space>
-        <Button type="primary" onClick={onSimulate}>
-          Generate
-        </Button>
-        <Button onClick={onSimulateMany}>Generate List</Button>
-      </Space>
-
-      <div>
-        {Boolean(simulation) && (
-          <Space direction="vertical" key={simulation?.setId}>
-            <Typography.Title level={5}>{simulation?.setId}</Typography.Title>
-            {!simulation?.valid && <Alert type="error" message="Invalid game" />}
-            <Space direction="vertical">
-              {simulation?.attributes.map((attr) => (
-                <Flex key={attr.id} gap={8}>
-                  <AlienSign id={attr.spriteId} width={50} />
-                  {attr.itemsIds.map((itemId) => (
-                    <Item id={itemId || '0'} width={50} />
-                  ))}
-                </Flex>
-              ))}
-            </Space>
-            <Divider className="my-1" />
-            <Space direction="horizontal">
-              {simulation?.requests.map((req) => (
-                <Flex key={req.itemId} vertical>
-                  <AlienSign id={req.spritesIds[2]} width={50} />
-                  <AlienSign id={req.spritesIds[1]} width={50} />
-                  <AlienSign id={req.spritesIds[0]} width={50} />
-                </Flex>
-              ))}
-            </Space>
-
-            <Divider className="my-1" />
-            <Space direction="horizontal">
-              {simulation?.itemsIds.map((itemId) => <Item id={itemId || '0'} width={50} />)}
-            </Space>
-          </Space>
-        )}
-      </div>
-    </div>
-  );
-}
-
-type DailyAlienGameAttribute = {
-  id: string;
-  name: string;
-  description: string;
-  spriteId: string;
-  itemsIds: string[];
-};
-
-type DailyAlienGameRequest = {
-  spritesIds: string[];
-  itemId: string;
-};
-
-type DailyAlienGame = {
-  id: string;
-  setId: string;
-  number: number;
-  type: 'comunicação-alienígena';
-  attributes: DailyAlienGameAttribute[];
-  requests: DailyAlienGameRequest[];
-  solution: string;
-  itemsIds: string[];
-  valid: boolean;
-};
-
-const generateDailyAlienGame = (
+export const buildDailyComunicacaoAlienigenaGames = (
+  batchSize: number,
+  history: ParsedDailyHistoryEntry,
   attributes: Dictionary<ItemAttribute>,
-  itemsAttributesValues: Dictionary<ItemAtributesValues>
-): DailyAlienGame => {
-  const allAttributes = values(attributes).filter((attr) => !attr.limited || attr.id === 'sol');
-  const allItems = shuffle(values(itemsAttributesValues).filter((i) => i.complete));
+  attributeValues: Dictionary<ItemAtributesValues>
+) => {
+  console.count('Creating Comunicacao Alienigena...');
+
+  let lastDate = history.latestDate;
+
+  const allAttributes = values(attributes).filter((attr) => !attr.limited && attr.id !== 'sol');
+  const allAttributesValues = values(attributeValues).filter((i) => i.complete);
+
+  const preliminaryEntries: Dictionary<DailyComunicacaoAlienigenaEntry> = {};
+  let tries = 0;
+  while (keys(preliminaryEntries).length < batchSize && tries < 100) {
+    const entry = generateComunicacaoAlienigenaGame(allAttributes, allAttributesValues);
+    if (entry.valid && !preliminaryEntries[entry.setId]) {
+      preliminaryEntries[entry.setId] = entry;
+    }
+    if (keys(preliminaryEntries).length >= batchSize) {
+      break;
+    }
+    tries += 1;
+  }
+
+  console.log(`🔆 Generating this batch took ${tries} tries`);
+
+  const entries: Dictionary<DailyComunicacaoAlienigenaEntry> = {};
+  Object.values(preliminaryEntries).forEach((entry, index) => {
+    const id = getNextDay(lastDate);
+    lastDate = id;
+
+    entries[id] = {
+      ...entry,
+      id,
+      number: history.latestNumber + index + 1,
+    };
+  });
+
+  return entries;
+};
+
+const generateComunicacaoAlienigenaGame = (
+  attributes: ItemAttribute[],
+  attributeValues: ItemAtributesValues[]
+): DailyComunicacaoAlienigenaEntry => {
+  const shuffledAttributeValues = shuffle(attributeValues);
 
   const spriteIDs = shuffle(makeArray(38, 0));
 
   // Select 3 attributes and reassign random sprites
-  const selectedAttributes = sampleSize(allAttributes, 3).map((attr) => ({
+  const selectedAttributes = sampleSize(attributes, 3).map((attr) => ({
     ...attr,
     spriteId: `${spriteIDs.pop()}`,
   }));
@@ -135,7 +70,7 @@ const generateDailyAlienGame = (
   const attributeABC: string[] = [];
   const none: string[] = [];
 
-  allItems.forEach((item) => {
+  shuffledAttributeValues.forEach((item) => {
     const POSITIVE = [ATTRIBUTE_VALUE.DETERMINISTIC, ATTRIBUTE_VALUE.RELATED];
     const isVeryValueA = item.attributes[selectedAttributes[0].id] === ATTRIBUTE_VALUE.DETERMINISTIC;
     const isValueA = POSITIVE.includes(item.attributes[selectedAttributes[0].id]);
@@ -173,7 +108,7 @@ const generateDailyAlienGame = (
     }
   });
 
-  const gameAttributes: DailyAlienGameAttribute[] = selectedAttributes.map((attr) => ({
+  const gameAttributes: DailyComunicacaoAlienigenaEntry['attributes'] = selectedAttributes.map((attr) => ({
     id: attr.id,
     name: attr.name.pt,
     description: attr.description.pt,
@@ -198,7 +133,7 @@ const generateDailyAlienGame = (
     usedItemsIds.push(...attr.itemsIds);
   });
 
-  const complexRequests: DailyAlienGameRequest[] = [];
+  const complexRequests: DailyComunicacaoAlienigenaEntry['requests'] = [];
   // AB request
   if (attributeAB.length > 0) {
     complexRequests.push({
@@ -227,7 +162,7 @@ const generateDailyAlienGame = (
       itemId: sample(attributeABC)!,
     });
   }
-  const simpleRequests: DailyAlienGameRequest[] = [];
+  const simpleRequests: DailyComunicacaoAlienigenaEntry['requests'] = [];
   // Additional request A
   if (attributeA.length > 0) {
     simpleRequests.push({
@@ -251,35 +186,32 @@ const generateDailyAlienGame = (
     });
   }
 
-  console.log({
-    attributeA,
-    attributeB,
-    attributeC,
-    attributeAB,
-    attributeAC,
-    attributeBC,
-    attributeABC,
-  });
+  // console.log({
+  //   attributeA,
+  //   attributeB,
+  //   attributeC,
+  //   attributeAB,
+  //   attributeAC,
+  //   attributeBC,
+  //   attributeABC,
+  // });
 
-  console.log('COMPLEX REQUEST SIZE', complexRequests.length);
-  console.log('SIMPLE REQUEST SIZE', simpleRequests.length);
   let requests = sampleSize(complexRequests, 4);
-  console.log('REQUEST SIZE', requests.length);
 
   if (requests.length < 3) {
     requests.push(...sampleSize(simpleRequests, 4 - requests.length));
   }
 
   if (requests.length < 4) {
-    console.warn('Not enough requests');
+    console.log('🔆 Not enough requests for an alien communication, marking as invalid');
   }
 
   requests = shuffle(requests);
 
   const requestItemsIds: string[] = requests.map((req) => req.itemId);
 
-  const result: DailyAlienGame = {
-    id: '2024-00-00',
+  const result: DailyComunicacaoAlienigenaEntry = {
+    id: '0000-00-00',
     setId: gameAttributes
       .map((attr) => attr.id)
       .sort()
@@ -297,13 +229,10 @@ const generateDailyAlienGame = (
   result.valid = [
     result.attributes.length === 3,
     result.requests.length === 4,
-    // TODO: verify if it should be 6
     result.itemsIds.length > 5,
     result.attributes.every((attr) => attr.itemsIds.length > 0),
     result.requests.every((req) => req.itemId),
   ].every(Boolean);
-
-  console.log(result);
 
   return result;
 };
