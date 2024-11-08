@@ -1,95 +1,30 @@
-import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
+import { Button, Flex, Popconfirm, Space, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { useTablePagination } from 'hooks/useTablePagination';
-import { useTDResource } from 'hooks/useTDResource';
-import { orderBy } from 'lodash';
-import { useMemo } from 'react';
-import { DailyDiscSet, Item as ItemT } from 'types';
-import { removeDuplicates, sortItemsIds } from 'utils';
-
+import { DailyDiscSet } from 'types';
 import { DeleteFilled } from '@ant-design/icons';
-
-import { ItemsDiscSetExpandedRow } from './ItemsDiscSetExpandedRow';
-
-import type { TableProps } from 'antd';
 import { CopyIdsButton } from '../CopyIdsButton';
-function orderSets(givenSets: DailyDiscSet[]) {
-  return orderBy(givenSets, [
-    // (s) => removeDuplicates(s.itemsIds).filter(Boolean).length > 20,
-    (s) => s.title.en,
-  ]).map((s) => ({
-    ...s,
-    itemsIds: orderBy(s.itemsIds, (id) => Number(id)),
-  }));
-}
+import { useQueryParams } from 'hooks/useQueryParams';
+import { ItemsDiscSetsTable } from './ItemsDiscSetsTable';
+import { OrphanItems } from './OrphanItems';
 
 export function ItemsDiscSetsContent({
   data,
   addEntryToUpdate,
 }: UseResourceFirebaseDataReturnType<DailyDiscSet>) {
-  const itemsTypeaheadQuery = useTDResource<ItemT>('items');
-  const sets = useMemo(() => orderSets(Object.values(data)), [data]);
-
-  const copyToClipboard = useCopyToClipboardFunction();
-
-  const paginationProps = useTablePagination({ total: sets.length, showQuickJumper: true });
-
-  const columns: TableProps<DailyDiscSet>['columns'] = [
-    {
-      title: 'Id',
-      dataIndex: 'id',
-      key: 'id',
-      sorter: (a, b) => a.title.en.localeCompare(b.title.en),
-    },
-    {
-      title: 'Title',
-      dataIndex: 'title',
-      key: 'title',
-      sorter: (a, b) => a.title.en.localeCompare(b.title.en),
-      render: (title, record) => (
-        <DiscEditableTitleCell value={title} disc={record} addEntryToUpdate={addEntryToUpdate} />
-      ),
-    },
-
-    Table.EXPAND_COLUMN,
-    {
-      title: 'Items',
-      dataIndex: 'itemsIds',
-      key: 'itemsIds',
-      render: (itemsIds: string[], record) => (
-        <DiscItemsCell
-          disc={record}
-          itemsIds={sortItemsIds(itemsIds)}
-          copyToClipboard={copyToClipboard}
-          addEntryToUpdate={addEntryToUpdate}
-        />
-      ),
-    },
-    {
-      title: 'Count',
-      dataIndex: 'itemsIds',
-      key: 'count',
-      render: (itemsIds: string[]) => removeDuplicates(itemsIds).filter(Boolean).length,
-    },
-  ];
+  const { is, queryParams } = useQueryParams();
 
   return (
-    <Space direction="vertical">
-      <Table
-        columns={columns}
-        dataSource={sets}
-        pagination={paginationProps}
-        rowKey="id"
-        expandable={{
-          expandedRowRender: (record) => (
-            <ItemsDiscSetExpandedRow disc={record} addEntryToUpdate={addEntryToUpdate} />
-          ),
-          rowExpandable: () => itemsTypeaheadQuery.isSuccess,
-        }}
-      />
-    </Space>
+    <>
+      {(is('display', 'sets') || !queryParams.has('display')) && (
+        <ItemsDiscSetsTable data={data} addEntryToUpdate={addEntryToUpdate} />
+      )}
+
+      {(is('display', 'orphans') || !queryParams.has('display')) && (
+        <OrphanItems data={data} addEntryToUpdate={addEntryToUpdate} />
+      )}
+    </>
   );
 }
 

@@ -8,6 +8,9 @@ import { DailyDiscSet } from 'types';
 import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
 
 import { AddNewSetFlow } from './AddNewSetFlow';
+import { FilterSegments } from 'components/Common';
+import { useQueryParams } from 'hooks/useQueryParams';
+import { FrownOutlined, TableOutlined } from '@ant-design/icons';
 
 export function ItemsDiscSetsFilters({
   data,
@@ -17,6 +20,8 @@ export function ItemsDiscSetsFilters({
   entriesToUpdate,
   addEntryToUpdate,
 }: UseResourceFirebaseDataReturnType<DailyDiscSet>) {
+  const { queryParams, addParams } = useQueryParams();
+
   return (
     <SiderContent>
       <Flex vertical gap={12}>
@@ -34,7 +39,27 @@ export function ItemsDiscSetsFilters({
           block
         />
       </Flex>
+
       <Divider />
+
+      <FilterSegments
+        label="Display"
+        value={queryParams.get('display') ?? 'sets'}
+        onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1, display: 'table' })}
+        options={[
+          {
+            title: 'Sets',
+            icon: <TableOutlined />,
+            value: 'sets',
+          },
+          {
+            title: 'Orphan Items',
+            icon: <FrownOutlined />,
+            value: 'orphans',
+          },
+        ]}
+      />
+
       <AddNewSetFlow addEntryToUpdate={addEntryToUpdate} ids={Object.keys(data)} />
     </SiderContent>
   );

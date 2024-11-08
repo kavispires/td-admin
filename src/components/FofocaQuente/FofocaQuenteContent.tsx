@@ -2,7 +2,7 @@ import { TeenageStudent } from 'types';
 import './FofocaQuente.scss';
 import { useTDResource } from 'hooks/useTDResource';
 import { useGridPagination } from 'hooks/useGridPagination';
-import { Typography } from 'antd';
+import { Flex, Typography } from 'antd';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { StudentCard } from './StudentCard';
 import { useFilterDataByDataFilters } from 'components/Common/DataFilters';
@@ -25,11 +25,11 @@ export function FofocaQuenteContent({ data }: FofocaQuenteContentProps) {
         </Typography.Title>
 
         <PaginationWrapper pagination={pagination} className="full-width">
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+          <Flex gap={16} wrap="wrap">
             {page.map((student) => (
               <StudentCard key={student.id} student={student} />
             ))}
-          </div>
+          </Flex>
         </PaginationWrapper>
       </>
     </>

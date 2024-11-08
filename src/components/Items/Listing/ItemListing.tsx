@@ -1,4 +1,4 @@
-import { Typography } from 'antd';
+import { Flex, Typography } from 'antd';
 import { ItemCard } from '../ItemCard';
 import { capitalize } from 'lodash';
 import { useItemsContext } from 'context/ItemsContext';
@@ -23,11 +23,11 @@ export function ItemListing() {
       </Typography.Title>
 
       <PaginationWrapper pagination={pagination} className="full-width">
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+        <Flex gap={16} wrap="wrap">
           {page.map((item) => (
             <ItemCard key={item.id} item={item} simplified={isSimplified} />
           ))}
-        </div>
+        </Flex>
       </PaginationWrapper>
     </>
   );
