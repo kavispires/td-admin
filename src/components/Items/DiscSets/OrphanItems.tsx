@@ -16,7 +16,7 @@ export function OrphanItems({ data, addEntryToUpdate }: OrphanItemsProps) {
   const { is, addParam } = useQueryParams();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
 
-  const [itemsSets, orphans] = useMemo(() => {
+  const [itemsSets, orphans]: [Record<string, string[]>, ItemT[]] = useMemo(() => {
     if (itemsTypeaheadQuery.data) {
       const itemsDict = Object.values(data).reduce((acc: Record<string, string[]>, discSet) => {
         discSet.itemsIds.forEach((itemId) => {
