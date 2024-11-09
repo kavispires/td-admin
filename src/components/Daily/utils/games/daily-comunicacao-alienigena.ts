@@ -1,6 +1,6 @@
 import { ItemAtributesValues, ItemAttribute } from 'types';
 import { DailyComunicacaoAlienigenaEntry, ParsedDailyHistoryEntry } from '../types';
-import { keys, sample, sampleSize, shuffle, values } from 'lodash';
+import { keys, random, sample, sampleSize, shuffle, values } from 'lodash';
 import { getNextDay } from '../utils';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
@@ -221,7 +221,10 @@ const generateComunicacaoAlienigenaGame = (
     attributes: gameAttributes,
     requests,
     solution: requestItemsIds.join('-'),
-    itemsIds: shuffle([...requestItemsIds, none[0], none[1], none[2], none[3]]).filter(Boolean),
+    itemsIds: shuffle([
+      ...requestItemsIds,
+      ...sampleSize([none[0], none[1], none[2], none[3]], random(1, 3)),
+    ]).filter(Boolean),
     valid: false,
   };
 
@@ -229,7 +232,7 @@ const generateComunicacaoAlienigenaGame = (
   result.valid = [
     result.attributes.length === 3,
     result.requests.length === 4,
-    result.itemsIds.length > 5,
+    result.itemsIds.length > 4,
     result.attributes.every((attr) => attr.itemsIds.length > 0),
     result.requests.every((req) => req.itemId),
   ].every(Boolean);

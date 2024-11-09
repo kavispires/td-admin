@@ -152,7 +152,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Comunicação Alienígena',
       dataIndex: 'comunicacao-alienigena',
       key: 'comunicacao-alienigena',
-      render: (entry) => {
+      render: (entry: DailyComunicacaoAlienigenaEntry) => {
         if (!entry) {
           return <Alert message="No entry" type="error" />;
         }
@@ -160,11 +160,19 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
         return (
           <Space direction="vertical">
             <span>#{entry.number}</span>
-            {(entry.attributes as DailyComunicacaoAlienigenaEntry['attributes']).map((req) => (
-              <Space key={req.spriteId}>
-                <AlienSign id={`sign-${req.spriteId}`} width={50} />
+            <span>{entry.itemsIds.length} items</span>
+            <Space>
+              <Space direction="vertical">
+                {entry.attributes.map((req) => (
+                  <AlienSign key={req.spriteId} id={`sign-${req.spriteId}`} width={50} />
+                ))}
               </Space>
-            ))}
+              <Space direction="vertical">
+                {entry.itemsIds.map((itemId) => (
+                  <Item id={itemId} width={50} />
+                ))}
+              </Space>
+            </Space>
           </Space>
         );
       },
