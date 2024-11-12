@@ -11,7 +11,7 @@ const ResourceGenerator = lazy(
 const SingleWordsExpander = lazy(
   () => import('pages/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */)
 );
-const Other = lazy(() => import('pages/Other' /* webpackChunkName: "Other" */));
+const Playground = lazy(() => import('pages/Playground' /* webpackChunkName: "Playground" */));
 const ImageCards = lazy(() => import('pages/Images/ImageCards' /* webpackChunkName: "ImageCards" */));
 const Sprites = lazy(() => import('pages/Images/Sprites' /* webpackChunkName: "Sprites" */));
 const Suspects = lazy(() => import('pages/Images/Suspects' /* webpackChunkName: "Suspects" */));
@@ -240,10 +240,10 @@ export const routes = (
       }
     />
     <Route
-      path="/other"
+      path="/playground"
       element={
         <Suspense fallback={<LoadingPage />}>
-          <Other />
+          <Playground />
         </Suspense>
       }
     />

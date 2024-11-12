@@ -75,8 +75,8 @@ const items: MenuProps['items'] = [
         key: '/movie-maker',
       },
       {
-        label: 'Other',
-        key: '/other',
+        label: 'Playground',
+        key: '/playground',
       },
     ],
   },
