@@ -796,6 +796,10 @@ export type ItemAttribute = {
    * Use for attributes that only accept yes/no (unclear) values (-3, -1, 5)
    */
   limited?: boolean;
+  /**
+   * Flag indicating another attribute that is directly the opposite of this one
+   */
+  oppositeId?: boolean;
 };
 
 export type ItemGroup = {

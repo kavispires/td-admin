@@ -1,4 +1,4 @@
-import { Radio, Tooltip } from 'antd';
+import { Radio, RadioGroupProps, Tooltip } from 'antd';
 import { ItemAttribute } from 'types';
 
 import { CheckCircleFilled, QuestionCircleOutlined } from '@ant-design/icons';
@@ -26,6 +26,7 @@ type AttributionValueButtonsProps = {
   value?: number;
   onChange: (attributeId: string, value: number) => void;
   onlyButtons?: boolean;
+  size?: RadioGroupProps['size'];
 };
 
 export function AttributionValueButtons({
@@ -33,6 +34,7 @@ export function AttributionValueButtons({
   value,
   onChange,
   onlyButtons,
+  size,
 }: AttributionValueButtonsProps) {
   if (!attribute) return <></>;
 
@@ -44,6 +46,7 @@ export function AttributionValueButtons({
         value={value}
         optionType="button"
         buttonStyle="solid"
+        size={size}
       />
     );
   }
@@ -63,6 +66,7 @@ export function AttributionValueButtons({
         value={value}
         optionType="button"
         buttonStyle="solid"
+        size={size}
       />
 
       <span>

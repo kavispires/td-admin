@@ -1,9 +1,11 @@
-import { Button, Progress, Rate, Space, Table, TableProps, Tabs, Tag, Typography } from 'antd';
+import { Button, Flex, Progress, Rate, Space, Table, TableProps, Tabs, Tag, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useMemo } from 'react';
 import { ItemAtributesValues, ItemAttribute } from 'types';
 import { TabsProps } from 'antd/lib';
 import { useNavigate } from 'react-router-dom';
+import { AlienSign } from 'components/Sprites';
+import { useQueryParams } from 'hooks/useQueryParams';
 
 export function ItemStats() {
   // console.log(attributesList);
@@ -102,6 +104,7 @@ type AttributesStatsTableProps = {
 function AttributesStatsTable({ type }: AttributesStatsTableProps) {
   const { availableItemIds, getItemAttributeValues, attributesList } = useItemsAttributeValuesContext();
   const navigate = useNavigate();
+  const { is } = useQueryParams();
 
   const attributesPool = useMemo(() => {
     if (type === 'default') {
@@ -132,11 +135,12 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       dataIndex: 'name',
       key: 'name',
       render: (name, record) => (
-        <span>
+        <Flex align="center" gap={8}>
+          {is('showGlyphs') && <AlienSign id={record.spriteId} width={30} />}
           {name.en}
           {record.default ? <Tag className="ml-1">default</Tag> : ''}
           {record.limited ? <Tag className="ml-1">limited</Tag> : ''}
-        </span>
+        </Flex>
       ),
       sorter: (a, b) => a.name.en.localeCompare(b.name.en),
     },

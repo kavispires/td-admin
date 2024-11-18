@@ -15,6 +15,7 @@ import {
   ItemAttributionGroupingFilters,
   ItemAttributionSamplerFilters,
   ItemAttributionStats,
+  ItemAttributionStatsFilters,
 } from './ItemAttributionFiltersSections';
 
 export function ItemAttributionFilters() {
@@ -56,6 +57,7 @@ export function ItemAttributionFilters() {
       {view === 'sampler' && <ItemAttributionSamplerFilters />}
       {view === 'grouping' && <ItemAttributionGroupingFilters />}
       {view === 'comparator' && <ItemAttributionComparatorFilters />}
+      {view === 'stats' && <ItemAttributionStatsFilters />}
     </SiderContent>
   );
 }
@@ -69,6 +71,34 @@ function prepareFileForDownload(
   Object.keys(itemsAttributes).forEach((key) => {
     const itemAttributeValues = itemsAttributes[key];
 
+    // // TODO: Tempo Rename hol to gra (grab)
+    // const originalHolValue = itemAttributeValues.attributes['hol'];
+    // delete itemAttributeValues.attributes['hol'];
+    // itemAttributeValues.attributes['gra'] = originalHolValue;
+
+    // // TODO: TEMP Rename sol to har, and base values in soft
+    // const originalSolValue = itemAttributeValues.attributes['sol'];
+    // delete itemAttributeValues.attributes['sol'];
+    // const softValue = itemAttributeValues.attributes['sof'];
+    // if (softValue === ATTRIBUTE_VALUE.DETERMINISTIC) {
+    //   itemAttributeValues.attributes['har'] = ATTRIBUTE_VALUE.OPPOSITE;
+    // }
+    // if (originalSolValue === ATTRIBUTE_VALUE.DETERMINISTIC) {
+    //   itemAttributeValues.attributes['har'] = ATTRIBUTE_VALUE.DETERMINISTIC;
+    // }
+
+    // // TODO: TEMP Auto-add cold if warm
+    // const warmValue = itemAttributeValues.attributes['war'];
+    // if (warmValue === ATTRIBUTE_VALUE.DETERMINISTIC) {
+    //   itemAttributeValues.attributes['col'] = ATTRIBUTE_VALUE.OPPOSITE;
+    // }
+    // if (warmValue === ATTRIBUTE_VALUE.OPPOSITE) {
+    //   itemAttributeValues.attributes['col'] = ATTRIBUTE_VALUE.DETERMINISTIC;
+    // }
+    // if (warmValue === ATTRIBUTE_VALUE.RELATED) {
+    //   itemAttributeValues.attributes['col'] = ATTRIBUTE_VALUE.UNCLEAR;
+    // }
+
     // Check completion
     const completed = Object.keys(itemAttributeValues.attributes).length;
 
@@ -78,7 +108,7 @@ function prepareFileForDownload(
 
       // Add score
       let unclearCount = 0;
-      const score = Object.values(itemAttributeValues.attributes).reduce((acc: number, v) => {
+      itemAttributeValues.score = Object.values(itemAttributeValues.attributes).reduce((acc: number, v) => {
         if (v <= 0) {
           if (v === ATTRIBUTE_VALUE.UNCLEAR) {
             unclearCount += 1;
@@ -91,7 +121,6 @@ function prepareFileForDownload(
 
         return acc + v;
       }, 0);
-      itemAttributeValues.score = score;
 
       // Add reliability
       itemAttributeValues.reliability = Math.floor(((completed - unclearCount) / total) * 100);
@@ -100,6 +129,11 @@ function prepareFileForDownload(
       itemAttributeValues.key = getItemAttributePriorityResponse(itemAttributeValues, attributes, true).join(
         ''
       );
+    } else {
+      delete itemAttributeValues.complete;
+      delete itemAttributeValues.score;
+      delete itemAttributeValues.reliability;
+      delete itemAttributeValues.key;
     }
   });
 

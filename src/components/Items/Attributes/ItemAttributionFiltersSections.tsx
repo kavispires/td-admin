@@ -187,3 +187,17 @@ export function ItemAttributionComparatorFilters() {
     </>
   );
 }
+
+export function ItemAttributionStatsFilters() {
+  const { searchParams, addQueryParam } = useItemQueryParams();
+  return (
+    <>
+      <FilterSwitch
+        label="Show Glyphs"
+        value={searchParams.get('showGlyphs') === 'true'}
+        onChange={(v) => addQueryParam('showGlyphs', v ? 'true' : '')}
+        className="full-width m-0"
+      />
+    </>
+  );
+}

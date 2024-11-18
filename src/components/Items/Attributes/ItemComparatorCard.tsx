@@ -73,7 +73,7 @@ export function ItemComparatorCard() {
       key: 'identical',
       render: (message: string[]) => {
         const group = grouping[message.join(' ')] ?? [];
-        return <>{group.length > 1 ? group.length : ''}</>;
+        return <>{group.length > 1 ? group.length : '0'}</>;
       },
       sorter: (a, b) => {
         const groupA = grouping[a.message.join(' ')] ?? [];
