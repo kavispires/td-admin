@@ -107,7 +107,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
 
     if (direction === 'incomplete') {
       setItemIndex((prev) => {
-        let index = prev;
+        let index = prev + 1;
         while (index < availableItemIds.length) {
           const item = getItemAttributeValues(availableItemIds[index]);
           if (Object.keys(item.attributes).length !== attributesList.length) {
