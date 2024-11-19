@@ -1,5 +1,5 @@
 import { CheckCircleFilled, CloseCircleOutlined } from '@ant-design/icons';
-import { Flex, Progress, Typography } from 'antd';
+import { Flex, Progress, Tooltip, Typography } from 'antd';
 import { Stat } from 'components/Common/Stat';
 import { useMemo } from 'react';
 import { ItemAtributesValues, ItemAttribute } from 'types';
@@ -63,7 +63,9 @@ export function ItemAttributeStats({ attributesList, itemAttributeValues }: Item
           )}
         </Stat>
         <Stat label="Value">{value}</Stat>
-        <Stat label="Reliability">{relevancy}%</Stat>
+        <Tooltip title="The percentage of conclusive attributes (not unclear)">
+          <Stat label="Reliability">{relevancy}%</Stat>
+        </Tooltip>
       </Flex>
     </div>
   );

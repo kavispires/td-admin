@@ -50,8 +50,9 @@ export function ItemGroupingCard() {
       <Typography.Text className="mr-2">Sort by</Typography.Text>
       <Select style={{ width: 120 }} value={sorting.sortBy} onChange={(v) => sorting.setSortBy(v)}>
         <Select.Option value={null}>Last Updated</Select.Option>
+        <Select.Option value="prop::id">Id</Select.Option>
         {attributesList.map((a) => (
-          <Select.Option key={a.id} value={a.id}>
+          <Select.Option key={a.id} value={`attribute::${a.id}`}>
             {a.name.en}
           </Select.Option>
         ))}

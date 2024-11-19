@@ -36,14 +36,17 @@ export function useItemGrouping() {
       .filter((item) => item.attributes?.[attributeKey] === scopeValue)
       .map((item) => item.id);
 
+    const [sortType, sortValue] = (sortBy ?? '::').split('::');
+
     return orderBy(
       filteredItemIds,
       [
-        (id) => (sortBy ? getItemAttributeValues(id)?.attributes?.[sortBy] : true),
+        (id) => (sortType === 'attribute' ? getItemAttributeValues(id)?.attributes?.[sortValue] : true),
+        (id) => (sortType === 'prop' ? Number(id) : true),
         (id) => getItemAttributeValues(id)?.updatedAt,
         (id) => Number(id),
       ],
-      [sortOrder, 'desc', 'asc']
+      [sortOrder, 'asc', 'desc', 'asc']
     );
   }, [attributeKey, scope, sortBy, sortOrder]); // eslint-disable-line react-hooks/exhaustive-deps
 

@@ -149,7 +149,7 @@ export function SingleSampleModalFlow() {
         }}
       >
         {itemId && item && itemAttributes && attribute && (
-          <Flex gap={6} className="my-10" wrap="wrap">
+          <Flex gap={6} className="my-10" wrap="wrap" key={itemId}>
             <ItemSprite item={item} width={150} />
             <Flex vertical gap={6}>
               <Flex gap={6}>

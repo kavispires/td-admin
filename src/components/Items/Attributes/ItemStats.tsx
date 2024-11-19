@@ -33,8 +33,6 @@ export function ItemStats() {
     <div className="my-4">
       <Typography.Title level={5}>Stats</Typography.Title>
 
-      <Typography.Paragraph></Typography.Paragraph>
-
       <Tabs defaultActiveKey="1" items={items} />
     </div>
   );
@@ -242,5 +240,10 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
     },
   ];
 
-  return <Table columns={columns} dataSource={rows} pagination={false} rowKey="id" size="small" />;
+  return (
+    <>
+      <Typography.Paragraph>Total: {rows.length}</Typography.Paragraph>
+      <Table columns={columns} dataSource={rows} pagination={false} rowKey="id" size="small" />
+    </>
+  );
 }

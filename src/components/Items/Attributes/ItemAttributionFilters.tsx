@@ -99,6 +99,14 @@ function prepareFileForDownload(
     //   itemAttributeValues.attributes['col'] = ATTRIBUTE_VALUE.UNCLEAR;
     // }
 
+    // const bigValue = itemAttributeValues.attributes['big'];
+    // if (bigValue === ATTRIBUTE_VALUE.RELATED) {
+    //   itemAttributeValues.attributes['sma'] = ATTRIBUTE_VALUE.UNRELATED;
+    // }
+    // if (bigValue === ATTRIBUTE_VALUE.DETERMINISTIC) {
+    //   itemAttributeValues.attributes['sma'] = ATTRIBUTE_VALUE.OPPOSITE;
+    // }
+
     // Check completion
     const completed = Object.keys(itemAttributeValues.attributes).length;
 

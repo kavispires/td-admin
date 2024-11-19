@@ -60,6 +60,7 @@ export function ItemSimulation() {
       const itemAttributeValues = getItemAttributeValues(itemId);
 
       if (!itemAttributeValues) continue;
+
       if (
         !itemAttributeValues.complete ||
         !itemAttributeValues.reliability ||
