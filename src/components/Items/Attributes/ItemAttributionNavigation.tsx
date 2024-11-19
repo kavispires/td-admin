@@ -37,6 +37,7 @@ export function ItemAttributionNavigation() {
       <Popover content={<GoToItemPopOverContent />} title="Title">
         <Button>Go To</Button>
       </Popover>
+      <Button onClick={() => jumpToItem('incomplete')}>Next Incomplete</Button>
     </Button.Group>
   );
 }

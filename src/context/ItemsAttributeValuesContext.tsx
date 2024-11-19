@@ -77,31 +77,58 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
   const jumpToItem = (direction: string, itemId?: string) => {
     if (direction === 'next') {
       setItemIndex((prev) => (prev + 1) % availableItemIds.length);
+      return;
     }
     if (direction === 'previous') {
       setItemIndex((prev) => (prev - 1 + availableItemIds.length) % availableItemIds.length);
+      return;
     }
     if (direction === 'random') {
       setItemIndex(random(0, availableItemIds.length - 1));
+      return;
     }
 
     if (direction === 'first') {
       setItemIndex(0);
+      return;
     }
     if (direction === 'last') {
       setItemIndex(availableItemIds.length - 1);
+      return;
     }
     if (direction === 'next10') {
       setItemIndex((prev) => (prev + 10) % availableItemIds.length);
+      return;
     }
     if (direction === 'previous10') {
       setItemIndex((prev) => (prev - 10 + availableItemIds.length) % availableItemIds.length);
+      return;
+    }
+
+    if (direction === 'incomplete') {
+      setItemIndex((prev) => {
+        let index = prev;
+        while (index < availableItemIds.length) {
+          const item = getItemAttributeValues(availableItemIds[index]);
+          if (Object.keys(item.attributes).length !== attributesList.length) {
+            return index;
+          }
+          if (index === availableItemIds.length - 1) {
+            message.info('No more incomplete items found.');
+            return prev;
+          }
+          index++;
+        }
+        return prev;
+      });
+      return;
     }
 
     if (direction === 'goTo' && itemId !== undefined) {
       const index = availableItemIds.indexOf(itemId);
       if (index !== -1) {
         setItemIndex(index);
+        return;
       } else {
         message.error(`Item ${itemId} is not available for attribution.`);
       }
