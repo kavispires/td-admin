@@ -8,6 +8,7 @@ import { useMedia } from 'react-use';
 
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
+import { ItemAttributionDrawer } from './ItemAttributionDrawer';
 
 const getStatSentence = (stats: Record<string, number>, scope: string | null) => {
   if (scope === 'unset' || !scope) {
@@ -22,7 +23,7 @@ export function ItemGroupingCard() {
 
   const { attribute, pageIds, updateAttributeValue, updatePageItemsAsUnrelated, pagination, stats, sorting } =
     useItemGrouping();
-  const { searchParams } = useItemQueryParams();
+  const { searchParams, addQueryParam } = useItemQueryParams();
   const isNarrow = useMedia('(max-width: 1024px)');
 
   if (isEmpty(attribute)) {
@@ -72,7 +73,6 @@ export function ItemGroupingCard() {
       </Button>
     </Popconfirm>
   );
-
   return (
     <Card
       className="my-4"
@@ -110,7 +110,12 @@ export function ItemGroupingCard() {
               <Flex vertical gap={6}>
                 <ItemSprite item={item} width={75} />
                 <ItemId item={item} />
-                <ItemGoTo item={item} />
+                <Button.Group>
+                  <ItemGoTo item={item} />
+                  <Button size="small" shape="round" onClick={() => addQueryParam('drawer', item.id)}>
+                    Drawer
+                  </Button>
+                </Button.Group>
                 <ItemName item={item} language="en" />
                 <ItemName item={item} language="pt" />
               </Flex>
@@ -126,6 +131,7 @@ export function ItemGroupingCard() {
           </Card.Grid>
         );
       })}
+      <ItemAttributionDrawer />
     </Card>
   );
 }
