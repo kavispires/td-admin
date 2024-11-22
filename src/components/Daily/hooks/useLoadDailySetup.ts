@@ -1,6 +1,6 @@
 import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   DailyDiscSet,
   ArteRuimCard,
@@ -28,6 +28,7 @@ import { buildDailyComunicacaoAlienigenaGames } from '../utils/games/daily-comun
 export type UseLoadDailySetup = {
   isLoading: boolean;
   entries: DailyEntry[];
+  warnings: string[];
 };
 
 /**
@@ -48,6 +49,15 @@ export function useLoadDailySetup(
   // STEP 1: HISTORY
   const source = LANGUAGE_PREFIX.DAILY[queryLanguage ?? 'pt'];
   const historyQuery = useDailyHistoryQuery(source, { enabled });
+  const [warnings, setWarnings] = useState<string[]>([]);
+
+  const updateWarnings = (newWarning: string) => {
+    setWarnings((prev) => [...prev, newWarning]);
+  };
+
+  useEffect(() => {
+    setWarnings([]);
+  }, [batchSize, queryLanguage]);
 
   // STEP 2: ARTE RUIM
   const drawingsQuery = useLoadDrawings(enabled, queryLanguage ?? 'pt');
@@ -77,7 +87,7 @@ export function useLoadDailySetup(
       return {};
     }
 
-    return buildDailyAquiOGames(batchSize, aquiOHistory, aquiOSetsQuery.data);
+    return buildDailyAquiOGames(batchSize, aquiOHistory, aquiOSetsQuery.data, updateWarnings);
   }, [aquiOSetsQuery, aquiOHistory, batchSize, historyQuery.isSuccess]);
 
   // STEP 4: Palavreado
@@ -179,7 +189,8 @@ export function useLoadDailySetup(
       batchSize,
       comunicacaoAlienigenaHistory,
       tdrAttributesQuery.data,
-      tdrItemsAttributesValuesQuery.data
+      tdrItemsAttributesValuesQuery.data,
+      updateWarnings
     );
   }, [
     batchSize,
@@ -188,7 +199,6 @@ export function useLoadDailySetup(
     tdrAttributesQuery,
     tdrItemsAttributesValuesQuery,
   ]);
-  console.log(comunicacaoAlienigenaEntries);
 
   // STEP N: Create entries
   const entries = useMemo(() => {
@@ -234,5 +244,6 @@ export function useLoadDailySetup(
       tdrAttributesQuery.isLoading ||
       tdrItemsAttributesValuesQuery.isLoading,
     entries,
+    warnings,
   };
 }

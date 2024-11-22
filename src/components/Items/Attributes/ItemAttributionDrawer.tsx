@@ -10,7 +10,6 @@ export function ItemAttributionDrawer() {
   const queryParamsItemId = searchParams.get('drawer');
   const [showOnlyUnset, setUnsetOnly] = useState(false);
 
-  console.log('what?');
   const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem } =
     useItemsAttributeValuesContext();
 

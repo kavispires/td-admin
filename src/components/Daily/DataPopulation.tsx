@@ -169,7 +169,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
               </Space>
               <Space direction="vertical">
                 {entry.itemsIds.map((itemId) => (
-                  <Item id={itemId} width={50} />
+                  <Item key={itemId} id={itemId} width={50} />
                 ))}
               </Space>
             </Space>
@@ -199,6 +199,9 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
   return (
     <div>
       {dataLoad.isLoading && <div>Loading...</div>}
+      {dataLoad.warnings.map((warning) => (
+        <Alert key={warning} message={warning} type="warning" showIcon />
+      ))}
       <Flex justify="space-between" align="center">
         <h1>Total: {dataLoad.entries.length}</h1>
         <Button

@@ -9,7 +9,8 @@ export const buildDailyComunicacaoAlienigenaGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   attributes: Dictionary<ItemAttribute>,
-  attributeValues: Dictionary<ItemAtributesValues>
+  attributeValues: Dictionary<ItemAtributesValues>,
+  updateWarnings: (warning: string) => void
 ) => {
   console.count('Creating Comunicacao Alienigena...');
 
@@ -22,7 +23,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
   let tries = 0;
   while (keys(preliminaryEntries).length < batchSize && tries < 100) {
     const entry = generateComunicacaoAlienigenaGame(allAttributes, allAttributesValues);
-    if (entry.valid && !preliminaryEntries[entry.setId]) {
+    if (entry.valid && !preliminaryEntries[entry.setId] && !history.used.includes(entry.setId)) {
       preliminaryEntries[entry.setId] = entry;
     }
     if (keys(preliminaryEntries).length >= batchSize) {
@@ -32,6 +33,10 @@ export const buildDailyComunicacaoAlienigenaGames = (
   }
 
   console.log(`🔆 Generating this batch took ${tries} tries`);
+
+  if (tries >= 100) {
+    updateWarnings('Not enough valid comunicacao alienigena games (over 100 attempts)');
+  }
 
   const entries: Dictionary<DailyComunicacaoAlienigenaEntry> = {};
   Object.values(preliminaryEntries).forEach((entry, index) => {

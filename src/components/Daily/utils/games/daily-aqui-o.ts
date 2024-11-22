@@ -14,7 +14,8 @@ import { DailyDiscSet } from 'types';
 export const buildDailyAquiOGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
-  discSets: Dictionary<DailyDiscSet>
+  discSets: Dictionary<DailyDiscSet>,
+  updateWarnings: (warning: string) => void
 ) => {
   console.count('Creating Aqui Ó...');
   // Filter complete sets only
@@ -26,6 +27,7 @@ export const buildDailyAquiOGames = (
 
   if (notUsedSets.length < batchSize) {
     console.log('🔆 Not enough aqui-o sets left, shuffling...');
+    updateWarnings('Not enough aqui-o sets left');
     notUsedSets.push(...shuffle(completeSets));
   }
 

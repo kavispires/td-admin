@@ -106,7 +106,12 @@ export function useSaveDailySetup(queryLanguage: Language) {
         'comunicacao-alienigena': {
           latestDate: data[data.length - 1].id,
           latestNumber: data[data.length - 1]['comunicacao-alienigena'].number,
-          used: '[]',
+          used: JSON.stringify(
+            removeDuplicates([
+              ...JSON.parse(previousHistory?.['comunicacao-alienigena']?.used ?? '[]'),
+              ...data.map((e) => e['comunicacao-alienigena'].setId),
+            ])
+          ),
         },
       };
       setDoc(docRec, newHistory);
