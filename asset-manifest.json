@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/td-admin/static/css/main.0796c204.css",
-    "main.js": "/td-admin/static/js/main.d954603a.js",
+    "main.js": "/td-admin/static/js/main.ab6618ef.js",
     "Home.js": "/td-admin/static/js/Home.38b7ebc4.chunk.js",
     "Resource.js": "/td-admin/static/js/Resource.afbcf5fb.chunk.js",
     "ResourceGenerator.js": "/td-admin/static/js/ResourceGenerator.c2bb4c7b.chunk.js",
@@ -16,7 +16,7 @@
     "ImageCardsComparator.js": "/td-admin/static/js/ImageCardsComparator.fc30672d.chunk.js",
     "ImageCardsConnections.js": "/td-admin/static/js/ImageCardsConnections.d18bdc19.chunk.js",
     "Items.js": "/td-admin/static/js/Items.9a5a6213.chunk.js",
-    "ItemsAttribution.js": "/td-admin/static/js/ItemsAttribution.74f32de5.chunk.js",
+    "ItemsAttribution.js": "/td-admin/static/js/ItemsAttribution.16d3632c.chunk.js",
     "ItemsDiagramSets.css": "/td-admin/static/css/ItemsDiagramSets.91b2e354.chunk.css",
     "ItemsDiagramSets.js": "/td-admin/static/js/ItemsDiagramSets.ed32c500.chunk.js",
     "ItemsGroups.js": "/td-admin/static/js/ItemsGroups.cfe07766.chunk.js",
@@ -24,7 +24,7 @@
     "ItemsMovieSets.js": "/td-admin/static/js/ItemsMovieSets.f37a452e.chunk.js",
     "ItemsQuartets.js": "/td-admin/static/js/ItemsQuartets.24ab8bf9.chunk.js",
     "ItemsCrimeHistory.js": "/td-admin/static/js/ItemsCrimeHistory.076eea8c.chunk.js",
-    "DailySetup.js": "/td-admin/static/js/DailySetup.b3d70e86.chunk.js",
+    "DailySetup.js": "/td-admin/static/js/DailySetup.3e9e8e8c.chunk.js",
     "CrimesHediondos.css": "/td-admin/static/css/CrimesHediondos.c1720b9e.chunk.css",
     "CrimesHediondos.js": "/td-admin/static/js/CrimesHediondos.f9c62a97.chunk.js",
     "MovieMaker.js": "/td-admin/static/js/MovieMaker.3641e636.chunk.js",
@@ -59,7 +59,7 @@
     "index.html": "/td-admin/index.html",
     "static/media/logo.svg": "/td-admin/static/media/logo.290a44ba56847953c116e591c78dfae5.svg",
     "main.0796c204.css.map": "/td-admin/static/css/main.0796c204.css.map",
-    "main.d954603a.js.map": "/td-admin/static/js/main.d954603a.js.map",
+    "main.ab6618ef.js.map": "/td-admin/static/js/main.ab6618ef.js.map",
     "Home.38b7ebc4.chunk.js.map": "/td-admin/static/js/Home.38b7ebc4.chunk.js.map",
     "Resource.afbcf5fb.chunk.js.map": "/td-admin/static/js/Resource.afbcf5fb.chunk.js.map",
     "ResourceGenerator.c2bb4c7b.chunk.js.map": "/td-admin/static/js/ResourceGenerator.c2bb4c7b.chunk.js.map",
@@ -74,7 +74,7 @@
     "ImageCardsComparator.fc30672d.chunk.js.map": "/td-admin/static/js/ImageCardsComparator.fc30672d.chunk.js.map",
     "ImageCardsConnections.d18bdc19.chunk.js.map": "/td-admin/static/js/ImageCardsConnections.d18bdc19.chunk.js.map",
     "Items.9a5a6213.chunk.js.map": "/td-admin/static/js/Items.9a5a6213.chunk.js.map",
-    "ItemsAttribution.74f32de5.chunk.js.map": "/td-admin/static/js/ItemsAttribution.74f32de5.chunk.js.map",
+    "ItemsAttribution.16d3632c.chunk.js.map": "/td-admin/static/js/ItemsAttribution.16d3632c.chunk.js.map",
     "ItemsDiagramSets.91b2e354.chunk.css.map": "/td-admin/static/css/ItemsDiagramSets.91b2e354.chunk.css.map",
     "ItemsDiagramSets.ed32c500.chunk.js.map": "/td-admin/static/js/ItemsDiagramSets.ed32c500.chunk.js.map",
     "ItemsGroups.cfe07766.chunk.js.map": "/td-admin/static/js/ItemsGroups.cfe07766.chunk.js.map",
@@ -82,7 +82,7 @@
     "ItemsMovieSets.f37a452e.chunk.js.map": "/td-admin/static/js/ItemsMovieSets.f37a452e.chunk.js.map",
     "ItemsQuartets.24ab8bf9.chunk.js.map": "/td-admin/static/js/ItemsQuartets.24ab8bf9.chunk.js.map",
     "ItemsCrimeHistory.076eea8c.chunk.js.map": "/td-admin/static/js/ItemsCrimeHistory.076eea8c.chunk.js.map",
-    "DailySetup.b3d70e86.chunk.js.map": "/td-admin/static/js/DailySetup.b3d70e86.chunk.js.map",
+    "DailySetup.3e9e8e8c.chunk.js.map": "/td-admin/static/js/DailySetup.3e9e8e8c.chunk.js.map",
     "CrimesHediondos.c1720b9e.chunk.css.map": "/td-admin/static/css/CrimesHediondos.c1720b9e.chunk.css.map",
     "CrimesHediondos.f9c62a97.chunk.js.map": "/td-admin/static/js/CrimesHediondos.f9c62a97.chunk.js.map",
     "MovieMaker.3641e636.chunk.js.map": "/td-admin/static/js/MovieMaker.3641e636.chunk.js.map",
@@ -116,6 +116,6 @@
   },
   "entrypoints": [
     "static/css/main.0796c204.css",
-    "static/js/main.d954603a.js"
+    "static/js/main.ab6618ef.js"
   ]
 }
