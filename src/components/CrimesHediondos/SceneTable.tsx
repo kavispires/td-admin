@@ -1,5 +1,5 @@
 import { Button, Flex, Select, Space, Table, TableColumnsType, Tag, Typography } from 'antd';
-import { Name } from 'components/Common/Name';
+import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
@@ -55,8 +55,8 @@ export function SceneTable({ sceneQuery, allTags, objects }: SceneTableProps) {
       key: 'title',
       render: (_, record) => (
         <Space direction="vertical" style={{ minWidth: 150 }}>
-          <Name name={record.title} language="en" readOnly />
-          <Name name={record.title} language="pt" readOnly />
+          <DualLanguageTextField value={record.title} language="en" readOnly />
+          <DualLanguageTextField value={record.title} language="pt" readOnly />
         </Space>
       ),
     },

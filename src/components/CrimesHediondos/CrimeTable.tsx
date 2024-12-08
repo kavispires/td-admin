@@ -1,5 +1,5 @@
 import { Button, Input, Space, Table, TableColumnsType, Tag } from 'antd';
-import { Name } from 'components/Common/Name';
+import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
@@ -66,13 +66,13 @@ export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInner
       sorter: (a, b) => a.name.en.localeCompare(b.name.en),
       render: (name, record) => (
         <Space direction="vertical" style={{ minWidth: 150 }}>
-          <Name
-            name={name}
+          <DualLanguageTextField
+            value={name}
             language="en"
             onPressEnter={(e: any) => editName(e.target?.value || record.name.en, 'en', record)}
           />
-          <Name
-            name={name}
+          <DualLanguageTextField
+            value={name}
             language="pt"
             onPressEnter={(e: any) => editName(e.target?.value || record.name.pt, 'pt', record)}
           />

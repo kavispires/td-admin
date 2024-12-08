@@ -4,7 +4,7 @@ import { CrimesHediondosCard } from 'types';
 
 import { useToggle } from 'react-use';
 import { CardEditTags } from './CardEditTags';
-import { Name } from 'components/Common/Name';
+import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { cloneDeep } from 'lodash';
 import { EditOutlined } from '@ant-design/icons';
 import { CrimeItemCard } from './CrimeItemCard';
@@ -49,13 +49,13 @@ export function EditCrimeCardModal({ allTags, onUpdateCard, card, buttonProps }:
             <Space>
               <Space direction="vertical" style={{ minWidth: 150 }}>
                 <CrimeItemCard item={card} cardWidth={100} />
-                <Name
-                  name={card.name}
+                <DualLanguageTextField
+                  value={card.name}
                   language="en"
                   onPressEnter={(e: any) => editName(e.target?.value || card.name.en, 'en', card)}
                 />
-                <Name
-                  name={card.name}
+                <DualLanguageTextField
+                  value={card.name}
                   language="pt"
                   onPressEnter={(e: any) => editName(e.target?.value || card.name.pt, 'pt', card)}
                 />
