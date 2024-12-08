@@ -164,7 +164,7 @@ export type CityLocation = {
    */
   id: string;
   /**
-   * The name of the contender
+   * The name of the location
    */
   name: DualLanguageValue;
   /**
@@ -226,9 +226,13 @@ export type ContenderCard = {
    */
   exclusivity?: Language;
   /**
+   *
+   */
+  description?: DualLanguageValue;
+  /**
    * The groups the contender belongs to
    */
-  groups?: string[];
+  decks?: string[];
   /**
    * Flag indicating if it's NSFW
    */

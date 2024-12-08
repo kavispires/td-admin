@@ -56,6 +56,10 @@ const items: MenuProps['items'] = [
         key: '/game/fofoca-quente',
       },
       {
+        label: 'Contenders',
+        key: '/game/contenders',
+      },
+      {
         label: 'Daily Setup',
         key: '/game/daily-setup',
       },

@@ -224,3 +224,5 @@ export const ATTRIBUTE_GROUP_VALUES = Object.keys(ATTRIBUTE_VALUE).map((key) => 
 }));
 
 export const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+export const PLACEHOLDER_DUAL_LANGUAGE_OBJECT = { en: '', pt: '' };

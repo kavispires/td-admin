@@ -4,11 +4,11 @@ import { FilterSelect } from './FilterEntries';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, orderBy } from 'lodash';
 
-export function buildDataFilters<T extends PlainObject>(data: Dictionary<T>) {
+export function buildDataFilters<T extends PlainObject>(data: Dictionary<T>, ignoreKeys: string[] = []) {
   const keys = Object.keys(
     Object.values(data).reduce((acc: Dictionary<boolean>, entry) => {
       Object.keys(entry).forEach((key) => {
-        if (!acc[key]) {
+        if (!acc[key] && !ignoreKeys.includes(key)) {
           acc[key] = true;
         }
       });
@@ -43,9 +43,14 @@ export function buildDataFilters<T extends PlainObject>(data: Dictionary<T>) {
   return { filters, sortableKeys };
 }
 
-export function DataFilters<T extends PlainObject>({ data }: { data: Dictionary<T> }) {
+type DataFiltersProps<T extends PlainObject> = {
+  data: Dictionary<T>;
+  ignoreKeys?: string[];
+};
+
+export function DataFilters<T extends PlainObject>({ data, ignoreKeys = [] }: DataFiltersProps<T>) {
   const { queryParams, addParam } = useQueryParams();
-  const filters = useMemo(() => buildDataFilters(data), [data]);
+  const filters = useMemo(() => buildDataFilters(data, ignoreKeys), [data, ignoreKeys]);
 
   return (
     <Flex vertical style={{ overflowY: 'auto' }}>

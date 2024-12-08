@@ -47,6 +47,7 @@ const DailySetup = lazy(() => import('pages/DailySetup' /* webpackChunkName: "Da
 const CrimesHediondos = lazy(() => import('pages/CrimesHediondos' /* webpackChunkName: "CrimesHediondos" */));
 const MovieMaker = lazy(() => import('pages/MovieMaker' /* webpackChunkName: "MovieMaker" */));
 const FofocaQuente = lazy(() => import('pages/FofocaQuente' /* webpackChunkName: "FofocaQuente" */));
+const Contenders = lazy(() => import('pages/Contenders' /* webpackChunkName: "Contenders" */));
 
 export const routes = (
   <Routes>
@@ -104,6 +105,14 @@ export const routes = (
       element={
         <Suspense fallback={<LoadingPage />}>
           <FofocaQuente />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/game/contenders"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <Contenders />
         </Suspense>
       }
     />

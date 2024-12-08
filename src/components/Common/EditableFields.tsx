@@ -1,5 +1,11 @@
-import { Input, InputProps } from 'antd';
+import { Input, InputProps, Switch, SwitchProps, Typography } from 'antd';
 import { LanguageFlag } from './LanguageFlag';
+import { TextProps } from 'antd/lib/typography/Text';
+import { FireFilled } from '@ant-design/icons';
+
+export function Label({ strong, ...props }: TextProps) {
+  return <Typography.Text strong={strong ?? true} {...props} />;
+}
 
 type DualLanguageTextFieldProps = {
   value: DualLanguageValue;
@@ -16,4 +22,12 @@ export function DualLanguageTextField({ value, language, ...rest }: DualLanguage
       {...rest}
     />
   );
+}
+
+type NSFWFieldProps = {
+  value?: boolean;
+} & Omit<SwitchProps, 'checked' | 'checkedChildren'>;
+
+export function NSFWField({ value, ...props }: NSFWFieldProps) {
+  return <Switch checked={value} checkedChildren={<FireFilled style={{ color: 'hotpink' }} />} {...props} />;
 }
