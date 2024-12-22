@@ -21,7 +21,7 @@ export function ItemCard({ item, editMode = false, simplified }: ItemCardProps) 
   const { decks } = useItemsContext();
   const { isEditing, toggleEditMode, onEdit, isDirty, onModify, onReset, editableItem } = useItemUpdate(
     item,
-    editMode
+    editMode,
   );
   const copyToClipboard = useCopyToClipboardFunction();
   const { is } = useQueryParams();

@@ -110,7 +110,7 @@ export type GridMapOptions<TCellData> = {
 function createGridMap<TCellData>(
   width: number,
   height: number,
-  options: GridMapOptions<TCellData> = {}
+  options: GridMapOptions<TCellData> = {},
 ): GridMapType<TCellData> {
   const origin = options.origin || 'top-left';
   const adjacency = options.adjacency || 'any';
@@ -192,7 +192,7 @@ function getCellIndex<TCellData = unknown>(grid: GridMapType<TCellData>, x: numb
 function getCellByCoordinates<TCellData>(
   grid: GridMapType<TCellData>,
   x: number,
-  y: number
+  y: number,
 ): GridMapCellType<TCellData | null> | null {
   return grid.cells.find((cell) => cell.x === x && cell.y === y) || null;
 }
@@ -207,7 +207,7 @@ function getCellByCoordinates<TCellData>(
  */
 function getCellById<TCellData>(
   grid: GridMapType<TCellData>,
-  id: string
+  id: string,
 ): GridMapCellType<TCellData | null> | null {
   return grid.cells.find((cell) => cell.id === id) || null;
 }
@@ -274,7 +274,7 @@ function getAllAdjacentCoordinates<TCellData>(
   grid: GridMapType<TCellData>,
   adjacency?: GridMapAdjacency,
   cellState?: GridMapCellState,
-  adjacentCellState: GridMapCellState = 'used'
+  adjacentCellState: GridMapCellState = 'used',
 ): { x: number; y: number }[] {
   const availableCells: { x: number; y: number }[] = [];
   const chosenAdjacency = adjacency || grid.adjacency;
@@ -326,7 +326,7 @@ function getAllAdjacentIds(
   grid: GridMapType<unknown>,
   adjacency?: GridMapAdjacency,
   cellState?: GridMapCellState,
-  adjacentCellState: GridMapCellState = 'used'
+  adjacentCellState: GridMapCellState = 'used',
 ): string[] {
   const availableCells: string[] = [];
   const chosenAdjacency = adjacency || grid.adjacency;
@@ -403,7 +403,7 @@ function _isOrthogonallyAdjacentToUsed<TCellData>(
   grid: GridMapType<TCellData>,
   x: number,
   y: number,
-  cellState: GridMapCellState
+  cellState: GridMapCellState,
 ): boolean {
   return ORTHOGONAL_OFFSETS.some(({ dx, dy }) => {
     const nx = x + dx;
@@ -425,7 +425,7 @@ function _isDiagonallyAdjacentToUsed<TCellData>(
   grid: GridMapType<TCellData>,
   x: number,
   y: number,
-  cellState: GridMapCellState
+  cellState: GridMapCellState,
 ): boolean {
   return DIAGONAL_OFFSETS.some(({ dx, dy }) => {
     const nx = x + dx;
@@ -438,7 +438,7 @@ function _isSurroundingAdjacentToUsed<TCellData>(
   grid: GridMapType<TCellData>,
   x: number,
   y: number,
-  cellState: GridMapCellState = 'used'
+  cellState: GridMapCellState = 'used',
 ): boolean {
   return SURROUNDING_OFFSETS.some(({ dx, dy }) => {
     const nx = x + dx;
@@ -485,7 +485,7 @@ function updateCell<TCellData>(
   grid: GridMapType<TCellData>,
   id: string,
   newData: TCellData | null,
-  state?: GridMapCellState
+  state?: GridMapCellState,
 ): GridMapType<TCellData> {
   const cell = getCellById(grid, id);
 
@@ -532,7 +532,7 @@ function _updateSurroundingCells<TCellData>(grid: GridMapType<TCellData>, x: num
 function updateCellState<TCellData>(
   grid: GridMapType<TCellData>,
   identifier: string,
-  newState: GridMapCellState
+  newState: GridMapCellState,
 ): GridMapType<TCellData> {
   const cell: GridMapCellType<TCellData | null> | null = getCellById(grid, identifier);
 
@@ -557,7 +557,7 @@ function updateCellState<TCellData>(
 function _getAdjacentIdsByCoordinate<TCellData>(
   grid: GridMapType<TCellData>,
   x: number,
-  y: number
+  y: number,
 ): string[] {
   const offsets = OFFSETS[grid.adjacency];
 
@@ -579,7 +579,7 @@ function getAdjacentIdsToCellId<TCellData>(
   grid: GridMapType<TCellData>,
   id: string,
   adjacency: GridMapAdjacency,
-  cellState?: GridMapCellState
+  cellState?: GridMapCellState,
 ): string[] {
   const { x, y } = parseCellId(id);
   const offsets = OFFSETS[adjacency];
@@ -614,7 +614,7 @@ function createPath<TCellData>(
   grid: GridMapType<TCellData | null>,
   length: number,
   startId: string,
-  options: { endId?: string; allowRepetition?: boolean } = {}
+  options: { endId?: string; allowRepetition?: boolean } = {},
 ): { id: string; path: string[] } | null {
   const { endId, allowRepetition = false } = options;
   const path: string[] = [startId];
@@ -664,7 +664,7 @@ function createPaths<TCellData>(
   numPaths: number,
   startIds: string[],
   pathLength: number,
-  allowRepetition = false
+  allowRepetition = false,
 ): { id: string; path: string[] }[] {
   const paths: { id: string; path: string[] }[] = [];
 

@@ -66,7 +66,7 @@ export const generateControleDeEstoqueGame = (id: string, num: number) => {
     Array(TOTAL_GOODS)
       .fill('')
       .map((_, i) => `good-${i + 1}`),
-    GOODS_SIZE + OUT_OF_STOCK_SIZE
+    GOODS_SIZE + OUT_OF_STOCK_SIZE,
   );
   const outOfStockGood = goods.pop();
 

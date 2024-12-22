@@ -32,7 +32,7 @@ function Suspects() {
         if (sortBy === 'id') return Number(e.id.split('-').at(-1));
         return e[sortBy as keyof SuspectCard] ?? e.id;
       },
-      ['asc']
+      ['asc'],
     ).map((e) => {
       const splitId = e.id.split('-');
       const id = version === 'original' ? e.id : `${splitId[0]}-${version}-${splitId[1]}`;

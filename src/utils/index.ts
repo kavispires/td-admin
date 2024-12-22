@@ -126,7 +126,7 @@ export const sortJsonKeys = (library: PlainObject): PlainObject => {
         .concat(
           Object.keys(obj)
             .filter((key) => !['id', 'name', 'title', 'type'].includes(key))
-            .sort()
+            .sort(),
         );
 
       return chain(obj)
@@ -195,8 +195,8 @@ export const getNewItem = (partialItem: Partial<Item> = {}): Item => {
         groups: [],
         attributes: {},
       },
-      partialItem
-    )
+      partialItem,
+    ),
   );
 };
 
@@ -208,7 +208,7 @@ export const getNewItem = (partialItem: Partial<Item> = {}): Item => {
  * @returns The new `ItemAtributesValues` object.
  */
 export const getNewItemAttributeValues = (
-  partialItemAttributeValues: Partial<ItemAtributesValues> = {}
+  partialItemAttributeValues: Partial<ItemAtributesValues> = {},
 ): ItemAtributesValues => {
   return cloneDeep(
     merge(
@@ -216,8 +216,8 @@ export const getNewItemAttributeValues = (
         id: '',
         attributes: {},
       },
-      partialItemAttributeValues
-    )
+      partialItemAttributeValues,
+    ),
   );
 };
 
@@ -227,17 +227,17 @@ export const getItemAttributePriorityResponse = (
   /**
    * Ignore attributes that are UNRELATED or UNCLEAR
    */
-  onlyRelevant?: boolean
+  onlyRelevant?: boolean,
 ) => {
   const priorityOrder: string[] = orderBy(
     Object.values(itemAttributes),
     ['priority', 'id'],
-    ['asc', 'asc']
+    ['asc', 'asc'],
   ).map((attribute) => attribute.id);
 
   function sortAttributesByPriority(attributeKeys: string[], prefix: string) {
     return orderBy(attributeKeys, (key) => priorityOrder.indexOf(key), ['asc']).map(
-      (key) => `${prefix}${key}`
+      (key) => `${prefix}${key}`,
     );
   }
 

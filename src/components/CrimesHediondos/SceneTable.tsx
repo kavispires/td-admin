@@ -279,7 +279,7 @@ const calculateSampleLikelihood = (scene: CrimeSceneTile, object: CrimesHediondo
   // Calculate likelihood percentage for each option where the 100% is the max on the object tags
   Object.keys(optionsTagCount).forEach((sceneTagIndex) => {
     optionsTagCount[sceneTagIndex] = Math.floor(
-      Math.min(100, ((optionsTagCount[sceneTagIndex] ?? 0) / (object.tags?.length ?? 1)) * 100)
+      Math.min(100, ((optionsTagCount[sceneTagIndex] ?? 0) / (object.tags?.length ?? 1)) * 100),
     );
   });
 

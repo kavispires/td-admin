@@ -43,7 +43,7 @@ export function CrimesHediondosContent({
     return orderBy(
       Object.entries(tagsDict).map(([tag, count]) => ({ value: tag, label: tag, count })),
       ['value'],
-      ['asc']
+      ['asc'],
     );
   }, [rows]);
 

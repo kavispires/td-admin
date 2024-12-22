@@ -64,7 +64,7 @@ export function ItemAttributionFilters() {
 
 function prepareFileForDownload(
   itemsAttributes: Dictionary<ItemAtributesValues>,
-  attributes: Dictionary<ItemAttribute>
+  attributes: Dictionary<ItemAttribute>,
 ) {
   const total = Object.keys(attributes).length;
 
@@ -135,7 +135,7 @@ function prepareFileForDownload(
 
       // Add key with only relevant attributes
       itemAttributeValues.key = getItemAttributePriorityResponse(itemAttributeValues, attributes, true).join(
-        ''
+        '',
       );
     } else {
       delete itemAttributeValues.complete;

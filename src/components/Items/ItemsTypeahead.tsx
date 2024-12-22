@@ -46,7 +46,7 @@ export function ItemsTypeahead({
 
         return acc;
       },
-      {}
+      {},
     );
 
     const options = orderBy(Object.keys(namesDict), [(name) => name.toLowerCase()]).map((name) => ({
@@ -66,7 +66,7 @@ export function ItemsTypeahead({
       }
     },
     500,
-    [typedText]
+    [typedText],
   );
 
   const handleSearch = (searchText: string) => {
@@ -80,7 +80,7 @@ export function ItemsTypeahead({
     const filtered = options.filter((option) =>
       String(option?.value ?? '')
         .toUpperCase()
-        .includes(SEARCH)
+        .includes(SEARCH),
     );
 
     const sorted = orderBy(filtered, [

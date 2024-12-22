@@ -44,7 +44,7 @@ export function useLoadDailySetup(
   enabled: boolean,
   queryLanguage: Language,
   drawingsCount: number,
-  batchSize: number
+  batchSize: number,
 ): UseLoadDailySetup {
   // STEP 1: HISTORY
   const source = LANGUAGE_PREFIX.DAILY[queryLanguage ?? 'pt'];
@@ -123,7 +123,7 @@ export function useLoadDailySetup(
       artistaHistory,
       arteRuimHistory,
       arteRuimCardsQuery.data,
-      usedArteRuimIds
+      usedArteRuimIds,
     );
   }, [
     arteRuimCardsQuery,
@@ -168,7 +168,7 @@ export function useLoadDailySetup(
       batchSize,
       teoriaDeConjuntosHistory,
       rulesQuery.data,
-      thingsQuery.data
+      thingsQuery.data,
     );
   }, [batchSize, historyQuery.isSuccess, teoriaDeConjuntosHistory, rulesQuery, thingsQuery]);
 
@@ -190,7 +190,7 @@ export function useLoadDailySetup(
       comunicacaoAlienigenaHistory,
       tdrAttributesQuery.data,
       tdrItemsAttributesValuesQuery.data,
-      updateWarnings
+      updateWarnings,
     );
   }, [
     batchSize,

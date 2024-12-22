@@ -69,7 +69,7 @@ function CHDataWrapper({ data }: CHDataWrapperProps) {
   };
 
   useEffect(() => {
-    setCurrentTags(cards && cards?.[card.id]?.length > 0 ? cards[card.id] : card.tags ?? []);
+    setCurrentTags(cards && cards?.[card.id]?.length > 0 ? cards[card.id] : (card.tags ?? []));
   }, [card.id, card.tags]);
 
   const onSaveTags = () => {

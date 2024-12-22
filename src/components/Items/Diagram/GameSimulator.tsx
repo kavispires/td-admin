@@ -31,9 +31,9 @@ export function GameSimulator({ things, rules }: GameSimulatorProps) {
             used: [],
           },
           rules,
-          things
-        )
-      )[0]
+          things,
+        ),
+      )[0],
     );
   };
 
@@ -48,7 +48,7 @@ export function GameSimulator({ things, rules }: GameSimulatorProps) {
           used: [],
         },
         rules,
-        things
+        things,
       );
 
       console.log(demos);

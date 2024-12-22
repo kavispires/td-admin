@@ -14,12 +14,12 @@ import { DailyMovieSet } from 'types';
 export const buildDailyFilmacoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
-  movies: Dictionary<DailyMovieSet>
+  movies: Dictionary<DailyMovieSet>,
 ) => {
   console.count('Creating Filmaço...');
   // Filter complete sets only
   const completeSets = shuffle(
-    Object.values(movies).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length > 0)
+    Object.values(movies).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length > 0),
   );
   // Filter not-used sets only
   let notUsedSets = completeSets.filter((setEntry) => !history.used.includes(setEntry.id));

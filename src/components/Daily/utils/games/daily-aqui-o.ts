@@ -15,12 +15,12 @@ export const buildDailyAquiOGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   discSets: Dictionary<DailyDiscSet>,
-  updateWarnings: (warning: string) => void
+  updateWarnings: (warning: string) => void,
 ) => {
   console.count('Creating Aqui Ó...');
   // Filter complete sets only
   const completeSets = shuffle(
-    Object.values(discSets).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length >= 20)
+    Object.values(discSets).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length >= 20),
   );
   // Filter not-used sets only
   let notUsedSets = completeSets.filter((setEntry) => !history.used.includes(setEntry.id));

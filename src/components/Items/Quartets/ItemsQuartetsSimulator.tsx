@@ -77,7 +77,7 @@ function simulateQuartetGame(allQuartets: UseResourceFirebaseDataReturnType<Dail
     otherQuartets.filter(
       (q) =>
         q.itemsIds.includes(perfectQuartet.itemsIds[index]) &&
-        intersection(q.itemsIds, Array.from(perfectItemIds)).length === 1
+        intersection(q.itemsIds, Array.from(perfectItemIds)).length === 1,
     );
 
   const matchZeroQuartets = getQuartetOptions(0);
@@ -87,7 +87,7 @@ function simulateQuartetGame(allQuartets: UseResourceFirebaseDataReturnType<Dail
 
   const orderedMatches = orderBy(
     [matchZeroQuartets, matchOneQuartets, matchTwoQuartets, matchThreeQuartets],
-    'length'
+    'length',
   ).filter((quartets) => quartets.length > 0);
 
   const nonPerfectQuartets = orderedMatches.map((quartets) => cloneDeep(sample(quartets)!));
@@ -110,7 +110,7 @@ function simulateQuartetGame(allQuartets: UseResourceFirebaseDataReturnType<Dail
   while (selectedNonPerfectQuartets.length < 3 && tries < 100) {
     console.log('Trying to complete simulation...');
     const remainingQuartets = otherQuartets.filter(
-      (q) => intersection(q.itemsIds, Array.from(usedItemIds)).length === 0
+      (q) => intersection(q.itemsIds, Array.from(usedItemIds)).length === 0,
     );
 
     if (remainingQuartets.length === 0) {

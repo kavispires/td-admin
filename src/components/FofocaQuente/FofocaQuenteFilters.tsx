@@ -6,8 +6,6 @@ import { DataFilters } from 'components/Common/DataFilters';
 export type FofocaQuenteFiltersProps = ReturnType<typeof useTDResource<TeenageStudent>>;
 
 export function FofocaQuenteFilters({ data }: FofocaQuenteFiltersProps) {
-
-
   return (
     <SiderContent>
       <DataFilters data={data} />

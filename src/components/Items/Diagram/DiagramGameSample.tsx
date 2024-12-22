@@ -15,21 +15,21 @@ type TThing = {
 };
 
 export function DiagramGameSample({ game }: DiagramGameSampleProps) {
-  const [leftRing, ] = useState<TThing[]>([
+  const [leftRing] = useState<TThing[]>([
     {
       id: game.rule1.thing.id,
       name: game.rule1.thing.name,
       rule: 1,
     },
   ]);
-  const [rightRing, ] = useState<TThing[]>([
+  const [rightRing] = useState<TThing[]>([
     {
       id: game.rule2.thing.id,
       name: game.rule2.thing.name,
       rule: 2,
     },
   ]);
-  const [intersection, ] = useState<TThing[]>([
+  const [intersection] = useState<TThing[]>([
     {
       id: game.intersectingThing.id,
       name: game.intersectingThing.name,
@@ -37,7 +37,7 @@ export function DiagramGameSample({ game }: DiagramGameSampleProps) {
     },
   ]);
 
-  const [playerOptions, ] = useState<TThing[]>(game.things.slice(0, 4));
+  const [playerOptions] = useState<TThing[]>(game.things.slice(0, 4));
 
   const [selectedThing, setSelectedThing] = useState<TThing | null>(game.things[0]);
 

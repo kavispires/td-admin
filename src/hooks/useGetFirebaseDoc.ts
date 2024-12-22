@@ -16,7 +16,7 @@ export function getDocQueryFunction<TQueryFnData>(path: string, docId: string) {
 export function useGetFirebaseDoc<TQueryFnData, TData = TQueryFnData>(
   path: string,
   docId: string,
-  options?: Omit<UseQueryOptions<any, Error, TData, QueryKey>, 'queryKey'>
+  options?: Omit<UseQueryOptions<any, Error, TData, QueryKey>, 'queryKey'>,
 ) {
   return useQuery<TQueryFnData, Error, TData, QueryKey>({
     queryKey: ['firebase', path, docId],

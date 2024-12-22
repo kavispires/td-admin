@@ -49,7 +49,7 @@ export function useSaveDailySetup(queryLanguage: Language) {
             removeDuplicates([
               ...JSON.parse(previousHistory['arte-ruim'].used),
               ...data.map((e) => e['arte-ruim'].cardId),
-            ])
+            ]),
           ),
         },
         'aqui-o': {
@@ -59,7 +59,7 @@ export function useSaveDailySetup(queryLanguage: Language) {
             removeDuplicates([
               ...JSON.parse(previousHistory['aqui-o'].used ?? '[]'),
               ...data.map((e) => e['aqui-o'].setId),
-            ])
+            ]),
           ),
         },
         palavreado: {
@@ -69,7 +69,7 @@ export function useSaveDailySetup(queryLanguage: Language) {
             removeDuplicates([
               ...JSON.parse(previousHistory.palavreado.used),
               ...data.map((e) => e['palavreado'].keyword),
-            ])
+            ]),
           ),
         },
         artista: {
@@ -84,7 +84,7 @@ export function useSaveDailySetup(queryLanguage: Language) {
             removeDuplicates([
               ...JSON.parse(previousHistory?.['filmaco']?.used ?? '[]'),
               ...data.map((e) => e['filmaco'].setId),
-            ])
+            ]),
           ),
         },
         'controle-de-estoque': {
@@ -100,7 +100,7 @@ export function useSaveDailySetup(queryLanguage: Language) {
               ...JSON.parse(previousHistory?.['teoria-de-conjuntos']?.used ?? '[]'),
               ...data.map((e) => e['teoria-de-conjuntos'].setId),
               ...data.map((e) => e['teoria-de-conjuntos'].intersectingThing.id),
-            ])
+            ]),
           ),
         },
         'comunicacao-alienigena': {
@@ -110,7 +110,7 @@ export function useSaveDailySetup(queryLanguage: Language) {
             removeDuplicates([
               ...JSON.parse(previousHistory?.['comunicacao-alienigena']?.used ?? '[]'),
               ...data.map((e) => e['comunicacao-alienigena'].setId),
-            ])
+            ]),
           ),
         },
       };

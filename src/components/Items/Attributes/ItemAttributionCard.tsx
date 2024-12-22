@@ -27,7 +27,7 @@ export function ItemAttributionCard() {
       showOnlyUnset
         ? attributesList.filter((attribute) => !itemAttributeValues.attributes[attribute.id])
         : attributesList,
-    [showOnlyUnset, activeItem.id]
+    [showOnlyUnset, activeItem.id],
   );
 
   if (!activeItem)

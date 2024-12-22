@@ -7,7 +7,7 @@ export function useLoadWordLibrary(
   wordLength: number,
   language: Language,
   enabled = true,
-  selected?: boolean
+  selected?: boolean,
 ) {
   const { getUrl } = useBaseUrl('resources');
 

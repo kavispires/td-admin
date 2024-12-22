@@ -62,7 +62,7 @@ export function ArteRuimParser() {
         }
         return acc;
       },
-      { ...response }
+      { ...response },
     );
 
     setOutput(result);

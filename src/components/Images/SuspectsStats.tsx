@@ -16,7 +16,7 @@ function orderStat(group: NumberDictionary, total: number) {
       percentage: Math.round((value / total) * 100),
     })),
     ['percentage'],
-    ['desc']
+    ['desc'],
   );
 }
 

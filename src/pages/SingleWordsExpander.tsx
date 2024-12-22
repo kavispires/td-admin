@@ -79,7 +79,7 @@ function SingleWordsExpander() {
         }
         return acc;
       },
-      { ...reference }
+      { ...reference },
     );
 
     setOutput(result);

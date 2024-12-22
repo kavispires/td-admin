@@ -8,7 +8,7 @@ export const buildDailyArtistaGames = (
   history: ParsedDailyHistoryEntry,
   arteRuimHistory: ParsedDailyHistoryEntry,
   arteRuimCards: Dictionary<ArteRuimCard>,
-  recentlyUsedIds: CardId[]
+  recentlyUsedIds: CardId[],
 ) => {
   console.count('Creating Artista...');
 
@@ -18,7 +18,7 @@ export const buildDailyArtistaGames = (
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     const availableCardsIds = Object.keys(arteRuimCards ?? {}).filter(
-      (cardId) => !arteRuimHistory.used.includes(cardId) && !recentlyUsedIds.includes(cardId)
+      (cardId) => !arteRuimHistory.used.includes(cardId) && !recentlyUsedIds.includes(cardId),
     );
     const cards = sampleSize(availableCardsIds, 15).map((cardId) => arteRuimCards[cardId]);
     lastDate = id;

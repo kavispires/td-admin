@@ -31,7 +31,7 @@ export type UseRandomCardReturnValue = {
 
 export function useRandomCard(
   cardData: FirebaseImageCardLibrary,
-  setDirty: (value: React.SetStateAction<boolean>) => void
+  setDirty: (value: React.SetStateAction<boolean>) => void,
 ): UseRandomCardReturnValue {
   const [deck, setDeck] = useState(getRandomDeck());
   const [cardNumber, setCardNumber] = useState(getRandomCardNumber());
@@ -166,7 +166,7 @@ export function useImageCardsData() {
 
 export function useRandomCards(
   cardData: ImageCardRelationship,
-  setDirty: (value: React.SetStateAction<boolean>) => void
+  setDirty: (value: React.SetStateAction<boolean>) => void,
 ) {
   const [deckA, setDeckA] = useState(getRandomDeck());
   const [cardNumberA, setCardNumberA] = useState(getRandomCardNumber());
@@ -360,7 +360,7 @@ export function useRandomGroups(
   cardData: ImageCardRelationship,
   setDirty: (value: React.SetStateAction<boolean>) => void,
   sampleSize: number,
-  tagThreshold: number
+  tagThreshold: number,
 ): UseRandomGroupReturnValue {
   const [cardIds, setCardIds] = useState<string[]>([]);
   const [cards, setCards] = useState<string[][]>([]);

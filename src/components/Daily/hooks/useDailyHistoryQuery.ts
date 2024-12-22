@@ -9,7 +9,7 @@ import { printFirebase } from 'services/firebase';
 
 export function useDailyHistoryQuery(
   source: string,
-  options: Omit<UseQueryOptions<DailyHistory, Error, DailyHistory, QueryKey>, 'queryKey'> = {}
+  options: Omit<UseQueryOptions<DailyHistory, Error, DailyHistory, QueryKey>, 'queryKey'> = {},
 ) {
   const { notification } = App.useApp();
 

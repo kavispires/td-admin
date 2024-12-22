@@ -8,7 +8,7 @@ export const buildDailyTeoriaDeConjuntosGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   rules: Dictionary<DailyDiagramRule>,
-  things: Dictionary<DailyDiagramItem>
+  things: Dictionary<DailyDiagramItem>,
 ) => {
   console.count('Creating Teoria de Conjuntos...');
   let lastDate = history.latestDate;
@@ -53,12 +53,12 @@ function getRuleSet(
   thingsByRules: Record<string, string[]>,
   rules: Dictionary<DailyDiagramRule>,
   used: string[],
-  latestRuleUpdate: number
+  latestRuleUpdate: number,
 ) {
   const availableThingsIds = shuffle(
     Object.keys(things).filter(
-      (id) => !used.includes(id) && !getIsThingOutdated(things[id], latestRuleUpdate)
-    )
+      (id) => !used.includes(id) && !getIsThingOutdated(things[id], latestRuleUpdate),
+    ),
   );
 
   // Get one random initial thing
@@ -102,11 +102,11 @@ function getRuleSet(
   delete availableThingsByRules[initialThingId];
 
   const itemsOnlyInRule1 = shuffle(
-    difference(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]])
+    difference(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]),
   );
 
   const itemsOnlyInRule2 = shuffle(
-    difference(thingsByRules[selectedRules[1]], thingsByRules[selectedRules[0]])
+    difference(thingsByRules[selectedRules[1]], thingsByRules[selectedRules[0]]),
   );
 
   const commonItems = shuffle(intersection(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]));

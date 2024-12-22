@@ -4,7 +4,7 @@ import { getYesterday } from '../utils/utils';
 
 export function useParsedHistory(
   key: keyof DailyHistory,
-  data?: DailyHistory
+  data?: DailyHistory,
 ): [ParsedDailyHistoryEntry, DailyHistory[keyof DailyHistory]] {
   const history = useMemo(
     () =>
@@ -13,7 +13,7 @@ export function useParsedHistory(
         latestNumber: 0,
         used: '[]',
       },
-    [data, key]
+    [data, key],
   );
 
   const parsedHistory: ParsedDailyHistoryEntry = useMemo(() => {

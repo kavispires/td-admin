@@ -19,7 +19,7 @@ export function ItemListingFilters() {
   const deckOptions = useMemo(() => {
     const includingOptions = orderBy(
       decks.map(({ value }) => ({ label: capitalize(value), value })),
-      'label'
+      'label',
     );
     const excludingOptions = includingOptions.map(({ label, value }) => ({
       label: `NOT ${label}`,
@@ -133,7 +133,7 @@ function prepareFileForDownload(items: Dictionary<Item>) {
 
       acc[item.id] = item;
       return acc;
-    }, {})
+    }, {}),
   );
 }
 
@@ -166,6 +166,6 @@ function prepareOpenAIFileForDownload(items: Dictionary<Item>) {
 
       acc[entry.id] = entry;
       return acc;
-    }, {})
+    }, {}),
   );
 }

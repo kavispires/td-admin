@@ -138,7 +138,7 @@ export const SPRITE_LIBRARY = keyBy(
       component: WarehouseGood,
     },
   ],
-  'key'
+  'key',
 );
 
 /**

@@ -6,10 +6,10 @@ import { LoadingPage } from 'pages/LoadingPage';
 const Home = lazy(() => import('pages/Home' /* webpackChunkName: "Home" */));
 const Resource = lazy(() => import('pages/Resource' /* webpackChunkName: "Resource" */));
 const ResourceGenerator = lazy(
-  () => import('pages/ResourceGenerator' /* webpackChunkName: "ResourceGenerator" */)
+  () => import('pages/ResourceGenerator' /* webpackChunkName: "ResourceGenerator" */),
 );
 const SingleWordsExpander = lazy(
-  () => import('pages/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */)
+  () => import('pages/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */),
 );
 const Playground = lazy(() => import('pages/Playground' /* webpackChunkName: "Playground" */));
 const ImageCards = lazy(() => import('pages/Images/ImageCards' /* webpackChunkName: "ImageCards" */));
@@ -18,29 +18,29 @@ const Suspects = lazy(() => import('pages/Images/Suspects' /* webpackChunkName: 
 const ArteRuimParser = lazy(() => import('pages/ArteRuimParser' /* webpackChunkName: "ArteRuimParser" */));
 const ArteRuimGroups = lazy(() => import('pages/ArteRuimGroups' /* webpackChunkName: "ArteRuimGroups" */));
 const ImageCardsRelationships = lazy(
-  () => import('pages/Images/ImageCardsRelationships' /* webpackChunkName: "ImageCardsRelationships" */)
+  () => import('pages/Images/ImageCardsRelationships' /* webpackChunkName: "ImageCardsRelationships" */),
 );
 const ImageCardsComparator = lazy(
-  () => import('pages/Images/ImageCardsComparator' /* webpackChunkName: "ImageCardsComparator" */)
+  () => import('pages/Images/ImageCardsComparator' /* webpackChunkName: "ImageCardsComparator" */),
 );
 const ImageCardsConnections = lazy(
-  () => import('pages/Images/ImageCardsConnections' /* webpackChunkName: "ImageCardsConnections" */)
+  () => import('pages/Images/ImageCardsConnections' /* webpackChunkName: "ImageCardsConnections" */),
 );
 const Items = lazy(() => import('pages/Items/Items' /* webpackChunkName: "Items" */));
 const ItemsAttribution = lazy(
-  () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */)
+  () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */),
 );
 const ItemsDiagramSets = lazy(
-  () => import('pages/Items/ItemsDiagramSets' /* webpackChunkName: "ItemsDiagramSets" */)
+  () => import('pages/Items/ItemsDiagramSets' /* webpackChunkName: "ItemsDiagramSets" */),
 );
 const ItemsGroups = lazy(() => import('pages/Items/ItemsGroups' /* webpackChunkName: "ItemsGroups" */));
 const ItemsDiscSets = lazy(() => import('pages/Items/ItemsDiscSets' /* webpackChunkName: "ItemsDiscSets" */));
 const ItemsMovieSets = lazy(
-  () => import('pages/Items/ItemsMovieSets' /* webpackChunkName: "ItemsMovieSets" */)
+  () => import('pages/Items/ItemsMovieSets' /* webpackChunkName: "ItemsMovieSets" */),
 );
 const ItemsQuartets = lazy(() => import('pages/Items/ItemsQuartets' /* webpackChunkName: "ItemsQuartets" */));
 const ItemsCrimeHistory = lazy(
-  () => import('pages/Items/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */)
+  () => import('pages/Items/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
 );
 
 const DailySetup = lazy(() => import('pages/DailySetup' /* webpackChunkName: "DailySetup" */));

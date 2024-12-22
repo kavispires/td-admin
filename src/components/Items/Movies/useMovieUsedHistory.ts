@@ -11,7 +11,7 @@ export function useMovieUsedHistory() {
 
   const used: BooleanDictionary = useMemo(
     () => mapValues(keyBy(filmacoHistory?.used ?? []), () => true),
-    [filmacoHistory]
+    [filmacoHistory],
   );
 
   return used;

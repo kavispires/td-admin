@@ -81,7 +81,7 @@ export const verifiers: Record<string, (word: string) => boolean> = {
       .some((letter, index) =>
         cleanupWord(word)
           .slice(index + 1)
-          .includes(letter)
+          .includes(letter),
       );
   },
   // has repeated vowels
@@ -93,7 +93,7 @@ export const verifiers: Record<string, (word: string) => boolean> = {
           VOWELS.includes(letter) &&
           cleanupWord(word)
             .slice(index + 1)
-            .includes(letter)
+            .includes(letter),
       );
   },
   // has repeated consonants
@@ -105,7 +105,7 @@ export const verifiers: Record<string, (word: string) => boolean> = {
           CONSONANTS.includes(letter) &&
           cleanupWord(word)
             .slice(index + 1)
-            .includes(letter)
+            .includes(letter),
       );
   },
   // has consecutive vowels

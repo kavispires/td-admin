@@ -78,7 +78,9 @@ export function DailyAliemSimulator() {
 
             <Divider className="my-1" />
             <Space direction="horizontal">
-              {simulation?.itemsIds.map((itemId) => <Item id={itemId || '0'} width={50} />)}
+              {simulation?.itemsIds.map((itemId) => (
+                <Item id={itemId || '0'} width={50} />
+              ))}
             </Space>
           </Space>
         )}
@@ -114,7 +116,7 @@ type DailyAlienGame = {
 
 const generateDailyAlienGame = (
   attributes: Dictionary<ItemAttribute>,
-  itemsAttributesValues: Dictionary<ItemAtributesValues>
+  itemsAttributesValues: Dictionary<ItemAtributesValues>,
 ): DailyAlienGame => {
   const allAttributes = values(attributes).filter((attr) => !attr.limited || attr.id === 'sol');
   const allItems = shuffle(values(itemsAttributesValues).filter((i) => i.complete));
@@ -182,15 +184,15 @@ const generateDailyAlienGame = (
   }));
   gameAttributes[0].itemsIds = sampleSize(
     attributeA,
-    attributeA.length > 3 ? 3 : Math.max(attributeA.length - 1, 1)
+    attributeA.length > 3 ? 3 : Math.max(attributeA.length - 1, 1),
   );
   gameAttributes[1].itemsIds = sampleSize(
     attributeB,
-    attributeB.length > 3 ? 3 : Math.max(attributeA.length - 1, 1)
+    attributeB.length > 3 ? 3 : Math.max(attributeA.length - 1, 1),
   );
   gameAttributes[2].itemsIds = sampleSize(
     attributeC,
-    attributeC.length > 3 ? 3 : Math.max(attributeA.length - 1, 1)
+    attributeC.length > 3 ? 3 : Math.max(attributeA.length - 1, 1),
   );
 
   const usedItemsIds: string[] = [];
