@@ -40,18 +40,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "prettier": {
-    "printWidth": 110,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "bracketSpacing": true
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -69,12 +57,8 @@
       "pre-commit": "lint-staged"
     }
   },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
-    ]
-  },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "gh-pages": "^6.2.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.11",
