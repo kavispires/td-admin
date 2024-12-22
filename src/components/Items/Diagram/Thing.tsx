@@ -1,7 +1,7 @@
 import { Flex, Typography } from 'antd';
 import { TransparentButton } from 'components/Common';
 import { Item } from 'components/Sprites';
-import { DailyDiagramItem } from 'types';
+import type { DailyDiagramItem } from 'types';
 
 type ThingProps = {
   itemId: string;

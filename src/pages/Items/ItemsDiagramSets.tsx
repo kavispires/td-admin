@@ -6,7 +6,7 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { isEmpty } from 'lodash';
-import { DailyDiagramItem } from 'types';
+import type { DailyDiagramItem } from 'types';
 
 export function ItemsDiagramSets() {
   const diagramData = useResourceFirebaseData<DailyDiagramItem>({

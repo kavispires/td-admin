@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { DailyHistory, ParsedDailyHistoryEntry } from '../utils/types';
+import type { DailyHistory, ParsedDailyHistoryEntry } from '../utils/types';
 import { getYesterday } from '../utils/utils';
 
 export function useParsedHistory(

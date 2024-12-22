@@ -7,7 +7,7 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { isEmpty } from 'lodash';
-import { DailyMovieSet } from 'types';
+import type { DailyMovieSet } from 'types';
 
 export function ItemsMovieSets() {
   const moviesData = useResourceFirebaseData<DailyMovieSet>({

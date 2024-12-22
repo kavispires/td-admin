@@ -1,6 +1,6 @@
 import { Button, Divider, Space, Typography } from 'antd';
 import { Fragment, useState } from 'react';
-import { Item as ItemT } from 'types';
+import type { Item as ItemT } from 'types';
 
 import { ItemCard } from '../ItemCard';
 import { useItemsContext } from 'context/ItemsContext';

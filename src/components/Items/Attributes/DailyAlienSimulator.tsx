@@ -2,7 +2,7 @@ import { Alert, Button, Divider, Flex, Space, Typography } from 'antd';
 import { keys, sample, sampleSize, shuffle, values } from 'lodash';
 import { useState } from 'react';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
-import { ItemAtributesValues, ItemAttribute } from 'types';
+import type { ItemAtributesValues, ItemAttribute } from 'types';
 import { useTDResource } from 'hooks/useTDResource';
 import { AlienSign, Item } from 'components/Sprites';
 import { makeArray } from 'utils';

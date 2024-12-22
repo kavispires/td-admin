@@ -1,9 +1,9 @@
 import { Button, Form, Input, Modal, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { camelCase } from 'lodash';
 import { useMemo, useState } from 'react';
-import { DailyDiscSet } from 'types';
+import type { DailyDiscSet } from 'types';
 import stringSimilarity from 'string-similarity';
 
 type AddNewSetFlowProps = {

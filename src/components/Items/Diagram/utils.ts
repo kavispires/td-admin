@@ -1,5 +1,5 @@
 import { memoize } from 'lodash';
-import { DailyDiagramItem, DailyDiagramRule } from 'types';
+import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { stringRemoveAccents } from 'utils';
 
 export const SYLLABLE_SEPARATOR = '|';

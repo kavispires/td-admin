@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext } from 'react';
+import { createContext, type ReactNode, useContext } from 'react';
 import { useToggle } from 'react-use';
 
 type GlobalContextType = {

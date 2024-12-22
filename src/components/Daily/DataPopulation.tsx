@@ -1,11 +1,11 @@
-import { Alert, Button, Flex, Space, Table, TableColumnsType } from 'antd';
+import { Alert, Button, Flex, Space, Table, type TableColumnsType } from 'antd';
 import { CanvasSVG } from 'components/Daily/CanvasSVG';
 import { AlienSign, Item } from 'components/Sprites';
 import { WarehouseGood } from 'components/Sprites/WarehouseGood';
-import { ArteRuimCard } from 'types';
+import type { ArteRuimCard } from 'types';
 
-import { UseLoadDailySetup, useSaveDailySetup } from './hooks';
-import { DailyComunicacaoAlienigenaEntry, DailyEntry } from './utils/types';
+import { type UseLoadDailySetup, useSaveDailySetup } from './hooks';
+import type { DailyComunicacaoAlienigenaEntry, DailyEntry } from './utils/types';
 
 type DataPopulationProps = {
   language: string;

@@ -1,6 +1,6 @@
-import { Button, ButtonProps, Modal, Space } from 'antd';
-import { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
-import { CrimesHediondosCard } from 'types';
+import { Button, type ButtonProps, Modal, Space } from 'antd';
+import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
+import type { CrimesHediondosCard } from 'types';
 
 import { useToggle } from 'react-use';
 import { CardEditTags } from './CardEditTags';

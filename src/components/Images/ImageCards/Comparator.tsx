@@ -1,6 +1,6 @@
 import { Button, Flex, Image, Layout, Modal, Tag } from 'antd';
 
-import { UseImageCardsRelationshipDataReturnValue, useRandomCards } from './hooks';
+import { type UseImageCardsRelationshipDataReturnValue, useRandomCards } from './hooks';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { RelationshipCountTag } from './RelationshipCountTag';
 import { ImageCard } from '../ImageCard';

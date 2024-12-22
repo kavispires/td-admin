@@ -7,7 +7,7 @@ import { removeDuplicates } from 'utils';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
-import { DailyHistory } from '../utils/types';
+import type { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
 /**

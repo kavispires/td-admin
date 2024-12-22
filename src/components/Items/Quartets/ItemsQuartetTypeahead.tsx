@@ -1,8 +1,8 @@
-import { AutoComplete, AutoCompleteProps, Input } from 'antd';
+import { AutoComplete, type AutoCompleteProps, Input } from 'antd';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useDebounce } from 'react-use';
-import { DailyQuartetSet } from 'types';
+import type { DailyQuartetSet } from 'types';
 
 type ItemsQuartetTypeaheadProps = {
   quartets?: Dictionary<DailyQuartetSet>;

@@ -1,7 +1,7 @@
-import { DailyFilmacoEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DailyFilmacoEntry, ParsedDailyHistoryEntry } from '../types';
 import { shuffle } from 'lodash';
 import { getNextDay } from '../utils';
-import { DailyMovieSet } from 'types';
+import type { DailyMovieSet } from 'types';
 
 /**
  * Builds a dictionary of DailyFilmacoEntry objects based on the given parameters.
@@ -22,7 +22,7 @@ export const buildDailyFilmacoGames = (
     Object.values(movies).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length > 0),
   );
   // Filter not-used sets only
-  let notUsedSets = completeSets.filter((setEntry) => !history.used.includes(setEntry.id));
+  const notUsedSets = completeSets.filter((setEntry) => !history.used.includes(setEntry.id));
 
   if (notUsedSets.length < batchSize) {
     notUsedSets.push(...shuffle(completeSets));

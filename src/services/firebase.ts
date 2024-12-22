@@ -1,15 +1,15 @@
 import { message } from 'antd';
 import { getAnalytics } from 'firebase/analytics';
-import { FirebaseApp, initializeApp } from 'firebase/app';
+import { type FirebaseApp, initializeApp } from 'firebase/app';
 import {
-  Auth,
+  type Auth,
   getAuth,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
-  UserCredential,
+  type UserCredential,
 } from 'firebase/auth';
-import { Firestore, getFirestore } from 'firebase/firestore';
+import { type Firestore, getFirestore } from 'firebase/firestore';
 
 const buildKey = () => {
   return [

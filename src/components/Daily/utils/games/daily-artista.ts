@@ -1,7 +1,7 @@
-import { DailyArtistaEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DailyArtistaEntry, ParsedDailyHistoryEntry } from '../types';
 import { sampleSize } from 'lodash';
 import { getNextDay } from '../utils';
-import { ArteRuimCard } from 'types';
+import type { ArteRuimCard } from 'types';
 
 export const buildDailyArtistaGames = (
   batchSize: number,

@@ -1,7 +1,7 @@
 import { Button, Flex, Input, Space, Table } from 'antd';
 
 import { shuffle } from 'lodash';
-import { CrimesHediondosCard, type Item as ItemT } from 'types';
+import type { CrimesHediondosCard, Item as ItemT } from 'types';
 
 import type { TableProps } from 'antd';
 import { useTDResource } from 'hooks/useTDResource';

@@ -1,5 +1,5 @@
 import { fromPairs, isEqual, orderBy, range, sampleSize } from 'lodash';
-import { DailyDiscSet } from 'types';
+import type { DailyDiscSet } from 'types';
 import { LETTERS } from 'utils/constants';
 
 export function generateUniqueArrays(sets: Dictionary<DailyDiscSet>, N: number): string[][] {

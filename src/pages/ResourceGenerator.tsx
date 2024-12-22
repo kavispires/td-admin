@@ -3,7 +3,7 @@ import { SectionTitle } from 'components/Common/SectionTitle';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { INITIAL_PARAMETERS, Parameters, ResourceParameters } from 'components/Resource/ResourceParameters';
+import { INITIAL_PARAMETERS, type Parameters, ResourceParameters } from 'components/Resource/ResourceParameters';
 import { set } from 'lodash';
 import { useMemo, useState } from 'react';
 

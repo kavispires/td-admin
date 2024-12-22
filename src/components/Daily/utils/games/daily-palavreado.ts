@@ -1,4 +1,4 @@
-import { DailyPalavreadoEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DailyPalavreadoEntry, ParsedDailyHistoryEntry } from '../types';
 import { difference, flatMap, intersection, shuffle, sortBy, uniq } from 'lodash';
 import { getNextDay, checkWeekend } from '../utils';
 
@@ -109,7 +109,7 @@ const shuffleLetters = (selectedWords: string[], size: number) => {
   const preservedIndexes = size === 4 ? [0, 5, 10, 15] : [0, 6, 12, 18, 24];
   const otherLetters = shuffle(letters.filter((_, index) => !preservedIndexes.includes(index)));
 
-  let shuffledLetters: string[] = [];
+  const shuffledLetters: string[] = [];
   for (let i = 0; i < letters.length; i++) {
     if (preservedIndexes.includes(i)) {
       shuffledLetters.push(letters[i]);

@@ -1,4 +1,4 @@
-import { DailyControleDeEstoqueEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DailyControleDeEstoqueEntry, ParsedDailyHistoryEntry } from '../types';
 import { sampleSize, shuffle } from 'lodash';
 import { getNextDay } from '../utils';
 

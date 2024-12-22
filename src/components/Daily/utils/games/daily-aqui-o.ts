@@ -1,7 +1,7 @@
-import { DailyAquiOEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DailyAquiOEntry, ParsedDailyHistoryEntry } from '../types';
 import { sampleSize, shuffle } from 'lodash';
 import { getNextDay } from '../utils';
-import { DailyDiscSet } from 'types';
+import type { DailyDiscSet } from 'types';
 
 /**
  * Builds a dictionary of DailyAquiOEntry objects based on the given parameters.
@@ -23,7 +23,7 @@ export const buildDailyAquiOGames = (
     Object.values(discSets).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length >= 20),
   );
   // Filter not-used sets only
-  let notUsedSets = completeSets.filter((setEntry) => !history.used.includes(setEntry.id));
+  const notUsedSets = completeSets.filter((setEntry) => !history.used.includes(setEntry.id));
 
   if (notUsedSets.length < batchSize) {
     console.log('🔆 Not enough aqui-o sets left, shuffling...');

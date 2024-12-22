@@ -1,7 +1,7 @@
-import { doc, DocumentData, updateDoc } from 'firebase/firestore';
+import { doc, type DocumentData, updateDoc } from 'firebase/firestore';
 import { firestore } from 'services/firebase';
 
-import { QueryKey, useMutation, UseMutationOptions } from '@tanstack/react-query';
+import { type QueryKey, useMutation, type UseMutationOptions } from '@tanstack/react-query';
 
 export function updateQueryFunction<TData = PlainObject>(path: string, docId: string, data: TData) {
   console.log(`%cUpdating ${path}/${docId} from firebase`, 'color: #f00');

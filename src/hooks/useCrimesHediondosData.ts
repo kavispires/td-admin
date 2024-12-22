@@ -1,4 +1,4 @@
-import { CrimesHediondosCard } from 'types';
+import type { CrimesHediondosCard } from 'types';
 
 import { useQuery } from '@tanstack/react-query';
 

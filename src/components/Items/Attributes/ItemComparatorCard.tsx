@@ -1,7 +1,7 @@
-import { Flex, Table, TableColumnsType, Typography } from 'antd';
+import { Flex, Table, type TableColumnsType, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { ItemMessageObject, useItemsComparator } from 'hooks/useItemsComparator';
-import { Item } from 'types';
+import { type ItemMessageObject, useItemsComparator } from 'hooks/useItemsComparator';
+import type { Item } from 'types';
 
 import { AttributeSprite } from './ItemAttributeDescription';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';

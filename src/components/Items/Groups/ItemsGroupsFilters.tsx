@@ -3,8 +3,8 @@ import { FilterSegments, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { ItemGroup } from 'types';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { ItemGroup } from 'types';
 import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
 
 import { ClusterOutlined, TableOutlined } from '@ant-design/icons';

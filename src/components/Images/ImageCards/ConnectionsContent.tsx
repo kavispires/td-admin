@@ -7,7 +7,7 @@ import { useMeasure } from 'react-use';
 import { RightCircleFilled } from '@ant-design/icons';
 
 import { ImageCard } from '../ImageCard';
-import { UseImageCardsRelationshipDataReturnValue } from './hooks';
+import type { UseImageCardsRelationshipDataReturnValue } from './hooks';
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 
 export function ConnectionsContent() {

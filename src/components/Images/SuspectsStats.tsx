@@ -1,7 +1,7 @@
 import { SiderContent } from 'components/Layout';
 import { capitalize, orderBy } from 'lodash';
 import { useMemo } from 'react';
-import { SuspectCard } from 'types';
+import type { SuspectCard } from 'types';
 
 type SuspectsStatsProps = {
   data: Dictionary<SuspectCard>;

@@ -2,9 +2,9 @@ import { Divider, Flex } from 'antd';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { cloneDeep, isEmpty, omitBy } from 'lodash';
-import { DailyDiscSet } from 'types';
+import type { DailyDiscSet } from 'types';
 import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
 
 import { AddNewSetFlow } from './AddNewSetFlow';

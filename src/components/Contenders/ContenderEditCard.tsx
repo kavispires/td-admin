@@ -3,9 +3,9 @@ import { Card, Flex, Popover, Radio, Select } from 'antd';
 import { DualLanguageTextField, Label, NSFWField } from 'components/Common/EditableFields';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { ImageCard } from 'components/Images/ImageCard';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import type { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { merge } from 'lodash';
-import { ContenderCard } from 'types';
+import type { ContenderCard } from 'types';
 import { removeDuplicates } from 'utils';
 import { PLACEHOLDER_DUAL_LANGUAGE_OBJECT } from 'utils/constants';
 

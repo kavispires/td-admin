@@ -1,11 +1,11 @@
-import { ContenderCard } from 'types';
+import type { ContenderCard } from 'types';
 import './Contenders.scss';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { Flex, Typography } from 'antd';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { ContenderEditCard } from './ContenderEditCard';
 import { useFilterDataByDataFilters } from 'components/Common/DataFilters';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import type { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 
 export type ContendersContentProps = ReturnType<typeof useResourceFirebaseData<ContenderCard>>;
 

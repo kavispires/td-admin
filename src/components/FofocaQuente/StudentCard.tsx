@@ -2,7 +2,7 @@ import { ManOutlined, QuestionOutlined, WomanOutlined } from '@ant-design/icons'
 import { Card, Flex, Tag } from 'antd';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { ImageCard } from 'components/Images/ImageCard';
-import { TeenageStudent } from 'types';
+import type { TeenageStudent } from 'types';
 
 export function StudentCard({ student }: { student: TeenageStudent }) {
   return (

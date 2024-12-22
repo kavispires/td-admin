@@ -1,8 +1,8 @@
 import { Button, Space, Typography } from 'antd';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useMeasure } from 'react-use';
-import { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
-import { DailyTeoriaDeConjuntosEntry } from 'components/Daily/utils/types';
+import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
+import type { DailyTeoriaDeConjuntosEntry } from 'components/Daily/utils/types';
 import { useState } from 'react';
 import { buildDailyTeoriaDeConjuntosGames } from 'components/Daily/utils/games/daily-teoria-de-conjuntos';
 import { DiagramGameSample } from './DiagramGameSample';

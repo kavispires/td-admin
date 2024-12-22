@@ -1,7 +1,7 @@
 import { chain, cloneDeep, isObject, memoize, merge, orderBy } from 'lodash';
 import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX, SEARCH_THRESHOLD } from './constants';
 import stringSimilarity from 'string-similarity';
-import { Item, ItemAtributesValues, ItemAttribute } from 'types';
+import type { Item, ItemAtributesValues, ItemAttribute } from 'types';
 
 /**
  *
@@ -241,11 +241,11 @@ export const getItemAttributePriorityResponse = (
     );
   }
 
-  let opposite: string[] = [];
-  let deterministic: string[] = [];
-  let related: string[] = [];
-  let unrelated: string[] = [];
-  let unclear: string[] = [];
+  const opposite: string[] = [];
+  const deterministic: string[] = [];
+  const related: string[] = [];
+  const unrelated: string[] = [];
+  const unclear: string[] = [];
 
   Object.entries(itemAttributesValues.attributes).forEach(([attributeId, value]) => {
     const attribute = itemAttributes[attributeId];

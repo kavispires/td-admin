@@ -28,7 +28,7 @@ const BASE = 128;
  */
 const getSource = memoize((str: string) => {
   const match = str.match(/\d+/);
-  const numId = match ? parseInt(match[0], 10) : 0;
+  const numId = match ? Number.parseInt(match[0], 10) : 0;
   const glyphId = `glyph-${numId}`;
   const sourceId = Math.ceil(numId / BASE) * BASE;
   const source = `glyphs-${sourceId}`;

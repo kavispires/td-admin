@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface TransparentButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**

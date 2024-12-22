@@ -1,14 +1,14 @@
-import { Col, Drawer, Flex, Row, Table, TableProps, Typography } from 'antd';
+import { Col, Drawer, Flex, Row, Table, type TableProps, Typography } from 'antd';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import { Item as ItemT, ItemGroup } from 'types';
+import type { Item as ItemT, ItemGroup } from 'types';
 import { removeDuplicates } from 'utils';
 
 import { ItemGroupsCard } from './ItemGroupsCard';

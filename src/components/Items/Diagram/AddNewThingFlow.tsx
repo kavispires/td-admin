@@ -1,8 +1,8 @@
 import { App, Button } from 'antd';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { sample } from 'lodash';
 import { useMemo, useState } from 'react';
-import { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
+import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
 import { wait } from 'utils';
 import { EditThingModal } from './EditThingModal';
 

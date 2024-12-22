@@ -1,10 +1,10 @@
 import { Button, Divider, Space, Table } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTDResource } from 'hooks/useTDResource';
 import { sample } from 'lodash';
 import { useState } from 'react';
-import { DailyMovieSet, Item as ItemT } from 'types';
+import type { DailyMovieSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 
 import { AddItemFlow, MovieEditableCell, MovieItemsCell } from './ItemsMoviesTable';

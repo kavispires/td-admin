@@ -1,8 +1,8 @@
 import { App } from 'antd';
 import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { isEmpty, orderBy, random } from 'lodash';
-import { ReactNode, useContext, createContext, useMemo, useState } from 'react';
-import { Item, ItemAtributesValues, ItemAttribute } from 'types';
+import { type ReactNode, useContext, createContext, useMemo, useState } from 'react';
+import type { Item, ItemAtributesValues, ItemAttribute } from 'types';
 import { getNewItem, getNewItemAttributeValues, sortJsonKeys } from 'utils';
 
 export type ItemsAttributeValuesContextType = {

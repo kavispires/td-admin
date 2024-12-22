@@ -1,6 +1,6 @@
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import { ButtonProps } from 'antd/lib/button';
+import type { ButtonProps } from 'antd/lib/button';
 import { useEffect, useState } from 'react';
 
 export function GoToTopButton(props: ButtonProps) {

@@ -1,5 +1,5 @@
-import { TableProps } from 'antd';
-import { ExpandableConfig } from 'antd/es/table/interface';
+import type { TableProps } from 'antd';
+import type { ExpandableConfig } from 'antd/es/table/interface';
 import { useState } from 'react';
 
 type useTableExpandableRowsOptions<TRecord extends { id: string }> = {

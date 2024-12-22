@@ -12,7 +12,7 @@ import { useState } from 'react';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import clsx from 'clsx';
-import { ItemAtributesValues, ItemAttribute } from 'types';
+import type { ItemAtributesValues, ItemAttribute } from 'types';
 import {
   CheckSquareOutlined,
   CloseSquareOutlined,
@@ -401,7 +401,7 @@ function getHighestAttributeKeys(
     (a, b) => Number(b) - Number(a),
   );
 
-  let result: string[] = [];
+  const result: string[] = [];
 
   for (const group of sortedDeterministicTiedGroupsKeys) {
     if (result.length === quantity) {

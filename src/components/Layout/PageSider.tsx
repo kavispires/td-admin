@@ -1,5 +1,5 @@
 import { Layout } from 'antd';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 type PageSiderProps = {
   children: ReactNode;

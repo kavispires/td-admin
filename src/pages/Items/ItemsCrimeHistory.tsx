@@ -7,7 +7,7 @@ import { PageSider } from 'components/Layout/PageSider';
 
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
-import { Item } from 'types';
+import type { Item } from 'types';
 
 export function ItemsCrimeHistorySets() {
   const itemsTypeaheadQuery = useTDResource<Item>('items');

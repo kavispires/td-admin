@@ -3,7 +3,7 @@ import { keyBy, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import { filterMessage, getItemAttributePriorityResponse } from 'utils';
 import { useItemQueryParams } from './useItemQueryParams';
-import { Item, ItemAtributesValues } from 'types';
+import type { Item, ItemAtributesValues } from 'types';
 
 export type ItemMessageObject = {
   item: Item;

@@ -1,7 +1,7 @@
-import { ReactNode, useContext, createContext, useState } from 'react';
+import { type ReactNode, useContext, createContext, useState } from 'react';
 import {
-  UseImageCardsRelationshipDataReturnValue,
-  UseRandomGroupReturnValue,
+  type UseImageCardsRelationshipDataReturnValue,
+  type UseRandomGroupReturnValue,
   useImageCardsRelationshipData,
   useRandomGroups,
 } from './hooks';

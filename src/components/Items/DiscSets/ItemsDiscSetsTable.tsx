@@ -1,7 +1,7 @@
 import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';

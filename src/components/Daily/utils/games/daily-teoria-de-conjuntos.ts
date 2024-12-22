@@ -1,7 +1,7 @@
-import { DailyTeoriaDeConjuntosEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DailyTeoriaDeConjuntosEntry, ParsedDailyHistoryEntry } from '../types';
 import { cloneDeep, difference, intersection, sample, sampleSize, shuffle } from 'lodash';
 import { getNextDay } from '../utils';
-import { DailyDiagramItem, DailyDiagramRule } from 'types';
+import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { getIsThingOutdated, getLatestRuleUpdate } from 'components/Items/Diagram/utils';
 
 export const buildDailyTeoriaDeConjuntosGames = (

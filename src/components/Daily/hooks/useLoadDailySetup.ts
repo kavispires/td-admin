@@ -1,7 +1,7 @@
 import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
 import { useEffect, useMemo, useState } from 'react';
-import {
+import type {
   DailyDiscSet,
   ArteRuimCard,
   DailyMovieSet,
@@ -12,7 +12,7 @@ import {
 } from 'types';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
-import { DailyEntry } from '../utils/types';
+import type { DailyEntry } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 import { useLoadDrawings } from './useLoadDrawings';
 import { useParsedHistory } from './useParsedHistory';

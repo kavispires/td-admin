@@ -1,6 +1,6 @@
-import { Input, InputProps, Switch, SwitchProps, Typography } from 'antd';
+import { Input, type InputProps, Switch, type SwitchProps, Typography } from 'antd';
 import { LanguageFlag } from './LanguageFlag';
-import { TextProps } from 'antd/lib/typography/Text';
+import type { TextProps } from 'antd/lib/typography/Text';
 import { FireFilled } from '@ant-design/icons';
 
 export function Label({ strong, ...props }: TextProps) {

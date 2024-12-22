@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from 'antd';
+import { Button, type ButtonProps } from 'antd';
 import moment from 'moment';
 import { useEffect } from 'react';
 import { useTimeoutFn } from 'react-use';

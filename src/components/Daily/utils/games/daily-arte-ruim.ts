@@ -1,5 +1,5 @@
-import { useLoadDrawings } from 'components/Daily/hooks';
-import { DailyArteRuimEntry, DailyEntry, DataDrawing, ParsedDailyHistoryEntry } from '../types';
+import type { useLoadDrawings } from 'components/Daily/hooks';
+import type { DailyArteRuimEntry, DailyEntry, DataDrawing, ParsedDailyHistoryEntry } from '../types';
 import { sampleSize, shuffle } from 'lodash';
 import { getNextDay } from '../utils';
 

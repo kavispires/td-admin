@@ -1,4 +1,4 @@
-import { Ref, useMemo } from 'react';
+import { type Ref, useMemo } from 'react';
 import { useMeasure } from 'react-use';
 
 /**

@@ -7,7 +7,7 @@ import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
-import { Item, ItemGroup } from 'types';
+import type { Item, ItemGroup } from 'types';
 
 export function ItemsGroups() {
   const groupsQuery = useResourceFirebaseData<ItemGroup>({

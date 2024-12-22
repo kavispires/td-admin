@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from 'antd';
+import { Button, type ButtonProps } from 'antd';
 import { downloadObjectAsFile } from 'utils';
 
 type DownloadButtonProps = {

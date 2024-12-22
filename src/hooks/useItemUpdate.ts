@@ -1,6 +1,6 @@
 import { cloneDeep } from 'lodash';
 import { useState } from 'react';
-import { Item as ItemT } from 'types';
+import type { Item as ItemT } from 'types';
 import { useItemsContext } from 'context/ItemsContext';
 
 export function useItemUpdate(currentItem: ItemT, editMode = false) {

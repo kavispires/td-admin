@@ -5,7 +5,7 @@ import { PageSider } from 'components/Layout/PageSider';
 import { ResponseState } from 'components/Common';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTDResource, useTDResourceNonCollection } from 'hooks/useTDResource';
-import { Item, MovieCard, MovieGenres, SuspectCard, TestimonyQuestionCard } from 'types';
+import type { Item, MovieCard, MovieGenres, SuspectCard, TestimonyQuestionCard } from 'types';
 import { FeatureFilmView } from 'components/Movie/FeatureFilmView';
 
 function MovieMaker() {

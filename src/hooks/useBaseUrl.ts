@@ -5,7 +5,7 @@
  * @returns
  */
 export function useBaseUrl(library: 'images' | 'sprites' | 'resources' | 'classic') {
-  let baseUrl: string | undefined = process.env.REACT_APP_TD_BASE_URL;
+  const baseUrl: string | undefined = process.env.REACT_APP_TD_BASE_URL;
   let folder: string | undefined = '';
 
   switch (library) {

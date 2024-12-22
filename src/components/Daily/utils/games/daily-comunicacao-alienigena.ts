@@ -1,5 +1,5 @@
-import { ItemAtributesValues, ItemAttribute } from 'types';
-import { DailyComunicacaoAlienigenaEntry, ParsedDailyHistoryEntry } from '../types';
+import type { ItemAtributesValues, ItemAttribute } from 'types';
+import type { DailyComunicacaoAlienigenaEntry, ParsedDailyHistoryEntry } from '../types';
 import { keys, random, sample, sampleSize, shuffle, values } from 'lodash';
 import { getNextDay } from '../utils';
 import { makeArray } from 'utils';

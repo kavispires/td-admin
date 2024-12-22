@@ -1,6 +1,6 @@
 import { sortBy } from 'lodash';
 import { useEffect, useState } from 'react';
-import { CrimesHediondosCard } from 'types';
+import type { CrimesHediondosCard } from 'types';
 
 type TagsDict = Record<Tag, CardId[]>;
 type CardsDict = Record<CardId, Tag[]>;

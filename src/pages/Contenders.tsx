@@ -5,7 +5,7 @@ import { ContendersContent } from 'components/Contenders/ContendersContent';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { isEmpty } from 'lodash';
-import { ContenderCard } from 'types';
+import type { ContenderCard } from 'types';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { ContendersFilters } from 'components/Contenders/ContendersFilters';
 
