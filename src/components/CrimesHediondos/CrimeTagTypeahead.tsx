@@ -1,6 +1,6 @@
 import { Button, Flex, Select } from 'antd';
-import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 import { useState } from 'react';
+import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
 type CrimeTagTypeaheadProps = Pick<CrimesHediondosInnerContentProps, 'allTags'> & {
   onSelect: (value: string) => void;

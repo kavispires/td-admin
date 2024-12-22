@@ -1,13 +1,14 @@
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import type { ButtonProps } from 'antd/lib/button';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useEffectOnce } from 'react-use';
 
 export function GoToTopButton(props: ButtonProps) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const handleScroll = () => {
-    setIsVisible(window.pageYOffset > 300);
+    setIsVisible(window.scrollY > 300);
   };
 
   const scrollToTop = () => {
@@ -17,12 +18,12 @@ export function GoToTopButton(props: ButtonProps) {
     });
   };
 
-  useEffect(() => {
+  useEffectOnce(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  });
 
   return (
     <Button

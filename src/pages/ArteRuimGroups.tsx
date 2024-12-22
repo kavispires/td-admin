@@ -89,7 +89,7 @@ function ArteRuimGroups() {
   }, [cards, groups, isLoading, loadingLevel4]);
 
   return (
-    <PageLayout title="Arte Ruim Groups" subtitle={Boolean(language) ? `${language}` : ''}>
+    <PageLayout title="Arte Ruim Groups" subtitle={language ? `${language}` : ''}>
       <Layout hasSider>
         <PageSider>
           <ResponseState

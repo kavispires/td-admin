@@ -1,10 +1,10 @@
 import { Button, Space, Typography } from 'antd';
+import { buildDailyTeoriaDeConjuntosGames } from 'components/Daily/utils/games/daily-teoria-de-conjuntos';
+import type { DailyTeoriaDeConjuntosEntry } from 'components/Daily/utils/types';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { useState } from 'react';
 import { useMeasure } from 'react-use';
 import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
-import type { DailyTeoriaDeConjuntosEntry } from 'components/Daily/utils/types';
-import { useState } from 'react';
-import { buildDailyTeoriaDeConjuntosGames } from 'components/Daily/utils/games/daily-teoria-de-conjuntos';
 import { DiagramGameSample } from './DiagramGameSample';
 import './GameSimulator.scss';
 

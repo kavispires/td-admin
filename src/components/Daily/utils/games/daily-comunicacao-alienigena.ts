@@ -1,9 +1,9 @@
-import type { ItemAtributesValues, ItemAttribute } from 'types';
-import type { DailyComunicacaoAlienigenaEntry, ParsedDailyHistoryEntry } from '../types';
 import { keys, random, sample, sampleSize, shuffle, values } from 'lodash';
-import { getNextDay } from '../utils';
+import type { ItemAtributesValues, ItemAttribute } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
+import type { DailyComunicacaoAlienigenaEntry, ParsedDailyHistoryEntry } from '../types';
+import { getNextDay } from '../utils';
 
 export const buildDailyComunicacaoAlienigenaGames = (
   batchSize: number,
@@ -143,28 +143,28 @@ const generateComunicacaoAlienigenaGame = (
   if (attributeAB.length > 0) {
     complexRequests.push({
       spritesIds: [selectedAttributes[0].spriteId, selectedAttributes[1].spriteId],
-      itemId: sample(attributeAB)!,
+      itemId: sample(attributeAB) ?? '',
     });
   }
   // AC request
   if (attributeAC.length > 0) {
     complexRequests.push({
       spritesIds: [selectedAttributes[0].spriteId, selectedAttributes[2].spriteId],
-      itemId: sample(attributeAC)!,
+      itemId: sample(attributeAC) ?? '',
     });
   }
   // BC request
   if (attributeBC.length > 0) {
     complexRequests.push({
       spritesIds: [selectedAttributes[1].spriteId, selectedAttributes[2].spriteId],
-      itemId: sample(attributeBC)!,
+      itemId: sample(attributeBC) ?? '',
     });
   }
   // ABC request
   if (attributeABC.length > 0) {
     complexRequests.push({
       spritesIds: selectedAttributes.map((attr) => attr.spriteId),
-      itemId: sample(attributeABC)!,
+      itemId: sample(attributeABC) ?? '',
     });
   }
   const simpleRequests: DailyComunicacaoAlienigenaEntry['requests'] = [];
@@ -190,16 +190,6 @@ const generateComunicacaoAlienigenaGame = (
       itemId: attributeC.filter((id) => !usedItemsIds.includes(id))[0],
     });
   }
-
-  // console.log({
-  //   attributeA,
-  //   attributeB,
-  //   attributeC,
-  //   attributeAB,
-  //   attributeAC,
-  //   attributeBC,
-  //   attributeABC,
-  // });
 
   let requests = sampleSize(complexRequests, 4);
 

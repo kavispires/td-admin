@@ -2,10 +2,10 @@ import { App } from 'antd';
 import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
 import { useEffect } from 'react';
 
-import { type QueryKey, useQuery, type UseQueryOptions } from '@tanstack/react-query';
+import { type QueryKey, type UseQueryOptions, useQuery } from '@tanstack/react-query';
 
-import type { DailyHistory } from '../utils/types';
 import { printFirebase } from 'services/firebase';
+import type { DailyHistory } from '../utils/types';
 
 export function useDailyHistoryQuery(
   source: string,
@@ -25,6 +25,7 @@ export function useDailyHistoryQuery(
     }
   }, [historyQuery.isSuccess]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: only the error should cause this notification
   useEffect(() => {
     if (historyQuery.isError) {
       notification.error({

@@ -1,8 +1,8 @@
 import { Collapse, Rate, Space, Typography } from 'antd';
-import type { DailyTeoriaDeConjuntosEntry } from 'components/Daily/utils/types';
-import { Thing } from './Thing';
-import { type ReactNode, useState } from 'react';
 import { TransparentButton } from 'components/Common';
+import type { DailyTeoriaDeConjuntosEntry } from 'components/Daily/utils/types';
+import { type ReactNode, useState } from 'react';
+import { Thing } from './Thing';
 
 type DiagramGameSampleProps = {
   game: DailyTeoriaDeConjuntosEntry;
@@ -98,6 +98,7 @@ export function DiagramGameSample({ game }: DiagramGameSampleProps) {
       <Space className="space--center">
         {playerOptions.map((thing) => (
           <TransparentButton
+            key={thing.id}
             style={thing.id === selectedThing?.id ? { outline: '3px solid hotPink' } : {}}
             onClick={() => setSelectedThing(thing)}
           >

@@ -1,6 +1,6 @@
-import type { DailyPalavreadoEntry, ParsedDailyHistoryEntry } from '../types';
 import { difference, flatMap, intersection, shuffle, sortBy, uniq } from 'lodash';
-import { getNextDay, checkWeekend } from '../utils';
+import type { DailyPalavreadoEntry, ParsedDailyHistoryEntry } from '../types';
+import { checkWeekend, getNextDay } from '../utils';
 
 /**
  * Builds a dictionary of DailyPalavreadoEntry games.

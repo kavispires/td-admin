@@ -172,6 +172,7 @@ export function DrawerContent({
       <Flex wrap="wrap" gap={8}>
         {sortedSets.map((set) => (
           <Tag
+            key={set.id}
             onClick={() => onToggleToSelection(set.id)}
             color={selections.includes(set.id) ? 'gold' : undefined}
           >

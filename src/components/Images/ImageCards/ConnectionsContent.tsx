@@ -7,8 +7,8 @@ import { useMeasure } from 'react-use';
 import { RightCircleFilled } from '@ant-design/icons';
 
 import { ImageCard } from '../ImageCard';
-import type { UseImageCardsRelationshipDataReturnValue } from './hooks';
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
+import type { UseImageCardsRelationshipDataReturnValue } from './hooks';
 
 export function ConnectionsContent() {
   const {
@@ -96,7 +96,7 @@ const getConnectionsPath = memoize(
     while (stack.length > 0 && iterations < 100) {
       iterations++;
 
-      const { currentId, path, depth } = stack.pop()!;
+      const { currentId, path, depth } = stack.pop() ?? { currentId: '', path: [], depth: 0 };
 
       visited.add(currentId);
       path.push(currentId);

@@ -1,7 +1,7 @@
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { orderBy } from 'lodash';
-import { createContext, type ReactNode, useContext, useMemo } from 'react';
+import { type ReactNode, createContext, useContext, useMemo } from 'react';
 import type { Item } from 'types';
 
 export type ItemsContextType = {
@@ -57,6 +57,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
     firebaseDataCollectionName: 'items',
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const { decksDict, decks } = useMemo(() => {
     console.log('Recomputing item decks typeahead...');
     const decksDict: Dictionary<string> = {};
@@ -101,7 +102,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
       case 'all':
         return orderedList;
       case '!all':
-        return orderedList.filter((item) => !item?.decks?.length ?? true);
+        return orderedList.filter((item) => !item?.decks?.length || true);
       case 'nsfw':
         return orderedList.filter((item) => item.nsfw);
       case '!nsfw':

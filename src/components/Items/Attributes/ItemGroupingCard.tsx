@@ -120,8 +120,8 @@ export function ItemGroupingCard() {
                 <ItemName item={item} language="pt" />
               </Flex>
               <AttributionValueButtons
-                attribute={attribute!}
-                value={itemAttributes.attributes[attribute!.id]}
+                attribute={attribute}
+                value={itemAttributes.attributes[attribute.id]}
                 onlyButtons
                 onChange={(attributeId: string, value: number) =>
                   updateAttributeValue(item.id, attributeId, value)

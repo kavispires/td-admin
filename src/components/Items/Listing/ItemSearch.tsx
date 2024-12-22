@@ -2,11 +2,11 @@ import { Button, Divider, Space, Typography } from 'antd';
 import { Fragment, useState } from 'react';
 import type { Item as ItemT } from 'types';
 
-import { ItemCard } from '../ItemCard';
-import { useItemsContext } from 'context/ItemsContext';
-import { ItemsTypeahead } from '../ItemsTypeahead';
 import { EnvironmentOutlined } from '@ant-design/icons';
+import { useItemsContext } from 'context/ItemsContext';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { ItemCard } from '../ItemCard';
+import { ItemsTypeahead } from '../ItemsTypeahead';
 
 export function ItemSearch() {
   const { items, isLoading, isSaving } = useItemsContext();
@@ -34,9 +34,9 @@ export function ItemSearch() {
         />
       </div>
 
-      {Boolean(activeItem) && (
+      {!!activeItem && (
         <Space direction="vertical" className="my-4" key={activeItem?.id}>
-          <ItemCard item={activeItem!} />
+          <ItemCard item={activeItem} />
           <Button onClick={onFindInListing} block icon={<EnvironmentOutlined />}>
             Find in listing
           </Button>

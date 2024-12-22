@@ -2,11 +2,10 @@ import { Affix, Button, Card, Divider, Flex, Space, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useEffect, useMemo } from 'react';
-
+import { ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
 import { ItemAttributeDescription } from './ItemAttributeDescription';
 import { ItemAttributeStats } from './ItemAttributeStats';
-import { ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 
 export function ItemAttributionCard() {
   const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem, attributes } =
@@ -22,6 +21,7 @@ export function ItemAttributionCard() {
   }, [queryParamsItemId, jumpToItem, removeQueryParam]);
 
   const showOnlyUnset = searchParams.get('scope') === 'unset';
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const filteredAttributesList = useMemo(
     () =>
       showOnlyUnset

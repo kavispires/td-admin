@@ -1,9 +1,9 @@
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useMemo, useState } from 'react';
 
-import { useItemQueryParams } from './useItemQueryParams';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { orderBy } from 'lodash';
+import { ATTRIBUTE_VALUE } from 'utils/constants';
+import { useItemQueryParams } from './useItemQueryParams';
 
 export function useItemGrouping() {
   const {
@@ -27,6 +27,7 @@ export function useItemGrouping() {
   const [sortBy, setSortBy] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const group = useMemo(() => {
     const itemsAttributes = availableItemIds.map((id) => getItemAttributeValues(id));
     const scopeValue =
@@ -50,6 +51,7 @@ export function useItemGrouping() {
     );
   }, [attributeKey, scope, sortBy, sortOrder]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const pageIds = useMemo(() => {
     if (previousAttribute !== attributeKey || previousScope !== scope) {
       setPreviousAttribute(attributeKey);

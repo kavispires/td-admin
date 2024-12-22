@@ -1,13 +1,13 @@
-import { useMemo } from 'react';
 import { Space, Table, type TableColumnsType } from 'antd';
-import { useTablePagination } from 'hooks/useTablePagination';
-import type { CrimesHediondosCard } from 'types';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { CrimeItemCard } from './CrimeItemCard';
-import { EditCrimeCardModal } from './EditCrimeCardModal';
-import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
+import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
+import { useMemo } from 'react';
+import type { CrimesHediondosCard } from 'types';
+import { CrimeItemCard } from './CrimeItemCard';
+import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
+import { EditCrimeCardModal } from './EditCrimeCardModal';
 
 type TagGroup = {
   id: string;

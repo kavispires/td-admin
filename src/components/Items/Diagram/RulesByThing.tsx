@@ -1,11 +1,11 @@
 import { Divider, Flex, Space, Table, type TableColumnsType, Tag, Tooltip, Typography } from 'antd';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { useTablePagination } from 'hooks/useTablePagination';
+import { useMemo } from 'react';
 import { useMeasure } from 'react-use';
 import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
 import { AddNewThingFlow } from './AddNewThingFlow';
-import { useMemo } from 'react';
 import { ThingButton } from './Thing';
-import { useTablePagination } from 'hooks/useTablePagination';
 
 type RulesByThingProps = {
   things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];

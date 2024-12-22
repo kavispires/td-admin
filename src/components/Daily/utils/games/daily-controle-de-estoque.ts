@@ -1,5 +1,5 @@
-import type { DailyControleDeEstoqueEntry, ParsedDailyHistoryEntry } from '../types';
 import { sampleSize, shuffle } from 'lodash';
+import type { DailyControleDeEstoqueEntry, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 
 /**
@@ -73,7 +73,10 @@ export const generateControleDeEstoqueGame = (id: string, num: number) => {
   entry.goods = goods;
   entry.orders = sampleSize(entry.goods, ORDER_SIZE);
   // Add non-available requests
-  entry.orders.push(outOfStockGood!);
+  if (!outOfStockGood) {
+    throw new Error('No out of stock good');
+  }
+  entry.orders.push(outOfStockGood);
   entry.orders = shuffle(entry.orders);
 
   return entry;

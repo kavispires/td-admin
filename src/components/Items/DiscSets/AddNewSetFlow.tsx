@@ -3,8 +3,8 @@ import { LanguageFlag } from 'components/Common/LanguageFlag';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { camelCase } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { DailyDiscSet } from 'types';
 import stringSimilarity from 'string-similarity';
+import type { DailyDiscSet } from 'types';
 
 type AddNewSetFlowProps = {
   ids: string[];
@@ -63,14 +63,14 @@ export function AddNewSetFlow({ addEntryToUpdate, ids }: AddNewSetFlowProps) {
           <Form.Item name="nome" label="Nome" rules={[{ required: true }]}>
             <Input
               prefix={<LanguageFlag language="pt" width="1em" />}
-              placeholder={`Name in pt`}
+              placeholder={'Name in pt'}
               size="small"
             />
           </Form.Item>
           <Form.Item name="name" label="Name" rules={[{ required: true }]}>
             <Input
               prefix={<LanguageFlag language="en" width="1em" />}
-              placeholder={`Name in en`}
+              placeholder={'Name in en'}
               size="small"
             />
           </Form.Item>

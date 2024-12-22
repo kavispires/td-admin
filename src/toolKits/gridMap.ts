@@ -218,7 +218,8 @@ function getCellById<TCellData>(
 function getOrigin<TCellData>(grid: GridMapType<TCellData>): GridMapCellType<TCellData | null> | null {
   const { width, height, origin } = grid;
 
-  let originX: number, originY: number;
+  let originX: number;
+  let originY: number;
 
   switch (origin) {
     case 'top-left':

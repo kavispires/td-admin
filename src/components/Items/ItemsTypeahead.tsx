@@ -21,8 +21,9 @@ export function ItemsTypeahead({
   onFinish,
   ...rest
 }: ItemsTypeaheadProps) {
-  const tdrItemsQuery = useTDResource<Item>('items', !Boolean(items) && !isPending);
+  const tdrItemsQuery = useTDResource<Item>('items', !items && !isPending);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const { namesDict, options } = useMemo(() => {
     console.log('Recomputing item names typeahead...');
 

@@ -3,11 +3,11 @@ import { getAnalytics } from 'firebase/analytics';
 import { type FirebaseApp, initializeApp } from 'firebase/app';
 import {
   type Auth,
-  getAuth,
   GoogleAuthProvider,
+  type UserCredential,
+  getAuth,
   signInWithEmailAndPassword,
   signInWithPopup,
-  type UserCredential,
 } from 'firebase/auth';
 import { type Firestore, getFirestore } from 'firebase/firestore';
 

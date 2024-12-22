@@ -1,9 +1,9 @@
-import type { CrimesHediondosCard } from 'types';
-import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 import { Space, Tag } from 'antd';
 import { cloneDeep } from 'lodash';
+import type { CrimesHediondosCard } from 'types';
 import { removeDuplicates } from 'utils';
 import { CrimeTagAddMultiple, CrimeTagTypeahead } from './CrimeTagTypeahead';
+import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
 type CardEditTagsProps = Pick<CrimesHediondosInnerContentProps, 'allTags' | 'onUpdateCard'> & {
   card: CrimesHediondosCard;

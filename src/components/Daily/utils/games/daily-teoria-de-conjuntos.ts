@@ -1,8 +1,8 @@
-import type { DailyTeoriaDeConjuntosEntry, ParsedDailyHistoryEntry } from '../types';
-import { cloneDeep, difference, intersection, sample, sampleSize, shuffle } from 'lodash';
-import { getNextDay } from '../utils';
-import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { getIsThingOutdated, getLatestRuleUpdate } from 'components/Items/Diagram/utils';
+import { cloneDeep, difference, intersection, sample, sampleSize, shuffle } from 'lodash';
+import type { DailyDiagramItem, DailyDiagramRule } from 'types';
+import type { DailyTeoriaDeConjuntosEntry, ParsedDailyHistoryEntry } from '../types';
+import { getNextDay } from '../utils';
 
 export const buildDailyTeoriaDeConjuntosGames = (
   batchSize: number,
@@ -141,10 +141,16 @@ function getRuleSet(
   const sampleCommonThings = sampleSize(commonItems, 4);
   const sampleRule1Things = sampleSize(itemsOnlyInRule1, 8);
   const sampleRule2Things = sampleSize(itemsOnlyInRule2, 8);
-  const gabarito: Record<string, number> = {};
-  sampleCommonThings.forEach((id) => (gabarito[id] = 0));
-  sampleRule1Things.forEach((id) => (gabarito[id] = 1));
-  sampleRule2Things.forEach((id) => (gabarito[id] = 2));
+  const answerSheet: Record<string, number> = {};
+  sampleCommonThings.forEach((id) => {
+    answerSheet[id] = 0;
+  });
+  sampleRule1Things.forEach((id) => {
+    answerSheet[id] = 1;
+  });
+  sampleRule2Things.forEach((id) => {
+    answerSheet[id] = 2;
+  });
 
   // Sample 8 things among the options
   const selectionIds = sampleSize([...sampleCommonThings, ...sampleRule1Things, ...sampleRule2Things], 8);
@@ -152,7 +158,7 @@ function getRuleSet(
   const selectedThings = selectionIds.map((id) => ({
     id,
     name: things[id].name,
-    rule: gabarito[id],
+    rule: answerSheet[id],
   }));
 
   // Build title

@@ -2,7 +2,7 @@ import { Button, type ButtonProps } from 'antd';
 import { downloadObjectAsFile } from 'utils';
 
 type DownloadButtonProps = {
-  data: PlainObject | Function;
+  data: PlainObject | (() => PlainObject);
   fileName: string;
 } & ButtonProps;
 

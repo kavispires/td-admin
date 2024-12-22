@@ -4,8 +4,8 @@ import { Item } from 'components/Sprites';
 import type { Item as ItemT } from 'types';
 
 import { FireFilled, IdcardOutlined } from '@ant-design/icons';
-import { useSearchParams } from 'react-router-dom';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { useSearchParams } from 'react-router-dom';
 
 type ItemBlockProps = {
   item: ItemT;

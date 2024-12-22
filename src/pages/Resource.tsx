@@ -1,17 +1,17 @@
 import { Layout } from 'antd';
+import { ResponseState } from 'components/Common';
 import { PageLayout } from 'components/Layout';
 import { ResourceCards } from 'components/Resource/ResourceCards';
 import { ResourceDisplayMode } from 'components/Resource/ResourceDisplayMode';
 import { ResourceJson } from 'components/Resource/ResourceJson';
-import { ResponseState } from 'components/Common';
 import { ResourceTable } from 'components/Resource/ResourceTable';
 
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
+import { PageSider } from 'components/Layout/PageSider';
 import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionFilters';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceState } from 'hooks/useResourceState';
 import { RESOURCE_NAMES } from 'utils/constants';
-import { PageSider } from 'components/Layout/PageSider';
 
 const resourceNames = Object.values(RESOURCE_NAMES);
 
@@ -32,7 +32,7 @@ function Resource() {
   return (
     <PageLayout
       title="Resource"
-      subtitle={Boolean(resourceName && language) ? `Data for ${resourceName}-${language}` : ''}
+      subtitle={resourceName && language ? `Data for ${resourceName}-${language}` : ''}
     >
       <Layout hasSider>
         <PageSider>

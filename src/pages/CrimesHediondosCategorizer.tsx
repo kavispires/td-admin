@@ -2,8 +2,8 @@ import './CrimesHediondosCategorizer.scss';
 
 import { Button, Input, Layout, Select, Space, Spin, Tag } from 'antd';
 
-import { PageLayout } from 'components/Layout';
 import { TagState } from 'components/Common/ResponseState';
+import { PageLayout } from 'components/Layout';
 import { useCrimesHediondosData } from 'hooks/useCrimesHediondosData';
 import { useCrimesHediondosTags } from 'hooks/useCrimesHediondosTags';
 import { useEffect, useState } from 'react';
@@ -68,6 +68,7 @@ function CHDataWrapper({ data }: CHDataWrapperProps) {
     });
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     setCurrentTags(cards && cards?.[card.id]?.length > 0 ? cards[card.id] : (card.tags ?? []));
   }, [card.id, card.tags]);
@@ -141,7 +142,7 @@ function CHTagSelect({
   tagsArr: Tag[];
   currentTags: string[];
   cardId: CardId;
-  setCurrentTags: Function;
+  setCurrentTags: (tags: string[]) => void;
 }) {
   const handleChange = (e: string[]) => setCurrentTags(e);
   const [newTags, setNewTags] = useState<string[]>([]);
@@ -150,6 +151,7 @@ function CHTagSelect({
     setNewTags(query.trim().split(' '));
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     setNewTags([]);
   }, [cardId]);

@@ -1,8 +1,8 @@
 import type { TableProps } from 'antd';
 import { useMemo } from 'react';
 
-import { useQueryParams } from './useQueryParams';
 import { usePrevious } from 'react-use';
+import { useQueryParams } from './useQueryParams';
 
 /**
  * Options for configuring table pagination.

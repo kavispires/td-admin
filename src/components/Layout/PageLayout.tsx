@@ -1,6 +1,6 @@
 import { Divider, Layout } from 'antd';
-import { Header, type HeaderProps } from './Header';
 import type { ReactNode } from 'react';
+import { Header, type HeaderProps } from './Header';
 
 type PageLayoutProps = {
   children: ReactNode;

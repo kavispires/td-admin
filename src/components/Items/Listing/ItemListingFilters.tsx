@@ -1,15 +1,15 @@
+import { OpenAIOutlined } from '@ant-design/icons';
 import { Divider, Flex, Typography } from 'antd';
 import { FilterSelect, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsContext } from 'context/ItemsContext';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, cloneDeep, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { Item } from 'types';
 import { sortJsonKeys } from 'utils';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { SaveButton } from 'components/Common/SaveButton';
-import { OpenAIOutlined } from '@ant-design/icons';
 import { AddNewItem } from './AddNewItem';
 
 export function ItemListingFilters() {
@@ -128,6 +128,7 @@ function prepareFileForDownload(items: Dictionary<Item>) {
 
       // Remove decks if no deck is present
       if (item.decks.length === 0) {
+        // biome-ignore lint/performance/noDelete: <explanation>
         delete item.decks;
       }
 

@@ -1,11 +1,11 @@
 import { Alert, Button, Divider, Flex, Space, Typography } from 'antd';
+import { AlienSign, Item } from 'components/Sprites';
+import { useTDResource } from 'hooks/useTDResource';
 import { keys, sample, sampleSize, shuffle, values } from 'lodash';
 import { useState } from 'react';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 import type { ItemAtributesValues, ItemAttribute } from 'types';
-import { useTDResource } from 'hooks/useTDResource';
-import { AlienSign, Item } from 'components/Sprites';
 import { makeArray } from 'utils';
+import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 export function DailyAliemSimulator() {
   const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes');
@@ -60,7 +60,7 @@ export function DailyAliemSimulator() {
                 <Flex key={attr.id} gap={8}>
                   <AlienSign id={attr.spriteId} width={50} />
                   {attr.itemsIds.map((itemId) => (
-                    <Item id={itemId || '0'} width={50} />
+                    <Item key={itemId} id={itemId || '0'} width={50} />
                   ))}
                 </Flex>
               ))}
@@ -79,7 +79,7 @@ export function DailyAliemSimulator() {
             <Divider className="my-1" />
             <Space direction="horizontal">
               {simulation?.itemsIds.map((itemId) => (
-                <Item id={itemId || '0'} width={50} />
+                <Item key={itemId} id={itemId || '0'} width={50} />
               ))}
             </Space>
           </Space>
@@ -205,28 +205,28 @@ const generateDailyAlienGame = (
   if (attributeAB.length > 0) {
     complexRequests.push({
       spritesIds: [selectedAttributes[0].spriteId, selectedAttributes[1].spriteId],
-      itemId: sample(attributeAB)!,
+      itemId: sample(attributeAB) ?? '',
     });
   }
   // AC request
   if (attributeAC.length > 0) {
     complexRequests.push({
       spritesIds: [selectedAttributes[0].spriteId, selectedAttributes[2].spriteId],
-      itemId: sample(attributeAC)!,
+      itemId: sample(attributeAC) ?? '',
     });
   }
   // BC request
   if (attributeBC.length > 0) {
     complexRequests.push({
       spritesIds: [selectedAttributes[1].spriteId, selectedAttributes[2].spriteId],
-      itemId: sample(attributeBC)!,
+      itemId: sample(attributeBC) ?? '',
     });
   }
   // ABC request
   if (attributeABC.length > 0) {
     complexRequests.push({
       spritesIds: selectedAttributes.map((attr) => attr.spriteId),
-      itemId: sample(attributeABC)!,
+      itemId: sample(attributeABC) ?? '',
     });
   }
   const simpleRequests: DailyAlienGameRequest[] = [];

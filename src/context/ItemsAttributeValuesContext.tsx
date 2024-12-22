@@ -1,7 +1,7 @@
 import { App } from 'antd';
 import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { isEmpty, orderBy, random } from 'lodash';
-import { type ReactNode, useContext, createContext, useMemo, useState } from 'react';
+import { type ReactNode, createContext, useContext, useMemo, useState } from 'react';
 import type { Item, ItemAtributesValues, ItemAttribute } from 'types';
 import { getNewItem, getNewItemAttributeValues, sortJsonKeys } from 'utils';
 
@@ -129,9 +129,8 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
       if (index !== -1) {
         setItemIndex(index);
         return;
-      } else {
-        message.error(`Item ${itemId} is not available for attribution.`);
       }
+      message.error(`Item ${itemId} is not available for attribution.`);
     }
   };
 
@@ -161,6 +160,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         if (Object.keys(item.attributes).length === attributesList.length) {
           item.complete = true;
         } else {
+          // biome-ignore lint/performance/noDelete: <explanation>
           delete item.complete;
         }
 

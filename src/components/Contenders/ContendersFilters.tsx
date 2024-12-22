@@ -1,13 +1,13 @@
 import { Divider, Flex, Typography } from 'antd';
+import { DataFilters } from 'components/Common/DataFilters';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
+import type { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
 import type { ContenderCard } from 'types';
 import { sortJsonKeys } from 'utils';
-import { SaveButton } from 'components/Common/SaveButton';
-import { DataFilters } from 'components/Common/DataFilters';
-import type { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { DECKS } from './ContenderEditCard';
 
 export type ContendersFiltersProps = ReturnType<typeof useResourceFirebaseData<ContenderCard>>;
@@ -57,6 +57,7 @@ function prepareFileForDownload(entriesToUpdate: Dictionary<ContenderCard>) {
   Object.values(copy).forEach((entry) => {
     const exclusivity = entry.exclusivity as string;
     if (entry.exclusivity === undefined || exclusivity === 'none') {
+      // biome-ignore lint/performance/noDelete: this cleanup is necessary
       delete entry.exclusivity;
     }
   });

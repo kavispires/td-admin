@@ -6,7 +6,7 @@ import { removeDuplicates } from 'utils';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { LANGUAGE_PREFIX } from '../utils/constants';
+import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
 import type { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
@@ -42,74 +42,74 @@ export function useSaveDailySetup(queryLanguage: Language) {
 
       const newHistory: DailyHistory = {
         ...previousHistory,
-        'arte-ruim': {
+        [DAILY_GAMES_KEYS.ARTE_RUIM]: {
           latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1]['arte-ruim'].number,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.ARTE_RUIM].number,
           used: JSON.stringify(
             removeDuplicates([
-              ...JSON.parse(previousHistory['arte-ruim'].used),
-              ...data.map((e) => e['arte-ruim'].cardId),
+              ...JSON.parse(previousHistory[DAILY_GAMES_KEYS.ARTE_RUIM].used),
+              ...data.map((e) => e[DAILY_GAMES_KEYS.ARTE_RUIM].cardId),
             ]),
           ),
         },
-        'aqui-o': {
+        [DAILY_GAMES_KEYS.AQUI_O]: {
           latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1]['aqui-o'].number,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.AQUI_O].number,
           used: JSON.stringify(
             removeDuplicates([
-              ...JSON.parse(previousHistory['aqui-o'].used ?? '[]'),
-              ...data.map((e) => e['aqui-o'].setId),
+              ...JSON.parse(previousHistory[DAILY_GAMES_KEYS.AQUI_O].used ?? '[]'),
+              ...data.map((e) => e[DAILY_GAMES_KEYS.AQUI_O].setId),
             ]),
           ),
         },
-        palavreado: {
+        [DAILY_GAMES_KEYS.PALAVREADO]: {
           latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1]['palavreado'].number,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.PALAVREADO].number,
           used: JSON.stringify(
             removeDuplicates([
               ...JSON.parse(previousHistory.palavreado.used),
-              ...data.map((e) => e['palavreado'].keyword),
+              ...data.map((e) => e[DAILY_GAMES_KEYS.PALAVREADO].keyword),
             ]),
           ),
         },
-        artista: {
+        [DAILY_GAMES_KEYS.ARTISTA]: {
           latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1]['artista'].number,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.ARTISTA].number,
           used: '[]',
         },
-        filmaco: {
+        [DAILY_GAMES_KEYS.FILMACO]: {
           latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1]['filmaco'].number,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.FILMACO].number,
           used: JSON.stringify(
             removeDuplicates([
-              ...JSON.parse(previousHistory?.['filmaco']?.used ?? '[]'),
-              ...data.map((e) => e['filmaco'].setId),
+              ...JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.FILMACO]?.used ?? '[]'),
+              ...data.map((e) => e[DAILY_GAMES_KEYS.FILMACO].setId),
             ]),
           ),
         },
-        'controle-de-estoque': {
+        [DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE]: {
           latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1]['controle-de-estoque'].number,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE].number,
           used: '[]',
         },
-        'teoria-de-conjuntos': {
+        [DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS]: {
           latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1]['teoria-de-conjuntos'].number,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS].number,
           used: JSON.stringify(
             removeDuplicates([
-              ...JSON.parse(previousHistory?.['teoria-de-conjuntos']?.used ?? '[]'),
-              ...data.map((e) => e['teoria-de-conjuntos'].setId),
-              ...data.map((e) => e['teoria-de-conjuntos'].intersectingThing.id),
+              ...JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS]?.used ?? '[]'),
+              ...data.map((e) => e[DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS].setId),
+              ...data.map((e) => e[DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS].intersectingThing.id),
             ]),
           ),
         },
-        'comunicacao-alienigena': {
+        [DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA]: {
           latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1]['comunicacao-alienigena'].number,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA].number,
           used: JSON.stringify(
             removeDuplicates([
-              ...JSON.parse(previousHistory?.['comunicacao-alienigena']?.used ?? '[]'),
-              ...data.map((e) => e['comunicacao-alienigena'].setId),
+              ...JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA]?.used ?? '[]'),
+              ...data.map((e) => e[DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA].setId),
             ]),
           ),
         },

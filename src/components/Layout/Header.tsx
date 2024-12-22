@@ -1,9 +1,9 @@
 import { useTitle } from 'react-use';
 
-import { Menu } from './Menu';
-import type { ReactNode } from 'react';
-import logo from 'assets/images/logo.svg';
 import { Avatar, Layout, Typography } from 'antd';
+import logo from 'assets/images/logo.svg';
+import type { ReactNode } from 'react';
+import { Menu } from './Menu';
 
 export type HeaderProps = {
   title: string;

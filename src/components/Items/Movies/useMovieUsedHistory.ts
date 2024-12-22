@@ -5,7 +5,7 @@ import { keyBy, mapValues } from 'lodash';
 import { useMemo } from 'react';
 
 export function useMovieUsedHistory() {
-  const source = LANGUAGE_PREFIX.DAILY['pt'];
+  const source = LANGUAGE_PREFIX.DAILY.pt;
   const historyQuery = useDailyHistoryQuery(source, { enabled: true });
   const [filmacoHistory] = useParsedHistory('filmaco', historyQuery.data);
 

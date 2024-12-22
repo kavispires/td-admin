@@ -1,12 +1,12 @@
 import { Button, type ButtonProps, Modal, Space } from 'antd';
-import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 import type { CrimesHediondosCard } from 'types';
+import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
-import { useToggle } from 'react-use';
-import { CardEditTags } from './CardEditTags';
+import { EditOutlined } from '@ant-design/icons';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { cloneDeep } from 'lodash';
-import { EditOutlined } from '@ant-design/icons';
+import { useToggle } from 'react-use';
+import { CardEditTags } from './CardEditTags';
 import { CrimeItemCard } from './CrimeItemCard';
 
 type EditCrimeCardModalProps = {
@@ -45,25 +45,23 @@ export function EditCrimeCardModal({ allTags, onUpdateCard, card, buttonProps }:
         width={1000}
       >
         {open && (
-          <>
-            <Space>
-              <Space direction="vertical" style={{ minWidth: 150 }}>
-                <CrimeItemCard item={card} cardWidth={100} />
-                <DualLanguageTextField
-                  value={card.name}
-                  language="en"
-                  onPressEnter={(e: any) => editName(e.target?.value || card.name.en, 'en', card)}
-                />
-                <DualLanguageTextField
-                  value={card.name}
-                  language="pt"
-                  onPressEnter={(e: any) => editName(e.target?.value || card.name.pt, 'pt', card)}
-                />
-              </Space>
-
-              <CardEditTags allTags={allTags} onUpdateCard={onUpdateCard} card={card} />
+          <Space>
+            <Space direction="vertical" style={{ minWidth: 150 }}>
+              <CrimeItemCard item={card} cardWidth={100} />
+              <DualLanguageTextField
+                value={card.name}
+                language="en"
+                onPressEnter={(e: any) => editName(e.target?.value || card.name.en, 'en', card)}
+              />
+              <DualLanguageTextField
+                value={card.name}
+                language="pt"
+                onPressEnter={(e: any) => editName(e.target?.value || card.name.pt, 'pt', card)}
+              />
             </Space>
-          </>
+
+            <CardEditTags allTags={allTags} onUpdateCard={onUpdateCard} card={card} />
+          </Space>
         )}
       </Modal>
     </div>

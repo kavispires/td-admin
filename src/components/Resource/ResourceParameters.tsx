@@ -1,7 +1,7 @@
 import { Button, Form, Input, Select, Switch } from 'antd';
 
-import { LANGUAGES } from '../../utils/constants';
 import { SiderContent } from 'components/Layout';
+import { LANGUAGES } from '../../utils/constants';
 
 export type Parameters = {
   prefix: string;
@@ -20,7 +20,7 @@ export const INITIAL_PARAMETERS: Parameters = {
 };
 
 type ResourceParametersProps = {
-  onUpdateParameters: Function;
+  onUpdateParameters: (params: Parameters) => void;
 };
 
 export function ResourceParameters({ onUpdateParameters }: ResourceParametersProps) {

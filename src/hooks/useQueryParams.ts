@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useEffectOnce } from 'react-use';
 
 export function useQueryParams(defaultParams: Record<string, string | number> = {}) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -32,13 +33,13 @@ export function useQueryParams(defaultParams: Record<string, string | number> = 
 
   const is = (key: string, value = 'true') => searchParams.get(key) === String(value);
 
-  useEffect(() => {
+  useEffectOnce(() => {
     Object.entries(defaultParams).forEach(([key, value]) => {
       if (!searchParams.has(key)) {
         addParam(key, value);
       }
     });
-  }, []);
+  });
 
   return {
     addParam,

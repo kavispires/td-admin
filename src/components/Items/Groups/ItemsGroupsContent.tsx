@@ -8,14 +8,14 @@ import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebas
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { Item as ItemT, ItemGroup } from 'types';
+import type { ItemGroup, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 
-import { ItemGroupsCard } from './ItemGroupsCard';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { TransparentButton } from 'components/Common';
-import { ItemsTypeahead } from '../ItemsTypeahead';
+import { useTablePagination } from 'hooks/useTablePagination';
 import { CopyIdsButton } from '../CopyIdsButton';
+import { ItemsTypeahead } from '../ItemsTypeahead';
+import { ItemGroupsCard } from './ItemGroupsCard';
 
 export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { is, queryParams } = useQueryParams();

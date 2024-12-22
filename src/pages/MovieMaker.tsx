@@ -1,12 +1,12 @@
 import { Layout } from 'antd';
+import { ResponseState } from 'components/Common';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { ResponseState } from 'components/Common';
+import { FeatureFilmView } from 'components/Movie/FeatureFilmView';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTDResource, useTDResourceNonCollection } from 'hooks/useTDResource';
 import type { Item, MovieCard, MovieGenres, SuspectCard, TestimonyQuestionCard } from 'types';
-import { FeatureFilmView } from 'components/Movie/FeatureFilmView';
 
 function MovieMaker() {
   const { queryParams } = useQueryParams({ language: 'pt' });
@@ -69,6 +69,7 @@ function MovieMaker() {
           <DataLoadingWrapper hasResponseData={hasResponseData} isLoading={isLoading} error={error}>
             <FeatureFilmView
               movieTitles={Object.values(movieTitleQuery.data)}
+              // biome-ignore lint/style/noNonNullAssertion: data is guaranteed to be defined by DataLoadingWrapper
               movieGenres={movieGenresQuery.data!}
               movieActors={Object.values(movieActorsQuery.data)}
               characterTraits={Object.values(characterTraitsQuery.data)}

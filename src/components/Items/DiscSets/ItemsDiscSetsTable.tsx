@@ -1,18 +1,18 @@
+import { DeleteFilled } from '@ant-design/icons';
 import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
+import type { TableProps } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
+import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
+import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { DailyDiscSet, Item as ItemT } from 'types';
 import { removeDuplicates, sortItemsIds } from 'utils';
-import { DeleteFilled } from '@ant-design/icons';
-import { ItemsDiscSetExpandedRow } from './ItemsDiscSetExpandedRow';
-import type { TableProps } from 'antd';
 import { CopyIdsButton } from '../CopyIdsButton';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
+import { ItemsDiscSetExpandedRow } from './ItemsDiscSetExpandedRow';
 
 function orderSets(givenSets: DailyDiscSet[]) {
   return orderBy(givenSets, [
