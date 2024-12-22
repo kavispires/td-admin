@@ -1,11 +1,11 @@
 import type { TeenageStudent } from 'types';
 import './FofocaQuente.scss';
-import type { useTDResource } from 'hooks/useTDResource';
-import { useGridPagination } from 'hooks/useGridPagination';
 import { Flex, Typography } from 'antd';
-import { PaginationWrapper } from 'components/Common/PaginationWrapper';
-import { StudentCard } from './StudentCard';
 import { useFilterDataByDataFilters } from 'components/Common/DataFilters';
+import { PaginationWrapper } from 'components/Common/PaginationWrapper';
+import { useGridPagination } from 'hooks/useGridPagination';
+import type { useTDResource } from 'hooks/useTDResource';
+import { StudentCard } from './StudentCard';
 
 export type FofocaQuenteContentProps = ReturnType<typeof useTDResource<TeenageStudent>>;
 

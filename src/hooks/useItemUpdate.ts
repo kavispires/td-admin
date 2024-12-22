@@ -1,7 +1,7 @@
+import { useItemsContext } from 'context/ItemsContext';
 import { cloneDeep } from 'lodash';
 import { useState } from 'react';
 import type { Item as ItemT } from 'types';
-import { useItemsContext } from 'context/ItemsContext';
 
 export function useItemUpdate(currentItem: ItemT, editMode = false) {
   const { addItemToUpdate, itemsToUpdate } = useItemsContext();
@@ -12,6 +12,8 @@ export function useItemUpdate(currentItem: ItemT, editMode = false) {
   const onEdit = (change: Partial<ItemT>) => {
     const newItem = { ...cloneDeep(editableItem), ...change };
     if (Object.keys(change).includes('nsfw') && change.nsfw === false) {
+      // TODO: Use deepCleanObject
+      // biome-ignore lint/performance/noDelete: <explanation>
       delete newItem.nsfw;
     }
     setEditableItem(newItem);

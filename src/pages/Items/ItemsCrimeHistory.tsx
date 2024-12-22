@@ -15,9 +15,7 @@ export function ItemsCrimeHistorySets() {
   return (
     <PageLayout title="Items" subtitle="CrimeHistory Sets">
       <Layout hasSider>
-        <PageSider>
-          <>-</>
-        </PageSider>
+        <PageSider>-</PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper

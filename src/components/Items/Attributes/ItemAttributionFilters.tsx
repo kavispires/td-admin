@@ -138,9 +138,13 @@ function prepareFileForDownload(
         '',
       );
     } else {
+      // biome-ignore lint/performance/noDelete: <explanation>
       delete itemAttributeValues.complete;
+      // biome-ignore lint/performance/noDelete: <explanation>
       delete itemAttributeValues.score;
+      // biome-ignore lint/performance/noDelete: <explanation>
       delete itemAttributeValues.reliability;
+      // biome-ignore lint/performance/noDelete: <explanation>
       delete itemAttributeValues.key;
     }
   });

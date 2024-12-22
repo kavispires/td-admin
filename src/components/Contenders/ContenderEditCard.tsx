@@ -103,7 +103,7 @@ export function ContenderEditCard({ contender, addEntryToUpdate }: ContenderEdit
               size="small"
               options={DECKS}
               onChange={(e) => onUpdateDecks(e)}
-              style={{ maxWidth: `calc(100vw / 9)` }}
+              style={{ maxWidth: 'calc(100vw / 9)' }}
               status={checkInvalidDecks(contender.decks, contender.exclusivity)}
             />
             <Flex align="center">
@@ -147,7 +147,7 @@ function Exclusivity({ contender, addEntryToUpdate }: ContenderEditCardProps) {
     <Flex gap={8}>
       {contender?.exclusivity === 'en' && <LanguageFlag language="en" style={{ width: 24 }} />}
       {contender?.exclusivity === 'pt' && <LanguageFlag language="pt" style={{ width: 24 }} />}
-      {!contender?.exclusivity && <>None</>}
+      {!contender?.exclusivity && 'None'}
       <Popover title="Change exclusivity?" content={content} trigger="click">
         <EditOutlined />
       </Popover>

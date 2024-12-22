@@ -1,8 +1,8 @@
 import { Button, Divider, Flex, Input, Space, Tag, Typography } from 'antd';
+import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { cloneDeep, sample, sampleSize, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { Item, MovieCard, MovieGenres, SuspectCard, TestimonyQuestionCard } from 'types';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { ActorRole } from './ActorRole';
 
 export type FeatureFilRole = {
@@ -63,9 +63,9 @@ export function FeatureFilmView({
     <>
       <Button onClick={onCreateFeatureFilm}>Create Feature Film</Button>
 
-      {Boolean(featureFilm) && (
+      {!!featureFilm && (
         <>
-          <Typography.Title level={2}>{featureFilm!.movieTitle || '?'}</Typography.Title>
+          <Typography.Title level={2}>{featureFilm.movieTitle || '?'}</Typography.Title>
           <Typography.Paragraph>
             <strong>Genre:</strong> {featureFilm.genre.name[language]}
             <br />

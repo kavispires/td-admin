@@ -52,6 +52,7 @@ export function useItemSampler() {
     setSampleIds(tempSample.selected);
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: getItemAttributeValues should not be a dependency
   const itemsLeftForAttribute = useMemo(() => {
     if (!attribute) return 0;
 

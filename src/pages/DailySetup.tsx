@@ -1,11 +1,11 @@
 import { Layout, Typography } from 'antd';
+import { ResponseState } from 'components/Common';
 import { DataPopulation } from 'components/Daily/DataPopulation';
 import { SideFilters } from 'components/Daily/SideFilters';
 import { useLoadDailySetup } from 'components/Daily/hooks';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { ResponseState } from 'components/Common';
 import { useState } from 'react';
 
 function DailySetup() {

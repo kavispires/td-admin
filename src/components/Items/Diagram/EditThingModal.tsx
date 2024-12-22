@@ -6,9 +6,9 @@ import { useEffect, useMemo } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 
 import {
+  SYLLABLE_SEPARATOR,
   separateSyllables,
   stressSyllableDependencyVerifier,
-  SYLLABLE_SEPARATOR,
   syllableDependencyVerifier,
   verifiers,
 } from './utils';
@@ -67,6 +67,7 @@ export function EditThingModal({
 
   // Automation: If name is changed, recalculates all rules
   const nameWatch = Form.useWatch('name', form);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: form is not a dependency
   useEffect(() => {
     // If initial state where name is still undefined, ignore
     if (!nameWatch) return;
@@ -92,6 +93,7 @@ export function EditThingModal({
   const syllables = Form.useWatch('syllables', form);
   const isAcronym = form.getFieldValue('ddr-51-pt');
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: form is not a dependency
   useEffect(() => {
     if (isAcronym) {
       form.setFieldsValue({ stressedSyllable: undefined });
@@ -105,6 +107,7 @@ export function EditThingModal({
     }
   }, [isAcronym]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: form is not a dependency
   useEffect(() => {
     if (syllables) {
       const syllableRulesUpdate = Object.keys(rules).reduce((acc: Record<string, boolean>, ruleId) => {
@@ -127,6 +130,7 @@ export function EditThingModal({
 
   // Automation: Stressed syllable
   const stressedSyllable = Form.useWatch('stressedSyllable', form);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: form is not a dependency
   useEffect(() => {
     if (!isAcronym && stressedSyllable !== undefined) {
       const stressSyllableRulesUpdate = Object.keys(rules).reduce((acc: Record<string, boolean>, ruleId) => {
@@ -146,18 +150,21 @@ export function EditThingModal({
   const rule1 = form.getFieldValue('ddr-1-pt');
   const rule2 = form.getFieldValue('ddr-2-pt');
   const rule5 = form.getFieldValue('ddr-50-pt');
+  // biome-ignore lint/correctness/useExhaustiveDependencies: form is not a dependency
   useEffect(() => {
     if (rule1 === true) {
       form.setFieldsValue({ 'ddr-2-pt': false });
       form.setFieldsValue({ 'ddr-50-pt': false });
     }
   }, [rule1]);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: form is not a dependency
   useEffect(() => {
     if (rule2 === true) {
       form.setFieldsValue({ 'ddr-1-pt': false });
       form.setFieldsValue({ 'ddr-50-pt': false });
     }
   }, [rule2]);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: form is not a dependency
   useEffect(() => {
     if (rule5 === true) {
       form.setFieldsValue({ 'ddr-1-pt': false });
@@ -167,12 +174,14 @@ export function EditThingModal({
 
   // Automation: syllable count
   const rule3 = form.getFieldValue('ddr-3-pt');
+  // biome-ignore lint/correctness/useExhaustiveDependencies: form is not a dependency
   useEffect(() => {
     if (rule3 === true) {
       form.setFieldsValue({ 'ddr-4-pt': false });
     }
   }, [rule3]);
   const rule4 = form.getFieldValue('ddr-4-pt');
+  // biome-ignore lint/correctness/useExhaustiveDependencies: form is not a dependency
   useEffect(() => {
     if (rule4 === true) {
       form.setFieldsValue({ 'ddr-3-pt': false });
@@ -180,6 +189,7 @@ export function EditThingModal({
   }, [rule4]);
 
   // Automation: has hyphen
+  // biome-ignore lint/correctness/useExhaustiveDependencies: form is not a dependency
   useEffect(() => {
     const hasHyphen = nameWatch?.includes('-');
     if (hasHyphen) {

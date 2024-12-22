@@ -1,10 +1,10 @@
 import { Input, Layout } from 'antd';
 import { ArteRuimLevels } from 'components/ArteRuimLevels';
+import { ResponseState } from 'components/Common';
 import { SectionTitle } from 'components/Common/SectionTitle';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { ResponseState } from 'components/Common';
 import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionFilters';
 import { SearchDuplicates } from 'components/SearchDuplicates';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -52,8 +52,8 @@ export function ArteRuimParser() {
 
     const result = parsedInput.reduce(
       (acc: Record<CardId, ArteRuimCard>, text: string, index: number) => {
-        if (text) {
-          const newId = `${resourceName![0]}-${lastId + index + 1}-${language}`;
+        if (text && resourceName) {
+          const newId = `${resourceName[0]}-${lastId + index + 1}-${language}`;
           acc[newId] = {
             id: newId,
             text,
@@ -69,7 +69,7 @@ export function ArteRuimParser() {
   };
 
   return (
-    <PageLayout title="Arte Ruim" subtitle={Boolean(resourceName && language) ? `Parser (${language})` : ''}>
+    <PageLayout title="Arte Ruim" subtitle={resourceName && language ? `Parser (${language})` : ''}>
       <Layout hasSider>
         <PageSider>
           <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />

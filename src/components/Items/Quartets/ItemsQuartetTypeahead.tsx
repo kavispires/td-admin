@@ -17,6 +17,7 @@ export function ItemsQuartetTypeahead({
   style,
   ...rest
 }: ItemsQuartetTypeaheadProps) {
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const { titlesDict, options } = useMemo(() => {
     console.log('Recomputing quartets tiles typeahead...');
 

@@ -2,8 +2,8 @@ import { Button, Flex, Popconfirm, Rate, Select, Space, Table, Typography } from
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
+import { useTablePagination } from 'hooks/useTablePagination';
 import type { DailyQuartetSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 
@@ -176,7 +176,7 @@ export function QuartetItemsCell({
     <Flex gap={6} wrap="wrap" key={`items-${quartet.title}`}>
       {itemsIds.map((itemId) => (
         <Flex key={`${quartet.title}-${itemId}`} gap={2} vertical>
-          {!!itemId ? <Item id={String(itemId)} width={60} /> : <>{console.log(itemId)}</>}
+          {itemId ? <Item id={String(itemId)} width={60} /> : <>"ERROR"</>}
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
             <RemoveItemFlow quartet={quartet} addEntryToUpdate={addEntryToUpdate} itemId={itemId} />

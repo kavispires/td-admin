@@ -1,18 +1,18 @@
 import { Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { useTDResource } from 'hooks/useTDResource';
 import { useMemo, useState } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
-import { useTDResource } from 'hooks/useTDResource';
 
-import { RulesByThing } from './RulesByThing';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ThingsByRule } from './ThingsByRule';
 import { orderBy } from 'lodash';
-import { ItemUpdateGuard } from './ItemUpdateGuard';
-import { GameSimulator } from './GameSimulator';
-import { EditThingModal } from './EditThingModal';
 import { useMeasure } from 'react-use';
+import { EditThingModal } from './EditThingModal';
+import { GameSimulator } from './GameSimulator';
+import { ItemUpdateGuard } from './ItemUpdateGuard';
+import { RulesByThing } from './RulesByThing';
+import { ThingsByRule } from './ThingsByRule';
 
 export function ItemsDiagramSetsContent({
   data,

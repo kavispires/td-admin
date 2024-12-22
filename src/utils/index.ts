@@ -1,7 +1,7 @@
 import { chain, cloneDeep, isObject, memoize, merge, orderBy } from 'lodash';
-import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX, SEARCH_THRESHOLD } from './constants';
 import stringSimilarity from 'string-similarity';
 import type { Item, ItemAtributesValues, ItemAttribute } from 'types';
+import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX, SEARCH_THRESHOLD } from './constants';
 
 /**
  *
@@ -9,6 +9,7 @@ import type { Item, ItemAtributesValues, ItemAttribute } from 'types';
  * @returns
  */
 export function stringRemoveAccents(str: string) {
+  // biome-ignore lint/suspicious/noMisleadingCharacterClass: the regex is used to remove accents
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
@@ -265,6 +266,8 @@ export const getItemAttributePriorityResponse = (
         unrelated.push(attributeId);
         break;
       case ATTRIBUTE_VALUE.UNCLEAR:
+        unclear.push(attributeId);
+        break;
       default:
         unclear.push(attributeId);
         break;

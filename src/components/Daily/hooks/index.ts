@@ -4,14 +4,14 @@ import { firestore } from 'services/firebase';
 
 import { type QueryKey, useMutation } from '@tanstack/react-query';
 
-import type { DailyHistory } from '../utils/types';
 import { LANGUAGE_PREFIX } from '../utils/constants';
+import type { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
 export function useTempDaily(enabled = true) {
   const { notification } = App.useApp();
 
-  const source = LANGUAGE_PREFIX.DAILY['pt'];
+  const source = LANGUAGE_PREFIX.DAILY.pt;
 
   const mutation = useMutation<any, Error, DailyHistory, QueryKey>({
     mutationFn: async (data) => {

@@ -90,7 +90,7 @@ export function useItemsAttribution() {
   }, [tdrItemsQuery.data]);
 
   const getItem = (id: string) => {
-    if ((tdrItemsQuery.data ?? {})?.[id]) {
+    if (tdrItemsQuery.data?.[id]) {
       return tdrItemsQuery.data[id];
     }
     if (id) {

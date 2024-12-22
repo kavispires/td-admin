@@ -1,11 +1,11 @@
 import { Button, Flex, Progress, Rate, Space, Table, type TableProps, Tabs, Tag, Typography } from 'antd';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useMemo } from 'react';
-import type { ItemAtributesValues, ItemAttribute } from 'types';
 import type { TabsProps } from 'antd/lib';
-import { useNavigate } from 'react-router-dom';
 import { AlienSign } from 'components/Sprites';
+import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import type { ItemAtributesValues, ItemAttribute } from 'types';
 
 export function ItemStats() {
   // console.log(attributesList);
@@ -182,21 +182,24 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       dataIndex: 'negativeOnesPercentage',
       key: 'negativeOnesPercentage',
       render: (negativeOnesPercentage: string) => `${negativeOnesPercentage}%`,
-      sorter: (a, b) => Number.parseFloat(a.negativeOnesPercentage) - Number.parseFloat(b.negativeOnesPercentage),
+      sorter: (a, b) =>
+        Number.parseFloat(a.negativeOnesPercentage) - Number.parseFloat(b.negativeOnesPercentage),
     },
     {
       title: '-3',
       dataIndex: 'negativeThreesPercentage',
       key: 'negativeThreesPercentage',
       render: (negativeThreesPercentage: string) => `${negativeThreesPercentage}%`,
-      sorter: (a, b) => Number.parseFloat(a.negativeThreesPercentage) - Number.parseFloat(b.negativeThreesPercentage),
+      sorter: (a, b) =>
+        Number.parseFloat(a.negativeThreesPercentage) - Number.parseFloat(b.negativeThreesPercentage),
     },
     {
       title: '-10',
       dataIndex: 'negativeTensPercentage',
       key: 'negativeTensPercentage',
       render: (negativeTensPercentage: string) => `${negativeTensPercentage}%`,
-      sorter: (a, b) => Number.parseFloat(a.negativeTensPercentage) - Number.parseFloat(b.negativeTensPercentage),
+      sorter: (a, b) =>
+        Number.parseFloat(a.negativeTensPercentage) - Number.parseFloat(b.negativeTensPercentage),
     },
     {
       title: 'Completion',

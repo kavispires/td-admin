@@ -3,9 +3,9 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useMemo, useState } from 'react';
 import type { DailyQuartetSet } from 'types';
-import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 import { removeDuplicates } from 'utils';
 import { InspirationSample } from './InspirationSample';
+import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 
 type NewQuartetModalProps = {
   data: UseResourceFirebaseDataReturnType<DailyQuartetSet>['data'];

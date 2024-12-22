@@ -3,8 +3,8 @@ import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
+import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { DailyMovieSet, Item as ItemT } from 'types';
@@ -95,11 +95,11 @@ export function ItemsMoviesTable({
       sorter: (a, b) => {
         if (usedHistory[a.id] && !usedHistory[b.id]) {
           return -1;
-        } else if (!usedHistory[a.id] && usedHistory[b.id]) {
-          return 1;
-        } else {
-          return b.itemsIds.length - a.itemsIds.length;
         }
+        if (!usedHistory[a.id] && usedHistory[b.id]) {
+          return 1;
+        }
+        return b.itemsIds.length - a.itemsIds.length;
       },
     },
   ];

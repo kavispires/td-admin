@@ -22,6 +22,7 @@ function ImageCardsCategorizerPage() {
 
   // Build local object of tags
   const dataKey = JSON.stringify(data);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: no need to update the dictionary on every render
   const { colors, mood, elements, actions } = useMemo(() => buildDictionaries(data), [dataKey]);
 
   const handleFocusChange = (value: string[]) => {
@@ -129,9 +130,9 @@ function ImageCardsCategorizerPage() {
                   </div>
 
                   <div className="image-card-card__item">
-                    <label>Highlight</label>
+                    <label htmlFor="highlight-switch">Highlight</label>
                     <div>
-                      <Switch checked={card.highlight} onChange={toggleHighlight} />
+                      <Switch id="highlight-switch" checked={card.highlight} onChange={toggleHighlight} />
                     </div>
                   </div>
                 </div>

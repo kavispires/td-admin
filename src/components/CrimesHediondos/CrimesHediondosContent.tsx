@@ -1,12 +1,12 @@
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { orderBy } from 'lodash';
+import { useMemo } from 'react';
 import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
 import { CrimeTable } from './CrimeTable';
-import { useMemo } from 'react';
-import { orderBy } from 'lodash';
 import './CrimesHediondos.scss';
-import { TagsTable } from './TagsTable';
 import { SceneTable } from './SceneTable';
+import { TagsTable } from './TagsTable';
 
 export type CrimesHediondosContentProps = {
   weaponsQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;

@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemAttributionPageContent } from 'components/Items/Attributes/ItemAttributionPageContent';
 import { ItemAttributionFilters } from 'components/Items/Attributes/ItemAttributionFilters';
+import { ItemAttributionPageContent } from 'components/Items/Attributes/ItemAttributionPageContent';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import {

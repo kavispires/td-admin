@@ -50,21 +50,27 @@ export const cleanupData = (data: FirebaseImageCardLibrary): FirebaseImageCardLi
 
   Object.values(copy).forEach((card) => {
     if (card.focus && card.focus.length === 0) {
+      // biome-ignore lint/performance/noDelete: cleanup is necessary
       delete card.focus;
     }
     if (card.colors && card.colors.length === 0) {
+      // biome-ignore lint/performance/noDelete: cleanup is necessary
       delete card.colors;
     }
     if (card.mood && card.mood.length === 0) {
+      // biome-ignore lint/performance/noDelete: cleanup is necessary
       delete card.mood;
     }
     if (card.elements && card.elements.length === 0) {
+      // biome-ignore lint/performance/noDelete: cleanup is necessary
       delete card.elements;
     }
     if (card.actions && card.actions.length === 0) {
+      // biome-ignore lint/performance/noDelete: cleanup is necessary
       delete card.actions;
     }
     if (card.highlight === false) {
+      // biome-ignore lint/performance/noDelete: cleanup is necessary
       delete card.highlight;
     }
   });

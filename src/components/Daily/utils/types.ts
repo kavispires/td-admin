@@ -1,4 +1,5 @@
 import type { ArteRuimCard } from 'types';
+import type { DAILY_GAMES_KEYS } from './constants';
 
 export type DateKey = string; // Format YYYY-MM-DD
 
@@ -18,15 +19,10 @@ export type ParsedDailyHistoryEntry = {
   used: string[];
 };
 
+type DailyHistoryKey = (typeof DAILY_GAMES_KEYS)[keyof typeof DAILY_GAMES_KEYS];
+
 export type DailyHistory = {
-  'arte-ruim': DailyHistoryEntry;
-  'aqui-o': DailyHistoryEntry;
-  palavreado: DailyHistoryEntry;
-  artista: DailyHistoryEntry;
-  filmaco: DailyHistoryEntry;
-  'controle-de-estoque': DailyHistoryEntry;
-  'teoria-de-conjuntos': DailyHistoryEntry;
-  'comunicacao-alienigena': DailyHistoryEntry;
+  [key: DailyHistoryKey]: DailyHistoryEntry;
 };
 
 export type DailyArteRuimEntry = {

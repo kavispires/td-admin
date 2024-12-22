@@ -2,28 +2,28 @@ import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
 import { useEffect, useMemo, useState } from 'react';
 import type {
-  DailyDiscSet,
   ArteRuimCard,
-  DailyMovieSet,
   DailyDiagramItem,
   DailyDiagramRule,
-  ItemAttribute,
+  DailyDiscSet,
+  DailyMovieSet,
   ItemAtributesValues,
+  ItemAttribute,
 } from 'types';
 
-import { LANGUAGE_PREFIX } from '../utils/constants';
+import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
+import { buildDailyAquiOGames } from '../utils/games/daily-aqui-o';
+import { buildDailyArteRuimGames } from '../utils/games/daily-arte-ruim';
+import { buildDailyArtistaGames } from '../utils/games/daily-artista';
+import { buildDailyComunicacaoAlienigenaGames } from '../utils/games/daily-comunicacao-alienigena';
+import { buildDailyControleDeEstoqueGames } from '../utils/games/daily-controle-de-estoque';
+import { buildDailyFilmacoGames } from '../utils/games/daily-filmaco';
+import { buildDailyPalavreadoGames } from '../utils/games/daily-palavreado';
+import { buildDailyTeoriaDeConjuntosGames } from '../utils/games/daily-teoria-de-conjuntos';
 import type { DailyEntry } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 import { useLoadDrawings } from './useLoadDrawings';
 import { useParsedHistory } from './useParsedHistory';
-import { buildDailyArteRuimGames } from '../utils/games/daily-arte-ruim';
-import { buildDailyAquiOGames } from '../utils/games/daily-aqui-o';
-import { buildDailyPalavreadoGames } from '../utils/games/daily-palavreado';
-import { buildDailyFilmacoGames } from '../utils/games/daily-filmaco';
-import { buildDailyControleDeEstoqueGames } from '../utils/games/daily-controle-de-estoque';
-import { buildDailyArtistaGames } from '../utils/games/daily-artista';
-import { buildDailyTeoriaDeConjuntosGames } from '../utils/games/daily-teoria-de-conjuntos';
-import { buildDailyComunicacaoAlienigenaGames } from '../utils/games/daily-comunicacao-alienigena';
 
 export type UseLoadDailySetup = {
   isLoading: boolean;
@@ -55,6 +55,7 @@ export function useLoadDailySetup(
     setWarnings((prev) => [...prev, newWarning]);
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: reset warnings on change of basic props
   useEffect(() => {
     setWarnings([]);
   }, [batchSize, queryLanguage]);
@@ -62,7 +63,7 @@ export function useLoadDailySetup(
   // STEP 2: ARTE RUIM
   const drawingsQuery = useLoadDrawings(enabled, queryLanguage ?? 'pt');
   const areDrawingsLoading = drawingsQuery.some((q) => q.isLoading);
-  const [arteRuimHistory] = useParsedHistory('arte-ruim', historyQuery.data);
+  const [arteRuimHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTE_RUIM, historyQuery.data);
   const arteRuimEntries = useMemo(() => {
     if (areDrawingsLoading || !historyQuery.isSuccess) {
       return [];
@@ -81,7 +82,8 @@ export function useLoadDailySetup(
 
   // STEP 3: AQUI Ó
   const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets', enabled);
-  const [aquiOHistory] = useParsedHistory('aqui-o', historyQuery.data);
+  const [aquiOHistory] = useParsedHistory(DAILY_GAMES_KEYS.AQUI_O, historyQuery.data);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: functions shouldn't be used as dependencies
   const aquiOEntries = useMemo(() => {
     if (!aquiOSetsQuery.isSuccess || !historyQuery.isSuccess) {
       return {};
@@ -93,7 +95,7 @@ export function useLoadDailySetup(
   // STEP 4: Palavreado
   const wordsFourQuery = useLoadWordLibrary(4, queryLanguage, true, true);
   const wordsFiveQuery = useLoadWordLibrary(5, queryLanguage, true, true);
-  const [palavreadoHistory] = useParsedHistory('palavreado', historyQuery.data);
+  const [palavreadoHistory] = useParsedHistory(DAILY_GAMES_KEYS.PALAVREADO, historyQuery.data);
   const palavreadoEntries = useMemo(() => {
     if (
       !wordsFourQuery.data ||
@@ -110,7 +112,7 @@ export function useLoadDailySetup(
 
   // STEP 5: Artista
   const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`, enabled);
-  const [artistaHistory] = useParsedHistory('artista', historyQuery.data);
+  const [artistaHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTISTA, historyQuery.data);
   const artistaEntries = useMemo(() => {
     if (!arteRuimCardsQuery.isSuccess || !historyQuery.isSuccess) {
       return {};
@@ -136,7 +138,7 @@ export function useLoadDailySetup(
 
   // STEP 6: Filmaço
   const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets', enabled);
-  const [filmacoHistory] = useParsedHistory('filmaco', historyQuery.data);
+  const [filmacoHistory] = useParsedHistory(DAILY_GAMES_KEYS.FILMACO, historyQuery.data);
   const filmacoEntries = useMemo(() => {
     if (!movieSetsQuery.isSuccess || !historyQuery.isSuccess) {
       return {};
@@ -146,7 +148,10 @@ export function useLoadDailySetup(
   }, [movieSetsQuery, filmacoHistory, batchSize, historyQuery.isSuccess]);
 
   // SET 7: Controle de Estoque
-  const [controleDeEstoqueHistory] = useParsedHistory('controle-de-estoque', historyQuery.data);
+  const [controleDeEstoqueHistory] = useParsedHistory(
+    DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE,
+    historyQuery.data,
+  );
   const controleDeEstoqueEntries = useMemo(() => {
     if (!historyQuery.isSuccess) {
       return {};
@@ -156,7 +161,10 @@ export function useLoadDailySetup(
   }, [batchSize, historyQuery.isSuccess, controleDeEstoqueHistory]);
 
   // SET 8: Teoria de Conjuntos
-  const [teoriaDeConjuntosHistory] = useParsedHistory('teoria-de-conjuntos', historyQuery.data);
+  const [teoriaDeConjuntosHistory] = useParsedHistory(
+    DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS,
+    historyQuery.data,
+  );
   const thingsQuery = useTDResource<DailyDiagramItem>('daily-diagram-items', enabled);
   const rulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules', enabled);
   const teoriaDeConjuntosHistoryEntries = useMemo(() => {
@@ -173,9 +181,13 @@ export function useLoadDailySetup(
   }, [batchSize, historyQuery.isSuccess, teoriaDeConjuntosHistory, rulesQuery, thingsQuery]);
 
   // SET 9: Comunicação Alienígena
-  const [comunicacaoAlienigenaHistory] = useParsedHistory('comunicacao-alienigena', historyQuery.data);
+  const [comunicacaoAlienigenaHistory] = useParsedHistory(
+    DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA,
+    historyQuery.data,
+  );
   const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes', enabled);
   const tdrItemsAttributesValuesQuery = useTDResource<ItemAtributesValues>('items-attribute-values', enabled);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: functions shouldn't be used as dependencies
   const comunicacaoAlienigenaEntries = useMemo(() => {
     if (
       !historyQuery.isSuccess ||

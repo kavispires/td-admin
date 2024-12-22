@@ -1,4 +1,4 @@
-import { Button, Flex, Select, Space, Table, type TableColumnsType, Tag, Typography } from 'antd';
+import { App, Button, Flex, Select, Space, Table, type TableColumnsType, Tag, Typography } from 'antd';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
@@ -9,10 +9,10 @@ import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
 
 import { CloseOutlined, EditOutlined } from '@ant-design/icons';
 
-import { CrimeItemCard } from './CrimeItemCard';
-import type { CrimesHediondosContentProps, CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 import { useState } from 'react';
 import { useToggle } from 'react-use';
+import { CrimeItemCard } from './CrimeItemCard';
+import type { CrimesHediondosContentProps, CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
 type SceneTableProps = {
   sceneQuery: CrimesHediondosContentProps['scenesQuery'];
@@ -195,6 +195,7 @@ type SceneEvaluationSampleProps = {
 };
 
 function SceneEvaluationSample({ scene, objects }: SceneEvaluationSampleProps) {
+  const { message } = App.useApp();
   const [activeObject, setActiveObject] = useState<{
     entry: CrimesHediondosCard;
     likelihood: Dictionary<number>;
@@ -202,9 +203,13 @@ function SceneEvaluationSample({ scene, objects }: SceneEvaluationSampleProps) {
 
   const onGetSample = () => {
     const entry = sample(objects);
-    const likelihood = calculateSampleLikelihood(scene, entry!);
+    if (!entry) {
+      message.error('No objects to sample from');
+      return;
+    }
+    const likelihood = calculateSampleLikelihood(scene, entry);
 
-    setActiveObject({ entry: entry!, likelihood });
+    setActiveObject({ entry: entry, likelihood });
   };
 
   return (

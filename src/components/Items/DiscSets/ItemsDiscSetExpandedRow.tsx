@@ -9,9 +9,9 @@ import { removeDuplicates, sortItemsIds } from 'utils';
 
 import { PlusOutlined } from '@ant-design/icons';
 
+import { useEffect } from 'react';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { PasteIds } from '../ParseIds';
-import { useEffect } from 'react';
 
 type ItemsDiscSetExpandedRowProps = {
   disc: DailyDiscSet;
@@ -69,10 +69,12 @@ function RandomSample({ onUpdate, disc }: RandomSampleProps) {
     setUsedSampleIds([...usedSampleIds, ...newSample]);
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     setUsedSampleIds([...disc.itemsIds]);
   }, [disc.id]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (sampledItems.length === 0) {
       onSample();

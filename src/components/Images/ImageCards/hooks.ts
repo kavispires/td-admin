@@ -7,10 +7,10 @@ import { removeDuplicates } from 'utils';
 
 import { type UseMutateFunction, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
+import { useQueryParams } from 'hooks/useQueryParams';
 import { CARDS_PER_DECK, DEFAULT_ENTRY, TOTAL_DECKS } from './constants';
 import type { FirebaseImageCardLibrary, ImageCardData, ImageCardRelationship } from './types';
 import { cleanupData } from './utils';
-import { useQueryParams } from 'hooks/useQueryParams';
 
 const getRandomCardNumber = () => padStart(String(random(1, CARDS_PER_DECK)), 2, '0');
 
@@ -46,7 +46,7 @@ export function useRandomCard(
 
   const add = (key: keyof ImageCardData, value: string) => {
     if (key !== 'highlight' && card[key]) {
-      card[key]!.push(value);
+      card[key].push(value);
       setDirty(true);
     }
   };
@@ -71,6 +71,7 @@ export function useRandomCard(
     setDirty(true);
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     cardData[cardId] = card;
   }, [card]);
@@ -114,6 +115,7 @@ export function useImageCardsData() {
     }
   }, [isSuccess]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: error handling
   useEffect(() => {
     if (isError) {
       notification.error({
@@ -128,7 +130,7 @@ export function useImageCardsData() {
     isError: isMutationError,
     isSuccess: isSaved,
     mutate: save,
-  } = useMutation<{}, unknown, FirebaseImageCardLibrary, unknown>({
+  } = useMutation<unknown, unknown, FirebaseImageCardLibrary, unknown>({
     mutationKey: queryKey,
     mutationFn: async () => {
       const docRef = doc(firestore, 'data/imageCards');
@@ -249,7 +251,7 @@ export type UseImageCardsRelationshipDataReturnValue = {
   isSaving: boolean;
   isMutationError: boolean;
   isSaved: boolean;
-  save: UseMutateFunction<{}, unknown, ImageCardRelationship, unknown>;
+  save: UseMutateFunction<unknown, unknown, ImageCardRelationship, unknown>;
   setDirty: (value: React.SetStateAction<boolean>) => void;
   isDirty: boolean;
   stats: Stats;
@@ -285,7 +287,7 @@ export function useImageCardsRelationshipData(): UseImageCardsRelationshipDataRe
     isError: isMutationError,
     isSuccess: isSaved,
     mutate: save,
-  } = useMutation<{}, unknown, ImageCardRelationship, unknown>({
+  } = useMutation<unknown, unknown, ImageCardRelationship, unknown>({
     mutationKey: queryKey,
     mutationFn: async () => {
       const docRef = doc(firestore, 'data/imageCardsRelationships');
@@ -305,6 +307,7 @@ export function useImageCardsRelationshipData(): UseImageCardsRelationshipDataRe
     },
   });
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (!isRefetching && isFetched) {
       const total = Object.keys(data).length;
@@ -400,6 +403,7 @@ export function useRandomGroups(
   };
 
   // On Load get sample of cards
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (cardIds.length === 0) {
       onRandomCards();

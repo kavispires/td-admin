@@ -1,6 +1,6 @@
-import clsx from 'clsx';
 // Ant Design Resources
 import { Popover, Tag } from 'antd';
+import clsx from 'clsx';
 // Types
 import type { CrimesHediondosCard } from 'types/tdr';
 // Hooks

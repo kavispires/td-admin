@@ -299,7 +299,7 @@ export const guessSyllablesSeparation = (word: string): string => {
 
     // Hyphen makes a syllable
     if (char === '-') {
-      syllables.push(currentSyllable + '-');
+      syllables.push(`${currentSyllable}-`);
       currentSyllable = '';
       continue;
     }

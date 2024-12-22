@@ -1,8 +1,8 @@
 import { Flex } from 'antd';
-import { useMemo } from 'react';
-import { FilterSelect } from './FilterEntries';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, orderBy } from 'lodash';
+import { useMemo } from 'react';
+import { FilterSelect } from './FilterEntries';
 
 export function buildDataFilters<T extends PlainObject>(data: Dictionary<T>, ignoreKeys: string[] = []) {
   const keys = Object.keys(

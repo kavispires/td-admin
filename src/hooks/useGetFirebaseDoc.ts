@@ -1,7 +1,7 @@
 import { doc, getDoc } from 'firebase/firestore';
 import { firestore } from 'services/firebase';
 
-import { type QueryKey, useQuery, type UseQueryOptions } from '@tanstack/react-query';
+import { type QueryKey, type UseQueryOptions, useQuery } from '@tanstack/react-query';
 import { getCurrentDateTime } from 'utils';
 
 export function getDocQueryFunction<TQueryFnData>(path: string, docId: string) {

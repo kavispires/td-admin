@@ -1,10 +1,10 @@
 import { Flex, Typography } from 'antd';
-import { ItemCard } from '../ItemCard';
-import { capitalize } from 'lodash';
+import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { useItemsContext } from 'context/ItemsContext';
 import { useGridPagination } from 'hooks/useGridPagination';
-import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { capitalize } from 'lodash';
+import { ItemCard } from '../ItemCard';
 
 export function ItemListing() {
   const { queryParams } = useQueryParams();

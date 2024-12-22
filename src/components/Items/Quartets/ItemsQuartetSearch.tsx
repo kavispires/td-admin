@@ -1,7 +1,7 @@
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 
-import type { DailyQuartetSet } from 'types';
 import { Space, Typography } from 'antd';
+import type { DailyQuartetSet } from 'types';
 
 import { useMemo, useState } from 'react';
 import { ItemsQuartetTypeahead } from './ItemsQuartetTypeahead';
@@ -22,9 +22,7 @@ export function ItemsQuartetSearch({
 
       <ItemsQuartetTypeahead quartets={data} onFinish={(id) => setActiveQuartetId(id)} />
 
-      {Boolean(activeQuartet) && (
-        <ItemsQuartetsTable rows={[activeQuartet!]} addEntryToUpdate={addEntryToUpdate} />
-      )}
+      {!!activeQuartet && <ItemsQuartetsTable rows={[activeQuartet]} addEntryToUpdate={addEntryToUpdate} />}
     </Space>
   );
 }

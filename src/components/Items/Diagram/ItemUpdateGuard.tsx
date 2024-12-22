@@ -1,9 +1,9 @@
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule } from 'types';
-import { EditThingModal } from './EditThingModal';
 import { wait } from 'utils';
-import { getLatestRuleUpdate, SYLLABLE_SEPARATOR } from './utils';
+import { EditThingModal } from './EditThingModal';
+import { SYLLABLE_SEPARATOR, getLatestRuleUpdate } from './utils';
 
 type ItemUpdateGuardProps = {
   things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
@@ -76,7 +76,7 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
           width="90vw"
         />
       )}
-      <>{children}</>
+      {children}
     </>
   );
 }

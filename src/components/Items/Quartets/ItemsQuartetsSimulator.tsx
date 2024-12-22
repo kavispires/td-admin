@@ -90,7 +90,13 @@ function simulateQuartetGame(allQuartets: UseResourceFirebaseDataReturnType<Dail
     'length',
   ).filter((quartets) => quartets.length > 0);
 
-  const nonPerfectQuartets = orderedMatches.map((quartets) => cloneDeep(sample(quartets)!));
+  const nonPerfectQuartets = orderedMatches.map((quartets) => {
+    const sampledQuartet = sample(quartets);
+    if (!sampledQuartet) {
+      throw new Error('No random quartet found in ordered matches.');
+    }
+    return cloneDeep(sampledQuartet);
+  });
 
   // Ensure we only have 3 non-perfect quartets
   const selectedNonPerfectQuartets = nonPerfectQuartets.slice(0, 3);
@@ -117,7 +123,11 @@ function simulateQuartetGame(allQuartets: UseResourceFirebaseDataReturnType<Dail
       throw new Error('Not enough quartets to complete the simulation.');
     }
 
-    const randomQuartet = cloneDeep(sample(remainingQuartets)!);
+    const sampledQuartet = sample(remainingQuartets);
+    if (!sampledQuartet) {
+      throw new Error('No random quartet found in remaining quartets.');
+    }
+    const randomQuartet = cloneDeep(sampledQuartet);
     randomQuartet.itemsIds.forEach((id) => usedItemIds.add(id));
 
     const randomItemIds = sampleSize(randomQuartet.itemsIds, 4);

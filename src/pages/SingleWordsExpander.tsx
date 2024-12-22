@@ -1,8 +1,8 @@
 import { Input, Layout, Typography } from 'antd';
+import { ResponseState } from 'components/Common';
 import { SectionTitle } from 'components/Common/SectionTitle';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { ResponseState } from 'components/Common';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
 import type { TextCard } from 'types';
@@ -86,7 +86,7 @@ function SingleWordsExpander() {
   };
 
   return (
-    <PageLayout title="Single Word Expander" subtitle={Boolean(language) ? `${language}` : ''}>
+    <PageLayout title="Single Word Expander" subtitle={language ? `${language}` : ''}>
       <Layout hasSider>
         <PageSider>
           <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />

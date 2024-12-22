@@ -1,13 +1,13 @@
 import { Layout } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ContendersContent } from 'components/Contenders/ContendersContent';
+import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 
+import { ContendersFilters } from 'components/Contenders/ContendersFilters';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
+import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { isEmpty } from 'lodash';
 import type { ContenderCard } from 'types';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
-import { ContendersFilters } from 'components/Contenders/ContendersFilters';
 
 export function Contenders() {
   const contendersQuery = useResourceFirebaseData<ContenderCard>({

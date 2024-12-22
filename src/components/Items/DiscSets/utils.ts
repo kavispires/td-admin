@@ -34,7 +34,11 @@ export function generateUniqueArrays(sets: Dictionary<DailyDiscSet>, N: number):
   let previouslyUsedIds: BooleanDictionary = {
     ...fromPairs(nsfwIds.map((key) => [key, true])),
   };
-  Object.values(sets).forEach((set) => set.itemsIds.forEach((id) => (previouslyUsedIds[id] = true)));
+  Object.values(sets).forEach((set) => {
+    set.itemsIds.forEach((id) => {
+      previouslyUsedIds[id] = true;
+    });
+  });
 
   let availableRange = range(1, 1858).filter((n) => !previouslyUsedIds[n] && !nsfwIds.includes(String(n)));
   while (result.length < N) {

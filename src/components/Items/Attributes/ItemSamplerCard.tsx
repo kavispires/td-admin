@@ -1,14 +1,13 @@
 import { Button, Card, Divider, Empty, Flex, Modal, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
+import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useItemSampler } from 'hooks/useItemSampler';
 import { isEmpty } from 'lodash';
 import { Fragment } from 'react';
-
-import { AttributionValueButtons } from './AttributionValueButtons';
-import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { useToggle } from 'react-use';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { wait } from 'utils';
+import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
+import { AttributionValueButtons } from './AttributionValueButtons';
 
 export function ItemSamplerCard() {
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
@@ -36,11 +35,15 @@ export function ItemSamplerCard() {
     item: getItem(itemId),
   }));
 
-  const unsetItems = sample.filter(({ itemAttributes }) => !itemAttributes.attributes[attribute!.id]);
+  const unsetItems = sample.filter(
+    ({ itemAttributes }) => attribute?.id && !itemAttributes.attributes[attribute.id],
+  );
 
   const onMarkRestAsUnrelated = () => {
     unsetItems.forEach(({ item }) => {
-      updateAttributeValue(item.id, attribute!.id, -3);
+      if (attribute?.id) {
+        updateAttributeValue(item.id, attribute.id, -3);
+      }
     });
   };
 
@@ -55,10 +58,10 @@ export function ItemSamplerCard() {
           </Typography.Text>
         }
         actions={[
-          <Button onClick={onMarkRestAsUnrelated} danger disabled={unsetItems.length === 0}>
+          <Button key="1" onClick={onMarkRestAsUnrelated} danger disabled={unsetItems.length === 0}>
             Mark rest as unrelated
           </Button>,
-          <Button type="primary" ghost onClick={onGetSample}>
+          <Button key="2" type="primary" ghost onClick={onGetSample}>
             Get New Sample
           </Button>,
         ]}
@@ -88,13 +91,15 @@ export function ItemSamplerCard() {
                     <ItemName item={item} language="en" />
                     <ItemName item={item} language="pt" />
                   </Flex>
-                  <AttributionValueButtons
-                    attribute={attribute!}
-                    value={itemAttributes.attributes[attribute!.id]}
-                    onChange={(attributeId: string, value: number) =>
-                      updateAttributeValue(item.id, attributeId, value)
-                    }
-                  />
+                  {!!attribute && (
+                    <AttributionValueButtons
+                      attribute={attribute}
+                      value={itemAttributes.attributes[attribute.id]}
+                      onChange={(attributeId: string, value: number) =>
+                        updateAttributeValue(item.id, attributeId, value)
+                      }
+                    />
+                  )}
                 </Flex>
                 <Divider className="my-1" />
               </Fragment>
@@ -159,16 +164,18 @@ export function SingleSampleModalFlow() {
               <ItemName item={item} language="en" />
               <ItemName item={item} language="pt" />
             </Flex>
-            <AttributionValueButtons
-              size="large"
-              attribute={attribute!}
-              value={itemAttributes.attributes[attribute!.id]}
-              onChange={async (attributeId: string, value: number) => {
-                updateAttributeValue(item.id, attributeId, value);
-                await wait(500);
-                onGetSample();
-              }}
-            />
+            {!!attribute && (
+              <AttributionValueButtons
+                size="large"
+                attribute={attribute}
+                value={itemAttributes.attributes[attribute.id]}
+                onChange={async (attributeId: string, value: number) => {
+                  updateAttributeValue(item.id, attributeId, value);
+                  await wait(500);
+                  onGetSample();
+                }}
+              />
+            )}
           </Flex>
         )}
         <Button onClick={onGetSample}>Another Sample</Button>

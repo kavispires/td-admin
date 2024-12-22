@@ -2,11 +2,11 @@ import { App } from 'antd';
 import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
 import { useEffect, useMemo } from 'react';
 
-import { type QueryKey, useQueries, useQuery, type UseQueryOptions } from '@tanstack/react-query';
+import { type QueryKey, type UseQueryOptions, useQueries, useQuery } from '@tanstack/react-query';
 
+import { printFirebase } from 'services/firebase';
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import type { DataSuffixCounts } from '../utils/types';
-import { printFirebase } from 'services/firebase';
 
 /**
  * Custom hook for loading drawings.
@@ -31,6 +31,7 @@ export function useLoadDrawings(enabled: boolean, queryLanguage: Language) {
     }
   }, [suffixCountsQuery.isSuccess]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: only notify on error
   useEffect(() => {
     if (suffixCountsQuery.isError) {
       notification.error({
@@ -45,6 +46,7 @@ export function useLoadDrawings(enabled: boolean, queryLanguage: Language) {
   const libraryCount = suffixCountsQuery.data?.[suffixData] ?? 0;
 
   const docPrefix = `drawings${queryLanguage === 'pt' ? 'PT' : 'EN'}`;
+  // biome-ignore lint/correctness/useExhaustiveDependencies: notification function shouldn't trigger
   const queries: UseQueryOptions[] = useMemo(() => {
     return new Array(libraryCount).fill(0).map((_, index) => {
       return {
@@ -59,7 +61,7 @@ export function useLoadDrawings(enabled: boolean, queryLanguage: Language) {
         },
       };
     });
-  }, [libraryCount]);
+  }, [libraryCount, docPrefix, enabled]);
 
   return useQueries({ queries });
 }

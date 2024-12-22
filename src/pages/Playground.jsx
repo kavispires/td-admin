@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { Divider, Layout, Typography } from 'antd';
 
-import { useTitle } from 'react-use';
 import { Header } from 'components/Layout/Header';
+import { useTitle } from 'react-use';
 import { PlaygroundContent } from './PlaygroundContent';
 
 const { Text } = Typography;

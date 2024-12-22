@@ -2,9 +2,9 @@ import { Layout, Space, Typography } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
+import { SpriteFilters } from 'components/Sprites/SpriteFilters';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
-import { SpriteFilters } from 'components/Sprites/SpriteFilters';
 import { SPRITE_LIBRARY } from 'utils/constants';
 
 function Sprites() {

@@ -1,4 +1,12 @@
+import {
+  CheckSquareOutlined,
+  CloseSquareOutlined,
+  LineChartOutlined,
+  PlusSquareOutlined,
+  QuestionCircleOutlined,
+} from '@ant-design/icons';
 import { App, Button, Flex, InputNumber, Space, Typography } from 'antd';
+import clsx from 'clsx';
 import {
   FilterCheckBox,
   FilterNumber,
@@ -9,17 +17,9 @@ import {
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { keys, sampleSize, shuffle, sortBy } from 'lodash';
 import { useState } from 'react';
-import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
-import clsx from 'clsx';
 import type { ItemAtributesValues, ItemAttribute } from 'types';
-import {
-  CheckSquareOutlined,
-  CloseSquareOutlined,
-  LineChartOutlined,
-  PlusSquareOutlined,
-  QuestionCircleOutlined,
-} from '@ant-design/icons';
+import { ATTRIBUTE_VALUE } from 'utils/constants';
+import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { DailyAliemSimulator } from './DailyAlienSimulator';
 
 const ROMAN_NUMERALS = ['', 'I', 'II', 'III', 'IV', 'V'];

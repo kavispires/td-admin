@@ -1,6 +1,6 @@
 import { Card } from 'antd';
+import { Fragment, useMemo } from 'react';
 import { Entry, EntryDualLanguage, EntryLanguage, EntryList, EntryListItem, EntryNSFW } from './Entry';
-import { useMemo } from 'react';
 
 type CardEntryProps = {
   entry: PlainObject & { id: string };
@@ -10,6 +10,7 @@ type CardEntryProps = {
 export function CardEntry({ entry, kind }: CardEntryProps) {
   const keys = Object.keys(entry).filter((key) => key !== 'id');
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const entries = useMemo(() => {
     return keys.map((key) => {
       // Ignore id
@@ -63,7 +64,7 @@ export function CardEntry({ entry, kind }: CardEntryProps) {
       }
 
       console.log('Skip', key, value);
-      return <></>;
+      return <Fragment key={key}></Fragment>;
     });
   }, [kind]);
 

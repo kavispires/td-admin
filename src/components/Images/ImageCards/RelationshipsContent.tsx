@@ -1,7 +1,3 @@
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { isEmpty } from 'lodash';
-import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
-import { Card, FloatButton, Image, Tag } from 'antd';
 import {
   ExpandOutlined,
   FileImageOutlined,
@@ -10,11 +6,15 @@ import {
   SyncOutlined,
   WarningOutlined,
 } from '@ant-design/icons';
-import { ImageCard } from '../ImageCard';
-import { RelationshipCountTag } from './RelationshipCountTag';
+import { Card, FloatButton, Image, Tag } from 'antd';
 import { TransparentButton } from 'components/Common';
+import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
+import { isEmpty } from 'lodash';
 import { useMemo, useRef } from 'react';
 import { useMeasure } from 'react-use';
+import { ImageCard } from '../ImageCard';
+import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
+import { RelationshipCountTag } from './RelationshipCountTag';
 
 export function RelationshipsContent() {
   const {

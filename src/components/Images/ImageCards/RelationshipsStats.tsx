@@ -1,5 +1,5 @@
 import { BarChartOutlined } from '@ant-design/icons';
-import { Form, Avatar } from 'antd';
+import { Avatar, Form } from 'antd';
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 
 export function RelationshipsStats() {

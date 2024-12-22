@@ -7,10 +7,10 @@ import { cloneDeep, isEmpty, omitBy } from 'lodash';
 import type { DailyDiscSet } from 'types';
 import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
 
-import { AddNewSetFlow } from './AddNewSetFlow';
+import { FrownOutlined, TableOutlined } from '@ant-design/icons';
 import { FilterSegments } from 'components/Common';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { FrownOutlined, TableOutlined } from '@ant-design/icons';
+import { AddNewSetFlow } from './AddNewSetFlow';
 
 export function ItemsDiscSetsFilters({
   data,

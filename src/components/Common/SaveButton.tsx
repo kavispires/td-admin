@@ -32,6 +32,7 @@ export function SaveButton({
   }, interval); // 10 minutes in milliseconds
 
   // Reset the timeout if `isDirty` is true and dirt has
+  // biome-ignore lint/correctness/useExhaustiveDependencies: a function shouldn't retrigger the effect
   useEffect(() => {
     if (isDirty) {
       togglePendingSave(true);

@@ -4,10 +4,10 @@ import { useMemo, useState } from 'react';
 
 import { useQueryClient } from '@tanstack/react-query';
 
+import { deserializeFirebaseData, serializeFirebaseData } from 'utils';
 import { useGetFirebaseDoc } from './useGetFirebaseDoc';
 import { useTDResource } from './useTDResource';
 import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
-import { deserializeFirebaseData, serializeFirebaseData } from 'utils';
 
 export type UseResourceFirebaseDataProps = {
   tdrResourceName: string;

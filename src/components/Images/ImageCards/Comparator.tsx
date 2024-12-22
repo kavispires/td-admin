@@ -1,11 +1,11 @@
 import { Button, Flex, Image, Layout, Modal, Tag } from 'antd';
 
-import { type UseImageCardsRelationshipDataReturnValue, useRandomCards } from './hooks';
 import { useCardWidth } from 'hooks/useCardWidth';
-import { RelationshipCountTag } from './RelationshipCountTag';
-import { ImageCard } from '../ImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useKey, useWindowSize } from 'react-use';
+import { ImageCard } from '../ImageCard';
+import { RelationshipCountTag } from './RelationshipCountTag';
+import { type UseImageCardsRelationshipDataReturnValue, useRandomCards } from './hooks';
 
 type ComparatorProps = {
   query: UseImageCardsRelationshipDataReturnValue;

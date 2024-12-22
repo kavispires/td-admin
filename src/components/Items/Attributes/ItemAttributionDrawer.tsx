@@ -17,12 +17,14 @@ export function ItemAttributionDrawer() {
     removeQueryParam('drawer');
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: function
   useEffect(() => {
     if (queryParamsItemId) {
       jumpToItem('goTo', queryParamsItemId);
     }
   }, [queryParamsItemId, jumpToItem, removeQueryParam]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const filteredAttributesList = useMemo(
     () =>
       showOnlyUnset

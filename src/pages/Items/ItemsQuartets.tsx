@@ -1,7 +1,7 @@
 import { Flex, Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemsQuartetsContent } from 'components/Items/Quartets/ItemsQuartetsContent';
 import { ItemsQuartetSearch } from 'components/Items/Quartets/ItemsQuartetSearch';
+import { ItemsQuartetsContent } from 'components/Items/Quartets/ItemsQuartetsContent';
 import { ItemsQuartetsFilters } from 'components/Items/Quartets/ItemsQuartetsFilters';
 import { ItemsQuartetsSimulator } from 'components/Items/Quartets/ItemsQuartetsSimulator';
 import { PageLayout } from 'components/Layout';
