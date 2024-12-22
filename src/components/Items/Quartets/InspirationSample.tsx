@@ -1,6 +1,6 @@
 import { Button, Flex, Typography } from 'antd';
 import { useState } from 'react';
-import { DailyQuartetSet, Item as ItemT } from 'types';
+import type { DailyQuartetSet, Item as ItemT } from 'types';
 import { useTDResource } from 'hooks/useTDResource';
 import { difference, sampleSize } from 'lodash';
 import { Item } from 'components/Sprites';

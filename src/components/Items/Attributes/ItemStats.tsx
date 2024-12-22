@@ -1,8 +1,8 @@
-import { Button, Flex, Progress, Rate, Space, Table, TableProps, Tabs, Tag, Typography } from 'antd';
+import { Button, Flex, Progress, Rate, Space, Table, type TableProps, Tabs, Tag, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useMemo } from 'react';
-import { ItemAtributesValues, ItemAttribute } from 'types';
-import { TabsProps } from 'antd/lib';
+import type { ItemAtributesValues, ItemAttribute } from 'types';
+import type { TabsProps } from 'antd/lib';
 import { useNavigate } from 'react-router-dom';
 import { AlienSign } from 'components/Sprites';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -155,7 +155,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       dataIndex: 'positivePercentage',
       key: 'positivePercentage',
       render: (positivePercentage: string) => `${positivePercentage}%`,
-      sorter: (a, b) => parseFloat(a.positivePercentage) - parseFloat(b.positivePercentage),
+      sorter: (a, b) => Number.parseFloat(a.positivePercentage) - Number.parseFloat(b.positivePercentage),
     },
     {
       title: '10',
@@ -168,44 +168,44 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
 
         return `${tensPercentage}%`;
       },
-      sorter: (a, b) => parseFloat(a.tensPercentage) - parseFloat(b.tensPercentage),
+      sorter: (a, b) => Number.parseFloat(a.tensPercentage) - Number.parseFloat(b.tensPercentage),
     },
     {
       title: '5',
       dataIndex: 'fivesPercentage',
       key: 'fivesPercentage',
       render: (fivesPercentage: string) => `${fivesPercentage}%`,
-      sorter: (a, b) => parseFloat(a.fivesPercentage) - parseFloat(b.fivesPercentage),
+      sorter: (a, b) => Number.parseFloat(a.fivesPercentage) - Number.parseFloat(b.fivesPercentage),
     },
     {
       title: '-1',
       dataIndex: 'negativeOnesPercentage',
       key: 'negativeOnesPercentage',
       render: (negativeOnesPercentage: string) => `${negativeOnesPercentage}%`,
-      sorter: (a, b) => parseFloat(a.negativeOnesPercentage) - parseFloat(b.negativeOnesPercentage),
+      sorter: (a, b) => Number.parseFloat(a.negativeOnesPercentage) - Number.parseFloat(b.negativeOnesPercentage),
     },
     {
       title: '-3',
       dataIndex: 'negativeThreesPercentage',
       key: 'negativeThreesPercentage',
       render: (negativeThreesPercentage: string) => `${negativeThreesPercentage}%`,
-      sorter: (a, b) => parseFloat(a.negativeThreesPercentage) - parseFloat(b.negativeThreesPercentage),
+      sorter: (a, b) => Number.parseFloat(a.negativeThreesPercentage) - Number.parseFloat(b.negativeThreesPercentage),
     },
     {
       title: '-10',
       dataIndex: 'negativeTensPercentage',
       key: 'negativeTensPercentage',
       render: (negativeTensPercentage: string) => `${negativeTensPercentage}%`,
-      sorter: (a, b) => parseFloat(a.negativeTensPercentage) - parseFloat(b.negativeTensPercentage),
+      sorter: (a, b) => Number.parseFloat(a.negativeTensPercentage) - Number.parseFloat(b.negativeTensPercentage),
     },
     {
       title: 'Completion',
       dataIndex: 'completionPercentage',
       key: 'completionPercentage',
       render: (completionPercentage: string) => (
-        <Progress percent={parseFloat(completionPercentage)} size="small" />
+        <Progress percent={Number.parseFloat(completionPercentage)} size="small" />
       ),
-      sorter: (a, b) => parseFloat(a.completionPercentage) - parseFloat(b.completionPercentage),
+      sorter: (a, b) => Number.parseFloat(a.completionPercentage) - Number.parseFloat(b.completionPercentage),
     },
     {
       title: 'Level',

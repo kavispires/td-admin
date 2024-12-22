@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 // Ant Design Resources
-import { Image, ImageProps } from 'antd';
+import { Image, type ImageProps } from 'antd';
 
 // Hooks
 import { useBaseUrl } from 'hooks/useBaseUrl';

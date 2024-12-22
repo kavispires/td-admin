@@ -6,7 +6,7 @@ import { PageLayout, PageSider } from 'components/Layout';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
-import { CrimeSceneTile, CrimesHediondosCard, Item } from 'types';
+import type { CrimeSceneTile, CrimesHediondosCard, Item } from 'types';
 
 function CrimesHediondos() {
   const weaponsQuery = useResourceFirebaseData<CrimesHediondosCard>({

@@ -9,7 +9,7 @@ import { useCrimesHediondosTags } from 'hooks/useCrimesHediondosTags';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCopyToClipboard } from 'react-use';
-import { CrimesHediondosCard } from 'types';
+import type { CrimesHediondosCard } from 'types';
 
 import { CopyOutlined } from '@ant-design/icons';
 import { CrimeItemCard } from 'components/CrimesHediondos';

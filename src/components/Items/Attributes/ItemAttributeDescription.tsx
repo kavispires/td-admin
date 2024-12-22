@@ -4,7 +4,7 @@ import { FilterSwitch } from 'components/Common';
 import { AlienSign } from 'components/Sprites';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useMemo } from 'react';
-import { ItemAtributesValues, ItemAttribute } from 'types';
+import type { ItemAtributesValues, ItemAttribute } from 'types';
 import { filterMessage, getItemAttributePriorityResponse, parseAttribute } from 'utils';
 
 type ItemAttributeDescriptionProps = {

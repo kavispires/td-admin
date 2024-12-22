@@ -1,17 +1,17 @@
-import { Button, Input, Space, Table, TableColumnsType, Tag } from 'antd';
+import { Button, Input, Space, Table, type TableColumnsType, Tag } from 'antd';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { cloneDeep } from 'lodash';
-import { CrimesHediondosCard } from 'types';
+import type { CrimesHediondosCard } from 'types';
 
 import { CheckCircleFilled } from '@ant-design/icons';
 
 import { CardEditTags } from './CardEditTags';
 import { CrimeItemCard } from './CrimeItemCard';
-import { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
+import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
 export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInnerContentProps) {
   const onCopyToClipboard = useCopyToClipboardFunction();

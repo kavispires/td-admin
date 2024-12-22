@@ -1,8 +1,8 @@
 import { Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useMemo, useState } from 'react';
-import { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
+import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
 import { useTDResource } from 'hooks/useTDResource';
 
 import { RulesByThing } from './RulesByThing';

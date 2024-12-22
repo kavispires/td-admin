@@ -1,8 +1,8 @@
 import { Button, Flex, Rate, Space, Typography } from 'antd';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { cloneDeep, intersection, orderBy, sample, sampleSize } from 'lodash';
 import { useState } from 'react';
-import { DailyQuartetSet } from 'types';
+import type { DailyQuartetSet } from 'types';
 
 import { Item } from 'components/Sprites';
 

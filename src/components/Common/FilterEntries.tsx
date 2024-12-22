@@ -1,6 +1,6 @@
 import { Checkbox, Form, InputNumber, Segmented, Select, Switch, Tooltip } from 'antd';
-import { SegmentedValue } from 'antd/es/segmented';
-import { ReactNode } from 'react';
+import type { SegmentedValue } from 'antd/es/segmented';
+import type { ReactNode } from 'react';
 
 type StrOrNum = string | number;
 

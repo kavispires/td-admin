@@ -5,7 +5,7 @@ import { useItemsContext } from 'context/ItemsContext';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useItemUpdate } from 'hooks/useItemUpdate';
 import { memoize, snakeCase } from 'lodash';
-import { Item as ItemT } from 'types';
+import type { Item as ItemT } from 'types';
 
 import { EditOutlined, FireFilled, MenuOutlined, RollbackOutlined, SaveOutlined } from '@ant-design/icons';
 import { useQueryParams } from 'hooks/useQueryParams';

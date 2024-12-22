@@ -1,5 +1,5 @@
-import { Pagination, Space, SpaceProps, TableProps } from 'antd';
-import { ReactNode } from 'react';
+import { Pagination, Space, type SpaceProps, type TableProps } from 'antd';
+import type { ReactNode } from 'react';
 
 type PaginationWrapperProps = {
   children: ReactNode;

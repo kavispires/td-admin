@@ -10,7 +10,7 @@ import { SearchDuplicates } from 'components/SearchDuplicates';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceState } from 'hooks/useResourceState';
 import { useEffect, useState } from 'react';
-import { ArteRuimCard } from 'types';
+import type { ArteRuimCard } from 'types';
 
 import { checkForDuplicates, findSimilar, stringRemoveAccents } from 'utils';
 import { RESOURCE_NAMES, SEARCH_THRESHOLD } from 'utils/constants';

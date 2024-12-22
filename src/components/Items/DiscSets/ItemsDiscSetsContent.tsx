@@ -1,8 +1,8 @@
 import { Button, Flex, Popconfirm, Space, Typography } from 'antd';
 import { Item } from 'components/Sprites';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { DailyDiscSet } from 'types';
+import type { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { DailyDiscSet } from 'types';
 import { DeleteFilled } from '@ant-design/icons';
 import { CopyIdsButton } from '../CopyIdsButton';
 import { useQueryParams } from 'hooks/useQueryParams';

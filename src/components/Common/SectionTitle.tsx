@@ -1,5 +1,5 @@
 import { Typography } from 'antd';
-import { TitleProps } from 'antd/lib/typography/Title';
+import type { TitleProps } from 'antd/lib/typography/Title';
 
 export function SectionTitle({ children, level, ...rest }: TitleProps) {
   return (

@@ -5,11 +5,11 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
-import { CrimeSceneTile, CrimesHediondosCard } from 'types';
+import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
 import { sortJsonKeys } from 'utils';
 
 import { EnvironmentOutlined, SkinOutlined, TagOutlined } from '@ant-design/icons';
-import { CrimesHediondosContentProps } from './CrimesHediondosContent';
+import type { CrimesHediondosContentProps } from './CrimesHediondosContent';
 
 export function CrimesHediondosFilters({
   weaponsQuery,

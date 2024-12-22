@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Item } from 'components/Sprites';
 import { orderBy } from 'lodash';
 import { useEffect, useMemo } from 'react';
-import { DailyDiagramItem, DailyDiagramRule } from 'types';
+import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 
 import {
   separateSyllables,
@@ -46,12 +46,12 @@ export function EditThingModal({
       // Not auto
       (r) => {
         const index = ['manual', 'dependency', 'auto'].indexOf(r.method);
-        return index === -1 ? Infinity : index;
+        return index === -1 ? Number.POSITIVE_INFINITY : index;
       },
       // Sort by type
       (r) => {
         const index = ['grammar', 'comparison', 'order', 'count', 'contains', 'ends'].indexOf(r.type);
-        return index === -1 ? Infinity : index;
+        return index === -1 ? Number.POSITIVE_INFINITY : index;
       },
       // Sort by partial title
       (r) => r.title.slice(0, 7),

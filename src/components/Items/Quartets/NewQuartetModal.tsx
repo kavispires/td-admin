@@ -1,8 +1,8 @@
 import { Modal } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useMemo, useState } from 'react';
-import { DailyQuartetSet } from 'types';
+import type { DailyQuartetSet } from 'types';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 import { removeDuplicates } from 'utils';
 import { InspirationSample } from './InspirationSample';

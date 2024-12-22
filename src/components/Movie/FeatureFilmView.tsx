@@ -1,7 +1,7 @@
 import { Button, Divider, Flex, Input, Space, Tag, Typography } from 'antd';
 import { cloneDeep, sample, sampleSize, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
-import { Item, MovieCard, MovieGenres, SuspectCard, TestimonyQuestionCard } from 'types';
+import type { Item, MovieCard, MovieGenres, SuspectCard, TestimonyQuestionCard } from 'types';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { ActorRole } from './ActorRole';
 
@@ -146,7 +146,7 @@ const buildFeatureFilm = (
   rating += selectedSubGenre.rating;
 
   // Define features
-  let features: MovieGenres['features'][keyof MovieGenres['features']][] = [];
+  const features: MovieGenres['features'][keyof MovieGenres['features']][] = [];
   Object.values(movieGenres.features ?? {}).forEach((feature) => {
     const hasFeature = Math.random() < feature.probability;
 

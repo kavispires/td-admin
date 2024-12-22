@@ -4,11 +4,11 @@ import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { Item } from 'components/Sprites';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEqual } from 'lodash';
 import { useMemo, useState } from 'react';
-import { DailyDiscSet, Item as ItemT } from 'types';
+import type { DailyDiscSet, Item as ItemT } from 'types';
 
 type OrphanItemsProps = Pick<UseResourceFirebaseDataReturnType<DailyDiscSet>, 'data' | 'addEntryToUpdate'>;
 

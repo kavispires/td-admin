@@ -5,7 +5,7 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
-import { ItemAtributesValues, ItemAttribute } from 'types';
+import type { ItemAtributesValues, ItemAttribute } from 'types';
 import { getItemAttributePriorityResponse, sortJsonKeys } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 

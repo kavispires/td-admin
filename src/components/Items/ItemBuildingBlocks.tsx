@@ -1,7 +1,7 @@
 import { Button, Input } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
-import { Item as ItemT } from 'types';
+import type { Item as ItemT } from 'types';
 
 import { FireFilled, IdcardOutlined } from '@ant-design/icons';
 import { useSearchParams } from 'react-router-dom';

@@ -1,6 +1,6 @@
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { ReactNode, useEffect, useMemo, useState } from 'react';
-import { DailyDiagramItem, DailyDiagramRule } from 'types';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { type ReactNode, useEffect, useMemo, useState } from 'react';
+import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { EditThingModal } from './EditThingModal';
 import { wait } from 'utils';
 import { getLatestRuleUpdate, SYLLABLE_SEPARATOR } from './utils';

@@ -1,16 +1,16 @@
-import { Button, Flex, Select, Space, Table, TableColumnsType, Tag, Typography } from 'antd';
+import { Button, Flex, Select, Space, Table, type TableColumnsType, Tag, Typography } from 'antd';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { cloneDeep, sample } from 'lodash';
-import { CrimeSceneTile, CrimesHediondosCard } from 'types';
+import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
 
 import { CloseOutlined, EditOutlined } from '@ant-design/icons';
 
 import { CrimeItemCard } from './CrimeItemCard';
-import { CrimesHediondosContentProps, CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
+import type { CrimesHediondosContentProps, CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 import { useState } from 'react';
 import { useToggle } from 'react-use';
 

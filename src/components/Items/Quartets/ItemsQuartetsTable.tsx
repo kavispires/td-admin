@@ -1,10 +1,10 @@
 import { Button, Flex, Popconfirm, Rate, Select, Space, Table, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
-import { DailyQuartetSet, Item as ItemT } from 'types';
+import type { DailyQuartetSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 
 import { CheckCircleFilled, DeleteFilled } from '@ant-design/icons';

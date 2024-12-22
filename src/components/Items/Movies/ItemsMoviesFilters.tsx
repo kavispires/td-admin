@@ -4,8 +4,8 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { DailyMovieSet } from 'types';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { DailyMovieSet } from 'types';
 import { sortJsonKeys } from 'utils';
 
 export function ItemsMoviesFilters({

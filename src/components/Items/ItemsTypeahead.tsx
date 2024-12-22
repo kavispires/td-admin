@@ -1,9 +1,9 @@
-import { AutoComplete, AutoCompleteProps, Input } from 'antd';
+import { AutoComplete, type AutoCompleteProps, Input } from 'antd';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useDebounce } from 'react-use';
-import { Item } from 'types';
+import type { Item } from 'types';
 
 type ItemsTypeaheadProps = {
   items?: Dictionary<Item>;

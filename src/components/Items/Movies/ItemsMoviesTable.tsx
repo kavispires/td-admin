@@ -2,12 +2,12 @@ import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
-import { DailyMovieSet, Item as ItemT } from 'types';
+import type { DailyMovieSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 
 import { DeleteFilled } from '@ant-design/icons';

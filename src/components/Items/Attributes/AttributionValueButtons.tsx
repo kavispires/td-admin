@@ -1,5 +1,5 @@
-import { Radio, RadioGroupProps, Tooltip } from 'antd';
-import { ItemAttribute } from 'types';
+import { Radio, type RadioGroupProps, Tooltip } from 'antd';
+import type { ItemAttribute } from 'types';
 
 import { CheckCircleFilled, QuestionCircleOutlined } from '@ant-design/icons';
 

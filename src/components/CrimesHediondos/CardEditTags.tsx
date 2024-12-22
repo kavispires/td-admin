@@ -1,5 +1,5 @@
-import { CrimesHediondosCard } from 'types';
-import { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
+import type { CrimesHediondosCard } from 'types';
+import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 import { Space, Tag } from 'antd';
 import { cloneDeep } from 'lodash';
 import { removeDuplicates } from 'utils';

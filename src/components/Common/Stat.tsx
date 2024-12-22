@@ -1,5 +1,5 @@
 import { Tag, Typography } from 'antd';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 type StatProps = {
   label: ReactNode;

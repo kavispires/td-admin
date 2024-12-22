@@ -1,6 +1,6 @@
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 
-import { DailyQuartetSet } from 'types';
+import type { DailyQuartetSet } from 'types';
 import { Space, Typography } from 'antd';
 
 import { useMemo, useState } from 'react';

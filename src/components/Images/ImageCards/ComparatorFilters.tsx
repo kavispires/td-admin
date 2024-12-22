@@ -5,7 +5,7 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { PageSider, SiderContent } from 'components/Layout';
 import { isEmpty } from 'lodash';
 
-import { UseImageCardsRelationshipDataReturnValue } from './hooks';
+import type { UseImageCardsRelationshipDataReturnValue } from './hooks';
 import { useQueryParams } from 'hooks/useQueryParams';
 
 type ComparatorFiltersProps = {

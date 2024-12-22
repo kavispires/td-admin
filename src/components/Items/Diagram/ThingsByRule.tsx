@@ -1,7 +1,7 @@
-import { Divider, Rate, Space, Switch, Table, TableColumnsType, Tag, Typography } from 'antd';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { Divider, Rate, Space, Switch, Table, type TableColumnsType, Tag, Typography } from 'antd';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useMemo } from 'react';
-import { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
+import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
 
 import { AddNewThingFlow } from './AddNewThingFlow';
 import { ThingButton } from './Thing';

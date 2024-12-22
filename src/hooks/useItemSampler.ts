@@ -1,7 +1,7 @@
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { sample as lodashSample, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
-import { ItemAttribute } from 'types';
+import type { ItemAttribute } from 'types';
 
 import { useItemQueryParams } from './useItemQueryParams';
 

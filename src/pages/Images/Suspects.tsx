@@ -12,7 +12,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import { SuspectCard } from 'types';
+import type { SuspectCard } from 'types';
 
 function Suspects() {
   // Set default query params

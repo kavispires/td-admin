@@ -1,6 +1,6 @@
 import { SiderContent } from 'components/Layout';
-import { TeenageStudent } from 'types';
-import { useTDResource } from 'hooks/useTDResource';
+import type { TeenageStudent } from 'types';
+import type { useTDResource } from 'hooks/useTDResource';
 import { DataFilters } from 'components/Common/DataFilters';
 
 export type FofocaQuenteFiltersProps = ReturnType<typeof useTDResource<TeenageStudent>>;

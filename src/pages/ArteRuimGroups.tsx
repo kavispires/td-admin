@@ -6,7 +6,7 @@ import { PageSider } from 'components/Layout/PageSider';
 import { useBaseUrl } from 'hooks/useBaseUrl';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
-import { ArteRuimCard, ArteRuimGroup } from 'types';
+import type { ArteRuimCard, ArteRuimGroup } from 'types';
 
 import { useQuery } from '@tanstack/react-query';
 

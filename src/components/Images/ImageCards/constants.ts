@@ -1,4 +1,4 @@
-import { ImageCardData } from './types';
+import type { ImageCardData } from './types';
 
 export const TOTAL_DECKS = 12;
 

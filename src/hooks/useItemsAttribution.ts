@@ -1,7 +1,7 @@
 import { App } from 'antd';
 import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import { Item, ItemAtributesValues, ItemAttribute } from 'types';
+import type { Item, ItemAtributesValues, ItemAttribute } from 'types';
 import { deserializeFirebaseData, getNewItem, getNewItemAttributeValues, serializeFirebaseData } from 'utils';
 
 import { useQueryClient } from '@tanstack/react-query';

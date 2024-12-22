@@ -9,7 +9,7 @@ import { PageSider } from 'components/Layout/PageSider';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { isEmpty } from 'lodash';
-import { DailyQuartetSet } from 'types';
+import type { DailyQuartetSet } from 'types';
 
 export function ItemsQuartets() {
   const { queryParams } = useQueryParams();

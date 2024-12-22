@@ -5,7 +5,7 @@ import { PageSider } from 'components/Layout/PageSider';
 import { ResponseState } from 'components/Common';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
-import { TextCard } from 'types';
+import type { TextCard } from 'types';
 
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';

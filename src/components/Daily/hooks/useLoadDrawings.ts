@@ -2,10 +2,10 @@ import { App } from 'antd';
 import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
 import { useEffect, useMemo } from 'react';
 
-import { QueryKey, useQueries, useQuery, UseQueryOptions } from '@tanstack/react-query';
+import { type QueryKey, useQueries, useQuery, type UseQueryOptions } from '@tanstack/react-query';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
-import { DataSuffixCounts } from '../utils/types';
+import type { DataSuffixCounts } from '../utils/types';
 import { printFirebase } from 'services/firebase';
 
 /**

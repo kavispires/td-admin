@@ -1,6 +1,6 @@
 import { useQueryParams } from 'hooks/useQueryParams';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { CrimeSceneTile, CrimesHediondosCard } from 'types';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
 import { CrimeTable } from './CrimeTable';
 import { useMemo } from 'react';
 import { orderBy } from 'lodash';

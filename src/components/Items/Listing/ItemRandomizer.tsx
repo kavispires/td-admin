@@ -1,6 +1,6 @@
 import { Button, Divider, Dropdown, Flex, Form, InputNumber, Space, Typography } from 'antd';
 import { useState } from 'react';
-import { Item as ItemT } from 'types';
+import type { Item as ItemT } from 'types';
 
 import { ItemCard } from '../ItemCard';
 import { useItemsContext } from 'context/ItemsContext';

@@ -3,11 +3,11 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
-import { ContenderCard } from 'types';
+import type { ContenderCard } from 'types';
 import { sortJsonKeys } from 'utils';
 import { SaveButton } from 'components/Common/SaveButton';
 import { DataFilters } from 'components/Common/DataFilters';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import type { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { DECKS } from './ContenderEditCard';
 
 export type ContendersFiltersProps = ReturnType<typeof useResourceFirebaseData<ContenderCard>>;

@@ -11,7 +11,7 @@ export function PasteIds({ onUpdateBatch }: PasteIdsProps) {
   const onAdd = () => {
     try {
       // Remove any enclosing square brackets
-      let parsedStr = str.replace(/^\[|\]$/g, '');
+      const parsedStr = str.replace(/^\[|\]$/g, '');
 
       // Split the string by commas, possibly surrounded by spaces
       const idArray = parsedStr

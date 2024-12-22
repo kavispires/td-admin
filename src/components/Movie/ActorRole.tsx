@@ -4,7 +4,7 @@ import { useCardWidth } from 'hooks/useCardWidth';
 
 import { ColumnHeightOutlined, ColumnWidthOutlined, ManOutlined, WomanOutlined } from '@ant-design/icons';
 
-import { FeatureFilRole } from './FeatureFilmView';
+import type { FeatureFilRole } from './FeatureFilmView';
 
 type ActorRoleProps = {
   role: FeatureFilRole;

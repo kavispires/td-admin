@@ -1,4 +1,4 @@
-import { ArteRuimCard } from 'types';
+import type { ArteRuimCard } from 'types';
 
 export type DateKey = string; // Format YYYY-MM-DD
 

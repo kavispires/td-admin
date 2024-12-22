@@ -1,6 +1,6 @@
 import { Flex, Tag } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { FireFilled } from '@ant-design/icons';
 

@@ -2,9 +2,9 @@ import { App } from 'antd';
 import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from 'services/firebase';
 
-import { QueryKey, useMutation } from '@tanstack/react-query';
+import { type QueryKey, useMutation } from '@tanstack/react-query';
 
-import { DailyHistory } from '../utils/types';
+import type { DailyHistory } from '../utils/types';
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 

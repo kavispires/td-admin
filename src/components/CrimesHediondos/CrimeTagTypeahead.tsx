@@ -1,5 +1,5 @@
 import { Button, Flex, Select } from 'antd';
-import { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
+import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 import { useState } from 'react';
 
 type CrimeTagTypeaheadProps = Pick<CrimesHediondosInnerContentProps, 'allTags'> & {

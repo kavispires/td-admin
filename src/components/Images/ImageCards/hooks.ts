@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 import { firestore, printFirebase } from 'services/firebase';
 import { removeDuplicates } from 'utils';
 
-import { UseMutateFunction, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { type UseMutateFunction, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { CARDS_PER_DECK, DEFAULT_ENTRY, TOTAL_DECKS } from './constants';
-import { FirebaseImageCardLibrary, ImageCardData, ImageCardRelationship } from './types';
+import type { FirebaseImageCardLibrary, ImageCardData, ImageCardRelationship } from './types';
 import { cleanupData } from './utils';
 import { useQueryParams } from 'hooks/useQueryParams';
 

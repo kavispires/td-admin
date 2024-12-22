@@ -1,8 +1,8 @@
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { orderBy } from 'lodash';
-import { createContext, ReactNode, useContext, useMemo } from 'react';
-import { Item } from 'types';
+import { createContext, type ReactNode, useContext, useMemo } from 'react';
+import type { Item } from 'types';
 
 export type ItemsContextType = {
   items: Dictionary<Item>;

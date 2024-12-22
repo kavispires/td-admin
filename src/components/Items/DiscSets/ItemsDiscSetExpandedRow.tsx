@@ -1,10 +1,10 @@
 import { Button, Flex, Typography } from 'antd';
 import { Item } from 'components/Sprites';
-import { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useTDResource } from 'hooks/useTDResource';
 import { difference, sampleSize } from 'lodash';
 import { useState } from 'react';
-import { DailyDiscSet, Item as ItemT } from 'types';
+import type { DailyDiscSet, Item as ItemT } from 'types';
 import { removeDuplicates, sortItemsIds } from 'utils';
 
 import { PlusOutlined } from '@ant-design/icons';
