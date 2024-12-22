@@ -1,6 +1,5 @@
-import { ContenderCard, TeenageStudent } from 'types';
+import { ContenderCard } from 'types';
 import './Contenders.scss';
-import { useTDResource } from 'hooks/useTDResource';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { Flex, Typography } from 'antd';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
