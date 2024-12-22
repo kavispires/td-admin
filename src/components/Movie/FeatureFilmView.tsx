@@ -119,7 +119,7 @@ const buildFeatureFilm = (
   movieGenres: MovieGenres,
   movieActors: SuspectCard[],
   characterTraits: TestimonyQuestionCard[],
-  items: Item[]
+  items: Item[],
 ): FeatureFilm => {
   // Define title
   const movieTitle = sampleSize(movieTitles, 2)
@@ -202,7 +202,7 @@ const buildMoviePrompt = (movie: FeatureFilm) => {
     .slice(0, 3)
     .map((item) => item.name.pt)
     .join(
-      ', '
+      ', ',
     )}. Para a idade, escolha um número aleatório dentre a faixa dada, por exemplo 20-30, diga 26 anos. Não use parenteses no texto. Adicione um plot twist inesperado. Aqui vão os personagens: \n`;
 
   movie.castingRoles.forEach((role) => {
@@ -245,7 +245,7 @@ const ethnicity: StringDictionary = {
 
 function getFirstNUniqueRoles(
   roles: MovieGenres['roles'][keyof MovieGenres['roles']][],
-  quantity: number
+  quantity: number,
 ): MovieGenres['roles'][keyof MovieGenres['roles']][] {
   const uniqueRoles: MovieGenres['roles'][keyof MovieGenres['roles']][] = [];
   const seenIds = new Set<string>();

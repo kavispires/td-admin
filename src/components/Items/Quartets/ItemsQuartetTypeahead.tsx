@@ -44,7 +44,7 @@ export function ItemsQuartetTypeahead({
       }
     },
     350,
-    [typedText]
+    [typedText],
   );
 
   const handleSearch = (searchText: string) => {
@@ -58,7 +58,7 @@ export function ItemsQuartetTypeahead({
     const filtered = options.filter((option) =>
       String(option?.value ?? '')
         .toUpperCase()
-        .includes(SEARCH)
+        .includes(SEARCH),
     );
 
     const sorted = orderBy(filtered, [

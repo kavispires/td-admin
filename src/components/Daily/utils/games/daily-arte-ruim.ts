@@ -18,7 +18,7 @@ export const buildDailyArteRuimGames = (
   history: ParsedDailyHistoryEntry,
   drawingsQuery: ReturnType<typeof useLoadDrawings>,
   queryLanguage: Language,
-  drawingsCount: number
+  drawingsCount: number,
 ) => {
   console.count('Creating Arte Ruim...');
   const drawings = (drawingsQuery ?? []).reduce(
@@ -58,12 +58,12 @@ export const buildDailyArteRuimGames = (
 
       return acc;
     },
-    {}
+    {},
   );
 
   // Remove anything that doesn't have at least 2 drawings
   const atLeastTwoDrawingsList = Object.values(drawings).filter(
-    (e) => e.drawings.length >= drawingsCount && e.cardId && !e.cardId?.includes('--')
+    (e) => e.drawings.length >= drawingsCount && e.cardId && !e.cardId?.includes('--'),
   );
 
   // Slice to batchSize

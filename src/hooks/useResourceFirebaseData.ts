@@ -50,7 +50,7 @@ export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = T
     firebaseDataCollectionName,
     {
       select: serialize ? deserializeFirebaseData : undefined,
-    }
+    },
   );
 
   // Keeps track of items that have been modified

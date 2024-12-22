@@ -323,7 +323,7 @@ export function EditThingModal({
 
 const deserializeThing = (
   thing: DailyDiagramItem,
-  rules: Dictionary<DailyDiagramRule>
+  rules: Dictionary<DailyDiagramRule>,
 ): Record<string, boolean | string | number> => {
   let wasAnyRuleUpdated = false;
   return {

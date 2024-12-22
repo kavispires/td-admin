@@ -21,9 +21,9 @@ export function ArteRuimLevels({ data }: ArteRuimLevelsProps) {
           level3: 0,
           level4: 0,
           total: 0,
-        }
+        },
       ),
-    [data]
+    [data],
   );
 
   return (

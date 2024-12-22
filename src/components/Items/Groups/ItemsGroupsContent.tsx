@@ -41,9 +41,9 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
     () =>
       orderBy(
         Object.keys(data).map((id) => ({ label: id, value: id })),
-        'label'
+        'label',
       ),
-    [data]
+    [data],
   );
 
   const onUpdateItemGroups = (itemId: string, groupIds: string[]) => {
@@ -227,7 +227,7 @@ function ItemsGroupsByItemTable({
 
   const data = useMemo(
     () => (showOnlyEmpty ? Object.values(items).filter((v) => !grousByItem[v.id]) : Object.values(items)),
-    [items, grousByItem, showOnlyEmpty]
+    [items, grousByItem, showOnlyEmpty],
   );
 
   const { page, pagination } = useGridPagination({ data });

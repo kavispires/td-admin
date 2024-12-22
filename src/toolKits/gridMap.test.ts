@@ -355,7 +355,7 @@ describe('gridMap', () => {
           { x: 2, y: 3 },
           { x: 1, y: 2 },
           { x: 3, y: 2 },
-        ])
+        ]),
       );
     });
 
@@ -373,7 +373,7 @@ describe('gridMap', () => {
           { x: 3, y: 1 },
           { x: 1, y: 3 },
           { x: 3, y: 3 },
-        ])
+        ]),
       );
     });
 
@@ -395,7 +395,7 @@ describe('gridMap', () => {
           { x: 1, y: 3 },
           { x: 2, y: 3 },
           { x: 3, y: 3 },
-        ])
+        ]),
       );
     });
 
@@ -422,7 +422,7 @@ describe('gridMap', () => {
         grid,
         'orthogonal',
         'available',
-        'special'
+        'special',
       );
 
       expect(availableCoordinates).toEqual([{ x: 2, y: 3 }]);
@@ -461,7 +461,7 @@ describe('gridMap', () => {
       const adjacentIds = gridMapUtils.getAdjacentIdsToCellId(grid, '2-2', 'surrounding');
 
       expect(adjacentIds).toEqual(
-        expect.arrayContaining(['1-1', '2-1', '3-1', '1-2', '3-2', '1-3', '2-3', '3-3'])
+        expect.arrayContaining(['1-1', '2-1', '3-1', '1-2', '3-2', '1-3', '2-3', '3-3']),
       );
     });
 

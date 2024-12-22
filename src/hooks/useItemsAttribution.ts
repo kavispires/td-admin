@@ -66,7 +66,7 @@ export function useItemsAttribution() {
       ...prev,
       ...mapKeys(
         itemsArr.map((item) => ({ ...item, updatedAt: Date.now() })),
-        'id'
+        'id',
       ),
     }));
   };
@@ -85,7 +85,7 @@ export function useItemsAttribution() {
         return (items[id]?.decks ?? []).includes('alien');
       }),
       (id) => Number(id),
-      'asc'
+      'asc',
     );
   }, [tdrItemsQuery.data]);
 

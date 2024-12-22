@@ -41,7 +41,7 @@ export const TransparentButton = ({
         'transparent-button',
         `transparent-button--${hoverType}`,
         active && (activeClass || 'transparent-button--active'),
-        className
+        className,
       )}
       {...rest}
     >

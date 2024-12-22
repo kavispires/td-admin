@@ -64,7 +64,7 @@ export function ConnectionsContent() {
         };
       }),
       ['length'],
-      ['desc']
+      ['desc'],
     );
   }, [cardIds, data]);
 
@@ -84,7 +84,7 @@ const getConnectionsPath = memoize(
     originId: CardId,
     data: UseImageCardsRelationshipDataReturnValue['data'],
     type: PathType,
-    maxPathLength: number
+    maxPathLength: number,
   ) => {
     const visited: Set<CardId> = new Set();
     const stack: { currentId: CardId; path: CardId[]; depth: number }[] = [];
@@ -127,5 +127,5 @@ const getConnectionsPath = memoize(
     }
 
     return resultPath;
-  }
+  },
 );

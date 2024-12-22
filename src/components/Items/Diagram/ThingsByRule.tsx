@@ -35,7 +35,7 @@ export function ThingsByRule({
         ...r,
         thingsCount: thingsByRules[r.id].length,
       })),
-    [rules, thingsByRules]
+    [rules, thingsByRules],
   );
 
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
@@ -48,7 +48,7 @@ export function ThingsByRule({
       minThings: Math.min(...quantities),
       averageThings: Math.round(
         Object.values(thingsByRules).reduce((sum, things) => sum + things.length, 0) /
-          Object.keys(thingsByRules).length
+          Object.keys(thingsByRules).length,
       ),
     };
   }, [thingsByRules]);

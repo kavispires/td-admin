@@ -14,7 +14,7 @@ export function buildDataFilters<T extends PlainObject>(data: Dictionary<T>, ign
       });
 
       return acc;
-    }, {})
+    }, {}),
   );
 
   const sortableKeys: string[] = [];

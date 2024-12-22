@@ -44,7 +44,7 @@ export function useItemsComparator() {
         })
         .filter(({ itemAttributesValues }) => (showComplete ? itemAttributesValues.complete : true)),
       ['message'],
-      ['asc']
+      ['asc'],
     );
 
     const grouping = itemMessages.reduce((acc: Dictionary<string[]>, { message, item: { id } }) => {

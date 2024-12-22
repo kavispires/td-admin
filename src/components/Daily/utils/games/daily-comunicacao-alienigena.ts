@@ -10,7 +10,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
   history: ParsedDailyHistoryEntry,
   attributes: Dictionary<ItemAttribute>,
   attributeValues: Dictionary<ItemAtributesValues>,
-  updateWarnings: (warning: string) => void
+  updateWarnings: (warning: string) => void,
 ) => {
   console.count('Creating Comunicacao Alienigena...');
 
@@ -55,7 +55,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
 
 const generateComunicacaoAlienigenaGame = (
   attributes: ItemAttribute[],
-  attributeValues: ItemAtributesValues[]
+  attributeValues: ItemAtributesValues[],
 ): DailyComunicacaoAlienigenaEntry => {
   const shuffledAttributeValues = shuffle(attributeValues);
 
@@ -122,15 +122,15 @@ const generateComunicacaoAlienigenaGame = (
   }));
   gameAttributes[0].itemsIds = sampleSize(
     attributeA,
-    attributeA.length > 3 ? 3 : Math.max(attributeA.length - 1, 1)
+    attributeA.length > 3 ? 3 : Math.max(attributeA.length - 1, 1),
   );
   gameAttributes[1].itemsIds = sampleSize(
     attributeB,
-    attributeB.length > 3 ? 3 : Math.max(attributeA.length - 1, 1)
+    attributeB.length > 3 ? 3 : Math.max(attributeA.length - 1, 1),
   );
   gameAttributes[2].itemsIds = sampleSize(
     attributeC,
-    attributeC.length > 3 ? 3 : Math.max(attributeA.length - 1, 1)
+    attributeC.length > 3 ? 3 : Math.max(attributeA.length - 1, 1),
   );
 
   const usedItemsIds: string[] = [];

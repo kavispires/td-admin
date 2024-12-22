@@ -52,7 +52,7 @@ export function OrphanItems({ data, addEntryToUpdate }: OrphanItemsProps) {
         .filter(
           (itemId) =>
             itemsDict[itemId] === undefined ||
-            (itemsDict[itemId].length === 1 && colorSetIds.includes(itemsDict[itemId][0]))
+            (itemsDict[itemId].length === 1 && colorSetIds.includes(itemsDict[itemId][0])),
         )
         .map((itemId) => itemsTypeaheadQuery.data[itemId]);
 
@@ -74,7 +74,7 @@ export function OrphanItems({ data, addEntryToUpdate }: OrphanItemsProps) {
 
   const sortedSets = useMemo(
     () => Object.values(data).sort((a, b) => a.title.pt.localeCompare(b.title.pt)),
-    [data]
+    [data],
   );
 
   return (

@@ -22,9 +22,9 @@ export function ItemAttributeDescription({ itemAttributeValues, attributes }: It
       filterMessage(
         getItemAttributePriorityResponse(itemAttributeValues, attributes),
         showUnclear,
-        showUnrelated
+        showUnrelated,
       ),
-    [itemAttributeValues, attributes, showUnclear, showUnrelated]
+    [itemAttributeValues, attributes, showUnclear, showUnrelated],
   );
 
   const Component = searchParams.get('signs') === 'true' ? AttributeSprite : AttributeText;

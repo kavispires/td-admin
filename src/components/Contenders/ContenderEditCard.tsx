@@ -51,7 +51,7 @@ export function ContenderEditCard({ contender, addEntryToUpdate }: ContenderEdit
   const onUpdateDualText = (value: string, field: keyof ContenderCard, language: 'en' | 'pt') => {
     addEntryToUpdate(
       contender.id,
-      merge({ [field]: { en: '', pt: '' } }, contender, { [field]: { [language]: value } })
+      merge({ [field]: { en: '', pt: '' } }, contender, { [field]: { [language]: value } }),
     );
   };
 

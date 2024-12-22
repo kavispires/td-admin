@@ -12,7 +12,7 @@ export function updateQueryFunction<TData = PlainObject>(path: string, docId: st
 export function useUpdateFirebaseDoc<TData>(
   path: string,
   docId: string,
-  options: UseMutationOptions<any, Error, TData, QueryKey> = {}
+  options: UseMutationOptions<any, Error, TData, QueryKey> = {},
 ) {
   return useMutation<any, Error, TData, QueryKey>({
     mutationFn: async (data: TData) => updateQueryFunction<TData>(path, docId, data),

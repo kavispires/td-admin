@@ -167,7 +167,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         acc[item.id] = item;
 
         return acc;
-      }, {})
+      }, {}),
     );
   };
 

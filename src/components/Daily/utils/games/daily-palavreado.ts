@@ -14,7 +14,7 @@ export const buildDailyPalavreadoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   fourLetterWords: string[],
-  fiveLetterWords: string[]
+  fiveLetterWords: string[],
 ) => {
   console.count('Creating Palavreado...');
   let lastDate = history.latestDate;
@@ -34,7 +34,7 @@ export const buildDailyPalavreadoGames = (
         isWeekend ? fiveLetterWords : fourLetterWords,
         [...Object.values(entries).map((e) => e.keyword), ...history.used],
         usedWords,
-        size
+        size,
       ),
     };
   }
@@ -55,7 +55,7 @@ export const generatePalavreadoGame = (
   previouslyUsedWords: string[],
   newUsedWords: string[],
   size = 4,
-  fixedKeyword?: string
+  fixedKeyword?: string,
 ) => {
   let shuffledWords = shuffle(difference(words, newUsedWords, previouslyUsedWords));
 
@@ -93,7 +93,7 @@ const getNewWord = (words: string[], keyword: string, selectedWords: string[], i
   const usedLetters = uniq([...flatMap(selectedWords.map((word) => word.split(''))), ...keyword.split('')]);
 
   const shortList = shuffle(
-    words.filter((word) => word[index] === keyword[index] && !selectedWords.includes(word))
+    words.filter((word) => word[index] === keyword[index] && !selectedWords.includes(word)),
   );
   const rankedList = sortBy(shortList, (word) => {
     const matchCount = intersection(word.split(''), usedLetters).length;

@@ -30,7 +30,7 @@ export function FilterSelect({ label, value, onChange, options, placeholder }: F
             <Select.Option key={`${label}-${entry}`} value={entry}>
               {entry}
             </Select.Option>
-          )
+          ),
         )}
       </Select>
     </Form.Item>

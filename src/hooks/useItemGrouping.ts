@@ -46,7 +46,7 @@ export function useItemGrouping() {
         (id) => getItemAttributeValues(id)?.updatedAt,
         (id) => Number(id),
       ],
-      [sortOrder, 'asc', 'desc', 'asc']
+      [sortOrder, 'asc', 'desc', 'asc'],
     );
   }, [attributeKey, scope, sortBy, sortOrder]);
 
@@ -87,7 +87,7 @@ export function useItemGrouping() {
         }
 
         return prev;
-      })
+      }),
     );
   };
 

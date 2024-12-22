@@ -87,7 +87,7 @@ export function ItemSimulation() {
     const attributesResult = getHighestAttributeKeys(
       result.map((itemId) => getItemAttributeValues(itemId)),
       25,
-      attributes
+      attributes,
     );
 
     // If less than 25 attributes are found, add more by priority
@@ -107,7 +107,7 @@ export function ItemSimulation() {
           unclearCount: NumberDictionary;
           oppositeCount: NumberDictionary;
         },
-        key
+        key,
       ) => {
         result.forEach((itemId) => {
           const itemAttributeValues = getItemAttributeValues(itemId);
@@ -130,7 +130,7 @@ export function ItemSimulation() {
 
         return acc;
       },
-      { relatedCount: {}, deterministicCount: {}, unclearCount: {}, oppositeCount: {} }
+      { relatedCount: {}, deterministicCount: {}, unclearCount: {}, oppositeCount: {} },
     );
 
     setSelectedAttributes(
@@ -140,7 +140,7 @@ export function ItemSimulation() {
         deterministicCount: dicts.deterministicCount[key],
         unclearCount: dicts.unclearCount[key],
         oppositeCount: dicts.oppositeCount[key],
-      }))
+      })),
     );
   };
 
@@ -207,7 +207,7 @@ export function ItemSimulation() {
                 'simulator-grid__entry',
                 highlightedAttributeKey &&
                   itemAttributeValues.attributes[highlightedAttributeKey] > 0 &&
-                  'simulator-grid__entry--highlighted'
+                  'simulator-grid__entry--highlighted',
               )}
               align="center"
             >
@@ -250,7 +250,7 @@ export function ItemSimulation() {
             className={clsx(
               'simulator-grid__entry',
               'simulator-grid__button',
-              highlightedAttributeKey === attributeSummary.id && 'simulator-grid__entry--highlighted'
+              highlightedAttributeKey === attributeSummary.id && 'simulator-grid__entry--highlighted',
             )}
             onClick={() => setHighlightedAttributeKey(attributeSummary.id)}
           >
@@ -289,7 +289,7 @@ export function ItemSimulation() {
 function getHighestAttributeKeys(
   selectedItemsAttributesValues: ItemAtributesValues[],
   quantity: number,
-  attributes: Dictionary<ItemAttribute>
+  attributes: Dictionary<ItemAttribute>,
 ): string[] {
   // 1. Count the number of times each attribute is present. Make sure to gather any deterministic value
   const attributesCounts: Record<string, number> = {};
@@ -334,7 +334,7 @@ function getHighestAttributeKeys(
 
   const deterministicKeys = filterCountLevelsAndGuardLevel4(Object.keys(deterministicKeysDict));
   const nondeterministicKeys = filterCountLevelsAndGuardLevel4(
-    keys(attributesCounts).filter((key) => !deterministicKeys.includes(key))
+    keys(attributesCounts).filter((key) => !deterministicKeys.includes(key)),
   );
   console.log({ levelCount });
 
@@ -384,7 +384,7 @@ function getHighestAttributeKeys(
     return acc;
   }, {});
   const sortedDeterministicTiedGroupsKeys = keys(deterministicTiedGroups).sort(
-    (a, b) => Number(b) - Number(a)
+    (a, b) => Number(b) - Number(a),
   );
   console.log({ sortedDeterministicTiedGroupsKeys });
 
@@ -398,7 +398,7 @@ function getHighestAttributeKeys(
   }, {});
   console.log(nondeterministicTiedGroups);
   const sortedNondeterministicTiedGroupsKeys = keys(nondeterministicTiedGroups).sort(
-    (a, b) => Number(b) - Number(a)
+    (a, b) => Number(b) - Number(a),
   );
 
   let result: string[] = [];
