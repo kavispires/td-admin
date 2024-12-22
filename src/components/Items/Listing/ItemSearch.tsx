@@ -42,7 +42,6 @@ export function ItemSearch() {
           </Button>
         </Space>
       )}
-      <Divider />
     </Fragment>
   );
 }

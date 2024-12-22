@@ -1,4 +1,4 @@
-import { Layout, Space } from 'antd';
+import { Divider, Layout, Space } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ItemListing } from 'components/Items/Listing/ItemListing';
 import { ItemListingFilters } from 'components/Items/Listing/ItemListingFilters';
@@ -23,10 +23,13 @@ function ItemsPage() {
         <Layout.Content className="content">
           <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
             {!isLoading && (
-              <Space size="large" align="start">
-                {!is('hideSearch') && <ItemSearch />}
-                {is('showRandomizer') && <ItemRandomizer />}
-              </Space>
+              <>
+                <Space size="large" align="start">
+                  {!is('hideSearch') && <ItemSearch />}
+                  {is('showRandomizer') && <ItemRandomizer />}
+                </Space>
+                <Divider />
+              </>
             )}
             <ItemListing />
           </DataLoadingWrapper>

@@ -46,7 +46,7 @@ export function useRandomCard(
 
   const add = (key: keyof ImageCardData, value: string) => {
     if (key !== 'highlight' && card[key]) {
-      card[key].push(value);
+      card[key]?.push(value);
       setDirty(true);
     }
   };

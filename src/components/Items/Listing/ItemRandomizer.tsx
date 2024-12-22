@@ -93,8 +93,6 @@ export function ItemRandomizer() {
           <ItemCard key={item.id} item={item} simplified />
         ))}
       </Space>
-
-      <Divider />
     </div>
   );
 }
