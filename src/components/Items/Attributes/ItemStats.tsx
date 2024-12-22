@@ -1,5 +1,6 @@
 import { Button, Flex, Progress, Rate, Space, Table, type TableProps, Tabs, Tag, Typography } from 'antd';
 import type { TabsProps } from 'antd/lib';
+import { PopoverInfo } from 'components/Common/PopoverInfo';
 import { AlienSign } from 'components/Sprites';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -138,6 +139,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
           {name.en}
           {record.default ? <Tag className="ml-1">default</Tag> : ''}
           {record.limited ? <Tag className="ml-1">limited</Tag> : ''}
+          <PopoverInfo title={record.description.en} />
         </Flex>
       ),
       sorter: (a, b) => a.name.en.localeCompare(b.name.en),
