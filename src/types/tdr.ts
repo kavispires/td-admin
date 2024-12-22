@@ -226,13 +226,13 @@ export type ContenderCard = {
    */
   exclusivity?: Language;
   /**
-   *
+   * The characters description
    */
   description?: DualLanguageValue;
   /**
    * The groups the contender belongs to
    */
-  decks?: string[];
+  decks: string[];
   /**
    * Flag indicating if it's NSFW
    */

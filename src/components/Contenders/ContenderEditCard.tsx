@@ -1,5 +1,5 @@
 import { EditOutlined } from '@ant-design/icons';
-import { Card, Flex, Popconfirm, Popover, Radio, Select } from 'antd';
+import { Card, Flex, Popover, Radio, Select } from 'antd';
 import { DualLanguageTextField, Label, NSFWField } from 'components/Common/EditableFields';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { ImageCard } from 'components/Images/ImageCard';
@@ -14,7 +14,6 @@ export const DECKS = [
   { value: 'anime', label: 'Anime' },
   { value: 'art', label: 'Art' },
   { value: 'cartoon', label: 'Cartoon' },
-  { value: 'celebrities', label: 'Celebrities' },
   { value: 'characters', label: 'Characters' },
   { value: 'comics', label: 'Comics' },
   { value: 'games', label: 'Games' },
