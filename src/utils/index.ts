@@ -1,4 +1,15 @@
-import { chain, cloneDeep, isObject, memoize, merge, orderBy } from 'lodash';
+import {
+  chain,
+  cloneDeep,
+  isNull,
+  isObject,
+  isUndefined,
+  memoize,
+  merge,
+  orderBy,
+  set,
+  transform,
+} from 'lodash';
 import stringSimilarity from 'string-similarity';
 import type { Item, ItemAtributesValues, ItemAttribute } from 'types';
 import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX, SEARCH_THRESHOLD } from './constants';
@@ -141,6 +152,34 @@ export const sortJsonKeys = (library: PlainObject): PlainObject => {
   }
 
   return sortKeys(library);
+};
+
+/**
+ * Recursively removes `undefined` values from an object.
+ * @template T - The type of the object to clean.
+ * @param {T} obj - The object to clean.
+ * @returns {T} - The cleaned object with no `undefined` values.
+ */
+export const deepCleanObject = <T>(obj: T): T => {
+  if (!isObject(obj) || isNull(obj)) {
+    return obj;
+  }
+
+  // Recursively process each key
+  return transform(
+    obj,
+    (result, value, key) => {
+      if (isObject(value)) {
+        value = deepCleanObject(value);
+      }
+
+      // Only assign if the value is not undefined
+      if (!isUndefined(value)) {
+        set(result as Partial<T>, key, value);
+      }
+    },
+    {} as T,
+  );
 };
 
 /**

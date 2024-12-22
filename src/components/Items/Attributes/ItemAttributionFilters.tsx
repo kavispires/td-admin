@@ -6,7 +6,7 @@ import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import type { ItemAtributesValues, ItemAttribute } from 'types';
-import { getItemAttributePriorityResponse, sortJsonKeys } from 'utils';
+import { deepCleanObject, getItemAttributePriorityResponse, sortJsonKeys } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 import {
@@ -138,16 +138,12 @@ function prepareFileForDownload(
         '',
       );
     } else {
-      // biome-ignore lint/performance/noDelete: <explanation>
-      delete itemAttributeValues.complete;
-      // biome-ignore lint/performance/noDelete: <explanation>
-      delete itemAttributeValues.score;
-      // biome-ignore lint/performance/noDelete: <explanation>
-      delete itemAttributeValues.reliability;
-      // biome-ignore lint/performance/noDelete: <explanation>
-      delete itemAttributeValues.key;
+      itemAttributeValues.complete = undefined;
+      itemAttributeValues.score = undefined;
+      itemAttributeValues.reliability = undefined;
+      itemAttributeValues.key = undefined;
     }
   });
 
-  return sortJsonKeys(itemsAttributes);
+  return sortJsonKeys(deepCleanObject(itemsAttributes));
 }

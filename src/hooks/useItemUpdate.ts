@@ -12,9 +12,7 @@ export function useItemUpdate(currentItem: ItemT, editMode = false) {
   const onEdit = (change: Partial<ItemT>) => {
     const newItem = { ...cloneDeep(editableItem), ...change };
     if (Object.keys(change).includes('nsfw') && change.nsfw === false) {
-      // TODO: Use deepCleanObject
-      // biome-ignore lint/performance/noDelete: <explanation>
-      delete newItem.nsfw;
+      newItem.nsfw = undefined;
     }
     setEditableItem(newItem);
   };
