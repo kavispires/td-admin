@@ -38,7 +38,7 @@ export function useLoadDrawings(enabled: boolean, queryLanguage: Language) {
         placement: 'bottomLeft',
       });
     }
-  }, [suffixCountsQuery.isError]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [suffixCountsQuery.isError]);
 
   const suffixData = LANGUAGE_PREFIX.SUFFIX_DATA[queryLanguage ?? 'pt'];
 
@@ -59,7 +59,7 @@ export function useLoadDrawings(enabled: boolean, queryLanguage: Language) {
         },
       };
     });
-  }, [libraryCount]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [libraryCount]);
 
   return useQueries({ queries });
 }

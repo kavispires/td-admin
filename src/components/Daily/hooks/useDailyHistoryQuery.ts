@@ -32,7 +32,7 @@ export function useDailyHistoryQuery(
         placement: 'bottomLeft',
       });
     }
-  }, [historyQuery.isError]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [historyQuery.isError]);
 
   return historyQuery;
 }

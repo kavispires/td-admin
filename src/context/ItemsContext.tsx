@@ -91,7 +91,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
     }
 
     return { decksDict, decks };
-  }, [items, isSaving, isLoading]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [items, isSaving, isLoading]);
 
   const deck = queryParams.get('deck') ?? 'all';
   const listing = useMemo(() => {

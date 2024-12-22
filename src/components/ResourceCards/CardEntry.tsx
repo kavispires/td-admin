@@ -65,7 +65,7 @@ export function CardEntry({ entry, kind }: CardEntryProps) {
       console.log('Skip', key, value);
       return <></>;
     });
-  }, [kind]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [kind]);
 
   return (
     <Card title={entry.id} className="resource-card" size="small">

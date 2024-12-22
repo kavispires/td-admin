@@ -30,7 +30,7 @@ export function ItemsQuartetTypeahead({
     }));
 
     return { titlesDict, options };
-  }, [quartets, isPending]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [quartets, isPending]);
 
   const [filteredOptions, setFilteredOptions] = useState<{ value: string }[]>([]);
   const [typedText, setTypedText] = useState('');

@@ -28,7 +28,7 @@ export function ItemAttributionDrawer() {
       showOnlyUnset
         ? attributesList.filter((attribute) => !itemAttributeValues.attributes[attribute.id])
         : attributesList,
-    [showOnlyUnset, activeItem.id] // eslint-disable-line react-hooks/exhaustive-deps
+    [showOnlyUnset, activeItem.id]
   );
 
   return (
