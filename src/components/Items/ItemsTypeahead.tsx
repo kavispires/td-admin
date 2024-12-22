@@ -9,6 +9,7 @@ type ItemsTypeaheadProps = {
   items?: Dictionary<Item>;
   isPending?: boolean;
   onFinish: (id: string) => void;
+  onFinishMultiple?: (ids: string[]) => void;
 } & Omit<AutoCompleteProps, 'options'>;
 
 export function ItemsTypeahead({
@@ -19,6 +20,7 @@ export function ItemsTypeahead({
   placeholder,
   allowClear,
   onFinish,
+  onFinishMultiple,
   ...rest
 }: ItemsTypeaheadProps) {
   const tdrItemsQuery = useTDResource<Item>('items', !items && !isPending);
@@ -112,9 +114,11 @@ export function ItemsTypeahead({
 
   const handlePressEnter = () => {
     if (filteredOptions.length > 0) {
-      const key = filteredOptions[0].value;
-      if (namesDict[key] !== undefined) {
-        onFinish(namesDict[key]);
+      const ids = filteredOptions.map((opt) => namesDict[opt.value]).filter(Boolean);
+      if (onFinishMultiple && ids.length > 0) {
+        onFinishMultiple(ids); // Call the new prop with all matches
+      } else if (namesDict[filteredOptions[0].value] !== undefined) {
+        onFinish(namesDict[filteredOptions[0].value]); // Fallback to single onFinish
       }
     }
   };
