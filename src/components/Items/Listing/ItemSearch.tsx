@@ -1,4 +1,4 @@
-import { Button, Divider, Space, Typography } from 'antd';
+import { Button, Divider, Flex, Space, Typography } from 'antd';
 import { Fragment, useState } from 'react';
 import type { Item as ItemT } from 'types';
 
@@ -10,16 +10,14 @@ import { ItemsTypeahead } from '../ItemsTypeahead';
 
 export function ItemSearch() {
   const { items, isLoading, isSaving } = useItemsContext();
-  const [activeItem, setActiveItem] = useState<ItemT | null>(null);
+  const [activeItems, setActiveItems] = useState<ItemT[] | null>(null);
   const { queryParams, addParam } = useQueryParams();
 
-  const onFindInListing = () => {
-    if (activeItem) {
-      const pageSize = Number(queryParams.get('pageSize') ?? 64);
-      const idNum = Number(activeItem.id);
-      const page = Math.floor(idNum / pageSize) + 1;
-      addParam('page', page.toString());
-    }
+  const onFindInListing = (itemId: string) => {
+    const pageSize = Number(queryParams.get('pageSize') ?? 64);
+    const idNum = Number(itemId);
+    const page = Math.floor(idNum / pageSize) + 1;
+    addParam('page', page.toString());
   };
 
   return (
@@ -30,18 +28,21 @@ export function ItemSearch() {
         <ItemsTypeahead
           items={items}
           isPending={isLoading || isSaving}
-          onFinish={(id) => setActiveItem(items[id])}
+          onFinish={() => {}}
+          onFinishMultiple={(ids) => setActiveItems(ids.map((id) => items[id]))}
         />
       </div>
 
-      {!!activeItem && (
-        <Space direction="vertical" className="my-4" key={activeItem?.id}>
-          <ItemCard item={activeItem} />
-          <Button onClick={onFindInListing} block icon={<EnvironmentOutlined />}>
-            Find in listing
-          </Button>
-        </Space>
-      )}
+      <Flex className="my-4" gap={8}>
+        {activeItems?.map((item) => (
+          <Space direction="vertical" className="my-4" key={item.id}>
+            <ItemCard item={item} />
+            <Button onClick={() => onFindInListing(item.id)} block icon={<EnvironmentOutlined />}>
+              Find in listing
+            </Button>
+          </Space>
+        ))}
+      </Flex>
     </Fragment>
   );
 }
