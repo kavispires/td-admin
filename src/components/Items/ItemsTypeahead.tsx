@@ -54,7 +54,7 @@ export function ItemsTypeahead({
     }));
 
     return { namesDict, options };
-  }, [items, isPending]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [items, isPending]);
 
   const [filteredOptions, setFilteredOptions] = useState<{ value: string }[]>([]);
   const [typedText, setTypedText] = useState('');

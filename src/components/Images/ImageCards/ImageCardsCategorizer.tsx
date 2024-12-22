@@ -22,7 +22,7 @@ function ImageCardsCategorizerPage() {
 
   // Build local object of tags
   const dataKey = JSON.stringify(data);
-  const { colors, mood, elements, actions } = useMemo(() => buildDictionaries(data), [dataKey]); // eslint-disable-line react-hooks/exhaustive-deps
+  const { colors, mood, elements, actions } = useMemo(() => buildDictionaries(data), [dataKey]);
 
   const handleFocusChange = (value: string[]) => {
     update('focus', value);

@@ -56,7 +56,7 @@ export function useItemSampler() {
     if (!attribute) return 0;
 
     return availableItemIds.filter((id) => !getItemAttributeValues(id).attributes[attribute?.id]).length;
-  }, [attribute, availableItemIds]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [attribute, availableItemIds]);
 
   const updateAttributeValue = (itemId: string, attributeId: string, value: number) => {
     const currentItemAttributeValues = getItemAttributeValues(itemId);

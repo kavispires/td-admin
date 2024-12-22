@@ -73,7 +73,7 @@ export function useRandomCard(
 
   useEffect(() => {
     cardData[cardId] = card;
-  }, [card]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [card]);
 
   return {
     cardId,
@@ -121,7 +121,7 @@ export function useImageCardsData() {
         placement: 'bottomLeft',
       });
     }
-  }, [isError]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isError]);
 
   const {
     isPending: isSaving,
@@ -324,7 +324,7 @@ export function useImageCardsRelationshipData(): UseImageCardsRelationshipDataRe
       });
       setStats({ total, overdone, complete, single });
     }
-  }, [isFetched, isRefetching]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isFetched, isRefetching]);
 
   return {
     data,
@@ -404,7 +404,7 @@ export function useRandomGroups(
     if (cardIds.length === 0) {
       onRandomCards();
     }
-  }, [cardIds]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [cardIds]);
 
   /**
    * Selects or deselects a card

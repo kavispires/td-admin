@@ -48,7 +48,7 @@ export function useItemGrouping() {
       ],
       [sortOrder, 'asc', 'desc', 'asc']
     );
-  }, [attributeKey, scope, sortBy, sortOrder]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [attributeKey, scope, sortBy, sortOrder]);
 
   const pageIds = useMemo(() => {
     if (previousAttribute !== attributeKey || previousScope !== scope) {
@@ -62,7 +62,7 @@ export function useItemGrouping() {
     const end = start + Number(pageSize);
 
     return group.slice(start, end);
-  }, [page, pageSize, group]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [page, pageSize, group]);
 
   const attribute = attributesList.find((a) => a.id === attributeKey);
 

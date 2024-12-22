@@ -86,7 +86,7 @@ export function EditThingModal({
       }
     });
     form.setFieldsValue(fields);
-  }, [nameWatch]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [nameWatch]);
 
   // Automation: Syllables
   const syllables = Form.useWatch('syllables', form);
@@ -103,7 +103,7 @@ export function EditThingModal({
     if (isAcronym === undefined) {
       form.setFieldsValue({ 'ddr-51-pt': false });
     }
-  }, [isAcronym]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isAcronym]);
 
   useEffect(() => {
     if (syllables) {
@@ -123,7 +123,7 @@ export function EditThingModal({
               : undefined,
       });
     }
-  }, [nameWatch, syllables, isAcronym]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [nameWatch, syllables, isAcronym]);
 
   // Automation: Stressed syllable
   const stressedSyllable = Form.useWatch('stressedSyllable', form);
@@ -140,7 +140,7 @@ export function EditThingModal({
         ...stressSyllableRulesUpdate,
       });
     }
-  }, [stressedSyllable]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [stressedSyllable]);
 
   // Automation: Male vs Female nouns vs Both genders
   const rule1 = form.getFieldValue('ddr-1-pt');
@@ -151,19 +151,19 @@ export function EditThingModal({
       form.setFieldsValue({ 'ddr-2-pt': false });
       form.setFieldsValue({ 'ddr-50-pt': false });
     }
-  }, [rule1]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [rule1]);
   useEffect(() => {
     if (rule2 === true) {
       form.setFieldsValue({ 'ddr-1-pt': false });
       form.setFieldsValue({ 'ddr-50-pt': false });
     }
-  }, [rule2]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [rule2]);
   useEffect(() => {
     if (rule5 === true) {
       form.setFieldsValue({ 'ddr-1-pt': false });
       form.setFieldsValue({ 'ddr-2-pt': false });
     }
-  }, [rule5]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [rule5]);
 
   // Automation: syllable count
   const rule3 = form.getFieldValue('ddr-3-pt');
@@ -171,13 +171,13 @@ export function EditThingModal({
     if (rule3 === true) {
       form.setFieldsValue({ 'ddr-4-pt': false });
     }
-  }, [rule3]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [rule3]);
   const rule4 = form.getFieldValue('ddr-4-pt');
   useEffect(() => {
     if (rule4 === true) {
       form.setFieldsValue({ 'ddr-3-pt': false });
     }
-  }, [rule4]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [rule4]);
 
   // Automation: has hyphen
   useEffect(() => {
@@ -185,7 +185,7 @@ export function EditThingModal({
     if (hasHyphen) {
       form.setFieldsValue({ 'ddr-5-pt': true });
     }
-  }, [nameWatch]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [nameWatch]);
 
   const onFinish = (values: any) => {
     const preparedThing = serializeThing(values);

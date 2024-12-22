@@ -38,7 +38,7 @@ export function useQueryParams(defaultParams: Record<string, string | number> = 
         addParam(key, value);
       }
     });
-  }, []); // eslint-disable-line
+  }, []);
 
   return {
     addParam,
