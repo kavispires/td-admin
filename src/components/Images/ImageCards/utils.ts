@@ -1,6 +1,7 @@
 import { cloneDeep, uniq } from 'lodash';
 import { SUGGESTED_COLORS, SUGGESTED_MOODS } from './constants';
 import type { FirebaseImageCardLibrary, ImageCardData } from './types';
+import { deepCleanObject } from 'utils';
 
 export const hasCardAchievedMinimumRequirements = (card: ImageCardData) => {
   return (
@@ -50,36 +51,31 @@ export const cleanupData = (data: FirebaseImageCardLibrary): FirebaseImageCardLi
 
   Object.values(copy).forEach((card) => {
     if (card.focus && card.focus.length === 0) {
-      // biome-ignore lint/performance/noDelete: cleanup is necessary
-      delete card.focus;
+      card.focus = undefined;
     }
     if (card.colors && card.colors.length === 0) {
-      // biome-ignore lint/performance/noDelete: cleanup is necessary
-      delete card.colors;
+      card.colors = undefined;
     }
     if (card.mood && card.mood.length === 0) {
-      // biome-ignore lint/performance/noDelete: cleanup is necessary
-      delete card.mood;
+      card.mood = undefined;
     }
     if (card.elements && card.elements.length === 0) {
-      // biome-ignore lint/performance/noDelete: cleanup is necessary
-      delete card.elements;
+      card.elements = undefined;
     }
     if (card.actions && card.actions.length === 0) {
-      // biome-ignore lint/performance/noDelete: cleanup is necessary
-      delete card.actions;
+      card.actions = undefined;
     }
     if (card.highlight === false) {
-      // biome-ignore lint/performance/noDelete: cleanup is necessary
-      delete card.highlight;
+      card.highlight = undefined;
     }
   });
 
+  // Remove any keys that are empty objects
   Object.keys(copy).forEach((key) => {
     if (Object.keys(copy[key]).length === 0) {
       delete copy[key];
     }
   });
 
-  return copy;
+  return deepCleanObject(copy);
 };

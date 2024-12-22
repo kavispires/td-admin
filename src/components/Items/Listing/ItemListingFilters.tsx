@@ -9,7 +9,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, cloneDeep, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { Item } from 'types';
-import { sortJsonKeys } from 'utils';
+import { deepCleanObject, sortJsonKeys } from 'utils';
 import { AddNewItem } from './AddNewItem';
 
 export function ItemListingFilters() {
@@ -121,21 +121,23 @@ export function ItemListingFilters() {
 }
 
 function prepareFileForDownload(items: Dictionary<Item>) {
-  return sortJsonKeys(
-    Object.values(items).reduce((acc: Dictionary<Item>, item) => {
-      // Sort deck
-      item.decks = (item?.decks ?? []).sort();
+  console.log('Preparing file for download...');
+  const copy = cloneDeep(items);
 
-      // Remove decks if no deck is present
-      if (item.decks.length === 0) {
-        // biome-ignore lint/performance/noDelete: <explanation>
-        delete item.decks;
-      }
+  Object.values(copy).reduce((acc: Dictionary<Item>, item) => {
+    // Sort deck
+    item.decks = (item?.decks ?? []).sort();
 
-      acc[item.id] = item;
-      return acc;
-    }, {}),
-  );
+    // Remove decks if no deck is present
+    if (item.decks.length === 0) {
+      item.decks = undefined;
+    }
+
+    acc[item.id] = item;
+    return acc;
+  }, {});
+
+  return sortJsonKeys(deepCleanObject(copy));
 }
 
 type OpenAiItem = {
