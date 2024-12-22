@@ -4,6 +4,7 @@ import type { ItemAttribute } from 'types';
 import { CheckCircleFilled, QuestionCircleOutlined } from '@ant-design/icons';
 
 import { ATTRIBUTE_VALUE } from 'utils/constants';
+import { PopoverInfo } from 'components/Common/PopoverInfo';
 
 const attributeOptions = [
   { label: 'Opposite', value: ATTRIBUTE_VALUE.OPPOSITE },
@@ -54,10 +55,7 @@ export function AttributionValueButtons({
   return (
     <div key={attribute.id} className="attribute-button-container__row">
       <span className="attribute-button-container__label">
-        {attribute.name.en}{' '}
-        <Tooltip title={attribute.description.en}>
-          <QuestionCircleOutlined />
-        </Tooltip>
+        {attribute.name.en} <PopoverInfo title={attribute.description.en} />
       </span>
 
       <Radio.Group
