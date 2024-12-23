@@ -1,18 +1,14 @@
 import './CrimesHediondosCategorizer.scss';
-
+import { CopyOutlined } from '@ant-design/icons';
 import { Button, Input, Layout, Select, Space, Spin, Tag } from 'antd';
-
 import { TagState } from 'components/Common/ResponseState';
+import { CrimeItemCard } from 'components/CrimesHediondos';
 import { PageLayout } from 'components/Layout';
 import { useCrimesHediondosData } from 'hooks/useCrimesHediondosData';
 import { useCrimesHediondosTags } from 'hooks/useCrimesHediondosTags';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useCopyToClipboard } from 'react-use';
 import type { CrimesHediondosCard } from 'types';
-
-import { CopyOutlined } from '@ant-design/icons';
-import { CrimeItemCard } from 'components/CrimesHediondos';
 
 function CrimesHediondosCategorizer() {
   /**
@@ -182,8 +178,7 @@ function CHTagSelect({
 }
 
 function JsonDisplay({ jsons }: { jsons: any }) {
-  const [state, copyToClipboard] = useCopyToClipboard();
-  const navigate = useNavigate();
+  const [, copyToClipboard] = useCopyToClipboard();
 
   const weapons = jsons?.weapons ?? {};
   const evidence = jsons?.evidence ?? {};

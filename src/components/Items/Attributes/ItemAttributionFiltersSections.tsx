@@ -25,7 +25,7 @@ export function ItemAttributionStats() {
     let complete = 0;
     let currentProgress = 0;
     const itemsAttributes = availableItemIds.map((id) => getItemAttributeValues(id));
-    itemsAttributes.forEach(({ complete: isComplete, attributes }) => {
+    itemsAttributes.forEach(({ attributes }) => {
       if (!isEmpty(attributes)) {
         someData += 1;
       }

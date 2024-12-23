@@ -1,13 +1,13 @@
-import { App } from 'antd';
-import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
-import { useEffect, useMemo } from 'react';
 import { type QueryKey, type UseQueryOptions, useQueries, useQuery } from '@tanstack/react-query';
-import { printFirebase } from 'services/firebase';
-import { useTDResource } from 'hooks/useTDResource';
-import type { DrawingData, DrawingEntry } from 'types';
+import { App } from 'antd';
 import type { FirebaseDataDrawing } from 'components/Daily/utils/types';
-import { SEPARATOR } from 'utils/constants';
+import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
+import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
+import { useEffect, useMemo } from 'react';
+import { printFirebase } from 'services/firebase';
+import type { DrawingData, DrawingEntry } from 'types';
+import { SEPARATOR } from 'utils/constants';
 
 /**
  * Custom hook for loading drawings.

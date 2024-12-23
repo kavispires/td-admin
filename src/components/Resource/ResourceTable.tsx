@@ -8,7 +8,7 @@ type ResourceCardsProps = {
   resourceName: string | null;
 };
 
-export function ResourceTable({ response, resourceName }: ResourceCardsProps) {
+export function ResourceTable({ response }: ResourceCardsProps) {
   const list: any[] = Object.values(response);
 
   const columns = useMemo(() => {

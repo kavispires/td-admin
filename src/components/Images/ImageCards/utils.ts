@@ -1,7 +1,7 @@
 import { cloneDeep, uniq } from 'lodash';
+import { deepCleanObject } from 'utils';
 import { SUGGESTED_COLORS, SUGGESTED_MOODS } from './constants';
 import type { FirebaseImageCardLibrary, ImageCardData } from './types';
-import { deepCleanObject } from 'utils';
 
 export const hasCardAchievedMinimumRequirements = (card: ImageCardData) => {
   return (

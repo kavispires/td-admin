@@ -78,8 +78,6 @@ export const findSimilar = (str: string, data: PlainObject, property = 'text') =
   return similar;
 };
 
-export const findBestMatch = (str: string, list: string[]) => {};
-
 /**
  * Creates array of given length filled with indexes
  * @param length the length of the array

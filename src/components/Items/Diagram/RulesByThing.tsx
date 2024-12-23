@@ -22,7 +22,6 @@ export function RulesByThing({
   availableThings,
   rules,
   setActiveThing,
-  thingsByRules,
 }: RulesByThingProps) {
   const [ref, { width: containerWidth }] = useMeasure<HTMLDivElement>();
 

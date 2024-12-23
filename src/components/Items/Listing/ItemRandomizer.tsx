@@ -1,4 +1,4 @@
-import { Button, Divider, Dropdown, Flex, Form, InputNumber, Space, Typography } from 'antd';
+import { Button, Dropdown, Flex, Form, InputNumber, Space, Typography } from 'antd';
 import { useState } from 'react';
 import type { Item as ItemT } from 'types';
 

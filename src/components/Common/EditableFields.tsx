@@ -1,8 +1,8 @@
 import { FireFilled, IdcardOutlined } from '@ant-design/icons';
 import { Input, type InputProps, Switch, type SwitchProps, Typography } from 'antd';
 import type { TextProps } from 'antd/lib/typography/Text';
-import { LanguageFlag } from './LanguageFlag';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { LanguageFlag } from './LanguageFlag';
 
 export function Label({ strong, ...props }: TextProps) {
   return <Typography.Text strong={strong ?? true} {...props} />;

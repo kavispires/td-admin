@@ -23,7 +23,7 @@ type ItemsQuartetsTableProps = {
   expandedRowKeys?: string[];
 };
 
-export function ItemsQuartetsTable({ rows, addEntryToUpdate, expandedRowKeys }: ItemsQuartetsTableProps) {
+export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTableProps) {
   const copyToClipboard = useCopyToClipboardFunction();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
 

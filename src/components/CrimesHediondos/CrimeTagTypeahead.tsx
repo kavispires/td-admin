@@ -28,7 +28,7 @@ type CrimeTagAddMultipleProps = Pick<CrimesHediondosInnerContentProps, 'allTags'
   onSelect: (value: string[]) => void;
 };
 
-export function CrimeTagAddMultiple({ allTags, onSelect }: CrimeTagAddMultipleProps) {
+export function CrimeTagAddMultiple({ onSelect }: CrimeTagAddMultipleProps) {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const handleSelect = () => {

@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, Space, Typography } from 'antd';
+import { Button, Flex, Space, Typography } from 'antd';
 import { Fragment, useState } from 'react';
 import type { Item as ItemT } from 'types';
 

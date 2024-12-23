@@ -40,7 +40,7 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
   const [activeThing, setActiveThing] = useState<DailyDiagramItem | null>(null);
 
   useEffect(() => {
-    const updateThings = async (i: DailyDiagramItem) => {
+    const updateThings = async (_: DailyDiagramItem) => {
       console.log('Found things that need to update...');
       setActiveThing(null);
 

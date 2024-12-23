@@ -31,7 +31,7 @@ export function PlaygroundContent() {
 
   return (
     <Space direction="vertical">
-      {grid.cells.map((cell, index) => (
+      {grid.cells.map((cell) => (
         <div
           key={cell.id}
           style={{ width: 50, height: 50, border: '1px solid black', color: getCellColor(cell.state) }}

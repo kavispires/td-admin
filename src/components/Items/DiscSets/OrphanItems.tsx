@@ -127,7 +127,6 @@ type DrawerContentProps = {
 export function DrawerContent({
   activeItem,
   activeItemSets,
-  latestSetId,
   setLatestSetId,
   sortedSets,
   data,

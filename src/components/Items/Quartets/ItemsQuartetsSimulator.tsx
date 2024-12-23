@@ -6,10 +6,7 @@ import type { DailyQuartetSet } from 'types';
 
 import { Item } from 'components/Sprites';
 
-export function ItemsQuartetsSimulator({
-  data,
-  addEntryToUpdate,
-}: UseResourceFirebaseDataReturnType<DailyQuartetSet>) {
+export function ItemsQuartetsSimulator({ data }: UseResourceFirebaseDataReturnType<DailyQuartetSet>) {
   const [simulation, setSimulation] = useState(simulateQuartetGame(data));
 
   const onNewSimulation = () => {

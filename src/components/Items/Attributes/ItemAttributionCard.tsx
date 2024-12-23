@@ -62,7 +62,7 @@ export function ItemAttributionCard() {
         </Affix>
 
         <Space size="small" direction="vertical" className="my-4 attribute-button-container" wrap>
-          {filteredAttributesList.map((attribute, index) => (
+          {filteredAttributesList.map((attribute) => (
             <AttributionValueButtons
               key={attribute.id}
               attribute={attribute}
