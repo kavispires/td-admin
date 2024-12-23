@@ -7,6 +7,7 @@ import { useItemsContext } from 'context/ItemsContext';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { ItemCard } from '../ItemCard';
 import { ItemsTypeahead } from '../ItemsTypeahead';
+import { removeDuplicates } from 'utils';
 
 export function ItemSearch() {
   const { items, isLoading, isSaving } = useItemsContext();
@@ -28,8 +29,8 @@ export function ItemSearch() {
         <ItemsTypeahead
           items={items}
           isPending={isLoading || isSaving}
-          onFinish={() => {}}
-          onFinishMultiple={(ids) => setActiveItems(ids.map((id) => items[id]))}
+          onFinish={(id) => setActiveItems([items[id]])}
+          onFinishMultiple={(ids) => setActiveItems(removeDuplicates(ids).map((id) => items[id]))}
         />
       </div>
 
