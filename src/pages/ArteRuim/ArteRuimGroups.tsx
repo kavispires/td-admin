@@ -10,10 +10,10 @@ import type { ArteRuimCard, ArteRuimGroup } from 'types';
 
 import { useQuery } from '@tanstack/react-query';
 
-import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
-import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
-import { useResourceState } from '../hooks/useResourceState';
-import { RESOURCE_NAMES } from '../utils/constants';
+import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
+import { ResourceSelectionFilters } from '../../components/Resource/ResourceSelectionFilters';
+import { useResourceState } from '../../hooks/useResourceState';
+import { RESOURCE_NAMES } from '../../utils/constants';
 
 const { Text } = Typography;
 

@@ -1,6 +1,6 @@
 import type { useLoadDrawings } from 'components/Daily/hooks';
 import { sampleSize, shuffle } from 'lodash';
-import type { DailyArteRuimEntry, DailyEntry, DataDrawing, ParsedDailyHistoryEntry } from '../types';
+import type { DailyArteRuimEntry, DailyEntry, FirebaseDataDrawing, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 
 /**
@@ -23,7 +23,7 @@ export const buildDailyArteRuimGames = (
   console.count('Creating Arte Ruim...');
   const drawings = (drawingsQuery ?? []).reduce(
     (acc: Record<CardId, DailyEntry['arte-ruim']>, drawingEntry) => {
-      const drawingsLibrary = (drawingEntry.data ?? {}) as Record<string, DataDrawing>;
+      const drawingsLibrary = (drawingEntry.data ?? {}) as Record<string, FirebaseDataDrawing>;
       // Build entries for each available card possible
       Object.entries(drawingsLibrary).forEach(([key, dataDrawing]) => {
         const cardId = dataDrawing.cardId ?? dataDrawing.id;

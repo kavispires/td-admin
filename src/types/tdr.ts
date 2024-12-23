@@ -1063,3 +1063,17 @@ export type TeenageStudent = {
    */
   height: string;
 };
+
+export type DrawingEntry = {
+  id: string;
+  drawing: string;
+  createdAt: DateMilliseconds;
+  artistId: string;
+};
+
+export type DrawingData = {
+  id: CardId;
+  text: string;
+  drawings: DrawingEntry[];
+  updatedAt: DateMilliseconds;
+};

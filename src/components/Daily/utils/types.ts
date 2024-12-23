@@ -154,7 +154,7 @@ export type DailyEntry = {
   'comunicacao-alienigena': DailyComunicacaoAlienigenaEntry;
 };
 
-export type DataDrawing = {
+export type FirebaseDataDrawing = {
   cardId: CardId; // this or id?
   id: CardId; // this or cardId?
   drawing: string;

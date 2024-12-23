@@ -15,8 +15,15 @@ const Playground = lazy(() => import('pages/Playground' /* webpackChunkName: "Pl
 const ImageCards = lazy(() => import('pages/Images/ImageCards' /* webpackChunkName: "ImageCards" */));
 const Sprites = lazy(() => import('pages/Images/Sprites' /* webpackChunkName: "Sprites" */));
 const Suspects = lazy(() => import('pages/Images/Suspects' /* webpackChunkName: "Suspects" */));
-const ArteRuimParser = lazy(() => import('pages/ArteRuimParser' /* webpackChunkName: "ArteRuimParser" */));
-const ArteRuimGroups = lazy(() => import('pages/ArteRuimGroups' /* webpackChunkName: "ArteRuimGroups" */));
+const ArteRuimParser = lazy(
+  () => import('pages/ArteRuim/ArteRuimParser' /* webpackChunkName: "ArteRuimParser" */),
+);
+const ArteRuimGroups = lazy(
+  () => import('pages/ArteRuim/ArteRuimGroups' /* webpackChunkName: "ArteRuimGroups" */),
+);
+const ArteRuimDrawings = lazy(
+  () => import('pages/ArteRuim/ArteRuimDrawings' /* webpackChunkName: "ArteRuimDrawings" */),
+);
 const ImageCardsRelationships = lazy(
   () => import('pages/Images/ImageCardsRelationships' /* webpackChunkName: "ImageCardsRelationships" */),
 );
@@ -89,6 +96,14 @@ export const routes = (
       element={
         <Suspense fallback={<LoadingPage />}>
           <ArteRuimGroups />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/game/arte-ruim-drawings"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <ArteRuimDrawings />
         </Suspense>
       }
     />

@@ -45,6 +45,10 @@ const items: MenuProps['items'] = [
             label: 'Groups',
             key: '/game/arte-ruim-groups',
           },
+          {
+            label: 'Drawings',
+            key: '/game/arte-ruim-drawings',
+          },
         ],
       },
       {

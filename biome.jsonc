@@ -32,6 +32,10 @@
         "noNoninteractiveElementToInteractiveRole": "off",
         "useFocusableInteractive": "off"
       },
+      "correctness": {
+        "noUnusedImports": "warn",
+        "noUnusedVariables": "warn"
+      },
       "complexity": {
         "noForEach": "off"
       },
