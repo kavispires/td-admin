@@ -125,8 +125,18 @@ function prepareFileForDownload(items: Dictionary<Item>) {
   const copy = cloneDeep(items);
 
   Object.values(copy).reduce((acc: Dictionary<Item>, item) => {
+    // Fixed aliases
+    item.aliasesEn = Object.values(item.aliasesEn ?? {}).sort();
+    if (item.aliasesEn.length === 0) {
+      item.aliasesEn = undefined;
+    }
+    item.aliasesPt = Object.values(item.aliasesPt ?? {}).sort();
+    if (item.aliasesPt.length === 0) {
+      item.aliasesPt = undefined;
+    }
+
     // Sort deck
-    item.decks = (item?.decks ?? []).sort();
+    item.decks = Object.values(item?.decks ?? {}).sort();
 
     // Remove decks if no deck is present
     if (item.decks.length === 0) {

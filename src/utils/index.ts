@@ -153,17 +153,22 @@ export const sortJsonKeys = (library: PlainObject): PlainObject => {
 };
 
 /**
- * Recursively removes `undefined` values from an object.
+ * Recursively removes `undefined` values from an object or array.
  * @template T - The type of the object to clean.
  * @param {T} obj - The object to clean.
  * @returns {T} - The cleaned object with no `undefined` values.
  */
-export const deepCleanObject = <T>(obj: T): T => {
+export const deepCleanObject = <T = unknown>(obj: T): T => {
   if (!isObject(obj) || isNull(obj)) {
     return obj;
   }
 
-  // Recursively process each key
+  // If the object is an array, filter out undefined values
+  if (Array.isArray(obj)) {
+    return obj.map((item) => deepCleanObject(item)).filter((item) => !isUndefined(item)) as unknown as T;
+  }
+
+  // Recursively process each key for objects
   return transform(
     obj,
     (result, value, key) => {
