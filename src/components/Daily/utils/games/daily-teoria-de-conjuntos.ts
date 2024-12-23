@@ -4,6 +4,8 @@ import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 import type { DailyTeoriaDeConjuntosEntry, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 
+const SELECTION_SIZE = 8;
+
 export const buildDailyTeoriaDeConjuntosGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
@@ -138,9 +140,9 @@ function getRuleSet(
   };
 
   // Get up to 4 unique things that fit both rules, if possible
-  const sampleCommonThings = sampleSize(commonItems, 4);
-  const sampleRule1Things = sampleSize(itemsOnlyInRule1, 8);
-  const sampleRule2Things = sampleSize(itemsOnlyInRule2, 8);
+  const sampleCommonThings = sampleSize(commonItems, SELECTION_SIZE / 2);
+  const sampleRule1Things = sampleSize(itemsOnlyInRule1, SELECTION_SIZE);
+  const sampleRule2Things = sampleSize(itemsOnlyInRule2, SELECTION_SIZE);
   const answerSheet: Record<string, number> = {};
   sampleCommonThings.forEach((id) => {
     answerSheet[id] = 0;
@@ -152,8 +154,8 @@ function getRuleSet(
     answerSheet[id] = 2;
   });
 
-  // Sample 8 things among the options
-  const selectionIds = sampleSize([...sampleCommonThings, ...sampleRule1Things, ...sampleRule2Things], 8);
+  // Sample 8 things among the options, shuffleAndCombine prevents from having the first 4 items from the same rule
+  const selectionIds = shuffleAndCombine(sampleCommonThings, sampleRule1Things, sampleRule2Things);
 
   const selectedThings = selectionIds.map((id) => ({
     id,
@@ -190,4 +192,28 @@ function getRuleSet(
     things: selectedThings,
   };
   return entry;
+}
+
+function shuffleAndCombine(arr1: string[], arr2: string[], arr3: string[]) {
+  // Get the first 3 items from each array
+  const firstThreeArr1 = arr1.slice(0, 3);
+  const firstThreeArr2 = arr2.slice(0, 3);
+  const firstThreeArr3 = arr3.slice(0, 3);
+
+  // Combine and shuffle the first three items from each
+  let combined = sampleSize([...firstThreeArr1, ...firstThreeArr2, ...firstThreeArr3], SELECTION_SIZE);
+
+  // If the combined length is less than 9, gather remaining items
+  if (combined.length < SELECTION_SIZE) {
+    const remainingArr1 = arr1.slice(3);
+    const remainingArr2 = arr2.slice(3);
+    const remainingArr3 = arr3.slice(3);
+
+    const remaining = shuffle([...remainingArr1, ...remainingArr2, ...remainingArr3]);
+
+    // Append remaining items to the combined list
+    combined = [...combined, ...remaining];
+  }
+
+  return combined.slice(0, SELECTION_SIZE);
 }
