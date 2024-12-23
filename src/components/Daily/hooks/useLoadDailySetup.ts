@@ -22,8 +22,8 @@ import { buildDailyPalavreadoGames } from '../utils/games/daily-palavreado';
 import { buildDailyTeoriaDeConjuntosGames } from '../utils/games/daily-teoria-de-conjuntos';
 import type { DailyEntry } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
-import { useLoadDrawings } from './useLoadDrawings';
 import { useParsedHistory } from './useParsedHistory';
+import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
 
 export type UseLoadDailySetup = {
   isLoading: boolean;
@@ -61,8 +61,9 @@ export function useLoadDailySetup(
   }, [batchSize, queryLanguage]);
 
   // STEP 2: ARTE RUIM
-  const drawingsQuery = useLoadDrawings(enabled, queryLanguage ?? 'pt');
-  const areDrawingsLoading = drawingsQuery.some((q) => q.isLoading);
+  const drawingsQuery = useDrawingsResourceData(enabled, queryLanguage);
+
+  const areDrawingsLoading = drawingsQuery.isLoading;
   const [arteRuimHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTE_RUIM, historyQuery.data);
   const arteRuimEntries = useMemo(() => {
     if (areDrawingsLoading || !historyQuery.isSuccess) {

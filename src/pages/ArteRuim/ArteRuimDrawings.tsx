@@ -9,7 +9,8 @@ import { useDrawingsResourceData } from './useArteRuimDrawings';
 
 export function ArteRuimDrawings() {
   const { queryParams } = useQueryParams();
-  const query = useDrawingsResourceData(queryParams.get('language') ?? '--');
+  const language = queryParams.get('language');
+  const query = useDrawingsResourceData(!!language && language !== '--', language ?? '--');
   return (
     <PageLayout title="Arte Ruim Drawings">
       <Layout hasSider>

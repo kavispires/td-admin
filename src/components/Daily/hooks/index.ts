@@ -37,6 +37,5 @@ export function useTempDaily(enabled = true) {
   };
 }
 
-export * from './useLoadDrawings';
 export * from './useLoadDailySetup';
 export * from './useSaveDailySetup';

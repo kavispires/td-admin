@@ -1,7 +1,7 @@
-import type { useLoadDrawings } from 'components/Daily/hooks';
 import { sampleSize, shuffle } from 'lodash';
-import type { DailyArteRuimEntry, DailyEntry, FirebaseDataDrawing, ParsedDailyHistoryEntry } from '../types';
+import type { DailyArteRuimEntry, DailyEntry, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import type { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
 
 /**
  * Builds the daily Arte Ruim games.
@@ -16,58 +16,38 @@ import { getNextDay } from '../utils';
 export const buildDailyArteRuimGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
-  drawingsQuery: ReturnType<typeof useLoadDrawings>,
+  drawingsQuery: ReturnType<typeof useDrawingsResourceData>,
   queryLanguage: Language,
   drawingsCount: number,
 ) => {
   console.count('Creating Arte Ruim...');
-  const drawings = (drawingsQuery ?? []).reduce(
-    (acc: Record<CardId, DailyEntry['arte-ruim']>, drawingEntry) => {
-      const drawingsLibrary = (drawingEntry.data ?? {}) as Record<string, FirebaseDataDrawing>;
-      // Build entries for each available card possible
-      Object.entries(drawingsLibrary).forEach(([key, dataDrawing]) => {
-        const cardId = dataDrawing.cardId ?? dataDrawing.id;
+  const drawings: DailyEntry['arte-ruim'][] = Object.values(drawingsQuery.drawings)
+    .filter((d) => {
+      // Remove used cards
+      if (history.used.includes(d.id)) {
+        return false;
+      }
 
-        // Remove cards from "Level 5" or cards that were already used
-        if (cardId?.includes('--') || history.used.includes(cardId)) {
-          return acc;
-        }
+      // Remove cards with less than the required number of drawings
+      if (d.drawings.length < drawingsCount) {
+        return false;
+      }
 
-        // Skip empty drawings
-        if (dataDrawing.drawing.trim().length < 10) {
-          console.log('🔆 Empty drawing', cardId);
-          return acc;
-        }
-
-        if (acc[cardId] === undefined) {
-          acc[cardId] = {
-            id: cardId,
-            type: 'arte-ruim',
-            language: queryLanguage ?? 'pt',
-            cardId: cardId,
-            text: dataDrawing.text,
-            drawings: [dataDrawing.drawing],
-            number: 0,
-            dataIds: [key],
-          };
-        } else {
-          acc[cardId].drawings.push(dataDrawing.drawing);
-          acc[cardId].dataIds.push(key);
-        }
-      });
-
-      return acc;
-    },
-    {},
-  );
-
-  // Remove anything that doesn't have at least 2 drawings
-  const atLeastTwoDrawingsList = Object.values(drawings).filter(
-    (e) => e.drawings.length >= drawingsCount && e.cardId && !e.cardId?.includes('--'),
-  );
+      return true;
+    })
+    .map((d) => ({
+      id: d.id,
+      type: 'arte-ruim',
+      language: queryLanguage ?? 'pt',
+      cardId: d.id,
+      text: d.text,
+      drawings: d.drawings.map((drawing) => drawing.drawing),
+      number: 0,
+      dataIds: d.drawings.map((drawing) => drawing.id),
+    }));
 
   // Slice to batchSize
-  const shuffledShortList = sampleSize(shuffle(atLeastTwoDrawingsList), batchSize);
+  const shuffledShortList = sampleSize(shuffle(drawings), batchSize);
 
   let lastDate = history.latestDate;
 

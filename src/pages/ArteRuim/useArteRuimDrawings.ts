@@ -86,9 +86,9 @@ function extractCreatedAt(key: string): number {
   return Number.isNaN(createdAt) ? 1619161200000 : createdAt;
 }
 
-export function useDrawingsResourceData(language: string) {
-  const firebaseDrawingsQueries = useLoadFirebaseDrawings(language !== '--', language as Language);
-  const tdrDrawingsQuery = useTDResource<DrawingData>(`arte-ruim-drawings-${language}`, language !== '--');
+export function useDrawingsResourceData(enabled: boolean, language: string) {
+  const firebaseDrawingsQueries = useLoadFirebaseDrawings(enabled, language as Language);
+  const tdrDrawingsQuery = useTDResource<DrawingData>(`arte-ruim-drawings-${language}`, enabled);
 
   const isDrawingsLoading = firebaseDrawingsQueries.some((q) => q.isLoading);
   const isDrawingsSuccess = firebaseDrawingsQueries.every((q) => q.isSuccess);
