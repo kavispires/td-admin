@@ -127,6 +127,7 @@ export function useLoadDailySetup(
       arteRuimHistory,
       arteRuimCardsQuery.data,
       usedArteRuimIds,
+      drawingsQuery.drawings,
     );
   }, [
     arteRuimCardsQuery,
@@ -135,6 +136,7 @@ export function useLoadDailySetup(
     batchSize,
     historyQuery.isSuccess,
     arteRuimEntries,
+    drawingsQuery.drawings,
   ]);
 
   // STEP 6: Filmaço

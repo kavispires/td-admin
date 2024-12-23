@@ -2,6 +2,7 @@ import { sampleSize } from 'lodash';
 import type { ArteRuimCard } from 'types';
 import type { DailyArtistaEntry, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import type { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
 
 export const buildDailyArtistaGames = (
   batchSize: number,
@@ -9,6 +10,7 @@ export const buildDailyArtistaGames = (
   arteRuimHistory: ParsedDailyHistoryEntry,
   arteRuimCards: Dictionary<ArteRuimCard>,
   recentlyUsedIds: CardId[],
+  drawings: ReturnType<typeof useDrawingsResourceData>['drawings'],
 ) => {
   console.count('Creating Artista...');
 
@@ -18,7 +20,10 @@ export const buildDailyArtistaGames = (
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     const availableCardsIds = Object.keys(arteRuimCards ?? {}).filter(
-      (cardId) => !arteRuimHistory.used.includes(cardId) && !recentlyUsedIds.includes(cardId),
+      (cardId) =>
+        !arteRuimHistory.used.includes(cardId) &&
+        !recentlyUsedIds.includes(cardId) &&
+        drawings?.[cardId]?.drawings?.length < 3,
     );
     const cards = sampleSize(availableCardsIds, 15).map((cardId) => arteRuimCards[cardId]);
     lastDate = id;
