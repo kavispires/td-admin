@@ -1,4 +1,4 @@
-import { Button, Flex, Image, Layout, Modal, Tag } from 'antd';
+import { Button, Flex, Image, Layout, Tag } from 'antd';
 
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -6,6 +6,7 @@ import { useKey, useWindowSize } from 'react-use';
 import { ImageCard } from '../ImageCard';
 import { RelationshipCountTag } from './RelationshipCountTag';
 import { type UseImageCardsRelationshipDataReturnValue, useRandomCards } from './hooks';
+import { FullScreenModal } from 'components/Common/FullScreenModal';
 
 type ComparatorProps = {
   query: UseImageCardsRelationshipDataReturnValue;
@@ -21,9 +22,14 @@ export function Comparator({ query }: ComparatorProps) {
   const { cardAId, cardA, cardBId, cardB, relate, unrelate } = useRandomCards(data, setDirty);
 
   const { addParam, is } = useQueryParams();
+  const isOpen = is('open');
 
-  useKey('1', unrelate);
-  useKey('2', relate);
+  useKey('1', () => {
+    if (isOpen) unrelate();
+  });
+  useKey('2', () => {
+    if (isOpen) relate();
+  });
 
   return (
     <Layout.Content className="dev-content py-4">
@@ -31,12 +37,18 @@ export function Comparator({ query }: ComparatorProps) {
         Open Modal
       </Button>
 
-      <Modal
-        title={`Card A: ${cardAId}`}
-        open={is('open')}
-        width={width * 0.95}
-        onCancel={() => addParam('open', 'false')}
-        footer={null}
+      <FullScreenModal
+        title={`Card A: ${cardAId} vs Card B: ${cardBId}`}
+        open={isOpen}
+        onClose={() => addParam('open', 'false')}
+        actions={[
+          <Button key="1" onClick={unrelate} size="large" block>
+            Unrelated
+          </Button>,
+          <Button key="2" onClick={relate} size="large" block type="primary">
+            Related
+          </Button>,
+        ]}
       >
         <Image.PreviewGroup>
           <Flex className="center" wrap="wrap" justify="center">
@@ -56,16 +68,7 @@ export function Comparator({ query }: ComparatorProps) {
             </Flex>
           </Flex>
         </Image.PreviewGroup>
-
-        <Flex gap={32} className="my-10">
-          <Button onClick={unrelate} size="large" block>
-            Unrelated
-          </Button>
-          <Button onClick={relate} size="large" block type="primary">
-            Related
-          </Button>
-        </Flex>
-      </Modal>
+      </FullScreenModal>
     </Layout.Content>
   );
 }
