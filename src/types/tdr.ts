@@ -1064,16 +1064,69 @@ export type TeenageStudent = {
   height: string;
 };
 
+/**
+ * Represents an entry of a drawing.
+ */
 export type DrawingEntry = {
+  /**
+   * The unique identifier of the drawing entry (format: "<cardId>;;<artistId>;;<timestamp>").
+   */
   id: string;
+  /**
+   * The drawing content (a stringified JSON array of points).
+   */
   drawing: string;
+  /**
+   * The timestamp when the drawing was created, in milliseconds.
+   */
   createdAt: DateMilliseconds;
+  /**
+   * The unique identifier of the artist who created the drawing.
+   */
   artistId: string;
 };
 
+/**
+ * TDR Drawing Data
+ */
 export type DrawingData = {
+  /**
+   * The unique identifier of the card. (same as ArteRuimCard.id).
+   */
   id: CardId;
+  /**
+   * The text of the card. (same as ArteRuimCard.text).
+   */
   text: string;
+  /**
+   * The list of drawing entries for the card.
+   */
   drawings: DrawingEntry[];
+  /**
+   * The timestamp when the drawing was last updated, in milliseconds.
+   */
   updatedAt: DateMilliseconds;
+};
+
+/**
+ * Image Cards Descriptor
+ */
+export type ImageCardDescriptor = {
+  id: string;
+  /**
+   * List of keywords/tags related to the image
+   */
+  keywords: string[];
+  /**
+   * Flag indicating an outstanding card
+   */
+  favorite?: boolean;
+  /**
+   * List of triggers present in the image (credo)
+   */
+  triggers?: string[];
+  /**
+   * Card ids from the theme-words deck associated with the image
+   */
+  associatedDreams?: string[];
 };

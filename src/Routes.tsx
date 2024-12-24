@@ -33,6 +33,9 @@ const ImageCardsComparator = lazy(
 const ImageCardsConnections = lazy(
   () => import('pages/Images/ImageCardsConnections' /* webpackChunkName: "ImageCardsConnections" */),
 );
+const ImageCardsDescriptor = lazy(
+  () => import('pages/Images/ImageCardsDescriptor' /* webpackChunkName: "ImageCardsDescriptor" */),
+);
 const Items = lazy(() => import('pages/Items/Items' /* webpackChunkName: "Items" */));
 const ItemsAttribution = lazy(
   () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */),
@@ -227,6 +230,14 @@ export const routes = (
       element={
         <Suspense fallback={<LoadingPage />}>
           <ImageCards />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/image-cards/descriptor"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <ImageCardsDescriptor />
         </Suspense>
       }
     />

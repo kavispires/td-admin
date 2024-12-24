@@ -110,6 +110,10 @@ const items: MenuProps['items'] = [
             key: '/image-cards/decks',
           },
           {
+            label: 'Descriptor',
+            key: '/image-cards/descriptor',
+          },
+          {
             label: 'Comparator',
             key: '/image-cards/comparator',
           },
