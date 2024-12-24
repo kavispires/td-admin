@@ -8,9 +8,9 @@ import { removeDuplicates } from 'utils';
 import { type UseMutateFunction, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { useQueryParams } from 'hooks/useQueryParams';
-import { CARDS_PER_DECK, DEFAULT_ENTRY, TOTAL_DECKS } from './constants';
-import type { FirebaseImageCardLibrary, ImageCardData, ImageCardRelationship } from './types';
-import { cleanupData } from './utils';
+import { CARDS_PER_DECK, DEFAULT_ENTRY, TOTAL_DECKS } from '../constants';
+import type { FirebaseImageCardLibrary, ImageCardData, ImageCardRelationship } from '../types';
+import { cleanupData } from '../utils';
 
 const getRandomCardNumber = () => padStart(String(random(1, CARDS_PER_DECK)), 2, '0');
 

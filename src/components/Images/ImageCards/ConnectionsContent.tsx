@@ -8,7 +8,7 @@ import { RightCircleFilled } from '@ant-design/icons';
 
 import { ImageCard } from '../ImageCard';
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
-import type { UseImageCardsRelationshipDataReturnValue } from './hooks';
+import type { UseImageCardsRelationshipDataReturnValue } from './hooks/hooks';
 
 export function ConnectionsContent() {
   const {

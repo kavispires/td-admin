@@ -6,7 +6,7 @@ import { PageSider, SiderContent } from 'components/Layout';
 import { isEmpty } from 'lodash';
 
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseImageCardsRelationshipDataReturnValue } from './hooks';
+import type { UseImageCardsRelationshipDataReturnValue } from './hooks/hooks';
 
 type ComparatorFiltersProps = {
   query: UseImageCardsRelationshipDataReturnValue;

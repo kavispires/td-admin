@@ -2,7 +2,7 @@ import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { Comparator } from 'components/Images/ImageCards/Comparator';
 import { ComparatorFilters } from 'components/Images/ImageCards/ComparatorFilters';
-import { useImageCardsRelationshipData } from 'components/Images/ImageCards/hooks';
+import { useImageCardsRelationshipData } from 'components/Images/ImageCards/hooks/hooks';
 
 import { PageLayout } from 'components/Layout';
 import { isEmpty } from 'lodash';

@@ -4,7 +4,7 @@ import {
   type UseRandomGroupReturnValue,
   useImageCardsRelationshipData,
   useRandomGroups,
-} from './hooks';
+} from './hooks/hooks';
 
 export type ImagesRelationshipsContextType = {
   sampleSize: number;

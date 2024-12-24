@@ -5,7 +5,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { useKey, useWindowSize } from 'react-use';
 import { ImageCard } from '../ImageCard';
 import { RelationshipCountTag } from './RelationshipCountTag';
-import { type UseImageCardsRelationshipDataReturnValue, useRandomCards } from './hooks';
+import { type UseImageCardsRelationshipDataReturnValue, useRandomCards } from './hooks/hooks';
 import { FullScreenModal } from 'components/Common/FullScreenModal';
 
 type ComparatorProps = {

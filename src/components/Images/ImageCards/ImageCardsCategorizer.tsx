@@ -8,7 +8,7 @@ import { useTitle } from 'react-use';
 import { CheckCircleFilled } from '@ant-design/icons';
 
 import { ImageCard } from '../ImageCard';
-import { useImageCardsData, useRandomCard } from './hooks';
+import { useImageCardsData, useRandomCard } from './hooks/hooks';
 import { buildDictionaries, hasCardAchievedMinimumRequirements } from './utils';
 
 function ImageCardsCategorizerPage() {
