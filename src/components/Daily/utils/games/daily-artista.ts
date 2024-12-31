@@ -23,7 +23,7 @@ export const buildDailyArtistaGames = (
       (cardId) =>
         !arteRuimHistory.used.includes(cardId) &&
         !recentlyUsedIds.includes(cardId) &&
-        drawings?.[cardId]?.drawings?.length < 3,
+        drawings?.[cardId]?.drawings?.length < 4,
     );
     const cards = sampleSize(availableCardsIds, 15).map((cardId) => arteRuimCards[cardId]);
     lastDate = id;
