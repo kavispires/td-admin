@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/td-admin/static/css/main.c53eab14.css",
-    "main.js": "/td-admin/static/js/main.82c3dde7.js",
+    "main.js": "/td-admin/static/js/main.82a3dde6.js",
     "Home.js": "/td-admin/static/js/Home.0111d818.chunk.js",
     "Resource.js": "/td-admin/static/js/Resource.bb6748a0.chunk.js",
     "ResourceGenerator.js": "/td-admin/static/js/ResourceGenerator.d31c3f87.chunk.js",
@@ -26,7 +26,7 @@
     "ItemsMovieSets.js": "/td-admin/static/js/ItemsMovieSets.512403e0.chunk.js",
     "ItemsQuartets.js": "/td-admin/static/js/ItemsQuartets.e4d2e5a9.chunk.js",
     "ItemsCrimeHistory.js": "/td-admin/static/js/ItemsCrimeHistory.47d0368e.chunk.js",
-    "DailySetup.js": "/td-admin/static/js/DailySetup.74df3593.chunk.js",
+    "DailySetup.js": "/td-admin/static/js/DailySetup.38000338.chunk.js",
     "CrimesHediondos.css": "/td-admin/static/css/CrimesHediondos.c1720b9e.chunk.css",
     "CrimesHediondos.js": "/td-admin/static/js/CrimesHediondos.b84c781d.chunk.js",
     "MovieMaker.js": "/td-admin/static/js/MovieMaker.8a0a941c.chunk.js",
@@ -72,7 +72,7 @@
     "index.html": "/td-admin/index.html",
     "static/media/logo.svg": "/td-admin/static/media/logo.290a44ba56847953c116e591c78dfae5.svg",
     "main.c53eab14.css.map": "/td-admin/static/css/main.c53eab14.css.map",
-    "main.82c3dde7.js.map": "/td-admin/static/js/main.82c3dde7.js.map",
+    "main.82a3dde6.js.map": "/td-admin/static/js/main.82a3dde6.js.map",
     "Home.0111d818.chunk.js.map": "/td-admin/static/js/Home.0111d818.chunk.js.map",
     "Resource.bb6748a0.chunk.js.map": "/td-admin/static/js/Resource.bb6748a0.chunk.js.map",
     "ResourceGenerator.d31c3f87.chunk.js.map": "/td-admin/static/js/ResourceGenerator.d31c3f87.chunk.js.map",
@@ -97,7 +97,7 @@
     "ItemsMovieSets.512403e0.chunk.js.map": "/td-admin/static/js/ItemsMovieSets.512403e0.chunk.js.map",
     "ItemsQuartets.e4d2e5a9.chunk.js.map": "/td-admin/static/js/ItemsQuartets.e4d2e5a9.chunk.js.map",
     "ItemsCrimeHistory.47d0368e.chunk.js.map": "/td-admin/static/js/ItemsCrimeHistory.47d0368e.chunk.js.map",
-    "DailySetup.74df3593.chunk.js.map": "/td-admin/static/js/DailySetup.74df3593.chunk.js.map",
+    "DailySetup.38000338.chunk.js.map": "/td-admin/static/js/DailySetup.38000338.chunk.js.map",
     "CrimesHediondos.c1720b9e.chunk.css.map": "/td-admin/static/css/CrimesHediondos.c1720b9e.chunk.css.map",
     "CrimesHediondos.b84c781d.chunk.js.map": "/td-admin/static/js/CrimesHediondos.b84c781d.chunk.js.map",
     "MovieMaker.8a0a941c.chunk.js.map": "/td-admin/static/js/MovieMaker.8a0a941c.chunk.js.map",
@@ -141,6 +141,6 @@
   },
   "entrypoints": [
     "static/css/main.c53eab14.css",
-    "static/js/main.82c3dde7.js"
+    "static/js/main.82a3dde6.js"
   ]
 }
