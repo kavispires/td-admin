@@ -5,7 +5,7 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
-import type { ItemAtributesValues, ItemAttribute } from 'types';
+import type { ItemAttributesValues, ItemAttribute } from 'types';
 import { deepCleanObject, getItemAttributePriorityResponse, sortJsonKeys } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 
@@ -63,7 +63,7 @@ export function ItemAttributionFilters() {
 }
 
 function prepareFileForDownload(
-  itemsAttributes: Dictionary<ItemAtributesValues>,
+  itemsAttributes: Dictionary<ItemAttributesValues>,
   attributes: Dictionary<ItemAttribute>,
 ) {
   const total = Object.keys(attributes).length;

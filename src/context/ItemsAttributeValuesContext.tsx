@@ -2,18 +2,18 @@ import { App } from 'antd';
 import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { isEmpty, orderBy, random } from 'lodash';
 import { type ReactNode, createContext, useContext, useMemo, useState } from 'react';
-import type { Item, ItemAtributesValues, ItemAttribute } from 'types';
+import type { Item, ItemAttributesValues, ItemAttribute } from 'types';
 import { getNewItem, getNewItemAttributeValues, sortJsonKeys } from 'utils';
 
 export type ItemsAttributeValuesContextType = {
   getItem: (itemId: string) => Item;
-  getItemAttributeValues: (itemId: string) => ItemAtributesValues;
+  getItemAttributeValues: (itemId: string) => ItemAttributesValues;
   isLoading: boolean;
   error: ResponseError;
   hasResponseData: boolean;
   isDirty: boolean;
-  itemAttributeValues: ItemAtributesValues;
-  prepareItemsAttributesFileForDownload: () => Dictionary<ItemAtributesValues>;
+  itemAttributeValues: ItemAttributesValues;
+  prepareItemsAttributesFileForDownload: () => Dictionary<ItemAttributesValues>;
   jumpToItem: (direction: string, itemId?: string) => void;
   activeItem: Item;
   onAttributeChange: (attributeId: string, value: number) => void;
@@ -21,10 +21,10 @@ export type ItemsAttributeValuesContextType = {
   save: () => void;
   attributesList: ItemAttribute[];
   availableItemIds: string[];
-  addAttributesToUpdate: (itemId: string, attributes: ItemAtributesValues) => void;
-  addMultipleAttributesToUpdate: (itemsArr: ItemAtributesValues[]) => void;
+  addAttributesToUpdate: (itemId: string, attributes: ItemAttributesValues) => void;
+  addMultipleAttributesToUpdate: (itemsArr: ItemAttributesValues[]) => void;
   attributes: Dictionary<ItemAttribute>;
-  attributesToUpdate: Dictionary<ItemAtributesValues>;
+  attributesToUpdate: Dictionary<ItemAttributesValues>;
 };
 
 const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextType>({
@@ -148,7 +148,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
 
   const prepareItemsAttributesFileForDownload = () => {
     return sortJsonKeys(
-      availableItemIds.reduce((acc: Dictionary<ItemAtributesValues>, itemId) => {
+      availableItemIds.reduce((acc: Dictionary<ItemAttributesValues>, itemId) => {
         // Get items and only the ones with attributes
         const item = getItemAttributeValues(itemId);
 

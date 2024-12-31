@@ -7,7 +7,7 @@ import type {
   DailyDiagramRule,
   DailyDiscSet,
   DailyMovieSet,
-  ItemAtributesValues,
+  ItemAttributesValues,
   ItemAttribute,
 } from 'types';
 
@@ -189,7 +189,10 @@ export function useLoadDailySetup(
     historyQuery.data,
   );
   const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes', enabled);
-  const tdrItemsAttributesValuesQuery = useTDResource<ItemAtributesValues>('items-attribute-values', enabled);
+  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>(
+    'items-attribute-values',
+    enabled,
+  );
   // biome-ignore lint/correctness/useExhaustiveDependencies: functions shouldn't be used as dependencies
   const comunicacaoAlienigenaEntries = useMemo(() => {
     if (

@@ -1,7 +1,7 @@
 import { App } from 'antd';
 import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { Item, ItemAtributesValues, ItemAttribute } from 'types';
+import type { Item, ItemAttributesValues, ItemAttribute } from 'types';
 import { deserializeFirebaseData, getNewItem, getNewItemAttributeValues, serializeFirebaseData } from 'utils';
 
 import { useQueryClient } from '@tanstack/react-query';
@@ -13,7 +13,7 @@ import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
 /**
  * This is to avoid new items being generated and unused just for the sake of placeholders.
  */
-const globalNewItemsAttributesValues: Dictionary<ItemAtributesValues> = {};
+const globalNewItemsAttributesValues: Dictionary<ItemAttributesValues> = {};
 
 export function useItemsAttribution() {
   const { notification, message } = App.useApp();
@@ -22,15 +22,17 @@ export function useItemsAttribution() {
   // Gather basic item data
   const tdrItemsQuery = useTDResource<Item>('items');
   const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes');
-  const tdrItemsAttributesValuesQuery = useTDResource<ItemAtributesValues>('items-attribute-values');
+  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>('items-attribute-values');
   const firebaseItemsAttributeValuesQuery = useGetFirebaseDoc<
     Dictionary<string>,
-    Dictionary<ItemAtributesValues>
+    Dictionary<ItemAttributesValues>
   >('tdr', 'itemsAttributeValues', {
     select: deserializeFirebaseData,
   });
 
-  const [modifiedAttributeValues, setModifiedAttributeValues] = useState<Dictionary<ItemAtributesValues>>({});
+  const [modifiedAttributeValues, setModifiedAttributeValues] = useState<Dictionary<ItemAttributesValues>>(
+    {},
+  );
 
   const mutation = useUpdateFirebaseDoc('tdr', 'itemsAttributeValues', {
     onSuccess: () => {
@@ -58,10 +60,10 @@ export function useItemsAttribution() {
   }, [tdrItemsAttributesValuesQuery.data, firebaseItemsAttributeValuesQuery.data]);
 
   const isDirty = !isEmpty(modifiedAttributeValues);
-  const addAttributesToUpdate = (id: string, item: ItemAtributesValues) => {
+  const addAttributesToUpdate = (id: string, item: ItemAttributesValues) => {
     setModifiedAttributeValues((prev) => ({ ...prev, [id]: { ...item, updatedAt: Date.now() } }));
   };
-  const addMultipleAttributesToUpdate = (itemsArr: ItemAtributesValues[]) => {
+  const addMultipleAttributesToUpdate = (itemsArr: ItemAttributesValues[]) => {
     setModifiedAttributeValues((prev) => ({
       ...prev,
       ...mapKeys(

@@ -1,5 +1,5 @@
 import { keys, random, sample, sampleSize, shuffle, values } from 'lodash';
-import type { ItemAtributesValues, ItemAttribute } from 'types';
+import type { ItemAttributesValues, ItemAttribute } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import type { DailyComunicacaoAlienigenaEntry, ParsedDailyHistoryEntry } from '../types';
@@ -9,7 +9,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   attributes: Dictionary<ItemAttribute>,
-  attributeValues: Dictionary<ItemAtributesValues>,
+  attributeValues: Dictionary<ItemAttributesValues>,
   updateWarnings: (warning: string) => void,
 ) => {
   console.count('Creating Comunicacao Alienigena...');
@@ -55,7 +55,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
 
 const generateComunicacaoAlienigenaGame = (
   attributes: ItemAttribute[],
-  attributeValues: ItemAtributesValues[],
+  attributeValues: ItemAttributesValues[],
 ): DailyComunicacaoAlienigenaEntry => {
   const shuffledAttributeValues = shuffle(attributeValues);
 

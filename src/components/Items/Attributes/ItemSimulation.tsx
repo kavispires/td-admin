@@ -17,7 +17,7 @@ import {
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { keys, sampleSize, shuffle, sortBy } from 'lodash';
 import { useState } from 'react';
-import type { ItemAtributesValues, ItemAttribute } from 'types';
+import type { ItemAttributesValues, ItemAttribute } from 'types';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { DailyAliemSimulator } from './DailyAlienSimulator';
@@ -287,7 +287,7 @@ export function ItemSimulation() {
 }
 
 function getHighestAttributeKeys(
-  selectedItemsAttributesValues: ItemAtributesValues[],
+  selectedItemsAttributesValues: ItemAttributesValues[],
   quantity: number,
   attributes: Dictionary<ItemAttribute>,
 ): string[] {

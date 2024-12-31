@@ -4,11 +4,11 @@ import { FilterSwitch } from 'components/Common';
 import { AlienSign } from 'components/Sprites';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useMemo } from 'react';
-import type { ItemAtributesValues, ItemAttribute } from 'types';
+import type { ItemAttributesValues, ItemAttribute } from 'types';
 import { filterMessage, getItemAttributePriorityResponse, parseAttribute } from 'utils';
 
 type ItemAttributeDescriptionProps = {
-  itemAttributeValues: ItemAtributesValues;
+  itemAttributeValues: ItemAttributesValues;
   attributes: Dictionary<ItemAttribute>;
 };
 

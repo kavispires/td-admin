@@ -732,7 +732,7 @@ export type Item = {
 /**
  * Item Atributes Values
  */
-export type ItemAtributesValues = {
+export type ItemAttributesValues = {
   /**
    * Unique identifier for the item
    */
@@ -804,6 +804,10 @@ export type ItemAttribute = {
    * Flag indicating another attribute that is directly the opposite of this one
    */
   oppositeId?: boolean;
+  /**
+   * Keywords string to help with search
+   */
+  keywords: DualLanguageValue;
 };
 
 export type ItemGroup = {

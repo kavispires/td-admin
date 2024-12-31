@@ -6,7 +6,7 @@ import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesCont
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { ItemAtributesValues, ItemAttribute } from 'types';
+import type { ItemAttributesValues, ItemAttribute } from 'types';
 
 export function ItemStats() {
   // console.log(attributesList);
@@ -39,7 +39,7 @@ export function ItemStats() {
   );
 }
 
-const calculateAttributeStats = (attribute: ItemAttribute, itemsAttributes: ItemAtributesValues[]) => {
+const calculateAttributeStats = (attribute: ItemAttribute, itemsAttributes: ItemAttributesValues[]) => {
   let completionCount = 0;
   let tensCount = 0;
   let fivesCount = 0;

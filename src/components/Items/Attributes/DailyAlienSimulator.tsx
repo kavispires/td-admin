@@ -3,13 +3,13 @@ import { AlienSign, Item } from 'components/Sprites';
 import { useTDResource } from 'hooks/useTDResource';
 import { keys, sample, sampleSize, shuffle, values } from 'lodash';
 import { useState } from 'react';
-import type { ItemAtributesValues, ItemAttribute } from 'types';
+import type { ItemAttributesValues, ItemAttribute } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 export function DailyAliemSimulator() {
   const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes');
-  const tdrItemsAttributesValuesQuery = useTDResource<ItemAtributesValues>('items-attribute-values');
+  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>('items-attribute-values');
 
   const [simulation, setSimulation] = useState<DailyAlienGame | null>(null);
 
@@ -116,7 +116,7 @@ type DailyAlienGame = {
 
 const generateDailyAlienGame = (
   attributes: Dictionary<ItemAttribute>,
-  itemsAttributesValues: Dictionary<ItemAtributesValues>,
+  itemsAttributesValues: Dictionary<ItemAttributesValues>,
 ): DailyAlienGame => {
   const allAttributes = values(attributes).filter((attr) => !attr.limited || attr.id === 'sol');
   const allItems = shuffle(values(itemsAttributesValues).filter((i) => i.complete));

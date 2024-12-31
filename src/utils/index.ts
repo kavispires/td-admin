@@ -11,7 +11,7 @@ import {
   transform,
 } from 'lodash';
 import stringSimilarity from 'string-similarity';
-import type { Item, ItemAtributesValues, ItemAttribute } from 'types';
+import type { Item, ItemAttributesValues, ItemAttribute } from 'types';
 import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX, SEARCH_THRESHOLD } from './constants';
 
 /**
@@ -244,15 +244,15 @@ export const getNewItem = (partialItem: Partial<Item> = {}): Item => {
 };
 
 /**
- * Creates a new `ItemAtributesValues` object by merging the provided `partialItemAttributeValues`
+ * Creates a new `ItemAttributesValues` object by merging the provided `partialItemAttributeValues`
  * with a default object that has an empty `id` and an empty `attributes` object.
  *
  * @param partialItemAttributeValues - The partial item attribute values to merge.
- * @returns The new `ItemAtributesValues` object.
+ * @returns The new `ItemAttributesValues` object.
  */
 export const getNewItemAttributeValues = (
-  partialItemAttributeValues: Partial<ItemAtributesValues> = {},
-): ItemAtributesValues => {
+  partialItemAttributeValues: Partial<ItemAttributesValues> = {},
+): ItemAttributesValues => {
   return cloneDeep(
     merge(
       {
@@ -265,7 +265,7 @@ export const getNewItemAttributeValues = (
 };
 
 export const getItemAttributePriorityResponse = (
-  itemAttributesValues: ItemAtributesValues,
+  itemAttributesValues: ItemAttributesValues,
   itemAttributes: Dictionary<ItemAttribute>,
   /**
    * Ignore attributes that are UNRELATED or UNCLEAR
