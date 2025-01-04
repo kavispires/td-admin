@@ -164,10 +164,10 @@ export function DrawerContent({
   return (
     <Flex vertical gap={16}>
       <Item id={activeItem} />
-      <Select onChange={onSelect} mode="tags" value={selections} options={options}></Select>
       <Button type="primary" onClick={onAdd} disabled={isEqual(activeItemSets, selections)}>
         Save to Sets
       </Button>
+      <Select onChange={onSelect} mode="tags" value={selections} options={options}></Select>
       <Flex wrap="wrap" gap={8}>
         {sortedSets.map((set) => (
           <Tag

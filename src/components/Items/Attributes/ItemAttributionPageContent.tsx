@@ -2,7 +2,7 @@ import { Empty, Flex } from 'antd';
 import { GoToTopButton } from 'components/Common/GoToTopButton';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { ItemAttributionCard } from './ItemAttributionCard';
-import { ItemAttributionNavigation } from './ItemAttributionNavigation';
+import { ItemAttributionFilterAttributes, ItemAttributionNavigation } from './ItemAttributionNavigation';
 import { ItemComparatorCard } from './ItemComparatorCard';
 import { ItemGroupingCard } from './ItemGroupingCard';
 import { ItemSamplerCard } from './ItemSamplerCard';
@@ -15,7 +15,10 @@ export function ItemAttributionPageContent() {
   if (view === 'classifier') {
     return (
       <>
-        <ItemAttributionNavigation />
+        <Flex className="my-4" gap={8}>
+          <ItemAttributionNavigation />
+          <ItemAttributionFilterAttributes />
+        </Flex>
         <ItemAttributionCard />
         <Flex justify="flex-end" className="my-4">
           <GoToTopButton />

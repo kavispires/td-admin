@@ -107,8 +107,89 @@ function prepareFileForDownload(
     //   itemAttributeValues.attributes['sma'] = ATTRIBUTE_VALUE.OPPOSITE;
     // }
 
+    // const toolValue = itemAttributeValues.attributes.too;
+    // const accessoryValue = itemAttributeValues.attributes.acc;
+    // const instrumentValue = itemAttributeValues.attributes.ins;
+    // let changed = false;
+    // const toBeChanged =
+    //   (toolValue > 0 || accessoryValue > 0 || instrumentValue > 0) &&
+    //   (!toolValue ||
+    //     toolValue < 0 ||
+    //     !accessoryValue ||
+    //     accessoryValue < ATTRIBUTE_VALUE.UNCLEAR ||
+    //     !instrumentValue ||
+    //     instrumentValue < ATTRIBUTE_VALUE.UNCLEAR);
+    // if (toBeChanged) {
+    //   console.log('id', itemAttributeValues.id);
+    //   console.log(toolValue, accessoryValue, instrumentValue);
+    // }
+
+    // if (toolValue > 0) {
+    //   console.log('tool is set resetting the rest');
+    //   if (!accessoryValue || accessoryValue < ATTRIBUTE_VALUE.UNCLEAR) {
+    //     console.log('resetting accessory');
+    //     changed = true;
+    //     itemAttributeValues.attributes.acc = ATTRIBUTE_VALUE.UNCLEAR;
+    //   }
+    //   if (!instrumentValue || instrumentValue < ATTRIBUTE_VALUE.UNCLEAR) {
+    //     console.log('resetting instrument');
+    //     changed = true;
+    //     itemAttributeValues.attributes.ins = ATTRIBUTE_VALUE.UNCLEAR;
+    //   }
+    // }
+
+    // if (accessoryValue > 0) {
+    //   console.log('accessory is set resetting the rest');
+    //   if (!toolValue || toolValue < ATTRIBUTE_VALUE.UNCLEAR) {
+    //     console.log('resetting tool');
+    //     changed = true;
+    //     itemAttributeValues.attributes.too = ATTRIBUTE_VALUE.UNCLEAR;
+    //   }
+    //   if (!instrumentValue || instrumentValue < ATTRIBUTE_VALUE.UNCLEAR) {
+    //     console.log('resetting instrument');
+    //     changed = true;
+    //     itemAttributeValues.attributes.ins = ATTRIBUTE_VALUE.UNCLEAR;
+    //   }
+    // }
+
+    // if (instrumentValue > 0) {
+    //   console.log('instrument is set resetting the rest');
+    //   if (!toolValue || toolValue < ATTRIBUTE_VALUE.UNCLEAR) {
+    //     console.log('resetting tool');
+    //     changed = true;
+    //     itemAttributeValues.attributes.too = ATTRIBUTE_VALUE.UNCLEAR;
+    //   }
+    //   if (!accessoryValue || accessoryValue < ATTRIBUTE_VALUE.UNCLEAR) {
+    //     console.log('resetting accessory');
+    //     changed = true;
+    //     itemAttributeValues.attributes.acc = ATTRIBUTE_VALUE.UNCLEAR;
+    //   }
+    // }
+
+    // if (toBeChanged) {
+    //   if (changed) {
+    //     console.log(
+    //       itemAttributeValues.attributes.too,
+    //       itemAttributeValues.attributes.acc,
+    //       itemAttributeValues.attributes.ins,
+    //     );
+    //   } else {
+    //     console.log('no change');
+    //   }
+
+    //   console.log('-----------------');
+    // }
+
+    // Remove any key that is not an attribute
+    const attributeKeys = Object.keys(itemAttributeValues.attributes);
+    attributeKeys.forEach((k) => {
+      if (!attributes[k]) {
+        delete itemAttributeValues.attributes[k];
+      }
+    });
+
     // Check completion
-    const completed = Object.keys(itemAttributeValues.attributes).length;
+    const completed = attributeKeys.length;
 
     if (completed === total) {
       // Add completion

@@ -12,6 +12,7 @@ export function ItemAttributionCard() {
     useItemsAttributeValuesContext();
   const { searchParams, removeQueryParam } = useItemQueryParams();
   const queryParamsItemId = searchParams.get('itemId');
+  const filteredAttributesIds = searchParams.get('filters');
 
   useEffect(() => {
     if (queryParamsItemId) {
@@ -22,13 +23,22 @@ export function ItemAttributionCard() {
 
   const showOnlyUnset = searchParams.get('scope') === 'unset';
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-  const filteredAttributesList = useMemo(
-    () =>
-      showOnlyUnset
-        ? attributesList.filter((attribute) => !itemAttributeValues.attributes[attribute.id])
-        : attributesList,
-    [showOnlyUnset, activeItem.id],
-  );
+  const filteredAttributesList = useMemo(() => {
+    const shortlist = showOnlyUnset
+      ? attributesList.filter((attribute) => !itemAttributeValues.attributes[attribute.id])
+      : attributesList;
+
+    if (filteredAttributesIds) {
+      const parsedList = filteredAttributesIds.split(',').reduce((acc: BooleanDictionary, id) => {
+        acc[id] = true;
+        return acc;
+      }, {});
+
+      return shortlist.filter((attribute) => parsedList[attribute.id]);
+    }
+
+    return shortlist;
+  }, [showOnlyUnset, activeItem.id, filteredAttributesIds]);
 
   if (!activeItem)
     return (

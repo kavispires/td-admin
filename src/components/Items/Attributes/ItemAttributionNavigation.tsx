@@ -1,9 +1,11 @@
-import { Button, Popover } from 'antd';
+import { Button, Popover, Select } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 
 import {
   DoubleLeftOutlined,
   DoubleRightOutlined,
+  FilterFilled,
+  FilterOutlined,
   LeftOutlined,
   RightOutlined,
   VerticalLeftOutlined,
@@ -11,11 +13,13 @@ import {
 } from '@ant-design/icons';
 
 import { ItemsTypeahead } from '../ItemsTypeahead';
+import { useQueryParams } from 'hooks/useQueryParams';
+import { useMemo } from 'react';
 
 export function ItemAttributionNavigation() {
   const { jumpToItem } = useItemsAttributeValuesContext();
   return (
-    <Button.Group className="my-4">
+    <Button.Group>
       <Button onClick={() => jumpToItem('first')} icon={<VerticalRightOutlined />}>
         First
       </Button>
@@ -34,7 +38,7 @@ export function ItemAttributionNavigation() {
       <Button onClick={() => jumpToItem('last')}>
         Last <VerticalLeftOutlined />
       </Button>
-      <Popover content={<GoToItemPopOverContent />} title="Title">
+      <Popover content={<GoToItemPopOverContent />} title="Go to item">
         <Button>Go To</Button>
       </Popover>
       <Button onClick={() => jumpToItem('incomplete')}>Next Incomplete</Button>
@@ -45,4 +49,42 @@ export function ItemAttributionNavigation() {
 function GoToItemPopOverContent() {
   const { jumpToItem } = useItemsAttributeValuesContext();
   return <ItemsTypeahead isPending={false} onFinish={(itemId) => jumpToItem('goTo', itemId)} />;
+}
+
+export function ItemAttributionFilterAttributes() {
+  const { addParam, queryParams } = useQueryParams();
+
+  const { attributesList } = useItemsAttributeValuesContext();
+
+  const options = useMemo(
+    () =>
+      attributesList.map((attribute) => ({
+        label: attribute.name.en,
+        value: attribute.id,
+      })),
+    [attributesList],
+  );
+
+  const onChangeFilters = (values: string[]) => {
+    addParam('filters', values.join(','));
+  };
+
+  const activeFilters = queryParams.get('filters');
+
+  const content = (
+    <Select
+      mode="multiple"
+      style={{ width: 300 }}
+      options={options}
+      value={activeFilters?.split(',')}
+      onChange={(values) => onChangeFilters(values)}
+      allowClear
+    />
+  );
+
+  return (
+    <Popover content={content} title="Filter Attributes">
+      <Button>{activeFilters ? <FilterFilled style={{ color: 'gold' }} /> : <FilterOutlined />}</Button>
+    </Popover>
+  );
 }
