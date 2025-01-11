@@ -50,6 +50,7 @@ export function useLoadDailySetup(
   const source = LANGUAGE_PREFIX.DAILY[queryLanguage ?? 'pt'];
   const historyQuery = useDailyHistoryQuery(source, { enabled });
   const [warnings, setWarnings] = useState<string[]>([]);
+  const tdrItemsQuery = useTDResource<ItemAttribute>('items', enabled);
 
   const updateWarnings = (newWarning: string) => {
     setWarnings((prev) => [...prev, newWarning]);
@@ -86,12 +87,18 @@ export function useLoadDailySetup(
   const [aquiOHistory] = useParsedHistory(DAILY_GAMES_KEYS.AQUI_O, historyQuery.data);
   // biome-ignore lint/correctness/useExhaustiveDependencies: functions shouldn't be used as dependencies
   const aquiOEntries = useMemo(() => {
-    if (!aquiOSetsQuery.isSuccess || !historyQuery.isSuccess) {
+    if (!aquiOSetsQuery.isSuccess || !historyQuery.isSuccess || !tdrItemsQuery.isSuccess) {
       return {};
     }
 
-    return buildDailyAquiOGames(batchSize, aquiOHistory, aquiOSetsQuery.data, updateWarnings);
-  }, [aquiOSetsQuery, aquiOHistory, batchSize, historyQuery.isSuccess]);
+    return buildDailyAquiOGames(
+      batchSize,
+      aquiOHistory,
+      aquiOSetsQuery.data,
+      tdrItemsQuery.data,
+      updateWarnings,
+    );
+  }, [aquiOSetsQuery, aquiOHistory, batchSize, historyQuery.isSuccess, tdrItemsQuery]);
 
   // STEP 4: Palavreado
   const wordsFourQuery = useLoadWordLibrary(4, queryLanguage, true, true);
@@ -198,7 +205,8 @@ export function useLoadDailySetup(
     if (
       !historyQuery.isSuccess ||
       !tdrAttributesQuery.isSuccess ||
-      !tdrItemsAttributesValuesQuery.isSuccess
+      !tdrItemsAttributesValuesQuery.isSuccess ||
+      !tdrItemsQuery.isSuccess
     ) {
       return {};
     }
@@ -208,6 +216,7 @@ export function useLoadDailySetup(
       comunicacaoAlienigenaHistory,
       tdrAttributesQuery.data,
       tdrItemsAttributesValuesQuery.data,
+      tdrItemsQuery.data,
       updateWarnings,
     );
   }, [
@@ -216,6 +225,7 @@ export function useLoadDailySetup(
     comunicacaoAlienigenaHistory,
     tdrAttributesQuery,
     tdrItemsAttributesValuesQuery,
+    tdrItemsQuery,
   ]);
 
   // STEP N: Create entries

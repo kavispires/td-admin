@@ -111,6 +111,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         while (index < availableItemIds.length) {
           const item = getItemAttributeValues(availableItemIds[index]);
           if (Object.keys(item.attributes).length !== attributesList.length) {
+            // TODO: Account for filtered attributes in qp
             return index;
           }
           if (index === availableItemIds.length - 1) {

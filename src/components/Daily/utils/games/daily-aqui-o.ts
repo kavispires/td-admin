@@ -1,7 +1,7 @@
-import { sampleSize, shuffle } from 'lodash';
-import type { DailyDiscSet } from 'types';
+import { intersection, sampleSize, shuffle } from 'lodash';
+import type { DailyDiscSet, Item } from 'types';
 import type { DailyAquiOEntry, ParsedDailyHistoryEntry } from '../types';
-import { getNextDay } from '../utils';
+import { checkWeekend, getNextDay } from '../utils';
 
 /**
  * Builds a dictionary of DailyAquiOEntry objects based on the given parameters.
@@ -15,6 +15,7 @@ export const buildDailyAquiOGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   discSets: Dictionary<DailyDiscSet>,
+  items: Dictionary<Item>,
   updateWarnings: (warning: string) => void,
 ) => {
   console.count('Creating Aqui Ó...');
@@ -31,6 +32,11 @@ export const buildDailyAquiOGames = (
     notUsedSets.push(...shuffle(completeSets));
   }
 
+  const availableItems = Object.values(items).filter((item) => {
+    if (item?.nsfw) return false;
+    return intersection(item.decks ?? [], ['alien', 'dream', 'thing']).length > 0;
+  });
+
   let lastDate = history.latestDate;
   // Get list, if not enough, get from complete
   const entries: Dictionary<DailyAquiOEntry> = {};
@@ -40,15 +46,31 @@ export const buildDailyAquiOGames = (
       console.error('No aqui-o sets left');
     }
     const id = getNextDay(lastDate);
+    const isWeekend = checkWeekend(id);
     lastDate = id;
-    entries[id] = {
-      id,
-      type: 'aqui-o',
-      number: history.latestNumber + i + 1,
-      setId: setEntry.id,
-      title: setEntry.title,
-      itemsIds: ['0', ...sampleSize(setEntry.itemsIds, 20)],
-    };
+
+    if (isWeekend) {
+      entries[id] = {
+        id,
+        type: 'aqui-o',
+        number: history.latestNumber + i + 1,
+        setId: 'special',
+        title: {
+          pt: 'Especial Fim de Semana',
+          en: 'Weekend Special',
+        },
+        itemsIds: ['0', ...sampleSize(availableItems, 25).map((item) => item.id)],
+      };
+    } else {
+      entries[id] = {
+        id,
+        type: 'aqui-o',
+        number: history.latestNumber + i + 1,
+        setId: setEntry.id,
+        title: setEntry.title,
+        itemsIds: ['0', ...sampleSize(setEntry.itemsIds, 20)],
+      };
+    }
   }
 
   return entries;
