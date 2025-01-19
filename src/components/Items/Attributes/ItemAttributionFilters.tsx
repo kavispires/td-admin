@@ -214,15 +214,17 @@ function prepareFileForDownload(
       // Add reliability
       itemAttributeValues.reliability = Math.floor(((completed - unclearCount) / total) * 100);
 
-      // Add key with only relevant attributes
-      itemAttributeValues.key = getItemAttributePriorityResponse(itemAttributeValues, attributes, true).join(
-        '',
-      );
+      // Add signature with only relevant attributes
+      itemAttributeValues.signature = getItemAttributePriorityResponse(
+        itemAttributeValues,
+        attributes,
+        true,
+      ).join('');
     } else {
       itemAttributeValues.complete = undefined;
       itemAttributeValues.score = undefined;
       itemAttributeValues.reliability = undefined;
-      itemAttributeValues.key = undefined;
+      itemAttributeValues.signature = undefined;
     }
   });
 

@@ -70,8 +70,8 @@ export function ItemSimulation() {
 
       if (!nsfw && getItem(itemId).nsfw) continue;
 
-      if (itemAttributeValues.key && !keysDict[itemAttributeValues.key]) {
-        keysDict[itemAttributeValues.key] = itemId;
+      if (itemAttributeValues.signature && !keysDict[itemAttributeValues.signature]) {
+        keysDict[itemAttributeValues.signature] = itemId;
       } else {
         console.log('Item has identical key to another item. Skipping.', getItem(itemId).name.en);
       }
@@ -419,3 +419,5 @@ function getHighestAttributeKeys(
 
   return result;
 }
+
+// Separate items by signature

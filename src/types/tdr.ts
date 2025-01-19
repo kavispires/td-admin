@@ -23,34 +23,6 @@ export type TextCard = {
 };
 
 /**
- * Alien Item
- * Used for: alien-items
- * @deprecated
- */
-export type AlienItem = {
-  /**
-   * Unique identifier for the card
-   */
-  id: string;
-  /**
-   * The name of the item
-   */
-  name: DualLanguageValue;
-  /**
-   * The dictionary of attribute keys and their values
-   */
-  attributes: Record<string, -5 | -3 | -1 | 0 | 1 | 3 | 5>;
-  /**
-   * Flag indicating if it's nsfw
-   */
-  nsfw?: boolean;
-  /**
-   * Any decks the item belongs to
-   */
-  decks?: string[];
-};
-
-/**
  * Arte Ruim Card
  * Used for: arte-ruim-cards
  */
@@ -750,10 +722,10 @@ export type ItemAttributesValues = {
    */
   updatedAt?: number;
   /**
-   * The alien message using prefixes and attribute keys
+   * The alien message using prefixes and attribute keys (only available if the item is complete)
    * (^) -10, (!) -3, (~) -1, (+) 5, (*) 10
    */
-  key?: string;
+  signature?: string;
   /**
    * The percentage of non-unclear attribute values
    */

@@ -325,6 +325,7 @@ export const getItemAttributePriorityResponse = (
     ...(onlyRelevant ? [] : sortAttributesByPriority(unclear, ATTRIBUTE_VALUE_PREFIX.UNCLEAR)),
   ];
 };
+
 export const parseAttribute = memoize((keyVariant: string) => {
   if (keyVariant.length === 3) {
     return {
