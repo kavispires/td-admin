@@ -13,7 +13,7 @@ export function ItemsCrimeHistorySets() {
   const itemsTypeaheadQuery = useTDResource<Item>('items');
 
   return (
-    <PageLayout title="Items" subtitle="CrimeHistory Sets">
+    <PageLayout title="Items" subtitle="Crime History Random Sets">
       <Layout hasSider>
         <PageSider>-</PageSider>
 

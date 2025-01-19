@@ -17,36 +17,31 @@ type Crime = {
   suspect: ItemT;
   weapon: ItemT;
   evidence: ItemT;
+  location: ItemT;
 };
 
 export function ItemsCrimeHistoryTable() {
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
   const copyToClipboard = useCopyToClipboardFunction();
 
-  const suspects = useMemo(
-    () =>
-      shuffle(
-        Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.decks?.includes('suspect')),
-      ),
-    [itemsTypeaheadQuery.data],
-  );
-
-  const weapons = useMemo(
-    () =>
-      shuffle(Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.decks?.includes('weapon'))),
-    [itemsTypeaheadQuery.data],
-  );
-
-  const evidence = useMemo(
-    () =>
-      shuffle(
-        Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.decks?.includes('evidence')),
-      ),
-    [itemsTypeaheadQuery.data],
-  );
-
   const crimes = useMemo(() => {
-    const total = Math.max(suspects.length, weapons.length, evidence.length);
+    const suspects = shuffle(
+      Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.decks?.includes('suspect')),
+    );
+
+    const weapons = shuffle(
+      Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.decks?.includes('weapon')),
+    );
+
+    const evidence = shuffle(
+      Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.decks?.includes('evidence')),
+    );
+
+    const locations = shuffle(
+      Object.values(itemsTypeaheadQuery.data ?? []).filter((item) => item.decks?.includes('location')),
+    );
+
+    const total = Math.max(suspects.length, weapons.length, evidence.length, locations.length);
     const crimesArray: Crime[] = [];
     for (let i = 0; i < total; i++) {
       crimesArray.push({
@@ -54,10 +49,11 @@ export function ItemsCrimeHistoryTable() {
         suspect: suspects[i],
         weapon: weapons[i],
         evidence: evidence[i],
+        location: locations[i],
       });
     }
     return crimesArray;
-  }, [suspects, weapons, evidence]);
+  }, [itemsTypeaheadQuery.data]);
 
   const onCopyAsCrimesHediondosCard = (record: ItemT, kind: string) => {
     const prefix = kind === 'weapon' ? 'wp' : 'ev';
@@ -151,10 +147,28 @@ export function ItemsCrimeHistoryTable() {
       ),
     },
     {
+      title: 'Location',
+      dataIndex: 'location',
+      render: (item) => (
+        <Flex gap={6} vertical>
+          {item ? (
+            <>
+              <Item id={item.id} width={60} />
+              <ItemId item={item} />
+              <ItemName item={item} language="pt" />
+              <ItemName item={item} language="en" />
+            </>
+          ) : (
+            <>?</>
+          )}
+        </Flex>
+      ),
+    },
+    {
       title: 'Crime',
       dataIndex: 'id',
       render: (_, record) => {
-        const content = `${record.id} - Suspect: ${record.suspect?.name?.en}, Means of Murder:${record.weapon?.name?.en}, and Piece of Evidence: ${record?.evidence?.name?.en}`;
+        const content = `${record.id} - Suspect: ${record.suspect?.name?.en} (id: ${record.suspect.id}), Means of Murder:${record.weapon?.name?.en} (id: ${record.weapon.id}), Piece of Evidence: ${record?.evidence?.name?.en} (id: ${record.evidence.id}), and the Location: ${record?.location?.name?.en} (id: ${record.location.id})`;
 
         return (
           <Flex vertical>
@@ -171,4 +185,18 @@ export function ItemsCrimeHistoryTable() {
       <Table columns={columns} rowKey="id" dataSource={crimes} pagination={{ showQuickJumper: true }} />
     </Space>
   );
+}
+
+interface Entry {
+  id: string;
+  name: string;
+  clue: string;
+}
+interface CrimeScenario {
+  suspect: Entry;
+  means: Entry;
+  evidence: Entry;
+  location: Entry;
+  // A sentence telling the crime
+  summary: string;
 }
