@@ -7,7 +7,7 @@ import type { ItemAttributesValues, ItemAttribute } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 
-export function DailyAliemSimulator() {
+export function DailyAlienSimulator() {
   const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes');
   const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>('items-attribute-values');
 

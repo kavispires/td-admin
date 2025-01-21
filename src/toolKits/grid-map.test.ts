@@ -1,4 +1,4 @@
-import { type GridMapCellState, gridMapUtils } from './gridMap';
+import { type GridMapCellState, gridMapUtils } from './grid-map';
 
 describe('gridMap', () => {
   describe('createGridMap', () => {

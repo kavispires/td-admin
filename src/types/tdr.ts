@@ -710,7 +710,7 @@ export type ItemAttributesValues = {
    */
   id: ItemId;
   /**
-   * The dictionary of attribute keys and their values
+   * The dictionary of ItemAttribute id and their values
    */
   attributes: Record<string, -10 | -3 | -1 | 5 | 10 | number>;
   /**
@@ -775,7 +775,11 @@ export type ItemAttribute = {
   /**
    * Flag indicating another attribute that is directly the opposite of this one
    */
-  oppositeId?: boolean;
+  oppositeId?: string;
+  /**
+   * Flag indicating another attribute that might be related to this one and confusing in the same context
+   */
+  relatedId?: string;
   /**
    * Keywords string to help with search
    */

@@ -1,6 +1,6 @@
 import { Space } from 'antd';
 import { useMemo } from 'react';
-import { gridMapUtils } from '../toolKits/gridMap';
+import { gridMapUtils } from '../toolKits/grid-map';
 
 export function PlaygroundContent() {
   const grid = useMemo(() => {

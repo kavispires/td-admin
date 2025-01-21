@@ -18,9 +18,9 @@ import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesCont
 import { keys, sampleSize, shuffle, sortBy } from 'lodash';
 import { useState } from 'react';
 import type { ItemAttributesValues, ItemAttribute } from 'types';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
-import { DailyAliemSimulator } from './DailyAlienSimulator';
+import { DailyAlienSimulator } from './DailyAlienSimulator';
+import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 const ROMAN_NUMERALS = ['', 'I', 'II', 'III', 'IV', 'V'];
 
@@ -36,7 +36,7 @@ export function ItemSimulation() {
   const { message } = App.useApp();
 
   const [gridSize, setGridSize] = useState<16 | 25>(25);
-  const [reliabilityThreshold, setReliabilityThreshold] = useState<number>(90);
+  const [reliabilityThreshold, setReliabilityThreshold] = useState<number>(80);
   const [nsfw, setNsfw] = useState<boolean>(false);
   const [selectedItemsIds, setSelectedItemsIds] = useState<string[]>([]);
   const [selectedAttributes, setSelectedAttributes] = useState<AttributeSummary[]>([]);
@@ -281,7 +281,7 @@ export function ItemSimulation() {
         ))}
       </div>
 
-      <DailyAliemSimulator />
+      <DailyAlienSimulator />
     </div>
   );
 }
@@ -420,4 +420,9 @@ function getHighestAttributeKeys(
   return result;
 }
 
-// Separate items by signature
+// From those, select 30 items with reliability > 90 (reliableItems) and different signatures
+// Also select 20 items with reliability < 80 (extraItems) and different signatures
+// Gather all itemAttributes from reliableItems with deterministic values (attribute value is 10) (adding up scores)
+// If less than 30 attributes are found, add more attributes with relates values (5) until there are 30.
+// If the selected attributes have a oppositeId or relatedId in the selected list, remove the one with the lowest score
+// Return the 25 top attributes by score and the top 25 items by score (the sum of all their attribute values, except -3)
