@@ -1,0 +1,88 @@
+.er-card {
+  margin: 8px;
+
+  // Background and elevation
+  background-color: #fff;
+  border: 3px outset #f3f3f3;
+  box-shadow:
+    0px 4px 6px rgba(0, 0, 0, 0.1),
+    0px 1px 3px rgba(0, 0, 0, 0.06);
+
+  // Rounded corners
+  border-radius: 3px;
+
+  // Optional transitions for smoother effects
+  transition: box-shadow 0.2s ease-in-out;
+
+  // Hover effect for interactive papers
+  &:hover {
+    box-shadow:
+      0px 6px 10px rgba(0, 0, 0, 0.15),
+      0px 2px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.er-card-header {
+  padding: 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(0deg, #f3f3f3, #fff);
+  border-radius: 3px 3px 0 0;
+
+  h2 {
+    margin: 0;
+    font-size: 1.25em;
+  }
+}
+
+.er-card-content {
+  padding: 8px;
+
+  &--center {
+    display: grid;
+    place-items: center;
+  }
+}
+
+.er-card-title {
+  margin: 0;
+  font-size: 1.05em;
+  font-weight: bold;
+}
+
+.er-card-subtitle {
+  margin: 0;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.6);
+  font-style: italic;
+}
+
+.er-text-box {
+  padding: 0 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.er-ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.er-li {
+  list-style-type: inherit;
+}
+
+.er-paragraph {
+  margin: 6px 0;
+  font-size: 0.95em;
+  line-height: 1.5;
+}

@@ -75,3 +75,5 @@ type GenericCard = {
 };
 
 type Tag = string;
+
+type ElementProps<TElement = HTMLDivElement> = React.HTMLAttributes<TElement>;

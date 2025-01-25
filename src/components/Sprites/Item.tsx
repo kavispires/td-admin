@@ -20,7 +20,7 @@ export type ItemProps = {
    * Replacement title, usually the name of the item
    */
   title?: string;
-};
+} & ElementProps;
 
 const BASE = 64;
 
@@ -42,13 +42,14 @@ const getSource = memoize((str: string) => {
 /**
  * An item card component.
  */
-export function Item({ id, width, className, title }: ItemProps) {
+export function Item({ id, width, className, title, style, ...props }: ItemProps) {
   const [source, itemId] = getSource(id);
 
   return (
     <div
       className={clsx('sprite', className)}
-      style={{ width: `${width ?? 75}px`, height: `${width ?? 75}px` }}
+      style={{ width: `${width ?? 75}px`, height: `${width ?? 75}px`, ...style }}
+      {...props}
     >
       <Sprite source={source} id={itemId} width={width} title={title} />
     </div>

@@ -58,6 +58,13 @@ const CrimesHediondos = lazy(() => import('pages/CrimesHediondos' /* webpackChun
 const MovieMaker = lazy(() => import('pages/MovieMaker' /* webpackChunkName: "MovieMaker" */));
 const FofocaQuente = lazy(() => import('pages/FofocaQuente' /* webpackChunkName: "FofocaQuente" */));
 const Contenders = lazy(() => import('pages/Contenders' /* webpackChunkName: "Contenders" */));
+const EscapeRoom = lazy(() => import('pages/EscapeRoom' /* webpackChunkName: "EscapeRoom" */));
+const EscapeRoomListing = lazy(
+  () => import('components/EscapeRoom/EscapeRoomListing' /* webpackChunkName: "EscapeRoomListing" */),
+);
+const EscapeRoomEntry = lazy(
+  () => import('components/EscapeRoom/EscapeRoomEntry' /* webpackChunkName: "EscapeRoomEntry" */),
+);
 
 export const routes = (
   <Routes>
@@ -111,22 +118,6 @@ export const routes = (
       }
     />
     <Route
-      path="/game/crimes-hediondos"
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <CrimesHediondos />
-        </Suspense>
-      }
-    />
-    <Route
-      path="/game/fofoca-quente"
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <FofocaQuente />
-        </Suspense>
-      }
-    />
-    <Route
       path="/game/contenders"
       element={
         <Suspense fallback={<LoadingPage />}>
@@ -135,10 +126,51 @@ export const routes = (
       }
     />
     <Route
+      path="/game/crimes-hediondos"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <CrimesHediondos />
+        </Suspense>
+      }
+    />
+    <Route
       path="/game/daily-setup"
       element={
         <Suspense fallback={<LoadingPage />}>
           <DailySetup />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/game/escape-room"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <EscapeRoom />
+        </Suspense>
+      }
+    >
+      <Route
+        index
+        element={
+          <Suspense fallback={<LoadingPage />}>
+            <EscapeRoomListing />
+          </Suspense>
+        }
+      />
+      <Route
+        path=":episodeId"
+        element={
+          <Suspense fallback={<LoadingPage />}>
+            <EscapeRoomEntry />
+          </Suspense>
+        }
+      />
+    </Route>
+    <Route
+      path="/game/fofoca-quente"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <FofocaQuente />
         </Suspense>
       }
     />

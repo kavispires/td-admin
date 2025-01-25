@@ -52,20 +52,24 @@ const items: MenuProps['items'] = [
         ],
       },
       {
-        label: 'Crimes Hediondos',
-        key: '/game/crimes-hediondos',
-      },
-      {
-        label: 'Fofoca Quente',
-        key: '/game/fofoca-quente',
-      },
-      {
         label: 'Contenders',
         key: '/game/contenders',
       },
       {
+        label: 'Crimes Hediondos',
+        key: '/game/crimes-hediondos',
+      },
+      {
         label: 'Daily Setup',
         key: '/game/daily-setup',
+      },
+      {
+        label: 'Escape Room',
+        key: '/game/escape-room',
+      },
+      {
+        label: 'Fofoca Quente',
+        key: '/game/fofoca-quente',
       },
     ],
   },
