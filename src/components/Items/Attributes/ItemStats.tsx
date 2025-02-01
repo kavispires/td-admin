@@ -144,7 +144,12 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       ),
       sorter: (a, b) => a.name.en.localeCompare(b.name.en),
     },
-
+    {
+      title: '*',
+      dataIndex: 'spriteId',
+      key: 'spriteId',
+      render: (spriteId) => <AlienSign id={spriteId} width={18} padding={0} />,
+    },
     {
       title: 'Priority',
       dataIndex: 'priority',
