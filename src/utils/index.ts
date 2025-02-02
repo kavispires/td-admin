@@ -122,19 +122,19 @@ export function downloadObjectAsFile(obj: PlainObject, filename: string): void {
  * followed by the remaining keys in alphabetical order.
  *
  * @param library - The JSON object to sort.
+ * @param keyOrder - An array of keys to place after the default keys.
  * @returns The sorted JSON object.
  */
 export const sortJsonKeys = (library: PlainObject, keyOrder: string[] = []): PlainObject => {
+  const DEFAULT_ORDERED_KEYS = ['id', 'name', 'title', 'type'];
+
   function sortKeys(obj: any): any {
     if (isObject(obj) && !Array.isArray(obj)) {
-      const sortedKeys = Object.keys(obj)
-        .filter((key) => ['id', 'name', 'title', 'type'].includes(key))
-        .filter((key) => keyOrder.includes(key))
-        .concat(
-          Object.keys(obj)
-            .filter((key) => !['id', 'name', 'title', 'type'].includes(key))
-            .sort(),
-        );
+      const otherKeys = Object.keys(obj).filter(
+        (key) => !(DEFAULT_ORDERED_KEYS.includes(key) || keyOrder.includes(key)),
+      );
+
+      const sortedKeys = [...DEFAULT_ORDERED_KEYS, ...keyOrder, ...otherKeys.sort()];
 
       return chain(obj)
         .toPairs()
