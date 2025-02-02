@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunktd_admin=self.webpackChunktd_admin||[]).push([[5268],{4293:(e,t,n)=>{n.r(t),n.d(t,{default:()=>i});var s=n(1790),c=n(2241),a=n(7430),l=n(7965),d=n(184);const i=function(){return(0,d.jsx)(l.Xg,{title:"TD Admin",children:(0,d.jsx)(s.Z.Content,{className:"content-center",children:(0,d.jsx)(c.Z,{src:a.Z,className:"home-logo",alt:"logo",preview:!1,width:512})})})}}}]);
-//# sourceMappingURL=Home.0111d818.chunk.js.map
