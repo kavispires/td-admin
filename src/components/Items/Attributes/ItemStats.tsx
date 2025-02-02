@@ -1,4 +1,4 @@
-import { SwapOutlined } from '@ant-design/icons';
+import { SkinOutlined, SwapOutlined } from '@ant-design/icons';
 import { Button, Flex, Progress, Rate, Space, Table, type TableProps, Tabs, Tag, Typography } from 'antd';
 import type { TabsProps } from 'antd/lib';
 import { DownloadButton } from 'components/Common/DownloadButton';
@@ -164,7 +164,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       sorter: (a, b) => a.name.en.localeCompare(b.name.en),
     },
     {
-      title: '*',
+      title: <SkinOutlined />,
       dataIndex: 'spriteId',
       key: 'spriteId',
       render: (spriteId) => <AlienSign id={spriteId} width={18} padding={0} />,
@@ -288,22 +288,22 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
 }
 
 function prepareFileForDownload(attributes: Dictionary<ItemAttribute>) {
-  const copy = cloneDeep(attributes);
+  const copy = cloneDeep(attributes) as Dictionary<any>;
 
-  Object.values(copy).forEach((attribute) => {
-    copy[attribute.id] = sortJsonKeys(attribute, [
-      'description',
-      'spriteId',
-      'priority',
-      'default',
-      'limited',
-      'specific',
-      'oppositeId',
-      'relatedId',
-      'level',
-      'keywords',
-    ]) as ItemAttribute;
-  });
+  // Object.values(copy).forEach((attribute) => {
 
-  return sortJsonKeys(deepCleanObject(copy));
+  // });
+
+  return sortJsonKeys(deepCleanObject(copy), [
+    'description',
+    'priority',
+    'level',
+    'spriteId',
+    'oppositeId',
+    'relatedId',
+    'default',
+    'limited',
+    'specific',
+    'keywords',
+  ]);
 }

@@ -761,7 +761,7 @@ export type ItemAttribute = {
    */
   priority: number;
   /**
-   *
+   * The sprite id of the attribute
    */
   spriteId: string;
   /**
@@ -787,8 +787,7 @@ export type ItemAttribute = {
   /**
    * Keywords string to help with search
    */
-  keywords: DualLanguageValue;
-  // TODO: remove
+  keywords: string;
 };
 
 export type ItemGroup = {
