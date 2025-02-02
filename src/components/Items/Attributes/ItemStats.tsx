@@ -1,16 +1,19 @@
+import { SwapOutlined } from '@ant-design/icons';
 import { Button, Flex, Progress, Rate, Space, Table, type TableProps, Tabs, Tag, Typography } from 'antd';
 import type { TabsProps } from 'antd/lib';
+import { DownloadButton } from 'components/Common/DownloadButton';
 import { PopoverInfo } from 'components/Common/PopoverInfo';
 import { AlienSign } from 'components/Sprites';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { ItemAttributesValues, ItemAttribute } from 'types';
+import { deepCleanObject, sortJsonKeys } from 'utils';
 
 export function ItemStats() {
-  // console.log(attributesList);
-  // console.log(attributes);
+  const { attributes } = useItemsAttributeValuesContext();
 
   const items: TabsProps['items'] = [
     {
@@ -32,8 +35,12 @@ export function ItemStats() {
 
   return (
     <div className="my-4">
-      <Typography.Title level={5}>Stats</Typography.Title>
-
+      <Flex justify="space-between" align="center">
+        <Typography.Title level={5}>Stats</Typography.Title>
+        <DownloadButton data={() => prepareFileForDownload(attributes)} fileName="items-attributes.json">
+          Download Attribute Json
+        </DownloadButton>
+      </Flex>
       <Tabs defaultActiveKey="1" items={items} />
     </div>
   );
@@ -105,6 +112,12 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
   const navigate = useNavigate();
   const { is } = useQueryParams();
 
+  const unusedSpriteIds = useMemo(() => {
+    const allSprites = new Array(65).fill(0).map((_, index) => index);
+    const usedSprites = attributesList.map((attribute) => attribute.spriteId);
+    return allSprites.filter((id) => !usedSprites.includes(`sign-${id}`));
+  }, [attributesList]);
+
   const attributesPool = useMemo(() => {
     if (type === 'default') {
       return attributesList.filter((attribute) => attribute.default);
@@ -137,8 +150,14 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
         <Flex align="center" gap={8}>
           {is('showGlyphs') && <AlienSign id={record.spriteId} width={30} />}
           {name.en}
-          {record.default ? <Tag className="ml-1">default</Tag> : ''}
-          {record.limited ? <Tag className="ml-1">limited</Tag> : ''}
+          {record.default && <Tag className="ml-1">default</Tag>}
+          {record.limited && <Tag className="ml-1">limited</Tag>}
+          {(record.specific || record.parentId) && <Tag className="ml-1">specific</Tag>}
+          {record.oppositeId && (
+            <Tag className="ml-1">
+              <SwapOutlined />
+            </Tag>
+          )}
           <PopoverInfo title={record.description.en} />
         </Flex>
       ),
@@ -253,7 +272,38 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
   return (
     <>
       <Typography.Paragraph>Total: {rows.length}</Typography.Paragraph>
+
       <Table columns={columns} dataSource={rows} pagination={false} rowKey="id" size="small" />
+
+      <Flex wrap="wrap" gap={8}>
+        {unusedSpriteIds.map((id) => (
+          <div key={id}>
+            #{id}
+            <AlienSign key={id} id={`sign-${id}`} />
+          </div>
+        ))}
+      </Flex>
     </>
   );
+}
+
+function prepareFileForDownload(attributes: Dictionary<ItemAttribute>) {
+  const copy = cloneDeep(attributes);
+
+  Object.values(copy).forEach((attribute) => {
+    copy[attribute.id] = sortJsonKeys(attribute, [
+      'description',
+      'spriteId',
+      'priority',
+      'default',
+      'limited',
+      'specific',
+      'oppositeId',
+      'relatedId',
+      'level',
+      'keywords',
+    ]) as ItemAttribute;
+  });
+
+  return sortJsonKeys(deepCleanObject(copy));
 }

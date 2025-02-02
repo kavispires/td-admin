@@ -128,11 +128,12 @@ export function downloadObjectAsFile(obj: PlainObject, filename: string): void {
  * @param library - The JSON object to sort.
  * @returns The sorted JSON object.
  */
-export const sortJsonKeys = (library: PlainObject): PlainObject => {
+export const sortJsonKeys = (library: PlainObject, keyOrder: string[] = []): PlainObject => {
   function sortKeys(obj: any): any {
     if (isObject(obj) && !Array.isArray(obj)) {
       const sortedKeys = Object.keys(obj)
         .filter((key) => ['id', 'name', 'title', 'type'].includes(key))
+        .filter((key) => keyOrder.includes(key))
         .concat(
           Object.keys(obj)
             .filter((key) => !['id', 'name', 'title', 'type'].includes(key))
