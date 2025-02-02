@@ -16,7 +16,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
   console.count('Creating Comunicacao Alienigena...');
   let lastDate = history.latestDate;
 
-  const allAttributes = values(attributes).filter((attr) => !attr.limited && items?.[attr.id]?.nsfw !== true);
+  const allAttributes = values(attributes).filter((attr) => !attr.limited || items?.[attr.id]?.nsfw !== true);
   const allAttributesValues = values(attributeValues).filter((i) => i.complete);
 
   const preliminaryEntries: Dictionary<DailyComunicacaoAlienigenaEntry> = {};
