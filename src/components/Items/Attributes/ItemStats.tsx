@@ -23,13 +23,29 @@ export function ItemStats() {
     },
     {
       key: '2',
-      label: 'Default Attributes',
+      label: 'Default',
       children: <AttributesStatsTable type="default" />,
     },
     {
       key: '3',
-      label: 'Custom Attributes',
+      label: 'Custom',
       children: <AttributesStatsTable type="custom" />,
+    },
+    {
+      key: '4',
+      label: 'Limited',
+      children: <AttributesStatsTable type="limited" />,
+    },
+
+    {
+      key: '5',
+      label: 'Specific',
+      children: <AttributesStatsTable type="specific" />,
+    },
+    {
+      key: '6',
+      label: 'Opposite',
+      children: <AttributesStatsTable type="opposite" />,
     },
   ];
 
@@ -104,7 +120,7 @@ const calculateAttributeStats = (attribute: ItemAttribute, itemsAttributes: Item
 };
 
 type AttributesStatsTableProps = {
-  type: 'all' | 'default' | 'custom';
+  type: 'all' | 'default' | 'custom' | 'limited' | 'specific' | 'opposite';
 };
 
 function AttributesStatsTable({ type }: AttributesStatsTableProps) {
@@ -125,6 +141,18 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
 
     if (type === 'custom') {
       return attributesList.filter((attribute) => !attribute.default);
+    }
+
+    if (type === 'limited') {
+      return attributesList.filter((attribute) => attribute.limited);
+    }
+
+    if (type === 'specific') {
+      return attributesList.filter((attribute) => attribute.specific);
+    }
+
+    if (type === 'opposite') {
+      return attributesList.filter((attribute) => attribute.oppositeId);
     }
 
     return attributesList;
