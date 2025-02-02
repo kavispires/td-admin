@@ -192,8 +192,8 @@ export const deepCleanObject = <T = unknown>(obj: T): T => {
 export const deserializeFirebaseData = <TData, TParsedData = TData>(
   data: Dictionary<string>,
   entryDeserializer?: (e: TData) => TParsedData,
-): Dictionary<TData> => {
-  return Object.keys(data).reduce((acc: Dictionary<TData>, key) => {
+): Dictionary<TParsedData> => {
+  return Object.keys(data).reduce((acc: Dictionary<TParsedData>, key) => {
     acc[key] = entryDeserializer ? entryDeserializer(JSON.parse(data[key])) : JSON.parse(data[key]);
     return acc;
   }, {});

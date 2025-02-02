@@ -2,7 +2,7 @@ import { keyBy, keys, orderBy, sampleSize, shuffle, sortBy } from 'lodash';
 import type { ItemAttributesValues, ItemAttribute, Item, ItemId } from 'types';
 /**
  * TD ALIEN ATTRIBUTES TOOLKIT FUNCTIONS
- * Version 1.0.0
+ * Version 1.1.0
  */
 
 /**
@@ -621,6 +621,7 @@ export const alienAttributesUtils = {
   parseItemSignature,
   getInquirySuggestions,
   ATTRIBUTE_VALUE_DICT,
+  ATTRIBUTE_VALUE_PRIORITY,
 };
 
 export type { AlienItem, AlienAttribute };

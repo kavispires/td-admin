@@ -1,13 +1,20 @@
 import { App } from 'antd';
 import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { Item, ItemAttributesValues, ItemAttribute } from 'types';
+import type { Item, ItemAttributesValues, ItemAttribute, ItemAttributesValuesFirestore } from 'types';
 import { deserializeFirebaseData, serializeFirebaseData } from 'utils';
 import { useQueryClient } from '@tanstack/react-query';
 import { useGetFirebaseDoc } from './useGetFirebaseDoc';
 import { useTDResource } from './useTDResource';
 import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
-import { getNewItem, getNewItemAttributeValues } from 'components/Items/utils';
+import {
+  calculateItemReliability,
+  calculateItemScore,
+  constructItemAttributes,
+  constructItemSignature,
+  getNewItem,
+  getNewItemAttributeValues,
+} from 'components/Items/utils';
 
 /**
  * This is to avoid new items being generated and unused just for the sake of placeholders.
@@ -26,7 +33,11 @@ export function useItemsAttribution() {
     Dictionary<string>,
     Dictionary<ItemAttributesValues>
   >('tdr', 'itemsAttributeValues', {
-    select: deserializeFirebaseData,
+    select: (data) =>
+      deserializeItemAttributesValues({
+        itemAttributesValues: data,
+        itemAttributes: tdrAttributesQuery.data ?? {},
+      }),
   });
 
   const [modifiedAttributeValues, setModifiedAttributeValues] = useState<Dictionary<ItemAttributesValues>>(
@@ -75,7 +86,9 @@ export function useItemsAttribution() {
   const firebaseData = firebaseItemsAttributeValuesQuery.data;
 
   const save = () => {
-    mutation.mutate(serializeFirebaseData({ ...firebaseData, ...modifiedAttributeValues }));
+    mutation.mutate(
+      serializeItemAttributesValues({ ...firebaseData, ...modifiedAttributeValues }, tdrAttributesQuery.data),
+    );
   };
 
   // Filter items that have the alien deck only
@@ -137,16 +150,55 @@ export function useItemsAttribution() {
   };
 }
 
-// const serializeItemAttributesValues = (itemAttributesValues: Dictionary<ItemAttributesValues>): Dictionary<string> => {
+const serializeItemAttributesValues = (
+  itemAttributesValues: Dictionary<ItemAttributesValues>,
+  itemAttributes: Dictionary<ItemAttribute>,
+): Dictionary<string> => {
+  const serializeEntry = (entry: ItemAttributesValues): ItemAttributesValuesFirestore => {
+    return {
+      id: entry.id,
+      tempSignature: constructItemSignature(entry, itemAttributes),
+      updatedAt: entry.updatedAt,
+    };
+  };
 
-//   return {
-//     ...itemAttributesValues,
-//     updatedAt: itemAttributesValues.updatedAt ?? Date.now(),
-//   };
-// }
+  return serializeFirebaseData<ItemAttributesValues, ItemAttributesValuesFirestore>(
+    itemAttributesValues,
+    serializeEntry,
+  );
+};
 
-// const deserializeItemAttributesValues = (itemAttributesValues: Dictionary<string>): Dictionary<ItemAttributesValues> => {
+const deserializeItemAttributesValues = (data: {
+  itemAttributesValues: Dictionary<string>;
+  itemAttributes: Dictionary<ItemAttribute>;
+}): Dictionary<ItemAttributesValues> => {
+  const { itemAttributesValues, itemAttributes } = data;
+  const totalAttributes = Object.keys(itemAttributes).length;
 
-//   const parsed = deserializeFirebaseData<ItemAttributesValuesFirestore>(itemAttributesValues);
+  const deserializeEntry = (entry: ItemAttributesValuesFirestore): ItemAttributesValues => {
+    const attributes = constructItemAttributes(entry.tempSignature);
+    const complete = Object.keys(attributes).length === totalAttributes;
 
-// };
+    const newEntry = {
+      id: entry.id,
+      updatedAt: entry.updatedAt,
+      attributes,
+    };
+
+    if (complete) {
+      return {
+        ...newEntry,
+        complete,
+        reliability: calculateItemReliability(newEntry, totalAttributes),
+        score: calculateItemScore(newEntry),
+      };
+    }
+
+    return newEntry;
+  };
+
+  return deserializeFirebaseData<ItemAttributesValuesFirestore, ItemAttributesValues>(
+    itemAttributesValues,
+    deserializeEntry,
+  );
+};

@@ -7,7 +7,6 @@ import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesCont
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import type { ItemAttributesValues, ItemAttribute } from 'types';
 import { deepCleanObject, sortJsonKeys } from 'utils';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 import {
   ItemAttributionClassifierFilters,
@@ -17,7 +16,7 @@ import {
   ItemAttributionStats,
   ItemAttributionStatsFilters,
 } from './ItemAttributionFiltersSections';
-import { getItemAttributePriorityResponse } from '../utils';
+import { calculateItemReliability, calculateItemScore, constructItemSignature } from '../utils';
 
 export function ItemAttributionFilters() {
   const { isDirty, save, prepareItemsAttributesFileForDownload, attributes, isSaving, attributesToUpdate } =
@@ -197,31 +196,15 @@ function prepareFileForDownload(
       itemAttributeValues.complete = true;
 
       // Add score
-      let unclearCount = 0;
-      itemAttributeValues.score = Object.values(itemAttributeValues.attributes).reduce((acc: number, v) => {
-        if (v <= 0) {
-          if (v === ATTRIBUTE_VALUE.UNCLEAR) {
-            unclearCount += 1;
-          }
-          if (v === ATTRIBUTE_VALUE.OPPOSITE) {
-            acc += v / 2;
-          }
-          return acc;
-        }
-
-        return acc + v;
-      }, 0);
+      itemAttributeValues.score = calculateItemScore(itemAttributeValues);
 
       // Add reliability
-      itemAttributeValues.reliability = Math.floor(((completed - unclearCount) / total) * 100);
+      itemAttributeValues.reliability = calculateItemReliability(itemAttributeValues, total);
 
       // Add signature with only relevant attributes
-      // TODO: Replace with the new method
-      itemAttributeValues.signature = getItemAttributePriorityResponse(
-        itemAttributeValues,
-        attributes,
-        true,
-      ).join('');
+      itemAttributeValues.signature = constructItemSignature(itemAttributeValues, attributes, {
+        onlyRelevant: true,
+      });
     } else {
       itemAttributeValues.complete = undefined;
       itemAttributeValues.score = undefined;
