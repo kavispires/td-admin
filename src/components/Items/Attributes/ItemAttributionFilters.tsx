@@ -6,7 +6,7 @@ import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import type { ItemAttributesValues, ItemAttribute } from 'types';
-import { deepCleanObject, getItemAttributePriorityResponse, sortJsonKeys } from 'utils';
+import { deepCleanObject, sortJsonKeys } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 import {
@@ -17,6 +17,7 @@ import {
   ItemAttributionStats,
   ItemAttributionStatsFilters,
 } from './ItemAttributionFiltersSections';
+import { getItemAttributePriorityResponse } from '../utils';
 
 export function ItemAttributionFilters() {
   const { isDirty, save, prepareItemsAttributesFileForDownload, attributes, isSaving, attributesToUpdate } =
@@ -215,6 +216,7 @@ function prepareFileForDownload(
       itemAttributeValues.reliability = Math.floor(((completed - unclearCount) / total) * 100);
 
       // Add signature with only relevant attributes
+      // TODO: Replace with the new method
       itemAttributeValues.signature = getItemAttributePriorityResponse(
         itemAttributeValues,
         attributes,

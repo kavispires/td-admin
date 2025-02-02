@@ -2,13 +2,12 @@ import { App } from 'antd';
 import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { Item, ItemAttributesValues, ItemAttribute } from 'types';
-import { deserializeFirebaseData, getNewItem, getNewItemAttributeValues, serializeFirebaseData } from 'utils';
-
+import { deserializeFirebaseData, serializeFirebaseData } from 'utils';
 import { useQueryClient } from '@tanstack/react-query';
-
 import { useGetFirebaseDoc } from './useGetFirebaseDoc';
 import { useTDResource } from './useTDResource';
 import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
+import { getNewItem, getNewItemAttributeValues } from 'components/Items/utils';
 
 /**
  * This is to avoid new items being generated and unused just for the sake of placeholders.
@@ -137,3 +136,17 @@ export function useItemsAttribution() {
     isDirty,
   };
 }
+
+// const serializeItemAttributesValues = (itemAttributesValues: Dictionary<ItemAttributesValues>): Dictionary<string> => {
+
+//   return {
+//     ...itemAttributesValues,
+//     updatedAt: itemAttributesValues.updatedAt ?? Date.now(),
+//   };
+// }
+
+// const deserializeItemAttributesValues = (itemAttributesValues: Dictionary<string>): Dictionary<ItemAttributesValues> => {
+
+//   const parsed = deserializeFirebaseData<ItemAttributesValuesFirestore>(itemAttributesValues);
+
+// };

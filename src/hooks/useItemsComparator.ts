@@ -2,8 +2,8 @@ import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesCont
 import { keyBy, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { Item, ItemAttributesValues } from 'types';
-import { filterMessage, getItemAttributePriorityResponse } from 'utils';
 import { useItemQueryParams } from './useItemQueryParams';
+import { filterMessage, getItemAttributePriorityResponse } from 'components/Items/utils';
 
 export type ItemMessageObject = {
   item: Item;

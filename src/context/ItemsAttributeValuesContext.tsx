@@ -1,9 +1,10 @@
 import { App } from 'antd';
+import { getNewItem, getNewItemAttributeValues } from 'components/Items/utils';
 import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { isEmpty, orderBy, random } from 'lodash';
 import { type ReactNode, createContext, useContext, useMemo, useState } from 'react';
 import type { Item, ItemAttributesValues, ItemAttribute } from 'types';
-import { getNewItem, getNewItemAttributeValues, sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils';
 
 export type ItemsAttributeValuesContextType = {
   getItem: (itemId: string) => Item;

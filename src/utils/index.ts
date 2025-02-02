@@ -1,23 +1,15 @@
-import {
-  chain,
-  cloneDeep,
-  isNull,
-  isObject,
-  isUndefined,
-  memoize,
-  merge,
-  orderBy,
-  set,
-  transform,
-} from 'lodash';
+import { chain, isNull, isObject, isUndefined, orderBy, set, transform } from 'lodash';
 import stringSimilarity from 'string-similarity';
-import type { Item, ItemAttributesValues, ItemAttribute } from 'types';
-import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX, SEARCH_THRESHOLD } from './constants';
+import { SEARCH_THRESHOLD } from './constants';
 
 /**
+ * Removes accents from a given string.
  *
- * @param str
- * @returns
+ * This function normalizes the input string to its decomposed form (NFD)
+ * and then removes any combining diacritical marks (accents).
+ *
+ * @param str - The input string from which to remove accents.
+ * @returns The input string with accents removed.
  */
 export function stringRemoveAccents(str: string) {
   // biome-ignore lint/suspicious/noMisleadingCharacterClass: the regex is used to remove accents
@@ -25,10 +17,13 @@ export function stringRemoveAccents(str: string) {
 }
 
 /**
+ * Checks for duplicate entries in the provided data based on a specified property.
  *
- * @param data
- * @param property
- * @returns
+ * @param data - The data to check for duplicates.
+ * @param [property='text'] - The property to check for duplicates. Defaults to 'text'.
+ * @returns An object containing the duplicates found. The keys are the normalized property values, and the values are arrays of IDs of the duplicate entries.
+ *
+ * @throws {Error} If the specified property does not exist in an entry.
  */
 export const checkForDuplicates = (data: PlainObject, property = 'text') => {
   const unique: PlainObject = {};
@@ -55,11 +50,12 @@ export const checkForDuplicates = (data: PlainObject, property = 'text') => {
 };
 
 /**
+ * Finds and returns similar entries from a given data object based on a provided string.
  *
- * @param str
- * @param data
- * @param property
- * @returns
+ * @param str - The string to compare against the data entries.
+ * @param data - The data object containing entries to search through.
+ * @param property - The property of the data entries to compare the string with. Defaults to 'text'.
+ * @returns An object containing entries that are similar to the provided string.
  */
 export const findSimilar = (str: string, data: PlainObject, property = 'text') => {
   const similar: PlainObject = {};
@@ -193,9 +189,12 @@ export const deepCleanObject = <T = unknown>(obj: T): T => {
  * @param data - The data to be deserialized.
  * @returns A dictionary of deserialized data.
  */
-export const deserializeFirebaseData = <TData>(data: Dictionary<string>): Dictionary<TData> => {
+export const deserializeFirebaseData = <TData, TParsedData = TData>(
+  data: Dictionary<string>,
+  entryDeserializer?: (e: TData) => TParsedData,
+): Dictionary<TData> => {
   return Object.keys(data).reduce((acc: Dictionary<TData>, key) => {
-    acc[key] = JSON.parse(data[key]);
+    acc[key] = entryDeserializer ? entryDeserializer(JSON.parse(data[key])) : JSON.parse(data[key]);
     return acc;
   }, {});
 };
@@ -206,9 +205,12 @@ export const deserializeFirebaseData = <TData>(data: Dictionary<string>): Dictio
  * @param data - The dictionary containing the data to be serialized.
  * @returns A new dictionary with the same keys as the input dictionary, but with the values serialized as strings.
  */
-export const serializeFirebaseData = <TData>(data: Dictionary<TData>): Dictionary<string> => {
+export const serializeFirebaseData = <TData, TParsedData = TData>(
+  data: Dictionary<TData>,
+  entrySerializer?: (e: TData) => TParsedData,
+): Dictionary<string> => {
   return Object.keys(data).reduce((acc: Dictionary<string>, key) => {
-    acc[key] = JSON.stringify(data[key]);
+    acc[key] = JSON.stringify(entrySerializer ? entrySerializer(data[key]) : data[key]);
     return acc;
   }, {});
 };
@@ -222,152 +224,6 @@ export const getCurrentDateTime = (): string => {
   const minutes = String(now.getMinutes()).padStart(2, '0');
 
   return `${year}/${month}/${day} ${hours}:${minutes}`;
-};
-
-/**
- * Creates a new item with default values and merges it with the provided partial item.
- *
- * @param partialItem - The partial item to merge with the default values.
- * @returns The new item with merged values.
- */
-export const getNewItem = (partialItem: Partial<Item> = {}): Item => {
-  return cloneDeep(
-    merge(
-      {
-        id: '',
-        name: { en: '', pt: '' },
-        groups: [],
-        attributes: {},
-      },
-      partialItem,
-    ),
-  );
-};
-
-/**
- * Creates a new `ItemAttributesValues` object by merging the provided `partialItemAttributeValues`
- * with a default object that has an empty `id` and an empty `attributes` object.
- *
- * @param partialItemAttributeValues - The partial item attribute values to merge.
- * @returns The new `ItemAttributesValues` object.
- */
-export const getNewItemAttributeValues = (
-  partialItemAttributeValues: Partial<ItemAttributesValues> = {},
-): ItemAttributesValues => {
-  return cloneDeep(
-    merge(
-      {
-        id: '',
-        attributes: {},
-      },
-      partialItemAttributeValues,
-    ),
-  );
-};
-
-export const getItemAttributePriorityResponse = (
-  itemAttributesValues: ItemAttributesValues,
-  itemAttributes: Dictionary<ItemAttribute>,
-  /**
-   * Ignore attributes that are UNRELATED or UNCLEAR
-   */
-  onlyRelevant?: boolean,
-) => {
-  const priorityOrder: string[] = orderBy(
-    Object.values(itemAttributes),
-    ['priority', 'id'],
-    ['asc', 'asc'],
-  ).map((attribute) => attribute.id);
-
-  function sortAttributesByPriority(attributeKeys: string[], prefix: string) {
-    return orderBy(attributeKeys, (key) => priorityOrder.indexOf(key), ['asc']).map(
-      (key) => `${prefix}${key}`,
-    );
-  }
-
-  const opposite: string[] = [];
-  const deterministic: string[] = [];
-  const related: string[] = [];
-  const unrelated: string[] = [];
-  const unclear: string[] = [];
-
-  Object.entries(itemAttributesValues.attributes).forEach(([attributeId, value]) => {
-    const attribute = itemAttributes[attributeId];
-    if (!attribute) return;
-
-    switch (value) {
-      case ATTRIBUTE_VALUE.OPPOSITE:
-        opposite.push(attributeId);
-        break;
-      case ATTRIBUTE_VALUE.DETERMINISTIC:
-        deterministic.push(attributeId);
-        break;
-      case ATTRIBUTE_VALUE.RELATED:
-        related.push(attributeId);
-        break;
-      case ATTRIBUTE_VALUE.UNRELATED:
-        unrelated.push(attributeId);
-        break;
-      case ATTRIBUTE_VALUE.UNCLEAR:
-        unclear.push(attributeId);
-        break;
-      default:
-        unclear.push(attributeId);
-        break;
-    }
-  });
-
-  return [
-    ...sortAttributesByPriority(opposite, ATTRIBUTE_VALUE_PREFIX.OPPOSITE),
-    ...sortAttributesByPriority(deterministic, ATTRIBUTE_VALUE_PREFIX.DETERMINISTIC),
-    ...sortAttributesByPriority(related, ATTRIBUTE_VALUE_PREFIX.RELATED),
-
-    ...(onlyRelevant ? [] : sortAttributesByPriority(unrelated, ATTRIBUTE_VALUE_PREFIX.UNRELATED)),
-    ...(onlyRelevant ? [] : sortAttributesByPriority(unclear, ATTRIBUTE_VALUE_PREFIX.UNCLEAR)),
-  ];
-};
-
-export const parseAttribute = memoize((keyVariant: string) => {
-  if (keyVariant.length === 3) {
-    return {
-      key: keyVariant,
-      className: '',
-      text: '',
-    };
-  }
-
-  const variant = keyVariant[0];
-  const key = keyVariant.slice(1, 4);
-
-  return {
-    key,
-    className: {
-      [ATTRIBUTE_VALUE_PREFIX.DETERMINISTIC]: 'deterministic',
-      [ATTRIBUTE_VALUE_PREFIX.UNRELATED]: 'unrelated',
-      [ATTRIBUTE_VALUE_PREFIX.UNCLEAR]: 'unclear',
-      [ATTRIBUTE_VALUE_PREFIX.OPPOSITE]: 'opposite',
-    }[variant],
-    text: {
-      [ATTRIBUTE_VALUE_PREFIX.DETERMINISTIC]: 'very',
-      [ATTRIBUTE_VALUE_PREFIX.UNRELATED]: 'not',
-      [ATTRIBUTE_VALUE_PREFIX.UNCLEAR]: 'maybe',
-      [ATTRIBUTE_VALUE_PREFIX.OPPOSITE]: 'very not',
-    }[variant],
-  };
-});
-
-export const filterMessage = (message: string[], showUnclear: boolean, showUnrelated: boolean) => {
-  return message.filter((keyVariant) => {
-    if (!showUnclear && keyVariant.includes(ATTRIBUTE_VALUE_PREFIX.UNCLEAR)) {
-      return false;
-    }
-
-    if (!showUnrelated && keyVariant.includes(ATTRIBUTE_VALUE_PREFIX.UNRELATED)) {
-      return false;
-    }
-
-    return true;
-  });
 };
 
 export const sortItemsIds = (itemsIds: string[]) => {
