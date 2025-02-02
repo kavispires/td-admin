@@ -1,14 +1,17 @@
-import { Flex, Table, type TableColumnsType, Typography } from 'antd';
+import { Button, Flex, Table, type TableColumnsType, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { type ItemMessageObject, useItemsComparator } from 'hooks/useItemsComparator';
 import type { Item } from 'types';
 
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributeSprite } from './ItemAttributeDescription';
+import { ItemAttributionDrawer } from './ItemAttributionDrawer';
+import { useItemQueryParams } from 'hooks/useItemQueryParams';
 
 export function ItemComparatorCard() {
   const { attributes } = useItemsAttributeValuesContext();
   const { itemMessages, grouping } = useItemsComparator();
+  const { addQueryParam } = useItemQueryParams();
 
   const columns: TableColumnsType<ItemMessageObject> = [
     {
@@ -18,7 +21,12 @@ export function ItemComparatorCard() {
       render: (item: Item) => (
         <div>
           <ItemId item={item} />
-          <ItemGoTo item={item} />
+          <Button.Group>
+            <ItemGoTo item={item} />
+            <Button size="small" shape="round" onClick={() => addQueryParam('drawer', item.id)}>
+              Drawer
+            </Button>
+          </Button.Group>
         </div>
       ),
       sorter: (a, b) => Number(a.item.id) - Number(b.item.id),
@@ -87,6 +95,7 @@ export function ItemComparatorCard() {
     <div className="my-4">
       <Typography.Title level={5}>Item Comparator</Typography.Title>
       <Table dataSource={itemMessages} columns={columns} pagination={{ showQuickJumper: true }} />
+      <ItemAttributionDrawer />
     </div>
   );
 }
