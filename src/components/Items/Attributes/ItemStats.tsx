@@ -316,7 +316,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
 }
 
 function prepareFileForDownload(attributes: Dictionary<ItemAttribute>) {
-  const copy = cloneDeep(attributes) as Dictionary<any>;
+  const copy = cloneDeep(attributes);
 
   // Object.values(copy).forEach((attribute) => {
 

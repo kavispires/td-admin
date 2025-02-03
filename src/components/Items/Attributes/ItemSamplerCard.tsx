@@ -8,10 +8,12 @@ import { useToggle } from 'react-use';
 import { wait } from 'utils';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
+import { ItemAttributionDrawer } from './ItemAttributionDrawer';
 
 export function ItemSamplerCard() {
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
   const { sampleIds, attribute, onGetSample, updateAttributeValue, itemsLeftForAttribute } = useItemSampler();
+  const { addQueryParam } = useItemQueryParams();
 
   if (isEmpty(sampleIds) && isEmpty(attribute)) {
     return (
@@ -86,7 +88,12 @@ export function ItemSamplerCard() {
                   <Flex vertical gap={6}>
                     <Flex gap={6}>
                       <ItemId item={item} />
-                      <ItemGoTo item={item} />
+                      <Button.Group>
+                        <ItemGoTo item={item} />
+                        <Button size="small" shape="round" onClick={() => addQueryParam('drawer', item.id)}>
+                          Drawer
+                        </Button>
+                      </Button.Group>
                     </Flex>
                     <ItemName item={item} language="en" />
                     <ItemName item={item} language="pt" />
@@ -106,6 +113,7 @@ export function ItemSamplerCard() {
             );
           })}
         </Flex>
+        <ItemAttributionDrawer />
       </Card>
     </>
   );
