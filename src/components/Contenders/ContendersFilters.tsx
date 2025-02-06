@@ -70,8 +70,10 @@ function DeckCounts({ data }: Pick<ContendersFiltersProps, 'data'>) {
     let portugueseExclusivity = 0;
     let bothExclusivity = 0;
     const deckCounts = Object.values(data).reduce((acc: Dictionary<number>, contender) => {
-      (contender.decks ?? []).forEach((deck) => {
-        acc[deck] = acc[deck] ? acc[deck] + 1 : 1;
+      (contender.decks ?? []).forEach((deck, _, arr) => {
+        if (deck === 'base' || !arr.includes('base')) {
+          acc[deck] = acc[deck] ? acc[deck] + 1 : 1;
+        }
       });
       if (contender.exclusivity === 'en') {
         englishExclusivity++;
