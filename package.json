@@ -39,7 +39,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "clean": "rm -rf node_modules"
+    "clean": "rm -rf node_modules",
+    "update-commit": "bash scripts/update_commit.sh"
   },
   "browserslist": {
     "production": [
