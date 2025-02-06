@@ -16,8 +16,10 @@ export const buildDailyComunicacaoAlienigenaGames = (
   console.count('Creating Comunicacao Alienigena...');
   let lastDate = history.latestDate;
 
-  const allAttributes = values(attributes).filter((attr) => !attr.limited || items?.[attr.id]?.nsfw !== true);
-  const allAttributesValues = values(attributeValues).filter((i) => i.complete);
+  const allAttributes = values(attributes).filter((attr) => !attr.limited);
+  const allAttributesValues = values(attributeValues).filter(
+    (i) => i.complete && items?.[i.id]?.nsfw !== true,
+  );
 
   const preliminaryEntries: Dictionary<DailyComunicacaoAlienigenaEntry> = {};
   let tries = 0;
@@ -59,7 +61,7 @@ const generateComunicacaoAlienigenaGame = (
 ): DailyComunicacaoAlienigenaEntry => {
   const shuffledAttributeValues = shuffle(attributeValues);
 
-  const spriteIDs = shuffle(makeArray(38, 0));
+  const spriteIDs = shuffle(makeArray(50, 0));
 
   // Select 3 attributes and reassign random sprites
   const selectedAttributes = sampleSize(attributes, 3).map((attr) => ({
