@@ -16,7 +16,8 @@ export const buildDailyComunicacaoAlienigenaGames = (
   console.count('Creating Comunicacao Alienigena...');
   let lastDate = history.latestDate;
 
-  const allAttributes = values(attributes).filter((attr) => !attr.limited);
+  const allAttributes = values(attributes);
+  // .filter((attr) => !attr.limited);
   const allAttributesValues = values(attributeValues).filter(
     (i) => i.complete && items?.[i.id]?.nsfw !== true,
   );
@@ -200,7 +201,7 @@ const generateComunicacaoAlienigenaGame = (
   }
 
   if (requests.length < 4) {
-    console.log('🔆 Not enough requests for an alien communication, marking as invalid');
+    console.log('🔆 Not enough requests for an alien communication, marking it as invalid');
   }
 
   requests = shuffle(requests);
