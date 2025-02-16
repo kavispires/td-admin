@@ -1,5 +1,6 @@
 import { Image, Layout, Space, Typography } from 'antd';
 import { ResponseState } from 'components/Common';
+import { IdTag } from 'components/Common/IdTag';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ImageCard } from 'components/Images/ImageCard';
 import { ImageCardsFilters } from 'components/Images/ImageCardsFilters';
@@ -43,7 +44,21 @@ function ImageCards() {
               Deck {deck} ({DECK.length})
             </Typography.Title>
 
-            <Image.PreviewGroup>
+            <Image.PreviewGroup
+              preview={{
+                countRender: (current, total) => {
+                  const id = `td-${deck}-${current.toString().padStart(2, '0')}`;
+                  return (
+                    <Space direction="vertical" align="center">
+                      <Typography.Text>
+                        {current} / {total}
+                      </Typography.Text>
+                      <IdTag>{id}</IdTag>
+                    </Space>
+                  );
+                },
+              }}
+            >
               <Space ref={ref} wrap className="my-2" key={deck}>
                 {Boolean(deck) &&
                   DECK.map((e, i) => {

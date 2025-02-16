@@ -1096,6 +1096,9 @@ export type DrawingData = {
  * Image Cards Descriptor
  */
 export type ImageCardDescriptor = {
+  /**
+   * Unique identifier for the card
+   */
   id: string;
   /**
    * List of keywords/tags related to the image
@@ -1113,4 +1116,19 @@ export type ImageCardDescriptor = {
    * Card ids from the theme-words deck associated with the image
    */
   associatedDreams?: string[];
+};
+
+export type ImageCardPasscodeSet = {
+  /**
+   * Unique identifier for the card
+   */
+  id: string;
+  /**
+   * List of passcode for the cards, it should be order from easier to harder
+   */
+  passcode: string[];
+  /**
+   * Cards related to the passcode. Minimum of 3 cards
+   */
+  imageCardsIds: string[];
 };

@@ -15,7 +15,7 @@ export function ItemsQuartetsSimulator({ data }: UseResourceFirebaseDataReturnTy
 
   return (
     <Space direction="vertical">
-      <Typography.Title level={5}>Simulator</Typography.Title>
+      <Typography.Title level={5}>Quarteto Simulator</Typography.Title>
       <Button onClick={onNewSimulation}>New Simulation</Button>
 
       <Flex gap={24} vertical>

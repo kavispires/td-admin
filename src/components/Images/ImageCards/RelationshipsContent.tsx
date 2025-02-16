@@ -6,7 +6,7 @@ import {
   SyncOutlined,
   WarningOutlined,
 } from '@ant-design/icons';
-import { Card, FloatButton, Image, Tag } from 'antd';
+import { Card, FloatButton, Image, Tooltip } from 'antd';
 import { TransparentButton } from 'components/Common';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { isEmpty } from 'lodash';
@@ -15,6 +15,7 @@ import { useMeasure } from 'react-use';
 import { ImageCard } from '../ImageCard';
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 import { RelationshipCountTag } from './RelationshipCountTag';
+import { IdTag } from 'components/Common/IdTag';
 
 export function RelationshipsContent() {
   const {
@@ -48,9 +49,9 @@ export function RelationshipsContent() {
         <Card
           title="Card Relationship Matching"
           extra={
-            <span>
+            <Tooltip title="Total cycles">
               <FileImageOutlined /> {cycles}
-            </span>
+            </Tooltip>
           }
           className="image-card-categorizer-card"
           ref={cardRef}
@@ -74,7 +75,7 @@ export function RelationshipsContent() {
                     >
                       <ImageCard id={cardId} width={cardWidth - 24} preview={false} />
                       <div>
-                        {showIds && <Tag>{cardId}</Tag>}
+                        {showIds && <IdTag>{cardId}</IdTag>}
                         {/* <Button size="small">{isSelected ? 'Deselect' : 'Select'}</Button> */}
                         <RelationshipCountTag card={card} />
                       </div>

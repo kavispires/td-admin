@@ -16,7 +16,7 @@ export function ImageCardsDescriptor() {
   });
 
   return (
-    <PageLayout title="Image Cards Descriptor" subtitle="Teenage Student Cards">
+    <PageLayout title="Image Cards" subtitle="Descriptors">
       <Layout hasSider>
         <PageSider>
           <ImageCardsDescriptorFilters {...imageCardsQuery} />

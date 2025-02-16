@@ -36,6 +36,9 @@ const ImageCardsConnections = lazy(
 const ImageCardsDescriptor = lazy(
   () => import('pages/Images/ImageCardsDescriptor' /* webpackChunkName: "ImageCardsDescriptor" */),
 );
+const ImageCardsPasscode = lazy(
+  () => import('pages/Images/ImageCardsPasscode' /* webpackChunkName: "ImageCardsPasscode" */),
+);
 const Items = lazy(() => import('pages/Items/Items' /* webpackChunkName: "Items" */));
 const ItemsAttribution = lazy(
   () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */),
@@ -238,6 +241,14 @@ export const routes = (
       element={
         <Suspense fallback={<LoadingPage />}>
           <ImageCardsDescriptor />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/image-cards/passcode"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <ImageCardsPasscode />
         </Suspense>
       }
     />

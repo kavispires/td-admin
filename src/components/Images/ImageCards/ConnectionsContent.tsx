@@ -1,4 +1,4 @@
-import { Flex, Space, Table, Tag } from 'antd';
+import { Flex, Image, Space, Table, Tag } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { memoize, orderBy } from 'lodash';
 import { useMemo } from 'react';
@@ -37,17 +37,19 @@ export function ConnectionsContent() {
       dataIndex: 'relationships',
       key: 'relationship',
       render: (relatedCards: CardId[], row: any) => (
-        <Flex wrap="wrap" gap={2}>
-          {relatedCards.map((cardId) => (
-            <Space key={`${row.origin}-${cardId}`}>
-              <Space direction="vertical">
-                <ImageCard id={cardId} width={cardWidth} />
-                {showIds && <Tag>{cardId}</Tag>}
+        <Image.PreviewGroup>
+          <Flex wrap="wrap" gap={2}>
+            {relatedCards.map((cardId) => (
+              <Space key={`${row.origin}-${cardId}`}>
+                <Space direction="vertical">
+                  <ImageCard id={cardId} width={cardWidth} />
+                  {showIds && <Tag>{cardId}</Tag>}
+                </Space>
+                {relatedCards[relatedCards.length - 1] !== cardId && <RightCircleFilled />}
               </Space>
-              {relatedCards[relatedCards.length - 1] !== cardId && <RightCircleFilled />}
-            </Space>
-          ))}
-        </Flex>
+            ))}
+          </Flex>
+        </Image.PreviewGroup>
       ),
     },
   ];

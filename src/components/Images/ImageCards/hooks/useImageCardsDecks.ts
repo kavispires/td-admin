@@ -11,7 +11,6 @@ export function useImageCardsDecks() {
     const randomDeckNumber = sample(Object.keys(decks));
     if (!randomDeckNumber) return 'td-d0-00';
     const randomCardNumber = random(1, decks[randomDeckNumber]);
-    console.log({ randomDeckNumber, randomCardNumber });
     return `${randomDeckNumber}-${randomCardNumber.toString().padStart(2, '0')}`;
   };
 

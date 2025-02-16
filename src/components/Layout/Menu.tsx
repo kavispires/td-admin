@@ -118,6 +118,10 @@ const items: MenuProps['items'] = [
             key: '/image-cards/comparator',
           },
           {
+            label: 'Image Passcode',
+            key: '/image-cards/passcode',
+          },
+          {
             label: 'Relationships',
             key: '/image-cards/relationships',
           },
