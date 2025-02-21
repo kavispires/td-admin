@@ -6,9 +6,11 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep } from 'lodash';
-import type { DailyDiagramItem } from 'types';
+import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { sortJsonKeys } from 'utils';
+import { verifiers } from './utils';
 
 export function ItemsDiagramFilters({
   data,
@@ -18,6 +20,8 @@ export function ItemsDiagramFilters({
   entriesToUpdate,
 }: UseResourceFirebaseDataReturnType<DailyDiagramItem>) {
   const { addParams, queryParams } = useQueryParams();
+  const tdrDiagramRulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules');
+
   return (
     <SiderContent>
       <Flex vertical gap={12}>
@@ -29,7 +33,7 @@ export function ItemsDiagramFilters({
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(data)}
+          data={() => prepareFileForDownload(data, tdrDiagramRulesQuery.data ?? {})}
           fileName="daily-diagram-items.json"
           disabled={isDirty}
           block
@@ -69,13 +73,38 @@ export function ItemsDiagramFilters({
   );
 }
 
-function prepareFileForDownload(diagramItems: Dictionary<DailyDiagramItem>) {
+function prepareFileForDownload(
+  diagramItems: Dictionary<DailyDiagramItem>,
+  rules: Dictionary<DailyDiagramRule>,
+) {
   console.log('Preparing file for download...');
   const copy = cloneDeep(diagramItems);
-  // Object.values(copy).forEach((item) => {
-  //   item.syllables = (item.syllables ?? '').replace(/·/g, SYLLABLE_SEPARATOR);
-  // });
-  // console.log(copy);
+
+  Object.values(copy).forEach((item) => {
+    const outdatedRules = Object.values(rules).filter((rule) => rule.updatedAt > item.updatedAt);
+
+    const autoUpdates = outdatedRules.filter((rule) => rule.method === 'auto');
+    if (autoUpdates.length > 0) {
+      console.log(`Performing ${autoUpdates.length} auto updates for ${item.name}`);
+
+      // Remove all rules to be updated
+      item.rules = item.rules.filter((ruleId) => !autoUpdates.map((rule) => rule.id).includes(ruleId));
+      // Rerun rules
+      autoUpdates.forEach((rule) => {
+        const pass = verifiers[rule.id](item.name);
+        if (pass) {
+          item.rules.push(rule.id);
+        }
+      });
+    }
+
+    item.rules = item.rules.sort();
+
+    const hasNonAutoUpdates = outdatedRules.some((rule) => rule.method !== 'auto');
+    if (hasNonAutoUpdates) {
+      item.updatedAt = Date.now();
+    }
+  });
 
   return sortJsonKeys(copy);
 }

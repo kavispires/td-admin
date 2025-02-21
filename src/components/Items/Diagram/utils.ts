@@ -69,6 +69,8 @@ export const verifiers: Record<string, (word: string) => boolean> = {
   'ddr-16-pt': (word: string) => countConsonants(word) > countVowels(word),
   // Has more vowels than consonants
   'ddr-17-pt': (word: string) => countVowels(word) > countConsonants(word),
+  // Has same number vowels and consonants
+  'ddr-53-pt': (word: string) => countVowels(word) === countConsonants(word),
   // The first letter is repeated at least once
   'ddr-18-pt': (word: string) => {
     const firstLetter = cleanupWord(word)[0];
@@ -128,16 +130,60 @@ export const verifiers: Record<string, (word: string) => boolean> = {
       .split('')
       .some((letter, index) => CONSONANTS.includes(letter) && word[index + 1] === letter);
   },
+  // CONTAINS
   // Has an A
   'ddr-28-pt': (word: string) => cleanupWord(word).includes('a'),
-  // Has an E
-  'ddr-29-pt': (word: string) => cleanupWord(word).includes('e'),
-  // Has an U
-  'ddr-30-pt': (word: string) => cleanupWord(word).includes('u'),
-  // Has a Q or J
-  'ddr-31-pt': (word: string) => cleanupWord(word).includes('q'),
+  // Has an B
+  'ddr-54-pt': (word: string) => cleanupWord(word).includes('b'),
   // Has a C or Ç
   'ddr-32-pt': (word: string) => cleanupWord(word).includes('c') || cleanupWord(word).includes('ç'),
+  // Has an D
+  'ddr-55-pt': (word: string) => cleanupWord(word).includes('d'),
+  // Has an E
+  'ddr-29-pt': (word: string) => cleanupWord(word).includes('e'),
+  // Has an F
+  'ddr-56-pt': (word: string) => cleanupWord(word).includes('f'),
+  // Has an G
+  'ddr-57-pt': (word: string) => cleanupWord(word).includes('g'),
+  // Has an H
+  'ddr-34-pt': (word: string) => cleanupWord(word).includes('h'),
+  // Has an I
+  'ddr-47-pt': (word: string) => cleanupWord(word).includes('i'),
+  // Has an J
+  'ddr-52-pt': (word: string) => cleanupWord(word).includes('j'),
+  // Has an L
+  'ddr-58-pt': (word: string) => cleanupWord(word).includes('l'),
+  // Has an M
+  'ddr-64-pt': (word: string) => cleanupWord(word).includes('m'),
+  // Has an N
+  'ddr-65-pt': (word: string) => cleanupWord(word).includes('n'),
+  // Has an O
+  'ddr-48-pt': (word: string) => cleanupWord(word).includes('o'),
+  // Has an P
+  'ddr-59-pt': (word: string) => cleanupWord(word).includes('p'),
+  // Has a Q
+  'ddr-31-pt': (word: string) => cleanupWord(word).includes('q'),
+  // Has an R
+  'ddr-60-pt': (word: string) => cleanupWord(word).includes('r'),
+  // Has an S
+  'ddr-66-pt': (word: string) => cleanupWord(word).includes('s'),
+  // Has an T
+  'ddr-61-pt': (word: string) => cleanupWord(word).includes('t'),
+  // Has an U
+  'ddr-30-pt': (word: string) => cleanupWord(word).includes('u'),
+  // Has an V
+  'ddr-62-pt': (word: string) => cleanupWord(word).includes('v'),
+  // Has an X
+  'ddr-49-pt': (word: string) => cleanupWord(word).includes('x'),
+  // Has an Z
+  'ddr-63-pt': (word: string) => cleanupWord(word).includes('z'),
+  // Has K, W or Y
+  'ddr-36-pt': (word: string) =>
+    cleanupWord(word).includes('k') || cleanupWord(word).includes('w') || cleanupWord(word).includes('y'),
+
+  // Has an accent
+  'ddr-37-pt': (word: string) => countAccents(word) > 0,
+
   // Has an M or N followed by a consonant
   'ddr-33-pt': (word: string) => {
     return cleanupWord(word)
@@ -149,8 +195,7 @@ export const verifiers: Record<string, (word: string) => boolean> = {
         return false;
       });
   },
-  // Has an H
-  'ddr-34-pt': (word: string) => cleanupWord(word).includes('h'),
+
   // Has H preceded by a consonant
   'ddr-35-pt': (word: string) => {
     return cleanupWord(word)
@@ -162,11 +207,7 @@ export const verifiers: Record<string, (word: string) => boolean> = {
         return false;
       });
   },
-  // Has K, W or Y
-  'ddr-36-pt': (word: string) =>
-    cleanupWord(word).includes('k') || cleanupWord(word).includes('w') || cleanupWord(word).includes('y'),
-  // Has an accent
-  'ddr-37-pt': (word: string) => countAccents(word) > 0,
+
   // Ends with a vowel
   'ddr-38-pt': (word: string) => {
     return VOWELS.includes(cleanupWord(word).slice(-1));
@@ -175,14 +216,17 @@ export const verifiers: Record<string, (word: string) => boolean> = {
   'ddr-39-pt': (word: string) => CONSONANTS.includes(cleanupWord(word).slice(-1)),
   // Ends with an S
   'ddr-40-pt': (word: string) => cleanupWord(word).slice(-1) === 's',
-  // Has an I
-  'ddr-47-pt': (word: string) => cleanupWord(word).includes('i'),
-  // Has an O
-  'ddr-48-pt': (word: string) => cleanupWord(word).includes('o'),
-  // Has an X
-  'ddr-49-pt': (word: string) => cleanupWord(word).includes('x'),
-  // Has an J
-  'ddr-52-pt': (word: string) => cleanupWord(word).includes('j'),
+
+  // Has only one type of vowel
+  'ddr-67-pt': (word: string) => {
+    return (
+      new Set(
+        cleanupWord(word)
+          .split('')
+          .filter((letter) => VOWELS.includes(letter)),
+      ).size === 1
+    );
+  },
 };
 
 export const syllableDependencyVerifier: Record<
