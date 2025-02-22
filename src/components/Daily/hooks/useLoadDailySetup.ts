@@ -9,8 +9,9 @@ import type {
   DailyMovieSet,
   ItemAttributesValues,
   ItemAttribute,
+  SuspectCard,
+  TestimonyQuestionCard,
 } from 'types';
-
 import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
 import { buildDailyAquiOGames } from '../utils/games/daily-aqui-o';
 import { buildDailyArteRuimGames } from '../utils/games/daily-arte-ruim';
@@ -24,6 +25,7 @@ import type { DailyEntry } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 import { useParsedHistory } from './useParsedHistory';
 import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
+import { buildDailyTaNaCaraGames } from '../utils/games/daily-ta-na-cara';
 
 export type UseLoadDailySetup = {
   isLoading: boolean;
@@ -146,18 +148,7 @@ export function useLoadDailySetup(
     drawingsQuery.drawings,
   ]);
 
-  // STEP 6: Filmaço
-  const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets', enabled);
-  const [filmacoHistory] = useParsedHistory(DAILY_GAMES_KEYS.FILMACO, historyQuery.data);
-  const filmacoEntries = useMemo(() => {
-    if (!movieSetsQuery.isSuccess || !historyQuery.isSuccess) {
-      return {};
-    }
-
-    return buildDailyFilmacoGames(batchSize, filmacoHistory, movieSetsQuery.data);
-  }, [movieSetsQuery, filmacoHistory, batchSize, historyQuery.isSuccess]);
-
-  // SET 7: Controle de Estoque
+  // SET 6: Controle de Estoque
   const [controleDeEstoqueHistory] = useParsedHistory(
     DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE,
     historyQuery.data,
@@ -170,7 +161,7 @@ export function useLoadDailySetup(
     return buildDailyControleDeEstoqueGames(batchSize, controleDeEstoqueHistory);
   }, [batchSize, historyQuery.isSuccess, controleDeEstoqueHistory]);
 
-  // SET 8: Teoria de Conjuntos
+  // SET 7: Teoria de Conjuntos
   const [teoriaDeConjuntosHistory] = useParsedHistory(
     DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS,
     historyQuery.data,
@@ -190,7 +181,7 @@ export function useLoadDailySetup(
     );
   }, [batchSize, historyQuery.isSuccess, teoriaDeConjuntosHistory, rulesQuery, thingsQuery]);
 
-  // SET 9: Comunicação Alienígena
+  // SET 8: Comunicação Alienígena
   const [comunicacaoAlienigenaHistory] = useParsedHistory(
     DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA,
     historyQuery.data,
@@ -228,6 +219,32 @@ export function useLoadDailySetup(
     tdrItemsQuery,
   ]);
 
+  // STEP 7: Filmaço
+  const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets', enabled);
+  const [filmacoHistory] = useParsedHistory(DAILY_GAMES_KEYS.FILMACO, historyQuery.data);
+  const filmacoEntries = useMemo(() => {
+    if (!movieSetsQuery.isSuccess || !historyQuery.isSuccess) {
+      return {};
+    }
+
+    return buildDailyFilmacoGames(batchSize, filmacoHistory, movieSetsQuery.data);
+  }, [movieSetsQuery, filmacoHistory, batchSize, historyQuery.isSuccess]);
+
+  // STEP 8: Ta na Cara
+  const suspectsQuery = useTDResource<SuspectCard>('suspects', enabled);
+  const testimoniesQuery = useTDResource<TestimonyQuestionCard>(
+    `testimony-questions-${queryLanguage}`,
+    enabled,
+  );
+  const [taNaCaraHistory] = useParsedHistory(DAILY_GAMES_KEYS.TA_NA_CARA, historyQuery.data);
+  const taNaCaraEntries = useMemo(() => {
+    if (!suspectsQuery.isSuccess || !testimoniesQuery.isSuccess || !historyQuery.isSuccess) {
+      return {};
+    }
+
+    return buildDailyTaNaCaraGames(batchSize, taNaCaraHistory, suspectsQuery.data, testimoniesQuery.data);
+  }, [suspectsQuery, testimoniesQuery, taNaCaraHistory, batchSize, historyQuery.isSuccess]);
+
   // STEP N: Create entries
   const entries = useMemo(() => {
     if (arteRuimEntries.length === 0) {
@@ -237,14 +254,17 @@ export function useLoadDailySetup(
     return arteRuimEntries.map((arteRuim) => {
       return {
         id: arteRuim.id,
+        // Games
         'arte-ruim': arteRuim,
         'aqui-o': aquiOEntries[arteRuim.id],
         palavreado: palavreadoEntries[arteRuim.id],
-        artista: artistaEntries[arteRuim.id],
         filmaco: filmacoEntries[arteRuim.id],
         'controle-de-estoque': controleDeEstoqueEntries[arteRuim.id],
         'teoria-de-conjuntos': teoriaDeConjuntosHistoryEntries[arteRuim.id],
         'comunicacao-alienigena': comunicacaoAlienigenaEntries[arteRuim.id],
+        // Contributions
+        artista: artistaEntries[arteRuim.id],
+        'ta-na-cara': taNaCaraEntries[arteRuim.id],
       };
     });
   }, [
@@ -256,6 +276,7 @@ export function useLoadDailySetup(
     controleDeEstoqueEntries,
     teoriaDeConjuntosHistoryEntries,
     comunicacaoAlienigenaEntries,
+    taNaCaraEntries,
   ]);
 
   return {
@@ -270,7 +291,9 @@ export function useLoadDailySetup(
       thingsQuery.isLoading ||
       rulesQuery.isLoading ||
       tdrAttributesQuery.isLoading ||
-      tdrItemsAttributesValuesQuery.isLoading,
+      tdrItemsAttributesValuesQuery.isLoading ||
+      suspectsQuery.isLoading ||
+      testimoniesQuery.isLoading,
     entries,
     warnings,
   };

@@ -5,7 +5,8 @@ import { WarehouseGood } from 'components/Sprites/WarehouseGood';
 import type { ArteRuimCard } from 'types';
 
 import { type UseLoadDailySetup, useSaveDailySetup } from './hooks';
-import type { DailyComunicacaoAlienigenaEntry, DailyEntry } from './utils/types';
+import type { DailyComunicacaoAlienigenaEntry, DailyEntry, DailyTaNaCaraEntry } from './utils/types';
+import { ImageCard } from 'components/Images/ImageCard';
 
 type DataPopulationProps = {
   language: string;
@@ -28,11 +29,11 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       render: ({ number, cardId, text, drawings }) => {
         return (
           <Space direction="vertical">
-            <Space>
+            <Flex vertical>
               <span>#{number}</span>
               <span>CardId: {cardId}</span>
               <span>Count: {drawings.length}</span>
-            </Space>
+            </Flex>
             <div>
               "
               {text
@@ -192,6 +193,28 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
         );
       },
     },
+    {
+      title: 'Tá Na Cara',
+      dataIndex: 'ta-na-cara',
+      key: 'ta-na-cara',
+      render: (entry: DailyTaNaCaraEntry) => {
+        return (
+          <Space direction="vertical">
+            <span>#{entry.number}</span>
+            <Space direction="vertical" style={{ maxHeight: 200, overflowY: 'auto' }}>
+              {entry.testimonies.map((question) => (
+                <span key={question.testimonyId}>{question.question}</span>
+              ))}
+            </Space>
+            <Space>
+              {entry.testimonies?.[0].suspectsIds.map((suspectId) => (
+                <ImageCard key={suspectId} id={suspectId} width={48} />
+              ))}
+            </Space>
+          </Space>
+        );
+      },
+    },
   ];
 
   const { save, isPending } = useSaveDailySetup(queryLanguage ?? 'pt');
@@ -203,7 +226,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
         <Alert key={warning} message={warning} type="warning" showIcon />
       ))}
       <Flex justify="space-between" align="center">
-        <h1>Total: {dataLoad.entries.length}</h1>
+        <h4>Total: {dataLoad.entries.length}</h4>
         <Button
           onClick={() => save(dataLoad.entries)}
           loading={isPending}

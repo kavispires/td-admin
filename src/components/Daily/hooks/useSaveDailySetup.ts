@@ -3,12 +3,11 @@ import { doc, setDoc } from 'firebase/firestore';
 import { useState } from 'react';
 import { firestore } from 'services/firebase';
 import { removeDuplicates } from 'utils';
-
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-
 import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
 import type { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
+import { parseTaNaCaraEntries } from '../utils/games/daily-ta-na-cara';
 
 /**
  * Custom hook for saving daily setup.
@@ -111,6 +110,16 @@ export function useSaveDailySetup(queryLanguage: Language) {
               ...JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA]?.used ?? '[]'),
               ...data.map((e) => e[DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA].setId),
             ]),
+          ),
+        },
+        [DAILY_GAMES_KEYS.TA_NA_CARA]: {
+          latestDate: data[data.length - 1].id,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.TA_NA_CARA].number,
+          used: JSON.stringify(
+            parseTaNaCaraEntries(
+              JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.TA_NA_CARA]?.used ?? '[]'),
+              data.map((e) => e[DAILY_GAMES_KEYS.TA_NA_CARA]),
+            ),
           ),
         },
       };

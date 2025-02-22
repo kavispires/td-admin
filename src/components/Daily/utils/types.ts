@@ -142,16 +142,33 @@ export type DailyComunicacaoAlienigenaEntry = {
   valid?: boolean;
 };
 
+export type TaNaCaraQuestion = {
+  testimonyId: string;
+  question: string;
+  nsfw?: boolean;
+  suspectsIds: string[];
+};
+
+export type DailyTaNaCaraEntry = {
+  id: DateKey;
+  number: number;
+  type: 'ta-na-cara';
+  testimonies: TaNaCaraQuestion[];
+};
+
 export type DailyEntry = {
   id: DateKey;
+  // Games
   'arte-ruim': DailyArteRuimEntry;
   'aqui-o': DailyAquiOEntry;
   palavreado: DailyPalavreadoEntry;
-  artista: DailyArtistaEntry;
   filmaco: DailyFilmacoEntry;
   'controle-de-estoque': DailyControleDeEstoqueEntry;
   'teoria-de-conjuntos': DailyTeoriaDeConjuntosEntry;
   'comunicacao-alienigena': DailyComunicacaoAlienigenaEntry;
+  // Contributions
+  artista: DailyArtistaEntry;
+  'ta-na-cara': DailyTaNaCaraEntry;
 };
 
 export type FirebaseDataDrawing = {
