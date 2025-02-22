@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/td-admin/static/css/main.c53eab14.css",
-    "main.js": "/td-admin/static/js/main.1023e297.js",
+    "main.js": "/td-admin/static/js/main.13de9b69.js",
     "Home.js": "/td-admin/static/js/Home.63106050.chunk.js",
     "Resource.js": "/td-admin/static/js/Resource.6ccfa829.chunk.js",
     "ResourceGenerator.js": "/td-admin/static/js/ResourceGenerator.351d1772.chunk.js",
@@ -21,13 +21,13 @@
     "Items.js": "/td-admin/static/js/Items.0a09e85f.chunk.js",
     "ItemsAttribution.js": "/td-admin/static/js/ItemsAttribution.fa91c644.chunk.js",
     "ItemsDiagramSets.css": "/td-admin/static/css/ItemsDiagramSets.91b2e354.chunk.css",
-    "ItemsDiagramSets.js": "/td-admin/static/js/ItemsDiagramSets.8b4e273b.chunk.js",
+    "ItemsDiagramSets.js": "/td-admin/static/js/ItemsDiagramSets.c7d0a5e3.chunk.js",
     "ItemsGroups.js": "/td-admin/static/js/ItemsGroups.4ed0157a.chunk.js",
     "ItemsDiscSets.js": "/td-admin/static/js/ItemsDiscSets.b5a7d541.chunk.js",
-    "ItemsMovieSets.js": "/td-admin/static/js/ItemsMovieSets.3be8556a.chunk.js",
+    "ItemsMovieSets.js": "/td-admin/static/js/ItemsMovieSets.121a61e7.chunk.js",
     "ItemsQuartets.js": "/td-admin/static/js/ItemsQuartets.4b0a1c80.chunk.js",
     "ItemsCrimeHistory.js": "/td-admin/static/js/ItemsCrimeHistory.998bf4aa.chunk.js",
-    "DailySetup.js": "/td-admin/static/js/DailySetup.b603d450.chunk.js",
+    "DailySetup.js": "/td-admin/static/js/DailySetup.0ea8d7ff.chunk.js",
     "CrimesHediondos.css": "/td-admin/static/css/CrimesHediondos.c1720b9e.chunk.css",
     "CrimesHediondos.js": "/td-admin/static/js/CrimesHediondos.a74b7197.chunk.js",
     "MovieMaker.js": "/td-admin/static/js/MovieMaker.5f13e2c8.chunk.js",
@@ -69,11 +69,11 @@
     "static/js/8540.5e0a8361.chunk.js": "/td-admin/static/js/8540.5e0a8361.chunk.js",
     "static/js/2605.30ab0b14.chunk.js": "/td-admin/static/js/2605.30ab0b14.chunk.js",
     "static/js/9964.88bb2bd2.chunk.js": "/td-admin/static/js/9964.88bb2bd2.chunk.js",
-    "static/js/5181.33532399.chunk.js": "/td-admin/static/js/5181.33532399.chunk.js",
+    "static/js/5181.0c059c81.chunk.js": "/td-admin/static/js/5181.0c059c81.chunk.js",
     "index.html": "/td-admin/index.html",
     "static/media/logo.svg": "/td-admin/static/media/logo.290a44ba56847953c116e591c78dfae5.svg",
     "main.c53eab14.css.map": "/td-admin/static/css/main.c53eab14.css.map",
-    "main.1023e297.js.map": "/td-admin/static/js/main.1023e297.js.map",
+    "main.13de9b69.js.map": "/td-admin/static/js/main.13de9b69.js.map",
     "Home.63106050.chunk.js.map": "/td-admin/static/js/Home.63106050.chunk.js.map",
     "Resource.6ccfa829.chunk.js.map": "/td-admin/static/js/Resource.6ccfa829.chunk.js.map",
     "ResourceGenerator.351d1772.chunk.js.map": "/td-admin/static/js/ResourceGenerator.351d1772.chunk.js.map",
@@ -93,13 +93,13 @@
     "Items.0a09e85f.chunk.js.map": "/td-admin/static/js/Items.0a09e85f.chunk.js.map",
     "ItemsAttribution.fa91c644.chunk.js.map": "/td-admin/static/js/ItemsAttribution.fa91c644.chunk.js.map",
     "ItemsDiagramSets.91b2e354.chunk.css.map": "/td-admin/static/css/ItemsDiagramSets.91b2e354.chunk.css.map",
-    "ItemsDiagramSets.8b4e273b.chunk.js.map": "/td-admin/static/js/ItemsDiagramSets.8b4e273b.chunk.js.map",
+    "ItemsDiagramSets.c7d0a5e3.chunk.js.map": "/td-admin/static/js/ItemsDiagramSets.c7d0a5e3.chunk.js.map",
     "ItemsGroups.4ed0157a.chunk.js.map": "/td-admin/static/js/ItemsGroups.4ed0157a.chunk.js.map",
     "ItemsDiscSets.b5a7d541.chunk.js.map": "/td-admin/static/js/ItemsDiscSets.b5a7d541.chunk.js.map",
-    "ItemsMovieSets.3be8556a.chunk.js.map": "/td-admin/static/js/ItemsMovieSets.3be8556a.chunk.js.map",
+    "ItemsMovieSets.121a61e7.chunk.js.map": "/td-admin/static/js/ItemsMovieSets.121a61e7.chunk.js.map",
     "ItemsQuartets.4b0a1c80.chunk.js.map": "/td-admin/static/js/ItemsQuartets.4b0a1c80.chunk.js.map",
     "ItemsCrimeHistory.998bf4aa.chunk.js.map": "/td-admin/static/js/ItemsCrimeHistory.998bf4aa.chunk.js.map",
-    "DailySetup.b603d450.chunk.js.map": "/td-admin/static/js/DailySetup.b603d450.chunk.js.map",
+    "DailySetup.0ea8d7ff.chunk.js.map": "/td-admin/static/js/DailySetup.0ea8d7ff.chunk.js.map",
     "CrimesHediondos.c1720b9e.chunk.css.map": "/td-admin/static/css/CrimesHediondos.c1720b9e.chunk.css.map",
     "CrimesHediondos.a74b7197.chunk.js.map": "/td-admin/static/js/CrimesHediondos.a74b7197.chunk.js.map",
     "MovieMaker.5f13e2c8.chunk.js.map": "/td-admin/static/js/MovieMaker.5f13e2c8.chunk.js.map",
@@ -139,10 +139,10 @@
     "8540.5e0a8361.chunk.js.map": "/td-admin/static/js/8540.5e0a8361.chunk.js.map",
     "2605.30ab0b14.chunk.js.map": "/td-admin/static/js/2605.30ab0b14.chunk.js.map",
     "9964.88bb2bd2.chunk.js.map": "/td-admin/static/js/9964.88bb2bd2.chunk.js.map",
-    "5181.33532399.chunk.js.map": "/td-admin/static/js/5181.33532399.chunk.js.map"
+    "5181.0c059c81.chunk.js.map": "/td-admin/static/js/5181.0c059c81.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c53eab14.css",
-    "static/js/main.1023e297.js"
+    "static/js/main.13de9b69.js"
   ]
 }
