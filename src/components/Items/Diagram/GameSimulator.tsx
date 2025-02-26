@@ -1,7 +1,7 @@
 import { Button, Space, Typography } from 'antd';
 import {
-  buildDailyTeoriaDeConjuntosGames,
   type DailyTeoriaDeConjuntosEntry,
+  buildDailyTeoriaDeConjuntosGames,
 } from 'components/Daily/utils/games/daily-teoria-de-conjuntos';
 
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';

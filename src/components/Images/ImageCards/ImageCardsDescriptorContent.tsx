@@ -1,11 +1,11 @@
+import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import type { ImageCardDescriptor } from 'types';
 import { useTDResource } from 'hooks/useTDResource';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { useImageCardsDecks } from './hooks/useImageCardsDecks';
-import { ImageCardsDescriptorTable } from './ImageCardsDescriptorTable';
+import type { ImageCardDescriptor } from 'types';
 import { ImageCardsDescriptorModal } from './ImageCardsDescriptorModal';
+import { ImageCardsDescriptorTable } from './ImageCardsDescriptorTable';
+import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 
 export function ImageCardsDescriptorContent(query: UseResourceFirebaseDataReturnType<ImageCardDescriptor>) {
   const imageCardsDecksQuery = useImageCardsDecks();

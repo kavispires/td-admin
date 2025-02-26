@@ -1,20 +1,20 @@
+import { HeartFilled, HeartOutlined } from '@ant-design/icons';
+import {
+  Button,
+  type ButtonProps,
+  Flex,
+  Input,
+  type InputProps,
+  Select,
+  type SelectProps,
+  Slider,
+} from 'antd';
 import { FullScreenModal } from 'components/Common/FullScreenModal';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import type { ImageCardDescriptor } from 'types';
-import { ImageCard } from '../ImageCard';
-import {
-  Button,
-  Flex,
-  Input,
-  type InputProps,
-  type ButtonProps,
-  type SelectProps,
-  Select,
-  Slider,
-} from 'antd';
-import { HeartFilled, HeartOutlined } from '@ant-design/icons';
 import { removeDuplicates } from 'utils';
+import { ImageCard } from '../ImageCard';
 
 const DEFAULT_CARD_SIZE = 200;
 

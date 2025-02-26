@@ -1,13 +1,13 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { App } from 'antd';
 import { doc, setDoc } from 'firebase/firestore';
 import { useState } from 'react';
 import { firestore } from 'services/firebase';
 import { removeDuplicates } from 'utils';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
+import { parseTaNaCaraEntries } from '../utils/games/daily-ta-na-cara';
 import type { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
-import { parseTaNaCaraEntries } from '../utils/games/daily-ta-na-cara';
 
 /**
  * Custom hook for saving daily setup.

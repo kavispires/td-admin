@@ -1,8 +1,8 @@
 import { sampleSize } from 'lodash';
+import type { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
 import type { ArteRuimCard } from 'types';
 import type { DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
-import type { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
 
 export type DailyArtistaEntry = {
   id: DateKey;

@@ -12,9 +12,9 @@ import {
   VerticalRightOutlined,
 } from '@ant-design/icons';
 
-import { ItemsTypeahead } from '../ItemsTypeahead';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
+import { ItemsTypeahead } from '../ItemsTypeahead';
 
 export function ItemAttributionNavigation() {
   const { jumpToItem } = useItemsAttributeValuesContext();

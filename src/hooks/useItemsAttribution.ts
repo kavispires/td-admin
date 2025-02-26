@@ -1,12 +1,5 @@
-import { App } from 'antd';
-import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
-import { useMemo, useState } from 'react';
-import type { Item, ItemAttributesValues, ItemAttribute, ItemAttributesValuesFirestore } from 'types';
-import { deserializeFirebaseData, serializeFirebaseData } from 'utils';
 import { useQueryClient } from '@tanstack/react-query';
-import { useGetFirebaseDoc } from './useGetFirebaseDoc';
-import { useTDResource } from './useTDResource';
-import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
+import { App } from 'antd';
 import {
   calculateItemReliability,
   calculateItemScore,
@@ -15,6 +8,13 @@ import {
   getNewItem,
   getNewItemAttributeValues,
 } from 'components/Items/utils';
+import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
+import { useMemo, useState } from 'react';
+import type { Item, ItemAttribute, ItemAttributesValues, ItemAttributesValuesFirestore } from 'types';
+import { deserializeFirebaseData, serializeFirebaseData } from 'utils';
+import { useGetFirebaseDoc } from './useGetFirebaseDoc';
+import { useTDResource } from './useTDResource';
+import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
 
 /**
  * This is to avoid new items being generated and unused just for the sake of placeholders.

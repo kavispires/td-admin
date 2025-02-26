@@ -17,10 +17,10 @@ import {
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { keys, sampleSize, shuffle, sortBy } from 'lodash';
 import { useState } from 'react';
-import type { ItemAttributesValues, ItemAttribute } from 'types';
+import type { ItemAttribute, ItemAttributesValues } from 'types';
+import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { DailyAlienSimulator } from './DailyAlienSimulator';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 const ROMAN_NUMERALS = ['', 'I', 'II', 'III', 'IV', 'V'];
 

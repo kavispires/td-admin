@@ -1,5 +1,6 @@
 import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
+import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
 import { useEffect, useMemo, useState } from 'react';
 import type {
   ArteRuimCard,
@@ -7,34 +8,33 @@ import type {
   DailyDiagramRule,
   DailyDiscSet,
   DailyMovieSet,
-  ItemAttributesValues,
   ItemAttribute,
+  ItemAttributesValues,
   SuspectCard,
   TestimonyQuestionCard,
 } from 'types';
 import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
-import { buildDailyAquiOGames, DailyAquiOEntry } from '../utils/games/daily-aqui-o';
-import { buildDailyArteRuimGames, DailyArteRuimEntry } from '../utils/games/daily-arte-ruim';
-import { buildDailyArtistaGames, DailyArtistaEntry } from '../utils/games/daily-artista';
+import { type DailyAquiOEntry, buildDailyAquiOGames } from '../utils/games/daily-aqui-o';
+import { type DailyArteRuimEntry, buildDailyArteRuimGames } from '../utils/games/daily-arte-ruim';
+import { type DailyArtistaEntry, buildDailyArtistaGames } from '../utils/games/daily-artista';
 import {
+  type DailyComunicacaoAlienigenaEntry,
   buildDailyComunicacaoAlienigenaGames,
-  DailyComunicacaoAlienigenaEntry,
 } from '../utils/games/daily-comunicacao-alienigena';
 import {
+  type DailyControleDeEstoqueEntry,
   buildDailyControleDeEstoqueGames,
-  DailyControleDeEstoqueEntry,
 } from '../utils/games/daily-controle-de-estoque';
-import { buildDailyFilmacoGames, DailyFilmacoEntry } from '../utils/games/daily-filmaco';
-import { buildDailyPalavreadoGames, DailyPalavreadoEntry } from '../utils/games/daily-palavreado';
+import { type DailyFilmacoEntry, buildDailyFilmacoGames } from '../utils/games/daily-filmaco';
+import { type DailyPalavreadoEntry, buildDailyPalavreadoGames } from '../utils/games/daily-palavreado';
+import { type DailyTaNaCaraEntry, buildDailyTaNaCaraGames } from '../utils/games/daily-ta-na-cara';
 import {
+  type DailyTeoriaDeConjuntosEntry,
   buildDailyTeoriaDeConjuntosGames,
-  DailyTeoriaDeConjuntosEntry,
 } from '../utils/games/daily-teoria-de-conjuntos';
+import type { DateKey } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 import { useParsedHistory } from './useParsedHistory';
-import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
-import { buildDailyTaNaCaraGames, DailyTaNaCaraEntry } from '../utils/games/daily-ta-na-cara';
-import type { DateKey } from '../utils/types';
 
 export type DailyEntry = {
   id: DateKey;

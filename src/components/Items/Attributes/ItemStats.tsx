@@ -9,7 +9,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { ItemAttributesValues, ItemAttribute } from 'types';
+import type { ItemAttribute, ItemAttributesValues } from 'types';
 import { deepCleanObject, sortJsonKeys } from 'utils';
 
 export function ItemStats() {

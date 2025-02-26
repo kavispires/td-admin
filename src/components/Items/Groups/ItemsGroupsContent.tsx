@@ -12,11 +12,11 @@ import type { ItemGroup, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 
 import { TransparentButton } from 'components/Common';
+import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { CopyIdsButton } from '../CopyIdsButton';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { ItemGroupsCard } from './ItemGroupsCard';
-import { DualLanguageTextField } from 'components/Common/EditableFields';
 
 export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { is, queryParams } = useQueryParams();

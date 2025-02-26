@@ -1,9 +1,9 @@
-import { Radio, type RadioGroupProps } from 'antd';
-import type { ItemAttribute } from 'types';
 import { CheckCircleFilled } from '@ant-design/icons';
+import { Radio, type RadioGroupProps } from 'antd';
 import { PopoverInfo } from 'components/Common/PopoverInfo';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { truncate } from 'lodash';
+import type { ItemAttribute } from 'types';
+import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 const attributeOptions = [
   { label: 'Opposite', value: ATTRIBUTE_VALUE.OPPOSITE },

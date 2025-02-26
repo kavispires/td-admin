@@ -3,10 +3,10 @@ import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesCont
 import { type ItemMessageObject, useItemsComparator } from 'hooks/useItemsComparator';
 import type { Item } from 'types';
 
+import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributeSprite } from './ItemAttributeDescription';
 import { ItemAttributionDrawer } from './ItemAttributionDrawer';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
 
 export function ItemComparatorCard() {
   const { attributes } = useItemsAttributeValuesContext();

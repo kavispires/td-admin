@@ -3,7 +3,7 @@ import { AlienSign, Item } from 'components/Sprites';
 import { useTDResource } from 'hooks/useTDResource';
 import { keys, sample, sampleSize, shuffle, values } from 'lodash';
 import { useState } from 'react';
-import type { ItemAttributesValues, ItemAttribute } from 'types';
+import type { ItemAttribute, ItemAttributesValues } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 

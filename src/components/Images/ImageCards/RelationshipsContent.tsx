@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 import { Card, FloatButton, Image, Tooltip } from 'antd';
 import { TransparentButton } from 'components/Common';
+import { IdTag } from 'components/Common/IdTag';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { isEmpty } from 'lodash';
 import { useMemo, useRef } from 'react';
@@ -15,7 +16,6 @@ import { useMeasure } from 'react-use';
 import { ImageCard } from '../ImageCard';
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 import { RelationshipCountTag } from './RelationshipCountTag';
-import { IdTag } from 'components/Common/IdTag';
 
 export function RelationshipsContent() {
   const {

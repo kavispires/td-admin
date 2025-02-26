@@ -1,10 +1,10 @@
 import { Alert, Button, Flex, Space, Table, type TableColumnsType } from 'antd';
 import { CanvasSVG } from 'components/Daily/CanvasSVG';
+import { ImageCard } from 'components/Images/ImageCard';
 import { AlienSign, Item } from 'components/Sprites';
 import { WarehouseGood } from 'components/Sprites/WarehouseGood';
 import type { ArteRuimCard } from 'types';
 import { type DailyEntry, type UseLoadDailySetup, useSaveDailySetup } from './hooks';
-import { ImageCard } from 'components/Images/ImageCard';
 import type { DailyComunicacaoAlienigenaEntry } from './utils/games/daily-comunicacao-alienigena';
 import type { DailyTaNaCaraEntry } from './utils/games/daily-ta-na-cara';
 

@@ -1,8 +1,8 @@
 import { orderBy, sampleSize, shuffle } from 'lodash';
-import type { DateKey, ParsedDailyHistoryEntry } from '../types';
-import { getNextDay } from '../utils';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { SEPARATOR } from 'utils/constants';
+import type { DateKey, ParsedDailyHistoryEntry } from '../types';
+import { getNextDay } from '../utils';
 
 type TaNaCaraQuestion = {
   testimonyId: string;

@@ -1,11 +1,11 @@
+import { EditOutlined } from '@ant-design/icons';
 import { Button, Flex, Table, type TableProps } from 'antd';
+import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { useTablePagination } from 'hooks/useTablePagination';
 import type { ImageCardDescriptor } from 'types';
 import { ImageCard } from '../ImageCard';
-import { EditOutlined } from '@ant-design/icons';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { FavoriteImageCardButton } from './ImageCardsDescriptorModal';
-import { useQueryParams } from 'hooks/useQueryParams';
 
 export function ImageCardsDescriptorTable({
   data,

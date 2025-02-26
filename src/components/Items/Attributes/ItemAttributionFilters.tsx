@@ -5,9 +5,10 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
-import type { ItemAttributesValues, ItemAttribute } from 'types';
+import type { ItemAttribute, ItemAttributesValues } from 'types';
 import { deepCleanObject, sortJsonKeys } from 'utils';
 
+import { calculateItemReliability, calculateItemScore, constructItemSignature } from '../utils';
 import {
   ItemAttributionClassifierFilters,
   ItemAttributionComparatorFilters,
@@ -16,7 +17,6 @@ import {
   ItemAttributionStats,
   ItemAttributionStatsFilters,
 } from './ItemAttributionFiltersSections';
-import { calculateItemReliability, calculateItemScore, constructItemSignature } from '../utils';
 
 export function ItemAttributionFilters() {
   const { isDirty, save, prepareItemsAttributesFileForDownload, attributes, isSaving, attributesToUpdate } =

@@ -1,14 +1,14 @@
 import { Button, Flex, Image, Input, Layout, Tag, Typography } from 'antd';
+import { FullScreenModal } from 'components/Common/FullScreenModal';
 import { useCardWidth } from 'hooks/useCardWidth';
+import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { isEmpty, sample } from 'lodash';
+import { useState } from 'react';
 import { useKey, useWindowSize } from 'react-use';
 import { ImageCard } from '../ImageCard';
 import { RelationshipCountTag } from './RelationshipCountTag';
 import { type UseImageCardsRelationshipDataReturnValue, useRandomCards } from './hooks/hooks';
-import { FullScreenModal } from 'components/Common/FullScreenModal';
-import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
-import { useState } from 'react';
-import { isEmpty, sample } from 'lodash';
 
 type ComparatorProps = {
   query: UseImageCardsRelationshipDataReturnValue;
