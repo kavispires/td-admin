@@ -1,14 +1,64 @@
 import { sampleSize } from 'lodash';
-import type { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
+import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
 import type { ArteRuimCard } from 'types';
-import type { DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { DAILY_GAMES_KEYS } from '../constants';
+import { useMemo } from 'react';
+import { useTDResource } from 'hooks/useTDResource';
+import type { DailyArteRuimEntry } from './daily-arte-ruim';
 
 export type DailyArtistaEntry = {
   id: DateKey;
   number: number;
   type: 'artista';
   cards: ArteRuimCard[];
+};
+
+export const useDailyArtistaGames = (
+  enabled: boolean,
+  queryLanguage: Language,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+  _updateWarnings: (warning: string) => void,
+  arteRuimEntries: DailyArteRuimEntry[],
+) => {
+  const [artistaHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTISTA, dailyHistory);
+  const [arteRuimHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTE_RUIM, dailyHistory);
+
+  const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`, enabled);
+  const drawingsQuery = useDrawingsResourceData(enabled, queryLanguage);
+
+  const entries = useMemo(() => {
+    if (!arteRuimCardsQuery.isSuccess || drawingsQuery.isLoading || !artistaHistory) {
+      return {};
+    }
+
+    const usedArteRuimIds = arteRuimEntries.map((arteRuim) => arteRuim.cardId);
+
+    return buildDailyArtistaGames(
+      batchSize,
+      artistaHistory,
+      arteRuimHistory,
+      arteRuimCardsQuery.data,
+      usedArteRuimIds,
+      drawingsQuery.drawings,
+    );
+  }, [
+    arteRuimCardsQuery,
+    arteRuimHistory,
+    artistaHistory,
+    batchSize,
+    arteRuimEntries,
+    drawingsQuery.drawings,
+    drawingsQuery.isLoading,
+  ]);
+
+  return {
+    entries,
+    isLoading: arteRuimCardsQuery.isLoading || drawingsQuery.isLoading,
+  };
 };
 
 export const buildDailyArtistaGames = (
@@ -32,6 +82,7 @@ export const buildDailyArtistaGames = (
         !recentlyUsedIds.includes(cardId) &&
         drawings?.[cardId]?.drawings?.length < 4,
     );
+    console.log('availableCardsIds', availableCardsIds);
     const cards = sampleSize(availableCardsIds, 20).map((cardId) => arteRuimCards[cardId]);
     lastDate = id;
     entries[id] = {

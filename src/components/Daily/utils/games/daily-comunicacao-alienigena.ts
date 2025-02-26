@@ -2,8 +2,12 @@ import { keys, random, sample, sampleSize, shuffle, values } from 'lodash';
 import type { Item, ItemAttribute, ItemAttributesValues } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
-import type { DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { useMemo } from 'react';
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { DAILY_GAMES_KEYS } from '../constants';
+import { useTDResource } from 'hooks/useTDResource';
 
 type DailyAlienGameAttribute = {
   id: string;
@@ -28,6 +32,60 @@ export type DailyComunicacaoAlienigenaEntry = {
   solution: string;
   itemsIds: string[];
   valid?: boolean;
+};
+
+export const useDailyComunicacaoAlienigenaGames = (
+  enabled: boolean,
+  _queryLanguage: Language,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+  updateWarnings: (warning: string) => void,
+) => {
+  const [comunicacaoAlienigenaHistory] = useParsedHistory(
+    DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA,
+    dailyHistory,
+  );
+
+  const tdrItemsQuery = useTDResource<Item>('items', enabled);
+  const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes', enabled);
+  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>(
+    'items-attribute-values',
+    enabled,
+  );
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: functions shouldn't be used as dependencies
+  const entries = useMemo(() => {
+    if (
+      !comunicacaoAlienigenaHistory ||
+      !tdrAttributesQuery.isSuccess ||
+      !tdrItemsAttributesValuesQuery.isSuccess ||
+      !tdrItemsQuery.isSuccess
+    ) {
+      return {};
+    }
+
+    return buildDailyComunicacaoAlienigenaGames(
+      batchSize,
+      comunicacaoAlienigenaHistory,
+      tdrAttributesQuery.data,
+      tdrItemsAttributesValuesQuery.data,
+      tdrItemsQuery.data,
+      updateWarnings,
+    );
+  }, [
+    batchSize,
+    comunicacaoAlienigenaHistory,
+    comunicacaoAlienigenaHistory,
+    tdrAttributesQuery,
+    tdrItemsAttributesValuesQuery,
+    tdrItemsQuery,
+  ]);
+
+  return {
+    entries,
+    isLoading:
+      tdrItemsQuery.isLoading || tdrAttributesQuery.isLoading || tdrItemsAttributesValuesQuery.isLoading,
+  };
 };
 
 export const buildDailyComunicacaoAlienigenaGames = (

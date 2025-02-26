@@ -1,8 +1,12 @@
 import { orderBy, sampleSize, shuffle } from 'lodash';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { SEPARATOR } from 'utils/constants';
-import type { DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { DAILY_GAMES_KEYS } from '../constants';
+import { useMemo } from 'react';
+import { useTDResource } from 'hooks/useTDResource';
 
 type TaNaCaraQuestion = {
   testimonyId: string;
@@ -20,6 +24,35 @@ export type DailyTaNaCaraEntry = {
   type: 'ta-na-cara';
   testimonies: TaNaCaraQuestion[];
   suspectsIds?: string[];
+};
+
+export const useDailyTaNaCaraGames = (
+  enabled: boolean,
+  queryLanguage: Language,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+  _updateWarnings: (warning: string) => void,
+) => {
+  const [taNaCaraHistory] = useParsedHistory(DAILY_GAMES_KEYS.TA_NA_CARA, dailyHistory);
+
+  const suspectsQuery = useTDResource<SuspectCard>('suspects', enabled);
+  const testimoniesQuery = useTDResource<TestimonyQuestionCard>(
+    `testimony-questions-${queryLanguage}`,
+    enabled,
+  );
+
+  const entries = useMemo(() => {
+    if (!suspectsQuery.isSuccess || !testimoniesQuery.isSuccess || !taNaCaraHistory) {
+      return {};
+    }
+
+    return buildDailyTaNaCaraGames(batchSize, taNaCaraHistory, suspectsQuery.data, testimoniesQuery.data);
+  }, [suspectsQuery, testimoniesQuery, taNaCaraHistory, batchSize]);
+
+  return {
+    entries,
+    isLoading: suspectsQuery.isLoading || testimoniesQuery.isLoading,
+  };
 };
 
 const POOL_SIZE = 30;

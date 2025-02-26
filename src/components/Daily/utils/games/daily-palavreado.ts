@@ -1,6 +1,10 @@
 import { difference, flatMap, intersection, shuffle, sortBy, uniq } from 'lodash';
-import type { DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
+import { DAILY_GAMES_KEYS } from '../constants';
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { useMemo } from 'react';
+import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 
 export type DailyPalavreadoEntry = {
   id: DateKey;
@@ -9,6 +13,37 @@ export type DailyPalavreadoEntry = {
   keyword: string;
   words: string[];
   letters: string[];
+};
+
+export const useDailyPalavreadoGames = (
+  enabled: boolean,
+  queryLanguage: Language,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+  _updateWarnings: (warning: string) => void,
+) => {
+  const [palavreadoHistory] = useParsedHistory(DAILY_GAMES_KEYS.PALAVREADO, dailyHistory);
+
+  const wordsFourQuery = useLoadWordLibrary(4, queryLanguage, enabled, true);
+  const wordsFiveQuery = useLoadWordLibrary(5, queryLanguage, enabled, true);
+  const entries = useMemo(() => {
+    if (
+      !wordsFourQuery.data ||
+      !wordsFourQuery.data.length ||
+      !wordsFiveQuery.data ||
+      !wordsFiveQuery.data.length ||
+      !palavreadoHistory
+    ) {
+      return {};
+    }
+
+    return buildDailyPalavreadoGames(batchSize, palavreadoHistory, wordsFourQuery.data, wordsFiveQuery.data);
+  }, [wordsFourQuery, wordsFiveQuery, palavreadoHistory, batchSize]);
+
+  return {
+    entries,
+    isLoading: wordsFourQuery.isLoading || wordsFiveQuery.isLoading,
+  };
 };
 
 /**

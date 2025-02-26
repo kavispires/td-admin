@@ -1,8 +1,12 @@
 import { getIsThingOutdated, getLatestRuleUpdate } from 'components/Items/Diagram/utils';
 import { cloneDeep, difference, intersection, sample, sampleSize, shuffle } from 'lodash';
 import type { DailyDiagramItem, DailyDiagramRule } from 'types';
-import type { DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { DAILY_GAMES_KEYS } from '../constants';
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { useTDResource } from 'hooks/useTDResource';
+import { useMemo } from 'react';
 
 export type DailyTeoriaDeConjuntosEntry = {
   id: DateKey;
@@ -38,6 +42,37 @@ export type DailyTeoriaDeConjuntosEntry = {
     name: string;
     rule: number;
   }[];
+};
+
+export const useDailyTeoriaDeConjuntosGames = (
+  enabled: boolean,
+  _queryLanguage: Language,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+  _updateWarnings: (warning: string) => void,
+) => {
+  const [teoriaDeConjuntosHistory] = useParsedHistory(DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS, dailyHistory);
+
+  const thingsQuery = useTDResource<DailyDiagramItem>('daily-diagram-items', enabled);
+  const rulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules', enabled);
+
+  const entries = useMemo(() => {
+    if (!teoriaDeConjuntosHistory || !thingsQuery.isSuccess || !rulesQuery.isSuccess) {
+      return {};
+    }
+
+    return buildDailyTeoriaDeConjuntosGames(
+      batchSize,
+      teoriaDeConjuntosHistory,
+      rulesQuery.data,
+      thingsQuery.data,
+    );
+  }, [batchSize, teoriaDeConjuntosHistory, rulesQuery, thingsQuery]);
+
+  return {
+    entries,
+    isLoading: thingsQuery.isLoading || rulesQuery.isLoading,
+  };
 };
 
 const SELECTION_SIZE = 8;

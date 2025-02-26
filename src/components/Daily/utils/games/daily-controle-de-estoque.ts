@@ -1,6 +1,9 @@
 import { sampleSize, shuffle } from 'lodash';
-import type { DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { DAILY_GAMES_KEYS } from '../constants';
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { useMemo } from 'react';
 
 export type DailyControleDeEstoqueEntry = {
   id: DateKey;
@@ -10,6 +13,29 @@ export type DailyControleDeEstoqueEntry = {
   title: string;
   goods: string[];
   orders: string[];
+};
+
+export const useDailyControleDeEstoqueGames = (
+  enabled: boolean,
+  _queryLanguage: Language,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+  _updateWarnings: (warning: string) => void,
+) => {
+  const [controleDeEstoqueHistory] = useParsedHistory(DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE, dailyHistory);
+
+  const entries = useMemo(() => {
+    if (!enabled || !controleDeEstoqueHistory) {
+      return {};
+    }
+
+    return buildDailyControleDeEstoqueGames(batchSize, controleDeEstoqueHistory);
+  }, [enabled, batchSize, controleDeEstoqueHistory]);
+
+  return {
+    entries,
+    isLoading: false,
+  };
 };
 
 /**

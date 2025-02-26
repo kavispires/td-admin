@@ -15,6 +15,7 @@ type DataPopulationProps = {
 
 export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
   const queryLanguage = language as Language;
+  console.log(dataLoad.entries);
 
   const columns: TableColumnsType<DailyEntry> = [
     {
@@ -207,7 +208,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
               ))}
             </Space>
             <Space>
-              {entry.suspectsIds?.map((suspectId) => (
+              {entry.suspectsIds?.slice(0, 3).map((suspectId) => (
                 <ImageCard key={suspectId} id={suspectId} width={48} />
               ))}
             </Space>

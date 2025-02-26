@@ -1,7 +1,11 @@
 import { intersection, sampleSize, shuffle } from 'lodash';
 import type { DailyDiscSet, Item } from 'types';
-import type { DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
+import { useTDResource } from 'hooks/useTDResource';
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { DAILY_GAMES_KEYS } from '../constants';
+import { useMemo } from 'react';
 
 export type DailyAquiOEntry = {
   id: DateKey;
@@ -10,6 +14,39 @@ export type DailyAquiOEntry = {
   setId: string;
   title: DualLanguageValue;
   itemsIds: string[];
+};
+
+export const useDailyAquiOGames = (
+  enabled: boolean,
+  _queryLanguage: Language,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+  updateWarnings: (warning: string) => void,
+) => {
+  const [aquiOHistory] = useParsedHistory(DAILY_GAMES_KEYS.AQUI_O, dailyHistory);
+
+  const tdrItemsQuery = useTDResource<Item>('items', enabled);
+  const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets', enabled);
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: functions shouldn't be used as dependencies
+  const entries = useMemo(() => {
+    if (!aquiOSetsQuery.isSuccess || !aquiOHistory || !tdrItemsQuery.isSuccess) {
+      return {};
+    }
+
+    return buildDailyAquiOGames(
+      batchSize,
+      aquiOHistory,
+      aquiOSetsQuery.data,
+      tdrItemsQuery.data,
+      updateWarnings,
+    );
+  }, [aquiOSetsQuery, tdrItemsQuery, aquiOHistory, batchSize]);
+
+  return {
+    entries,
+    isLoading: tdrItemsQuery.isLoading || aquiOSetsQuery.isLoading,
+  };
 };
 
 /**

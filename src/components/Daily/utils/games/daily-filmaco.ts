@@ -1,7 +1,11 @@
 import { shuffle } from 'lodash';
 import type { DailyMovieSet } from 'types';
-import type { DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { DAILY_GAMES_KEYS } from '../constants';
+import { useTDResource } from 'hooks/useTDResource';
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { useMemo } from 'react';
 
 export type DailyFilmacoEntry = {
   id: DateKey;
@@ -11,6 +15,31 @@ export type DailyFilmacoEntry = {
   title: string;
   itemsIds: string[];
   year: number;
+};
+
+export const useDailyFilmacoGames = (
+  enabled: boolean,
+  _queryLanguage: Language,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+  _updateWarnings: (warning: string) => void,
+) => {
+  const [filmacoHistory] = useParsedHistory(DAILY_GAMES_KEYS.FILMACO, dailyHistory);
+
+  const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets', enabled);
+
+  const entries = useMemo(() => {
+    if (!movieSetsQuery.isSuccess || !filmacoHistory) {
+      return {};
+    }
+
+    return buildDailyFilmacoGames(batchSize, filmacoHistory, movieSetsQuery.data);
+  }, [movieSetsQuery, filmacoHistory, batchSize]);
+
+  return {
+    entries,
+    isLoading: movieSetsQuery.isLoading,
+  };
 };
 
 /**

@@ -1,7 +1,10 @@
 import { sampleSize, shuffle } from 'lodash';
-import type { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
-import type { DateKey, ParsedDailyHistoryEntry } from '../types';
+import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { DAILY_GAMES_KEYS } from '../constants';
+import { useMemo } from 'react';
 
 export type DailyArteRuimEntry = {
   id: DateKey;
@@ -14,6 +17,31 @@ export type DailyArteRuimEntry = {
   dataIds: string[];
 };
 
+export const useDailyArteRuimGames = (
+  enabled: boolean,
+  queryLanguage: Language,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+  _updateWarnings: (warning: string) => void,
+) => {
+  const [arteRuimHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTE_RUIM, dailyHistory);
+
+  const drawingsQuery = useDrawingsResourceData(enabled, queryLanguage);
+
+  const entries = useMemo(() => {
+    if (drawingsQuery.isLoading || !arteRuimHistory) {
+      return [];
+    }
+
+    return buildDailyArteRuimGames(batchSize, arteRuimHistory, drawingsQuery, queryLanguage);
+  }, [drawingsQuery, queryLanguage, arteRuimHistory, batchSize, drawingsQuery.isLoading]);
+
+  return {
+    entries,
+    isLoading: drawingsQuery.isLoading,
+  };
+};
+
 /**
  * Builds the daily Arte Ruim games.
  *
@@ -24,12 +52,11 @@ export type DailyArteRuimEntry = {
  * @param history - The parsed daily history entry.
  * @returns An array of generated Arte Ruim games.
  */
-export const buildDailyArteRuimGames = (
+const buildDailyArteRuimGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   drawingsQuery: ReturnType<typeof useDrawingsResourceData>,
   queryLanguage: Language,
-  drawingsCount: number,
 ) => {
   console.count('Creating Arte Ruim...');
   const drawings: DailyArteRuimEntry[] = Object.values(drawingsQuery.drawings)
@@ -40,7 +67,7 @@ export const buildDailyArteRuimGames = (
       }
 
       // Remove cards with less than the required number of drawings
-      if (d.drawings.length < drawingsCount) {
+      if (d.drawings.length < 3) {
         return false;
       }
 
