@@ -1,7 +1,17 @@
 import { shuffle } from 'lodash';
 import type { DailyMovieSet } from 'types';
-import type { DailyFilmacoEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+
+export type DailyFilmacoEntry = {
+  id: DateKey;
+  number: number;
+  type: 'filmaco';
+  setId: string;
+  title: string;
+  itemsIds: string[];
+  year: number;
+};
 
 /**
  * Builds a dictionary of DailyFilmacoEntry objects based on the given parameters.

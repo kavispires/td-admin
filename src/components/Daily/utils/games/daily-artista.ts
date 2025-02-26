@@ -1,8 +1,15 @@
 import { sampleSize } from 'lodash';
 import type { ArteRuimCard } from 'types';
-import type { DailyArtistaEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 import type { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
+
+export type DailyArtistaEntry = {
+  id: DateKey;
+  number: number;
+  type: 'artista';
+  cards: ArteRuimCard[];
+};
 
 export const buildDailyArtistaGames = (
   batchSize: number,

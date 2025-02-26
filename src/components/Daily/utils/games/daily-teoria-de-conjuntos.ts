@@ -1,8 +1,44 @@
 import { getIsThingOutdated, getLatestRuleUpdate } from 'components/Items/Diagram/utils';
 import { cloneDeep, difference, intersection, sample, sampleSize, shuffle } from 'lodash';
 import type { DailyDiagramItem, DailyDiagramRule } from 'types';
-import type { DailyTeoriaDeConjuntosEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+
+export type DailyTeoriaDeConjuntosEntry = {
+  id: DateKey;
+  number: number;
+  type: 'teoria-de-conjuntos';
+  title: string;
+  level: number;
+  setId: string;
+  rule1: {
+    id: string;
+    text: string;
+    level: number;
+    thing: {
+      id: string;
+      name: string;
+    };
+  };
+  rule2: {
+    id: string;
+    text: string;
+    level: number;
+    thing: {
+      id: string;
+      name: string;
+    };
+  };
+  intersectingThing: {
+    id: string;
+    name: string;
+  };
+  things: {
+    id: string;
+    name: string;
+    rule: number;
+  }[];
+};
 
 const SELECTION_SIZE = 8;
 

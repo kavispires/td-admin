@@ -2,8 +2,33 @@ import { keys, random, sample, sampleSize, shuffle, values } from 'lodash';
 import type { ItemAttributesValues, ItemAttribute, Item } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
-import type { DailyComunicacaoAlienigenaEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+
+type DailyAlienGameAttribute = {
+  id: string;
+  name: string;
+  description: string;
+  spriteId: string;
+  itemsIds: string[];
+};
+
+type DailyAlienGameRequest = {
+  spritesIds: string[];
+  itemId: string;
+};
+
+export type DailyComunicacaoAlienigenaEntry = {
+  id: DateKey;
+  setId: string;
+  number: number;
+  type: 'comunicação-alienígena';
+  attributes: DailyAlienGameAttribute[];
+  requests: DailyAlienGameRequest[];
+  solution: string;
+  itemsIds: string[];
+  valid?: boolean;
+};
 
 export const buildDailyComunicacaoAlienigenaGames = (
   batchSize: number,

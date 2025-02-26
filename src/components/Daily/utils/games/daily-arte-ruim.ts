@@ -1,7 +1,18 @@
 import { sampleSize, shuffle } from 'lodash';
-import type { DailyArteRuimEntry, DailyEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 import type { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
+
+export type DailyArteRuimEntry = {
+  id: DateKey;
+  number: number;
+  type: 'arte-ruim';
+  language: Language;
+  cardId: CardId;
+  text: string;
+  drawings: string[];
+  dataIds: string[];
+};
 
 /**
  * Builds the daily Arte Ruim games.
@@ -21,7 +32,7 @@ export const buildDailyArteRuimGames = (
   drawingsCount: number,
 ) => {
   console.count('Creating Arte Ruim...');
-  const drawings: DailyEntry['arte-ruim'][] = Object.values(drawingsQuery.drawings)
+  const drawings: DailyArteRuimEntry[] = Object.values(drawingsQuery.drawings)
     .filter((d) => {
       // Remove used cards
       if (history.used.includes(d.id)) {

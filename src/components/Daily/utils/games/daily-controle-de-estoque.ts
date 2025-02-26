@@ -1,6 +1,16 @@
 import { sampleSize, shuffle } from 'lodash';
-import type { DailyControleDeEstoqueEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+
+export type DailyControleDeEstoqueEntry = {
+  id: DateKey;
+  number: number;
+  type: 'controle-de-estoque';
+  language: Language;
+  title: string;
+  goods: string[];
+  orders: string[];
+};
 
 /**
  * Builds the Controle de Estoque games for the Daily component.

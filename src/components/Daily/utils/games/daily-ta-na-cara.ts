@@ -1,8 +1,26 @@
 import { orderBy, sampleSize, shuffle } from 'lodash';
-import type { DailyTaNaCaraEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { SEPARATOR } from 'utils/constants';
+
+type TaNaCaraQuestion = {
+  testimonyId: string;
+  question: string;
+  nsfw?: boolean;
+  /**
+   * @deprecated
+   */
+  suspectsIds?: string[];
+};
+
+export type DailyTaNaCaraEntry = {
+  id: DateKey;
+  number: number;
+  type: 'ta-na-cara';
+  testimonies: TaNaCaraQuestion[];
+  suspectsIds?: string[];
+};
 
 const POOL_SIZE = 30;
 const TESTIMONY_SIZE = 12;

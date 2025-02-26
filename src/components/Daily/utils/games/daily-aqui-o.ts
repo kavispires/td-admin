@@ -1,7 +1,16 @@
 import { intersection, sampleSize, shuffle } from 'lodash';
 import type { DailyDiscSet, Item } from 'types';
-import type { DailyAquiOEntry, ParsedDailyHistoryEntry } from '../types';
+import type { DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
+
+export type DailyAquiOEntry = {
+  id: DateKey;
+  number: number;
+  type: 'aqui-o';
+  setId: string;
+  title: DualLanguageValue;
+  itemsIds: string[];
+};
 
 /**
  * Builds a dictionary of DailyAquiOEntry objects based on the given parameters.

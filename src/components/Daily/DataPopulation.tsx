@@ -3,10 +3,10 @@ import { CanvasSVG } from 'components/Daily/CanvasSVG';
 import { AlienSign, Item } from 'components/Sprites';
 import { WarehouseGood } from 'components/Sprites/WarehouseGood';
 import type { ArteRuimCard } from 'types';
-
-import { type UseLoadDailySetup, useSaveDailySetup } from './hooks';
-import type { DailyComunicacaoAlienigenaEntry, DailyEntry, DailyTaNaCaraEntry } from './utils/types';
+import { type DailyEntry, type UseLoadDailySetup, useSaveDailySetup } from './hooks';
 import { ImageCard } from 'components/Images/ImageCard';
+import type { DailyComunicacaoAlienigenaEntry } from './utils/games/daily-comunicacao-alienigena';
+import type { DailyTaNaCaraEntry } from './utils/games/daily-ta-na-cara';
 
 type DataPopulationProps = {
   language: string;

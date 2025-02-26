@@ -13,19 +13,43 @@ import type {
   TestimonyQuestionCard,
 } from 'types';
 import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
-import { buildDailyAquiOGames } from '../utils/games/daily-aqui-o';
-import { buildDailyArteRuimGames } from '../utils/games/daily-arte-ruim';
-import { buildDailyArtistaGames } from '../utils/games/daily-artista';
-import { buildDailyComunicacaoAlienigenaGames } from '../utils/games/daily-comunicacao-alienigena';
-import { buildDailyControleDeEstoqueGames } from '../utils/games/daily-controle-de-estoque';
-import { buildDailyFilmacoGames } from '../utils/games/daily-filmaco';
-import { buildDailyPalavreadoGames } from '../utils/games/daily-palavreado';
-import { buildDailyTeoriaDeConjuntosGames } from '../utils/games/daily-teoria-de-conjuntos';
-import type { DailyEntry } from '../utils/types';
+import { buildDailyAquiOGames, DailyAquiOEntry } from '../utils/games/daily-aqui-o';
+import { buildDailyArteRuimGames, DailyArteRuimEntry } from '../utils/games/daily-arte-ruim';
+import { buildDailyArtistaGames, DailyArtistaEntry } from '../utils/games/daily-artista';
+import {
+  buildDailyComunicacaoAlienigenaGames,
+  DailyComunicacaoAlienigenaEntry,
+} from '../utils/games/daily-comunicacao-alienigena';
+import {
+  buildDailyControleDeEstoqueGames,
+  DailyControleDeEstoqueEntry,
+} from '../utils/games/daily-controle-de-estoque';
+import { buildDailyFilmacoGames, DailyFilmacoEntry } from '../utils/games/daily-filmaco';
+import { buildDailyPalavreadoGames, DailyPalavreadoEntry } from '../utils/games/daily-palavreado';
+import {
+  buildDailyTeoriaDeConjuntosGames,
+  DailyTeoriaDeConjuntosEntry,
+} from '../utils/games/daily-teoria-de-conjuntos';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 import { useParsedHistory } from './useParsedHistory';
 import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
-import { buildDailyTaNaCaraGames } from '../utils/games/daily-ta-na-cara';
+import { buildDailyTaNaCaraGames, DailyTaNaCaraEntry } from '../utils/games/daily-ta-na-cara';
+import type { DateKey } from '../utils/types';
+
+export type DailyEntry = {
+  id: DateKey;
+  // Games
+  'arte-ruim': DailyArteRuimEntry;
+  'aqui-o': DailyAquiOEntry;
+  palavreado: DailyPalavreadoEntry;
+  filmaco: DailyFilmacoEntry;
+  'controle-de-estoque': DailyControleDeEstoqueEntry;
+  'teoria-de-conjuntos': DailyTeoriaDeConjuntosEntry;
+  'comunicacao-alienigena': DailyComunicacaoAlienigenaEntry;
+  // Contributions
+  artista: DailyArtistaEntry;
+  'ta-na-cara': DailyTaNaCaraEntry;
+};
 
 export type UseLoadDailySetup = {
   isLoading: boolean;
@@ -65,7 +89,6 @@ export function useLoadDailySetup(
 
   // STEP 2: ARTE RUIM
   const drawingsQuery = useDrawingsResourceData(enabled, queryLanguage);
-
   const areDrawingsLoading = drawingsQuery.isLoading;
   const [arteRuimHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTE_RUIM, historyQuery.data);
   const arteRuimEntries = useMemo(() => {
