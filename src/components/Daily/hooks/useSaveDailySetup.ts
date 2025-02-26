@@ -5,9 +5,10 @@ import { useState } from 'react';
 import { firestore } from 'services/firebase';
 import { removeDuplicates } from 'utils';
 import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
-import { parseTaNaCaraEntries } from '../utils/games/daily-ta-na-cara';
+import { gatherUsedTaNaCaraEntries } from '../utils/games/daily-ta-na-cara';
 import type { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
+import { gatherUsedQuartetosEntries } from '../utils/games/daily-quartetos';
 
 /**
  * Custom hook for saving daily setup.
@@ -112,11 +113,21 @@ export function useSaveDailySetup(queryLanguage: Language) {
             ]),
           ),
         },
+        [DAILY_GAMES_KEYS.QUARTETOS]: {
+          latestDate: data[data.length - 1].id,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.QUARTETOS].number,
+          used: JSON.stringify(
+            gatherUsedQuartetosEntries(
+              JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.QUARTETOS]?.used ?? '[]'),
+              data.map((e) => e[DAILY_GAMES_KEYS.QUARTETOS]),
+            ),
+          ),
+        },
         [DAILY_GAMES_KEYS.TA_NA_CARA]: {
           latestDate: data[data.length - 1].id,
           latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.TA_NA_CARA].number,
           used: JSON.stringify(
-            parseTaNaCaraEntries(
+            gatherUsedTaNaCaraEntries(
               JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.TA_NA_CARA]?.used ?? '[]'),
               data.map((e) => e[DAILY_GAMES_KEYS.TA_NA_CARA]),
             ),

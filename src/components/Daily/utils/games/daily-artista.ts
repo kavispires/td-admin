@@ -31,7 +31,7 @@ export const useDailyArtistaGames = (
   const drawingsQuery = useDrawingsResourceData(enabled, queryLanguage);
 
   const entries = useMemo(() => {
-    if (!arteRuimCardsQuery.isSuccess || drawingsQuery.isLoading || !artistaHistory) {
+    if (!enabled || !arteRuimCardsQuery.isSuccess || drawingsQuery.isLoading || !artistaHistory) {
       return {};
     }
 
@@ -46,6 +46,7 @@ export const useDailyArtistaGames = (
       drawingsQuery.drawings,
     );
   }, [
+    enabled,
     arteRuimCardsQuery,
     arteRuimHistory,
     artistaHistory,

@@ -29,12 +29,12 @@ export const useDailyArteRuimGames = (
   const drawingsQuery = useDrawingsResourceData(enabled, queryLanguage);
 
   const entries = useMemo(() => {
-    if (drawingsQuery.isLoading || !arteRuimHistory) {
+    if (!enabled || drawingsQuery.isLoading || !arteRuimHistory) {
       return [];
     }
 
     return buildDailyArteRuimGames(batchSize, arteRuimHistory, drawingsQuery, queryLanguage);
-  }, [drawingsQuery, queryLanguage, arteRuimHistory, batchSize, drawingsQuery.isLoading]);
+  }, [enabled, drawingsQuery, queryLanguage, arteRuimHistory, batchSize, drawingsQuery.isLoading]);
 
   return {
     entries,

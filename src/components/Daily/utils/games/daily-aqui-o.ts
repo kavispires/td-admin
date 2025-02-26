@@ -30,7 +30,7 @@ export const useDailyAquiOGames = (
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: functions shouldn't be used as dependencies
   const entries = useMemo(() => {
-    if (!aquiOSetsQuery.isSuccess || !aquiOHistory || !tdrItemsQuery.isSuccess) {
+    if (!enabled || !aquiOSetsQuery.isSuccess || !aquiOHistory || !tdrItemsQuery.isSuccess) {
       return {};
     }
 
@@ -41,7 +41,7 @@ export const useDailyAquiOGames = (
       tdrItemsQuery.data,
       updateWarnings,
     );
-  }, [aquiOSetsQuery, tdrItemsQuery, aquiOHistory, batchSize]);
+  }, [enabled, aquiOSetsQuery, tdrItemsQuery, aquiOHistory, batchSize]);
 
   return {
     entries,

@@ -56,6 +56,7 @@ export const useDailyComunicacaoAlienigenaGames = (
   // biome-ignore lint/correctness/useExhaustiveDependencies: functions shouldn't be used as dependencies
   const entries = useMemo(() => {
     if (
+      !enabled ||
       !comunicacaoAlienigenaHistory ||
       !tdrAttributesQuery.isSuccess ||
       !tdrItemsAttributesValuesQuery.isSuccess ||
@@ -73,6 +74,7 @@ export const useDailyComunicacaoAlienigenaGames = (
       updateWarnings,
     );
   }, [
+    enabled,
     batchSize,
     comunicacaoAlienigenaHistory,
     comunicacaoAlienigenaHistory,

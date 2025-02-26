@@ -7,6 +7,7 @@ import type { ArteRuimCard } from 'types';
 import { type DailyEntry, type UseLoadDailySetup, useSaveDailySetup } from './hooks';
 import type { DailyComunicacaoAlienigenaEntry } from './utils/games/daily-comunicacao-alienigena';
 import type { DailyTaNaCaraEntry } from './utils/games/daily-ta-na-cara';
+import { truncate } from 'lodash';
 
 type DataPopulationProps = {
   language: string;
@@ -175,6 +176,25 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
                 ))}
               </Space>
             </Space>
+          </Space>
+        );
+      },
+    },
+    {
+      title: 'Quartetos',
+      dataIndex: 'quartetos',
+      key: 'quartetos',
+      render: ({ number, setId, grid }) => {
+        return (
+          <Space direction="vertical">
+            <span>#{number}</span>
+            <span>SetId: {truncate(setId, { length: 9 })}</span>
+
+            <Flex gap={6} vertical>
+              {grid.slice(0, 4).map((itemId: string) => (
+                <Item key={itemId} id={itemId} width={50} />
+              ))}
+            </Flex>
           </Space>
         );
       },

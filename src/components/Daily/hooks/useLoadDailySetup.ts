@@ -20,17 +20,19 @@ import {
 } from '../utils/games/daily-teoria-de-conjuntos';
 import type { DateKey } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
+import { type DailyQuartetosEntry, useDailyQuartetosGames } from '../utils/games/daily-quartetos';
 
 export type DailyEntry = {
   id: DateKey;
   // Games
   'arte-ruim': DailyArteRuimEntry;
   'aqui-o': DailyAquiOEntry;
-  palavreado: DailyPalavreadoEntry;
-  filmaco: DailyFilmacoEntry;
-  'controle-de-estoque': DailyControleDeEstoqueEntry;
-  'teoria-de-conjuntos': DailyTeoriaDeConjuntosEntry;
   'comunicacao-alienigena': DailyComunicacaoAlienigenaEntry;
+  'controle-de-estoque': DailyControleDeEstoqueEntry;
+  filmaco: DailyFilmacoEntry;
+  palavreado: DailyPalavreadoEntry;
+  quartetos: DailyQuartetosEntry;
+  'teoria-de-conjuntos': DailyTeoriaDeConjuntosEntry;
   // Contributions
   artista: DailyArtistaEntry;
   'ta-na-cara': DailyTaNaCaraEntry;
@@ -126,6 +128,15 @@ export function useLoadDailySetup(
     updateWarnings,
   );
 
+  // QUARTETOS
+  const quartetos = useDailyQuartetosGames(
+    enableBuilders,
+    queryLanguage,
+    batchSize,
+    historyQuery.data ?? {},
+    updateWarnings,
+  );
+
   // BUILD TEORIA DE CONJUNTOS
   const teoriaDeConjuntos = useDailyTeoriaDeConjuntosGames(
     enableBuilders,
@@ -166,11 +177,12 @@ export function useLoadDailySetup(
         // Games
         'arte-ruim': arteRuim,
         'aqui-o': aquiO.entries[arteRuim.id],
-        palavreado: palavreado.entries[arteRuim.id],
-        filmaco: filmaco.entries[arteRuim.id],
-        'controle-de-estoque': controleDeEstoque.entries[arteRuim.id],
-        'teoria-de-conjuntos': teoriaDeConjuntos.entries[arteRuim.id],
         'comunicacao-alienigena': comunicacaoAlienigena.entries[arteRuim.id],
+        'controle-de-estoque': controleDeEstoque.entries[arteRuim.id],
+        filmaco: filmaco.entries[arteRuim.id],
+        palavreado: palavreado.entries[arteRuim.id],
+        quartetos: quartetos.entries[arteRuim.id],
+        'teoria-de-conjuntos': teoriaDeConjuntos.entries[arteRuim.id],
         // Contributions
         artista: artista.entries[arteRuim.id],
         'ta-na-cara': taNaCara.entries[arteRuim.id],
@@ -179,12 +191,13 @@ export function useLoadDailySetup(
   }, [
     arteRuim.entries,
     aquiO.entries,
-    palavreado.entries,
-    artista.entries,
     filmaco.entries,
-    controleDeEstoque.entries,
-    teoriaDeConjuntos.entries,
     comunicacaoAlienigena.entries,
+    controleDeEstoque.entries,
+    palavreado.entries,
+    quartetos.entries,
+    teoriaDeConjuntos.entries,
+    artista.entries,
     taNaCara.entries,
   ]);
 
@@ -197,6 +210,7 @@ export function useLoadDailySetup(
       controleDeEstoque.isLoading ||
       filmaco.isLoading ||
       palavreado.isLoading ||
+      quartetos.isLoading ||
       teoriaDeConjuntos.isLoading ||
       artista.isLoading ||
       taNaCara.isLoading,

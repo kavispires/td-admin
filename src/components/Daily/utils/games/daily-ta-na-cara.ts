@@ -42,12 +42,12 @@ export const useDailyTaNaCaraGames = (
   );
 
   const entries = useMemo(() => {
-    if (!suspectsQuery.isSuccess || !testimoniesQuery.isSuccess || !taNaCaraHistory) {
+    if (!enabled || !suspectsQuery.isSuccess || !testimoniesQuery.isSuccess || !taNaCaraHistory) {
       return {};
     }
 
     return buildDailyTaNaCaraGames(batchSize, taNaCaraHistory, suspectsQuery.data, testimoniesQuery.data);
-  }, [suspectsQuery, testimoniesQuery, taNaCaraHistory, batchSize]);
+  }, [enabled, suspectsQuery, testimoniesQuery, taNaCaraHistory, batchSize]);
 
   return {
     entries,
@@ -116,7 +116,7 @@ const getTaNaCaraUsedDictionary = (previousHistory: string[]) => {
   }, {});
 };
 
-export const parseTaNaCaraEntries = (previousHistory: string[], currentData: DailyTaNaCaraEntry[]) => {
+export const gatherUsedTaNaCaraEntries = (previousHistory: string[], currentData: DailyTaNaCaraEntry[]) => {
   const dict = getTaNaCaraUsedDictionary(previousHistory);
 
   currentData.forEach((entry) => {
@@ -132,6 +132,12 @@ export const parseTaNaCaraEntries = (previousHistory: string[], currentData: Dai
         }
         dict[suspectId] += 1;
       });
+    });
+    entry.suspectsIds?.forEach((suspectId) => {
+      if (dict[suspectId] === undefined) {
+        dict[suspectId] = 0;
+      }
+      dict[suspectId] += 1;
     });
   });
 

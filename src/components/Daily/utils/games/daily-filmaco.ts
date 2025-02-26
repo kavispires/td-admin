@@ -29,12 +29,12 @@ export const useDailyFilmacoGames = (
   const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets', enabled);
 
   const entries = useMemo(() => {
-    if (!movieSetsQuery.isSuccess || !filmacoHistory) {
+    if (!enabled || !movieSetsQuery.isSuccess || !filmacoHistory) {
       return {};
     }
 
     return buildDailyFilmacoGames(batchSize, filmacoHistory, movieSetsQuery.data);
-  }, [movieSetsQuery, filmacoHistory, batchSize]);
+  }, [enabled, movieSetsQuery, filmacoHistory, batchSize]);
 
   return {
     entries,

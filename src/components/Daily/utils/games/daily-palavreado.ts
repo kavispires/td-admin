@@ -28,6 +28,7 @@ export const useDailyPalavreadoGames = (
   const wordsFiveQuery = useLoadWordLibrary(5, queryLanguage, enabled, true);
   const entries = useMemo(() => {
     if (
+      !enabled ||
       !wordsFourQuery.data ||
       !wordsFourQuery.data.length ||
       !wordsFiveQuery.data ||
@@ -38,7 +39,7 @@ export const useDailyPalavreadoGames = (
     }
 
     return buildDailyPalavreadoGames(batchSize, palavreadoHistory, wordsFourQuery.data, wordsFiveQuery.data);
-  }, [wordsFourQuery, wordsFiveQuery, palavreadoHistory, batchSize]);
+  }, [enabled, wordsFourQuery, wordsFiveQuery, palavreadoHistory, batchSize]);
 
   return {
     entries,

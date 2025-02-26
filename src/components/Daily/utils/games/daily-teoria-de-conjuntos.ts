@@ -57,7 +57,7 @@ export const useDailyTeoriaDeConjuntosGames = (
   const rulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules', enabled);
 
   const entries = useMemo(() => {
-    if (!teoriaDeConjuntosHistory || !thingsQuery.isSuccess || !rulesQuery.isSuccess) {
+    if (!enabled || !teoriaDeConjuntosHistory || !thingsQuery.isSuccess || !rulesQuery.isSuccess) {
       return {};
     }
 
@@ -67,7 +67,7 @@ export const useDailyTeoriaDeConjuntosGames = (
       rulesQuery.data,
       thingsQuery.data,
     );
-  }, [batchSize, teoriaDeConjuntosHistory, rulesQuery, thingsQuery]);
+  }, [enabled, batchSize, teoriaDeConjuntosHistory, rulesQuery, thingsQuery]);
 
   return {
     entries,
