@@ -792,13 +792,21 @@ export type ItemAttribute = {
 
 export type ItemGroup = {
   /**
-   * Unique identifier for the group, usually its name
+   * Unique identifier for the group
    */
   id: string;
   /**
+   * The name of the group
+   */
+  name: DualLanguageValue;
+  /**
    * The items in the group
    */
-  itemsIds: ItemId[];
+  itemsIds: string[];
+  /**
+   * Keywords to search for the group
+   */
+  keywords: string;
 };
 
 export type DailyDiscSet = {

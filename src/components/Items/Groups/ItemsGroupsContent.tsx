@@ -16,6 +16,7 @@ import { useTablePagination } from 'hooks/useTablePagination';
 import { CopyIdsButton } from '../CopyIdsButton';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { ItemGroupsCard } from './ItemGroupsCard';
+import { DualLanguageTextField } from 'components/Common/EditableFields';
 
 export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { is, queryParams } = useQueryParams();
@@ -54,25 +55,39 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
 
     // Add item to groups
     groupsToAdd.forEach((groupId) => {
+      const group = data[groupId];
       addEntryToUpdate(groupId, {
-        id: groupId,
-        itemsIds: removeDuplicates([...(data[groupId]?.itemsIds ?? []), itemId]),
+        ...group,
+        itemsIds: removeDuplicates([...(group?.itemsIds ?? []), itemId]),
       });
     });
 
     // Remove item from groups
     groupsToRemove.forEach((groupId) => {
+      const group = data[groupId];
       addEntryToUpdate(groupId, {
-        id: groupId,
-        itemsIds: removeDuplicates(data[groupId]?.itemsIds.filter((id) => id !== itemId)),
+        ...group,
+        itemsIds: removeDuplicates(group?.itemsIds.filter((id) => id !== itemId)),
       });
     });
   };
 
   const onUpdateGroupItems = (groupId: string, itemIds: string[]) => {
+    const group = data[groupId];
     addEntryToUpdate(groupId, {
-      id: groupId,
+      ...group,
       itemsIds: removeDuplicates(itemIds),
+    });
+  };
+
+  const onUpdateName = (name: string, language: 'en' | 'pt', groupId: string) => {
+    const group = data[groupId];
+    addEntryToUpdate(groupId, {
+      ...group,
+      name: {
+        ...group.name,
+        [language]: name,
+      },
     });
   };
 
@@ -86,6 +101,7 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
           groupsTypeahead={groupsTypeahead}
           onUpdateItemGroups={onUpdateItemGroups}
           onUpdateGroupItems={onUpdateGroupItems}
+          onUpdateName={onUpdateName}
         />
       )}
       {is('display', 'item') && (
@@ -96,6 +112,7 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
           groupsTypeahead={groupsTypeahead}
           onUpdateItemGroups={onUpdateItemGroups}
           onUpdateGroupItems={onUpdateGroupItems}
+          onUpdateName={onUpdateName}
         />
       )}
     </>
@@ -108,6 +125,7 @@ type ItemsGroupsTablesProps = {
   groupsTypeahead: { value: string; label: string }[];
   onUpdateItemGroups: (itemId: string, groupIds: string[]) => void;
   onUpdateGroupItems: (groupId: string, itemIds: string[]) => void;
+  onUpdateName: (name: string, language: 'en' | 'pt', groupId: string) => void;
 } & Pick<UseResourceFirebaseDataReturnType<ItemGroup>, 'data'>;
 
 function ItemsGroupsByGroupTable({
@@ -117,6 +135,7 @@ function ItemsGroupsByGroupTable({
   groupsTypeahead,
   onUpdateItemGroups,
   onUpdateGroupItems,
+  onUpdateName,
 }: ItemsGroupsTablesProps) {
   const copyToClipboard = useCopyToClipboardFunction();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
@@ -133,6 +152,27 @@ function ItemsGroupsByGroupTable({
       dataIndex: 'id',
       key: 'id',
       render: (id) => <span>{id}</span>,
+    },
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      render: (name: DualLanguageValue, record) => (
+        <Flex vertical gap={4}>
+          <DualLanguageTextField
+            value={name}
+            language="en"
+            style={{ minWidth: 150 }}
+            onChange={(e) => onUpdateName(e.target.value, 'en', record.id)}
+          />
+          <DualLanguageTextField
+            value={name}
+            language="pt"
+            style={{ minWidth: 150 }}
+            onChange={(e) => onUpdateName(e.target.value, 'pt', record.id)}
+          />
+        </Flex>
+      ),
     },
     {
       title: 'Items',
