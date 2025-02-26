@@ -4,6 +4,10 @@ import { getNextDay } from '../utils';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { SEPARATOR } from 'utils/constants';
 
+const POOL_SIZE = 30;
+const TESTIMONY_SIZE = 12;
+const SUSPECTS_SIZE = 12;
+
 export const buildDailyTaNaCaraGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
@@ -15,7 +19,7 @@ export const buildDailyTaNaCaraGames = (
   const dict = getTaNaCaraUsedDictionary(history.used);
 
   const suspectsBatch = orderBy(
-    shuffle(Object.values(suspects).slice(0, 30)).map((suspect) => {
+    shuffle(Object.values(suspects).slice(0, POOL_SIZE)).map((suspect) => {
       const [, idNum] = suspect.id.split('-');
       return `us-ct-${idNum}`;
     }),
@@ -23,17 +27,16 @@ export const buildDailyTaNaCaraGames = (
     ['asc'],
   );
 
-  const testimoniesBatch = shuffle(Object.values(testimonies).slice(0, 30));
+  const testimoniesBatch = shuffle(Object.values(testimonies).slice(0, POOL_SIZE));
 
   let lastDate = history.latestDate;
   const entries: Dictionary<DailyTaNaCaraEntry> = {};
   for (let i = 0; i < batchSize; i++) {
-    const testimonies = sampleSize(testimoniesBatch, 7).map((testimony) => {
+    const testimonies = sampleSize(testimoniesBatch, TESTIMONY_SIZE).map((testimony) => {
       return {
         testimonyId: testimony.id,
         question: testimony.question,
         nsfw: !!testimony.nsfw,
-        suspectsIds: sampleSize(suspectsBatch, 3),
       };
     });
 
@@ -43,6 +46,7 @@ export const buildDailyTaNaCaraGames = (
       id,
       type: 'ta-na-cara',
       number: history.latestNumber + i + 1,
+      suspectsIds: sampleSize(suspectsBatch, SUSPECTS_SIZE),
       testimonies,
     };
   }
@@ -71,7 +75,7 @@ export const parseTaNaCaraEntries = (previousHistory: string[], currentData: Dai
       }
       dict[testimony.testimonyId] += 1;
 
-      testimony.suspectsIds.forEach((suspectId) => {
+      testimony?.suspectsIds?.forEach((suspectId) => {
         if (dict[suspectId] === undefined) {
           dict[suspectId] = 0;
         }

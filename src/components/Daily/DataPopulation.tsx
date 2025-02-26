@@ -207,7 +207,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
               ))}
             </Space>
             <Space>
-              {entry.testimonies?.[0].suspectsIds.map((suspectId) => (
+              {entry.suspectsIds?.map((suspectId) => (
                 <ImageCard key={suspectId} id={suspectId} width={48} />
               ))}
             </Space>

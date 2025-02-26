@@ -146,7 +146,10 @@ export type TaNaCaraQuestion = {
   testimonyId: string;
   question: string;
   nsfw?: boolean;
-  suspectsIds: string[];
+  /**
+   * @deprecated
+   */
+  suspectsIds?: string[];
 };
 
 export type DailyTaNaCaraEntry = {
@@ -154,6 +157,7 @@ export type DailyTaNaCaraEntry = {
   number: number;
   type: 'ta-na-cara';
   testimonies: TaNaCaraQuestion[];
+  suspectsIds?: string[];
 };
 
 export type DailyEntry = {
