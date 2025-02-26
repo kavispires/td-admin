@@ -7,20 +7,7 @@ import { App, Button, Divider, Flex, Input, Space, Tag, Typography } from 'antd'
 import { ImageCard } from '../ImageCard';
 import { CheckCircleFilled, PlusOutlined } from '@ant-design/icons';
 import { SetsTable, usePasscodeSetTypeahead } from './ImageCardsPasscodeComponents';
-import { removeDuplicates } from 'utils';
-
-function createUUID(existingIds: string[]) {
-  let newId = crypto.randomUUID().substring(0, 5);
-  let tries = 0;
-  while (existingIds.includes(newId) && tries < 500) {
-    newId = crypto.randomUUID().substring(0, 5);
-    tries++;
-  }
-  if (tries > 500) {
-    console.error('Unable to generate unique id');
-  }
-  return newId;
-}
+import { createUUID, removeDuplicates } from 'utils';
 
 type ImageCardsPasscodeProps = UseResourceFirebaseDataReturnType<ImageCardPasscodeSet>;
 

@@ -3,6 +3,28 @@ import stringSimilarity from 'string-similarity';
 import { SEARCH_THRESHOLD } from './constants';
 
 /**
+ * Generates a unique identifier that does not exist in the provided list of existing IDs.
+ * The generated ID is a substring of a UUID, limited to 5 characters.
+ * If a unique ID cannot be generated within 500 attempts, an error is logged.
+ *
+ * @param existingIds - An array of existing IDs to check against.
+ * @param [length=5] - The length of the generated ID. Defaults to 5.
+ * @returns A unique identifier.
+ */
+export function createUUID(existingIds: string[], length = 5): string {
+  let newId = crypto.randomUUID().substring(0, length);
+  let tries = 0;
+  while (existingIds.includes(newId) && tries < 500) {
+    newId = crypto.randomUUID().substring(0, length);
+    tries++;
+  }
+  if (tries > 500) {
+    console.error('Unable to generate unique id');
+  }
+  return newId;
+}
+
+/**
  * Removes accents from a given string.
  *
  * This function normalizes the input string to its decomposed form (NFD)
