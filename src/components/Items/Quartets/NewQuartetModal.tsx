@@ -3,7 +3,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { useMemo, useState } from 'react';
 import type { DailyQuartetSet } from 'types';
-import { removeDuplicates } from 'utils';
+import { createUUID, removeDuplicates } from 'utils';
 import { InspirationSample } from './InspirationSample';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 
@@ -15,15 +15,7 @@ type NewQuartetModalProps = {
 export function NewQuartetModal({ data, addEntryToUpdate }: NewQuartetModalProps) {
   const { is, removeParam } = useQueryParams();
   const newId = useMemo(() => {
-    let latestIdNum = 0;
-    Object.keys(data).forEach((id) => {
-      const idNum = Number(id.split('-')[1]);
-      if (idNum > latestIdNum) {
-        latestIdNum = idNum;
-      }
-    });
-
-    return `dqs-${String(latestIdNum + 1).padStart(4, '0')}-pt`;
+    return createUUID(Object.keys(data));
   }, [data]);
 
   const [activeQuartet, setActiveQuartet] = useState<DailyQuartetSet>({

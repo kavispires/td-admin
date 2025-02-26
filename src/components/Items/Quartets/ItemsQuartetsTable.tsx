@@ -31,6 +31,10 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
 
   const columns: TableProps<DailyQuartetSet>['columns'] = [
     {
+      title: 'ID',
+      dataIndex: 'id',
+    },
+    {
       title: 'Title',
       dataIndex: 'title',
       render: (title, record) => (
@@ -41,6 +45,7 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
           addEntryToUpdate={addEntryToUpdate}
         />
       ),
+      sorter: (a, b) => a.title.localeCompare(b.title),
     },
     Table.EXPAND_COLUMN,
     {
@@ -55,6 +60,7 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
           addEntryToUpdate={addEntryToUpdate}
         />
       ),
+      sorter: (a, b) => a.itemsIds.length - b.itemsIds.length,
     },
     {
       title: 'Count',
@@ -84,6 +90,7 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
           onChange={(v) => addEntryToUpdate(record.id, { ...record, level: v })}
         />
       ),
+      sorter: (a, b) => a.level - b.level,
     },
     {
       title: 'Perfect Quartet',
