@@ -1,13 +1,12 @@
-import { Alert, Button, Flex, Space, Table, type TableColumnsType } from 'antd';
+import { Alert, Button, Flex, Popover, Space, Table, type TableColumnsType } from 'antd';
 import { CanvasSVG } from 'components/Daily/CanvasSVG';
 import { ImageCard } from 'components/Images/ImageCard';
 import { AlienSign, Item } from 'components/Sprites';
 import { WarehouseGood } from 'components/Sprites/WarehouseGood';
 import type { ArteRuimCard } from 'types';
 import { type DailyEntry, type UseLoadDailySetup, useSaveDailySetup } from './hooks';
-import type { DailyComunicacaoAlienigenaEntry } from './utils/games/daily-comunicacao-alienigena';
-import type { DailyTaNaCaraEntry } from './utils/games/daily-ta-na-cara';
 import { truncate } from 'lodash';
+import { EyeFilled } from '@ant-design/icons';
 
 type DataPopulationProps = {
   language: string;
@@ -16,7 +15,6 @@ type DataPopulationProps = {
 
 export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
   const queryLanguage = language as Language;
-  console.log(dataLoad.entries);
 
   const columns: TableColumnsType<DailyEntry> = [
     {
@@ -155,7 +153,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Comunicação Alienígena',
       dataIndex: 'comunicacao-alienigena',
       key: 'comunicacao-alienigena',
-      render: (entry: DailyComunicacaoAlienigenaEntry) => {
+      render: (entry: DailyEntry['comunicacao-alienigena']) => {
         if (!entry) {
           return <Alert message="No entry" type="error" />;
         }
@@ -184,15 +182,31 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Quartetos',
       dataIndex: 'quartetos',
       key: 'quartetos',
-      render: ({ number, setId, grid }) => {
+      render: ({ number, setId, sets }: DailyEntry['quartetos']) => {
         return (
           <Space direction="vertical">
             <span>#{number}</span>
             <span>SetId: {truncate(setId, { length: 9 })}</span>
-
+            <Popover
+              trigger="click"
+              content={
+                <Flex gap={6}>
+                  {sets.map((s) => (
+                    <Flex key={s.id} gap={6} vertical>
+                      {s.itemsIds.map((i) => (
+                        <Item key={i} id={i} width={50} />
+                      ))}
+                    </Flex>
+                  ))}
+                </Flex>
+              }
+              title="Solution"
+            >
+              <Button icon={<EyeFilled />} />
+            </Popover>
             <Flex gap={6} vertical>
-              {grid.slice(0, 4).map((itemId: string) => (
-                <Item key={itemId} id={itemId} width={50} />
+              {sets.map((s) => (
+                <Item key={s.itemsIds[0]} id={s.itemsIds[0]} width={50} />
               ))}
             </Flex>
           </Space>
@@ -218,10 +232,11 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Tá Na Cara',
       dataIndex: 'ta-na-cara',
       key: 'ta-na-cara',
-      render: (entry: DailyTaNaCaraEntry) => {
+      render: (entry: DailyEntry['ta-na-cara']) => {
         return (
           <Space direction="vertical">
             <span>#{entry.number}</span>
+            <span>{entry.suspectsIds} suspects</span>
             <Space direction="vertical" style={{ maxHeight: 200, overflowY: 'auto' }}>
               {entry.testimonies.map((question) => (
                 <span key={question.testimonyId}>{question.question}</span>

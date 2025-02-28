@@ -83,7 +83,7 @@ export const buildDailyArtistaGames = (
         !recentlyUsedIds.includes(cardId) &&
         drawings?.[cardId]?.drawings?.length < 4,
     );
-    console.log('availableCardsIds', availableCardsIds);
+
     const cards = sampleSize(availableCardsIds, 20).map((cardId) => arteRuimCards[cardId]);
     lastDate = id;
     entries[id] = {

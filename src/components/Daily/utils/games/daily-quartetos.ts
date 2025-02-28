@@ -1,4 +1,4 @@
-import { capitalize, orderBy, sample, sampleSize, shuffle } from 'lodash';
+import { capitalize, cloneDeep, orderBy, sample, sampleSize, shuffle } from 'lodash';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 import type { DailyQuartetSet, ItemGroup } from 'types';
@@ -74,27 +74,57 @@ export const buildDailyQuartetosGames = (
 
   let lastDate = history.latestDate;
   const entries: Dictionary<DailyQuartetosEntry> = {};
-  for (let i = 0; i < batchSize; i++) {
+  Array.from({ length: batchSize }).forEach((_, i) => {
+    // for (let i = 0; i < batchSize; i++) {
     // The game always consists of 3 quartets sets and 1 random group entry
-    const takenItemsIds: string[] = [];
-    // Get 3 sets
-    const sets: QuartetosSet[] = sampleSize(eligibleSets, 3).map((set) => {
-      takenItemsIds.push(...set.itemsIds);
-      return {
-        id: set.id,
-        title: set.title,
-        itemsIds: sampleSize(set.itemsIds, 4),
-        level: set.level,
-      };
-    });
-    const selectedSetsIds = sets.map((set) => set.id);
+    const sets: QuartetosSet[] = [];
+
+    const takenItemsIds: BooleanDictionary = {};
+
+    // Within the game, we need to keep track of the selected sets so items do override each other
+    let scopedEligibleSets = cloneDeep(eligibleSets);
+
+    let tries = 0;
+    // Get 3 sets with unique items
+    while (sets.length < 3 && tries < 500) {
+      const potentialSet = sample(scopedEligibleSets);
+      if (!potentialSet) {
+        throw Error('No potential set found for Quartetos game');
+      }
+      // Remove selected set from scopedEligibleSets
+      scopedEligibleSets = scopedEligibleSets.filter((set) => set.id !== potentialSet.id);
+
+      // Each quartet needs only 4 items
+      const selectedSetItemsIds = sampleSize(potentialSet.itemsIds, 4);
+
+      // If any of those items was already taken, this quartet is invalid
+      if (selectedSetItemsIds.some((id) => takenItemsIds[id])) {
+        tries++;
+        continue;
+      }
+
+      // Add all items to taken
+      potentialSet.itemsIds.forEach((id) => {
+        takenItemsIds[id] = true;
+      });
+
+      sets.push({
+        id: potentialSet.id,
+        title: potentialSet.title,
+        itemsIds: selectedSetItemsIds,
+        level: potentialSet.level ?? 1,
+      });
+
+      tries = 0;
+    }
 
     // Remove selected sets from eligibleSets
+    const selectedSetsIds = sets.map((set) => set.id);
     eligibleSets = eligibleSets.filter((set) => !selectedSetsIds.includes(set.id));
 
     // Get a group that does not share any items with the selected sets
-    const eligibleGroups = Object.values(itemsGroups).filter(
-      (group) => !takenItemsIds.some((id) => group.itemsIds.includes(id)),
+    const eligibleGroups = Object.values(itemsGroups).filter((group) =>
+      group.itemsIds.some((id) => !takenItemsIds[id]),
     );
     const selectedGroup = sample(eligibleGroups);
     if (!selectedGroup) {
@@ -104,7 +134,7 @@ export const buildDailyQuartetosGames = (
       id: selectedGroup.id,
       title: capitalize(selectedGroup.name[queryLanguage]),
       itemsIds: sampleSize(selectedGroup.itemsIds, 4),
-      level: 2,
+      level: 1,
     });
 
     const orderedSets = orderBy(sets, ['level'], ['desc']);
@@ -123,7 +153,7 @@ export const buildDailyQuartetosGames = (
       difficulty,
       sets: orderedSets,
     };
-  }
+  });
 
   return entries;
 };

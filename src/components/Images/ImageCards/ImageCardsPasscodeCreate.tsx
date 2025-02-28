@@ -98,7 +98,7 @@ function ImageCardMultiCreate({ data, addEntryToUpdate }: ImageCardMultiCreatePr
       .split(',')
       .map((name) => name.trim().toLowerCase())
       .filter(Boolean);
-    console.log(names);
+
     if (names.length > 0 && imageId) {
       names.forEach((name) => {
         if (namesDict[name]) {
