@@ -13,7 +13,7 @@ function DailySetup() {
   const [drawingsCount, setDrawingsCount] = useState(3);
   const [batchSize, setBatchSize] = useState(7);
 
-  const dataLoad = useLoadDailySetup(Boolean(language), language as Language, drawingsCount);
+  const dataLoad = useLoadDailySetup(Boolean(language), language as Language, batchSize);
 
   return (
     <PageLayout title="Daily Setup" key={batchSize}>
