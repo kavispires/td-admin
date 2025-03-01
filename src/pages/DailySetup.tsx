@@ -1,4 +1,4 @@
-import { Layout, Typography } from 'antd';
+import { Layout } from 'antd';
 import { ResponseState } from 'components/Common';
 import { DataPopulation } from 'components/Daily/DataPopulation';
 import { SideFilters } from 'components/Daily/SideFilters';
@@ -36,7 +36,6 @@ function DailySetup() {
             error={null}
             hasResponseData={!dataLoad.isLoading}
           >
-            <Typography.Title level={2}>Data Population</Typography.Title>
             <DataPopulation language={language} dataLoad={dataLoad} />
           </DataLoadingWrapper>
         </Layout.Content>
