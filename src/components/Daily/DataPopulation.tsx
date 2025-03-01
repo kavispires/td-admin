@@ -1,4 +1,4 @@
-import { Alert, Button, Flex, Popover, Space, Table, type TableColumnsType } from 'antd';
+import { Alert, Button, Flex, Popover, Space, Table, Tag, type TableColumnsType } from 'antd';
 import { CanvasSVG } from 'components/Daily/CanvasSVG';
 import { ImageCard } from 'components/Images/ImageCard';
 import { AlienSign, Item } from 'components/Sprites';
@@ -21,32 +21,43 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Id',
       dataIndex: 'id',
       key: 'id',
+      fixed: 'left',
     },
     {
       title: 'Arte Ruim',
       dataIndex: 'arte-ruim',
       key: 'arte-ruim',
-      render: ({ number, cardId, text, drawings }) => {
+      render: ({ number, cardId, text, drawings }: DailyEntry['arte-ruim']) => {
         return (
           <Space direction="vertical">
-            <Flex vertical>
-              <span>#{number}</span>
-              <span>CardId: {cardId}</span>
-              <span>Count: {drawings.length}</span>
-            </Flex>
-            <div>
-              "
-              {text
-                .split('')
-                .map((l: string, i: number) => (i < 2 || l === ' ' ? l : '⏹'))
-                .join('')}
-              "
-            </div>
-            <Space wrap>
-              {drawings.map((d: string) => (
-                <CanvasSVG key={d} drawing={d} width={75} height={75} className="canvas" />
-              ))}
-            </Space>
+            <Tag color="cyan">#{number}</Tag>
+
+            <span>CardId: {cardId}</span>
+            <span>Drawings: {drawings.length}</span>
+
+            <Popover
+              trigger="click"
+              content={
+                <Flex gap={6} vertical>
+                  <div>
+                    "
+                    {text
+                      .split('')
+                      .map((l: string, i: number) => (i < 2 || l === ' ' ? l : '⏹'))
+                      .join('')}
+                    "
+                  </div>
+                  <Space wrap>
+                    {drawings.map((d: string) => (
+                      <CanvasSVG key={d} drawing={d} width={75} height={75} className="canvas" />
+                    ))}
+                  </Space>
+                </Flex>
+              }
+              title="Peek"
+            >
+              <Button icon={<EyeFilled />} />
+            </Popover>
           </Space>
         );
       },
@@ -55,17 +66,26 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Aqui O',
       dataIndex: 'aqui-o',
       key: 'aqui-o',
-      render: ({ number, setId, title, itemsIds }) => {
+      render: ({ number, setId, title, itemsIds }: DailyEntry['aqui-o']) => {
         return (
           <Space direction="vertical">
-            <span>#{number}</span>
+            <Tag color="cyan">#{number}</Tag>
             <span>SetId: {setId}</span>
-            <span>Title: {title[language]}</span>
-            <Flex gap={6} wrap>
-              <Item id={itemsIds[1]} width={50} />
-              <Item id={itemsIds[5]} width={50} />
-              <Item id={itemsIds[10]} width={50} />
-            </Flex>
+            <span>Title: {title.pt}</span>
+            <span>Items: {itemsIds.length}</span>
+            <Popover
+              trigger="click"
+              content={
+                <Flex gap={6} wrap style={{ maxWidth: 500 }}>
+                  {itemsIds.map((itemId) => (
+                    <Item key={itemId} id={itemId} width={50} />
+                  ))}
+                </Flex>
+              }
+              title="Sneak Peek"
+            >
+              <Button icon={<EyeFilled />} />
+            </Popover>
           </Space>
         );
       },
@@ -77,19 +97,27 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       render: ({ number, words, letters, keyword }) => {
         return (
           <Space direction="vertical">
-            <span>#{number}</span>
+            <Tag color="cyan">#{number}</Tag>
             <span>Letters: {letters.length}</span>
             <span>Keyword: {keyword}</span>
-            <Space direction="vertical">
-              {words.map((word: string, index: number) => (
-                <span key={`${number}-${word}`}>
-                  {word
-                    .split('')
-                    .map((l: string, i: number) => (i === index || l === ' ' ? l : '⏹'))
-                    .join('')}
-                </span>
-              ))}
-            </Space>
+            <Popover
+              trigger="click"
+              content={
+                <Space direction="vertical">
+                  {words.map((word: string, index: number) => (
+                    <span key={`${number}-${word}`}>
+                      {word
+                        .split('')
+                        .map((l: string, i: number) => (i === index || l === ' ' ? l : '⏹'))
+                        .join('')}
+                    </span>
+                  ))}
+                </Space>
+              }
+              title="Sneak Peek"
+            >
+              <Button icon={<EyeFilled />} />
+            </Popover>
           </Space>
         );
       },
@@ -98,19 +126,30 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Filmaço',
       dataIndex: 'filmaco',
       key: 'filmaco',
-      render: ({ number, setId, year, title }) => {
+      render: ({ number, setId, year, title }: DailyEntry['filmaco']) => {
         return (
           <Space direction="vertical">
-            <span>#{number}</span>
+            <Tag color="cyan">#{number}</Tag>
             <span>SetId: {setId}</span>
-            <span>Year: {year}</span>
-            <span>
-              Title:{' '}
-              {title
-                .split('')
-                .map((l: string, i: number) => (i < 1 || l === ' ' ? l : '⏹'))
-                .join('')}
-            </span>
+            <Popover
+              trigger="click"
+              content={
+                <Flex gap={6} vertical>
+                  <span>Year: {year}</span>
+
+                  <span>
+                    Title:{' '}
+                    {title
+                      .split('')
+                      .map((l: string, i: number) => (i < 1 || l === ' ' ? l : '⏹'))
+                      .join('')}
+                  </span>
+                </Flex>
+              }
+              title="Sneak Peek"
+            >
+              <Button icon={<EyeFilled />} />
+            </Popover>
           </Space>
         );
       },
@@ -119,16 +158,25 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Controle de Estoque',
       dataIndex: 'controle-de-estoque',
       key: 'controle-de-estoque',
-      render: ({ number, title, goods }) => {
+      render: ({ number, title, goods }: DailyEntry['controle-de-estoque']) => {
         return (
           <Space direction="vertical">
-            <span>#{number}</span>
+            <Tag color="cyan">#{number}</Tag>
             <span>Title: {title}</span>
-            <Flex gap={6} wrap>
-              <WarehouseGood id={goods[0]} width={50} />
-              <WarehouseGood id={goods[1]} width={50} />
-              <WarehouseGood id={goods[2]} width={50} />
-            </Flex>
+
+            <Popover
+              trigger="click"
+              content={
+                <Flex gap={6} wrap style={{ maxWidth: 245 }}>
+                  {goods.map((good) => (
+                    <WarehouseGood key={good} id={good} width={50} />
+                  ))}
+                </Flex>
+              }
+              title="Sneak Peek"
+            >
+              <Button icon={<EyeFilled />} />
+            </Popover>
           </Space>
         );
       },
@@ -137,14 +185,24 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Teoria de Conjuntos',
       dataIndex: 'teoria-de-conjuntos',
       key: 'teoria-de-conjuntos',
-      render: ({ number, title, intersectingThing }) => {
+      render: ({ number, title, intersectingThing, rule1, rule2 }: DailyEntry['teoria-de-conjuntos']) => {
         return (
           <Space direction="vertical">
-            <span>#{number}</span>
+            <Tag color="cyan">#{number}</Tag>
             <span>Title: {title}</span>
-            <Flex gap={6} wrap>
-              <Item id={intersectingThing.id} width={50} />
-            </Flex>
+            <Popover
+              trigger="click"
+              content={
+                <Flex gap={6}>
+                  <Item id={rule1.thing.id} width={50} />
+                  <Item id={intersectingThing.id} width={50} />
+                  <Item id={rule2.thing.id} width={50} />
+                </Flex>
+              }
+              title="Sneak Peek"
+            >
+              <Button icon={<EyeFilled />} />
+            </Popover>
           </Space>
         );
       },
@@ -160,20 +218,31 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
 
         return (
           <Space direction="vertical">
-            <span>#{entry.number}</span>
+            <Tag color="cyan">#{entry.number}</Tag>
             <span>{entry.itemsIds.length} items</span>
-            <Space>
-              <Space direction="vertical">
-                {entry.attributes.map((req) => (
-                  <AlienSign key={req.spriteId} id={`sign-${req.spriteId}`} width={50} />
-                ))}
-              </Space>
-              <Space direction="vertical">
-                {entry.itemsIds.map((itemId) => (
-                  <Item key={itemId} id={itemId} width={50} />
-                ))}
-              </Space>
-            </Space>
+
+            <Popover
+              trigger="click"
+              content={
+                <Flex gap={6} style={{ maxWidth: '300px' }} vertical>
+                  <Space wrap>
+                    {entry.attributes.map((req) => (
+                      <AlienSign key={req.spriteId} id={`sign-${req.spriteId}`} width={50} />
+                    ))}
+                  </Space>
+                  <Space wrap>
+                    {entry.itemsIds.map((itemId) => (
+                      <Item key={itemId} id={itemId} width={50} />
+                    ))}
+                  </Space>
+                </Flex>
+              }
+              title="Sneak Peek"
+            >
+              <Button icon={<EyeFilled />} />
+            </Popover>
+
+            <Space></Space>
           </Space>
         );
       },
@@ -185,8 +254,9 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       render: ({ number, setId, sets }: DailyEntry['quartetos']) => {
         return (
           <Space direction="vertical">
-            <span>#{number}</span>
+            <Tag color="cyan">#{number}</Tag>
             <span>SetId: {truncate(setId, { length: 9 })}</span>
+
             <Popover
               trigger="click"
               content={
@@ -200,15 +270,10 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
                   ))}
                 </Flex>
               }
-              title="Solution"
+              title="Sneak Peek"
             >
               <Button icon={<EyeFilled />} />
             </Popover>
-            <Flex gap={6} vertical>
-              {sets.map((s) => (
-                <Item key={s.itemsIds[0]} id={s.itemsIds[0]} width={50} />
-              ))}
-            </Flex>
           </Space>
         );
       },
@@ -220,10 +285,21 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       render: ({ number, cards }) => {
         return (
           <Space direction="vertical" style={{ maxHeight: 200, overflowY: 'auto' }}>
-            <span>#{number}</span>
-            {cards.map((card: ArteRuimCard, index: number) => (
-              <span key={`${card.id}-${index}`}>{card.text}</span>
-            ))}
+            <Tag color="cyan">#{number}</Tag>
+            <span>{cards.length} cards</span>
+            <Popover
+              trigger="click"
+              content={
+                <Flex gap={6} vertical style={{ maxHeight: 500, overflowY: 'auto' }}>
+                  {cards.map((card: ArteRuimCard, index: number) => (
+                    <span key={`${card.id}-${index}`}>{card.text}</span>
+                  ))}
+                </Flex>
+              }
+              title="Sneak Peek"
+            >
+              <Button icon={<EyeFilled />} />
+            </Popover>
           </Space>
         );
       },
@@ -232,21 +308,33 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
       title: 'Tá Na Cara',
       dataIndex: 'ta-na-cara',
       key: 'ta-na-cara',
-      render: (entry: DailyEntry['ta-na-cara']) => {
+      render: ({ number, suspectsIds, testimonies }: DailyEntry['ta-na-cara']) => {
         return (
           <Space direction="vertical">
-            <span>#{entry.number}</span>
-            <span>{entry.suspectsIds} suspects</span>
-            <Space direction="vertical" style={{ maxHeight: 200, overflowY: 'auto' }}>
-              {entry.testimonies.map((question) => (
-                <span key={question.testimonyId}>{question.question}</span>
-              ))}
-            </Space>
-            <Space>
-              {entry.suspectsIds?.slice(0, 3).map((suspectId) => (
-                <ImageCard key={suspectId} id={suspectId} width={48} />
-              ))}
-            </Space>
+            <Tag color="cyan">#{number}</Tag>
+            <span>{suspectsIds?.length} suspects</span>
+            <span>{testimonies.length} questions</span>
+
+            <Popover
+              trigger="click"
+              content={
+                <Flex vertical>
+                  <Space direction="vertical" style={{ maxHeight: 200, overflowY: 'auto' }}>
+                    {testimonies.map((question) => (
+                      <span key={question.testimonyId}>{question.question}</span>
+                    ))}
+                  </Space>
+                  <Space wrap style={{ maxHeight: 200, maxWidth: '500px', overflowY: 'auto' }}>
+                    {suspectsIds?.map((suspectId) => (
+                      <ImageCard key={suspectId} id={suspectId} width={48} />
+                    ))}
+                  </Space>
+                </Flex>
+              }
+              title="Cards"
+            >
+              <Button icon={<EyeFilled />} />
+            </Popover>
           </Space>
         );
       },
@@ -273,7 +361,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
           Save
         </Button>
       </Flex>
-      <Table columns={columns} dataSource={dataLoad.entries ?? []} />
+      <Table columns={columns} dataSource={dataLoad.entries ?? []} scroll={{ x: 'max-content' }} />
     </div>
   );
 }
