@@ -1,12 +1,12 @@
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { getIsThingOutdated, getLatestRuleUpdate } from 'components/Items/Diagram/utils';
+import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, difference, intersection, sample, sampleSize, shuffle } from 'lodash';
+import { useMemo } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule } from 'types';
+import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
-import { DAILY_GAMES_KEYS } from '../constants';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { useTDResource } from 'hooks/useTDResource';
-import { useMemo } from 'react';
 
 export type DailyTeoriaDeConjuntosEntry = {
   id: DateKey;

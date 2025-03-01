@@ -1,11 +1,11 @@
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { useTDResource } from 'hooks/useTDResource';
 import { shuffle } from 'lodash';
+import { useMemo } from 'react';
 import type { DailyMovieSet } from 'types';
+import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
-import { DAILY_GAMES_KEYS } from '../constants';
-import { useTDResource } from 'hooks/useTDResource';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { useMemo } from 'react';
 
 export type DailyFilmacoEntry = {
   id: DateKey;

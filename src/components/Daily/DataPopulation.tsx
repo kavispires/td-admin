@@ -1,9 +1,9 @@
 import { Alert, Button, Flex, Table, Typography } from 'antd';
-import { type UseLoadDailySetup, useSaveDailySetup } from './hooks';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { DataDailyCheck } from './DataDailyCheck';
 import { Link } from 'react-router-dom';
 import { dailyColumns } from './DailyColumns';
+import { DataDailyCheck } from './DataDailyCheck';
+import { type UseLoadDailySetup, useSaveDailySetup } from './hooks';
 
 type DataPopulationProps = {
   language: string;

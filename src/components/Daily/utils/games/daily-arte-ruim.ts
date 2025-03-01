@@ -1,10 +1,10 @@
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { sampleSize, shuffle } from 'lodash';
 import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
+import { useMemo } from 'react';
+import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { DAILY_GAMES_KEYS } from '../constants';
-import { useMemo } from 'react';
 
 export type DailyArteRuimEntry = {
   id: DateKey;

@@ -1,9 +1,9 @@
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { sampleSize, shuffle } from 'lodash';
+import { useMemo } from 'react';
+import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
-import { DAILY_GAMES_KEYS } from '../constants';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { useMemo } from 'react';
 
 export type DailyControleDeEstoqueEntry = {
   id: DateKey;

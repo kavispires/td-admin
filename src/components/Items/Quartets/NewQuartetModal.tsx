@@ -1,12 +1,12 @@
 import { Modal } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import { cloneDeep } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { DailyQuartetSet } from 'types';
 import { createUUID, removeDuplicates, wait } from 'utils';
 import { InspirationSample } from './InspirationSample';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
-import { cloneDeep } from 'lodash';
 
 type NewQuartetModalProps = {
   data: UseResourceFirebaseDataReturnType<DailyQuartetSet>['data'];

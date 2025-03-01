@@ -27,6 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "prepare": "husky",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "clean": "rm -rf node_modules",
@@ -49,6 +50,11 @@
       "pre-commit": "lint-staged"
     }
   },
+ "lint-staged": {
+  "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "biome check --write"
+  ]
+},
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@testing-library/jest-dom": "^6.6.3",

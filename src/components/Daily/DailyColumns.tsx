@@ -1,16 +1,13 @@
-import { Alert, Button, Flex, Popover, Space, Table, Tag, Typography, type TableColumnsType } from 'antd';
+import { EyeFilled } from '@ant-design/icons';
+import { Alert, Button, Flex, Popover, Space, type TableColumnsType, Tag, Typography } from 'antd';
 import { CanvasSVG } from 'components/Daily/CanvasSVG';
 import { ImageCard } from 'components/Images/ImageCard';
 import { AlienSign, Item } from 'components/Sprites';
 import { WarehouseGood } from 'components/Sprites/WarehouseGood';
-import type { ArteRuimCard } from 'types';
-import { type DailyEntry, type UseLoadDailySetup, useSaveDailySetup } from './hooks';
 import { truncate } from 'lodash';
-import { EyeFilled } from '@ant-design/icons';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { DataDailyCheck } from './DataDailyCheck';
-import { Link } from 'react-router-dom';
 import type { ReactNode } from 'react';
+import type { ArteRuimCard } from 'types';
+import type { DailyEntry } from './hooks';
 
 function EntryCell({ children }: { children: ReactNode }) {
   return (

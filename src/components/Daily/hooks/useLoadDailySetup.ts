@@ -13,6 +13,8 @@ import {
 } from '../utils/games/daily-controle-de-estoque';
 import { type DailyFilmacoEntry, useDailyFilmacoGames } from '../utils/games/daily-filmaco';
 import { type DailyPalavreadoEntry, useDailyPalavreadoGames } from '../utils/games/daily-palavreado';
+import { useDailyPortaisMagicosGames } from '../utils/games/daily-portais-magicos';
+import { type DailyQuartetosEntry, useDailyQuartetosGames } from '../utils/games/daily-quartetos';
 import { type DailyTaNaCaraEntry, useDailyTaNaCaraGames } from '../utils/games/daily-ta-na-cara';
 import {
   type DailyTeoriaDeConjuntosEntry,
@@ -20,8 +22,6 @@ import {
 } from '../utils/games/daily-teoria-de-conjuntos';
 import type { DateKey } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
-import { type DailyQuartetosEntry, useDailyQuartetosGames } from '../utils/games/daily-quartetos';
-import { useDailyPortaisMagicosGames } from '../utils/games/daily-portais-magicos';
 
 export type DailyEntry = {
   id: DateKey;

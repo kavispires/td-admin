@@ -1,12 +1,12 @@
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { useTDResource } from 'hooks/useTDResource';
 import { sampleSize } from 'lodash';
 import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
+import { useMemo } from 'react';
 import type { ArteRuimCard } from 'types';
+import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { DAILY_GAMES_KEYS } from '../constants';
-import { useMemo } from 'react';
-import { useTDResource } from 'hooks/useTDResource';
 import type { DailyArteRuimEntry } from './daily-arte-ruim';
 
 export type DailyArtistaEntry = {

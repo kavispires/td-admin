@@ -1,12 +1,12 @@
+import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { useTDResource } from 'hooks/useTDResource';
 import { orderBy, sampleSize, shuffle } from 'lodash';
+import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { SEPARATOR } from 'utils/constants';
+import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { DAILY_GAMES_KEYS } from '../constants';
-import { useMemo } from 'react';
-import { useTDResource } from 'hooks/useTDResource';
 
 type TaNaCaraQuestion = {
   testimonyId: string;

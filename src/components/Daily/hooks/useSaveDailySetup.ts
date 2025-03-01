@@ -5,10 +5,10 @@ import { useState } from 'react';
 import { firestore } from 'services/firebase';
 import { removeDuplicates } from 'utils';
 import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
+import { gatherUsedQuartetosEntries } from '../utils/games/daily-quartetos';
 import { gatherUsedTaNaCaraEntries } from '../utils/games/daily-ta-na-cara';
 import type { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
-import { gatherUsedQuartetosEntries } from '../utils/games/daily-quartetos';
 
 /**
  * Custom hook for saving daily setup.
