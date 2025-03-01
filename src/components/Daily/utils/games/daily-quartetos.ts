@@ -95,7 +95,7 @@ export const buildDailyQuartetosGames = (
       scopedEligibleSets = scopedEligibleSets.filter((set) => set.id !== potentialSet.id);
 
       // Each quartet needs only 4 items
-      const selectedSetItemsIds = sampleSize(potentialSet.itemsIds, 4);
+      const selectedSetItemsIds = orderBy(sampleSize(potentialSet.itemsIds, 4), (id) => Number(id));
 
       // If any of those items was already taken, this quartet is invalid
       if (selectedSetItemsIds.some((id) => takenItemsIds[id])) {
@@ -123,8 +123,8 @@ export const buildDailyQuartetosGames = (
     eligibleSets = eligibleSets.filter((set) => !selectedSetsIds.includes(set.id));
 
     // Get a group that does not share any items with the selected sets
-    const eligibleGroups = Object.values(itemsGroups).filter((group) =>
-      group.itemsIds.some((id) => !takenItemsIds[id]),
+    const eligibleGroups = Object.values(itemsGroups).filter(
+      (group) => group.itemsIds.some((id) => !takenItemsIds[id]) && group.itemsIds.length >= 4,
     );
     const selectedGroup = sample(eligibleGroups);
     if (!selectedGroup) {
@@ -137,10 +137,14 @@ export const buildDailyQuartetosGames = (
       level: 1,
     });
 
-    const orderedSets = orderBy(sets, ['level'], ['desc']);
+    const difficulty = Math.ceil(sets.reduce((acc, set) => acc + set.level, 0) / sets.length);
+
+    const orderedSets = orderBy(sets, ['level'], ['desc']).map((set, index) => {
+      set.level = index;
+      return set;
+    });
     const setId = sets.map((set) => set.id).join(SEPARATOR);
     const grid = shuffle(sets.flatMap((set) => set.itemsIds));
-    const difficulty = Math.ceil(sets.reduce((acc, set) => acc + set.level, 0) / sets.length);
 
     const id = getNextDay(lastDate);
     lastDate = id;
