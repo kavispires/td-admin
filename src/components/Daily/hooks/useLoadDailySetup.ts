@@ -21,6 +21,7 @@ import {
 import type { DateKey } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 import { type DailyQuartetosEntry, useDailyQuartetosGames } from '../utils/games/daily-quartetos';
+import { useDailyPortaisMagicosGames } from '../utils/games/daily-portais-magicos';
 
 export type DailyEntry = {
   id: DateKey;
@@ -145,6 +146,17 @@ export function useLoadDailySetup(
     historyQuery.data ?? {},
     updateWarnings,
   );
+
+  // BUILD PORTAIS MAGICOS
+  const portaisMagicos = useDailyPortaisMagicosGames(
+    // enableBuilders,
+    false,
+    queryLanguage,
+    batchSize,
+    historyQuery.data ?? {},
+    updateWarnings,
+  );
+  console.log(portaisMagicos);
 
   // BUILD ARTISTA
   const artista = useDailyArtistaGames(
