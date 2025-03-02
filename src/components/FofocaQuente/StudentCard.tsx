@@ -17,7 +17,7 @@ export function StudentCard({ student }: { student: TeenageStudent }) {
         description={
           <Flex vertical>
             <Flex>{student.title.en}</Flex>
-            <Flex>{getSocialGroup(student.socialGroup)}</Flex>
+            <Flex>{getSocialGroup(student.socialGroupId)}</Flex>
             <Flex>
               {student.age} | {student.ethnicity}
             </Flex>
@@ -47,10 +47,9 @@ const getGenderIcon = (student: TeenageStudent) => {
   }
 };
 
-const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
-  console.log(socialGroup);
-  switch (socialGroup) {
-    case 'Arts':
+const getSocialGroup = (socialGroupId: TeenageStudent['socialGroupId']) => {
+  switch (socialGroupId) {
+    case 'arts':
       return (
         <Tag
           style={{
@@ -61,10 +60,10 @@ const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
             borderColor: '#746f04',
           }}
         >
-          {socialGroup}
+          {socialGroupId}
         </Tag>
       );
-    case 'Immigrants':
+    case 'immigrants':
       return (
         <Tag
           style={{
@@ -75,10 +74,10 @@ const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
             borderColor: '#c4867a',
           }}
         >
-          {socialGroup}
+          {socialGroupId}
         </Tag>
       );
-    case 'Jet Set':
+    case 'jet-set':
       return (
         <Tag
           style={{
@@ -89,10 +88,10 @@ const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
             borderColor: '#f1b1eb',
           }}
         >
-          {socialGroup}
+          {socialGroupId}
         </Tag>
       );
-    case 'Jocks':
+    case 'jocks':
       return (
         <Tag
           style={{
@@ -103,10 +102,10 @@ const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
             borderColor: '#ffd9dd',
           }}
         >
-          {socialGroup}
+          {socialGroupId}
         </Tag>
       );
-    case 'Leaders':
+    case 'leaders':
       return (
         <Tag
           style={{
@@ -117,10 +116,10 @@ const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
             borderColor: '#7eb4f8',
           }}
         >
-          {socialGroup}
+          {socialGroupId}
         </Tag>
       );
-    case 'Nerds':
+    case 'nerds':
       return (
         <Tag
           style={{
@@ -131,10 +130,10 @@ const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
             borderColor: '#064939',
           }}
         >
-          {socialGroup}
+          {socialGroupId}
         </Tag>
       );
-    case 'Outcasts':
+    case 'outcasts':
       return (
         <Tag
           style={{
@@ -145,10 +144,10 @@ const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
             borderColor: '#853d02',
           }}
         >
-          {socialGroup}
+          {socialGroupId}
         </Tag>
       );
-    case 'Special Needs':
+    case 'special-needs':
       return (
         <Tag
           style={{
@@ -159,10 +158,10 @@ const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
             borderColor: '#125908',
           }}
         >
-          {socialGroup}
+          {socialGroupId}
         </Tag>
       );
-    case 'Troublemakers':
+    case 'troublemakers':
       return (
         <Tag
           style={{
@@ -173,7 +172,7 @@ const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
             borderColor: '#cdb1fa',
           }}
         >
-          {socialGroup}
+          {socialGroupId}
         </Tag>
       );
     default:
@@ -187,7 +186,7 @@ const getSocialGroup = (socialGroup: TeenageStudent['socialGroup']) => {
             borderColor: '#746f04',
           }}
         >
-          {socialGroup}
+          {socialGroupId}
         </Tag>
       );
   }

@@ -1033,7 +1033,7 @@ export type TeenageStudent = {
   /**
    * The social group the student belongs to
    */
-  socialGroup: string;
+  socialGroupId: string;
   /**
    * The gender of the teenager (male, female, both)
    **/
@@ -1054,6 +1054,46 @@ export type TeenageStudent = {
    * The teenager's height ("short", "medium", "tall")
    */
   height: string;
+};
+
+/**
+ * Teenage Rumor Card
+ */
+export type TeenageRumor = {
+  /**
+   * Unique identifier for the card
+   */
+  id: string;
+  /**
+   * The text of the rumor
+   */
+  text: DualLanguageValue;
+  /**
+   * If the rumour is exclusive to a student type
+   */
+  exclusive: string;
+};
+
+/**
+ * Teenage Motivation Card
+ */
+export type TeenageMotivation = {
+  /**
+   * Unique identifier for the card
+   */
+  id: string;
+  /**
+   * The title of the motivation
+   */
+  title: DualLanguageValue;
+  /**
+   * The description of the motivation
+   */
+  description: DualLanguageValue;
+  /**
+   * Indication if the motivation is a beginner one
+   */
+  beginner?: boolean;
 };
 
 /**
