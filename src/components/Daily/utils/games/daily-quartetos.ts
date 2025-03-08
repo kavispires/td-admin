@@ -69,7 +69,7 @@ export const buildDailyQuartetosGames = (
 
   // Filter out any incomplete sets and used sets
   let eligibleSets = Object.values(quartetsSets).filter(
-    (setEntry) => setEntry.itemsIds.length >= 4 && !history.used.includes(setEntry.id),
+    (setEntry) => setEntry.itemsIds.length >= 4 && !history.used.includes(setEntry.id) && !setEntry.flagged,
   );
 
   let lastDate = history.latestDate;

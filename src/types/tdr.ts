@@ -864,6 +864,10 @@ export type DailyQuartetSet = {
    * The type of quartet (visual, word, general, meaning)
    */
   type?: string;
+  /**
+   * Indicating that something must be done with the set
+   */
+  flagged?: boolean;
 };
 
 export type DailyDiagramRule = {

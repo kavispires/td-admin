@@ -1,4 +1,4 @@
-import { Button, Flex, Popconfirm, Rate, Select, Space, Table, Typography } from 'antd';
+import { Button, Flex, Popconfirm, Rate, Select, Space, Switch, Table, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
@@ -7,15 +7,19 @@ import { useTablePagination } from 'hooks/useTablePagination';
 import type { DailyQuartetSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 
-import { CheckCircleFilled, DeleteFilled } from '@ant-design/icons';
+import { CheckCircleFilled, DeleteFilled, WarningOutlined } from '@ant-design/icons';
 
 import { ItemsTypeahead } from '../ItemsTypeahead';
 
 import type { TableProps } from 'antd';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
+import { cloneDeep, orderBy } from 'lodash';
 import { InspirationSample } from './InspirationSample';
 
-const TYPES = ['general', 'visual', 'word', 'thematic', 'attribute'].map((t) => ({ label: t, value: t }));
+const TYPES = orderBy(['general', 'visual', 'word', 'thematic', 'attribute']).map((t) => ({
+  label: t,
+  value: t,
+}));
 
 type ItemsQuartetsTableProps = {
   rows: DailyQuartetSet[];
@@ -33,6 +37,14 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
     {
       title: 'ID',
       dataIndex: 'id',
+      render(id, record) {
+        return (
+          <Flex align="center" gap={3}>
+            {record.itemsIds.length >= 4 && !record.level && <WarningOutlined style={{ color: 'red' }} />}
+            <Typography.Text copyable>{id}</Typography.Text>
+          </Flex>
+        );
+      },
     },
     {
       title: 'Title',
@@ -100,6 +112,26 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
         return uniqueItems.length === 4 && <CheckCircleFilled style={{ color: 'dodgerblue' }} />;
       },
     },
+    {
+      title: 'Flagged',
+      dataIndex: 'flagged',
+      render: (flagged, record) => (
+        <Switch
+          checked={flagged}
+          checkedChildren={<WarningOutlined style={{ color: 'red' }} />}
+          onChange={(flagged) => {
+            if (flagged) {
+              addEntryToUpdate(record.id, { ...record, flagged });
+            } else {
+              const copy = cloneDeep(record);
+              // biome-ignore lint/performance/noDelete: <explanation>
+              delete copy.flagged;
+              addEntryToUpdate(record.id, copy);
+            }
+          }}
+        />
+      ),
+    },
   ];
 
   const expandableProps = useTableExpandableRows<DailyQuartetSet>({
@@ -115,6 +147,7 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
       dataSource={rows}
       expandable={expandableProps}
       pagination={paginationProps}
+      rowClassName={(record) => (record.itemsIds.length >= 4 && !record.level ? 'table-row-error' : '')}
     />
   );
 }
