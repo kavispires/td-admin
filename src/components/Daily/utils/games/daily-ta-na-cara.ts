@@ -55,9 +55,8 @@ export const useDailyTaNaCaraGames = (
   };
 };
 
-const POOL_SIZE = 30;
 const TESTIMONY_SIZE = 12;
-const SUSPECTS_SIZE = 12;
+const SUSPECTS_SIZE = 15;
 
 export const buildDailyTaNaCaraGames = (
   batchSize: number,
@@ -70,7 +69,7 @@ export const buildDailyTaNaCaraGames = (
   const dict = getTaNaCaraUsedDictionary(history.used);
 
   const suspectsBatch = orderBy(
-    shuffle(Object.values(suspects).slice(0, POOL_SIZE)).map((suspect) => {
+    shuffle(Object.values(suspects)).map((suspect) => {
       const [, idNum] = suspect.id.split('-');
       return `us-ct-${idNum}`;
     }),
@@ -78,7 +77,7 @@ export const buildDailyTaNaCaraGames = (
     ['asc'],
   );
 
-  const testimoniesBatch = shuffle(Object.values(testimonies).slice(0, POOL_SIZE));
+  const testimoniesBatch = shuffle(Object.values(testimonies));
 
   let lastDate = history.latestDate;
   const entries: Dictionary<DailyTaNaCaraEntry> = {};

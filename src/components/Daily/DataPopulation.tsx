@@ -1,3 +1,4 @@
+import { SaveOutlined } from '@ant-design/icons';
 import { Alert, Button, Flex, Table, Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { Link } from 'react-router-dom';
@@ -39,6 +40,7 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
           disabled={(dataLoad.entries ?? []).length === 0}
           type="primary"
           size="large"
+          icon={<SaveOutlined />}
         >
           Save
         </Button>

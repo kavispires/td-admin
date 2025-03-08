@@ -33,7 +33,7 @@ export const useDailyQuartetosGames = (
   dailyHistory: DailyHistory,
   _updateWarnings: (warning: string) => void,
 ) => {
-  const [quartetosHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTE_RUIM, dailyHistory);
+  const [quartetosHistory] = useParsedHistory(DAILY_GAMES_KEYS.QUARTETOS, dailyHistory);
 
   const dailyQuartetSetQuery = useTDResource<DailyQuartetSet>('daily-quartet-sets', enabled);
   const itemGroupsQuery = useTDResource<ItemGroup>('items-groups', enabled);
