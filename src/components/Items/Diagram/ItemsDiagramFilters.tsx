@@ -101,7 +101,9 @@ function prepareFileForDownload(
     item.rules = item.rules.sort();
 
     const hasNonAutoUpdates = outdatedRules.some((rule) => rule.method !== 'auto');
-    if (hasNonAutoUpdates) {
+
+    if (!hasNonAutoUpdates) {
+      console.log('Auto updating');
       item.updatedAt = Date.now();
     }
   });
