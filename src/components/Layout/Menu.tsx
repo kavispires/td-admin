@@ -10,7 +10,7 @@ import {
 } from '@ant-design/icons';
 
 import type { MenuProps } from 'antd';
-import { useGlobalContext } from 'context/GlobalContext';
+import { useGlobalSaveState } from 'store/globalSave';
 
 const items: MenuProps['items'] = [
   {
@@ -52,20 +52,25 @@ const items: MenuProps['items'] = [
         ],
       },
       {
+        label: 'Contenders',
+        key: '/game/contenders',
+      },
+      {
         label: 'Crimes Hediondos',
         key: '/game/crimes-hediondos',
+      },
+      {
+        label: 'Daily Setup',
+        key: '/game/daily-setup',
       },
       {
         label: 'Fofoca Quente',
         key: '/game/fofoca-quente',
       },
       {
-        label: 'Contenders',
-        key: '/game/contenders',
-      },
-      {
-        label: 'Daily Setup',
-        key: '/game/daily-setup',
+        label: 'Testimonies',
+        key: '/game/testimonies',
+        disabled: true,
       },
     ],
   },
@@ -183,7 +188,7 @@ const items: MenuProps['items'] = [
 export function Menu() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { pendingSave } = useGlobalContext();
+  const { pendingSave } = useGlobalSaveState();
 
   const onClick: MenuProps['onClick'] = (e) => {
     navigate(e.key);

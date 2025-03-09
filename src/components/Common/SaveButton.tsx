@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useTimeoutFn } from 'react-use';
 
 import { SaveOutlined } from '@ant-design/icons';
-import { useGlobalContext } from 'context/GlobalContext';
+import { togglePendingSave } from 'store/globalSave';
 
 type SaveButtonProps = {
   isDirty: boolean;
@@ -22,8 +22,6 @@ export function SaveButton({
   interval = 10 * 60 * 1000,
   ...buttonProps
 }: SaveButtonProps) {
-  const { togglePendingSave } = useGlobalContext();
-
   // It saves after 10 minutes of the first time of being dirty, unless 'dirt' is provided and changed
   const [, cancel, reset] = useTimeoutFn(() => {
     if (isDirty) {
