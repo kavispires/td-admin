@@ -22,7 +22,6 @@ export const useDailyArteRuimGames = (
   queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-  _updateWarnings: (warning: string) => void,
 ) => {
   const [arteRuimHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTE_RUIM, dailyHistory);
 

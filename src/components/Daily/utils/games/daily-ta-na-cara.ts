@@ -31,7 +31,6 @@ export const useDailyTaNaCaraGames = (
   queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-  _updateWarnings: (warning: string) => void,
 ) => {
   const [taNaCaraHistory] = useParsedHistory(DAILY_GAMES_KEYS.TA_NA_CARA, dailyHistory);
 

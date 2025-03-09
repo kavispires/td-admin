@@ -6,6 +6,7 @@ import type { DailyMovieSet } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { addWarning } from '../warnings';
 
 export type DailyFilmacoEntry = {
   id: DateKey;
@@ -22,7 +23,6 @@ export const useDailyFilmacoGames = (
   _queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-  _updateWarnings: (warning: string) => void,
 ) => {
   const [filmacoHistory] = useParsedHistory(DAILY_GAMES_KEYS.FILMACO, dailyHistory);
 
@@ -31,6 +31,13 @@ export const useDailyFilmacoGames = (
   const entries = useMemo(() => {
     if (!enabled || !movieSetsQuery.isSuccess || !filmacoHistory) {
       return {};
+    }
+
+    const unusedFilms = Object.values(movieSetsQuery.data).filter(
+      (movie) => movie.itemsIds.length > 0 && !filmacoHistory.used.includes(movie.id),
+    );
+    if (unusedFilms.length <= batchSize) {
+      addWarning('filmaco', 'Not enough unused films');
     }
 
     return buildDailyFilmacoGames(batchSize, filmacoHistory, movieSetsQuery.data);

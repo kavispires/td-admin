@@ -6,6 +6,7 @@ import type { DailyDiscSet, Item } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
+import { addWarning } from '../warnings';
 
 export type DailyAquiOEntry = {
   id: DateKey;
@@ -21,26 +22,18 @@ export const useDailyAquiOGames = (
   _queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-  updateWarnings: (warning: string) => void,
 ) => {
   const [aquiOHistory] = useParsedHistory(DAILY_GAMES_KEYS.AQUI_O, dailyHistory);
 
   const tdrItemsQuery = useTDResource<Item>('items', enabled);
   const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets', enabled);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: functions shouldn't be used as dependencies
   const entries = useMemo(() => {
     if (!enabled || !aquiOSetsQuery.isSuccess || !aquiOHistory || !tdrItemsQuery.isSuccess) {
       return {};
     }
 
-    return buildDailyAquiOGames(
-      batchSize,
-      aquiOHistory,
-      aquiOSetsQuery.data,
-      tdrItemsQuery.data,
-      updateWarnings,
-    );
+    return buildDailyAquiOGames(batchSize, aquiOHistory, aquiOSetsQuery.data, tdrItemsQuery.data);
   }, [enabled, aquiOSetsQuery, tdrItemsQuery, aquiOHistory, batchSize]);
 
   return {
@@ -62,7 +55,6 @@ export const buildDailyAquiOGames = (
   history: ParsedDailyHistoryEntry,
   discSets: Dictionary<DailyDiscSet>,
   items: Dictionary<Item>,
-  updateWarnings: (warning: string) => void,
 ) => {
   console.count('Creating Aqui Ó...');
   // Filter complete sets only
@@ -74,7 +66,7 @@ export const buildDailyAquiOGames = (
 
   if (notUsedSets.length < batchSize) {
     console.log('🔆 Not enough aqui-o sets left, shuffling...');
-    updateWarnings('Not enough aqui-o sets left');
+    addWarning('aqui-o', 'Not enough aqui-o sets left');
     notUsedSets.push(...shuffle(completeSets));
   }
 

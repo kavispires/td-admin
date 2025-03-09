@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { dailyColumns } from './DailyColumns';
 import { DataDailyCheck } from './DataDailyCheck';
 import { type UseLoadDailySetup, useSaveDailySetup } from './hooks';
+import { useGetWarnings } from './utils/warnings';
 
 type DataPopulationProps = {
   language: string;
@@ -14,6 +15,8 @@ type DataPopulationProps = {
 export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
   const queryLanguage = language as Language;
   const { is } = useQueryParams();
+  const warnings = useGetWarnings();
+  console.log(warnings);
 
   const { save, isPending } = useSaveDailySetup(queryLanguage ?? 'pt');
 
@@ -23,11 +26,9 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
 
   return (
     <div>
-      {dataLoad.isLoading && <div>Loading...</div>}
-      {dataLoad.warnings.map((warning) => (
-        <Alert key={warning} message={warning} type="warning" showIcon />
-      ))}
       <Typography.Title level={2}>Data Population</Typography.Title>
+
+      {dataLoad.isLoading && <div>Loading...</div>}
 
       <Flex justify="space-between" align="center">
         <span>
@@ -45,6 +46,9 @@ export function DataPopulation({ language, dataLoad }: DataPopulationProps) {
           Save
         </Button>
       </Flex>
+      {Object.values(warnings).map((warning) => (
+        <Alert key={warning} message={warning} type="warning" showIcon banner />
+      ))}
       <Table columns={dailyColumns} dataSource={dataLoad.entries ?? []} scroll={{ x: 'max-content' }} />
     </div>
   );

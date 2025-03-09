@@ -28,7 +28,6 @@ export const useDailyPortaisMagicosGames = (
   queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-  _updateWarnings: (warning: string) => void,
 ) => {
   const [portaisMagicosHistory] = useParsedHistory(DAILY_GAMES_KEYS.PORTAIS_MAGICOS, dailyHistory);
 

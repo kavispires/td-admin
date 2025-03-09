@@ -8,6 +8,7 @@ import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { addWarning } from '../warnings';
 
 type DailyAlienGameAttribute = {
   id: string;
@@ -39,7 +40,6 @@ export const useDailyComunicacaoAlienigenaGames = (
   _queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-  updateWarnings: (warning: string) => void,
 ) => {
   const [comunicacaoAlienigenaHistory] = useParsedHistory(
     DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA,
@@ -71,7 +71,6 @@ export const useDailyComunicacaoAlienigenaGames = (
       tdrAttributesQuery.data,
       tdrItemsAttributesValuesQuery.data,
       tdrItemsQuery.data,
-      updateWarnings,
     );
   }, [
     enabled,
@@ -96,7 +95,6 @@ export const buildDailyComunicacaoAlienigenaGames = (
   attributes: Dictionary<ItemAttribute>,
   attributeValues: Dictionary<ItemAttributesValues>,
   items: Dictionary<Item>,
-  updateWarnings: (warning: string) => void,
 ) => {
   console.count('Creating Comunicacao Alienigena...');
   let lastDate = history.latestDate;
@@ -123,7 +121,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
   console.log(`🔆 Generating this batch took ${tries} tries`);
 
   if (tries >= 100) {
-    updateWarnings('Not enough valid comunicacao alienigena games (over 100 attempts)');
+    addWarning('comunicacao-alienigena', 'Not enough valid comunicacao alienigena games (over 100 attempts)');
   }
 
   const entries: Dictionary<DailyComunicacaoAlienigenaEntry> = {};

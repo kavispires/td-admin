@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import { type DailyAquiOEntry, useDailyAquiOGames } from '../utils/games/daily-aqui-o';
 import { type DailyArteRuimEntry, useDailyArteRuimGames } from '../utils/games/daily-arte-ruim';
@@ -21,6 +21,7 @@ import {
   useDailyTeoriaDeConjuntosGames,
 } from '../utils/games/daily-teoria-de-conjuntos';
 import type { DateKey } from '../utils/types';
+import { clearWarnings } from '../utils/warnings';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
 export type DailyEntry = {
@@ -42,7 +43,6 @@ export type DailyEntry = {
 export type UseLoadDailySetup = {
   isLoading: boolean;
   entries: DailyEntry[];
-  warnings: string[];
 };
 
 /**
@@ -62,36 +62,19 @@ export function useLoadDailySetup(
   // STEP 1: HISTORY
   const source = LANGUAGE_PREFIX.DAILY[queryLanguage ?? 'pt'];
   const historyQuery = useDailyHistoryQuery(source, { enabled });
-  const [warnings, setWarnings] = useState<string[]>([]);
-
-  const updateWarnings = useCallback((newWarning: string) => {
-    setWarnings((prev) => [...prev, newWarning]);
-  }, []);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: reset warnings on change of basic props
   useEffect(() => {
-    setWarnings([]);
+    clearWarnings();
   }, [batchSize, queryLanguage]);
 
   const enableBuilders = enabled && historyQuery.isSuccess;
 
   // BUILD AQUI Ó
-  const aquiO = useDailyAquiOGames(
-    enableBuilders,
-    queryLanguage,
-    batchSize,
-    historyQuery.data ?? {},
-    updateWarnings,
-  );
+  const aquiO = useDailyAquiOGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // BUILD ARTE RUIM
-  const arteRuim = useDailyArteRuimGames(
-    enableBuilders,
-    queryLanguage,
-    batchSize,
-    historyQuery.data ?? {},
-    updateWarnings,
-  );
+  const arteRuim = useDailyArteRuimGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // BUILD COMUNICAÇÃO ALIENÍGENA
   const comunicacaoAlienigena = useDailyComunicacaoAlienigenaGames(
@@ -99,7 +82,6 @@ export function useLoadDailySetup(
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
-    updateWarnings,
   );
 
   // BUILD CONTROLE DE ESTOQUE
@@ -108,17 +90,10 @@ export function useLoadDailySetup(
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
-    updateWarnings,
   );
 
   // BUILD FILMAÇO
-  const filmaco = useDailyFilmacoGames(
-    enableBuilders,
-    queryLanguage,
-    batchSize,
-    historyQuery.data ?? {},
-    updateWarnings,
-  );
+  const filmaco = useDailyFilmacoGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // BUILD PALAVREADO
   const palavreado = useDailyPalavreadoGames(
@@ -126,17 +101,10 @@ export function useLoadDailySetup(
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
-    updateWarnings,
   );
 
   // QUARTETOS
-  const quartetos = useDailyQuartetosGames(
-    enableBuilders,
-    queryLanguage,
-    batchSize,
-    historyQuery.data ?? {},
-    updateWarnings,
-  );
+  const quartetos = useDailyQuartetosGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // BUILD TEORIA DE CONJUNTOS
   const teoriaDeConjuntos = useDailyTeoriaDeConjuntosGames(
@@ -144,7 +112,6 @@ export function useLoadDailySetup(
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
-    updateWarnings,
   );
 
   // BUILD PORTAIS MAGICOS
@@ -154,7 +121,6 @@ export function useLoadDailySetup(
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
-    updateWarnings,
   );
   console.log(portaisMagicos);
 
@@ -164,18 +130,12 @@ export function useLoadDailySetup(
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
-    updateWarnings,
+
     arteRuim.entries,
   );
 
   // BUILD TA NA CARA
-  const taNaCara = useDailyTaNaCaraGames(
-    enableBuilders,
-    queryLanguage,
-    batchSize,
-    historyQuery.data ?? {},
-    updateWarnings,
-  );
+  const taNaCara = useDailyTaNaCaraGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // STEP N: Create entries
   const entries = useMemo(() => {
@@ -227,6 +187,5 @@ export function useLoadDailySetup(
       artista.isLoading ||
       taNaCara.isLoading,
     entries,
-    warnings,
   };
 }

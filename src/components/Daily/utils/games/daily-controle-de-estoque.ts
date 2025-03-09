@@ -20,7 +20,6 @@ export const useDailyControleDeEstoqueGames = (
   _queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-  _updateWarnings: (warning: string) => void,
 ) => {
   const [controleDeEstoqueHistory] = useParsedHistory(DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE, dailyHistory);
 
