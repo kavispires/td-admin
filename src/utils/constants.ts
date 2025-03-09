@@ -109,7 +109,7 @@ export const SPRITE_LIBRARY = keyBy(
       key: 'alien-signs',
       name: 'Alien Signs',
       prefix: 'sign',
-      quantity: 38,
+      quantity: 70,
       startAt: 0,
       component: AlienSign,
     },
