@@ -1,2 +1,0 @@
-.container{height:200px;position:relative;width:300px}.svg{height:100%;width:100%}.circle,.intersection{fill:none;stroke:#000;stroke-width:2}.circle path,.intersection path{stroke-dasharray:1000;stroke-dashoffset:1000;animation:dash 5s linear forwards}.intersection{fill:#ccc}@keyframes dash{to{stroke-dashoffset:0}}
-/*# sourceMappingURL=ItemsDiagramSets.91b2e354.chunk.css.map*/
