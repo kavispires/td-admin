@@ -1,5 +1,6 @@
 import { App } from 'antd';
 import { getNewItem, getNewItemAttributeValues } from 'components/Items/utils';
+import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { isEmpty, orderBy, random } from 'lodash';
 import { type ReactNode, createContext, useContext, useMemo, useState } from 'react';
@@ -71,21 +72,53 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
   } = useItemsAttribution();
   const { message } = App.useApp();
 
-  const [itemIndex, setItemIndex] = useState(random(0, availableItemIds.length - 1));
-  const activeItem = getItem(availableItemIds[itemIndex]);
+  const attributesList = useMemo(() => orderBy(Object.values(attributes), 'name.en', 'asc'), [attributes]);
+
+  const { searchParams } = useItemQueryParams();
+  const sortBy = searchParams.get('sortBy');
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  const sortedAvailableItemsIds = useMemo(() => {
+    if (sortBy === 'id') {
+      return orderBy(availableItemIds, (id) => Number(id), 'asc');
+    }
+
+    if (sortBy === 'updatedAt') {
+      return orderBy(availableItemIds, (id) => getItemAttributeValues(id).updatedAt, 'desc');
+    }
+
+    if (sortBy === 'fewestAttributesLeft') {
+      return orderBy(
+        availableItemIds,
+        (id) => {
+          const left = attributesList.length - Object.keys(getItemAttributeValues(id).attributes).length;
+          if (left === 0) {
+            return Number.POSITIVE_INFINITY;
+          }
+          return left;
+        },
+        'asc',
+      );
+    }
+
+    return availableItemIds;
+  }, [availableItemIds, sortBy]);
+
+  const [itemIndex, setItemIndex] = useState(random(0, sortedAvailableItemsIds.length - 1));
+  const activeItem = getItem(sortedAvailableItemsIds[itemIndex]);
   const itemAttributeValues = getItemAttributeValues(activeItem.id);
 
   const jumpToItem = (direction: string, itemId?: string) => {
     if (direction === 'next') {
-      setItemIndex((prev) => (prev + 1) % availableItemIds.length);
+      setItemIndex((prev) => (prev + 1) % sortedAvailableItemsIds.length);
       return;
     }
     if (direction === 'previous') {
-      setItemIndex((prev) => (prev - 1 + availableItemIds.length) % availableItemIds.length);
+      setItemIndex((prev) => (prev - 1 + sortedAvailableItemsIds.length) % sortedAvailableItemsIds.length);
       return;
     }
     if (direction === 'random') {
-      setItemIndex(random(0, availableItemIds.length - 1));
+      setItemIndex(random(0, sortedAvailableItemsIds.length - 1));
       return;
     }
 
@@ -94,28 +127,28 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
       return;
     }
     if (direction === 'last') {
-      setItemIndex(availableItemIds.length - 1);
+      setItemIndex(sortedAvailableItemsIds.length - 1);
       return;
     }
     if (direction === 'next10') {
-      setItemIndex((prev) => (prev + 10) % availableItemIds.length);
+      setItemIndex((prev) => (prev + 10) % sortedAvailableItemsIds.length);
       return;
     }
     if (direction === 'previous10') {
-      setItemIndex((prev) => (prev - 10 + availableItemIds.length) % availableItemIds.length);
+      setItemIndex((prev) => (prev - 10 + sortedAvailableItemsIds.length) % sortedAvailableItemsIds.length);
       return;
     }
 
     if (direction === 'incomplete') {
       setItemIndex((prev) => {
         let index = prev + 1;
-        while (index < availableItemIds.length) {
-          const item = getItemAttributeValues(availableItemIds[index]);
+        while (index < sortedAvailableItemsIds.length) {
+          const item = getItemAttributeValues(sortedAvailableItemsIds[index]);
           if (Object.keys(item.attributes).length !== attributesList.length) {
             // TODO: Account for filtered attributes in qp
             return index;
           }
-          if (index === availableItemIds.length - 1) {
+          if (index === sortedAvailableItemsIds.length - 1) {
             message.info('No more incomplete items found.');
             return prev;
           }
@@ -127,7 +160,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
     }
 
     if (direction === 'goTo' && itemId !== undefined) {
-      const index = availableItemIds.indexOf(itemId);
+      const index = sortedAvailableItemsIds.indexOf(itemId);
       if (index !== -1) {
         setItemIndex(index);
         return;
@@ -135,8 +168,6 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
       message.error(`Item ${itemId} is not available for attribution.`);
     }
   };
-
-  const attributesList = useMemo(() => orderBy(Object.values(attributes), 'name.en', 'asc'), [attributes]);
 
   const onAttributeChange = (attributeId: string, value: number) => {
     addAttributesToUpdate(activeItem.id, {

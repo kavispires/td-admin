@@ -1,4 +1,4 @@
-import { Button, Popover, Select } from 'antd';
+import { Button, Popover, Select, Space } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 
 import {
@@ -19,7 +19,7 @@ import { ItemsTypeahead } from '../ItemsTypeahead';
 export function ItemAttributionNavigation() {
   const { jumpToItem } = useItemsAttributeValuesContext();
   return (
-    <Button.Group>
+    <Space.Compact>
       <Button onClick={() => jumpToItem('first')} icon={<VerticalRightOutlined />}>
         First
       </Button>
@@ -42,7 +42,7 @@ export function ItemAttributionNavigation() {
         <Button>Go To</Button>
       </Popover>
       <Button onClick={() => jumpToItem('incomplete')}>Next Incomplete</Button>
-    </Button.Group>
+    </Space.Compact>
   );
 }
 
@@ -85,6 +85,43 @@ export function ItemAttributionFilterAttributes() {
   return (
     <Popover content={content} title="Filter Attributes">
       <Button>{activeFilters ? <FilterFilled style={{ color: 'gold' }} /> : <FilterOutlined />}</Button>
+    </Popover>
+  );
+}
+
+export function ItemAttributionSortBy() {
+  const { addParam, queryParams } = useQueryParams();
+
+  const options = [
+    {
+      label: 'Id',
+      value: 'id',
+    },
+    {
+      label: 'Updated At',
+      value: 'updatedAt',
+    },
+    {
+      label: 'Fewest Attributes Left',
+      value: 'fewestAttributesLeft',
+    },
+  ];
+
+  const activeSortBy = queryParams.get('sortBy');
+
+  const content = (
+    <Select
+      style={{ width: 120 }}
+      options={options}
+      value={activeSortBy}
+      onChange={(value) => addParam('sortBy', value)}
+      allowClear
+    />
+  );
+
+  return (
+    <Popover content={content} title="Sort By">
+      <Button>Sort</Button>
     </Popover>
   );
 }
