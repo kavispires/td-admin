@@ -1,1 +1,0 @@
-import{j as s,B as e}from"./index-BeoNBKs9.js";import{j as l}from"./index-B7Pvm-Wi.js";function f({data:o,fileName:n,loading:t,children:r,...i}){return s.jsx(e,{onClick:()=>l(typeof o=="function"?o():o,n),loading:t,...i,children:r??"Download JSON"})}export{f as D};
