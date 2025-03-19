@@ -1,10 +1,11 @@
 import { Button, Flex, Rate, Space, Typography } from 'antd';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { cloneDeep, intersection, orderBy, sample, sampleSize } from 'lodash';
-import { useState } from 'react';
-import type { DailyQuartetSet } from 'types';
+import { useMemo, useState } from 'react';
+import type { DailyQuartetSet, Item as ItemType } from 'types';
 
 import { Item } from 'components/Sprites';
+import { useTDResource } from 'hooks/useTDResource';
 
 export function ItemsQuartetsSimulator({ data }: UseResourceFirebaseDataReturnType<DailyQuartetSet>) {
   const [simulation, setSimulation] = useState(simulateQuartetGame(data));
@@ -17,7 +18,6 @@ export function ItemsQuartetsSimulator({ data }: UseResourceFirebaseDataReturnTy
     <Space direction="vertical">
       <Typography.Title level={5}>Quarteto Simulator</Typography.Title>
       <Button onClick={onNewSimulation}>New Simulation</Button>
-
       <Flex gap={24} vertical>
         <QuartetRow quartet={simulation.perfectQuartet} />
 
@@ -25,6 +25,7 @@ export function ItemsQuartetsSimulator({ data }: UseResourceFirebaseDataReturnTy
           <QuartetRow key={quartet.id} quartet={quartet} />
         ))}
       </Flex>
+      <RandomGatherer />
     </Space>
   );
 }
@@ -143,4 +144,43 @@ function simulateQuartetGame(allQuartets: UseResourceFirebaseDataReturnType<Dail
     nonPerfectQuartets: selectedNonPerfectQuartets,
     usedItemIds: Array.from(usedItemIds),
   };
+}
+
+export function RandomGatherer() {
+  const tdrItemsQuery = useTDResource<ItemType>('items');
+
+  const groupedItems = useMemo(() => {
+    return groupItemsByLastThreeChars(tdrItemsQuery.data ?? {});
+  }, [tdrItemsQuery.data]);
+  return (
+    <div>
+      <textarea
+        style={{ width: '100%', height: 200 }}
+        value={JSON.stringify(groupedItems, null, 2)}
+        readOnly
+      />
+    </div>
+  );
+}
+
+function groupItemsByLastThreeChars(
+  items: Record<string, ItemType>,
+): Record<string, { id: string; ptName: string }[]> {
+  const groupedItems: Record<string, { id: string; ptName: string }[]> = {};
+
+  Object.values(items).forEach((item) => {
+    const ptName = item.name.pt;
+    if (ptName.length >= 3 && !ptName.includes(' ')) {
+      const suffix = ptName.slice(-3);
+      if (!groupedItems[suffix]) {
+        groupedItems[suffix] = [];
+      }
+      groupedItems[suffix].push({ id: item.id, ptName });
+    }
+  });
+
+  // Filter groups with more than 4 items
+  const res = Object.fromEntries(Object.entries(groupedItems).filter(([_, items]) => items.length > 4));
+  console.log(res);
+  return res;
 }
