@@ -1,7 +1,7 @@
 import { useTitle } from 'react-use';
 
 import { Avatar, Layout, Typography } from 'antd';
-import logo from 'assets/images/logo.svg';
+import logo from 'assets/images/logo.svg?url';
 import type { ReactNode } from 'react';
 import { Menu } from './Menu';
 
