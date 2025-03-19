@@ -1,1 +1,0 @@
-import{l as n}from"./lodash-8FP2h5ZQ.js";import{u as c,a as d}from"./useBaseUrl-lFXL7kyH.js";function p(s,r,a=!0,y){const{getUrl:o}=c("resources"),t=`words-${s}-letters-selected-${r}`,e=d({queryKey:[t],queryFn:async()=>await(await fetch(o(`${t}.json`))).json(),enabled:a&&!!s&&!!r}),u=!n.isEmpty(e.data);return{...e,data:e.data??[],hasResponseData:u}}export{p as u};
