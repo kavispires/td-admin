@@ -123,7 +123,8 @@ export const buildDailyQuartetosGames = (
 
     // Get a group that does not share any items with the selected sets
     const eligibleGroups = Object.values(itemsGroups).filter(
-      (group) => group.itemsIds.some((id) => !takenItemsIds[id]) && group.itemsIds.length >= 4,
+      (group) =>
+        group.itemsIds.some((id) => !takenItemsIds[id]) && group.itemsIds.length >= 4 && group.nsfw !== true,
     );
     const selectedGroup = sample(eligibleGroups);
     if (!selectedGroup) {
