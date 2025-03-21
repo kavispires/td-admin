@@ -807,6 +807,10 @@ export type ItemGroup = {
    * Keywords to search for the group
    */
   keywords: string;
+  /**
+   * Flag indicating if it's nsfw (usually if more than 30% of its items are nsfw)
+   */
+  nsfw?: boolean;
 };
 
 export type DailyDiscSet = {
