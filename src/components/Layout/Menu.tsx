@@ -70,7 +70,6 @@ const items: MenuProps['items'] = [
       {
         label: 'Testimonies',
         key: '/game/testimonies',
-        disabled: true,
       },
     ],
   },

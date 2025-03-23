@@ -212,3 +212,7 @@ body {
 .table-row-error {
   background: get-color("red", 5, 0.15);
 }
+
+.grayscale {
+  filter: grayscale(100%);
+}

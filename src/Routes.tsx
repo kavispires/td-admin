@@ -55,12 +55,14 @@ const ItemsQuartets = lazy(() => import('pages/Items/ItemsQuartets' /* webpackCh
 const ItemsCrimeHistory = lazy(
   () => import('pages/Items/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
 );
-
 const DailySetup = lazy(() => import('pages/DailySetup' /* webpackChunkName: "DailySetup" */));
 const CrimesHediondos = lazy(() => import('pages/CrimesHediondos' /* webpackChunkName: "CrimesHediondos" */));
 const MovieMaker = lazy(() => import('pages/MovieMaker' /* webpackChunkName: "MovieMaker" */));
 const FofocaQuente = lazy(() => import('pages/FofocaQuente' /* webpackChunkName: "FofocaQuente" */));
 const Contenders = lazy(() => import('pages/Contenders' /* webpackChunkName: "Contenders" */));
+const TestimoniesPage = lazy(
+  () => import('pages/Testimonies/TestimoniesPage' /* webpackChunkName: "TestimoniesPage" */),
+);
 
 export const routes = (
   <Routes>
@@ -142,6 +144,14 @@ export const routes = (
       element={
         <Suspense fallback={<LoadingPage />}>
           <DailySetup />
+        </Suspense>
+      }
+    />
+    <Route
+      path="/game/testimonies"
+      element={
+        <Suspense fallback={<LoadingPage />}>
+          <TestimoniesPage />
         </Suspense>
       }
     />
