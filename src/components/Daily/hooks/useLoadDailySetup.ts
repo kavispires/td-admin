@@ -13,7 +13,10 @@ import {
 } from '../utils/games/daily-controle-de-estoque';
 import { type DailyFilmacoEntry, useDailyFilmacoGames } from '../utils/games/daily-filmaco';
 import { type DailyPalavreadoEntry, useDailyPalavreadoGames } from '../utils/games/daily-palavreado';
-import { useDailyPortaisMagicosGames } from '../utils/games/daily-portais-magicos';
+import {
+  type DailyPortaisMagicosEntry,
+  useDailyPortaisMagicosGames,
+} from '../utils/games/daily-portais-magicos';
 import { type DailyQuartetosEntry, useDailyQuartetosGames } from '../utils/games/daily-quartetos';
 import { type DailyTaNaCaraEntry, useDailyTaNaCaraGames } from '../utils/games/daily-ta-na-cara';
 import {
@@ -33,6 +36,7 @@ export type DailyEntry = {
   'controle-de-estoque': DailyControleDeEstoqueEntry;
   filmaco: DailyFilmacoEntry;
   palavreado: DailyPalavreadoEntry;
+  'portais-magicos': DailyPortaisMagicosEntry;
   quartetos: DailyQuartetosEntry;
   'teoria-de-conjuntos': DailyTeoriaDeConjuntosEntry;
   // Contributions
@@ -116,13 +120,11 @@ export function useLoadDailySetup(
 
   // BUILD PORTAIS MAGICOS
   const portaisMagicos = useDailyPortaisMagicosGames(
-    // enableBuilders,
-    false,
+    enableBuilders,
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
   );
-  console.log(portaisMagicos);
 
   // BUILD ARTISTA
   const artista = useDailyArtistaGames(
@@ -153,6 +155,7 @@ export function useLoadDailySetup(
         'controle-de-estoque': controleDeEstoque.entries[arteRuim.id],
         filmaco: filmaco.entries[arteRuim.id],
         palavreado: palavreado.entries[arteRuim.id],
+        'portais-magicos': portaisMagicos.entries[arteRuim.id],
         quartetos: quartetos.entries[arteRuim.id],
         'teoria-de-conjuntos': teoriaDeConjuntos.entries[arteRuim.id],
         // Contributions
@@ -167,6 +170,7 @@ export function useLoadDailySetup(
     comunicacaoAlienigena.entries,
     controleDeEstoque.entries,
     palavreado.entries,
+    portaisMagicos.entries,
     quartetos.entries,
     teoriaDeConjuntos.entries,
     artista.entries,
@@ -182,6 +186,7 @@ export function useLoadDailySetup(
       controleDeEstoque.isLoading ||
       filmaco.isLoading ||
       palavreado.isLoading ||
+      portaisMagicos.isLoading ||
       quartetos.isLoading ||
       teoriaDeConjuntos.isLoading ||
       artista.isLoading ||

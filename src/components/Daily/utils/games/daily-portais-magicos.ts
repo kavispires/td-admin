@@ -56,8 +56,8 @@ export const useDailyPortaisMagicosGames = (
         return acc;
       },
       {
-        ' ': [''],
-        '-': ['-'],
+        ' ': ['  '],
+        '-': [' - '],
       },
     );
     console.log(wordsLettersDict);
@@ -114,7 +114,7 @@ export const buildDailyPortaisMagicosGames = (
       takenSetsIds[selectedSet.id] = true;
 
       // Select a random passcode
-      const passcode = sample(selectedSet.passcode);
+      const passcode = sample(selectedSet.passcode.filter((p) => p.length <= 12)) || '';
       if (!passcode) {
         throw new Error(`No passcode available in set ${selectedSet.id}`);
       }

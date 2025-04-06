@@ -269,6 +269,41 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     },
   },
   {
+    title: 'Portais',
+    dataIndex: 'portais-magicos',
+    key: 'portais-magicos',
+    render: (entry: DailyEntry['portais-magicos']) => {
+      if (!entry) {
+        return <Alert message="No entry" type="error" />;
+      }
+
+      const { number, setId, corridors } = entry;
+
+      return (
+        <EntryCell>
+          <GameNumber>{number}</GameNumber>
+
+          <GameInfo label="SetId">{truncate(setId, { length: 9 })}</GameInfo>
+
+          <GamePopover>
+            <Flex gap={6} vertical>
+              {corridors.map((c) => (
+                <Flex key={c.passcode} gap={6} vertical>
+                  <span>Passcode: {c.passcode}</span>
+                  <Flex>
+                    {c.imagesIds.map((i) => (
+                      <ImageCard key={i} id={i} width={50} />
+                    ))}
+                  </Flex>
+                </Flex>
+              ))}
+            </Flex>
+          </GamePopover>
+        </EntryCell>
+      );
+    },
+  },
+  {
     title: 'Quartetos',
     dataIndex: 'quartetos',
     key: 'quartetos',
