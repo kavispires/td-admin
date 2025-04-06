@@ -56,7 +56,6 @@ export function TestimoniesTable({
       },
     },
   ];
-  console.log(entries);
 
   const expandableProps = useTableExpandableRows<TestimonyQuestionCard>({
     maxExpandedRows: 1,

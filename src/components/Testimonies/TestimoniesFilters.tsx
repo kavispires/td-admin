@@ -39,6 +39,16 @@ export function TestimoniesFilters({ data }: TestimoniesFiltersProps) {
           ]}
         />
       </SiderContent>
+      <SiderContent>
+        <div style={{ fontSize: '0.85em' }}>
+          <strong>Legend</strong>
+          <ul>
+            <li>Reliability: At least 5 votes</li>
+            <li>Large Bars: There's enough data (at least 3)</li>
+            <li>Small blue bar: in progress negative</li>
+          </ul>
+        </div>
+      </SiderContent>
     </>
   );
 }

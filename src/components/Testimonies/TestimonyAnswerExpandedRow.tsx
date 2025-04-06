@@ -1,3 +1,4 @@
+import { TrophyFilled } from '@ant-design/icons';
 import { Flex, Progress, Space } from 'antd';
 import { ImageCard } from 'components/Images/ImageCard';
 import { useCardWidth } from 'hooks/useCardWidth';
@@ -24,6 +25,7 @@ export function TestimonyAnswerExpandedRow({ answers, suspects }: TestimonyAnswe
         const yesPercentage = Math.round((values.filter((v) => v === 1).length / total) * 100);
         const noPercentage = Math.round((values.filter((v) => v === 0).length / total) * 100);
         const blankPercentage = Math.round(((total - yesPercentage + noPercentage) / total) * 100);
+        const complete = values.length >= 5;
 
         return {
           imageId,
@@ -33,10 +35,11 @@ export function TestimonyAnswerExpandedRow({ answers, suspects }: TestimonyAnswe
           yesPercentage,
           noPercentage,
           blankPercentage,
+          complete,
         };
       }),
-      ['reliability', 'enoughData', 'percentage'],
-      ['desc', 'desc', 'desc'],
+      ['complete', 'reliability', 'enoughData', 'percentage'],
+      ['desc', 'desc', 'desc', 'desc'],
     );
   }, [answers]);
 
@@ -50,7 +53,10 @@ export function TestimonyAnswerExpandedRow({ answers, suspects }: TestimonyAnswe
               width={cardWidth}
               className={entry.enoughData ? undefined : 'grayscale'}
             />
-            <div>{suspects[entry.suspectCardId].name.pt}</div>
+            <div>
+              {suspects[entry.suspectCardId].name.pt}{' '}
+              {entry.complete && <TrophyFilled style={{ color: 'gold' }} />}
+            </div>
             {entry.enoughData ? (
               <Progress
                 percent={entry.noPercentage}
@@ -63,7 +69,7 @@ export function TestimonyAnswerExpandedRow({ answers, suspects }: TestimonyAnswe
               <Progress
                 percent={entry.noPercentage}
                 size={[cardWidth, 10]}
-                status="active"
+                status="exception"
                 success={{ percent: entry.yesPercentage }}
                 showInfo={false}
               />
