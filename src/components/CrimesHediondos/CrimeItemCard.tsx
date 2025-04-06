@@ -1,15 +1,13 @@
 // Ant Design Resources
-import { Popover, Tag } from 'antd';
+import { Popover } from 'antd';
 import clsx from 'clsx';
 // Types
 import type { CrimesHediondosCard } from 'types/tdr';
-// Hooks
-
-// Components
-
 // Sass
 import './CrimeItemCard.scss';
 import { Item } from 'components/Sprites';
+import { useBaseUrl } from 'hooks/useBaseUrl';
+import { capitalize } from 'lodash';
 
 type CrimeItemCardProps = {
   /**
@@ -41,11 +39,23 @@ export function CrimeItemCard({
   isSelected = false,
   className = '',
 }: CrimeItemCardProps) {
+  const { getUrl } = useBaseUrl('images');
+  const backgroundImage = `back/crime${capitalize(item.type)}`;
+
   if (item.itemId) {
     return (
       <div
-        className={clsx('crime-item-card', isSelected && 'crime-item-card--selected', className)}
-        style={activeColor && isSelected ? { borderColor: 'black', backgroundColor: activeColor } : {}}
+        className={clsx(
+          'crime-item-card',
+          `crime-item-card--${item.type}`,
+          isSelected && 'crime-item-card--selected',
+          className,
+        )}
+        style={{
+          width: cardWidth,
+          backgroundImage: `url(${getUrl(`${backgroundImage}.jpg`)})`,
+          ...(activeColor && isSelected ? { borderColor: activeColor, backgroundColor: activeColor } : {}),
+        }}
       >
         <Popover
           content={
@@ -54,18 +64,14 @@ export function CrimeItemCard({
             </>
           }
         >
-          <Tag
-            className="crime-item-card__name"
-            color={item.type === 'weapon' ? 'geekblue' : 'volcano'}
-            style={{ maxWidth: `${cardWidth}px` }}
-          >
+          <div className="crime-item-card__name" style={{ maxWidth: `${cardWidth}px` }}>
             <span>{item.name.en}</span>
-          </Tag>
+          </div>
         </Popover>
         <div
           className={clsx('crime-item-card__item-container', `crime-item-card__item-container--${item.type}`)}
         >
-          <Item id={item.itemId} width={cardWidth * 0.85} className="crime-item-card__item" />
+          <Item id={item.itemId} width={cardWidth * 0.75} className="crime-item-card__item" />
         </div>
       </div>
     );
@@ -74,3 +80,43 @@ export function CrimeItemCard({
   // Fallback, not really used
   return <>{item.id}</>;
 }
+
+// export function CrimeItemCard2({
+//   item,
+//   cardWidth,
+//   activeColor,
+//   isSelected = false,
+//   className = '',
+// }: CrimeItemCardProps) {
+//   const { baseUrl } = useBaseUrl('images');
+//   const backgroundImage = `back/crime${capitalize(item.type)}`;
+
+//   return (
+//     <ImageBlurButtonContainer cardId={item.id}>
+//       <div
+//         className={clsx(
+//           'crime-item-card',
+//           `crime-item-card--${item.type}`,
+//           isSelected && 'crime-item-card--selected',
+//           className,
+//         )}
+//         style={{
+//           width: cardWidth,
+//           backgroundImage: `url(${baseUrl}/${backgroundImage}.jpg)`,
+//           ...(activeColor && isSelected ? { borderColor: activeColor, backgroundColor: activeColor } : {}),
+//         }}
+//       >
+//         <Popover content={item.name.en.toUpperCase()}>
+//           <div className="crime-item-card__name" style={{ maxWidth: `${cardWidth}px` }}>
+//             <span>{item.name.en}</span>
+//           </div>
+//         </Popover>
+//         <div
+//           className={clsx('crime-item-card__item-container', `crime-item-card__item-container--${item.type}`)}
+//         >
+//           <Item id={item.itemId ?? '0'} width={cardWidth * 0.75} className="crime-item-card__item" />
+//         </div>
+//       </div>
+//     </ImageBlurButtonContainer>
+//   );
+// }
