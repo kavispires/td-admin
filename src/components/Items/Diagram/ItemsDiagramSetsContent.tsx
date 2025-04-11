@@ -14,6 +14,11 @@ import { ItemUpdateGuard } from './ItemUpdateGuard';
 import { RulesByThing } from './RulesByThing';
 import { ThingsByRule } from './ThingsByRule';
 
+const getSingleWordAlias = (aliases: string[]) => {
+  const singleWordAliases = aliases.filter((alias) => alias.split(' ').length === 1);
+  return singleWordAliases.length > 0 ? singleWordAliases[0] : '';
+};
+
 export function ItemsDiagramSetsContent({
   data,
   addEntryToUpdate,
@@ -31,6 +36,16 @@ export function ItemsDiagramSetsContent({
       if (item.decks?.includes('thing')) return true;
       if (item.decks?.includes('alien') && isNameSingleWord) return true;
       if (item.decks?.includes('manufactured') && isNameSingleWord) return true;
+
+      if (item.decks?.includes('alien') && item.aliasesPt) {
+        const singleWordAlias = getSingleWordAlias(item.aliasesPt);
+        if (singleWordAlias) return true;
+      }
+      if (item.decks?.includes('manufactured') && item.aliasesPt) {
+        const singleWordAlias = getSingleWordAlias(item.aliasesPt);
+        if (singleWordAlias) return true;
+      }
+      if (item.decks?.includes('meta') && isNameSingleWord) return true;
 
       return false;
     });

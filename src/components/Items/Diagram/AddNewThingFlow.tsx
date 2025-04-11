@@ -17,10 +17,15 @@ export function AddNewThingFlow({ addEntryToUpdate, availableThings, rules, widt
   const { notification } = App.useApp();
 
   const [activeThing, setActiveThing] = useState<DailyDiagramItem | null>(null);
+  const [cycledThings, setCycledThings] = useState<Dictionary<boolean>>({});
 
   const onActivateThing = () => {
-    const randomItem = sample(availableThings);
+    const randomItem = sample(availableThings.filter((item) => !cycledThings[item.id]));
     if (randomItem) {
+      setCycledThings((prev) => ({
+        ...prev,
+        [randomItem.id]: true,
+      }));
       setActiveThing({
         itemId: randomItem.id,
         name: chooseNameThatIsASingleWord(randomItem),

@@ -2,27 +2,43 @@
 
 echo "⏰ Changing the last commit timestamp..."
 
-# Generate a random number between 180 and 420 (3 to 10 minutes in seconds)
-random_time=$(( (RANDOM % 241) + 950 ))
-
+# Get hashes
 latest_commit=$(git rev-parse HEAD)
-echo "⏰ Latest commit: $latest_commit"
-echo "⏰ Timestamp: $(git show -s --format=%ci $latest_commit)"
+previous_commit=$(git rev-parse HEAD~1)
 
-# Get the hash of the previous commit
-previous_commit=$(git rev-parse HEAD~2)
-echo "⏰ Previous commit: $previous_commit"
+# Get timestamps
+latest_timestamp=$(git show -s --format=%ci "$latest_commit")
+previous_timestamp=$(git show -s --format=%ci "$previous_commit")
 
-# Get the timestamp of the previous commit
-previous_timestamp=$(git show -s --format=%ct $previous_commit)
-echo "⏰ Previous timestamp: $(git show -s --format=%ci $previous_commit)"
+echo "🕒 Last commit:     $latest_commit"
+echo "📅 Last timestamp:  $latest_timestamp"
+echo ""
+echo "🕒 Previous commit: $previous_commit"
+echo "📅 Prev timestamp:  $previous_timestamp"
+echo ""
 
-# Calculate the new timestamp by adding the random time
-new_timestamp=$(($previous_timestamp + $random_time))
+# Prompt user for input
+read -p "📆 Enter new date (YYYY-MM-DD): " input_date
+read -p "⏰ Enter new time (HH:MM, 24-hour): " input_time
 
-echo "⏰ New timestamp: $(date -r $new_timestamp '+%Y-%m-%d %H:%M:%S')"
+# Generate random seconds (00–59), zero-padded
+random_seconds=$(printf "%02d" $((RANDOM % 60)))
 
-# Update the commit timestamp
-git commit --amend --no-edit -n --date=$new_timestamp
+# Combine into full datetime
+new_datetime="${input_date} ${input_time}:${random_seconds}"
 
-echo "✅ Done"
+# Convert to RFC 2822 format (macOS specific)
+git_date=$(date -jf "%Y-%m-%d %H:%M:%S" "$new_datetime" "+%a, %d %b %Y %H:%M:%S %z")
+
+# Check if conversion succeeded
+if [ -z "$git_date" ]; then
+  echo "❌ Invalid date/time. Please use format YYYY-MM-DD and HH:MM"
+  exit 1
+fi
+
+echo ""
+echo "🎲 Random seconds:  $random_seconds"
+echo "🔧 Amending commit to: $git_date"
+GIT_COMMITTER_DATE="$git_date" git commit --amend --no-edit -n --date="$git_date"
+
+echo "✅ Commit timestamp updated!"
