@@ -54,8 +54,8 @@ export const useDailyTaNaCaraGames = (
   };
 };
 
-const TESTIMONY_SIZE = 12;
-const SUSPECTS_SIZE = 15;
+const TESTIMONY_SIZE = 15;
+const SUSPECTS_SIZE = 13;
 
 export const buildDailyTaNaCaraGames = (
   batchSize: number,
