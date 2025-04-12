@@ -4,12 +4,36 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { TestimonyAnswers, useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
+import { useMemo } from 'react';
 import { deepCleanObject, sortJsonKeys } from 'utils';
 
 export type TestimoniesFiltersProps = ReturnType<typeof useTestimoniesResource>;
 
 export function TestimoniesFilters({ data }: TestimoniesFiltersProps) {
   const { queryParams, addParams } = useQueryParams();
+
+  const counts = useMemo(() => {
+    const suspects: Record<string, number> = {};
+    Object.values(data).forEach((suspectEntry) => {
+      Object.keys(suspectEntry).forEach((suspectId) => {
+        if (suspectEntry[suspectId]) {
+          if (!suspects[suspectId]) {
+            suspects[suspectId] = 0;
+          }
+          if (suspectEntry[suspectId].length >= 5) {
+            suspects[suspectId] += 1;
+          }
+        }
+      });
+    });
+
+    return {
+      queriedTestimoniesCount: Object.keys(data).length,
+      suspectsCount: Object.keys(suspects).length,
+      reliableSuspectsCount: Object.values(suspects).filter((count) => count >= 5).length,
+    };
+  }, [data]);
+
   return (
     <>
       <SiderContent>
@@ -46,6 +70,16 @@ export function TestimoniesFilters({ data }: TestimoniesFiltersProps) {
             <li>Reliability: At least 5 votes</li>
             <li>Large Bars: There's enough data (at least 3)</li>
             <li>Small blue bar: in progress negative</li>
+          </ul>
+        </div>
+      </SiderContent>
+      <SiderContent>
+        <div style={{ fontSize: '0.85em' }}>
+          <strong>Counts</strong>
+          <ul>
+            <li>Testimonies: {counts.queriedTestimoniesCount}</li>
+            <li>Suspects: {counts.suspectsCount}</li>
+            <li>Reliable suspects: {counts.reliableSuspectsCount}</li>
           </ul>
         </div>
       </SiderContent>
