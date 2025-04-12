@@ -80,7 +80,7 @@ export const buildDailyArtistaGames = (
       (cardId) =>
         !arteRuimHistory.used.includes(cardId) &&
         !recentlyUsedIds.includes(cardId) &&
-        drawings?.[cardId]?.drawings?.length < 4,
+        drawings?.[cardId]?.drawings?.length < 3,
     );
 
     const cards = sampleSize(availableCardsIds, 20).map((cardId) => arteRuimCards[cardId]);
