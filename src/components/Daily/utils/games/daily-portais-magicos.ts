@@ -60,7 +60,6 @@ export const useDailyPortaisMagicosGames = (
         '-': [' - '],
       },
     );
-    console.log(wordsLettersDict);
 
     return buildDailyPortaisMagicosGames(
       batchSize,
@@ -93,6 +92,7 @@ export const buildDailyPortaisMagicosGames = (
   console.count('Creating Portais Mágicos...');
 
   let lastDate = history.latestDate;
+  const usedPasscode = history.used;
 
   const takenSetsIds: BooleanDictionary = {};
   let availableSets = shuffle(Object.values(passcodeSets).filter((s) => s.imageCardsIds.length > 0));
@@ -105,25 +105,32 @@ export const buildDailyPortaisMagicosGames = (
     let entryAvailableSets = [...availableSets];
 
     const corridors: Corridor[] = [];
-    for (let j = 1; j < 4; j++) {
+
+    while (corridors.length < 3) {
       const selectedSet = entryAvailableSets.pop();
       if (!selectedSet) {
         throw new Error('Not enough sets available');
       }
-      setsIds.push(selectedSet.id);
-      takenSetsIds[selectedSet.id] = true;
 
       // Select a random passcode
-      const passcode = sample(selectedSet.passcode.filter((p) => p.length <= 12)) || '';
+      const passcode =
+        sample(selectedSet.passcode.filter((p) => p.length <= 12 && !usedPasscode.includes(p))) || '';
+
       if (!passcode) {
-        throw new Error(`No passcode available in set ${selectedSet.id}`);
+        // If no passcode is available, skip this set
+        continue;
       }
+
+      const corridorNumber = corridors.length + 1;
+
+      setsIds.push(selectedSet.id);
+      takenSetsIds[selectedSet.id] = true;
 
       // Get the words that will build the passcode
       const words = passcode.split('').map((letter) => sample(wordsLettersDict[letter]) || ` ${letter} `);
 
       // Select the image cards according to the index
-      const imagesIds = sampleSize(selectedSet.imageCardsIds, j);
+      const imagesIds = sampleSize(selectedSet.imageCardsIds, corridorNumber);
 
       corridors.push({
         passcode,
@@ -132,7 +139,7 @@ export const buildDailyPortaisMagicosGames = (
       });
 
       entryAvailableSets = entryAvailableSets.filter(
-        (s) => !takenSetsIds[s.id] && s.imageCardsIds.length > j,
+        (s) => !takenSetsIds[s.id] && s.imageCardsIds.length > corridorNumber,
       );
     }
 

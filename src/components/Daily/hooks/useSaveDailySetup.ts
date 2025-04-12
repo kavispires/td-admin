@@ -133,6 +133,18 @@ export function useSaveDailySetup(queryLanguage: Language) {
             ),
           ),
         },
+        [DAILY_GAMES_KEYS.PORTAIS_MAGICOS]: {
+          latestDate: data[data.length - 1].id,
+          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.PORTAIS_MAGICOS].number,
+          used: JSON.stringify(
+            removeDuplicates([
+              ...JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.PORTAIS_MAGICOS]?.used ?? '[]'),
+              ...data.map((e) =>
+                e[DAILY_GAMES_KEYS.PORTAIS_MAGICOS].corridors.map((c: PlainObject) => c.passcode),
+              ),
+            ]),
+          ),
+        },
       };
       setDoc(docRec, newHistory);
 
