@@ -120,7 +120,7 @@ export const buildDailyPortaisMagicosGames = (
       }
 
       // Get the words that will build the passcode
-      const words = passcode.split('').map((letter) => sample(wordsLettersDict[letter]) || '');
+      const words = passcode.split('').map((letter) => sample(wordsLettersDict[letter]) || ` ${letter} `);
 
       // Select the image cards according to the index
       const imagesIds = sampleSize(selectedSet.imageCardsIds, j);
