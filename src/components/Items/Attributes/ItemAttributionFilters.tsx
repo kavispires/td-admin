@@ -213,5 +213,24 @@ function prepareFileForDownload(
     }
   });
 
+  // TEMP
+  const slimVersion: any = {};
+  Object.values(itemsAttributes).forEach((itemAttributeValues) => {
+    slimVersion[itemAttributeValues.id] = {
+      id: itemAttributeValues.id,
+
+      updatedAt: itemAttributeValues.updatedAt,
+      signature: constructItemSignature(itemAttributeValues, attributes, {
+        delimiter: ':',
+        // TODO: it should return attributes by key, not priority
+      }),
+    };
+
+    if (itemAttributeValues.complete) {
+      slimVersion[itemAttributeValues.id].complete = itemAttributeValues.complete;
+    }
+  });
+  console.log(slimVersion);
+
   return sortJsonKeys(deepCleanObject(itemsAttributes));
 }

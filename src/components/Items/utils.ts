@@ -174,6 +174,8 @@ export function constructItemSignature(
   options?: {
     onlyRelevant?: boolean;
     length?: number;
+    delimiter?: string;
+    sortBy?: 'priority' | 'id';
   },
 ): string {
   // Create a list of signature entries based on the item attributes
@@ -224,7 +226,7 @@ export function constructItemSignature(
   }
 
   // Generate the final signature string
-  return limitedEntries.map((entry) => `${entry.prefix}${entry.id}`).join('');
+  return limitedEntries.map((entry) => `${entry.prefix}${entry.id}`).join(options?.delimiter ?? '');
 }
 
 const prefixDictionary = keyBy(alienAttributesUtils.ATTRIBUTE_VALUE_DICT, 'prefix');
