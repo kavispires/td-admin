@@ -1,0 +1,1 @@
+import{r as m}from"./index-oik76Yce.js";import{u}from"./useMeasure-Di1fT8h1.js";function M(t,s){const[c,{width:a}]=u(),{gap:e=32,minWidth:r=120,maxWidth:o=300,margin:n=0}=s??{};return[m.useMemo(()=>{const i=Math.min(Math.max(Math.floor((a-n)/t)-e,r),o);return Number.isNaN(i)?r:i},[a,t,e,r,o,n]),c]}export{M as u};
