@@ -12,7 +12,7 @@ type SaveButtonProps = {
   onSave: (args?: unknown) => void;
   isSaving: boolean;
   interval?: number;
-} & Omit<ButtonProps, 'icon' | 'type' | 'size' | 'danger'>;
+} & Omit<ButtonProps, 'icon' | 'type' | 'danger'>;
 
 export function SaveButton({
   isDirty,

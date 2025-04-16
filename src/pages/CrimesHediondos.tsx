@@ -21,6 +21,18 @@ function CrimesHediondos() {
     serialize: true,
   });
 
+  const locationsQuery = useResourceFirebaseData<CrimesHediondosCard>({
+    tdrResourceName: 'crime-locations',
+    firebaseDataCollectionName: 'crimeLocations',
+    serialize: true,
+  });
+
+  const victimsQuery = useResourceFirebaseData<CrimesHediondosCard>({
+    tdrResourceName: 'crime-victims',
+    firebaseDataCollectionName: 'crimeVictims',
+    serialize: true,
+  });
+
   const scenesQuery = useResourceFirebaseData<CrimeSceneTile>({
     tdrResourceName: 'crime-scenes',
     firebaseDataCollectionName: 'crimeScenes',
@@ -37,6 +49,8 @@ function CrimesHediondos() {
             weaponsQuery={weaponsQuery}
             evidenceQuery={evidenceQuery}
             scenesQuery={scenesQuery}
+            locationsQuery={locationsQuery}
+            victimsQuery={victimsQuery}
           />
         </PageSider>
 
@@ -46,15 +60,24 @@ function CrimesHediondos() {
               weaponsQuery.isLoading ||
               evidenceQuery.isLoading ||
               scenesQuery.isLoading ||
+              locationsQuery.isLoading ||
+              victimsQuery.isLoading ||
               itemsTypeaheadQuery.isLoading
             }
             error={
-              weaponsQuery.error || evidenceQuery.error || scenesQuery.error || itemsTypeaheadQuery.error
+              weaponsQuery.error ||
+              evidenceQuery.error ||
+              scenesQuery.error ||
+              itemsTypeaheadQuery.error ||
+              locationsQuery.error ||
+              victimsQuery.error
             }
             hasResponseData={
               !isEmpty(weaponsQuery.data) &&
               !isEmpty(evidenceQuery.data) &&
               !isEmpty(scenesQuery.data) &&
+              !isEmpty(locationsQuery.data) &&
+              !isEmpty(victimsQuery.data) &&
               !isEmpty(itemsTypeaheadQuery.data)
             }
           >
@@ -62,6 +85,8 @@ function CrimesHediondos() {
               weaponsQuery={weaponsQuery}
               evidenceQuery={evidenceQuery}
               scenesQuery={scenesQuery}
+              locationsQuery={locationsQuery}
+              victimsQuery={victimsQuery}
             />
           </DataLoadingWrapper>
         </Layout.Content>

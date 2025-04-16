@@ -3,7 +3,7 @@ import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebas
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
-import { CrimeTable } from './CrimeTable';
+import { CrimeTableContent } from './CrimeTable';
 import './CrimesHediondos.scss';
 import { SceneTable } from './SceneTable';
 import { TagsTable } from './TagsTable';
@@ -11,6 +11,8 @@ import { TagsTable } from './TagsTable';
 export type CrimesHediondosContentProps = {
   weaponsQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
   evidenceQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
+  locationsQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
+  victimsQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
   scenesQuery: UseResourceFirebaseDataReturnType<CrimeSceneTile>;
 };
 
@@ -24,12 +26,19 @@ export function CrimesHediondosContent({
   weaponsQuery,
   evidenceQuery,
   scenesQuery,
+  locationsQuery,
+  victimsQuery,
 }: CrimesHediondosContentProps) {
   const { is, queryParams } = useQueryParams();
 
   const rows = useMemo(() => {
-    return [...Object.values(weaponsQuery.data), ...Object.values(evidenceQuery.data)];
-  }, [weaponsQuery.data, evidenceQuery.data]);
+    return [
+      ...Object.values(weaponsQuery.data),
+      ...Object.values(evidenceQuery.data),
+      ...Object.values(locationsQuery.data),
+      ...Object.values(victimsQuery.data),
+    ];
+  }, [weaponsQuery.data, evidenceQuery.data, locationsQuery.data, victimsQuery.data]);
 
   const allTags = useMemo(() => {
     const tagsDict: NumberDictionary = {};
@@ -60,7 +69,15 @@ export function CrimesHediondosContent({
   return (
     <>
       {(is('display', 'cards') || !queryParams.has('display')) && (
-        <CrimeTable rows={rows} allTags={allTags} onUpdateCard={onUpdateCard} />
+        <CrimeTableContent
+          rows={rows}
+          allTags={allTags}
+          onUpdateCard={onUpdateCard}
+          weapons={Object.values(weaponsQuery.data)}
+          evidence={Object.values(evidenceQuery.data)}
+          locations={Object.values(locationsQuery.data)}
+          victims={Object.values(victimsQuery.data)}
+        />
       )}
 
       {is('display', 'tags') && (

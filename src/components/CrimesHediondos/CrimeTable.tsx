@@ -1,17 +1,82 @@
-import { Button, Input, Space, Table, type TableColumnsType, Tag } from 'antd';
+import { CheckCircleFilled } from '@ant-design/icons';
+import {
+  Button,
+  Input,
+  Space,
+  Table,
+  type TableColumnsType,
+  Tabs,
+  type TabsProps,
+  Tag,
+  Typography,
+} from 'antd';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { cloneDeep } from 'lodash';
 import type { CrimesHediondosCard } from 'types';
-
-import { CheckCircleFilled } from '@ant-design/icons';
-
 import { CardEditTags } from './CardEditTags';
 import { CrimeItemCard } from './CrimeItemCard';
 import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
+
+export function CrimeTableContent({
+  rows,
+  allTags,
+  onUpdateCard,
+  weapons,
+  evidence,
+  locations,
+  victims,
+}: CrimesHediondosInnerContentProps & {
+  weapons: CrimesHediondosCard[];
+  evidence: CrimesHediondosCard[];
+  locations: CrimesHediondosCard[];
+  victims: CrimesHediondosCard[];
+}) {
+  const { queryParams, addParams } = useQueryParams();
+  const type = queryParams.get('type');
+
+  const tabs: TabsProps['items'] = [
+    {
+      key: 'all',
+      label: 'All',
+      children: <CrimeTable rows={rows} allTags={allTags} onUpdateCard={onUpdateCard} />,
+    },
+    {
+      key: 'weapons',
+      label: 'Weapons',
+      children: <CrimeTable rows={weapons} allTags={allTags} onUpdateCard={onUpdateCard} />,
+    },
+    {
+      key: 'evidence',
+      label: 'Evidence',
+      children: <CrimeTable rows={evidence} allTags={allTags} onUpdateCard={onUpdateCard} />,
+    },
+    {
+      key: 'locations',
+      label: 'Locations',
+      children: <CrimeTable rows={locations} allTags={allTags} onUpdateCard={onUpdateCard} />,
+    },
+    {
+      key: 'victims',
+      label: 'Victims',
+      children: <CrimeTable rows={victims} allTags={allTags} onUpdateCard={onUpdateCard} />,
+    },
+  ];
+
+  const onChangeTab = (key: string) => {
+    addParams({ type: key, page: '1' });
+  };
+
+  return (
+    <div className="my-4">
+      <Tabs defaultActiveKey={type || 'all'} items={tabs} onChange={onChangeTab} />
+    </div>
+  );
+}
 
 export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInnerContentProps) {
   const onCopyToClipboard = useCopyToClipboardFunction();
@@ -132,15 +197,17 @@ export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInner
   return (
     <div className="my-4">
       <Space className="mb-4">
+        <Typography>{rows.length} cards total</Typography>
         <Button
           onClick={() => {
             onCopyToClipboard(allTags.map((tag) => tag.value).join(', '));
           }}
         >
-          Copy AllTags
+          Copy All Tags
         </Button>
         <Button onClick={onCopyPageCards}>Copy Page Cards</Button>
       </Space>
+
       <Table
         columns={columns}
         dataSource={rows}
