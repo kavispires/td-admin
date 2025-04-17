@@ -18,6 +18,7 @@ export type ItemsContextType = {
   isSaving: boolean;
   save: () => void;
   newId: string;
+  hasFirestoreData: boolean;
 };
 
 const ItemsContext = createContext<ItemsContextType>({
@@ -34,6 +35,7 @@ const ItemsContext = createContext<ItemsContextType>({
   isSaving: false,
   save: () => {},
   newId: '-1',
+  hasFirestoreData: false,
 });
 
 type ItemsProviderProps = {
@@ -52,6 +54,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
     addEntryToUpdate: addItemToUpdate,
     entriesToUpdate: itemsToUpdate,
     isDirty,
+    hasFirestoreData,
   } = useResourceFirebaseData<Item>({
     tdrResourceName: 'items',
     firebaseDataCollectionName: 'items',
@@ -139,6 +142,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         save,
         itemsToUpdate,
         newId,
+        hasFirestoreData,
       }}
     >
       {children}

@@ -19,8 +19,15 @@ import {
 } from './ItemAttributionFiltersSections';
 
 export function ItemAttributionFilters() {
-  const { isDirty, save, prepareItemsAttributesFileForDownload, attributes, isSaving, attributesToUpdate } =
-    useItemsAttributeValuesContext();
+  const {
+    isDirty,
+    save,
+    prepareItemsAttributesFileForDownload,
+    attributes,
+    isSaving,
+    attributesToUpdate,
+    hasFirestoreData,
+  } = useItemsAttributeValuesContext();
 
   const { view, setView } = useItemQueryParams();
 
@@ -38,6 +45,7 @@ export function ItemAttributionFilters() {
           data={() => prepareFileForDownload(prepareItemsAttributesFileForDownload(), attributes)}
           fileName="items-attribute-values.json"
           disabled={isDirty}
+          hasNewData={hasFirestoreData}
           block
         />
       </Flex>

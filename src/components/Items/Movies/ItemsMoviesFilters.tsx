@@ -14,6 +14,7 @@ export function ItemsMoviesFilters({
   isDirty,
   isSaving,
   entriesToUpdate,
+  hasFirestoreData,
 }: UseResourceFirebaseDataReturnType<DailyMovieSet>) {
   const { is, addParam } = useQueryParams();
   return (
@@ -30,6 +31,7 @@ export function ItemsMoviesFilters({
           data={() => prepareFileForDownload(data)}
           fileName="daily-movie-sets.json"
           disabled={isDirty}
+          hasNewData={hasFirestoreData}
           block
         />
       </Flex>

@@ -18,6 +18,7 @@ export function ContendersFilters({
   save,
   isSaving,
   entriesToUpdate,
+  hasFirestoreData,
 }: ContendersFiltersProps) {
   return (
     <>
@@ -34,6 +35,7 @@ export function ContendersFilters({
             data={() => prepareFileForDownload(data)}
             fileName="contenders.json"
             disabled={isDirty}
+            hasNewData={hasFirestoreData}
             block
           />
         </Flex>

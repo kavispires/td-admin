@@ -27,6 +27,7 @@ export type ItemsAttributeValuesContextType = {
   addMultipleAttributesToUpdate: (itemsArr: ItemAttributesValues[]) => void;
   attributes: Dictionary<ItemAttribute>;
   attributesToUpdate: Dictionary<ItemAttributesValues>;
+  hasFirestoreData: boolean;
 };
 
 const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextType>({
@@ -49,6 +50,7 @@ const ItemsAttributeValuesContext = createContext<ItemsAttributeValuesContextTyp
   prepareItemsAttributesFileForDownload: () => ({}),
   attributes: {},
   attributesToUpdate: {},
+  hasFirestoreData: false,
 });
 
 type ItemsAttributeValuesProviderProps = {
@@ -69,6 +71,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
     attributes,
     addMultipleAttributesToUpdate,
     attributesToUpdate,
+    hasFirestoreData,
   } = useItemsAttribution();
   const { message } = App.useApp();
 
@@ -226,6 +229,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         addMultipleAttributesToUpdate,
         prepareItemsAttributesFileForDownload,
         attributesToUpdate,
+        hasFirestoreData,
       }}
     >
       {children}

@@ -20,6 +20,7 @@ export type UseResourceFirebaseDataReturnType<TDRData> = {
   isLoading: boolean;
   error: ResponseError;
   firebaseData: Dictionary<TDRData> | undefined;
+  hasFirestoreData: boolean;
   isSaving: boolean;
   save: () => void;
   addEntryToUpdate: (id: string, item: TDRData) => void;
@@ -110,6 +111,7 @@ export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = T
     isLoading: tdrQuery.isLoading || firebaseQuery.isLoading,
     error: tdrQuery.error || firebaseQuery.error,
     firebaseData,
+    hasFirestoreData: !isEmpty(firebaseData),
     isSaving: mutation.isPending,
     save,
     addEntryToUpdate,

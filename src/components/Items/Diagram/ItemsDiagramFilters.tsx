@@ -18,6 +18,7 @@ export function ItemsDiagramFilters({
   isDirty,
   isSaving,
   entriesToUpdate,
+  hasFirestoreData,
 }: UseResourceFirebaseDataReturnType<DailyDiagramItem>) {
   const { addParams, queryParams } = useQueryParams();
   const tdrDiagramRulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules');
@@ -36,6 +37,7 @@ export function ItemsDiagramFilters({
           data={() => prepareFileForDownload(data, tdrDiagramRulesQuery.data ?? {})}
           fileName="daily-diagram-items.json"
           disabled={isDirty}
+          hasNewData={hasFirestoreData}
           block
         />
       </Flex>

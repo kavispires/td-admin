@@ -38,6 +38,7 @@ export function CrimesHediondosFilters({
               data={() => prepareFileForDownload(weaponsQuery.data)}
               fileName="crime-weapons.json"
               disabled={weaponsQuery.isDirty}
+              hasNewData={weaponsQuery.hasFirestoreData}
               block
             >
               JSON
@@ -58,6 +59,7 @@ export function CrimesHediondosFilters({
               data={() => prepareFileForDownload(evidenceQuery.data)}
               fileName="crime-evidence.json"
               disabled={evidenceQuery.isDirty}
+              hasNewData={evidenceQuery.hasFirestoreData}
               block
             >
               JSON
@@ -79,6 +81,7 @@ export function CrimesHediondosFilters({
               data={() => prepareFileForDownload(locationsQuery.data)}
               fileName="crime-locations.json"
               disabled={weaponsQuery.isDirty}
+              hasNewData={weaponsQuery.hasFirestoreData}
               block
             >
               JSON
@@ -98,6 +101,7 @@ export function CrimesHediondosFilters({
               data={() => prepareFileForDownload(victimsQuery.data)}
               fileName="crime-victims.json"
               disabled={weaponsQuery.isDirty}
+              hasNewData={weaponsQuery.hasFirestoreData}
             >
               JSON
             </DownloadButton>
@@ -116,6 +120,7 @@ export function CrimesHediondosFilters({
           data={() => prepareFileForDownload(scenesQuery.data)}
           fileName="crime-scenes.json"
           disabled={scenesQuery.isDirty}
+          hasNewData={scenesQuery.hasFirestoreData}
           block
         />
       </Flex>

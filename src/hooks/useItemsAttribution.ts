@@ -141,6 +141,7 @@ export function useItemsAttribution() {
       tdrItemsAttributesValuesQuery.error ||
       firebaseItemsAttributeValuesQuery.error,
     firebaseData,
+    hasFirestoreData: !isEmpty(firebaseItemsAttributeValuesQuery.data),
     isSaving: mutation.isPending,
     save,
     addAttributesToUpdate,

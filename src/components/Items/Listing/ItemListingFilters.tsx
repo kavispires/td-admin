@@ -13,7 +13,7 @@ import { deepCleanObject, sortJsonKeys } from 'utils';
 import { AddNewItem } from './AddNewItem';
 
 export function ItemListingFilters() {
-  const { isDirty, save, items, decks, itemsToUpdate, isSaving } = useItemsContext();
+  const { isDirty, save, items, decks, itemsToUpdate, isSaving, hasFirestoreData } = useItemsContext();
   const { queryParams, is, addParam } = useQueryParams();
 
   const deckOptions = useMemo(() => {
@@ -42,6 +42,7 @@ export function ItemListingFilters() {
           data={() => prepareFileForDownload(items)}
           fileName="items.json"
           disabled={isDirty}
+          hasNewData={hasFirestoreData}
           block
         />
       </Flex>

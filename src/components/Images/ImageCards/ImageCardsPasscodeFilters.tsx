@@ -17,6 +17,7 @@ export function ImageCardsPasscodeFilters({
   isDirty,
   isSaving,
   entriesToUpdate,
+  hasFirestoreData,
 }: UseResourceFirebaseDataReturnType<ImageCardPasscodeSet>) {
   const { addParams, queryParams } = useQueryParams();
 
@@ -71,6 +72,7 @@ export function ImageCardsPasscodeFilters({
           data={() => prepareFileForDownload(data)}
           fileName="daily-passcode-sets.json"
           disabled={isDirty}
+          hasNewData={hasFirestoreData}
           block
         />
       </Flex>

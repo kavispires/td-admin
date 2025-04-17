@@ -15,6 +15,7 @@ export function ItemsQuartetsFilters({
   isDirty,
   isSaving,
   entriesToUpdate,
+  hasFirestoreData,
 }: UseResourceFirebaseDataReturnType<DailyQuartetSet>) {
   const { is, addParam, queryParams, addParams } = useQueryParams();
   return (
@@ -31,6 +32,7 @@ export function ItemsQuartetsFilters({
           data={() => prepareFileForDownload(data)}
           fileName="daily-quartet-sets.json"
           disabled={isDirty}
+          hasNewData={hasFirestoreData}
           block
         />
       </Flex>

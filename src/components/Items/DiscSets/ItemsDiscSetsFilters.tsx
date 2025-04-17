@@ -19,6 +19,7 @@ export function ItemsDiscSetsFilters({
   isSaving,
   entriesToUpdate,
   addEntryToUpdate,
+  hasFirestoreData,
 }: UseResourceFirebaseDataReturnType<DailyDiscSet>) {
   const { queryParams, addParams } = useQueryParams();
 
@@ -36,6 +37,7 @@ export function ItemsDiscSetsFilters({
           data={() => prepareFileForDownload(data)}
           fileName="daily-disc-sets.json"
           disabled={isDirty}
+          hasNewData={hasFirestoreData}
           block
         />
       </Flex>

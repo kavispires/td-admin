@@ -18,6 +18,7 @@ export function ItemsGroupsFilters({
   isDirty,
   isSaving,
   entriesToUpdate,
+  hasFirestoreData,
 }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { queryParams, addParam, addParams, is } = useQueryParams();
   const tdrItemsQuery = useTDResource<Item>('items');
@@ -36,6 +37,7 @@ export function ItemsGroupsFilters({
           data={() => prepareFileForDownload(data, tdrItemsQuery.data)}
           fileName="items-groups.json"
           disabled={isDirty || isEmpty(tdrItemsQuery.data)}
+          hasNewData={hasFirestoreData}
           block
         />
       </Flex>
