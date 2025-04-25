@@ -21,6 +21,7 @@ export function ArteRuimDrawingsFilters(query: ArteRuimDrawingsFiltersProps) {
           fileName={`arte-ruim-drawings-${language}.json`}
           disabled={!language}
           block
+          hasNewData={query.hasFirestoreData}
         />
       </Flex>
       <Divider />

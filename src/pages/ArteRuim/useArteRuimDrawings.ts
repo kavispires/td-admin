@@ -16,7 +16,7 @@ import { SEPARATOR } from 'utils/constants';
  * @param queryLanguage - The language for the query.
  * @returns The result of the useQueries hook.
  */
-export function useLoadFirebaseDrawings(enabled: boolean, queryLanguage: Language) {
+export function useLoadFirestoreDrawings(enabled: boolean, queryLanguage: Language) {
   type DataSuffixCounts = {
     drawingsPT: number;
     drawingsEN: number;
@@ -87,7 +87,7 @@ function extractCreatedAt(key: string): number {
 }
 
 export function useDrawingsResourceData(enabled: boolean, language: string) {
-  const firebaseDrawingsQueries = useLoadFirebaseDrawings(enabled, language as Language);
+  const firebaseDrawingsQueries = useLoadFirestoreDrawings(enabled, language as Language);
   const tdrDrawingsQuery = useTDResource<DrawingData>(`arte-ruim-drawings-${language}`, enabled);
 
   const isDrawingsLoading = firebaseDrawingsQueries.some((q) => q.isLoading);
@@ -179,6 +179,7 @@ export function useDrawingsResourceData(enabled: boolean, language: string) {
     isLoading: isDrawingsLoading || tdrDrawingsQuery.isLoading,
     error: tdrDrawingsQuery.error,
     hasResponseData: !isEmpty(drawings),
+    hasFirestoreData: firebaseDrawingsQueries.some((q) => !isEmpty(q.data)),
     drawings,
     drawingsPerArtist: Object.values(drawingsPerArtist),
   };
@@ -209,4 +210,5 @@ export const ARTIST_ID_ALIAS: Record<string, string> = {
   yVAl7: 'Rodrigo',
   O2IQm: 'Drica',
   '24qec': 'Mariana',
+  '5J1Al': 'Mateus',
 };
