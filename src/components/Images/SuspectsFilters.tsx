@@ -12,10 +12,10 @@ type SuspectsFiltersProps = {
 
 const VERSIONS = [
   { value: 'ct', label: 'Cartoon' },
+  { value: 'gb', label: 'Ghibli' },
   { value: 'ai', label: 'AI' },
   { value: 'md', label: 'Models' },
   { value: 'wc', label: 'Wacky' },
-  { value: 'original', label: 'Original' },
 ];
 
 const SORT_BY = [
