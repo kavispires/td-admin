@@ -104,13 +104,16 @@ body {
 
 .sider {
   // background: transparent !important;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
   padding: get-unit(4 0);
   border-right: 1px solid $border-color;
-  // overflow: auto;
-  // height: 100%;
+  overflow-y: auto;
+  height: 100%;
   &__content {
     position: sticky;
-    top: 128px;
+    // top: 128px;
   }
 }
 
