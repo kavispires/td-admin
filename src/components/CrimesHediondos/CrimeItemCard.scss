@@ -49,6 +49,8 @@
     height: 4em;
     display: grid;
     place-items: center;
+    // word-break: break-word;
+    text-wrap: balance;
   }
 
   &__item-container {
