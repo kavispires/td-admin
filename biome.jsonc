@@ -32,19 +32,19 @@
         "noNoninteractiveElementToInteractiveRole": "off",
         "useFocusableInteractive": "off"
       },
+      "complexity": {
+        "noForEach": "off"
+      },
       "correctness": {
         "noUnusedImports": "warn",
         "noUnusedVariables": "warn"
-      },
-      "complexity": {
-        "noForEach": "off"
       },
       "security": {
         "noDangerouslySetInnerHtml": "warn"
       },
       "style": {
         "useSelfClosingElements": "off",
-        "noParameterAssign": "off"
+        "noParameterAssign": "warn"
       },
       "suspicious": {
         "noExplicitAny": "off",
