@@ -1,4 +1,4 @@
-$border-color: rgba(253, 253, 253, 0.12);
+@use "styles/sass" as *;
 
 @for $i from 0 through 12 {
   .m-#{$i} {
@@ -108,9 +108,10 @@ body {
   top: 0;
   max-height: 100vh;
   padding: get-unit(4 0);
-  border-right: 1px solid $border-color;
+  border-right: 1px solid var(--border-color);
   overflow-y: auto;
   height: 100%;
+
   &__content {
     position: sticky;
     // top: 128px;
@@ -118,7 +119,7 @@ body {
 }
 
 .sider-content {
-  padding: 0 get-unit(4);
+  padding: get-unit(0 4);
 }
 
 .content-center {

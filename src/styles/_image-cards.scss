@@ -1,3 +1,5 @@
+@use "styles/sass" as *;
+
 .image-card-categorizer-card {
   width: 100%;
 }
@@ -42,7 +44,7 @@
   gap: get-unit(2);
 
   &__button {
-    background: get-color('gray', 1);
+    background: get-color("gray", 1);
     border-radius: get-unit(1);
 
     &:hover {
@@ -50,7 +52,7 @@
     }
 
     &--active {
-      outline: get-unit(3) solid get-color('pink');
+      outline: get-unit(3) solid get-color("pink");
     }
   }
 }

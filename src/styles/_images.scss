@@ -1,3 +1,5 @@
+@use "styles/sass" as *;
+
 .image-card {
   border-radius: get-unit(1);
   margin: get-unit(1);
@@ -18,7 +20,7 @@
 
 .suspect {
   &__info {
-    border: 1px solid $border-color;
+    border: 1px solid var(--border-color);
     padding: get-unit(1);
     border-radius: get-unit(1);
     font-size: 0.85em;

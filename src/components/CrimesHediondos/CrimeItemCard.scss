@@ -9,7 +9,7 @@
   border: get-unit(1) solid transparent;
   aspect-ratio: 3 / 5;
   position: relative;
-  border-radius: $border-radius;
+  border-radius: var(--border-radius);
   background-size: cover;
   background-position: center;
   filter: brightness(0.85) saturate(50%) drop-shadow(5px 5px 3px get-color("black", 5, 0.5));
@@ -27,7 +27,7 @@
   &--selected {
     border: get-unit(1) dashed get-color("yellow");
     background-color: get-color("yellow", 6);
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
   }
 
   &__name {

@@ -1,3 +1,5 @@
+@use "styles/sass" as *;
+
 .transparent-button {
   cursor: pointer;
   background-color: transparent;
@@ -27,7 +29,7 @@
   }
 
   &--active {
-    border: 2px solid get-color('white');
+    border: 2px solid get-color("white");
   }
 
   &:disabled {

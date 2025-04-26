@@ -255,15 +255,16 @@ export function constructItemAttributes(signature: string): ItemAttributesValues
 }
 
 export function calculateItemScore(itemAttributesValues: ItemAttributesValues): number {
-  return Object.values(itemAttributesValues.attributes).reduce((acc: number, value) => {
+  return Object.values(itemAttributesValues.attributes).reduce((accumulator: number, value) => {
+    let updatedAccumulator = accumulator;
     if (value <= 0) {
       if (value === alienAttributesUtils.ATTRIBUTE_VALUE_DICT.OPPOSITE.value) {
-        acc += value / 2;
+        updatedAccumulator += value / 2;
       }
-      return acc;
+      return updatedAccumulator;
     }
 
-    return acc + value;
+    return updatedAccumulator + value;
   }, 0);
 }
 
