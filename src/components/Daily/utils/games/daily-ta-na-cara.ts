@@ -70,13 +70,16 @@ export const buildDailyTaNaCaraGames = (
   const suspectsBatch = orderBy(
     shuffle(Object.values(suspects)).map((suspect) => {
       const [, idNum] = suspect.id.split('-');
-      return `us-ct-${idNum}`;
+      return `us-gb-${idNum}`;
     }),
     [(o) => dict?.[o]],
     ['asc'],
-  );
+  ).slice(0, SUSPECTS_SIZE * 2);
 
-  const testimoniesBatch = shuffle(Object.values(testimonies));
+  const testimoniesBatch = orderBy(shuffle(Object.values(testimonies)), [(o) => dict?.[o.id]], ['asc']).slice(
+    0,
+    TESTIMONY_SIZE * 2,
+  );
 
   let lastDate = history.latestDate;
   const entries: Dictionary<DailyTaNaCaraEntry> = {};
@@ -123,13 +126,6 @@ export const gatherUsedTaNaCaraEntries = (previousHistory: string[], currentData
         dict[testimony.testimonyId] = 0;
       }
       dict[testimony.testimonyId] += 1;
-
-      testimony?.suspectsIds?.forEach((suspectId) => {
-        if (dict[suspectId] === undefined) {
-          dict[suspectId] = 0;
-        }
-        dict[suspectId] += 1;
-      });
     });
     entry.suspectsIds?.forEach((suspectId) => {
       if (dict[suspectId] === undefined) {
