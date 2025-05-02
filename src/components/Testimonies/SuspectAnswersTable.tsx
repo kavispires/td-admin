@@ -10,6 +10,10 @@ import { SuspectAnswersExpandedRow } from './SuspectAnswersExpandedRow';
 
 export type TestimoniesContentProps = ReturnType<typeof useTestimoniesResource>;
 
+type SuspectRow = SuspectCard & {
+  answers: TestimonyAnswers;
+};
+
 export function SuspectAnswersTable({
   isLoading,
   isSuccess,
@@ -20,25 +24,28 @@ export function SuspectAnswersTable({
   const answersPerSuspect = useMemo(() => {
     return Object.keys(data).reduce((acc: Record<string, TestimonyAnswers>, questionId) => {
       const answers = data[questionId] ?? {};
-      Object.keys(answers).forEach((imageId) => {
-        const suspectId = `us-${imageId.split('-')[2]}`;
-        if (!acc[suspectId]) {
-          acc[suspectId] = {};
+      Object.keys(answers).forEach((id) => {
+        if (!acc[id]) {
+          acc[id] = {};
         }
-        acc[suspectId][questionId] = answers[imageId];
+        acc[id][questionId] = answers[id];
       });
 
       return acc;
     }, {});
   }, [data]);
 
-  const entries = useMemo(() => {
-    return orderBy(Object.values(suspects), (entry) => Number(entry.id.split('-')[1]), 'asc');
-  }, [suspects]);
+  const entries: SuspectRow[] = useMemo(() => {
+    return orderBy(
+      Object.values(suspects).map((s) => ({ ...s, answers: answersPerSuspect[s.id] })),
+      (entry) => Number(entry.id.split('-')[1]),
+      'asc',
+    );
+  }, [suspects, answersPerSuspect]);
 
   const paginationProps = useTablePagination({ total: entries.length, showQuickJumper: true });
 
-  const columns: TableProps<SuspectCard>['columns'] = [
+  const columns: TableProps<SuspectRow>['columns'] = [
     {
       title: 'Id',
       dataIndex: 'id',
@@ -49,7 +56,7 @@ export function SuspectAnswersTable({
       title: 'Picture',
       dataIndex: 'id',
       render: (id) => {
-        const imageId = id.split('-').join('-ct-');
+        const imageId = id.split('-').join('-gb-');
         return <ImageCard id={imageId} width={48} />;
       },
     },
@@ -61,11 +68,11 @@ export function SuspectAnswersTable({
       render: (name) => name.pt,
     },
     {
-      title: 'Answers',
-      dataIndex: 'id',
+      title: 'Questions Answered',
+      dataIndex: 'answers',
       key: 'answers',
-      render: (id) => {
-        const answers = answersPerSuspect[id];
+      sorter: (a, b) => Object.keys(a.answers).length - Object.keys(b.answers).length,
+      render: (answers) => {
         if (!answers) {
           return '';
         }
@@ -74,7 +81,7 @@ export function SuspectAnswersTable({
     },
   ];
 
-  const expandableProps = useTableExpandableRows<SuspectCard>({
+  const expandableProps = useTableExpandableRows<SuspectRow>({
     maxExpandedRows: 1,
     expandedRowRender: (record) => (
       <SuspectAnswersExpandedRow

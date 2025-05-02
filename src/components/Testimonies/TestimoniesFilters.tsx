@@ -1,4 +1,5 @@
 import { ContactsOutlined, TableOutlined } from '@ant-design/icons';
+import { Tooltip } from 'antd';
 import { FilterSegments } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SiderContent } from 'components/Layout';
@@ -9,7 +10,7 @@ import { deepCleanObject, sortJsonKeys } from 'utils';
 
 export type TestimoniesFiltersProps = ReturnType<typeof useTestimoniesResource>;
 
-export function TestimoniesFilters({ data }: TestimoniesFiltersProps) {
+export function TestimoniesFilters({ data, hasNewData }: TestimoniesFiltersProps) {
   const { queryParams, addParams } = useQueryParams();
 
   const counts = useMemo(() => {
@@ -41,6 +42,7 @@ export function TestimoniesFilters({ data }: TestimoniesFiltersProps) {
           data={() => prepareFileForDownload(data)}
           fileName="testimony-answers.json"
           // disabled={isDirty}
+          hasNewData={hasNewData}
           block
         />
       </SiderContent>
@@ -79,7 +81,11 @@ export function TestimoniesFilters({ data }: TestimoniesFiltersProps) {
           <ul>
             <li>Testimonies: {counts.queriedTestimoniesCount}</li>
             <li>Suspects: {counts.suspectsCount}</li>
-            <li>Reliable suspects: {counts.reliableSuspectsCount}</li>
+            <li>
+              <Tooltip title="A reliable suspect is one that has at least 5 complete testimonies.">
+                Reliable suspects: {counts.reliableSuspectsCount}
+              </Tooltip>
+            </li>
           </ul>
         </div>
       </SiderContent>

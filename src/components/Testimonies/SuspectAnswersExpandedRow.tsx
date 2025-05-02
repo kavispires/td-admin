@@ -30,9 +30,11 @@ export function SuspectAnswersExpandedRow({ answersPerQuestion, questions }: Sus
         const enoughData = values.length > 2;
         const reliability = values.length;
         const total = Math.max(values.length, 5);
-        const yesPercentage = Math.round((values.filter((v) => v === 1).length / total) * 100);
-        const noPercentage = Math.round((values.filter((v) => v === 0).length / total) * 100);
-        const blankPercentage = Math.round(((total - yesPercentage + noPercentage) / total) * 100);
+        const yesCount = values.filter((v) => v === 1).length;
+        const yesPercentage = Math.round((yesCount / total) * 100);
+        const noCount = values.filter((v) => v === 0).length;
+        const noPercentage = Math.round((noCount / total) * 100);
+        const blankPercentage = Math.round(((total - yesCount - noCount) / total) * 100);
 
         return {
           id: questionId,
@@ -73,9 +75,9 @@ export function SuspectAnswersExpandedRow({ answersPerQuestion, questions }: Sus
         }
 
         return (
-          <Flex>
+          <Flex gap={8}>
             <Progress
-              percent={entry.noPercentage}
+              percent={entry.noPercentage + entry.yesPercentage}
               size={entry.enoughData ? [100, 20] : [100, 10]}
               status={entry.enoughData ? 'exception' : 'active'}
               success={{ percent: entry.yesPercentage }}

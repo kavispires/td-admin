@@ -1,5 +1,5 @@
 import { FireFilled } from '@ant-design/icons';
-import { Space, Table, type TableProps } from 'antd';
+import { Table, type TableProps } from 'antd';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
@@ -66,17 +66,15 @@ export function TestimoniesTable({
   });
 
   return (
-    <Space direction="vertical">
-      <Table
-        columns={columns}
-        dataSource={entries}
-        pagination={paginationProps}
-        rowKey="id"
-        expandable={expandableProps}
-        loading={isLoading}
-        bordered
-        className="full-width"
-      />
-    </Space>
+    <Table
+      columns={columns}
+      dataSource={entries}
+      pagination={paginationProps}
+      rowKey="id"
+      expandable={expandableProps}
+      loading={isLoading}
+      bordered
+      className="full-width"
+    />
   );
 }

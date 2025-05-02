@@ -1,6 +1,6 @@
 import { useGetFirebaseDoc } from 'hooks/useGetFirebaseDoc';
 import { useTDResource } from 'hooks/useTDResource';
-import { cloneDeep } from 'lodash';
+import { cloneDeep, isEmpty } from 'lodash';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { deserializeFirebaseData } from 'utils';
@@ -11,11 +11,21 @@ export function useTestimoniesResource() {
   const suspectsQuery = useTDResource<SuspectCard>('suspects');
   const questionsQuery = useTDResource<TestimonyQuestionCard>('testimony-questions-pt');
   const tdrQuery = useTDResource<TestimonyAnswers>('testimony-answers');
-  const firebaseQuery = useGetFirebaseDoc<Dictionary<TestimonyAnswers>, Dictionary<TestimonyAnswers>>(
+  const firebaseQuery = useGetFirebaseDoc<Dictionary<string>, Dictionary<TestimonyAnswers>>(
     'data',
     'testimonies',
     {
-      select: deserializeFirebaseData,
+      select: (d) =>
+        deserializeFirebaseData(d, (entry: TestimonyAnswers) => {
+          // Remove style code from suspect ids
+          const newAnswers: TestimonyAnswers = {};
+          Object.keys(entry).forEach((key) => {
+            const newKey = key.replace(/us-\w{2}-(\d+)/, 'us-$1');
+            newAnswers[newKey] = entry[key] || [];
+          });
+
+          return newAnswers;
+        }) as Dictionary<TestimonyAnswers>,
     },
   );
 
@@ -55,5 +65,6 @@ export function useTestimoniesResource() {
     data: mergedData,
     questions: questionsQuery.data,
     suspects: suspectsQuery.data,
+    hasNewData: !isEmpty(firebaseQuery.data),
   };
 }
