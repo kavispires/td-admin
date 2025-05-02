@@ -67,7 +67,7 @@ function ByArtistContent(query: ArteRuimDrawingsContentProps) {
 
   return (
     <div>
-      <h1>ArteRuimDrawingsContent</h1>
+      <h1>Drawings Per Artist</h1>
       <Table columns={columns} dataSource={sortedRows} rowKey="artistId" />
     </div>
   );
@@ -109,7 +109,7 @@ function ByDrawingContent(query: ArteRuimDrawingsContentProps) {
 
   return (
     <div>
-      <h1>ArteRuimDrawingsContent</h1>
+      <h1>Drawings Per Card</h1>
       <Table columns={columns} dataSource={sortedRows} rowKey="cardId" />
     </div>
   );
