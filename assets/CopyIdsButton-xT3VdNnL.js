@@ -1,1 +1,0 @@
-import{j as o,B as r}from"./index-BZlgVGyQ.js";import{u as t}from"./useCopyToClipboardFunction-B_oksN_x.js";import{S as n}from"./index-BgmHRj3u.js";function c({ids:i}){const s=t();return o.jsx(n,{direction:"vertical",size:"small",children:o.jsx(r,{size:"small",onClick:()=>s(JSON.stringify(i)),children:"Copy Ids"})})}export{c as C};
