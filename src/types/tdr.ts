@@ -579,6 +579,10 @@ export type SuspectCard = {
    * The height of the suspect
    */
   height: 'S' | 'M' | 'L' | string;
+  /**
+   * List of features in the suspect image (gb style as reference)
+   */
+  features: string[];
 };
 
 /**
