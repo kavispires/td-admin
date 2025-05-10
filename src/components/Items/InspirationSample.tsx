@@ -3,7 +3,7 @@ import { Button, Flex, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useTDResource } from 'hooks/useTDResource';
 import { difference, sampleSize } from 'lodash';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { Item as ItemT } from 'types';
 
 type InspirationSampleProps = {
@@ -40,18 +40,6 @@ export function InspirationSample({ onSelect, excludeList, initialQuantity = 24 
     setSampledItems(newSample);
     setUsedSampleIds([...usedSampleIds, ...newSample]);
   };
-
-  useEffect(() => {
-    setUsedSampleIds([...excludeList]);
-  }, [excludeList]);
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: function doesn't depend on any state
-  useEffect(() => {
-    if (sampledItems.length === 0 && initialQuantity > 0) {
-      onSample();
-      setUsedSampleIds([...excludeList]);
-    }
-  }, [sampledItems, excludeList]);
 
   return (
     <div className="mt-2">

@@ -1,16 +1,16 @@
+import { ClusterOutlined, TableOutlined } from '@ant-design/icons';
 import { Divider, Flex } from 'antd';
 import { FilterSegments, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import type { Item, ItemGroup } from 'types';
-import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
-
-import { ClusterOutlined, TableOutlined } from '@ant-design/icons';
-import { SaveButton } from 'components/Common/SaveButton';
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, isEmpty, omitBy } from 'lodash';
+import type { Item, ItemGroup } from 'types';
+import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
+import { AddNewGroupFlow } from './AddNewGroupFlow';
 
 export function ItemsGroupsFilters({
   data,
@@ -18,6 +18,7 @@ export function ItemsGroupsFilters({
   isDirty,
   isSaving,
   entriesToUpdate,
+  addEntryToUpdate,
   hasFirestoreData,
 }: UseResourceFirebaseDataReturnType<ItemGroup>) {
   const { queryParams, addParam, addParams, is } = useQueryParams();
@@ -42,6 +43,8 @@ export function ItemsGroupsFilters({
         />
       </Flex>
       <Divider />
+
+      <AddNewGroupFlow data={data} addEntryToUpdate={addEntryToUpdate} />
 
       <FilterSegments
         label="Display"

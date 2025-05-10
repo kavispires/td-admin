@@ -21,8 +21,6 @@ export function ItemGroupsCard({
 }: ItemGroupsCardProps) {
   const copyToClipboard = useCopyToClipboardFunction();
 
-  const colorGroupsOnly = itemGroups?.every((group) => COLORS_GROUPS.includes(group));
-
   return (
     <Card
       title={
@@ -31,7 +29,7 @@ export function ItemGroupsCard({
           <ItemNsfw item={item} />
         </>
       }
-      style={{ maxWidth: 250, ...(colorGroupsOnly ? { borderColor: 'red' } : {}) }}
+      style={{ maxWidth: 250, ...getBorderColor(itemGroups) }}
     >
       <ItemSprite item={item} width={75} />
       <Space size="small" direction="vertical" className="my-4">
@@ -53,3 +51,14 @@ export function ItemGroupsCard({
     </Card>
   );
 }
+
+const getBorderColor = (itemGroups?: string[]) => {
+  if (!itemGroups || itemGroups?.length === 0) {
+    return { borderColor: 'orange' };
+  }
+  if (itemGroups?.every((group) => COLORS_GROUPS.includes(group))) {
+    return { borderColor: 'red' };
+  }
+
+  return {};
+};
