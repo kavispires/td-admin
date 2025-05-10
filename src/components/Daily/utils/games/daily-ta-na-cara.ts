@@ -1,6 +1,6 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
-import { orderBy, sampleSize, shuffle } from 'lodash';
+import { orderBy, shuffle } from 'lodash';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { SEPARATOR } from 'utils/constants';
@@ -67,28 +67,33 @@ export const buildDailyTaNaCaraGames = (
 
   const dict = getTaNaCaraUsedDictionary(history.used);
 
-  const suspectsBatch = orderBy(
-    shuffle(Object.values(suspects)).map((suspect) => {
+  const suspectsBatch = orderBy(shuffle(Object.values(suspects)), [(o) => dict?.[o.id] ?? 0], ['asc'])
+    .slice(0, SUSPECTS_SIZE * 4)
+    .map((suspect) => {
       const [, idNum] = suspect.id.split('-');
-      return `us-gb-${idNum}`;
-    }),
-    [(o) => dict?.[o]],
-    ['asc'],
-  ).slice(0, SUSPECTS_SIZE * 2);
+      const suspectId = `us-gb-${idNum}`;
 
-  const testimoniesBatch = orderBy(shuffle(Object.values(testimonies)), [(o) => dict?.[o.id]], ['asc']).slice(
-    0,
-    TESTIMONY_SIZE * 2,
-  );
+      return {
+        id: suspectId,
+        used: 0,
+      };
+    });
+
+  const testimoniesBatch = orderBy(shuffle(Object.values(testimonies)), [(o) => dict?.[o.id]], ['asc'])
+    .slice(0, TESTIMONY_SIZE * 4)
+    .map((testimony) => ({
+      testimony,
+      used: 0,
+    }));
 
   let lastDate = history.latestDate;
   const entries: Dictionary<DailyTaNaCaraEntry> = {};
   for (let i = 0; i < batchSize; i++) {
-    const testimonies = sampleSize(testimoniesBatch, TESTIMONY_SIZE).map((testimony) => {
+    const testimonies = getSampleWithFewestUses(testimoniesBatch, TESTIMONY_SIZE).map((testimony) => {
       return {
-        testimonyId: testimony.id,
-        question: testimony.question,
-        nsfw: !!testimony.nsfw,
+        testimonyId: testimony.testimony.id,
+        question: testimony.testimony.question,
+        nsfw: !!testimony.testimony.nsfw,
       };
     });
 
@@ -98,7 +103,7 @@ export const buildDailyTaNaCaraGames = (
       id,
       type: 'ta-na-cara',
       number: history.latestNumber + i + 1,
-      suspectsIds: sampleSize(suspectsBatch, SUSPECTS_SIZE),
+      suspectsIds: getSampleWithFewestUses(suspectsBatch, SUSPECTS_SIZE).map((suspect) => suspect.id),
       testimonies,
     };
   }
@@ -106,13 +111,31 @@ export const buildDailyTaNaCaraGames = (
   return entries;
 };
 
+const getSampleWithFewestUses = <T extends { used: number }>(arr: T[], quantity: number) => {
+  const ordered = orderBy(arr, [(o) => o.used], ['asc']);
+  const sampled = ordered.slice(0, quantity);
+  // update sampled with used + 1
+  sampled.forEach((item) => {
+    item.used += 1;
+  });
+  return sampled;
+};
+
 const getTaNaCaraUsedDictionary = (previousHistory: string[]) => {
   return previousHistory.reduce((acc: Dictionary<number>, entry) => {
     const split = entry.split(SEPARATOR);
     const entryId = split[0];
     const count = Number(split[1]);
-    acc[entryId] = count || 0;
 
+    // Handle suspect ids
+    if (entryId.startsWith('us')) {
+      const suspectId = entryId.split('-');
+      const suspectKey = `${suspectId[0]}-${suspectId[2]}`;
+      acc[suspectKey] = count || 0;
+      return acc;
+    }
+
+    acc[entryId] = count || 0;
     return acc;
   }, {});
 };
