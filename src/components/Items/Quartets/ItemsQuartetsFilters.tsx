@@ -1,5 +1,5 @@
 import { GlobalOutlined, TableOutlined } from '@ant-design/icons';
-import { Button, Divider, Flex } from 'antd';
+import { Divider, Flex } from 'antd';
 import { FilterSegments, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
@@ -8,6 +8,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import type { DailyQuartetSet } from 'types';
 import { sortJsonKeys } from 'utils';
+import { NewQuartetFlow } from './NewQuartetFlow';
 
 export function ItemsQuartetsFilters({
   data,
@@ -15,6 +16,7 @@ export function ItemsQuartetsFilters({
   isDirty,
   isSaving,
   entriesToUpdate,
+  addEntryToUpdate,
   hasFirestoreData,
 }: UseResourceFirebaseDataReturnType<DailyQuartetSet>) {
   const { is, addParam, queryParams, addParams } = useQueryParams();
@@ -45,9 +47,7 @@ export function ItemsQuartetsFilters({
         onChange={(mode) => addParam('emptyOnly', mode, false)}
       />
 
-      <Button block onClick={() => addParam('newQuartet', 'true', false)} disabled={is('newQuartet')}>
-        Add New Quartet
-      </Button>
+      <NewQuartetFlow data={data} addEntryToUpdate={addEntryToUpdate} />
 
       <Divider />
 

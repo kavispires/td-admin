@@ -4,9 +4,7 @@ import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebas
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { DailyQuartetSet } from 'types';
-
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
-import { NewQuartetModal } from './NewQuartetModal';
 
 export function ItemsQuartetsContent({
   data,
@@ -34,7 +32,6 @@ export function ItemsQuartetsContent({
         Total Quartets: {rows.length} | Complete Quartets: {completeQuartetsCount}
       </Typography.Title>
       <ItemsQuartetsTable rows={rows} addEntryToUpdate={addEntryToUpdate} />
-      <NewQuartetModal data={data} addEntryToUpdate={addEntryToUpdate} />
     </Space>
   );
 }

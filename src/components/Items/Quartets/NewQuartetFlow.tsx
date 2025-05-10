@@ -1,5 +1,4 @@
-import { Modal } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
+import { Button, Modal } from 'antd';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
 import { cloneDeep } from 'lodash';
 import { useMemo, useState } from 'react';
@@ -8,13 +7,14 @@ import { createUUID, removeDuplicates, wait } from 'utils';
 import { InspirationSample } from '../InspirationSample';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 
-type NewQuartetModalProps = {
+type NewQuartetFlowProps = {
   data: UseResourceFirebaseDataReturnType<DailyQuartetSet>['data'];
   addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyQuartetSet>['addEntryToUpdate'];
 };
 
-export function NewQuartetModal({ data, addEntryToUpdate }: NewQuartetModalProps) {
-  const { is, removeParam } = useQueryParams();
+export function NewQuartetFlow({ data, addEntryToUpdate }: NewQuartetFlowProps) {
+  const [open, setOpen] = useState(false);
+
   const newId = useMemo(() => {
     return createUUID(Object.keys(data));
   }, [data]);
@@ -43,30 +43,36 @@ export function NewQuartetModal({ data, addEntryToUpdate }: NewQuartetModalProps
 
   const onEntry = async () => {
     addEntryToUpdate(activeQuartet.id, cloneDeep(activeQuartet));
-    removeParam('newQuartet');
+    setOpen(false);
     await wait(250);
     setActiveQuartet(createNewQuartetPlaceholder());
   };
 
   return (
-    <Modal
-      title="Add Quartet"
-      open={is('newQuartet')}
-      width={'80vw'}
-      onCancel={() => removeParam('newQuartet')}
-      okButtonProps={{ disabled: !activeQuartet.title, onClick: onEntry }}
-      maskClosable={false}
-    >
-      {Boolean(activeQuartet) && (
-        <>
-          <ItemsQuartetsTable
-            rows={[activeQuartet]}
-            addEntryToUpdate={onLocalUpdate}
-            expandedRowKeys={[activeQuartet.id]}
-          />
-          <InspirationSample onUpdate={onAddSampledItem} quartet={activeQuartet} />
-        </>
-      )}
-    </Modal>
+    <>
+      <Button type="dashed" block onClick={() => setOpen(true)}>
+        Add New Set
+      </Button>
+
+      <Modal
+        title="Add Quartet"
+        open={open}
+        width={'80vw'}
+        onCancel={() => setOpen(false)}
+        okButtonProps={{ disabled: !activeQuartet.title, onClick: onEntry }}
+        maskClosable={false}
+      >
+        {Boolean(activeQuartet) && (
+          <>
+            <ItemsQuartetsTable
+              rows={[activeQuartet]}
+              addEntryToUpdate={onLocalUpdate}
+              expandedRowKeys={[activeQuartet.id]}
+            />
+            <InspirationSample onSelect={onAddSampledItem} excludeList={activeQuartet.itemsIds} />
+          </>
+        )}
+      </Modal>
+    </>
   );
 }
