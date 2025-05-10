@@ -14,7 +14,7 @@ import { ItemsTypeahead } from '../ItemsTypeahead';
 import type { TableProps } from 'antd';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { cloneDeep, orderBy } from 'lodash';
-import { InspirationSample } from './InspirationSample';
+import { InspirationSample } from '../InspirationSample';
 
 const TYPES = orderBy(['general', 'visual', 'word', 'thematic', 'attribute']).map((t) => ({
   label: t,
@@ -168,7 +168,7 @@ export function AddItemFlow({ quartet, addEntryToUpdate }: AddItemFlowProps) {
   return (
     <div>
       <ItemsTypeahead onFinish={onUpdate} />
-      <InspirationSample quartet={quartet} onUpdate={onUpdate} initialQuantity={0} />
+      <InspirationSample excludeList={quartet.itemsIds} onSelect={onUpdate} initialQuantity={0} />
     </div>
   );
 }

@@ -13,8 +13,10 @@ import { removeDuplicates } from 'utils';
 
 import { TransparentButton } from 'components/Common';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
+import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { CopyIdsButton } from '../CopyIdsButton';
+import { InspirationSample } from '../InspirationSample';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { ItemGroupsCard } from './ItemGroupsCard';
 
@@ -41,7 +43,7 @@ export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFireba
   const groupsTypeahead = useMemo(
     () =>
       orderBy(
-        Object.keys(data).map((id) => ({ label: id, value: id })),
+        Object.values(data).flatMap(({ id, name }) => [{ label: `${name.en} [${id}]`, value: id }]),
         'label',
       ),
     [data],
@@ -210,6 +212,12 @@ function ItemsGroupsByGroupTable({
 
   const selectedItem = selectedItemId ? items[selectedItemId] : null;
 
+  const expandableProps = useTableExpandableRows<ItemGroup>({
+    maxExpandedRows: 1,
+    expandedRowRender: (record) => <AddItemFlow group={record} onUpdateGroupItems={onUpdateGroupItems} />,
+    rowExpandable: () => itemsTypeaheadQuery.isSuccess,
+  });
+
   return (
     <>
       <Table
@@ -218,12 +226,7 @@ function ItemsGroupsByGroupTable({
         className="my-4"
         rowKey="id"
         pagination={paginationProps}
-        expandable={{
-          expandedRowRender: (record) => (
-            <AddItemFlow group={record} onUpdateGroupItems={onUpdateGroupItems} />
-          ),
-          rowExpandable: () => itemsTypeaheadQuery.isSuccess,
-        }}
+        expandable={expandableProps}
       />
       <Drawer title="Edit Item Group" onClose={() => setSelectedItemId(null)} open={!!selectedItem}>
         {selectedItem && (
@@ -252,6 +255,7 @@ export function AddItemFlow({ group, onUpdateGroupItems }: AddItemFlowProps) {
   return (
     <div>
       <ItemsTypeahead onFinish={onUpdate} />
+      <InspirationSample onSelect={onUpdate} excludeList={group.itemsIds} initialQuantity={0} />
     </div>
   );
 }

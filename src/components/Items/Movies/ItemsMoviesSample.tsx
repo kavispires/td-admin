@@ -10,6 +10,7 @@ import { removeDuplicates } from 'utils';
 import { AddItemFlow, MovieEditableCell, MovieItemsCell } from './ItemsMoviesTable';
 
 import type { TableProps } from 'antd';
+import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 export function ItemsMoviesSample({
   data,
   addEntryToUpdate,
@@ -77,6 +78,12 @@ export function ItemsMoviesSample({
     },
   ];
 
+  const expandableProps = useTableExpandableRows<DailyMovieSet>({
+    maxExpandedRows: 1,
+    expandedRowRender: (record) => <AddItemFlow movie={record} addEntryToUpdate={addEntryToUpdate} />,
+    rowExpandable: () => itemsTypeaheadQuery.isSuccess,
+  });
+
   return (
     <Space direction="vertical" className="my-4">
       <Button onClick={onGetSample}>Get Sample</Button>
@@ -86,10 +93,7 @@ export function ItemsMoviesSample({
           columns={columns}
           rowKey="id"
           dataSource={[data[sampleEntryId]]}
-          expandable={{
-            expandedRowRender: (record) => <AddItemFlow movie={record} addEntryToUpdate={addEntryToUpdate} />,
-            rowExpandable: () => itemsTypeaheadQuery.isSuccess,
-          }}
+          expandable={expandableProps}
           pagination={false}
         />
       )}

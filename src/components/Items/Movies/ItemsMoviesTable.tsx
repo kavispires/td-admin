@@ -15,6 +15,7 @@ import { DeleteFilled } from '@ant-design/icons';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 
 import type { TableProps } from 'antd';
+import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useMovieUsedHistory } from './useMovieUsedHistory';
 function orderSets(givenSets: DailyMovieSet[]) {
   return orderBy(givenSets, [
@@ -104,6 +105,12 @@ export function ItemsMoviesTable({
     },
   ];
 
+  const expandableProps = useTableExpandableRows<DailyMovieSet>({
+    maxExpandedRows: 1,
+    expandedRowRender: (record) => <AddItemFlow movie={record} addEntryToUpdate={addEntryToUpdate} />,
+    rowExpandable: () => itemsTypeaheadQuery.isSuccess,
+  });
+
   return (
     <Space direction="vertical">
       <Typography.Title level={5}>
@@ -113,10 +120,7 @@ export function ItemsMoviesTable({
         columns={columns}
         rowKey="id"
         dataSource={rows}
-        expandable={{
-          expandedRowRender: (record) => <AddItemFlow movie={record} addEntryToUpdate={addEntryToUpdate} />,
-          rowExpandable: () => itemsTypeaheadQuery.isSuccess,
-        }}
+        expandable={expandableProps}
         pagination={paginationProps}
       />
     </Space>
