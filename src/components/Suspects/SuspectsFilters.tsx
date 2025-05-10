@@ -50,7 +50,7 @@ export function SuspectsFilters({
 
         <DownloadButton
           data={() => prepareFileForDownload(data)}
-          fileName="daily-movie-sets.json"
+          fileName="suspects.json"
           disabled={isDirty}
           hasNewData={hasFirestoreData}
           block
@@ -85,5 +85,5 @@ export function SuspectsFilters({
 }
 
 function prepareFileForDownload(data: Dictionary<SuspectCard>) {
-  return sortJsonKeys(data);
+  return sortJsonKeys(data, ['gender', 'ethnicity', 'age', 'height', 'build', 'features']);
 }

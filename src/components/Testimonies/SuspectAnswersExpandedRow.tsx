@@ -1,4 +1,4 @@
-import { Flex, Progress, Space, Table, Tag } from 'antd';
+import { Flex, Progress, Space, Table, Tag, Tooltip } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { orderBy } from 'lodash';
 import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
@@ -19,6 +19,7 @@ type RowType = {
   yesPercentage: number;
   noPercentage: number;
   blankPercentage: number;
+  values: number[];
 };
 
 export function SuspectAnswersExpandedRow({ answersPerQuestion, questions }: SuspectAnswersExpandedRowProps) {
@@ -44,6 +45,7 @@ export function SuspectAnswersExpandedRow({ answersPerQuestion, questions }: Sus
           yesPercentage,
           noPercentage,
           blankPercentage,
+          values,
         };
       }),
       ['reliability', 'enoughData', 'yesPercentage'],
@@ -75,14 +77,16 @@ export function SuspectAnswersExpandedRow({ answersPerQuestion, questions }: Sus
         }
 
         return (
-          <Flex gap={8}>
-            <Progress
-              percent={entry.noPercentage + entry.yesPercentage}
-              size={entry.enoughData ? [100, 20] : [100, 10]}
-              status={entry.enoughData ? 'exception' : 'active'}
-              success={{ percent: entry.yesPercentage }}
-              showInfo={false}
-            />
+          <Flex gap={8} wrap="nowrap">
+            <Tooltip title={`Values: ${entry.values.join(', ')}`}>
+              <Progress
+                percent={entry.noPercentage + entry.yesPercentage}
+                size={entry.enoughData ? [100, 20] : [100, 10]}
+                status={entry.enoughData ? 'exception' : 'active'}
+                success={{ percent: entry.yesPercentage }}
+                showInfo={false}
+              />
+            </Tooltip>
             {entry.yesPercentage >= entry.noPercentage ? (
               <Tag color="green-inverse">{entry.yesPercentage}% Yes</Tag>
             ) : (

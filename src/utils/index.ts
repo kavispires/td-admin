@@ -147,7 +147,7 @@ export function downloadObjectAsFile(obj: PlainObject, filename: string): void {
  * @param keyOrder - An array of keys to place after the default keys.
  * @returns The sorted JSON object.
  */
-export const sortJsonKeys = (library: PlainObject, keyOrder: string[] = []): PlainObject => {
+export const sortJsonKeys = <T = PlainObject>(library: T, keyOrder: string[] = []): T => {
   const DEFAULT_ORDERED_KEYS = ['id', 'name', 'title', 'type'];
 
   function sortKeys(obj: any): any {
