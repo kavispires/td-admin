@@ -1,0 +1,1 @@
+import{aa as o,_ as c}from"./index-u4YAhSlc.js";function i(e){let t;const u=r=>()=>{t=null,e.apply(void 0,c(r))},n=function(){if(t==null){for(var r=arguments.length,l=new Array(r),a=0;a<r;a++)l[a]=arguments[a];t=o(u(l))}};return n.cancel=()=>{o.cancel(t),t=null},n}export{i as t};
