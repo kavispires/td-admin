@@ -233,10 +233,6 @@ export type CrimesHediondosCard = {
    */
   itemId?: string;
   /**
-   * Flag indicating if entry is exclusive to using itemIds
-   */
-  itemExclusive?: boolean;
-  /**
    * The likelihood of the answers for a given scene
    */
   likelihood?: Record<string, number[]>;
@@ -271,6 +267,10 @@ export type CrimeSceneTile = {
    * Flag indicating if the tile is for a specific type of card
    */
   specific?: string | null;
+  /**
+   * Indicates the order card types should be analyzed
+   */
+  likelihoodPriority?: string[];
 };
 
 /**

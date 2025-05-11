@@ -213,15 +213,23 @@ function CardSceneLikelihood({ card, scenes }: CardSceneLikelihoodProps) {
         {Object.values(scenes).map((scene) => {
           const [mostLikely, secondMostLikely] = card.likelihood?.[scene.id] ?? [];
           const hasMostLikely = mostLikely !== undefined;
+          const likelyData = scene.values?.[mostLikely]?.en;
           const hasSecondMostLikely = secondMostLikely !== undefined;
+          const secondLikelyData = scene.values?.[secondMostLikely]?.en;
           return (
             <div key={scene.id} className="likelihood-entry">
               <div className="bold">{scene.title.en}</div>
-              <div className={clsx('likely-result', { 'likely-result--no-data': !hasMostLikely })}>
-                {hasMostLikely ? scene.values[mostLikely].en : 'No most likely value'}
+              <div
+                className={clsx('likely-result', { 'likely-result--no-data': !hasMostLikely || !likelyData })}
+              >
+                {likelyData ? likelyData : 'No most likely value'}
               </div>
-              <div className={clsx({ 'likely-result--no-data': !hasSecondMostLikely })}>
-                {hasSecondMostLikely ? scene.values[secondMostLikely].en : 'No second most likely value'}
+              <div
+                className={clsx('likely-result--2', {
+                  'likely-result--no-data': !hasSecondMostLikely || !secondLikelyData,
+                })}
+              >
+                {secondLikelyData ? secondLikelyData : 'No second most likely value'}
               </div>
             </div>
           );

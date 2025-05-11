@@ -56,17 +56,17 @@ function CrimesHediondos() {
     }
   }, [scenesQuery.data]);
 
-  useEffect(() => {
-    const list = Object.values(evidenceQuery.data)
-      .map((entry) => {
-        return !isEmpty(entry.likelihood) ? '' : `"${entry.name.en}"`;
-      })
-      .filter(Boolean);
+  // useEffect(() => {
+  //   const list = Object.values(victimsQuery.data)
+  //     .map((entry) => {
+  //       return !isEmpty(entry.likelihood) ? '' : `"${entry.name.en}"`;
+  //     })
+  //     .filter(Boolean);
 
-    if (!isEmpty(list)) {
-      console.log('List of items for GPT:', list.join('\n'));
-    }
-  }, [evidenceQuery.data]);
+  //   if (!isEmpty(list)) {
+  //     console.log('List of items for GPT:\n', list.join('\n'));
+  //   }
+  // }, [victimsQuery.data]);
 
   return (
     <PageLayout title="Crimes Hediondos" subtitle="Categorizer">

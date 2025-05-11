@@ -23,5 +23,13 @@
 
 .likely-result {
   font-weight: bold;
-  color: green;
+  color: get-color("green");
+
+  &--2 {
+    color: get-color("green", 6, 0.7);
+  }
+
+  &--no-data {
+    color: get-color("red", 6, 0.5);
+  }
 }
