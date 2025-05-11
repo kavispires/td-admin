@@ -88,6 +88,13 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
       });
     });
 
+    // Add default decks
+    decksDict.age1 = 'age1';
+    decksDict.age2 = 'age2';
+    decksDict.age3 = 'age3';
+    decksDict.age4 = 'age4';
+    decksDict.age5 = 'age5';
+
     const decks = orderBy(Object.keys(decksDict)).map((name) => ({ value: name }));
 
     if (duplicatedNames.length > 0) {

@@ -4,7 +4,7 @@ import { useItemsContext } from 'context/ItemsContext';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize } from 'lodash';
-import { ItemCard } from '../ItemCard';
+import { ItemCard } from './ItemCard';
 
 export function ItemListing() {
   const { queryParams } = useQueryParams();
@@ -12,9 +12,6 @@ export function ItemListing() {
   const { listing } = useItemsContext();
 
   const { page, pagination } = useGridPagination({ data: listing, resetter: listingType });
-
-  const { is } = useQueryParams();
-  const isSimplified = is('simplified');
 
   return (
     <>
@@ -25,7 +22,7 @@ export function ItemListing() {
       <PaginationWrapper pagination={pagination} className="full-width">
         <Flex gap={16} wrap="wrap">
           {page.map((item) => (
-            <ItemCard key={item.id} item={item} simplified={isSimplified} />
+            <ItemCard key={item.id} item={item} />
           ))}
         </Flex>
       </PaginationWrapper>

@@ -6,8 +6,8 @@ import { EnvironmentOutlined } from '@ant-design/icons';
 import { useItemsContext } from 'context/ItemsContext';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { removeDuplicates } from 'utils';
-import { ItemCard } from '../ItemCard';
 import { ItemsTypeahead } from '../ItemsTypeahead';
+import { ItemCard } from './ItemCard';
 
 export function ItemSearch() {
   const { items, isLoading, isSaving } = useItemsContext();

@@ -1,6 +1,6 @@
 import { OpenAIOutlined } from '@ant-design/icons';
 import { Divider, Flex, Typography } from 'antd';
-import { FilterSelect, FilterSwitch } from 'components/Common';
+import { FilterCheckBox, FilterSelect, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
@@ -64,6 +64,22 @@ export function ItemListingFilters() {
         className="full-width m-0"
       />
 
+      <Typography.Text type="secondary">Input</Typography.Text>
+
+      <FilterCheckBox
+        label="Hide Decks"
+        value={is('hideDecks')}
+        onChange={(v) => addParam('hideDecks', v ? 'true' : '')}
+        className="full-width m-0"
+      />
+
+      <FilterCheckBox
+        label="Hide Aliases"
+        value={is('hideAliases')}
+        onChange={(v) => addParam('hideAliases', v ? 'true' : '')}
+        className="full-width m-0"
+      />
+
       <Typography.Text type="secondary">Display</Typography.Text>
 
       <FilterSwitch
@@ -72,19 +88,20 @@ export function ItemListingFilters() {
         onChange={(v) => addParam('simplified', v ? 'true' : '')}
         className="full-width m-0"
       />
+
+      <FilterSwitch
+        label="Deck Checkboxes"
+        value={is('deckCheckboxes')}
+        onChange={(v) => addParam('deckCheckboxes', v ? 'true' : '')}
+        className="full-width m-0"
+      />
+
       <FilterSwitch
         label="Thing Verifier"
         value={is('showVerifyThing')}
         onChange={(v) => addParam('showVerifyThing', v ? 'true' : '')}
         className="full-width m-0"
         disabled={is('simplified')}
-      />
-      <FilterSwitch
-        label="Other Names"
-        value={is('showOtherNames')}
-        onChange={(v) => addParam('showOtherNames', v ? 'true' : '')}
-        className="full-width m-0"
-        disabled
       />
 
       <Divider className="my-4" />

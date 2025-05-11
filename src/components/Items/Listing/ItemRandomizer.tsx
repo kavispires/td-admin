@@ -6,7 +6,7 @@ import { CopyOutlined } from '@ant-design/icons';
 import { useItemsContext } from 'context/ItemsContext';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { chunk, sampleSize } from 'lodash';
-import { ItemCard } from '../ItemCard';
+import { ItemCard } from './ItemCard';
 
 export function ItemRandomizer() {
   const { listing } = useItemsContext();
