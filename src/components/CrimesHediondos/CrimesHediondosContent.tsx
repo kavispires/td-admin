@@ -1,12 +1,11 @@
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
-import { orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
 import { CrimeTableContent } from './CrimeTable';
 import './CrimesHediondos.scss';
+import { Alert } from 'antd';
 import { SceneTable } from './SceneTable';
-import { TagsTable } from './TagsTable';
 
 export type CrimesHediondosContentProps = {
   weaponsQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
@@ -18,7 +17,6 @@ export type CrimesHediondosContentProps = {
 
 export type CrimesHediondosInnerContentProps = {
   rows: CrimesHediondosCard[];
-  allTags: { label: string; value: string; count: number }[];
   onUpdateCard: (card: CrimesHediondosCard) => void;
 };
 
@@ -40,22 +38,6 @@ export function CrimesHediondosContent({
     ];
   }, [weaponsQuery.data, evidenceQuery.data, locationsQuery.data, victimsQuery.data]);
 
-  const allTags = useMemo(() => {
-    const tagsDict: NumberDictionary = {};
-
-    rows.forEach((row) => {
-      row.tags?.forEach((tag) => {
-        tagsDict[tag] = (tagsDict[tag] ?? 0) + 1;
-      });
-    });
-
-    return orderBy(
-      Object.entries(tagsDict).map(([tag, count]) => ({ value: tag, label: tag, count })),
-      ['value'],
-      ['asc'],
-    );
-  }, [rows]);
-
   const onUpdateCard = (card: CrimesHediondosCard) => {
     if (card.type === 'weapon') {
       weaponsQuery.addEntryToUpdate(card.id, card);
@@ -71,26 +53,20 @@ export function CrimesHediondosContent({
       {(is('display', 'cards') || !queryParams.has('display')) && (
         <CrimeTableContent
           rows={rows}
-          allTags={allTags}
           onUpdateCard={onUpdateCard}
           weapons={Object.values(weaponsQuery.data)}
           evidence={Object.values(evidenceQuery.data)}
           locations={Object.values(locationsQuery.data)}
           victims={Object.values(victimsQuery.data)}
+          scenes={scenesQuery.data}
         />
       )}
 
       {is('display', 'tags') && (
-        <TagsTable
-          rows={rows}
-          weapons={weaponsQuery.data}
-          evidence={evidenceQuery.data}
-          onUpdateCard={onUpdateCard}
-          allTags={allTags}
-        />
+        <Alert type="info" message="Tags table is not implemented yet" showIcon closable />
       )}
 
-      {is('display', 'scenes') && <SceneTable sceneQuery={scenesQuery} allTags={allTags} objects={rows} />}
+      {is('display', 'scenes') && <SceneTable sceneQuery={scenesQuery} objects={rows} />}
     </>
   );
 }

@@ -229,11 +229,6 @@ export type CrimesHediondosCard = {
    */
   name: DualLanguageValue;
   /**
-   * List of tags related to the card/.
-   * It's used to help guess the value for given weapon and evidence pair tags in the scenario
-   */
-  tags?: string[];
-  /**
    * Item Id for the illustration icon
    */
   itemId?: string;
@@ -241,6 +236,10 @@ export type CrimesHediondosCard = {
    * Flag indicating if entry is exclusive to using itemIds
    */
   itemExclusive?: boolean;
+  /**
+   * The likelihood of the answers for a given scene
+   */
+  likelihood?: Record<string, number[]>;
 };
 
 /**
@@ -269,13 +268,9 @@ export type CrimeSceneTile = {
    */
   type: string;
   /**
-   * Flag indicating if the tile is for evidence or weapons
+   * Flag indicating if the tile is for a specific type of card
    */
   specific?: string | null;
-  /**
-   * Object with a list of tags for each entry value. It's used to help guess the value for given weapon and evidence pair tags in the scenario
-   */
-  tags?: Record<number | string, string[]>;
 };
 
 /**

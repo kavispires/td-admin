@@ -6,6 +6,7 @@ import { PageLayout, PageSider } from 'components/Layout';
 import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
+import { useEffect } from 'react';
 import type { CrimeSceneTile, CrimesHediondosCard, Item } from 'types';
 
 function CrimesHediondos() {
@@ -40,6 +41,32 @@ function CrimesHediondos() {
   });
 
   const itemsTypeaheadQuery = useTDResource<Item>('items');
+
+  useEffect(() => {
+    const slimScenes = Object.values(scenesQuery.data).map((scene) => {
+      return {
+        id: scene.id,
+        title: scene.title.en,
+        description: scene.description.en,
+        values: scene.values.map((value) => value.en),
+      };
+    });
+    if (!isEmpty(slimScenes)) {
+      console.log('Slim Scenes for GPT:', slimScenes);
+    }
+  }, [scenesQuery.data]);
+
+  useEffect(() => {
+    const list = Object.values(evidenceQuery.data)
+      .map((entry) => {
+        return !isEmpty(entry.likelihood) ? '' : `"${entry.name.en}"`;
+      })
+      .filter(Boolean);
+
+    if (!isEmpty(list)) {
+      console.log('List of items for GPT:', list.join('\n'));
+    }
+  }, [evidenceQuery.data]);
 
   return (
     <PageLayout title="Crimes Hediondos" subtitle="Categorizer">

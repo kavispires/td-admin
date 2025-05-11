@@ -1,3 +1,4 @@
+import { EnvironmentOutlined, SkinOutlined, TagOutlined } from '@ant-design/icons';
 import { Divider, Flex } from 'antd';
 import { FilterSegments, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
@@ -7,8 +8,6 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
 import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
 import { sortJsonKeys } from 'utils';
-
-import { EnvironmentOutlined, SkinOutlined, TagOutlined } from '@ant-design/icons';
 import type { CrimesHediondosContentProps } from './CrimesHediondosContent';
 
 export function CrimesHediondosFilters({
@@ -117,7 +116,7 @@ export function CrimesHediondosFilters({
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(scenesQuery.data)}
+          data={() => prepareScenesFileForDownload(scenesQuery.data)}
           fileName="crime-scenes.json"
           disabled={scenesQuery.isDirty}
           hasNewData={scenesQuery.hasFirestoreData}
@@ -160,9 +159,24 @@ export function CrimesHediondosFilters({
   );
 }
 
-function prepareFileForDownload(diagramItems: Dictionary<CrimesHediondosCard | CrimeSceneTile>) {
+function prepareFileForDownload(cards: Dictionary<CrimesHediondosCard>) {
   console.log('Preparing file for download...');
-  const copy = cloneDeep(diagramItems);
+  const copy = cloneDeep(cards);
+  Object.values(copy).forEach((card) => {
+    if (!card.likelihood) {
+      card.likelihood = {};
+    }
+  });
+
+  return sortJsonKeys(copy);
+}
+
+function prepareScenesFileForDownload(scenes: Dictionary<CrimeSceneTile>) {
+  console.log('Preparing scenes file for download...');
+  const copy = cloneDeep(scenes);
+  // Object.values(copy).forEach((scene) => {
+
+  // });
 
   return sortJsonKeys(copy);
 }

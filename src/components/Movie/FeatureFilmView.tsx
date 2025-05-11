@@ -265,5 +265,5 @@ function getFirstNUniqueRoles(
 }
 
 function getSuspectCTId(id: string) {
-  return id.split('-').join('-ct-');
+  return id.split('-').join('-gb-');
 }

@@ -1,15 +1,27 @@
 @use "styles/sass" as *;
 
-.all-tags {
-  margin: get-unit(1);
-  display: flex;
-  flex-wrap: wrap;
-  gap: get-unit(1);
-}
-
 .scene-options-sampler {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: get-unit(1);
+}
+
+.likelihood {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: get-unit(2);
+}
+
+.likelihood-entry {
+  display: flex;
+  flex-direction: column;
+  gap: get-unit(1);
+  border: 1px solid var(--border-color);
+  padding: get-unit(1 3);
+}
+
+.likely-result {
+  font-weight: bold;
+  color: green;
 }

@@ -1,15 +1,15 @@
-import { CheckCircleFilled } from '@ant-design/icons';
 import {
   Button,
+  Flex,
   Input,
   Space,
   Table,
   type TableColumnsType,
   Tabs,
   type TabsProps,
-  Tag,
   Typography,
 } from 'antd';
+import clsx from 'clsx';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
@@ -17,24 +17,24 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { cloneDeep } from 'lodash';
-import type { CrimesHediondosCard } from 'types';
-import { CardEditTags } from './CardEditTags';
+import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
 import { CrimeItemCard } from './CrimeItemCard';
 import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
 export function CrimeTableContent({
   rows,
-  allTags,
   onUpdateCard,
   weapons,
   evidence,
   locations,
   victims,
+  scenes,
 }: CrimesHediondosInnerContentProps & {
   weapons: CrimesHediondosCard[];
   evidence: CrimesHediondosCard[];
   locations: CrimesHediondosCard[];
   victims: CrimesHediondosCard[];
+  scenes: Dictionary<CrimeSceneTile>;
 }) {
   const { queryParams, addParams } = useQueryParams();
   const type = queryParams.get('type');
@@ -43,27 +43,27 @@ export function CrimeTableContent({
     {
       key: 'all',
       label: 'All',
-      children: <CrimeTable rows={rows} allTags={allTags} onUpdateCard={onUpdateCard} />,
+      children: <CrimeTable rows={rows} onUpdateCard={onUpdateCard} scenes={scenes} />,
     },
     {
       key: 'weapons',
       label: 'Weapons',
-      children: <CrimeTable rows={weapons} allTags={allTags} onUpdateCard={onUpdateCard} />,
+      children: <CrimeTable rows={weapons} onUpdateCard={onUpdateCard} scenes={scenes} />,
     },
     {
       key: 'evidence',
       label: 'Evidence',
-      children: <CrimeTable rows={evidence} allTags={allTags} onUpdateCard={onUpdateCard} />,
+      children: <CrimeTable rows={evidence} onUpdateCard={onUpdateCard} scenes={scenes} />,
     },
     {
       key: 'locations',
       label: 'Locations',
-      children: <CrimeTable rows={locations} allTags={allTags} onUpdateCard={onUpdateCard} />,
+      children: <CrimeTable rows={locations} onUpdateCard={onUpdateCard} scenes={scenes} />,
     },
     {
       key: 'victims',
       label: 'Victims',
-      children: <CrimeTable rows={victims} allTags={allTags} onUpdateCard={onUpdateCard} />,
+      children: <CrimeTable rows={victims} onUpdateCard={onUpdateCard} scenes={scenes} />,
     },
   ];
 
@@ -78,7 +78,11 @@ export function CrimeTableContent({
   );
 }
 
-export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInnerContentProps) {
+export function CrimeTable({
+  rows,
+  onUpdateCard,
+  scenes,
+}: CrimesHediondosInnerContentProps & { scenes: Dictionary<CrimeSceneTile> }) {
   const onCopyToClipboard = useCopyToClipboardFunction();
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
@@ -89,6 +93,7 @@ export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInner
   };
 
   const columns: TableColumnsType<CrimesHediondosCard> = [
+    Table.EXPAND_COLUMN,
     {
       title: 'Id',
       dataIndex: 'id',
@@ -106,22 +111,24 @@ export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInner
       dataIndex: 'itemId',
       key: 'itemId',
       render: (_, record) => (
-        <div>
+        <Flex align="center" gap={8}>
           <CrimeItemCard item={record} cardWidth={70} />
-          <Input
-            defaultValue={record.itemId}
-            size="small"
-            onBlur={(e) => {
-              console.log(e?.target?.value);
-              console.log('onBlur');
-              if (e?.target?.value && e?.target?.value !== record.itemId) {
-                const copy = cloneDeep(record);
-                copy.itemId = e?.target?.value;
-                onUpdateCard(copy);
-              }
-            }}
-          />
-        </div>
+          <div>
+            <Input
+              defaultValue={record.itemId}
+              size="small"
+              onBlur={(e) => {
+                console.log(e?.target?.value);
+                console.log('onBlur');
+                if (e?.target?.value && e?.target?.value !== record.itemId) {
+                  const copy = cloneDeep(record);
+                  copy.itemId = e?.target?.value;
+                  onUpdateCard(copy);
+                }
+              }}
+            />
+          </div>
+        </Flex>
       ),
     },
     {
@@ -151,32 +158,11 @@ export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInner
       render: (type: string) => <span>{type}</span>,
       sorter: (a, b) => a.type.localeCompare(b.type),
     },
-    Table.EXPAND_COLUMN,
-    {
-      title: 'Tags',
-      dataIndex: 'tags',
-      key: 'tags',
-      render: (tags: string[]) => (
-        <Space size="small" wrap>
-          {tags.map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </Space>
-      ),
-    },
-    {
-      title: 'Verify',
-      dataIndex: 'tags',
-      key: 'verify',
-      render: (tags: string[]) => (tags.length > 2 ? <CheckCircleFilled /> : ''),
-    },
   ];
 
   const expandableProps = useTableExpandableRows<CrimesHediondosCard>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => (
-      <CardEditTags card={record} allTags={allTags} onUpdateCard={onUpdateCard} />
-    ),
+    expandedRowRender: (record) => <CardSceneLikelihood card={record} scenes={scenes} />,
   });
 
   const onCopyPageCards = () => {
@@ -187,7 +173,7 @@ export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInner
       const result: string[] = [];
 
       pageRows.forEach((row, index) => {
-        result.push(`${index + 1}) ${row.name.en} - Current tags: ${(row.tags ?? []).join(', ')}`);
+        result.push(`${index + 1}) ${row.name.en}}`);
       });
       console.log(result);
       onCopyToClipboard(result.join('\n'));
@@ -198,13 +184,7 @@ export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInner
     <div className="my-4">
       <Space className="mb-4">
         <Typography>{rows.length} cards total</Typography>
-        <Button
-          onClick={() => {
-            onCopyToClipboard(allTags.map((tag) => tag.value).join(', '));
-          }}
-        >
-          Copy All Tags
-        </Button>
+
         <Button onClick={onCopyPageCards}>Copy Page Cards</Button>
       </Space>
 
@@ -215,6 +195,38 @@ export function CrimeTable({ rows, allTags, onUpdateCard }: CrimesHediondosInner
         expandable={expandableProps}
         pagination={paginationProps}
       />
+    </div>
+  );
+}
+
+type CardSceneLikelihoodProps = {
+  card: CrimesHediondosCard;
+  scenes: Dictionary<CrimeSceneTile>;
+};
+
+function CardSceneLikelihood({ card, scenes }: CardSceneLikelihoodProps) {
+  return (
+    <div>
+      <Typography.Title level={5}>Scene Likelihood</Typography.Title>
+
+      <div className="likelihood">
+        {Object.values(scenes).map((scene) => {
+          const [mostLikely, secondMostLikely] = card.likelihood?.[scene.id] ?? [];
+          const hasMostLikely = mostLikely !== undefined;
+          const hasSecondMostLikely = secondMostLikely !== undefined;
+          return (
+            <div key={scene.id} className="likelihood-entry">
+              <div className="bold">{scene.title.en}</div>
+              <div className={clsx('likely-result', { 'likely-result--no-data': !hasMostLikely })}>
+                {hasMostLikely ? scene.values[mostLikely].en : 'No most likely value'}
+              </div>
+              <div className={clsx({ 'likely-result--no-data': !hasSecondMostLikely })}>
+                {hasSecondMostLikely ? scene.values[secondMostLikely].en : 'No second most likely value'}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
