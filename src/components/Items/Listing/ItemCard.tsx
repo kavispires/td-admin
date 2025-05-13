@@ -1,5 +1,5 @@
 import { EditOutlined, FireFilled, RollbackOutlined, SaveOutlined } from '@ant-design/icons';
-import { Card, Flex, Form, Input, Select, Space, Switch, Typography } from 'antd';
+import { Card, Checkbox, Flex, Form, Input, Select, Space, Switch, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { useItemsContext } from 'context/ItemsContext';
@@ -26,6 +26,8 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
   const copyToClipboard = useCopyToClipboardFunction();
   const { is } = useQueryParams();
   const isSimplified = simplifiedProp || is('simplified');
+
+  const itemDecks = item.decks || [];
 
   return (
     <Card
@@ -125,6 +127,8 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
               )}
             </>
 
+            <AgeDecks item={item} onEdit={onEdit} />
+
             {is('showVerifyThing') && (
               <div>
                 <VerifyIfThing item={item} />
@@ -147,5 +151,34 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
         )}
       </Space>
     </Card>
+  );
+}
+
+type AgeDecksProps = {
+  item: ItemT;
+  onEdit: (change: Partial<ItemT>) => void;
+};
+
+function AgeDecks({ item, onEdit }: AgeDecksProps) {
+  const itemDecks = item.decks || [];
+
+  const handleCheckboxChange = async (age: string) => {
+    const updatedDecks = itemDecks.includes(age)
+      ? itemDecks.filter((deck) => deck !== age)
+      : [...itemDecks, age];
+    onEdit({ decks: updatedDecks });
+  };
+
+  return (
+    <div>
+      <Typography.Text strong>Ages</Typography.Text>
+      <Flex gap={6}>
+        <Checkbox checked={itemDecks.includes('age1')} onChange={() => handleCheckboxChange('age1')} />1
+        <Checkbox checked={itemDecks.includes('age2')} onChange={() => handleCheckboxChange('age2')} />2
+        <Checkbox checked={itemDecks.includes('age3')} onChange={() => handleCheckboxChange('age3')} />3
+        <Checkbox checked={itemDecks.includes('age4')} onChange={() => handleCheckboxChange('age4')} />4
+        <Checkbox checked={itemDecks.includes('age5')} onChange={() => handleCheckboxChange('age5')} />5
+      </Flex>
+    </div>
   );
 }
