@@ -262,12 +262,12 @@ export function EditThingModal({
 
           {(itemAliases || onGiveAnotherThing) && (
             <div>
-              {itemAliases && <span>Options: {itemAliases?.join(', ')}</span>}
               {onGiveAnotherThing && (
                 <Button size="small" onClick={onGiveAnotherThing} type="dashed" className="mt-2">
                   Give me another thing
                 </Button>
               )}
+              {itemAliases && <span>Options: {itemAliases?.join(', ')}</span>}
             </div>
           )}
 

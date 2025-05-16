@@ -1,5 +1,5 @@
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Flex, Typography } from 'antd';
+import { PlusOutlined, SyncOutlined } from '@ant-design/icons';
+import { Button, Flex, Popconfirm, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useTDResource } from 'hooks/useTDResource';
 import { difference, sampleSize } from 'lodash';
@@ -41,15 +41,24 @@ export function InspirationSample({ onSelect, excludeList, initialQuantity = 24 
     setUsedSampleIds([...usedSampleIds, ...newSample]);
   };
 
+  const onRefresh = () => {
+    setUsedSampleIds([...excludeList]);
+  };
+
   return (
     <div className="mt-2">
-      <Typography.Paragraph>
-        Inspiration Sample{' '}
-        <small>({Object.keys(itemsTypeaheadQuery.data ?? {}).length - usedSampleIds.length})</small>{' '}
+      <Flex gap={12} className="mb-2">
+        <Typography.Text>
+          Inspiration Sample{' '}
+          <small>({Object.keys(itemsTypeaheadQuery.data ?? {}).length - usedSampleIds.length})</small>{' '}
+        </Typography.Text>
         <Button size="small" onClick={onSample}>
           Get
         </Button>
-      </Typography.Paragraph>
+        <Popconfirm title="Are you sure?" onConfirm={onRefresh} okText="Yes" cancelText="No">
+          <Button size="small" icon={<SyncOutlined />} />
+        </Popconfirm>
+      </Flex>
       <Flex gap={16} wrap="wrap">
         {sampledItems.map((itemId, index) => {
           const item = itemsTypeaheadQuery.data?.[itemId];

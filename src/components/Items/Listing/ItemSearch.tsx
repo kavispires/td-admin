@@ -2,7 +2,7 @@ import { Button, Flex, Space, Typography } from 'antd';
 import { Fragment, useState } from 'react';
 import type { Item as ItemT } from 'types';
 
-import { EnvironmentOutlined } from '@ant-design/icons';
+import { CloseCircleOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import { useItemsContext } from 'context/ItemsContext';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { removeDuplicates } from 'utils';
@@ -34,7 +34,20 @@ export function ItemSearch() {
         />
       </div>
 
-      <Flex className="my-4" gap={8}>
+      {activeItems && activeItems?.length > 0 && (
+        <Flex gap={8}>
+          <Typography.Paragraph className="mt-1 italic">
+            {activeItems?.length} items found
+          </Typography.Paragraph>
+          <Button
+            icon={<CloseCircleOutlined />}
+            onClick={() => setActiveItems(null)}
+            size="small"
+            type="text"
+          />
+        </Flex>
+      )}
+      <Flex className="my-4" gap={8} wrap="wrap">
         {activeItems?.map((item) => (
           <Space direction="vertical" className="my-4" key={item.id}>
             <ItemCard item={item} />
