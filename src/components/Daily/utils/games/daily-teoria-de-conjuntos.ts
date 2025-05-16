@@ -1,12 +1,12 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { getIsThingOutdated, getLatestRuleUpdate } from 'components/Items/Diagram/utils';
 import { useTDResource } from 'hooks/useTDResource';
-import { cloneDeep, difference, intersection, sample, sampleSize, shuffle } from 'lodash';
+import { difference, intersection, sample, sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
-import { getNextDay } from '../utils';
+import { checkWeekend, getNextDay } from '../utils';
 
 export type DailyTeoriaDeConjuntosEntry = {
   id: DateKey;
@@ -108,13 +108,15 @@ export const buildDailyTeoriaDeConjuntosGames = (
   const entries: Dictionary<DailyTeoriaDeConjuntosEntry> = {};
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
+    const isWeekend = checkWeekend(id);
+    const size = isWeekend ? SELECTION_SIZE + 1 : SELECTION_SIZE;
 
     lastDate = id;
     entries[id] = {
       id,
       type: 'teoria-de-conjuntos',
       number: history.latestNumber + i + 1,
-      ...getRuleSet(things, thingsByRules, rules, used, latestRuleUpdate),
+      ...getRuleSet(things, thingsByRules, rules, used, latestRuleUpdate, size),
     };
   }
   return entries;
@@ -126,6 +128,7 @@ function getRuleSet(
   rules: Dictionary<DailyDiagramRule>,
   used: string[],
   latestRuleUpdate: number,
+  size: number,
 ) {
   const availableThingsIds = shuffle(
     Object.keys(things).filter(
@@ -169,9 +172,7 @@ function getRuleSet(
 
   const level = rules[selectedRules[0]].level + rules[selectedRules[1]].level - 1;
 
-  const availableThingsByRules = cloneDeep(thingsByRules);
-  // Removed the initial thing from the available things
-  delete availableThingsByRules[initialThingId];
+  // We don't need to modify thingsByRules since we're already filtering excluded items later
 
   const itemsOnlyInRule1 = shuffle(
     difference(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]),
@@ -209,10 +210,18 @@ function getRuleSet(
     },
   };
 
+  // Create a set of excluded items that shouldn't be in the things array
+  const excludedItems = new Set([initialThingId, selectedInitialThingId1, selectedInitialThingId2]);
+
+  // Filter out the excluded items from each array
+  const filteredCommonItems = commonItems.filter((id) => !excludedItems.has(id));
+  const filteredItemsOnlyInRule1 = itemsOnlyInRule1.filter((id) => !excludedItems.has(id));
+  const filteredItemsOnlyInRule2 = itemsOnlyInRule2.filter((id) => !excludedItems.has(id));
+
   // Get up to 4 unique things that fit both rules, if possible
-  const sampleCommonThings = sampleSize(commonItems, SELECTION_SIZE / 2);
-  const sampleRule1Things = sampleSize(itemsOnlyInRule1, SELECTION_SIZE);
-  const sampleRule2Things = sampleSize(itemsOnlyInRule2, SELECTION_SIZE);
+  const sampleCommonThings = sampleSize(filteredCommonItems, size / 2);
+  const sampleRule1Things = sampleSize(filteredItemsOnlyInRule1, size);
+  const sampleRule2Things = sampleSize(filteredItemsOnlyInRule2, size);
   const answerSheet: Record<string, number> = {};
   sampleCommonThings.forEach((id) => {
     answerSheet[id] = 0;
@@ -225,7 +234,7 @@ function getRuleSet(
   });
 
   // Sample 8 things among the options, shuffleAndCombine prevents from having the first 4 items from the same rule
-  const selectionIds = shuffleAndCombine(sampleCommonThings, sampleRule1Things, sampleRule2Things);
+  const selectionIds = shuffleAndCombine(sampleCommonThings, sampleRule1Things, sampleRule2Things, size);
 
   const selectedThings = selectionIds.map((id) => ({
     id,
@@ -264,17 +273,17 @@ function getRuleSet(
   return entry;
 }
 
-function shuffleAndCombine(arr1: string[], arr2: string[], arr3: string[]) {
+function shuffleAndCombine(arr1: string[], arr2: string[], arr3: string[], size: number) {
   // Get the first 3 items from each array
   const firstThreeArr1 = arr1.slice(0, 3);
   const firstThreeArr2 = arr2.slice(0, 3);
   const firstThreeArr3 = arr3.slice(0, 3);
 
   // Combine and shuffle the first three items from each
-  let combined = sampleSize([...firstThreeArr1, ...firstThreeArr2, ...firstThreeArr3], SELECTION_SIZE);
+  let combined = sampleSize([...firstThreeArr1, ...firstThreeArr2, ...firstThreeArr3], size);
 
   // If the combined length is less than 9, gather remaining items
-  if (combined.length < SELECTION_SIZE) {
+  if (combined.length < size) {
     const remainingArr1 = arr1.slice(3);
     const remainingArr2 = arr2.slice(3);
     const remainingArr3 = arr3.slice(3);
@@ -285,5 +294,5 @@ function shuffleAndCombine(arr1: string[], arr2: string[], arr3: string[]) {
     combined = [...combined, ...remaining];
   }
 
-  return combined.slice(0, SELECTION_SIZE);
+  return combined.slice(0, size);
 }

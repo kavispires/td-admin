@@ -153,7 +153,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
         return <Alert message="No entry" type="error" />;
       }
 
-      const { number, rule1, intersectingThing, rule2, title } = entry;
+      const { number, rule1, intersectingThing, rule2, title, things } = entry;
 
       return (
         <EntryCell>
@@ -162,10 +162,17 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Title">{title}</GameInfo>
 
           <GamePopover>
-            <Flex gap={6}>
-              <Item id={rule1.thing.id} width={50} />
-              <Item id={intersectingThing.id} width={50} />
-              <Item id={rule2.thing.id} width={50} />
+            <Flex vertical gap={6}>
+              <Flex gap={6}>
+                <Item id={rule1.thing.id} width={50} />
+                <Item id={intersectingThing.id} width={50} />
+                <Item id={rule2.thing.id} width={50} />
+              </Flex>
+              <Flex gap={6}>
+                {things.map((thing) => (
+                  <Item key={thing.id} id={thing.id} width={35} />
+                ))}
+              </Flex>
             </Flex>
           </GamePopover>
         </EntryCell>
