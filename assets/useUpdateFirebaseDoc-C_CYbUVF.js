@@ -1,0 +1,1 @@
+import{Z as n,a0 as a,bb as u}from"./index--ZN08wDu.js";import{u as s}from"./useMutation-Cq17nn2b.js";function c(o,e,t){console.log(`%cUpdating ${o}/${e} from firebase`,"color: #f00");const r=n(a,`${o}/${e}`);return u(r,t)}function m(o,e,t={}){return s({mutationFn:async r=>c(o,e,r),...t})}export{m as u};
