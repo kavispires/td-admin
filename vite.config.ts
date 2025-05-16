@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 import commonjs from 'vite-plugin-commonjs';
 import svgr from 'vite-plugin-svgr';
 import vitetsConfigPaths from 'vite-tsconfig-paths';
+import checker from 'vite-plugin-checker';
 
 export default defineConfig({
   base: '/td-admin/',
@@ -15,6 +16,12 @@ export default defineConfig({
       include: [
         'src/**/*.svg',
       ],
+    }),
+    checker({
+      typescript: {
+        tsconfigPath: 'tsconfig.json',
+        buildMode: false,
+      },
     }),
   ],
   server: {
