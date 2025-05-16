@@ -109,7 +109,8 @@ export const buildDailyTeoriaDeConjuntosGames = (
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     const isWeekend = checkWeekend(id);
-    const size = isWeekend ? SELECTION_SIZE + 1 : SELECTION_SIZE;
+    // Weekend have 2 more things (one to start and one for an extra mistake)
+    const size = isWeekend ? SELECTION_SIZE + 2 : SELECTION_SIZE;
 
     lastDate = id;
     entries[id] = {
