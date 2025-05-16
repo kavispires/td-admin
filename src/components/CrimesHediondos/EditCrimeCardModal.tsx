@@ -6,17 +6,15 @@ import { EditOutlined } from '@ant-design/icons';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { cloneDeep } from 'lodash';
 import { useToggle } from 'react-use';
-import { CardEditTags } from './CardEditTags';
 import { CrimeItemCard } from './CrimeItemCard';
 
 type EditCrimeCardModalProps = {
-  allTags: CrimesHediondosInnerContentProps['allTags'];
   onUpdateCard: CrimesHediondosInnerContentProps['onUpdateCard'];
   card: CrimesHediondosCard;
   buttonProps?: Omit<ButtonProps, 'onClick'>;
 };
 
-export function EditCrimeCardModal({ allTags, onUpdateCard, card, buttonProps }: EditCrimeCardModalProps) {
+export function EditCrimeCardModal({ onUpdateCard, card, buttonProps }: EditCrimeCardModalProps) {
   const [open, toggleOpen] = useToggle(false);
 
   const editName = (name: string, language: 'pt' | 'en', card: CrimesHediondosCard) => {
@@ -59,8 +57,6 @@ export function EditCrimeCardModal({ allTags, onUpdateCard, card, buttonProps }:
                 onPressEnter={(e: any) => editName(e.target?.value || card.name.pt, 'pt', card)}
               />
             </Space>
-
-            <CardEditTags allTags={allTags} onUpdateCard={onUpdateCard} card={card} />
           </Space>
         )}
       </Modal>

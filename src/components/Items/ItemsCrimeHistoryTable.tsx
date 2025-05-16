@@ -64,7 +64,6 @@ export function ItemsCrimeHistoryTable() {
         en: record.name.en,
         pt: record.name.pt,
       },
-      tags: [],
       itemId: record.id,
     };
 
@@ -187,16 +186,16 @@ export function ItemsCrimeHistoryTable() {
   );
 }
 
-interface Entry {
-  id: string;
-  name: string;
-  clue: string;
-}
-interface CrimeScenario {
-  suspect: Entry;
-  means: Entry;
-  evidence: Entry;
-  location: Entry;
-  // A sentence telling the crime
-  summary: string;
-}
+// interface Entry {
+//   id: string;
+//   name: string;
+//   clue: string;
+// }
+// interface CrimeScenario {
+//   suspect: Entry;
+//   means: Entry;
+//   evidence: Entry;
+//   location: Entry;
+//   // A sentence telling the crime
+//   summary: string;
+// }
