@@ -276,7 +276,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       key: 'actions',
       render: (record) => (
         <Space>
-          <Button.Group>
+          <Space.Compact>
             <Button
               size="small"
               shape="round"
@@ -291,7 +291,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
             >
               Sample
             </Button>
-          </Button.Group>
+          </Space.Compact>
         </Space>
       ),
     },

@@ -1,4 +1,4 @@
-import { Button, Card, Divider, Empty, Flex, Modal, Typography } from 'antd';
+import { Button, Card, Divider, Empty, Flex, Modal, Space, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useItemSampler } from 'hooks/useItemSampler';
@@ -88,12 +88,12 @@ export function ItemSamplerCard() {
                   <Flex vertical gap={6}>
                     <Flex gap={6}>
                       <ItemId item={item} />
-                      <Button.Group>
+                      <Space.Compact>
                         <ItemGoTo item={item} />
                         <Button size="small" shape="round" onClick={() => addQueryParam('drawer', item.id)}>
                           Drawer
                         </Button>
-                      </Button.Group>
+                      </Space.Compact>
                     </Flex>
                     <ItemName item={item} language="en" />
                     <ItemName item={item} language="pt" />

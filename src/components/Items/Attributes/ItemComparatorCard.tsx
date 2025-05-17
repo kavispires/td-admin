@@ -1,4 +1,4 @@
-import { Button, Flex, Table, type TableColumnsType, Typography } from 'antd';
+import { Button, Flex, Space, Table, type TableColumnsType, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { type ItemMessageObject, useItemsComparator } from 'hooks/useItemsComparator';
 import type { Item } from 'types';
@@ -21,12 +21,12 @@ export function ItemComparatorCard() {
       render: (item: Item) => (
         <div>
           <ItemId item={item} />
-          <Button.Group>
+          <Space.Compact>
             <ItemGoTo item={item} />
             <Button size="small" shape="round" onClick={() => addQueryParam('drawer', item.id)}>
               Drawer
             </Button>
-          </Button.Group>
+          </Space.Compact>
         </div>
       ),
       sorter: (a, b) => Number(a.item.id) - Number(b.item.id),

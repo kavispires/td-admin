@@ -1,4 +1,4 @@
-import { Button, Card, Empty, Flex, Pagination, Popconfirm, Select, Typography } from 'antd';
+import { Button, Card, Empty, Flex, Pagination, Popconfirm, Select, Space, Typography } from 'antd';
 import { GoToTopButton } from 'components/Common/GoToTopButton';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemGrouping } from 'hooks/useItemGrouping';
@@ -110,12 +110,12 @@ export function ItemGroupingCard() {
               <Flex vertical gap={6}>
                 <ItemSprite item={item} width={75} />
                 <ItemId item={item} />
-                <Button.Group>
+                <Space.Compact>
                   <ItemGoTo item={item} />
                   <Button size="small" shape="round" onClick={() => addQueryParam('drawer', item.id)}>
                     Drawer
                   </Button>
-                </Button.Group>
+                </Space.Compact>
                 <ItemName item={item} language="en" />
                 <ItemName item={item} language="pt" />
               </Flex>
