@@ -1,5 +1,6 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
+import { useTDResource } from 'hooks/useTDResource';
 import { difference, flatMap, intersection, shuffle, sortBy, uniq } from 'lodash';
 import { useMemo } from 'react';
 import { DAILY_GAMES_KEYS } from '../constants';
@@ -163,4 +164,98 @@ const shuffleLetters = (selectedWords: string[], size: number) => {
   }
 
   return shuffledLetters;
+};
+
+const _usePalavreadoStats = () => {
+  const palavreado100Query = useTDResource<Dictionary<DailyPalavreadoEntry>>('daily-archive-palavreado-100');
+  const palavreado200Query = useTDResource<Dictionary<DailyPalavreadoEntry>>('daily-archive-palavreado-200');
+  const palavreado300Query = useTDResource<Dictionary<DailyPalavreadoEntry>>('daily-archive-palavreado-300');
+  const palavreado400Query = useTDResource<Dictionary<DailyPalavreadoEntry>>('daily-archive-palavreado-400');
+
+  const isSuccess =
+    palavreado100Query.isSuccess &&
+    palavreado200Query.isSuccess &&
+    palavreado300Query.isSuccess &&
+    palavreado400Query.isSuccess;
+
+  const data = useMemo(() => {
+    if (!isSuccess) return {};
+
+    return {
+      ...palavreado100Query.data,
+      ...palavreado200Query.data,
+      ...palavreado300Query.data,
+      ...palavreado400Query.data,
+    };
+  }, [
+    isSuccess,
+    palavreado100Query.data,
+    palavreado200Query.data,
+    palavreado300Query.data,
+    palavreado400Query.data,
+  ]);
+
+  return useMemo(() => {
+    if (!data || Object.keys(data).length === 0) return null;
+
+    // Character frequency analysis
+    const consonants = 'bcçdfghjklmnpqrstvwxyz';
+    const vowels = 'aeiouáéíóúãõâêîôûàèìòùäëïöü';
+
+    const charFrequency: Record<string, number> = {};
+    const wordFrequency: Record<string, number> = {};
+    let totalWords = 0;
+
+    // Process all entries
+    for (const dateKey in data) {
+      const entry = data[dateKey];
+      if (entry && Array.isArray(entry.words)) {
+        totalWords += entry.words.length;
+
+        // Process each word in the entry
+        entry.words.forEach((word: string) => {
+          // Count word frequency
+          wordFrequency[word] = (wordFrequency[word] || 0) + 1;
+
+          // Count character frequency
+          for (const char of word.toLowerCase()) {
+            charFrequency[char] = (charFrequency[char] || 0) + 1;
+          }
+        });
+      }
+    }
+
+    // Get top consonants
+    const topConsonants = Object.entries(charFrequency)
+      .filter(([char]) => consonants.includes(char))
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .map(([char, count]) => ({ char, count }));
+
+    // Get top vowels
+    const topVowels = Object.entries(charFrequency)
+      .filter(([char]) => vowels.includes(char))
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .map(([char, count]) => ({ char, count }));
+
+    // Get top words
+    const topWords = Object.entries(wordFrequency)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 20)
+      .map(([word, count]) => ({ word, count }));
+
+    // Calculate totals
+    const totalEntries = Object.keys(data).length;
+    const totalChars = Object.values(charFrequency).reduce((sum, count) => sum + count, 0);
+
+    return {
+      totalEntries,
+      totalWords,
+      totalChars,
+      topConsonants,
+      topVowels,
+      topWords,
+    };
+  }, [data]);
 };
