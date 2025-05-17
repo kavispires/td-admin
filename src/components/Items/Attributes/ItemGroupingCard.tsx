@@ -35,15 +35,17 @@ export function ItemGroupingCard() {
   }
 
   const paginationComponent = (
-    <Pagination
-      key="pagination"
-      onChange={pagination.onChange}
-      current={pagination.current}
-      total={pagination.total}
-      pageSizeOptions={pagination.pageSizeOptions}
-      pageSize={pagination.pageSize}
-      onShowSizeChange={pagination.onShowSizeChange}
-    />
+    <Flex justify="center">
+      <Pagination
+        key="pagination"
+        onChange={pagination.onChange}
+        current={pagination.current}
+        total={pagination.total}
+        pageSizeOptions={pagination.pageSizeOptions}
+        pageSize={pagination.pageSize}
+        onShowSizeChange={pagination.onShowSizeChange}
+      />
+    </Flex>
   );
 
   const sortingComponent = (
@@ -89,7 +91,11 @@ export function ItemGroupingCard() {
           {paginationComponent}
         </Flex>
       }
-      actions={[unrelateButton, <GoToTopButton key="go-to-top" />, paginationComponent].filter(Boolean)}
+      actions={[
+        unrelateButton,
+        <ItemGroupAttributeNavigationButtons key="navigation-buttons" />,
+        paginationComponent,
+      ].filter(Boolean)}
     >
       {pageIds.length === 0 && (
         <Empty
@@ -133,5 +139,49 @@ export function ItemGroupingCard() {
       })}
       <ItemAttributionDrawer />
     </Card>
+  );
+}
+
+function ItemGroupAttributeNavigationButtons() {
+  const { searchParams, addQueryParam } = useItemQueryParams();
+  const { attributesList } = useItemsAttributeValuesContext();
+  const currentAttribute = searchParams.get('attribute');
+
+  const onPreviousAttribute = () => {
+    const currentIndex = attributesList.findIndex((a) => a.id === currentAttribute);
+    const previousAttribute = attributesList[currentIndex - 1];
+    if (previousAttribute) {
+      addQueryParam('attribute', previousAttribute.id);
+    }
+  };
+
+  const onNextAttribute = () => {
+    const currentIndex = attributesList.findIndex((a) => a.id === currentAttribute);
+    const nextAttribute = attributesList[currentIndex + 1];
+    if (nextAttribute) {
+      addQueryParam('attribute', nextAttribute.id);
+    }
+  };
+
+  return (
+    <Flex gap={6} justify="space-between" className="mx-8">
+      <Button
+        key="previous"
+        onClick={onPreviousAttribute}
+        disabled={currentAttribute === attributesList[0]?.id}
+      >
+        Previous Attribute
+      </Button>
+
+      <GoToTopButton key="go-to-top" />
+
+      <Button
+        key="next"
+        onClick={onNextAttribute}
+        disabled={currentAttribute === attributesList[attributesList.length - 1]?.id}
+      >
+        Next Attribute
+      </Button>
+    </Flex>
   );
 }
