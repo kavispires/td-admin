@@ -1,10 +1,12 @@
 import ReactJsonView from '@microlink/react-json-view';
-import { useQueries } from '@tanstack/react-query';
+import { useMutation, useQueries } from '@tanstack/react-query';
 import { Button, Flex, Input, InputNumber, Select, Space, Tag, Typography } from 'antd';
 import type { DailyEntry } from 'components/Daily/hooks';
+import { deleteDoc, doc } from 'firebase/firestore';
 import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
 import moment from 'moment';
 import { useMemo, useState } from 'react';
+import { firestore } from 'services/firebase';
 import { sortJsonKeys } from 'utils';
 
 export function DailyDataArchive() {
@@ -102,26 +104,29 @@ export function DailyDataArchive() {
           </span>
         </Flex>
 
-        <Select
-          style={{ width: 200 }}
-          placeholder="Filter by game"
-          allowClear
-          onChange={(value) => setSelectedGame(value)}
-          options={[
-            { value: '', label: 'All games' },
-            { value: 'aqui-o', label: 'Aqui Ó' },
-            { value: 'arte-ruim', label: 'Arte Ruim' },
-            { value: 'artista', label: 'Artista' },
-            { value: 'comunicacao-alienigena', label: 'Comunicação Alienígena' },
-            { value: 'controle-de-estoque', label: 'Controle de Estoque' },
-            { value: 'filmaco', label: 'Filmaço' },
-            { value: 'palavreado', label: 'Palavreado' },
-            { value: 'portais-magicos', label: 'Portais Mágicos' },
-            { value: 'quartetos', label: 'Quartetos' },
-            { value: 'ta-na-cara', label: 'Tá na Cara' },
-            { value: 'teoria-de-conjuntos', label: 'Teoria de Conjuntos' },
-          ]}
-        />
+        <Flex gap={12} align="center">
+          <DeleteSecuredDocuments />
+          <Select
+            style={{ width: 200 }}
+            placeholder="Filter by game"
+            allowClear
+            onChange={(value) => setSelectedGame(value)}
+            options={[
+              { value: '', label: 'All games' },
+              { value: 'aqui-o', label: 'Aqui Ó' },
+              { value: 'arte-ruim', label: 'Arte Ruim' },
+              { value: 'artista', label: 'Artista' },
+              { value: 'comunicacao-alienigena', label: 'Comunicação Alienígena' },
+              { value: 'controle-de-estoque', label: 'Controle de Estoque' },
+              { value: 'filmaco', label: 'Filmaço' },
+              { value: 'palavreado', label: 'Palavreado' },
+              { value: 'portais-magicos', label: 'Portais Mágicos' },
+              { value: 'quartetos', label: 'Quartetos' },
+              { value: 'ta-na-cara', label: 'Tá na Cara' },
+              { value: 'teoria-de-conjuntos', label: 'Teoria de Conjuntos' },
+            ]}
+          />
+        </Flex>
       </Flex>
 
       <ReactJsonView src={selectedData} theme="twilight" collapsed={1} />
@@ -185,3 +190,36 @@ const useRangedDailyDataCheck = (startDate: string, range: number, enabled: bool
     results,
   };
 };
+
+function DeleteSecuredDocuments() {
+  const mutation = useMutation({
+    mutationFn: async () => {
+      const startDocId = '2024-01-01';
+      const endDocId = '2024-04-30';
+      try {
+        const startDate = moment(startDocId);
+        const endDate = moment(endDocId);
+
+        for (let i = 0; i <= endDate.diff(startDate, 'days'); i++) {
+          const currentDate = startDate.clone().add(i, 'days').format('YYYY-MM-DD');
+          const docRef = doc(firestore, 'diario', currentDate);
+          await deleteDoc(docRef);
+        }
+      } catch (error) {
+        throw new Error(error as string);
+      }
+    },
+    onError: (error) => {
+      console.error('Error deleting documents:', error);
+    },
+    onSuccess: () => {
+      console.log(' Documents deleted successfully');
+    },
+  });
+
+  return (
+    <Button danger onClick={() => mutation.mutate()} loading={mutation.isPending} disabled>
+      Delete secured documents
+    </Button>
+  );
+}
