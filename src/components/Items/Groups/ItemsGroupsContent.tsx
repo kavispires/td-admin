@@ -1,4 +1,6 @@
 import { Col, Drawer, Flex, Row, Table, type TableProps, Typography } from 'antd';
+import { TransparentButton } from 'components/Common';
+import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
@@ -6,15 +8,12 @@ import { useGridPagination } from 'hooks/useGridPagination';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
+import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
+import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { ItemGroup, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
-
-import { TransparentButton } from 'components/Common';
-import { DualLanguageTextField } from 'components/Common/EditableFields';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { CopyIdsButton } from '../CopyIdsButton';
 import { InspirationSample } from '../InspirationSample';
 import { ItemsTypeahead } from '../ItemsTypeahead';

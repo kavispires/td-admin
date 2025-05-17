@@ -1,20 +1,17 @@
+import { CheckCircleFilled, DeleteFilled, WarningOutlined } from '@ant-design/icons';
 import { Button, Flex, Popconfirm, Rate, Select, Space, Switch, Table, Typography } from 'antd';
+import type { TableProps } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
+import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
+import { cloneDeep, orderBy } from 'lodash';
 import type { DailyQuartetSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
-
-import { CheckCircleFilled, DeleteFilled, WarningOutlined } from '@ant-design/icons';
-
-import { ItemsTypeahead } from '../ItemsTypeahead';
-
-import type { TableProps } from 'antd';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { cloneDeep, orderBy } from 'lodash';
 import { InspirationSample } from '../InspirationSample';
+import { ItemsTypeahead } from '../ItemsTypeahead';
 
 const TYPES = orderBy(['general', 'visual', 'word', 'thematic', 'attribute']).map((t) => ({
   label: t,

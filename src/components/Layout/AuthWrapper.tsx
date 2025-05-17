@@ -1,6 +1,5 @@
-import type { User } from 'firebase/auth';
-
 import { Alert, App, Spin } from 'antd';
+import type { User } from 'firebase/auth';
 import { type ReactNode, useState } from 'react';
 import { useEffectOnce } from 'react-use';
 import { auth } from 'services/firebase';

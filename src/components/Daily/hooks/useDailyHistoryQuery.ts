@@ -1,9 +1,7 @@
+import { type QueryKey, type UseQueryOptions, useQuery } from '@tanstack/react-query';
 import { App } from 'antd';
 import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import { useEffect } from 'react';
-
-import { type QueryKey, type UseQueryOptions, useQuery } from '@tanstack/react-query';
-
 import { printFirebase } from 'services/firebase';
 import type { DailyHistory } from '../utils/types';
 

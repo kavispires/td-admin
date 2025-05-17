@@ -1,8 +1,7 @@
 import { Layout } from 'antd';
 import { ContendersContent } from 'components/Contenders/ContendersContent';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-
 import { ContendersFilters } from 'components/Contenders/ContendersFilters';
+import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';

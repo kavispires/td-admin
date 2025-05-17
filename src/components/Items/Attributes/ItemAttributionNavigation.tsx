@@ -1,6 +1,3 @@
-import { Button, Popover, Select, Space } from 'antd';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-
 import {
   DoubleLeftOutlined,
   DoubleRightOutlined,
@@ -11,7 +8,8 @@ import {
   VerticalLeftOutlined,
   VerticalRightOutlined,
 } from '@ant-design/icons';
-
+import { Button, Popover, Select, Space } from 'antd';
+import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
 import { ItemsTypeahead } from '../ItemsTypeahead';

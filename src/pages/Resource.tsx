@@ -1,14 +1,13 @@
 import { Layout } from 'antd';
 import { ResponseState } from 'components/Common';
+import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
+import { PageSider } from 'components/Layout/PageSider';
 import { ResourceCards } from 'components/Resource/ResourceCards';
 import { ResourceDisplayMode } from 'components/Resource/ResourceDisplayMode';
 import { ResourceJson } from 'components/Resource/ResourceJson';
-import { ResourceTable } from 'components/Resource/ResourceTable';
-
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageSider } from 'components/Layout/PageSider';
 import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionFilters';
+import { ResourceTable } from 'components/Resource/ResourceTable';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceState } from 'hooks/useResourceState';
 import { RESOURCE_NAMES } from 'utils/constants';

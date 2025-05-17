@@ -4,7 +4,6 @@ import { Item } from 'components/Sprites';
 import { orderBy } from 'lodash';
 import { useEffect, useMemo } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule } from 'types';
-
 import {
   SYLLABLE_SEPARATOR,
   separateSyllables,

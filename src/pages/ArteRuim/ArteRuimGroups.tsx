@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import { Input, Layout, List, Typography } from 'antd';
 import { ResponseState } from 'components/Common';
 import { SectionTitle } from 'components/Common/SectionTitle';
@@ -7,9 +8,6 @@ import { useBaseUrl } from 'hooks/useBaseUrl';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
 import type { ArteRuimCard, ArteRuimGroup } from 'types';
-
-import { useQuery } from '@tanstack/react-query';
-
 import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../../components/Resource/ResourceSelectionFilters';
 import { useResourceState } from '../../hooks/useResourceState';

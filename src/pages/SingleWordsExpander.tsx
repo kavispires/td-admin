@@ -6,7 +6,6 @@ import { PageSider } from 'components/Layout/PageSider';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
 import type { TextCard } from 'types';
-
 import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
 import { SearchDuplicates } from '../components/SearchDuplicates';

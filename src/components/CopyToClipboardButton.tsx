@@ -1,6 +1,5 @@
-import { Button, type ButtonProps } from 'antd';
-
 import { CopyOutlined } from '@ant-design/icons';
+import { Button, type ButtonProps } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 
 type CopyToClipboardButtonProps = {

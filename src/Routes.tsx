@@ -1,7 +1,6 @@
+import { LoadingPage } from 'pages/LoadingPage';
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-
-import { LoadingPage } from 'pages/LoadingPage';
 
 const Home = lazy(() => import('pages/Home' /* webpackChunkName: "Home" */));
 const Resource = lazy(() => import('pages/Resource' /* webpackChunkName: "Resource" */));

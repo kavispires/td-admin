@@ -1,6 +1,5 @@
 import { Col, Row, Table, Typography } from 'antd';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-
 import { useMemo } from 'react';
 
 type ResourceCardsProps = {

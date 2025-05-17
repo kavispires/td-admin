@@ -1,7 +1,6 @@
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useMemo, useState } from 'react';
-
 import { orderBy } from 'lodash';
+import { useMemo, useState } from 'react';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { useQueryParams } from './useQueryParams';
 

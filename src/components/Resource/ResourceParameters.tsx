@@ -1,5 +1,4 @@
 import { Button, Form, Input, Select, Switch } from 'antd';
-
 import { SiderContent } from 'components/Layout';
 import { LANGUAGES } from '../../utils/constants';
 

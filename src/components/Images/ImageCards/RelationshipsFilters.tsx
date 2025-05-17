@@ -5,7 +5,6 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { PageSider, SiderContent } from 'components/Layout';
 import { isEmpty } from 'lodash';
 import { CARD_SIZE_OPTIONS, SAMPLE_SIZE_OPTIONS, TAGS_SELECTOR_OPTIONS } from 'utils/constants';
-
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 import { RelationshipsStats } from './RelationshipsStats';
 

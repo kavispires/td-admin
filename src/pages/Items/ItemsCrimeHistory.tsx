@@ -1,10 +1,8 @@
 import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ItemsCrimeHistoryTable } from 'components/Items/ItemsCrimeHistoryTable';
-
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
 import type { Item } from 'types';

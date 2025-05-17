@@ -92,7 +92,7 @@ export function DailyDataCheck() {
         Copy to Clipboard
       </CopyToClipboardButton>
 
-      {data && <ReactJsonView src={rows[0] ?? {}} theme="twilight" />}
+      <ReactJsonView src={rows[0] ?? {}} theme="twilight" />
     </div>
   );
 }

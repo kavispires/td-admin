@@ -1,16 +1,14 @@
 import { Button, Divider, Space, Table } from 'antd';
+import type { TableProps } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
+import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { sample } from 'lodash';
 import { useState } from 'react';
 import type { DailyMovieSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
-
 import { AddItemFlow, MovieEditableCell, MovieItemsCell } from './ItemsMoviesTable';
-
-import type { TableProps } from 'antd';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 export function ItemsMoviesSample({
   data,
   addEntryToUpdate,

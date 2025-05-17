@@ -3,9 +3,8 @@ import { FilterSelect, ResponseState } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { PageSider, SiderContent } from 'components/Layout';
-import { isEmpty } from 'lodash';
-
 import { useQueryParams } from 'hooks/useQueryParams';
+import { isEmpty } from 'lodash';
 import type { UseImageCardsRelationshipDataReturnValue } from './hooks/hooks';
 
 type ComparatorFiltersProps = {

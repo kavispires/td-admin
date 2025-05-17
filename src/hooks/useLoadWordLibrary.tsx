@@ -1,7 +1,6 @@
-import { isEmpty } from 'lodash';
-
 import { useQuery } from '@tanstack/react-query';
 import { useBaseUrl } from 'hooks/useBaseUrl';
+import { isEmpty } from 'lodash';
 
 export function useLoadWordLibrary(
   wordLength: number,

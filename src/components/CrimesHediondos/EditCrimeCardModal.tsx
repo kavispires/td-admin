@@ -1,12 +1,11 @@
-import { Button, type ButtonProps, Modal, Space } from 'antd';
-import type { CrimesHediondosCard } from 'types';
-import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
-
 import { EditOutlined } from '@ant-design/icons';
+import { Button, type ButtonProps, Modal, Space } from 'antd';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { cloneDeep } from 'lodash';
 import { useToggle } from 'react-use';
+import type { CrimesHediondosCard } from 'types';
 import { CrimeItemCard } from './CrimeItemCard';
+import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
 type EditCrimeCardModalProps = {
   onUpdateCard: CrimesHediondosInnerContentProps['onUpdateCard'];

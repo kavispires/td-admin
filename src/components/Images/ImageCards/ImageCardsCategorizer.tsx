@@ -1,12 +1,9 @@
 import './dev-image-cards.scss';
-
+import { CheckCircleFilled } from '@ant-design/icons';
 import { Button, Card, Layout, Select, Space, Switch } from 'antd';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useMemo } from 'react';
 import { useTitle } from 'react-use';
-
-import { CheckCircleFilled } from '@ant-design/icons';
-
 import { ImageCard } from '../ImageCard';
 import { useImageCardsData, useRandomCard } from './hooks/hooks';
 import { buildDictionaries, hasCardAchievedMinimumRequirements } from './utils';

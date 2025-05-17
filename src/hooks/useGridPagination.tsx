@@ -1,6 +1,5 @@
 import type { TableProps } from 'antd';
 import { useMemo } from 'react';
-
 import { usePrevious } from 'react-use';
 import { useQueryParams } from './useQueryParams';
 

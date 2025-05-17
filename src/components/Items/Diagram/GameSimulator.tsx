@@ -3,7 +3,6 @@ import {
   type DailyTeoriaDeConjuntosEntry,
   buildDailyTeoriaDeConjuntosGames,
 } from 'components/Daily/utils/games/daily-teoria-de-conjuntos';
-
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useState } from 'react';
 import { useMeasure } from 'react-use';

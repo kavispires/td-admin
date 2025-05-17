@@ -4,10 +4,9 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
+import { useQueryParams } from 'hooks/useQueryParams';
 import type { ItemAttribute, ItemAttributesValues } from 'types';
 import { deepCleanObject, sortJsonKeys } from 'utils';
-
-import { useQueryParams } from 'hooks/useQueryParams';
 import { calculateItemReliability, calculateItemScore, constructItemSignature } from '../utils';
 import {
   ItemAttributionClassifierFilters,

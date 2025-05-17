@@ -2,7 +2,6 @@ import { Layout } from 'antd';
 import { ConnectionsContent } from 'components/Images/ImageCards/ConnectionsContent';
 import { ConnectionsFilters } from 'components/Images/ImageCards/ConnectionsFilters';
 import { ImagesRelationshipsProvider } from 'components/Images/ImageCards/ImagesRelationshipsContext';
-
 import { PageLayout } from 'components/Layout';
 
 function ImageCardsConnections() {

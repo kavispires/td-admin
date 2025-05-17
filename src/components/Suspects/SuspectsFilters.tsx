@@ -5,7 +5,6 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-
 import type { SuspectCard } from 'types';
 import { sortJsonKeys } from 'utils';
 import { SuspectsStats } from './SuspectsStats';

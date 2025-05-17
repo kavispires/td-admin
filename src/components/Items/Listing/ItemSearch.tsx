@@ -1,10 +1,9 @@
-import { Button, Flex, Space, Typography } from 'antd';
-import { Fragment, useState } from 'react';
-import type { Item as ItemT } from 'types';
-
 import { CloseCircleOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import { Button, Flex, Space, Typography } from 'antd';
 import { useItemsContext } from 'context/ItemsContext';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { Fragment, useState } from 'react';
+import type { Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { ItemCard } from './ItemCard';

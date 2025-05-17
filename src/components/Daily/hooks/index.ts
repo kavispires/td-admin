@@ -1,9 +1,7 @@
+import { type QueryKey, useMutation } from '@tanstack/react-query';
 import { App } from 'antd';
 import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from 'services/firebase';
-
-import { type QueryKey, useMutation } from '@tanstack/react-query';
-
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import type { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';

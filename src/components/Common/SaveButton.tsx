@@ -1,9 +1,8 @@
+import { SaveOutlined } from '@ant-design/icons';
 import { Button, type ButtonProps } from 'antd';
 import moment from 'moment';
 import { useEffect } from 'react';
 import { useTimeoutFn } from 'react-use';
-
-import { SaveOutlined } from '@ant-design/icons';
 import { togglePendingSave } from 'store/globalSave';
 
 type SaveButtonProps = {

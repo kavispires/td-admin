@@ -1,9 +1,7 @@
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-
 import { Space, Typography } from 'antd';
-import type { DailyQuartetSet } from 'types';
-
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
+import type { DailyQuartetSet } from 'types';
 import { ItemsQuartetTypeahead } from './ItemsQuartetTypeahead';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 

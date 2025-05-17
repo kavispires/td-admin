@@ -1,11 +1,10 @@
 import { Button, Flex, Rate, Space, Typography } from 'antd';
+import { Item } from 'components/Sprites';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
+import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, intersection, orderBy, sample, sampleSize } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { DailyQuartetSet, Item as ItemType } from 'types';
-
-import { Item } from 'components/Sprites';
-import { useTDResource } from 'hooks/useTDResource';
 
 export function ItemsQuartetsSimulator({ data }: UseResourceFirestoreDataReturnType<DailyQuartetSet>) {
   const [simulation, setSimulation] = useState(simulateQuartetGame(data));

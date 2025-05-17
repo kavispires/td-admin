@@ -1,11 +1,8 @@
 import { Col, Input, Row, Typography } from 'antd';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-
 import { useMemo } from 'react';
-
-import { SearchDuplicates } from '../SearchDuplicates';
-
 import { SEARCH_PROPERTY } from '../../utils/constants';
+import { SearchDuplicates } from '../SearchDuplicates';
 
 type ResourceJsonProps = {
   response: any;

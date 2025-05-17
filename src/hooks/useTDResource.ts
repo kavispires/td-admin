@@ -1,7 +1,5 @@
-import { isEmpty } from 'lodash';
-
 import { useQuery } from '@tanstack/react-query';
-
+import { isEmpty } from 'lodash';
 import { useBaseUrl } from './useBaseUrl';
 
 export function useTDResource<TData>(resourceName: string, enabled = true) {

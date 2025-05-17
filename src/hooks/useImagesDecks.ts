@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-
 import { useBaseUrl } from './useBaseUrl';
 
 export function useImagesDecks() {

@@ -1,6 +1,5 @@
 import { Layout } from 'antd';
 import { ImagesRelationshipsProvider } from 'components/Images/ImageCards/ImagesRelationshipsContext';
-
 import { PageLayout } from 'components/Layout';
 
 function ImageCardsRelationships() {

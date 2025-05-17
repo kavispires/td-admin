@@ -1,11 +1,9 @@
+import { RightCircleFilled } from '@ant-design/icons';
 import { Flex, Image, Space, Table, Tag } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { memoize, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import { useMeasure } from 'react-use';
-
-import { RightCircleFilled } from '@ant-design/icons';
-
 import { ImageCard } from '../ImageCard';
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 import type { UseImageCardsRelationshipDataReturnValue } from './hooks/hooks';

@@ -1,10 +1,9 @@
 import { Divider, Rate, Space, Switch, Table, type TableColumnsType, Tag, Typography } from 'antd';
+import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
+import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
-
-import { useQueryParams } from 'hooks/useQueryParams';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { AddNewThingFlow } from './AddNewThingFlow';
 import { ThingButton } from './Thing';
 
