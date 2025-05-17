@@ -55,7 +55,7 @@ const ItemsQuartets = lazy(() => import('pages/Items/ItemsQuartets' /* webpackCh
 const ItemsCrimeHistory = lazy(
   () => import('pages/Items/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
 );
-const DailySetup = lazy(() => import('pages/DailySetup' /* webpackChunkName: "DailySetup" */));
+const DailyPage = lazy(() => import('pages/DailyPage' /* webpackChunkName: "DailyPage" */));
 const CrimesHediondos = lazy(() => import('pages/CrimesHediondos' /* webpackChunkName: "CrimesHediondos" */));
 const MovieMaker = lazy(() => import('pages/MovieMaker' /* webpackChunkName: "MovieMaker" */));
 const FofocaQuente = lazy(() => import('pages/FofocaQuente' /* webpackChunkName: "FofocaQuente" */));
@@ -140,10 +140,10 @@ export const routes = (
       }
     />
     <Route
-      path="/game/daily-setup"
+      path="/game/daily"
       element={
         <Suspense fallback={<LoadingPage />}>
-          <DailySetup />
+          <DailyPage />
         </Suspense>
       }
     />

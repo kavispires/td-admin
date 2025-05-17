@@ -75,8 +75,6 @@ export const DUAL_LANGUAGE_RESOURCES = [
 
 export const LANGUAGES: Language[] = ['pt', 'en'];
 
-export const DEFAULT_LANGUAGE: Language = 'pt';
-
 export const SEARCH_PROPERTY: Record<string, string> = {
   adjectives: 'text',
   'arte-ruim-cards': 'text',
