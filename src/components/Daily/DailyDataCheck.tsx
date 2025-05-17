@@ -3,6 +3,7 @@ import { Button, Flex, Input, Space, Table, Tag, Typography } from 'antd';
 import { useGetFirebaseDoc } from 'hooks/useGetFirebaseDoc';
 import moment from 'moment';
 import { useEffect, useMemo, useState } from 'react';
+import { sortJsonKeys } from 'utils';
 import { dailyColumns } from './DailyColumns';
 import type { DailyEntry } from './hooks';
 import { getToday } from './utils/utils';
@@ -40,7 +41,7 @@ export function DailyDataCheck() {
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (!isLoading && data) {
-      console.log(data);
+      console.log(sortJsonKeys(data));
     }
   }, [data]);
 

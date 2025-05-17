@@ -1,4 +1,5 @@
 import { useQueryParams } from 'hooks/useQueryParams';
+import { DailyDataArchive } from './DailyDataArchive';
 import { DailyDataCheck } from './DailyDataCheck';
 import { DailyDataPopulation } from './DailyDataPopulation';
 
@@ -6,7 +7,7 @@ export function DailyContent() {
   const { queryParams } = useQueryParams();
 
   if (queryParams.get('display') === 'archive') {
-    return <div>{/* Population content goes here */}</div>;
+    return <DailyDataArchive />;
   }
 
   if (queryParams.get('display') === 'check') {

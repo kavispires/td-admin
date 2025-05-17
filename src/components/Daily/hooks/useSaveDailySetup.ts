@@ -5,9 +5,16 @@ import { useState } from 'react';
 import { firestore } from 'services/firebase';
 import { removeDuplicates } from 'utils';
 import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
-import { gatherUsedQuartetosEntries } from '../utils/games/daily-quartetos';
+import type { DailyAquiOEntry } from '../utils/games/daily-aqui-o';
+import type { DailyArteRuimEntry } from '../utils/games/daily-arte-ruim';
+import type { DailyComunicacaoAlienigenaEntry } from '../utils/games/daily-comunicacao-alienigena';
+import type { DailyFilmacoEntry } from '../utils/games/daily-filmaco';
+import type { DailyPalavreadoEntry } from '../utils/games/daily-palavreado';
+import type { DailyPortaisMagicosEntry } from '../utils/games/daily-portais-magicos';
+import type { DailyQuartetosEntry } from '../utils/games/daily-quartetos';
 import { gatherUsedTaNaCaraEntries } from '../utils/games/daily-ta-na-cara';
-import type { DailyHistory } from '../utils/types';
+import type { DailyTeoriaDeConjuntosEntry } from '../utils/games/daily-teoria-de-conjuntos';
+import type { DailyHistory, DailyHistoryEntry } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
 /**
@@ -33,7 +40,7 @@ export function useSaveDailySetup(queryLanguage: Language) {
         return setDoc(docRef, entry);
       });
 
-      const docRec = doc(firestore, `${source}/history`);
+      const historyDocRec = doc(firestore, `${source}/history`);
       const previousHistory = historyQuery.data;
 
       if (!previousHistory) {
@@ -42,113 +49,82 @@ export function useSaveDailySetup(queryLanguage: Language) {
 
       const newHistory: DailyHistory = {
         ...previousHistory,
-        [DAILY_GAMES_KEYS.ARTE_RUIM]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.ARTE_RUIM].number,
-          used: JSON.stringify(
-            removeDuplicates([
-              ...JSON.parse(previousHistory[DAILY_GAMES_KEYS.ARTE_RUIM].used),
-              ...data.map((e) => e[DAILY_GAMES_KEYS.ARTE_RUIM].cardId),
-            ]),
-          ),
-        },
-        [DAILY_GAMES_KEYS.AQUI_O]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.AQUI_O].number,
-          used: JSON.stringify(
-            removeDuplicates([
-              ...JSON.parse(previousHistory[DAILY_GAMES_KEYS.AQUI_O].used ?? '[]'),
-              ...data.map((e) => e[DAILY_GAMES_KEYS.AQUI_O].setId),
-            ]),
-          ),
-        },
-        [DAILY_GAMES_KEYS.PALAVREADO]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.PALAVREADO].number,
-          used: JSON.stringify(
-            removeDuplicates([
-              ...JSON.parse(previousHistory.palavreado.used),
-              ...data.map((e) => e[DAILY_GAMES_KEYS.PALAVREADO].keyword),
-            ]),
-          ),
-        },
-        [DAILY_GAMES_KEYS.ARTISTA]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.ARTISTA].number,
-          used: '[]',
-        },
-        [DAILY_GAMES_KEYS.FILMACO]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.FILMACO].number,
-          used: JSON.stringify(
-            removeDuplicates([
-              ...JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.FILMACO]?.used ?? '[]'),
-              ...data.map((e) => e[DAILY_GAMES_KEYS.FILMACO].setId),
-            ]),
-          ),
-        },
-        [DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE].number,
-          used: '[]',
-        },
-        [DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS].number,
-          used: JSON.stringify(
-            removeDuplicates([
-              ...JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS]?.used ?? '[]'),
-              ...data.map((e) => e[DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS].setId),
-              ...data.map((e) => e[DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS].intersectingThing.id),
-            ]),
-          ),
-        },
-        [DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA].number,
-          used: JSON.stringify(
-            removeDuplicates([
-              ...JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA]?.used ?? '[]'),
-              ...data.map((e) => e[DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA].setId),
-            ]),
-          ),
-        },
-        [DAILY_GAMES_KEYS.QUARTETOS]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.QUARTETOS].number,
-          used: JSON.stringify(
-            gatherUsedQuartetosEntries(
-              JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.QUARTETOS]?.used ?? '[]'),
-              data.map((e) => e[DAILY_GAMES_KEYS.QUARTETOS]),
-            ),
-          ),
-        },
-        [DAILY_GAMES_KEYS.TA_NA_CARA]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.TA_NA_CARA].number,
-          used: JSON.stringify(
-            gatherUsedTaNaCaraEntries(
-              JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.TA_NA_CARA]?.used ?? '[]'),
-              data.map((e) => e[DAILY_GAMES_KEYS.TA_NA_CARA]),
-            ),
-          ),
-        },
-        [DAILY_GAMES_KEYS.PORTAIS_MAGICOS]: {
-          latestDate: data[data.length - 1].id,
-          latestNumber: data[data.length - 1][DAILY_GAMES_KEYS.PORTAIS_MAGICOS].number,
-          used: JSON.stringify(
-            removeDuplicates(
-              [
-                ...JSON.parse(previousHistory?.[DAILY_GAMES_KEYS.PORTAIS_MAGICOS]?.used ?? '[]'),
-                ...data.map((e) =>
-                  e[DAILY_GAMES_KEYS.PORTAIS_MAGICOS].corridors.map((c: PlainObject) => c.passcode),
-                ),
-              ].flat(),
-            ),
-          ),
-        },
+
+        [DAILY_GAMES_KEYS.AQUI_O]: updateHistory(
+          DAILY_GAMES_KEYS.AQUI_O,
+          previousHistory,
+          data,
+          (e: DailyAquiOEntry) => e.setId,
+        ),
+
+        [DAILY_GAMES_KEYS.ARTE_RUIM]: updateHistory(
+          DAILY_GAMES_KEYS.ARTE_RUIM,
+          previousHistory,
+          data,
+          (e: DailyArteRuimEntry) => e.cardId,
+        ),
+
+        [DAILY_GAMES_KEYS.ARTISTA]: updateHistory(DAILY_GAMES_KEYS.ARTISTA, previousHistory, data, null),
+
+        [DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA]: updateHistory(
+          DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA,
+          previousHistory,
+          data,
+          (e: DailyComunicacaoAlienigenaEntry) => e.setId,
+        ),
+
+        [DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE]: updateHistory(
+          DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE,
+          previousHistory,
+          data,
+          null,
+        ),
+
+        [DAILY_GAMES_KEYS.FILMACO]: updateHistory(
+          DAILY_GAMES_KEYS.FILMACO,
+          previousHistory,
+          data,
+          (e: DailyFilmacoEntry) => e.setId,
+        ),
+
+        [DAILY_GAMES_KEYS.PALAVREADO]: updateHistory(
+          DAILY_GAMES_KEYS.PALAVREADO,
+          previousHistory,
+          data,
+          (e: DailyPalavreadoEntry) => e.keyword,
+        ),
+
+        [DAILY_GAMES_KEYS.PORTAIS_MAGICOS]: updateHistory(
+          DAILY_GAMES_KEYS.PORTAIS_MAGICOS,
+          previousHistory,
+          data,
+          (e: DailyPortaisMagicosEntry) => e.corridors.map((c) => c.passcode),
+        ),
+
+        [DAILY_GAMES_KEYS.TA_NA_CARA]: updateHistory(
+          DAILY_GAMES_KEYS.TA_NA_CARA,
+          previousHistory,
+          data,
+          null,
+          gatherUsedTaNaCaraEntries,
+        ),
+
+        [DAILY_GAMES_KEYS.QUARTETOS]: updateHistory(
+          DAILY_GAMES_KEYS.QUARTETOS,
+          previousHistory,
+          data,
+          (e: DailyQuartetosEntry) => e.sets.map((set) => set.id),
+        ),
+
+        [DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS]: updateHistory(
+          DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS,
+          previousHistory,
+          data,
+          (e: DailyTeoriaDeConjuntosEntry) => [e.intersectingThing.id, e.setId],
+        ),
       };
-      setDoc(docRec, newHistory);
+
+      setDoc(historyDocRec, newHistory);
 
       return Promise.all(saves);
     },
@@ -179,3 +155,52 @@ export function useSaveDailySetup(queryLanguage: Language) {
     isPending: mutation.isPending,
   };
 }
+
+/**
+ * Updates the daily history entry for a specific key with new data.
+ * @param key - The key in the history object to update.
+ * @param previousHistory - The previous daily history object.
+ * @param data - An array of new data entries to process.
+ * @param parser - A function to parse each data entry, or `null` if no parsing is needed.
+ * @param replacingParser - (Optional) A function to replace the used history with a new array based on previous and current data.
+ * @returns The updated daily history entry for the specified key.
+ */
+const updateHistory = (
+  key: string,
+  previousHistory: DailyHistory,
+  data: any[],
+  parser: ((args: any) => any) | null,
+  // key: keyof typeof DAILY_GAMES_KEYS,
+  replacingParser?: (previousHistory: string[], currentData: any[]) => string[],
+): DailyHistoryEntry => {
+  const previouslyUsed: string[] = JSON.parse(previousHistory[key]?.used ?? '[]');
+
+  if (replacingParser) {
+    return {
+      latestDate: data[data.length - 1].id,
+      latestNumber: data[data.length - 1][key].number,
+      used: JSON.stringify(
+        replacingParser(
+          previouslyUsed,
+          data.map((e) => e[key]),
+        ),
+      ),
+    };
+  }
+
+  if (parser === null) {
+    return {
+      latestDate: data[data.length - 1].id,
+      latestNumber: data[data.length - 1][key].number,
+      used: '[]',
+    };
+  }
+
+  return {
+    latestDate: data[data.length - 1].id,
+    latestNumber: data[data.length - 1][key].number,
+    used: JSON.stringify(
+      removeDuplicates([...previouslyUsed, ...data.map((e) => e[key]).map(parser)]).flat(),
+    ),
+  };
+};

@@ -3,7 +3,6 @@ import { useTDResource } from 'hooks/useTDResource';
 import { capitalize, cloneDeep, orderBy, sample, sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
 import type { DailyQuartetSet, ItemGroup } from 'types';
-import { removeDuplicates } from 'utils';
 import { SEPARATOR } from 'utils/constants';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
@@ -160,11 +159,4 @@ export const buildDailyQuartetosGames = (
   });
 
   return entries;
-};
-
-export const gatherUsedQuartetosEntries = (previousHistory: string[], currentData: DailyQuartetosEntry[]) => {
-  return removeDuplicates([
-    ...previousHistory,
-    ...currentData.flatMap((entry) => entry.sets.map((set) => set.id)),
-  ]);
 };

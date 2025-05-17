@@ -131,6 +131,12 @@ const getTaNaCaraUsedDictionary = (previousHistory: string[]) => {
     if (entryId.startsWith('us')) {
       const suspectId = entryId.split('-');
       const suspectKey = `${suspectId[0]}-${suspectId[2]}`;
+
+      // TODO: REMOVE
+      if (suspectKey.includes('undefined')) {
+        return acc;
+      }
+
       acc[suspectKey] = count || 0;
       return acc;
     }
@@ -151,10 +157,12 @@ export const gatherUsedTaNaCaraEntries = (previousHistory: string[], currentData
       dict[testimony.testimonyId] += 1;
     });
     entry.suspectsIds?.forEach((suspectId) => {
-      if (dict[suspectId] === undefined) {
-        dict[suspectId] = 0;
+      const suspectIdSplit = suspectId.split('-');
+      const suspectKey = `${suspectIdSplit[0]}-${suspectIdSplit[2]}`;
+      if (dict[suspectKey] === undefined) {
+        dict[suspectKey] = 0;
       }
-      dict[suspectId] += 1;
+      dict[suspectKey] += 1;
     });
   });
 
