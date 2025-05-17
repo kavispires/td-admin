@@ -1,5 +1,7 @@
 import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
-import { Button, Flex, Input, Space, Table, Tag, Typography } from 'antd';
+import ReactJsonView from '@microlink/react-json-view';
+import { Button, Divider, Flex, Input, Space, Table, Tag, Typography } from 'antd';
+import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useGetFirebaseDoc } from 'hooks/useGetFirebaseDoc';
 import moment from 'moment';
 import { useEffect, useMemo, useState } from 'react';
@@ -16,7 +18,7 @@ export function DailyDataCheck() {
   });
 
   const rows = useMemo(() => {
-    return data ? [data] : [];
+    return data ? [sortJsonKeys(data, ['number'])] : [];
   }, [data]);
 
   const onUpdateDate = (value: string) => {
@@ -80,6 +82,17 @@ export function DailyDataCheck() {
         </Flex>
       </Flex>
       <Table loading={isLoading} columns={dailyColumns} dataSource={rows} scroll={{ x: 'max-content' }} />
+      <Divider />
+      <CopyToClipboardButton
+        content={JSON.stringify(rows[0], null, 2)}
+        shape="default"
+        className="mb-4"
+        disabled={!data}
+      >
+        Copy to Clipboard
+      </CopyToClipboardButton>
+
+      {data && <ReactJsonView src={rows[0] ?? {}} theme="twilight" />}
     </div>
   );
 }
