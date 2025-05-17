@@ -1,7 +1,7 @@
 import { Button, Card, Divider, Empty, Flex, Modal, Space, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useItemSampler } from 'hooks/useItemSampler';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty } from 'lodash';
 import { Fragment } from 'react';
 import { useToggle } from 'react-use';
@@ -13,7 +13,7 @@ import { ItemAttributionDrawer } from './ItemAttributionDrawer';
 export function ItemSamplerCard() {
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
   const { sampleIds, attribute, onGetSample, updateAttributeValue, itemsLeftForAttribute } = useItemSampler();
-  const { addQueryParam } = useItemQueryParams();
+  const { addParam } = useQueryParams();
 
   if (isEmpty(sampleIds) && isEmpty(attribute)) {
     return (
@@ -90,7 +90,7 @@ export function ItemSamplerCard() {
                       <ItemId item={item} />
                       <Space.Compact>
                         <ItemGoTo item={item} />
-                        <Button size="small" shape="round" onClick={() => addQueryParam('drawer', item.id)}>
+                        <Button size="small" shape="round" onClick={() => addParam('drawer', item.id)}>
                           Drawer
                         </Button>
                       </Space.Compact>
@@ -121,18 +121,18 @@ export function ItemSamplerCard() {
 
 export function SingleSampleModalFlow() {
   const [open, toggleOpen] = useToggle(false);
-  const { addQueryParam, removeQueryParam } = useItemQueryParams();
+  const { addParam, removeParam } = useQueryParams();
   const { sampleIds, attribute, onGetSample, updateAttributeValue } = useItemSampler();
   const { getItem, getItemAttributeValues } = useItemsAttributeValuesContext();
 
   const handleOpenSingleSampler = () => {
-    addQueryParam('size', '1');
+    addParam('size', '1');
     toggleOpen(true);
     onGetSample();
   };
 
   const onClose = () => {
-    removeQueryParam('size');
+    removeParam('size');
     toggleOpen(false);
   };
 

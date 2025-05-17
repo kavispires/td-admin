@@ -1,7 +1,7 @@
 import { App } from 'antd';
 import { getNewItem, getNewItemAttributeValues } from 'components/Items/utils';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { useItemsAttribution } from 'hooks/useItemsAttribution';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty, orderBy, random } from 'lodash';
 import { type ReactNode, createContext, useContext, useMemo, useState } from 'react';
 import type { Item, ItemAttribute, ItemAttributesValues } from 'types';
@@ -77,8 +77,8 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
 
   const attributesList = useMemo(() => orderBy(Object.values(attributes), 'name.en', 'asc'), [attributes]);
 
-  const { searchParams } = useItemQueryParams();
-  const sortBy = searchParams.get('sortBy');
+  const { queryParams } = useQueryParams();
+  const sortBy = queryParams.get('sortBy');
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const sortedAvailableItemsIds = useMemo(() => {

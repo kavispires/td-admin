@@ -4,10 +4,10 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import type { ItemAttribute, ItemAttributesValues } from 'types';
 import { deepCleanObject, sortJsonKeys } from 'utils';
 
+import { useQueryParams } from 'hooks/useQueryParams';
 import { calculateItemReliability, calculateItemScore, constructItemSignature } from '../utils';
 import {
   ItemAttributionClassifierFilters,
@@ -29,7 +29,8 @@ export function ItemAttributionFilters() {
     hasFirestoreData,
   } = useItemsAttributeValuesContext();
 
-  const { view, setView } = useItemQueryParams();
+  const { queryParams, addParam } = useQueryParams();
+  const display = queryParams.get('display') ?? 'classifier';
 
   return (
     <SiderContent>
@@ -54,18 +55,18 @@ export function ItemAttributionFilters() {
       <ItemAttributionStats />
 
       <FilterSelect
-        label="View"
-        value={view}
-        onChange={setView}
+        label="Display"
+        value={display}
+        onChange={(v) => addParam('display', v)}
         options={['classifier', 'sampler', 'grouping', 'comparator', 'simulator', 'stats']}
       />
       <Divider />
 
-      {view === 'classifier' && <ItemAttributionClassifierFilters />}
-      {view === 'sampler' && <ItemAttributionSamplerFilters />}
-      {view === 'grouping' && <ItemAttributionGroupingFilters />}
-      {view === 'comparator' && <ItemAttributionComparatorFilters />}
-      {view === 'stats' && <ItemAttributionStatsFilters />}
+      {display === 'classifier' && <ItemAttributionClassifierFilters />}
+      {display === 'sampler' && <ItemAttributionSamplerFilters />}
+      {display === 'grouping' && <ItemAttributionGroupingFilters />}
+      {display === 'comparator' && <ItemAttributionComparatorFilters />}
+      {display === 'stats' && <ItemAttributionStatsFilters />}
     </SiderContent>
   );
 }
@@ -78,6 +79,8 @@ function prepareFileForDownload(
 
   Object.keys(itemsAttributes).forEach((key) => {
     const itemAttributeValues = itemsAttributes[key];
+
+    // USE THIS TO ADD/REMOVE ATTRIBUTES
 
     // // TODO: Tempo Rename hol to gra (grab)
     // const originalHolValue = itemAttributeValues.attributes['hol'];

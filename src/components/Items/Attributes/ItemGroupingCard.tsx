@@ -2,10 +2,10 @@ import { Button, Card, Empty, Flex, Pagination, Popconfirm, Select, Space, Typog
 import { GoToTopButton } from 'components/Common/GoToTopButton';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useItemGrouping } from 'hooks/useItemGrouping';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
 import { isEmpty } from 'lodash';
 import { useMedia } from 'react-use';
 
+import { useQueryParams } from 'hooks/useQueryParams';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
 import { ItemAttributionDrawer } from './ItemAttributionDrawer';
@@ -20,10 +20,9 @@ const getStatSentence = (stats: Record<string, number>, scope: string | null) =>
 
 export function ItemGroupingCard() {
   const { getItem, getItemAttributeValues, attributesList } = useItemsAttributeValuesContext();
-
   const { attribute, pageIds, updateAttributeValue, updatePageItemsAsUnrelated, pagination, stats, sorting } =
     useItemGrouping();
-  const { searchParams, addQueryParam } = useItemQueryParams();
+  const { queryParams, addParam } = useQueryParams();
   const isNarrow = useMedia('(max-width: 1024px)');
 
   if (isEmpty(attribute)) {
@@ -63,7 +62,7 @@ export function ItemGroupingCard() {
     </Flex>
   );
 
-  const isUnsetSet = searchParams.get('scope') === 'unset' || !searchParams.get('scope');
+  const isUnsetSet = queryParams.get('scope') === 'unset' || !queryParams.get('scope');
   const unrelateButton = isUnsetSet && (
     <Popconfirm
       key="unrelate-button"
@@ -80,7 +79,7 @@ export function ItemGroupingCard() {
       className="my-4"
       title={
         <Typography.Text>
-          {attribute?.name.en} ({getStatSentence(stats, searchParams.get('scope'))}) -{' '}
+          {attribute?.name.en} ({getStatSentence(stats, queryParams.get('scope'))}) -{' '}
           {attribute.description.en}
         </Typography.Text>
       }
@@ -118,7 +117,7 @@ export function ItemGroupingCard() {
                 <ItemId item={item} />
                 <Space.Compact>
                   <ItemGoTo item={item} />
-                  <Button size="small" shape="round" onClick={() => addQueryParam('drawer', item.id)}>
+                  <Button size="small" shape="round" onClick={() => addParam('drawer', item.id)}>
                     Drawer
                   </Button>
                 </Space.Compact>
@@ -143,15 +142,15 @@ export function ItemGroupingCard() {
 }
 
 function ItemGroupAttributeNavigationButtons() {
-  const { searchParams, addQueryParam } = useItemQueryParams();
+  const { queryParams, addParam } = useQueryParams();
   const { attributesList } = useItemsAttributeValuesContext();
-  const currentAttribute = searchParams.get('attribute');
+  const currentAttribute = queryParams.get('attribute');
 
   const onPreviousAttribute = () => {
     const currentIndex = attributesList.findIndex((a) => a.id === currentAttribute);
     const previousAttribute = attributesList[currentIndex - 1];
     if (previousAttribute) {
-      addQueryParam('attribute', previousAttribute.id);
+      addParam('attribute', previousAttribute.id);
     }
   };
 
@@ -159,7 +158,7 @@ function ItemGroupAttributeNavigationButtons() {
     const currentIndex = attributesList.findIndex((a) => a.id === currentAttribute);
     const nextAttribute = attributesList[currentIndex + 1];
     if (nextAttribute) {
-      addQueryParam('attribute', nextAttribute.id);
+      addParam('attribute', nextAttribute.id);
     }
   };
 

@@ -2,7 +2,7 @@ import { Button, Divider, Flex, Typography } from 'antd';
 import { FilterNumber, FilterSelect, FilterSwitch } from 'components/Common';
 import { Stat } from 'components/Common/Stat';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty } from 'lodash';
 import { useMemo } from 'react';
 import { ATTRIBUTE_GROUP_VALUES } from 'utils/constants';
@@ -77,7 +77,7 @@ export function ItemAttributionStats() {
 
 export function ItemAttributionClassifierFilters() {
   const { jumpToItem } = useItemsAttributeValuesContext();
-  const { searchParams, addQueryParam } = useItemQueryParams();
+  const { addParam, is } = useQueryParams();
 
   return (
     <>
@@ -86,8 +86,8 @@ export function ItemAttributionClassifierFilters() {
       </Button>
       <FilterSwitch
         label="Unset Only"
-        value={searchParams.get('scope') === 'unset'}
-        onChange={(value) => addQueryParam('scope', value ? 'unset' : '')}
+        value={is('scope', 'unset')}
+        onChange={(value) => addParam('scope', value ? 'unset' : '')}
         className="mt-4"
       />
     </>
@@ -95,7 +95,7 @@ export function ItemAttributionClassifierFilters() {
 }
 
 export function ItemAttributionSamplerFilters() {
-  const { searchParams, addQueryParam } = useItemQueryParams();
+  const { queryParams, addParam } = useQueryParams();
   const { attributesList } = useItemsAttributeValuesContext();
 
   const options = useMemo(() => {
@@ -109,14 +109,14 @@ export function ItemAttributionSamplerFilters() {
     <>
       <FilterSelect
         label="Sampler Attribute"
-        value={searchParams.get('attribute') || 'random'}
-        onChange={(v) => addQueryParam('attribute', v)}
+        value={queryParams.get('attribute') || 'random'}
+        onChange={(v) => addParam('attribute', v)}
         options={options}
       />
       <FilterNumber
         label="Sample Size"
-        value={Number(searchParams.get('size') || 9)}
-        onChange={(v) => addQueryParam('size', String(v))}
+        value={Number(queryParams.get('size') || 9)}
+        onChange={(v) => addParam('size', String(v))}
         min={3}
         max={21}
         step={3}
@@ -126,7 +126,7 @@ export function ItemAttributionSamplerFilters() {
 }
 
 export function ItemAttributionGroupingFilters() {
-  const { searchParams, addQueryParam } = useItemQueryParams();
+  const { queryParams, addParam } = useQueryParams();
   const { attributesList } = useItemsAttributeValuesContext();
 
   const options = useMemo(() => {
@@ -140,22 +140,22 @@ export function ItemAttributionGroupingFilters() {
     <>
       <FilterSelect
         label="Attribute"
-        value={searchParams.get('attribute') || 'ali'}
-        onChange={(v) => addQueryParam('attribute', v)}
+        value={queryParams.get('attribute') || 'ali'}
+        onChange={(v) => addParam('attribute', v)}
         options={options}
       />
 
       <FilterSelect
         label="Scope"
-        value={searchParams.get('scope') || 'unset'}
-        onChange={(v) => addQueryParam('scope', v)}
+        value={queryParams.get('scope') || 'unset'}
+        onChange={(v) => addParam('scope', v)}
         options={[{ value: 'unset', label: 'Unset' }, ...ATTRIBUTE_GROUP_VALUES]}
       />
 
       <FilterSelect
         label="Results per page"
-        value={searchParams.get('pageSize') || 12}
-        onChange={(v) => addQueryParam('pageSize', v)}
+        value={queryParams.get('pageSize') || 12}
+        onChange={(v) => addParam('pageSize', v)}
         options={[12, 24, 48, 96]}
       />
     </>
@@ -163,25 +163,25 @@ export function ItemAttributionGroupingFilters() {
 }
 
 export function ItemAttributionComparatorFilters() {
-  const { searchParams, addQueryParam } = useItemQueryParams();
+  const { addParam, is } = useQueryParams();
   return (
     <>
       <FilterSwitch
         label="Only Complete"
-        value={searchParams.get('showComplete') === 'true'}
-        onChange={(v) => addQueryParam('showComplete', v ? 'true' : '')}
+        value={is('showComplete')}
+        onChange={(v) => addParam('showComplete', v ? 'true' : '')}
         className="full-width m-0"
       />
       <FilterSwitch
         label="Show Unrelated"
-        value={searchParams.get('showUnrelated') === 'true'}
-        onChange={(v) => addQueryParam('showUnrelated', v ? 'true' : '')}
+        value={is('showUnrelated')}
+        onChange={(v) => addParam('showUnrelated', v ? 'true' : '')}
         className="full-width m-0"
       />
       <FilterSwitch
         label="Show Unclear"
-        value={searchParams.get('showUnclear') === 'true'}
-        onChange={(v) => addQueryParam('showUnclear', v ? 'true' : '')}
+        value={is('showUnclear')}
+        onChange={(v) => addParam('showUnclear', v ? 'true' : '')}
         className="full-width m-0"
       />
     </>
@@ -189,13 +189,13 @@ export function ItemAttributionComparatorFilters() {
 }
 
 export function ItemAttributionStatsFilters() {
-  const { searchParams, addQueryParam } = useItemQueryParams();
+  const { addParam, is } = useQueryParams();
   return (
     <>
       <FilterSwitch
         label="Show Glyphs"
-        value={searchParams.get('showGlyphs') === 'true'}
-        onChange={(v) => addQueryParam('showGlyphs', v ? 'true' : '')}
+        value={is('showGlyphs')}
+        onChange={(v) => addParam('showGlyphs', v ? 'true' : '')}
         className="full-width m-0"
       />
     </>

@@ -35,8 +35,8 @@ export function ArteRuimDrawingsFilters(query: ArteRuimDrawingsFiltersProps) {
 
       <FilterSegments
         label="Type"
-        value={queryParams.get('view') ?? 'artists'}
-        onChange={(v) => addParam('view', v)}
+        value={queryParams.get('display') ?? 'artists'}
+        onChange={(v) => addParam('display', v)}
         options={[
           {
             value: 'drawings',

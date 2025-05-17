@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 
 import { orderBy } from 'lodash';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
-import { useItemQueryParams } from './useItemQueryParams';
+import { useQueryParams } from './useQueryParams';
 
 export function useItemGrouping() {
   const {
@@ -13,13 +13,13 @@ export function useItemGrouping() {
     availableItemIds,
     addMultipleAttributesToUpdate,
   } = useItemsAttributeValuesContext();
-  const { searchParams, addQueryParam } = useItemQueryParams();
+  const { queryParams, addParam } = useQueryParams();
 
-  const attributeKey = searchParams.get('attribute') ?? 'ali';
-  const scope = searchParams.get('scope') ?? 'unset';
+  const attributeKey = queryParams.get('attribute') ?? 'ali';
+  const scope = queryParams.get('scope') ?? 'unset';
 
-  const page = searchParams.get('page') ?? '1';
-  const pageSize = searchParams.get('pageSize') ?? '12';
+  const page = queryParams.get('page') ?? '1';
+  const pageSize = queryParams.get('pageSize') ?? '12';
 
   const [previousAttribute, setPreviousAttribute] = useState<string>('ali');
   const [previousScope, setPreviousScope] = useState<string>('unset');
@@ -56,7 +56,7 @@ export function useItemGrouping() {
     if (previousAttribute !== attributeKey || previousScope !== scope) {
       setPreviousAttribute(attributeKey);
       setPreviousScope(scope);
-      addQueryParam('page', '1');
+      addParam('page', '1');
       return group.slice(0, Number(pageSize));
     }
 
@@ -114,8 +114,8 @@ export function useItemGrouping() {
       total: group.length,
       current: Number(page),
       pageSize: Number(pageSize),
-      onChange: (page: number) => addQueryParam('page', String(page)),
-      onShowSizeChange: (_: number, pageSize: number) => addQueryParam('pageSize', String(pageSize)),
+      onChange: (page: number) => addParam('page', String(page)),
+      onShowSizeChange: (_: number, pageSize: number) => addParam('pageSize', String(pageSize)),
       pageSizeOptions: [12, 24, 48, 96],
     },
   };

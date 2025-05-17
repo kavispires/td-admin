@@ -1,28 +1,28 @@
 import { Divider, Drawer, Flex, Space, Switch } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useMemo, useState } from 'react';
 import { ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
 
 export function ItemAttributionDrawer() {
-  const { searchParams, removeQueryParam } = useItemQueryParams();
-  const queryParamsItemId = searchParams.get('drawer');
+  const { queryParams, removeParam } = useQueryParams();
+  const queryParamsItemId = queryParams.get('drawer');
   const [showOnlyUnset, setUnsetOnly] = useState(false);
 
   const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem } =
     useItemsAttributeValuesContext();
 
   const onClose = () => {
-    removeQueryParam('drawer');
+    removeParam('drawer');
   };
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: function
+  // biome-ignore lint/correctness/useExhaustiveDependencies: functions don't need to be in the dependency array
   useEffect(() => {
     if (queryParamsItemId) {
       jumpToItem('goTo', queryParamsItemId);
     }
-  }, [queryParamsItemId, jumpToItem, removeQueryParam]);
+  }, [queryParamsItemId]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const filteredAttributesList = useMemo(

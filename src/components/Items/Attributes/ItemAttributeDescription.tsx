@@ -2,7 +2,7 @@ import { Flex } from 'antd';
 import clsx from 'clsx';
 import { FilterSwitch } from 'components/Common';
 import { AlienSign } from 'components/Sprites';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
 import type { ItemAttribute, ItemAttributesValues } from 'types';
 import { filterMessage, getItemAttributePriorityResponse, parseAttribute } from '../utils';
@@ -13,9 +13,9 @@ type ItemAttributeDescriptionProps = {
 };
 
 export function ItemAttributeDescription({ itemAttributeValues, attributes }: ItemAttributeDescriptionProps) {
-  const { searchParams, addQueryParam } = useItemQueryParams();
-  const showUnclear = searchParams.get('showUnclear') === 'true';
-  const showUnrelated = searchParams.get('showUnrelated') === 'true';
+  const { is, addParam } = useQueryParams();
+  const showUnclear = is('showUnclear');
+  const showUnrelated = is('showUnrelated');
 
   const filteredResponse = useMemo(
     () =>
@@ -27,26 +27,26 @@ export function ItemAttributeDescription({ itemAttributeValues, attributes }: It
     [itemAttributeValues, attributes, showUnclear, showUnrelated],
   );
 
-  const Component = searchParams.get('signs') === 'true' ? AttributeSprite : AttributeText;
+  const Component = is('signs') ? AttributeSprite : AttributeText;
 
   return (
     <Flex gap={6} vertical>
       <FilterSwitch
         label="Show Unrelated"
-        value={searchParams.get('showUnrelated') === 'true'}
-        onChange={(v) => addQueryParam('showUnrelated', v ? 'true' : '')}
+        value={is('showUnrelated')}
+        onChange={(v) => addParam('showUnrelated', v ? 'true' : '')}
         className="full-width m-0"
       />
       <FilterSwitch
         label="Show Unclear"
-        value={searchParams.get('showUnclear') === 'true'}
-        onChange={(v) => addQueryParam('showUnclear', v ? 'true' : '')}
+        value={is('showUnclear')}
+        onChange={(v) => addParam('showUnclear', v ? 'true' : '')}
         className="full-width m-0"
       />
       <FilterSwitch
-        label="Alien Sings"
-        value={searchParams.get('signs') === 'true'}
-        onChange={(v) => addQueryParam('signs', v ? 'true' : '')}
+        label="Alien Signs"
+        value={is('signs')}
+        onChange={(v) => addParam('signs', v ? 'true' : '')}
         className="full-width m-0"
       />
       <Flex gap={6} wrap="wrap" className="item-attribute-value-statement">

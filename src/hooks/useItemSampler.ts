@@ -2,22 +2,21 @@ import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesCont
 import { sample as lodashSample, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { ItemAttribute } from 'types';
-
-import { useItemQueryParams } from './useItemQueryParams';
+import { useQueryParams } from './useQueryParams';
 
 export function useItemSampler() {
   const { attributesList, availableItemIds, addAttributesToUpdate, getItemAttributeValues } =
     useItemsAttributeValuesContext();
-  const { searchParams } = useItemQueryParams();
+  const { queryParams } = useQueryParams();
 
   const [sampleIds, setSampleIds] = useState<string[]>([]);
   const [attribute, setAttribute] = useState<ItemAttribute>();
 
   const getSample = () => {
-    const attributeKey = searchParams.get('attribute') ?? lodashSample(attributesList)?.id ?? 'ali';
+    const attributeKey = queryParams.get('attribute') ?? lodashSample(attributesList)?.id ?? 'ali';
     const selectedAttribute =
       attributesList.find((a) => a.id === attributeKey) ?? lodashSample(attributesList);
-    const sampleSize = Number(searchParams.get('size')) || 9;
+    const sampleSize = Number(queryParams.get('size')) || 9;
 
     const selected: string[] = [];
     const options = shuffle(availableItemIds);

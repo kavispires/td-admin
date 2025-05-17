@@ -1,6 +1,6 @@
 import { Empty, Flex } from 'antd';
 import { GoToTopButton } from 'components/Common/GoToTopButton';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { ItemAttributionCard } from './ItemAttributionCard';
 import {
   ItemAttributionFilterAttributes,
@@ -14,9 +14,10 @@ import { ItemSimulation } from './ItemSimulation';
 import { ItemStats } from './ItemStats';
 
 export function ItemAttributionPageContent() {
-  const { view } = useItemQueryParams();
+  const { queryParams } = useQueryParams();
+  const display = queryParams.get('display') ?? 'classifier';
 
-  if (view === 'classifier') {
+  if (display === 'classifier') {
     return (
       <>
         <Flex className="my-4" gap={8}>
@@ -32,25 +33,25 @@ export function ItemAttributionPageContent() {
     );
   }
 
-  if (view === 'sampler') {
+  if (display === 'sampler') {
     return <ItemSamplerCard />;
   }
 
-  if (view === 'grouping') {
+  if (display === 'grouping') {
     return <ItemGroupingCard />;
   }
 
-  if (view === 'comparator') {
+  if (display === 'comparator') {
     return <ItemComparatorCard />;
   }
 
-  if (view === 'simulator') {
+  if (display === 'simulator') {
     return <ItemSimulation />;
   }
 
-  if (view === 'stats') {
+  if (display === 'stats') {
     return <ItemStats />;
   }
 
-  return <Empty className="my-10" description="Unknown view has been selected" />;
+  return <Empty className="my-10" description="Unknown display has been selected" />;
 }

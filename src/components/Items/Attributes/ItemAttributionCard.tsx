@@ -1,6 +1,6 @@
 import { Affix, Button, Card, Divider, Flex, Space, Typography } from 'antd';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useMemo } from 'react';
 import { ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
@@ -10,18 +10,19 @@ import { ItemAttributeStats } from './ItemAttributeStats';
 export function ItemAttributionCard() {
   const { activeItem, attributesList, itemAttributeValues, onAttributeChange, jumpToItem, attributes } =
     useItemsAttributeValuesContext();
-  const { searchParams, removeQueryParam } = useItemQueryParams();
-  const queryParamsItemId = searchParams.get('itemId');
-  const filteredAttributesIds = searchParams.get('filters');
+  const { queryParams, removeParam, is } = useQueryParams();
+  const queryParamsItemId = queryParams.get('itemId');
+  const filteredAttributesIds = queryParams.get('filters');
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: no functions
   useEffect(() => {
     if (queryParamsItemId) {
-      removeQueryParam('itemId');
+      removeParam('itemId');
       jumpToItem('goTo', queryParamsItemId);
     }
-  }, [queryParamsItemId, jumpToItem, removeQueryParam]);
+  }, [queryParamsItemId]);
 
-  const showOnlyUnset = searchParams.get('scope') === 'unset';
+  const showOnlyUnset = is('scope');
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const filteredAttributesList = useMemo(() => {
     const shortlist = showOnlyUnset

@@ -280,14 +280,14 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
             <Button
               size="small"
               shape="round"
-              onClick={() => navigate(`/items/attribution?view=grouping&attribute=${record.id}&page=1`)}
+              onClick={() => navigate(`/items/attribution?display=grouping&attribute=${record.id}&page=1`)}
             >
               Grouping
             </Button>
             <Button
               size="small"
               shape="round"
-              onClick={() => navigate(`/items/attribution?view=sampler&attribute=${record.id}&size=6`)}
+              onClick={() => navigate(`/items/attribution?display=sampler&attribute=${record.id}&size=6`)}
             >
               Sample
             </Button>

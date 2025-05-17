@@ -1,11 +1,11 @@
+import { FireFilled, IdcardOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
-import type { Item as ItemT } from 'types';
-
-import { FireFilled, IdcardOutlined } from '@ant-design/icons';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+// TODO: replace
 import { useSearchParams } from 'react-router-dom';
+import type { Item as ItemT } from 'types';
 
 type ItemBlockProps = {
   item: ItemT;
@@ -66,7 +66,7 @@ export function ItemNsfw({ item }: ItemBlockProps) {
 export function ItemGoTo({ item }: ItemBlockProps) {
   const [, setSearchParams] = useSearchParams();
   const onGoTo = () => {
-    setSearchParams({ itemId: item.id, view: 'classifier' });
+    setSearchParams({ itemId: item.id, display: 'classifier' });
   };
 
   return (

@@ -17,7 +17,7 @@ type ArteRuimDrawingsContentProps = ReturnType<typeof useDrawingsResourceData>;
 export function ArteRuimDrawingsContent(query: ArteRuimDrawingsContentProps) {
   const { queryParams } = useQueryParams();
 
-  if (queryParams.get('view') === 'drawings') {
+  if (queryParams.get('display') === 'drawings') {
     return <ByDrawingContent {...query} />;
   }
 

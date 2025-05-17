@@ -3,7 +3,7 @@ import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesCont
 import { keyBy, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { Item, ItemAttributesValues } from 'types';
-import { useItemQueryParams } from './useItemQueryParams';
+import { useQueryParams } from './useQueryParams';
 
 export type ItemMessageObject = {
   item: Item;
@@ -15,10 +15,10 @@ export type ItemMessageObject = {
 export function useItemsComparator() {
   const { attributes, getItemAttributeValues, availableItemIds, getItem, isLoading } =
     useItemsAttributeValuesContext();
-  const { searchParams } = useItemQueryParams();
-  const showComplete = searchParams.get('showComplete') === 'true';
-  const showUnclear = searchParams.get('showUnclear') === 'true';
-  const showUnrelated = searchParams.get('showUnrelated') === 'true';
+  const { is } = useQueryParams();
+  const showComplete = is('showComplete');
+  const showUnclear = is('showUnclear');
+  const showUnrelated = is('showUnrelated');
 
   const { itemMessages, itemMessagesDict, grouping } = useMemo(() => {
     if (isLoading) {

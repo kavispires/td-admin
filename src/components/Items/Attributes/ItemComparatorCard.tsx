@@ -3,7 +3,7 @@ import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesCont
 import { type ItemMessageObject, useItemsComparator } from 'hooks/useItemsComparator';
 import type { Item } from 'types';
 
-import { useItemQueryParams } from 'hooks/useItemQueryParams';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributeSprite } from './ItemAttributeDescription';
 import { ItemAttributionDrawer } from './ItemAttributionDrawer';
@@ -11,7 +11,7 @@ import { ItemAttributionDrawer } from './ItemAttributionDrawer';
 export function ItemComparatorCard() {
   const { attributes } = useItemsAttributeValuesContext();
   const { itemMessages, grouping } = useItemsComparator();
-  const { addQueryParam } = useItemQueryParams();
+  const { addParam } = useQueryParams();
 
   const columns: TableColumnsType<ItemMessageObject> = [
     {
@@ -23,7 +23,7 @@ export function ItemComparatorCard() {
           <ItemId item={item} />
           <Space.Compact>
             <ItemGoTo item={item} />
-            <Button size="small" shape="round" onClick={() => addQueryParam('drawer', item.id)}>
+            <Button size="small" shape="round" onClick={() => addParam('drawer', item.id)}>
               Drawer
             </Button>
           </Space.Compact>
