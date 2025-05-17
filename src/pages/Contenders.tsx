@@ -5,14 +5,14 @@ import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ContendersFilters } from 'components/Contenders/ContendersFilters';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
 import type { ContenderCard } from 'types';
 
 export function Contenders() {
-  const contendersQuery = useResourceFirebaseData<ContenderCard>({
+  const contendersQuery = useResourceFirestoreData<ContenderCard>({
     tdrResourceName: 'contenders',
-    firebaseDataCollectionName: 'contenders',
+    firestoreDataCollectionName: 'contenders',
     serialize: true,
   });
 

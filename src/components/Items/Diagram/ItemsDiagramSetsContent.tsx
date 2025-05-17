@@ -1,6 +1,6 @@
 import { Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { useMemo, useState } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
@@ -22,7 +22,7 @@ const getSingleWordAlias = (aliases: string[]) => {
 export function ItemsDiagramSetsContent({
   data,
   addEntryToUpdate,
-}: UseResourceFirebaseDataReturnType<DailyDiagramItem>) {
+}: UseResourceFirestoreDataReturnType<DailyDiagramItem>) {
   const [ref, { width: containerWidth }] = useMeasure<HTMLDivElement>();
   const tdrItemsQuery = useTDResource<ItemT>('items');
   const tdrDiagramRulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules');

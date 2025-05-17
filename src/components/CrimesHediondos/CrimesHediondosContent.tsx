@@ -1,5 +1,5 @@
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo } from 'react';
 import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
 import { CrimeTableContent } from './CrimeTable';
@@ -8,11 +8,11 @@ import { Alert } from 'antd';
 import { SceneTable } from './SceneTable';
 
 export type CrimesHediondosContentProps = {
-  weaponsQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
-  evidenceQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
-  locationsQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
-  victimsQuery: UseResourceFirebaseDataReturnType<CrimesHediondosCard>;
-  scenesQuery: UseResourceFirebaseDataReturnType<CrimeSceneTile>;
+  weaponsQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCard>;
+  evidenceQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCard>;
+  locationsQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCard>;
+  victimsQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCard>;
+  scenesQuery: UseResourceFirestoreDataReturnType<CrimeSceneTile>;
 };
 
 export type CrimesHediondosInnerContentProps = {

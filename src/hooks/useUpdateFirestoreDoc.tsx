@@ -9,7 +9,7 @@ export function updateQueryFunction<TData = PlainObject>(path: string, docId: st
   return updateDoc(docRef, data as DocumentData);
 }
 
-export function useUpdateFirebaseDoc<TData>(
+export function useUpdateFirestoreDoc<TData>(
   path: string,
   docId: string,
   options: UseMutationOptions<any, Error, TData, QueryKey> = {},

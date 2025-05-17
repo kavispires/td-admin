@@ -1,6 +1,6 @@
 import { Space, Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { DailyQuartetSet } from 'types';
@@ -9,7 +9,7 @@ import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 export function ItemsQuartetsContent({
   data,
   addEntryToUpdate,
-}: UseResourceFirebaseDataReturnType<DailyQuartetSet>) {
+}: UseResourceFirestoreDataReturnType<DailyQuartetSet>) {
   const { is } = useQueryParams();
   const showOnlyEmpty = is('emptyOnly');
 

@@ -3,7 +3,7 @@ import { useMutation, useQueries } from '@tanstack/react-query';
 import { Button, Flex, Input, InputNumber, Select, Space, Tag, Typography } from 'antd';
 import type { DailyEntry } from 'components/Daily/hooks';
 import { deleteDoc, doc } from 'firebase/firestore';
-import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
+import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import moment from 'moment';
 import { useMemo, useState } from 'react';
 import { firestore } from 'services/firebase';

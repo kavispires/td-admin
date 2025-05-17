@@ -1,6 +1,6 @@
 import { CheckCircleFilled, PlusOutlined } from '@ant-design/icons';
 import { App, Button, Divider, Flex, Input, Space, Tag, Typography } from 'antd';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { ImageCardPasscodeSet } from 'types';
@@ -9,7 +9,7 @@ import { ImageCard } from '../ImageCard';
 import { SetsTable, usePasscodeSetTypeahead } from './ImageCardsPasscodeComponents';
 import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 
-type ImageCardsPasscodeProps = UseResourceFirebaseDataReturnType<ImageCardPasscodeSet>;
+type ImageCardsPasscodeProps = UseResourceFirestoreDataReturnType<ImageCardPasscodeSet>;
 
 const PLACEHOLDER: ImageCardPasscodeSet = {
   id: '',

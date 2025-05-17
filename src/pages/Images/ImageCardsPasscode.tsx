@@ -4,14 +4,14 @@ import { ImageCardsPasscodeContent } from 'components/Images/ImageCards/ImageCar
 import { ImageCardsPasscodeFilters } from 'components/Images/ImageCards/ImageCardsPasscodeFilters';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
 import type { ImageCardPasscodeSet } from 'types';
 
 export function ImageCardsPasscode() {
-  const imageCardsPasscodeQuery = useResourceFirebaseData<ImageCardPasscodeSet>({
+  const imageCardsPasscodeQuery = useResourceFirestoreData<ImageCardPasscodeSet>({
     tdrResourceName: 'daily-passcode-sets',
-    firebaseDataCollectionName: 'imagePasscode',
+    firestoreDataCollectionName: 'imagePasscode',
     serialize: true,
   });
 

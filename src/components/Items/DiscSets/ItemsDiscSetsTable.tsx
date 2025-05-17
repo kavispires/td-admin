@@ -3,7 +3,7 @@ import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
 import type { TableProps } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
@@ -25,7 +25,7 @@ function orderSets(givenSets: DailyDiscSet[]) {
 }
 
 type ItemsDiscSetsTableProps = Pick<
-  UseResourceFirebaseDataReturnType<DailyDiscSet>,
+  UseResourceFirestoreDataReturnType<DailyDiscSet>,
   'data' | 'addEntryToUpdate'
 >;
 
@@ -98,7 +98,7 @@ export function ItemsDiscSetsTable({ data, addEntryToUpdate }: ItemsDiscSetsTabl
 
 type RemoveItemFlowProps = {
   disc: DailyDiscSet;
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiscSet>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiscSet>['addEntryToUpdate'];
   itemId: string;
 };
 
@@ -125,7 +125,7 @@ export function RemoveItemFlow({ disc, addEntryToUpdate, itemId }: RemoveItemFlo
 type DiscEditableTitleCellProps = {
   value: DualLanguageValue;
   disc: DailyDiscSet;
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiscSet>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiscSet>['addEntryToUpdate'];
 };
 
 export function DiscEditableTitleCell({ value, disc, addEntryToUpdate }: DiscEditableTitleCellProps) {
@@ -163,7 +163,7 @@ type DiscItemsCellProps = {
   disc: DailyDiscSet;
   itemsIds: string[];
   copyToClipboard: ReturnType<typeof useCopyToClipboardFunction>;
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiscSet>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiscSet>['addEntryToUpdate'];
 };
 
 export function DiscItemsCell({ disc, itemsIds, copyToClipboard, addEntryToUpdate }: DiscItemsCellProps) {

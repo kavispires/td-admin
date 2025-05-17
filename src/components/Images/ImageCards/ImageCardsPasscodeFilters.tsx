@@ -5,7 +5,7 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
 import type { ImageCardPasscodeSet } from 'types';
@@ -18,7 +18,7 @@ export function ImageCardsPasscodeFilters({
   isSaving,
   entriesToUpdate,
   hasFirestoreData,
-}: UseResourceFirebaseDataReturnType<ImageCardPasscodeSet>) {
+}: UseResourceFirestoreDataReturnType<ImageCardPasscodeSet>) {
   const { addParams, queryParams } = useQueryParams();
 
   const { complete, incomplete, varied, mappings, mappedImages, overdone } = useMemo(() => {

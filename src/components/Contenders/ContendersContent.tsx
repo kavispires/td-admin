@@ -4,12 +4,12 @@ import { Flex, Typography } from 'antd';
 import { useFilterDataByDataFilters } from 'components/Common/DataFilters';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { useGridPagination } from 'hooks/useGridPagination';
-import type { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import type { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import { useEffect } from 'react';
 import { ContenderEditCard } from './ContenderEditCard';
 
-export type ContendersContentProps = ReturnType<typeof useResourceFirebaseData<ContenderCard>>;
+export type ContendersContentProps = ReturnType<typeof useResourceFirestoreData<ContenderCard>>;
 
 export function ContendersContent({ data, addEntryToUpdate }: ContendersContentProps) {
   const filteredData = useFilterDataByDataFilters(data);

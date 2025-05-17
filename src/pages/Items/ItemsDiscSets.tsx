@@ -5,14 +5,14 @@ import { ItemsDiscSetsFilters } from 'components/Items/DiscSets/ItemsDiscSetsFil
 
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
 import type { DailyDiscSet } from 'types';
 
 export function ItemsDiscSets() {
-  const discSetsData = useResourceFirebaseData<DailyDiscSet>({
+  const discSetsData = useResourceFirestoreData<DailyDiscSet>({
     tdrResourceName: 'daily-disc-sets',
-    firebaseDataCollectionName: 'discSets',
+    firestoreDataCollectionName: 'discSets',
     serialize: true,
   });
 

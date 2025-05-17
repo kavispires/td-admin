@@ -5,14 +5,14 @@ import { ItemsMoviesSample } from 'components/Items/Movies/ItemsMoviesSample';
 import { ItemsMoviesTable } from 'components/Items/Movies/ItemsMoviesTable';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
 import type { DailyMovieSet } from 'types';
 
 export function ItemsMovieSets() {
-  const moviesData = useResourceFirebaseData<DailyMovieSet>({
+  const moviesData = useResourceFirestoreData<DailyMovieSet>({
     tdrResourceName: 'daily-movie-sets',
-    firebaseDataCollectionName: 'movieSets',
+    firestoreDataCollectionName: 'movieSets',
   });
 
   return (

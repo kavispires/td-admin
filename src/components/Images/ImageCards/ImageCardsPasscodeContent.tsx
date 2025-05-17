@@ -1,6 +1,6 @@
 import { Button, Space } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { ImageCardPasscodeSet } from 'types';
@@ -8,7 +8,7 @@ import { PasscodeSearch, SetsTable } from './ImageCardsPasscodeComponents';
 import { ImageCardsPasscodeCreate } from './ImageCardsPasscodeCreate';
 import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 
-export function ImageCardsPasscodeContent(query: UseResourceFirebaseDataReturnType<ImageCardPasscodeSet>) {
+export function ImageCardsPasscodeContent(query: UseResourceFirestoreDataReturnType<ImageCardPasscodeSet>) {
   const imageCardsDecksQuery = useImageCardsDecks();
 
   const { addParam, removeParam, is, queryParams } = useQueryParams();
@@ -21,7 +21,7 @@ export function ImageCardsPasscodeContent(query: UseResourceFirebaseDataReturnTy
   );
 }
 
-function ImageCardsPasscodeTable(query: UseResourceFirebaseDataReturnType<ImageCardPasscodeSet>) {
+function ImageCardsPasscodeTable(query: UseResourceFirestoreDataReturnType<ImageCardPasscodeSet>) {
   const allSets = useMemo(() => orderBy(Object.values(query.data), ['id', 'passcode']), [query.data]);
 
   const [searchSetId, setSearchSetId] = useState<string | null>();

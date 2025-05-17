@@ -1,6 +1,6 @@
 import { Button, Form, Input, Modal, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { camelCase } from 'lodash';
 import { useMemo, useState } from 'react';
 import stringSimilarity from 'string-similarity';
@@ -8,7 +8,7 @@ import type { DailyDiscSet } from 'types';
 
 type AddNewSetFlowProps = {
   ids: string[];
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiscSet>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiscSet>['addEntryToUpdate'];
 };
 
 export function AddNewSetFlow({ addEntryToUpdate, ids }: AddNewSetFlowProps) {

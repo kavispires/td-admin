@@ -1,7 +1,7 @@
 import { Button, Flex, Popconfirm, Rate, Select, Space, Switch, Table, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { useTablePagination } from 'hooks/useTablePagination';
 import type { DailyQuartetSet, Item as ItemT } from 'types';
@@ -23,7 +23,7 @@ const TYPES = orderBy(['general', 'visual', 'word', 'thematic', 'attribute']).ma
 
 type ItemsQuartetsTableProps = {
   rows: DailyQuartetSet[];
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyQuartetSet>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyQuartetSet>['addEntryToUpdate'];
   expandedRowKeys?: string[];
 };
 

@@ -11,7 +11,7 @@ import {
 } from 'antd';
 import { FullScreenModal } from 'components/Common/FullScreenModal';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import type { ImageCardDescriptor } from 'types';
 import { removeDuplicates } from 'utils';
 import { ImageCard } from '../ImageCard';
@@ -23,7 +23,7 @@ export function ImageCardsDescriptorModal({
   addEntryToUpdate,
   onClose,
   onNewCard,
-}: UseResourceFirebaseDataReturnType<ImageCardDescriptor> & {
+}: UseResourceFirestoreDataReturnType<ImageCardDescriptor> & {
   onNewCard: () => void;
   onClose: () => void;
 }) {
@@ -74,7 +74,7 @@ export function ImageCardsDescriptorModal({
 
 type FavoriteImageCardButtonProps = {
   imageCard: ImageCardDescriptor;
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
 } & Omit<ButtonProps, 'onClick' | 'icon' | 'shape'>;
 
 export function FavoriteImageCardButton({
@@ -96,7 +96,7 @@ export function FavoriteImageCardButton({
 
 type ImageCardKeywordsFieldProps = {
   imageCard: ImageCardDescriptor;
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
 } & Omit<InputProps, 'onSearch' | 'icon' | 'shape'>;
 
 export function ImageCardKeywordsField({
@@ -132,7 +132,7 @@ export function ImageCardKeywordsField({
 
 type ImageCardTriggersFieldProps = {
   imageCard: ImageCardDescriptor;
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
 } & Omit<SelectProps, 'onClick' | 'icon' | 'shape'>;
 
 export function ImageCardTriggersField({

@@ -11,10 +11,10 @@ import {
 import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { Item, ItemAttribute, ItemAttributesValues, ItemAttributesValuesFirestore } from 'types';
-import { deserializeFirebaseData, serializeFirebaseData } from 'utils';
-import { useGetFirebaseDoc } from './useGetFirebaseDoc';
+import { deserializeFirestoreData, serializeFirestoreData } from 'utils';
+import { useGetFirestoreDoc } from './useGetFirestoreDoc';
 import { useTDResource } from './useTDResource';
-import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
+import { useUpdateFirestoreDoc } from './useUpdateFirestoreDoc';
 
 /**
  * This is to avoid new items being generated and unused just for the sake of placeholders.
@@ -29,7 +29,7 @@ export function useItemsAttribution() {
   const tdrItemsQuery = useTDResource<Item>('items');
   const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes');
   const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>('items-attribute-values');
-  const firebaseItemsAttributeValuesQuery = useGetFirebaseDoc<
+  const firestoreItemsAttributeValuesQuery = useGetFirestoreDoc<
     Dictionary<string>,
     Dictionary<ItemAttributesValues>
   >('tdr', 'itemsAttributeValues', {
@@ -44,13 +44,13 @@ export function useItemsAttribution() {
     {},
   );
 
-  const mutation = useUpdateFirebaseDoc('tdr', 'itemsAttributeValues', {
+  const mutation = useUpdateFirestoreDoc('tdr', 'itemsAttributeValues', {
     onSuccess: () => {
       notification.success({
         message: 'itemsAttributeValues updated',
       });
       queryClient.refetchQueries({
-        queryKey: ['firebase', 'tdr', 'itemsAttributeValues'],
+        queryKey: ['firestore', 'tdr', 'itemsAttributeValues'],
       });
       setModifiedAttributeValues({});
     },
@@ -65,9 +65,9 @@ export function useItemsAttribution() {
   const savedItemsAttributeValues = useMemo(() => {
     return {
       ...(tdrItemsAttributesValuesQuery.data ?? {}),
-      ...(firebaseItemsAttributeValuesQuery.data ?? {}),
+      ...(firestoreItemsAttributeValuesQuery.data ?? {}),
     };
-  }, [tdrItemsAttributesValuesQuery.data, firebaseItemsAttributeValuesQuery.data]);
+  }, [tdrItemsAttributesValuesQuery.data, firestoreItemsAttributeValuesQuery.data]);
 
   const isDirty = !isEmpty(modifiedAttributeValues);
   const addAttributesToUpdate = (id: string, item: ItemAttributesValues) => {
@@ -83,11 +83,14 @@ export function useItemsAttribution() {
     }));
   };
 
-  const firebaseData = firebaseItemsAttributeValuesQuery.data;
+  const firestoreData = firestoreItemsAttributeValuesQuery.data;
 
   const save = () => {
     mutation.mutate(
-      serializeItemAttributesValues({ ...firebaseData, ...modifiedAttributeValues }, tdrAttributesQuery.data),
+      serializeItemAttributesValues(
+        { ...firestoreData, ...modifiedAttributeValues },
+        tdrAttributesQuery.data,
+      ),
     );
   };
 
@@ -134,14 +137,14 @@ export function useItemsAttribution() {
       tdrItemsQuery.isLoading ||
       tdrAttributesQuery.isLoading ||
       tdrItemsAttributesValuesQuery.isLoading ||
-      firebaseItemsAttributeValuesQuery.isLoading,
+      firestoreItemsAttributeValuesQuery.isLoading,
     error:
       tdrItemsQuery.error ||
       tdrAttributesQuery.error ||
       tdrItemsAttributesValuesQuery.error ||
-      firebaseItemsAttributeValuesQuery.error,
-    firebaseData,
-    hasFirestoreData: !isEmpty(firebaseItemsAttributeValuesQuery.data),
+      firestoreItemsAttributeValuesQuery.error,
+    firestoreData,
+    hasFirestoreData: !isEmpty(firestoreItemsAttributeValuesQuery.data),
     isSaving: mutation.isPending,
     save,
     addAttributesToUpdate,
@@ -163,7 +166,7 @@ const serializeItemAttributesValues = (
     };
   };
 
-  return serializeFirebaseData<ItemAttributesValues, ItemAttributesValuesFirestore>(
+  return serializeFirestoreData<ItemAttributesValues, ItemAttributesValuesFirestore>(
     itemAttributesValues,
     serializeEntry,
   );
@@ -198,7 +201,7 @@ const deserializeItemAttributesValues = (data: {
     return newEntry;
   };
 
-  return deserializeFirebaseData<ItemAttributesValuesFirestore, ItemAttributesValues>(
+  return deserializeFirestoreData<ItemAttributesValuesFirestore, ItemAttributesValues>(
     itemAttributesValues,
     deserializeEntry,
   );

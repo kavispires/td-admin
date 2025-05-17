@@ -5,7 +5,7 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, isEmpty, omitBy } from 'lodash';
 import type { Item, ItemGroup } from 'types';
@@ -20,7 +20,7 @@ export function ItemsGroupsFilters({
   entriesToUpdate,
   addEntryToUpdate,
   hasFirestoreData,
-}: UseResourceFirebaseDataReturnType<ItemGroup>) {
+}: UseResourceFirestoreDataReturnType<ItemGroup>) {
   const { queryParams, addParam, addParams, is } = useQueryParams();
   const tdrItemsQuery = useTDResource<Item>('items');
 

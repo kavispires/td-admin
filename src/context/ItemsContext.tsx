@@ -1,5 +1,5 @@
 import { useQueryParams } from 'hooks/useQueryParams';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { orderBy } from 'lodash';
 import { type ReactNode, createContext, useContext, useMemo } from 'react';
 import type { Item } from 'types';
@@ -55,9 +55,9 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
     entriesToUpdate: itemsToUpdate,
     isDirty,
     hasFirestoreData,
-  } = useResourceFirebaseData<Item>({
+  } = useResourceFirestoreData<Item>({
     tdrResourceName: 'items',
-    firebaseDataCollectionName: 'items',
+    firestoreDataCollectionName: 'items',
   });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>

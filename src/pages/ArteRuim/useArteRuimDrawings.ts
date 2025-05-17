@@ -1,7 +1,7 @@
 import { type QueryKey, type UseQueryOptions, useQueries, useQuery } from '@tanstack/react-query';
 import { App } from 'antd';
 import type { FirebaseDataDrawing } from 'components/Daily/utils/types';
-import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
+import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
 import { useEffect, useMemo } from 'react';
@@ -87,11 +87,11 @@ function extractCreatedAt(key: string): number {
 }
 
 export function useDrawingsResourceData(enabled: boolean, language: string) {
-  const firebaseDrawingsQueries = useLoadFirestoreDrawings(enabled, language as Language);
+  const firestoreDrawingsQueries = useLoadFirestoreDrawings(enabled, language as Language);
   const tdrDrawingsQuery = useTDResource<DrawingData>(`arte-ruim-drawings-${language}`, enabled);
 
-  const isDrawingsLoading = firebaseDrawingsQueries.some((q) => q.isLoading);
-  const isDrawingsSuccess = firebaseDrawingsQueries.every((q) => q.isSuccess);
+  const isDrawingsLoading = firestoreDrawingsQueries.some((q) => q.isLoading);
+  const isDrawingsSuccess = firestoreDrawingsQueries.every((q) => q.isSuccess);
 
   const drawings = useMemo(() => {
     if (!isDrawingsSuccess) return {};
@@ -99,7 +99,7 @@ export function useDrawingsResourceData(enabled: boolean, language: string) {
 
     const allDrawings = tdrDrawingsQuery.data ?? {};
 
-    (firebaseDrawingsQueries ?? []).forEach((drawingEntry) => {
+    (firestoreDrawingsQueries ?? []).forEach((drawingEntry) => {
       const drawingsLibrary = (drawingEntry.data ?? {}) as Record<string, FirebaseDataDrawing>;
       // Build entries for each available card possible
       Object.entries(drawingsLibrary).forEach(([key, dataDrawing]) => {
@@ -146,7 +146,7 @@ export function useDrawingsResourceData(enabled: boolean, language: string) {
     });
 
     return allDrawings;
-  }, [firebaseDrawingsQueries, isDrawingsSuccess, tdrDrawingsQuery.data, tdrDrawingsQuery.isSuccess]);
+  }, [firestoreDrawingsQueries, isDrawingsSuccess, tdrDrawingsQuery.data, tdrDrawingsQuery.isSuccess]);
 
   const drawingsPerArtist = useMemo(() => {
     return Object.values(drawings).reduce((acc: Record<string, DrawingPerArtist>, drawing) => {
@@ -179,7 +179,7 @@ export function useDrawingsResourceData(enabled: boolean, language: string) {
     isLoading: isDrawingsLoading || tdrDrawingsQuery.isLoading,
     error: tdrDrawingsQuery.error,
     hasResponseData: !isEmpty(drawings),
-    hasFirestoreData: firebaseDrawingsQueries.some((q) => !isEmpty(q.data)),
+    hasFirestoreData: firestoreDrawingsQueries.some((q) => !isEmpty(q.data)),
     drawings,
     drawingsPerArtist: Object.values(drawingsPerArtist),
   };

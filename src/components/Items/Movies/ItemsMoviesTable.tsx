@@ -2,7 +2,7 @@ import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
@@ -30,7 +30,7 @@ function orderSets(givenSets: DailyMovieSet[]) {
 export function ItemsMoviesTable({
   data,
   addEntryToUpdate,
-}: UseResourceFirebaseDataReturnType<DailyMovieSet>) {
+}: UseResourceFirestoreDataReturnType<DailyMovieSet>) {
   const copyToClipboard = useCopyToClipboardFunction();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
   const usedHistory = useMovieUsedHistory();

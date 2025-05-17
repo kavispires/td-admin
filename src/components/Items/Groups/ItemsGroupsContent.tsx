@@ -4,7 +4,7 @@ import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
@@ -20,7 +20,10 @@ import { InspirationSample } from '../InspirationSample';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { ItemGroupsCard } from './ItemGroupsCard';
 
-export function ItemsGroupsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<ItemGroup>) {
+export function ItemsGroupsContent({
+  data,
+  addEntryToUpdate,
+}: UseResourceFirestoreDataReturnType<ItemGroup>) {
   const { is, queryParams } = useQueryParams();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
 
@@ -128,7 +131,7 @@ type ItemsGroupsTablesProps = {
   onUpdateItemGroups: (itemId: string, groupIds: string[]) => void;
   onUpdateGroupItems: (groupId: string, itemIds: string[]) => void;
   onUpdateName: (name: string, language: 'en' | 'pt', groupId: string) => void;
-} & Pick<UseResourceFirebaseDataReturnType<ItemGroup>, 'data'>;
+} & Pick<UseResourceFirestoreDataReturnType<ItemGroup>, 'data'>;
 
 function ItemsGroupsByGroupTable({
   data,

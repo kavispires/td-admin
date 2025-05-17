@@ -4,15 +4,15 @@ import { ItemsGroupsContent } from 'components/Items/Groups/ItemsGroupsContent';
 import { ItemsGroupsFilters } from 'components/Items/Groups/ItemsGroupsFilters';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
 import type { Item, ItemGroup } from 'types';
 
 export function ItemsGroups() {
-  const groupsQuery = useResourceFirebaseData<ItemGroup>({
+  const groupsQuery = useResourceFirestoreData<ItemGroup>({
     tdrResourceName: 'items-groups',
-    firebaseDataCollectionName: 'itemsGroups',
+    firestoreDataCollectionName: 'itemsGroups',
     serialize: true,
   });
   const itemsTypeaheadQuery = useTDResource<Item>('items');

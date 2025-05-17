@@ -3,40 +3,40 @@ import { CrimesHediondosContent } from 'components/CrimesHediondos/CrimesHediond
 import { CrimesHediondosFilters } from 'components/CrimesHediondos/CrimesHediondosFilters';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout, PageSider } from 'components/Layout';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
 import { useEffect } from 'react';
 import type { CrimeSceneTile, CrimesHediondosCard, Item } from 'types';
 
 function CrimesHediondos() {
-  const weaponsQuery = useResourceFirebaseData<CrimesHediondosCard>({
+  const weaponsQuery = useResourceFirestoreData<CrimesHediondosCard>({
     tdrResourceName: 'crime-weapons',
-    firebaseDataCollectionName: 'crimeWeapons',
+    firestoreDataCollectionName: 'crimeWeapons',
     serialize: true,
   });
 
-  const evidenceQuery = useResourceFirebaseData<CrimesHediondosCard>({
+  const evidenceQuery = useResourceFirestoreData<CrimesHediondosCard>({
     tdrResourceName: 'crime-evidence',
-    firebaseDataCollectionName: 'crimeEvidence',
+    firestoreDataCollectionName: 'crimeEvidence',
     serialize: true,
   });
 
-  const locationsQuery = useResourceFirebaseData<CrimesHediondosCard>({
+  const locationsQuery = useResourceFirestoreData<CrimesHediondosCard>({
     tdrResourceName: 'crime-locations',
-    firebaseDataCollectionName: 'crimeLocations',
+    firestoreDataCollectionName: 'crimeLocations',
     serialize: true,
   });
 
-  const victimsQuery = useResourceFirebaseData<CrimesHediondosCard>({
+  const victimsQuery = useResourceFirestoreData<CrimesHediondosCard>({
     tdrResourceName: 'crime-victims',
-    firebaseDataCollectionName: 'crimeVictims',
+    firestoreDataCollectionName: 'crimeVictims',
     serialize: true,
   });
 
-  const scenesQuery = useResourceFirebaseData<CrimeSceneTile>({
+  const scenesQuery = useResourceFirestoreData<CrimeSceneTile>({
     tdrResourceName: 'crime-scenes',
-    firebaseDataCollectionName: 'crimeScenes',
+    firestoreDataCollectionName: 'crimeScenes',
     serialize: true,
   });
 

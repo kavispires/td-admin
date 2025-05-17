@@ -3,7 +3,7 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import type { ImageCardDescriptor } from 'types';
 import { sortJsonKeys } from 'utils';
@@ -15,7 +15,7 @@ export function ImageCardsDescriptorFilters({
   isDirty,
   isSaving,
   entriesToUpdate,
-}: UseResourceFirebaseDataReturnType<ImageCardDescriptor>) {
+}: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
   const { addParam } = useQueryParams();
   const { onRandomCard } = useImageCardsDecks();
   return (

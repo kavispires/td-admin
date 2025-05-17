@@ -4,7 +4,7 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 
 import type { SuspectCard } from 'types';
 import { sortJsonKeys } from 'utils';
@@ -36,7 +36,7 @@ export function SuspectsFilters({
   isSaving,
   entriesToUpdate,
   hasFirestoreData,
-}: UseResourceFirebaseDataReturnType<SuspectCard>) {
+}: UseResourceFirestoreDataReturnType<SuspectCard>) {
   const { addParam, queryParams } = useQueryParams();
   return (
     <SiderContent>

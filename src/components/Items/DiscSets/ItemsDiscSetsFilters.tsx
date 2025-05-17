@@ -2,7 +2,7 @@ import { Divider, Flex } from 'antd';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep, isEmpty, omitBy } from 'lodash';
 import type { DailyDiscSet } from 'types';
 import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
@@ -20,7 +20,7 @@ export function ItemsDiscSetsFilters({
   entriesToUpdate,
   addEntryToUpdate,
   hasFirestoreData,
-}: UseResourceFirebaseDataReturnType<DailyDiscSet>) {
+}: UseResourceFirestoreDataReturnType<DailyDiscSet>) {
   const { queryParams, addParams } = useQueryParams();
 
   return (

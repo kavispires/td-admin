@@ -5,7 +5,7 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import type { DailyQuartetSet } from 'types';
 import { sortJsonKeys } from 'utils';
 import { NewQuartetFlow } from './NewQuartetFlow';
@@ -18,7 +18,7 @@ export function ItemsQuartetsFilters({
   entriesToUpdate,
   addEntryToUpdate,
   hasFirestoreData,
-}: UseResourceFirebaseDataReturnType<DailyQuartetSet>) {
+}: UseResourceFirestoreDataReturnType<DailyQuartetSet>) {
   const { is, addParam, queryParams, addParams } = useQueryParams();
   return (
     <SiderContent>

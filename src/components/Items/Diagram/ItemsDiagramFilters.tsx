@@ -5,7 +5,7 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep } from 'lodash';
 import type { DailyDiagramItem, DailyDiagramRule } from 'types';
@@ -19,7 +19,7 @@ export function ItemsDiagramFilters({
   isSaving,
   entriesToUpdate,
   hasFirestoreData,
-}: UseResourceFirebaseDataReturnType<DailyDiagramItem>) {
+}: UseResourceFirestoreDataReturnType<DailyDiagramItem>) {
   const { addParams, queryParams } = useQueryParams();
   const tdrDiagramRulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules');
 

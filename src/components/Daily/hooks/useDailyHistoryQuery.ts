@@ -1,5 +1,5 @@
 import { App } from 'antd';
-import { getDocQueryFunction } from 'hooks/useGetFirebaseDoc';
+import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import { useEffect } from 'react';
 
 import { type QueryKey, type UseQueryOptions, useQuery } from '@tanstack/react-query';

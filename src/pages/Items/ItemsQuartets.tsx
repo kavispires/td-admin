@@ -7,16 +7,16 @@ import { ItemsQuartetsSimulator } from 'components/Items/Quartets/ItemsQuartetsS
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
 import type { DailyQuartetSet } from 'types';
 
 export function ItemsQuartets() {
   const { queryParams } = useQueryParams();
 
-  const quartetsData = useResourceFirebaseData<DailyQuartetSet>({
+  const quartetsData = useResourceFirestoreData<DailyQuartetSet>({
     tdrResourceName: 'daily-quartet-sets',
-    firebaseDataCollectionName: 'quartetSets',
+    firestoreDataCollectionName: 'quartetSets',
   });
 
   return (

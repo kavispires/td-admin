@@ -2,7 +2,7 @@ import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
 import ReactJsonView from '@microlink/react-json-view';
 import { Button, Divider, Flex, Input, Space, Table, Tag, Typography } from 'antd';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-import { useGetFirebaseDoc } from 'hooks/useGetFirebaseDoc';
+import { useGetFirestoreDoc } from 'hooks/useGetFirestoreDoc';
 import moment from 'moment';
 import { useEffect, useMemo, useState } from 'react';
 import { sortJsonKeys } from 'utils';
@@ -13,7 +13,7 @@ import { getToday } from './utils/utils';
 export function DailyDataCheck() {
   const [selectedDate, setSelectedDate] = useState('');
   const [isValidDate, setIsValidDate] = useState(false);
-  const { isLoading, data } = useGetFirebaseDoc<DailyEntry>('diario', selectedDate, {
+  const { isLoading, data } = useGetFirestoreDoc<DailyEntry>('diario', selectedDate, {
     enabled: !!selectedDate && isValidDate,
   });
 

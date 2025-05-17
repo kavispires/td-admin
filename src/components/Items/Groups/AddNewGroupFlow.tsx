@@ -1,14 +1,14 @@
 import { App, Button, Form, Input, Modal, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
 import stringSimilarity from 'string-similarity';
 import type { ItemGroup } from 'types';
 import { createUUID } from 'utils';
 
 type AddNewGroupFlowProps = {
-  data: UseResourceFirebaseDataReturnType<ItemGroup>['data'];
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<ItemGroup>['addEntryToUpdate'];
+  data: UseResourceFirestoreDataReturnType<ItemGroup>['data'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ItemGroup>['addEntryToUpdate'];
 };
 
 export function AddNewGroupFlow({ addEntryToUpdate, data }: AddNewGroupFlowProps) {

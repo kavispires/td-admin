@@ -1,25 +1,23 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { App } from 'antd';
 import { cloneDeep, isEmpty } from 'lodash';
 import { useMemo, useState } from 'react';
-
-import { useQueryClient } from '@tanstack/react-query';
-
-import { deserializeFirebaseData, serializeFirebaseData } from 'utils';
-import { useGetFirebaseDoc } from './useGetFirebaseDoc';
+import { deserializeFirestoreData, serializeFirestoreData } from 'utils';
+import { useGetFirestoreDoc } from './useGetFirestoreDoc';
 import { useTDResource } from './useTDResource';
-import { useUpdateFirebaseDoc } from './useUpdateFirebaseDoc';
+import { useUpdateFirestoreDoc } from './useUpdateFirestoreDoc';
 
-export type UseResourceFirebaseDataProps = {
+export type UseResourceFirestoreDataProps = {
   tdrResourceName: string;
-  firebaseDataCollectionName: string;
+  firestoreDataCollectionName: string;
   serialize?: boolean;
 };
 
-export type UseResourceFirebaseDataReturnType<TDRData> = {
+export type UseResourceFirestoreDataReturnType<TDRData> = {
   data: Dictionary<TDRData>;
   isLoading: boolean;
   error: ResponseError;
-  firebaseData: Dictionary<TDRData> | undefined;
+  firestoreData: Dictionary<TDRData> | undefined;
   hasFirestoreData: boolean;
   isSaving: boolean;
   save: () => void;
@@ -29,68 +27,68 @@ export type UseResourceFirebaseDataReturnType<TDRData> = {
 };
 
 /**
- * Custom hook that fetches and manages data from both TDR (The Daily Refactor) and Firebase.
+ * Custom hook that fetches and manages data from both TDR (The Daily Refactor) and Firestore.
  * It merges the data from both sources and provides functions to update and save the data.
  *
  * @template TDRData - The type of data fetched from TDR.
- * @template TFirebaseData - The type of data fetched from Firebase.
+ * @template TFirestoreData - The type of data fetched from Firestore.
  *
  * The hook return object containing the merged data, loading state, error, and functions to update and save the data.
  */
-export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = TDRData>({
+export function useResourceFirestoreData<TDRData = PlainObject, TFirestoreData = TDRData>({
   tdrResourceName,
-  firebaseDataCollectionName,
+  firestoreDataCollectionName,
   serialize,
-}: UseResourceFirebaseDataProps): UseResourceFirebaseDataReturnType<TDRData> {
+}: UseResourceFirestoreDataProps): UseResourceFirestoreDataReturnType<TDRData> {
   const { notification } = App.useApp();
   const queryClient = useQueryClient();
 
   const tdrQuery = useTDResource<TDRData>(tdrResourceName);
-  const firebaseQuery = useGetFirebaseDoc<Dictionary<TFirebaseData>, Dictionary<TDRData>>(
+  const firestoreQuery = useGetFirestoreDoc<Dictionary<TFirestoreData>, Dictionary<TDRData>>(
     'tdr',
-    firebaseDataCollectionName,
+    firestoreDataCollectionName,
     {
-      select: serialize ? deserializeFirebaseData : undefined,
+      select: serialize ? deserializeFirestoreData : undefined,
     },
   );
 
   // Keeps track of items that have been modified
   const [modifiedEntries, setModifiedEntries] = useState<Dictionary<TDRData>>({});
 
-  const mutation = useUpdateFirebaseDoc('tdr', firebaseDataCollectionName, {
+  const mutation = useUpdateFirestoreDoc('tdr', firestoreDataCollectionName, {
     onSuccess: () => {
       notification.success({
-        message: `${firebaseDataCollectionName} updated`,
+        message: `${firestoreDataCollectionName} updated`,
       });
       queryClient.refetchQueries({
-        queryKey: ['firebase', 'tdr', firebaseDataCollectionName],
+        queryKey: ['firestore', 'tdr', firestoreDataCollectionName],
       });
       setModifiedEntries({});
     },
     onError: (error) => {
       notification.error({
-        message: `${firebaseDataCollectionName} update failed`,
+        message: `${firestoreDataCollectionName} update failed`,
         description: error.message,
       });
     },
   });
 
   const data = useMemo(() => {
-    if (!tdrQuery.isSuccess || !firebaseQuery.isSuccess || mutation.isPending) return {};
+    if (!tdrQuery.isSuccess || !firestoreQuery.isSuccess || mutation.isPending) return {};
 
-    console.log(`%cMerging ${tdrResourceName}+${firebaseDataCollectionName} data...`, 'color: #f0f');
+    console.log(`%cMerging ${tdrResourceName}+${firestoreDataCollectionName} data...`, 'color: #f0f');
     return cloneDeep({
       ...(tdrQuery.data ?? {}),
-      ...(firebaseQuery.data ?? {}),
+      ...(firestoreQuery.data ?? {}),
       ...modifiedEntries,
     });
   }, [
     tdrResourceName,
-    firebaseDataCollectionName,
+    firestoreDataCollectionName,
     tdrQuery.data,
-    firebaseQuery.data,
+    firestoreQuery.data,
     tdrQuery.isSuccess,
-    firebaseQuery.isSuccess,
+    firestoreQuery.isSuccess,
     mutation.isPending,
     modifiedEntries,
   ]);
@@ -100,18 +98,18 @@ export function useResourceFirebaseData<TDRData = PlainObject, TFirebaseData = T
     setModifiedEntries((prev) => ({ ...prev, [id]: item }));
   };
 
-  const firebaseData = firebaseQuery.data;
+  const firestoreData = firestoreQuery.data;
 
   const save = () => {
-    mutation.mutate(serialize ? serializeFirebaseData(modifiedEntries) : modifiedEntries);
+    mutation.mutate(serialize ? serializeFirestoreData(modifiedEntries) : modifiedEntries);
   };
 
   return {
     data,
-    isLoading: tdrQuery.isLoading || firebaseQuery.isLoading,
-    error: tdrQuery.error || firebaseQuery.error,
-    firebaseData,
-    hasFirestoreData: !isEmpty(firebaseData),
+    isLoading: tdrQuery.isLoading || firestoreQuery.isLoading,
+    error: tdrQuery.error || firestoreQuery.error,
+    firestoreData,
+    hasFirestoreData: !isEmpty(firestoreData),
     isSaving: mutation.isPending,
     save,
     addEntryToUpdate,

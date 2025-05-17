@@ -1,11 +1,11 @@
 import { Drawer, Flex, Select, Switch, Typography } from 'antd';
 import { ImageCard } from 'components/Images/ImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import type { SuspectCard } from 'types';
 import { getSuspectImageId } from './utils';
 
-type SuspectDrawerProps = Pick<UseResourceFirebaseDataReturnType<SuspectCard>, 'data' | 'addEntryToUpdate'>;
+type SuspectDrawerProps = Pick<UseResourceFirestoreDataReturnType<SuspectCard>, 'data' | 'addEntryToUpdate'>;
 
 export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
   const { removeParam, queryParams } = useQueryParams();
@@ -69,7 +69,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
 
 type SuspectFeaturesProps = {
   suspect: SuspectCard;
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<SuspectCard>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectCard>['addEntryToUpdate'];
 };
 
 function SuspectFeatures({ suspect, addEntryToUpdate }: SuspectFeaturesProps) {

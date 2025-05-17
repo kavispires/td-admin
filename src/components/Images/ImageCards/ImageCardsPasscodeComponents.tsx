@@ -1,6 +1,6 @@
 import { AutoComplete, Button, Flex, Input, Select, Table, type TableProps } from 'antd';
 import { IdTag } from 'components/Common/IdTag';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
@@ -8,7 +8,7 @@ import { useDebounce } from 'react-use';
 import type { ImageCardPasscodeSet } from 'types';
 import { ImageCard } from '../ImageCard';
 
-type ImageCardsPasscodeProps = UseResourceFirebaseDataReturnType<ImageCardPasscodeSet>;
+type ImageCardsPasscodeProps = UseResourceFirestoreDataReturnType<ImageCardPasscodeSet>;
 
 type SetsTableProps = {
   sets: ImageCardPasscodeSet[];

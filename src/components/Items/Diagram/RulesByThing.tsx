@@ -1,5 +1,5 @@
 import { Divider, Flex, Space, Table, type TableColumnsType, Tag, Tooltip, Typography } from 'antd';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo } from 'react';
 import { useMeasure } from 'react-use';
@@ -8,8 +8,8 @@ import { AddNewThingFlow } from './AddNewThingFlow';
 import { ThingButton } from './Thing';
 
 type RulesByThingProps = {
-  things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
+  things: UseResourceFirestoreDataReturnType<DailyDiagramItem>['data'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
   availableThings: ItemT[];
   rules: Dictionary<DailyDiagramRule>;
   thingsByRules: Record<string, string[]>;

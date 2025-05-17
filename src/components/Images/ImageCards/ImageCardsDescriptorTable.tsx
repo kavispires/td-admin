@@ -1,7 +1,7 @@
 import { EditOutlined } from '@ant-design/icons';
 import { Button, Flex, Table, type TableProps } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTablePagination } from 'hooks/useTablePagination';
 import type { ImageCardDescriptor } from 'types';
 import { ImageCard } from '../ImageCard';
@@ -10,7 +10,7 @@ import { FavoriteImageCardButton } from './ImageCardsDescriptorModal';
 export function ImageCardsDescriptorTable({
   data,
   addEntryToUpdate,
-}: UseResourceFirebaseDataReturnType<ImageCardDescriptor>) {
+}: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
   const { addParam } = useQueryParams();
 
   const columns: TableProps<ImageCardDescriptor>['columns'] = [

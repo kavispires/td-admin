@@ -4,13 +4,13 @@ import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { Item } from 'components/Sprites';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEqual } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { DailyDiscSet, Item as ItemT } from 'types';
 
-type OrphanItemsProps = Pick<UseResourceFirebaseDataReturnType<DailyDiscSet>, 'data' | 'addEntryToUpdate'>;
+type OrphanItemsProps = Pick<UseResourceFirestoreDataReturnType<DailyDiscSet>, 'data' | 'addEntryToUpdate'>;
 
 export function OrphanItems({ data, addEntryToUpdate }: OrphanItemsProps) {
   const { is, addParam } = useQueryParams();
@@ -121,7 +121,7 @@ type DrawerContentProps = {
   setLatestSetId: (id: string | null) => void;
   sortedSets: DailyDiscSet[];
   data: Dictionary<DailyDiscSet>;
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiscSet>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiscSet>['addEntryToUpdate'];
 };
 
 export function DrawerContent({

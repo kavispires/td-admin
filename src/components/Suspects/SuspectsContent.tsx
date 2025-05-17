@@ -9,14 +9,14 @@ import { Button, Image, Space, Tag, Typography } from 'antd';
 import { ImageCard } from 'components/Images/ImageCard';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { SuspectCard } from 'types';
 import { SuspectDrawer } from './SuspectDrawer';
 import { getSuspectImageId } from './utils';
 
-export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirebaseDataReturnType<SuspectCard>) {
+export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestoreDataReturnType<SuspectCard>) {
   const { addParam, queryParams } = useQueryParams();
 
   const version = queryParams.get('version') ?? 'ct';

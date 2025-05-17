@@ -4,14 +4,14 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { SuspectsContent } from 'components/Suspects/SuspectsContent';
 import { SuspectsFilters } from 'components/Suspects/SuspectsFilters';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
 import type { SuspectCard } from 'types';
 
 function Suspects() {
-  const suspectsQuery = useResourceFirebaseData<SuspectCard>({
+  const suspectsQuery = useResourceFirestoreData<SuspectCard>({
     tdrResourceName: 'suspects',
-    firebaseDataCollectionName: 'suspects',
+    firestoreDataCollectionName: 'suspects',
     serialize: true,
   });
 

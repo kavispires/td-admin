@@ -205,13 +205,13 @@ export const deepCleanObject = <T = unknown>(obj: T): T => {
 };
 
 /**
- * Deserializes the data received from Firebase into a dictionary of specified type.
+ * Deserializes the data received from Firestore into a dictionary of specified type.
  *
  * @template TData - The type of data to deserialize.
  * @param data - The data to be deserialized.
  * @returns A dictionary of deserialized data.
  */
-export const deserializeFirebaseData = <TData, TParsedData = TData>(
+export const deserializeFirestoreData = <TData, TParsedData = TData>(
   data: Dictionary<string>,
   entryDeserializer?: (e: TData) => TParsedData,
 ): Dictionary<TParsedData> => {
@@ -227,7 +227,7 @@ export const deserializeFirebaseData = <TData, TParsedData = TData>(
  * @param data - The dictionary containing the data to be serialized.
  * @returns A new dictionary with the same keys as the input dictionary, but with the values serialized as strings.
  */
-export const serializeFirebaseData = <TData, TParsedData = TData>(
+export const serializeFirestoreData = <TData, TParsedData = TData>(
   data: Dictionary<TData>,
   entrySerializer?: (e: TData) => TParsedData,
 ): Dictionary<string> => {

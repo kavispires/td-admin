@@ -1,6 +1,6 @@
 import { Button, Divider, Space, Table } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { sample } from 'lodash';
 import { useState } from 'react';
@@ -14,7 +14,7 @@ import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 export function ItemsMoviesSample({
   data,
   addEntryToUpdate,
-}: UseResourceFirebaseDataReturnType<DailyMovieSet>) {
+}: UseResourceFirestoreDataReturnType<DailyMovieSet>) {
   const [sampleEntryId, setSampleEntryId] = useState<string | null>(null);
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
   const copyToClipboard = useCopyToClipboardFunction();

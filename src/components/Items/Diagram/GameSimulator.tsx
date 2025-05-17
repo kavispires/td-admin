@@ -4,7 +4,7 @@ import {
   buildDailyTeoriaDeConjuntosGames,
 } from 'components/Daily/utils/games/daily-teoria-de-conjuntos';
 
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useState } from 'react';
 import { useMeasure } from 'react-use';
 import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
@@ -12,8 +12,8 @@ import { DiagramGameSample } from './DiagramGameSample';
 import './GameSimulator.scss';
 
 type GameSimulatorProps = {
-  things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
+  things: UseResourceFirestoreDataReturnType<DailyDiagramItem>['data'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
   availableThings: ItemT[];
   rules: Dictionary<DailyDiagramRule>;
 };

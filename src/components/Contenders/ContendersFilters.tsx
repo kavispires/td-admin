@@ -3,14 +3,14 @@ import { DataFilters } from 'components/Common/DataFilters';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
-import type { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import type { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
 import type { ContenderCard } from 'types';
 import { deepCleanObject, sortJsonKeys } from 'utils';
 import { DECKS } from './ContenderEditCard';
 
-export type ContendersFiltersProps = ReturnType<typeof useResourceFirebaseData<ContenderCard>>;
+export type ContendersFiltersProps = ReturnType<typeof useResourceFirestoreData<ContenderCard>>;
 
 export function ContendersFilters({
   data,

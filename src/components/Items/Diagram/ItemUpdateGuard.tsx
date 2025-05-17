@@ -1,4 +1,4 @@
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { wait } from 'utils';
@@ -6,9 +6,9 @@ import { EditThingModal } from './EditThingModal';
 import { SYLLABLE_SEPARATOR } from './utils';
 
 type ItemUpdateGuardProps = {
-  things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
+  things: UseResourceFirestoreDataReturnType<DailyDiagramItem>['data'];
   rules: Dictionary<DailyDiagramRule>;
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
   children: ReactNode;
 };
 

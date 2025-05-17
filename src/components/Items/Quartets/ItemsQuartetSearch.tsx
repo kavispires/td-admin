@@ -1,4 +1,4 @@
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 
 import { Space, Typography } from 'antd';
 import type { DailyQuartetSet } from 'types';
@@ -10,7 +10,7 @@ import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 export function ItemsQuartetSearch({
   data,
   addEntryToUpdate,
-}: UseResourceFirebaseDataReturnType<DailyQuartetSet>) {
+}: UseResourceFirestoreDataReturnType<DailyQuartetSet>) {
   const [activeQuartetId, setActiveQuartetId] = useState<string | null>(null);
   const activeQuartet = useMemo(() => {
     if (!activeQuartetId) return null;

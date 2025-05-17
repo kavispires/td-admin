@@ -4,7 +4,7 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import type { DailyMovieSet } from 'types';
 import { sortJsonKeys } from 'utils';
 
@@ -15,7 +15,7 @@ export function ItemsMoviesFilters({
   isSaving,
   entriesToUpdate,
   hasFirestoreData,
-}: UseResourceFirebaseDataReturnType<DailyMovieSet>) {
+}: UseResourceFirestoreDataReturnType<DailyMovieSet>) {
   const { is, addParam } = useQueryParams();
   return (
     <SiderContent>

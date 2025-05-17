@@ -1,5 +1,5 @@
 import { App, Button } from 'antd';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { sample } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
@@ -7,7 +7,7 @@ import { wait } from 'utils';
 import { EditThingModal } from './EditThingModal';
 
 type AddNewThingFlowProps = {
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
   availableThings: ItemT[];
   rules: Dictionary<DailyDiagramRule>;
   width: number;

@@ -1,5 +1,5 @@
 import { Flex, Typography } from 'antd';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import type { DailyDiscSet } from 'types';
 import { removeDuplicates, sortItemsIds } from 'utils';
 import { InspirationSample } from '../InspirationSample';
@@ -8,7 +8,7 @@ import { PasteIds } from '../ParseIds';
 
 type ItemsDiscSetExpandedRowProps = {
   disc: DailyDiscSet;
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiscSet>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiscSet>['addEntryToUpdate'];
 };
 
 export function ItemsDiscSetExpandedRow({ disc, addEntryToUpdate }: ItemsDiscSetExpandedRowProps) {

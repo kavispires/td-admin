@@ -4,14 +4,14 @@ import { ItemsDiagramFilters } from 'components/Items/Diagram/ItemsDiagramFilter
 import { ItemsDiagramSetsContent } from 'components/Items/Diagram/ItemsDiagramSetsContent';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
 import type { DailyDiagramItem } from 'types';
 
 export function ItemsDiagramSets() {
-  const diagramData = useResourceFirebaseData<DailyDiagramItem>({
+  const diagramData = useResourceFirestoreData<DailyDiagramItem>({
     tdrResourceName: 'daily-diagram-items',
-    firebaseDataCollectionName: 'diagramItems',
+    firestoreDataCollectionName: 'diagramItems',
     serialize: true,
   });
 

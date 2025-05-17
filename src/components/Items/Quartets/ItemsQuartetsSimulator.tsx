@@ -1,5 +1,5 @@
 import { Button, Flex, Rate, Space, Typography } from 'antd';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep, intersection, orderBy, sample, sampleSize } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { DailyQuartetSet, Item as ItemType } from 'types';
@@ -7,7 +7,7 @@ import type { DailyQuartetSet, Item as ItemType } from 'types';
 import { Item } from 'components/Sprites';
 import { useTDResource } from 'hooks/useTDResource';
 
-export function ItemsQuartetsSimulator({ data }: UseResourceFirebaseDataReturnType<DailyQuartetSet>) {
+export function ItemsQuartetsSimulator({ data }: UseResourceFirestoreDataReturnType<DailyQuartetSet>) {
   const [simulation, setSimulation] = useState(simulateQuartetGame(data));
 
   const onNewSimulation = () => {
@@ -49,7 +49,7 @@ function QuartetRow({ quartet }: QuartetRowProps) {
   );
 }
 
-function simulateQuartetGame(allQuartets: UseResourceFirebaseDataReturnType<DailyQuartetSet>['data']) {
+function simulateQuartetGame(allQuartets: UseResourceFirestoreDataReturnType<DailyQuartetSet>['data']) {
   const quartetsArray = Object.values(allQuartets);
 
   // Step 1: Find a random perfect quartet (has exactly 4 items and a type)

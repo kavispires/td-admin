@@ -45,22 +45,6 @@ type DualLanguageValue = {
   pt: string;
 };
 
-// Firebase
-
-/**
- * Generic HttpsCallable function with payload
- */
-type FirebaseResponse<TData = any> = {
-  data: TData;
-};
-
-/**
- * Represents the context for Firebase operations.
- */
-type FirebaseContext = {
-  [key: string]: any;
-};
-
 // Verify
 
 type AvailableResources = string[];

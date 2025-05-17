@@ -3,7 +3,7 @@ import { Card, Flex, Popover, Radio, Select } from 'antd';
 import { DualLanguageTextField, Label, NSFWField } from 'components/Common/EditableFields';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { ImageCard } from 'components/Images/ImageCard';
-import type { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import type { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { merge } from 'lodash';
 import type { ContenderCard } from 'types';
 import { removeDuplicates } from 'utils';
@@ -44,7 +44,7 @@ const checkInvalidDecks = (decks?: string[], exclusivity?: string) => {
 
 type ContenderEditCardProps = {
   contender: ContenderCard;
-  addEntryToUpdate: ReturnType<typeof useResourceFirebaseData<ContenderCard>>['addEntryToUpdate'];
+  addEntryToUpdate: ReturnType<typeof useResourceFirestoreData<ContenderCard>>['addEntryToUpdate'];
 };
 
 export function ContenderEditCard({ contender, addEntryToUpdate }: ContenderEditCardProps) {

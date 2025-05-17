@@ -1,5 +1,5 @@
 import { Divider, Rate, Space, Switch, Table, type TableColumnsType, Tag, Typography } from 'antd';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo } from 'react';
 import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
 
@@ -9,8 +9,8 @@ import { AddNewThingFlow } from './AddNewThingFlow';
 import { ThingButton } from './Thing';
 
 type ThingsByRuleProps = {
-  things: UseResourceFirebaseDataReturnType<DailyDiagramItem>['data'];
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
+  things: UseResourceFirestoreDataReturnType<DailyDiagramItem>['data'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
   availableThings: ItemT[];
   rules: Dictionary<DailyDiagramRule>;
   thingsByRules: Record<string, string[]>;

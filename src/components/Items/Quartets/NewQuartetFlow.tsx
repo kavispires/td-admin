@@ -1,5 +1,5 @@
 import { Button, Modal } from 'antd';
-import type { UseResourceFirebaseDataReturnType } from 'hooks/useResourceFirebaseData';
+import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { DailyQuartetSet } from 'types';
@@ -8,8 +8,8 @@ import { InspirationSample } from '../InspirationSample';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 
 type NewQuartetFlowProps = {
-  data: UseResourceFirebaseDataReturnType<DailyQuartetSet>['data'];
-  addEntryToUpdate: UseResourceFirebaseDataReturnType<DailyQuartetSet>['addEntryToUpdate'];
+  data: UseResourceFirestoreDataReturnType<DailyQuartetSet>['data'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyQuartetSet>['addEntryToUpdate'];
 };
 
 export function NewQuartetFlow({ data, addEntryToUpdate }: NewQuartetFlowProps) {

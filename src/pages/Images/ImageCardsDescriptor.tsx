@@ -4,14 +4,14 @@ import { ImageCardsDescriptorContent } from 'components/Images/ImageCards/ImageC
 import { ImageCardsDescriptorFilters } from 'components/Images/ImageCards/ImageCardsDescriptorFilters';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirebaseData } from 'hooks/useResourceFirebaseData';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
 import type { ImageCardDescriptor } from 'types';
 
 export function ImageCardsDescriptor() {
-  const imageCardsQuery = useResourceFirebaseData<ImageCardDescriptor>({
+  const imageCardsQuery = useResourceFirestoreData<ImageCardDescriptor>({
     tdrResourceName: 'image-cards',
-    firebaseDataCollectionName: 'imageCards',
+    firestoreDataCollectionName: 'imageCards',
     serialize: true,
   });
 
