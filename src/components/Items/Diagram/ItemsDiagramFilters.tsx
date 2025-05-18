@@ -100,8 +100,6 @@ function prepareFileForDownload(
       });
     }
 
-    item.rules = item.rules.sort();
-
     const hasNonAutoUpdates = outdatedRules.some((rule) => rule.method !== 'auto');
 
     if (!hasNonAutoUpdates) {

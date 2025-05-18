@@ -76,6 +76,11 @@ export const verifiers: Record<string, (word: string) => boolean> = {
     const firstLetter = cleanupWord(word)[0];
     return cleanupWord(word).slice(1).includes(firstLetter);
   },
+  // The last letter is repeated at least once
+  'ddr-70-pt': (word: string) => {
+    const lastLetter = cleanupWord(word).slice(-1);
+    return cleanupWord(word).slice(0, -1).includes(lastLetter);
+  },
   // has repeated letters
   'ddr-19-pt': (word: string) => {
     return cleanupWord(word)
@@ -268,6 +273,14 @@ export const syllableDependencyVerifier: Record<
   // Single syllable word
   'ddr-46-pt': (word: string, syllables: string, isAcronym: boolean) =>
     countWords(word) === 1 && !isAcronym && syllables.split(SYLLABLE_SEPARATOR).length === 1,
+  // The first syllable contains 3 letters
+  'ddr-68-pt': (word: string, syllables: string) => {
+    return countWords(word) === 1 && syllables.split(SYLLABLE_SEPARATOR)[0].length === 3;
+  },
+  // The first syllable contains 1 letter
+  'ddr-69-pt': (word: string, syllables: string) => {
+    return countWords(word) === 1 && syllables.split(SYLLABLE_SEPARATOR)[0].length === 1;
+  },
 };
 
 export const stressSyllableDependencyVerifier: Record<
