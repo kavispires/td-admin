@@ -232,3 +232,15 @@ body {
 .italic {
   font-style: italic;
 }
+
+.grid {
+  display: grid;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

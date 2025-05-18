@@ -1,4 +1,5 @@
-import { Drawer, Flex, Select, Switch, Typography } from 'antd';
+import { ManOutlined, WomanOutlined } from '@ant-design/icons';
+import { Drawer, Flex, Radio, Switch, Typography } from 'antd';
 import { ImageCard } from 'components/Images/ImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
@@ -24,44 +25,58 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
       width={400}
     >
       <div className="suspect__drawer">
-        <div className="suspect__drawer__image">
+        <div className="grid grid-2">
           <ImageCard id={getSuspectImageId(suspect.id, version)} width={100} />
+          <Flex vertical gap={4}>
+            <div>🇧🇷 {suspect.name.pt}</div>
+            <div>🇺🇸 {suspect.name.en}</div>
+            <div>
+              <strong>{suspect.age}</strong>
+            </div>
+            <div>
+              {suspect.gender === 'male' ? <ManOutlined /> : <WomanOutlined />} {suspect.gender}
+            </div>
+            <div>
+              <em>{suspect.ethnicity}</em>
+            </div>
+          </Flex>
         </div>
 
-        <div className="suspect__drawer__info">
-          <Typography.Text strong>Build:</Typography.Text>
-          <Select
-            size="small"
-            defaultValue={suspect.build}
-            onChange={(value) => {
-              addEntryToUpdate(suspect.id, { ...suspect, build: value });
-            }}
-            placeholder="Select Build"
-          >
-            {BUILDS_AND_HEIGHTS.map((build) => (
-              <Select.Option key={build} value={build}>
-                {build}
-              </Select.Option>
-            ))}
-          </Select>
-
-          <Typography.Text strong>Height:</Typography.Text>
-          <Select
-            size="small"
-            defaultValue={suspect.height}
-            onChange={(value) => {
-              addEntryToUpdate(suspect.id, { ...suspect, height: value });
-            }}
-          >
-            {BUILDS_AND_HEIGHTS.map((height) => (
-              <Select.Option key={height} value={height}>
-                {height}
-              </Select.Option>
-            ))}
-          </Select>
-
-          <SuspectFeatures suspect={suspect} addEntryToUpdate={addEntryToUpdate} />
+        <div className="grid grid-2">
+          <Flex vertical>
+            <Typography.Text strong>Build</Typography.Text>
+            <Radio.Group
+              size="small"
+              value={suspect.build}
+              onChange={(e) => {
+                addEntryToUpdate(suspect.id, { ...suspect, build: e.target.value });
+              }}
+              options={BUILDS}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 3,
+              }}
+            />
+          </Flex>
+          <Flex vertical>
+            <Typography.Text strong>Height</Typography.Text>
+            <Radio.Group
+              size="small"
+              value={suspect.height}
+              onChange={(e) => {
+                addEntryToUpdate(suspect.id, { ...suspect, height: e.target.value });
+              }}
+              options={HEIGHTS}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 3,
+              }}
+            />
+          </Flex>
         </div>
+        <SuspectFeatures suspect={suspect} addEntryToUpdate={addEntryToUpdate} />
       </div>
     </Drawer>
   );
@@ -83,7 +98,7 @@ function SuspectFeatures({ suspect, addEntryToUpdate }: SuspectFeaturesProps) {
     addEntryToUpdate(suspect.id, { ...suspect, features: updatedFeatures });
   };
   return (
-    <div>
+    <div className="grid grid-2">
       {FEATURES_BY_GROUP.map((group) => (
         <div key={group.title} className="my-4">
           <Typography.Text strong>{group.title}</Typography.Text>
@@ -103,7 +118,8 @@ function SuspectFeatures({ suspect, addEntryToUpdate }: SuspectFeaturesProps) {
   );
 }
 
-const BUILDS_AND_HEIGHTS = ['S', 'M', 'L'];
+const BUILDS = ['thin', 'average', 'muscular', 'large'];
+const HEIGHTS = ['short', 'medium', 'tall'];
 
 export const FEATURES_BY_GROUP = [
   {
@@ -111,6 +127,7 @@ export const FEATURES_BY_GROUP = [
     features: [
       { id: 'shortHair', label: 'Short Hair' },
       { id: 'longHair', label: 'Long Hair' },
+      { id: 'mediumHair', label: 'Medium Hair' },
       { id: 'bald', label: 'Bald' },
     ],
   },

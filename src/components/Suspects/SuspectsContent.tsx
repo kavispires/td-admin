@@ -59,7 +59,7 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
                   </div>
                   <div>🇧🇷 {entry.name.pt}</div>
                   <div>🇺🇸 {entry.name.en}</div>
-                  <div className="suspect__info">
+                  <div className="suspect__info" style={getHeightBuildAlert(entry)}>
                     <div>
                       <div>
                         {entry.gender === 'male' ? <ManOutlined /> : <WomanOutlined />} {entry.age}
@@ -68,15 +68,15 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
                         <em>{entry.ethnicity}</em>
                       </div>
                     </div>
-                    <div>
+                    <div className="uppercase">
                       <ColumnWidthOutlined />
                       <br />
-                      {entry.build}
+                      {entry.build.charAt(0)}
                     </div>
-                    <div>
+                    <div className="uppercase">
                       <ColumnHeightOutlined />
                       <br />
-                      {entry.height}
+                      {entry.height.charAt(0)}
                     </div>
                     <div>{entry?.features?.length ?? 0} features</div>
                   </div>
@@ -98,3 +98,10 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
     </>
   );
 }
+
+const getHeightBuildAlert = (entry: SuspectCard) => {
+  if (!entry.build || !entry.height || entry.build.length === 1 || entry.height.length === 1) {
+    return { borderColor: 'red' };
+  }
+  return {};
+};

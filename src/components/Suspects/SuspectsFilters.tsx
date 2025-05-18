@@ -5,6 +5,7 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
+import { cloneDeep } from 'lodash';
 import type { SuspectCard } from 'types';
 import { sortJsonKeys } from 'utils';
 import { SuspectsStats } from './SuspectsStats';
@@ -84,5 +85,21 @@ export function SuspectsFilters({
 }
 
 function prepareFileForDownload(data: Dictionary<SuspectCard>) {
-  return sortJsonKeys(data, ['gender', 'ethnicity', 'age', 'height', 'build', 'features']);
+  const copy = cloneDeep(data);
+  for (const key in copy) {
+    const suspect = copy[key];
+
+    if (suspect.height.length === 1 || suspect.build.length === 1) {
+      if (suspect.height === 'S') suspect.height = 'short';
+      if (suspect.height === 'M') suspect.height = 'medium';
+      if (suspect.height === 'L') suspect.height = 'tall';
+
+      if (suspect.build === 'S') suspect.build = 'thin';
+      if (suspect.build === 'M') suspect.build = 'average';
+    }
+    if (suspect.build === 'fat') suspect.build = 'large';
+    if (suspect.build === 'heavy') suspect.build = 'large';
+  }
+
+  return sortJsonKeys(copy, ['gender', 'ethnicity', 'age', 'height', 'build', 'features']);
 }
