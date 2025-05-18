@@ -15,6 +15,7 @@ export const DAILY_GAMES_KEYS = {
   ARTISTA: 'artista',
   COMUNICACAO_ALIENIGENA: 'comunicacao-alienigena',
   CONTROLE_DE_ESTOQUE: 'controle-de-estoque',
+  ESPIONAGEM: 'espionagem',
   PALAVREADO: 'palavreado',
   PORTAIS_MAGICOS: 'portais-magicos',
   QUARTETOS: 'quartetos',
