@@ -1,10 +1,11 @@
-import { ContactsOutlined, TableOutlined } from '@ant-design/icons';
+import { ContactsOutlined, RobotOutlined, TableOutlined } from '@ant-design/icons';
 import { Flex, Tooltip } from 'antd';
 import { FilterSegments } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { cloneDeep } from 'lodash';
 import type { TestimonyAnswers, useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import { deepCleanObject, sortJsonKeys } from 'utils';
@@ -79,6 +80,11 @@ export function TestimoniesFilters({
               icon: <ContactsOutlined />,
               value: 'suspects',
             },
+            {
+              title: 'Simulator',
+              icon: <RobotOutlined />,
+              value: 'simulator',
+            },
           ]}
         />
       </SiderContent>
@@ -112,14 +118,43 @@ export function TestimoniesFilters({
 
 function prepareFileForDownload(entriesToUpdate: Dictionary<TestimonyAnswers>) {
   console.log('Preparing file for download...');
-  // const copy = cloneDeep(entriesToUpdate);
-  // // Remove any undefined values of any keys in each entry
-  // Object.values(copy).forEach((entry) => {
-  //   const exclusivity = entry.exclusivity as string;
-  //   if (entry.exclusivity === undefined || exclusivity === 'none') {
-  //     entry.exclusivity = undefined;
+
+  // DO MIGRATIONS HERE
+  const copy = cloneDeep(entriesToUpdate);
+
+  // // Merge two questions
+  // const q137 = copy['t-137-pt'];
+  // const q179 = copy['t-179-pt'];
+  // Object.keys(q179).forEach((suspectId) => {
+  //   if (q137[suspectId] === undefined) {
+  //     q137[suspectId] = q179[suspectId];
+  //   } else {
+  //     q137[suspectId].push(...q179[suspectId]);
   //   }
   // });
+  // delete copy['t-179-pt'];
 
-  return sortJsonKeys(deepCleanObject(entriesToUpdate));
+  // // Merge two opposite questions
+  // const q114 = copy['t-114-pt'];
+  // const q202 = copy['t-202-pt'];
+  // Object.keys(q202).forEach((suspectId) => {
+  //   const newResult = q202[suspectId].map((value) => {
+  //     if (value === 1) return 0;
+  //     if (value === 0) return 1;
+  //     if (value === -3) return 3;
+  //     if (value === 3) return -3;
+  //     return value;
+  //   });
+
+  //   if (q114[suspectId] === undefined) {
+  //     q114[suspectId] = newResult;
+  //   } else {
+  //     q114[suspectId].push(...newResult);
+  //   }
+  // });
+  // delete copy['t-202-pt'];
+  // // Object.keys(copy).forEach((testimonyId) => {
+  // // });
+
+  return sortJsonKeys(deepCleanObject(copy));
 }

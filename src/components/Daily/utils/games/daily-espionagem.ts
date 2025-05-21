@@ -38,6 +38,13 @@ export const useDailyEspionagemGames = (
   );
   const answersQuery = useTDResource<TestimonyAnswers>('testimony-answers', enabled);
 
+  const testimonySuspectAnswers = useMemo(
+    () => calculateSuspectAnswers(answersQuery.data),
+    [answersQuery.data],
+  );
+
+  const featuresStats = useMemo(() => calculateFeaturesStats(suspectsQuery.data), [suspectsQuery.data]);
+
   const entries = useMemo(() => {
     if (
       !enabled ||
@@ -48,8 +55,6 @@ export const useDailyEspionagemGames = (
     ) {
       return {};
     }
-    const testimonySuspectAnswers = calculateSuspectAnswers(answersQuery.data);
-    const featuresStats = calculateFeaturesStats(suspectsQuery.data);
 
     return buildDailyEspionagemGames(
       batchSize,
@@ -59,7 +64,16 @@ export const useDailyEspionagemGames = (
       testimonySuspectAnswers,
       featuresStats,
     );
-  }, [enabled, espionagemHistory, suspectsQuery, questionsQuery, answersQuery, batchSize]);
+  }, [
+    enabled,
+    espionagemHistory,
+    suspectsQuery,
+    questionsQuery,
+    answersQuery,
+    batchSize,
+    testimonySuspectAnswers,
+    featuresStats,
+  ]);
 
   return {
     entries,
