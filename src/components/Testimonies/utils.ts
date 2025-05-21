@@ -1,6 +1,15 @@
 import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
 
-export const calculateSuspectAnswersData = (suspectCardId: string, answers: TestimonyAnswers) => {
+export const calculateSuspectAnswersData = (
+  suspectCardId: string,
+  answers: TestimonyAnswers,
+  options?: {
+    reliabilityThreshold?: number;
+    projectionThreshold?: number;
+  },
+) => {
+  const { reliabilityThreshold = 4, projectionThreshold = 55 } = options || {};
+
   const num = suspectCardId.split('-')[1];
   const imageId = `us-gb-${num}`;
   const values = answers[suspectCardId] ?? [];
@@ -26,9 +35,9 @@ export const calculateSuspectAnswersData = (suspectCardId: string, answers: Test
   const complete = valuesWithoutSystem.length + systemYesCount + systemNoCount >= 5;
 
   const enoughData = votesCount > 3;
-  const reliable = votesCount > 4;
+  const reliable = votesCount > reliabilityThreshold;
 
-  const result = (() => {
+  const resolution = (() => {
     if (reliable) return yesPercentage > noPercentage ? '👍' : '👎';
     return null;
   })();
@@ -38,8 +47,8 @@ export const calculateSuspectAnswersData = (suspectCardId: string, answers: Test
   const projection = (() => {
     if (!enoughData) return null;
 
-    if (yesPercentage >= 55) return '👍';
-    if (noPercentage >= 55) return '👎';
+    if (yesPercentage >= projectionThreshold) return '👍';
+    if (noPercentage >= projectionThreshold) return '👎';
     return null;
   })();
 
@@ -56,7 +65,7 @@ export const calculateSuspectAnswersData = (suspectCardId: string, answers: Test
     blankPercentage,
     complete,
     values,
+    resolution,
     projection,
-    result,
   };
 };

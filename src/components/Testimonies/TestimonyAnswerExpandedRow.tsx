@@ -137,7 +137,7 @@ export function TestimonyAnswerExpandedRow({
                 )}
               </div>
               <Tooltip
-                title={`Values: ${entry.values.join(', ')} : ${entry.result ? entry.result : entry.projection ? `${entry.projection}*` : ''}`}
+                title={`Values: ${entry.values.join(', ')} : ${entry.resolution ? entry.resolution : entry.projection ? `${entry.projection}*` : ''}`}
               >
                 {entry.enoughData ? (
                   <Progress

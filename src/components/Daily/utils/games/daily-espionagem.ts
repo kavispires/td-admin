@@ -1,4 +1,5 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { calculateSuspectAnswersData } from 'components/Testimonies/utils';
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, difference, isEmpty, sample, sampleSize, shuffle, uniq } from 'lodash';
 import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
@@ -49,8 +50,6 @@ export const useDailyEspionagemGames = (
     }
     const testimonySuspectAnswers = calculateSuspectAnswers(answersQuery.data);
     const featuresStats = calculateFeaturesStats(suspectsQuery.data);
-    // console.log('testimonySuspectAnswers:', testimonySuspectAnswers);
-    // console.log('featuresStats:', featuresStats);
 
     return buildDailyEspionagemGames(
       batchSize,
@@ -274,12 +273,14 @@ function generateEspionagemGame(
  */
 const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
   const result: TestimonySuspectAnswers = {};
+  console.log('⚙️ Calculating suspect answers...');
   for (const questionId of Object.keys(data)) {
     const questionTestimonies = data[questionId];
     for (const suspectId of Object.keys(questionTestimonies)) {
-      const testimony = questionTestimonies[suspectId];
-      // If the testimony has less than 3 answers, skip it
-      if (testimony.length < 3) {
+      const { resolution, projection } = calculateSuspectAnswersData(suspectId, questionTestimonies);
+
+      if (!resolution && !projection) {
+        console.log('⁉️ Ignoring testimony with no resolution or projection');
         continue;
       }
 
@@ -287,28 +288,17 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
         result[questionId] = {};
       }
 
-      // If the testimony has 3 or more answers, check if they are all the same
-      const uniqueAnswers = uniq(testimony);
-      if (uniqueAnswers.length === 1) {
-        result[questionId][suspectId] = uniqueAnswers[0] === 1;
+      if (resolution) {
+        result[questionId][suspectId] = resolution === '👍';
         continue;
       }
 
-      // If the testimony has 3 or more answers, if they have at least 3 zeroes, consider it false, if they have at least 3 ones, consider it true
-      const zeroes = testimony.filter((a) => a === 0).length;
-      const ones = testimony.filter((a) => a === 1).length;
-
-      if (zeroes >= 3) {
-        result[questionId][suspectId] = false;
+      if (projection) {
+        result[questionId][suspectId] = projection === '👍';
         continue;
       }
 
-      if (ones >= 3) {
-        result[questionId][suspectId] = true;
-        continue;
-      }
-
-      console.log('⁉️ Ignoring testimony with insufficient answers');
+      console.log('⁉️ Ignoring testimony with not enough values');
     }
   }
 
@@ -335,7 +325,7 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
       delete result[key];
     }
   });
-
+  console.log(result);
   return result;
 };
 
