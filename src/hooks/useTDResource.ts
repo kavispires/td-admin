@@ -5,7 +5,7 @@ import { useBaseUrl } from './useBaseUrl';
 export function useTDResource<TData>(resourceName: string, enabled = true) {
   const { getUrl } = useBaseUrl('resources');
 
-  const query = useQuery<Dictionary<TData>, ResponseError>({
+  const query = useQuery<Dictionary<TData>, Error>({
     queryKey: [resourceName],
     queryFn: async () => {
       const res = await fetch(getUrl(`${resourceName}.json`));
@@ -25,7 +25,7 @@ export function useTDResource<TData>(resourceName: string, enabled = true) {
 export function useTDResourceNonCollection<TData>(resourceName: string, enabled = true) {
   const { getUrl } = useBaseUrl('resources');
 
-  const query = useQuery<TData, ResponseError>({
+  const query = useQuery<TData, Error>({
     queryKey: [resourceName],
     queryFn: async () => {
       const res = await fetch(getUrl(`${resourceName}.json`));

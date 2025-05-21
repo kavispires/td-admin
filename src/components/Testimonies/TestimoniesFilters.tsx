@@ -1,7 +1,8 @@
 import { ContactsOutlined, TableOutlined } from '@ant-design/icons';
-import { Tooltip } from 'antd';
+import { Flex, Tooltip } from 'antd';
 import { FilterSegments } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { TestimonyAnswers, useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
@@ -10,7 +11,14 @@ import { deepCleanObject, sortJsonKeys } from 'utils';
 
 export type TestimoniesFiltersProps = ReturnType<typeof useTestimoniesResource>;
 
-export function TestimoniesFilters({ data, hasNewData }: TestimoniesFiltersProps) {
+export function TestimoniesFilters({
+  data,
+  hasNewData,
+  isDirty,
+  save,
+  isSaving,
+  entriesToUpdate,
+}: TestimoniesFiltersProps) {
   const { queryParams, addParams } = useQueryParams();
 
   const counts = useMemo(() => {
@@ -38,13 +46,22 @@ export function TestimoniesFilters({ data, hasNewData }: TestimoniesFiltersProps
   return (
     <>
       <SiderContent>
-        <DownloadButton
-          data={() => prepareFileForDownload(data)}
-          fileName="testimony-answers.json"
-          // disabled={isDirty}
-          hasNewData={hasNewData}
-          block
-        />
+        <Flex vertical gap={12}>
+          <SaveButton
+            isDirty={isDirty}
+            onSave={save}
+            isSaving={isSaving}
+            dirt={JSON.stringify(entriesToUpdate)}
+          />
+
+          <DownloadButton
+            data={() => prepareFileForDownload(data)}
+            fileName="testimony-answers.json"
+            disabled={isDirty}
+            hasNewData={hasNewData}
+            block
+          />
+        </Flex>
       </SiderContent>
       <SiderContent>
         <FilterSegments

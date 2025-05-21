@@ -4,6 +4,7 @@ import { orderBy } from 'lodash';
 import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
+import { calculateSuspectAnswersData } from './utils';
 
 type SuspectAnswersExpandedRowProps = {
   suspect: SuspectCard;
@@ -15,43 +16,43 @@ type RowType = {
   id: string;
   question: TestimonyQuestionCard;
   enoughData: boolean;
-  reliability: number;
+  reliable: boolean;
+  total: number;
   yesPercentage: number;
   noPercentage: number;
   blankPercentage: number;
   values: number[];
 };
 
-export function SuspectAnswersExpandedRow({ answersPerQuestion, questions }: SuspectAnswersExpandedRowProps) {
+export function SuspectAnswersExpandedRow({
+  suspect,
+  answersPerQuestion,
+  questions,
+}: SuspectAnswersExpandedRowProps) {
   const list: RowType[] = useMemo(() => {
     return orderBy(
       Object.keys(answersPerQuestion).map((questionId) => {
         const question = questions[questionId];
-        const values = answersPerQuestion[questionId];
-        const enoughData = values.length > 2;
-        const reliability = values.length;
-        const total = Math.max(values.length, 5);
-        const yesCount = values.filter((v) => v === 1).length;
-        const yesPercentage = Math.round((yesCount / total) * 100);
-        const noCount = values.filter((v) => v === 0).length;
-        const noPercentage = Math.round((noCount / total) * 100);
-        const blankPercentage = Math.round(((total - yesCount - noCount) / total) * 100);
+
+        const { enoughData, reliable, yesPercentage, noPercentage, blankPercentage, values, total } =
+          calculateSuspectAnswersData(suspect.id, { [suspect.id]: answersPerQuestion[questionId] });
 
         return {
           id: questionId,
           question,
           enoughData,
-          reliability,
+          reliable,
           yesPercentage,
           noPercentage,
           blankPercentage,
           values,
+          total,
         };
       }),
-      ['reliability', 'enoughData', 'yesPercentage'],
-      ['desc', 'desc', 'desc'],
+      ['reliable', 'enoughData', 'yesPercentage', (o) => o.values.length],
+      ['desc', 'desc', 'desc', 'desc'],
     );
-  }, [answersPerQuestion, questions]);
+  }, [answersPerQuestion, questions, suspect.id]);
 
   const columns: TableProps<RowType>['columns'] = [
     {
@@ -69,7 +70,7 @@ export function SuspectAnswersExpandedRow({ answersPerQuestion, questions }: Sus
       key: 'answer',
       title: 'Answer',
       dataIndex: 'id',
-      sorter: (a, b) => a.reliability - b.reliability,
+      sorter: (a, b) => a.total - b.total,
       render: (id) => {
         const entry = list.find((entry) => entry.id === id);
         if (!entry) {
