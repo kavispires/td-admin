@@ -1,1 +1,0 @@
-import{j as n,B as a}from"./index-DyB2iw-j.js";import{j as m}from"./index-DG2D6Gd-.js";import{B as u}from"./index-Dwyhp9v4.js";function p({data:o,fileName:t,loading:s,children:r,hasNewData:i,...e}){return n.jsxs(a,{onClick:()=>m(typeof o=="function"?o():o,t),loading:s,...e,children:[r??"Download JSON",i&&n.jsx(u,{status:"warning"})]})}export{p as D};
