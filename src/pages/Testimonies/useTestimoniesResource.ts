@@ -86,12 +86,6 @@ export function useTestimoniesResource(): UseTestimoniesResourceReturnType {
     const newData = cloneDeep(tdrQuery.data);
 
     Object.keys(firestoreQuery.data).forEach((questionId) => {
-      const modifiedEntry = modifiedEntries[questionId];
-      if (modifiedEntry) {
-        newData[questionId] = modifiedEntry;
-        return;
-      }
-
       const entry = firestoreQuery.data[questionId];
       if (newData[questionId] === undefined) {
         newData[questionId] = entry;
@@ -107,6 +101,13 @@ export function useTestimoniesResource(): UseTestimoniesResourceReturnType {
       });
     });
 
+    Object.keys(modifiedEntries).forEach((questionId) => {
+      const entry = modifiedEntries[questionId];
+      if (newData[questionId]) {
+        newData[questionId] = entry;
+      }
+    });
+
     return newData;
   }, [tdrQuery.data, firestoreQuery.data, modifiedEntries]);
 
@@ -117,8 +118,12 @@ export function useTestimoniesResource(): UseTestimoniesResourceReturnType {
 
   const save = () => {
     // Serialize the modified entries before saving
-    console.log(modifiedEntries);
-    // mutation.mutate(modifiedEntries);
+    const serializedEntries = Object.keys(modifiedEntries).reduce((acc: Dictionary<string>, key) => {
+      acc[key] = JSON.stringify(modifiedEntries[key]);
+      return acc;
+    }, {});
+
+    mutation.mutate(serializedEntries);
   };
 
   return {

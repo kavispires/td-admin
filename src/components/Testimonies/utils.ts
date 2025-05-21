@@ -5,9 +5,6 @@ export const calculateSuspectAnswersData = (suspectCardId: string, answers: Test
   const imageId = `us-gb-${num}`;
   const values = answers[suspectCardId] ?? [];
 
-  const enoughData = values.length > 3;
-  const reliable = values.length > 4;
-
   let systemYesCount = 0;
   let systemNoCount = 0;
 
@@ -17,7 +14,8 @@ export const calculateSuspectAnswersData = (suspectCardId: string, answers: Test
   });
   const valuesWithoutSystem = values.filter((v) => v !== 3 && v !== -3);
 
-  const total = Math.max(valuesWithoutSystem.length + systemYesCount + systemNoCount, 5);
+  const votesCount = valuesWithoutSystem.length + systemYesCount + systemNoCount;
+  const total = Math.max(votesCount, 5);
   const baseYesCount = values.filter((v) => v === 1).length;
   const yesCount = baseYesCount + systemYesCount;
   const yesPercentage = Math.round((yesCount / total) * 100);
@@ -26,6 +24,9 @@ export const calculateSuspectAnswersData = (suspectCardId: string, answers: Test
   const noPercentage = Math.round((noCount / total) * 100);
   const blankPercentage = Math.round(((total - yesCount - noCount) / total) * 100);
   const complete = valuesWithoutSystem.length + systemYesCount + systemNoCount >= 5;
+
+  const enoughData = votesCount > 3;
+  const reliable = votesCount > 4;
 
   const result = (() => {
     if (reliable) return yesPercentage > noPercentage ? '👍' : '👎';

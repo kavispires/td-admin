@@ -17,6 +17,7 @@ export function TestimoniesTable({
   suspects,
   isLoading,
   isSuccess,
+  addEntryToUpdate,
 }: TestimoniesContentProps) {
   const { queryParams, addParam } = useQueryParams();
 
@@ -63,7 +64,12 @@ export function TestimoniesTable({
   const expandableProps = useTableExpandableRows<TestimonyQuestionCard>({
     maxExpandedRows: 1,
     expandedRowRender: (record) => (
-      <TestimonyAnswerExpandedRow answers={data[record.id] ?? {}} suspects={suspects} />
+      <TestimonyAnswerExpandedRow
+        testimonyId={record.id}
+        answers={data[record.id] ?? {}}
+        suspects={suspects}
+        addEntryToUpdate={addEntryToUpdate}
+      />
     ),
     rowExpandable: () => isSuccess,
   });
