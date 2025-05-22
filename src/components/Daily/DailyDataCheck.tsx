@@ -1,7 +1,8 @@
-import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
+import { ArrowUpOutlined, DoubleLeftOutlined, DoubleRightOutlined, GoogleOutlined } from '@ant-design/icons';
 import ReactJsonView from '@microlink/react-json-view';
 import { Button, Divider, Flex, Input, Space, Table, Tag, Typography } from 'antd';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
+import { useFirestoreConsoleUrl } from 'hooks/useBaseUrl';
 import { useGetFirestoreDoc } from 'hooks/useGetFirestoreDoc';
 import moment from 'moment';
 import { useEffect, useMemo, useState } from 'react';
@@ -47,6 +48,8 @@ export function DailyDataCheck() {
     }
   }, [data]);
 
+  const { getConsoleUrl } = useFirestoreConsoleUrl();
+
   return (
     <div>
       <Typography.Title level={2}>Data Verification</Typography.Title>
@@ -79,20 +82,123 @@ export function DailyDataCheck() {
               {isLoading ? 'Loading...' : isValidDate ? 'Valid' : 'Invalid'}
             </Tag>
           </span>
+
+          <span>
+            <Typography.Link href={getConsoleUrl(`/diario/${selectedDate}`)} target="_blank" disabled={!data}>
+              <GoogleOutlined /> Console <ArrowUpOutlined style={{ rotate: '45deg' }} />
+            </Typography.Link>
+          </span>
         </Flex>
       </Flex>
       <Table loading={isLoading} columns={dailyColumns} dataSource={rows} scroll={{ x: 'max-content' }} />
       <Divider />
-      <CopyToClipboardButton
-        content={JSON.stringify(rows[0], null, 2)}
-        shape="default"
-        className="mb-4"
-        disabled={!data}
-      >
-        Copy to Clipboard
-      </CopyToClipboardButton>
+
+      <Flex justify="space-between" align="center" className="mb-4" wrap>
+        <CopyToClipboardButton
+          content={JSON.stringify(rows[0], null, 2)}
+          shape="default"
+          className="mb-4"
+          disabled={!data}
+        >
+          Copy to Clipboard
+        </CopyToClipboardButton>
+
+        <DataSearcher data={data} />
+      </Flex>
 
       <ReactJsonView src={rows[0] ?? {}} theme="twilight" />
     </div>
+  );
+}
+
+// Helper function to search deeply through objects
+const findInObject = (obj: any, searchText: string): string[] => {
+  if (!obj || !searchText || searchText.length < 2) return [];
+
+  const results: string[] = [];
+  const searchTextLower = searchText.toLowerCase();
+
+  const search = (obj: any, path: string[] = []) => {
+    if (!obj) return;
+
+    if (typeof obj === 'object') {
+      Object.entries(obj).forEach(([key, value]) => {
+        // Check if key contains the search text
+        if (key.toLowerCase().includes(searchTextLower)) {
+          results.push([...path, key].join('.'));
+        }
+
+        // Check if value is a string and contains the search text
+        if (typeof value === 'string' && value.toLowerCase().includes(searchTextLower)) {
+          results.push([...path, key].join('.'));
+        }
+
+        // Recursively search in objects and arrays
+        if (typeof value === 'object' && value !== null) {
+          search(value, [...path, key]);
+        }
+      });
+    }
+  };
+
+  search(obj);
+  return results;
+};
+
+type DataSearcherProps = {
+  data?: DailyEntry;
+};
+
+function DataSearcher({ data }: DataSearcherProps) {
+  const [searchResults, setSearchResults] = useState<string[]>([]);
+
+  const handleSearch = (text: string) => {
+    setCurrentSearchText(text);
+    if (text.trim().length > 1) {
+      const results = findInObject(data, text.trim());
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
+  };
+
+  // Keep track of the current search input
+  const [currentSearchText, setCurrentSearchText] = useState('');
+
+  // Update the search when the date or data changes but only if there was an active search
+  // biome-ignore lint/correctness/useExhaustiveDependencies: only needs to run when data changes
+  useEffect(() => {
+    if (data && currentSearchText.trim().length > 1) {
+      const results = findInObject(data, currentSearchText.trim());
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
+  }, [data]);
+
+  return (
+    <Flex vertical gap={8}>
+      <Input.Search
+        placeholder="Search in data..."
+        allowClear
+        onChange={(e) => handleSearch(e.target.value)}
+        onSearch={handleSearch}
+        style={{ width: 250 }}
+      />
+      {searchResults.length > 0 && (
+        <div>
+          <Typography.Text>Found {searchResults.length} matches:</Typography.Text>
+          <ul style={{ maxHeight: '200px', overflow: 'auto', margin: '4px 0' }}>
+            {searchResults.map((result, index) => (
+              <li key={index}>
+                <Typography.Text code copyable>
+                  {result}
+                </Typography.Text>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </Flex>
   );
 }
