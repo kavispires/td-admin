@@ -22,7 +22,7 @@ export function ItemAttributionCard() {
     }
   }, [queryParamsItemId]);
 
-  const showOnlyUnset = is('scope');
+  const showOnlyUnset = is('scope', 'unset');
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const filteredAttributesList = useMemo(() => {
     const shortlist = showOnlyUnset
