@@ -1,4 +1,5 @@
 import { Empty, Flex } from 'antd';
+import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { GoToTopButton } from 'components/Common/GoToTopButton';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { ItemAttributionCard } from './ItemAttributionCard';
@@ -20,10 +21,11 @@ export function ItemAttributionPageContent() {
   if (display === 'classifier') {
     return (
       <>
-        <Flex className="my-4" gap={8}>
+        <Flex className="my-4" gap={8} align="center" wrap>
           <ItemAttributionNavigation />
           <ItemAttributionFilterAttributes />
           <ItemAttributionSortBy />
+          <FirestoreConsoleLink path="/tdr/itemsAttributeValues" />
         </Flex>
         <ItemAttributionCard />
         <Flex justify="flex-end" className="my-4">
