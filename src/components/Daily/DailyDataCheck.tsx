@@ -1,8 +1,8 @@
-import { ArrowUpOutlined, DoubleLeftOutlined, DoubleRightOutlined, GoogleOutlined } from '@ant-design/icons';
+import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
 import ReactJsonView from '@microlink/react-json-view';
 import { Button, Divider, Flex, Input, Space, Table, Tag, Typography } from 'antd';
+import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-import { useFirestoreConsoleUrl } from 'hooks/useBaseUrl';
 import { useGetFirestoreDoc } from 'hooks/useGetFirestoreDoc';
 import moment from 'moment';
 import { useEffect, useMemo, useState } from 'react';
@@ -48,8 +48,6 @@ export function DailyDataCheck() {
     }
   }, [data]);
 
-  const { getConsoleUrl } = useFirestoreConsoleUrl();
-
   return (
     <div>
       <Typography.Title level={2}>Data Verification</Typography.Title>
@@ -83,11 +81,7 @@ export function DailyDataCheck() {
             </Tag>
           </span>
 
-          <span>
-            <Typography.Link href={getConsoleUrl(`/diario/${selectedDate}`)} target="_blank" disabled={!data}>
-              <GoogleOutlined /> Console <ArrowUpOutlined style={{ rotate: '45deg' }} />
-            </Typography.Link>
-          </span>
+          <FirestoreConsoleLink path={`/diario/${selectedDate}`} disabled={!data} />
         </Flex>
       </Flex>
       <Table loading={isLoading} columns={dailyColumns} dataSource={rows} scroll={{ x: 'max-content' }} />

@@ -569,11 +569,11 @@ export type SuspectCard = {
   /**
    * The build of the suspect
    */
-  build: 'S' | 'M' | 'L' | string;
+  build: 'thin' | 'average' | 'large' | 'muscular' | string;
   /**
    * The height of the suspect
    */
-  height: 'S' | 'M' | 'L' | string;
+  height: 'short' | 'medium' | 'tall' | string;
   /**
    * List of features in the suspect image (gb style as reference)
    */
