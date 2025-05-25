@@ -41,7 +41,8 @@ function SimulationGame({ entries }: SimulationGameProps) {
     if (!entry) {
       return {};
     }
-    return entry.statements.reduce((acc: Record<string, number>, statement) => {
+
+    return entry.statements.slice(0, 3).reduce((acc: Record<string, number>, statement) => {
       const { excludes } = statement;
       excludes.forEach((exclusion) => {
         if (acc[exclusion]) {
@@ -68,18 +69,21 @@ function SimulationGame({ entries }: SimulationGameProps) {
                 gridTemplateColumns: 'repeat(3, 1fr)',
               }}
             >
-              {entry.suspectsIds.map((suspectId) => (
+              {entry.suspects.map((suspect) => (
                 <Badge.Ribbon
-                  key={suspectId}
-                  text={showCulprit ? excludeCounts[suspectId] : null}
+                  key={suspect.id}
+                  text={showCulprit ? excludeCounts[suspect.id] : null}
                   color="cyan"
                 >
                   <ImageCard
-                    key={suspectId}
-                    id={getSuspectImageId(suspectId, 'gb')}
+                    key={suspect.id}
+                    id={getSuspectImageId(suspect.id, 'gb')}
                     width={96}
-                    className={clsx(showCulprit && suspectId === entry.culpritId && 'red-border')}
+                    className={clsx(showCulprit && suspect.id === entry.culpritId && 'red-border')}
                   />
+                  <Flex gap={6} align="center">
+                    <Switch checkedChildren="🚫" size="small" /> {suspect.id}
+                  </Flex>
                 </Badge.Ribbon>
               ))}
             </div>
@@ -88,8 +92,8 @@ function SimulationGame({ entries }: SimulationGameProps) {
           <div>
             <div>
               <Switch
-                checkedChildren="Show culprit"
-                unCheckedChildren="Hide culprit"
+                checkedChildren="Show Culprit"
+                unCheckedChildren="Hide Culprit"
                 checked={showCulprit}
                 onChange={setShowCulprit}
               />

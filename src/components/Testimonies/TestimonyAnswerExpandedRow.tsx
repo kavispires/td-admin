@@ -90,7 +90,7 @@ export function TestimonyAnswerExpandedRow({
             <ImageCard
               id={entry.imageId}
               width={cardWidth}
-              className={entry.enoughData ? undefined : 'grayscale'}
+              className={entry.values.length > 1 ? undefined : 'grayscale'}
             />
             <Popover
               trigger="click"

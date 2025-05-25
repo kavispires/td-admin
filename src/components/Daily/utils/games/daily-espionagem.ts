@@ -4,7 +4,7 @@ import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, difference, isEmpty, sample, sampleSize, shuffle, uniq } from 'lodash';
 import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
-import type { SuspectCard, TestimonyQuestionCard } from 'types';
+import type { CrimeReason, SuspectCard, TestimonyQuestionCard } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
@@ -13,14 +13,23 @@ const TOTAL_SUSPECTS = 9;
 
 type TestimonySuspectAnswers = Dictionary<Dictionary<boolean>>;
 
+type StatementClue = {
+  key: string;
+  text: string;
+  excludes: string[];
+};
+
 export type DailyEspionagemEntry = {
   id: DateKey;
   number: number;
   type: 'espionagem';
+  setId: string;
   culpritId: string;
   statements: StatementClue[];
   isNsfw: boolean;
-  suspectsIds: string[];
+  suspects: SuspectCard[];
+  reason: DualLanguageValue;
+  level: number;
 };
 
 export const useDailyEspionagemGames = (
@@ -37,6 +46,7 @@ export const useDailyEspionagemGames = (
     enabled,
   );
   const answersQuery = useTDResource<TestimonyAnswers>('testimony-answers', enabled);
+  const reasonsQuery = useTDResource<CrimeReason>('crime-reasons', enabled);
 
   const testimonySuspectAnswers = useMemo(
     () => calculateSuspectAnswers(answersQuery.data),
@@ -51,7 +61,8 @@ export const useDailyEspionagemGames = (
       !espionagemHistory ||
       !suspectsQuery.isSuccess ||
       !questionsQuery.isSuccess ||
-      !answersQuery.isSuccess
+      !answersQuery.isSuccess ||
+      !reasonsQuery.isSuccess
     ) {
       return {};
     }
@@ -63,6 +74,7 @@ export const useDailyEspionagemGames = (
       questionsQuery.data,
       testimonySuspectAnswers,
       featuresStats,
+      reasonsQuery.data,
     );
   }, [
     enabled,
@@ -73,6 +85,7 @@ export const useDailyEspionagemGames = (
     batchSize,
     testimonySuspectAnswers,
     featuresStats,
+    reasonsQuery,
   ]);
 
   return {
@@ -88,6 +101,7 @@ export const buildDailyEspionagemGames = (
   questions: Dictionary<TestimonyQuestionCard>,
   suspectTestimonyAnswers: TestimonySuspectAnswers,
   featuresStats: Dictionary<Dictionary<true>>,
+  reasons: Dictionary<CrimeReason>,
 ) => {
   console.count('Creating Espionagem...');
   let lastDate = history.latestDate;
@@ -110,6 +124,7 @@ export const buildDailyEspionagemGames = (
         suspectTestimonyAnswers,
         featuresStats,
         usedIds,
+        reasons,
       );
 
       if (verifyGameDoability(game.statements)) {
@@ -137,19 +152,14 @@ export const buildDailyEspionagemGames = (
   return entries;
 };
 
-type StatementClue = {
-  key: string;
-  text: string;
-  excludes: string[];
-};
-
 function generateEspionagemGame(
   suspects: Dictionary<SuspectCard>,
   questions: Dictionary<TestimonyQuestionCard>,
   suspectTestimonyAnswers: TestimonySuspectAnswers,
   featuresStats: Dictionary<Dictionary<true>>,
   usedIds: string[],
-) {
+  reasons: Dictionary<CrimeReason>,
+): Omit<DailyEspionagemEntry, 'id' | 'number' | 'type'> {
   let suspectsIds: string[] = [];
   const statements: StatementClue[] = [];
   const excludeScoreBoard: Dictionary<number> = {};
@@ -214,9 +224,6 @@ function generateEspionagemGame(
     }
   });
 
-  // console.log('culprit:', suspects[culpritId]);
-  // console.log('featuresCulpritDoesNotHave:', featuresCulpritDoesNotHave);
-
   // STATEMENT 1: Add testimony to statements
   const testimony = questions[selectedTestimonyId];
   statements.push(
@@ -262,11 +269,17 @@ function generateEspionagemGame(
   // Order the statements by (testimony, feature, grid, then the other features)
   const sortedStatements = [statements[0], statements[1], statements[2], statements[4], statements[3]];
 
+  // Get reason
+  const reason = getReason(suspects[culpritId], reasons);
+
   return {
     isNsfw: testimony.nsfw ?? false,
     culpritId,
     statements: sortedStatements,
-    suspectsIds,
+    suspects: suspectsIds.map((id) => suspects[id]),
+    reason: reason.title,
+    setId: `${culpritId}::${reason.id}::${sortedStatements[0].key}`,
+    level: determineLevel(sortedStatements),
   };
 }
 
@@ -339,7 +352,7 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
       delete result[key];
     }
   });
-  console.log(result);
+
   return result;
 };
 
@@ -471,11 +484,18 @@ const getTestimonyStatement = (
   // Make first character in answer lowercase
   const answer = testimony.answer.charAt(0).toLowerCase() + testimony.answer.slice(1);
 
-  return {
+  const result = {
     key: `testimony.${testimony.id}`,
     text: `O(a) suspeito(a) ${culpritAnswer ? '' : 'não '}${answer}`,
     excludes,
   };
+
+  // if the text has "não já", replace this part with "nunca"
+  if (result.text.includes('não já')) {
+    result.text = result.text.replace('não já', 'nunca');
+  }
+
+  return result;
 };
 
 const GRID_INDEXES: Dictionary<{ indexes: number[]; text: string }> = {
@@ -517,26 +537,54 @@ const getGridStatement = (
   // Get culprit row and column
   const culpritPosition = suspectsIds.indexOf(culpritId);
   // Calculate the grid rule that has the least amount of excludes
+
+  const basicStatements = statements.slice(0, 3);
+
   const gridIndexesCounts: Dictionary<number> = {};
   for (const key of Object.keys(GRID_INDEXES)) {
     const { indexes } = GRID_INDEXES[key];
+
     if (indexes.includes(culpritPosition)) {
       continue;
     }
 
     gridIndexesCounts[key] = indexes.reduce((acc, index) => {
-      if (statements.some((statement) => statement.excludes.includes(suspectsIds[index]))) {
-        return acc + 1;
+      const suspectId = suspectsIds[index];
+
+      // Count how many times this suspect appears in the excludes array of basicStatements
+      const excludeCount = basicStatements.filter((statement) =>
+        statement.excludes.includes(suspectId),
+      ).length;
+
+      if (excludeCount > 0) {
+        return acc + excludeCount;
       }
+
       return acc;
     }, 0);
   }
 
-  // Sort the grid indexes by the number of excludes
-  const sortedGridIndexes = Object.keys(gridIndexesCounts).sort(
-    (a, b) => gridIndexesCounts[a] - gridIndexesCounts[b],
+  // Group grid positions by their exclusion count
+  const groupedByCount = Object.entries(gridIndexesCounts).reduce(
+    (acc: Dictionary<string[]>, [key, count]) => {
+      if (!acc[count]) {
+        acc[count] = [];
+      }
+      acc[count].push(key);
+      return acc;
+    },
+    {},
   );
-  const bestGridCondition = sortedGridIndexes[0];
+
+  // Find the minimum count value
+  const minCount = Math.min(...Object.keys(gridIndexesCounts).map((key) => gridIndexesCounts[key]));
+
+  // Get all grid positions with the minimum count
+  const bestOptions = groupedByCount[minCount.toString()];
+
+  // Randomly select one of the best options
+  const bestGridCondition = sample(bestOptions) || Object.keys(gridIndexesCounts)[0];
+
   const excludes = GRID_INDEXES[bestGridCondition].indexes.map((index) => suspectsIds[index]);
 
   return {
@@ -594,27 +642,28 @@ const getFeatureStatement = (
 const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   male: 'é homem',
   female: 'é mulher',
-  black: 'é negro',
-  white: 'é branco',
-  asian: 'é asiático',
-  latino: 'é latino',
-  thin: 'é magro',
-  fat: 'é gordo',
-  tall: 'é alto',
-  short: 'é baixo',
+  black: 'é negro(a)',
+  white: 'é branco(a)',
+  asian: 'é asiático(a)',
+  latino: 'é latino(a)',
+  thin: 'é magrelo(a)',
+  fat: 'é gordo(a)',
+  large: 'é gordo(a)',
+  tall: 'é alto(a)',
+  short: 'é baixinho(a)',
   young: 'é jovem',
-  adult: 'é adulto',
-  senior: 'é idoso',
-  average: 'é médio',
-  medium: 'é médio',
-  mixed: 'é mestiço',
+  adult: 'é adulto(a)',
+  senior: 'é idoso(a)',
+  average: 'é médio(a)',
+  medium: 'é médio(a)',
+  mixed: 'é mestiço(a)',
   hat: 'está usando um chapéu',
   tie: 'está usando uma gravata',
   glasses: 'está usando óculos',
   brownHair: 'tem cabelo castanho',
   shortHair: 'tem cabelo curto',
   beard: 'tem barba',
-  caucasian: 'é caucasiano',
+  caucasian: 'é caucasiano(a)',
   scarf: 'está usando um cachecol',
   blondeHair: 'tem cabelo loiro',
   longHair: 'tem cabelo longo',
@@ -622,7 +671,7 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   bald: 'é careca',
   mustache: 'tem bigode',
   goatee: 'tem cavanhaque',
-  muscular: 'é musculoso',
+  muscular: 'é musculoso(a)',
   blackHair: 'tem cabelo preto',
   hoodie: 'está usando um moletom',
   earrings: 'está usando brincos',
@@ -632,17 +681,79 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   'middle-eastern': 'é do Oriente Médio',
   headscarf: 'está usando um lenço na cabeça',
   redHair: 'tem cabelo ruivo',
-  large: 'é grande',
   piercings: 'tem piercings',
   coloredHair: 'tem cabelo colorido',
-  indian: 'é indiano',
-  'native-american': 'é nativo-americano',
+  indian: 'é indiano(a)',
+  'native-american': 'é nativo-americano(a)',
 };
 
 const verifyGameDoability = (statements: StatementClue[]) => {
-  // Gather the first 3 statements and all unique excludes
   const firstThree = statements.slice(0, 3);
-  const uniqueExcludes = new Set(firstThree.flatMap((stmt) => stmt.excludes));
 
+  // Easiness of puzzle based on total excludes
+  const totalExcludes = firstThree.reduce((acc, stmt) => acc + stmt.excludes.length, 0);
+  if (totalExcludes < 10) {
+    return false;
+  }
+
+  // Gather the first 3 statements and all unique excludes
+  const uniqueExcludes = new Set(firstThree.flatMap((stmt) => stmt.excludes));
   return uniqueExcludes.size === TOTAL_SUSPECTS - 1;
+};
+
+const getReason = (suspect: SuspectCard, reasons: Dictionary<CrimeReason>): CrimeReason => {
+  const availableReasons: CrimeReason[] = [];
+
+  Object.values(reasons).forEach((reason) => {
+    if (reason.feature === 'general') {
+      availableReasons.push(reason);
+    }
+
+    if (suspect.features?.includes(reason.feature)) {
+      availableReasons.push(reason);
+    }
+  });
+
+  const selection = sample(availableReasons);
+  if (selection) {
+    return selection;
+  }
+
+  return {
+    id: 'unknown',
+    title: {
+      pt: 'Motivo desconhecido',
+      en: 'Unknown reason',
+    },
+    feature: 'general',
+  };
+};
+
+const determineLevel = (statements: StatementClue[]) => {
+  const firstThree = statements.slice(0, 3);
+
+  const levels: number[] = [];
+
+  const levelsByExcludes: Dictionary<number> = {
+    1: 4,
+    2: 3,
+    3: 3,
+    4: 2,
+    5: 2,
+    6: 1,
+    7: 0,
+    8: 0,
+  };
+
+  firstThree.forEach((stmt) => {
+    const excludesCount = stmt.excludes.length;
+    if (levelsByExcludes[excludesCount] !== undefined) {
+      levels.push(levelsByExcludes[excludesCount]);
+    }
+  });
+
+  // Return the average level rounded up
+  const average = Math.round(levels.reduce((acc, level) => acc + level, 0) / levels.length);
+  // make sure the average is at least 1 and the max is 3
+  return Math.min(Math.max(average, 1), 3);
 };
