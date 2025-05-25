@@ -1,12 +1,12 @@
 import { flatten, sample } from 'lodash';
 
 export type GridMapOrigin = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center';
-export type GridMapCellState = 'available' | 'used' | 'locked' | 'unavailable' | string;
+export type GridMapCellState = 'available' | 'used' | 'locked' | 'unavailable' | (string & {});
 export type GridMapAdjacency = 'any' | 'orthogonal' | 'diagonal' | 'surrounding';
 
 /**
  * TD GRID MAP TOOLKIT FUNCTIONS
- * Version 1.0.0
+ * Version 1.0.1
  */
 
 /**

@@ -223,7 +223,7 @@ export type CrimesHediondosCard = {
   /**
    * The type of the card
    */
-  type: 'weapon' | 'evidence' | string;
+  type: 'weapon' | 'evidence' | (string & {});
   /**
    * The name of the card
    */
@@ -271,6 +271,25 @@ export type CrimeSceneTile = {
    * Indicates the order card types should be analyzed
    */
   likelihoodPriority?: string[];
+};
+
+/**
+ * Crime Reason Card
+ * Used for: crime-reasons
+ */
+export type CrimeReason = {
+  /**
+   * Unique identifier for the card
+   */
+  id: string;
+  /**
+   * The title of the crime reason tile
+   */
+  title: DualLanguageValue;
+  /**
+   * The feature associated with the crime reason (usually 'general')
+   */
+  feature: string;
 };
 
 /**
@@ -569,11 +588,11 @@ export type SuspectCard = {
   /**
    * The build of the suspect
    */
-  build: 'thin' | 'average' | 'large' | 'muscular' | string;
+  build: 'thin' | 'average' | 'large' | 'muscular' | (string & {});
   /**
    * The height of the suspect
    */
-  height: 'short' | 'medium' | 'tall' | string;
+  height: 'short' | 'medium' | 'tall' | (string & {});
   /**
    * List of features in the suspect image (gb style as reference)
    */
