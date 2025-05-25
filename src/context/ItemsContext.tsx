@@ -105,6 +105,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
   }, [items, isSaving, isLoading]);
 
   const deck = queryParams.get('deck') ?? 'all';
+
   const listing = useMemo(() => {
     const orderedList = orderBy(Object.values(items), [(item) => Number(item.id)], 'asc');
 
@@ -119,11 +120,15 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
         return orderedList.filter((item) => !item.nsfw);
       default:
         if (deck.startsWith('!')) {
+          // If it's an 'age' deck, it should not include any items from that age or any other age
+          if (deck.slice(1).startsWith('age')) {
+            return orderedList.filter((item) => !item?.decks?.some((d) => d.startsWith('age')));
+          }
           return orderedList.filter((item) => !item?.decks?.includes(deck.slice(1)));
         }
         return orderedList.filter((item) => item?.decks?.includes(deck));
     }
-  }, [items, deck]);
+  }, [deck, items]);
 
   // Handle id for new items
   const newId = useMemo(() => {

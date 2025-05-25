@@ -21,11 +21,13 @@ export function ItemListingFilters() {
       decks.map(({ value }) => ({ label: capitalize(value), value })),
       'label',
     );
-    const excludingOptions = includingOptions.map(({ label, value }) => ({
-      label: `NOT ${label}`,
-      value: `!${value}`,
-    }));
-    return [...includingOptions, ...excludingOptions];
+    const excludingOptions = includingOptions
+      .filter((e) => !e.value.startsWith('age'))
+      .map(({ label, value }) => ({
+        label: `NOT ${label}`,
+        value: `!${value}`,
+      }));
+    return [...includingOptions, ...excludingOptions, { label: 'NOT any age', value: '!age' }];
   }, [decks]);
 
   return (
