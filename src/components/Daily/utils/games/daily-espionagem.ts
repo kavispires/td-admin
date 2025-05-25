@@ -244,7 +244,7 @@ function generateEspionagemGame(
     culpritId,
     suspectsIds,
     featuresCulpritDoesNotHave,
-    [featureStatement.key],
+    [featureStatement], // Pass previous statements
     'worst',
   );
   statements.push(newFeatureStatement);
@@ -255,7 +255,7 @@ function generateEspionagemGame(
     culpritId,
     suspectsIds,
     featuresCulpritDoesNotHave,
-    [newFeatureStatement.key],
+    [featureStatement, newFeatureStatement], // Pass all previous statements
     'worst',
   );
   statements.push(anotherFeatureStatement);
@@ -598,11 +598,18 @@ const getFeatureStatement = (
   culpritId: string,
   suspectsIds: string[],
   featuresCulpritDoesNotHave: Dictionary<Dictionary<true>>,
-  usedKeys: string[] = [],
+  previousStatements: StatementClue[] = [],
   type: 'best' | 'worst' = 'best',
 ): StatementClue => {
   const suspectsWithoutCulprit = difference(suspectsIds, [culpritId]);
-  const usedFeatures = usedKeys.map((key) => key.replace('not.feature.', ''));
+
+  // Extract used features from previous statements
+  const usedFeatures = previousStatements
+    .filter((stmt) => stmt.key.startsWith('not.feature.'))
+    .map((stmt) => stmt.key.replace('not.feature.', ''));
+
+  // Get all previously excluded suspects
+  const previouslyExcludedSuspects = new Set(previousStatements.flatMap((stmt) => stmt.excludes));
 
   // Rank features by the number of suspects that have them
   // Ignore any features that have more than 6 suspects
@@ -617,14 +624,44 @@ const getFeatureStatement = (
         Object.keys(featuresCulpritDoesNotHave[b]).length - Object.keys(featuresCulpritDoesNotHave[a]).length,
     );
 
-  const selectedFeature =
-    type === 'best' ? sortedFeatures[0] : (sample(sortedFeatures.slice(2, 5)) ?? sortedFeatures[2]);
-  if (!selectedFeature) {
-    throw Error(`No suitable feature found for ${type} selection`);
+  // Try to find a feature that excludes at least one suspect not previously excluded
+  let selectedFeature: string | undefined;
+  let excludes: string[] = [];
+  let attempts = 0;
+  const maxAttempts = 50;
+
+  while (attempts < maxAttempts) {
+    attempts++;
+
+    // Select a candidate feature based on the type
+    const candidateFeature =
+      type === 'best' ? sortedFeatures[0] : (sample(sortedFeatures.slice(2, 5)) ?? sortedFeatures[2]);
+
+    if (!candidateFeature) {
+      break;
+    }
+
+    // Find suspects excluded by this feature
+    const candidateExcludes = suspectsWithoutCulprit.filter(
+      (suspectId) => featuresCulpritDoesNotHave[candidateFeature][suspectId],
+    );
+
+    // Check if this excludes any new suspects
+    const hasNewExcludes = candidateExcludes.some((id) => !previouslyExcludedSuspects.has(id));
+
+    if (hasNewExcludes || attempts === maxAttempts) {
+      selectedFeature = candidateFeature;
+      excludes = candidateExcludes;
+      break;
+    }
+
+    // Remove this feature from consideration and try again
+    sortedFeatures.splice(sortedFeatures.indexOf(candidateFeature), 1);
   }
-  const excludes = suspectsWithoutCulprit.filter(
-    (suspectId) => featuresCulpritDoesNotHave[selectedFeature][suspectId],
-  );
+
+  if (!selectedFeature) {
+    throw Error(`No suitable feature found for ${type} selection after ${maxAttempts} attempts`);
+  }
 
   const translatedFeature = FEATURE_PT_TRANSLATIONS[selectedFeature];
 
