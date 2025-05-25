@@ -68,7 +68,7 @@ export function ItemGroupingCard() {
       title={`Are you sure everything is unrelated to ${attribute.name.en}?`}
       onConfirm={updatePageItemsAsUnrelated}
     >
-      <Button type="primary" danger disabled={pageIds.length === 0}>
+      <Button type="primary" danger disabled={pageIds.length === 0} className="mx-2">
         Unrelate Unset Items on Page
       </Button>
     </Popconfirm>
@@ -83,15 +83,17 @@ export function ItemGroupingCard() {
         </Typography.Text>
       }
       extra={
-        <Flex align="center">
+        <Flex align="center" justify="space-around" className="mx-2">
           {sortingComponent}
 
           {paginationComponent}
         </Flex>
       }
       actions={[
-        unrelateButton,
-        <ItemGroupAttributeNavigationButtons key="navigation-buttons" />,
+        <Flex key="options" justify="space-between">
+          {unrelateButton}
+          <ItemGroupAttributeNavigationButtons key="navigation-buttons" />
+        </Flex>,
         paginationComponent,
       ].filter(Boolean)}
     >
