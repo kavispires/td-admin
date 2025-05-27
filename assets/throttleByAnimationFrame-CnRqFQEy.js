@@ -1,0 +1,1 @@
+import{ab as o,i as c}from"./index-CCPCqmwn.js";function s(e){let t;const u=r=>()=>{t=null,e.apply(void 0,c(r))},a=function(){if(t==null){for(var r=arguments.length,l=new Array(r),n=0;n<r;n++)l[n]=arguments[n];t=o(u(l))}};return a.cancel=()=>{o.cancel(t),t=null},a}export{s as t};
