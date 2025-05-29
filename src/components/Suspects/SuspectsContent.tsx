@@ -19,7 +19,7 @@ import { getSuspectImageId } from './utils';
 export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestoreDataReturnType<SuspectCard>) {
   const { addParam, queryParams } = useQueryParams();
 
-  const version = queryParams.get('version') ?? 'ct';
+  const version = queryParams.get('version') ?? 'gb';
   const sortBy = queryParams.get('sortBy') ?? 'id';
   const cardsPerRow = Number(queryParams.get('cardsPerRow')) || 8;
 

@@ -576,15 +576,24 @@ export type SuspectCard = {
   /**
    * The gender of the suspect
    */
-  gender: string;
+  gender: 'male' | 'female' | (string & {});
   /**
    * The ethnicity of the suspect
    */
-  ethnicity: string;
+  ethnicity:
+    | 'caucasian'
+    | 'black'
+    | 'asian'
+    | 'latino'
+    | 'indian'
+    | 'middle-eastern'
+    | 'mixed'
+    | 'indigenous'
+    | (string & {});
   /**
    * The age range of the suspect
    */
-  age: string;
+  age: '18-21' | '21-30' | '30-40' | '40-50' | '50-60' | '60-70' | '70-80' | '80-90' | (string & {});
   /**
    * The build of the suspect
    */
@@ -597,6 +606,10 @@ export type SuspectCard = {
    * List of features in the suspect image (gb style as reference)
    */
   features: string[];
+  /**
+   * Flag indicating if the suspect is exclusive to the gb style
+   */
+  gbExclusive?: boolean;
 };
 
 /**

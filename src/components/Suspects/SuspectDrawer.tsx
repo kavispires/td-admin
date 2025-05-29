@@ -1,10 +1,34 @@
-import { ManOutlined, WomanOutlined } from '@ant-design/icons';
-import { Drawer, Flex, Radio, Switch, Typography } from 'antd';
+import { Drawer, Flex, Radio, Select, Switch, Typography } from 'antd';
+import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { ImageCard } from 'components/Images/ImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import type { SuspectCard } from 'types';
 import { getSuspectImageId } from './utils';
+
+const AGE_OPTIONS = ['18-21', '21-30', '30-40', '40-50', '50-60', '50-70'].map((v) => ({
+  label: v,
+  value: v,
+}));
+
+const GENDER_OPTIONS = [
+  { label: 'Male', value: 'male' },
+  { label: 'Female', value: 'female' },
+  { label: 'Non-binary', value: 'non-binary' },
+  { label: 'Other', value: 'other' },
+];
+
+const ETHNICITY_OPTIONS = [
+  { label: 'Caucasian', value: 'caucasian' },
+  { label: 'Black', value: 'black' },
+  { label: 'Asian', value: 'asian' },
+  { label: 'Latino', value: 'latino' },
+  { label: 'Indigenous', value: 'indigenous' },
+  { label: 'Indian', value: 'indian' },
+  { label: 'Middle Eastern', value: 'middle-eastern' },
+  { label: 'Mixed', value: 'mixed' },
+  { label: 'Other', value: 'other' },
+];
 
 type SuspectDrawerProps = Pick<UseResourceFirestoreDataReturnType<SuspectCard>, 'data' | 'addEntryToUpdate'>;
 
@@ -28,16 +52,67 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
         <div className="grid grid-2">
           <ImageCard id={getSuspectImageId(suspect.id, version)} width={100} />
           <Flex vertical gap={4}>
-            <div>🇧🇷 {suspect.name.pt}</div>
-            <div>🇺🇸 {suspect.name.en}</div>
+            <DualLanguageTextField
+              value={suspect.name}
+              language="pt"
+              onChange={(e) => {
+                addEntryToUpdate(suspect.id, {
+                  ...suspect,
+                  name: { ...suspect.name, pt: e.target.value },
+                });
+              }}
+            />
+            <DualLanguageTextField
+              value={suspect.name}
+              language="en"
+              onChange={(e) => {
+                addEntryToUpdate(suspect.id, {
+                  ...suspect,
+                  name: { ...suspect.name, en: e.target.value },
+                });
+              }}
+            />
             <div>
-              <strong>{suspect.age}</strong>
+              <Select
+                value={suspect.age}
+                size="small"
+                onChange={(value) => {
+                  addEntryToUpdate(suspect.id, {
+                    ...suspect,
+                    age: value,
+                  });
+                }}
+                options={AGE_OPTIONS}
+                style={{ width: 80 }}
+              />
             </div>
             <div>
-              {suspect.gender === 'male' ? <ManOutlined /> : <WomanOutlined />} {suspect.gender}
+              <Select
+                value={suspect.gender}
+                size="small"
+                onChange={(value) => {
+                  addEntryToUpdate(suspect.id, {
+                    ...suspect,
+                    gender: value,
+                  });
+                }}
+                options={GENDER_OPTIONS}
+                style={{ width: 120 }}
+              />
             </div>
             <div>
-              <em>{suspect.ethnicity}</em>
+              <Select
+                value={suspect.ethnicity}
+                size="small"
+                onChange={(value) => {
+                  addEntryToUpdate(suspect.id, {
+                    ...suspect,
+                    ethnicity: value,
+                  });
+                }}
+                options={ETHNICITY_OPTIONS}
+                style={{ width: 150 }}
+              />
             </div>
           </Flex>
         </div>
