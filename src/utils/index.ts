@@ -259,3 +259,19 @@ export const sortItemsIds = (itemsIds: string[]) => {
 export const wait = async (duration = 1000) => {
   await new Promise((resolve) => setTimeout(resolve, duration));
 };
+
+/**
+ * Creates a dictionary where all specified keys have boolean values initialized to false.
+ *
+ * @param keys - An array of strings to be used as keys in the dictionary
+ * @returns A dictionary object with all keys set to false
+ */
+export const makeBooleanDictionary = (keys: string[]): Dictionary<boolean> => {
+  return keys.reduce(
+    (acc, key) => {
+      acc[key] = false;
+      return acc;
+    },
+    {} as Dictionary<boolean>,
+  );
+};
