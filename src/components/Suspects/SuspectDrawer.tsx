@@ -74,6 +74,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
             />
             <div>
               <Select
+                placeholder="Select Age"
                 value={suspect.age}
                 size="small"
                 onChange={(value) => {

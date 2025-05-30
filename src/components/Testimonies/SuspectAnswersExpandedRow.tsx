@@ -1,15 +1,19 @@
-import { Flex, Progress, Space, Table, Tag, Tooltip } from 'antd';
+import { Flex, Space, Table } from 'antd';
 import type { TableProps } from 'antd/lib';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
 import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
+import { PopoverStrongAnswers } from './PopoverStrongAnswers';
 import { calculateSuspectAnswersData } from './utils';
 
 type SuspectAnswersExpandedRowProps = {
   suspect: SuspectCard;
   answersPerQuestion: TestimonyAnswers;
   questions: Dictionary<TestimonyQuestionCard>;
+  addEntryToUpdate: (testimonyId: string, answers: TestimonyAnswers) => void;
+  allAnswers: Dictionary<TestimonyAnswers>;
 };
 
 type RowType = {
@@ -22,37 +26,64 @@ type RowType = {
   noPercentage: number;
   blankPercentage: number;
   values: number[];
+  resolution: string | null;
+  projection: string | null;
+  complete: boolean;
 };
 
 export function SuspectAnswersExpandedRow({
   suspect,
   answersPerQuestion,
   questions,
+  addEntryToUpdate,
+  allAnswers,
 }: SuspectAnswersExpandedRowProps) {
+  const { queryParams } = useQueryParams({ sortSuspectsBy: 'answers' });
+  const sortSuspectsBy = queryParams.get('sortSuspectsBy') ?? 'answers';
+  console.log(answersPerQuestion);
+  console.log(allAnswers);
   const list: RowType[] = useMemo(() => {
-    return orderBy(
-      Object.keys(answersPerQuestion).map((questionId) => {
-        const question = questions[questionId];
+    const res = Object.values(questions).map((question) => {
+      const answers = answersPerQuestion[question.id] ?? {};
+      const {
+        enoughData,
+        reliable,
+        yesPercentage,
+        noPercentage,
+        blankPercentage,
+        values,
+        total,
+        resolution,
+        projection,
+        complete,
+      } = calculateSuspectAnswersData(suspect.id, { [suspect.id]: answers });
 
-        const { enoughData, reliable, yesPercentage, noPercentage, blankPercentage, values, total } =
-          calculateSuspectAnswersData(suspect.id, { [suspect.id]: answersPerQuestion[questionId] });
+      return {
+        id: question.id,
+        question,
+        enoughData,
+        reliable,
+        yesPercentage,
+        noPercentage,
+        blankPercentage,
+        values,
+        total,
+        resolution,
+        projection,
+        complete,
+      };
+    });
 
-        return {
-          id: questionId,
-          question,
-          enoughData,
-          reliable,
-          yesPercentage,
-          noPercentage,
-          blankPercentage,
-          values,
-          total,
-        };
-      }),
-      ['reliable', 'enoughData', 'yesPercentage', (o) => o.values.length],
-      ['desc', 'desc', 'desc', 'desc'],
-    );
-  }, [answersPerQuestion, questions, suspect.id]);
+    if (sortSuspectsBy === 'answers') {
+      return orderBy(
+        res,
+        ['reliable', 'enoughData', 'yesPercentage', (o) => o.values.length],
+        ['desc', 'desc', 'desc', 'desc'],
+      );
+    }
+
+    return orderBy(res, (o) => Number(o.id.split('-')[1]), ['asc']);
+  }, [answersPerQuestion, questions, suspect.id, sortSuspectsBy]);
 
   const columns: TableProps<RowType>['columns'] = [
     {
@@ -79,20 +110,20 @@ export function SuspectAnswersExpandedRow({
 
         return (
           <Flex gap={8} wrap="nowrap">
-            <Tooltip title={`Values: ${entry.values.join(', ')}`}>
-              <Progress
-                percent={entry.noPercentage + entry.yesPercentage}
-                size={entry.enoughData ? [100, 20] : [100, 10]}
-                status={entry.enoughData ? 'exception' : 'active'}
-                success={{ percent: entry.yesPercentage }}
-                showInfo={false}
-              />
-            </Tooltip>
-            {entry.yesPercentage >= entry.noPercentage ? (
-              <Tag color="green-inverse">{entry.yesPercentage}% Yes</Tag>
-            ) : (
-              <Tag color="red-inverse">{entry.noPercentage}% No</Tag>
-            )}
+            <PopoverStrongAnswers
+              values={entry.values}
+              resolution={entry.resolution}
+              projection={entry.projection}
+              yesPercentage={entry.yesPercentage}
+              noPercentage={entry.noPercentage}
+              complete={entry.complete}
+              enoughData={entry.enoughData}
+              suspect={suspect}
+              testimonyId={entry.question.id}
+              answers={allAnswers[entry.question.id] || {}}
+              addEntryToUpdate={addEntryToUpdate}
+              barWidth={120}
+            />
           </Flex>
         );
       },

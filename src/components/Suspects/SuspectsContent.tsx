@@ -13,6 +13,7 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { SuspectCard } from 'types';
+import { stringRemoveAccents } from 'utils';
 import { SuspectDrawer } from './SuspectDrawer';
 import { getSuspectImageId } from './utils';
 
@@ -30,6 +31,8 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
       Object.values(data),
       (e) => {
         if (sortBy === 'id') return Number(e.id.split('-').at(-1));
+        if (sortBy === 'name.pt') return stringRemoveAccents(e.name.pt).toLowerCase();
+        if (sortBy === 'name.en') return stringRemoveAccents(e.name.en).toLowerCase();
         return e[sortBy as keyof SuspectCard] ?? e.id;
       },
       ['asc'],

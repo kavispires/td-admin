@@ -1,5 +1,7 @@
-import { Table, type TableProps } from 'antd';
+import { Flex, Switch, Table, type TableProps, Typography } from 'antd';
 import { ImageCard } from 'components/Images/ImageCard';
+import { getSuspectImageId } from 'components/Suspects/utils';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
@@ -20,7 +22,10 @@ export function SuspectAnswersTable({
   questions,
   data,
   suspects,
+  addEntryToUpdate,
 }: TestimoniesContentProps) {
+  const { queryParams, addParam } = useQueryParams();
+
   const answersPerSuspect = useMemo(() => {
     return Object.keys(data).reduce((acc: Record<string, TestimonyAnswers>, questionId) => {
       const answers = data[questionId] ?? {};
@@ -56,8 +61,7 @@ export function SuspectAnswersTable({
       title: 'Picture',
       dataIndex: 'id',
       render: (id) => {
-        const imageId = id.split('-').join('-gb-');
-        return <ImageCard id={imageId} width={48} />;
+        return <ImageCard id={getSuspectImageId(id, 'gb')} width={48} />;
       },
     },
     {
@@ -71,7 +75,7 @@ export function SuspectAnswersTable({
       title: 'Questions Answered',
       dataIndex: 'answers',
       key: 'answers',
-      sorter: (a, b) => Object.keys(a.answers).length - Object.keys(b.answers).length,
+      sorter: (a, b) => Object.keys(a.answers ?? {}).length - Object.keys(b.answers ?? {}).length,
       render: (answers) => {
         if (!answers) {
           return '';
@@ -88,21 +92,36 @@ export function SuspectAnswersTable({
         suspect={record}
         answersPerQuestion={answersPerSuspect[record.id]}
         questions={questions}
+        addEntryToUpdate={addEntryToUpdate}
+        allAnswers={data}
       />
     ),
     rowExpandable: () => isSuccess,
   });
 
   return (
-    <Table
-      columns={columns}
-      dataSource={entries}
-      pagination={paginationProps}
-      rowKey="id"
-      expandable={expandableProps}
-      loading={isLoading}
-      bordered
-      className="full-width"
-    />
+    <Flex gap={12} className="full-width py-4" vertical>
+      <Flex justify="space-between" align="center">
+        <Typography.Title level={4} className="my-0">
+          Testimonies by Suspect
+        </Typography.Title>
+        <Switch
+          checked={queryParams.get('sortSuspectsBy') === 'answers'}
+          onChange={(checked) => addParam('sortSuspectsBy', checked ? 'answers' : 'id')}
+          checkedChildren="Sort by Answers"
+          unCheckedChildren="Sort by Id"
+        />
+      </Flex>
+      <Table
+        columns={columns}
+        dataSource={entries}
+        pagination={paginationProps}
+        rowKey="id"
+        expandable={expandableProps}
+        loading={isLoading}
+        bordered
+        className="full-width"
+      />
+    </Flex>
   );
 }

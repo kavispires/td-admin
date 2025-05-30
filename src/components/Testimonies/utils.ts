@@ -1,3 +1,4 @@
+import { isEmpty } from 'lodash';
 import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
 
 export const calculateSuspectAnswersData = (
@@ -12,7 +13,7 @@ export const calculateSuspectAnswersData = (
 
   const num = suspectCardId.split('-')[1];
   const imageId = `us-gb-${num}`;
-  const values = answers[suspectCardId] ?? [];
+  const values = isEmpty(answers[suspectCardId]) ? [] : answers[suspectCardId];
 
   let systemYesCount = 0;
   let systemNoCount = 0;
