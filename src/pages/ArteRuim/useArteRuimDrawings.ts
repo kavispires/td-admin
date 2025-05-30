@@ -182,6 +182,7 @@ export function useDrawingsResourceData(enabled: boolean, language: string) {
     hasFirestoreData: firestoreDrawingsQueries.some((q) => !isEmpty(q.data)),
     drawings,
     drawingsPerArtist: Object.values(drawingsPerArtist),
+    dataUpdatedAt: tdrDrawingsQuery.dataUpdatedAt,
   };
 }
 

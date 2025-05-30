@@ -29,8 +29,9 @@ export const useDailyArtistaGames = (
   const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`, enabled);
   const drawingsQuery = useDrawingsResourceData(enabled, queryLanguage);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
-    if (!enabled || !arteRuimCardsQuery.isSuccess || drawingsQuery.isLoading || !artistaHistory) {
+    if (!enabled || !arteRuimCardsQuery.isSuccess || !drawingsQuery.hasResponseData || !artistaHistory) {
       return {};
     }
 
@@ -46,13 +47,13 @@ export const useDailyArtistaGames = (
     );
   }, [
     enabled,
-    arteRuimCardsQuery,
+    arteRuimCardsQuery.dataUpdatedAt,
     arteRuimHistory,
     artistaHistory,
     batchSize,
     arteRuimEntries,
-    drawingsQuery.drawings,
-    drawingsQuery.isLoading,
+    drawingsQuery.dataUpdatedAt,
+    drawingsQuery.hasResponseData,
   ]);
 
   return {

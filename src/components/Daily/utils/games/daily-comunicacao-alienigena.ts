@@ -53,7 +53,7 @@ export const useDailyComunicacaoAlienigenaGames = (
     enabled,
   );
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: functions shouldn't be used as dependencies
+  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
     if (
       !enabled ||
@@ -77,9 +77,9 @@ export const useDailyComunicacaoAlienigenaGames = (
     batchSize,
     comunicacaoAlienigenaHistory,
     comunicacaoAlienigenaHistory,
-    tdrAttributesQuery,
-    tdrItemsAttributesValuesQuery,
-    tdrItemsQuery,
+    tdrAttributesQuery.dataUpdatedAt,
+    tdrItemsAttributesValuesQuery.dataUpdatedAt,
+    tdrItemsQuery.dataUpdatedAt,
   ]);
 
   return {

@@ -628,7 +628,7 @@ const getFeatureStatement = (
   let selectedFeature: string | undefined;
   let excludes: string[] = [];
   let attempts = 0;
-  const maxAttempts = 50;
+  const maxAttempts = 100;
 
   while (attempts < maxAttempts) {
     attempts++;

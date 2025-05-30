@@ -26,6 +26,8 @@ export const useDailyPalavreadoGames = (
 
   const wordsFourQuery = useLoadWordLibrary(4, queryLanguage, enabled, true);
   const wordsFiveQuery = useLoadWordLibrary(5, queryLanguage, enabled, true);
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
     if (
       !enabled ||
@@ -39,7 +41,7 @@ export const useDailyPalavreadoGames = (
     }
 
     return buildDailyPalavreadoGames(batchSize, palavreadoHistory, wordsFourQuery.data, wordsFiveQuery.data);
-  }, [enabled, wordsFourQuery, wordsFiveQuery, palavreadoHistory, batchSize]);
+  }, [enabled, wordsFourQuery.dataUpdatedAt, wordsFiveQuery.dataUpdatedAt, palavreadoHistory, batchSize]);
 
   return {
     entries,

@@ -27,8 +27,6 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
   const { is } = useQueryParams();
   const isSimplified = simplifiedProp || is('simplified');
 
-  const itemDecks = item.decks || [];
-
   return (
     <Card
       title={<Typography.Text onClick={() => copyToClipboard(item.id)}>{item.id}</Typography.Text>}

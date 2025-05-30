@@ -12,9 +12,6 @@ type TaNaCaraQuestion = {
   testimonyId: string;
   question: string;
   nsfw?: boolean;
-  /**
-   * @deprecated
-   */
   suspectsIds?: string[];
 };
 
@@ -40,13 +37,14 @@ export const useDailyTaNaCaraGames = (
     enabled,
   );
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
     if (!enabled || !suspectsQuery.isSuccess || !testimoniesQuery.isSuccess || !taNaCaraHistory) {
       return {};
     }
 
     return buildDailyTaNaCaraGames(batchSize, taNaCaraHistory, suspectsQuery.data, testimoniesQuery.data);
-  }, [enabled, suspectsQuery, testimoniesQuery, taNaCaraHistory, batchSize]);
+  }, [enabled, suspectsQuery.dataUpdatedAt, testimoniesQuery.dataUpdatedAt, taNaCaraHistory, batchSize]);
 
   return {
     entries,

@@ -27,13 +27,14 @@ export const useDailyArteRuimGames = (
 
   const drawingsQuery = useDrawingsResourceData(enabled, queryLanguage);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
     if (!enabled || drawingsQuery.isLoading || !arteRuimHistory) {
       return [];
     }
 
     return buildDailyArteRuimGames(batchSize, arteRuimHistory, drawingsQuery, queryLanguage);
-  }, [enabled, drawingsQuery, queryLanguage, arteRuimHistory, batchSize, drawingsQuery.isLoading]);
+  }, [enabled, drawingsQuery.dataUpdatedAt, queryLanguage, arteRuimHistory, batchSize]);
 
   return {
     entries,

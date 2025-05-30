@@ -36,6 +36,7 @@ export const useDailyQuartetosGames = (
   const dailyQuartetSetQuery = useTDResource<DailyQuartetSet>('daily-quartet-sets', enabled);
   const itemGroupsQuery = useTDResource<ItemGroup>('items-groups', enabled);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
     if (!enabled || dailyQuartetSetQuery.isLoading || itemGroupsQuery.isLoading || !quartetosHistory) {
       return {};
@@ -48,7 +49,14 @@ export const useDailyQuartetosGames = (
       dailyQuartetSetQuery.data,
       itemGroupsQuery.data,
     );
-  }, [enabled, queryLanguage, quartetosHistory, batchSize, dailyQuartetSetQuery, itemGroupsQuery]);
+  }, [
+    enabled,
+    queryLanguage,
+    quartetosHistory,
+    batchSize,
+    dailyQuartetSetQuery.dataUpdatedAt,
+    itemGroupsQuery.dataUpdatedAt,
+  ]);
 
   return {
     entries,

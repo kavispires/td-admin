@@ -28,6 +28,7 @@ export const useDailyFilmacoGames = (
 
   const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets', enabled);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
     if (!enabled || !movieSetsQuery.isSuccess || !filmacoHistory) {
       return {};
@@ -41,7 +42,7 @@ export const useDailyFilmacoGames = (
     }
 
     return buildDailyFilmacoGames(batchSize, filmacoHistory, movieSetsQuery.data);
-  }, [enabled, movieSetsQuery, filmacoHistory, batchSize]);
+  }, [enabled, movieSetsQuery.dataUpdatedAt, filmacoHistory, batchSize]);
 
   return {
     entries,

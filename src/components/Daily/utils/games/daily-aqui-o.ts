@@ -28,13 +28,14 @@ export const useDailyAquiOGames = (
   const tdrItemsQuery = useTDResource<Item>('items', enabled);
   const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets', enabled);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
     if (!enabled || !aquiOSetsQuery.isSuccess || !aquiOHistory || !tdrItemsQuery.isSuccess) {
       return {};
     }
 
     return buildDailyAquiOGames(batchSize, aquiOHistory, aquiOSetsQuery.data, tdrItemsQuery.data);
-  }, [enabled, aquiOSetsQuery, tdrItemsQuery, aquiOHistory, batchSize]);
+  }, [enabled, aquiOSetsQuery.dataUpdatedAt, tdrItemsQuery.dataUpdatedAt, aquiOHistory, batchSize]);
 
   return {
     entries,

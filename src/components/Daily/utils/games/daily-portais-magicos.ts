@@ -34,6 +34,7 @@ export const useDailyPortaisMagicosGames = (
   const imageCardPasscodeSetsQuery = useTDResource<ImageCardPasscodeSet>('daily-passcode-sets', enabled);
   const wordsThreeQuery = useLoadWordLibrary(3, queryLanguage, enabled, true);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
     if (
       !enabled ||
@@ -70,10 +71,9 @@ export const useDailyPortaisMagicosGames = (
   }, [
     enabled,
     batchSize,
-    imageCardPasscodeSetsQuery.isSuccess,
-    imageCardPasscodeSetsQuery.data,
+    imageCardPasscodeSetsQuery.dataUpdatedAt,
     wordsThreeQuery.isSuccess,
-    wordsThreeQuery.data,
+    wordsThreeQuery.dataUpdatedAt,
     portaisMagicosHistory,
   ]);
 
