@@ -7,7 +7,11 @@ import { SiderContent } from 'components/Layout';
 import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
-import type { TestimonyAnswers, useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
+import {
+  type TestimonyAnswers,
+  countAnswers,
+  type useTestimoniesResource,
+} from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import { deepCleanObject, deserializeFirestoreData, sortJsonKeys } from 'utils';
 import normalizeValues from './utils';
@@ -32,7 +36,7 @@ export function TestimoniesFilters({
           if (!suspects[suspectId]) {
             suspects[suspectId] = 0;
           }
-          if (suspectEntry[suspectId].length >= 5) {
+          if (countAnswers(suspectEntry[suspectId]) >= 5) {
             suspects[suspectId] += 1;
           }
         }
