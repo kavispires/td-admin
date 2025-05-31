@@ -628,7 +628,7 @@ const getFeatureStatement = (
   let selectedFeature: string | undefined;
   let excludes: string[] = [];
   let attempts = 0;
-  const maxAttempts = 100;
+  const maxAttempts = 500;
 
   while (attempts < maxAttempts) {
     attempts++;
@@ -662,6 +662,7 @@ const getFeatureStatement = (
   if (!selectedFeature) {
     throw Error(`No suitable feature found for ${type} selection after ${maxAttempts} attempts`);
   }
+  console.log(`Selected feature after ${attempts} attempts: ${selectedFeature}`);
 
   const translatedFeature = FEATURE_PT_TRANSLATIONS[selectedFeature];
 

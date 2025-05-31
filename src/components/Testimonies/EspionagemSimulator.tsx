@@ -1,5 +1,5 @@
 import ReactJsonView from '@microlink/react-json-view';
-import { Alert, Badge, Button, Flex, Switch, Typography } from 'antd';
+import { Alert, Badge, Button, Flex, InputNumber, Switch, Typography } from 'antd';
 import clsx from 'clsx';
 import {
   type DailyEspionagemEntry,
@@ -8,11 +8,12 @@ import {
 import { getToday } from 'components/Daily/utils/utils';
 import { ImageCard } from 'components/Images/ImageCard';
 import { getSuspectImageId } from 'components/Suspects/utils';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 
 export function EspionagemSimulator() {
-  const [run, setRun] = useState({});
-  const { entries } = useDailyEspionagemGames(true, 'pt', 1, run);
+  const [run, setRun] = useState({ batchSize: 1, history: {} });
+  const batchSizeRef = useRef<number>(1);
+  const { entries } = useDailyEspionagemGames(true, 'pt', run.batchSize, run.history);
 
   return (
     <Flex vertical gap={12} className="p-4">
@@ -20,9 +21,19 @@ export function EspionagemSimulator() {
         <Typography.Title level={4} className="my-0">
           Espionagem Simulator
         </Typography.Title>
-        <Button type="primary" onClick={() => setRun({})}>
-          Re-run Simulation
-        </Button>
+        <Flex gap={6}>
+          <InputNumber
+            min={1}
+            max={7}
+            defaultValue={1}
+            onChange={(value) => {
+              batchSizeRef.current = value ?? 1;
+            }}
+          />
+          <Button type="primary" onClick={() => setRun({ batchSize: batchSizeRef.current, history: {} })}>
+            Re-run Simulation
+          </Button>
+        </Flex>
       </Flex>
       <SimulationGame entries={entries} />
     </Flex>
