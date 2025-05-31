@@ -2,7 +2,7 @@ import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { getSuspectImageId } from 'components/Suspects/utils';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy, shuffle } from 'lodash';
-import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
+import { type TestimonyAnswers, countAnswers } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { makeBooleanDictionary } from 'utils';
@@ -84,7 +84,7 @@ export const useDailyTaNaCaraGames = (
 };
 
 const TESTIMONY_SIZE = 15;
-const SUSPECTS_SIZE = 13;
+const SUSPECTS_SIZE = 7;
 
 export const buildDailyTaNaCaraGames = (
   batchSize: number,
@@ -151,7 +151,7 @@ const buildTestimonyEntry = (
     ...sortedCounts.counts[0],
     ...sortedCounts.counts[5],
   ]
-    .slice(0, 6)
+    .slice(0, SUSPECTS_SIZE)
     .map((id) => getSuspectImageId(id, 'gb'));
 
   return {
@@ -258,16 +258,4 @@ const countTestimonyAnswers = (
   );
 
   return sorted;
-};
-
-const countAnswers = (values: (0 | 1 | 3 | -3)[]): number => {
-  return values.reduce((acc: number, value) => {
-    if (value === 0 || value === 1) {
-      return acc + 1;
-    }
-    if (value === 3 || value === -3) {
-      return acc + 3;
-    }
-    return acc;
-  }, 0);
 };

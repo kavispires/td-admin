@@ -4,11 +4,12 @@ import { FilterSegments } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
+import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
 import type { TestimonyAnswers, useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
-import { deepCleanObject, sortJsonKeys } from 'utils';
+import { deepCleanObject, deserializeFirestoreData, sortJsonKeys } from 'utils';
 import normalizeValues from './utils';
 
 export type TestimoniesFiltersProps = ReturnType<typeof useTestimoniesResource>;
@@ -57,7 +58,7 @@ export function TestimoniesFilters({
           />
 
           <DownloadButton
-            data={() => prepareFileForDownload(data)}
+            data={async () => await prepareFileForDownload(data)}
             fileName="testimony-answers.json"
             disabled={isDirty}
             hasNewData={hasNewData}
@@ -117,22 +118,25 @@ export function TestimoniesFilters({
   );
 }
 
-function prepareFileForDownload(entriesToUpdate: Dictionary<TestimonyAnswers>) {
+async function prepareFileForDownload(entriesToUpdate: Dictionary<TestimonyAnswers>) {
   console.log('Preparing file for download...x');
+
+  const firebaseRawData = await getDocQueryFunction<Dictionary<string>>('data', 'testimonies')();
+  const parsedData = deserializeFirestoreData<TestimonyAnswers>(firebaseRawData);
+
+  console.log('Parsed data from Firestore:', parsedData);
 
   // DO MIGRATIONS HERE
   const copy = cloneDeep(entriesToUpdate);
 
   Object.keys(copy).forEach((key) => {
     const entry = copy[key];
+    const firestoreEntry = parsedData[key] || {};
     // For each person if they have 4 1s, convert into a 4 if they have 4 0s convert into a -4
     Object.keys(entry).forEach((suspectId) => {
-      const p = entry[suspectId].sort().join(',');
-      const values = normalizeValues(entry[suspectId].sort());
+      const firestoreValues = firestoreEntry[suspectId] || [];
 
-      if (values.includes(-4) || values.includes(4)) {
-        console.log(`Suspect ${suspectId} has auto-grouped values from: ${p} to ${values.join(',')}`);
-      }
+      const values = normalizeValues([...entry[suspectId], ...firestoreValues]);
 
       // Replace the values with the normalized ones
       entry[suspectId] = values;
