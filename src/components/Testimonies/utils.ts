@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash';
-import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
+import type { TestimonyAnswers, TestimonyAnswersValues } from 'pages/Testimonies/useTestimoniesResource';
 
 export const calculateSuspectAnswersData = (
   suspectCardId: string,
@@ -21,8 +21,10 @@ export const calculateSuspectAnswersData = (
   values.forEach((v) => {
     if (v === 3) systemYesCount += 3;
     if (v === -3) systemNoCount += 3;
+    if (v === 4) systemYesCount += 4;
+    if (v === -4) systemNoCount += 4;
   });
-  const valuesWithoutSystem = values.filter((v) => v !== 3 && v !== -3);
+  const valuesWithoutSystem = values.filter((v) => ![-4, -3, 3, 4].includes(v));
 
   const votesCount = valuesWithoutSystem.length + systemYesCount + systemNoCount;
   const total = Math.max(votesCount, 5);
@@ -70,3 +72,38 @@ export const calculateSuspectAnswersData = (
     projection,
   };
 };
+
+export default function normalizeValues(arr: TestimonyAnswersValues[]): TestimonyAnswersValues[] {
+  // Start result keeping all values that are not 0 or 1
+  const result: TestimonyAnswersValues[] = arr.filter((v) => ![0, 1].includes(v));
+  const singles: TestimonyAnswersValues[] = arr.filter((v) => [0, 1].includes(v));
+
+  const counts: Dictionary<number> = {
+    0: 0,
+    1: 0,
+  };
+
+  singles.forEach((value) => {
+    if (counts[value] === undefined) {
+      throw Error(`what is this value? ${value}`);
+    }
+    counts[value] += 1;
+  });
+
+  Object.entries(counts).forEach(([value, count]) => {
+    if (count > 0) {
+      const groups = Math.floor(count / 4);
+      const remainder = count % 4;
+
+      for (let i = 0; i < groups; i++) {
+        result.push(value === '0' ? -4 : 4);
+      }
+      if (remainder > 0) {
+        const remainderArr = Array.from({ length: remainder }, () => (value === '0' ? 0 : 1));
+        result.push(...remainderArr);
+      }
+    }
+  });
+
+  return result.sort((a, b) => a - b);
+}

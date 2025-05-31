@@ -1,4 +1,5 @@
 import { Button, Checkbox, Divider, Flex, Popconfirm, Space, Switch, Typography } from 'antd';
+import clsx from 'clsx';
 import { ImageCard } from 'components/Images/ImageCard';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -23,7 +24,7 @@ export function TestimonyAnswerExpandedRow({
   testimonyId,
 }: TestimonyAnswerExpandedRowProps) {
   const [cardWidth, ref] = useCardWidth(12);
-  const { queryParams, addParam, removeParam, is } = useQueryParams({ sortSuspectsBy: 'answers' });
+  const { queryParams, is } = useQueryParams({ sortSuspectsBy: 'answers' });
   const isBatchEnabled = is('enableBatch');
   const sortSuspectsBy = queryParams.get('sortSuspectsBy') ?? 'answers';
 
@@ -59,7 +60,14 @@ export function TestimonyAnswerExpandedRow({
       <Space wrap ref={ref} size="large">
         {list.map((entry) => {
           return (
-            <Flex key={entry.suspectCardId} vertical gap={6}>
+            <Flex
+              key={entry.suspectCardId}
+              vertical
+              gap={6}
+              className={clsx({
+                'selection-outline': isBatchEnabled && selection.includes(entry.suspectCardId),
+              })}
+            >
               <ImageCard
                 id={entry.imageId}
                 width={cardWidth}
@@ -164,7 +172,18 @@ function BatchOptions({
       if (suspect.age === '18-21') {
         searchString.push('young');
       }
-      if (suspect.age === '60-70' || suspect.age === '70-80' || suspect.age === '80-90') {
+      if (suspect.age === '21-30' || suspect.age === '30-40') {
+        searchString.push('adult');
+      }
+      if (suspect.age === '40-50') {
+        searchString.push('parent');
+      }
+      if (
+        suspect.age === '50-60' ||
+        suspect.age === '60-70' ||
+        suspect.age === '70-80' ||
+        suspect.age === '80-90'
+      ) {
         searchString.push('senior');
       }
 
@@ -172,7 +191,7 @@ function BatchOptions({
     });
 
     setSelection(filteredSelection);
-  }, [activeFilters, selection, setSelection]);
+  }, [activeFilters]);
 
   const onApplyBatch = (value: number) => {
     // Apply the batch update to the selected suspects
@@ -185,9 +204,11 @@ function BatchOptions({
   };
 
   return (
-    <Flex align="center" gap={6} wrap justify="space-between" className="mb-4">
-      <Flex>
-        <Typography.Text>Batch</Typography.Text>
+    <Flex align="center" gap={6} justify="space-between" className="mb-4">
+      <Flex gap={3}>
+        <Typography.Text className="nowrap buceta" style={{ minWidth: '5ch' }}>
+          Batch
+        </Typography.Text>
         <Switch
           value={isBatchEnabled}
           checkedChildren="On"
@@ -203,7 +224,8 @@ function BatchOptions({
       </Flex>
       {isBatchEnabled && (
         <>
-          <Flex gap={6} wrap align="center">
+          <Typography.Text className="nowrap mr-2">Selected {selection.length}</Typography.Text>
+          <Flex gap={6} wrap align="center" justify="center">
             <FilterEntry
               filter="male"
               activeFilters={activeFilters}
@@ -216,6 +238,16 @@ function BatchOptions({
             />
             <FilterEntry
               filter="young"
+              activeFilters={activeFilters}
+              updateActiveFilter={updateActiveFilter}
+            />
+            <FilterEntry
+              filter="adult"
+              activeFilters={activeFilters}
+              updateActiveFilter={updateActiveFilter}
+            />
+            <FilterEntry
+              filter="parent"
               activeFilters={activeFilters}
               updateActiveFilter={updateActiveFilter}
             />
@@ -250,16 +282,20 @@ function BatchOptions({
               updateActiveFilter={updateActiveFilter}
             />
             <FilterEntry
-              filter="white"
+              filter="caucasian"
               activeFilters={activeFilters}
               updateActiveFilter={updateActiveFilter}
             />
-
+            <FilterEntry
+              filter="latino"
+              activeFilters={activeFilters}
+              updateActiveFilter={updateActiveFilter}
+            />
+          </Flex>
+          <Flex align="center" gap={6}>
             <Button onClick={() => setActiveFilters([])} danger size="small">
               Clear
             </Button>
-          </Flex>
-          <Flex align="center" gap={6}>
             <Popconfirm title="Apply +3 to selected suspects?" onConfirm={() => onApplyBatch(3)}>
               <Button disabled={selection.length === 0} size="small" type="primary" className="ml-10">
                 Apply +3

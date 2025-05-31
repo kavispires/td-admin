@@ -225,6 +225,12 @@ body {
   background-color: red;
 }
 
+.selection-outline {
+  outline: 2px solid get-color("blue", 5);
+  outline-offset: 3px;
+  border-radius: var(--border-radius);
+}
+
 .red-border {
   border: 2px solid red;
 }
@@ -247,4 +253,9 @@ body {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.nowrap {
+  white-space: nowrap;
+  word-break: keep-all;
 }

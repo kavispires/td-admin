@@ -1,12 +1,6 @@
-import { useQueryClient } from '@tanstack/react-query';
-import { App } from 'antd';
-import { useGetFirestoreDoc } from 'hooks/useGetFirestoreDoc';
+import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
-import { useUpdateFirestoreDoc } from 'hooks/useUpdateFirestoreDoc';
-import { cloneDeep, isEmpty } from 'lodash';
-import { useMemo, useState } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
-import { deserializeFirestoreData } from 'utils';
 
 /**
  * Values <suspectId, answers>
@@ -14,13 +8,16 @@ import { deserializeFirestoreData } from 'utils';
  * 1 = Fits
  * 3 = For sure fits (set by system)
  * -3 = For sure does not fit (set by system)
+ * 4 = Auto-grouped four 1s
+ * -4 = Auto-grouped four 0s
  */
-export type TestimonyAnswers = Dictionary<(1 | 0 | 3 | -3)[]>;
+export type TestimonyAnswersValues = 1 | 0 | 3 | -3 | 4 | -4;
+export type TestimonyAnswers = Dictionary<TestimonyAnswersValues[]>;
 
 export type UseTestimoniesResourceReturnType = {
   isLoading: boolean;
   isSuccess: boolean;
-  error: Error | null;
+  error: ResponseError;
   data: Dictionary<TestimonyAnswers>;
   questions: Dictionary<TestimonyQuestionCard>;
   suspects: Dictionary<SuspectCard>;
@@ -33,113 +30,45 @@ export type UseTestimoniesResourceReturnType = {
 };
 
 export function useTestimoniesResource(): UseTestimoniesResourceReturnType {
-  const { notification } = App.useApp();
-  const queryClient = useQueryClient();
-
   const suspectsQuery = useTDResource<SuspectCard>('suspects');
   const questionsQuery = useTDResource<TestimonyQuestionCard>('testimony-questions-pt');
-  const tdrQuery = useTDResource<TestimonyAnswers>('testimony-answers');
-  const firestoreQuery = useGetFirestoreDoc<Dictionary<string>, Dictionary<TestimonyAnswers>>(
-    'data',
-    'testimonies',
-    {
-      select: (d) =>
-        deserializeFirestoreData(d, (entry: TestimonyAnswers) => {
-          // Remove style code from suspect ids
-          const newAnswers: TestimonyAnswers = {};
-          Object.keys(entry).forEach((key) => {
-            const newKey = key.replace(/us-\w{2}-(\d+)/, 'us-$1');
-            newAnswers[newKey] = entry[key] || [];
-          });
-
-          return newAnswers;
-        }) as Dictionary<TestimonyAnswers>,
-    },
-  );
-
-  // Keeps track of items that have been modified
-  const [modifiedEntries, setModifiedEntries] = useState<Dictionary<TestimonyAnswers>>({});
-
-  const mutation = useUpdateFirestoreDoc('data', 'testimonies', {
-    onSuccess: () => {
-      notification.success({
-        message: 'data/testimonies updated',
-      });
-      queryClient.refetchQueries({
-        queryKey: ['firestore', 'data', 'testimonies'],
-      });
-      setModifiedEntries({});
-    },
-    onError: (error) => {
-      notification.error({
-        message: 'data/testimonies update failed',
-        description: error.message,
-      });
-    },
+  const dataQuery = useResourceFirestoreData<TestimonyAnswers>({
+    tdrResourceName: 'testimony-answers',
+    firestoreDataCollectionName: 'testimonies',
+    serialize: true,
   });
 
-  const mergedData: Dictionary<TestimonyAnswers> = useMemo(() => {
-    if (!tdrQuery.data || !firestoreQuery.data) {
-      return {};
-    }
-
-    const newData = cloneDeep(tdrQuery.data);
-
-    Object.keys(firestoreQuery.data).forEach((questionId) => {
-      const entry = firestoreQuery.data[questionId];
-      if (newData[questionId] === undefined) {
-        newData[questionId] = entry;
-        return;
-      }
-
-      Object.keys(entry).forEach((suspectId) => {
-        if (newData[questionId][suspectId] === undefined) {
-          newData[questionId][suspectId] = entry[suspectId];
-        } else {
-          newData[questionId][suspectId].push(...entry[suspectId]);
-        }
-      });
-    });
-
-    Object.keys(modifiedEntries).forEach((questionId) => {
-      const entry = modifiedEntries[questionId];
-      if (newData[questionId]) {
-        newData[questionId] = entry;
-      }
-    });
-
-    return newData;
-  }, [tdrQuery.data, firestoreQuery.data, modifiedEntries]);
-
-  const isDirty = !isEmpty(modifiedEntries);
-  const addEntryToUpdate = (id: string, item: TestimonyAnswers) => {
-    setModifiedEntries((prev) => ({ ...prev, [id]: item }));
-  };
-
-  const save = () => {
-    // Serialize the modified entries before saving
-    const serializedEntries = Object.keys(modifiedEntries).reduce((acc: Dictionary<string>, key) => {
-      acc[key] = JSON.stringify(modifiedEntries[key]);
-      return acc;
-    }, {});
-
-    mutation.mutate(serializedEntries);
-  };
-
   return {
-    isLoading:
-      tdrQuery.isLoading || firestoreQuery.isLoading || questionsQuery.isLoading || suspectsQuery.isLoading,
-    isSuccess:
-      tdrQuery.isSuccess && firestoreQuery.isSuccess && questionsQuery.isSuccess && suspectsQuery.isSuccess,
-    error: tdrQuery.error || firestoreQuery.error,
-    data: mergedData,
+    ...dataQuery,
+    isLoading: dataQuery.isLoading || questionsQuery.isLoading || suspectsQuery.isLoading,
+    isSuccess: dataQuery.isSuccess && questionsQuery.isSuccess && suspectsQuery.isSuccess,
+    error: dataQuery.error || questionsQuery.error || suspectsQuery.error,
     questions: questionsQuery.data,
     suspects: suspectsQuery.data,
-    hasNewData: !isEmpty(firestoreQuery.data),
-    isSaving: mutation.isPending,
-    save,
-    addEntryToUpdate,
-    isDirty,
-    entriesToUpdate: modifiedEntries,
+    hasNewData: dataQuery.hasFirestoreData,
   };
 }
+
+/**
+ * Calculates the total count of answers based on specific values.
+ *
+ * @param values - An array of testimony answer values to be counted
+ * @returns The total count of answers, where:
+ *  - Values 0 or 1 contribute 1 to the count
+ *  - Values 3 or -3 contribute 3 to the count
+ *  - Values 4 or -4 contribute 4 to the count
+ *  - Any other value contributes its absolute value to the count
+ */
+export const countAnswers = (values: TestimonyAnswersValues[]): number => {
+  return values.reduce((acc: number, value) => {
+    if (value === 0 || value === 1) {
+      return acc + 1;
+    }
+    const absValue = Math.abs(value);
+    if (absValue) {
+      return acc + absValue;
+    }
+
+    return acc;
+  }, 0);
+};

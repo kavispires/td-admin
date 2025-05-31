@@ -37,6 +37,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "clean": "rm -rf node_modules",
+    "test": "vitest",
     "update-commit": "bash scripts/update_commit.sh"
   },
   "browserslist": {
@@ -76,6 +77,7 @@
     "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
-    "vite-plugin-checker": "^0.9.1"
+    "vite-plugin-checker": "^0.9.1",
+    "vitest": "^3.1.4"
   }
 }

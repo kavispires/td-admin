@@ -9,6 +9,7 @@ import { cloneDeep } from 'lodash';
 import type { TestimonyAnswers, useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import { deepCleanObject, sortJsonKeys } from 'utils';
+import normalizeValues from './utils';
 
 export type TestimoniesFiltersProps = ReturnType<typeof useTestimoniesResource>;
 
@@ -117,44 +118,26 @@ export function TestimoniesFilters({
 }
 
 function prepareFileForDownload(entriesToUpdate: Dictionary<TestimonyAnswers>) {
-  console.log('Preparing file for download...');
+  console.log('Preparing file for download...x');
 
   // DO MIGRATIONS HERE
   const copy = cloneDeep(entriesToUpdate);
 
-  // // Merge two questions
-  // const q137 = copy['t-137-pt'];
-  // const q179 = copy['t-179-pt'];
-  // Object.keys(q179).forEach((suspectId) => {
-  //   if (q137[suspectId] === undefined) {
-  //     q137[suspectId] = q179[suspectId];
-  //   } else {
-  //     q137[suspectId].push(...q179[suspectId]);
-  //   }
-  // });
-  // delete copy['t-179-pt'];
+  Object.keys(copy).forEach((key) => {
+    const entry = copy[key];
+    // For each person if they have 4 1s, convert into a 4 if they have 4 0s convert into a -4
+    Object.keys(entry).forEach((suspectId) => {
+      const p = entry[suspectId].sort().join(',');
+      const values = normalizeValues(entry[suspectId].sort());
 
-  // // Merge two opposite questions
-  // const q114 = copy['t-114-pt'];
-  // const q202 = copy['t-202-pt'];
-  // Object.keys(q202).forEach((suspectId) => {
-  //   const newResult = q202[suspectId].map((value) => {
-  //     if (value === 1) return 0;
-  //     if (value === 0) return 1;
-  //     if (value === -3) return 3;
-  //     if (value === 3) return -3;
-  //     return value;
-  //   });
+      if (values.includes(-4) || values.includes(4)) {
+        console.log(`Suspect ${suspectId} has auto-grouped values from: ${p} to ${values.join(',')}`);
+      }
 
-  //   if (q114[suspectId] === undefined) {
-  //     q114[suspectId] = newResult;
-  //   } else {
-  //     q114[suspectId].push(...newResult);
-  //   }
-  // });
-  // delete copy['t-202-pt'];
-  // // Object.keys(copy).forEach((testimonyId) => {
-  // // });
+      // Replace the values with the normalized ones
+      entry[suspectId] = values;
+    });
+  });
 
   return sortJsonKeys(deepCleanObject(copy));
 }

@@ -16,6 +16,7 @@ export type UseResourceFirestoreDataProps = {
 export type UseResourceFirestoreDataReturnType<TDRData> = {
   data: Dictionary<TDRData>;
   isLoading: boolean;
+  isSuccess: boolean;
   error: ResponseError;
   firestoreData: Dictionary<TDRData> | undefined;
   hasFirestoreData: boolean;
@@ -107,6 +108,7 @@ export function useResourceFirestoreData<TDRData = PlainObject, TFirestoreData =
   return {
     data,
     isLoading: tdrQuery.isLoading || firestoreQuery.isLoading,
+    isSuccess: tdrQuery.isSuccess && firestoreQuery.isSuccess,
     error: tdrQuery.error || firestoreQuery.error,
     firestoreData,
     hasFirestoreData: !isEmpty(firestoreData),
