@@ -1,1 +1,0 @@
-import{r as e,a as o,_ as n}from"./index-C19hkXpN.js";import{D as u,a as i}from"./Pagination-TtLAqfEb.js";var l=function(t,r){return e.createElement(o,n({},t,{ref:r,icon:u}))},s=e.forwardRef(l),f=function(t,r){return e.createElement(o,n({},t,{ref:r,icon:i}))},R=e.forwardRef(f);export{s as R,R as a};

@@ -1,1 +1,0 @@
-import{j as e,P as t,L as a,I as o,l as s}from"./index-C19hkXpN.js";function n(){return e.jsx(t,{title:"TD Admin",children:e.jsx(a.Content,{className:"content-center",children:e.jsx(o,{src:s,className:"home-logo",alt:"logo",preview:!1,width:512})})})}export{n as default};
