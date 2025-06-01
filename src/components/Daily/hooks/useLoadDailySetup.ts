@@ -12,6 +12,7 @@ import {
   useDailyControleDeEstoqueGames,
 } from '../utils/games/daily-controle-de-estoque';
 import { type DailyFilmacoEntry, useDailyFilmacoGames } from '../utils/games/daily-filmaco';
+import { type DailyOrganikuEntry, useDailyOrganikuGames } from '../utils/games/daily-organiku';
 import { type DailyPalavreadoEntry, useDailyPalavreadoGames } from '../utils/games/daily-palavreado';
 import {
   type DailyPortaisMagicosEntry,
@@ -35,6 +36,7 @@ export type DailyEntry = {
   'comunicacao-alienigena': DailyComunicacaoAlienigenaEntry;
   'controle-de-estoque': DailyControleDeEstoqueEntry;
   filmaco: DailyFilmacoEntry;
+  organiku: DailyOrganikuEntry;
   palavreado: DailyPalavreadoEntry;
   'portais-magicos': DailyPortaisMagicosEntry;
   quartetos: DailyQuartetosEntry;
@@ -126,6 +128,9 @@ export function useLoadDailySetup(
     historyQuery.data ?? {},
   );
 
+  // BUILD ORGANIKU
+  const organiku = useDailyOrganikuGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
+
   // BUILD ARTISTA
   const artista = useDailyArtistaGames(
     enableBuilders,
@@ -154,6 +159,7 @@ export function useLoadDailySetup(
         'comunicacao-alienigena': comunicacaoAlienigena.entries[arteRuim.id],
         'controle-de-estoque': controleDeEstoque.entries[arteRuim.id],
         filmaco: filmaco.entries[arteRuim.id],
+        organiku: organiku.entries[arteRuim.id],
         palavreado: palavreado.entries[arteRuim.id],
         'portais-magicos': portaisMagicos.entries[arteRuim.id],
         quartetos: quartetos.entries[arteRuim.id],
@@ -166,9 +172,10 @@ export function useLoadDailySetup(
   }, [
     arteRuim.entries,
     aquiO.entries,
-    filmaco.entries,
     comunicacaoAlienigena.entries,
     controleDeEstoque.entries,
+    filmaco.entries,
+    organiku.entries,
     palavreado.entries,
     portaisMagicos.entries,
     quartetos.entries,

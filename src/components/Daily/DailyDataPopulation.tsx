@@ -1,6 +1,7 @@
 import { CloudSyncOutlined, SaveOutlined } from '@ant-design/icons';
 import { Alert, Button, Flex, Table, Typography } from 'antd';
 import { FilterSelect } from 'components/Common';
+import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { isEmpty } from 'lodash';
 import { useEffect, useState } from 'react';
@@ -47,6 +48,8 @@ export function DailyDataPopulation() {
           }}
           icon={<CloudSyncOutlined />}
         />
+
+        <FirestoreConsoleLink path="diario/history" className="ml-2" />
       </Flex>
 
       <DataPopulation language={language} batchSize={batchSize} key={rerun} />

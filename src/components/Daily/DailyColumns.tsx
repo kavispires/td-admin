@@ -101,7 +101,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover>
             <Flex gap={6} wrap style={{ maxWidth: 500 }}>
               {itemsIds.map((itemId) => (
-                <Item key={itemId} id={itemId} width={50} />
+                <Item key={itemId} id={itemId} width={48} />
               ))}
             </Flex>
           </GamePopover>
@@ -130,12 +130,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
             <Flex gap={6} style={{ maxWidth: '300px' }} vertical>
               <Space wrap>
                 {attributes.map((req) => (
-                  <AlienSign key={req.spriteId} id={`sign-${req.spriteId}`} width={50} />
+                  <AlienSign key={req.spriteId} id={`sign-${req.spriteId}`} width={48} />
                 ))}
               </Space>
               <Space wrap>
                 {itemsIds.map((itemId) => (
-                  <Item key={itemId} id={itemId} width={50} />
+                  <Item key={itemId} id={itemId} width={48} />
                 ))}
               </Space>
             </Flex>
@@ -164,9 +164,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover>
             <Flex vertical gap={6}>
               <Flex gap={6}>
-                <Item id={rule1.thing.id} width={50} />
-                <Item id={intersectingThing.id} width={50} />
-                <Item id={rule2.thing.id} width={50} />
+                <Item id={rule1.thing.id} width={48} />
+                <Item id={intersectingThing.id} width={48} />
+                <Item id={rule2.thing.id} width={48} />
               </Flex>
               <Flex gap={6}>
                 {things.map((thing) => (
@@ -200,7 +200,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover>
             <Flex gap={6} wrap style={{ maxWidth: 245 }}>
               {goods.map((good) => (
-                <WarehouseGood key={good} id={good} width={50} />
+                <WarehouseGood key={good} id={good} width={48} />
               ))}
             </Flex>
           </GamePopover>
@@ -236,6 +236,40 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                   .join('')}
               </span>
             </Flex>
+          </GamePopover>
+        </EntryCell>
+      );
+    },
+  },
+  {
+    title: 'Organiku',
+    dataIndex: 'organiku',
+    key: 'organiku',
+    render: (entry: DailyEntry['organiku']) => {
+      if (!entry) {
+        return <Alert message="No entry" type="error" />;
+      }
+
+      const { number, setId, title, grid, defaultRevealedIndexes } = entry;
+
+      return (
+        <EntryCell>
+          <GameNumber>{number}</GameNumber>
+          <GameInfo label="SetId">{setId}</GameInfo>
+          <GameInfo label="Title">{title}</GameInfo>
+
+          <GamePopover>
+            <div className="grid" style={{ gridTemplateColumns: 'repeat(5, 1fr)', gap: '8px' }}>
+              {(grid ?? []).map((itemId, index) => (
+                <div key={`${itemId}-${index}`} className="grid-item">
+                  <Item
+                    id={!defaultRevealedIndexes.includes(index) ? '0' : itemId || '0'}
+                    width={48}
+                    className={defaultRevealedIndexes.includes(index) ? 'red-border' : ''}
+                  />
+                </div>
+              ))}
+            </div>
           </GamePopover>
         </EntryCell>
       );
@@ -299,7 +333,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                   <span>Passcode: {c.passcode}</span>
                   <Flex>
                     {c.imagesIds.map((i) => (
-                      <ImageCard key={i} id={i} width={50} />
+                      <ImageCard key={i} id={i} width={48} />
                     ))}
                   </Flex>
                 </Flex>
@@ -332,7 +366,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               {sets.map((s) => (
                 <Flex key={s.id} gap={6} vertical>
                   {s.itemsIds.map((i) => (
-                    <Item key={i} id={i} width={50} />
+                    <Item key={i} id={i} width={48} />
                   ))}
                 </Flex>
               ))}
