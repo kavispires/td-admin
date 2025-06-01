@@ -1,0 +1,1 @@
+import{j as o,B as a}from"./index-vmFFRzn7.js";import{u as c}from"./useCopyToClipboardFunction-BJtF7T5m.js";import{R as e}from"./CopyOutlined-DQbvL1yc.js";function C({content:r,shape:s,icon:t,size:i,...n}){const p=c();return o.jsx(a,{shape:s??"circle",icon:t??o.jsx(e,{}),size:i??"small",onClick:()=>p(r),...n})}export{C};
