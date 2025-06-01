@@ -723,6 +723,7 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   coloredHair: 'tem cabelo colorido',
   indian: 'é indiano(a)',
   'native-american': 'é nativo-americano(a)',
+  noAccessories: 'não está usando acessórios',
 };
 
 const verifyGameDoability = (statements: StatementClue[]) => {

@@ -1,8 +1,10 @@
-import { Drawer, Flex, Radio, Select, Switch, Typography } from 'antd';
+import { Drawer, Flex, Input, Radio, Select, Switch, Typography } from 'antd';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { ImageCard } from 'components/Images/ImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
+import { useEffect, useState } from 'react';
+import { useDebounce } from 'react-use';
 import type { SuspectCard } from 'types';
 import { getSuspectImageId } from './utils';
 
@@ -38,6 +40,62 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
   const version = queryParams.get('version') ?? 'gb';
   const suspect = data[suspectId ?? ''];
 
+  const [namePt, setNamePt] = useState(suspect?.name.pt || '');
+  const [nameEn, setNameEn] = useState(suspect?.name.en || '');
+  const [note, setNote] = useState(suspect?.note || '');
+
+  // Reset local state when suspect changes
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
+    if (suspect) {
+      setNamePt(suspect.name.pt);
+      setNameEn(suspect.name.en);
+      setNote(suspect.note || '');
+    }
+  }, [suspect?.id]);
+
+  // Debounce name pt updates
+  useDebounce(
+    () => {
+      if (suspect && namePt !== suspect.name.pt) {
+        addEntryToUpdate(suspect.id, {
+          ...suspect,
+          name: { ...suspect.name, pt: namePt },
+        });
+      }
+    },
+    1000,
+    [namePt],
+  );
+
+  // Debounce name en updates
+  useDebounce(
+    () => {
+      if (suspect && nameEn !== suspect.name.en) {
+        addEntryToUpdate(suspect.id, {
+          ...suspect,
+          name: { ...suspect.name, en: nameEn },
+        });
+      }
+    },
+    1000,
+    [nameEn],
+  );
+
+  // Debounce note updates
+  useDebounce(
+    () => {
+      if (suspect && note !== suspect.note) {
+        addEntryToUpdate(suspect.id, {
+          ...suspect,
+          note,
+        });
+      }
+    },
+    1000,
+    [note],
+  );
+
   if (!suspect) return null;
 
   return (
@@ -49,7 +107,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
       width={400}
     >
       <div className="suspect__drawer">
-        <div className="grid grid-2">
+        <div className="grid" style={{ gridTemplateColumns: '1fr 1.25fr' }}>
           <ImageCard id={getSuspectImageId(suspect.id, version)} width={100} />
           <Flex vertical gap={4}>
             <DualLanguageTextField
@@ -113,6 +171,18 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
                 }}
                 options={ETHNICITY_OPTIONS}
                 style={{ width: 150 }}
+              />
+            </div>
+            <div>
+              <Input
+                value={suspect.note}
+                size="small"
+                onChange={(e) => {
+                  addEntryToUpdate(suspect.id, {
+                    ...suspect,
+                    note: e.target.value,
+                  });
+                }}
               />
             </div>
           </Flex>
@@ -230,6 +300,7 @@ export const FEATURES_BY_GROUP = [
   {
     title: 'Accessories',
     features: [
+      { id: 'noAccessories', label: 'No Accessories' },
       { id: 'glasses', label: 'Glasses' },
       { id: 'piercings', label: 'Piercings' },
       { id: 'earrings', label: 'Earrings' },
