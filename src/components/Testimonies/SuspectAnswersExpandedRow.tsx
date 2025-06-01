@@ -33,15 +33,14 @@ type RowType = {
 
 export function SuspectAnswersExpandedRow({
   suspect,
-  answersPerQuestion,
+  answersPerQuestion = {},
   questions,
   addEntryToUpdate,
   allAnswers,
 }: SuspectAnswersExpandedRowProps) {
   const { queryParams } = useQueryParams({ sortSuspectsBy: 'answers' });
   const sortSuspectsBy = queryParams.get('sortSuspectsBy') ?? 'answers';
-  console.log(answersPerQuestion);
-  console.log(allAnswers);
+
   const list: RowType[] = useMemo(() => {
     const res = Object.values(questions).map((question) => {
       const answers = answersPerQuestion[question.id] ?? {};

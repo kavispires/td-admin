@@ -6,7 +6,7 @@ type FirestoreConsoleLinkProps = {
   path: string;
   label?: string;
   disabled?: boolean;
-};
+} & React.ComponentProps<typeof Typography.Link>;
 
 export function FirestoreConsoleLink({ path, label, disabled, ...rest }: FirestoreConsoleLinkProps) {
   const { getConsoleUrl } = useFirestoreConsoleUrl();

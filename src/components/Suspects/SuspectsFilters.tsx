@@ -1,6 +1,7 @@
 import { Divider, Flex } from 'antd';
 import { FilterNumber, FilterSelect } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -55,6 +56,8 @@ export function SuspectsFilters({
           hasNewData={hasFirestoreData}
           block
         />
+
+        <FirestoreConsoleLink path={'tdr/suspects'} className="text-center" />
       </Flex>
 
       <Divider />

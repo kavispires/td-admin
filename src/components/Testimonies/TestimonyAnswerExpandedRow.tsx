@@ -36,8 +36,15 @@ export function TestimonyAnswerExpandedRow({
     if (sortSuspectsBy === 'answers') {
       return orderBy(
         res,
-        ['reliable', 'enoughData', (o) => o.values.length, 'yesPercentage'],
-        ['desc', 'desc', 'desc', 'desc'],
+        [
+          'reliable',
+          'enoughData',
+          (o) => o.values.length,
+          'yesPercentage',
+          'noPercentage',
+          (o) => Number(o.suspectCardId.split('-')[1]),
+        ],
+        ['desc', 'desc', 'desc', 'desc', 'desc', 'asc'],
       );
     }
 
