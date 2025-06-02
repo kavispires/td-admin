@@ -1,0 +1,1 @@
+import{M as d,r as h}from"./index-CgiFaygz.js";function M(r,i){const[c,{width:a}]=d(),{gap:e=32,minWidth:t=120,maxWidth:n=300,margin:o=0}=i??{};return[h.useMemo(()=>{const s=Math.min(Math.max(Math.floor((a-o)/r)-e,t),n);return Number.isNaN(s)?t:s},[a,r,e,t,n,o]),c]}export{M as u};
