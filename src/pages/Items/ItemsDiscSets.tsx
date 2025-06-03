@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemsDiscSetsContent } from 'components/Items/DiscSets/ItemsDiscSetsContent';
 import { ItemsDiscSetsFilters } from 'components/Items/DiscSets/ItemsDiscSetsFilters';
+import { ItemsDiscSetsSubPages } from 'components/Items/DiscSets/ItemsDiscSetsSubPages';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
@@ -28,7 +28,7 @@ export function ItemsDiscSets() {
             error={discSetsData.error}
             hasResponseData={!isEmpty(discSetsData.data)}
           >
-            <ItemsDiscSetsContent {...discSetsData} />
+            <ItemsDiscSetsSubPages {...discSetsData} />
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>
