@@ -122,6 +122,13 @@ export function useSaveDailySetup(queryLanguage: Language) {
           data,
           (e: DailyTeoriaDeConjuntosEntry) => [e.intersectingThing.id, e.setId],
         ),
+
+        [DAILY_GAMES_KEYS.ORGANIKU]: updateHistory(
+          DAILY_GAMES_KEYS.ORGANIKU,
+          previousHistory,
+          data,
+          (e: DailyTeoriaDeConjuntosEntry) => e.setId,
+        ),
       };
 
       setDoc(historyDocRec, newHistory);
