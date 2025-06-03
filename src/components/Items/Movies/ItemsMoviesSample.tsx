@@ -1,4 +1,4 @@
-import { Button, Divider, Space, Table } from 'antd';
+import { Button, Space, Table } from 'antd';
 import type { TableProps } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
@@ -9,6 +9,9 @@ import { useState } from 'react';
 import type { DailyMovieSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 import { AddItemFlow, MovieEditableCell, MovieItemsCell } from './ItemsMoviesTable';
+
+const SEARCH_THRESHOLD = 30; // Maximum number of tries to find a sample with no itemsIds
+
 export function ItemsMoviesSample({
   data,
   addEntryToUpdate,
@@ -21,15 +24,14 @@ export function ItemsMoviesSample({
     let newSampleId = sample(Object.keys(data ?? {}));
     let tries = 0;
 
-    // Tries a maximum of 15 times to find a sample with no itemsIds
-
-    while (tries < 15 && (data[String(newSampleId)]?.itemsIds ?? []).length > 0) {
+    // Tries a maximum of 30 times to find a sample with no itemsIds
+    while (tries < SEARCH_THRESHOLD && (data[String(newSampleId)]?.itemsIds ?? []).length > 0) {
       newSampleId = sample(Object.keys(data ?? {}));
 
       tries++;
     }
 
-    if (tries >= 15) return console.warn('Could not find a sample with no itemsIds');
+    if (tries >= SEARCH_THRESHOLD) return console.warn('Could not find a sample with no itemsIds');
 
     setSampleEntryId(newSampleId ?? null);
   };
@@ -84,7 +86,7 @@ export function ItemsMoviesSample({
 
   return (
     <Space direction="vertical" className="my-4">
-      <Button onClick={onGetSample}>Get Sample</Button>
+      <Button onClick={onGetSample}>Get Random Movie</Button>
       {sampleEntryId && (
         <Table
           key={String(sampleEntryId)}
@@ -95,8 +97,6 @@ export function ItemsMoviesSample({
           pagination={false}
         />
       )}
-
-      <Divider />
     </Space>
   );
 }

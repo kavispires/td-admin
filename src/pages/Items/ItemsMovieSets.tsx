@@ -1,8 +1,9 @@
 import { Layout, Space } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
+import { ItemMoviesListing } from 'components/Items/Movies/ItemMoviesListing';
+import { ItemsMoviesSearch } from 'components/Items/Movies/ItemMoviesSearch';
 import { ItemsMoviesFilters } from 'components/Items/Movies/ItemsMoviesFilters';
 import { ItemsMoviesSample } from 'components/Items/Movies/ItemsMoviesSample';
-import { ItemsMoviesTable } from 'components/Items/Movies/ItemsMoviesTable';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
@@ -29,8 +30,9 @@ export function ItemsMovieSets() {
             hasResponseData={!isEmpty(moviesData.data)}
           >
             <Space direction="vertical">
+              <ItemsMoviesSearch {...moviesData} />
               <ItemsMoviesSample {...moviesData} />
-              <ItemsMoviesTable {...moviesData} />
+              <ItemMoviesListing {...moviesData} />
             </Space>
           </DataLoadingWrapper>
         </Layout.Content>

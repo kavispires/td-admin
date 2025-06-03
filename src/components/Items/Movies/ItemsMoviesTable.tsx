@@ -3,44 +3,24 @@ import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
 import type { TableProps } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
-import { orderBy } from 'lodash';
-import { useMemo } from 'react';
 import type { DailyMovieSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { useMovieUsedHistory } from './useMovieUsedHistory';
-function orderSets(givenSets: DailyMovieSet[]) {
-  return orderBy(givenSets, [
-    // (s) => removeDuplicates(s.itemsIds).filter(Boolean).length > 0,
-    (s) => s.title,
-  ]).map((s) => ({
-    ...s,
-    itemsIds: orderBy(s.itemsIds, (id) => Number(id)),
-  }));
-}
 
-export function ItemsMoviesTable({
-  data,
-  addEntryToUpdate,
-}: UseResourceFirestoreDataReturnType<DailyMovieSet>) {
+type ItemsMoviesTableProps = {
+  rows: DailyMovieSet[];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyMovieSet>['addEntryToUpdate'];
+};
+
+export function ItemsMoviesTable({ rows, addEntryToUpdate }: ItemsMoviesTableProps) {
   const copyToClipboard = useCopyToClipboardFunction();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
   const usedHistory = useMovieUsedHistory();
-
-  const { is } = useQueryParams();
-  const showOnlyEmpty = is('emptyOnly');
-
-  const rows = useMemo(() => {
-    const sets = data ? orderSets(Object.values(data)) : [];
-    return showOnlyEmpty ? sets.filter((s) => s.itemsIds.length === 0) : sets;
-  }, [data, showOnlyEmpty]);
-
-  const completeMoviesCount = rows.filter((s) => s.itemsIds.length > 0).length;
 
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
@@ -109,18 +89,13 @@ export function ItemsMoviesTable({
   });
 
   return (
-    <Space direction="vertical">
-      <Typography.Title level={5}>
-        Total Movies: {rows.length} | Complete Movies: {completeMoviesCount}
-      </Typography.Title>
-      <Table
-        columns={columns}
-        rowKey="id"
-        dataSource={rows}
-        expandable={expandableProps}
-        pagination={paginationProps}
-      />
-    </Space>
+    <Table
+      columns={columns}
+      rowKey="id"
+      dataSource={rows}
+      expandable={expandableProps}
+      pagination={paginationProps}
+    />
   );
 }
 
