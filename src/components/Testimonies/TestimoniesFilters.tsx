@@ -14,17 +14,21 @@ import {
 } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import { deepCleanObject, deserializeFirestoreData, sortJsonKeys } from 'utils';
+import { TestimonyDrawer } from './TestimonyDrawer';
 import normalizeValues from './utils';
 
 export type TestimoniesFiltersProps = ReturnType<typeof useTestimoniesResource>;
 
 export function TestimoniesFilters({
+  suspects,
+  questions,
   data,
   hasNewData,
   isDirty,
   save,
   isSaving,
   entriesToUpdate,
+  addEntryToUpdate,
 }: TestimoniesFiltersProps) {
   const { queryParams, addParams } = useQueryParams();
 
@@ -117,6 +121,13 @@ export function TestimoniesFilters({
             </li>
           </ul>
         </div>
+
+        <TestimonyDrawer
+          suspects={suspects}
+          questions={questions}
+          answers={data}
+          addEntryToUpdate={addEntryToUpdate}
+        />
       </SiderContent>
     </>
   );
