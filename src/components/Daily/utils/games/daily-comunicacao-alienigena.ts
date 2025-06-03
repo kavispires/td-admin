@@ -27,7 +27,7 @@ export type DailyComunicacaoAlienigenaEntry = {
   id: DateKey;
   setId: string;
   number: number;
-  type: 'comunicação-alienígena';
+  type: 'comunicacao-alienigena';
   attributes: DailyAlienGameAttribute[];
   requests: DailyAlienGameRequest[];
   solution: string;
@@ -298,7 +298,7 @@ const generateComunicacaoAlienigenaGame = (
       .sort()
       .join('-'),
     number: 0,
-    type: 'comunicação-alienígena',
+    type: 'comunicacao-alienigena',
     attributes: gameAttributes,
     requests,
     solution: requestItemsIds.join('-'),

@@ -106,7 +106,7 @@ type DailyAlienGame = {
   id: string;
   setId: string;
   number: number;
-  type: 'comunicação-alienígena';
+  type: 'comunicacao-alienigena';
   attributes: DailyAlienGameAttribute[];
   requests: DailyAlienGameRequest[];
   solution: string;
@@ -287,7 +287,7 @@ const generateDailyAlienGame = (
       .sort()
       .join('-'),
     number: 0,
-    type: 'comunicação-alienígena',
+    type: 'comunicacao-alienigena',
     attributes: gameAttributes,
     requests,
     solution: requestItemsIds.join('-'),
