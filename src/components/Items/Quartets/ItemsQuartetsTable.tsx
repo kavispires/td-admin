@@ -94,7 +94,7 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
       dataIndex: 'level',
       render: (level, record) => (
         <Rate
-          count={3}
+          count={4}
           value={level}
           onChange={(v) => addEntryToUpdate(record.id, { ...record, level: v })}
         />

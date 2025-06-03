@@ -1,8 +1,8 @@
 import { Space, Typography } from 'antd';
+import { Typeahead } from 'components/Common/Typeahead';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
 import type { DailyQuartetSet } from 'types';
-import { ItemsQuartetTypeahead } from './ItemsQuartetTypeahead';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 
 export function ItemsQuartetSearch({
@@ -18,9 +18,21 @@ export function ItemsQuartetSearch({
     <Space direction="vertical">
       <Typography.Title level={5}>Search Quartet</Typography.Title>
 
-      <ItemsQuartetTypeahead quartets={data} onFinish={(id) => setActiveQuartetId(id)} />
+      <Typeahead
+        data={data}
+        onFinish={(id) => setActiveQuartetId(id)}
+        placeholder="Search quartet by title..."
+        parser={typeaheadParser}
+      />
 
       {!!activeQuartet && <ItemsQuartetsTable rows={[activeQuartet]} addEntryToUpdate={addEntryToUpdate} />}
     </Space>
   );
 }
+
+const typeaheadParser = (data: Record<string, DailyQuartetSet>) => {
+  return Object.values(data ?? {}).reduce((acc: Record<string, string>, quartet) => {
+    acc[quartet.title] = quartet.id;
+    return acc;
+  }, {});
+};
