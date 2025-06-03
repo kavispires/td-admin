@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemsGroupsContent } from 'components/Items/Groups/ItemsGroupsContent';
 import { ItemsGroupsFilters } from 'components/Items/Groups/ItemsGroupsFilters';
+import { ItemsGroupsSubPages } from 'components/Items/Groups/ItemsGroupsSubPages';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
@@ -30,7 +30,7 @@ export function ItemsGroups() {
             error={groupsQuery.error || itemsTypeaheadQuery.error}
             hasResponseData={!isEmpty(groupsQuery.data) && !isEmpty(itemsTypeaheadQuery.data)}
           >
-            <ItemsGroupsContent {...groupsQuery} />
+            <ItemsGroupsSubPages {...groupsQuery} />
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>

@@ -44,8 +44,6 @@ export function ItemsGroupsFilters({
       </Flex>
       <Divider />
 
-      <AddNewGroupFlow data={data} addEntryToUpdate={addEntryToUpdate} />
-
       <FilterSegments
         label="Display"
         value={queryParams.get('display') ?? 'group'}
@@ -63,6 +61,8 @@ export function ItemsGroupsFilters({
           },
         ]}
       />
+
+      <AddNewGroupFlow data={data} addEntryToUpdate={addEntryToUpdate} />
 
       {is('display', 'item') && (
         <FilterSwitch
