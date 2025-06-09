@@ -2,6 +2,7 @@ import { ContactsOutlined, RobotOutlined, TableOutlined } from '@ant-design/icon
 import { Flex, Tooltip } from 'antd';
 import { FilterSegments } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
@@ -72,6 +73,10 @@ export function TestimoniesFilters({
             hasNewData={hasNewData}
             block
           />
+
+          <FirestoreConsoleLink path={'data/testimonies'} className="text-center" label="Firestore Data" />
+
+          <FirestoreConsoleLink path={'tdr/testimonies'} className="text-center" label="Firestore TDR" />
         </Flex>
       </SiderContent>
       <SiderContent>
