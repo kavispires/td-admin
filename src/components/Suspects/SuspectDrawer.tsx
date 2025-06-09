@@ -8,7 +8,7 @@ import { useDebounce } from 'react-use';
 import type { SuspectCard } from 'types';
 import { getSuspectImageId } from './utils';
 
-const AGE_OPTIONS = ['18-21', '21-30', '30-40', '40-50', '50-60', '50-70'].map((v) => ({
+const AGE_OPTIONS = ['18-21', '21-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90'].map((v) => ({
   label: v,
   value: v,
 }));
