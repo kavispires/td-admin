@@ -11,6 +11,8 @@ import { TestimonyAnswerExpandedRow } from './TestimonyAnswerExpandedRow';
 
 export type TestimoniesContentProps = ReturnType<typeof useTestimoniesResource>;
 
+type RowData = TestimonyQuestionCard & { answersCount: number };
+
 export function TestimoniesTable({
   data,
   questions,
@@ -21,13 +23,21 @@ export function TestimoniesTable({
 }: TestimoniesContentProps) {
   const { queryParams, addParam } = useQueryParams();
 
-  const entries = useMemo(() => {
-    return orderBy(Object.values(questions), (entry) => Number(entry.id.split('-')[1]), 'asc');
+  // biome-ignore lint/correctness/useExhaustiveDependencies: don't recalculate unless questions change
+  const entriesRowData = useMemo(() => {
+    return orderBy(
+      Object.values(questions).map((entry) => ({
+        ...entry,
+        answersCount: Object.values(data[entry.id] ?? {}).length,
+      })),
+      (entry) => Number(entry.id.split('-')[1]),
+      'asc',
+    );
   }, [questions]);
 
-  const paginationProps = useTablePagination({ total: entries.length, showQuickJumper: true });
+  const paginationProps = useTablePagination({ total: entriesRowData.length, showQuickJumper: true });
 
-  const columns: TableProps<TestimonyQuestionCard>['columns'] = [
+  const columns: TableProps<RowData>['columns'] = [
     {
       title: 'Id',
       dataIndex: 'id',
@@ -49,19 +59,13 @@ export function TestimoniesTable({
     },
     {
       title: 'Answers',
-      dataIndex: 'id',
-      key: 'answers',
-      render: (id) => {
-        const answers = data[id];
-        if (!answers) {
-          return '';
-        }
-        return Object.values(answers).length;
-      },
+      dataIndex: 'answersCount',
+      key: 'answersCount',
+      sorter: (a, b) => a.answersCount - b.answersCount,
     },
   ];
 
-  const expandableProps = useTableExpandableRows<TestimonyQuestionCard>({
+  const expandableProps = useTableExpandableRows<RowData>({
     maxExpandedRows: 1,
     expandedRowRender: (record) => (
       <TestimonyAnswerExpandedRow
@@ -89,7 +93,7 @@ export function TestimoniesTable({
       </Flex>
       <Table
         columns={columns}
-        dataSource={entries}
+        dataSource={entriesRowData}
         pagination={paginationProps}
         rowKey="id"
         expandable={expandableProps}
