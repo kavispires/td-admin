@@ -1,11 +1,11 @@
-import { Button, Flex, Modal, Space, Typography } from 'antd';
+import { Button, Flex, Modal, Segmented, Space, Typography } from 'antd';
 import { ImageCard } from 'components/Images/ImageCard';
 import { getSuspectImageId } from 'components/Suspects/utils';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { cloneDeep, sample } from 'lodash';
+import { cloneDeep, sample, sampleSize } from 'lodash';
 import type { useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
 import { useSwipeable } from 'react-swipeable';
-import { useStateWithHistory, useWindowSize } from 'react-use';
+import { useEffectOnce, useStateWithHistory, useWindowSize } from 'react-use';
 
 export type TestimoniesContentProps = ReturnType<typeof useTestimoniesResource>;
 
@@ -20,22 +20,27 @@ export function TestimonyDrawer(props: TestimonyDrawerProps) {
   const { addParam } = useQueryParams();
 
   return (
-    <>
-      <Button onClick={() => addParam('testimonyDrawer', true)} block>
+    <Flex vertical gap={8}>
+      <Button onClick={() => addParam('testify', 'single')} block>
         Testify Drawer
       </Button>
-      <DrawerContent {...props} />
-    </>
+      <Button onClick={() => addParam('testify', 'group')} block>
+        Testify Group
+      </Button>
+      <SingleDrawerContent {...props} />
+      <GroupDrawerContent {...props} />
+    </Flex>
   );
 }
 
-function DrawerContent({ suspects, questions, answers, addEntryToUpdate }: TestimonyDrawerProps) {
+function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }: TestimonyDrawerProps) {
   const { width, height } = useWindowSize();
   const { is, removeParam } = useQueryParams();
   const [state, setState, _stateHistory] = useStateWithHistory<{
     suspectId: string | null;
     testimonyId: string | null;
   }>();
+
   const handlers = useSwipeable({
     onSwipedLeft: () => alert('Swiped Left'),
     onSwipedRight: () => alert('Swiped Right'),
@@ -79,8 +84,8 @@ function DrawerContent({ suspects, questions, answers, addEntryToUpdate }: Testi
   return (
     <Modal
       title={<Typography>Does this person do this??</Typography>}
-      open={is('testimonyDrawer')}
-      onCancel={() => removeParam('testimonyDrawer')}
+      open={is('testify', 'single')}
+      onCancel={() => removeParam('testify')}
       maskClosable={false}
       width={width - 64}
       footer={null}
@@ -116,6 +121,123 @@ function DrawerContent({ suspects, questions, answers, addEntryToUpdate }: Testi
             Yes
           </Button>
         </Space.Compact>
+      </div>
+    </Modal>
+  );
+}
+
+function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: TestimonyDrawerProps) {
+  const { width, height } = useWindowSize();
+  const { is, removeParam } = useQueryParams();
+  const [state, setState, _stateHistory] = useStateWithHistory<{
+    suspectsIds: Record<string, null | 0 | 1>;
+    testimonyId: string | null;
+  }>();
+
+  const getRandom = () => {
+    const suspectsSet = sampleSize(Object.keys(suspects), 6)?.reduce(
+      (acc: Record<string, null | 0 | 1>, id) => {
+        acc[id] = null;
+        return acc;
+      },
+      {},
+    );
+
+    setState({
+      suspectsIds: suspectsSet,
+      testimonyId: sample(Object.keys(questions)) || null,
+    });
+  };
+
+  useEffectOnce(() => getRandom());
+
+  const onNext = () => {
+    // From the judged suspects, only keep the ones that have a value (1 or 0) and add to the answers
+    const judgedSuspects = Object.entries(state?.suspectsIds ?? {}).reduce(
+      (acc: Record<string, (0 | 1)[]>, [id, value]) => {
+        if (value !== null) {
+          acc[id] = [value];
+        }
+        return acc;
+      },
+      {},
+    );
+    if (state?.testimonyId && Object.keys(judgedSuspects).length > 0) {
+      const newAnswers = cloneDeep(answers[state.testimonyId] ?? {});
+      Object.entries(judgedSuspects).forEach(([id, values]) => {
+        newAnswers[id] = [...(newAnswers[id] || []), ...values];
+      });
+
+      addEntryToUpdate(state.testimonyId, newAnswers);
+    } else {
+      console.log('No testimonyId or no judged suspects found, likely skipped');
+    }
+
+    getRandom();
+  };
+
+  const hasEntry = !!state?.suspectsIds && !!state?.testimonyId;
+
+  return (
+    <Modal
+      title={<Typography>Do these people do this??</Typography>}
+      open={is('testify', 'group')}
+      onCancel={() => removeParam('testify')}
+      maskClosable={false}
+      width={width - 64}
+      footer={null}
+    >
+      <div>
+        {hasEntry && (
+          <Flex vertical gap={8} className="mb-8" justify="center" align="center">
+            <Typography.Title level={4} className="text-center">
+              {questions[state.testimonyId ?? '']?.question}
+            </Typography.Title>
+            <Flex wrap="wrap" justify="center" gap={8}>
+              {Object.keys(state.suspectsIds).map((suspectId) => (
+                <Flex key={suspectId} justify="center" align="center" vertical>
+                  <Typography.Text className="text-center">
+                    {suspects[suspectId]?.name?.pt || 'Unknown'}
+                  </Typography.Text>
+                  <ImageCard
+                    key={suspectId}
+                    id={getSuspectImageId(suspectId, 'gb')}
+                    width={Math.min(Math.max(height / 3, 128), 128)}
+                  />
+                  <Segmented
+                    shape="round"
+                    size="large"
+                    value={state.suspectsIds[suspectId]}
+                    onChange={(value) =>
+                      setState((prev) => {
+                        if (!prev) return prev;
+
+                        return {
+                          ...prev,
+                          suspectsIds: {
+                            ...prev.suspectsIds,
+                            [suspectId]: value as null | 0 | 1,
+                          },
+                        };
+                      })
+                    }
+                    options={[
+                      { value: 0, icon: '👎' },
+                      { value: null, icon: '♾' },
+                      { value: 1, icon: '👍' },
+                    ]}
+                  />
+                </Flex>
+              ))}
+            </Flex>
+          </Flex>
+        )}
+
+        <Flex justify="flex-end">
+          <Button onClick={onNext} size="large">
+            Next Set
+          </Button>
+        </Flex>
       </div>
     </Modal>
   );
