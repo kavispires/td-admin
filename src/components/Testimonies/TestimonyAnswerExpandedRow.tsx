@@ -213,7 +213,7 @@ function BatchOptions({
   return (
     <Flex align="center" gap={6} justify="space-between" className="mb-4">
       <Flex gap={3}>
-        <Typography.Text className="nowrap buceta" style={{ minWidth: '5ch' }}>
+        <Typography.Text className="nowrap" style={{ minWidth: '5ch' }}>
           Batch
         </Typography.Text>
         <Switch

@@ -178,6 +178,25 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
 
   const hasEntry = !!state?.suspectsIds && !!state?.testimonyId;
 
+  const onSetAllNullTo = (value: 0 | 1) => {
+    setState((prev) => {
+      if (!prev) return prev;
+
+      const newSuspectsIds = Object.entries(prev.suspectsIds).reduce(
+        (acc: Record<string, null | 0 | 1>, [id, val]) => {
+          acc[id] = val === null ? value : val;
+          return acc;
+        },
+        {},
+      );
+
+      return {
+        ...prev,
+        suspectsIds: newSuspectsIds,
+      };
+    });
+  };
+
   return (
     <Modal
       title={<Typography>Do these people do this??</Typography>}
@@ -233,7 +252,12 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
           </Flex>
         )}
 
-        <Flex justify="flex-end">
+        <Flex justify="space-between" align="center" className="mt-8">
+          <span />
+          <Flex gap={8}>
+            <Button onClick={() => onSetAllNullTo(0)}>Set all ♾ to 👎</Button>
+            <Button onClick={() => onSetAllNullTo(1)}>Set all ♾ to 👍</Button>
+          </Flex>
           <Button onClick={onNext} size="large">
             Next Set
           </Button>
