@@ -1,11 +1,12 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
-import { shuffle } from 'lodash';
+import { intersection, orderBy, shuffle } from 'lodash';
 import { useMemo } from 'react';
 import type { DailyMovieSet } from 'types';
+import { removeDuplicates } from 'utils';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
-import { getNextDay } from '../utils';
+import { checkWeekend, getNextDay } from '../utils';
 import { addWarning } from '../warnings';
 
 export type DailyFilmacoEntry = {
@@ -15,7 +16,8 @@ export type DailyFilmacoEntry = {
   setId: string;
   title: string;
   itemsIds: string[];
-  year: number;
+  year: number | string;
+  isDoubleFeature?: boolean;
 };
 
 export const useDailyFilmacoGames = (
@@ -37,6 +39,7 @@ export const useDailyFilmacoGames = (
     const unusedFilms = Object.values(movieSetsQuery.data).filter(
       (movie) => movie.itemsIds.length > 0 && !filmacoHistory.used.includes(movie.id),
     );
+
     if (unusedFilms.length <= batchSize) {
       addWarning('filmaco', 'Not enough unused films');
     }
@@ -69,22 +72,29 @@ export const buildDailyFilmacoGames = (
     Object.values(movies).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length > 0),
   );
   // Filter not-used sets only
-  const notUsedSets = completeSets.filter((setEntry) => !history.used.includes(setEntry.id));
+  const availableFilms = shuffle(completeSets.filter((setEntry) => !history.used.includes(setEntry.id)));
 
-  if (notUsedSets.length < batchSize) {
-    notUsedSets.push(...shuffle(completeSets));
+  if (availableFilms.length < batchSize) {
+    availableFilms.push(...shuffle(completeSets));
   }
+
+  // Double-feature for weekends
+  const usedFilms = shuffle(
+    Object.values(movies).filter((movie) => movie.itemsIds.length > 0 && history.used.includes(movie.id)),
+  );
 
   let lastDate = history.latestDate;
   // Get list, if not enough, get from complete
   const entries: Dictionary<DailyFilmacoEntry> = {};
   for (let i = 0; i < batchSize; i++) {
-    const setEntry = notUsedSets[i];
+    const id = getNextDay(lastDate);
+    const isWeekend = checkWeekend(id);
+
+    const setEntry = isWeekend ? getWeekendFilms(usedFilms) : availableFilms[i];
     if (!setEntry) {
       console.error('No filmaço sets left');
       break;
     }
-    const id = getNextDay(lastDate);
     lastDate = id;
     entries[id] = {
       id,
@@ -98,4 +108,30 @@ export const buildDailyFilmacoGames = (
   }
 
   return entries;
+};
+
+const getWeekendFilms = (films: DailyMovieSet[]) => {
+  let selectedFilms: DailyMovieSet[] = [];
+
+  while (selectedFilms.length < 2 && films.length > 0) {
+    const film = films.pop();
+    if (film && intersection(film.itemsIds, selectedFilms?.[0]?.itemsIds || []).length === 0) {
+      selectedFilms.push(film);
+    }
+  }
+
+  selectedFilms = orderBy(selectedFilms, (f) => f.year, 'asc');
+
+  const doubleFeatureSet: DailyFilmacoEntry = {
+    id: '',
+    type: 'filmaco',
+    number: 0,
+    setId: `df-${selectedFilms.map((f) => f.id).join('-')}`,
+    title: `${selectedFilms.map((f) => f.title).join(' × ')}`,
+    itemsIds: shuffle(removeDuplicates(selectedFilms.flatMap((f) => f.itemsIds))),
+    year: selectedFilms.map((f) => f.year).join(' × '),
+    isDoubleFeature: true,
+  };
+
+  return doubleFeatureSet;
 };
