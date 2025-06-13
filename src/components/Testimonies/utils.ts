@@ -41,7 +41,8 @@ export const calculateSuspectAnswersData = (
   const reliable = votesCount > reliabilityThreshold;
 
   const resolution = (() => {
-    if (reliable) return yesPercentage > noPercentage ? '👍' : '👎';
+    if (reliable && Math.abs(yesPercentage - noPercentage) > 30)
+      return yesPercentage > noPercentage ? '👍' : '👎';
     return null;
   })();
 
@@ -49,7 +50,7 @@ export const calculateSuspectAnswersData = (
   // If it is not reliable, but has enough data, if the current data is more than 70% to yes or no, declare it's side (yes or no). If there's not enough data, likelihood is null
   const projection = (() => {
     if (!enoughData) return null;
-
+    if (Math.abs(yesPercentage - noPercentage) < 20) return null;
     if (yesPercentage >= projectionThreshold) return '👍';
     if (noPercentage >= projectionThreshold) return '👎';
     return null;

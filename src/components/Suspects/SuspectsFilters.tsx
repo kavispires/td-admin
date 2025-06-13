@@ -108,6 +108,12 @@ function prepareFileForDownload(data: Dictionary<SuspectCard>) {
     if (suspect.name.en.endsWith('.')) {
       suspect.name.en = suspect.name.en.slice(0, -1).trim();
     }
+
+    // if Id number is over 114, add gbExclusive = true property
+    const numberedId = Number(suspect.id.match(/\d+/));
+    if (numberedId > 114) {
+      suspect.gbExclusive = true;
+    }
   }
 
   return sortJsonKeys(copy, ['gender', 'ethnicity', 'age', 'height', 'build', 'features']);

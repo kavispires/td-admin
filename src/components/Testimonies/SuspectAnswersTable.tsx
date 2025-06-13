@@ -75,7 +75,7 @@ export function SuspectAnswersTable({
             <Typography.Text>{names.pt}</Typography.Text>
             <Typography.Text type="secondary">{names.en}</Typography.Text>
             <Typography.Text type="secondary" italic>
-              {record.note}
+              <small>{record.note}</small>
             </Typography.Text>
           </Flex>
         );
