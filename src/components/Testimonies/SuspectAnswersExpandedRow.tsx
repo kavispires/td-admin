@@ -1,4 +1,4 @@
-import { Flex, Space, Table } from 'antd';
+import { Flex, Input, Space, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
@@ -84,6 +84,10 @@ export function SuspectAnswersExpandedRow({
     return orderBy(res, (o) => Number(o.id.split('-')[1]), ['asc']);
   }, [answersPerQuestion, questions, suspect.id, sortSuspectsBy]);
 
+  const description = useMemo(() => {
+    return writeDescription(suspect, list);
+  }, [suspect, list]);
+
   const columns: TableProps<RowType>['columns'] = [
     {
       key: 'id',
@@ -132,6 +136,24 @@ export function SuspectAnswersExpandedRow({
   return (
     <Space wrap size="large">
       <Table rowKey="id" columns={columns} dataSource={list} bordered />
+      <Flex gap={8} vertical>
+        <Typography.Title level={5}>Suspect Description</Typography.Title>
+
+        <Input.TextArea value={description} readOnly className="full-width" rows={7} />
+      </Flex>
     </Space>
   );
 }
+
+const writeDescription = (suspect: SuspectCard, list: RowType[]) => {
+  const sentences = list
+    .filter((entry) => entry.resolution || entry.projection)
+    .map((entry) => {
+      const { question, resolution, projection } = entry;
+      const result = resolution || projection;
+      const pronoun = suspect.gender === 'male' ? 'ele' : 'ela';
+      return `${pronoun} ${result === '👍' ? '' : 'não '}${question.answer.toLocaleLowerCase()}`;
+    });
+
+  return `${suspect.name.pt}: ${sentences.join(', ')}`;
+};
