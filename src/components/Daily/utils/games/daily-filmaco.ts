@@ -105,6 +105,10 @@ export const buildDailyFilmacoGames = (
       itemsIds: setEntry.itemsIds,
       year: setEntry.year,
     };
+
+    if (isWeekend) {
+      entries[id].isDoubleFeature = true;
+    }
   }
 
   return entries;
@@ -122,15 +126,11 @@ const getWeekendFilms = (films: DailyMovieSet[]) => {
 
   selectedFilms = orderBy(selectedFilms, (f) => f.year, 'asc');
 
-  const doubleFeatureSet: DailyFilmacoEntry = {
-    id: '',
-    type: 'filmaco',
-    number: 0,
-    setId: `df-${selectedFilms.map((f) => f.id).join('-')}`,
+  const doubleFeatureSet: Merge<DailyMovieSet, { year: string }> = {
+    id: `df-${selectedFilms.map((f) => f.id).join('-')}`,
     title: `${selectedFilms.map((f) => f.title).join(' × ')}`,
     itemsIds: shuffle(removeDuplicates(selectedFilms.flatMap((f) => f.itemsIds))),
     year: selectedFilms.map((f) => f.year).join(' × '),
-    isDoubleFeature: true,
   };
 
   return doubleFeatureSet;

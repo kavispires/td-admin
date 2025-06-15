@@ -59,3 +59,5 @@ type GenericCard = {
 };
 
 type Tag = string;
+
+type Merge<A, B> = Omit<A, keyof B> & B;
