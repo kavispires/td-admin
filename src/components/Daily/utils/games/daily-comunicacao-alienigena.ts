@@ -129,10 +129,17 @@ export const buildDailyComunicacaoAlienigenaGames = (
     const id = getNextDay(lastDate);
     lastDate = id;
 
+    // TODO: On Weekends have 7 items, other days have 5 items
+
     entries[id] = {
-      ...entry,
       id,
       number: history.latestNumber + index + 1,
+      type: 'comunicacao-alienigena',
+      setId: entry.setId,
+      attributes: entry.attributes,
+      requests: entry.requests,
+      solution: entry.solution,
+      itemsIds: entry.itemsIds,
     };
   });
 
