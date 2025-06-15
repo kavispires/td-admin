@@ -5,15 +5,16 @@ import {
   ManOutlined,
   WomanOutlined,
 } from '@ant-design/icons';
-import { Button, Image, Space, Tag, Typography } from 'antd';
+import { Button, Flex, Image, Space, Switch, Tag, Typography } from 'antd';
 import { ImageCard } from 'components/Images/ImageCard';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { orderBy } from 'lodash';
+import { orderBy, truncate } from 'lodash';
 import { useMemo } from 'react';
 import type { SuspectCard } from 'types';
 import { stringRemoveAccents } from 'utils';
+import { FeaturesFilterBar } from './FeaturesFilterBar';
 import { SuspectDrawer } from './SuspectDrawer';
 import { getSuspectImageId } from './utils';
 
@@ -23,8 +24,9 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
   const version = queryParams.get('version') ?? 'gb';
   const sortBy = queryParams.get('sortBy') ?? 'id';
   const cardsPerRow = Number(queryParams.get('cardsPerRow')) || 8;
+  const activeFeature = queryParams.get('activeFeature') || '';
 
-  const [cardWidth, ref] = useCardWidth(cardsPerRow);
+  const [cardWidth, ref] = useCardWidth(cardsPerRow, { margin: 16 });
 
   const deck: SuspectCard[] = useMemo(() => {
     return orderBy(
@@ -39,11 +41,32 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
     );
   }, [data, sortBy]);
 
+  const updateFeature = (suspectId: string, featureId: string) => {
+    const suspect = data[suspectId];
+    if (!suspect) return;
+
+    const features = suspect.features || [];
+    if (features.includes(featureId)) {
+      // Remove feature
+      addEntryToUpdate(suspectId, {
+        ...suspect,
+        features: features.filter((f) => f !== featureId),
+      });
+    } else {
+      // Add feature
+      addEntryToUpdate(suspectId, {
+        ...suspect,
+        features: [...features, featureId],
+      });
+    }
+  };
+
   return (
     <>
       <Typography.Title level={2}>
         Deck {version} ({deck.length})
       </Typography.Title>
+      <FeaturesFilterBar />
 
       <Image.PreviewGroup>
         <Space ref={ref} wrap className="my-2" key={version}>
@@ -58,7 +81,10 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
 
                 <div className="suspect__name">
                   <div>
-                    <Tag>{entry.id}</Tag>
+                    <Tag>{entry.id}</Tag>{' '}
+                    <Typography.Text type="secondary" italic>
+                      <small>{truncate(entry.note, { length: 18 })}</small>
+                    </Typography.Text>
                   </div>
                   <div>🇧🇷 {entry.name.pt}</div>
                   <div>🇺🇸 {entry.name.en}</div>
@@ -91,6 +117,17 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
                   >
                     <EditFilled />
                   </Button>
+                  {!!activeFeature && (
+                    <Flex gap={8} className="mt-2 mb-4">
+                      <Typography.Text keyboard>{activeFeature}:</Typography.Text>
+                      <Switch
+                        checked={entry.features?.includes(activeFeature)}
+                        onChange={() => updateFeature(entry.id, activeFeature)}
+                        checkedChildren={'✓'}
+                        unCheckedChildren={'✗'}
+                      />
+                    </Flex>
+                  )}
                 </div>
               </div>
             );

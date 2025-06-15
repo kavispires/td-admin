@@ -64,7 +64,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
         });
       }
     },
-    1000,
+    500,
     [namePt],
   );
 
@@ -78,7 +78,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
         });
       }
     },
-    1000,
+    500,
     [nameEn],
   );
 
@@ -92,7 +92,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
         });
       }
     },
-    1000,
+    500,
     [note],
   );
 
@@ -111,24 +111,20 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
           <ImageCard id={getSuspectImageId(suspect.id, version)} width={100} />
           <Flex vertical gap={4}>
             <DualLanguageTextField
-              value={suspect.name}
-              language="pt"
-              onChange={(e) => {
-                addEntryToUpdate(suspect.id, {
-                  ...suspect,
-                  name: { ...suspect.name, pt: e.target.value },
-                });
+              value={{
+                pt: namePt,
+                en: nameEn,
               }}
+              language="pt"
+              onChange={(e) => setNamePt(e.target.value)}
             />
             <DualLanguageTextField
-              value={suspect.name}
-              language="en"
-              onChange={(e) => {
-                addEntryToUpdate(suspect.id, {
-                  ...suspect,
-                  name: { ...suspect.name, en: e.target.value },
-                });
+              value={{
+                pt: namePt,
+                en: nameEn,
               }}
+              language="en"
+              onChange={(e) => setNameEn(e.target.value)}
             />
             <div>
               <Select
@@ -174,16 +170,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
               />
             </div>
             <div>
-              <Input
-                value={suspect.note}
-                size="small"
-                onChange={(e) => {
-                  addEntryToUpdate(suspect.id, {
-                    ...suspect,
-                    note: e.target.value,
-                  });
-                }}
-              />
+              <Input value={note} size="small" onChange={(e) => setNote(e.target.value)} />
             </div>
           </Flex>
         </div>
@@ -298,6 +285,15 @@ export const FEATURES_BY_GROUP = [
     ],
   },
   {
+    title: 'Specific',
+    features: [
+      { id: 'buttonShirt', label: 'Button Shirt' },
+      { id: 'showTeeth', label: 'Showing Teeth' },
+      { id: 'avoidingCamera', label: 'Avoiding Camera' },
+      { id: 'hairyChest', label: 'Exposed Hairy Chest' },
+    ],
+  },
+  {
     title: 'Accessories',
     features: [
       { id: 'noAccessories', label: 'No Accessories' },
@@ -310,6 +306,26 @@ export const FEATURES_BY_GROUP = [
       { id: 'hoodie', label: 'Hoodie' },
       { id: 'tie', label: 'Tie' },
       { id: 'headscarf', label: 'Headscarf/Bandana' },
+      { id: 'bow', label: 'Bow' },
+      { id: 'wearingFlowers', label: 'Wearing Flowers' },
+      { id: 'hairTie', label: 'Hair Tie' },
+    ],
+  },
+  {
+    title: 'Clothing',
+    features: [
+      { id: 'whiteShirt', label: 'White Shirt' },
+      { id: 'blackClothes', label: 'Black Clothes' },
+      { id: 'blueClothes', label: 'Blue Clothes' },
+      { id: 'redClothes', label: 'Red Clothes' },
+      { id: 'greenClothes', label: 'Green Clothes' },
+      { id: 'yellowClothes', label: 'Yellow Clothes' },
+      { id: 'purpleClothes', label: 'Purple Clothes' },
+      { id: 'pinkClothes', label: 'Pink Clothes' },
+      { id: 'orangeClothes', label: 'Orange Clothes' },
+      { id: 'brownClothes', label: 'Brown Clothes' },
+      { id: 'patternedShirt', label: 'Patterned Shirt' },
+      { id: 'wearingStripes', label: 'Wearing Stripes' },
     ],
   },
 ];
