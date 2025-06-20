@@ -92,9 +92,10 @@ export const buildDailyFilmacoGames = (
 
     const setEntry = isWeekend ? getWeekendFilms(usedFilms) : availableFilms[i];
     if (!setEntry) {
-      console.error('No filmaço sets left');
+      addWarning('filmaco', 'No filmaço sets left');
       break;
     }
+
     lastDate = id;
     entries[id] = {
       id,

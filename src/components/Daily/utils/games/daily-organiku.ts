@@ -72,7 +72,6 @@ export const buildDailyOrganikuGames = (
     const itemsIds = sampleSize(group.itemsIds, 5);
     const grid = generateRandomLatinSquare(itemsIds);
     const defaultRevealedIndexes = revealGridItems(grid, itemsIds, 1);
-    console.log({ defaultRevealedIndexes });
 
     entries[id] = {
       id,

@@ -1,13 +1,13 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
-import { keys, random, sample, sampleSize, shuffle, values } from 'lodash';
+import { keys, sample, sampleSize, shuffle, values } from 'lodash';
 import { useMemo } from 'react';
 import type { Item, ItemAttribute, ItemAttributesValues } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
-import { getNextDay } from '../utils';
+import { checkMonday, checkWeekend, getNextDay } from '../utils';
 import { addWarning } from '../warnings';
 
 type DailyAlienGameAttribute = {
@@ -32,6 +32,16 @@ export type DailyComunicacaoAlienigenaEntry = {
   requests: DailyAlienGameRequest[];
   solution: string;
   itemsIds: string[];
+  valid?: boolean;
+};
+
+type ProposedDailyComunicacaoAlienigenaEntry = {
+  setId: string;
+  attributes: DailyAlienGameAttribute[];
+  requests: DailyAlienGameRequest[];
+  solution: string;
+  itemsIds: string[];
+  additionalItems: string[];
   valid?: boolean;
 };
 
@@ -105,9 +115,9 @@ export const buildDailyComunicacaoAlienigenaGames = (
     (i) => i.complete && items?.[i.id]?.nsfw !== true,
   );
 
-  const preliminaryEntries: Dictionary<DailyComunicacaoAlienigenaEntry> = {};
+  const preliminaryEntries: Dictionary<ProposedDailyComunicacaoAlienigenaEntry> = {};
   let tries = 0;
-  while (keys(preliminaryEntries).length < batchSize && tries < 100) {
+  while (keys(preliminaryEntries).length < batchSize + 5 && tries < 500) {
     const entry = generateComunicacaoAlienigenaGame(allAttributes, allAttributesValues);
     if (entry.valid && !preliminaryEntries[entry.setId] && !history.used.includes(entry.setId)) {
       preliminaryEntries[entry.setId] = entry;
@@ -129,7 +139,13 @@ export const buildDailyComunicacaoAlienigenaGames = (
     const id = getNextDay(lastDate);
     lastDate = id;
 
-    // TODO: On Weekends have 7 items, other days have 5 items
+    // Variation: Mondays (4 items), weekend (7 items), other days (5 items)
+    let itemsIds = shuffle(entry.itemsIds);
+    if (checkWeekend(id)) {
+      itemsIds = shuffle([...itemsIds, ...sampleSize(entry.additionalItems, 3)].filter(Boolean));
+    } else if (!checkMonday(id)) {
+      itemsIds = shuffle([...itemsIds, ...sampleSize(entry.additionalItems, 1)].filter(Boolean));
+    }
 
     entries[id] = {
       id,
@@ -139,7 +155,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
       attributes: entry.attributes,
       requests: entry.requests,
       solution: entry.solution,
-      itemsIds: entry.itemsIds,
+      itemsIds: itemsIds,
     };
   });
 
@@ -149,7 +165,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
 const generateComunicacaoAlienigenaGame = (
   attributes: ItemAttribute[],
   attributeValues: ItemAttributesValues[],
-): DailyComunicacaoAlienigenaEntry => {
+): ProposedDailyComunicacaoAlienigenaEntry => {
   const shuffledAttributeValues = shuffle(attributeValues);
 
   const spriteIDs = shuffle(makeArray(50, 0));
@@ -298,21 +314,16 @@ const generateComunicacaoAlienigenaGame = (
 
   const requestItemsIds: string[] = requests.map((req) => req.itemId);
 
-  const result: DailyComunicacaoAlienigenaEntry = {
-    id: '0000-00-00',
+  const result: ProposedDailyComunicacaoAlienigenaEntry = {
     setId: gameAttributes
       .map((attr) => attr.id)
       .sort()
       .join('-'),
-    number: 0,
-    type: 'comunicacao-alienigena',
     attributes: gameAttributes,
     requests,
     solution: requestItemsIds.join('-'),
-    itemsIds: shuffle([
-      ...requestItemsIds,
-      ...sampleSize([none[0], none[1], none[2], none[3]], random(1, 3)),
-    ]).filter(Boolean),
+    itemsIds: requestItemsIds,
+    additionalItems: none.filter(Boolean),
     valid: false,
   };
 
@@ -320,7 +331,7 @@ const generateComunicacaoAlienigenaGame = (
   result.valid = [
     result.attributes.length === 3,
     result.requests.length === 4,
-    result.itemsIds.length > 4,
+    result.itemsIds.length === 4,
     result.attributes.every((attr) => attr.itemsIds.length > 0),
     result.requests.every((req) => req.itemId),
   ].every(Boolean);

@@ -116,26 +116,30 @@ export const buildDailyEspionagemGames = (
     let validGame = null;
     let attempts = 0;
 
-    while (!validGame && attempts < 100) {
-      attempts++;
-      const game = generateEspionagemGame(
-        suspects,
-        questions,
-        suspectTestimonyAnswers,
-        featuresStats,
-        usedIds,
-        reasons,
-      );
+    try {
+      while (!validGame && attempts < 500) {
+        attempts++;
+        const game = generateEspionagemGame(
+          suspects,
+          questions,
+          suspectTestimonyAnswers,
+          featuresStats,
+          usedIds,
+          reasons,
+        );
 
-      if (verifyGameDoability(game.statements)) {
-        validGame = game;
-        console.log(`Generated valid game for ${id} after ${attempts} attempts`);
-        break;
+        if (verifyGameDoability(game.statements)) {
+          validGame = game;
+          console.log(`Generated valid game for ${id} after ${attempts} attempts`);
+          break;
+        }
       }
+    } catch (error) {
+      throw new Error(`Failed to generate valid game for ${id} after ${attempts} attempts: ${error}`);
     }
 
     if (!validGame) {
-      throw new Error(`Failed to generate valid game for ${id} after 100 attempts`);
+      throw new Error(`Failed to generate valid game for ${id} after ${attempts} attempts`);
     }
 
     // Add culprit to used IDs to avoid reusing in future games
