@@ -15,6 +15,7 @@ import { useMemo } from 'react';
 import type { SuspectCard } from 'types';
 import { stringRemoveAccents } from 'utils';
 import { FeaturesFilterBar } from './FeaturesFilterBar';
+import { PromptBuilder, PromptButton } from './PromptBuilder';
 import { SuspectDrawer } from './SuspectDrawer';
 import { getSuspectImageId } from './utils';
 
@@ -25,6 +26,8 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
   const sortBy = queryParams.get('sortBy') ?? 'id';
   const cardsPerRow = Number(queryParams.get('cardsPerRow')) || 8;
   const activeFeature = queryParams.get('activeFeature') || '';
+  // Suspect id just to 'key' the drawer
+  const suspectId = queryParams.get('suspectId');
 
   const [cardWidth, ref] = useCardWidth(cardsPerRow, { margin: 16 });
 
@@ -66,7 +69,9 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
       <Typography.Title level={2}>
         Deck {version} ({deck.length})
       </Typography.Title>
-      <FeaturesFilterBar />
+      <Space>
+        <FeaturesFilterBar /> <PromptBuilder />
+      </Space>
 
       <Image.PreviewGroup>
         <Space ref={ref} wrap className="my-2" key={version}>
@@ -80,12 +85,12 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
                 />
 
                 <div className="suspect__name">
-                  <div>
-                    <Tag>{entry.id}</Tag>{' '}
-                    <Typography.Text type="secondary" italic>
-                      <small>{truncate(entry.note, { length: 18 })}</small>
-                    </Typography.Text>
-                  </div>
+                  <Flex gap={6} align="center">
+                    <Tag>{entry.id}</Tag> <PromptButton suspect={entry} />
+                  </Flex>
+                  <Typography.Text type="secondary" italic>
+                    <small>{truncate(entry.note || '-', { length: 18 })}</small>
+                  </Typography.Text>
                   <div>🇧🇷 {entry.name.pt}</div>
                   <div>🇺🇸 {entry.name.en}</div>
                   <div className="suspect__info" style={getHeightBuildAlert(entry)}>
@@ -134,7 +139,7 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
           })}
         </Space>
       </Image.PreviewGroup>
-      <SuspectDrawer data={data} addEntryToUpdate={addEntryToUpdate} />
+      <SuspectDrawer data={data} addEntryToUpdate={addEntryToUpdate} key={suspectId} />
     </>
   );
 }

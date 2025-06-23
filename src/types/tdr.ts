@@ -614,6 +614,10 @@ export type SuspectCard = {
    * Short description note of the suspect
    */
   note: string;
+  /**
+   * AI prompt descritor
+   */
+  prompt: string;
 };
 
 /**

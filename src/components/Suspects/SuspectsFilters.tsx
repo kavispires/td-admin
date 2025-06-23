@@ -12,11 +12,13 @@ import { sortJsonKeys } from 'utils';
 import { SuspectsStats } from './SuspectsStats';
 
 const VERSIONS = [
-  { value: 'ct', label: 'Cartoon' },
   { value: 'gb', label: 'Ghibli' },
-  { value: 'ai', label: 'AI' },
-  { value: 'md', label: 'Models' },
-  { value: 'wc', label: 'Wacky' },
+  { value: 'rl', label: 'Realistic' },
+  { value: 'px', label: 'Pixar' },
+  { value: 'ct', label: 'Cartoon (deprecated)' },
+  { value: 'ai', label: 'AI (deprecated)' },
+  { value: 'md', label: 'Models (deprecated)' },
+  { value: 'wc', label: 'Wacky (deprecated)' },
 ];
 
 const SORT_BY = [

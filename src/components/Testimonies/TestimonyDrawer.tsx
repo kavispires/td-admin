@@ -1,9 +1,10 @@
-import { Button, Flex, Modal, Segmented, Space, Typography } from 'antd';
+import { Button, Flex, InputNumber, Modal, Segmented, Space, Typography } from 'antd';
 import { ImageCard } from 'components/Images/ImageCard';
 import { getSuspectImageId } from 'components/Suspects/utils';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep, sample, sampleSize } from 'lodash';
 import type { useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
+import { useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { useEffectOnce, useStateWithHistory, useWindowSize } from 'react-use';
 
@@ -133,9 +134,10 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
     suspectsIds: Record<string, null | 0 | 1>;
     testimonyId: string | null;
   }>();
+  const [numberOfSuspects, setNumberOfSuspects] = useState(6);
 
   const getRandom = () => {
-    const suspectsSet = sampleSize(Object.keys(suspects), 6)?.reduce(
+    const suspectsSet = sampleSize(Object.keys(suspects), numberOfSuspects)?.reduce(
       (acc: Record<string, null | 0 | 1>, id) => {
         acc[id] = null;
         return acc;
@@ -209,6 +211,10 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
       <div>
         {hasEntry && (
           <Flex vertical gap={8} className="mb-8" justify="center" align="center">
+            <Typography.Text>
+              Number of Suspects:
+              <InputNumber value={numberOfSuspects} onChange={(value) => setNumberOfSuspects(value ?? 6)} />
+            </Typography.Text>
             <Typography.Title level={4} className="text-center">
               {questions[state.testimonyId ?? '']?.question}
             </Typography.Title>

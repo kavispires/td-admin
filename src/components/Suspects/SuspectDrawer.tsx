@@ -98,6 +98,11 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
 
   if (!suspect) return null;
 
+  const name = {
+    pt: namePt,
+    en: nameEn,
+  };
+
   return (
     <Drawer
       title={suspect.name.pt}
@@ -109,23 +114,9 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
       <div className="suspect__drawer">
         <div className="grid" style={{ gridTemplateColumns: '1fr 1.25fr' }}>
           <ImageCard id={getSuspectImageId(suspect.id, version)} width={100} />
-          <Flex vertical gap={4}>
-            <DualLanguageTextField
-              value={{
-                pt: namePt,
-                en: nameEn,
-              }}
-              language="pt"
-              onChange={(e) => setNamePt(e.target.value)}
-            />
-            <DualLanguageTextField
-              value={{
-                pt: namePt,
-                en: nameEn,
-              }}
-              language="en"
-              onChange={(e) => setNameEn(e.target.value)}
-            />
+          <Flex vertical gap={4} key={`${name.pt}-${name.en}`}>
+            <DualLanguageTextField value={name} language="pt" onChange={(e) => setNamePt(e.target.value)} />
+            <DualLanguageTextField value={name} language="en" onChange={(e) => setNameEn(e.target.value)} />
             <div>
               <Select
                 placeholder="Select Age"
