@@ -7,6 +7,7 @@ import { SEPARATOR } from 'utils/constants';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { addWarning } from '../warnings';
 
 type QuartetosSet = {
   id: string;
@@ -92,10 +93,11 @@ export const buildDailyQuartetosGames = (
 
     let tries = 0;
     // Get 3 sets with unique items
-    while (sets.length < 3 && tries < 500) {
+    while (sets.length < 3 && tries < 1000) {
       const potentialSet = sample(scopedEligibleSets);
       if (!potentialSet) {
-        throw Error('No potential set found for Quartetos game');
+        addWarning('quartet', 'No potential set found for Quartetos game');
+        return entries;
       }
       // Remove selected set from scopedEligibleSets
       scopedEligibleSets = scopedEligibleSets.filter((set) => set.id !== potentialSet.id);
