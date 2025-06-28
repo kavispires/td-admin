@@ -11,6 +11,7 @@ import {
   type DailyControleDeEstoqueEntry,
   useDailyControleDeEstoqueGames,
 } from '../utils/games/daily-controle-de-estoque';
+import { type DailyEspionagemEntry, useDailyEspionagemGames } from '../utils/games/daily-espionagem';
 import { type DailyFilmacoEntry, useDailyFilmacoGames } from '../utils/games/daily-filmaco';
 import { type DailyOrganikuEntry, useDailyOrganikuGames } from '../utils/games/daily-organiku';
 import { type DailyPalavreadoEntry, useDailyPalavreadoGames } from '../utils/games/daily-palavreado';
@@ -35,6 +36,7 @@ export type DailyEntry = {
   'aqui-o': DailyAquiOEntry;
   'comunicacao-alienigena': DailyComunicacaoAlienigenaEntry;
   'controle-de-estoque': DailyControleDeEstoqueEntry;
+  espionagem: DailyEspionagemEntry;
   filmaco: DailyFilmacoEntry;
   organiku: DailyOrganikuEntry;
   palavreado: DailyPalavreadoEntry;
@@ -109,7 +111,7 @@ export function useLoadDailySetup(
     historyQuery.data ?? {},
   );
 
-  // QUARTETOS
+  // BUILD QUARTETOS
   const quartetos = useDailyQuartetosGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // BUILD TEORIA DE CONJUNTOS
@@ -130,6 +132,14 @@ export function useLoadDailySetup(
 
   // BUILD ORGANIKU
   const organiku = useDailyOrganikuGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
+
+  // BUILD ESPIONAGEM
+  const espionagem = useDailyEspionagemGames(
+    enableBuilders,
+    queryLanguage,
+    batchSize,
+    historyQuery.data ?? {},
+  );
 
   // BUILD ARTISTA
   const artista = useDailyArtistaGames(
@@ -158,6 +168,7 @@ export function useLoadDailySetup(
         'aqui-o': aquiO.entries[arteRuim.id],
         'comunicacao-alienigena': comunicacaoAlienigena.entries[arteRuim.id],
         'controle-de-estoque': controleDeEstoque.entries[arteRuim.id],
+        espionagem: espionagem.entries[arteRuim.id],
         filmaco: filmaco.entries[arteRuim.id],
         organiku: organiku.entries[arteRuim.id],
         palavreado: palavreado.entries[arteRuim.id],
@@ -182,6 +193,7 @@ export function useLoadDailySetup(
     teoriaDeConjuntos.entries,
     artista.entries,
     taNaCara.entries,
+    espionagem.entries,
   ]);
 
   return {
@@ -197,7 +209,8 @@ export function useLoadDailySetup(
       quartetos.isLoading ||
       teoriaDeConjuntos.isLoading ||
       artista.isLoading ||
-      taNaCara.isLoading,
+      taNaCara.isLoading ||
+      espionagem.isLoading,
     entries,
   };
 }

@@ -4,6 +4,7 @@ import { CanvasSVG } from 'components/Daily/CanvasSVG';
 import { ImageCard } from 'components/Images/ImageCard';
 import { AlienSign, Item } from 'components/Sprites';
 import { WarehouseGood } from 'components/Sprites/WarehouseGood';
+import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { truncate } from 'lodash';
 import type { ReactNode } from 'react';
 import type { ArteRuimCard } from 'types';
@@ -201,6 +202,46 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
             <Flex gap={6} wrap style={{ maxWidth: 245 }}>
               {goods.map((good) => (
                 <WarehouseGood key={good} id={good} width={48} />
+              ))}
+            </Flex>
+          </GamePopover>
+        </EntryCell>
+      );
+    },
+  },
+  {
+    title: 'Espionagem',
+    dataIndex: 'espionagem',
+    key: 'espionagem',
+    render: (entry: DailyEntry['espionagem']) => {
+      if (!entry) {
+        return <Alert message="No entry" type="error" />;
+      }
+
+      const { number, statements, additionalStatements, suspects, culpritId } = entry;
+
+      return (
+        <EntryCell>
+          <GameNumber>{number}</GameNumber>
+
+          <GameInfo label="Suspects">{suspects.length}</GameInfo>
+          <GameInfo label="Culprit">{culpritId}</GameInfo>
+          <GameInfo label="Statements">{statements.length}</GameInfo>
+
+          <GamePopover>
+            <Flex gap={6} vertical>
+              <Space wrap style={{ maxHeight: 200, overflowY: 'auto' }}>
+                {suspects.map((suspect) => (
+                  <SuspectImageCard key={suspect.id} id={suspect.id} width={48} />
+                ))}
+              </Space>
+
+              {statements.slice(0, 3).map((statement) => (
+                <Alert key={statement.key} message={statement.text} type="info" showIcon banner />
+              ))}
+
+              {additionalStatements.map((statement) => (
+                <Alert key={statement.key} message={statement.text} type="warning" showIcon banner />
               ))}
             </Flex>
           </GamePopover>

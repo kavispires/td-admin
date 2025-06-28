@@ -1,5 +1,6 @@
 import { CalendarOutlined, CloudUploadOutlined, ContainerOutlined } from '@ant-design/icons';
 import { FilterSegments } from 'components/Common';
+import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 
@@ -30,6 +31,9 @@ export function DailyFilters() {
             },
           ]}
         />
+      </SiderContent>
+      <SiderContent>
+        <FirestoreConsoleLink label="History" path="/diario/history" />
       </SiderContent>
     </>
   );

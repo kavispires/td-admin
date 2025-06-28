@@ -8,6 +8,7 @@ import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
 import type { DailyAquiOEntry } from '../utils/games/daily-aqui-o';
 import type { DailyArteRuimEntry } from '../utils/games/daily-arte-ruim';
 import type { DailyComunicacaoAlienigenaEntry } from '../utils/games/daily-comunicacao-alienigena';
+import type { DailyEspionagemEntry } from '../utils/games/daily-espionagem';
 import type { DailyFilmacoEntry } from '../utils/games/daily-filmaco';
 import type { DailyPalavreadoEntry } from '../utils/games/daily-palavreado';
 import type { DailyPortaisMagicosEntry } from '../utils/games/daily-portais-magicos';
@@ -128,6 +129,13 @@ export function useSaveDailySetup(queryLanguage: Language) {
           previousHistory,
           data,
           (e: DailyTeoriaDeConjuntosEntry) => e.setId,
+        ),
+
+        [DAILY_GAMES_KEYS.ESPIONAGEM]: updateHistory(
+          DAILY_GAMES_KEYS.ESPIONAGEM,
+          previousHistory,
+          data,
+          (e: DailyEspionagemEntry) => e.culpritId,
         ),
       };
 
