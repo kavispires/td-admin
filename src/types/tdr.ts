@@ -204,7 +204,7 @@ export type ContenderCard = {
   /**
    * The groups the contender belongs to
    */
-  decks: string[];
+  decks?: string[];
   /**
    * Flag indicating if it's NSFW
    */
@@ -223,7 +223,7 @@ export type CrimesHediondosCard = {
   /**
    * The type of the card
    */
-  type: 'weapon' | 'evidence' | (string & {});
+  type: 'weapon' | 'evidence' | 'location' | 'victim' | (string & NonNullable<unknown>);
   /**
    * The name of the card
    */
@@ -576,7 +576,7 @@ export type SuspectCard = {
   /**
    * The gender of the suspect
    */
-  gender: 'male' | 'female' | (string & {});
+  gender: 'male' | 'female' | (string & NonNullable<unknown>);
   /**
    * The ethnicity of the suspect
    */
@@ -589,19 +589,28 @@ export type SuspectCard = {
     | 'middle-eastern'
     | 'mixed'
     | 'indigenous'
-    | (string & {});
+    | (string & NonNullable<unknown>);
   /**
    * The age range of the suspect
    */
-  age: '18-21' | '21-30' | '30-40' | '40-50' | '50-60' | '60-70' | '70-80' | '80-90' | (string & {});
+  age:
+    | '18-21'
+    | '21-30'
+    | '30-40'
+    | '40-50'
+    | '50-60'
+    | '60-70'
+    | '70-80'
+    | '80-90'
+    | (string & NonNullable<unknown>);
   /**
    * The build of the suspect
    */
-  build: 'thin' | 'average' | 'large' | 'muscular' | (string & {});
+  build: 'thin' | 'average' | 'large' | 'muscular' | (string & NonNullable<unknown>);
   /**
    * The height of the suspect
    */
-  height: 'short' | 'medium' | 'tall' | (string & {});
+  height: 'short' | 'medium' | 'tall' | (string & NonNullable<unknown>);
   /**
    * List of features in the suspect image (gb style as reference)
    */
@@ -613,12 +622,14 @@ export type SuspectCard = {
   /**
    * Short description note of the suspect
    */
-  note: string;
+  note?: string;
   /**
    * AI prompt descritor
    */
-  prompt: string;
+  prompt?: string;
 };
+
+export type SuspectStyleVariant = 'gb' | 'rl' | 'px' | 'fx' | (string & NonNullable<unknown>);
 
 /**
  * Testimony Question Card
@@ -751,7 +762,7 @@ export type ItemAttributesValues = {
   /**
    * The dictionary of ItemAttribute id and their values
    */
-  attributes: Record<string, -10 | -3 | -1 | 5 | 10 | number>;
+  attributes: Record<string, -10 | -3 | -1 | 5 | 10 | (number & NonNullable<unknown>)>;
   /**
    * Indicates if all attributes have been assigned numbers
    */
