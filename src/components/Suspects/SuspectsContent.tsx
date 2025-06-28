@@ -23,12 +23,12 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
 
   const variant = queryParams.get('variant') ?? 'gb';
   const sortBy = queryParams.get('sortBy') ?? 'id';
-  const cardsPerRow = Number(queryParams.get('cardsPerRow')) || 8;
+  const cardsPerRow = Number(queryParams.get('cardsPerRow')) || 10;
   const activeFeature = queryParams.get('activeFeature') || '';
   // Suspect id just to 'key' the drawer
   const suspectId = queryParams.get('suspectId');
 
-  const [cardWidth, ref] = useCardWidth(cardsPerRow, { margin: 16 });
+  const [cardWidth, ref] = useCardWidth(cardsPerRow, { margin: 0, gap: 8 });
 
   const deck: SuspectCard[] = useMemo(() => {
     return orderBy(
