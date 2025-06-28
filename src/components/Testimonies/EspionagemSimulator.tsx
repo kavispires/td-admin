@@ -1,3 +1,4 @@
+import { AppstoreFilled, AudioFilled, SkinFilled } from '@ant-design/icons';
 import ReactJsonView from '@microlink/react-json-view';
 import { Alert, Badge, Button, Flex, InputNumber, Switch, Typography } from 'antd';
 import clsx from 'clsx';
@@ -66,17 +67,17 @@ function SimulationGame({ entries }: SimulationGameProps) {
   }, [entry]);
 
   return (
-    <div className="full-width grid grid-2">
+    <div className="full-width grid" style={{ gridTemplateColumns: '2fr 3fr' }}>
       <ReactJsonView src={entries ?? {}} theme="twilight" collapsed={3} />
       {entry && (
         <Flex gap={18} className="p-4">
           <div>
             <div
               style={{
-                width: `${105 * 3}px`,
+                width: `${105 * 4}px`,
                 display: 'grid',
                 gap: '6px',
-                gridTemplateColumns: 'repeat(3, 1fr)',
+                gridTemplateColumns: 'repeat(4, 1fr)',
               }}
             >
               {entry.suspects.map((suspect) => (
@@ -108,14 +109,28 @@ function SimulationGame({ entries }: SimulationGameProps) {
                 onChange={setShowCulprit}
               />
             </div>
-            {entry.statements.map((statement, index) => (
+            {entry.statements.map((statement) => (
               <Typography.Paragraph key={statement.key}>
                 <Badge count={statement.excludes.length} color="cyan">
                   <Alert
                     key={statement.key}
                     message={statement.text}
                     banner
-                    type={index < 3 ? 'info' : 'error'}
+                    type="info"
+                    icon={getStatementIcon(statement.type)}
+                  />
+                </Badge>
+              </Typography.Paragraph>
+            ))}
+            {entry.additionalStatements.map((statement) => (
+              <Typography.Paragraph key={statement.key}>
+                <Badge count={statement.excludes.length} color="cyan">
+                  <Alert
+                    key={statement.key}
+                    message={statement.text}
+                    banner
+                    type="warning"
+                    icon={getStatementIcon(statement.type)}
                   />
                 </Badge>
               </Typography.Paragraph>
@@ -126,3 +141,16 @@ function SimulationGame({ entries }: SimulationGameProps) {
     </div>
   );
 }
+
+const getStatementIcon = (type: DailyEspionagemEntry['statements'][number]['type']) => {
+  switch (type) {
+    case 'testimony':
+      return <AudioFilled />;
+    case 'feature':
+      return <SkinFilled />;
+    case 'grid':
+      return <AppstoreFilled />;
+    default:
+      return '❓';
+  }
+};

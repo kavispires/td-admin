@@ -9,7 +9,76 @@ import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 
-const TOTAL_SUSPECTS = 9;
+const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
+  male: 'é homem',
+  female: 'é mulher',
+  black: 'é negro(a)',
+  white: 'é branco(a)',
+  asian: 'é asiático(a)',
+  latino: 'é latino(a)',
+  thin: 'é magrelo(a)',
+  fat: 'é gordo(a)',
+  large: 'é gordo(a)',
+  tall: 'é alto(a)',
+  short: 'é baixinho(a)',
+  young: 'é jovem',
+  adult: 'é adulto(a)',
+  senior: 'é idoso(a)',
+  average: 'é médio(a)',
+  medium: 'é médio(a)',
+  mixed: 'é mestiço(a)',
+  hat: 'está usando um chapéu',
+  tie: 'está usando uma gravata',
+  glasses: 'está usando óculos',
+  brownHair: 'tem cabelo castanho',
+  shortHair: 'tem cabelo curto',
+  beard: 'tem barba',
+  caucasian: 'é branco(a)',
+  scarf: 'está usando um cachecol',
+  blondeHair: 'tem cabelo loiro',
+  longHair: 'tem cabelo longo',
+  greyHair: 'tem cabelo grisalho',
+  bald: 'é careca',
+  mustache: 'tem bigode',
+  goatee: 'tem cavanhaque',
+  muscular: 'é sarado(a)',
+  blackHair: 'tem cabelo preto',
+  hoodie: 'está usando um moletom',
+  earrings: 'está usando brincos',
+  lipstick: 'está usando batom',
+  necklace: 'está usando um colar',
+  mediumHair: 'tem cabelo médio',
+  'middle-eastern': 'é do Oriente Médio',
+  headscarf: 'está usando um lenço na cabeça',
+  redHair: 'tem cabelo ruivo',
+  piercings: 'tem piercings',
+  coloredHair: 'tem cabelo colorido',
+  indian: 'é indiano(a)',
+  'native-american': 'é nativo-americano(a)',
+  noAccessories: 'sem nenhum acessório',
+  avoidingCamera: 'está evitando olhar para a câmera',
+  wearingStripes: 'tem listras na roupa',
+  blackClothes: 'está vestindo roupas pretas',
+  blueClothes: 'está vestindo roupas azuis',
+  greenClothes: 'está vestindo roupas verdes',
+  redClothes: 'está vestindo roupas vermelhas',
+  yellowClothes: 'está vestindo roupas amarelas',
+  purpleClothes: 'está vestindo roupas roxas',
+  orangeClothes: 'está vestindo roupas laranjas',
+  brownClothes: 'está vestindo roupas marrons',
+  whiteShirt: 'está usando camisa branca',
+  pinkClothes: 'está vestindo roupas rosas',
+  patternedShirt: 'está usando roupa estampada',
+  buttonShirt: 'está usando camisa com botões',
+  bow: 'está usando um laço',
+  hairyChest: 'tem peito peludo',
+  wearingFlowers: 'está usando flores',
+  showTeeth: 'está mostrando os dentes',
+  hairTie: 'está usando um xuxinha ou fita no cabelo',
+  nonBinary: 'é não-binário(a)',
+};
+
+const TOTAL_SUSPECTS = 12;
 
 type TestimonySuspectAnswers = Dictionary<Dictionary<boolean>>;
 
@@ -17,6 +86,7 @@ type StatementClue = {
   key: string;
   text: string;
   excludes: string[];
+  type: 'testimony' | 'feature' | 'grid';
 };
 
 export type DailyEspionagemEntry = {
@@ -26,6 +96,7 @@ export type DailyEspionagemEntry = {
   setId: string;
   culpritId: string;
   statements: StatementClue[];
+  additionalStatements: StatementClue[];
   isNsfw: boolean;
   suspects: SuspectCard[];
   reason: DualLanguageValue;
@@ -48,9 +119,10 @@ export const useDailyEspionagemGames = (
   const answersQuery = useTDResource<TestimonyAnswers>('testimony-answers', enabled);
   const reasonsQuery = useTDResource<CrimeReason>('crime-reasons', enabled);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Only if data query is updated
   const testimonySuspectAnswers = useMemo(
     () => calculateSuspectAnswers(answersQuery.data),
-    [answersQuery.data],
+    [answersQuery.dataUpdatedAt],
   );
 
   const featuresStats = useMemo(() => calculateFeaturesStats(suspectsQuery.data), [suspectsQuery.data]);
@@ -115,9 +187,8 @@ export const buildDailyEspionagemGames = (
     // Try up to 100 times to generate a valid game
     let validGame = null;
     let attempts = 0;
-
-    try {
-      while (!validGame && attempts < 500) {
+    while (validGame === null && attempts < 100) {
+      try {
         attempts++;
         const game = generateEspionagemGame(
           suspects,
@@ -130,17 +201,17 @@ export const buildDailyEspionagemGames = (
 
         if (verifyGameDoability(game.statements)) {
           validGame = game;
-          console.log(`Generated valid game for ${id} after ${attempts} attempts`);
-          break;
+          throw new Error(`Game is invalid after ${attempts} attempts`);
         }
+      } catch (_error) {
+        // console.error('BOOM', error);
       }
-    } catch (error) {
-      throw new Error(`Failed to generate valid game for ${id} after ${attempts} attempts: ${error}`);
     }
 
     if (!validGame) {
       throw new Error(`Failed to generate valid game for ${id} after ${attempts} attempts`);
     }
+    console.log(`Generated valid game for ${id} after ${attempts} attempts`);
 
     // Add culprit to used IDs to avoid reusing in future games
     usedIds.push(validGame.culpritId);
@@ -164,46 +235,24 @@ function generateEspionagemGame(
   usedIds: string[],
   reasons: Dictionary<CrimeReason>,
 ): Omit<DailyEspionagemEntry, 'id' | 'number' | 'type'> {
-  let suspectsIds: string[] = [];
   const statements: StatementClue[] = [];
   const excludeScoreBoard: Dictionary<number> = {};
 
-  // Get the culprit (it must use one of the testimonies)
-  const selectedTestimonyId = sample(Object.keys(suspectTestimonyAnswers));
-  if (!selectedTestimonyId) {
-    throw new Error('No selected testimony ID found');
-  }
+  // Get two related testimonies, the culprit ID, and the common suspects
+  const { selectedTestimonyId1, selectedTestimonyId2, culpritId, possibleSuspects, impossibleSuspects } =
+    getTwoRelatedTestimonies(suspectTestimonyAnswers, usedIds);
 
-  // Filter out suspects that have already been used as culprits
-  const availableSuspects = Object.keys(suspectTestimonyAnswers[selectedTestimonyId]).filter(
-    (id) => !usedIds.includes(id),
-  );
+  let suspectsIds: string[] = [...possibleSuspects];
 
-  // If no available suspects, fall back to using any suspect from this testimony
-  const culpritPool =
-    availableSuspects.length > 0
-      ? availableSuspects
-      : Object.keys(suspectTestimonyAnswers[selectedTestimonyId]);
-
-  const culpritId = sample(culpritPool);
-
-  if (!culpritId) {
-    throw new Error('No selected culprit ID found');
-  }
-
-  // Add other suspects in the testimony to the game
-  const otherSuspects = sampleSize(
-    Object.keys(suspectTestimonyAnswers[selectedTestimonyId]).filter((id) => id !== culpritId),
-    TOTAL_SUSPECTS - 1,
-  );
-  suspectsIds.push(...otherSuspects);
-  // Add more suspects to the game until there are 8 suspects
-  while (suspectsIds.length < 8) {
-    const additionalSuspectsIds = sampleSize(
-      Object.keys(suspects).filter((id) => !suspectsIds.includes(id) && id !== culpritId),
-      TOTAL_SUSPECTS - suspectsIds.length - 1,
+  // If there are not enough possible suspects, add new suspects that are not an impossible suspect
+  if (possibleSuspects.length < TOTAL_SUSPECTS - 1) {
+    const additionalSuspects = sampleSize(
+      Object.keys(suspects).filter(
+        (id) => !impossibleSuspects.includes(id) && !possibleSuspects.includes(id),
+      ),
+      TOTAL_SUSPECTS - possibleSuspects.length - 1,
     );
-    suspectsIds.push(...additionalSuspectsIds);
+    suspectsIds.push(...additionalSuspects);
   }
 
   // Gather features the culprit does not have
@@ -228,64 +277,127 @@ function generateEspionagemGame(
     }
   });
 
-  // STATEMENT 1: Add testimony to statements
-  const testimony = questions[selectedTestimonyId];
-  statements.push(
-    getTestimonyStatement(culpritId, suspectsIds, testimony, suspectTestimonyAnswers[selectedTestimonyId]),
+  // TESTIMONY STATEMENT 1: Add testimony to statements
+  const testimony1 = questions[selectedTestimonyId1];
+  const testimonyStatement1 = getTestimonyStatement(
+    culpritId,
+    suspectsIds,
+    testimony1,
+    suspectTestimonyAnswers[selectedTestimonyId1],
   );
-  updateExcludeScoreBoard(excludeScoreBoard, statements[0].excludes);
+  statements.push(testimonyStatement1);
+  updateExcludeScoreBoard(excludeScoreBoard, testimonyStatement1.excludes);
 
-  // STATEMENT 2: Add features that the culprit does not have
-  const featureStatement = getFeatureStatement(culpritId, suspectsIds, featuresCulpritDoesNotHave);
-  statements.push(featureStatement);
-  updateExcludeScoreBoard(excludeScoreBoard, featureStatement.excludes);
+  // TESTIMONY STATEMENT 2: Add second testimony to statements
+  const testimony2 = questions[selectedTestimonyId2];
+  const testimonyStatement2 = getTestimonyStatement(
+    culpritId,
+    suspectsIds,
+    testimony2,
+    suspectTestimonyAnswers[selectedTestimonyId2],
+  );
+  statements.push(testimonyStatement2);
+  updateExcludeScoreBoard(excludeScoreBoard, testimonyStatement2.excludes);
+
+  // BEST FEATURE STATEMENT 1
+  const bestFeatureStatement1 = getFeatureStatement(
+    culpritId,
+    suspectsIds,
+    featuresCulpritDoesNotHave,
+    [],
+    'best',
+  );
+  statements.push(bestFeatureStatement1);
+  updateExcludeScoreBoard(excludeScoreBoard, bestFeatureStatement1.excludes);
+
+  // BEST FEATURE STATEMENT 2
+  const bestFeatureStatement2 = getFeatureStatement(
+    culpritId,
+    suspectsIds,
+    featuresCulpritDoesNotHave,
+    [bestFeatureStatement1],
+    'best',
+  );
+  statements.push(bestFeatureStatement2);
+  // updateExcludeScoreBoard(excludeScoreBoard, bestFeatureStatement2.excludes);
+
+  // WORST FEATURE STATEMENT 1
+  const worstFeatureStatement1 = getFeatureStatement(
+    culpritId,
+    suspectsIds,
+    featuresCulpritDoesNotHave,
+    [bestFeatureStatement1, bestFeatureStatement2], // Pass previous statements
+    'worst',
+  );
+  statements.push(worstFeatureStatement1);
+  updateExcludeScoreBoard(excludeScoreBoard, worstFeatureStatement1.excludes);
+
+  // WORST FEATURE STATEMENT 2
+  const worstFeatureStatement2 = getFeatureStatement(
+    culpritId,
+    suspectsIds,
+    featuresCulpritDoesNotHave,
+    [bestFeatureStatement1, bestFeatureStatement2, worstFeatureStatement1], // Pass previous statements
+    'worst',
+  );
+  statements.push(worstFeatureStatement2);
+
+  if (statements.length < 6) {
+    throw new Error('Not enough statements generated');
+  }
 
   // Create random grid positions for the suspects
   suspectsIds = shuffle([...suspectsIds, culpritId]);
 
-  // STATEMENT 3: Add new feature statement
-  const newFeatureStatement = getFeatureStatement(
-    culpritId,
-    suspectsIds,
-    featuresCulpritDoesNotHave,
-    [featureStatement], // Pass previous statements
-    'worst',
-  );
-  statements.push(newFeatureStatement);
-  updateExcludeScoreBoard(excludeScoreBoard, newFeatureStatement.excludes);
+  // COLUMN POSITION STATEMENT
+  const columnPositionStatement = getGridStatement(culpritId, suspectsIds, statements, 'columns');
+  statements.push(columnPositionStatement);
+  updateExcludeScoreBoard(excludeScoreBoard, columnPositionStatement.excludes);
 
-  // STATEMENT 4: Add new feature statement
-  const anotherFeatureStatement = getFeatureStatement(
-    culpritId,
-    suspectsIds,
-    featuresCulpritDoesNotHave,
-    [featureStatement, newFeatureStatement], // Pass all previous statements
-    'worst',
-  );
-  statements.push(anotherFeatureStatement);
-  updateExcludeScoreBoard(excludeScoreBoard, anotherFeatureStatement.excludes);
-
-  // STATEMENT 5: Get grid position statement
-  const gridStatement = getGridStatement(culpritId, suspectsIds, statements);
-  statements.push(gridStatement);
-  updateExcludeScoreBoard(excludeScoreBoard, gridStatement.excludes);
+  // ROW POSITION STATEMENT
+  const rowPositionStatement = getGridStatement(culpritId, suspectsIds, statements, 'rows');
+  statements.push(rowPositionStatement);
+  // updateExcludeScoreBoard(excludeScoreBoard, rowPositionStatement.excludes);
 
   // Order the statements by (testimony, feature, grid, then the other features)
-  const sortedStatements = [statements[0], statements[1], statements[2], statements[4], statements[3]];
+  const sortedStatements = [
+    testimonyStatement1,
+    worstFeatureStatement1,
+    bestFeatureStatement1,
+    testimonyStatement2,
+    columnPositionStatement,
+    worstFeatureStatement2,
+  ];
+
+  const additionalStatements = [bestFeatureStatement2, rowPositionStatement];
 
   // Get reason
   const reason = getReason(suspects[culpritId], reasons);
 
   return {
-    isNsfw: testimony.nsfw ?? false,
+    isNsfw: testimony1.nsfw || testimony2.nsfw || false,
     culpritId,
     statements: sortedStatements,
-    suspects: suspectsIds.map((id) => suspects[id]),
+    additionalStatements,
+    suspects: cleanupSuspects(suspectsIds.map((id) => suspects[id])),
     reason: reason.title,
     setId: `${culpritId}::${reason.id}::${sortedStatements[0].key}`,
     level: determineLevel(sortedStatements),
   };
 }
+
+const cleanupSuspects = (suspects: SuspectCard[]): SuspectCard[] => {
+  return suspects.map((suspect) => ({
+    id: suspect.id,
+    name: suspect.name,
+    age: suspect.age,
+    gender: suspect.gender,
+    ethnicity: suspect.ethnicity,
+    height: suspect.height,
+    build: suspect.build,
+    features: suspect.features,
+  }));
+};
 
 /**
  * Calculates suspect answers based on testimonies data.
@@ -311,7 +423,7 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
       const { resolution, projection } = calculateSuspectAnswersData(suspectId, questionTestimonies);
 
       if (!resolution && !projection) {
-        console.log('⁉️ Ignoring testimony with no resolution or projection');
+        // console.log('⁉️ Ignoring testimony with no resolution or projection');
         continue;
       }
 
@@ -326,10 +438,10 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
 
       if (projection) {
         result[questionId][suspectId] = projection === '👍';
-        continue;
+        // continue;
       }
 
-      console.log('⁉️ Ignoring testimony with not enough values');
+      // console.log('⁉️ Ignoring testimony with not enough values');
     }
   }
 
@@ -464,6 +576,78 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
   return result;
 };
 
+const getTwoRelatedTestimonies = (suspectTestimonyAnswers: TestimonySuspectAnswers, usedIds: string[]) => {
+  // Using while, try a maximum of 100 attempts to get a random testimony, and then another testimony that has the at least one suspect in common
+
+  let attempts = 0;
+  let testimonyId1: string | undefined;
+  let testimonyId2: string | undefined;
+  let commonSuspects: string[] = [];
+
+  while (attempts < 100 && !testimonyId2) {
+    attempts++;
+    testimonyId1 = sample(Object.keys(suspectTestimonyAnswers));
+    if (!testimonyId1) {
+      continue;
+    }
+
+    // Get the suspects in this testimony
+    const suspectsInTestimony1 = Object.keys(suspectTestimonyAnswers[testimonyId1]);
+
+    // Get a second testimony that has at least one suspect in common with the first
+    testimonyId2 = sample(
+      Object.keys(suspectTestimonyAnswers).filter(
+        (id) =>
+          id !== testimonyId1 &&
+          !isEmpty(difference(suspectsInTestimony1, Object.keys(suspectTestimonyAnswers[id]))),
+      ),
+    );
+
+    if (testimonyId2) {
+      commonSuspects = uniq([
+        ...Object.keys(suspectTestimonyAnswers[testimonyId1]),
+        ...Object.keys(suspectTestimonyAnswers[testimonyId2]),
+      ]);
+      break;
+    }
+  }
+
+  if (!testimonyId1 || !testimonyId2 || commonSuspects.length < 3) {
+    throw new Error('Failed to find two related testimonies');
+  }
+
+  // Determine the culprit among the common suspects
+  const culpritId = sample(commonSuspects.filter((id) => !usedIds.includes(id)));
+  if (!culpritId) {
+    throw new Error('Failed to determine a culprit from common suspects');
+  }
+
+  // Remove any suspect that has the same answer in both testimonies as the culprit
+  const culpritAnswerKey = `${suspectTestimonyAnswers[testimonyId1][culpritId]}-${suspectTestimonyAnswers[testimonyId2][culpritId]}`;
+
+  // Filter out suspects that have the same answer as the culprit
+  const possibleSuspects = sampleSize(
+    commonSuspects.filter(
+      (suspectId) =>
+        suspectId !== culpritId &&
+        `${suspectTestimonyAnswers[testimonyId1][suspectId]}-${suspectTestimonyAnswers[testimonyId2][suspectId]}` !==
+          culpritAnswerKey,
+    ),
+    TOTAL_SUSPECTS - 1,
+  );
+  const impossibleSuspects = difference(commonSuspects, possibleSuspects);
+
+  console.log(`⚙️ Attempts made: ${attempts}`);
+
+  return {
+    selectedTestimonyId1: testimonyId1,
+    selectedTestimonyId2: testimonyId2,
+    culpritId,
+    possibleSuspects,
+    impossibleSuspects,
+  };
+};
+
 const updateExcludeScoreBoard = (scoreboard: Dictionary<number>, excludes: string[]) => {
   excludes.forEach((id) => {
     if (scoreboard[id] === undefined) {
@@ -492,6 +676,7 @@ const getTestimonyStatement = (
     key: `testimony.${testimony.id}`,
     text: `O(a) suspeito(a) ${culpritAnswer ? '' : 'não '}${answer}`,
     excludes,
+    type: 'testimony' as const,
   };
 
   // if the text has "não já", replace this part with "nunca"
@@ -502,34 +687,41 @@ const getTestimonyStatement = (
   return result;
 };
 
-const GRID_INDEXES: Dictionary<{ indexes: number[]; text: string }> = {
-  row1: {
-    indexes: [0, 1, 2],
-    text: 'na primeira linha',
-  },
-  row2: {
-    indexes: [3, 4, 5],
-    text: 'na segunda linha',
-  },
-  row3: {
-    indexes: [6, 7, 8],
-    text: 'na terceira linha',
-  },
+const GRID_COLUMNS_INDEXES: Dictionary<{ indexes: number[]; text: string }> = {
   column1: {
-    indexes: [0, 3, 6],
+    indexes: [0, 4, 8],
     text: 'na primeira coluna',
   },
   column2: {
-    indexes: [1, 4, 7],
+    indexes: [1, 5, 9],
     text: 'na segunda coluna',
   },
   column3: {
-    indexes: [2, 5, 8],
+    indexes: [2, 6, 10],
     text: 'na terceira coluna',
   },
+  column4: {
+    indexes: [3, 7, 11],
+    text: 'na quarta coluna',
+  },
   corners: {
-    indexes: [0, 2, 6, 8],
+    indexes: [0, 3, 8, 11],
     text: 'nos cantos',
+  },
+};
+
+const ROWS_COLUMNS_GRID_INDEXES: Dictionary<{ indexes: number[]; text: string }> = {
+  row1: {
+    indexes: [0, 1, 2, 3],
+    text: 'na primeira linha',
+  },
+  row2: {
+    indexes: [4, 5, 6, 7],
+    text: 'na segunda linha',
+  },
+  row3: {
+    indexes: [8, 9, 10, 11],
+    text: 'na terceira linha',
   },
 };
 
@@ -537,6 +729,7 @@ const getGridStatement = (
   culpritId: string,
   suspectsIds: string[],
   statements: StatementClue[],
+  type: 'rows' | 'columns',
 ): StatementClue => {
   // Get culprit row and column
   const culpritPosition = suspectsIds.indexOf(culpritId);
@@ -544,9 +737,11 @@ const getGridStatement = (
 
   const basicStatements = statements.slice(0, 3);
 
+  const INDEXES = type === 'rows' ? ROWS_COLUMNS_GRID_INDEXES : GRID_COLUMNS_INDEXES;
+
   const gridIndexesCounts: Dictionary<number> = {};
-  for (const key of Object.keys(GRID_INDEXES)) {
-    const { indexes } = GRID_INDEXES[key];
+  for (const key of Object.keys(INDEXES)) {
+    const { indexes } = INDEXES[key];
 
     if (indexes.includes(culpritPosition)) {
       continue;
@@ -589,12 +784,13 @@ const getGridStatement = (
   // Randomly select one of the best options
   const bestGridCondition = sample(bestOptions) || Object.keys(gridIndexesCounts)[0];
 
-  const excludes = GRID_INDEXES[bestGridCondition].indexes.map((index) => suspectsIds[index]);
+  const excludes = INDEXES[bestGridCondition].indexes.map((index) => suspectsIds[index]);
 
   return {
     key: `not.grid.${bestGridCondition}`,
-    text: `O(a) suspeito(a) não está ${GRID_INDEXES[bestGridCondition].text}`,
+    text: `O(a) suspeito(a) não está ${INDEXES[bestGridCondition].text}`,
     excludes,
+    type: 'grid' as const,
   };
 };
 
@@ -678,56 +874,8 @@ const getFeatureStatement = (
     key: `not.feature.${selectedFeature}`,
     text: `O(a) suspeito(a) não ${translatedFeature || selectedFeature}`,
     excludes,
+    type: 'feature' as const,
   };
-};
-
-const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
-  male: 'é homem',
-  female: 'é mulher',
-  black: 'é negro(a)',
-  white: 'é branco(a)',
-  asian: 'é asiático(a)',
-  latino: 'é latino(a)',
-  thin: 'é magrelo(a)',
-  fat: 'é gordo(a)',
-  large: 'é gordo(a)',
-  tall: 'é alto(a)',
-  short: 'é baixinho(a)',
-  young: 'é jovem',
-  adult: 'é adulto(a)',
-  senior: 'é idoso(a)',
-  average: 'é médio(a)',
-  medium: 'é médio(a)',
-  mixed: 'é mestiço(a)',
-  hat: 'está usando um chapéu',
-  tie: 'está usando uma gravata',
-  glasses: 'está usando óculos',
-  brownHair: 'tem cabelo castanho',
-  shortHair: 'tem cabelo curto',
-  beard: 'tem barba',
-  caucasian: 'é caucasiano(a)',
-  scarf: 'está usando um cachecol',
-  blondeHair: 'tem cabelo loiro',
-  longHair: 'tem cabelo longo',
-  greyHair: 'tem cabelo grisalho',
-  bald: 'é careca',
-  mustache: 'tem bigode',
-  goatee: 'tem cavanhaque',
-  muscular: 'é musculoso(a)',
-  blackHair: 'tem cabelo preto',
-  hoodie: 'está usando um moletom',
-  earrings: 'está usando brincos',
-  lipstick: 'está usando batom',
-  necklace: 'está usando um colar',
-  mediumHair: 'tem cabelo médio',
-  'middle-eastern': 'é do Oriente Médio',
-  headscarf: 'está usando um lenço na cabeça',
-  redHair: 'tem cabelo ruivo',
-  piercings: 'tem piercings',
-  coloredHair: 'tem cabelo colorido',
-  indian: 'é indiano(a)',
-  'native-american': 'é nativo-americano(a)',
-  noAccessories: 'não está usando acessórios',
 };
 
 const verifyGameDoability = (statements: StatementClue[]) => {
