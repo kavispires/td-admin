@@ -46,7 +46,7 @@ const DECK_PRIORITY = ['random', 'cartoon', 'comics', 'pop-culture', 'movies', '
 const parsedData = (data: Dictionary<ContenderCard>) => {
   const result = Object.values(cloneDeep(data)).reduce(
     (acc: any, entry) => {
-      if (entry.decks.includes('base')) {
+      if (entry.decks?.includes('base')) {
         acc.base.push(entry);
         entry.decks = ['base'];
         return acc;
@@ -55,7 +55,7 @@ const parsedData = (data: Dictionary<ContenderCard>) => {
         return acc;
       }
 
-      const decksWithoutBase = entry.decks.filter((deck) => deck !== 'base');
+      const decksWithoutBase = entry.decks?.filter((deck) => deck !== 'base') ?? [];
       if (decksWithoutBase.length > 1) {
         console.log('Multiple decks', entry.name.en, entry.decks);
       }

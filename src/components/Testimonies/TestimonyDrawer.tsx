@@ -1,6 +1,5 @@
 import { Button, Flex, InputNumber, Modal, Segmented, Space, Typography } from 'antd';
-import { ImageCard } from 'components/Images/ImageCard';
-import { getSuspectImageId } from 'components/Suspects/utils';
+import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep, sample, sampleSize } from 'lodash';
 import type { useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
@@ -94,10 +93,7 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
       <div {...handlers}>
         {hasEntry && (
           <Flex vertical gap={8} className="mb-8" justify="center" align="center">
-            <ImageCard
-              id={getSuspectImageId(state.suspectId ?? '', 'gb')}
-              width={Math.max(height / 4, 128)}
-            />
+            <SuspectImageCard id={state.suspectId ?? ''} width={Math.max(height / 4, 128)} />
             <Typography.Title level={5} className="text-center">
               {questions[state.testimonyId ?? '']?.question}
             </Typography.Title>
@@ -224,9 +220,9 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
                   <Typography.Text className="text-center">
                     {suspects[suspectId]?.name?.pt || 'Unknown'}
                   </Typography.Text>
-                  <ImageCard
+                  <SuspectImageCard
                     key={suspectId}
-                    id={getSuspectImageId(suspectId, 'gb')}
+                    id={suspectId}
                     width={Math.min(Math.max(height / 3, 128), 128)}
                   />
                   <Segmented

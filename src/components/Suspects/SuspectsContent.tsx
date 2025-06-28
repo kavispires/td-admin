@@ -6,7 +6,6 @@ import {
   WomanOutlined,
 } from '@ant-design/icons';
 import { Button, Flex, Image, Space, Switch, Tag, Typography } from 'antd';
-import { ImageCard } from 'components/Images/ImageCard';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
@@ -17,12 +16,12 @@ import { stringRemoveAccents } from 'utils';
 import { FeaturesFilterBar } from './FeaturesFilterBar';
 import { PromptBuilder, PromptButton } from './PromptBuilder';
 import { SuspectDrawer } from './SuspectDrawer';
-import { getSuspectImageId } from './utils';
+import { SuspectImageCard } from './SuspectImageCard';
 
 export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestoreDataReturnType<SuspectCard>) {
   const { addParam, queryParams } = useQueryParams();
 
-  const version = queryParams.get('version') ?? 'gb';
+  const variant = queryParams.get('variant') ?? 'gb';
   const sortBy = queryParams.get('sortBy') ?? 'id';
   const cardsPerRow = Number(queryParams.get('cardsPerRow')) || 8;
   const activeFeature = queryParams.get('activeFeature') || '';
@@ -67,22 +66,18 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
   return (
     <>
       <Typography.Title level={2}>
-        Deck {version} ({deck.length})
+        Deck {variant} ({deck.length})
       </Typography.Title>
       <Space>
         <FeaturesFilterBar /> <PromptBuilder />
       </Space>
 
       <Image.PreviewGroup>
-        <Space ref={ref} wrap className="my-2" key={version}>
+        <Space ref={ref} wrap className="my-2" key={variant}>
           {deck.map((entry) => {
             return (
               <div key={entry.id} className="suspect" style={{ width: `${cardWidth}px` }}>
-                <ImageCard
-                  id={getSuspectImageId(entry.id, version)}
-                  width={cardWidth}
-                  className="suspect__image"
-                />
+                <SuspectImageCard id={entry.id} width={cardWidth} className="suspect__image" />
 
                 <div className="suspect__name">
                   <Flex gap={6} align="center">

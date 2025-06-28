@@ -10,11 +10,9 @@ import { cloneDeep } from 'lodash';
 import type { SuspectCard } from 'types';
 import { sortJsonKeys } from 'utils';
 import { SuspectsStats } from './SuspectsStats';
+import { SuspectsStyleVariantSelector } from './SuspectsStyleVariantSelector';
 
-const VERSIONS = [
-  { value: 'gb', label: 'Ghibli' },
-  { value: 'rl', label: 'Realistic' },
-  { value: 'px', label: 'Pixar' },
+const DEPRECATED_VERSIONS = [
   { value: 'ct', label: 'Cartoon (deprecated)' },
   { value: 'ai', label: 'AI (deprecated)' },
   { value: 'md', label: 'Models (deprecated)' },
@@ -64,15 +62,11 @@ export function SuspectsFilters({
 
       <Divider />
 
-      <FilterSelect
-        label="Version"
-        value={queryParams.get('version') ?? 'gb'}
-        onChange={(v) => addParam('version', v)}
-        options={VERSIONS}
-      />
+      <SuspectsStyleVariantSelector />
+
       <FilterNumber
         label="Cards Per Row"
-        value={Number(queryParams.get('cardsPerRow') ?? '8')}
+        value={Number(queryParams.get('cardsPerRow') ?? '10')}
         onChange={(v) => addParam('cardsPerRow', v)}
         min={2}
         max={12}
@@ -83,7 +77,12 @@ export function SuspectsFilters({
         onChange={(v) => addParam('sortBy', v)}
         options={SORT_BY}
       />
-
+      <FilterSelect
+        label="Other Versions"
+        value={queryParams.get('variant') ?? 'gb'}
+        onChange={(v) => addParam('variant', v)}
+        options={DEPRECATED_VERSIONS}
+      />
       <SuspectsStats data={data} />
     </SiderContent>
   );

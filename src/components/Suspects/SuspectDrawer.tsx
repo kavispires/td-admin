@@ -1,12 +1,11 @@
 import { Drawer, Flex, Input, Radio, Select, Switch, Typography } from 'antd';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
-import { ImageCard } from 'components/Images/ImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useEffect, useState } from 'react';
 import { useDebounce } from 'react-use';
 import type { SuspectCard } from 'types';
-import { getSuspectImageId } from './utils';
+import { SuspectImageCard } from './SuspectImageCard';
 
 const AGE_OPTIONS = ['18-21', '21-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90'].map((v) => ({
   label: v,
@@ -37,7 +36,6 @@ type SuspectDrawerProps = Pick<UseResourceFirestoreDataReturnType<SuspectCard>, 
 export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
   const { removeParam, queryParams } = useQueryParams();
   const suspectId = queryParams.get('suspectId');
-  const version = queryParams.get('version') ?? 'gb';
   const suspect = data[suspectId ?? ''];
 
   const [namePt, setNamePt] = useState(suspect?.name.pt || '');
@@ -113,7 +111,8 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
     >
       <div className="suspect__drawer">
         <div className="grid" style={{ gridTemplateColumns: '1fr 1.25fr' }}>
-          <ImageCard id={getSuspectImageId(suspect.id, version)} width={100} />
+          <SuspectImageCard id={suspect.id} width={100} />
+
           <Flex vertical gap={4} key={`${name.pt}-${name.en}`}>
             <DualLanguageTextField value={name} language="pt" onChange={(e) => setNamePt(e.target.value)} />
             <DualLanguageTextField value={name} language="en" onChange={(e) => setNameEn(e.target.value)} />

@@ -1,5 +1,5 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { getSuspectImageId } from 'components/Suspects/utils';
+import { getSuspectImageId } from 'components/Suspects/SuspectImageCard';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy, shuffle } from 'lodash';
 import { type TestimonyAnswers, countAnswers } from 'pages/Testimonies/useTestimoniesResource';

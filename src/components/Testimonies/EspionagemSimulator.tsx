@@ -6,8 +6,7 @@ import {
   useDailyEspionagemGames,
 } from 'components/Daily/utils/games/daily-espionagem';
 import { getToday } from 'components/Daily/utils/utils';
-import { ImageCard } from 'components/Images/ImageCard';
-import { getSuspectImageId } from 'components/Suspects/utils';
+import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useMemo, useRef, useState } from 'react';
 
 export function EspionagemSimulator() {
@@ -86,9 +85,9 @@ function SimulationGame({ entries }: SimulationGameProps) {
                   text={showCulprit ? excludeCounts[suspect.id] : null}
                   color="cyan"
                 >
-                  <ImageCard
+                  <SuspectImageCard
                     key={suspect.id}
-                    id={getSuspectImageId(suspect.id, 'gb')}
+                    id={suspect.id}
                     width={96}
                     className={clsx(showCulprit && suspect.id === entry.culpritId && 'red-border')}
                   />

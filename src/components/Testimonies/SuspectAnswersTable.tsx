@@ -1,6 +1,5 @@
 import { Flex, Switch, Table, type TableProps, Typography } from 'antd';
-import { ImageCard } from 'components/Images/ImageCard';
-import { getSuspectImageId } from 'components/Suspects/utils';
+import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
@@ -61,7 +60,7 @@ export function SuspectAnswersTable({
       title: 'Picture',
       dataIndex: 'id',
       render: (id) => {
-        return <ImageCard id={getSuspectImageId(id, 'gb')} width={48} />;
+        return <SuspectImageCard id={id} width={48} />;
       },
     },
     {

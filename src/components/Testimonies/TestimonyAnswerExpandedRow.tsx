@@ -1,6 +1,6 @@
 import { Button, Checkbox, Divider, Flex, Popconfirm, Space, Switch, Typography } from 'antd';
 import clsx from 'clsx';
-import { ImageCard } from 'components/Images/ImageCard';
+import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, cloneDeep, keyBy, orderBy } from 'lodash';
@@ -75,7 +75,7 @@ export function TestimonyAnswerExpandedRow({
                 'selection-outline': isBatchEnabled && selection.includes(entry.suspectCardId),
               })}
             >
-              <ImageCard
+              <SuspectImageCard
                 id={entry.imageId}
                 width={cardWidth}
                 className={entry.values.length > 1 ? undefined : 'grayscale'}

@@ -5,6 +5,7 @@ import { DownloadButton } from 'components/Common/DownloadButton';
 import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
+import { SuspectsStyleVariantSelector } from 'components/Suspects/SuspectsStyleVariantSelector';
 import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
@@ -102,7 +103,10 @@ export function TestimoniesFilters({
             },
           ]}
         />
+
+        <SuspectsStyleVariantSelector />
       </SiderContent>
+
       <SiderContent>
         <div style={{ fontSize: '0.85em' }}>
           <strong>Legend</strong>
