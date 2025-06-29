@@ -12,8 +12,8 @@ import { getNextDay } from '../utils';
 const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   male: 'é homem',
   female: 'é mulher',
+  caucasian: 'é branco(a)',
   black: 'é negro(a)',
-  white: 'é branco(a)',
   asian: 'é asiático(a)',
   latino: 'é latino(a)',
   thin: 'é magrelo(a)',
@@ -24,8 +24,8 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   young: 'é jovem',
   adult: 'é adulto(a)',
   senior: 'é idoso(a)',
-  average: 'é médio(a)',
-  medium: 'é médio(a)',
+  average: 'tem corpo normal',
+  medium: 'é de altura média',
   mixed: 'é mestiço(a)',
   hat: 'está usando um chapéu',
   tie: 'está usando uma gravata',
@@ -33,7 +33,6 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   brownHair: 'tem cabelo castanho',
   shortHair: 'tem cabelo curto',
   beard: 'tem barba',
-  caucasian: 'é branco(a)',
   scarf: 'está usando um cachecol',
   blondeHair: 'tem cabelo loiro',
   longHair: 'tem cabelo longo',
@@ -75,7 +74,7 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   wearingFlowers: 'está usando flores',
   showTeeth: 'está mostrando os dentes',
   hairTie: 'está usando um xuxinha ou fita no cabelo',
-  nonBinary: 'é não-binário(a)',
+  'non-binary': 'é não-binário(a)',
 };
 
 const TOTAL_SUSPECTS = 12;
@@ -89,6 +88,13 @@ type StatementClue = {
   type: 'testimony' | 'feature' | 'grid';
 };
 
+type SuspectEntry = {
+  id: string;
+  name: DualLanguageValue;
+  gender: string;
+  features: string[];
+};
+
 export type DailyEspionagemEntry = {
   id: DateKey;
   number: number;
@@ -98,7 +104,7 @@ export type DailyEspionagemEntry = {
   statements: StatementClue[];
   additionalStatements: StatementClue[];
   isNsfw: boolean;
-  suspects: SuspectCard[];
+  suspects: SuspectEntry[];
   reason: DualLanguageValue;
   level: number;
 };
@@ -379,24 +385,52 @@ function generateEspionagemGame(
     culpritId,
     statements: sortedStatements,
     additionalStatements,
-    suspects: cleanupSuspects(suspectsIds.map((id) => suspects[id])),
+    suspects: createSuspectEntry(suspectsIds, suspects, [...sortedStatements, ...additionalStatements]),
     reason: reason.title,
     setId: `${culpritId}::${reason.id}::${sortedStatements[0].key}`,
     level: determineLevel(sortedStatements),
   };
 }
 
-const cleanupSuspects = (suspects: SuspectCard[]): SuspectCard[] => {
-  return suspects.map((suspect) => ({
-    id: suspect.id,
-    name: suspect.name,
-    age: suspect.age,
-    gender: suspect.gender,
-    ethnicity: suspect.ethnicity,
-    height: suspect.height,
-    build: suspect.build,
-    features: suspect.features,
-  }));
+const createSuspectEntry = (
+  suspectsIds: string[],
+  suspects: Dictionary<SuspectCard>,
+  relevantFeatures: StatementClue[],
+): SuspectEntry[] => {
+  const usedFeaturesDictionary: Dictionary<true> = {};
+  relevantFeatures.forEach((feature) => {
+    if (feature.key.includes('.feature.')) {
+      const featureKey = feature.key.split('not.feature.')[1];
+      usedFeaturesDictionary[featureKey] = true;
+    }
+  });
+
+  return suspectsIds.map((id) => {
+    const suspect = suspects[id];
+
+    const age: string =
+      {
+        '18-21': 'young',
+        '21-30': 'adult',
+        '30-40': 'adult',
+        '40-50': 'adult',
+        '50-60': 'senior',
+        '60-70': 'senior',
+        '70-80': 'senior',
+        '80-90': 'senior',
+      }[suspect.age as string] || suspect.age;
+
+    const allFeatures = [suspect.gender, age, suspect.ethnicity, suspect.height, suspect.build];
+
+    const features = suspect.features.filter((feature) => usedFeaturesDictionary[feature]);
+
+    return {
+      id: suspect.id,
+      name: suspect.name,
+      gender: suspect.gender,
+      features: [...allFeatures, ...features],
+    };
+  });
 };
 
 /**
