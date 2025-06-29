@@ -9,7 +9,7 @@ import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import type { DailyMovieSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
-import { ItemsTypeahead } from '../ItemsTypeahead';
+import { AddItemFlow } from './AddItemsFlow';
 import { useMovieUsedHistory } from './useMovieUsedHistory';
 
 type ItemsMoviesTableProps = {
@@ -99,26 +99,6 @@ export function ItemsMoviesTable({ rows, addEntryToUpdate }: ItemsMoviesTablePro
   );
 }
 
-type AddItemFlowProps = {
-  movie: DailyMovieSet;
-  addEntryToUpdate: (id: string, item: DailyMovieSet) => void;
-};
-
-export function AddItemFlow({ movie, addEntryToUpdate }: AddItemFlowProps) {
-  const onUpdate = (itemId: string) => {
-    addEntryToUpdate(movie.id, {
-      ...movie,
-      itemsIds: [...movie.itemsIds, itemId],
-    });
-  };
-
-  return (
-    <div>
-      <ItemsTypeahead onFinish={onUpdate} />
-    </div>
-  );
-}
-
 type RemoveItemFlowProps = {
   movie: DailyMovieSet;
   addEntryToUpdate: (id: string, updatedMovie: DailyMovieSet) => void;
@@ -149,7 +129,7 @@ type MovieItemsCellProps = {
   movie: DailyMovieSet;
   itemsIds: string[];
   copyToClipboard: ReturnType<typeof useCopyToClipboardFunction>;
-  addEntryToUpdate: AddItemFlowProps['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyMovieSet>['addEntryToUpdate'];
 };
 
 export function MovieItemsCell({ movie, itemsIds, copyToClipboard, addEntryToUpdate }: MovieItemsCellProps) {
@@ -171,7 +151,7 @@ export function MovieItemsCell({ movie, itemsIds, copyToClipboard, addEntryToUpd
 type MovieEditableCellProps = {
   value: string | number;
   movie: DailyMovieSet;
-  addEntryToUpdate: AddItemFlowProps['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyMovieSet>['addEntryToUpdate'];
   property: keyof DailyMovieSet;
 };
 

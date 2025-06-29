@@ -8,7 +8,8 @@ import { sample } from 'lodash';
 import { useState } from 'react';
 import type { DailyMovieSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
-import { AddItemFlow, MovieEditableCell, MovieItemsCell } from './ItemsMoviesTable';
+import { AddItemFlow } from './AddItemsFlow';
+import { MovieEditableCell, MovieItemsCell } from './ItemsMoviesTable';
 
 const SEARCH_THRESHOLD = 30; // Maximum number of tries to find a sample with no itemsIds
 
