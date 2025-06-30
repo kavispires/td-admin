@@ -369,8 +369,8 @@ function generateEspionagemGame(
   const sortedStatements = [
     testimonyStatement1,
     worstFeatureStatement1,
-    bestFeatureStatement1,
     testimonyStatement2,
+    bestFeatureStatement1,
     columnPositionStatement,
     worstFeatureStatement2,
   ];
