@@ -35,5 +35,5 @@ export const VerifyIfThing = ({ item }: VerifyIfThingProps) => {
     return <Flex gap={6}>Thing: {result}</Flex>;
   }
 
-  return <></>;
+  return null;
 };

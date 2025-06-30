@@ -2,7 +2,7 @@ import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { getSuspectImageId } from 'components/Suspects/SuspectImageCard';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy, shuffle } from 'lodash';
-import { type TestimonyAnswers, countAnswers } from 'pages/Testimonies/useTestimoniesResource';
+import { countAnswers, type TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { makeBooleanDictionary } from 'utils';

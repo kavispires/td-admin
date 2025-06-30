@@ -1,12 +1,12 @@
 import { DeleteFilled } from '@ant-design/icons';
-import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
 import type { TableProps } from 'antd';
+import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
+import { useTDResource } from 'hooks/useTDResource';
 import type { DailyMovieSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 import { AddItemFlow } from './AddItemsFlow';

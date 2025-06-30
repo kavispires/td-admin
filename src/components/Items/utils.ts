@@ -1,5 +1,5 @@
-import { cloneDeep, keyBy, memoize, merge, orderBy, sortBy } from 'lodash';
 import { alienAttributesUtils } from 'toolKits/alien-attributes';
+import { cloneDeep, keyBy, memoize, merge, orderBy, sortBy } from 'lodash';
 import type { Item, ItemAttribute, ItemAttributesValues } from 'types';
 import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX } from 'utils/constants';
 

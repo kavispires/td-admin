@@ -5,8 +5,8 @@ import {
   GiftOutlined,
   HddOutlined,
 } from '@ant-design/icons';
-import { Menu as AntMenu } from 'antd';
 import type { MenuProps } from 'antd';
+import { Menu as AntMenu } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useGlobalSaveState } from 'store/globalSave';
 

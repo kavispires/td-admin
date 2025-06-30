@@ -1,5 +1,5 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { routes } from 'Routes';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { App as AntApp, ConfigProvider, theme } from 'antd';
 import { AuthWrapper } from 'components/Layout';
 import { HashRouter } from 'react-router-dom';

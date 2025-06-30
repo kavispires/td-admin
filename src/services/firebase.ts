@@ -4,10 +4,10 @@ import { type FirebaseApp, initializeApp } from 'firebase/app';
 import {
   type Auth,
   GoogleAuthProvider,
-  type UserCredential,
   getAuth,
   signInWithEmailAndPassword,
   signInWithPopup,
+  type UserCredential,
 } from 'firebase/auth';
 import { type Firestore, getFirestore } from 'firebase/firestore';
 

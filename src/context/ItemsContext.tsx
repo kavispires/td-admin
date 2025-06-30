@@ -1,7 +1,7 @@
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { orderBy } from 'lodash';
-import { type ReactNode, createContext, useContext, useMemo } from 'react';
+import { createContext, type ReactNode, useContext, useMemo } from 'react';
 import type { Item } from 'types';
 
 export type ItemsContextType = {

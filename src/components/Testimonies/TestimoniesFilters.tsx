@@ -10,8 +10,8 @@ import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
 import {
-  type TestimonyAnswers,
   countAnswers,
+  type TestimonyAnswers,
   type useTestimoniesResource,
 } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';

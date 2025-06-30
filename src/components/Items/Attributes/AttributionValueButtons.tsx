@@ -36,7 +36,7 @@ export function AttributionValueButtons({
   onlyButtons,
   size,
 }: AttributionValueButtonsProps) {
-  if (!attribute) return <></>;
+  if (!attribute) return null;
 
   if (onlyButtons) {
     return (

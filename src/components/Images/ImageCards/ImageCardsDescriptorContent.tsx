@@ -3,9 +3,9 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import type { ImageCardDescriptor } from 'types';
+import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 import { ImageCardsDescriptorModal } from './ImageCardsDescriptorModal';
 import { ImageCardsDescriptorTable } from './ImageCardsDescriptorTable';
-import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 
 export function ImageCardsDescriptorContent(query: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
   const imageCardsDecksQuery = useImageCardsDecks();

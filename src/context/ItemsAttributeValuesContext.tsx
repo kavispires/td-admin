@@ -3,7 +3,7 @@ import { getNewItem, getNewItemAttributeValues } from 'components/Items/utils';
 import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty, orderBy, random } from 'lodash';
-import { type ReactNode, createContext, useContext, useMemo, useState } from 'react';
+import { createContext, type ReactNode, useContext, useMemo, useState } from 'react';
 import type { Item, ItemAttribute, ItemAttributesValues } from 'types';
 import { sortJsonKeys } from 'utils';
 

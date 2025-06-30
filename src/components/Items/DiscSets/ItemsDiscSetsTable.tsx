@@ -1,10 +1,10 @@
-import { Table } from 'antd';
 import type { TableProps } from 'antd';
+import { Table } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
+import { useTDResource } from 'hooks/useTDResource';
 import type { DailyDiscSet, Item as ItemT } from 'types';
 import { removeDuplicates, sortItemsIds } from 'utils';
 import { DiscEditableTitleCell } from './DiscEditableTitleCell';

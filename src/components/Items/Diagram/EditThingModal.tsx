@@ -364,7 +364,7 @@ const deserializeThing = (
 };
 
 const serializeThing = (values: Record<string, boolean | string | number>): DailyDiagramItem => {
-  const { itemId, name, updatedAt, syllables, stressedSyllable, ...thingRules } = values;
+  const { itemId, name, syllables, stressedSyllable, ...thingRules } = values;
 
   return {
     itemId: itemId as string,

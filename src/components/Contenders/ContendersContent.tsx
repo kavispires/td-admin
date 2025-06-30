@@ -24,19 +24,17 @@ export function ContendersContent({ data, addEntryToUpdate }: ContendersContentP
 
   return (
     <>
-      <>
-        <Typography.Title level={2}>
-          Listing - Contenders ({filteredData.length} | {Object.values(data ?? {}).length})
-        </Typography.Title>
+      <Typography.Title level={2}>
+        Listing - Contenders ({filteredData.length} | {Object.values(data ?? {}).length})
+      </Typography.Title>
 
-        <PaginationWrapper pagination={pagination} className="full-width">
-          <Flex gap={16} wrap="wrap">
-            {page.map((entry) => (
-              <ContenderEditCard key={entry.id} contender={entry} addEntryToUpdate={addEntryToUpdate} />
-            ))}
-          </Flex>
-        </PaginationWrapper>
-      </>
+      <PaginationWrapper pagination={pagination} className="full-width">
+        <Flex gap={16} wrap="wrap">
+          {page.map((entry) => (
+            <ContenderEditCard key={entry.id} contender={entry} addEntryToUpdate={addEntryToUpdate} />
+          ))}
+        </Flex>
+      </PaginationWrapper>
     </>
   );
 }

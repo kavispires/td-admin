@@ -1,6 +1,6 @@
 import { CopyOutlined } from '@ant-design/icons';
-import { Button, Flex, Input, Space, Table } from 'antd';
 import type { TableProps } from 'antd';
+import { Button, Flex, Input, Space, Table } from 'antd';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
@@ -88,7 +88,7 @@ export function ItemsCrimeHistoryTable() {
               <ItemName item={item} language="en" />
             </>
           ) : (
-            <>?</>
+            '?'
           )}
         </Flex>
       ),
@@ -113,7 +113,7 @@ export function ItemsCrimeHistoryTable() {
               </Button>
             </>
           ) : (
-            <>?</>
+            '?'
           )}
         </Flex>
       ),
@@ -138,7 +138,7 @@ export function ItemsCrimeHistoryTable() {
               </Button>
             </>
           ) : (
-            <>?</>
+            '?'
           )}
         </Flex>
       ),
@@ -156,7 +156,7 @@ export function ItemsCrimeHistoryTable() {
               <ItemName item={item} language="en" />
             </>
           ) : (
-            <>?</>
+            '?'
           )}
         </Flex>
       ),

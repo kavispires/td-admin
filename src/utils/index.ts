@@ -77,7 +77,6 @@ export function createIncrementalUID(
  * @returns The input string with accents removed.
  */
 export function stringRemoveAccents(str: string) {
-  // biome-ignore lint/suspicious/noMisleadingCharacterClass: the regex is used to remove accents
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 

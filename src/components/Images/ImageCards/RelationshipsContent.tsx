@@ -19,7 +19,7 @@ import { RelationshipCountTag } from './RelationshipCountTag';
 
 export function RelationshipsContent() {
   const {
-    query: { isDirty, isSaving, save, stats, ...query },
+    query: { isDirty, isSaving, ...query },
     randomGroups: { cardIds, cards, onSelect, selection, relate, nextSet, deselectAll, cycles },
     showIds,
     cardSize,
@@ -110,11 +110,7 @@ type ActionsProps = {
 
 const Actions = ({ isSaving, isDirty, selection, relate, deselectAll, onNextSet }: ActionsProps) => {
   if (isSaving) {
-    return (
-      <>
-        <FloatButton icon={<LoadingOutlined />} />
-      </>
-    );
+    return <FloatButton icon={<LoadingOutlined />} />;
   }
 
   const onRelate = () => {

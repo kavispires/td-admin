@@ -7,8 +7,8 @@ import { isEmpty, sample } from 'lodash';
 import { useState } from 'react';
 import { useKey, useWindowSize } from 'react-use';
 import { ImageCard } from '../ImageCard';
-import { RelationshipCountTag } from './RelationshipCountTag';
 import { type UseImageCardsRelationshipDataReturnValue, useRandomCards } from './hooks/hooks';
+import { RelationshipCountTag } from './RelationshipCountTag';
 
 type ComparatorProps = {
   query: UseImageCardsRelationshipDataReturnValue;

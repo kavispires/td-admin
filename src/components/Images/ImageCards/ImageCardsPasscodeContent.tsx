@@ -6,12 +6,9 @@ import { useMemo, useState } from 'react';
 import type { ImageCardPasscodeSet } from 'types';
 import { PasscodeSearch, SetsTable } from './ImageCardsPasscodeComponents';
 import { ImageCardsPasscodeCreate } from './ImageCardsPasscodeCreate';
-import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 
 export function ImageCardsPasscodeContent(query: UseResourceFirestoreDataReturnType<ImageCardPasscodeSet>) {
-  const imageCardsDecksQuery = useImageCardsDecks();
-
-  const { addParam, removeParam, is, queryParams } = useQueryParams();
+  const { is, queryParams } = useQueryParams();
 
   return (
     <>

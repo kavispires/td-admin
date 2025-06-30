@@ -84,7 +84,7 @@ type EntryLanguageProps = {
 };
 
 export function EntryLanguage({ label = 'language', children }: EntryLanguageProps) {
-  if (!children) return <></>;
+  if (!children) return null;
 
   return (
     <Flex>
@@ -103,7 +103,7 @@ type EntryNSFWProps = {
 };
 
 export function EntryNSFW({ value }: EntryNSFWProps) {
-  if (!value) return <></>;
+  if (!value) return null;
 
   return (
     <Entry label="nsfw">
@@ -118,7 +118,7 @@ type EntryListTextProps = {
 };
 
 export function EntryListText({ label, children }: EntryListTextProps) {
-  if (!children) return <></>;
+  if (!children) return null;
 
   return <Entry label={label}>{children.join(', ')}</Entry>;
 }

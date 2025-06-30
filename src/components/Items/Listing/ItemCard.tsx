@@ -68,62 +68,60 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
         />
         {!isSimplified && (
           <>
-            <>
-              {!is('hideDecks') && (
-                <div>
-                  {is('deckCheckboxes') ? (
-                    <ItemDeckCheckboxes item={item} isEditing={isEditing} onEdit={onEdit} decks={decks} />
-                  ) : (
-                    <Select
-                      mode="multiple"
-                      style={{ width: '100%' }}
-                      placeholder="Select a deck"
-                      defaultValue={item.decks}
-                      disabled={!isEditing}
-                      options={decks}
-                      variant={isEditing ? 'outlined' : 'borderless'}
-                      size="small"
-                      key={String(item.decks)}
-                      onChange={(value) => onEdit({ decks: value.sort() })}
-                    />
-                  )}
-                </div>
-              )}
+            {!is('hideDecks') && (
+              <div>
+                {is('deckCheckboxes') ? (
+                  <ItemDeckCheckboxes item={item} isEditing={isEditing} onEdit={onEdit} decks={decks} />
+                ) : (
+                  <Select
+                    mode="multiple"
+                    style={{ width: '100%' }}
+                    placeholder="Select a deck"
+                    defaultValue={item.decks}
+                    disabled={!isEditing}
+                    options={decks}
+                    variant={isEditing ? 'outlined' : 'borderless'}
+                    size="small"
+                    key={String(item.decks)}
+                    onChange={(value) => onEdit({ decks: value.sort() })}
+                  />
+                )}
+              </div>
+            )}
 
-              {!is('hideAliases') && (
-                <>
-                  <Flex gap={6}>
-                    <LanguageFlag language="en" width="1em" />
-                    <Select
-                      mode="tags"
-                      style={{ width: '100%' }}
-                      placeholder="Other names EN"
-                      defaultValue={item.aliasesEn}
-                      options={[]}
-                      disabled={!isEditing}
-                      variant={isEditing ? 'outlined' : 'borderless'}
-                      size="small"
-                      onChange={(aliasesEn) => onEdit({ aliasesEn: aliasesEn.sort() })}
-                    />
-                  </Flex>
+            {!is('hideAliases') && (
+              <>
+                <Flex gap={6}>
+                  <LanguageFlag language="en" width="1em" />
+                  <Select
+                    mode="tags"
+                    style={{ width: '100%' }}
+                    placeholder="Other names EN"
+                    defaultValue={item.aliasesEn}
+                    options={[]}
+                    disabled={!isEditing}
+                    variant={isEditing ? 'outlined' : 'borderless'}
+                    size="small"
+                    onChange={(aliasesEn) => onEdit({ aliasesEn: aliasesEn.sort() })}
+                  />
+                </Flex>
 
-                  <Flex gap={6}>
-                    <LanguageFlag language="pt" width="1em" />
-                    <Select
-                      mode="tags"
-                      style={{ width: '100%' }}
-                      placeholder="Other names PT"
-                      defaultValue={item.aliasesPt}
-                      options={[]}
-                      disabled={!isEditing}
-                      variant={isEditing ? 'outlined' : 'borderless'}
-                      size="small"
-                      onChange={(aliasesPt) => onEdit({ aliasesPt: aliasesPt.sort() })}
-                    />
-                  </Flex>
-                </>
-              )}
-            </>
+                <Flex gap={6}>
+                  <LanguageFlag language="pt" width="1em" />
+                  <Select
+                    mode="tags"
+                    style={{ width: '100%' }}
+                    placeholder="Other names PT"
+                    defaultValue={item.aliasesPt}
+                    options={[]}
+                    disabled={!isEditing}
+                    variant={isEditing ? 'outlined' : 'borderless'}
+                    size="small"
+                    onChange={(aliasesPt) => onEdit({ aliasesPt: aliasesPt.sort() })}
+                  />
+                </Flex>
+              </>
+            )}
 
             <AgeDecks item={item} onEdit={onEdit} />
 

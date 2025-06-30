@@ -14,12 +14,12 @@ export function CardEntry({ entry, kind }: CardEntryProps) {
   const entries = useMemo(() => {
     return keys.map((key) => {
       // Ignore id
-      if (key === 'id') return <></>;
+      if (key === 'id') return null;
 
       const value = entry[key];
 
       // Ignore nullish values
-      if (value === null || value === undefined) return <></>;
+      if (value === null || value === undefined) return null;
 
       // Prioritize nsfw
       if (key === 'nsfw') {

@@ -6,8 +6,8 @@ import { useMemo, useState } from 'react';
 import type { ImageCardPasscodeSet } from 'types';
 import { createUUID, removeDuplicates } from 'utils';
 import { ImageCard } from '../ImageCard';
-import { SetsTable, usePasscodeSetTypeahead } from './ImageCardsPasscodeComponents';
 import { useImageCardsDecks } from './hooks/useImageCardsDecks';
+import { SetsTable, usePasscodeSetTypeahead } from './ImageCardsPasscodeComponents';
 
 type ImageCardsPasscodeProps = UseResourceFirestoreDataReturnType<ImageCardPasscodeSet>;
 

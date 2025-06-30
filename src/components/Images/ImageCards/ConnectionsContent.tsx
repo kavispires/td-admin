@@ -5,12 +5,12 @@ import { memoize, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import { useMeasure } from 'react-use';
 import { ImageCard } from '../ImageCard';
-import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 import type { UseImageCardsRelationshipDataReturnValue } from './hooks/hooks';
+import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 
 export function ConnectionsContent() {
   const {
-    query: { isDirty, isSaving, save, stats, data, ...query },
+    query: { data, ...query },
     randomGroups: { cardIds },
     showIds,
     cardSize,

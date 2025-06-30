@@ -19,19 +19,17 @@ export function FofocaQuenteContent({ data }: FofocaQuenteContentProps) {
   });
   return (
     <>
-      <>
-        <Typography.Title level={2}>
-          Listing - Fofoca Quente items ({filteredData.length} | {Object.values(data ?? {}).length})
-        </Typography.Title>
+      <Typography.Title level={2}>
+        Listing - Fofoca Quente items ({filteredData.length} | {Object.values(data ?? {}).length})
+      </Typography.Title>
 
-        <PaginationWrapper pagination={pagination} className="full-width">
-          <Flex gap={16} wrap="wrap">
-            {page.map((student) => (
-              <StudentCard key={student.id} student={student} />
-            ))}
-          </Flex>
-        </PaginationWrapper>
-      </>
+      <PaginationWrapper pagination={pagination} className="full-width">
+        <Flex gap={16} wrap="wrap">
+          {page.map((student) => (
+            <StudentCard key={student.id} student={student} />
+          ))}
+        </Flex>
+      </PaginationWrapper>
     </>
   );
 }

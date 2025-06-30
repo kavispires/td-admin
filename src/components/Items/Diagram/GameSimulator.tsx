@@ -1,7 +1,7 @@
 import { Button, Space, Typography } from 'antd';
 import {
-  type DailyTeoriaDeConjuntosEntry,
   buildDailyTeoriaDeConjuntosGames,
+  type DailyTeoriaDeConjuntosEntry,
 } from 'components/Daily/utils/games/daily-teoria-de-conjuntos';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useState } from 'react';

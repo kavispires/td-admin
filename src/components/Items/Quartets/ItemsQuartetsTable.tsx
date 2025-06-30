@@ -1,12 +1,12 @@
 import { CheckCircleFilled, DeleteFilled, WarningOutlined } from '@ant-design/icons';
-import { Button, Flex, Popconfirm, Rate, Select, Space, Switch, Table, Typography } from 'antd';
 import type { TableProps } from 'antd';
+import { Button, Flex, Popconfirm, Rate, Select, Space, Switch, Table, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
+import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, orderBy } from 'lodash';
 import type { DailyQuartetSet, Item as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
@@ -213,7 +213,7 @@ export function QuartetItemsCell({
     <Flex gap={6} wrap="wrap" key={`items-${quartet.title}`}>
       {itemsIds.map((itemId) => (
         <Flex key={`${quartet.title}-${itemId}`} gap={2} vertical>
-          {itemId ? <Item id={String(itemId)} width={60} /> : <>"ERROR"</>}
+          {itemId ? <Item id={String(itemId)} width={60} /> : '"ERROR"'}
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
             <RemoveItemFlow quartet={quartet} addEntryToUpdate={addEntryToUpdate} itemId={itemId} />

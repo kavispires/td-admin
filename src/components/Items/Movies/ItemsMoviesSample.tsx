@@ -1,9 +1,9 @@
-import { Button, Space, Table } from 'antd';
 import type { TableProps } from 'antd';
+import { Button, Space, Table } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
+import { useTDResource } from 'hooks/useTDResource';
 import { sample } from 'lodash';
 import { useState } from 'react';
 import type { DailyMovieSet, Item as ItemT } from 'types';

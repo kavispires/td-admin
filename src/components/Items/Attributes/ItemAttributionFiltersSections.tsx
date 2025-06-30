@@ -191,13 +191,11 @@ export function ItemAttributionComparatorFilters() {
 export function ItemAttributionStatsFilters() {
   const { addParam, is } = useQueryParams();
   return (
-    <>
-      <FilterSwitch
-        label="Show Glyphs"
-        value={is('showGlyphs')}
-        onChange={(v) => addParam('showGlyphs', v ? 'true' : '')}
-        className="full-width m-0"
-      />
-    </>
+    <FilterSwitch
+      label="Show Glyphs"
+      value={is('showGlyphs')}
+      onChange={(v) => addParam('showGlyphs', v ? 'true' : '')}
+      className="full-width m-0"
+    />
   );
 }

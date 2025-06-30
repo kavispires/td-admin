@@ -1,2 +1,2 @@
-export * from './tdr';
 export * from './firestore-tdr';
+export * from './tdr';

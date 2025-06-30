@@ -1,8 +1,7 @@
 import { Avatar, Layout, Typography } from 'antd';
 import logo from 'assets/images/logo.svg?url';
 import { type LegacyRef, type ReactNode, useEffect } from 'react';
-import { useTitle } from 'react-use';
-import { useMeasure } from 'react-use';
+import { useMeasure, useTitle } from 'react-use';
 import { updateHeaderHeight } from 'store/headerHeight';
 import { Menu } from './Menu';
 
