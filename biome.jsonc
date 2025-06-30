@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "include": ["src/**"]
+    "includes": ["**/src/**"]
   },
   "formatter": {
     "enabled": true,
@@ -18,8 +18,12 @@
     "attributePosition": "auto",
     "bracketSpacing": true
   },
-  "organizeImports": {
-    "enabled": true
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "linter": {
     "enabled": true,
@@ -44,7 +48,15 @@
       },
       "style": {
         "useSelfClosingElements": "off",
-        "noParameterAssign": "warn"
+        "noParameterAssign": "warn",
+        "useAsConstAssertion": "warn",
+        "useDefaultParameterLast": "warn",
+        "useEnumInitializers": "warn",
+        "useSingleVarDeclarator": "warn",
+        "noUnusedTemplateLiteral": "warn",
+        "useNumberNamespace": "warn",
+        "noInferrableTypes": "warn",
+        "noUselessElse": "warn"
       },
       "suspicious": {
         "noExplicitAny": "off",
