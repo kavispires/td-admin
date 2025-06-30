@@ -1,4 +1,4 @@
-import { Button, Flex, InputNumber, Modal, Segmented, Space, Typography } from 'antd';
+import { Button, Flex, InputNumber, Modal, Segmented, Space, Switch, Typography } from 'antd';
 import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep, sample, sampleSize } from 'lodash';
@@ -131,6 +131,7 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
     testimonyId: string | null;
   }>();
   const [numberOfSuspects, setNumberOfSuspects] = useState(6);
+  const [isRandomQuestion, setRandomQuestion] = useState(true);
 
   const getRandom = () => {
     const suspectsSet = sampleSize(Object.keys(suspects), numberOfSuspects)?.reduce(
@@ -143,7 +144,7 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
 
     setState({
       suspectsIds: suspectsSet,
-      testimonyId: sample(Object.keys(questions)) || null,
+      testimonyId: (isRandomQuestion ? sample(Object.keys(questions)) : state?.testimonyId) ?? null,
     });
   };
 
@@ -207,10 +208,16 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
       <div>
         {hasEntry && (
           <Flex vertical gap={8} className="mb-8" justify="center" align="center">
-            <Typography.Text>
-              Number of Suspects:
-              <InputNumber value={numberOfSuspects} onChange={(value) => setNumberOfSuspects(value ?? 6)} />
-            </Typography.Text>
+            <Flex gap={6} align="center" justify="center">
+              <Typography.Text>Number of Suspects:</Typography.Text>
+              <InputNumber
+                value={numberOfSuspects}
+                onChange={(value) => setNumberOfSuspects(value ?? 6)}
+                size="small"
+              />
+              <Typography.Text>Random Questions:</Typography.Text>
+              <Switch checked={isRandomQuestion} onChange={setRandomQuestion} size="small" />
+            </Flex>
             <Typography.Title level={4} className="text-center">
               {questions[state.testimonyId ?? '']?.question}
             </Typography.Title>
