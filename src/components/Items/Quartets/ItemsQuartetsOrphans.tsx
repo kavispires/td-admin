@@ -1,15 +1,18 @@
-import { Flex, Typography } from 'antd';
+import { Drawer, Flex, Typography } from 'antd';
+import { TransparentButton } from 'components/Common';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { Item } from 'components/Sprites';
 import { useGridPagination } from 'hooks/useGridPagination';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import type { DailyQuartetSet, Item as ItemT } from 'types';
 import { ItemId } from '../ItemBuildingBlocks';
+import { ItemsQuartetSearch } from './ItemsQuartetSearch';
 
-export function ItemsQuartetsOrphans({ data }: UseResourceFirestoreDataReturnType<DailyQuartetSet>) {
+export function ItemsQuartetsOrphans({ data, ...rest }: UseResourceFirestoreDataReturnType<DailyQuartetSet>) {
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
+  const [activeItemId, setActiveItemId] = useState<string | null>(null);
 
   const { unusedItems } = useMemo(() => {
     const usedItems = Object.values(data).reduce((acc: Dictionary<string[]>, quartet) => {
@@ -50,14 +53,31 @@ export function ItemsQuartetsOrphans({ data }: UseResourceFirestoreDataReturnTyp
       <PaginationWrapper className="full-width" pagination={pagination}>
         <Flex gap={16} wrap="wrap">
           {page.map((item) => (
-            <Flex key={item.id} style={{ maxWidth: 72 }} vertical>
-              <Item id={item.id} width={64} />
-              <ItemId item={item} />
-              {/* <ItemName item={item} language="pt" /> */}
-            </Flex>
+            <TransparentButton key={item.id} onClick={() => setActiveItemId(item.id)}>
+              <Flex key={item.id} style={{ maxWidth: 84 }} vertical>
+                <Item id={item.id} width={64} />
+                <ItemId item={item} />
+              </Flex>
+            </TransparentButton>
           ))}
         </Flex>
       </PaginationWrapper>
+      <Drawer
+        onClose={() => setActiveItemId(null)}
+        open={!!activeItemId}
+        placement="bottom"
+        title="Item Details"
+      >
+        {activeItemId && (
+          <Flex gap={16}>
+            <Flex gap={16} vertical>
+              <Item id={activeItemId} width={64} />
+              <ItemId item={itemsTypeaheadQuery.data[activeItemId]} />
+            </Flex>
+            <ItemsQuartetSearch data={data} {...rest} />
+          </Flex>
+        )}
+      </Drawer>
     </>
   );
 }
