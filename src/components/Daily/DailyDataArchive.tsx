@@ -63,19 +63,19 @@ export function DailyDataArchive() {
     <div>
       <Typography.Title level={2}>Data Archive</Typography.Title>
 
-      <Flex justify="space-between" align="center" className="mb-6">
-        <Flex gap={12} align="center">
+      <Flex align="center" className="mb-6" justify="space-between">
+        <Flex align="center" gap={12}>
           <Space.Compact>
             <Input
+              onChange={(e) => onUpdateDate(e.target.value)}
               placeholder="YYYY-MM-DD"
               value={startDate}
-              onChange={(e) => onUpdateDate(e.target.value)}
             />
-            <InputNumber min={1} max={100} value={range} onChange={(value) => onUpdateRange(value ?? 1)} />
+            <InputNumber max={100} min={1} onChange={(value) => onUpdateRange(value ?? 1)} value={range} />
             <Button
-              type="primary"
-              onClick={onValidateDate}
               disabled={!startDate || !moment(startDate, 'YYYY-MM-DD', true).isValid()}
+              onClick={onValidateDate}
+              type="primary"
             >
               Load
             </Button>
@@ -104,11 +104,9 @@ export function DailyDataArchive() {
           </span>
         </Flex>
 
-        <Flex gap={12} align="center">
+        <Flex align="center" gap={12}>
           <DeleteSecuredDocuments />
           <Select
-            style={{ width: 200 }}
-            placeholder="Filter by game"
             allowClear
             onChange={(value) => setSelectedGame(value)}
             options={[
@@ -125,11 +123,13 @@ export function DailyDataArchive() {
               { value: 'ta-na-cara', label: 'Tá na Cara' },
               { value: 'teoria-de-conjuntos', label: 'Teoria de Conjuntos' },
             ]}
+            placeholder="Filter by game"
+            style={{ width: 200 }}
           />
         </Flex>
       </Flex>
 
-      <ReactJsonView src={selectedData} theme="twilight" collapsed={1} />
+      <ReactJsonView collapsed={1} src={selectedData} theme="twilight" />
     </div>
   );
 }
@@ -218,7 +218,7 @@ function DeleteSecuredDocuments() {
   });
 
   return (
-    <Button danger onClick={() => mutation.mutate()} loading={mutation.isPending} disabled>
+    <Button danger disabled loading={mutation.isPending} onClick={() => mutation.mutate()}>
       Delete secured documents
     </Button>
   );

@@ -35,20 +35,20 @@ export function ItemsGroupsSearch({
       <Typeahead
         data={data}
         onFinish={(id) => setActiveGroupId(id)}
-        placeholder="Search group by name..."
         parser={typeaheadParser}
+        placeholder="Search group by name..."
         style={{ width: '100%', minWidth: 450 }}
       />
 
       {!!activeGroup && (
         <ItemsGroupsByGroupTable
-          rows={[activeGroup]}
-          items={items}
-          grousByItem={grousByItem}
           groupsTypeahead={groupsTypeahead}
-          onUpdateItemGroups={onUpdateItemGroups}
+          grousByItem={grousByItem}
+          items={items}
           onUpdateGroupItems={onUpdateGroupItems}
+          onUpdateItemGroups={onUpdateItemGroups}
           onUpdateName={onUpdateName}
+          rows={[activeGroup]}
         />
       )}
     </Space>

@@ -53,31 +53,31 @@ export function DataFilters<T extends PlainObject>({ data, ignoreKeys = [] }: Da
   const filters = useMemo(() => buildDataFilters(data, ignoreKeys), [data, ignoreKeys]);
 
   return (
-    <Flex vertical style={{ overflowY: 'auto' }}>
+    <Flex style={{ overflowY: 'auto' }} vertical>
       {filters.filters.map((filter) => (
         <FilterSelect
           key={filter.label}
           label={capitalize(filter.label)}
-          options={filter.options}
           onChange={(value) => addParam(filter.label.toLowerCase(), value)}
+          options={filter.options}
           value={queryParams.get(filter.label.toLowerCase()) ?? ''}
         />
       ))}
 
       <FilterSelect
         label="Sort by"
-        options={filters.sortableKeys.map((key) => ({ label: capitalize(key), value: key }))}
         onChange={(value) => addParam('sort', value)}
+        options={filters.sortableKeys.map((key) => ({ label: capitalize(key), value: key }))}
         value={queryParams.get('sort') ?? ''}
       />
 
       <FilterSelect
         label="Order"
+        onChange={(value) => addParam('order', value)}
         options={[
           { label: 'Ascending', value: 'asc' },
           { label: 'Descending', value: 'desc' },
         ]}
-        onChange={(value) => addParam('order', value)}
         value={queryParams.get('order') ?? 'asc'}
       />
     </Flex>

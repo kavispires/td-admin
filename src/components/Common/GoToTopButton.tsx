@@ -28,8 +28,8 @@ export function GoToTopButton(props: ButtonProps) {
   return (
     <Button
       className={`go-to-top-button ${isVisible ? 'visible' : ''}`}
-      onClick={scrollToTop}
       icon={<VerticalAlignTopOutlined />}
+      onClick={scrollToTop}
       {...props}
     >
       Go to Top

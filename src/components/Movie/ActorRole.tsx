@@ -16,7 +16,7 @@ export function ActorRole({ role, language }: ActorRoleProps) {
     <div key={role.id}>
       <Typography.Title level={3}>{role.title[language]}</Typography.Title>
       <div className="suspect" style={{ width: `${cardWidth}px` }}>
-        <ImageCard id={role.actor.id} width={cardWidth} className="suspect__image" />
+        <ImageCard className="suspect__image" id={role.actor.id} width={cardWidth} />
 
         <div className="suspect__name">
           <div>

@@ -93,7 +93,7 @@ export function FeatureFilmView({
 
           <Space style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', alignItems: 'flex-start' }}>
             {featureFilm.castingRoles.map((role) => (
-              <ActorRole key={role.id} role={role} language={language} />
+              <ActorRole key={role.id} language={language} role={role} />
             ))}
           </Space>
 
@@ -102,12 +102,12 @@ export function FeatureFilmView({
           <Typography.Title level={2}>
             Movie Prompt <CopyToClipboardButton content={moviePrompt} />
           </Typography.Title>
-          <Input.TextArea value={moviePrompt} autoSize={{ minRows: 3, maxRows: 10 }} />
+          <Input.TextArea autoSize={{ minRows: 3, maxRows: 10 }} value={moviePrompt} />
 
           <Typography.Title level={2}>
             TV Series Prompt <CopyToClipboardButton content={tvShowPrompt} />
           </Typography.Title>
-          <Input.TextArea value={tvShowPrompt} autoSize={{ minRows: 3, maxRows: 10 }} />
+          <Input.TextArea autoSize={{ minRows: 3, maxRows: 10 }} value={tvShowPrompt} />
         </>
       )}
     </>

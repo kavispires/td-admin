@@ -11,7 +11,7 @@ export function TestimoniesPage() {
   const testimonyResourceQuery = useTestimoniesResource();
 
   return (
-    <PageLayout title="Testimonies" subtitle="Suspect Testimony Rates">
+    <PageLayout subtitle="Suspect Testimony Rates" title="Testimonies">
       <Layout hasSider>
         <PageSider>
           <TestimoniesFilters {...testimonyResourceQuery} />
@@ -19,9 +19,9 @@ export function TestimoniesPage() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={testimonyResourceQuery.isLoading}
             error={testimonyResourceQuery.error}
             hasResponseData={!isEmpty(testimonyResourceQuery.data)}
+            isLoading={testimonyResourceQuery.isLoading}
           >
             <TestimoniesContent {...testimonyResourceQuery} />
           </DataLoadingWrapper>

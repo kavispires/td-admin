@@ -23,8 +23,8 @@ export function Header({ title, subtitle, extra }: HeaderProps) {
   return (
     <div ref={ref as LegacyRef<HTMLDivElement>}>
       <Layout.Header className="header">
-        <Typography.Title level={1} className="header__h1">
-          <Avatar src={logo} size="large" /> <span className="header__title">{title}</span>
+        <Typography.Title className="header__h1" level={1}>
+          <Avatar size="large" src={logo} /> <span className="header__title">{title}</span>
           {Boolean(subtitle) && <span className="header__subtitle"> — {subtitle}</span>}
         </Typography.Title>
         <div>{extra}</div>

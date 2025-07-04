@@ -98,7 +98,7 @@ function ByDrawingContent(query: ArteRuimDrawingsContentProps) {
         <Flex gap={8}>
           {drawings.map((drawing) => (
             <div key={drawing.id}>
-              <CanvasSVG key={drawing.id} drawing={drawing.drawing} width={50} className="canvas" />
+              <CanvasSVG className="canvas" drawing={drawing.drawing} key={drawing.id} width={50} />
               <pre>{drawing.artistId.substring(0, 5)}</pre>
             </div>
           ))}

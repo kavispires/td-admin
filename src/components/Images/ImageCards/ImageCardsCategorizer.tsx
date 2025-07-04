@@ -52,9 +52,9 @@ function ImageCardsCategorizerPage() {
             <Button onClick={onRandomCard}>Random Card</Button>
 
             <Card
-              title={cardId}
               extra={hasCardAchievedMinimumRequirements(card) && <CheckCircleFilled />}
               key={cardId}
+              title={cardId}
             >
               <div className="image-card-card">
                 <div className="image-card-card__image">
@@ -64,79 +64,79 @@ function ImageCardsCategorizerPage() {
                   <div className="image-card-card__item">
                     <label htmlFor="focus">Focus</label>
                     <Select
+                      className="image-card-card__select"
+                      defaultValue={card.focus}
                       id="focus"
                       mode="tags"
-                      className="image-card-card__select"
-                      placeholder="Focus"
                       onChange={handleFocusChange}
                       options={elements}
-                      defaultValue={card.focus}
+                      placeholder="Focus"
                     />
                   </div>
 
                   <div className="image-card-card__item">
                     <label htmlFor="actions">Actions</label>
                     <Select
+                      className="image-card-card__select"
+                      defaultValue={card.actions}
                       id="actions"
                       mode="tags"
-                      className="image-card-card__select"
-                      placeholder="Actions"
                       onChange={handleActionsChange}
                       options={actions}
-                      defaultValue={card.actions}
+                      placeholder="Actions"
                     />
                   </div>
 
                   <div className="image-card-card__item">
                     <label htmlFor="colors">Colors</label>
                     <Select
+                      className="image-card-card__select"
+                      defaultValue={card.colors}
                       id="colors"
                       mode="tags"
-                      className="image-card-card__select"
-                      placeholder="Colors"
                       onChange={handleColorChange}
                       options={colors}
-                      defaultValue={card.colors}
+                      placeholder="Colors"
                     />
                   </div>
 
                   <div className="image-card-card__item">
                     <label htmlFor="mood">Mood</label>
                     <Select
+                      className="image-card-card__select"
+                      defaultValue={card.mood}
                       id="mood"
                       mode="tags"
-                      className="image-card-card__select"
-                      placeholder="Mood"
                       onChange={handleMoodChange}
                       options={mood}
-                      defaultValue={card.mood}
+                      placeholder="Mood"
                     />
                   </div>
 
                   <div className="image-card-card__item">
                     <label htmlFor="elements">Elements</label>
                     <Select
+                      className="image-card-card__select"
+                      defaultValue={card.elements}
                       id="elements"
                       mode="tags"
-                      className="image-card-card__select"
-                      placeholder="Elements"
                       onChange={handleElementsChange}
                       options={elements}
-                      defaultValue={card.elements}
+                      placeholder="Elements"
                     />
                   </div>
 
                   <div className="image-card-card__item">
                     <label htmlFor="highlight-switch">Highlight</label>
                     <div>
-                      <Switch id="highlight-switch" checked={card.highlight} onChange={toggleHighlight} />
+                      <Switch checked={card.highlight} id="highlight-switch" onChange={toggleHighlight} />
                     </div>
                   </div>
                 </div>
               </div>
             </Card>
 
-            <Button type="primary" onClick={() => save({})} disabled={!isDirty} loading={isSaving}>
+            <Button disabled={!isDirty} loading={isSaving} onClick={() => save({})} type="primary">
               Save
             </Button>
           </Space>

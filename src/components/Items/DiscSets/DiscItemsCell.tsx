@@ -15,13 +15,13 @@ type DiscItemsCellProps = {
 
 export function DiscItemsCell({ disc, itemsIds, copyToClipboard, addEntryToUpdate }: DiscItemsCellProps) {
   return (
-    <Flex gap={6} wrap="wrap" key={`items-${disc.title}`}>
+    <Flex gap={6} key={`items-${disc.title}`} wrap="wrap">
       {itemsIds.map((itemId, index) => (
-        <Flex key={`${disc.title}-${itemId}-${index}`} gap={2} vertical>
+        <Flex gap={2} key={`${disc.title}-${itemId}-${index}`} vertical>
           <Item id={itemId} width={60} />
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
-            <RemoveItemFlow disc={disc} addEntryToUpdate={addEntryToUpdate} itemId={itemId} />
+            <RemoveItemFlow addEntryToUpdate={addEntryToUpdate} disc={disc} itemId={itemId} />
           </Flex>
         </Flex>
       ))}

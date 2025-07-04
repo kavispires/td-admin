@@ -24,13 +24,13 @@ export function ImageCardsFilters({
   }, [decksData]);
   return (
     <SiderContent>
-      <FilterSelect label="Deck" value={selectedDeck} onChange={setSelectedDeck} options={deckOptions} />
+      <FilterSelect label="Deck" onChange={setSelectedDeck} options={deckOptions} value={selectedDeck} />
       <FilterNumber
         label="Cards Per Row"
-        min={1}
         max={8}
-        value={cardsPerRow}
+        min={1}
         onChange={(v) => setCardsPerRow(v ?? 8)}
+        value={cardsPerRow}
       />
     </SiderContent>
   );

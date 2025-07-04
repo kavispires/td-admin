@@ -15,9 +15,9 @@ export function SuspectsStyleVariantSelector() {
   return (
     <FilterSegments
       label="Style Variant"
-      value={variant}
       onChange={(value) => addParam('variant', value)}
       options={options}
+      value={variant}
     />
   );
 }

@@ -17,16 +17,16 @@ export function ItemListing() {
   return (
     <>
       <Flex align="center" gap={12}>
-        <Typography.Title level={2} className="my-0">
+        <Typography.Title className="my-0" level={2}>
           Listing - {capitalize(listingType)} items ({listing.length})
         </Typography.Title>
         <FirestoreConsoleLink path="/tdr/items" />
       </Flex>
 
-      <PaginationWrapper pagination={pagination} className="full-width">
+      <PaginationWrapper className="full-width" pagination={pagination}>
         <Flex gap={16} wrap="wrap">
           {page.map((item) => (
-            <ItemCard key={item.id} item={item} />
+            <ItemCard item={item} key={item.id} />
           ))}
         </Flex>
       </PaginationWrapper>

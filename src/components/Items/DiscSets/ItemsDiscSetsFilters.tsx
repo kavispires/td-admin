@@ -24,20 +24,20 @@ export function ItemsDiscSetsFilters({
 
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <SaveButton
-          isDirty={isDirty}
-          onSave={save}
-          isSaving={isSaving}
           dirt={JSON.stringify(prepareObjectToSave(entriesToUpdate))}
+          isDirty={isDirty}
+          isSaving={isSaving}
+          onSave={save}
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(data)}
-          fileName="daily-disc-sets.json"
-          disabled={isDirty}
-          hasNewData={hasFirestoreData}
           block
+          data={() => prepareFileForDownload(data)}
+          disabled={isDirty}
+          fileName="daily-disc-sets.json"
+          hasNewData={hasFirestoreData}
         />
       </Flex>
 
@@ -45,7 +45,6 @@ export function ItemsDiscSetsFilters({
 
       <FilterSegments
         label="Display"
-        value={queryParams.get('display') ?? 'sets'}
         onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1, display: 'table' })}
         options={[
           {
@@ -59,6 +58,7 @@ export function ItemsDiscSetsFilters({
             value: 'orphans',
           },
         ]}
+        value={queryParams.get('display') ?? 'sets'}
       />
 
       <AddNewSetFlow addEntryToUpdate={addEntryToUpdate} ids={Object.keys(data)} />

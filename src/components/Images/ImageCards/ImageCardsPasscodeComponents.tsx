@@ -31,24 +31,24 @@ export function SetsTable({ sets, addEntryToUpdate, hidePagination }: SetsTableP
       dataIndex: 'passcode',
       key: 'passcode',
       sorter: (a, b) => a.passcode[0].localeCompare(b.passcode[0]),
-      render: (_, record) => <EditablePasscodeEntries entry={record} addEntryToUpdate={addEntryToUpdate} />,
+      render: (_, record) => <EditablePasscodeEntries addEntryToUpdate={addEntryToUpdate} entry={record} />,
     },
 
     {
       title: 'Cards',
       dataIndex: 'imageCardsIds',
       key: 'imageCardsIds',
-      render: (_, record) => <EditableImageCardsEntries entry={record} addEntryToUpdate={addEntryToUpdate} />,
+      render: (_, record) => <EditableImageCardsEntries addEntryToUpdate={addEntryToUpdate} entry={record} />,
     },
   ];
 
   return (
     <Table
+      className="my-4"
       columns={columns}
       dataSource={sets}
-      className="my-4"
-      rowKey="id"
       pagination={hidePagination ? undefined : paginationProps}
+      rowKey="id"
     />
   );
 }
@@ -64,11 +64,11 @@ export function EditablePasscodeEntries({ entry, addEntryToUpdate }: EditablePas
 
   return (
     <Select
-      mode="tags"
-      style={{ width: 300 }}
-      placeholder="Add passcode from easier to harder"
       defaultValue={entry.passcode}
+      mode="tags"
       onChange={onUpdateName}
+      placeholder="Add passcode from easier to harder"
+      style={{ width: 300 }}
     />
   );
 }
@@ -92,22 +92,22 @@ export function EditableImageCardsEntries({ entry, addEntryToUpdate }: EditableI
   };
 
   return (
-    <Flex gap={6} wrap="wrap" align="flex-end">
+    <Flex align="flex-end" gap={6} wrap="wrap">
       {entry.imageCardsIds.map((id) => (
-        <Flex key={id} gap={2} vertical>
+        <Flex gap={2} key={id} vertical>
           <ImageCard id={id} width={60} />
           <IdTag>{id}</IdTag>
-          <Button size="small" onClick={() => onRemoveImageCard(id)}>
+          <Button onClick={() => onRemoveImageCard(id)} size="small">
             Remove
           </Button>
         </Flex>
       ))}
       <div>
         <Input
-          placeholder="td-d*"
-          style={{ width: 100 }}
           onChange={(e) => setNewId(e.target.value)}
           onPressEnter={onAddImageCard}
+          placeholder="td-d*"
+          style={{ width: 100 }}
           value={newId}
         />
       </div>
@@ -224,18 +224,18 @@ export function PasscodeSearch({ data, onFinish }: PasscodeSearchProps) {
 
   return (
     <AutoComplete
-      options={filteredOptions}
-      style={{ width: 250 }}
       allowClear={true}
-      placeholder={'Search...'}
       filterOption={(inputValue, option) =>
         String(option?.value ?? '')
           .toUpperCase()
           .indexOf(inputValue?.toUpperCase()) !== -1
       }
-      onSearch={setTypedText}
       notFoundContent={typedText.length > 0 ? 'No items found' : 'Type to search...'}
+      onSearch={setTypedText}
       onSelect={onSelect}
+      options={filteredOptions}
+      placeholder={'Search...'}
+      style={{ width: 250 }}
     >
       <Input onPressEnter={handlePressEnter} />
     </AutoComplete>

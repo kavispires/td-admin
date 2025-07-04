@@ -205,48 +205,48 @@ export function EditThingModal({
 
   return (
     <Modal
-      width={width}
+      maskClosable={false}
+      okButtonProps={{ disabled: hasUndefinedValues, htmlType: 'submit', size: 'large' }}
+      okText={okButtonText ?? 'Add Item'}
+      onCancel={onCancel}
+      onOk={form.submit}
+      open={isModalOpen}
       title={
         <>
           Edit {thing.name} {subtitle && <small>{subtitle}</small>}
         </>
       }
-      open={isModalOpen}
-      onOk={form.submit}
-      onCancel={onCancel}
-      maskClosable={false}
-      okButtonProps={{ disabled: hasUndefinedValues, htmlType: 'submit', size: 'large' }}
-      okText={okButtonText ?? 'Add Item'}
+      width={width}
     >
       <Form
+        autoComplete="off"
         form={form}
+        initialValues={deserializeThing(thing, rules)}
+        labelWrap
+        layout="vertical"
         name={`new-item-${thing.itemId}`}
         onFinish={onFinish}
-        autoComplete="off"
-        initialValues={deserializeThing(thing, rules)}
-        layout="vertical"
         size="small"
-        labelWrap
       >
         <div className="diagram-container">
           <div>
             <Item id={thing.itemId} width={50} />
           </div>
 
-          <Form.Item name="name" label="Name">
+          <Form.Item label="Name" name="name">
             <Input />
           </Form.Item>
 
-          <Form.Item name="itemId" label="Item">
+          <Form.Item label="Item" name="itemId">
             <Input readOnly />
           </Form.Item>
 
-          <Form.Item name="syllables" label="Syllables">
+          <Form.Item label="Syllables" name="syllables">
             <Input />
           </Form.Item>
 
-          <Form.Item name="stressedSyllable" label="Stressed Syllable">
-            <Radio.Group optionType="button" buttonStyle="solid">
+          <Form.Item label="Stressed Syllable" name="stressedSyllable">
+            <Radio.Group buttonStyle="solid" optionType="button">
               {splitSyllables.map((syllable, index) => (
                 <Radio key={index} value={splitSyllables.length - index - 1}>
                   {syllable}
@@ -255,14 +255,14 @@ export function EditThingModal({
             </Radio.Group>
           </Form.Item>
 
-          <Form.Item name="updatedAt" label="Updated At">
-            <Input value={new Date(thing.updatedAt).toLocaleString()} readOnly />
+          <Form.Item label="Updated At" name="updatedAt">
+            <Input readOnly value={new Date(thing.updatedAt).toLocaleString()} />
           </Form.Item>
 
           {(itemAliases || onGiveAnotherThing) && (
             <div>
               {onGiveAnotherThing && (
-                <Button size="small" onClick={onGiveAnotherThing} type="dashed" className="mt-2">
+                <Button className="mt-2" onClick={onGiveAnotherThing} size="small" type="dashed">
                   Give me another thing
                 </Button>
               )}
@@ -272,8 +272,8 @@ export function EditThingModal({
 
           <div>
             <Affix offsetTop={50}>
-              <Flex justify="center" align="center">
-                <Button type="primary" htmlType="submit" size="large" disabled={hasUndefinedValues}>
+              <Flex align="center" justify="center">
+                <Button disabled={hasUndefinedValues} htmlType="submit" size="large" type="primary">
                   {okButtonText ?? 'Add Item'}
                 </Button>
               </Flex>
@@ -285,13 +285,13 @@ export function EditThingModal({
             if (rule.method === 'auto' && verifiers[rule.id]) {
               return (
                 <Form.Item
-                  key={rule.id}
-                  name={rule.id}
-                  label={rule.title}
-                  valuePropName="checked"
                   className={clsx(thing.updatedAt < rule.updatedAt && 'diagram-container__outdated-rule')}
+                  key={rule.id}
+                  label={rule.title}
+                  name={rule.id}
+                  valuePropName="checked"
                 >
-                  <Switch checkedChildren="✅" unCheckedChildren="❌" disabled />
+                  <Switch checkedChildren="✅" disabled unCheckedChildren="❌" />
                 </Form.Item>
               );
             }
@@ -299,25 +299,25 @@ export function EditThingModal({
             if (rule.method === 'dependency') {
               return (
                 <Form.Item
-                  key={rule.id}
-                  name={rule.id}
-                  label={rule.title}
-                  valuePropName="checked"
                   className={clsx(thing.updatedAt < rule.updatedAt && 'diagram-container__outdated-rule')}
+                  key={rule.id}
+                  label={rule.title}
+                  name={rule.id}
+                  valuePropName="checked"
                 >
-                  <Switch checkedChildren="✅" unCheckedChildren="❌" disabled />
+                  <Switch checkedChildren="✅" disabled unCheckedChildren="❌" />
                 </Form.Item>
               );
             }
 
             return (
               <Form.Item
-                key={rule.id}
-                name={rule.id}
-                label={rule.title}
                 className={clsx(thing.updatedAt < rule.updatedAt && 'diagram-container__outdated-rule')}
+                key={rule.id}
+                label={rule.title}
+                name={rule.id}
               >
-                <Radio.Group optionType="button" buttonStyle="solid">
+                <Radio.Group buttonStyle="solid" optionType="button">
                   <Radio value={true}>✅</Radio>
                   <Radio value={false}>❌</Radio>
                 </Radio.Group>

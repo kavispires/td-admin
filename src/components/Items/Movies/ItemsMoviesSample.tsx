@@ -43,10 +43,10 @@ export function ItemsMoviesSample({
       dataIndex: 'title',
       render: (title, record) => (
         <MovieEditableCell
+          addEntryToUpdate={addEntryToUpdate}
+          movie={record}
           property="title"
           value={title}
-          movie={record}
-          addEntryToUpdate={addEntryToUpdate}
         />
       ),
     },
@@ -54,7 +54,7 @@ export function ItemsMoviesSample({
       title: 'Year',
       dataIndex: 'year',
       render: (year, record) => (
-        <MovieEditableCell property="year" value={year} movie={record} addEntryToUpdate={addEntryToUpdate} />
+        <MovieEditableCell addEntryToUpdate={addEntryToUpdate} movie={record} property="year" value={year} />
       ),
     },
     Table.EXPAND_COLUMN,
@@ -64,10 +64,10 @@ export function ItemsMoviesSample({
       key: 'itemsIds',
       render: (itemsIds: string[], record) => (
         <MovieItemsCell
-          movie={record}
-          itemsIds={itemsIds}
-          copyToClipboard={copyToClipboard}
           addEntryToUpdate={addEntryToUpdate}
+          copyToClipboard={copyToClipboard}
+          itemsIds={itemsIds}
+          movie={record}
         />
       ),
     },
@@ -81,21 +81,21 @@ export function ItemsMoviesSample({
 
   const expandableProps = useTableExpandableRows<DailyMovieSet>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <AddItemFlow movie={record} addEntryToUpdate={addEntryToUpdate} />,
+    expandedRowRender: (record) => <AddItemFlow addEntryToUpdate={addEntryToUpdate} movie={record} />,
     rowExpandable: () => itemsTypeaheadQuery.isSuccess,
   });
 
   return (
-    <Space direction="vertical" className="my-4">
+    <Space className="my-4" direction="vertical">
       <Button onClick={onGetSample}>Get Random Movie</Button>
       {sampleEntryId && (
         <Table
-          key={String(sampleEntryId)}
           columns={columns}
-          rowKey="id"
           dataSource={[data[sampleEntryId]]}
           expandable={expandableProps}
+          key={String(sampleEntryId)}
           pagination={false}
+          rowKey="id"
         />
       )}
     </Space>

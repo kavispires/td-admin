@@ -42,20 +42,20 @@ export function Comparator({ query }: ComparatorProps) {
       <PasscodeWords />
 
       <FullScreenModal
-        title={`Card A: ${cardAId} vs Card B: ${cardBId}`}
-        open={isOpen}
-        onClose={() => addParam('open', 'false')}
         actions={[
-          <Button key="1" onClick={unrelate} size="large" block>
+          <Button block key="1" onClick={unrelate} size="large">
             Unrelated
           </Button>,
-          <Button key="2" onClick={relate} size="large" block type="primary">
+          <Button block key="2" onClick={relate} size="large" type="primary">
             Related
           </Button>,
         ]}
+        onClose={() => addParam('open', 'false')}
+        open={isOpen}
+        title={`Card A: ${cardAId} vs Card B: ${cardBId}`}
       >
         <Image.PreviewGroup>
-          <Flex className="center" wrap="wrap" justify="center">
+          <Flex className="center" justify="center" wrap="wrap">
             <Flex vertical>
               <ImageCard id={cardAId} width={cardWidth} />
               <Flex>
@@ -109,7 +109,7 @@ function PasscodeWords() {
 
   return (
     <>
-      <Typography.Title level={3} className="center">
+      <Typography.Title className="center" level={3}>
         Passcode Words
       </Typography.Title>
 

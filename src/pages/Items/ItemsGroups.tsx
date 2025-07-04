@@ -18,7 +18,7 @@ export function ItemsGroups() {
   const itemsTypeaheadQuery = useTDResource<Item>('items');
 
   return (
-    <PageLayout title="Items" subtitle="Groups Sets">
+    <PageLayout subtitle="Groups Sets" title="Items">
       <Layout hasSider>
         <PageSider>
           <ItemsGroupsFilters {...groupsQuery} />
@@ -26,9 +26,9 @@ export function ItemsGroups() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={groupsQuery.isLoading || itemsTypeaheadQuery.isLoading}
             error={groupsQuery.error || itemsTypeaheadQuery.error}
             hasResponseData={!isEmpty(groupsQuery.data) && !isEmpty(itemsTypeaheadQuery.data)}
+            isLoading={groupsQuery.isLoading || itemsTypeaheadQuery.isLoading}
           >
             <ItemsGroupsSubPages {...groupsQuery} />
           </DataLoadingWrapper>

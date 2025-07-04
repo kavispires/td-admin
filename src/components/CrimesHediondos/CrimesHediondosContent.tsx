@@ -52,21 +52,21 @@ export function CrimesHediondosContent({
     <>
       {(is('display', 'cards') || !queryParams.has('display')) && (
         <CrimeTableContent
-          rows={rows}
-          onUpdateCard={onUpdateCard}
-          weapons={Object.values(weaponsQuery.data)}
           evidence={Object.values(evidenceQuery.data)}
           locations={Object.values(locationsQuery.data)}
-          victims={Object.values(victimsQuery.data)}
+          onUpdateCard={onUpdateCard}
+          rows={rows}
           scenes={scenesQuery.data}
+          victims={Object.values(victimsQuery.data)}
+          weapons={Object.values(weaponsQuery.data)}
         />
       )}
 
       {is('display', 'tags') && (
-        <Alert type="info" message="Tags table is not implemented yet" showIcon closable />
+        <Alert closable message="Tags table is not implemented yet" showIcon type="info" />
       )}
 
-      {is('display', 'scenes') && <SceneTable sceneQuery={scenesQuery} objects={rows} />}
+      {is('display', 'scenes') && <SceneTable objects={rows} sceneQuery={scenesQuery} />}
     </>
   );
 }

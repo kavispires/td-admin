@@ -38,35 +38,35 @@ export function ImageCardsDescriptorModal({
 
   return (
     <FullScreenModal
-      title={`Image Card Descriptor for ${cardId}`}
-      open={!!cardId}
-      onClose={() => removeParam('cardId')}
-      cover={
-        <Flex justify="center" align="center" style={{ width: '100vw' }}>
-          <ImageCard id={cardId ?? ''} width={cardSize} />
-        </Flex>
-      }
       actions={[
-        <Button key="cancel" className="my-10" onClick={onClose}>
+        <Button className="my-10" key="cancel" onClick={onClose}>
           Close
         </Button>,
-        <Button key="cancel" className="my-10" onClick={onNewCard}>
+        <Button className="my-10" key="cancel" onClick={onNewCard}>
           New Card
         </Button>,
       ]}
+      cover={
+        <Flex align="center" justify="center" style={{ width: '100vw' }}>
+          <ImageCard id={cardId ?? ''} width={cardSize} />
+        </Flex>
+      }
+      onClose={() => removeParam('cardId')}
+      open={!!cardId}
+      title={`Image Card Descriptor for ${cardId}`}
     >
-      <Flex gap={8} vertical key={cardId} style={{ maxWidth: '500px' }}>
+      <Flex gap={8} key={cardId} style={{ maxWidth: '500px' }} vertical>
         <Slider
-          value={cardSize}
-          min={100}
           max={500}
+          min={100}
+          onChange={(v) => addParam('cardSize', v, DEFAULT_CARD_SIZE)}
           step={25}
           style={{ maxWidth: 500, width: '100%' }}
-          onChange={(v) => addParam('cardSize', v, DEFAULT_CARD_SIZE)}
+          value={cardSize}
         />
-        <FavoriteImageCardButton imageCard={imageCard} addEntryToUpdate={addEntryToUpdate} size="large" />
-        <ImageCardKeywordsField imageCard={imageCard} addEntryToUpdate={addEntryToUpdate} size="large" />
-        <ImageCardTriggersField imageCard={imageCard} addEntryToUpdate={addEntryToUpdate} size="large" />
+        <FavoriteImageCardButton addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
+        <ImageCardKeywordsField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
+        <ImageCardTriggersField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
       </Flex>
     </FullScreenModal>
   );
@@ -85,10 +85,10 @@ export function FavoriteImageCardButton({
   const isHearted = imageCard.favorite;
   return (
     <Button
-      shape="circle"
       icon={isHearted ? <HeartFilled style={{ color: 'red' }} /> : <HeartOutlined />}
-      type="text"
       onClick={() => addEntryToUpdate(imageCard.id, { ...imageCard, favorite: !isHearted })}
+      shape="circle"
+      type="text"
       {...buttonProps}
     />
   );
@@ -122,9 +122,9 @@ export function ImageCardKeywordsField({
   return (
     <Input.Search
       defaultValue={imageCard.keywords.join(' ')}
+      enterButton="Update"
       onSearch={(v) => onUpdateKeywords(v)}
       style={{ maxWidth: 500, width: '100%', ...style }}
-      enterButton="Update"
       {...inputProps}
     />
   );
@@ -150,11 +150,9 @@ export function ImageCardTriggersField({
 
   return (
     <Select
-      mode="multiple"
       allowClear
-      style={{ width: '100%', ...style }}
-      placeholder="Please select"
       defaultValue={imageCard?.triggers}
+      mode="multiple"
       onChange={onUpdateTriggers}
       options={[
         { label: 'aliens', value: 'aliens' },
@@ -163,6 +161,8 @@ export function ImageCardTriggersField({
         { label: 'spiders', value: 'spiders' },
         { label: 'scarry', value: 'scarry' },
       ]}
+      placeholder="Please select"
+      style={{ width: '100%', ...style }}
       {...selectProps}
     />
   );

@@ -27,33 +27,33 @@ export function EditCrimeCardModal({ onUpdateCard, card, buttonProps }: EditCrim
     <div>
       <Button
         {...buttonProps}
+        icon={<EditOutlined />}
         onClick={toggleOpen}
         size="small"
-        icon={<EditOutlined />}
         style={{ minWidth: 100 }}
       >
         Edit
       </Button>
       <Modal
-        title={`Editing ${card.id} (${card.name.en})`}
-        open={open}
-        onOk={() => toggleOpen(false)}
         onCancel={toggleOpen}
+        onOk={() => toggleOpen(false)}
+        open={open}
+        title={`Editing ${card.id} (${card.name.en})`}
         width={1000}
       >
         {open && (
           <Space>
             <Space direction="vertical" style={{ minWidth: 150 }}>
-              <CrimeItemCard item={card} cardWidth={100} />
+              <CrimeItemCard cardWidth={100} item={card} />
               <DualLanguageTextField
-                value={card.name}
                 language="en"
                 onPressEnter={(e: any) => editName(e.target?.value || card.name.en, 'en', card)}
+                value={card.name}
               />
               <DualLanguageTextField
-                value={card.name}
                 language="pt"
                 onPressEnter={(e: any) => editName(e.target?.value || card.name.pt, 'pt', card)}
+                value={card.name}
               />
             </Space>
           </Space>

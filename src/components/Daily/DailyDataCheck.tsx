@@ -52,25 +52,25 @@ export function DailyDataCheck() {
     <div>
       <Typography.Title level={2}>Data Verification</Typography.Title>
 
-      <Flex justify="space-between" align="center" className="mb-6">
-        <Flex gap={12} align="center">
+      <Flex align="center" className="mb-6" justify="space-between">
+        <Flex align="center" gap={12}>
           <Space.Compact>
-            <Input placeholder="YYYY-MM-DD" onChange={(e) => onUpdateDate(e.target.value)} />
-            <Button type="primary" onClick={onValidateDate}>
+            <Input onChange={(e) => onUpdateDate(e.target.value)} placeholder="YYYY-MM-DD" />
+            <Button onClick={onValidateDate} type="primary">
               Load
             </Button>
           </Space.Compact>
 
           {selectedDate && (
-            <Flex gap={6} align="center">
+            <Flex align="center" gap={6}>
               <Button icon={<DoubleLeftOutlined />} onClick={onPreviousDate} />
               <span>
                 <Tag>{selectedDate}</Tag>
               </span>
               <Button
+                disabled={selectedDate === getToday()}
                 icon={<DoubleRightOutlined />}
                 onClick={onNextDate}
-                disabled={selectedDate === getToday()}
               />
             </Flex>
           )}
@@ -81,18 +81,18 @@ export function DailyDataCheck() {
             </Tag>
           </span>
 
-          <FirestoreConsoleLink path={`/diario/${selectedDate}`} disabled={!data} />
+          <FirestoreConsoleLink disabled={!data} path={`/diario/${selectedDate}`} />
         </Flex>
       </Flex>
-      <Table loading={isLoading} columns={dailyColumns} dataSource={rows} scroll={{ x: 'max-content' }} />
+      <Table columns={dailyColumns} dataSource={rows} loading={isLoading} scroll={{ x: 'max-content' }} />
       <Divider />
 
-      <Flex justify="space-between" align="center" className="mb-4" wrap>
+      <Flex align="center" className="mb-4" justify="space-between" wrap>
         <CopyToClipboardButton
-          content={JSON.stringify(rows[0], null, 2)}
-          shape="default"
           className="mb-4"
+          content={JSON.stringify(rows[0], null, 2)}
           disabled={!data}
+          shape="default"
         >
           Copy to Clipboard
         </CopyToClipboardButton>
@@ -171,12 +171,12 @@ function DataSearcher({ data }: DataSearcherProps) {
   }, [data]);
 
   return (
-    <Flex vertical gap={8}>
+    <Flex gap={8} vertical>
       <Input.Search
-        placeholder="Search in data..."
         allowClear
         onChange={(e) => handleSearch(e.target.value)}
         onSearch={handleSearch}
+        placeholder="Search in data..."
         style={{ width: 250 }}
       />
       {searchResults.length > 0 && (

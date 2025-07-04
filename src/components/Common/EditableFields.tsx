@@ -16,9 +16,9 @@ type DualLanguageTextFieldProps = {
 export function DualLanguageTextField({ value, language, ...rest }: DualLanguageTextFieldProps) {
   return (
     <Input
-      prefix={<LanguageFlag language={language} width="1em" />}
-      placeholder={`Value in ${language.toUpperCase()}`}
       defaultValue={value[language]}
+      placeholder={`Value in ${language.toUpperCase()}`}
+      prefix={<LanguageFlag language={language} width="1em" />}
       size="small"
       {...rest}
     />
@@ -43,13 +43,13 @@ export function IdField({ value, nsfw }: IdFieldProps) {
   return (
     <span>
       <Input
-        prefix={nsfw ? <FireFilled style={{ color: 'hotPink' }} /> : <IdcardOutlined />}
+        onClick={() => copyToClipboard(value)}
         placeholder="Id"
-        variant="borderless"
+        prefix={nsfw ? <FireFilled style={{ color: 'hotPink' }} /> : <IdcardOutlined />}
+        readOnly
         size="small"
         value={value}
-        readOnly
-        onClick={() => copyToClipboard(value)}
+        variant="borderless"
       />
     </span>
   );

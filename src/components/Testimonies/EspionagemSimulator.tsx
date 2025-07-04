@@ -20,21 +20,21 @@ export function EspionagemSimulator() {
   const suspectsQuery = useTDResource<SuspectCard>('suspects', !isEmpty(entries));
   console.log(countSuspectUse(entries, suspectsQuery.data ?? {}));
   return (
-    <Flex vertical gap={12} className="p-4">
-      <Flex justify="space-between" align="center">
-        <Typography.Title level={4} className="my-0">
+    <Flex className="p-4" gap={12} vertical>
+      <Flex align="center" justify="space-between">
+        <Typography.Title className="my-0" level={4}>
           Espionagem Simulator
         </Typography.Title>
         <Flex gap={6}>
           <InputNumber
-            min={1}
-            max={100}
             defaultValue={1}
+            max={100}
+            min={1}
             onChange={(value) => {
               batchSizeRef.current = value ?? 1;
             }}
           />
-          <Button type="primary" onClick={() => setRun({ batchSize: batchSizeRef.current, history: {} })}>
+          <Button onClick={() => setRun({ batchSize: batchSizeRef.current, history: {} })} type="primary">
             Re-run Simulation
           </Button>
         </Flex>
@@ -72,10 +72,10 @@ function SimulationGame({ entries }: SimulationGameProps) {
 
   return (
     <div className="full-width grid" style={{ gridTemplateColumns: '2fr 3fr' }}>
-      <ReactJsonView src={entries ?? {}} theme="twilight" collapsed={3} />
+      <ReactJsonView collapsed={3} src={entries ?? {}} theme="twilight" />
       <div>
         {entry && (
-          <Flex gap={18} className="p-4">
+          <Flex className="p-4" gap={18}>
             <div>
               <div
                 style={{
@@ -88,17 +88,17 @@ function SimulationGame({ entries }: SimulationGameProps) {
               >
                 {entry.suspects.map((suspect) => (
                   <Badge.Ribbon
+                    color="cyan"
                     key={suspect.id}
                     text={showCulprit ? excludeCounts[suspect.id] : null}
-                    color="cyan"
                   >
                     <SuspectImageCard
-                      key={suspect.id}
-                      id={suspect.id}
-                      width={96}
                       className={clsx(showCulprit && suspect.id === entry.culpritId && 'red-border')}
+                      id={suspect.id}
+                      key={suspect.id}
+                      width={96}
                     />
-                    <Flex gap={6} align="center">
+                    <Flex align="center" gap={6}>
                       <Switch checkedChildren="🚫" size="small" /> {suspect.id}
                     </Flex>
                   </Badge.Ribbon>
@@ -109,34 +109,34 @@ function SimulationGame({ entries }: SimulationGameProps) {
             <div>
               <div>
                 <Switch
-                  checkedChildren="Show Culprit"
-                  unCheckedChildren="Hide Culprit"
                   checked={showCulprit}
+                  checkedChildren="Show Culprit"
                   onChange={setShowCulprit}
+                  unCheckedChildren="Hide Culprit"
                 />
               </div>
               {entry.statements.map((statement) => (
                 <Typography.Paragraph key={statement.key}>
-                  <Badge count={statement.excludes.length} color="cyan">
+                  <Badge color="cyan" count={statement.excludes.length}>
                     <Alert
+                      banner
+                      icon={getStatementIcon(statement.type)}
                       key={statement.key}
                       message={statement.text}
-                      banner
                       type="info"
-                      icon={getStatementIcon(statement.type)}
                     />
                   </Badge>
                 </Typography.Paragraph>
               ))}
               {entry.additionalStatements.map((statement) => (
                 <Typography.Paragraph key={statement.key}>
-                  <Badge count={statement.excludes.length} color="cyan">
+                  <Badge color="cyan" count={statement.excludes.length}>
                     <Alert
+                      banner
+                      icon={getStatementIcon(statement.type)}
                       key={statement.key}
                       message={statement.text}
-                      banner
                       type="warning"
-                      icon={getStatementIcon(statement.type)}
                     />
                   </Badge>
                 </Typography.Paragraph>

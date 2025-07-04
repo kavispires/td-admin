@@ -22,7 +22,7 @@ export function DataLoadingWrapper({
   if (error) {
     return (
       <Layout.Content className="content content-center">
-        <Alert message="Error" description={error.message} type="error" showIcon />
+        <Alert description={error.message} message="Error" showIcon type="error" />
       </Layout.Content>
     );
   }

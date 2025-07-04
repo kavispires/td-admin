@@ -23,15 +23,15 @@ export function FeaturesFilterBar() {
   const { addParam, queryParams } = useQueryParams();
 
   return (
-    <Flex gap={8} align="center" className="my-2">
+    <Flex align="center" className="my-2" gap={8}>
       <Typography.Text>Feature Highlight:</Typography.Text>{' '}
       <Select
-        options={flatFeatures}
-        style={{ width: 200 }}
-        size="small"
-        value={queryParams.get('activeFeature') || undefined}
-        onChange={(value) => addParam('activeFeature', value)}
         allowClear
+        onChange={(value) => addParam('activeFeature', value)}
+        options={flatFeatures}
+        size="small"
+        style={{ width: 200 }}
+        value={queryParams.get('activeFeature') || undefined}
       />
     </Flex>
   );

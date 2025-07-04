@@ -18,13 +18,13 @@ export function ItemAttributionNavigation() {
   const { jumpToItem } = useItemsAttributeValuesContext();
   return (
     <Space.Compact>
-      <Button onClick={() => jumpToItem('first')} icon={<VerticalRightOutlined />}>
+      <Button icon={<VerticalRightOutlined />} onClick={() => jumpToItem('first')}>
         First
       </Button>
-      <Button onClick={() => jumpToItem('previous10')} icon={<DoubleLeftOutlined />}>
+      <Button icon={<DoubleLeftOutlined />} onClick={() => jumpToItem('previous10')}>
         Previous 10
       </Button>
-      <Button onClick={() => jumpToItem('previous')} icon={<LeftOutlined />}>
+      <Button icon={<LeftOutlined />} onClick={() => jumpToItem('previous')}>
         Previous
       </Button>
       <Button onClick={() => jumpToItem('next')}>
@@ -71,12 +71,12 @@ export function ItemAttributionFilterAttributes() {
 
   const content = (
     <Select
-      mode="multiple"
-      style={{ width: 300 }}
-      options={options}
-      value={activeFilters?.split(',')}
-      onChange={(values) => onChangeFilters(values)}
       allowClear
+      mode="multiple"
+      onChange={(values) => onChangeFilters(values)}
+      options={options}
+      style={{ width: 300 }}
+      value={activeFilters?.split(',')}
     />
   );
 
@@ -109,11 +109,11 @@ export function ItemAttributionSortBy() {
 
   const content = (
     <Select
-      style={{ width: 120 }}
-      options={options}
-      value={activeSortBy}
-      onChange={(value) => addParam('sortBy', value)}
       allowClear
+      onChange={(value) => addParam('sortBy', value)}
+      options={options}
+      style={{ width: 120 }}
+      value={activeSortBy}
     />
   );
 

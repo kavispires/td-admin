@@ -25,7 +25,7 @@ export function Emoji({ id, width, className }: EmojiProps): JSX.Element {
 
   return (
     <div className={clsx('sprite', className)} style={{ width: `${width}px`, height: `${width}px` }}>
-      <Sprite source="emojis" id={emojiId} width={width} />
+      <Sprite id={emojiId} source="emojis" width={width} />
     </div>
   );
 }

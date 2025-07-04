@@ -16,7 +16,7 @@ function Suspects() {
   });
 
   return (
-    <PageLayout title="Suspects" subtitle="Information">
+    <PageLayout subtitle="Information" title="Suspects">
       <Layout hasSider>
         <PageSider>
           <SuspectsFilters {...suspectsQuery} />
@@ -24,9 +24,9 @@ function Suspects() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={suspectsQuery.isLoading}
             error={suspectsQuery.error}
             hasResponseData={!isEmpty(suspectsQuery.data)}
+            isLoading={suspectsQuery.isLoading}
           >
             <SuspectsContent {...suspectsQuery} />
           </DataLoadingWrapper>

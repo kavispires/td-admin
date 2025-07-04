@@ -52,6 +52,7 @@ export function Sprite({ id, source, width = 75, padding = 6, title, className }
   if (isLoading) {
     return (
       <span
+        className={className}
         style={{
           width: `${paddedWidth}px`,
           height: `${paddedWidth}px`,
@@ -59,7 +60,6 @@ export function Sprite({ id, source, width = 75, padding = 6, title, className }
           display: 'grid',
           placeItems: 'center',
         }}
-        className={className}
       >
         <Spin />
       </span>
@@ -71,6 +71,7 @@ export function Sprite({ id, source, width = 75, padding = 6, title, className }
   if (isError || !svgContent) {
     return (
       <span
+        className={className}
         style={{
           width: `${paddedWidth}px`,
           height: `${paddedWidth}px`,
@@ -78,7 +79,6 @@ export function Sprite({ id, source, width = 75, padding = 6, title, className }
           display: 'grid',
           placeItems: 'center',
         }}
-        className={className}
       >
         <WarningOutlined />
       </span>
@@ -87,12 +87,12 @@ export function Sprite({ id, source, width = 75, padding = 6, title, className }
 
   return (
     <svg
-      viewBox="0 0 512 512"
-      style={{ width: `${paddedWidth}px`, height: `${paddedWidth}px`, padding }}
       className={className}
+      style={{ width: `${paddedWidth}px`, height: `${paddedWidth}px`, padding }}
+      viewBox="0 0 512 512"
     >
-      <use xlinkHref={`#${id}`} dangerouslySetInnerHTML={{ __html: svgContent }} />
-      <foreignObject x="0" y="0" width="100%" height="100%">
+      <use dangerouslySetInnerHTML={{ __html: svgContent }} xlinkHref={`#${id}`} />
+      <foreignObject height="100%" width="100%" x="0" y="0">
         {title && (
           <Tooltip title={title}>
             <div style={{ background: 'transparent', width: '100%', height: '100vh' }}></div>

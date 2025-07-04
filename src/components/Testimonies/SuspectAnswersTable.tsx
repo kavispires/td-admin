@@ -73,7 +73,7 @@ export function SuspectAnswersTable({
           <Flex vertical>
             <Typography.Text>{names.pt}</Typography.Text>
             <Typography.Text type="secondary">{names.en}</Typography.Text>
-            <Typography.Text type="secondary" italic>
+            <Typography.Text italic type="secondary">
               <small>{record.note}</small>
             </Typography.Text>
           </Flex>
@@ -98,38 +98,38 @@ export function SuspectAnswersTable({
     maxExpandedRows: 1,
     expandedRowRender: (record) => (
       <SuspectAnswersExpandedRow
-        suspect={record}
-        answersPerQuestion={answersPerSuspect[record.id]}
-        questions={questions}
         addEntryToUpdate={addEntryToUpdate}
         allAnswers={data}
+        answersPerQuestion={answersPerSuspect[record.id]}
+        questions={questions}
+        suspect={record}
       />
     ),
     rowExpandable: () => isSuccess,
   });
 
   return (
-    <Flex gap={12} className="full-width py-4" vertical>
-      <Flex justify="space-between" align="center">
-        <Typography.Title level={4} className="my-0">
+    <Flex className="full-width py-4" gap={12} vertical>
+      <Flex align="center" justify="space-between">
+        <Typography.Title className="my-0" level={4}>
           Testimonies by Suspect
         </Typography.Title>
         <Switch
           checked={queryParams.get('sortSuspectsBy') === 'answers'}
-          onChange={(checked) => addParam('sortSuspectsBy', checked ? 'answers' : 'id')}
           checkedChildren="Sort by Answers"
+          onChange={(checked) => addParam('sortSuspectsBy', checked ? 'answers' : 'id')}
           unCheckedChildren="Sort by Id"
         />
       </Flex>
       <Table
-        columns={columns}
-        dataSource={entries}
-        pagination={paginationProps}
-        rowKey="id"
-        expandable={expandableProps}
-        loading={isLoading}
         bordered
         className="full-width"
+        columns={columns}
+        dataSource={entries}
+        expandable={expandableProps}
+        loading={isLoading}
+        pagination={paginationProps}
+        rowKey="id"
       />
     </Flex>
   );

@@ -46,7 +46,7 @@ export function ItemAttributionCard() {
       <Card>
         <Typography.Text type="secondary">
           No item selected.{' '}
-          <Button size="small" type="primary" onClick={() => jumpToItem('random')}>
+          <Button onClick={() => jumpToItem('random')} size="small" type="primary">
             Random Item
           </Button>
         </Typography.Text>
@@ -56,8 +56,8 @@ export function ItemAttributionCard() {
   return (
     <Card>
       <div className="item-attribution-card" key={`${activeItem.id}`}>
-        <Affix offsetTop={120} className="item-attribution-card__item">
-          <Flex vertical gap={6}>
+        <Affix className="item-attribution-card__item" offsetTop={120}>
+          <Flex gap={6} vertical>
             <ItemSprite item={activeItem} width={150} />
             <ItemId item={activeItem} />
             <ItemName item={activeItem} language="en" />
@@ -67,18 +67,18 @@ export function ItemAttributionCard() {
             <ItemAttributeStats attributesList={attributesList} itemAttributeValues={itemAttributeValues} />
             <Divider className="my-2" />
             <Typography.Text type="secondary">
-              <ItemAttributeDescription itemAttributeValues={itemAttributeValues} attributes={attributes} />
+              <ItemAttributeDescription attributes={attributes} itemAttributeValues={itemAttributeValues} />
             </Typography.Text>
           </Flex>
         </Affix>
 
-        <Space size="small" direction="vertical" className="my-4 attribute-button-container" wrap>
+        <Space className="my-4 attribute-button-container" direction="vertical" size="small" wrap>
           {filteredAttributesList.map((attribute) => (
             <AttributionValueButtons
-              key={attribute.id}
               attribute={attribute}
-              value={itemAttributeValues.attributes[attribute.id]}
+              key={attribute.id}
               onChange={onAttributeChange}
+              value={itemAttributeValues.attributes[attribute.id]}
             />
           ))}
         </Space>

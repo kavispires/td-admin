@@ -15,9 +15,9 @@ type FilterSelectProps = {
 export function FilterSelect({ label, value, onChange, options, placeholder }: FilterSelectProps) {
   return (
     <Form.Item label={label}>
-      <Select style={{ minWidth: '150px' }} onChange={onChange} value={value}>
+      <Select onChange={onChange} style={{ minWidth: '150px' }} value={value}>
         {placeholder && (
-          <Select.Option value={''} disabled>
+          <Select.Option disabled value={''}>
             placeholder
           </Select.Option>
         )}
@@ -50,12 +50,12 @@ export function FilterNumber({ label, value, onChange, min = 0, max = 100, step 
   return (
     <Form.Item label={label}>
       <InputNumber
-        min={min}
         max={max}
-        value={value}
+        min={min}
         onChange={(v) => onChange(v ?? max)}
-        style={{ minWidth: '150px', width: '100%' }}
         step={step}
+        style={{ minWidth: '150px', width: '100%' }}
+        value={value}
       />
     </Form.Item>
   );
@@ -71,16 +71,16 @@ type FilterSwitchProps = {
 
 export function FilterSwitch({ label, value, onChange, className, disabled }: FilterSwitchProps) {
   return (
-    <Form.Item label={label} valuePropName="checked" className={className}>
-      <Switch checked={value} onChange={onChange} size="small" disabled={disabled} />
+    <Form.Item className={className} label={label} valuePropName="checked">
+      <Switch checked={value} disabled={disabled} onChange={onChange} size="small" />
     </Form.Item>
   );
 }
 
 export function FilterCheckBox({ label, value, onChange, disabled, className }: FilterSwitchProps) {
   return (
-    <Form.Item label={label} valuePropName="checked" className={className}>
-      <Checkbox checked={value} onChange={(e) => onChange(e.target.checked)} disabled={disabled} />
+    <Form.Item className={className} label={label} valuePropName="checked">
+      <Checkbox checked={value} disabled={disabled} onChange={(e) => onChange(e.target.checked)} />
     </Form.Item>
   );
 }
@@ -97,16 +97,16 @@ export function FilterSegments({ value, label, onChange, options }: FilterSegmen
     <Form.Item label={label} layout={options.length > 2 ? 'vertical' : 'horizontal'}>
       <Segmented
         block
-        value={value}
         onChange={onChange}
         options={options.map((option) => ({
           label: (
-            <Tooltip arrow trigger="hover" title={option.title}>
+            <Tooltip arrow title={option.title} trigger="hover">
               {option.icon}
             </Tooltip>
           ),
           value: option.value,
         }))}
+        value={value}
       />
     </Form.Item>
   );

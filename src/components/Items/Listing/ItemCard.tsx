@@ -29,10 +29,6 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
 
   return (
     <Card
-      title={<Typography.Text onClick={() => copyToClipboard(item.id)}>{item.id}</Typography.Text>}
-      extra={<ItemPopoverOptions item={item} />}
-      style={{ maxWidth: 250 }}
-      size={isSimplified ? 'small' : 'default'}
       actions={
         isSimplified
           ? undefined
@@ -43,47 +39,51 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
               ]
             : [<EditOutlined key="edit" onClick={toggleEditMode} />]
       }
+      extra={<ItemPopoverOptions item={item} />}
+      size={isSimplified ? 'small' : 'default'}
+      style={{ maxWidth: 250 }}
+      title={<Typography.Text onClick={() => copyToClipboard(item.id)}>{item.id}</Typography.Text>}
     >
-      <Item id={item.id} width={isSimplified ? 75 : 125} title={`${item.name.en} | ${item.name.pt}`} />
-      <Space size="small" direction="vertical" className={isSimplified ? 'my-2' : 'my-4'}>
+      <Item id={item.id} title={`${item.name.en} | ${item.name.pt}`} width={isSimplified ? 75 : 125} />
+      <Space className={isSimplified ? 'my-2' : 'my-4'} direction="vertical" size="small">
         <Input
-          prefix={<LanguageFlag language="en" width="1em" />}
-          placeholder="Name in EN"
-          variant={isEditing ? 'outlined' : 'borderless'}
-          size="small"
           defaultValue={item.name.en}
-          readOnly={!isEditing}
           key={`en-${item.name.en}`}
           onChange={(e) => onEdit({ name: { ...editableItem.name, en: e.target.value } })}
+          placeholder="Name in EN"
+          prefix={<LanguageFlag language="en" width="1em" />}
+          readOnly={!isEditing}
+          size="small"
+          variant={isEditing ? 'outlined' : 'borderless'}
         />
         <Input
-          prefix={<LanguageFlag language="pt" width="1em" />}
-          placeholder="Name in PT"
-          variant={isEditing ? 'outlined' : 'borderless'}
-          size="small"
           defaultValue={item.name.pt}
-          readOnly={!isEditing}
           key={`pt-${item.name.pt}`}
           onChange={(e) => onEdit({ name: { ...editableItem.name, pt: e.target.value } })}
+          placeholder="Name in PT"
+          prefix={<LanguageFlag language="pt" width="1em" />}
+          readOnly={!isEditing}
+          size="small"
+          variant={isEditing ? 'outlined' : 'borderless'}
         />
         {!isSimplified && (
           <>
             {!is('hideDecks') && (
               <div>
                 {is('deckCheckboxes') ? (
-                  <ItemDeckCheckboxes item={item} isEditing={isEditing} onEdit={onEdit} decks={decks} />
+                  <ItemDeckCheckboxes decks={decks} isEditing={isEditing} item={item} onEdit={onEdit} />
                 ) : (
                   <Select
-                    mode="multiple"
-                    style={{ width: '100%' }}
-                    placeholder="Select a deck"
                     defaultValue={item.decks}
                     disabled={!isEditing}
-                    options={decks}
-                    variant={isEditing ? 'outlined' : 'borderless'}
-                    size="small"
                     key={String(item.decks)}
+                    mode="multiple"
                     onChange={(value) => onEdit({ decks: value.sort() })}
+                    options={decks}
+                    placeholder="Select a deck"
+                    size="small"
+                    style={{ width: '100%' }}
+                    variant={isEditing ? 'outlined' : 'borderless'}
                   />
                 )}
               </div>
@@ -94,30 +94,30 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
                 <Flex gap={6}>
                   <LanguageFlag language="en" width="1em" />
                   <Select
-                    mode="tags"
-                    style={{ width: '100%' }}
-                    placeholder="Other names EN"
                     defaultValue={item.aliasesEn}
-                    options={[]}
                     disabled={!isEditing}
-                    variant={isEditing ? 'outlined' : 'borderless'}
-                    size="small"
+                    mode="tags"
                     onChange={(aliasesEn) => onEdit({ aliasesEn: aliasesEn.sort() })}
+                    options={[]}
+                    placeholder="Other names EN"
+                    size="small"
+                    style={{ width: '100%' }}
+                    variant={isEditing ? 'outlined' : 'borderless'}
                   />
                 </Flex>
 
                 <Flex gap={6}>
                   <LanguageFlag language="pt" width="1em" />
                   <Select
-                    mode="tags"
-                    style={{ width: '100%' }}
-                    placeholder="Other names PT"
                     defaultValue={item.aliasesPt}
-                    options={[]}
                     disabled={!isEditing}
-                    variant={isEditing ? 'outlined' : 'borderless'}
-                    size="small"
+                    mode="tags"
                     onChange={(aliasesPt) => onEdit({ aliasesPt: aliasesPt.sort() })}
+                    options={[]}
+                    placeholder="Other names PT"
+                    size="small"
+                    style={{ width: '100%' }}
+                    variant={isEditing ? 'outlined' : 'borderless'}
                   />
                 </Flex>
               </>
@@ -135,10 +135,10 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
                 <Form.Item label="nsfw" valuePropName="checked">
                   <Switch
                     checked={item.nsfw}
-                    onChange={(checked) => onEdit({ nsfw: checked })}
-                    size="small"
                     checkedChildren={<FireFilled style={{ color: 'hotpink' }} />}
                     disabled={!isEditing}
+                    onChange={(checked) => onEdit({ nsfw: checked })}
+                    size="small"
                   />
                 </Form.Item>
               </div>

@@ -15,12 +15,12 @@ export function ArteRuimDrawingsFilters(query: ArteRuimDrawingsFiltersProps) {
   const language = queryParams.get('language');
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <DownloadButton
-          data={() => prepareFileForDownload(query.drawings)}
-          fileName={`arte-ruim-drawings-${language}.json`}
-          disabled={!language}
           block
+          data={() => prepareFileForDownload(query.drawings)}
+          disabled={!language}
+          fileName={`arte-ruim-drawings-${language}.json`}
           hasNewData={query.hasFirestoreData}
         />
       </Flex>
@@ -28,14 +28,13 @@ export function ArteRuimDrawingsFilters(query: ArteRuimDrawingsFiltersProps) {
 
       <FilterSelect
         label="Language"
-        value={queryParams.get('language') ?? '--'}
         onChange={(v) => addParam('language', v)}
         options={['--', 'pt', 'en']}
+        value={queryParams.get('language') ?? '--'}
       />
 
       <FilterSegments
         label="Type"
-        value={queryParams.get('display') ?? 'artists'}
         onChange={(v) => addParam('display', v)}
         options={[
           {
@@ -49,6 +48,7 @@ export function ArteRuimDrawingsFilters(query: ArteRuimDrawingsFiltersProps) {
             icon: <UserOutlined />,
           },
         ]}
+        value={queryParams.get('display') ?? 'artists'}
       />
     </SiderContent>
   );

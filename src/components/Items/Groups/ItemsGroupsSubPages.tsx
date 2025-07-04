@@ -89,35 +89,35 @@ export function ItemsGroupsSubPages({
   return (
     <>
       {(is('display', 'group') || !queryParams.has('display')) && (
-        <Space direction="vertical" className="mb-4">
+        <Space className="mb-4" direction="vertical">
           <ItemsGroupsSearch
             data={data}
-            items={itemsTypeaheadQuery.data}
-            grousByItem={grousByItem}
             groupsTypeahead={groupsTypeahead}
-            onUpdateItemGroups={onUpdateItemGroups}
+            grousByItem={grousByItem}
+            items={itemsTypeaheadQuery.data}
             onUpdateGroupItems={onUpdateGroupItems}
+            onUpdateItemGroups={onUpdateItemGroups}
             onUpdateName={onUpdateName}
           />
           <Typography.Title level={2}>Groups ({Object.keys(data).length})</Typography.Title>
           <ItemsGroupsByGroupTable
-            rows={Object.values(data)}
-            items={itemsTypeaheadQuery.data}
-            grousByItem={grousByItem}
             groupsTypeahead={groupsTypeahead}
-            onUpdateItemGroups={onUpdateItemGroups}
+            grousByItem={grousByItem}
+            items={itemsTypeaheadQuery.data}
             onUpdateGroupItems={onUpdateGroupItems}
+            onUpdateItemGroups={onUpdateItemGroups}
             onUpdateName={onUpdateName}
+            rows={Object.values(data)}
           />
         </Space>
       )}
       {is('display', 'item') && (
         <ItemsGroupsByItemTable
-          items={itemsTypeaheadQuery.data}
-          grousByItem={grousByItem}
           groupsTypeahead={groupsTypeahead}
-          onUpdateItemGroups={onUpdateItemGroups}
+          grousByItem={grousByItem}
+          items={itemsTypeaheadQuery.data}
           onUpdateGroupItems={onUpdateGroupItems}
+          onUpdateItemGroups={onUpdateItemGroups}
           onUpdateName={onUpdateName}
         />
       )}

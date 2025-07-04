@@ -20,9 +20,9 @@ export function PromptBuilder() {
   };
 
   return (
-    <Flex gap={8} align="center" className="my-2">
+    <Flex align="center" className="my-2" gap={8}>
       <Typography.Text>Prompt Prefix:</Typography.Text>
-      <Input value={prompt} onChange={handleChange} placeholder="AI Prompt" style={{ width: 320 }} />
+      <Input onChange={handleChange} placeholder="AI Prompt" style={{ width: 320 }} value={prompt} />
     </Flex>
   );
 }
@@ -41,7 +41,7 @@ export function PromptButton({ suspect }: PromptButtonProps) {
   };
 
   return (
-    <Button size="small" onClick={handleClick}>
+    <Button onClick={handleClick} size="small">
       <OpenAIOutlined />
     </Button>
   );

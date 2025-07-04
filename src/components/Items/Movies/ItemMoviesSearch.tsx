@@ -21,12 +21,12 @@ export function ItemsMoviesSearch({
       <Typeahead
         data={data}
         onFinish={(id) => setActiveMovieId(id)}
-        placeholder="Search movie by title..."
         parser={typeaheadParser}
+        placeholder="Search movie by title..."
         style={{ width: '100%', minWidth: 450 }}
       />
 
-      {!!activeMovie && <ItemsMoviesTable rows={[activeMovie]} addEntryToUpdate={addEntryToUpdate} />}
+      {!!activeMovie && <ItemsMoviesTable addEntryToUpdate={addEntryToUpdate} rows={[activeMovie]} />}
     </Space>
   );
 }

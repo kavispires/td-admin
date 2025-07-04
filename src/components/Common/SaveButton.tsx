@@ -61,14 +61,14 @@ export function SaveButton({
 
   return (
     <Button
-      type="primary"
-      size="large"
-      icon={<SaveOutlined />}
-      onClick={onSave}
-      disabled={!isDirty}
-      loading={isSaving}
-      danger
       block
+      danger
+      disabled={!isDirty}
+      icon={<SaveOutlined />}
+      loading={isSaving}
+      onClick={onSave}
+      size="large"
+      type="primary"
       {...buttonProps}
     >
       Save

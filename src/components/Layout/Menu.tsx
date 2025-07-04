@@ -193,13 +193,13 @@ export function Menu() {
 
   return (
     <AntMenu
+      className="header__menu"
+      disabled={pendingSave}
+      items={items}
+      mode="horizontal"
       onClick={onClick}
       selectedKeys={[pathname]}
-      mode="horizontal"
-      items={items}
-      className="header__menu"
       theme="dark"
-      disabled={pendingSave}
     />
   );
 }

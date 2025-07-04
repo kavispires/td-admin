@@ -33,7 +33,7 @@ export function ItemsDiscSetExpandedRow({ disc, addEntryToUpdate }: ItemsDiscSet
         <ItemsTypeahead onFinish={onUpdate} />
       </div>
 
-      <InspirationSample onSelect={onUpdate} excludeList={disc.itemsIds} />
+      <InspirationSample excludeList={disc.itemsIds} onSelect={onUpdate} />
 
       <PasteIds onUpdateBatch={onUpdateBatch} />
     </Flex>

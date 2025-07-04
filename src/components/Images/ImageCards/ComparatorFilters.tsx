@@ -18,29 +18,29 @@ export function ComparatorFilters({ query }: ComparatorFiltersProps) {
   return (
     <PageSider>
       <SiderContent>
-        <Flex vertical gap={6}>
+        <Flex gap={6} vertical>
           <SaveButton
-            isDirty={isDirty}
             dirt={JSON.stringify(data)}
-            onSave={() => save({})}
+            isDirty={isDirty}
             isSaving={isSaving}
+            onSave={() => save({})}
           />
 
           <DownloadButton
+            block
             data={data}
+            disabled={isEmpty(data)}
             fileName="imageCardsRelationships.json"
             loading={isSaving}
-            disabled={isEmpty(data)}
-            block
           />
         </Flex>
       </SiderContent>
 
       <ResponseState
-        isLoading={isLoading || isSaving}
+        hasResponseData={!isEmpty(data)}
         isDirty={isDirty}
         isError={isError}
-        hasResponseData={!isEmpty(data)}
+        isLoading={isLoading || isSaving}
       />
 
       <SiderContent>
@@ -52,9 +52,9 @@ export function ComparatorFilters({ query }: ComparatorFiltersProps) {
 
         <FilterSelect
           label="Cycle Threshold"
-          value={queryParams.get('cycle') || 3}
           onChange={(v) => addParam('cycle', v)}
           options={[1, 3, 5, 10]}
+          value={queryParams.get('cycle') || 3}
         />
       </SiderContent>
     </PageSider>

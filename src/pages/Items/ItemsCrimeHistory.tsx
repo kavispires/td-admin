@@ -11,15 +11,15 @@ export function ItemsCrimeHistorySets() {
   const itemsTypeaheadQuery = useTDResource<Item>('items');
 
   return (
-    <PageLayout title="Items" subtitle="Crime History Random Sets">
+    <PageLayout subtitle="Crime History Random Sets" title="Items">
       <Layout hasSider>
         <PageSider>-</PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={itemsTypeaheadQuery.isLoading}
             error={itemsTypeaheadQuery.error}
             hasResponseData={!isEmpty(itemsTypeaheadQuery.data)}
+            isLoading={itemsTypeaheadQuery.isLoading}
           >
             <ItemsCrimeHistoryTable />
           </DataLoadingWrapper>

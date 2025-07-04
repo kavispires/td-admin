@@ -91,8 +91,8 @@ export function ThingsByRule({
               {thingsByRules[record.id].slice(0, 20).map((itemId) => (
                 <ThingButton
                   key={`${record.id}-${itemId}`}
-                  thing={things[itemId]}
                   onActivateThing={setActiveThing}
+                  thing={things[itemId]}
                 />
               ))}
               {thingsByRules[record.id].length > 20 && (
@@ -104,8 +104,8 @@ export function ThingsByRule({
               {thingsByRules[record.id].slice(0, 5).map((itemId) => (
                 <ThingButton
                   key={`${record.id}-${itemId}`}
-                  thing={things[itemId]}
                   onActivateThing={setActiveThing}
+                  thing={things[itemId]}
                 />
               ))}
               {thingsByRules[record.id].length > 5 && (
@@ -122,7 +122,7 @@ export function ThingsByRule({
       dataIndex: 'level',
       key: 'level',
       sorter: (a, b) => a.level - b.level,
-      render: (level: number) => <Rate value={level} count={3} disabled />,
+      render: (level: number) => <Rate count={3} disabled value={level} />,
     },
   ];
 
@@ -154,13 +154,13 @@ export function ThingsByRule({
 
         <Switch
           checked={is('showThings')}
-          onChange={(e) => addParam('showThings', e)}
           checkedChildren="Hide things"
+          onChange={(e) => addParam('showThings', e)}
           unCheckedChildren="Show things"
         />
       </Space>
 
-      <Table dataSource={rows} columns={columns} pagination={paginationProps} />
+      <Table columns={columns} dataSource={rows} pagination={paginationProps} />
     </Space>
   );
 }

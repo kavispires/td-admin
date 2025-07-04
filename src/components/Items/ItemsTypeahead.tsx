@@ -131,18 +131,18 @@ export function ItemsTypeahead({
 
   return (
     <AutoComplete
-      options={filteredOptions}
-      style={{ width: 250, ...style }}
       allowClear={allowClear ?? true}
-      placeholder={placeholder ?? 'Search by name or id...'}
       filterOption={(inputValue, option) =>
         String(option?.value ?? '')
           .toUpperCase()
           .indexOf(inputValue?.toUpperCase()) !== -1
       }
-      onSearch={setTypedText}
       notFoundContent={typedText.length > 0 ? 'No items found' : 'Type to search...'}
+      onSearch={setTypedText}
       onSelect={onSelect}
+      options={filteredOptions}
+      placeholder={placeholder ?? 'Search by name or id...'}
+      style={{ width: 250, ...style }}
       {...rest}
     >
       <Input onPressEnter={handlePressEnter} />

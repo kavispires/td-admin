@@ -22,30 +22,30 @@ export function ConnectionsFilters() {
   return (
     <PageSider>
       <ResponseState
-        isLoading={isLoading || isSaving}
+        hasResponseData={!isEmpty(data)}
         isDirty={isDirty}
         isError={isError}
-        hasResponseData={!isEmpty(data)}
+        isLoading={isLoading || isSaving}
       />
 
       <SiderContent>
-        <FilterSwitch label="Show Ids" value={showIds} onChange={(c) => setShowIds(c)} />
+        <FilterSwitch label="Show Ids" onChange={(c) => setShowIds(c)} value={showIds} />
 
         <FilterSelect
-          onChange={(value) => setSampleSize(value)}
-          value={sampleSize}
-          options={SAMPLE_SIZE_OPTIONS}
           label="Sample Size"
+          onChange={(value) => setSampleSize(value)}
+          options={SAMPLE_SIZE_OPTIONS}
+          value={sampleSize}
         />
 
         <FilterSelect
-          onChange={(value) => setCardSize(value)}
-          value={cardSize}
-          options={CARD_SIZE_OPTIONS}
           label="Card Size"
+          onChange={(value) => setCardSize(value)}
+          options={CARD_SIZE_OPTIONS}
+          value={cardSize}
         />
 
-        <Button onClick={nextSet} block type="primary">
+        <Button block onClick={nextSet} type="primary">
           New Random Sample
         </Button>
       </SiderContent>
@@ -56,11 +56,11 @@ export function ConnectionsFilters() {
 
       <SiderContent>
         <DownloadButton
+          block
           data={data}
+          disabled={isEmpty(data)}
           fileName="imageCardsRelationships.json"
           loading={isSaving}
-          disabled={isEmpty(data)}
-          block
         />
       </SiderContent>
     </PageSider>

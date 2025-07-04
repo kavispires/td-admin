@@ -17,7 +17,7 @@ export function ItemsMovieSets() {
   });
 
   return (
-    <PageLayout title="Items" subtitle="Movie Sets">
+    <PageLayout subtitle="Movie Sets" title="Items">
       <Layout hasSider>
         <PageSider>
           <ItemsMoviesFilters {...moviesData} />
@@ -25,9 +25,9 @@ export function ItemsMovieSets() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={moviesData.isLoading}
             error={moviesData.error}
             hasResponseData={!isEmpty(moviesData.data)}
+            isLoading={moviesData.isLoading}
           >
             <Space direction="vertical">
               <ItemsMoviesSearch {...moviesData} />

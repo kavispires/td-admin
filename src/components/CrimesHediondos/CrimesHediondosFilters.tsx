@@ -21,45 +21,45 @@ export function CrimesHediondosFilters({
 
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <Flex gap={6}>
-          <Flex vertical gap={6}>
+          <Flex gap={6} vertical>
             <span>Weapons</span>
             <SaveButton
-              isDirty={weaponsQuery.isDirty}
-              onSave={weaponsQuery.save}
-              isSaving={weaponsQuery.isSaving}
               dirt={JSON.stringify(weaponsQuery.entriesToUpdate)}
+              isDirty={weaponsQuery.isDirty}
+              isSaving={weaponsQuery.isSaving}
+              onSave={weaponsQuery.save}
               size="middle"
             />
 
             <DownloadButton
-              data={() => prepareFileForDownload(weaponsQuery.data)}
-              fileName="crime-weapons.json"
-              disabled={weaponsQuery.isDirty}
-              hasNewData={weaponsQuery.hasFirestoreData}
               block
+              data={() => prepareFileForDownload(weaponsQuery.data)}
+              disabled={weaponsQuery.isDirty}
+              fileName="crime-weapons.json"
+              hasNewData={weaponsQuery.hasFirestoreData}
             >
               JSON
             </DownloadButton>
           </Flex>
 
-          <Flex vertical gap={6}>
+          <Flex gap={6} vertical>
             <span>Evidence</span>
             <SaveButton
-              isDirty={evidenceQuery.isDirty}
-              onSave={evidenceQuery.save}
-              isSaving={evidenceQuery.isSaving}
               dirt={JSON.stringify(evidenceQuery.entriesToUpdate)}
+              isDirty={evidenceQuery.isDirty}
+              isSaving={evidenceQuery.isSaving}
+              onSave={evidenceQuery.save}
               size="middle"
             />
 
             <DownloadButton
-              data={() => prepareFileForDownload(evidenceQuery.data)}
-              fileName="crime-evidence.json"
-              disabled={evidenceQuery.isDirty}
-              hasNewData={evidenceQuery.hasFirestoreData}
               block
+              data={() => prepareFileForDownload(evidenceQuery.data)}
+              disabled={evidenceQuery.isDirty}
+              fileName="crime-evidence.json"
+              hasNewData={evidenceQuery.hasFirestoreData}
             >
               JSON
             </DownloadButton>
@@ -67,39 +67,39 @@ export function CrimesHediondosFilters({
         </Flex>
 
         <Flex gap={6}>
-          <Flex vertical gap={6}>
+          <Flex gap={6} vertical>
             <span>Locations</span>
             <SaveButton
-              isDirty={weaponsQuery.isDirty}
-              onSave={weaponsQuery.save}
-              isSaving={weaponsQuery.isSaving}
               dirt={JSON.stringify(weaponsQuery.entriesToUpdate)}
+              isDirty={weaponsQuery.isDirty}
+              isSaving={weaponsQuery.isSaving}
+              onSave={weaponsQuery.save}
               size="middle"
             />
             <DownloadButton
-              data={() => prepareFileForDownload(locationsQuery.data)}
-              fileName="crime-locations.json"
-              disabled={weaponsQuery.isDirty}
-              hasNewData={weaponsQuery.hasFirestoreData}
               block
+              data={() => prepareFileForDownload(locationsQuery.data)}
+              disabled={weaponsQuery.isDirty}
+              fileName="crime-locations.json"
+              hasNewData={weaponsQuery.hasFirestoreData}
             >
               JSON
             </DownloadButton>
           </Flex>
 
-          <Flex vertical gap={6}>
+          <Flex gap={6} vertical>
             <span>Victims</span>
             <SaveButton
-              isDirty={weaponsQuery.isDirty}
-              onSave={weaponsQuery.save}
-              isSaving={weaponsQuery.isSaving}
               dirt={JSON.stringify(weaponsQuery.entriesToUpdate)}
+              isDirty={weaponsQuery.isDirty}
+              isSaving={weaponsQuery.isSaving}
+              onSave={weaponsQuery.save}
               size="middle"
             />
             <DownloadButton
               data={() => prepareFileForDownload(victimsQuery.data)}
-              fileName="crime-victims.json"
               disabled={weaponsQuery.isDirty}
+              fileName="crime-victims.json"
               hasNewData={weaponsQuery.hasFirestoreData}
             >
               JSON
@@ -109,25 +109,24 @@ export function CrimesHediondosFilters({
 
         <span>Scenes</span>
         <SaveButton
-          isDirty={scenesQuery.isDirty}
-          onSave={scenesQuery.save}
-          isSaving={scenesQuery.isSaving}
           dirt={JSON.stringify(scenesQuery.entriesToUpdate)}
+          isDirty={scenesQuery.isDirty}
+          isSaving={scenesQuery.isSaving}
+          onSave={scenesQuery.save}
         />
 
         <DownloadButton
-          data={() => prepareScenesFileForDownload(scenesQuery.data)}
-          fileName="crime-scenes.json"
-          disabled={scenesQuery.isDirty}
-          hasNewData={scenesQuery.hasFirestoreData}
           block
+          data={() => prepareScenesFileForDownload(scenesQuery.data)}
+          disabled={scenesQuery.isDirty}
+          fileName="crime-scenes.json"
+          hasNewData={scenesQuery.hasFirestoreData}
         />
       </Flex>
       <Divider />
 
       <FilterSegments
         label="Display"
-        value={queryParams.get('display') ?? 'listing'}
         onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1 })}
         options={[
           {
@@ -146,13 +145,14 @@ export function CrimesHediondosFilters({
             value: 'scenes',
           },
         ]}
+        value={queryParams.get('display') ?? 'listing'}
       />
 
       {is('display', 'item') && (
         <FilterSwitch
           label="No Groups Only"
-          value={is('emptyOnly')}
           onChange={(mode) => addParam('emptyOnly', mode, false)}
+          value={is('emptyOnly')}
         />
       )}
     </SiderContent>

@@ -28,10 +28,10 @@ export function AlienSign({ id, width = 75, padding = 6, className = '' }: Alien
   return (
     <div className={clsx('sprite', className)} style={{ width: `${width}px`, height: `${width}px`, padding }}>
       <svg
-        viewBox="0 0 512 512"
         style={{ width: `${width - padding * 2}px`, height: `${width - padding * 2}px` }}
+        viewBox="0 0 512 512"
       >
-        <Sprite source="alien-signs" id={id} width={width} />
+        <Sprite id={id} source="alien-signs" width={width} />
       </svg>
     </div>
   );

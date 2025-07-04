@@ -30,10 +30,10 @@ export function ItemsMoviesTable({ rows, addEntryToUpdate }: ItemsMoviesTablePro
       dataIndex: 'title',
       render: (title, record) => (
         <MovieEditableCell
+          addEntryToUpdate={addEntryToUpdate}
+          movie={record}
           property="title"
           value={title}
-          movie={record}
-          addEntryToUpdate={addEntryToUpdate}
         />
       ),
       sorter: (a, b) => a.title.localeCompare(b.title),
@@ -42,7 +42,7 @@ export function ItemsMoviesTable({ rows, addEntryToUpdate }: ItemsMoviesTablePro
       title: 'Year',
       dataIndex: 'year',
       render: (year, record) => (
-        <MovieEditableCell property="year" value={year} movie={record} addEntryToUpdate={addEntryToUpdate} />
+        <MovieEditableCell addEntryToUpdate={addEntryToUpdate} movie={record} property="year" value={year} />
       ),
       sorter: (a, b) => a.year - b.year,
     },
@@ -53,10 +53,10 @@ export function ItemsMoviesTable({ rows, addEntryToUpdate }: ItemsMoviesTablePro
       key: 'itemsIds',
       render: (itemsIds: string[], record) => (
         <MovieItemsCell
-          movie={record}
-          itemsIds={itemsIds}
-          copyToClipboard={copyToClipboard}
           addEntryToUpdate={addEntryToUpdate}
+          copyToClipboard={copyToClipboard}
+          itemsIds={itemsIds}
+          movie={record}
         />
       ),
       sorter: (a, b) => a.itemsIds.length - b.itemsIds.length,
@@ -84,17 +84,17 @@ export function ItemsMoviesTable({ rows, addEntryToUpdate }: ItemsMoviesTablePro
 
   const expandableProps = useTableExpandableRows<DailyMovieSet>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <AddItemFlow movie={record} addEntryToUpdate={addEntryToUpdate} />,
+    expandedRowRender: (record) => <AddItemFlow addEntryToUpdate={addEntryToUpdate} movie={record} />,
     rowExpandable: () => itemsTypeaheadQuery.isSuccess,
   });
 
   return (
     <Table
       columns={columns}
-      rowKey="id"
       dataSource={rows}
       expandable={expandableProps}
       pagination={paginationProps}
+      rowKey="id"
     />
   );
 }
@@ -115,10 +115,10 @@ export function RemoveItemFlow({ movie, addEntryToUpdate, itemId }: RemoveItemFl
 
   return (
     <Popconfirm
-      title="Are you sure you want to remove this item?"
-      onConfirm={onRemove}
-      okText="Yes"
       cancelText="No"
+      okText="Yes"
+      onConfirm={onRemove}
+      title="Are you sure you want to remove this item?"
     >
       <Button icon={<DeleteFilled />} size="small" type="text" />
     </Popconfirm>
@@ -134,13 +134,13 @@ type MovieItemsCellProps = {
 
 export function MovieItemsCell({ movie, itemsIds, copyToClipboard, addEntryToUpdate }: MovieItemsCellProps) {
   return (
-    <Flex gap={6} wrap="wrap" key={`items-${movie.title}`}>
+    <Flex gap={6} key={`items-${movie.title}`} wrap="wrap">
       {itemsIds.map((itemId, index) => (
-        <Flex key={`${movie.title}-${itemId}-${index}`} gap={2} vertical>
+        <Flex gap={2} key={`${movie.title}-${itemId}-${index}`} vertical>
           <Item id={itemId} width={60} />
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
-            <RemoveItemFlow movie={movie} addEntryToUpdate={addEntryToUpdate} itemId={itemId} />
+            <RemoveItemFlow addEntryToUpdate={addEntryToUpdate} itemId={itemId} movie={movie} />
           </Flex>
         </Flex>
       ))}

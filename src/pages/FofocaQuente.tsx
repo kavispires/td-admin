@@ -12,7 +12,7 @@ export function FofocaQuente() {
   const teenageStudentsQuery = useTDResource<TeenageStudent>('teenage-students');
 
   return (
-    <PageLayout title="Fofoca Quente" subtitle="Teenage Student Cards">
+    <PageLayout subtitle="Teenage Student Cards" title="Fofoca Quente">
       <Layout hasSider>
         <PageSider>
           <FofocaQuenteFilters {...teenageStudentsQuery} />
@@ -20,9 +20,9 @@ export function FofocaQuente() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={teenageStudentsQuery.isLoading}
             error={teenageStudentsQuery.error}
             hasResponseData={!isEmpty(teenageStudentsQuery.data)}
+            isLoading={teenageStudentsQuery.isLoading}
           >
             <FofocaQuenteContent {...teenageStudentsQuery} />
           </DataLoadingWrapper>

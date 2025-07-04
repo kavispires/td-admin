@@ -35,13 +35,13 @@ export function ItemsGroupsByItemTable({
     <>
       <Typography.Title level={2}>Groups by Items ({data.length})</Typography.Title>
       <PaginationWrapper pagination={pagination}>
-        <Row gutter={[16, 16]} className="my-4">
+        <Row className="my-4" gutter={[16, 16]}>
           {page.map((item) => (
-            <Col key={item.id} xs={24} sm={24} md={12} lg={6} xl={4}>
+            <Col key={item.id} lg={6} md={12} sm={24} xl={4} xs={24}>
               <ItemGroupsCard
+                groupsTypeahead={groupsTypeahead}
                 item={item}
                 itemGroups={grousByItem[item.id]}
-                groupsTypeahead={groupsTypeahead}
                 onUpdateItemGroups={onUpdateItemGroups}
               />
             </Col>

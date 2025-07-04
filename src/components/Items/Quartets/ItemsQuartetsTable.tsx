@@ -48,10 +48,10 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
       dataIndex: 'title',
       render: (title, record) => (
         <QuartetEditableCell
-          property="title"
-          value={title}
-          quartet={record}
           addEntryToUpdate={addEntryToUpdate}
+          property="title"
+          quartet={record}
+          value={title}
         />
       ),
       sorter: (a, b) => a.title.localeCompare(b.title),
@@ -63,10 +63,10 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
       key: 'itemsIds',
       render: (itemsIds: string[], record) => (
         <QuartetItemsCell
-          quartet={record}
-          itemsIds={itemsIds}
-          copyToClipboard={copyToClipboard}
           addEntryToUpdate={addEntryToUpdate}
+          copyToClipboard={copyToClipboard}
+          itemsIds={itemsIds}
+          quartet={record}
         />
       ),
       sorter: (a, b) => a.itemsIds.length - b.itemsIds.length,
@@ -82,10 +82,10 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
       render: (type, record) => (
         <Select
           defaultValue={type}
+          onChange={(type) => addEntryToUpdate(record.id, { ...record, type })}
           options={TYPES}
           size="small"
           style={{ width: 100 }}
-          onChange={(type) => addEntryToUpdate(record.id, { ...record, type })}
         />
       ),
     },
@@ -95,8 +95,8 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
       render: (level, record) => (
         <Rate
           count={4}
-          value={level}
           onChange={(v) => addEntryToUpdate(record.id, { ...record, level: v })}
+          value={level}
         />
       ),
       sorter: (a, b) => a.level - b.level,
@@ -133,18 +133,18 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
 
   const expandableProps = useTableExpandableRows<DailyQuartetSet>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <AddItemFlow quartet={record} addEntryToUpdate={addEntryToUpdate} />,
+    expandedRowRender: (record) => <AddItemFlow addEntryToUpdate={addEntryToUpdate} quartet={record} />,
     rowExpandable: () => itemsTypeaheadQuery.isSuccess,
   });
 
   return (
     <Table
       columns={columns}
-      rowKey="id"
       dataSource={rows}
       expandable={expandableProps}
       pagination={paginationProps}
       rowClassName={(record) => (record.itemsIds.length >= 4 && !record.level ? 'table-row-error' : '')}
+      rowKey="id"
     />
   );
 }
@@ -165,7 +165,7 @@ export function AddItemFlow({ quartet, addEntryToUpdate }: AddItemFlowProps) {
   return (
     <div>
       <ItemsTypeahead onFinish={onUpdate} />
-      <InspirationSample excludeList={quartet.itemsIds} onSelect={onUpdate} initialQuantity={0} />
+      <InspirationSample excludeList={quartet.itemsIds} initialQuantity={0} onSelect={onUpdate} />
     </div>
   );
 }
@@ -186,10 +186,10 @@ export function RemoveItemFlow({ quartet, addEntryToUpdate, itemId }: RemoveItem
 
   return (
     <Popconfirm
-      title="Are you sure you want to remove this item?"
-      onConfirm={onRemove}
-      okText="Yes"
       cancelText="No"
+      okText="Yes"
+      onConfirm={onRemove}
+      title="Are you sure you want to remove this item?"
     >
       <Button icon={<DeleteFilled />} size="small" type="text" />
     </Popconfirm>
@@ -210,13 +210,13 @@ export function QuartetItemsCell({
   addEntryToUpdate,
 }: QuartetItemsCellProps) {
   return (
-    <Flex gap={6} wrap="wrap" key={`items-${quartet.title}`}>
+    <Flex gap={6} key={`items-${quartet.title}`} wrap="wrap">
       {itemsIds.map((itemId) => (
-        <Flex key={`${quartet.title}-${itemId}`} gap={2} vertical>
+        <Flex gap={2} key={`${quartet.title}-${itemId}`} vertical>
           {itemId ? <Item id={String(itemId)} width={60} /> : '"ERROR"'}
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
-            <RemoveItemFlow quartet={quartet} addEntryToUpdate={addEntryToUpdate} itemId={itemId} />
+            <RemoveItemFlow addEntryToUpdate={addEntryToUpdate} itemId={itemId} quartet={quartet} />
           </Flex>
         </Flex>
       ))}

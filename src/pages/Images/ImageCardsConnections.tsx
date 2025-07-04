@@ -6,7 +6,7 @@ import { PageLayout } from 'components/Layout';
 
 function ImageCardsConnections() {
   return (
-    <PageLayout title="Image Cards" subtitle="Connections">
+    <PageLayout subtitle="Connections" title="Image Cards">
       <ImagesRelationshipsProvider>
         <Layout hasSider>
           <ConnectionsFilters />

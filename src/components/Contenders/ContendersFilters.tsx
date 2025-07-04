@@ -23,20 +23,20 @@ export function ContendersFilters({
   return (
     <>
       <SiderContent>
-        <Flex vertical gap={12}>
+        <Flex gap={12} vertical>
           <SaveButton
-            isDirty={isDirty}
-            onSave={save}
-            isSaving={isSaving}
             dirt={JSON.stringify(entriesToUpdate)}
+            isDirty={isDirty}
+            isSaving={isSaving}
+            onSave={save}
           />
 
           <DownloadButton
-            data={() => prepareFileForDownload(data)}
-            fileName="contenders.json"
-            disabled={isDirty}
-            hasNewData={hasFirestoreData}
             block
+            data={() => prepareFileForDownload(data)}
+            disabled={isDirty}
+            fileName="contenders.json"
+            hasNewData={hasFirestoreData}
           />
         </Flex>
       </SiderContent>
@@ -96,10 +96,10 @@ function DeckCounts({ data }: Pick<ContendersFiltersProps, 'data'>) {
   }, [data]);
 
   return (
-    <Flex vertical gap={8}>
+    <Flex gap={8} vertical>
       <Typography.Text strong>Deck Counts</Typography.Text>
 
-      <Flex vertical gap={8} style={{ maxHeight: '300px', overflowY: 'auto' }}>
+      <Flex gap={8} style={{ maxHeight: '300px', overflowY: 'auto' }} vertical>
         {DECKS.map((entry) => (
           <Typography.Text key={entry.value}>
             {entry.label}: {counts.deckCounts[entry.value] ?? 0}
@@ -110,7 +110,7 @@ function DeckCounts({ data }: Pick<ContendersFiltersProps, 'data'>) {
       <Divider className="my-2" />
 
       <Typography.Text strong>Invalid Decks</Typography.Text>
-      <Flex vertical gap={8} style={{ maxHeight: '300px', overflowY: 'auto' }}>
+      <Flex gap={8} style={{ maxHeight: '300px', overflowY: 'auto' }} vertical>
         {counts.invalidDecks.map((deck) => (
           <Typography.Text key={deck}>{deck}</Typography.Text>
         ))}
@@ -119,7 +119,7 @@ function DeckCounts({ data }: Pick<ContendersFiltersProps, 'data'>) {
       <Divider className="my-2" />
 
       <Typography.Text strong>Exclusivity</Typography.Text>
-      <Flex vertical gap={8}>
+      <Flex gap={8} vertical>
         <Typography.Text>English: {counts.englishExclusivity}</Typography.Text>
         <Typography.Text>Portuguese: {counts.portugueseExclusivity}</Typography.Text>
         <Typography.Text>Both: {counts.bothExclusivity}</Typography.Text>

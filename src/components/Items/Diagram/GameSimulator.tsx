@@ -63,11 +63,11 @@ export function GameSimulator({ things, rules }: GameSimulatorProps) {
     <Space direction="vertical" ref={ref}>
       <Typography.Title level={5}>Game Simulator</Typography.Title>
 
-      <Button size="large" onClick={onSimulate}>
+      <Button onClick={onSimulate} size="large">
         Simulate
       </Button>
 
-      <Button size="large" onClick={onGenerateDemoGames}>
+      <Button onClick={onGenerateDemoGames} size="large">
         Generate Demos (log)
       </Button>
 

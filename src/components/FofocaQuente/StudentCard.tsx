@@ -7,13 +7,12 @@ import type { TeenageStudent } from 'types';
 export function StudentCard({ student }: { student: TeenageStudent }) {
   return (
     <Card
+      cover={<ImageCard id={student.id} preview={false} width={230} />}
       hoverable
       style-={{ width: 230, maxWidth: 230 }}
-      cover={<ImageCard id={student.id} width={230} preview={false} />}
     >
       <Card.Meta
         avatar={getGenderIcon(student)}
-        title={student.name.en}
         description={
           <Flex vertical>
             <Flex>{student.title.en}</Flex>
@@ -30,6 +29,7 @@ export function StudentCard({ student }: { student: TeenageStudent }) {
             </Flex>
           </Flex>
         }
+        title={student.name.en}
       />
       <Card.Meta />
     </Card>

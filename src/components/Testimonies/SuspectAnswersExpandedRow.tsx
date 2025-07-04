@@ -114,18 +114,18 @@ export function SuspectAnswersExpandedRow({
         return (
           <Flex gap={8} wrap="nowrap">
             <PopoverStrongAnswers
-              values={entry.values}
-              resolution={entry.resolution}
-              projection={entry.projection}
-              yesPercentage={entry.yesPercentage}
-              noPercentage={entry.noPercentage}
+              addEntryToUpdate={addEntryToUpdate}
+              answers={allAnswers[entry.question.id] || {}}
+              barWidth={120}
               complete={entry.complete}
               enoughData={entry.enoughData}
+              noPercentage={entry.noPercentage}
+              projection={entry.projection}
+              resolution={entry.resolution}
               suspect={suspect}
               testimonyId={entry.question.id}
-              answers={allAnswers[entry.question.id] || {}}
-              addEntryToUpdate={addEntryToUpdate}
-              barWidth={120}
+              values={entry.values}
+              yesPercentage={entry.yesPercentage}
             />
           </Flex>
         );
@@ -134,12 +134,12 @@ export function SuspectAnswersExpandedRow({
   ];
 
   return (
-    <Space wrap size="large">
-      <Table rowKey="id" columns={columns} dataSource={list} bordered />
+    <Space size="large" wrap>
+      <Table bordered columns={columns} dataSource={list} rowKey="id" />
       <Flex gap={8} vertical>
         <Typography.Title level={5}>Suspect Description</Typography.Title>
 
-        <Input.TextArea value={description} readOnly className="full-width" rows={7} />
+        <Input.TextArea className="full-width" readOnly rows={7} value={description} />
       </Flex>
     </Space>
   );

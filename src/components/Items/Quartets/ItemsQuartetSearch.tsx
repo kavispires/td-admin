@@ -21,11 +21,11 @@ export function ItemsQuartetSearch({
       <Typeahead
         data={data}
         onFinish={(id) => setActiveQuartetId(id)}
-        placeholder="Search quartet by title..."
         parser={typeaheadParser}
+        placeholder="Search quartet by title..."
       />
 
-      {!!activeQuartet && <ItemsQuartetsTable rows={[activeQuartet]} addEntryToUpdate={addEntryToUpdate} />}
+      {!!activeQuartet && <ItemsQuartetsTable addEntryToUpdate={addEntryToUpdate} rows={[activeQuartet]} />}
     </Space>
   );
 }

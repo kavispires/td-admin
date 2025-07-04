@@ -156,42 +156,42 @@ export function ItemSimulation() {
         Generates a board with items different enough to get Deterministic values in all selected attributes.
       </Typography.Paragraph>
 
-      <Flex wrap gap={12}>
+      <Flex gap={12} wrap>
         <FilterSelect
           label="Grid Size"
-          value={gridSize}
           onChange={(value) => setGridSize(value)}
           options={[16, 25]}
+          value={gridSize}
         />
         <FilterNumber
           label="Reliability Threshold"
-          value={reliabilityThreshold}
+          max={100}
+          min={10}
           onChange={(value) => setReliabilityThreshold(value)}
           step={5}
-          min={10}
-          max={100}
+          value={reliabilityThreshold}
         />
-        <FilterSwitch label="NSFW" value={nsfw} onChange={setNsfw} />
+        <FilterSwitch label="NSFW" onChange={setNsfw} value={nsfw} />
         <Button onClick={onGetSample} type="primary">
           Get Sample Board
         </Button>
       </Flex>
-      <Flex wrap gap={12}>
-        <FilterCheckBox label="Show Id" value={!!displays.id} onChange={() => onUpdateDisplays('id')} />
+      <Flex gap={12} wrap>
+        <FilterCheckBox label="Show Id" onChange={() => onUpdateDisplays('id')} value={!!displays.id} />
         <FilterCheckBox
           label="Show Name (EN)"
-          value={!!displays.nameEn}
           onChange={() => onUpdateDisplays('nameEn')}
+          value={!!displays.nameEn}
         />
         <FilterCheckBox
           label="Show Name (PT)"
-          value={!!displays.namePt}
           onChange={() => onUpdateDisplays('namePt')}
+          value={!!displays.namePt}
         />
         <FilterCheckBox
           label="Show Reliability"
-          value={!!displays.reliability}
           onChange={() => onUpdateDisplays('reliability')}
+          value={!!displays.reliability}
         />
       </Flex>
 
@@ -201,15 +201,15 @@ export function ItemSimulation() {
           const itemAttributeValues = getItemAttributeValues(itemId);
           return (
             <Space
-              key={itemId}
-              direction="vertical"
+              align="center"
               className={clsx(
                 'simulator-grid__entry',
                 highlightedAttributeKey &&
                   itemAttributeValues.attributes[highlightedAttributeKey] > 0 &&
                   'simulator-grid__entry--highlighted',
               )}
-              align="center"
+              direction="vertical"
+              key={itemId}
             >
               <Space>
                 <Flex vertical>
@@ -218,14 +218,14 @@ export function ItemSimulation() {
                   {displays.reliability && (
                     <span>
                       <InputNumber
-                        prefix={<LineChartOutlined />}
-                        placeholder="Reliability"
-                        variant="borderless"
-                        size="small"
-                        value={itemAttributeValues.reliability}
-                        readOnly
-                        style={{ width: '8ch' }}
                         formatter={(value) => `${value}%`}
+                        placeholder="Reliability"
+                        prefix={<LineChartOutlined />}
+                        readOnly
+                        size="small"
+                        style={{ width: '8ch' }}
+                        value={itemAttributeValues.reliability}
+                        variant="borderless"
                       />
                     </span>
                   )}
@@ -246,16 +246,16 @@ export function ItemSimulation() {
       <div className="simulator-grid my-4">
         {selectedAttributes.map((attributeSummary) => (
           <TransparentButton
-            key={attributeSummary.id}
             className={clsx(
               'simulator-grid__entry',
               'simulator-grid__button',
               highlightedAttributeKey === attributeSummary.id && 'simulator-grid__entry--highlighted',
             )}
+            key={attributeSummary.id}
             onClick={() => setHighlightedAttributeKey(attributeSummary.id)}
           >
             {attributeSummary.name.en} {ROMAN_NUMERALS[attributeSummary.level]}
-            <Flex gap={6} justify="center" className="my-1">
+            <Flex className="my-1" gap={6} justify="center">
               <span>
                 <CheckSquareOutlined
                   style={{ color: attributeSummary.deterministicCount ? 'dodgerblue' : undefined }}

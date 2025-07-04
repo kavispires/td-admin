@@ -50,7 +50,7 @@ export function Item({ id, width, className, title }: ItemProps) {
       className={clsx('sprite', className)}
       style={{ width: `${width ?? 75}px`, height: `${width ?? 75}px` }}
     >
-      <Sprite source={source} id={itemId} width={width} title={title} />
+      <Sprite id={itemId} source={source} title={title} width={width} />
     </div>
   );
 }

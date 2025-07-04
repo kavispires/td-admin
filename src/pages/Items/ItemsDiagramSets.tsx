@@ -16,7 +16,7 @@ export function ItemsDiagramSets() {
   });
 
   return (
-    <PageLayout title="Items" subtitle="Diagram Sets">
+    <PageLayout subtitle="Diagram Sets" title="Items">
       <Layout hasSider>
         <PageSider>
           <ItemsDiagramFilters {...diagramData} />
@@ -24,11 +24,11 @@ export function ItemsDiagramSets() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={diagramData.isLoading || diagramData.isSaving}
             error={diagramData.error}
             hasResponseData={!isEmpty(diagramData.data)}
+            isLoading={diagramData.isLoading || diagramData.isSaving}
           >
-            <Flex vertical gap={24}>
+            <Flex gap={24} vertical>
               <ItemsDiagramSetsContent {...diagramData} />
             </Flex>
           </DataLoadingWrapper>

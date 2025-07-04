@@ -13,11 +13,11 @@ export function ItemsDiscSetsSubPages({
   return (
     <>
       {(is('display', 'sets') || !queryParams.has('display')) && (
-        <ItemsDiscSetsListing data={data} addEntryToUpdate={addEntryToUpdate} />
+        <ItemsDiscSetsListing addEntryToUpdate={addEntryToUpdate} data={data} />
       )}
 
       {(is('display', 'orphans') || !queryParams.has('display')) && (
-        <OrphanItems data={data} addEntryToUpdate={addEntryToUpdate} />
+        <OrphanItems addEntryToUpdate={addEntryToUpdate} data={data} />
       )}
     </>
   );

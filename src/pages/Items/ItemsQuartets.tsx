@@ -20,7 +20,7 @@ export function ItemsQuartets() {
   });
 
   return (
-    <PageLayout title="Items" subtitle="Quartet Sets">
+    <PageLayout subtitle="Quartet Sets" title="Items">
       <Layout hasSider>
         <PageSider>
           <ItemsQuartetsFilters {...quartetsData} />
@@ -28,14 +28,14 @@ export function ItemsQuartets() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={quartetsData.isLoading}
             error={quartetsData.error}
             hasResponseData={!isEmpty(quartetsData.data)}
+            isLoading={quartetsData.isLoading}
           >
             {queryParams.get('display') === 'simulator' ? (
               <ItemsQuartetsSimulator {...quartetsData} />
             ) : (
-              <Flex vertical gap={24}>
+              <Flex gap={24} vertical>
                 <ItemsQuartetSearch {...quartetsData} />
                 <ItemsQuartetsContent {...quartetsData} />
               </Flex>

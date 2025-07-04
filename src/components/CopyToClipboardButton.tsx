@@ -17,10 +17,10 @@ export function CopyToClipboardButton({
 
   return (
     <Button
-      shape={shape ?? 'circle'}
       icon={icon ?? <CopyOutlined />}
-      size={size ?? 'small'}
       onClick={() => copyToClipboard(content)}
+      shape={shape ?? 'circle'}
+      size={size ?? 'small'}
       {...buttonProps}
     />
   );

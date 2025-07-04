@@ -48,8 +48,8 @@ export function SceneTable({ sceneQuery, objects }: SceneTableProps) {
       key: 'title',
       render: (_, record) => (
         <Space direction="vertical" style={{ minWidth: 150 }}>
-          <DualLanguageTextField value={record.title} language="en" readOnly />
-          <DualLanguageTextField value={record.title} language="pt" readOnly />
+          <DualLanguageTextField language="en" readOnly value={record.title} />
+          <DualLanguageTextField language="pt" readOnly value={record.title} />
         </Space>
       ),
     },
@@ -84,21 +84,21 @@ export function SceneTable({ sceneQuery, objects }: SceneTableProps) {
 
   const expandableProps = useTableExpandableRows<CrimeSceneTile>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <SceneLikelihoodCards scene={record} objects={objects} />,
+    expandedRowRender: (record) => <SceneLikelihoodCards objects={objects} scene={record} />,
   });
 
   return (
     <div className="my-4">
-      <Typography.Title level={2} className="my-0">
+      <Typography.Title className="my-0" level={2}>
         Scenes
       </Typography.Title>
 
       <Table
         columns={columns}
         dataSource={rows}
-        rowKey="id"
         expandable={expandableProps}
         pagination={paginationProps}
+        rowKey="id"
       />
     </div>
   );

@@ -21,12 +21,12 @@ export function ItemsDiscSetsSearch({
       <Typeahead
         data={data}
         onFinish={(id) => setActiveDiscSetId(id)}
-        placeholder="Search disc set by title..."
         parser={typeaheadParser}
+        placeholder="Search disc set by title..."
         style={{ width: '100%', minWidth: 450 }}
       />
 
-      {!!activeDiscSet && <ItemsDiscSetsTable rows={[activeDiscSet]} addEntryToUpdate={addEntryToUpdate} />}
+      {!!activeDiscSet && <ItemsDiscSetsTable addEntryToUpdate={addEntryToUpdate} rows={[activeDiscSet]} />}
     </Space>
   );
 }

@@ -23,7 +23,7 @@ export function FofocaQuenteContent({ data }: FofocaQuenteContentProps) {
         Listing - Fofoca Quente items ({filteredData.length} | {Object.values(data ?? {}).length})
       </Typography.Title>
 
-      <PaginationWrapper pagination={pagination} className="full-width">
+      <PaginationWrapper className="full-width" pagination={pagination}>
         <Flex gap={16} wrap="wrap">
           {page.map((student) => (
             <StudentCard key={student.id} student={student} />

@@ -43,7 +43,7 @@ export function Glyph({ id, width, className }: GlyphProps) {
 
   return (
     <div className={clsx('sprite', className)} style={{ width: `${width}px`, height: `${width}px` }}>
-      <Sprite source={source} id={glyphId} width={width} padding={0} />
+      <Sprite id={glyphId} padding={0} source={source} width={width} />
     </div>
   );
 }

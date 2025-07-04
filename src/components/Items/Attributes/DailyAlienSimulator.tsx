@@ -44,7 +44,7 @@ export function DailyAlienSimulator() {
       <Typography.Paragraph>Generates a daily game for Alien Communication</Typography.Paragraph>
 
       <Space>
-        <Button type="primary" onClick={onSimulate}>
+        <Button onClick={onSimulate} type="primary">
           Generate
         </Button>
         <Button onClick={onSimulateMany}>Generate List</Button>
@@ -54,13 +54,13 @@ export function DailyAlienSimulator() {
         {Boolean(simulation) && (
           <Space direction="vertical" key={simulation?.setId}>
             <Typography.Title level={5}>{simulation?.setId}</Typography.Title>
-            {!simulation?.valid && <Alert type="error" message="Invalid game" />}
+            {!simulation?.valid && <Alert message="Invalid game" type="error" />}
             <Space direction="vertical">
               {simulation?.attributes.map((attr) => (
-                <Flex key={attr.id} gap={8}>
+                <Flex gap={8} key={attr.id}>
                   <AlienSign id={attr.spriteId} width={50} />
                   {attr.itemsIds.map((itemId) => (
-                    <Item key={itemId} id={itemId || '0'} width={50} />
+                    <Item id={itemId || '0'} key={itemId} width={50} />
                   ))}
                 </Flex>
               ))}
@@ -79,7 +79,7 @@ export function DailyAlienSimulator() {
             <Divider className="my-1" />
             <Space direction="horizontal">
               {simulation?.itemsIds.map((itemId) => (
-                <Item key={itemId} id={itemId || '0'} width={50} />
+                <Item id={itemId || '0'} key={itemId} width={50} />
               ))}
             </Space>
           </Space>

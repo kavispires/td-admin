@@ -41,7 +41,7 @@ export function WarehouseGood({ id, width = 75, className }: WarehouseGoodProps)
 
   return (
     <div className={clsx('sprite', className)} style={{ width: `${width}px`, height: `${width}px` }}>
-      <Sprite source={source} id={itemId} width={width} />
+      <Sprite id={itemId} source={source} width={width} />
     </div>
   );
 }

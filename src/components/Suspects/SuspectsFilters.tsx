@@ -41,23 +41,23 @@ export function SuspectsFilters({
   const { addParam, queryParams } = useQueryParams();
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <SaveButton
-          isDirty={isDirty}
-          onSave={save}
-          isSaving={isSaving}
           dirt={JSON.stringify(entriesToUpdate)}
+          isDirty={isDirty}
+          isSaving={isSaving}
+          onSave={save}
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(data)}
-          fileName="suspects.json"
-          disabled={isDirty}
-          hasNewData={hasFirestoreData}
           block
+          data={() => prepareFileForDownload(data)}
+          disabled={isDirty}
+          fileName="suspects.json"
+          hasNewData={hasFirestoreData}
         />
 
-        <FirestoreConsoleLink path={'tdr/suspects'} className="text-center" />
+        <FirestoreConsoleLink className="text-center" path={'tdr/suspects'} />
       </Flex>
 
       <Divider />
@@ -66,22 +66,22 @@ export function SuspectsFilters({
 
       <FilterNumber
         label="Cards Per Row"
-        value={Number(queryParams.get('cardsPerRow') ?? '10')}
-        onChange={(v) => addParam('cardsPerRow', v)}
-        min={2}
         max={12}
+        min={2}
+        onChange={(v) => addParam('cardsPerRow', v)}
+        value={Number(queryParams.get('cardsPerRow') ?? '10')}
       />
       <FilterSelect
         label="Sort By"
-        value={queryParams.get('sortBy') ?? 'id'}
         onChange={(v) => addParam('sortBy', v)}
         options={SORT_BY}
+        value={queryParams.get('sortBy') ?? 'id'}
       />
       <FilterSelect
         label="Other Versions"
-        value={queryParams.get('variant') ?? 'gb'}
         onChange={(v) => addParam('variant', v)}
         options={DEPRECATED_VERSIONS}
+        value={queryParams.get('variant') ?? 'gb'}
       />
       <SuspectsStats data={data} />
     </SiderContent>

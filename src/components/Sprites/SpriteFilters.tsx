@@ -12,9 +12,9 @@ export function SpriteFilters() {
     <SiderContent>
       <FilterSelect
         label="Library"
-        value={queryParams.get('sprite') ?? ''}
         onChange={(value) => addParam('sprite', value)}
         options={SPRITES}
+        value={queryParams.get('sprite') ?? ''}
       />
     </SiderContent>
   );

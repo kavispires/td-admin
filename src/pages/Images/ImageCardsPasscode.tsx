@@ -16,7 +16,7 @@ export function ImageCardsPasscode() {
   });
 
   return (
-    <PageLayout title="Image Cards Passcode Sets" subtitle="Daily Set Entries">
+    <PageLayout subtitle="Daily Set Entries" title="Image Cards Passcode Sets">
       <Layout hasSider>
         <PageSider>
           <ImageCardsPasscodeFilters {...imageCardsPasscodeQuery} />
@@ -24,9 +24,9 @@ export function ImageCardsPasscode() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={imageCardsPasscodeQuery.isLoading}
             error={imageCardsPasscodeQuery.error}
             hasResponseData={!isEmpty(imageCardsPasscodeQuery.data)}
+            isLoading={imageCardsPasscodeQuery.isLoading}
           >
             <ImageCardsPasscodeContent {...imageCardsPasscodeQuery} />
           </DataLoadingWrapper>

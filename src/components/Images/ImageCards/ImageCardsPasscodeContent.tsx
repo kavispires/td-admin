@@ -24,21 +24,21 @@ function ImageCardsPasscodeTable(query: UseResourceFirestoreDataReturnType<Image
   const [searchSetId, setSearchSetId] = useState<string | null>();
 
   return (
-    <Space direction="vertical" className="full-width my-4">
+    <Space className="full-width my-4" direction="vertical">
       <PasscodeSearch data={query.data} onFinish={(setId) => setSearchSetId(setId)} />
       {searchSetId && (
         <>
           <SetsTable
-            sets={[query.data[searchSetId]]}
             addEntryToUpdate={query.addEntryToUpdate}
             hidePagination
+            sets={[query.data[searchSetId]]}
           />
-          <Button size="small" onClick={() => setSearchSetId(null)}>
+          <Button onClick={() => setSearchSetId(null)} size="small">
             Clear search
           </Button>
         </>
       )}
-      <SetsTable sets={allSets} addEntryToUpdate={query.addEntryToUpdate} />
+      <SetsTable addEntryToUpdate={query.addEntryToUpdate} sets={allSets} />
     </Space>
   );
 }

@@ -22,29 +22,29 @@ export function ItemGroupsCard({
 
   return (
     <Card
+      style={{ maxWidth: 250, ...getBorderColor(itemGroups) }}
       title={
         <>
           <Typography.Text onClick={() => copyToClipboard(item.id)}>{item.id}</Typography.Text>
           <ItemNsfw item={item} />
         </>
       }
-      style={{ maxWidth: 250, ...getBorderColor(itemGroups) }}
     >
       <ItemSprite item={item} width={75} />
-      <Space size="small" direction="vertical" className="my-4">
+      <Space className="my-4" direction="vertical" size="small">
         <ItemName item={item} language="en" />
         <ItemName item={item} language="pt" />
 
         <Select
-          mode="multiple"
-          style={{ width: '100%' }}
-          placeholder="Select a group"
           defaultValue={itemGroups}
-          options={groupsTypeahead}
           filterOption={(input, option) => !!option?.label.toLowerCase().includes(input.toLowerCase())}
-          size="small"
           key={String(itemGroups)}
+          mode="multiple"
           onChange={(groups) => onUpdateItemGroups(item.id, groups)}
+          options={groupsTypeahead}
+          placeholder="Select a group"
+          size="small"
+          style={{ width: '100%' }}
         />
       </Space>
     </Card>

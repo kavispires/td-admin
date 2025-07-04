@@ -35,13 +35,13 @@ export function ItemGroupingCard() {
   const paginationComponent = (
     <Flex justify="center">
       <Pagination
+        current={pagination.current}
         key="pagination"
         onChange={pagination.onChange}
-        current={pagination.current}
-        total={pagination.total}
-        pageSizeOptions={pagination.pageSizeOptions}
-        pageSize={pagination.pageSize}
         onShowSizeChange={pagination.onShowSizeChange}
+        pageSize={pagination.pageSize}
+        pageSizeOptions={pagination.pageSizeOptions}
+        total={pagination.total}
       />
     </Flex>
   );
@@ -49,7 +49,7 @@ export function ItemGroupingCard() {
   const sortingComponent = (
     <Flex align="center">
       <Typography.Text className="mr-2">Sort by</Typography.Text>
-      <Select style={{ width: 120 }} value={sorting.sortBy} onChange={(v) => sorting.setSortBy(v)}>
+      <Select onChange={(v) => sorting.setSortBy(v)} style={{ width: 120 }} value={sorting.sortBy}>
         <Select.Option value={null}>Last Updated</Select.Option>
         <Select.Option value="prop::id">Id</Select.Option>
         {attributesList.map((a) => (
@@ -65,37 +65,37 @@ export function ItemGroupingCard() {
   const unrelateButton = isUnsetSet && (
     <Popconfirm
       key="unrelate-button"
-      title={`Are you sure everything is unrelated to ${attribute.name.en}?`}
       onConfirm={updatePageItemsAsUnrelated}
+      title={`Are you sure everything is unrelated to ${attribute.name.en}?`}
     >
-      <Button type="primary" danger disabled={pageIds.length === 0} className="mx-2">
+      <Button className="mx-2" danger disabled={pageIds.length === 0} type="primary">
         Unrelate Unset Items on Page
       </Button>
     </Popconfirm>
   );
   return (
     <Card
+      actions={[
+        <Flex justify="space-between" key="options">
+          {unrelateButton}
+          <ItemGroupAttributeNavigationButtons key="navigation-buttons" />
+        </Flex>,
+        paginationComponent,
+      ].filter(Boolean)}
       className="my-4"
+      extra={
+        <Flex align="center" className="mx-2" justify="space-around">
+          {sortingComponent}
+
+          {paginationComponent}
+        </Flex>
+      }
       title={
         <Typography.Text>
           {attribute?.name.en} ({getStatSentence(stats, queryParams.get('scope'))}) -{' '}
           {attribute.description.en}
         </Typography.Text>
       }
-      extra={
-        <Flex align="center" justify="space-around" className="mx-2">
-          {sortingComponent}
-
-          {paginationComponent}
-        </Flex>
-      }
-      actions={[
-        <Flex key="options" justify="space-between">
-          {unrelateButton}
-          <ItemGroupAttributeNavigationButtons key="navigation-buttons" />
-        </Flex>,
-        paginationComponent,
-      ].filter(Boolean)}
     >
       {pageIds.length === 0 && (
         <Empty
@@ -113,12 +113,12 @@ export function ItemGroupingCard() {
             style={{ width: isNarrow ? '50%' : '25%' }}
           >
             <Flex gap={6}>
-              <Flex vertical gap={6}>
+              <Flex gap={6} vertical>
                 <ItemSprite item={item} width={75} />
                 <ItemId item={item} />
                 <Space.Compact>
                   <ItemGoTo item={item} />
-                  <Button size="small" shape="round" onClick={() => addParam('drawer', item.id)}>
+                  <Button onClick={() => addParam('drawer', item.id)} shape="round" size="small">
                     Drawer
                   </Button>
                 </Space.Compact>
@@ -127,11 +127,11 @@ export function ItemGroupingCard() {
               </Flex>
               <AttributionValueButtons
                 attribute={attribute}
-                value={itemAttributes.attributes[attribute.id]}
-                onlyButtons
                 onChange={(attributeId: string, value: number) =>
                   updateAttributeValue(item.id, attributeId, value)
                 }
+                onlyButtons
+                value={itemAttributes.attributes[attribute.id]}
               />
             </Flex>
           </Card.Grid>
@@ -164,11 +164,11 @@ function ItemGroupAttributeNavigationButtons() {
   };
 
   return (
-    <Flex gap={6} justify="space-between" className="mx-8">
+    <Flex className="mx-8" gap={6} justify="space-between">
       <Button
+        disabled={currentAttribute === attributesList[0]?.id}
         key="previous"
         onClick={onPreviousAttribute}
-        disabled={currentAttribute === attributesList[0]?.id}
       >
         Previous Attribute
       </Button>
@@ -176,9 +176,9 @@ function ItemGroupAttributeNavigationButtons() {
       <GoToTopButton key="go-to-top" />
 
       <Button
+        disabled={currentAttribute === attributesList[attributesList.length - 1]?.id}
         key="next"
         onClick={onNextAttribute}
-        disabled={currentAttribute === attributesList[attributesList.length - 1]?.id}
       >
         Next Attribute
       </Button>

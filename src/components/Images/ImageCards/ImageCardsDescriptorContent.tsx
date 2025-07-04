@@ -14,15 +14,15 @@ export function ImageCardsDescriptorContent(query: UseResourceFirestoreDataRetur
 
   return (
     <DataLoadingWrapper
-      isLoading={imageCardsDecksQuery.isLoading || tdrImagesCredoQuery.isLoading}
-      hasResponseData={imageCardsDecksQuery.hasResponseData || tdrImagesCredoQuery.hasResponseData}
       error={tdrImagesCredoQuery.error ?? imageCardsDecksQuery.error}
+      hasResponseData={imageCardsDecksQuery.hasResponseData || tdrImagesCredoQuery.hasResponseData}
+      isLoading={imageCardsDecksQuery.isLoading || tdrImagesCredoQuery.isLoading}
     >
       <ImageCardsDescriptorTable {...query} />
       <ImageCardsDescriptorModal
         {...query}
-        onNewCard={() => addParam('cardId', imageCardsDecksQuery.onRandomCard())}
         onClose={() => removeParam('cardId')}
+        onNewCard={() => addParam('cardId', imageCardsDecksQuery.onRandomCard())}
       />
     </DataLoadingWrapper>
   );

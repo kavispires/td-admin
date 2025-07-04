@@ -57,7 +57,7 @@ export function ItemRandomizer() {
     <div>
       <Typography.Title level={2}>
         Randomized Sample{' '}
-        <Button size="small" icon={<CopyOutlined />} onClick={onGenerateMidjourneySample}>
+        <Button icon={<CopyOutlined />} onClick={onGenerateMidjourneySample} size="small">
           MJ
         </Button>
       </Typography.Title>
@@ -66,11 +66,11 @@ export function ItemRandomizer() {
         <Form.Item label="Quantity"></Form.Item>
         <div>
           <InputNumber
-            min={3}
             max={15}
-            value={sampleQuantity}
+            min={3}
             onChange={(v) => setSampleQuantity(Number(v))}
             style={{ minWidth: '100px' }}
+            value={sampleQuantity}
           />
         </div>
         <Button onClick={onRandomSample} type="primary">
@@ -78,18 +78,18 @@ export function ItemRandomizer() {
         </Button>
 
         <Dropdown.Button
-          menu={{ items, onClick: onMenuClick }}
           disabled={randomItems.length === 0}
-          onClick={() => copyToClipboard(JSON.stringify(randomItems, null, 2))}
           icon={<CopyOutlined />}
+          menu={{ items, onClick: onMenuClick }}
+          onClick={() => copyToClipboard(JSON.stringify(randomItems, null, 2))}
         >
           Copy
         </Dropdown.Button>
       </Flex>
 
-      <Space wrap className="my-4">
+      <Space className="my-4" wrap>
         {randomItems.map((item) => (
-          <ItemCard key={item.id} item={item} simplified />
+          <ItemCard item={item} key={item.id} simplified />
         ))}
       </Space>
     </div>

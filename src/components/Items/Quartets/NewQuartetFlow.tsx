@@ -50,26 +50,26 @@ export function NewQuartetFlow({ data, addEntryToUpdate }: NewQuartetFlowProps) 
 
   return (
     <>
-      <Button type="dashed" block onClick={() => setOpen(true)}>
+      <Button block onClick={() => setOpen(true)} type="dashed">
         Add New Set
       </Button>
 
       <Modal
-        title="Add Quartet"
-        open={open}
-        width={'80vw'}
-        onCancel={() => setOpen(false)}
-        okButtonProps={{ disabled: !activeQuartet.title, onClick: onEntry }}
         maskClosable={false}
+        okButtonProps={{ disabled: !activeQuartet.title, onClick: onEntry }}
+        onCancel={() => setOpen(false)}
+        open={open}
+        title="Add Quartet"
+        width={'80vw'}
       >
         {Boolean(activeQuartet) && (
           <>
             <ItemsQuartetsTable
-              rows={[activeQuartet]}
               addEntryToUpdate={onLocalUpdate}
               expandedRowKeys={[activeQuartet.id]}
+              rows={[activeQuartet]}
             />
-            <InspirationSample onSelect={onAddSampledItem} excludeList={activeQuartet.itemsIds} />
+            <InspirationSample excludeList={activeQuartet.itemsIds} onSelect={onAddSampledItem} />
           </>
         )}
       </Modal>

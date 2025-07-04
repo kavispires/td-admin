@@ -10,11 +10,11 @@ function ImageCardsComparator() {
   const query = useImageCardsRelationshipData();
 
   return (
-    <PageLayout title="Image Cards" subtitle="Comparator">
+    <PageLayout subtitle="Comparator" title="Image Cards">
       <DataLoadingWrapper
-        isLoading={query.isLoading}
         error={query.error}
         hasResponseData={!isEmpty(query.data)}
+        isLoading={query.isLoading}
       >
         <Layout hasSider>
           <ComparatorFilters query={query} />

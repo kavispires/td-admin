@@ -85,38 +85,38 @@ function SingleWordsExpander() {
   };
 
   return (
-    <PageLayout title="Single Word Expander" subtitle={language ? `${language}` : ''}>
+    <PageLayout subtitle={language ? `${language}` : ''} title="Single Word Expander">
       <Layout hasSider>
         <PageSider>
-          <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResponseState error={error} hasResponseData={hasResponseData} isLoading={isLoading} />
           <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]} />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
+          <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
             <div className="parser-container">
               <div className="parser-main">
                 <SectionTitle>Input New Data</SectionTitle>
 
-                <Input.TextArea name="input" id="" cols={15} rows={5} onChange={onInputChange} />
+                <Input.TextArea cols={15} id="" name="input" onChange={onInputChange} rows={5} />
 
                 <SectionTitle>Output ({Object.keys(output).length})</SectionTitle>
                 <Input.TextArea
-                  name="output"
-                  id=""
                   cols={15}
-                  rows={13}
+                  id=""
+                  name="output"
                   readOnly
+                  rows={13}
                   value={JSON.stringify(output, null, 4)}
                 />
 
                 <SectionTitle>Duplicates ({Object.keys(duplicates).length})</SectionTitle>
                 <Input.TextArea
-                  name="duplicates"
-                  id=""
                   cols={15}
-                  rows={3}
+                  id=""
+                  name="duplicates"
                   readOnly
+                  rows={3}
                   value={JSON.stringify(duplicates, null, 4)}
                 />
               </div>
@@ -126,7 +126,7 @@ function SingleWordsExpander() {
                 <Text>
                   {Object.keys(response ?? {}).length} entries / {Object.keys(reference ?? {}).length}
                 </Text>
-                <SearchDuplicates response={response} property={property} />
+                <SearchDuplicates property={property} response={response} />
               </aside>
             </div>
           </DataLoadingWrapper>

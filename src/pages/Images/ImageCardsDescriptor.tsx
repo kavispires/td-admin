@@ -16,7 +16,7 @@ export function ImageCardsDescriptor() {
   });
 
   return (
-    <PageLayout title="Image Cards" subtitle="Descriptors">
+    <PageLayout subtitle="Descriptors" title="Image Cards">
       <Layout hasSider>
         <PageSider>
           <ImageCardsDescriptorFilters {...imageCardsQuery} />
@@ -24,9 +24,9 @@ export function ImageCardsDescriptor() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={imageCardsQuery.isLoading}
             error={imageCardsQuery.error}
             hasResponseData={!isEmpty(imageCardsQuery.data)}
+            isLoading={imageCardsQuery.isLoading}
           >
             <ImageCardsDescriptorContent {...imageCardsQuery} />
           </DataLoadingWrapper>

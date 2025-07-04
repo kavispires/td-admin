@@ -29,18 +29,18 @@ function ResourceGenerator() {
           <div className="one-side">
             <SectionTitle>Input</SectionTitle>
             <Input.TextArea
-              name="output"
-              id=""
               cols={15}
-              rows={20}
+              id=""
+              name="output"
               onChange={(e) => setInput(e.target.value)}
+              rows={20}
             />
           </div>
           <div className="other-side">
             <SectionTitle>
               Output <CopyToClipboardButton content={stringifiedResult} />
             </SectionTitle>
-            <Input.TextArea name="output" id="" cols={15} rows={20} readOnly value={stringifiedResult} />
+            <Input.TextArea cols={15} id="" name="output" readOnly rows={20} value={stringifiedResult} />
           </div>
         </Layout.Content>
       </Layout>

@@ -76,30 +76,30 @@ export function PopoverStrongAnswers({
 
   return (
     <Popover
-      trigger="click"
-      title={`Add strong fit/unfit answer to ${suspect.name.pt}`}
       content={
-        <Flex vertical gap={4}>
+        <Flex gap={4} vertical>
           <Typography.Text type="secondary">{values.join(', ')}</Typography.Text>
 
-          <Button icon="👍" block onClick={() => onAddStrongFit(suspect.id)}>
+          <Button block icon="👍" onClick={() => onAddStrongFit(suspect.id)}>
             {' '}
             Add strong fit
           </Button>
-          <Button icon="👎" block onClick={() => onAddStrongUnfit(suspect.id)}>
+          <Button block icon="👎" onClick={() => onAddStrongUnfit(suspect.id)}>
             {' '}
             Add strong unfit
           </Button>
           <Space.Compact>
-            <Button icon="❌" size="small" block onClick={() => onRemoveStrongFit(suspect.id)}>
+            <Button block icon="❌" onClick={() => onRemoveStrongFit(suspect.id)} size="small">
               fit
             </Button>
-            <Button icon="❌" size="small" block onClick={() => onRemoveStrongUnfit(suspect.id)}>
+            <Button block icon="❌" onClick={() => onRemoveStrongUnfit(suspect.id)} size="small">
               unfit
             </Button>
           </Space.Compact>
         </Flex>
       }
+      title={`Add strong fit/unfit answer to ${suspect.name.pt}`}
+      trigger="click"
     >
       {showName && (
         <div>
@@ -118,18 +118,18 @@ export function PopoverStrongAnswers({
           {enoughData ? (
             <Progress
               percent={noPercentage + yesPercentage}
+              showInfo={false}
               size={[barWidth, 20]}
               status="exception"
               success={{ percent: yesPercentage }}
-              showInfo={false}
             />
           ) : (
             <Progress
               percent={noPercentage + yesPercentage}
+              showInfo={false}
               size={[barWidth, 10]}
               status="exception"
               success={{ percent: yesPercentage }}
-              showInfo={false}
             />
           )}
         </Tooltip>

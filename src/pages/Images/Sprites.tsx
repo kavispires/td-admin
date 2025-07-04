@@ -26,14 +26,14 @@ function Sprites() {
   const SpriteComponent = activeSprite?.component;
 
   return (
-    <PageLayout title="Images" subtitle="Sprites">
+    <PageLayout subtitle="Sprites" title="Images">
       <Layout hasSider>
         <PageSider>
           <SpriteFilters />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper isLoading={false} error={null} hasResponseData={true}>
+          <DataLoadingWrapper error={null} hasResponseData={true} isLoading={false}>
             <Typography.Title level={2}>
               {activeSprite?.name ?? 'Select a library'}{' '}
               {activeSprite?.quantity ? `(${activeSprite?.quantity})` : ''}
@@ -41,7 +41,7 @@ function Sprites() {
 
             <Space wrap>
               {list.map((id) => (
-                <SpriteComponent key={id} id={id} />
+                <SpriteComponent id={id} key={id} />
               ))}
             </Space>
           </DataLoadingWrapper>

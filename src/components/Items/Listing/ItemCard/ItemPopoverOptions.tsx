@@ -84,29 +84,29 @@ export function ItemPopoverOptions({ item }: ItemPopoverOptionsProps) {
     <Popover
       content={
         <Space direction="vertical">
-          <Button size="small" onClick={() => copyToClipboard(JSON.stringify(item, null, 2))}>
+          <Button onClick={() => copyToClipboard(JSON.stringify(item, null, 2))} size="small">
             Complete Item
           </Button>
-          <Button size="small" onClick={() => copyToClipboard(item.name.en)}>
+          <Button onClick={() => copyToClipboard(item.name.en)} size="small">
             EN Name
           </Button>
-          <Button size="small" onClick={() => copyToClipboard(item.name.pt)}>
+          <Button onClick={() => copyToClipboard(item.name.pt)} size="small">
             PT Name
           </Button>
           <Button
-            size="small"
             onClick={() => copyToClipboard(JSON.stringify(buildEscapeRoomItemCard(item), null, 2))}
+            size="small"
           >
             Escape Room Item
           </Button>
         </Space>
       }
+      onOpenChange={toggleOpen}
+      open={open}
       title="Copy"
       trigger="click"
-      open={open}
-      onOpenChange={toggleOpen}
     >
-      <Button type="text" icon={<MenuOutlined />} />
+      <Button icon={<MenuOutlined />} type="text" />
     </Popover>
   );
 }

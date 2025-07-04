@@ -21,14 +21,14 @@ export function ItemAttributionPageContent() {
   if (display === 'classifier') {
     return (
       <>
-        <Flex className="my-4" gap={8} align="center" wrap>
+        <Flex align="center" className="my-4" gap={8} wrap>
           <ItemAttributionNavigation />
           <ItemAttributionFilterAttributes />
           <ItemAttributionSortBy />
           <FirestoreConsoleLink path="/tdr/itemsAttributeValues" />
         </Flex>
         <ItemAttributionCard />
-        <Flex justify="flex-end" className="my-4">
+        <Flex className="my-4" justify="flex-end">
           <GoToTopButton />
         </Flex>
       </>

@@ -30,16 +30,16 @@ function Resource() {
 
   return (
     <PageLayout
-      title="Resource"
       subtitle={resourceName && language ? `Data for ${resourceName}-${language}` : ''}
+      title="Resource"
     >
       <Layout hasSider>
         <PageSider>
           <ResponseState
-            hasResponseData={hasResponseData}
-            isLoading={isLoading}
             error={error}
+            hasResponseData={hasResponseData}
             isIdle={!enabled}
+            isLoading={isLoading}
           />
           <ResourceSelectionFilters resourceNames={resourceNames} />
           <ResourceDisplayMode />
@@ -47,21 +47,21 @@ function Resource() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={isLoading}
             error={error}
             hasResponseData={hasResponseData}
             isIdle={!enabled}
+            isLoading={isLoading}
           >
             {display === 'json' && (
-              <ResourceJson response={response ?? {}} resourceName={resourceName ?? ''} />
+              <ResourceJson resourceName={resourceName ?? ''} response={response ?? {}} />
             )}
 
             {display === 'table' && (
-              <ResourceTable response={response ?? {}} resourceName={resourceName ?? ''} />
+              <ResourceTable resourceName={resourceName ?? ''} response={response ?? {}} />
             )}
 
             {display === 'cards' && (
-              <ResourceCards response={response ?? {}} resourceName={resourceName ?? ''} />
+              <ResourceCards resourceName={resourceName ?? ''} response={response ?? {}} />
             )}
           </DataLoadingWrapper>
         </Layout.Content>

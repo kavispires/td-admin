@@ -11,7 +11,7 @@ type ThingProps = {
 
 export function Thing({ itemId, name, width = 50 }: ThingProps) {
   return (
-    <Flex vertical align="center">
+    <Flex align="center" vertical>
       <Item id={itemId} width={width} />
       <Typography.Text code key={itemId}>
         {name}

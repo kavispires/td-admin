@@ -26,13 +26,13 @@ export function SearchDuplicates({ response, property }: SearchDuplicatesProps) 
   return (
     <div className="parser-flex-column">
       <SectionTitle>Search Similar</SectionTitle>
-      <Input type="text" onChange={onSearchSimilar} placeholder="Type here" />
+      <Input onChange={onSearchSimilar} placeholder="Type here" type="text" />
       <Input.TextArea
-        name="search-results"
-        id=""
         cols={10}
-        rows={10}
+        id=""
+        name="search-results"
         readOnly
+        rows={10}
         value={JSON.stringify(searchResults, null, 4)}
       />
     </div>

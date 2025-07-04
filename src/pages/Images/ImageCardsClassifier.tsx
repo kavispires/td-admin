@@ -4,7 +4,7 @@ import { PageLayout } from 'components/Layout';
 
 function ImageCardsRelationships() {
   return (
-    <PageLayout title="Image Cards" subtitle="Comparator">
+    <PageLayout subtitle="Comparator" title="Image Cards">
       <ImagesRelationshipsProvider>
         <Layout hasSider>
           {/* <RelationshipsFilters /> */}

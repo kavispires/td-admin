@@ -10,7 +10,6 @@ export function ResourceDisplayMode() {
     <SiderContent>
       <FilterSegments
         label="Display"
-        value={queryParams.get('display') ?? 'json'}
         onChange={(mode) => addParam('display', mode)}
         options={[
           {
@@ -29,6 +28,7 @@ export function ResourceDisplayMode() {
             value: 'cards',
           },
         ]}
+        value={queryParams.get('display') ?? 'json'}
       />
     </SiderContent>
   );

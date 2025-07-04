@@ -15,7 +15,7 @@ export function AddItemFlow({ group, onUpdateGroupItems }: AddItemFlowProps) {
   return (
     <div>
       <ItemsTypeahead onFinish={onUpdate} />
-      <InspirationSample onSelect={onUpdate} excludeList={group.itemsIds} initialQuantity={0} />
+      <InspirationSample excludeList={group.itemsIds} initialQuantity={0} onSelect={onUpdate} />
     </div>
   );
 }

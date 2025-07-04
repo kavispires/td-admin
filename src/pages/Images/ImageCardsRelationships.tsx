@@ -6,7 +6,7 @@ import { PageLayout } from 'components/Layout';
 
 function ImageCardsRelationships() {
   return (
-    <PageLayout title="Image Cards" subtitle="Relationships">
+    <PageLayout subtitle="Relationships" title="Image Cards">
       <ImagesRelationshipsProvider>
         <Layout hasSider>
           <RelationshipsFilters />

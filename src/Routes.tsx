@@ -66,249 +66,249 @@ const TestimoniesPage = lazy(
 export const routes = (
   <Routes>
     <Route
-      path="/"
       element={
         <Suspense fallback={<LoadingPage />}>
           <Home />
         </Suspense>
       }
+      path="/"
     />
     <Route
-      path="/resources/listing"
       element={
         <Suspense fallback={<LoadingPage />}>
           <Resource />
         </Suspense>
       }
+      path="/resources/listing"
     />
     <Route
-      path="/resources/generator"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ResourceGenerator />
         </Suspense>
       }
+      path="/resources/generator"
     />
 
     <Route
-      path="/game/arte-ruim-parser"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ArteRuimParser />
         </Suspense>
       }
+      path="/game/arte-ruim-parser"
     />
     <Route
-      path="/game/arte-ruim-groups"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ArteRuimGroups />
         </Suspense>
       }
+      path="/game/arte-ruim-groups"
     />
     <Route
-      path="/game/arte-ruim-drawings"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ArteRuimDrawings />
         </Suspense>
       }
+      path="/game/arte-ruim-drawings"
     />
     <Route
-      path="/game/crimes-hediondos"
       element={
         <Suspense fallback={<LoadingPage />}>
           <CrimesHediondos />
         </Suspense>
       }
+      path="/game/crimes-hediondos"
     />
     <Route
-      path="/game/fofoca-quente"
       element={
         <Suspense fallback={<LoadingPage />}>
           <FofocaQuente />
         </Suspense>
       }
+      path="/game/fofoca-quente"
     />
     <Route
-      path="/game/contenders"
       element={
         <Suspense fallback={<LoadingPage />}>
           <Contenders />
         </Suspense>
       }
+      path="/game/contenders"
     />
     <Route
-      path="/game/daily"
       element={
         <Suspense fallback={<LoadingPage />}>
           <DailyPage />
         </Suspense>
       }
+      path="/game/daily"
     />
     <Route
-      path="/game/testimonies"
       element={
         <Suspense fallback={<LoadingPage />}>
           <TestimoniesPage />
         </Suspense>
       }
+      path="/game/testimonies"
     />
 
     <Route
-      path="/items"
       element={
         <Suspense fallback={<LoadingPage />}>
           <Items />
         </Suspense>
       }
+      path="/items"
     />
     <Route
-      path="/items/groups"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ItemsGroups />
         </Suspense>
       }
+      path="/items/groups"
     />
     <Route
-      path="/items/attribution"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ItemsAttribution />
         </Suspense>
       }
+      path="/items/attribution"
     />
     <Route
-      path="/items/diagrams"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ItemsDiagramSets />
         </Suspense>
       }
+      path="/items/diagrams"
     />
     <Route
-      path="/items/discs"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ItemsDiscSets />
         </Suspense>
       }
+      path="/items/discs"
     />
     <Route
-      path="/items/movies"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ItemsMovieSets />
         </Suspense>
       }
+      path="/items/movies"
     />
     <Route
-      path="/items/crimes-history"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ItemsCrimeHistory />
         </Suspense>
       }
+      path="/items/crimes-history"
     />
     <Route
-      path="/items/quartets"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ItemsQuartets />
         </Suspense>
       }
+      path="/items/quartets"
     />
 
     <Route
-      path="/images/sprites"
       element={
         <Suspense fallback={<LoadingPage />}>
           <Sprites />
         </Suspense>
       }
+      path="/images/sprites"
     />
     <Route
-      path="/images/suspects"
       element={
         <Suspense fallback={<LoadingPage />}>
           <Suspects />
         </Suspense>
       }
+      path="/images/suspects"
     />
 
     <Route
-      path="/image-cards/decks"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ImageCards />
         </Suspense>
       }
+      path="/image-cards/decks"
     />
     <Route
-      path="/image-cards/descriptor"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ImageCardsDescriptor />
         </Suspense>
       }
+      path="/image-cards/descriptor"
     />
     <Route
-      path="/image-cards/passcode"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ImageCardsPasscode />
         </Suspense>
       }
+      path="/image-cards/passcode"
     />
     <Route
-      path="/image-cards/relationships"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ImageCardsRelationships />
         </Suspense>
       }
+      path="/image-cards/relationships"
     />
     <Route
-      path="/image-cards/comparator"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ImageCardsComparator />
         </Suspense>
       }
+      path="/image-cards/comparator"
     />
     <Route
-      path="/image-cards/connections"
       element={
         <Suspense fallback={<LoadingPage />}>
           <ImageCardsConnections />
         </Suspense>
       }
+      path="/image-cards/connections"
     />
 
     <Route
-      path="/single-words"
       element={
         <Suspense fallback={<LoadingPage />}>
           <SingleWordsExpander />
         </Suspense>
       }
+      path="/single-words"
     />
     <Route
-      path="/playground"
       element={
         <Suspense fallback={<LoadingPage />}>
           <Playground />
         </Suspense>
       }
+      path="/playground"
     />
     <Route
-      path="/movie-maker"
       element={
         <Suspense fallback={<LoadingPage />}>
           <MovieMaker />
         </Suspense>
       }
+      path="/movie-maker"
     />
   </Routes>
 );

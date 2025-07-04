@@ -26,8 +26,8 @@ export function ItemSearch() {
 
       <div>
         <ItemsTypeahead
-          items={items}
           isPending={isLoading || isSaving}
+          items={items}
           onFinish={(id) => setActiveItems([items[id]])}
           onFinishMultiple={(ids) => setActiveItems(removeDuplicates(ids).map((id) => items[id]))}
         />
@@ -48,9 +48,9 @@ export function ItemSearch() {
       )}
       <Flex className="my-4" gap={8} wrap="wrap">
         {activeItems?.map((item) => (
-          <Space direction="vertical" className="my-4" key={item.id}>
+          <Space className="my-4" direction="vertical" key={item.id}>
             <ItemCard item={item} />
-            <Button onClick={() => onFindInListing(item.id)} block icon={<EnvironmentOutlined />}>
+            <Button block icon={<EnvironmentOutlined />} onClick={() => onFindInListing(item.id)}>
               Find in listing
             </Button>
           </Space>

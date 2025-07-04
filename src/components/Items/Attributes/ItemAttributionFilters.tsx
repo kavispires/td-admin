@@ -33,20 +33,20 @@ export function ItemAttributionFilters() {
 
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <SaveButton
-          isDirty={isDirty}
-          onSave={save}
-          isSaving={isSaving}
           dirt={JSON.stringify(attributesToUpdate)}
+          isDirty={isDirty}
+          isSaving={isSaving}
+          onSave={save}
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(prepareItemsAttributesFileForDownload(), attributes)}
-          fileName="items-attribute-values.json"
-          disabled={isDirty}
-          hasNewData={hasFirestoreData}
           block
+          data={() => prepareFileForDownload(prepareItemsAttributesFileForDownload(), attributes)}
+          disabled={isDirty}
+          fileName="items-attribute-values.json"
+          hasNewData={hasFirestoreData}
         />
       </Flex>
       <Divider />
@@ -55,9 +55,9 @@ export function ItemAttributionFilters() {
 
       <FilterSelect
         label="Display"
-        value={display}
         onChange={(v) => addParam('display', v)}
         options={['classifier', 'sampler', 'grouping', 'comparator', 'simulator', 'stats']}
+        value={display}
       />
       <Divider />
 

@@ -47,27 +47,27 @@ export function InspirationSample({ onSelect, excludeList, initialQuantity = 24 
 
   return (
     <div className="mt-2">
-      <Flex gap={12} className="mb-2">
+      <Flex className="mb-2" gap={12}>
         <Typography.Text>
           Inspiration Sample{' '}
           <small>({Object.keys(itemsTypeaheadQuery.data ?? {}).length - usedSampleIds.length})</small>{' '}
         </Typography.Text>
-        <Button size="small" onClick={onSample}>
+        <Button onClick={onSample} size="small">
           Get
         </Button>
-        <Popconfirm title="Are you sure?" onConfirm={onRefresh} okText="Yes" cancelText="No">
-          <Button size="small" icon={<SyncOutlined />} />
+        <Popconfirm cancelText="No" okText="Yes" onConfirm={onRefresh} title="Are you sure?">
+          <Button icon={<SyncOutlined />} size="small" />
         </Popconfirm>
       </Flex>
       <Flex gap={16} wrap="wrap">
         {sampledItems.map((itemId, index) => {
           const item = itemsTypeaheadQuery.data?.[itemId];
           return (
-            <Flex key={`sample-${itemId}-${index}`} gap={2} vertical>
-              <Item id={itemId} width={60} title={`${item.name.en} | ${item.name.pt}`} />
-              <Flex justify="center" gap={6}>
+            <Flex gap={2} key={`sample-${itemId}-${index}`} vertical>
+              <Item id={itemId} title={`${item.name.en} | ${item.name.pt}`} width={60} />
+              <Flex gap={6} justify="center">
                 <Typography.Text>{itemId}</Typography.Text>
-                <Button size="small" shape="circle" onClick={() => onSelect(itemId)}>
+                <Button onClick={() => onSelect(itemId)} shape="circle" size="small">
                   <PlusOutlined />
                 </Button>
               </Flex>

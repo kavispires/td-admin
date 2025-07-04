@@ -16,7 +16,7 @@ export function ItemsDiscSets() {
   });
 
   return (
-    <PageLayout title="Items" subtitle="Disc Sets">
+    <PageLayout subtitle="Disc Sets" title="Items">
       <Layout hasSider>
         <PageSider>
           <ItemsDiscSetsFilters {...discSetsData} />
@@ -24,9 +24,9 @@ export function ItemsDiscSets() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={discSetsData.isLoading || discSetsData.isSaving}
             error={discSetsData.error}
             hasResponseData={!isEmpty(discSetsData.data)}
+            isLoading={discSetsData.isLoading || discSetsData.isSaving}
           >
             <ItemsDiscSetsSubPages {...discSetsData} />
           </DataLoadingWrapper>

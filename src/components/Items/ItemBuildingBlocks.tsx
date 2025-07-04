@@ -24,7 +24,7 @@ export function ItemSprite({
   className,
 }: ItemBlockProps & Pick<ItemBlocksAdditionalProps, 'width' | 'className'>) {
   return (
-    <Item id={item.id} width={width} title={`${item.name.en} | ${item.name.pt}`} className={className} />
+    <Item className={className} id={item.id} title={`${item.name.en} | ${item.name.pt}`} width={width} />
   );
 }
 
@@ -33,14 +33,14 @@ export function ItemId({ item }: ItemBlockProps) {
   return (
     <span>
       <Input
-        prefix={item.nsfw ? <FireFilled style={{ color: 'hotPink' }} /> : <IdcardOutlined />}
-        placeholder="Id"
-        variant="borderless"
-        size="small"
-        value={item.id}
-        readOnly
-        style={{ width: '8ch' }}
         onClick={() => copyToClipboard(item.id)}
+        placeholder="Id"
+        prefix={item.nsfw ? <FireFilled style={{ color: 'hotPink' }} /> : <IdcardOutlined />}
+        readOnly
+        size="small"
+        style={{ width: '8ch' }}
+        value={item.id}
+        variant="borderless"
       />
     </span>
   );
@@ -49,12 +49,12 @@ export function ItemId({ item }: ItemBlockProps) {
 export function ItemName({ item, language }: ItemBlockProps & Pick<ItemBlocksAdditionalProps, 'language'>) {
   return (
     <Input
-      prefix={<LanguageFlag language={language} width="1em" />}
       placeholder={`Name in ${language.toUpperCase()}`}
-      variant="borderless"
+      prefix={<LanguageFlag language={language} width="1em" />}
+      readOnly
       size="small"
       value={item.name[language]}
-      readOnly
+      variant="borderless"
     />
   );
 }
@@ -71,7 +71,7 @@ export function ItemGoTo({ item }: ItemBlockProps) {
 
   return (
     <span>
-      <Button size="small" shape="round" onClick={onGoTo}>
+      <Button onClick={onGoTo} shape="round" size="small">
         Go to
       </Button>
     </span>

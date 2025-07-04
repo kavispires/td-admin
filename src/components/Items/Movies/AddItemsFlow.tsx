@@ -83,11 +83,11 @@ function ItemsSuggestions({ movie, onUpdate }: ItemsSuggestionsProps) {
         {suggestions.map((itemId, index) => {
           const item = itemsTypeaheadQuery.data?.[itemId];
           return (
-            <Flex key={`sample-${itemId}-${index}`} gap={2} vertical>
-              <Item id={itemId} width={60} title={`${item.name.en} | ${item.name.pt}`} />
-              <Flex justify="center" gap={6}>
+            <Flex gap={2} key={`sample-${itemId}-${index}`} vertical>
+              <Item id={itemId} title={`${item.name.en} | ${item.name.pt}`} width={60} />
+              <Flex gap={6} justify="center">
                 <Typography.Text>{itemId}</Typography.Text>
-                <Button size="small" shape="circle" onClick={() => onUpdate(itemId)}>
+                <Button onClick={() => onUpdate(itemId)} shape="circle" size="small">
                   <PlusOutlined />
                 </Button>
               </Flex>

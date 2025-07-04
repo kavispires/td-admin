@@ -26,27 +26,26 @@ export function ItemsGroupsFilters({
 
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <SaveButton
-          isDirty={isDirty}
-          onSave={save}
-          isSaving={isSaving}
           dirt={JSON.stringify(prepareObjectToSave(entriesToUpdate))}
+          isDirty={isDirty}
+          isSaving={isSaving}
+          onSave={save}
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(data, tdrItemsQuery.data)}
-          fileName="items-groups.json"
-          disabled={isDirty || isEmpty(tdrItemsQuery.data)}
-          hasNewData={hasFirestoreData}
           block
+          data={() => prepareFileForDownload(data, tdrItemsQuery.data)}
+          disabled={isDirty || isEmpty(tdrItemsQuery.data)}
+          fileName="items-groups.json"
+          hasNewData={hasFirestoreData}
         />
       </Flex>
       <Divider />
 
       <FilterSegments
         label="Display"
-        value={queryParams.get('display') ?? 'group'}
         onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1 })}
         options={[
           {
@@ -60,15 +59,16 @@ export function ItemsGroupsFilters({
             value: 'item',
           },
         ]}
+        value={queryParams.get('display') ?? 'group'}
       />
 
-      <AddNewGroupFlow data={data} addEntryToUpdate={addEntryToUpdate} />
+      <AddNewGroupFlow addEntryToUpdate={addEntryToUpdate} data={data} />
 
       {is('display', 'item') && (
         <FilterSwitch
           label="No Groups Only"
-          value={is('emptyOnly')}
           onChange={(mode) => addParam('emptyOnly', mode, false)}
+          value={is('emptyOnly')}
         />
       )}
     </SiderContent>

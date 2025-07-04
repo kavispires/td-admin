@@ -28,10 +28,10 @@ export function ContendersContent({ data, addEntryToUpdate }: ContendersContentP
         Listing - Contenders ({filteredData.length} | {Object.values(data ?? {}).length})
       </Typography.Title>
 
-      <PaginationWrapper pagination={pagination} className="full-width">
+      <PaginationWrapper className="full-width" pagination={pagination}>
         <Flex gap={16} wrap="wrap">
           {page.map((entry) => (
-            <ContenderEditCard key={entry.id} contender={entry} addEntryToUpdate={addEntryToUpdate} />
+            <ContenderEditCard addEntryToUpdate={addEntryToUpdate} contender={entry} key={entry.id} />
           ))}
         </Flex>
       </PaginationWrapper>

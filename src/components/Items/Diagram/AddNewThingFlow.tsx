@@ -70,19 +70,19 @@ export function AddNewThingFlow({ addEntryToUpdate, availableThings, rules, widt
 
   return (
     <>
-      <Button size="large" onClick={onActivateThing}>
+      <Button onClick={onActivateThing} size="large">
         Classify New Item
       </Button>
       {!!activeThing && (
         <EditThingModal
           isModalOpen={activeThing !== null}
-          onSaveThing={onAddItem}
-          onCancel={() => setActiveThing(null)}
-          thing={activeThing}
-          rules={rules}
-          width={width * 0.9}
           itemAliases={aliases as string[]}
+          onCancel={() => setActiveThing(null)}
           onGiveAnotherThing={onGiveAnotherThing}
+          onSaveThing={onAddItem}
+          rules={rules}
+          thing={activeThing}
+          width={width * 0.9}
         />
       )}
     </>

@@ -49,7 +49,7 @@ export function RulesByThing({
       dataIndex: 'itemId',
       key: 'sprite',
       render: (itemId: string) => (
-        <ThingButton key={`i-${itemId}`} thing={things[itemId]} onActivateThing={setActiveThing} />
+        <ThingButton key={`i-${itemId}`} onActivateThing={setActiveThing} thing={things[itemId]} />
       ),
     },
     {
@@ -59,7 +59,7 @@ export function RulesByThing({
       render: (itemRules: string[], record) => (
         <Space wrap>
           {itemRules.map((ruleId) => (
-            <Tooltip title={rules[ruleId].title} key={ruleId}>
+            <Tooltip key={ruleId} title={rules[ruleId].title}>
               <Tag color={rules[ruleId].updatedAt > record.updatedAt ? 'red' : undefined}>{ruleId}</Tag>
             </Tooltip>
           ))}
@@ -103,7 +103,7 @@ export function RulesByThing({
 
       <Divider />
 
-      <Table dataSource={rows} columns={columns} rowKey="itemId" pagination={paginationProps} />
+      <Table columns={columns} dataSource={rows} pagination={paginationProps} rowKey="itemId" />
 
       <Divider />
 
@@ -111,10 +111,10 @@ export function RulesByThing({
       <Space wrap>
         {duplicatedThings.length === 0 && <Typography.Text>No duplicated things</Typography.Text>}
         {duplicatedThings.map((ids) => (
-          <Flex key={ids[0]} align="center">
+          <Flex align="center" key={ids[0]}>
             <Tag color="red">{ids.length}</Tag>
             {ids.map((itemId) => (
-              <ThingButton key={`i-${itemId}`} thing={things[itemId]} onActivateThing={setActiveThing} />
+              <ThingButton key={`i-${itemId}`} onActivateThing={setActiveThing} thing={things[itemId]} />
             ))}
           </Flex>
         ))}

@@ -25,21 +25,21 @@ function ImageCards() {
   const [cardWidth, ref] = useCardWidth(cardsPerRow);
 
   return (
-    <PageLayout title="Images" subtitle="Image Cards">
+    <PageLayout subtitle="Image Cards" title="Images">
       <Layout hasSider>
         <PageSider>
-          <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResponseState error={error} hasResponseData={hasResponseData} isLoading={isLoading} />
           <ImageCardsFilters
+            cardsPerRow={cardsPerRow}
             decksData={data}
             selectedDeck={deck}
-            setSelectedDeck={(d) => addParam('deck', d)}
-            cardsPerRow={cardsPerRow}
             setCardsPerRow={setCardsPerRow}
+            setSelectedDeck={(d) => addParam('deck', d)}
           />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
+          <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
             <Typography.Title level={2}>
               Deck {deck} ({DECK.length})
             </Typography.Title>
@@ -49,7 +49,7 @@ function ImageCards() {
                 countRender: (current, total) => {
                   const id = `td-${deck}-${current.toString().padStart(2, '0')}`;
                   return (
-                    <Space direction="vertical" align="center">
+                    <Space align="center" direction="vertical">
                       <Typography.Text>
                         {current} / {total}
                       </Typography.Text>
@@ -59,13 +59,13 @@ function ImageCards() {
                 },
               }}
             >
-              <Space ref={ref} wrap className="my-2" key={deck}>
+              <Space className="my-2" key={deck} ref={ref} wrap>
                 {Boolean(deck) &&
                   DECK.map((e, i) => {
                     const num = e + i < 10 ? `0${e + i}` : `${e + i}`;
                     const id = `td-${deck}-${num}`;
 
-                    return <ImageCard id={id} width={cardWidth} key={id} />;
+                    return <ImageCard id={id} key={id} width={cardWidth} />;
                   })}
               </Space>
             </Image.PreviewGroup>

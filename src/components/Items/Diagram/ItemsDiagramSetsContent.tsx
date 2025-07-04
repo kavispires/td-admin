@@ -81,55 +81,55 @@ export function ItemsDiagramSetsContent({
 
   return (
     <DataLoadingWrapper
-      isLoading={tdrItemsQuery.isLoading || tdrDiagramRulesQuery.isLoading}
       hasResponseData={tdrItemsQuery.hasResponseData || tdrDiagramRulesQuery.hasResponseData}
+      isLoading={tdrItemsQuery.isLoading || tdrDiagramRulesQuery.isLoading}
     >
       <div ref={ref}>
-        <ItemUpdateGuard things={data} rules={rules} addEntryToUpdate={addEntryToUpdate}>
+        <ItemUpdateGuard addEntryToUpdate={addEntryToUpdate} rules={rules} things={data}>
           {activeThing && (
             <EditThingModal
               isModalOpen={activeThing !== null}
+              okButtonText="Update"
+              onCancel={() => setActiveThing(null)}
               onSaveThing={(at) => {
                 onUpdateThing(at);
                 setActiveThing(null);
               }}
-              onCancel={() => setActiveThing(null)}
-              thing={activeThing}
               rules={rules}
-              okButtonText="Update"
+              thing={activeThing}
               width={containerWidth}
             />
           )}
 
           {(is('display', 'rule') || !queryParams.has('display')) && (
             <ThingsByRule
-              things={data}
               addEntryToUpdate={addEntryToUpdate}
               availableThings={availableThings}
-              rules={rules}
-              thingsByRules={thingsByRules}
-              setActiveThing={setActiveThing}
               containerWidth={containerWidth}
+              rules={rules}
+              setActiveThing={setActiveThing}
+              things={data}
+              thingsByRules={thingsByRules}
             />
           )}
 
           {is('display', 'thing') && (
             <RulesByThing
-              things={data}
               addEntryToUpdate={addEntryToUpdate}
               availableThings={availableThings}
               rules={rules}
-              thingsByRules={thingsByRules}
               setActiveThing={setActiveThing}
+              things={data}
+              thingsByRules={thingsByRules}
             />
           )}
 
           {is('display', 'simulator') && (
             <GameSimulator
-              things={data}
               addEntryToUpdate={addEntryToUpdate}
               availableThings={availableThings}
               rules={rules}
+              things={data}
             />
           )}
         </ItemUpdateGuard>

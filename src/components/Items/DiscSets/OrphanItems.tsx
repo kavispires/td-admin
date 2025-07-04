@@ -83,25 +83,25 @@ export function OrphanItems({ data, addEntryToUpdate }: OrphanItemsProps) {
       <Space className="mb-4">
         <Switch
           checkedChildren="Only Orphans"
-          unCheckedChildren="All Items"
           onChange={(value) => addParam('onlyOrphans', value, false)}
+          unCheckedChildren="All Items"
         />
       </Space>
 
-      <Drawer title="Add Item to Set" open={!!activeItem} onClose={() => setActiveItem(null)}>
+      <Drawer onClose={() => setActiveItem(null)} open={!!activeItem} title="Add Item to Set">
         {!!activeItem && (
           <DrawerContent
             activeItem={activeItem}
             activeItemSets={itemsSets?.[activeItem] ?? []}
+            addEntryToUpdate={addEntryToUpdate}
+            data={data}
             latestSetId={latestSetId}
             setLatestSetId={setLatestSetId}
             sortedSets={sortedSets}
-            data={data}
-            addEntryToUpdate={addEntryToUpdate}
           />
         )}
       </Drawer>
-      <PaginationWrapper pagination={pagination} className="full-width">
+      <PaginationWrapper className="full-width" pagination={pagination}>
         <Flex gap={16} wrap="wrap">
           {page.map((item) => (
             <TransparentButton key={item.id} onClick={() => setActiveItem(item.id)}>
@@ -162,18 +162,18 @@ export function DrawerContent({
   const options = sortedSets.map((set) => ({ value: set.id, label: set.title.pt }));
 
   return (
-    <Flex vertical gap={16}>
+    <Flex gap={16} vertical>
       <Item id={activeItem} />
-      <Button type="primary" onClick={onAdd} disabled={isEqual(activeItemSets, selections)}>
+      <Button disabled={isEqual(activeItemSets, selections)} onClick={onAdd} type="primary">
         Save to Sets
       </Button>
-      <Select onChange={onSelect} mode="tags" value={selections} options={options}></Select>
-      <Flex wrap="wrap" gap={8}>
+      <Select mode="tags" onChange={onSelect} options={options} value={selections}></Select>
+      <Flex gap={8} wrap="wrap">
         {sortedSets.map((set) => (
           <Tag
+            color={selections.includes(set.id) ? 'gold' : undefined}
             key={set.id}
             onClick={() => onToggleToSelection(set.id)}
-            color={selections.includes(set.id) ? 'gold' : undefined}
           >
             {set.title.pt}
           </Tag>

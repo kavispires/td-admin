@@ -54,17 +54,17 @@ export function ImageCardsPasscodeCreate(query: ImageCardsPasscodeProps) {
   }, [placeholderSets]);
 
   return (
-    <Space direction="vertical" className="full-width">
-      <Button type="primary" onClick={onAddEntriesToDatabase} disabled={!isDirty}>
+    <Space className="full-width" direction="vertical">
+      <Button disabled={!isDirty} onClick={onAddEntriesToDatabase} type="primary">
         Add Entries
       </Button>
-      <SetsTable sets={placeholderSets} addEntryToUpdate={updateEntry} />
+      <SetsTable addEntryToUpdate={updateEntry} sets={placeholderSets} />
 
       <Button icon={<PlusOutlined />} onClick={onAddRow}>
         Add row
       </Button>
       <Divider />
-      <ImageCardMultiCreate data={query.data} addEntryToUpdate={query.addEntryToUpdate} />
+      <ImageCardMultiCreate addEntryToUpdate={query.addEntryToUpdate} data={query.data} />
     </Space>
   );
 }
@@ -124,26 +124,26 @@ function ImageCardMultiCreate({ data, addEntryToUpdate }: ImageCardMultiCreatePr
 
   return (
     <>
-      <Typography.Title level={4} className="my-0">
+      <Typography.Title className="my-0" level={4}>
         Create Image Card Multiprompt
       </Typography.Title>
       <Space className="full-width">
-        <Flex vertical gap={8}>
+        <Flex gap={8} vertical>
           <Flex>
             <Input
               onChange={(e) => setImageIdInput(e.target.value)}
-              placeholder="Image Card ID"
               onPressEnter={onLoadImageCard}
+              placeholder="Image Card ID"
               value={imageIdInput}
             />
             <Button onClick={onSetRandomCard}>Random</Button>
           </Flex>
           <ImageCard id={imageId} width={200} />
         </Flex>
-        <Flex vertical gap={8}>
+        <Flex gap={8} vertical>
           <Flex>
-            <Input placeholder="Names" onChange={(e) => setNamesInput(e.target.value)} value={namesInput} />
-            <Button type="primary" disabled={!imageId || !namesInput} onClick={onProcessNewEntries}>
+            <Input onChange={(e) => setNamesInput(e.target.value)} placeholder="Names" value={namesInput} />
+            <Button disabled={!imageId || !namesInput} onClick={onProcessNewEntries} type="primary">
               Process
             </Button>
           </Flex>
@@ -153,9 +153,9 @@ function ImageCardMultiCreate({ data, addEntryToUpdate }: ImageCardMultiCreatePr
               const exists = namesDict[trimmedName];
               return (
                 <Tag
-                  key={trimmedName}
-                  icon={exists ? <CheckCircleFilled /> : <PlusOutlined />}
                   color={exists ? 'blue' : 'green'}
+                  icon={exists ? <CheckCircleFilled /> : <PlusOutlined />}
+                  key={trimmedName}
                 >
                   {trimmedName}
                 </Tag>

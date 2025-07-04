@@ -33,9 +33,9 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
 
   return (
     <SiderContent>
-      <Form form={form} layout="vertical" onFinish={onFinish} size="small" initialValues={INITIAL_PARAMETERS}>
+      <Form form={form} initialValues={INITIAL_PARAMETERS} layout="vertical" onFinish={onFinish} size="small">
         <Form.Item label="Prefix" name="prefix" required>
-          <Input type="text" placeholder="Prefix" />
+          <Input placeholder="Prefix" type="text" />
         </Form.Item>
         <Form.Item label="Language" name="language">
           <Select style={{ minWidth: '150px' }}>
@@ -72,7 +72,7 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
           </Select>
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" disabled={!prefix?.trim()}>
+          <Button disabled={!prefix?.trim()} htmlType="submit" type="primary">
             Generate
           </Button>
         </Form.Item>

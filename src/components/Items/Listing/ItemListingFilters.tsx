@@ -32,20 +32,20 @@ export function ItemListingFilters() {
 
   return (
     <SiderContent>
-      <Flex vertical gap={6}>
+      <Flex gap={6} vertical>
         <SaveButton
-          isDirty={isDirty}
           dirt={JSON.stringify(itemsToUpdate)}
-          onSave={save}
+          isDirty={isDirty}
           isSaving={isSaving}
+          onSave={save}
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(items)}
-          fileName="items.json"
-          disabled={isDirty}
-          hasNewData={hasFirestoreData}
           block
+          data={() => prepareFileForDownload(items)}
+          disabled={isDirty}
+          fileName="items.json"
+          hasNewData={hasFirestoreData}
         />
       </Flex>
       <Divider className="my-4" />
@@ -53,64 +53,63 @@ export function ItemListingFilters() {
       <Typography.Text type="secondary">Tools</Typography.Text>
 
       <FilterSwitch
-        label="Show Search"
-        value={!is('hideSearch')}
-        onChange={(v) => addParam('hideSearch', v ? '' : 'true', '')}
         className="full-width m-0"
+        label="Show Search"
+        onChange={(v) => addParam('hideSearch', v ? '' : 'true', '')}
+        value={!is('hideSearch')}
       />
 
       <FilterSwitch
-        label="Show Randomizer"
-        value={is('showRandomizer')}
-        onChange={(v) => addParam('showRandomizer', v ? 'true' : '', '')}
         className="full-width m-0"
+        label="Show Randomizer"
+        onChange={(v) => addParam('showRandomizer', v ? 'true' : '', '')}
+        value={is('showRandomizer')}
       />
 
       <Typography.Text type="secondary">Input</Typography.Text>
 
       <FilterCheckBox
-        label="Hide Decks"
-        value={is('hideDecks')}
-        onChange={(v) => addParam('hideDecks', v ? 'true' : '')}
         className="full-width m-0"
+        label="Hide Decks"
+        onChange={(v) => addParam('hideDecks', v ? 'true' : '')}
+        value={is('hideDecks')}
       />
 
       <FilterCheckBox
-        label="Hide Aliases"
-        value={is('hideAliases')}
-        onChange={(v) => addParam('hideAliases', v ? 'true' : '')}
         className="full-width m-0"
+        label="Hide Aliases"
+        onChange={(v) => addParam('hideAliases', v ? 'true' : '')}
+        value={is('hideAliases')}
       />
 
       <Typography.Text type="secondary">Display</Typography.Text>
 
       <FilterSwitch
+        className="full-width m-0"
         label="Simplified UI"
-        value={is('simplified')}
         onChange={(v) => addParam('simplified', v ? 'true' : '')}
-        className="full-width m-0"
+        value={is('simplified')}
       />
 
       <FilterSwitch
+        className="full-width m-0"
         label="Deck Checkboxes"
-        value={is('deckCheckboxes')}
         onChange={(v) => addParam('deckCheckboxes', v ? 'true' : '')}
-        className="full-width m-0"
+        value={is('deckCheckboxes')}
       />
 
       <FilterSwitch
-        label="Thing Verifier"
-        value={is('showVerifyThing')}
-        onChange={(v) => addParam('showVerifyThing', v ? 'true' : '')}
         className="full-width m-0"
         disabled={is('simplified')}
+        label="Thing Verifier"
+        onChange={(v) => addParam('showVerifyThing', v ? 'true' : '')}
+        value={is('showVerifyThing')}
       />
 
       <Divider className="my-4" />
 
       <FilterSelect
         label="Deck"
-        value={queryParams.get('deck') ?? 'all'}
         onChange={(value) => addParam('deck', value, 'all')}
         options={[
           { label: 'All', value: 'all' },
@@ -119,6 +118,7 @@ export function ItemListingFilters() {
           ...deckOptions,
           { label: 'No decks', value: '!all' },
         ]}
+        value={queryParams.get('deck') ?? 'all'}
       />
 
       <Divider className="my-4" />
@@ -128,10 +128,10 @@ export function ItemListingFilters() {
       <Divider className="my-4" />
 
       <DownloadButton
-        data={() => prepareOpenAIFileForDownload(items)}
-        fileName="items-gpt.json"
-        disabled={isDirty}
         block
+        data={() => prepareOpenAIFileForDownload(items)}
+        disabled={isDirty}
+        fileName="items-gpt.json"
         icon={<OpenAIOutlined />}
       >
         Open AI JSON

@@ -21,20 +21,20 @@ export function ItemsMoviesFilters({
   const { is, addParam } = useQueryParams();
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <SaveButton
-          isDirty={isDirty}
-          onSave={save}
-          isSaving={isSaving}
           dirt={JSON.stringify(entriesToUpdate)}
+          isDirty={isDirty}
+          isSaving={isSaving}
+          onSave={save}
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(data)}
-          fileName="daily-movie-sets.json"
-          disabled={isDirty}
-          hasNewData={hasFirestoreData}
           block
+          data={() => prepareFileForDownload(data)}
+          disabled={isDirty}
+          fileName="daily-movie-sets.json"
+          hasNewData={hasFirestoreData}
         />
       </Flex>
 
@@ -42,11 +42,11 @@ export function ItemsMoviesFilters({
 
       <FilterSwitch
         label="Pending Only"
-        value={is('emptyOnly')}
         onChange={(mode) => addParam('emptyOnly', mode, false)}
+        value={is('emptyOnly')}
       />
 
-      <NewPlaceholderMovieSet data={data} addEntryToUpdate={addEntryToUpdate} />
+      <NewPlaceholderMovieSet addEntryToUpdate={addEntryToUpdate} data={data} />
     </SiderContent>
   );
 }
@@ -77,7 +77,7 @@ function NewPlaceholderMovieSet({ data, addEntryToUpdate }: NewPlaceholderMovieS
   };
 
   return (
-    <Button onClick={onNewMovieSet} block variant="dashed">
+    <Button block onClick={onNewMovieSet} variant="dashed">
       Add New Movie Set
     </Button>
   );

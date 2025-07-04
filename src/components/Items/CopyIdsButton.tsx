@@ -9,7 +9,7 @@ export function CopyIdsButton({ ids }: CopyIdsButtonProps) {
   const copyToClipboard = useCopyToClipboardFunction();
   return (
     <Space direction="vertical" size="small">
-      <Button size="small" onClick={() => copyToClipboard(JSON.stringify(ids))}>
+      <Button onClick={() => copyToClipboard(JSON.stringify(ids))} size="small">
         Copy Ids
       </Button>
     </Space>

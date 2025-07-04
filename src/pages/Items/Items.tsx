@@ -14,17 +14,17 @@ function ItemsPage() {
   const { is } = useQueryParams();
 
   return (
-    <PageLayout title="Items" subtitle="Listing">
+    <PageLayout subtitle="Listing" title="Items">
       <Layout hasSider>
         <PageSider>
           <ItemListingFilters />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
+          <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
             {!isLoading && (
               <>
-                <Space size="large" align="start">
+                <Space align="start" size="large">
                   {!is('hideSearch') && <ItemSearch />}
                   {is('showRandomizer') && <ItemRandomizer />}
                 </Space>

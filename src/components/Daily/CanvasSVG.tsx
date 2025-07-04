@@ -65,23 +65,23 @@ export const CanvasSVG = ({
 
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox={viewBox}
-      overflow="hidden"
       className={className}
+      overflow="hidden"
       style={{ width: `${width}px`, height: `${height || width}px` }}
+      viewBox={viewBox}
+      xmlns="http://www.w3.org/2000/svg"
     >
       <defs />
       {paths.map((path, index) => (
         <path
-          key={`${drawing}-${index}`}
           d={path}
           fill="none"
+          key={`${drawing}-${index}`}
           stroke="#000"
-          strokeWidth={strokeWidthBySize}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="10"
+          strokeWidth={strokeWidthBySize}
         />
       ))}
     </svg>

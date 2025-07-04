@@ -37,11 +37,11 @@ function QuartetRow({ quartet }: QuartetRowProps) {
   return (
     <Space direction="vertical">
       <Typography.Text strong>
-        {quartet.title} <Rate count={3} value={quartet.level} disabled />
+        {quartet.title} <Rate count={3} disabled value={quartet.level} />
       </Typography.Text>
       <Flex gap={8}>
         {quartet.itemsIds.map((itemId) => (
-          <Item key={itemId} id={itemId} width={60} />
+          <Item id={itemId} key={itemId} width={60} />
         ))}
       </Flex>
     </Space>
@@ -154,9 +154,9 @@ export function RandomGatherer() {
   return (
     <div>
       <textarea
+        readOnly
         style={{ width: '100%', height: 200 }}
         value={JSON.stringify(groupedItems, null, 2)}
-        readOnly
       />
     </div>
   );

@@ -103,24 +103,21 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
 
   return (
     <Drawer
-      title={suspect.name.pt}
-      placement="right"
       onClose={() => removeParam('suspectId')}
       open={!!suspect}
+      placement="right"
+      title={suspect.name.pt}
       width={400}
     >
       <div className="suspect__drawer">
         <div className="grid" style={{ gridTemplateColumns: '1fr 1.25fr' }}>
           <SuspectImageCard id={suspect.id} width={100} />
 
-          <Flex vertical gap={4} key={`${name.pt}-${name.en}`}>
-            <DualLanguageTextField value={name} language="pt" onChange={(e) => setNamePt(e.target.value)} />
-            <DualLanguageTextField value={name} language="en" onChange={(e) => setNameEn(e.target.value)} />
+          <Flex gap={4} key={`${name.pt}-${name.en}`} vertical>
+            <DualLanguageTextField language="pt" onChange={(e) => setNamePt(e.target.value)} value={name} />
+            <DualLanguageTextField language="en" onChange={(e) => setNameEn(e.target.value)} value={name} />
             <div>
               <Select
-                placeholder="Select Age"
-                value={suspect.age}
-                size="small"
                 onChange={(value) => {
                   addEntryToUpdate(suspect.id, {
                     ...suspect,
@@ -128,13 +125,14 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
                   });
                 }}
                 options={AGE_OPTIONS}
+                placeholder="Select Age"
+                size="small"
                 style={{ width: 80 }}
+                value={suspect.age}
               />
             </div>
             <div>
               <Select
-                value={suspect.gender}
-                size="small"
                 onChange={(value) => {
                   addEntryToUpdate(suspect.id, {
                     ...suspect,
@@ -142,13 +140,13 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
                   });
                 }}
                 options={GENDER_OPTIONS}
+                size="small"
                 style={{ width: 120 }}
+                value={suspect.gender}
               />
             </div>
             <div>
               <Select
-                value={suspect.ethnicity}
-                size="small"
                 onChange={(value) => {
                   addEntryToUpdate(suspect.id, {
                     ...suspect,
@@ -156,11 +154,13 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
                   });
                 }}
                 options={ETHNICITY_OPTIONS}
+                size="small"
                 style={{ width: 150 }}
+                value={suspect.ethnicity}
               />
             </div>
             <div>
-              <Input value={note} size="small" onChange={(e) => setNote(e.target.value)} />
+              <Input onChange={(e) => setNote(e.target.value)} size="small" value={note} />
             </div>
           </Flex>
         </div>
@@ -169,37 +169,37 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
           <Flex vertical>
             <Typography.Text strong>Build</Typography.Text>
             <Radio.Group
-              size="small"
-              value={suspect.build}
               onChange={(e) => {
                 addEntryToUpdate(suspect.id, { ...suspect, build: e.target.value });
               }}
               options={BUILDS}
+              size="small"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 3,
               }}
+              value={suspect.build}
             />
           </Flex>
           <Flex vertical>
             <Typography.Text strong>Height</Typography.Text>
             <Radio.Group
-              size="small"
-              value={suspect.height}
               onChange={(e) => {
                 addEntryToUpdate(suspect.id, { ...suspect, height: e.target.value });
               }}
               options={HEIGHTS}
+              size="small"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 3,
               }}
+              value={suspect.height}
             />
           </Flex>
         </div>
-        <SuspectFeatures suspect={suspect} addEntryToUpdate={addEntryToUpdate} />
+        <SuspectFeatures addEntryToUpdate={addEntryToUpdate} suspect={suspect} />
       </div>
     </Drawer>
   );
@@ -223,14 +223,14 @@ function SuspectFeatures({ suspect, addEntryToUpdate }: SuspectFeaturesProps) {
   return (
     <div className="grid grid-2">
       {FEATURES_BY_GROUP.map((group) => (
-        <div key={group.title} className="my-4">
+        <div className="my-4" key={group.title}>
           <Typography.Text strong>{group.title}</Typography.Text>
           {group.features.map((feature) => (
-            <Flex key={feature.id} className="my-2" gap={4}>
+            <Flex className="my-2" gap={4} key={feature.id}>
               <Switch
-                size="small"
                 checked={features.includes(feature.id)}
                 onChange={() => onUpdateFeature(feature.id)}
+                size="small"
               />{' '}
               {feature.label}
             </Flex>

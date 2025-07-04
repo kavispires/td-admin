@@ -27,7 +27,7 @@ export function AuthWrapper({ children }: AuthWrapperProps) {
 
   if (isLoading) {
     return (
-      <Spin tip="Verifying auth..." size="large">
+      <Spin size="large" tip="Verifying auth...">
         <div style={{ height: '100svh', width: '100svw' }} />
       </Spin>
     );
@@ -37,10 +37,10 @@ export function AuthWrapper({ children }: AuthWrapperProps) {
     return (
       <div style={{ height: '100svh', width: '100svw', display: 'grid', placeItems: 'center' }}>
         <Alert
-          message="You are not logged in"
           description="This app does not feature login capabilities."
-          type="error"
+          message="You are not logged in"
           showIcon
+          type="error"
         />
       </div>
     );

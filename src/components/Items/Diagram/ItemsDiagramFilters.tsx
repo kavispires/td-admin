@@ -25,20 +25,20 @@ export function ItemsDiagramFilters({
 
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <SaveButton
-          isDirty={isDirty}
-          onSave={save}
-          isSaving={isSaving}
           dirt={JSON.stringify(entriesToUpdate)}
+          isDirty={isDirty}
+          isSaving={isSaving}
+          onSave={save}
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(data, tdrDiagramRulesQuery.data ?? {})}
-          fileName="daily-diagram-items.json"
-          disabled={isDirty}
-          hasNewData={hasFirestoreData}
           block
+          data={() => prepareFileForDownload(data, tdrDiagramRulesQuery.data ?? {})}
+          disabled={isDirty}
+          fileName="daily-diagram-items.json"
+          hasNewData={hasFirestoreData}
         />
       </Flex>
 
@@ -46,7 +46,6 @@ export function ItemsDiagramFilters({
 
       <FilterSegments
         label="Display"
-        value={queryParams.get('display') ?? 'rule'}
         onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1 })}
         options={[
           {
@@ -65,11 +64,12 @@ export function ItemsDiagramFilters({
             value: 'simulator',
           },
         ]}
+        value={queryParams.get('display') ?? 'rule'}
       />
 
       <Divider />
 
-      <Typography.Paragraph type="secondary" className="my-6">
+      <Typography.Paragraph className="my-6" type="secondary">
         v2.0.1
       </Typography.Paragraph>
     </SiderContent>

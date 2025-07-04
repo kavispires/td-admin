@@ -29,7 +29,7 @@ function GameInfo({ label, children }: { label: string; children: ReactNode }) {
 }
 function GamePopover({ children }: { children: ReactNode }) {
   return (
-    <Popover trigger="click" content={children} title="Sneak Peek">
+    <Popover content={children} title="Sneak Peek" trigger="click">
       <Button icon={<EyeFilled />} />
     </Popover>
   );
@@ -71,7 +71,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               </div>
               <Space wrap>
                 {drawings.map((d: string) => (
-                  <CanvasSVG key={d} drawing={d} width={75} height={75} className="canvas" />
+                  <CanvasSVG className="canvas" drawing={d} height={75} key={d} width={75} />
                 ))}
               </Space>
             </Flex>
@@ -100,9 +100,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Items">{itemsIds.length}</GameInfo>
 
           <GamePopover>
-            <Flex gap={6} wrap style={{ maxWidth: 500 }}>
+            <Flex gap={6} style={{ maxWidth: 500 }} wrap>
               {itemsIds.map((itemId) => (
-                <Item key={itemId} id={itemId} width={48} />
+                <Item id={itemId} key={itemId} width={48} />
               ))}
             </Flex>
           </GamePopover>
@@ -131,12 +131,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
             <Flex gap={6} style={{ maxWidth: '300px' }} vertical>
               <Space wrap>
                 {attributes.map((req) => (
-                  <AlienSign key={req.spriteId} id={`sign-${req.spriteId}`} width={48} />
+                  <AlienSign id={`sign-${req.spriteId}`} key={req.spriteId} width={48} />
                 ))}
               </Space>
               <Space wrap>
                 {itemsIds.map((itemId) => (
-                  <Item key={itemId} id={itemId} width={48} />
+                  <Item id={itemId} key={itemId} width={48} />
                 ))}
               </Space>
             </Flex>
@@ -163,7 +163,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Title">{title}</GameInfo>
 
           <GamePopover>
-            <Flex vertical gap={6}>
+            <Flex gap={6} vertical>
               <Flex gap={6}>
                 <Item id={rule1.thing.id} width={48} />
                 <Item id={intersectingThing.id} width={48} />
@@ -171,7 +171,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               </Flex>
               <Flex gap={6}>
                 {things.map((thing) => (
-                  <Item key={thing.id} id={thing.id} width={35} />
+                  <Item id={thing.id} key={thing.id} width={35} />
                 ))}
               </Flex>
             </Flex>
@@ -199,9 +199,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Goods">{goods.length}</GameInfo>
 
           <GamePopover>
-            <Flex gap={6} wrap style={{ maxWidth: 245 }}>
+            <Flex gap={6} style={{ maxWidth: 245 }} wrap>
               {goods.map((good) => (
-                <WarehouseGood key={good} id={good} width={48} />
+                <WarehouseGood id={good} key={good} width={48} />
               ))}
             </Flex>
           </GamePopover>
@@ -230,18 +230,18 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
 
           <GamePopover>
             <Flex gap={6} vertical>
-              <Space wrap style={{ maxHeight: 200, overflowY: 'auto' }}>
+              <Space style={{ maxHeight: 200, overflowY: 'auto' }} wrap>
                 {suspects.map((suspect) => (
-                  <SuspectImageCard key={suspect.id} id={suspect.id} width={48} />
+                  <SuspectImageCard id={suspect.id} key={suspect.id} width={48} />
                 ))}
               </Space>
 
               {statements.slice(0, 3).map((statement) => (
-                <Alert key={statement.key} message={statement.text} type="info" showIcon banner />
+                <Alert banner key={statement.key} message={statement.text} showIcon type="info" />
               ))}
 
               {additionalStatements.map((statement) => (
-                <Alert key={statement.key} message={statement.text} type="warning" showIcon banner />
+                <Alert banner key={statement.key} message={statement.text} showIcon type="warning" />
               ))}
             </Flex>
           </GamePopover>
@@ -302,11 +302,11 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover>
             <div className="grid" style={{ gridTemplateColumns: 'repeat(5, 1fr)', gap: '8px' }}>
               {(grid ?? []).map((itemId, index) => (
-                <div key={`${itemId}-${index}`} className="grid-item">
+                <div className="grid-item" key={`${itemId}-${index}`}>
                   <Item
+                    className={defaultRevealedIndexes.includes(index) ? 'red-border' : ''}
                     id={!defaultRevealedIndexes.includes(index) ? '0' : itemId || '0'}
                     width={48}
-                    className={defaultRevealedIndexes.includes(index) ? 'red-border' : ''}
                   />
                 </div>
               ))}
@@ -370,11 +370,11 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover>
             <Flex gap={6} vertical>
               {corridors.map((c) => (
-                <Flex key={c.passcode} gap={6} vertical>
+                <Flex gap={6} key={c.passcode} vertical>
                   <span>Passcode: {c.passcode}</span>
                   <Flex>
                     {c.imagesIds.map((i) => (
-                      <ImageCard key={i} id={i} width={48} />
+                      <ImageCard id={i} key={i} width={48} />
                     ))}
                   </Flex>
                 </Flex>
@@ -405,9 +405,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover>
             <Flex gap={6}>
               {sets.map((s) => (
-                <Flex key={s.id} gap={6} vertical>
+                <Flex gap={6} key={s.id} vertical>
                   {s.itemsIds.map((i) => (
-                    <Item key={i} id={i} width={48} />
+                    <Item id={i} key={i} width={48} />
                   ))}
                 </Flex>
               ))}
@@ -435,7 +435,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Cards">{cards.length}</GameInfo>
 
           <GamePopover>
-            <Flex gap={6} vertical style={{ maxHeight: 500, overflowY: 'auto' }}>
+            <Flex gap={6} style={{ maxHeight: 500, overflowY: 'auto' }} vertical>
               {cards.map((card: ArteRuimCard, index: number) => (
                 <span key={`${card.id}-${index}`}>{card.text}</span>
               ))}
@@ -467,19 +467,19 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
             <Flex vertical>
               <Space direction="vertical" style={{ maxHeight: 100, overflowY: 'auto' }}>
                 {testimonies.map((question) => (
-                  <Flex vertical key={question.testimonyId}>
+                  <Flex key={question.testimonyId} vertical>
                     <span>{question.question}</span>
                     <Flex>
                       {question.suspectsIds?.map((suspectId) => (
-                        <ImageCard key={suspectId} id={suspectId} width={48} />
+                        <ImageCard id={suspectId} key={suspectId} width={48} />
                       ))}
                     </Flex>
                   </Flex>
                 ))}
               </Space>
-              <Space wrap style={{ maxHeight: 200, maxWidth: '500px', overflowY: 'auto' }}>
+              <Space style={{ maxHeight: 200, maxWidth: '500px', overflowY: 'auto' }} wrap>
                 {suspectsIds?.map((suspectId) => (
-                  <ImageCard key={suspectId} id={suspectId} width={48} />
+                  <ImageCard id={suspectId} key={suspectId} width={48} />
                 ))}
               </Space>
             </Flex>

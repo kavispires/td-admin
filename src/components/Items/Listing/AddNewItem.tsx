@@ -23,8 +23,8 @@ type NewItemModalProps = {
 function NewItemModal({ isModalOpen, handleOk, handleCancel, newId }: NewItemModalProps) {
   const [newItem] = useState(cloneDeep({ ...PLACEHOLDER_ITEM, id: newId }));
   return (
-    <Modal title="Add new item" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-      <ItemCard item={newItem} editMode />
+    <Modal onCancel={handleCancel} onOk={handleOk} open={isModalOpen} title="Add new item">
+      <ItemCard editMode item={newItem} />
     </Modal>
   );
 }
@@ -53,11 +53,11 @@ export function AddNewItem() {
       </Button>
       {isModalOpen && (
         <NewItemModal
-          isModalOpen={isModalOpen}
-          handleOk={handleOk}
           handleCancel={handleCancel}
-          newId={newId}
+          handleOk={handleOk}
+          isModalOpen={isModalOpen}
           key={newId}
+          newId={newId}
         />
       )}
     </>

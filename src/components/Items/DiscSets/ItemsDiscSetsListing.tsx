@@ -22,11 +22,11 @@ export function ItemsDiscSetsListing({
 
   return (
     <Space direction="vertical">
-      <ItemsDiscSetsSearch data={data} addEntryToUpdate={addEntryToUpdate} />
+      <ItemsDiscSetsSearch addEntryToUpdate={addEntryToUpdate} data={data} />
       <Typography.Title level={5}>
         Total Disc Sets: {sets.length} | Complete Disc Sets: {completeSetsCount}
       </Typography.Title>
-      <ItemsDiscSetsTable rows={sets} addEntryToUpdate={addEntryToUpdate} />
+      <ItemsDiscSetsTable addEntryToUpdate={addEntryToUpdate} rows={sets} />
     </Space>
   );
 }

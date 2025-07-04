@@ -23,20 +23,20 @@ export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFil
   return (
     <SiderContent>
       <Form
-        layout="vertical"
-        onFinish={onFinish}
-        size="small"
         form={form}
         initialValues={{
           resourceName: queryParams.get('resourceName') ?? '',
           language: queryParams.get('language') ?? '',
         }}
+        layout="vertical"
+        onFinish={onFinish}
+        size="small"
       >
         <Form.Item label="Resource" name="resourceName">
           <Select
+            onChange={(e: string) => setCurrentResourceName(e)}
             style={{ minWidth: '150px' }}
             value={queryParams.get('resourceName')}
-            onChange={(e: string) => setCurrentResourceName(e)}
           >
             {resourceNames.map((resourceName) => (
               <Select.Option key={resourceName} value={resourceName}>
@@ -47,8 +47,8 @@ export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFil
         </Form.Item>
         <Form.Item label="Language" name="language">
           <Select
-            style={{ minWidth: '150px' }}
             disabled={DUAL_LANGUAGE_RESOURCES.includes(currentResourceName)}
+            style={{ minWidth: '150px' }}
           >
             {LANGUAGES.map((entry) => (
               <Select.Option key={entry} value={entry}>
@@ -58,7 +58,7 @@ export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFil
           </Select>
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button htmlType="submit" type="primary">
             Load
           </Button>
         </Form.Item>

@@ -53,18 +53,18 @@ export function ItemsGroupsByGroupTable({
       dataIndex: 'name',
       key: 'name',
       render: (name: DualLanguageValue, record) => (
-        <Flex vertical gap={4}>
+        <Flex gap={4} vertical>
           <DualLanguageTextField
-            value={name}
             language="en"
-            style={{ minWidth: 150 }}
             onChange={(e) => onUpdateName(e.target.value, 'en', record.id)}
+            style={{ minWidth: 150 }}
+            value={name}
           />
           <DualLanguageTextField
-            value={name}
             language="pt"
-            style={{ minWidth: 150 }}
             onChange={(e) => onUpdateName(e.target.value, 'pt', record.id)}
+            style={{ minWidth: 150 }}
+            value={name}
           />
         </Flex>
       ),
@@ -74,9 +74,9 @@ export function ItemsGroupsByGroupTable({
       dataIndex: 'itemsIds',
       key: 'itemsIds',
       render: (itemsIds: string[], record) => (
-        <Flex gap={6} wrap="wrap" key={`items-${record.id}`}>
+        <Flex gap={6} key={`items-${record.id}`} wrap="wrap">
           {itemsIds.map((itemId) => (
-            <Flex key={`${record.id}-${itemId}`} gap={2} vertical>
+            <Flex gap={2} key={`${record.id}-${itemId}`} vertical>
               <TransparentButton onClick={() => setSelectedItemId(itemId)}>
                 <Item id={itemId} width={60} />
               </TransparentButton>
@@ -114,19 +114,19 @@ export function ItemsGroupsByGroupTable({
   return (
     <>
       <Table
+        className="my-4"
         columns={columns}
         dataSource={rows}
-        className="my-4"
-        rowKey="id"
-        pagination={paginationProps}
         expandable={expandableProps}
+        pagination={paginationProps}
+        rowKey="id"
       />
-      <Drawer title="Edit Item Group" onClose={() => setSelectedItemId(null)} open={!!selectedItem}>
+      <Drawer onClose={() => setSelectedItemId(null)} open={!!selectedItem} title="Edit Item Group">
         {selectedItem && (
           <ItemGroupsCard
+            groupsTypeahead={groupsTypeahead}
             item={selectedItem}
             itemGroups={grousByItem[selectedItem.id]}
-            groupsTypeahead={groupsTypeahead}
             onUpdateItemGroups={onUpdateItemGroups}
           />
         )}

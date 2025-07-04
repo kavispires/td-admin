@@ -69,37 +69,37 @@ export function TestimoniesTable({
     maxExpandedRows: 1,
     expandedRowRender: (record) => (
       <TestimonyAnswerExpandedRow
-        testimonyId={record.id}
+        addEntryToUpdate={addEntryToUpdate}
         answers={data[record.id] ?? {}}
         suspects={suspects}
-        addEntryToUpdate={addEntryToUpdate}
+        testimonyId={record.id}
       />
     ),
     rowExpandable: () => isSuccess,
   });
 
   return (
-    <Flex gap={12} className="full-width py-4" vertical>
-      <Flex justify="space-between" align="center">
-        <Typography.Title level={4} className="my-0">
+    <Flex className="full-width py-4" gap={12} vertical>
+      <Flex align="center" justify="space-between">
+        <Typography.Title className="my-0" level={4}>
           Suspects by Testimony
         </Typography.Title>
         <Switch
           checked={queryParams.get('sortSuspectsBy') === 'answers'}
-          onChange={(checked) => addParam('sortSuspectsBy', checked ? 'answers' : 'id')}
           checkedChildren="Sort by Answers"
+          onChange={(checked) => addParam('sortSuspectsBy', checked ? 'answers' : 'id')}
           unCheckedChildren="Sort by Id"
         />
       </Flex>
       <Table
-        columns={columns}
-        dataSource={entriesRowData}
-        pagination={paginationProps}
-        rowKey="id"
-        expandable={expandableProps}
-        loading={isLoading}
         bordered
         className="full-width"
+        columns={columns}
+        dataSource={entriesRowData}
+        expandable={expandableProps}
+        loading={isLoading}
+        pagination={paginationProps}
+        rowKey="id"
       />
     </Flex>
   );

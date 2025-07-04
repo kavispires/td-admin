@@ -43,27 +43,27 @@ export function CrimeTableContent({
     {
       key: 'all',
       label: 'All',
-      children: <CrimeTable rows={rows} onUpdateCard={onUpdateCard} scenes={scenes} />,
+      children: <CrimeTable onUpdateCard={onUpdateCard} rows={rows} scenes={scenes} />,
     },
     {
       key: 'weapons',
       label: 'Weapons',
-      children: <CrimeTable rows={weapons} onUpdateCard={onUpdateCard} scenes={scenes} />,
+      children: <CrimeTable onUpdateCard={onUpdateCard} rows={weapons} scenes={scenes} />,
     },
     {
       key: 'evidence',
       label: 'Evidence',
-      children: <CrimeTable rows={evidence} onUpdateCard={onUpdateCard} scenes={scenes} />,
+      children: <CrimeTable onUpdateCard={onUpdateCard} rows={evidence} scenes={scenes} />,
     },
     {
       key: 'locations',
       label: 'Locations',
-      children: <CrimeTable rows={locations} onUpdateCard={onUpdateCard} scenes={scenes} />,
+      children: <CrimeTable onUpdateCard={onUpdateCard} rows={locations} scenes={scenes} />,
     },
     {
       key: 'victims',
       label: 'Victims',
-      children: <CrimeTable rows={victims} onUpdateCard={onUpdateCard} scenes={scenes} />,
+      children: <CrimeTable onUpdateCard={onUpdateCard} rows={victims} scenes={scenes} />,
     },
   ];
 
@@ -112,11 +112,10 @@ export function CrimeTable({
       key: 'itemId',
       render: (_, record) => (
         <Flex align="center" gap={8}>
-          <CrimeItemCard item={record} cardWidth={70} />
+          <CrimeItemCard cardWidth={70} item={record} />
           <div>
             <Input
               defaultValue={record.itemId}
-              size="small"
               onBlur={(e) => {
                 console.log(e?.target?.value);
                 console.log('onBlur');
@@ -126,6 +125,7 @@ export function CrimeTable({
                   onUpdateCard(copy);
                 }
               }}
+              size="small"
             />
           </div>
         </Flex>
@@ -139,14 +139,14 @@ export function CrimeTable({
       render: (name, record) => (
         <Space direction="vertical" style={{ minWidth: 150 }}>
           <DualLanguageTextField
-            value={name}
             language="en"
             onPressEnter={(e: any) => editName(e.target?.value || record.name.en, 'en', record)}
+            value={name}
           />
           <DualLanguageTextField
-            value={name}
             language="pt"
             onPressEnter={(e: any) => editName(e.target?.value || record.name.pt, 'pt', record)}
+            value={name}
           />
         </Space>
       ),
@@ -191,9 +191,9 @@ export function CrimeTable({
       <Table
         columns={columns}
         dataSource={rows}
-        rowKey="id"
         expandable={expandableProps}
         pagination={paginationProps}
+        rowKey="id"
       />
     </div>
   );
@@ -217,7 +217,7 @@ function CardSceneLikelihood({ card, scenes }: CardSceneLikelihoodProps) {
           const hasSecondMostLikely = secondMostLikely !== undefined;
           const secondLikelyData = scene.values?.[secondMostLikely]?.en;
           return (
-            <div key={scene.id} className="likelihood-entry">
+            <div className="likelihood-entry" key={scene.id}>
               <div className="bold">{scene.title.en}</div>
               <div
                 className={clsx('likely-result', { 'likely-result--no-data': !hasMostLikely || !likelyData })}

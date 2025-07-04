@@ -22,7 +22,7 @@ export function ItemComparatorCard() {
           <ItemId item={item} />
           <Space.Compact>
             <ItemGoTo item={item} />
-            <Button size="small" shape="round" onClick={() => addParam('drawer', item.id)}>
+            <Button onClick={() => addParam('drawer', item.id)} shape="round" size="small">
               Drawer
             </Button>
           </Space.Compact>
@@ -56,10 +56,10 @@ export function ItemComparatorCard() {
         <Flex gap={6}>
           {message.map((keyVariant, index, arr) => (
             <AttributeSprite
-              key={`${keyVariant}-${item.id}`}
-              keyVariant={keyVariant}
               attributes={attributes}
               firstElement={index === 0}
+              key={`${keyVariant}-${item.id}`}
+              keyVariant={keyVariant}
               lastElement={index === arr.length - 1}
               withText
             />
@@ -93,7 +93,7 @@ export function ItemComparatorCard() {
   return (
     <div className="my-4">
       <Typography.Title level={5}>Item Comparator</Typography.Title>
-      <Table dataSource={itemMessages} columns={columns} pagination={{ showQuickJumper: true }} />
+      <Table columns={columns} dataSource={itemMessages} pagination={{ showQuickJumper: true }} />
       <ItemAttributionDrawer />
     </div>
   );

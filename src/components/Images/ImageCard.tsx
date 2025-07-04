@@ -44,10 +44,10 @@ export const ImageCard = ({
   return (
     <div className={clsx('image-card', className)}>
       <Image
-        width={width}
-        src={getUrl(`${imageURL}.${fileExtension}`)}
         fallback={getUrl('back/default.jpg')}
         preview={preview}
+        src={getUrl(`${imageURL}.${fileExtension}`)}
+        width={width}
       />
     </div>
   );

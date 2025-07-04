@@ -36,7 +36,7 @@ export function ItemsDiscSetsTable({ rows, addEntryToUpdate }: ItemsDiscSetsTabl
       key: 'title',
       sorter: (a, b) => a.title.en.localeCompare(b.title.en),
       render: (title, record) => (
-        <DiscEditableTitleCell value={title} disc={record} addEntryToUpdate={addEntryToUpdate} />
+        <DiscEditableTitleCell addEntryToUpdate={addEntryToUpdate} disc={record} value={title} />
       ),
     },
     Table.EXPAND_COLUMN,
@@ -46,10 +46,10 @@ export function ItemsDiscSetsTable({ rows, addEntryToUpdate }: ItemsDiscSetsTabl
       key: 'itemsIds',
       render: (itemsIds: string[], record) => (
         <DiscItemsCell
+          addEntryToUpdate={addEntryToUpdate}
+          copyToClipboard={copyToClipboard}
           disc={record}
           itemsIds={sortItemsIds(itemsIds)}
-          copyToClipboard={copyToClipboard}
-          addEntryToUpdate={addEntryToUpdate}
         />
       ),
     },
@@ -64,7 +64,7 @@ export function ItemsDiscSetsTable({ rows, addEntryToUpdate }: ItemsDiscSetsTabl
   const expandableProps = useTableExpandableRows<DailyDiscSet>({
     maxExpandedRows: 1,
     expandedRowRender: (record) => (
-      <ItemsDiscSetExpandedRow disc={record} addEntryToUpdate={addEntryToUpdate} />
+      <ItemsDiscSetExpandedRow addEntryToUpdate={addEntryToUpdate} disc={record} />
     ),
     rowExpandable: () => itemsTypeaheadQuery.isSuccess,
   });
@@ -73,9 +73,9 @@ export function ItemsDiscSetsTable({ rows, addEntryToUpdate }: ItemsDiscSetsTabl
     <Table
       columns={columns}
       dataSource={rows}
+      expandable={expandableProps}
       pagination={paginationProps}
       rowKey="id"
-      expandable={expandableProps}
     />
   );
 }

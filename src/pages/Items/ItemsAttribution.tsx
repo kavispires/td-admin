@@ -13,14 +13,14 @@ function ItemsAttributionPage() {
   const { isLoading, error, hasResponseData } = useItemsAttributeValuesContext();
 
   return (
-    <PageLayout title="Items" subtitle="Attribution">
+    <PageLayout subtitle="Attribution" title="Items">
       <Layout hasSider>
         <PageSider>
           <ItemAttributionFilters />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
+          <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
             <ItemAttributionPageContent />
           </DataLoadingWrapper>
         </Layout.Content>

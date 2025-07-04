@@ -68,37 +68,37 @@ export function ArteRuimParser() {
   };
 
   return (
-    <PageLayout title="Arte Ruim" subtitle={resourceName && language ? `Parser (${language})` : ''}>
+    <PageLayout subtitle={resourceName && language ? `Parser (${language})` : ''} title="Arte Ruim">
       <Layout hasSider>
         <PageSider>
-          <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResponseState error={error} hasResponseData={hasResponseData} isLoading={isLoading} />
           <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper isLoading={isLoading} error={error} hasResponseData={hasResponseData}>
+          <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
             <div className="parser-container">
               <div className="parser-main">
                 <SectionTitle>Input New Data</SectionTitle>
-                <Input.TextArea name="input" id="" cols={15} rows={5} onChange={onInputChange} />
+                <Input.TextArea cols={15} id="" name="input" onChange={onInputChange} rows={5} />
 
                 <SectionTitle>Output</SectionTitle>
                 <Input.TextArea
-                  name="output"
-                  id=""
                   cols={15}
-                  rows={14}
+                  id=""
+                  name="output"
                   readOnly
+                  rows={14}
                   value={JSON.stringify(output, null, 4)}
                 />
 
                 <SectionTitle>Duplicates</SectionTitle>
                 <Input.TextArea
-                  name="duplicates"
-                  id=""
                   cols={15}
-                  rows={3}
+                  id=""
+                  name="duplicates"
                   readOnly
+                  rows={3}
                   value={JSON.stringify(duplicates)}
                 />
               </div>
@@ -110,15 +110,15 @@ export function ArteRuimParser() {
                   Similar Results for Last Entry ({Object.values(searchResults).length})
                 </SectionTitle>
                 <Input.TextArea
-                  name="search-results"
-                  id=""
                   cols={10}
-                  rows={5}
+                  id=""
+                  name="search-results"
                   readOnly
+                  rows={5}
                   value={JSON.stringify(searchResults, null, 4)}
                 />
 
-                <SearchDuplicates response={response} property={property} />
+                <SearchDuplicates property={property} response={response} />
               </aside>
             </div>
           </DataLoadingWrapper>

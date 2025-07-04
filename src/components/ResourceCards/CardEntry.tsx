@@ -69,7 +69,7 @@ export function CardEntry({ entry, kind }: CardEntryProps) {
   }, [kind]);
 
   return (
-    <Card title={entry.id} className="resource-card" size="small">
+    <Card className="resource-card" size="small" title={entry.id}>
       {entries}
     </Card>
   );

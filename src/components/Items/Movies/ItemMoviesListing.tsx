@@ -36,7 +36,7 @@ export function ItemMoviesListing({
       <Typography.Title level={5}>
         Total Movies: {rows.length} | Complete Movies: {completeMoviesCount}
       </Typography.Title>
-      <ItemsMoviesTable rows={rows} addEntryToUpdate={addEntryToUpdate} />
+      <ItemsMoviesTable addEntryToUpdate={addEntryToUpdate} rows={rows} />
     </Space>
   );
 }

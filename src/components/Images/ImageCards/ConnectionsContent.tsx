@@ -36,7 +36,7 @@ export function ConnectionsContent() {
       key: 'relationship',
       render: (relatedCards: CardId[], row: any) => (
         <Image.PreviewGroup>
-          <Flex wrap="wrap" gap={2}>
+          <Flex gap={2} wrap="wrap">
             {relatedCards.map((cardId) => (
               <Space key={`${row.origin}-${cardId}`}>
                 <Space direction="vertical">
@@ -69,9 +69,9 @@ export function ConnectionsContent() {
   }, [cardIds, data]);
 
   return (
-    <DataLoadingWrapper isLoading={query.isLoading} error={query.error} hasResponseData={true}>
-      <div ref={ref} className="my-6">
-        <Table dataSource={dataSource} columns={columns} />
+    <DataLoadingWrapper error={query.error} hasResponseData={true} isLoading={query.isLoading}>
+      <div className="my-6" ref={ref}>
+        <Table columns={columns} dataSource={dataSource} />
       </div>
     </DataLoadingWrapper>
   );

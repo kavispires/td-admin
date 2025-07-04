@@ -22,10 +22,10 @@ export function ResourceJson({ response, resourceName }: ResourceJsonProps) {
 
       <Row gutter={16}>
         <Col span={16}>
-          <Input.TextArea name="output" id="" cols={15} rows={30} readOnly value={jsonString} />
+          <Input.TextArea cols={15} id="" name="output" readOnly rows={30} value={jsonString} />
         </Col>
         <Col span={8}>
-          <SearchDuplicates response={response} property={property} />
+          <SearchDuplicates property={property} response={response} />
         </Col>
       </Row>
     </>

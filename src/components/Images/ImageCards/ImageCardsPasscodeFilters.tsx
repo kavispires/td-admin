@@ -60,20 +60,20 @@ export function ImageCardsPasscodeFilters({
 
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <SaveButton
-          isDirty={isDirty}
-          onSave={save}
-          isSaving={isSaving}
           dirt={JSON.stringify(entriesToUpdate)}
+          isDirty={isDirty}
+          isSaving={isSaving}
+          onSave={save}
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(data)}
-          fileName="daily-passcode-sets.json"
-          disabled={isDirty}
-          hasNewData={hasFirestoreData}
           block
+          data={() => prepareFileForDownload(data)}
+          disabled={isDirty}
+          fileName="daily-passcode-sets.json"
+          hasNewData={hasFirestoreData}
         />
       </Flex>
 
@@ -81,7 +81,6 @@ export function ImageCardsPasscodeFilters({
 
       <FilterSegments
         label="Display"
-        value={queryParams.get('display') ?? 'table'}
         onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1, display: 'table' })}
         options={[
           {
@@ -95,6 +94,7 @@ export function ImageCardsPasscodeFilters({
             value: 'create',
           },
         ]}
+        value={queryParams.get('display') ?? 'table'}
       />
 
       <p>Stats</p>

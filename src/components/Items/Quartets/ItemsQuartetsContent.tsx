@@ -31,7 +31,7 @@ export function ItemsQuartetsContent({
       <Typography.Title level={5}>
         Total Quartets: {rows.length} | Complete Quartets: {completeQuartetsCount}
       </Typography.Title>
-      <ItemsQuartetsTable rows={rows} addEntryToUpdate={addEntryToUpdate} />
+      <ItemsQuartetsTable addEntryToUpdate={addEntryToUpdate} rows={rows} />
     </Space>
   );
 }

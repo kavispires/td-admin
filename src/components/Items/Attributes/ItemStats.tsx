@@ -51,7 +51,7 @@ export function ItemStats() {
 
   return (
     <div className="my-4">
-      <Flex justify="space-between" align="center">
+      <Flex align="center" justify="space-between">
         <Typography.Title level={5}>Stats</Typography.Title>
         <DownloadButton data={() => prepareFileForDownload(attributes)} fileName="items-attributes.json">
           Download Attribute Json
@@ -195,7 +195,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       title: <SkinOutlined />,
       dataIndex: 'spriteId',
       key: 'spriteId',
-      render: (spriteId) => <AlienSign id={spriteId} width={18} padding={0} />,
+      render: (spriteId) => <AlienSign id={spriteId} padding={0} width={18} />,
     },
     {
       title: 'Priority',
@@ -268,7 +268,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       title: 'Level',
       dataIndex: 'level',
       key: 'level',
-      render: (level) => <Rate count={4} value={level} disabled />,
+      render: (level) => <Rate count={4} disabled value={level} />,
       sorter: (a, b) => a.level - b.level,
     },
     {
@@ -278,16 +278,16 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
         <Space>
           <Space.Compact>
             <Button
-              size="small"
-              shape="round"
               onClick={() => navigate(`/items/attribution?display=grouping&attribute=${record.id}&page=1`)}
+              shape="round"
+              size="small"
             >
               Grouping
             </Button>
             <Button
-              size="small"
-              shape="round"
               onClick={() => navigate(`/items/attribution?display=sampler&attribute=${record.id}&size=6`)}
+              shape="round"
+              size="small"
             >
               Sample
             </Button>
@@ -303,11 +303,11 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
 
       <Table columns={columns} dataSource={rows} pagination={false} rowKey="id" size="small" />
 
-      <Flex wrap="wrap" gap={8}>
+      <Flex gap={8} wrap="wrap">
         {unusedSpriteIds.map((id) => (
           <div key={id}>
             #{id}
-            <AlienSign key={id} id={`sign-${id}`} />
+            <AlienSign id={`sign-${id}`} key={id} />
           </div>
         ))}
       </Flex>

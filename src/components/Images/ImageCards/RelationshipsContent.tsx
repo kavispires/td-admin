@@ -41,20 +41,20 @@ export function RelationshipsContent() {
 
   return (
     <DataLoadingWrapper
-      isLoading={query.isLoading}
       error={query.error}
       hasResponseData={!isEmpty(query.data)}
+      isLoading={query.isLoading}
     >
-      <div ref={ref} className="my-6">
+      <div className="my-6" ref={ref}>
         <Card
-          title="Card Relationship Matching"
+          className="image-card-categorizer-card"
           extra={
             <Tooltip title="Total cycles">
               <FileImageOutlined /> {cycles}
             </Tooltip>
           }
-          className="image-card-categorizer-card"
           ref={cardRef}
+          title="Card Relationship Matching"
         >
           <Image.PreviewGroup>
             <div
@@ -68,12 +68,12 @@ export function RelationshipsContent() {
                 return (
                   <div className="image-card-card__image" key={cardId}>
                     <TransparentButton
-                      onClick={() => onSelect(cardId)}
                       active={isSelected}
-                      className="image-cards-group__button"
                       activeClass="image-cards-group__button--active"
+                      className="image-cards-group__button"
+                      onClick={() => onSelect(cardId)}
                     >
-                      <ImageCard id={cardId} width={cardWidth - 24} preview={false} />
+                      <ImageCard id={cardId} preview={false} width={cardWidth - 24} />
                       <div>
                         {showIds && <IdTag>{cardId}</IdTag>}
                         {/* <Button size="small">{isSelected ? 'Deselect' : 'Select'}</Button> */}
@@ -86,12 +86,12 @@ export function RelationshipsContent() {
             </div>
           </Image.PreviewGroup>
           <Actions
-            isSaving={isSaving}
-            isDirty={isDirty}
-            selection={selection}
-            relate={relate}
             deselectAll={deselectAll}
+            isDirty={isDirty}
+            isSaving={isSaving}
             onNextSet={onNextSet}
+            relate={relate}
+            selection={selection}
           />
         </Card>
       </div>
@@ -121,27 +121,27 @@ const Actions = ({ isSaving, isDirty, selection, relate, deselectAll, onNextSet 
   return (
     <>
       {isDirty && (
-        <FloatButton icon={<WarningOutlined />} type="primary" style={{ right: 24 + 70 + 70 + 70 }} />
+        <FloatButton icon={<WarningOutlined />} style={{ right: 24 + 70 + 70 + 70 }} type="primary" />
       )}
       <FloatButton
         icon={<ExpandOutlined />}
-        style={{ right: 24 + 70 + 70 }}
-        // tooltip="Deselect"
         onClick={deselectAll}
+        // tooltip="Deselect"
+        style={{ right: 24 + 70 + 70 }}
       />
       <FloatButton
+        badge={{ count: selection.length, size: 'small' }}
         icon={<ForkOutlined />}
+        onClick={onRelate}
+        // tooltip="Relate"
         style={{ right: 24 + 70 }}
         type={selection.length < 2 ? 'default' : 'primary'}
-        // tooltip="Relate"
-        badge={{ count: selection.length, size: 'small' }}
-        onClick={onRelate}
       />
       <FloatButton
         icon={<SyncOutlined />}
-        style={{ right: 24 }}
-        // tooltip="Next Set"
         onClick={onNextSet}
+        // tooltip="Next Set"
+        style={{ right: 24 }}
       />
     </>
   );

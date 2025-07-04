@@ -34,21 +34,21 @@ export function ItemAttributionDrawer() {
   );
 
   return (
-    <Drawer open={!!queryParamsItemId} title={`Edit: ${activeItem.name.en}`} onClose={onClose} width="640px">
+    <Drawer onClose={onClose} open={!!queryParamsItemId} title={`Edit: ${activeItem.name.en}`} width="640px">
       <Flex gap={6}>
-        <Flex vertical gap={6}>
+        <Flex gap={6} vertical>
           <ItemSprite item={activeItem} width={50} />
           <ItemId item={activeItem} />
         </Flex>
-        <Flex vertical gap={6}>
+        <Flex gap={6} vertical>
           <ItemName item={activeItem} language="en" />
           <ItemName item={activeItem} language="pt" />
         </Flex>
-        <Flex vertical gap={6}>
+        <Flex gap={6} vertical>
           <Switch
             checked={showOnlyUnset}
-            onChange={setUnsetOnly}
             checkedChildren="Unset"
+            onChange={setUnsetOnly}
             unCheckedChildren="All"
           />
         </Flex>
@@ -56,14 +56,14 @@ export function ItemAttributionDrawer() {
 
       <Divider className="my-1" />
 
-      <Space size="small" direction="vertical" className="my-4 attribute-button-container" wrap>
+      <Space className="my-4 attribute-button-container" direction="vertical" size="small" wrap>
         {filteredAttributesList.map((attribute) => (
           <AttributionValueButtons
-            size="small"
-            key={attribute.id}
             attribute={attribute}
-            value={itemAttributeValues.attributes[attribute.id]}
+            key={attribute.id}
             onChange={onAttributeChange}
+            size="small"
+            value={itemAttributeValues.attributes[attribute.id]}
           />
         ))}
       </Space>

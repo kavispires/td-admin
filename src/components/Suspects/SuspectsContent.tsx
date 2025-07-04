@@ -73,17 +73,17 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
       </Space>
 
       <Image.PreviewGroup>
-        <Space ref={ref} wrap className="my-2" key={variant}>
+        <Space className="my-2" key={variant} ref={ref} wrap>
           {deck.map((entry) => {
             return (
-              <div key={entry.id} className="suspect" style={{ width: `${cardWidth}px` }}>
-                <SuspectImageCard id={entry.id} width={cardWidth} className="suspect__image" />
+              <div className="suspect" key={entry.id} style={{ width: `${cardWidth}px` }}>
+                <SuspectImageCard className="suspect__image" id={entry.id} width={cardWidth} />
 
                 <div className="suspect__name">
-                  <Flex gap={6} align="center">
+                  <Flex align="center" gap={6}>
                     <Tag>{entry.id}</Tag> <PromptButton suspect={entry} />
                   </Flex>
-                  <Typography.Text type="secondary" italic>
+                  <Typography.Text italic type="secondary">
                     <small>{truncate(entry.note || '-', { length: 18 })}</small>
                   </Typography.Text>
                   <div>🇧🇷 {entry.name.pt}</div>
@@ -110,20 +110,20 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
                     <div>{entry?.features?.length ?? 0} features</div>
                   </div>
                   <Button
-                    size="small"
                     block
-                    onClick={() => addParam('suspectId', entry.id)}
                     danger={!entry?.features || entry?.features?.length < 2}
+                    onClick={() => addParam('suspectId', entry.id)}
+                    size="small"
                   >
                     <EditFilled />
                   </Button>
                   {!!activeFeature && (
-                    <Flex gap={8} className="mt-2 mb-4">
+                    <Flex className="mt-2 mb-4" gap={8}>
                       <Typography.Text keyboard>{activeFeature}:</Typography.Text>
                       <Switch
                         checked={entry.features?.includes(activeFeature)}
-                        onChange={() => updateFeature(entry.id, activeFeature)}
                         checkedChildren={'✓'}
+                        onChange={() => updateFeature(entry.id, activeFeature)}
                         unCheckedChildren={'✗'}
                       />
                     </Flex>
@@ -134,7 +134,7 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
           })}
         </Space>
       </Image.PreviewGroup>
-      <SuspectDrawer data={data} addEntryToUpdate={addEntryToUpdate} key={suspectId} />
+      <SuspectDrawer addEntryToUpdate={addEntryToUpdate} data={data} key={suspectId} />
     </>
   );
 }

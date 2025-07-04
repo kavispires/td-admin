@@ -43,7 +43,7 @@ export function ImageCardsDescriptorTable({
       key: 'actions',
       render: (_, record) => (
         <Flex>
-          <FavoriteImageCardButton imageCard={record} addEntryToUpdate={addEntryToUpdate} />
+          <FavoriteImageCardButton addEntryToUpdate={addEntryToUpdate} imageCard={record} />
           <Button icon={<EditOutlined />} onClick={() => addParam('cardId', record.id)}>
             Edit
           </Button>
@@ -56,5 +56,5 @@ export function ImageCardsDescriptorTable({
 
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
-  return <Table dataSource={rows} columns={columns} rowKey="id" pagination={paginationProps} />;
+  return <Table columns={columns} dataSource={rows} pagination={paginationProps} rowKey="id" />;
 }

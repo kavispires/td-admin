@@ -25,59 +25,59 @@ export function RelationshipsFilters() {
   return (
     <PageSider>
       <SiderContent>
-        <Flex vertical gap={6}>
+        <Flex gap={6} vertical>
           <SaveButton
-            isDirty={isDirty}
             dirt={JSON.stringify(data)}
-            onSave={() => save({})}
+            isDirty={isDirty}
             isSaving={isSaving}
+            onSave={() => save({})}
           />
 
           <DownloadButton
+            block
             data={data}
+            disabled={isEmpty(data)}
             fileName="imageCardsRelationships.json"
             loading={isSaving}
-            disabled={isEmpty(data)}
-            block
           />
         </Flex>
       </SiderContent>
 
       <ResponseState
-        isLoading={isLoading || isSaving}
+        hasResponseData={!isEmpty(data)}
         isDirty={isDirty}
         isError={isError}
-        hasResponseData={!isEmpty(data)}
+        isLoading={isLoading || isSaving}
       />
 
       <SiderContent>
         <FilterSwitch
           label="Use Cycles"
-          value={filters.useCycles}
           onChange={() => filters.toggleUseCycles()}
+          value={filters.useCycles}
         />
 
-        <FilterSwitch label="Show Ids" value={showIds} onChange={(c) => setShowIds(c)} />
+        <FilterSwitch label="Show Ids" onChange={(c) => setShowIds(c)} value={showIds} />
 
         <FilterSelect
-          onChange={(value) => setTagThreshold(value)}
-          value={tagThreshold}
-          options={TAGS_SELECTOR_OPTIONS}
           label="Tag Count"
+          onChange={(value) => setTagThreshold(value)}
+          options={TAGS_SELECTOR_OPTIONS}
+          value={tagThreshold}
         />
 
         <FilterSelect
-          onChange={(value) => setSampleSize(value)}
-          value={sampleSize}
-          options={SAMPLE_SIZE_OPTIONS}
           label="Sample Size"
+          onChange={(value) => setSampleSize(value)}
+          options={SAMPLE_SIZE_OPTIONS}
+          value={sampleSize}
         />
 
         <FilterSelect
-          onChange={(value) => setCardSize(value)}
-          value={cardSize}
-          options={CARD_SIZE_OPTIONS}
           label="Card Size"
+          onChange={(value) => setCardSize(value)}
+          options={CARD_SIZE_OPTIONS}
+          value={cardSize}
         />
       </SiderContent>
 

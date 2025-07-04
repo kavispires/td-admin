@@ -59,31 +59,30 @@ export function TestimoniesFilters({
   return (
     <>
       <SiderContent>
-        <Flex vertical gap={12}>
+        <Flex gap={12} vertical>
           <SaveButton
-            isDirty={isDirty}
-            onSave={save}
-            isSaving={isSaving}
             dirt={JSON.stringify(entriesToUpdate)}
+            isDirty={isDirty}
+            isSaving={isSaving}
+            onSave={save}
           />
 
           <DownloadButton
-            data={async () => await prepareFileForDownload(data)}
-            fileName="testimony-answers.json"
-            disabled={isDirty}
-            hasNewData={hasNewData}
             block
+            data={async () => await prepareFileForDownload(data)}
+            disabled={isDirty}
+            fileName="testimony-answers.json"
+            hasNewData={hasNewData}
           />
 
-          <FirestoreConsoleLink path={'data/testimonies'} className="text-center" label="Firestore Data" />
+          <FirestoreConsoleLink className="text-center" label="Firestore Data" path={'data/testimonies'} />
 
-          <FirestoreConsoleLink path={'tdr/testimonies'} className="text-center" label="Firestore TDR" />
+          <FirestoreConsoleLink className="text-center" label="Firestore TDR" path={'tdr/testimonies'} />
         </Flex>
       </SiderContent>
       <SiderContent>
         <FilterSegments
           label="Display"
-          value={queryParams.get('display') ?? 'questions'}
           onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1 })}
           options={[
             {
@@ -102,6 +101,7 @@ export function TestimoniesFilters({
               value: 'simulator',
             },
           ]}
+          value={queryParams.get('display') ?? 'questions'}
         />
 
         <SuspectsStyleVariantSelector />
@@ -132,10 +132,10 @@ export function TestimoniesFilters({
         </div>
 
         <TestimonyDrawer
-          suspects={suspects}
-          questions={questions}
-          answers={data}
           addEntryToUpdate={addEntryToUpdate}
+          answers={data}
+          questions={questions}
+          suspects={suspects}
         />
       </SiderContent>
     </>

@@ -53,7 +53,7 @@ export function ItemAttributionStats() {
   return (
     <>
       <Flex vertical>
-        <Typography.Text strong className="mb-2">
+        <Typography.Text className="mb-2" strong>
           Items Stats
         </Typography.Text>
         <Stat label="Total">{total}</Stat>
@@ -63,7 +63,7 @@ export function ItemAttributionStats() {
         <Stat label="Initiated">
           {hasDataCount} ({initiatedPercentage}%)
         </Stat>
-        <Typography.Text strong className="mt-4 mb-2">
+        <Typography.Text className="mt-4 mb-2" strong>
           Attributes Stats
         </Typography.Text>
         <Stat label="Total">{progressTotal}</Stat>
@@ -85,10 +85,10 @@ export function ItemAttributionClassifierFilters() {
         Random Item
       </Button>
       <FilterSwitch
-        label="Unset Only"
-        value={is('scope', 'unset')}
-        onChange={(value) => addParam('scope', value ? 'unset' : '')}
         className="mt-4"
+        label="Unset Only"
+        onChange={(value) => addParam('scope', value ? 'unset' : '')}
+        value={is('scope', 'unset')}
       />
     </>
   );
@@ -109,17 +109,17 @@ export function ItemAttributionSamplerFilters() {
     <>
       <FilterSelect
         label="Sampler Attribute"
-        value={queryParams.get('attribute') || 'random'}
         onChange={(v) => addParam('attribute', v)}
         options={options}
+        value={queryParams.get('attribute') || 'random'}
       />
       <FilterNumber
         label="Sample Size"
-        value={Number(queryParams.get('size') || 9)}
-        onChange={(v) => addParam('size', String(v))}
-        min={3}
         max={21}
+        min={3}
+        onChange={(v) => addParam('size', String(v))}
         step={3}
+        value={Number(queryParams.get('size') || 9)}
       />
     </>
   );
@@ -140,23 +140,23 @@ export function ItemAttributionGroupingFilters() {
     <>
       <FilterSelect
         label="Attribute"
-        value={queryParams.get('attribute') || 'ali'}
         onChange={(v) => addParam('attribute', v)}
         options={options}
+        value={queryParams.get('attribute') || 'ali'}
       />
 
       <FilterSelect
         label="Scope"
-        value={queryParams.get('scope') || 'unset'}
         onChange={(v) => addParam('scope', v)}
         options={[{ value: 'unset', label: 'Unset' }, ...ATTRIBUTE_GROUP_VALUES]}
+        value={queryParams.get('scope') || 'unset'}
       />
 
       <FilterSelect
         label="Results per page"
-        value={queryParams.get('pageSize') || 12}
         onChange={(v) => addParam('pageSize', v)}
         options={[12, 24, 48, 96]}
+        value={queryParams.get('pageSize') || 12}
       />
     </>
   );
@@ -167,22 +167,22 @@ export function ItemAttributionComparatorFilters() {
   return (
     <>
       <FilterSwitch
+        className="full-width m-0"
         label="Only Complete"
-        value={is('showComplete')}
         onChange={(v) => addParam('showComplete', v ? 'true' : '')}
-        className="full-width m-0"
+        value={is('showComplete')}
       />
       <FilterSwitch
+        className="full-width m-0"
         label="Show Unrelated"
-        value={is('showUnrelated')}
         onChange={(v) => addParam('showUnrelated', v ? 'true' : '')}
-        className="full-width m-0"
+        value={is('showUnrelated')}
       />
       <FilterSwitch
-        label="Show Unclear"
-        value={is('showUnclear')}
-        onChange={(v) => addParam('showUnclear', v ? 'true' : '')}
         className="full-width m-0"
+        label="Show Unclear"
+        onChange={(v) => addParam('showUnclear', v ? 'true' : '')}
+        value={is('showUnclear')}
       />
     </>
   );
@@ -192,10 +192,10 @@ export function ItemAttributionStatsFilters() {
   const { addParam, is } = useQueryParams();
   return (
     <FilterSwitch
-      label="Show Glyphs"
-      value={is('showGlyphs')}
-      onChange={(v) => addParam('showGlyphs', v ? 'true' : '')}
       className="full-width m-0"
+      label="Show Glyphs"
+      onChange={(v) => addParam('showGlyphs', v ? 'true' : '')}
+      value={is('showGlyphs')}
     />
   );
 }

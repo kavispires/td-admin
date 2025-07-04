@@ -20,11 +20,11 @@ export function TestimonyDrawer(props: TestimonyDrawerProps) {
   const { addParam } = useQueryParams();
 
   return (
-    <Flex vertical gap={8}>
-      <Button onClick={() => addParam('testify', 'single')} block>
+    <Flex gap={8} vertical>
+      <Button block onClick={() => addParam('testify', 'single')}>
         Testify Drawer
       </Button>
-      <Button onClick={() => addParam('testify', 'group')} block>
+      <Button block onClick={() => addParam('testify', 'group')}>
         Testify Group
       </Button>
       <SingleDrawerContent {...props} />
@@ -83,25 +83,25 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
 
   return (
     <Modal
-      title={<Typography>Does this person do this??</Typography>}
-      open={is('testify', 'single')}
-      onCancel={() => removeParam('testify')}
-      maskClosable={false}
-      width={width - 64}
       footer={null}
+      maskClosable={false}
+      onCancel={() => removeParam('testify')}
+      open={is('testify', 'single')}
+      title={<Typography>Does this person do this??</Typography>}
+      width={width - 64}
     >
       <div {...handlers}>
         {hasEntry && (
-          <Flex vertical gap={8} className="mb-8" justify="center" align="center">
+          <Flex align="center" className="mb-8" gap={8} justify="center" vertical>
             <SuspectImageCard id={state.suspectId ?? ''} width={Math.max(height / 4, 128)} />
-            <Typography.Title level={5} className="text-center">
+            <Typography.Title className="text-center" level={5}>
               {questions[state.testimonyId ?? '']?.question}
             </Typography.Title>
           </Flex>
         )}
 
-        <Space.Compact block size="large" className="mb-8">
-          <Button block icon="👎" disabled={!hasEntry} style={{ height: 64 }} onClick={onNo}>
+        <Space.Compact block className="mb-8" size="large">
+          <Button block disabled={!hasEntry} icon="👎" onClick={onNo} style={{ height: 64 }}>
             No
           </Button>
           <Button block onClick={onSkip} style={{ height: 64 }}>
@@ -109,11 +109,11 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
           </Button>
           <Button
             block
+            disabled={!hasEntry}
             icon="👍"
             iconPosition="end"
-            disabled={!hasEntry}
-            style={{ height: 64 }}
             onClick={onYes}
+            style={{ height: 64 }}
           >
             Yes
           </Button>
@@ -198,44 +198,41 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
 
   return (
     <Modal
-      title={<Typography>Do these people do this??</Typography>}
-      open={is('testify', 'group')}
-      onCancel={() => removeParam('testify')}
-      maskClosable={false}
-      width={width - 64}
       footer={null}
+      maskClosable={false}
+      onCancel={() => removeParam('testify')}
+      open={is('testify', 'group')}
+      title={<Typography>Do these people do this??</Typography>}
+      width={width - 64}
     >
       <div>
         {hasEntry && (
-          <Flex vertical gap={8} className="mb-8" justify="center" align="center">
-            <Flex gap={6} align="center" justify="center">
+          <Flex align="center" className="mb-8" gap={8} justify="center" vertical>
+            <Flex align="center" gap={6} justify="center">
               <Typography.Text>Number of Suspects:</Typography.Text>
               <InputNumber
-                value={numberOfSuspects}
                 onChange={(value) => setNumberOfSuspects(value ?? 6)}
                 size="small"
+                value={numberOfSuspects}
               />
               <Typography.Text>Random Questions:</Typography.Text>
               <Switch checked={isRandomQuestion} onChange={setRandomQuestion} size="small" />
             </Flex>
-            <Typography.Title level={4} className="text-center">
+            <Typography.Title className="text-center" level={4}>
               {questions[state.testimonyId ?? '']?.question}
             </Typography.Title>
-            <Flex wrap="wrap" justify="center" gap={8}>
+            <Flex gap={8} justify="center" wrap="wrap">
               {Object.keys(state.suspectsIds).map((suspectId) => (
-                <Flex key={suspectId} justify="center" align="center" vertical>
+                <Flex align="center" justify="center" key={suspectId} vertical>
                   <Typography.Text className="text-center">
                     {suspects[suspectId]?.name?.pt || 'Unknown'}
                   </Typography.Text>
                   <SuspectImageCard
-                    key={suspectId}
                     id={suspectId}
+                    key={suspectId}
                     width={Math.min(Math.max(height / 3, 128), 128)}
                   />
                   <Segmented
-                    shape="round"
-                    size="large"
-                    value={state.suspectsIds[suspectId]}
                     onChange={(value) =>
                       setState((prev) => {
                         if (!prev) return prev;
@@ -254,6 +251,9 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
                       { value: null, icon: '♾' },
                       { value: 1, icon: '👍' },
                     ]}
+                    shape="round"
+                    size="large"
+                    value={state.suspectsIds[suspectId]}
                   />
                 </Flex>
               ))}
@@ -261,7 +261,7 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
           </Flex>
         )}
 
-        <Flex justify="space-between" align="center" className="mt-8">
+        <Flex align="center" className="mt-8" justify="space-between">
           <span />
           <Flex gap={8}>
             <Button onClick={() => onSetAllNullTo(0)}>Set all ♾ to 👎</Button>

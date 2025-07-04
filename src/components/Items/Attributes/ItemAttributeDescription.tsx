@@ -32,30 +32,30 @@ export function ItemAttributeDescription({ itemAttributeValues, attributes }: It
   return (
     <Flex gap={6} vertical>
       <FilterSwitch
+        className="full-width m-0"
         label="Show Unrelated"
-        value={is('showUnrelated')}
         onChange={(v) => addParam('showUnrelated', v ? 'true' : '')}
-        className="full-width m-0"
+        value={is('showUnrelated')}
       />
       <FilterSwitch
+        className="full-width m-0"
         label="Show Unclear"
-        value={is('showUnclear')}
         onChange={(v) => addParam('showUnclear', v ? 'true' : '')}
-        className="full-width m-0"
+        value={is('showUnclear')}
       />
       <FilterSwitch
-        label="Alien Signs"
-        value={is('signs')}
-        onChange={(v) => addParam('signs', v ? 'true' : '')}
         className="full-width m-0"
+        label="Alien Signs"
+        onChange={(v) => addParam('signs', v ? 'true' : '')}
+        value={is('signs')}
       />
-      <Flex gap={6} wrap="wrap" className="item-attribute-value-statement">
+      <Flex className="item-attribute-value-statement" gap={6} wrap="wrap">
         {filteredResponse.map((keyVariant, index, arr) => (
           <Component
-            key={keyVariant}
-            keyVariant={keyVariant}
             attributes={attributes}
             firstElement={index === 0}
+            key={keyVariant}
+            keyVariant={keyVariant}
             lastElement={index === arr.length - 1}
           />
         ))}
@@ -79,18 +79,18 @@ export function AttributeSprite({
   const { key, className, text } = parseAttribute(keyVariant);
 
   return (
-    <Flex vertical align="center">
+    <Flex align="center" vertical>
       <AlienSign
-        width={50}
-        id={attributes[key].spriteId}
         className={clsx('item-attribute-alien-sign', `item-attribute-alien-sign--${className}`)}
+        id={attributes[key].spriteId}
+        width={50}
       />
       {withText && (
         <Flex
-          wrap="wrap"
-          justify="center"
           align="center"
+          justify="center"
           style={{ maxWidth: 50, textAlign: 'center', wordBreak: 'break-word' }}
+          wrap="wrap"
         >
           {text} {attributes[key].name.en.toLowerCase()}
         </Flex>

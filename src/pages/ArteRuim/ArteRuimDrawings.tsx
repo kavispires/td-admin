@@ -20,9 +20,9 @@ export function ArteRuimDrawings() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={query.isLoading}
             error={query.error}
             hasResponseData={query.hasResponseData}
+            isLoading={query.isLoading}
           >
             <ArteRuimDrawingsContent {...query} />
           </DataLoadingWrapper>

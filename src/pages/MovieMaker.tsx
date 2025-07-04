@@ -62,19 +62,19 @@ function MovieMaker() {
     <PageLayout title="Movie Maker">
       <Layout hasSider>
         <PageSider>
-          <ResponseState hasResponseData={hasResponseData} isLoading={isLoading} error={error} />
+          <ResponseState error={error} hasResponseData={hasResponseData} isLoading={isLoading} />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper hasResponseData={hasResponseData} isLoading={isLoading} error={error}>
+          <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
             <FeatureFilmView
-              movieTitles={Object.values(movieTitleQuery.data)}
-              // biome-ignore lint/style/noNonNullAssertion: data is guaranteed to be defined by DataLoadingWrapper
-              movieGenres={movieGenresQuery.data!}
-              movieActors={Object.values(movieActorsQuery.data)}
               characterTraits={Object.values(characterTraitsQuery.data)}
+              // biome-ignore lint/style/noNonNullAssertion: data is guaranteed to be defined by DataLoadingWrapper
               items={Object.values(itemsQuery.data)}
               language={language}
+              movieActors={Object.values(movieActorsQuery.data)}
+              movieGenres={movieGenresQuery.data!}
+              movieTitles={Object.values(movieTitleQuery.data)}
             />
           </DataLoadingWrapper>
         </Layout.Content>

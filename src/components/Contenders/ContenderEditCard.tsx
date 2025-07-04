@@ -65,57 +65,57 @@ export function ContenderEditCard({ contender, addEntryToUpdate }: ContenderEdit
 
   return (
     <Card
+      cover={<ImageCard id={contender.id} width={240} />}
       hoverable
       style-={{ width: 240, maxWidth: 240 }}
-      cover={<ImageCard id={contender.id} width={240} />}
     >
       <Card.Meta
         // avatar={getGenderIcon(contender)}
-        title={contender.id}
         description={
           <Flex vertical>
             <Label>Name</Label>
             <DualLanguageTextField
-              value={contender.name}
               language="en"
               onChange={(e) => onUpdateDualText(e.target.value, 'name', 'en')}
+              value={contender.name}
             />
             <DualLanguageTextField
-              value={contender.name}
               language="pt"
               onChange={(e) => onUpdateDualText(e.target.value, 'name', 'pt')}
+              value={contender.name}
             />
             <Label>Description</Label>
             <DualLanguageTextField
-              value={contender.description ?? PLACEHOLDER_DUAL_LANGUAGE_OBJECT}
               language="en"
               onChange={(e) => onUpdateDualText(e.target.value, 'description', 'en')}
+              value={contender.description ?? PLACEHOLDER_DUAL_LANGUAGE_OBJECT}
             />
             <DualLanguageTextField
-              value={contender.description ?? PLACEHOLDER_DUAL_LANGUAGE_OBJECT}
               language="pt"
               onChange={(e) => onUpdateDualText(e.target.value, 'description', 'pt')}
+              value={contender.description ?? PLACEHOLDER_DUAL_LANGUAGE_OBJECT}
             />
             <Label>Decks</Label>
             <Select
-              mode="multiple"
               defaultValue={contender.decks ?? []}
-              size="small"
-              options={DECKS}
+              mode="multiple"
               onChange={(e) => onUpdateDecks(e)}
-              style={{ maxWidth: 'calc(100vw / 9)' }}
+              options={DECKS}
+              size="small"
               status={checkInvalidDecks(contender.decks, contender.exclusivity)}
+              style={{ maxWidth: 'calc(100vw / 9)' }}
             />
             <Flex align="center">
               <Label>NSFW</Label>{' '}
-              <NSFWField value={contender.nsfw} size="small" onChange={(e) => onUpdateNSFW(e)} />
+              <NSFWField onChange={(e) => onUpdateNSFW(e)} size="small" value={contender.nsfw} />
             </Flex>
             <Flex align="center" gap={8}>
               <Label>Exclusivity</Label>{' '}
-              <Exclusivity contender={contender} addEntryToUpdate={addEntryToUpdate} />
+              <Exclusivity addEntryToUpdate={addEntryToUpdate} contender={contender} />
             </Flex>
           </Flex>
         }
+        title={contender.id}
       />
       <Card.Meta />
     </Card>
@@ -136,8 +136,8 @@ function Exclusivity({ contender, addEntryToUpdate }: ContenderEditCardProps) {
   const content = (
     <Flex gap={8}>
       <Radio.Group
-        options={options}
         onChange={(e) => onUpdateExclusivity(e.target.value)}
+        options={options}
         value={contender?.exclusivity}
       />
     </Flex>
@@ -148,7 +148,7 @@ function Exclusivity({ contender, addEntryToUpdate }: ContenderEditCardProps) {
       {contender?.exclusivity === 'en' && <LanguageFlag language="en" style={{ width: 24 }} />}
       {contender?.exclusivity === 'pt' && <LanguageFlag language="pt" style={{ width: 24 }} />}
       {!contender?.exclusivity && 'None'}
-      <Popover title="Change exclusivity?" content={content} trigger="click">
+      <Popover content={content} title="Change exclusivity?" trigger="click">
         <EditOutlined />
       </Popover>
     </Flex>

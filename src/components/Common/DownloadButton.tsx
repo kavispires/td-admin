@@ -60,7 +60,7 @@ export function DownloadButton({
   };
 
   return (
-    <Button onClick={handleDownload} loading={loading} {...props}>
+    <Button loading={loading} onClick={handleDownload} {...props}>
       {children ?? 'Download JSON'}
       {hasNewData && <Badge status="warning" />}
     </Button>

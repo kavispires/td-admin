@@ -11,7 +11,6 @@ export function DailyFilters() {
       <SiderContent>
         <FilterSegments
           label="Display"
-          value={queryParams.get('display') ?? 'population'}
           onChange={(mode) => addParams({ display: mode })}
           options={[
             {
@@ -30,6 +29,7 @@ export function DailyFilters() {
               value: 'archive',
             },
           ]}
+          value={queryParams.get('display') ?? 'population'}
         />
       </SiderContent>
       <SiderContent>

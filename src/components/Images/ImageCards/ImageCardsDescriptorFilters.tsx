@@ -20,25 +20,25 @@ export function ImageCardsDescriptorFilters({
   const { onRandomCard } = useImageCardsDecks();
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <SaveButton
-          isDirty={isDirty}
-          onSave={save}
-          isSaving={isSaving}
           dirt={JSON.stringify(entriesToUpdate)}
+          isDirty={isDirty}
+          isSaving={isSaving}
+          onSave={save}
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(data)}
-          fileName="image-cards.json"
-          disabled={isDirty}
           block
+          data={() => prepareFileForDownload(data)}
+          disabled={isDirty}
+          fileName="image-cards.json"
         />
       </Flex>
 
       <Divider />
 
-      <Button onClick={() => addParam('cardId', onRandomCard())} block>
+      <Button block onClick={() => addParam('cardId', onRandomCard())}>
         Random Card
       </Button>
 

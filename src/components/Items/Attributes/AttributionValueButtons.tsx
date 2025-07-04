@@ -41,29 +41,29 @@ export function AttributionValueButtons({
   if (onlyButtons) {
     return (
       <Radio.Group
-        options={attribute.limited ? attributeLimitedOptions : attributeOptions}
-        onChange={({ target: { value: v } }) => onChange(attribute.id, v)}
-        value={value}
-        optionType="button"
         buttonStyle="solid"
+        onChange={({ target: { value: v } }) => onChange(attribute.id, v)}
+        options={attribute.limited ? attributeLimitedOptions : attributeOptions}
+        optionType="button"
         size={size}
+        value={value}
       />
     );
   }
 
   return (
-    <div key={attribute.id} className="attribute-button-container__row">
+    <div className="attribute-button-container__row" key={attribute.id}>
       <span className="attribute-button-container__label">
         {truncate(attribute.name.en, { length: 12 })} <PopoverInfo title={attribute.description.en} />
       </span>
 
       <Radio.Group
-        options={attribute.limited ? attributeLimitedOptions : attributeOptions}
-        onChange={({ target: { value: v } }) => onChange(attribute.id, v)}
-        value={value}
-        optionType="button"
         buttonStyle="solid"
+        onChange={({ target: { value: v } }) => onChange(attribute.id, v)}
+        options={attribute.limited ? attributeLimitedOptions : attributeOptions}
+        optionType="button"
         size={size}
+        value={value}
       />
 
       <span>

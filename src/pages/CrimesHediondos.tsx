@@ -69,28 +69,20 @@ function CrimesHediondos() {
   // }, [victimsQuery.data]);
 
   return (
-    <PageLayout title="Crimes Hediondos" subtitle="Categorizer">
+    <PageLayout subtitle="Categorizer" title="Crimes Hediondos">
       <Layout hasSider>
         <PageSider>
           <CrimesHediondosFilters
-            weaponsQuery={weaponsQuery}
             evidenceQuery={evidenceQuery}
-            scenesQuery={scenesQuery}
             locationsQuery={locationsQuery}
+            scenesQuery={scenesQuery}
             victimsQuery={victimsQuery}
+            weaponsQuery={weaponsQuery}
           />
         </PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={
-              weaponsQuery.isLoading ||
-              evidenceQuery.isLoading ||
-              scenesQuery.isLoading ||
-              locationsQuery.isLoading ||
-              victimsQuery.isLoading ||
-              itemsTypeaheadQuery.isLoading
-            }
             error={
               weaponsQuery.error ||
               evidenceQuery.error ||
@@ -107,13 +99,21 @@ function CrimesHediondos() {
               !isEmpty(victimsQuery.data) &&
               !isEmpty(itemsTypeaheadQuery.data)
             }
+            isLoading={
+              weaponsQuery.isLoading ||
+              evidenceQuery.isLoading ||
+              scenesQuery.isLoading ||
+              locationsQuery.isLoading ||
+              victimsQuery.isLoading ||
+              itemsTypeaheadQuery.isLoading
+            }
           >
             <CrimesHediondosContent
-              weaponsQuery={weaponsQuery}
               evidenceQuery={evidenceQuery}
-              scenesQuery={scenesQuery}
               locationsQuery={locationsQuery}
+              scenesQuery={scenesQuery}
               victimsQuery={victimsQuery}
+              weaponsQuery={weaponsQuery}
             />
           </DataLoadingWrapper>
         </Layout.Content>

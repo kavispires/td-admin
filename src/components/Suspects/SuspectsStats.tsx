@@ -26,10 +26,10 @@ export function SuspectsStats({ data }: SuspectsStatsProps) {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)} block>
+      <Button block onClick={() => setOpen(true)}>
         See Stats
       </Button>
-      {open && <StatsDrawer data={data} open={open} onClose={() => setOpen(false)} />}
+      {open && <StatsDrawer data={data} onClose={() => setOpen(false)} open={open} />}
     </>
   );
 }
@@ -91,7 +91,7 @@ function StatsDrawer({ data, open, onClose }: StatsDrawerProps) {
   }, [data]);
 
   return (
-    <Drawer title="Suspects Statistics" placement="right" onClose={onClose} open={open} width={400}>
+    <Drawer onClose={onClose} open={open} placement="right" title="Suspects Statistics" width={400}>
       <Typography.Text strong>Ethnicity</Typography.Text>
       <ul className="statistic__list">
         {ethnicities.map((entry) => (

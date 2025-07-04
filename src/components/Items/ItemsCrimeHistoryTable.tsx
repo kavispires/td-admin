@@ -105,9 +105,9 @@ export function ItemsCrimeHistoryTable() {
               <ItemName item={item} language="pt" />
               <ItemName item={item} language="en" />
               <Button
-                size="small"
                 icon={<CopyOutlined />}
                 onClick={() => onCopyAsCrimesHediondosCard(item, 'weapon')}
+                size="small"
               >
                 Crime
               </Button>
@@ -130,9 +130,9 @@ export function ItemsCrimeHistoryTable() {
               <ItemName item={item} language="pt" />
               <ItemName item={item} language="en" />
               <Button
-                size="small"
                 icon={<CopyOutlined />}
                 onClick={() => onCopyAsCrimesHediondosCard(item, 'evidence')}
+                size="small"
               >
                 Crime
               </Button>
@@ -170,7 +170,7 @@ export function ItemsCrimeHistoryTable() {
         return (
           <Flex vertical>
             <CopyToClipboardButton content={content} />
-            <Input.TextArea rows={3} readOnly value={content} />
+            <Input.TextArea readOnly rows={3} value={content} />
           </Flex>
         );
       },
@@ -178,8 +178,8 @@ export function ItemsCrimeHistoryTable() {
   ];
 
   return (
-    <Space direction="vertical" className="my-4">
-      <Table columns={columns} rowKey="id" dataSource={crimes} pagination={{ showQuickJumper: true }} />
+    <Space className="my-4" direction="vertical">
+      <Table columns={columns} dataSource={crimes} pagination={{ showQuickJumper: true }} rowKey="id" />
     </Space>
   );
 }

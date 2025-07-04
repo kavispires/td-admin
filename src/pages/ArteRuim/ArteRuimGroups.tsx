@@ -87,66 +87,66 @@ function ArteRuimGroups() {
   }, [cards, groups, isLoading, loadingLevel4]);
 
   return (
-    <PageLayout title="Arte Ruim Groups" subtitle={language ? `${language}` : ''}>
+    <PageLayout subtitle={language ? `${language}` : ''} title="Arte Ruim Groups">
       <Layout hasSider>
         <PageSider>
           <ResponseState
+            error={error || errorLevel4}
             hasResponseData={hasResponseData && Boolean(groups)}
             isLoading={isLoading || loadingLevel4}
-            error={error || errorLevel4}
           />
           <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
         </PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={isLoading || loadingLevel4}
             error={error || errorLevel4}
             hasResponseData={hasResponseData && Boolean(groups)}
+            isLoading={isLoading || loadingLevel4}
           >
             <div className="parser-container">
               <div className="parser-main">
                 <SectionTitle>Used in Groups ({Object.keys(used).length})</SectionTitle>
                 <Input.TextArea
-                  name="output"
-                  id=""
                   cols={15}
-                  rows={10}
+                  id=""
+                  name="output"
                   readOnly
+                  rows={10}
                   value={JSON.stringify(used, null, 4)}
                 />
                 <SectionTitle>Unused in Groups ({Object.keys(unused).length})</SectionTitle>
                 <Input.TextArea
-                  name="output"
-                  id=""
                   cols={15}
-                  rows={10}
+                  id=""
+                  name="output"
                   readOnly
+                  rows={10}
                   value={JSON.stringify(unused, null, 4)}
                 />
                 <SectionTitle>In More than One Group ({Object.keys(duplicated).length})</SectionTitle>
                 <Input.TextArea
-                  name="duplicates"
-                  id=""
                   cols={15}
-                  rows={5}
+                  id=""
+                  name="duplicates"
                   readOnly
+                  rows={5}
                   value={JSON.stringify(duplicated, null, 4)}
                 />
               </div>
 
               <aside className="parser-controls">
                 <List
-                  header={<SectionTitle>Themes</SectionTitle>}
                   bordered
                   className="theme-list"
                   dataSource={themes}
-                  size="small"
+                  header={<SectionTitle>Themes</SectionTitle>}
                   renderItem={(item) => (
                     <List.Item>
                       <Text mark></Text> {item}
                     </List.Item>
                   )}
+                  size="small"
                 />
               </aside>
             </div>

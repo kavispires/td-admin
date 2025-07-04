@@ -19,10 +19,10 @@ export function RemoveItemFlow({ disc, addEntryToUpdate, itemId }: RemoveItemFlo
 
   return (
     <Popconfirm
-      title="Are you sure you want to remove this item?"
-      onConfirm={onRemove}
-      okText="Yes"
       cancelText="No"
+      okText="Yes"
+      onConfirm={onRemove}
+      title="Are you sure you want to remove this item?"
     >
       <Button icon={<DeleteFilled />} size="small" type="text" />
     </Popconfirm>

@@ -12,7 +12,7 @@ export function FirestoreConsoleLink({ path, label, disabled, ...rest }: Firesto
   const { getConsoleUrl } = useFirestoreConsoleUrl();
 
   return (
-    <Typography.Link href={getConsoleUrl(path)} target="_blank" disabled={disabled} {...rest}>
+    <Typography.Link disabled={disabled} href={getConsoleUrl(path)} target="_blank" {...rest}>
       <GoogleOutlined /> {label ?? 'Console'} <ArrowUpOutlined style={{ rotate: '45deg' }} />
     </Typography.Link>
   );

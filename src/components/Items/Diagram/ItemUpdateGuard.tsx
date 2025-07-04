@@ -67,13 +67,13 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
     <>
       {activeThing && (
         <EditThingModal
-          subtitle={`(${toUpdateThings.length} left to update)`}
           isModalOpen={activeThing !== null}
-          onSaveThing={onUpdateThing}
-          onCancel={() => setActiveThing(null)}
-          thing={activeThing}
-          rules={rules}
           okButtonText="Update"
+          onCancel={() => setActiveThing(null)}
+          onSaveThing={onUpdateThing}
+          rules={rules}
+          subtitle={`(${toUpdateThings.length} left to update)`}
+          thing={activeThing}
           width="90vw"
         />
       )}

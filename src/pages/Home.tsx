@@ -6,7 +6,7 @@ function Home() {
   return (
     <PageLayout title="TD Admin">
       <Layout.Content className="content-center">
-        <Image src={logo} className="home-logo" alt="logo" preview={false} width={512} />
+        <Image alt="logo" className="home-logo" preview={false} src={logo} width={512} />
       </Layout.Content>
     </PageLayout>
   );

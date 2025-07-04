@@ -16,7 +16,7 @@ export function ResourceCards({ response, resourceName }: ResourceCardsProps) {
       <Row gutter={[16, 16]}>
         {list.map((entry) => {
           return (
-            <Col xs={6} sm={6} md={4} lg={8} xl={6} key={entry.id}>
+            <Col key={entry.id} lg={8} md={4} sm={6} xl={6} xs={6}>
               <CardEntry entry={entry} kind={resourceName ?? ''} />
             </Col>
           );

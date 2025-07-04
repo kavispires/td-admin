@@ -47,30 +47,30 @@ export function AddNewSetFlow({ addEntryToUpdate, ids }: AddNewSetFlowProps) {
 
   return (
     <>
-      <Button type="dashed" block onClick={() => setOpen(true)}>
+      <Button block onClick={() => setOpen(true)} type="dashed">
         Add New Set
       </Button>
       <Modal
-        title="Add New Set"
-        open={open}
-        onOk={form.submit}
-        onCancel={() => setOpen(false)}
         maskClosable={false}
-        okText="Add"
         okButtonProps={{ htmlType: 'submit' }}
+        okText="Add"
+        onCancel={() => setOpen(false)}
+        onOk={form.submit}
+        open={open}
+        title="Add New Set"
       >
         <Form form={form} onFinish={onFinish}>
-          <Form.Item name="nome" label="Nome" rules={[{ required: true }]}>
+          <Form.Item label="Nome" name="nome" rules={[{ required: true }]}>
             <Input
-              prefix={<LanguageFlag language="pt" width="1em" />}
               placeholder={'Name in pt'}
+              prefix={<LanguageFlag language="pt" width="1em" />}
               size="small"
             />
           </Form.Item>
-          <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+          <Form.Item label="Name" name="name" rules={[{ required: true }]}>
             <Input
-              prefix={<LanguageFlag language="en" width="1em" />}
               placeholder={'Name in en'}
+              prefix={<LanguageFlag language="en" width="1em" />}
               size="small"
             />
           </Form.Item>

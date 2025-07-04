@@ -16,7 +16,7 @@ export function Contenders() {
   });
 
   return (
-    <PageLayout title="Contenders" subtitle="Characters, Celebrities, Personalities">
+    <PageLayout subtitle="Characters, Celebrities, Personalities" title="Contenders">
       <Layout hasSider>
         <PageSider>
           <ContendersFilters {...contendersQuery} />
@@ -24,9 +24,9 @@ export function Contenders() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            isLoading={contendersQuery.isLoading}
             error={contendersQuery.error}
             hasResponseData={!isEmpty(contendersQuery.data)}
+            isLoading={contendersQuery.isLoading}
           >
             <ContendersContent {...contendersQuery} />
           </DataLoadingWrapper>

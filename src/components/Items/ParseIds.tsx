@@ -30,8 +30,8 @@ export function PasteIds({ onUpdateBatch }: PasteIdsProps) {
   return (
     <Typography.Paragraph>
       Paste IDs
-      <Input.TextArea value={str} onChange={(e) => setStr(e.target.value)} />
-      <Button size="small" onClick={onAdd}>
+      <Input.TextArea onChange={(e) => setStr(e.target.value)} value={str} />
+      <Button onClick={onAdd} size="small">
         Add
       </Button>
     </Typography.Paragraph>
