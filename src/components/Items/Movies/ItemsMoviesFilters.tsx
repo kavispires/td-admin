@@ -76,5 +76,9 @@ function NewPlaceholderMovieSet({ data, addEntryToUpdate }: NewPlaceholderMovieS
     copyToClipboard(PLACEHOLDER);
   };
 
-  return <Button onClick={onNewMovieSet}>Add New Movie Set</Button>;
+  return (
+    <Button onClick={onNewMovieSet} block variant="dashed">
+      Add New Movie Set
+    </Button>
+  );
 }

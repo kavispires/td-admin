@@ -1,4 +1,4 @@
-import { GlobalOutlined, TableOutlined } from '@ant-design/icons';
+import { RobotOutlined, TableOutlined } from '@ant-design/icons';
 import { Divider, Flex } from 'antd';
 import { FilterSegments, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
@@ -27,20 +27,20 @@ export function ItemsQuartetsFilters({
 
   return (
     <SiderContent>
-      <Flex vertical gap={12}>
+      <Flex gap={12} vertical>
         <SaveButton
-          isDirty={isDirty}
-          onSave={save}
-          isSaving={isSaving}
           dirt={JSON.stringify(entriesToUpdate)}
+          isDirty={isDirty}
+          isSaving={isSaving}
+          onSave={save}
         />
 
         <DownloadButton
-          data={() => prepareFileForDownload(data)}
-          fileName="daily-quartet-sets.json"
-          disabled={isDirty}
-          hasNewData={hasFirestoreData}
           block
+          data={() => prepareFileForDownload(data)}
+          disabled={isDirty}
+          fileName="daily-quartet-sets.json"
+          hasNewData={hasFirestoreData}
         />
       </Flex>
 
@@ -48,17 +48,16 @@ export function ItemsQuartetsFilters({
 
       <FilterSwitch
         label="Pending Only"
-        value={is('emptyOnly')}
         onChange={(mode) => addParam('emptyOnly', mode, false)}
+        value={is('emptyOnly')}
       />
 
-      <NewQuartetFlow data={data} addEntryToUpdate={addEntryToUpdate} />
+      <NewQuartetFlow addEntryToUpdate={addEntryToUpdate} data={data} />
 
       <Divider />
 
       <FilterSegments
         label="Display"
-        value={queryParams.get('display') ?? 'table'}
         onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1, display: 'table' })}
         options={[
           {
@@ -68,10 +67,11 @@ export function ItemsQuartetsFilters({
           },
           {
             title: 'Simulator',
-            icon: <GlobalOutlined />,
+            icon: <RobotOutlined />,
             value: 'simulator',
           },
         ]}
+        value={queryParams.get('display') ?? 'table'}
       />
     </SiderContent>
   );
