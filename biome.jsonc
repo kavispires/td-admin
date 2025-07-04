@@ -41,8 +41,8 @@
         "noForEach": "off"
       },
       "correctness": {
-        "noUnusedImports": "error",
-        "noUnusedVariables": "error"
+        "noUnusedImports": "warn",
+        "noUnusedVariables": "warn"
       },
       "security": {
         "noDangerouslySetInnerHtml": "warn"

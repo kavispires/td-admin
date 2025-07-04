@@ -1,4 +1,4 @@
-import { RobotOutlined, TableOutlined } from '@ant-design/icons';
+import { FrownOutlined, RobotOutlined, TableOutlined } from '@ant-design/icons';
 import { Divider, Flex } from 'antd';
 import { FilterSegments, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
@@ -66,6 +66,11 @@ export function ItemsQuartetsFilters({
             value: 'table',
           },
           {
+            title: 'Orphans',
+            icon: <FrownOutlined />,
+            value: 'orphans',
+          },
+          {
             title: 'Simulator',
             icon: <RobotOutlined />,
             value: 'simulator',
@@ -106,7 +111,7 @@ function useGroupItemsByNameEnding() {
 
     // Group items by the last two, three, and four characters of their names
     // Use only item.name.pt if it's a single word, otherwise search item.aliasesPt for a single word name, if there is none, use the regular one only two words.
-    const groupedItems: any = {
+    const groupedItems: Dictionary<Dictionary<Item[]>> = {
       twoChars: {},
       threeChars: {},
       fourChars: {},

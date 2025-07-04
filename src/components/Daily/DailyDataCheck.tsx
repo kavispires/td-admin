@@ -14,7 +14,7 @@ import { getToday } from './utils/utils';
 export function DailyDataCheck() {
   const [selectedDate, setSelectedDate] = useState('');
   const [isValidDate, setIsValidDate] = useState(false);
-  const { isLoading, data } = useGetFirestoreDoc<DailyEntry>('diario', selectedDate, {
+  const { isLoading, data, dataUpdatedAt } = useGetFirestoreDoc<DailyEntry>('diario', selectedDate, {
     enabled: !!selectedDate && isValidDate,
   });
 
@@ -41,12 +41,12 @@ export function DailyDataCheck() {
     setSelectedDate(nextDate);
   };
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Only important when data is updated
   useEffect(() => {
     if (!isLoading && data) {
       console.log(sortJsonKeys(data));
     }
-  }, [data]);
+  }, [dataUpdatedAt]);
 
   return (
     <div>
@@ -106,13 +106,13 @@ export function DailyDataCheck() {
 }
 
 // Helper function to search deeply through objects
-const findInObject = (obj: any, searchText: string): string[] => {
+const findInObject = <T extends Record<string, any>>(obj: T, searchText: string): string[] => {
   if (!obj || !searchText || searchText.length < 2) return [];
 
   const results: string[] = [];
   const searchTextLower = searchText.toLowerCase();
 
-  const search = (obj: any, path: string[] = []) => {
+  const search = (obj: T, path: string[] = []) => {
     if (!obj) return;
 
     if (typeof obj === 'object') {
@@ -149,7 +149,7 @@ function DataSearcher({ data }: DataSearcherProps) {
   const handleSearch = (text: string) => {
     setCurrentSearchText(text);
     if (text.trim().length > 1) {
-      const results = findInObject(data, text.trim());
+      const results = findInObject(data ?? {}, text.trim());
       setSearchResults(results);
     } else {
       setSearchResults([]);

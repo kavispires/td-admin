@@ -32,7 +32,7 @@ export function ItemsQuartetSearch({
 
 const typeaheadParser = (data: Record<string, DailyQuartetSet>) => {
   return Object.values(data ?? {}).reduce((acc: Record<string, string>, quartet) => {
-    acc[quartet.title] = quartet.id;
+    acc[`${quartet.title} (${quartet.id})`] = quartet.id;
     return acc;
   }, {});
 };

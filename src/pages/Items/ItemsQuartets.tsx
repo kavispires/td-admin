@@ -3,6 +3,7 @@ import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ItemsQuartetSearch } from 'components/Items/Quartets/ItemsQuartetSearch';
 import { ItemsQuartetsContent } from 'components/Items/Quartets/ItemsQuartetsContent';
 import { ItemsQuartetsFilters } from 'components/Items/Quartets/ItemsQuartetsFilters';
+import { ItemsQuartetsOrphans } from 'components/Items/Quartets/ItemsQuartetsOrphans';
 import { ItemsQuartetsSimulator } from 'components/Items/Quartets/ItemsQuartetsSimulator';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
@@ -13,6 +14,7 @@ import type { DailyQuartetSet } from 'types';
 
 export function ItemsQuartets() {
   const { queryParams } = useQueryParams();
+  const display = queryParams.get('display');
 
   const quartetsData = useResourceFirestoreData<DailyQuartetSet>({
     tdrResourceName: 'daily-quartet-sets',
@@ -32,9 +34,9 @@ export function ItemsQuartets() {
             hasResponseData={!isEmpty(quartetsData.data)}
             isLoading={quartetsData.isLoading}
           >
-            {queryParams.get('display') === 'simulator' ? (
-              <ItemsQuartetsSimulator {...quartetsData} />
-            ) : (
+            {display === 'simulator' && <ItemsQuartetsSimulator />}
+            {display === 'orphans' && <ItemsQuartetsOrphans {...quartetsData} />}
+            {!display && (
               <Flex gap={24} vertical>
                 <ItemsQuartetSearch {...quartetsData} />
                 <ItemsQuartetsContent {...quartetsData} />

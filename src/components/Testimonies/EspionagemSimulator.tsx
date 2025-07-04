@@ -18,7 +18,9 @@ export function EspionagemSimulator() {
   const batchSizeRef = useRef<number>(1);
   const { entries } = useDailyEspionagemGames(true, 'pt', run.batchSize, run.history);
   const suspectsQuery = useTDResource<SuspectCard>('suspects', !isEmpty(entries));
+
   console.log(countSuspectUse(entries, suspectsQuery.data ?? {}));
+
   return (
     <Flex className="p-4" gap={12} vertical>
       <Flex align="center" justify="space-between">

@@ -91,14 +91,20 @@ export const buildDailyQuartetosGames = (
     // Within the game, we need to keep track of the selected sets so items do override each other
     let scopedEligibleSets = cloneDeep(eligibleSets);
 
+    const perfectSets = scopedEligibleSets.filter((set) => set.itemsIds.length === 4);
+
     let tries = 0;
     // Get 3 sets with unique items
     while (sets.length < 3 && tries < 1000) {
-      const potentialSet = sample(scopedEligibleSets);
+      const potentialSet = sample(perfectSets);
       if (!potentialSet) {
         addWarning('quartet', 'No potential set found for Quartetos game');
         return entries;
       }
+      // Group sets by matching each item in its set with another group with more than 4 items and that does not match any of the items in the set
+      const relatedSets = gatherRelatedSets(potentialSet.itemsIds, quartetsSets);
+      console.log(relatedSets);
+
       // Remove selected set from scopedEligibleSets
       scopedEligibleSets = scopedEligibleSets.filter((set) => set.id !== potentialSet.id);
 
@@ -170,3 +176,24 @@ export const buildDailyQuartetosGames = (
 
   return entries;
 };
+
+function gatherRelatedSets(mainItems: string[], allSets: Dictionary<DailyQuartetSet>) {
+  const [item0, item1, item2, item3] = mainItems;
+  // For each of the 4 main items, find sets that share exactly one item with the main set, keep track also of the ones that don't share any items
+  const relatedSets: Dictionary<DailyQuartetSet> = {};
+  Object.values(allSets).forEach((set) => {
+    const matchItem0 = set.itemsIds[0];
+    const matchItem1 = set.itemsIds[1];
+    const matchItem2 = set.itemsIds[2];
+    const matchItem3 = set.itemsIds[3];
+    const sharedItems = set.itemsIds.filter((id) => mainItems.includes(id));
+    if (sharedItems.length === 1) {
+      relatedSets[set.id] = set;
+    } else if (sharedItems.length === 0) {
+      // If no shared items, add it as a related set
+      relatedSets[set.id] = set;
+    }
+  });
+
+  return relatedSets;
+}
