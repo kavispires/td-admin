@@ -21,7 +21,8 @@
   "assist": {
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": "on",
+        "useSortedAttributes": "on"
       }
     }
   },
@@ -40,8 +41,8 @@
         "noForEach": "off"
       },
       "correctness": {
-        "noUnusedImports": "warn",
-        "noUnusedVariables": "warn"
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error"
       },
       "security": {
         "noDangerouslySetInnerHtml": "warn"
@@ -59,7 +60,7 @@
         "noUselessElse": "error"
       },
       "suspicious": {
-        "noExplicitAny": "off",
+        "noExplicitAny": "warn",
         "noArrayIndexKey": "off"
       }
     }
