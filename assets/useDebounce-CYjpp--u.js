@@ -1,0 +1,1 @@
+import{r as s}from"./index-CD2lQx4f.js";import{u as c}from"./SaveButton-BseHkRpP.js";function m(o,t,e){e===void 0&&(e=[]);var r=c(o,t),u=r[0],a=r[1],i=r[2];return s.useEffect(i,e),[u,a]}export{m as u};
