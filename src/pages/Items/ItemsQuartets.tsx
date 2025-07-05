@@ -35,7 +35,12 @@ export function ItemsQuartets() {
             isLoading={quartetsData.isLoading}
           >
             {display === 'simulator' && <ItemsQuartetsSimulator />}
-            {display === 'orphans' && <ItemsQuartetsOrphans {...quartetsData} />}
+            {display === 'orphans' && (
+              <Flex gap={24} vertical>
+                <ItemsQuartetSearch {...quartetsData} />
+                <ItemsQuartetsOrphans {...quartetsData} />
+              </Flex>
+            )}
             {!display && (
               <Flex gap={24} vertical>
                 <ItemsQuartetSearch {...quartetsData} />

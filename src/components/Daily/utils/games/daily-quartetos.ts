@@ -1,6 +1,6 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
-import { capitalize, cloneDeep, orderBy, sample, sampleSize, shuffle } from 'lodash';
+import { capitalize, cloneDeep, orderBy, sample, sampleSize, set, shuffle } from 'lodash';
 import { useMemo } from 'react';
 import type { DailyQuartetSet, ItemGroup } from 'types';
 import { SEPARATOR } from 'utils/constants';
@@ -92,69 +92,149 @@ export const buildDailyQuartetosGames = (
     let scopedEligibleSets = cloneDeep(eligibleSets);
 
     const perfectSets = scopedEligibleSets.filter((set) => set.itemsIds.length === 4);
+    if (perfectSets.length === 0) {
+      addWarning('quartet', 'No perfect sets found for Quartetos game');
+      return entries;
+    }
 
     let tries = 0;
     // Get 3 sets with unique items
     while (sets.length < 3 && tries < 1000) {
-      const potentialSet = sample(perfectSets);
-      if (!potentialSet) {
-        addWarning('quartet', 'No potential set found for Quartetos game');
+      tries++;
+      const referenceSet = sample(perfectSets);
+      console.log({ referenceSet });
+
+      if (!referenceSet) {
+        addWarning('quartet', 'No reference set found for Quartetos game');
         return entries;
       }
-      // Group sets by matching each item in its set with another group with more than 4 items and that does not match any of the items in the set
-      const relatedSets = gatherRelatedSets(potentialSet.itemsIds, quartetsSets);
-      console.log(relatedSets);
 
-      // Remove selected set from scopedEligibleSets
-      scopedEligibleSets = scopedEligibleSets.filter((set) => set.id !== potentialSet.id);
-
-      // Each quartet needs only 4 items
-      const selectedSetItemsIds = orderBy(sampleSize(potentialSet.itemsIds, 4), (id) => Number(id));
-
-      // If any of those items was already taken, this quartet is invalid
-      if (selectedSetItemsIds.some((id) => takenItemsIds[id])) {
-        tries++;
+      // Group sets that matches each element of the perfect reference set
+      const relatedSets = gatherRelatedSets(referenceSet.itemsIds, quartetsSets);
+      console.log({ relatedSets });
+      if (
+        relatedSets[0].length === 0 &&
+        relatedSets[1].length === 0 &&
+        relatedSets[2].length === 0 &&
+        relatedSets[3].length === 0
+      ) {
+        console.log(`No related sets found for reference set ${referenceSet.id}`);
         continue;
       }
 
-      // Add all items to taken
-      potentialSet.itemsIds.forEach((id) => {
-        takenItemsIds[id] = true;
-      });
+      // Remove reference set from scopedEligibleSets
+      scopedEligibleSets = scopedEligibleSets.filter((set) => set.id !== referenceSet.id);
 
-      sets.push({
-        id: potentialSet.id,
-        title: potentialSet.title,
-        itemsIds: selectedSetItemsIds,
-        level: potentialSet.level ?? 1,
-      });
+      for (let r = 0; r < relatedSets.length; r++) {
+        console.log(`Processing related sets for item ${r + 1} of 4`);
+        const primaryItemId = referenceSet.itemsIds[r];
+        takenItemsIds[primaryItemId] = true; // Mark primary item as taken
+        const relatedSet = relatedSets[r];
 
-      tries = 0;
+        // Loop through sets until find one that does not have collisions with taken items
+        for (let j = 0; j < relatedSet.length - 1; j++) {
+          const potentialSet = relatedSet[j];
+          if (!potentialSet) {
+            console.log(`No related set found for item ${primaryItemId} [${j}]`);
+            continue; // No related set found for this item
+          }
+
+          // If after removing the primary item, the set has 3 items that doesn't collide with taken items, we can use it
+          const availableSetItemsIds = potentialSet.itemsIds.filter((id) => id !== primaryItemId);
+          // Verify collision with taken items
+          let collisionsCount = 0;
+          const selectedSetItemsIds = availableSetItemsIds.filter((id) => {
+            if (takenItemsIds[id]) {
+              collisionsCount++;
+              return false;
+            }
+            return true;
+          });
+
+          if (selectedSetItemsIds.length < 3 || collisionsCount > 2) {
+            console.log(`Not enough available items or too many collisions for item ${primaryItemId} [${j}]`);
+            continue; // Not enough available items, try next set
+          }
+
+          // Add all items to taken
+          potentialSet.itemsIds.forEach((id) => {
+            takenItemsIds[id] = true;
+          });
+
+          console.log(`Adding set ${potentialSet.id} for item ${primaryItemId} [${j}]`);
+
+          sets.push({
+            id: potentialSet.id,
+            title: potentialSet.title,
+            itemsIds: [primaryItemId, ...sampleSize(selectedSetItemsIds, 3)],
+            level: potentialSet.level ?? 1,
+          });
+
+          break; // Found a valid set, break the loop
+        }
+
+        if (sets.length >= 3) {
+          break; // We have enough sets, break the outer loop
+        }
+
+        // If there are less than 3 sets, add sets with no collisions (from none)
+        if (sets.length < 3) {
+          while (sets.length < 3 && relatedSets[relatedSets.length - 1].length > 0) {
+            const noneSet = relatedSets[relatedSets.length - 1].pop();
+            if (!noneSet) {
+              console.log(`No none set found for item position ${sets.length}`);
+              continue; // No none set found for this item
+            }
+
+            // Check if the set has any collisions with taken items
+            const availableSetItemsIds = noneSet.itemsIds.filter((id) => !takenItemsIds[id]);
+            if (availableSetItemsIds.length < 3) {
+              console.log(`Not enough available items left for item position ${sets.length}`);
+              continue; // Not enough available items, try next set
+            }
+
+            // Add all items to taken
+            noneSet.itemsIds.forEach((id) => {
+              takenItemsIds[id] = true;
+            });
+
+            sets.push({
+              id: noneSet.id,
+              title: noneSet.title,
+              itemsIds: sampleSize(availableSetItemsIds, 4),
+              level: noneSet.level ?? 1,
+            });
+          }
+        }
+      }
     }
 
     // Remove selected sets from eligibleSets
-    const selectedSetsIds = sets.map((set) => set.id);
-    eligibleSets = eligibleSets.filter((set) => !selectedSetsIds.includes(set.id));
+    if (sets.length === 3) {
+      const selectedSetsIds = sets.map((set) => set.id);
+      eligibleSets = eligibleSets.filter((set) => !selectedSetsIds.includes(set.id));
 
-    // Get a group that does not share any items with the selected sets
-    const eligibleGroups = Object.values(itemsGroups).filter(
-      (group) =>
-        group.itemsIds.some((id) => !takenItemsIds[id]) && group.itemsIds.length >= 4 && group.nsfw !== true,
-    );
-    const selectedGroup = sample(eligibleGroups);
-    if (!selectedGroup) {
-      throw Error('No eligible group found for Quartetos game');
+      // Get a group that does not share any items with the selected sets
+      const eligibleGroups = Object.values(itemsGroups).filter(
+        (group) =>
+          group.itemsIds.some((id) => !takenItemsIds[id]) &&
+          group.itemsIds.length >= 4 &&
+          group.nsfw !== true,
+      );
+      const selectedGroup = sample(eligibleGroups);
+      if (!selectedGroup) {
+        throw Error('No eligible group found for Quartetos game');
+      }
+      sets.push({
+        id: selectedGroup.id,
+        title: `${capitalize(selectedGroup.name[queryLanguage])}*`,
+        itemsIds: sampleSize(selectedGroup.itemsIds, 4),
+        level: 1,
+      });
     }
-    sets.push({
-      id: selectedGroup.id,
-      title: capitalize(selectedGroup.name[queryLanguage]),
-      itemsIds: sampleSize(selectedGroup.itemsIds, 4),
-      level: 1,
-    });
-
     const difficulty = Math.ceil(sets.reduce((acc, set) => acc + set.level, 0) / sets.length);
 
-    const orderedSets = orderBy(sets, ['level'], ['desc']).map((set, index) => {
+    const orderedSets = orderBy(sets, ['level'], ['asc']).map((set, index) => {
       set.level = index;
       return set;
     });
@@ -180,20 +260,35 @@ export const buildDailyQuartetosGames = (
 function gatherRelatedSets(mainItems: string[], allSets: Dictionary<DailyQuartetSet>) {
   const [item0, item1, item2, item3] = mainItems;
   // For each of the 4 main items, find sets that share exactly one item with the main set, keep track also of the ones that don't share any items
-  const relatedSets: Dictionary<DailyQuartetSet> = {};
+  const relatedSets: Dictionary<DailyQuartetSet[]> = {
+    [item0]: [],
+    [item1]: [],
+    [item2]: [],
+    [item3]: [],
+    none: [],
+  };
+
   Object.values(allSets).forEach((set) => {
-    const matchItem0 = set.itemsIds[0];
-    const matchItem1 = set.itemsIds[1];
-    const matchItem2 = set.itemsIds[2];
-    const matchItem3 = set.itemsIds[3];
-    const sharedItems = set.itemsIds.filter((id) => mainItems.includes(id));
-    if (sharedItems.length === 1) {
-      relatedSets[set.id] = set;
-    } else if (sharedItems.length === 0) {
-      // If no shared items, add it as a related set
-      relatedSets[set.id] = set;
+    if (set.itemsIds.length < 4) return; // Skip sets with less than 4 items
+    if (set.flagged) return; // Skip flagged sets
+
+    const isItem0Match = set.itemsIds.includes(item0);
+    const isItem1Match = set.itemsIds.includes(item1);
+    const isItem2Match = set.itemsIds.includes(item2);
+    const isItem3Match = set.itemsIds.includes(item3);
+
+    if (isItem0Match && !isItem1Match && !isItem2Match && !isItem3Match) {
+      relatedSets[item0].push(set);
+    } else if (isItem1Match && !isItem0Match && !isItem2Match && !isItem3Match) {
+      relatedSets[item1].push(set);
+    } else if (isItem2Match && !isItem0Match && !isItem1Match && !isItem3Match) {
+      relatedSets[item2].push(set);
+    } else if (isItem3Match && !isItem0Match && !isItem1Match && !isItem2Match) {
+      relatedSets[item3].push(set);
+    } else if (!isItem0Match && !isItem1Match && !isItem2Match && !isItem3Match && set.itemsIds.length >= 4) {
+      relatedSets.none.push(set);
     }
   });
 
-  return relatedSets;
+  return Object.values(relatedSets).map((s) => shuffle(s));
 }

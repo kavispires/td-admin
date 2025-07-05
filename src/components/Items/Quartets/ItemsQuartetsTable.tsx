@@ -75,6 +75,7 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
       title: 'Count',
       dataIndex: 'itemsIds',
       render: (itemsIds: string[]) => removeDuplicates(itemsIds).filter(Boolean).length,
+      sorter: (a, b) => a.itemsIds.length - b.itemsIds.length,
     },
     {
       title: 'Type',
@@ -88,6 +89,7 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
           style={{ width: 100 }}
         />
       ),
+      sorter: (a, b) => (a.type ?? '_').localeCompare(b.type ?? '_'),
     },
     {
       title: 'Level',
@@ -121,13 +123,13 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
               addEntryToUpdate(record.id, { ...record, flagged });
             } else {
               const copy = cloneDeep(record);
-              // biome-ignore lint/performance/noDelete: <explanation>
               delete copy.flagged;
               addEntryToUpdate(record.id, copy);
             }
           }}
         />
       ),
+      sorter: (a, b) => (a.flagged ? 1 : 0) - (b.flagged ? 1 : 0),
     },
   ];
 
