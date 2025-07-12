@@ -1,0 +1,1 @@
+import{r as x}from"./index-B-0Zi9dv.js";function w({maxExpandedRows:s,rowExpandable:o,defaultExpandAllRows:d,...p}){const[n,t]=x.useState([]);return{expandedRowKeys:n,rowExpandable:o??(()=>!0),defaultExpandAllRows:d??!1,onExpand:(r,a)=>{const e=[...n];if(!r)return t(e.filter(l=>l!==a.id));{for(;e.length>=s;)e.shift();e.push(a.id),t(e)}},...p}}export{w as u};
