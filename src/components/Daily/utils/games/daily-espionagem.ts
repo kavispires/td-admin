@@ -1,11 +1,11 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { calculateSuspectAnswersData } from 'components/Testimonies/utils';
 import { useTDResource } from 'hooks/useTDResource';
-import { cloneDeep, difference, isEmpty, sample, sampleSize, shuffle, uniq } from 'lodash';
+import { cloneDeep, difference, intersection, isEmpty, sample, sampleSize, shuffle, uniq } from 'lodash';
 import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { CrimeReason, SuspectCard, TestimonyQuestionCard } from 'types';
-import { DAILY_GAMES_KEYS } from '../constants';
+import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 
@@ -54,7 +54,7 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   coloredHair: 'tem cabelo colorido',
   indian: 'é indiano(a)',
   'native-american': 'é nativo-americano(a)',
-  noAccessories: 'sem nenhum acessório',
+  noAccessories: 'está sem nenhum acessório',
   avoidingCamera: 'está evitando olhar para a câmera',
   wearingStripes: 'tem listras na roupa',
   blackClothes: 'está vestindo roupas pretas',
@@ -193,7 +193,7 @@ export const buildDailyEspionagemGames = (
     // Try up to 100 times to generate a valid game
     let validGame = null;
     let attempts = 0;
-    while (validGame === null && attempts < 100) {
+    while (validGame === null && attempts < ATTEMPTS_THRESHOLD) {
       try {
         attempts++;
         const game = generateEspionagemGame(
@@ -243,7 +243,7 @@ function generateEspionagemGame(
 ): Omit<DailyEspionagemEntry, 'id' | 'number' | 'type'> {
   const statements: StatementClue[] = [];
   const excludeScoreBoard: Dictionary<number> = {};
-
+  console.log('SuspectTestimonyAnswers', suspectTestimonyAnswers);
   // Get two related testimonies, the culprit ID, and the common suspects
   const { selectedTestimonyId1, selectedTestimonyId2, culpritId, possibleSuspects, impossibleSuspects } =
     getTwoRelatedTestimonies(suspectTestimonyAnswers, usedIds);
@@ -611,18 +611,18 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
 };
 
 const getTwoRelatedTestimonies = (suspectTestimonyAnswers: TestimonySuspectAnswers, usedIds: string[]) => {
-  // Using while, try a maximum of 100 attempts to get a random testimony, and then another testimony that has the at least one suspect in common
+  // Using while, try a maximum of 500 attempts to get a random testimony, and then another testimony that has the at least one suspect in common
 
   let attempts = 0;
   let testimonyId1: string | undefined;
   let testimonyId2: string | undefined;
   let commonSuspects: string[] = [];
 
-  while (attempts < 100 && !testimonyId2) {
+  while (attempts < ATTEMPTS_THRESHOLD && !testimonyId2 && commonSuspects.length === 0) {
     attempts++;
     testimonyId1 = sample(Object.keys(suspectTestimonyAnswers));
     if (!testimonyId1) {
-      continue;
+      throw new Error('Failed to find a testimony');
     }
 
     // Get the suspects in this testimony
@@ -638,10 +638,10 @@ const getTwoRelatedTestimonies = (suspectTestimonyAnswers: TestimonySuspectAnswe
     );
 
     if (testimonyId2) {
-      commonSuspects = uniq([
-        ...Object.keys(suspectTestimonyAnswers[testimonyId1]),
-        ...Object.keys(suspectTestimonyAnswers[testimonyId2]),
-      ]);
+      commonSuspects = intersection(
+        Object.keys(suspectTestimonyAnswers[testimonyId1]),
+        Object.keys(suspectTestimonyAnswers[testimonyId2]),
+      );
       break;
     }
   }
@@ -655,6 +655,15 @@ const getTwoRelatedTestimonies = (suspectTestimonyAnswers: TestimonySuspectAnswe
   if (!culpritId) {
     throw new Error('Failed to determine a culprit from common suspects');
   }
+
+  console.log('<===============>');
+  console.log(`⚙️ Selected testimonies 1: ${testimonyId1}`);
+  console.log(suspectTestimonyAnswers[testimonyId1]);
+  console.log(`⚙️ Selected testimonies 2: ${testimonyId2}`);
+  console.log(suspectTestimonyAnswers[testimonyId2]);
+  console.log(`⚙️ Culprit ID: ${culpritId}`);
+  console.log(`Testimony 1 answers: ${suspectTestimonyAnswers[testimonyId1][culpritId]}`);
+  console.log(`Testimony 2 answers: ${suspectTestimonyAnswers[testimonyId2][culpritId]}`);
 
   // Remove any suspect that has the same answer in both testimonies as the culprit
   const culpritAnswerKey = `${suspectTestimonyAnswers[testimonyId1][culpritId]}-${suspectTestimonyAnswers[testimonyId2][culpritId]}`;
@@ -670,9 +679,11 @@ const getTwoRelatedTestimonies = (suspectTestimonyAnswers: TestimonySuspectAnswe
     TOTAL_SUSPECTS - 1,
   );
   const impossibleSuspects = difference(commonSuspects, possibleSuspects);
+  console.log(`⚙️ Possible suspects: ${possibleSuspects.join(', ')}`);
+  console.log(`⚙️ Impossible suspects: ${impossibleSuspects.join(', ')}`);
 
   console.log(`⚙️ Attempts made: ${attempts}`);
-
+  console.log('>===============<');
   return {
     selectedTestimonyId1: testimonyId1,
     selectedTestimonyId2: testimonyId2,

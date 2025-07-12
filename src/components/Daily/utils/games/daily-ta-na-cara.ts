@@ -117,6 +117,7 @@ export const buildDailyTaNaCaraGames = (
     // Get 6 extra suspects that don't appear in any of the selected testimonies
     const selectedSuspectsIds = makeBooleanDictionary(
       testimonies.flatMap((testimony) => testimony.suspectsIds || []),
+      true,
     );
 
     // Get 6 extra suspects that don't appear in any of the selected testimonies

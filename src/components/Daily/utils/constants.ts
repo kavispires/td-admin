@@ -25,3 +25,5 @@ export const DAILY_GAMES_KEYS = {
   FILMACO: 'filmaco',
   TA_NA_CARA: 'ta-na-cara',
 };
+
+export const ATTEMPTS_THRESHOLD = 500;

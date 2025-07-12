@@ -306,12 +306,13 @@ export const wait = async (duration = 1000) => {
  * Creates a dictionary where all specified keys have boolean values initialized to false.
  *
  * @param keys - An array of strings to be used as keys in the dictionary
- * @returns A dictionary object with all keys set to false
+ * @param value - The boolean value to set for each key. Default is false.
+ * @returns A dictionary object with all keys set to the specified value
  */
-export const makeBooleanDictionary = (keys: string[]): Dictionary<boolean> => {
+export const makeBooleanDictionary = (keys: string[], value = false): Dictionary<boolean> => {
   return keys.reduce(
     (acc, key) => {
-      acc[key] = false;
+      acc[key] = value;
       return acc;
     },
     {} as Dictionary<boolean>,

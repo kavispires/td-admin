@@ -1,10 +1,10 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
-import { capitalize, cloneDeep, orderBy, sample, sampleSize, set, shuffle } from 'lodash';
+import { capitalize, cloneDeep, orderBy, sample, sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
 import type { DailyQuartetSet, ItemGroup } from 'types';
 import { SEPARATOR } from 'utils/constants';
-import { DAILY_GAMES_KEYS } from '../constants';
+import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 import { addWarning } from '../warnings';
@@ -99,7 +99,7 @@ export const buildDailyQuartetosGames = (
 
     let tries = 0;
     // Get 3 sets with unique items
-    while (sets.length < 3 && tries < 1000) {
+    while (sets.length < 3 && tries < ATTEMPTS_THRESHOLD) {
       tries++;
       const referenceSet = sample(perfectSets);
       console.log({ referenceSet });

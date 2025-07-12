@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import type { Item, ItemAttribute, ItemAttributesValues } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
-import { DAILY_GAMES_KEYS } from '../constants';
+import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkMonday, checkWeekend, getNextDay } from '../utils';
 import { addWarning } from '../warnings';
@@ -117,7 +117,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
 
   const preliminaryEntries: Dictionary<ProposedDailyComunicacaoAlienigenaEntry> = {};
   let tries = 0;
-  while (keys(preliminaryEntries).length < batchSize + 5 && tries < 500) {
+  while (keys(preliminaryEntries).length < batchSize + 5 && tries < ATTEMPTS_THRESHOLD) {
     const entry = generateComunicacaoAlienigenaGame(allAttributes, allAttributesValues);
     if (entry.valid && !preliminaryEntries[entry.setId] && !history.used.includes(entry.setId)) {
       preliminaryEntries[entry.setId] = entry;

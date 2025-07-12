@@ -1,5 +1,6 @@
 import { sample } from 'lodash';
 import moment from 'moment';
+import { ATTEMPTS_THRESHOLD } from './constants';
 
 /**
  * Returns the current date in the format 'YYYY-MM-DD'.
@@ -54,13 +55,12 @@ export const checkMonday = (dateString: string): boolean => {
   return date.day() === 1; // 1 represents Monday in moment.js
 };
 
-const THRESHOLD = 500;
 export function getWordsWithUniqueLetters(words: string[]): string[] {
   const selectedWords: string[] = [];
   const usedLetters: BooleanDictionary = {};
   let tries = 0;
 
-  while (selectedWords.length < 4 && tries < THRESHOLD) {
+  while (selectedWords.length < 4 && tries < ATTEMPTS_THRESHOLD) {
     const word = sample(words) ?? '';
     const splitWord = word.split('');
     const isGood = splitWord.every((letter) => !usedLetters[letter]);
@@ -73,7 +73,7 @@ export function getWordsWithUniqueLetters(words: string[]): string[] {
       tries++;
     }
   }
-  if (tries > THRESHOLD || selectedWords.length < 4) {
+  if (tries > ATTEMPTS_THRESHOLD || selectedWords.length < 4) {
     console.count('Could not find 4 words with unique letters');
     while (selectedWords.length < 4) {
       const word = sample(words) ?? '';
