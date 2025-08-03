@@ -20,7 +20,7 @@ type EmojiProps = {
 /**
  * An emoji card component.
  */
-export function Emoji({ id, width, className }: EmojiProps): JSX.Element {
+export function Emoji({ id, width, className }: EmojiProps) {
   const emojiId = id.startsWith('emoji') ? id : `emoji-${id}`;
 
   return (
