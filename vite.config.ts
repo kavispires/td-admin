@@ -32,6 +32,10 @@ export default defineConfig({
     alias: {
       screens: path.resolve(__dirname, './src/screens'),
       'styles': path.resolve(__dirname, 'src/styles'),
+      // Add aliases for rc-util to avoid issues with module resolution (antd dependency)
+      'rc-util': path.resolve(__dirname, './node_modules/rc-util'),
+      'rc-util/es': path.resolve(__dirname, './node_modules/rc-util/es'),
+      'rc-util/lib': path.resolve(__dirname, './node_modules/rc-util/lib'),
     },
   },
   build: {
