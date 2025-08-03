@@ -151,7 +151,6 @@ export function SingleSampleModalFlow() {
         }}
         maskClosable={false}
         onCancel={onClose}
-        onClose={onClose}
         onOk={onClose}
         open={open}
         title={

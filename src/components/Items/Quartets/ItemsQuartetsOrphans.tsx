@@ -47,7 +47,7 @@ export function ItemsQuartetsOrphans({ data, ...rest }: UseResourceFirestoreData
   return (
     <>
       <Typography.Title className="my-0" level={4}>
-        Quartetos Simulator
+        Quartetos Orphans
       </Typography.Title>
       <div>{unusedItems.length} Orphans</div>
       <PaginationWrapper className="full-width" pagination={pagination}>
