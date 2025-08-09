@@ -1,4 +1,6 @@
+import { useTDResource } from 'hooks/useTDResource';
 import { useEffect, useMemo } from 'react';
+import type { Item } from 'types/tdr';
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import { type DailyAquiOEntry, useDailyAquiOGames } from '../utils/games/daily-aqui-o';
 import { type DailyArteRuimEntry, useDailyArteRuimGames } from '../utils/games/daily-arte-ruim';
@@ -46,6 +48,8 @@ export type DailyEntry = {
   // Contributions
   artista: DailyArtistaEntry;
   'ta-na-cara': DailyTaNaCaraEntry;
+  // Additional info
+  dictionary: Dictionary<string>;
 };
 
 export type UseLoadDailySetup = {
@@ -77,6 +81,9 @@ export function useLoadDailySetup(
   }, [batchSize, queryLanguage]);
 
   const enableBuilders = enabled && historyQuery.isSuccess;
+
+  // GET ITEMS FOR DICTIONARY
+  const tdrItemsQuery = useTDResource<Item>('items', enableBuilders);
 
   // BUILD AQUI Ó
   const aquiO = useDailyAquiOGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
@@ -161,7 +168,7 @@ export function useLoadDailySetup(
     }
     console.count('Bundling entries...');
     return arteRuim.entries.map((arteRuim) => {
-      return {
+      const dailyEntry = {
         id: arteRuim.id,
         // Games
         'arte-ruim': arteRuim,
@@ -178,7 +185,14 @@ export function useLoadDailySetup(
         // Contributions
         artista: artista.entries[arteRuim.id],
         'ta-na-cara': taNaCara.entries[arteRuim.id],
+        // Additional info
+        dictionary: {},
       };
+
+      // Generate dictionary for the entry
+      dailyEntry.dictionary = generateDictionary(dailyEntry, tdrItemsQuery.data);
+
+      return dailyEntry;
     });
   }, [
     arteRuim.entries,
@@ -194,6 +208,7 @@ export function useLoadDailySetup(
     artista.entries,
     taNaCara.entries,
     espionagem.entries,
+    tdrItemsQuery.data,
   ]);
 
   return {
@@ -210,7 +225,63 @@ export function useLoadDailySetup(
       teoriaDeConjuntos.isLoading ||
       artista.isLoading ||
       taNaCara.isLoading ||
-      espionagem.isLoading,
+      espionagem.isLoading ||
+      organiku.isLoading ||
+      tdrItemsQuery.isLoading,
     entries,
   };
 }
+
+const generateDictionary = (entry: DailyEntry, items: Dictionary<Item>): Dictionary<string> => {
+  const dictionary: Dictionary<string> = {};
+
+  // Gather Aqui Ó items
+  entry['aqui-o'].itemsIds.forEach((itemId) => {
+    const item = items[itemId];
+    if (item) {
+      dictionary[itemId] = item.name.pt;
+    }
+  });
+
+  // Gather Comunicacao Alienigena items
+  entry['comunicacao-alienigena'].itemsIds.forEach((itemId) => {
+    const item = items[itemId];
+    if (item) {
+      dictionary[itemId] = item.name.pt;
+    }
+  });
+  entry['comunicacao-alienigena'].attributes.forEach((attribute) => {
+    attribute.itemsIds.forEach((itemId) => {
+      const item = items[itemId];
+      if (item) {
+        dictionary[itemId] = item.name.pt;
+      }
+    });
+  });
+
+  // Gather Filmaço items
+  entry.filmaco.itemsIds.forEach((itemId) => {
+    const item = items[itemId];
+    if (item) {
+      dictionary[itemId] = item.name.pt;
+    }
+  });
+
+  // Gather Quartetos items
+  entry.quartetos.grid.forEach((itemId) => {
+    const item = items[itemId];
+    if (item) {
+      dictionary[itemId] = item.name.pt;
+    }
+  });
+
+  // Gather Organiku items
+  entry.organiku.itemsIds.forEach((itemId) => {
+    const item = items[itemId];
+    if (item) {
+      dictionary[itemId] = item.name.pt;
+    }
+  });
+
+  return dictionary;
+};
