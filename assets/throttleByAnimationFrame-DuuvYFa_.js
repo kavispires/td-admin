@@ -1,0 +1,1 @@
+import{aj as r,t as o}from"./index-ClMoIjJ-.js";function s(e){let t;const n=a=>()=>{t=null,e.apply(void 0,o(a))},l=(...a)=>{t==null&&(t=r(n(a)))};return l.cancel=()=>{r.cancel(t),t=null},l}export{s as t};
