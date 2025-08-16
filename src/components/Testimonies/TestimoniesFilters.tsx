@@ -35,6 +35,7 @@ export function TestimoniesFilters({
   const { queryParams, addParams } = useQueryParams();
 
   const counts = useMemo(() => {
+    let absoluteTotal = 0;
     const suspects: Record<string, number> = {};
     Object.values(data).forEach((suspectEntry) => {
       Object.keys(suspectEntry).forEach((suspectId) => {
@@ -42,19 +43,26 @@ export function TestimoniesFilters({
           if (!suspects[suspectId]) {
             suspects[suspectId] = 0;
           }
-          if (countAnswers(suspectEntry[suspectId]) >= 5) {
+          const count = countAnswers(suspectEntry[suspectId]);
+          if (count >= 5) {
             suspects[suspectId] += 1;
+          }
+          if (count >= 3) {
+            absoluteTotal += 1;
           }
         }
       });
     });
 
     return {
+      absoluteTotal,
       queriedTestimoniesCount: Object.keys(data).length,
       suspectsCount: Object.keys(suspects).length,
       reliableSuspectsCount: Object.values(suspects).filter((count) => count >= 5).length,
     };
   }, [data]);
+
+  const total = counts.queriedTestimoniesCount * counts.suspectsCount;
 
   return (
     <>
@@ -128,6 +136,9 @@ export function TestimoniesFilters({
                 Reliable suspects: {counts.reliableSuspectsCount}
               </Tooltip>
             </li>
+            <li>Complete: {counts.absoluteTotal}</li>
+            <li>Total: {total}</li>
+            <li>Percentage: {((counts.absoluteTotal / total) * 100).toFixed(1)}%</li>
           </ul>
         </div>
 

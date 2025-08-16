@@ -1,4 +1,4 @@
-import { Flex, Input, Space, Table, Typography } from 'antd';
+import { Button, Flex, Input, Space, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
@@ -131,6 +131,27 @@ export function SuspectAnswersExpandedRow({
         );
       },
     },
+    {
+      key: 'actions',
+      title: 'Actions',
+      dataIndex: 'id',
+      render: (id) => {
+        const entry = list.find((entry) => entry.id === id);
+        if (!entry) {
+          return '';
+        }
+
+        return (
+          <ActionCell
+            addEntryToUpdate={addEntryToUpdate}
+            answers={allAnswers[entry.question.id] || {}}
+            suspect={suspect}
+            testimonyId={entry.question.id}
+            values={entry.values}
+          />
+        );
+      },
+    },
   ];
 
   return (
@@ -157,3 +178,72 @@ const writeDescription = (suspect: SuspectCard, list: RowType[]) => {
 
   return `${suspect.name.pt}: ${sentences.join(', ')}`;
 };
+
+type ActionCellProps = {
+  testimonyId: string;
+  answers: TestimonyAnswers;
+  addEntryToUpdate: (testimonyId: string, answers: TestimonyAnswers) => void;
+  suspect: SuspectCard;
+  values: number[];
+};
+
+export function ActionCell({ suspect, values, testimonyId, addEntryToUpdate, answers }: ActionCellProps) {
+  const onAddStrongFit = (suspectCardId: string) => {
+    const newAnswers = { ...answers };
+    newAnswers[suspectCardId] = [...(newAnswers[suspectCardId] || []), 3];
+    addEntryToUpdate(testimonyId, newAnswers);
+  };
+
+  const onAddStrongUnfit = (suspectCardId: string) => {
+    const newAnswers = { ...answers };
+    newAnswers[suspectCardId] = [...(newAnswers[suspectCardId] || []), -3];
+    addEntryToUpdate(testimonyId, newAnswers);
+  };
+
+  const onRemoveStrongFit = (suspectCardId: string) => {
+    const newAnswers = { ...answers };
+    // Find the index of the first occurrence of 3
+    const index = newAnswers[suspectCardId]?.findIndex((value) => value === 3);
+    // If found, remove only that occurrence
+    if (index !== -1 && index !== undefined) {
+      newAnswers[suspectCardId] = [
+        ...newAnswers[suspectCardId].slice(0, index),
+        ...newAnswers[suspectCardId].slice(index + 1),
+      ];
+    }
+    addEntryToUpdate(testimonyId, newAnswers);
+  };
+
+  const onRemoveStrongUnfit = (suspectCardId: string) => {
+    const newAnswers = { ...answers };
+    // Find the index of the first occurrence of -3
+    const index = newAnswers[suspectCardId]?.findIndex((value) => value === -3);
+    // If found, remove only that occurrence
+    if (index !== -1 && index !== undefined) {
+      newAnswers[suspectCardId] = [
+        ...newAnswers[suspectCardId].slice(0, index),
+        ...newAnswers[suspectCardId].slice(index + 1),
+      ];
+    }
+    addEntryToUpdate(testimonyId, newAnswers);
+  };
+
+  return (
+    <Space.Compact>
+      <Button block icon="👍" onClick={() => onAddStrongFit(suspect.id)}>
+        {' '}
+        FIT
+      </Button>
+      <Button block icon="👎" onClick={() => onAddStrongUnfit(suspect.id)}>
+        {' '}
+        UNFIT
+      </Button>
+      <Button icon="❌" onClick={() => onRemoveStrongFit(suspect.id)}>
+        DESFIT
+      </Button>
+      <Button icon="❌" onClick={() => onRemoveStrongUnfit(suspect.id)}>
+        DESUNFIT
+      </Button>
+    </Space.Compact>
+  );
+}
