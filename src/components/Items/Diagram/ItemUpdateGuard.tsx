@@ -16,25 +16,24 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
   // If any rules has been added or updated AFTER the last time the user has updated the item, the user will be warned to update the item
   const toUpdateThings = useMemo(() => {
     return Object.values(things).filter((item) => {
+      if (!item.syllables) return true;
+
       // Prevent updating items that have the syllables field but it's not correct
-      if (
-        item.syllables &&
-        item.syllables.split(SYLLABLE_SEPARATOR).join('') !== item.name.replace(/\s/g, '')
-      ) {
+      if (item.syllables.split(SYLLABLE_SEPARATOR).join('') !== item.name.replace(/\s/g, '')) {
         console.log('❗️ Name and syllables do not match', item.name, item.syllables);
         return true;
       }
 
       const outdatedRules = Object.values(rules).filter((rule) => rule.updatedAt > item.updatedAt);
 
-      const autoUpdates = outdatedRules.filter((rule) => rule.method === 'auto');
+      const autoUpdates = outdatedRules.filter((rule) => rule.method === 'manual');
       if (autoUpdates.length > 0) {
         console.log(
           '❗️ Thing has auto updates that will be performed automatically upon downloading the JSON',
         );
       }
 
-      return outdatedRules.some((rule) => rule.method !== 'auto');
+      return outdatedRules.some((rule) => rule.method === 'manual');
     });
   }, [things, rules]);
 
