@@ -44,16 +44,24 @@ export const verifiers: Record<string, (word: string) => boolean> = {
   'ddr-7-pt': (word: string) => {
     return LETTERS.indexOf(cleanupWord(word)[0]) < LETTERS.indexOf(cleanupWord(word)[1]);
   },
-  // has 4 or less letters
-  'ddr-8-pt': (word: string) => countLetters(word) <= 4,
+  // has exactly 3 letters
+  'ddr-72-pt': (word: string) => countLetters(word) === 3,
+  // has exactly 4 letters
+  'ddr-8-pt': (word: string) => countLetters(word) === 4,
   // Has exactly 5 letters
   'ddr-9-pt': (word: string) => countLetters(word) === 5,
-  // Has 6 letters
+  // Has exactly 6 letters
   'ddr-10-pt': (word: string) => countLetters(word) === 6,
-  // Has between 7
+  // Has exactly 7 letters
   'ddr-11-pt': (word: string) => countLetters(word) === 7,
-  // Has more than 8 letters
-  'ddr-12-pt': (word: string) => countLetters(word) > 7,
+  // Has exactly 8 letters
+  'ddr-12-pt': (word: string) => countLetters(word) === 8,
+  // Has exactly 9 letters
+  'ddr-73-pt': (word: string) => countLetters(word) === 9,
+  // Has exactly 10 letters
+  'ddr-74-pt': (word: string) => countLetters(word) === 10,
+  // Has more than 10 letters
+  'ddr-75-pt': (word: string) => countLetters(word) > 10,
   // Has more than 1 word
   'ddr-13-pt': (word: string) => countWords(word) > 1,
   // Has two or more different vowels
@@ -232,6 +240,15 @@ export const verifiers: Record<string, (word: string) => boolean> = {
       ).size === 1
     );
   },
+
+  // The same consonant repeats 3 or more times
+  'ddr-76-pt': (word: string) => {
+    return cleanupWord(word)
+      .split('')
+      .some((letter, index, array) => {
+        return letter === array[index + 1] && letter === array[index + 2];
+      });
+  },
 };
 
 export const syllableDependencyVerifier: Record<
@@ -247,6 +264,9 @@ export const syllableDependencyVerifier: Record<
   // Has 4 syllables
   'ddr-22-pt': (word: string, syllables: string) =>
     countWords(word) === 1 && syllables.split(SYLLABLE_SEPARATOR).length === 4,
+  // Has 5 syllables
+  'ddr-71-pt': (word: string, syllables: string) =>
+    countWords(word) === 1 && syllables.split(SYLLABLE_SEPARATOR).length === 5,
   // Has two consecutive vowels on the same syllable
   'ddr-41-pt': (word: string, syllables: string) => {
     return (
