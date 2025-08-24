@@ -32,7 +32,7 @@ export function ItemsQuartetsOrphans({ data, ...rest }: UseResourceFirestoreData
           acc[itemId] = 0;
           return acc;
         }
-        if (usedItems[itemId].length >= orphanThreshold) {
+        if (usedItems[itemId].length <= orphanThreshold) {
           acc[itemId] = usedItems[itemId].length;
         }
         return acc;
@@ -74,7 +74,7 @@ export function ItemsQuartetsOrphans({ data, ...rest }: UseResourceFirestoreData
           onChange={(v) => setOrphanThreshold(v ?? 1)}
           size="small"
           style={{ width: 120 }}
-          suffix="min uses"
+          suffix="max uses"
           value={orphanThreshold}
         />
       </Flex>
@@ -85,7 +85,7 @@ export function ItemsQuartetsOrphans({ data, ...rest }: UseResourceFirestoreData
               <Flex key={item.id} style={{ maxWidth: 84 }} vertical>
                 <Item id={item.id} width={64} />
                 <Flex align="center">
-                  <Badge count={item.count} dot offset={[-8, 0]}>
+                  <Badge count={item.count} offset={[-8, 0]}>
                     <ItemId item={itemsTypeaheadQuery.data[item.id]} />
                   </Badge>
                 </Flex>
