@@ -248,6 +248,10 @@ function generateEspionagemGame(
   const { selectedTestimonyId1, selectedTestimonyId2, culpritId, possibleSuspects, impossibleSuspects } =
     getTwoRelatedTestimonies(suspectTestimonyAnswers, usedIds);
 
+  if (possibleSuspects.length < 2) {
+    throw new Error('Not enough possible suspects');
+  }
+
   let suspectsIds: string[] = [...possibleSuspects];
 
   // If there are not enough possible suspects, add new suspects that are not an impossible suspect
@@ -313,6 +317,10 @@ function generateEspionagemGame(
     [],
     'best',
   );
+  if (bestFeatureStatement1.excludes.length === TOTAL_SUSPECTS - 2) {
+    throw new Error('Best feature statement excludes too many suspects');
+  }
+
   statements.push(bestFeatureStatement1);
   updateExcludeScoreBoard(excludeScoreBoard, bestFeatureStatement1.excludes);
 
