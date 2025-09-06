@@ -13,6 +13,7 @@ type Corridor = {
   passcode: string;
   imagesIds: string[];
   words: string[];
+  goal: number;
 };
 
 export type DailyPortaisMagicosEntry = {
@@ -21,6 +22,7 @@ export type DailyPortaisMagicosEntry = {
   number: number;
   type: 'portais-magicos';
   corridors: Corridor[];
+  goal: number;
 };
 
 export const useDailyPortaisMagicosGames = (
@@ -136,6 +138,7 @@ export const buildDailyPortaisMagicosGames = (
         passcode,
         imagesIds,
         words,
+        goal: calculateMovesToSolve(passcode, words),
       });
 
       entryAvailableSets = entryAvailableSets.filter(
@@ -150,6 +153,7 @@ export const buildDailyPortaisMagicosGames = (
       setId: setsIds.join(SEPARATOR),
       number: history.latestNumber + i + 1,
       corridors: corridors.reverse(),
+      goal: corridors.reduce((acc, c) => acc + c.goal, 0),
     };
 
     // Cleanup available sets
@@ -157,3 +161,49 @@ export const buildDailyPortaisMagicosGames = (
   }
   return entries;
 };
+
+function calculateMovesToSolve(secretWord: string, threeLetterWords: string[]): number {
+  if (secretWord.length !== threeLetterWords.length) {
+    throw new Error('Secret word length must match the number of 3-letter words');
+  }
+
+  let totalMoves = 0;
+
+  for (let i = 0; i < secretWord.length; i++) {
+    const targetLetter = secretWord[i].toUpperCase();
+    const word = threeLetterWords[i].toUpperCase();
+
+    // Find which position in the 3-letter word contains the target letter
+    let targetPosition = -1;
+    for (let j = 0; j < 3; j++) {
+      if (word[j] === targetLetter) {
+        targetPosition = j;
+        break;
+      }
+    }
+
+    if (targetPosition === -1) {
+      throw new Error(`Target letter '${targetLetter}' not found in word '${word}' at position ${i}`);
+    }
+
+    // Calculate moves needed to get the target letter to the middle position (index 1)
+    // The word starts with position 0 at the top, 1 in middle, 2 at bottom
+    // We need the target letter to be in position 1 (middle)
+    let movesNeeded = 0;
+
+    if (targetPosition === 0) {
+      // Letter is at top, need 2 moves to get to middle (0 -> 2 -> 1)
+      movesNeeded = 2;
+    } else if (targetPosition === 1) {
+      // Letter is already in middle, no moves needed
+      movesNeeded = 0;
+    } else if (targetPosition === 2) {
+      // Letter is at bottom, need 1 move to get to middle (2 -> 0 -> 1)
+      movesNeeded = 1;
+    }
+
+    totalMoves += movesNeeded;
+  }
+
+  return totalMoves;
+}

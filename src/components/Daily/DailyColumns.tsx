@@ -371,7 +371,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
             <Flex gap={6} vertical>
               {corridors.map((c) => (
                 <Flex gap={6} key={c.passcode} vertical>
-                  <span>Passcode: {c.passcode}</span>
+                  <span>
+                    Passcode: {c.passcode} ({c.goal})
+                  </span>
                   <Flex>
                     {c.imagesIds.map((i) => (
                       <ImageCard id={i} key={i} width={48} />
