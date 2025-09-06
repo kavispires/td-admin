@@ -147,7 +147,6 @@ export function SuspectAnswersExpandedRow({
             answers={allAnswers[entry.question.id] || {}}
             suspect={suspect}
             testimonyId={entry.question.id}
-            values={entry.values}
           />
         );
       },
@@ -184,10 +183,9 @@ type ActionCellProps = {
   answers: TestimonyAnswers;
   addEntryToUpdate: (testimonyId: string, answers: TestimonyAnswers) => void;
   suspect: SuspectCard;
-  values: number[];
 };
 
-export function ActionCell({ suspect, values, testimonyId, addEntryToUpdate, answers }: ActionCellProps) {
+export function ActionCell({ suspect, testimonyId, addEntryToUpdate, answers }: ActionCellProps) {
   const onAddStrongFit = (suspectCardId: string) => {
     const newAnswers = { ...answers };
     newAnswers[suspectCardId] = [...(newAnswers[suspectCardId] || []), 3];

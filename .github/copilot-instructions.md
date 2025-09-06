@@ -1,7 +1,7 @@
 You are assisting with a React TypeScript application called "TD Admin" for managing game content.
 
 Key technologies:
-- React 18 with TypeScript
+- React 19 with TypeScript
 - Vite for bundling
 - Ant Design component library
 - Firebase/Firestore database

@@ -2,7 +2,7 @@ import { ContactsOutlined, RobotOutlined, TableOutlined } from '@ant-design/icon
 import { Flex, Tooltip } from 'antd';
 import { FilterSegments } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
-import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
+import { FirebaseConsoleWipe, FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { SuspectsStyleVariantSelector } from 'components/Suspects/SuspectsStyleVariantSelector';
@@ -83,9 +83,14 @@ export function TestimoniesFilters({
             hasNewData={hasNewData}
           />
 
-          <FirestoreConsoleLink className="text-center" label="Firestore Data" path={'data/testimonies'} />
+          <FirestoreConsoleLink label="FS Data" path="data/testimonies" />
 
-          <FirestoreConsoleLink className="text-center" label="Firestore TDR" path={'tdr/testimonies'} />
+          <FirebaseConsoleWipe
+            docId="testimonies"
+            label="FS TDR"
+            path="tdr"
+            queryKey={['tdr', 'testimonies']}
+          />
         </Flex>
       </SiderContent>
       <SiderContent>

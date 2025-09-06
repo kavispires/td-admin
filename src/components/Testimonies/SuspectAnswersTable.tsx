@@ -40,6 +40,8 @@ export function SuspectAnswersTable({
   }, [data]);
 
   const entries: SuspectRow[] = useMemo(() => {
+    // id, id (picture), name, answers, reliable answers
+
     return orderBy(
       Object.values(suspects).map((s) => ({ ...s, answers: answersPerSuspect[s.id] })),
       (entry) => Number(entry.id.split('-')[1]),
@@ -100,7 +102,7 @@ export function SuspectAnswersTable({
       <SuspectAnswersExpandedRow
         addEntryToUpdate={addEntryToUpdate}
         allAnswers={data}
-        answersPerQuestion={answersPerSuspect[record.id]}
+        answersPerQuestion={record.answers}
         questions={questions}
         suspect={record}
       />

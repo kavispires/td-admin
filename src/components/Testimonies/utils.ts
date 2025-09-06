@@ -74,6 +74,26 @@ export const calculateSuspectAnswersData = (
   };
 };
 
+/**
+ * Normalizes an array of testimony answer values according to specific rules.
+ *
+ * This function processes an array of testimony values, specifically handling values 0 and 1 in a special way:
+ * - Values that are not 0 or 1 are kept as is
+ * - Values of 0 and 1 are grouped:
+ *   - For every 4 occurrences of 0, a -4 is added to the result
+ *   - For every 4 occurrences of 1, a 4 is added to the result
+ *   - Any remaining 0s or 1s after grouping are kept as is
+ *
+ * The function returns a sorted array of the normalized values.
+ *
+ * @param arr - Array of testimony answer values to normalize
+ * @returns Sorted array of normalized testimony answer values
+ * @throws Error if an unexpected value is encountered in the input array
+ *
+ * @example
+ * Returns [-4, 2, 3, 4]
+ * normalizeValues([0, 0, 0, 0, 1, 1, 1, 1, 2, 3])
+ */
 export default function normalizeValues(arr: TestimonyAnswersValues[]): TestimonyAnswersValues[] {
   // Start result keeping all values that are not 0 or 1
   const result: TestimonyAnswersValues[] = arr.filter((v) => ![0, 1].includes(v));
