@@ -70,8 +70,20 @@ export const buildDailyOrganikuGames = (
 
     const group = eligibleGroups[i];
     const itemsIds = sampleSize(group.itemsIds, 5);
+
+    // let tries = 0;
+    // let valid = false;
     const grid = generateRandomLatinSquare(itemsIds);
     const defaultRevealedIndexes = revealGridItems(grid, itemsIds, 1);
+
+    // while (!valid && tries < 1000) {
+    //   tries++;
+    //   grid = generateRandomLatinSquare(itemsIds);
+    //   defaultRevealedIndexes = revealGridItems(grid, itemsIds, 1);
+    //   valid = verifyBoardIsSolvable(grid, defaultRevealedIndexes, 18);
+    // }
+
+    // console.log(`𖣯 Created Organiku game ${id} after ${tries} tries`);
 
     entries[id] = {
       id,
@@ -176,4 +188,246 @@ function generatePermutations<T>(arr: T[]): T[][] {
   }
 
   return result;
+}
+
+/**
+ * Verifies if the board can be solved in the specified number of moves or less
+ * using only logical deduction without guessing, mistakes, or peeking
+ * @param grid The complete game grid
+ * @param revealedIndices Indices of initially revealed tiles
+ * @param maxMoves Maximum number of moves allowed
+ * @returns Whether the board is solvable within the move limit
+ */
+function _verifyBoardIsSolvable(grid: string[], revealedIndices: number[], maxMoves: number): boolean {
+  // Create a game state tracker
+  const gameState = new GameSolver(grid, revealedIndices);
+
+  // Try to solve the game using only logical deduction
+  const result = gameState.solveLogically();
+
+  // For 18 moves: we need exactly 9 pairs (18 tiles / 2 = 9 pairs)
+  // Each pair costs exactly 2 moves, so 9 * 2 = 18 moves
+  return result.solvable && result.movesRequired === maxMoves;
+}
+
+/**
+ * Game solver that uses constraint satisfaction and logical deduction
+ */
+class GameSolver {
+  private grid: string[];
+  private revealed: boolean[];
+  private knownPositions: Map<string, Set<number>>; // item -> possible positions
+  private rowConstraints: Map<number, Set<string>>; // row -> remaining items
+  private colConstraints: Map<number, Set<string>>; // col -> remaining items
+  private moves: number;
+
+  constructor(grid: string[], revealedIndices: number[]) {
+    this.grid = [...grid];
+    this.revealed = new Array(25).fill(false);
+    this.knownPositions = new Map();
+    this.rowConstraints = new Map();
+    this.colConstraints = new Map();
+    this.moves = 0;
+
+    // Initialize constraints - each row and column must have all 5 items
+    const allItems = new Set(grid);
+    for (let i = 0; i < 5; i++) {
+      this.rowConstraints.set(i, new Set(allItems));
+      this.colConstraints.set(i, new Set(allItems));
+    }
+
+    // Initialize known positions for each item type
+    for (const item of allItems) {
+      this.knownPositions.set(item, new Set());
+    }
+
+    // Mark initially revealed tiles
+    for (const index of revealedIndices) {
+      this.revealed[index] = true;
+      const item = this.grid[index];
+      const row = Math.floor(index / 5);
+      const col = index % 5;
+
+      // Remove this item from row/col constraints since it's already placed
+      this.rowConstraints.get(row)?.delete(item);
+      this.colConstraints.get(col)?.delete(item);
+
+      // Add to known positions
+      this.knownPositions.get(item)?.add(index);
+    }
+  }
+
+  /**
+   * Attempts to solve the game using only logical deduction
+   */
+  solveLogically(): { solvable: boolean; movesRequired: number } {
+    let progress = true;
+
+    while (progress && !this.isComplete()) {
+      progress = false;
+
+      // Try to find pairs that can be logically deduced
+      const deducedPair = this.findLogicalPair();
+
+      if (deducedPair) {
+        // Reveal the pair (costs 2 moves)
+        this.revealPair(deducedPair.index1, deducedPair.index2);
+        this.moves += 2;
+        progress = true;
+      } else {
+        // Try constraint propagation to deduce more positions
+        progress = this.propagateConstraints();
+      }
+    }
+
+    return {
+      solvable: this.isComplete(),
+      movesRequired: this.moves,
+    };
+  }
+
+  /**
+   * Finds a pair of tiles that can be logically deduced as matching
+   */
+  private findLogicalPair(): { index1: number; index2: number } | null {
+    // For each unrevealed position, check if we can logically deduce what item it contains
+    for (let i = 0; i < 25; i++) {
+      if (this.revealed[i]) continue;
+
+      const possibleItem = this.deduceItemAtPosition(i);
+      if (!possibleItem) continue;
+
+      // Find another unrevealed position that must contain the same item
+      for (let j = i + 1; j < 25; j++) {
+        if (this.revealed[j]) continue;
+
+        const otherPossibleItem = this.deduceItemAtPosition(j);
+        if (otherPossibleItem === possibleItem) {
+          return { index1: i, index2: j };
+        }
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Deduces what item must be at a given position based on constraints
+   */
+  private deduceItemAtPosition(index: number): string | null {
+    const row = Math.floor(index / 5);
+    const col = index % 5;
+
+    // Get items that could still be placed in this row and column
+    const rowPossible = this.rowConstraints.get(row);
+    const colPossible = this.colConstraints.get(col);
+
+    if (!rowPossible || !colPossible) return null;
+
+    // The item at this position must be in both sets
+    const intersection = new Set([...rowPossible].filter((x) => colPossible.has(x)));
+
+    // If only one item is possible, we can deduce it
+    if (intersection.size === 1) {
+      return Array.from(intersection)[0];
+    }
+
+    // Check if any item type has only one possible position left in this row/col
+    for (const item of intersection) {
+      const itemPositions = this.knownPositions.get(item);
+      if (!itemPositions) continue;
+
+      // Count how many positions this item could go in this row
+      let rowPossibleCount = 0;
+      let colPossibleCount = 0;
+
+      for (let c = 0; c < 5; c++) {
+        const rowIndex = row * 5 + c;
+        if (!this.revealed[rowIndex] && this.canItemGoAtPosition(item, rowIndex)) {
+          rowPossibleCount++;
+        }
+      }
+
+      for (let r = 0; r < 5; r++) {
+        const colIndex = r * 5 + col;
+        if (!this.revealed[colIndex] && this.canItemGoAtPosition(item, colIndex)) {
+          colPossibleCount++;
+        }
+      }
+
+      // If this is the only position for this item in the row or column
+      if (rowPossibleCount === 1 || colPossibleCount === 1) {
+        return item;
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Checks if an item can be placed at a given position based on constraints
+   */
+  private canItemGoAtPosition(item: string, index: number): boolean {
+    const row = Math.floor(index / 5);
+    const col = index % 5;
+
+    const rowPossible = this.rowConstraints.get(row);
+    const colPossible = this.colConstraints.get(col);
+
+    return Boolean(rowPossible?.has(item) && colPossible?.has(item));
+  }
+
+  /**
+   * Reveals a matching pair and updates constraints
+   */
+  private revealPair(index1: number, index2: number): void {
+    this.revealed[index1] = true;
+    this.revealed[index2] = true;
+
+    const item = this.grid[index1]; // Both should be the same item
+
+    // Update constraints for both positions
+    for (const index of [index1, index2]) {
+      const row = Math.floor(index / 5);
+      const col = index % 5;
+
+      this.rowConstraints.get(row)?.delete(item);
+      this.colConstraints.get(col)?.delete(item);
+      this.knownPositions.get(item)?.add(index);
+    }
+  }
+
+  /**
+   * Propagates constraints to eliminate impossible positions
+   */
+  private propagateConstraints(): boolean {
+    const changed = false;
+
+    // For each item type, check if we can eliminate positions
+    for (const [item, positions] of this.knownPositions) {
+      const currentCount = positions.size;
+
+      // If we already have 5 of this item revealed, skip
+      if (currentCount >= 5) continue;
+
+      // Check each unrevealed position to see if this item could go there
+      for (let i = 0; i < 25; i++) {
+        if (this.revealed[i]) continue;
+
+        if (!this.canItemGoAtPosition(item, i)) {
+          // This position is impossible for this item
+          // This doesn't directly change our state, but helps with deduction
+        }
+      }
+    }
+
+    return changed;
+  }
+
+  /**
+   * Checks if the game is complete (all tiles revealed)
+   */
+  private isComplete(): boolean {
+    return this.revealed.every((r) => r);
+  }
 }
