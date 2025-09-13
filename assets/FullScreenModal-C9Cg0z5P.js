@@ -1,0 +1,1 @@
+import{j as e,B as a,Q as l}from"./index-BUCQLO0w.js";import{c as t}from"./useBaseUrl-C8kAU6ch.js";import{C as c}from"./index-CVvxq0w7.js";function x({open:r,onClose:s,...o}){return e.jsx(c,{bordered:!1,className:t("full-screen-modal",!r&&"full-screen-modal--hidden"),extra:e.jsx(a,{icon:e.jsx(l,{}),onClick:s,shape:"circle",type:"text"}),...o})}export{x as F};
