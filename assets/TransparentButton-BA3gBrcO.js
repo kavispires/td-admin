@@ -1,1 +1,0 @@
-import{j as e}from"./index-BUCQLO0w.js";import{c as p}from"./useBaseUrl-C8kAU6ch.js";const m=({children:t,active:a=!1,activeClass:n="",className:r="",hoverType:s="scale",...o})=>e.jsx("button",{className:p("transparent-button",`transparent-button--${s}`,a&&(n||"transparent-button--active"),r),...o,children:t});export{m as T};
