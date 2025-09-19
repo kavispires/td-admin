@@ -61,7 +61,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "biome check --staged --write"
+      "biome check --staged --write --no-errors-on-unmatched"
     ]
   },
   "devDependencies": {
