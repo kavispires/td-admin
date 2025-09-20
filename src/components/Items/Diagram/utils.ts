@@ -13,7 +13,7 @@ const cleanupWord = memoize((word: string) => {
 });
 
 const countLetters = (word: string) => {
-  return cleanupWord(word).length;
+  return cleanupWord(word).replace(/[-\s]/g, '').length;
 };
 
 const countVowels = (word: string) => {
