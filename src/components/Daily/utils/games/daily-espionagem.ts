@@ -23,7 +23,7 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   short: 'é baixinho(a)',
   young: 'é jovem',
   adult: 'é adulto(a)',
-  senior: 'é idoso(a)',
+  senior: 'é da terceira idade',
   average: 'tem corpo normal',
   medium: 'é de altura média',
   mixed: 'é mestiço(a)',
@@ -388,31 +388,52 @@ function generateEspionagemGame(
   // Get reason
   const reason = getReason(suspects[culpritId], reasons);
 
+  const relevantSuspectsFeaturesDict = getRelevantSuspectsFeaturesDict([
+    ...sortedStatements,
+    ...additionalStatements,
+  ]);
+
   return {
     isNsfw: testimony1.nsfw || testimony2.nsfw || false,
     culpritId,
     statements: sortedStatements,
     additionalStatements,
-    suspects: createSuspectEntry(suspectsIds, suspects, [...sortedStatements, ...additionalStatements]),
+    suspects: createSuspectEntry(suspectsIds, suspects, relevantSuspectsFeaturesDict),
     reason: reason.title,
     setId: `${culpritId}::${reason.id}::${sortedStatements[0].key}`,
     level: determineLevel(sortedStatements),
   };
 }
 
-const createSuspectEntry = (
-  suspectsIds: string[],
-  suspects: Dictionary<SuspectCard>,
-  relevantFeatures: StatementClue[],
-): SuspectEntry[] => {
+const getRelevantSuspectsFeaturesDict = (statements: StatementClue[]) => {
   const usedFeaturesDictionary: Dictionary<true> = {};
-  relevantFeatures.forEach((feature) => {
+  statements.forEach((feature) => {
     if (feature.key.includes('.feature.')) {
       const featureKey = feature.key.split('not.feature.')[1];
       usedFeaturesDictionary[featureKey] = true;
     }
   });
+  const RELATED_FEATURE_GROUPS = {
+    hairColor: ['brownHair', 'blondeHair', 'greyHair', 'redHair', 'blackHair', 'coloredHair'],
+    hairLength: ['shortHair', 'mediumHair', 'longHair', 'bald'],
+    facialHair: ['beard', 'mustache', 'goatee'],
+  };
+  // Make sure related features are always included
+  for (const [, features] of Object.entries(RELATED_FEATURE_GROUPS)) {
+    if (features.some((feature) => usedFeaturesDictionary[feature])) {
+      features.forEach((feature) => {
+        usedFeaturesDictionary[feature] = true;
+      });
+    }
+  }
+  return usedFeaturesDictionary;
+};
 
+const createSuspectEntry = (
+  suspectsIds: string[],
+  suspects: Dictionary<SuspectCard>,
+  relevantSuspectsFeaturesDict: Dictionary<true>,
+): SuspectEntry[] => {
   return suspectsIds.map((id) => {
     const suspect = suspects[id];
 
@@ -430,7 +451,8 @@ const createSuspectEntry = (
 
     const allFeatures = [suspect.gender, age, suspect.ethnicity, suspect.height, suspect.build];
 
-    const features = suspect.features.filter((feature) => usedFeaturesDictionary[feature]);
+    // Keep only the features that are used in the statements (and directly related ones)
+    const features = suspect.features.filter((feature) => relevantSuspectsFeaturesDict[feature]);
 
     return {
       id: suspect.id,

@@ -277,7 +277,6 @@ export const FEATURES_BY_GROUP = [
   {
     title: 'Specific',
     features: [
-      { id: 'buttonShirt', label: 'Button Shirt' },
       { id: 'showTeeth', label: 'Showing Teeth' },
       { id: 'avoidingCamera', label: 'Avoiding Camera' },
       { id: 'hairyChest', label: 'Exposed Hairy Chest' },
@@ -316,6 +315,7 @@ export const FEATURES_BY_GROUP = [
       { id: 'brownClothes', label: 'Brown Clothes' },
       { id: 'patternedShirt', label: 'Patterned Shirt' },
       { id: 'wearingStripes', label: 'Wearing Stripes' },
+      { id: 'buttonShirt', label: 'Button Shirt' },
     ],
   },
 ];
