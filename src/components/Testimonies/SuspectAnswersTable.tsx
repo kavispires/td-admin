@@ -1,4 +1,5 @@
 import { Flex, Switch, Table, type TableProps, Typography } from 'antd';
+import { DownloadButton } from 'components/Common/DownloadButton';
 import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
@@ -24,6 +25,8 @@ export function SuspectAnswersTable({
   addEntryToUpdate,
 }: TestimoniesContentProps) {
   const { queryParams, addParam } = useQueryParams();
+
+  const newq = Object.values(questions).map(({ id, question }) => ({ id, question }));
 
   const answersPerSuspect = useMemo(() => {
     return Object.keys(data).reduce((acc: Record<string, TestimonyAnswers>, questionId) => {
@@ -116,6 +119,7 @@ export function SuspectAnswersTable({
         <Typography.Title className="my-0" level={4}>
           Testimonies by Suspect
         </Typography.Title>
+        <DownloadButton data={newq} fileName={'newQuestions.json'} />
         <Switch
           checked={queryParams.get('sortSuspectsBy') === 'answers'}
           checkedChildren="Sort by Answers"

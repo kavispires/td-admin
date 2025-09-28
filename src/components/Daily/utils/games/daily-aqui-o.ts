@@ -7,6 +7,34 @@ import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
 import { addWarning } from '../warnings';
+import { debugDailyStore } from './debug-daily';
+
+/**
+ * Debug logging function that only logs if debug mode is enabled for aqui-o
+ */
+const debugLog = (...args: unknown[]) => {
+  if (debugDailyStore.state['aqui-o']) {
+    console.log(...args);
+  }
+};
+
+/**
+ * Debug count function that only counts if debug mode is enabled for aqui-o
+ */
+const debugCount = (label: string) => {
+  if (debugDailyStore.state['aqui-o']) {
+    console.count(label);
+  }
+};
+
+/**
+ * Debug error function that only logs errors if debug mode is enabled for aqui-o
+ */
+const debugError = (...args: unknown[]) => {
+  if (debugDailyStore.state['aqui-o']) {
+    console.error(...args);
+  }
+};
 
 export type DailyAquiOEntry = {
   id: DateKey;
@@ -57,7 +85,7 @@ export const buildDailyAquiOGames = (
   discSets: Dictionary<DailyDiscSet>,
   items: Dictionary<Item>,
 ) => {
-  console.count('Creating Aqui Ó...');
+  debugCount('Creating Aqui Ó...');
   // Filter complete sets only
   const completeSets = shuffle(
     Object.values(discSets).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length >= 20),
@@ -66,7 +94,7 @@ export const buildDailyAquiOGames = (
   const notUsedSets = completeSets.filter((setEntry) => !history.used.includes(setEntry.id));
 
   if (notUsedSets.length < batchSize) {
-    console.log('🔆 Not enough aqui-o sets left, shuffling...');
+    debugLog('🔆 Not enough aqui-o sets left, shuffling...');
     addWarning('aqui-o', 'Not enough aqui-o sets left');
     notUsedSets.push(...shuffle(completeSets));
   }
@@ -82,7 +110,7 @@ export const buildDailyAquiOGames = (
   for (let i = 0; i < batchSize; i++) {
     const setEntry = notUsedSets[i];
     if (!setEntry) {
-      console.error('No aqui-o sets left');
+      debugError('No aqui-o sets left');
     }
     const id = getNextDay(lastDate);
     const isWeekend = checkWeekend(id);

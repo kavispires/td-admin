@@ -8,6 +8,34 @@ import type { CrimeReason, SuspectCard, TestimonyQuestionCard } from 'types';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { debugDailyStore } from './debug-daily';
+
+/**
+ * Debug logging function that only logs if debug mode is enabled for espionagem
+ */
+const debugLog = (...args: unknown[]) => {
+  if (debugDailyStore.state.espionagem) {
+    console.log(...args);
+  }
+};
+
+/**
+ * Debug count function that only counts if debug mode is enabled for espionagem
+ */
+const debugCount = (label: string) => {
+  if (debugDailyStore.state.espionagem) {
+    console.count(label);
+  }
+};
+
+/**
+ * Debug error function that only logs errors if debug mode is enabled for espionagem
+ */
+const debugError = (...args: unknown[]) => {
+  if (debugDailyStore.state.espionagem) {
+    console.error(...args);
+  }
+};
 
 const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   male: 'é homem',
@@ -181,7 +209,7 @@ export const buildDailyEspionagemGames = (
   featuresStats: Dictionary<Dictionary<true>>,
   reasons: Dictionary<CrimeReason>,
 ) => {
-  console.count('Creating Espionagem...');
+  debugCount('Creating Espionagem...');
   let lastDate = history.latestDate;
   const usedIds: string[] = [];
 
@@ -210,14 +238,14 @@ export const buildDailyEspionagemGames = (
           throw new Error(`Game is invalid after ${attempts} attempts`);
         }
       } catch (_error) {
-        // console.error('BOOM', error);
+        // debugError('BOOM', _error);
       }
     }
 
     if (!validGame) {
       throw new Error(`Failed to generate valid game for ${id} after ${attempts} attempts`);
     }
-    console.log(`Generated valid game for ${id} after ${attempts} attempts`);
+    debugLog(`Generated valid game for ${id} after ${attempts} attempts`);
 
     // Add culprit to used IDs to avoid reusing in future games
     usedIds.push(validGame.culpritId);
@@ -243,7 +271,7 @@ function generateEspionagemGame(
 ): Omit<DailyEspionagemEntry, 'id' | 'number' | 'type'> {
   const statements: StatementClue[] = [];
   const excludeScoreBoard: Dictionary<number> = {};
-  console.log('SuspectTestimonyAnswers', suspectTestimonyAnswers);
+  debugLog('SuspectTestimonyAnswers', suspectTestimonyAnswers);
   // Get two related testimonies, the culprit ID, and the common suspects
   const { selectedTestimonyId1, selectedTestimonyId2, culpritId, possibleSuspects, impossibleSuspects } =
     getTwoRelatedTestimonies(suspectTestimonyAnswers, usedIds);
@@ -480,14 +508,14 @@ const createSuspectEntry = (
  */
 const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
   const result: TestimonySuspectAnswers = {};
-  console.log('⚙️ Calculating suspect answers...');
+  debugLog('⚙️ Calculating suspect answers...');
   for (const questionId of Object.keys(data)) {
     const questionTestimonies = data[questionId];
     for (const suspectId of Object.keys(questionTestimonies)) {
       const { resolution, projection } = calculateSuspectAnswersData(suspectId, questionTestimonies);
 
       if (!resolution && !projection) {
-        // console.log('⁉️ Ignoring testimony with no resolution or projection');
+        // debugLog('⁉️ Ignoring testimony with no resolution or projection');
         continue;
       }
 
@@ -505,7 +533,7 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
         // continue;
       }
 
-      // console.log('⁉️ Ignoring testimony with not enough values');
+      // debugLog('⁉️ Ignoring testimony with not enough values');
     }
   }
 
@@ -519,7 +547,7 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
   // Delete any entry with less than 3 answers
   Object.keys(result).forEach((key) => {
     if (Object.keys(result[key]).length < 3) {
-      console.log('⁉️ Removing testimonies with less than 3 answers');
+      debugLog('⁉️ Removing testimonies with less than 3 answers');
       delete result[key];
     }
   });
@@ -528,7 +556,7 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
   Object.keys(result).forEach((key) => {
     const answers = uniq(Object.values(result[key]));
     if (answers.length === 1) {
-      console.log('⁉️ Removing testimonies with the same answer');
+      debugLog('⁉️ Removing testimonies with the same answer');
       delete result[key];
     }
   });
@@ -558,17 +586,17 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
   for (const suspectId of Object.keys(data)) {
     const { gender, ethnicity, age, build, height, features } = data[suspectId];
     if (!build) {
-      console.log('⁉️ Ignoring suspect with missing build', suspectId);
+      debugLog('⁉️ Ignoring suspect with missing build', suspectId);
       continue;
     }
 
     if (!height) {
-      console.log('⁉️ Ignoring suspect with missing height', suspectId);
+      debugLog('⁉️ Ignoring suspect with missing height', suspectId);
       continue;
     }
 
     if (!features || features.length === 0) {
-      console.log('⁉️ Ignoring suspect with missing features', suspectId);
+      debugLog('⁉️ Ignoring suspect with missing features', suspectId);
       continue;
     }
 
@@ -686,14 +714,14 @@ const getTwoRelatedTestimonies = (suspectTestimonyAnswers: TestimonySuspectAnswe
     throw new Error('Failed to determine a culprit from common suspects');
   }
 
-  console.log('<===============>');
-  console.log(`⚙️ Selected testimonies 1: ${testimonyId1}`);
-  console.log(suspectTestimonyAnswers[testimonyId1]);
-  console.log(`⚙️ Selected testimonies 2: ${testimonyId2}`);
-  console.log(suspectTestimonyAnswers[testimonyId2]);
-  console.log(`⚙️ Culprit ID: ${culpritId}`);
-  console.log(`Testimony 1 answers: ${suspectTestimonyAnswers[testimonyId1][culpritId]}`);
-  console.log(`Testimony 2 answers: ${suspectTestimonyAnswers[testimonyId2][culpritId]}`);
+  debugLog('<===============>');
+  debugLog(`⚙️ Selected testimonies 1: ${testimonyId1}`);
+  debugLog(suspectTestimonyAnswers[testimonyId1]);
+  debugLog(`⚙️ Selected testimonies 2: ${testimonyId2}`);
+  debugLog(suspectTestimonyAnswers[testimonyId2]);
+  debugLog(`⚙️ Culprit ID: ${culpritId}`);
+  debugLog(`Testimony 1 answers: ${suspectTestimonyAnswers[testimonyId1][culpritId]}`);
+  debugLog(`Testimony 2 answers: ${suspectTestimonyAnswers[testimonyId2][culpritId]}`);
 
   // Remove any suspect that has the same answer in both testimonies as the culprit
   const culpritAnswerKey = `${suspectTestimonyAnswers[testimonyId1][culpritId]}-${suspectTestimonyAnswers[testimonyId2][culpritId]}`;
@@ -709,11 +737,11 @@ const getTwoRelatedTestimonies = (suspectTestimonyAnswers: TestimonySuspectAnswe
     TOTAL_SUSPECTS - 1,
   );
   const impossibleSuspects = difference(commonSuspects, possibleSuspects);
-  console.log(`⚙️ Possible suspects: ${possibleSuspects.join(', ')}`);
-  console.log(`⚙️ Impossible suspects: ${impossibleSuspects.join(', ')}`);
+  debugLog(`⚙️ Possible suspects: ${possibleSuspects.join(', ')}`);
+  debugLog(`⚙️ Impossible suspects: ${impossibleSuspects.join(', ')}`);
 
-  console.log(`⚙️ Attempts made: ${attempts}`);
-  console.log('>===============<');
+  debugLog(`⚙️ Attempts made: ${attempts}`);
+  debugLog('>===============<');
   return {
     selectedTestimonyId1: testimonyId1,
     selectedTestimonyId2: testimonyId2,
@@ -937,12 +965,12 @@ const getFeatureStatement = (
   if (!selectedFeature) {
     throw Error(`No suitable feature found for ${type} selection after ${maxAttempts} attempts`);
   }
-  console.log(`Selected feature after ${attempts} attempts: ${selectedFeature}`);
+  debugLog(`Selected feature after ${attempts} attempts: ${selectedFeature}`);
 
   const translatedFeature = FEATURE_PT_TRANSLATIONS[selectedFeature];
 
   if (!translatedFeature) {
-    console.warn(`Feature ${selectedFeature} not found in translations`);
+    debugError(`Feature ${selectedFeature} not found in translations`);
   }
 
   return {
