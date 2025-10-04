@@ -627,6 +627,10 @@ export type SuspectCard = {
    * AI prompt descritor
    */
   prompt?: string;
+  /**
+   * Animal for zootopia style
+   */
+  animal?: boolean;
 };
 
 export type SuspectStyleVariant = 'gb' | 'rl' | 'px' | 'fx' | (string & NonNullable<unknown>);

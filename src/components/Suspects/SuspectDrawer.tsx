@@ -1,4 +1,4 @@
-import { Drawer, Flex, Input, Radio, Select, Switch, Typography } from 'antd';
+import { Drawer, Flex, Radio, Select, Switch, Typography } from 'antd';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
@@ -40,15 +40,13 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
 
   const [namePt, setNamePt] = useState(suspect?.name.pt || '');
   const [nameEn, setNameEn] = useState(suspect?.name.en || '');
-  const [note, setNote] = useState(suspect?.note || '');
 
   // Reset local state when suspect changes
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: set up name initial values
   useEffect(() => {
     if (suspect) {
       setNamePt(suspect.name.pt);
       setNameEn(suspect.name.en);
-      setNote(suspect.note || '');
     }
   }, [suspect?.id]);
 
@@ -80,19 +78,17 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
     [nameEn],
   );
 
-  // Debounce note updates
-  useDebounce(
-    () => {
-      if (suspect && note !== suspect.note) {
-        addEntryToUpdate(suspect.id, {
-          ...suspect,
-          note,
-        });
-      }
-    },
-    500,
-    [note],
-  );
+  const updateKeyValue = (suspectId: string, key: keyof SuspectCard, value: unknown) => {
+    const suspect = data[suspectId];
+    if (!suspect) return;
+
+    if (suspect[key] === value) return;
+
+    addEntryToUpdate(suspectId, {
+      ...suspect,
+      [key]: value,
+    });
+  };
 
   if (!suspect) return null;
 
@@ -118,12 +114,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
             <DualLanguageTextField language="en" onChange={(e) => setNameEn(e.target.value)} value={name} />
             <div>
               <Select
-                onChange={(value) => {
-                  addEntryToUpdate(suspect.id, {
-                    ...suspect,
-                    age: value,
-                  });
-                }}
+                onChange={(value) => updateKeyValue(suspect.id, 'age', value)}
                 options={AGE_OPTIONS}
                 placeholder="Select Age"
                 size="small"
@@ -133,12 +124,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
             </div>
             <div>
               <Select
-                onChange={(value) => {
-                  addEntryToUpdate(suspect.id, {
-                    ...suspect,
-                    gender: value,
-                  });
-                }}
+                onChange={(value) => updateKeyValue(suspect.id, 'gender', value)}
                 options={GENDER_OPTIONS}
                 size="small"
                 style={{ width: 120 }}
@@ -147,12 +133,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
             </div>
             <div>
               <Select
-                onChange={(value) => {
-                  addEntryToUpdate(suspect.id, {
-                    ...suspect,
-                    ethnicity: value,
-                  });
-                }}
+                onChange={(value) => updateKeyValue(suspect.id, 'ethnicity', value)}
                 options={ETHNICITY_OPTIONS}
                 size="small"
                 style={{ width: 150 }}
@@ -160,7 +141,23 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
               />
             </div>
             <div>
-              <Input onChange={(e) => setNote(e.target.value)} size="small" value={note} />
+              <Typography.Text strong>Additional Info</Typography.Text>
+              <Typography.Paragraph
+                code
+                editable={{
+                  onChange: (value) => updateKeyValue(suspect.id, 'note', value),
+                }}
+              >
+                {suspect.note}
+              </Typography.Paragraph>
+              <Typography.Paragraph
+                code
+                editable={{
+                  onChange: (value) => updateKeyValue(suspect.id, 'animal', value),
+                }}
+              >
+                {suspect.animal}
+              </Typography.Paragraph>
             </div>
           </Flex>
         </div>
@@ -169,9 +166,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
           <Flex vertical>
             <Typography.Text strong>Build</Typography.Text>
             <Radio.Group
-              onChange={(e) => {
-                addEntryToUpdate(suspect.id, { ...suspect, build: e.target.value });
-              }}
+              onChange={(e) => updateKeyValue(suspect.id, 'build', e.target.value)}
               options={BUILDS}
               size="small"
               style={{
@@ -185,9 +180,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
           <Flex vertical>
             <Typography.Text strong>Height</Typography.Text>
             <Radio.Group
-              onChange={(e) => {
-                addEntryToUpdate(suspect.id, { ...suspect, height: e.target.value });
-              }}
+              onChange={(e) => updateKeyValue(suspect.id, 'height', e.target.value)}
               options={HEIGHTS}
               size="small"
               style={{

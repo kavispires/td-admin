@@ -67,6 +67,16 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
     }
   };
 
+  const updateKeyValue = (suspectId: string, key: keyof SuspectCard, value: unknown) => {
+    const suspect = data[suspectId];
+    if (!suspect) return;
+
+    addEntryToUpdate(suspectId, {
+      ...suspect,
+      [key]: value,
+    });
+  };
+
   // biome-ignore lint/correctness/useExhaustiveDependencies: no need to re-create for the functions
   const columns: TableProps<SuspectCard>['columns'] = useMemo(() => {
     return [
@@ -109,8 +119,26 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
         title: 'Note',
         dataIndex: 'note',
         key: 'note',
-        render: (note: string) => (
-          <Typography.Text type="secondary">{truncate(note, { length: 30 })}</Typography.Text>
+        render: (note: string, entry: SuspectCard) => (
+          <Flex vertical>
+            <Typography.Paragraph
+              code
+              editable={{
+                onChange: (value) => updateKeyValue(entry.id, 'note', value),
+              }}
+            >
+              {note}
+            </Typography.Paragraph>
+
+            <Typography.Paragraph
+              code
+              editable={{
+                onChange: (value) => updateKeyValue(entry.id, 'animal', value),
+              }}
+            >
+              {entry.animal}
+            </Typography.Paragraph>
+          </Flex>
         ),
       },
       {
@@ -168,6 +196,17 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
               </Flex>
             )}
           </Flex>
+        ),
+      },
+      {
+        title: 'Edit',
+        dataIndex: 'id',
+        key: 'edit',
+        width: 80,
+        render: (id: string) => (
+          <Button block onClick={() => addParam('suspectId', id)} size="small">
+            <EditFilled />
+          </Button>
         ),
       },
     ];
