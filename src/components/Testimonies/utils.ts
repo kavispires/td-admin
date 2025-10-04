@@ -23,8 +23,10 @@ export const calculateSuspectAnswersData = (
     if (v === -3) systemNoCount += 3;
     if (v === 4) systemYesCount += 4;
     if (v === -4) systemNoCount += 4;
+    if (v === 32) systemYesCount += 32;
+    if (v === -32) systemNoCount += 32;
   });
-  const valuesWithoutSystem = values.filter((v) => ![-4, -3, 3, 4].includes(v));
+  const valuesWithoutSystem = values.filter((v) => ![-4, -3, 3, 4, -32, 32].includes(v));
 
   const votesCount = valuesWithoutSystem.length + systemYesCount + systemNoCount;
   const total = Math.max(votesCount, 5);

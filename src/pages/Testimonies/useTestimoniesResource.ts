@@ -11,7 +11,7 @@ import type { SuspectCard, TestimonyQuestionCard } from 'types';
  * 4 = Auto-grouped four 1s
  * -4 = Auto-grouped four 0s
  */
-export type TestimonyAnswersValues = 1 | 0 | 3 | -3 | 4 | -4;
+export type TestimonyAnswersValues = 1 | 0 | 3 | -3 | 4 | -4 | 32 | -32;
 export type TestimonyAnswers = Dictionary<TestimonyAnswersValues[]>;
 
 export type UseTestimoniesResourceReturnType = {

@@ -1,6 +1,6 @@
 import { TrophyFilled } from '@ant-design/icons';
-import { Button, Flex, Popover, Progress, Space, Tooltip, Typography } from 'antd';
-import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
+import { Button, Divider, Flex, Popover, Progress, Space, Tooltip, Typography } from 'antd';
+import type { TestimonyAnswers, TestimonyAnswersValues } from 'pages/Testimonies/useTestimoniesResource';
 import type { SuspectCard } from 'types';
 
 type PopoverStrongAnswersProps = {
@@ -34,36 +34,16 @@ export function PopoverStrongAnswers({
   barWidth,
   showName,
 }: PopoverStrongAnswersProps) {
-  const onAddStrongFit = (suspectCardId: string) => {
+  const onAddValue = (suspectCardId: string, value: TestimonyAnswersValues) => {
     const newAnswers = { ...answers };
-    newAnswers[suspectCardId] = [...(newAnswers[suspectCardId] || []), 3];
+    newAnswers[suspectCardId] = [...(newAnswers[suspectCardId] || []), value];
     addEntryToUpdate(testimonyId, newAnswers);
   };
 
-  const onAddStrongUnfit = (suspectCardId: string) => {
+  const onRemoveValue = (suspectCardId: string, value: TestimonyAnswersValues) => {
     const newAnswers = { ...answers };
-    newAnswers[suspectCardId] = [...(newAnswers[suspectCardId] || []), -3];
-    addEntryToUpdate(testimonyId, newAnswers);
-  };
-
-  const onRemoveStrongFit = (suspectCardId: string) => {
-    const newAnswers = { ...answers };
-    // Find the index of the first occurrence of 3
-    const index = newAnswers[suspectCardId]?.findIndex((value) => value === 3);
-    // If found, remove only that occurrence
-    if (index !== -1 && index !== undefined) {
-      newAnswers[suspectCardId] = [
-        ...newAnswers[suspectCardId].slice(0, index),
-        ...newAnswers[suspectCardId].slice(index + 1),
-      ];
-    }
-    addEntryToUpdate(testimonyId, newAnswers);
-  };
-
-  const onRemoveStrongUnfit = (suspectCardId: string) => {
-    const newAnswers = { ...answers };
-    // Find the index of the first occurrence of -3
-    const index = newAnswers[suspectCardId]?.findIndex((value) => value === -3);
+    // Find the index of the first occurrence of the value
+    const index = newAnswers[suspectCardId]?.findIndex((v) => v === value);
     // If found, remove only that occurrence
     if (index !== -1 && index !== undefined) {
       newAnswers[suspectCardId] = [
@@ -79,20 +59,36 @@ export function PopoverStrongAnswers({
       content={
         <Flex gap={4} vertical>
           <Typography.Text type="secondary">{values.join(', ')}</Typography.Text>
-
-          <Button block icon="👍" onClick={() => onAddStrongFit(suspect.id)}>
-            {' '}
-            Add strong fit
-          </Button>
-          <Button block icon="👎" onClick={() => onAddStrongUnfit(suspect.id)}>
-            {' '}
-            Add strong unfit
-          </Button>
           <Space.Compact>
-            <Button block icon="❌" onClick={() => onRemoveStrongFit(suspect.id)} size="small">
+            <Button block icon="👍" onClick={() => onAddValue(suspect.id, 3)}>
+              Fit
+            </Button>
+            <Button block icon="👎" onClick={() => onAddValue(suspect.id, -3)}>
+              Unfit
+            </Button>
+          </Space.Compact>
+          <Space.Compact>
+            <Button block icon="❌" onClick={() => onRemoveValue(suspect.id, 3)} size="small">
               fit
             </Button>
-            <Button block icon="❌" onClick={() => onRemoveStrongUnfit(suspect.id)} size="small">
+            <Button block icon="❌" onClick={() => onRemoveValue(suspect.id, -3)} size="small">
+              unfit
+            </Button>
+          </Space.Compact>
+          <Divider className="my-1" />
+          <Space.Compact>
+            <Button block icon="⬆️" onClick={() => onAddValue(suspect.id, 32)}>
+              Sure
+            </Button>
+            <Button block icon="⬇️" onClick={() => onAddValue(suspect.id, -32)}>
+              Sure
+            </Button>
+          </Space.Compact>
+          <Space.Compact>
+            <Button block icon="❌" onClick={() => onRemoveValue(suspect.id, 32)} size="small">
+              fit
+            </Button>
+            <Button block icon="❌" onClick={() => onRemoveValue(suspect.id, -32)} size="small">
               unfit
             </Button>
           </Space.Compact>

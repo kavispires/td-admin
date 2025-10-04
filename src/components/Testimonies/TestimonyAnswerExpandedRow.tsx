@@ -76,7 +76,7 @@ export function TestimonyAnswerExpandedRow({
               vertical
             >
               <SuspectImageCard
-                className={entry.values.length > 1 ? undefined : 'grayscale'}
+                className={entry.values.length > 1 || entry.enoughData ? undefined : 'grayscale'}
                 id={entry.imageId}
                 width={cardWidth}
               />
@@ -153,7 +153,7 @@ function BatchOptions({
     return keyBy(list, 'suspectCardId');
   }, [list]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: ok
   useEffect(() => {
     if (activeFilters.length === 0 && selection.length > 0) {
       setSelection([]);
