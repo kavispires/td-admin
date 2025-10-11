@@ -57,40 +57,29 @@ export function PopoverStrongAnswers({
   return (
     <Popover
       content={
-        <Flex gap={4} vertical>
+        <Flex align="center">
           <Typography.Text type="secondary">{values.join(', ')}</Typography.Text>
           <Space.Compact>
             <Button block icon="👍" onClick={() => onAddValue(suspect.id, 3)}>
               Fit
             </Button>
+            <Button icon="❌" onClick={() => onRemoveValue(suspect.id, 3)} />
             <Button block icon="👎" onClick={() => onAddValue(suspect.id, -3)}>
               Unfit
             </Button>
+            <Button icon="❌" onClick={() => onRemoveValue(suspect.id, -3)} />
           </Space.Compact>
-          <Space.Compact>
-            <Button block icon="❌" onClick={() => onRemoveValue(suspect.id, 3)} size="small">
-              fit
-            </Button>
-            <Button block icon="❌" onClick={() => onRemoveValue(suspect.id, -3)} size="small">
-              unfit
-            </Button>
-          </Space.Compact>
+
           <Divider className="my-1" />
           <Space.Compact>
             <Button block icon="⬆️" onClick={() => onAddValue(suspect.id, 32)}>
               Sure
             </Button>
+            <Button icon="✖️" onClick={() => onRemoveValue(suspect.id, 32)} />
             <Button block icon="⬇️" onClick={() => onAddValue(suspect.id, -32)}>
               Sure
             </Button>
-          </Space.Compact>
-          <Space.Compact>
-            <Button block icon="❌" onClick={() => onRemoveValue(suspect.id, 32)} size="small">
-              fit
-            </Button>
-            <Button block icon="❌" onClick={() => onRemoveValue(suspect.id, -32)} size="small">
-              unfit
-            </Button>
+            <Button icon="✖️" onClick={() => onRemoveValue(suspect.id, -32)} />
           </Space.Compact>
         </Flex>
       }

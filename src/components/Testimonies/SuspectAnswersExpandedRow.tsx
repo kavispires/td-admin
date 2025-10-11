@@ -1,8 +1,8 @@
-import { Button, Flex, Input, Space, Table, Typography } from 'antd';
+import { Badge, Button, Flex, Input, Space, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
-import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
+import type { TestimonyAnswers, TestimonyAnswersValues } from 'pages/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';
@@ -93,6 +93,7 @@ export function SuspectAnswersExpandedRow({
       key: 'id',
       title: 'Id',
       dataIndex: 'id',
+      width: '7%',
     },
     {
       key: 'question',
@@ -104,6 +105,7 @@ export function SuspectAnswersExpandedRow({
       key: 'answer',
       title: 'Answer',
       dataIndex: 'id',
+      width: '170px',
       sorter: (a, b) => a.total - b.total,
       render: (id) => {
         const entry = list.find((entry) => entry.id === id);
@@ -135,6 +137,7 @@ export function SuspectAnswersExpandedRow({
       key: 'actions',
       title: 'Actions',
       dataIndex: 'id',
+      width: 'auto',
       render: (id) => {
         const entry = list.find((entry) => entry.id === id);
         if (!entry) {
@@ -155,7 +158,16 @@ export function SuspectAnswersExpandedRow({
 
   return (
     <Space size="large" wrap>
-      <Table bordered columns={columns} dataSource={list} rowKey="id" />
+      <Flex className="full-width" gap={16} vertical>
+        <Table
+          bordered
+          className="full-width"
+          columns={columns}
+          dataSource={list}
+          rowKey="id"
+          tableLayout="fixed"
+        />
+      </Flex>
       <Flex gap={8} vertical>
         <Typography.Title level={5}>Suspect Description</Typography.Title>
 
@@ -186,22 +198,16 @@ type ActionCellProps = {
 };
 
 export function ActionCell({ suspect, testimonyId, addEntryToUpdate, answers }: ActionCellProps) {
-  const onAddStrongFit = (suspectCardId: string) => {
+  const onAddValue = (suspectCardId: string, value: TestimonyAnswersValues) => {
     const newAnswers = { ...answers };
-    newAnswers[suspectCardId] = [...(newAnswers[suspectCardId] || []), 3];
+    newAnswers[suspectCardId] = [...(newAnswers[suspectCardId] || []), value];
     addEntryToUpdate(testimonyId, newAnswers);
   };
 
-  const onAddStrongUnfit = (suspectCardId: string) => {
+  const onRemoveValue = (suspectCardId: string, value: TestimonyAnswersValues) => {
     const newAnswers = { ...answers };
-    newAnswers[suspectCardId] = [...(newAnswers[suspectCardId] || []), -3];
-    addEntryToUpdate(testimonyId, newAnswers);
-  };
-
-  const onRemoveStrongFit = (suspectCardId: string) => {
-    const newAnswers = { ...answers };
-    // Find the index of the first occurrence of 3
-    const index = newAnswers[suspectCardId]?.findIndex((value) => value === 3);
+    // Find the index of the first occurrence of the value
+    const index = newAnswers[suspectCardId]?.findIndex((v) => v === value);
     // If found, remove only that occurrence
     if (index !== -1 && index !== undefined) {
       newAnswers[suspectCardId] = [
@@ -212,36 +218,35 @@ export function ActionCell({ suspect, testimonyId, addEntryToUpdate, answers }: 
     addEntryToUpdate(testimonyId, newAnswers);
   };
 
-  const onRemoveStrongUnfit = (suspectCardId: string) => {
-    const newAnswers = { ...answers };
-    // Find the index of the first occurrence of -3
-    const index = newAnswers[suspectCardId]?.findIndex((value) => value === -3);
-    // If found, remove only that occurrence
-    if (index !== -1 && index !== undefined) {
-      newAnswers[suspectCardId] = [
-        ...newAnswers[suspectCardId].slice(0, index),
-        ...newAnswers[suspectCardId].slice(index + 1),
-      ];
-    }
-    addEntryToUpdate(testimonyId, newAnswers);
-  };
+  const total = useMemo(() => {
+    // Calculate the total absolute sum of the values
+    return Object.values(answers[suspect.id] || {}).reduce((acc: number, curr) => acc + Math.abs(curr), 0);
+  }, [answers, suspect.id]);
+
+  console.log(answers[suspect.id]);
 
   return (
-    <Space.Compact>
-      <Button block icon="👍" onClick={() => onAddStrongFit(suspect.id)}>
-        {' '}
-        FIT
-      </Button>
-      <Button block icon="👎" onClick={() => onAddStrongUnfit(suspect.id)}>
-        {' '}
-        UNFIT
-      </Button>
-      <Button icon="❌" onClick={() => onRemoveStrongFit(suspect.id)}>
-        DESFIT
-      </Button>
-      <Button icon="❌" onClick={() => onRemoveStrongUnfit(suspect.id)}>
-        DESUNFIT
-      </Button>
-    </Space.Compact>
+    <Flex align="center" gap={6} wrap="nowrap">
+      <Badge color={total > 20 ? 'gold' : 'grey'} count={total} showZero style={{ minWidth: 32 }} />
+      <Space.Compact>
+        <Button block icon="👍" onClick={() => onAddValue(suspect.id, 3)}>
+          FIT
+        </Button>
+        <Button icon="❌" onClick={() => onRemoveValue(suspect.id, 3)} />
+        <Button block icon="👎" onClick={() => onAddValue(suspect.id, -3)}>
+          UNFIT
+        </Button>
+        <Button icon="❌" onClick={() => onRemoveValue(suspect.id, -3)} />
+
+        <Button block icon="⬆️" onClick={() => onAddValue(suspect.id, 32)}>
+          Sure
+        </Button>
+        <Button icon="✖️" onClick={() => onRemoveValue(suspect.id, 32)} />
+        <Button block icon="⬇️" onClick={() => onAddValue(suspect.id, -32)}>
+          Sure
+        </Button>
+        <Button icon="✖️" onClick={() => onRemoveValue(suspect.id, -32)} />
+      </Space.Compact>
+    </Flex>
   );
 }
