@@ -19,12 +19,8 @@ export const calculateSuspectAnswersData = (
   let systemNoCount = 0;
 
   values.forEach((v) => {
-    if (v === 3) systemYesCount += 3;
-    if (v === -3) systemNoCount += 3;
-    if (v === 4) systemYesCount += 4;
-    if (v === -4) systemNoCount += 4;
-    if (v === 32) systemYesCount += 32;
-    if (v === -32) systemNoCount += 32;
+    if (v > 0) systemYesCount += v;
+    if (v < 0) systemNoCount += Math.abs(v);
   });
   const valuesWithoutSystem = values.filter((v) => ![-4, -3, 3, 4, -32, 32].includes(v));
 
@@ -97,36 +93,51 @@ export const calculateSuspectAnswersData = (
  * normalizeValues([0, 0, 0, 0, 1, 1, 1, 1, 2, 3])
  */
 export default function normalizeValues(arr: TestimonyAnswersValues[]): TestimonyAnswersValues[] {
-  // Start result keeping all values that are not 0 or 1
-  const result: TestimonyAnswersValues[] = arr.filter((v) => ![0, 1].includes(v));
-  const singles: TestimonyAnswersValues[] = arr.filter((v) => [0, 1].includes(v));
+  // Convert all 0 values to -1 for easier processing
+  const processed = arr.map((v) => (v === 0 ? -1 : v));
 
-  const counts: Dictionary<number> = {
-    0: 0,
-    1: 0,
+  // Keep all -32 and 32 as is
+  // Keep all 3 and -3 as is
+  const final: number[] = arr.filter((v) => v === -32 || v === 32 || v === 4 || v === -4);
+
+  // Process -1 and 1 values
+  const ones = processed.filter((v) => v === -1 || v === 1);
+
+  // This should be done just now because after the first time everything
+  const others = processed
+    .filter((v) => ![-32, 32, 3, -3, -1, 1].includes(v))
+    .flatMap((v) => {
+      return Array.from({ length: Math.abs(v) }, () => (v > 0 ? 1 : -1));
+    });
+
+  const allOnes = [...ones, ...others].sort((a, b) => a - b);
+
+  /// From allOnes, every the THRESHOLD -1s become a -THRESHOLD, every THRESHOLD 1s become a +THRESHOLD, the reminder stay as is
+  const counts: { [-1]: number; [1]: number } = {
+    '-1': 0,
+    '1': 0,
   };
 
-  singles.forEach((value) => {
-    if (counts[value] === undefined) {
-      throw Error(`what is this value? ${value}`);
-    }
-    counts[value] += 1;
-  });
-
-  Object.entries(counts).forEach(([value, count]) => {
-    if (count > 0) {
-      const groups = Math.floor(count / 4);
-      const remainder = count % 4;
-
-      for (let i = 0; i < groups; i++) {
-        result.push(value === '0' ? -4 : 4);
-      }
-      if (remainder > 0) {
-        const remainderArr = Array.from({ length: remainder }, () => (value === '0' ? 0 : 1));
-        result.push(...remainderArr);
-      }
+  allOnes.forEach((v) => {
+    if (v === -1 || v === 1) {
+      counts[v] += 1;
     }
   });
 
-  return result.sort((a, b) => a - b);
+  const THRESHOLD = 8;
+
+  for (const [key, value] of Object.entries(counts)) {
+    const groups = Math.floor(value / THRESHOLD);
+    const remainder = value % THRESHOLD;
+
+    for (let i = 0; i < groups; i++) {
+      final.push(key === '-1' ? -THRESHOLD : THRESHOLD);
+    }
+    if (remainder > 0) {
+      const remainderArr = Array.from({ length: remainder }, () => (key === '-1' ? -1 : 1));
+      final.push(...remainderArr);
+    }
+  }
+
+  return final.sort((a, b) => a - b) as TestimonyAnswersValues[];
 }

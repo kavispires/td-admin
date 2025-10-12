@@ -11,7 +11,7 @@ import type { SuspectCard, TestimonyQuestionCard } from 'types';
  * 4 = Auto-grouped four 1s
  * -4 = Auto-grouped four 0s
  */
-export type TestimonyAnswersValues = 1 | 0 | 3 | -3 | 4 | -4 | 32 | -32;
+export type TestimonyAnswersValues = -1 | 1 | 0 | 4 | -4 | -8 | 8 | 32 | -32;
 export type TestimonyAnswers = Dictionary<TestimonyAnswersValues[]>;
 
 export type UseTestimoniesResourceReturnType = {
@@ -61,9 +61,6 @@ export function useTestimoniesResource(): UseTestimoniesResourceReturnType {
  */
 export const countAnswers = (values: TestimonyAnswersValues[]): number => {
   return values.reduce((acc: number, value) => {
-    if (value === 0 || value === 1) {
-      return acc + 1;
-    }
     const absValue = Math.abs(value);
     if (absValue) {
       return acc + absValue;

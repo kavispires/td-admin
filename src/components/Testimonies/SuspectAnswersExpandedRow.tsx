@@ -1,9 +1,10 @@
+import { SearchOutlined } from '@ant-design/icons';
 import { Badge, Button, Flex, Input, Space, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
 import type { TestimonyAnswers, TestimonyAnswersValues } from 'pages/Testimonies/useTestimoniesResource';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';
 import { calculateSuspectAnswersData } from './utils';
@@ -40,6 +41,7 @@ export function SuspectAnswersExpandedRow({
 }: SuspectAnswersExpandedRowProps) {
   const { queryParams } = useQueryParams({ sortSuspectsBy: 'answers' });
   const sortSuspectsBy = queryParams.get('sortSuspectsBy') ?? 'answers';
+  const [searchQuery, setSearchQuery] = useState('');
 
   const list: RowType[] = useMemo(() => {
     const res = Object.values(questions).map((question) => {
@@ -156,14 +158,33 @@ export function SuspectAnswersExpandedRow({
     },
   ];
 
+  const filteredList = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return list;
+    }
+    return list.filter(
+      (item) =>
+        item.question.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.id.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+  }, [list, searchQuery]);
+
   return (
     <Space size="large" wrap>
       <Flex className="full-width" gap={16} vertical>
+        <Input
+          allowClear
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search questions..."
+          prefix={<SearchOutlined />}
+          style={{ marginBottom: 16, width: 320 }}
+          value={searchQuery}
+        />
         <Table
           bordered
           className="full-width"
           columns={columns}
-          dataSource={list}
+          dataSource={filteredList}
           rowKey="id"
           tableLayout="fixed"
         />
@@ -220,7 +241,11 @@ export function ActionCell({ suspect, testimonyId, addEntryToUpdate, answers }: 
 
   const total = useMemo(() => {
     // Calculate the total absolute sum of the values
-    return Object.values(answers[suspect.id] || {}).reduce((acc: number, curr) => acc + Math.abs(curr), 0);
+    // If the value is a 0, count it as -1
+    return Object.values(answers[suspect.id] || {}).reduce(
+      (acc: number, curr) => acc + Math.abs(curr === 0 ? -1 : curr),
+      0,
+    );
   }, [answers, suspect.id]);
 
   console.log(answers[suspect.id]);
@@ -229,14 +254,14 @@ export function ActionCell({ suspect, testimonyId, addEntryToUpdate, answers }: 
     <Flex align="center" gap={6} wrap="nowrap">
       <Badge color={total > 20 ? 'gold' : 'grey'} count={total} showZero style={{ minWidth: 32 }} />
       <Space.Compact>
-        <Button block icon="👍" onClick={() => onAddValue(suspect.id, 3)}>
+        <Button block icon="👍" onClick={() => onAddValue(suspect.id, 4)}>
           FIT
         </Button>
-        <Button icon="❌" onClick={() => onRemoveValue(suspect.id, 3)} />
-        <Button block icon="👎" onClick={() => onAddValue(suspect.id, -3)}>
+        <Button icon="❌" onClick={() => onRemoveValue(suspect.id, 4)} />
+        <Button block icon="👎" onClick={() => onAddValue(suspect.id, -4)}>
           UNFIT
         </Button>
-        <Button icon="❌" onClick={() => onRemoveValue(suspect.id, -3)} />
+        <Button icon="❌" onClick={() => onRemoveValue(suspect.id, -4)} />
 
         <Button block icon="⬆️" onClick={() => onAddValue(suspect.id, 32)}>
           Sure

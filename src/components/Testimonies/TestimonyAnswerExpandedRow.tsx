@@ -168,7 +168,7 @@ function BatchOptions({
         ? selection
         : Object.values(listDict)
             .filter((e) => {
-              return !e.complete && !e.values.includes(3) && !e.values.includes(-3);
+              return !e.complete && !e.values.includes(4) && !e.values.includes(-4);
             })
             .map((e) => e.suspectCardId);
 
@@ -204,7 +204,7 @@ function BatchOptions({
     // Apply the batch update to the selected suspects
     const newAnswers = cloneDeep(answers);
     selection.forEach((suspectId) => {
-      newAnswers[suspectId] = [...(newAnswers[suspectId] || []), value as 3 | -3];
+      newAnswers[suspectId] = [...(newAnswers[suspectId] || []), value as 4 | -4];
     });
     addEntryToUpdate(testimonyId, newAnswers);
     setActiveFilters([]);
@@ -303,15 +303,15 @@ function BatchOptions({
             <Button danger onClick={() => setActiveFilters([])} size="small">
               Clear
             </Button>
-            <Popconfirm onConfirm={() => onApplyBatch(3)} title="Apply +3 to selected suspects?">
+            <Popconfirm onConfirm={() => onApplyBatch(4)} title="Apply +4 to selected suspects?">
               <Button className="ml-10" disabled={selection.length === 0} size="small" type="primary">
-                Apply +3
+                Apply +4
               </Button>
             </Popconfirm>
             <Divider type="vertical" />
-            <Popconfirm onConfirm={() => onApplyBatch(-3)} title="Apply -3 to selected suspects?">
+            <Popconfirm onConfirm={() => onApplyBatch(-4)} title="Apply -4 to selected suspects?">
               <Button disabled={selection.length === 0} size="small" type="primary">
-                Apply -3
+                Apply -4
               </Button>
             </Popconfirm>
           </Flex>

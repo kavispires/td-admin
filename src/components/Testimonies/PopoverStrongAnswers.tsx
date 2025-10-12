@@ -57,17 +57,17 @@ export function PopoverStrongAnswers({
   return (
     <Popover
       content={
-        <Flex align="center">
+        <Flex align="center" vertical>
           <Typography.Text type="secondary">{values.join(', ')}</Typography.Text>
           <Space.Compact>
-            <Button block icon="👍" onClick={() => onAddValue(suspect.id, 3)}>
+            <Button block icon="👍" onClick={() => onAddValue(suspect.id, 4)}>
               Fit
             </Button>
-            <Button icon="❌" onClick={() => onRemoveValue(suspect.id, 3)} />
-            <Button block icon="👎" onClick={() => onAddValue(suspect.id, -3)}>
+            <Button icon="❌" onClick={() => onRemoveValue(suspect.id, 4)} />
+            <Button block icon="👎" onClick={() => onAddValue(suspect.id, -4)}>
               Unfit
             </Button>
-            <Button icon="❌" onClick={() => onRemoveValue(suspect.id, -3)} />
+            <Button icon="❌" onClick={() => onRemoveValue(suspect.id, -4)} />
           </Space.Compact>
 
           <Divider className="my-1" />
