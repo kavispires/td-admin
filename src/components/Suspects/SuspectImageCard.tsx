@@ -3,15 +3,15 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { SuspectStyleVariant } from 'types';
 
 type SuspectImageCardProps = {
-  id: string;
+  cardId: string;
   variant?: SuspectStyleVariant;
 } & ImageCardProps;
 
-export function SuspectImageCard({ id, variant, ...imageCardProps }: SuspectImageCardProps) {
+export function SuspectImageCard({ cardId, variant, ...imageCardProps }: SuspectImageCardProps) {
   const { queryParams } = useQueryParams();
   const vr = variant ?? queryParams.get('variant') ?? 'gb';
 
-  return <ImageCard id={getSuspectImageId(id, vr)} {...imageCardProps} />;
+  return <ImageCard cardId={getSuspectImageId(cardId, vr)} {...imageCardProps} />;
 }
 
 /**

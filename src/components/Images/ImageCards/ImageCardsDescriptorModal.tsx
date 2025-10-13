@@ -48,7 +48,7 @@ export function ImageCardsDescriptorModal({
       ]}
       cover={
         <Flex align="center" justify="center" style={{ width: '100vw' }}>
-          <ImageCard id={cardId ?? ''} width={cardSize} />
+          <ImageCard cardId={cardId ?? ''} width={cardSize} />
         </Flex>
       }
       onClose={() => removeParam('cardId')}

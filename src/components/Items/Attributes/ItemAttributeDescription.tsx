@@ -82,7 +82,7 @@ export function AttributeSprite({
     <Flex align="center" vertical>
       <AlienSign
         className={clsx('item-attribute-alien-sign', `item-attribute-alien-sign--${className}`)}
-        id={attributes[key].spriteId}
+        signId={attributes[key].spriteId}
         width={50}
       />
       {withText && (

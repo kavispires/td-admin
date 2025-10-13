@@ -83,7 +83,7 @@ export function ItemsQuartetsOrphans({ data, ...rest }: UseResourceFirestoreData
           {page.map((item) => (
             <TransparentButton key={item.id} onClick={() => setActiveItemId(item.id)}>
               <Flex key={item.id} style={{ maxWidth: 84 }} vertical>
-                <Item id={item.id} width={64} />
+                <Item itemId={item.id} width={64} />
                 <Flex align="center">
                   <Badge count={item.count} offset={[-8, 0]}>
                     <ItemId item={itemsTypeaheadQuery.data[item.id]} />
@@ -117,7 +117,7 @@ function QuartetItemDrawer({ itemId, onClose, ...resourceDta }: QuartetItemDrawe
     <Drawer onClose={onClose} open={!!itemId} placement="bottom" title="Item Details">
       <Flex gap={16}>
         <Flex gap={16} vertical>
-          <Item id={itemId} width={64} />
+          <Item itemId={itemId} width={64} />
           <ItemId item={itemsTypeaheadQuery.data[itemId]} />
         </Flex>
         <Flex vertical>
@@ -128,7 +128,7 @@ function QuartetItemDrawer({ itemId, onClose, ...resourceDta }: QuartetItemDrawe
               <Typography.Text type="secondary">({quartet.id})</Typography.Text>
               <Flex gap={8} wrap="wrap">
                 {quartet.itemsIds.map((itemId) => (
-                  <Item id={itemId} key={itemId} width={32} />
+                  <Item itemId={itemId} key={itemId} width={32} />
                 ))}
               </Flex>
               <Divider />

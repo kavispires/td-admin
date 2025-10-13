@@ -176,7 +176,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       key: 'name',
       render: (name, record) => (
         <Flex align="center" gap={8}>
-          {is('showGlyphs') && <AlienSign id={record.spriteId} width={30} />}
+          {is('showGlyphs') && <AlienSign signId={record.spriteId} width={30} />}
           {name.en}
           {record.default && <Tag className="ml-1">default</Tag>}
           {record.limited && <Tag className="ml-1">limited</Tag>}
@@ -195,7 +195,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       title: <SkinOutlined />,
       dataIndex: 'spriteId',
       key: 'spriteId',
-      render: (spriteId) => <AlienSign id={spriteId} padding={0} width={18} />,
+      render: (spriteId) => <AlienSign padding={0} signId={spriteId} width={18} />,
     },
     {
       title: 'Priority',
@@ -307,7 +307,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
         {unusedSpriteIds.map((id) => (
           <div key={id}>
             #{id}
-            <AlienSign id={`sign-${id}`} key={id} />
+            <AlienSign key={id} signId={`sign-${id}`} />
           </div>
         ))}
       </Flex>

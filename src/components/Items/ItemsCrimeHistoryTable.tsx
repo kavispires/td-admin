@@ -82,7 +82,7 @@ export function ItemsCrimeHistoryTable() {
         <Flex gap={6} vertical>
           {item ? (
             <>
-              <Item id={item.id} width={60} />
+              <Item itemId={item.id} width={60} />
               <ItemId item={item} />
               <ItemName item={item} language="pt" />
               <ItemName item={item} language="en" />
@@ -100,7 +100,7 @@ export function ItemsCrimeHistoryTable() {
         <Flex gap={6} vertical>
           {item ? (
             <>
-              <Item id={item.id} width={60} />
+              <Item itemId={item.id} width={60} />
               <ItemId item={item} />
               <ItemName item={item} language="pt" />
               <ItemName item={item} language="en" />
@@ -125,7 +125,7 @@ export function ItemsCrimeHistoryTable() {
         <Flex gap={6} vertical>
           {item ? (
             <>
-              <Item id={item.id} width={60} />
+              <Item itemId={item.id} width={60} />
               <ItemId item={item} />
               <ItemName item={item} language="pt" />
               <ItemName item={item} language="en" />
@@ -150,7 +150,7 @@ export function ItemsCrimeHistoryTable() {
         <Flex gap={6} vertical>
           {item ? (
             <>
-              <Item id={item.id} width={60} />
+              <Item itemId={item.id} width={60} />
               <ItemId item={item} />
               <ItemName item={item} language="pt" />
               <ItemName item={item} language="en" />

@@ -137,7 +137,7 @@ export function MovieItemsCell({ movie, itemsIds, copyToClipboard, addEntryToUpd
     <Flex gap={6} key={`items-${movie.title}`} wrap="wrap">
       {itemsIds.map((itemId, index) => (
         <Flex gap={2} key={`${movie.title}-${itemId}-${index}`} vertical>
-          <Item id={itemId} width={60} />
+          <Item itemId={itemId} width={60} />
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
             <RemoveItemFlow addEntryToUpdate={addEntryToUpdate} itemId={itemId} movie={movie} />

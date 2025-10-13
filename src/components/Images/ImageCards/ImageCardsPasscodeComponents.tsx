@@ -95,7 +95,7 @@ export function EditableImageCardsEntries({ entry, addEntryToUpdate }: EditableI
     <Flex align="flex-end" gap={6} wrap="wrap">
       {entry.imageCardsIds.map((id) => (
         <Flex gap={2} key={id} vertical>
-          <ImageCard id={id} width={60} />
+          <ImageCard cardId={id} width={60} />
           <IdTag>{id}</IdTag>
           <Button onClick={() => onRemoveImageCard(id)} size="small">
             Remove

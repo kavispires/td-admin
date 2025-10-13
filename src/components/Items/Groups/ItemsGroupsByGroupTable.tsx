@@ -78,7 +78,7 @@ export function ItemsGroupsByGroupTable({
           {itemsIds.map((itemId) => (
             <Flex gap={2} key={`${record.id}-${itemId}`} vertical>
               <TransparentButton onClick={() => setSelectedItemId(itemId)}>
-                <Item id={itemId} width={60} />
+                <Item itemId={itemId} width={60} />
               </TransparentButton>
               <Flex justify="center">
                 <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>

@@ -6,7 +6,7 @@ type AlienSignProps = {
   /**
    * The id of the sign (do not prefix with sign)
    */
-  id: string;
+  signId: string;
   /**
    * The width of the sign
    */
@@ -24,14 +24,14 @@ type AlienSignProps = {
 /**
  * An alien sign card component.
  */
-export function AlienSign({ id, width = 75, padding = 6, className = '' }: AlienSignProps) {
+export function AlienSign({ signId, width = 75, padding = 6, className = '' }: AlienSignProps) {
   return (
     <div className={clsx('sprite', className)} style={{ width: `${width}px`, height: `${width}px`, padding }}>
       <svg
         style={{ width: `${width - padding * 2}px`, height: `${width - padding * 2}px` }}
         viewBox="0 0 512 512"
       >
-        <Sprite id={id} source="alien-signs" width={width} />
+        <Sprite source="alien-signs" spriteId={signId} width={width} />
       </svg>
     </div>
   );

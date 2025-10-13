@@ -65,7 +65,7 @@ export function ContenderEditCard({ contender, addEntryToUpdate }: ContenderEdit
 
   return (
     <Card
-      cover={<ImageCard id={contender.id} width={240} />}
+      cover={<ImageCard cardId={contender.id} width={240} />}
       hoverable
       style-={{ width: 240, maxWidth: 240 }}
     >

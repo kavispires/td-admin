@@ -105,7 +105,7 @@ export function OrphanItems({ data, addEntryToUpdate }: OrphanItemsProps) {
         <Flex gap={16} wrap="wrap">
           {page.map((item) => (
             <TransparentButton key={item.id} onClick={() => setActiveItem(item.id)}>
-              <Item id={item.id} />
+              <Item itemId={item.id} />
             </TransparentButton>
           ))}
         </Flex>
@@ -163,7 +163,7 @@ export function DrawerContent({
 
   return (
     <Flex gap={16} vertical>
-      <Item id={activeItem} />
+      <Item itemId={activeItem} />
       <Button disabled={isEqual(activeItemSets, selections)} onClick={onAdd} type="primary">
         Save to Sets
       </Button>

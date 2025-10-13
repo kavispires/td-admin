@@ -76,8 +76,8 @@ export function TestimonyAnswerExpandedRow({
               vertical
             >
               <SuspectImageCard
+                cardId={entry.imageId}
                 className={entry.values.length > 1 || entry.enoughData ? undefined : 'grayscale'}
-                id={entry.imageId}
                 width={cardWidth}
               />
               <Flex gap={4}>

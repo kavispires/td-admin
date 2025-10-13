@@ -6,7 +6,7 @@ type WarehouseGoodProps = {
   /**
    * The id of the glyph
    */
-  id: string;
+  goodId: string;
   /**
    * The width of the glyph
    */
@@ -36,12 +36,12 @@ export const getSource = (str: string) => {
 /**
  * An warehouse good card component.
  */
-export function WarehouseGood({ id, width = 75, className }: WarehouseGoodProps) {
-  const [source, itemId] = getSource(id);
+export function WarehouseGood({ goodId, width = 75, className }: WarehouseGoodProps) {
+  const [source, id] = getSource(goodId);
 
   return (
     <div className={clsx('sprite', className)} style={{ width: `${width}px`, height: `${width}px` }}>
-      <Sprite id={itemId} source={source} width={width} />
+      <Sprite source={source} spriteId={id} width={width} />
     </div>
   );
 }

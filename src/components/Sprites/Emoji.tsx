@@ -6,7 +6,7 @@ type EmojiProps = {
   /**
    * The id of the emoji
    */
-  id: string;
+  emojiId: string;
   /**
    * The width of the emoji
    */
@@ -20,12 +20,12 @@ type EmojiProps = {
 /**
  * An emoji card component.
  */
-export function Emoji({ id, width, className }: EmojiProps) {
-  const emojiId = id.startsWith('emoji') ? id : `emoji-${id}`;
+export function Emoji({ emojiId, width, className }: EmojiProps) {
+  const id = emojiId.startsWith('emoji') ? emojiId : `emoji-${emojiId}`;
 
   return (
     <div className={clsx('sprite', className)} style={{ width: `${width}px`, height: `${width}px` }}>
-      <Sprite id={emojiId} source="emojis" width={width} />
+      <Sprite source="emojis" spriteId={id} width={width} />
     </div>
   );
 }

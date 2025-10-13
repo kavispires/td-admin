@@ -7,7 +7,7 @@ export type ItemProps = {
   /**
    * The id of the item
    */
-  id: string;
+  itemId: string;
   /**
    * The width of the item
    */
@@ -42,15 +42,15 @@ const getSource = memoize((str: string) => {
 /**
  * An item card component.
  */
-export function Item({ id, width, className, title }: ItemProps) {
-  const [source, itemId] = getSource(id);
+export function Item({ itemId, width, className, title }: ItemProps) {
+  const [source, id] = getSource(itemId);
 
   return (
     <div
       className={clsx('sprite', className)}
       style={{ width: `${width ?? 75}px`, height: `${width ?? 75}px` }}
     >
-      <Sprite id={itemId} source={source} title={title} width={width} />
+      <Sprite source={source} spriteId={id} title={title} width={width} />
     </div>
   );
 }

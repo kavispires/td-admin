@@ -44,7 +44,7 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
       style={{ maxWidth: 250 }}
       title={<Typography.Text onClick={() => copyToClipboard(item.id)}>{item.id}</Typography.Text>}
     >
-      <Item id={item.id} title={`${item.name.en} | ${item.name.pt}`} width={isSimplified ? 75 : 125} />
+      <Item itemId={item.id} title={`${item.name.en} | ${item.name.pt}`} width={isSimplified ? 75 : 125} />
       <Space className={isSimplified ? 'my-2' : 'my-4'} direction="vertical" size="small">
         <Input
           defaultValue={item.name.en}

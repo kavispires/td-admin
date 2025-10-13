@@ -18,7 +18,7 @@ export function DiscItemsCell({ disc, itemsIds, copyToClipboard, addEntryToUpdat
     <Flex gap={6} key={`items-${disc.title}`} wrap="wrap">
       {itemsIds.map((itemId, index) => (
         <Flex gap={2} key={`${disc.title}-${itemId}-${index}`} vertical>
-          <Item id={itemId} width={60} />
+          <Item itemId={itemId} width={60} />
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
             <RemoveItemFlow addEntryToUpdate={addEntryToUpdate} disc={disc} itemId={itemId} />

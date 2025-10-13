@@ -95,8 +95,8 @@ function SimulationGame({ entries }: SimulationGameProps) {
                     text={showCulprit ? excludeCounts[suspect.id] : null}
                   >
                     <SuspectImageCard
+                      cardId={suspect.id}
                       className={clsx(showCulprit && suspect.id === entry.culpritId && 'red-border')}
-                      id={suspect.id}
                       key={suspect.id}
                       width={96}
                     />

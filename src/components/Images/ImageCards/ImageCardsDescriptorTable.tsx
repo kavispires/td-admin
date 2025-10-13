@@ -24,7 +24,7 @@ export function ImageCardsDescriptorTable({
       title: 'Image',
       dataIndex: 'id',
       key: 'image',
-      render: (id: string) => <ImageCard id={id} width={50} />,
+      render: (id: string) => <ImageCard cardId={id} width={50} />,
     },
     {
       title: 'Keywords',

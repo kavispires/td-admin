@@ -57,14 +57,14 @@ export function Comparator({ query }: ComparatorProps) {
         <Image.PreviewGroup>
           <Flex className="center" justify="center" wrap="wrap">
             <Flex vertical>
-              <ImageCard id={cardAId} width={cardWidth} />
+              <ImageCard cardId={cardAId} width={cardWidth} />
               <Flex>
                 <RelationshipCountTag card={cardA} />
                 <Tag>{cardAId}</Tag>
               </Flex>
             </Flex>
             <Flex vertical>
-              <ImageCard id={cardBId} width={cardWidth} />
+              <ImageCard cardId={cardBId} width={cardWidth} />
               <Flex>
                 <RelationshipCountTag card={cardB} />
                 <Tag>{cardBId}</Tag>

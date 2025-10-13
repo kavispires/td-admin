@@ -112,7 +112,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover entry={entry}>
             <Flex gap={6} style={{ maxWidth: 500 }} wrap>
               {itemsIds.map((itemId) => (
-                <Item id={itemId} key={itemId} width={48} />
+                <Item itemId={itemId} key={itemId} width={48} />
               ))}
             </Flex>
           </GamePopover>
@@ -141,12 +141,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
             <Flex gap={6} style={{ maxWidth: '300px' }} vertical>
               <Space wrap>
                 {attributes.map((req) => (
-                  <AlienSign id={`sign-${req.spriteId}`} key={req.spriteId} width={48} />
+                  <AlienSign key={req.spriteId} signId={`sign-${req.spriteId}`} width={48} />
                 ))}
               </Space>
               <Space wrap>
                 {itemsIds.map((itemId) => (
-                  <Item id={itemId} key={itemId} width={48} />
+                  <Item itemId={itemId} key={itemId} width={48} />
                 ))}
               </Space>
             </Flex>
@@ -175,13 +175,13 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover entry={entry}>
             <Flex gap={6} vertical>
               <Flex gap={6}>
-                <Item id={rule1.thing.id} width={48} />
-                <Item id={intersectingThing.id} width={48} />
-                <Item id={rule2.thing.id} width={48} />
+                <Item itemId={rule1.thing.id} width={48} />
+                <Item itemId={intersectingThing.id} width={48} />
+                <Item itemId={rule2.thing.id} width={48} />
               </Flex>
               <Flex gap={6}>
                 {things.map((thing) => (
-                  <Item id={thing.id} key={thing.id} width={35} />
+                  <Item itemId={thing.id} key={thing.id} width={35} />
                 ))}
               </Flex>
             </Flex>
@@ -211,7 +211,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover entry={entry}>
             <Flex gap={6} style={{ maxWidth: 245 }} wrap>
               {goods.map((good) => (
-                <WarehouseGood id={good} key={good} width={48} />
+                <WarehouseGood goodId={good} key={good} width={48} />
               ))}
             </Flex>
           </GamePopover>
@@ -242,7 +242,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
             <Flex gap={6} vertical>
               <Space style={{ maxHeight: 200, overflowY: 'auto' }} wrap>
                 {suspects.map((suspect) => (
-                  <SuspectImageCard id={suspect.id} key={suspect.id} width={48} />
+                  <SuspectImageCard cardId={suspect.id} key={suspect.id} width={48} />
                 ))}
               </Space>
 
@@ -318,8 +318,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                 <div className="grid-item" key={`${itemId}-${index}`}>
                   <Item
                     className={defaultRevealedIndexes.includes(index) ? 'red-border' : ''}
-                    id={!defaultRevealedIndexes.includes(index) ? '0' : itemId || '0'}
-                    // id={itemId || '0'}
+                    itemId={!defaultRevealedIndexes.includes(index) ? '0' : itemId || '0'}
                     width={48}
                   />
                 </div>
@@ -390,7 +389,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                   </span>
                   <Flex>
                     {c.imagesIds.map((i) => (
-                      <ImageCard id={i} key={i} width={48} />
+                      <ImageCard cardId={i} key={i} width={48} />
                     ))}
                   </Flex>
                 </Flex>
@@ -423,7 +422,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               {sets.map((s) => (
                 <Flex gap={6} key={s.id} vertical>
                   {s.itemsIds.map((i) => (
-                    <Item id={i} key={i} width={48} />
+                    <Item itemId={i} key={i} width={48} />
                   ))}
                 </Flex>
               ))}
@@ -487,7 +486,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                     <span>{question.question}</span>
                     <Flex>
                       {question.suspectsIds?.map((suspectId) => (
-                        <ImageCard id={suspectId} key={suspectId} width={48} />
+                        <ImageCard cardId={suspectId} key={suspectId} width={48} />
                       ))}
                     </Flex>
                   </Flex>
@@ -495,7 +494,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               </Space>
               <Space style={{ maxHeight: 200, maxWidth: '500px', overflowY: 'auto' }} wrap>
                 {suspectsIds?.map((suspectId) => (
-                  <ImageCard id={suspectId} key={suspectId} width={48} />
+                  <ImageCard cardId={suspectId} key={suspectId} width={48} />
                 ))}
               </Space>
             </Flex>

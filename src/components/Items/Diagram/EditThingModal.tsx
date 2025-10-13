@@ -230,7 +230,7 @@ export function EditThingModal({
       >
         <div className="diagram-container">
           <div>
-            <Item id={thing.itemId} width={50} />
+            <Item itemId={thing.itemId} width={50} />
           </div>
 
           <Form.Item label="Name" name="name">

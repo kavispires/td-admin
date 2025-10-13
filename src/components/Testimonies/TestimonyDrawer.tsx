@@ -93,7 +93,7 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
       <div {...handlers}>
         {hasEntry && (
           <Flex align="center" className="mb-8" gap={8} justify="center" vertical>
-            <SuspectImageCard id={state.suspectId ?? ''} width={Math.max(height / 4, 128)} />
+            <SuspectImageCard cardId={state.suspectId ?? ''} width={Math.max(height / 4, 128)} />
             <Typography.Title className="text-center" level={5}>
               {questions[state.testimonyId ?? '']?.question}
             </Typography.Title>
@@ -228,7 +228,7 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
                     {suspects[suspectId]?.name?.pt || 'Unknown'}
                   </Typography.Text>
                   <SuspectImageCard
-                    id={suspectId}
+                    cardId={suspectId}
                     key={suspectId}
                     width={Math.min(Math.max(height / 3, 128), 128)}
                   />

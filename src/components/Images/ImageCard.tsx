@@ -9,7 +9,7 @@ export type ImageCardProps = {
   /**
    * The id of the image
    */
-  id: string;
+  cardId: string;
   /**
    * The width of the card (Default: 200px)
    */
@@ -32,14 +32,14 @@ export type ImageCardProps = {
  * Renders an Image Card on tdi
  */
 export const ImageCard = ({
-  id,
+  cardId,
   width = 200,
   className = '',
   preview = true,
   fileExtension = 'jpg',
 }: ImageCardProps) => {
   const { getUrl } = useBaseUrl('images');
-  const imageURL = id.replace(/-/g, '/');
+  const imageURL = cardId.replace(/-/g, '/');
 
   return (
     <div className={clsx('image-card', className)}>

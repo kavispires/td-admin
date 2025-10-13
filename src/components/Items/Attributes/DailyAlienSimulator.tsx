@@ -58,9 +58,9 @@ export function DailyAlienSimulator() {
             <Space direction="vertical">
               {simulation?.attributes.map((attr) => (
                 <Flex gap={8} key={attr.id}>
-                  <AlienSign id={attr.spriteId} width={50} />
+                  <AlienSign signId={attr.spriteId} width={50} />
                   {attr.itemsIds.map((itemId) => (
-                    <Item id={itemId || '0'} key={itemId} width={50} />
+                    <Item itemId={itemId || '0'} key={itemId} width={50} />
                   ))}
                 </Flex>
               ))}
@@ -69,9 +69,9 @@ export function DailyAlienSimulator() {
             <Space direction="horizontal">
               {simulation?.requests.map((req) => (
                 <Flex key={req.itemId} vertical>
-                  <AlienSign id={req.spritesIds[2]} width={50} />
-                  <AlienSign id={req.spritesIds[1]} width={50} />
-                  <AlienSign id={req.spritesIds[0]} width={50} />
+                  <AlienSign signId={req.spritesIds[2]} width={50} />
+                  <AlienSign signId={req.spritesIds[1]} width={50} />
+                  <AlienSign signId={req.spritesIds[0]} width={50} />
                 </Flex>
               ))}
             </Space>
@@ -79,7 +79,7 @@ export function DailyAlienSimulator() {
             <Divider className="my-1" />
             <Space direction="horizontal">
               {simulation?.itemsIds.map((itemId) => (
-                <Item id={itemId || '0'} key={itemId} width={50} />
+                <Item itemId={itemId || '0'} key={itemId} width={50} />
               ))}
             </Space>
           </Space>
@@ -150,7 +150,8 @@ const generateDailyAlienGame = (
     const isNotValueC = item.attributes[selectedAttributes[2].id] === ATTRIBUTE_VALUE.UNRELATED;
 
     if (isNotValueA && isNotValueB && isNotValueC) {
-      return none.push(item.id);
+      none.push(item.id);
+      return; // Skip to next iteration
     }
     if (isVeryValueA && isNotValueB && isNotValueC) {
       attributeA.push(item.id);

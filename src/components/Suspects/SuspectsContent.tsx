@@ -93,7 +93,7 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
             <Flex align="center" gap={6}>
               <Tag>{id}</Tag> <PromptButton suspect={entry} />
             </Flex>
-            <SuspectImageCard className="suspect__image" id={entry.id} width={cardWidth / 1.5} />
+            <SuspectImageCard cardId={entry.id} className="suspect__image" width={cardWidth / 1.5} />
           </Flex>
         ),
       },
@@ -236,7 +236,7 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
             {deck.map((entry) => {
               return (
                 <div className="suspect" key={entry.id} style={{ width: `${cardWidth}px` }}>
-                  <SuspectImageCard className="suspect__image" id={entry.id} width={cardWidth} />
+                  <SuspectImageCard cardId={entry.id} className="suspect__image" width={cardWidth} />
 
                   <div className="suspect__name">
                     <Flex align="center" gap={6}>

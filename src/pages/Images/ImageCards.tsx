@@ -65,7 +65,7 @@ function ImageCards() {
                     const num = e + i < 10 ? `0${e + i}` : `${e + i}`;
                     const id = `td-${deck}-${num}`;
 
-                    return <ImageCard id={id} key={id} width={cardWidth} />;
+                    return <ImageCard cardId={id} key={id} width={cardWidth} />;
                   })}
               </Space>
             </Image.PreviewGroup>

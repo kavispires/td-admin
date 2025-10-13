@@ -11,7 +11,7 @@ type SpriteProps = {
   /**
    * The id of the item
    */
-  id: string;
+  spriteId: string;
   /**
    * The width of the item
    */
@@ -35,7 +35,7 @@ type SpriteProps = {
  * @param {SpriteProps} props
  * @returns a single sprite item
  */
-export function Sprite({ id, source, width = 75, padding = 6, title, className }: SpriteProps) {
+export function Sprite({ spriteId, source, width = 75, padding = 6, title, className }: SpriteProps) {
   const { getUrl } = useBaseUrl('sprites');
 
   const { isLoading, data, isError } = useQuery({
@@ -44,7 +44,7 @@ export function Sprite({ id, source, width = 75, padding = 6, title, className }
       const response = await fetch(`${getUrl('sprites')}/${source}.svg`);
       return await response.text();
     },
-    enabled: !!id && !!source,
+    enabled: !!spriteId && !!source,
   });
 
   const paddedWidth = width - 12;
@@ -91,7 +91,7 @@ export function Sprite({ id, source, width = 75, padding = 6, title, className }
       style={{ width: `${paddedWidth}px`, height: `${paddedWidth}px`, padding }}
       viewBox="0 0 512 512"
     >
-      <use dangerouslySetInnerHTML={{ __html: svgContent }} xlinkHref={`#${id}`} />
+      <use dangerouslySetInnerHTML={{ __html: svgContent }} xlinkHref={`#${spriteId}`} />
       <foreignObject height="100%" width="100%" x="0" y="0">
         {title && (
           <Tooltip title={title}>

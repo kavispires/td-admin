@@ -7,7 +7,7 @@ type GlyphProps = {
   /**
    * The id of the glyph
    */
-  id: string;
+  glyphId: string;
   /**
    * The width of the glyph
    */
@@ -38,12 +38,12 @@ const getSource = memoize((str: string) => {
 /**
  * A glyph card component.
  */
-export function Glyph({ id, width, className }: GlyphProps) {
-  const [source, glyphId] = getSource(id);
+export function Glyph({ glyphId, width, className }: GlyphProps) {
+  const [source, id] = getSource(glyphId);
 
   return (
     <div className={clsx('sprite', className)} style={{ width: `${width}px`, height: `${width}px` }}>
-      <Sprite id={glyphId} padding={0} source={source} width={width} />
+      <Sprite padding={0} source={source} spriteId={id} width={width} />
     </div>
   );
 }

@@ -40,9 +40,13 @@ function Sprites() {
             </Typography.Title>
 
             <Space wrap>
-              {list.map((id) => (
-                <SpriteComponent id={id} key={id} />
-              ))}
+              {list.map((id) => {
+                if (!SpriteComponent || !activeSprite.idProperty) {
+                  return null;
+                }
+
+                return <SpriteComponent key={id} {...{ [activeSprite.idProperty]: id }} />;
+              })}
             </Space>
           </DataLoadingWrapper>
         </Layout.Content>

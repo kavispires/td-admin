@@ -3,8 +3,7 @@ import { Button, Input } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-// TODO: replace
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom'; // TODO: replace with useQueryParams
 import type { Item as ItemT } from 'types';
 
 type ItemBlockProps = {
@@ -24,7 +23,7 @@ export function ItemSprite({
   className,
 }: ItemBlockProps & Pick<ItemBlocksAdditionalProps, 'width' | 'className'>) {
   return (
-    <Item className={className} id={item.id} title={`${item.name.en} | ${item.name.pt}`} width={width} />
+    <Item className={className} itemId={item.id} title={`${item.name.en} | ${item.name.pt}`} width={width} />
   );
 }
 

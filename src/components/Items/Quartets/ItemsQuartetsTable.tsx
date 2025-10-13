@@ -215,7 +215,7 @@ export function QuartetItemsCell({
     <Flex gap={6} key={`items-${quartet.title}`} wrap="wrap">
       {itemsIds.map((itemId) => (
         <Flex gap={2} key={`${quartet.title}-${itemId}`} vertical>
-          {itemId ? <Item id={String(itemId)} width={60} /> : '"ERROR"'}
+          {itemId ? <Item itemId={String(itemId)} width={60} /> : '"ERROR"'}
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
             <RemoveItemFlow addEntryToUpdate={addEntryToUpdate} itemId={itemId} quartet={quartet} />

@@ -76,7 +76,7 @@ function QuartetRow({ quartet }: QuartetRowProps) {
       <Flex gap={8}>
         {quartet.itemsIds.map((itemId) => (
           <Flex key={itemId} vertical>
-            <Item id={itemId} width={60} />
+            <Item itemId={itemId} width={60} />
             <Typography.Text type="secondary">{itemId}</Typography.Text>
           </Flex>
         ))}

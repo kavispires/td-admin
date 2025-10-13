@@ -84,7 +84,7 @@ function ItemsSuggestions({ movie, onUpdate }: ItemsSuggestionsProps) {
           const item = itemsTypeaheadQuery.data?.[itemId];
           return (
             <Flex gap={2} key={`sample-${itemId}-${index}`} vertical>
-              <Item id={itemId} title={`${item.name.en} | ${item.name.pt}`} width={60} />
+              <Item itemId={itemId} title={`${item.name.en} | ${item.name.pt}`} width={60} />
               <Flex gap={6} justify="center">
                 <Typography.Text>{itemId}</Typography.Text>
                 <Button onClick={() => onUpdate(itemId)} shape="circle" size="small">

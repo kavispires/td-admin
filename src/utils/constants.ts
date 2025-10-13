@@ -110,6 +110,7 @@ export const SPRITE_LIBRARY = keyBy(
       quantity: 70,
       startAt: 0,
       component: AlienSign,
+      idProperty: 'signId',
     },
     {
       key: 'emojis',
@@ -118,6 +119,7 @@ export const SPRITE_LIBRARY = keyBy(
       quantity: 30,
       startAt: 1,
       component: Emoji,
+      idProperty: 'emojiId',
     },
     {
       key: 'glyphs',
@@ -126,6 +128,7 @@ export const SPRITE_LIBRARY = keyBy(
       quantity: 365,
       startAt: 1,
       component: Glyph,
+      idProperty: 'glyphId',
     },
     {
       key: 'warehouse-goods',
@@ -134,6 +137,7 @@ export const SPRITE_LIBRARY = keyBy(
       quantity: 256,
       startAt: 1,
       component: WarehouseGood,
+      idProperty: 'goodId',
     },
   ],
   'key',
