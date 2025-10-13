@@ -61,3 +61,9 @@ type GenericCard = {
 type Tag = string;
 
 type Merge<A, B> = Omit<A, keyof B> & B;
+
+type ElementProps<TElement = HTMLDivElement> = React.HTMLAttributes<TElement>;
+
+type ElementPropsWithChildren<TElement = HTMLDivElement> = {
+  children: React.ReactNode;
+} & React.HTMLAttributes<TElement>;

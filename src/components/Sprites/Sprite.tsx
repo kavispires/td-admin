@@ -3,6 +3,9 @@ import { useQuery } from '@tanstack/react-query';
 import { Spin, Tooltip } from 'antd';
 import { useBaseUrl } from 'hooks/useBaseUrl';
 
+export const DEFAULT_SPRITE_SIZE = 72;
+export const DEFAULT_PADDING = 6;
+
 type SpriteProps = {
   /**
    * The sprite source name
@@ -35,7 +38,14 @@ type SpriteProps = {
  * @param {SpriteProps} props
  * @returns a single sprite item
  */
-export function Sprite({ spriteId, source, width = 75, padding = 6, title, className }: SpriteProps) {
+export function Sprite({
+  spriteId,
+  source,
+  width = DEFAULT_SPRITE_SIZE,
+  padding = DEFAULT_PADDING,
+  title,
+  className,
+}: SpriteProps) {
   const { getUrl } = useBaseUrl('sprites');
 
   const { isLoading, data, isError } = useQuery({
