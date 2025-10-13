@@ -1,314 +1,202 @@
 import { LoadingPage } from 'pages/LoadingPage';
 import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { createHashRouter, type RouteObject } from 'react-router-dom';
 
-const Home = lazy(() => import('pages/Home' /* webpackChunkName: "Home" */));
-const Resource = lazy(() => import('pages/Resource' /* webpackChunkName: "Resource" */));
-const ResourceGenerator = lazy(
-  () => import('pages/ResourceGenerator' /* webpackChunkName: "ResourceGenerator" */),
-);
-const SingleWordsExpander = lazy(
-  () => import('pages/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */),
-);
-const Playground = lazy(() => import('pages/Playground' /* webpackChunkName: "Playground" */));
-const ImageCards = lazy(() => import('pages/Images/ImageCards' /* webpackChunkName: "ImageCards" */));
-const Sprites = lazy(() => import('pages/Images/Sprites' /* webpackChunkName: "Sprites" */));
-const Suspects = lazy(() => import('pages/Images/Suspects' /* webpackChunkName: "Suspects" */));
-const ArteRuimParser = lazy(
-  () => import('pages/ArteRuim/ArteRuimParser' /* webpackChunkName: "ArteRuimParser" */),
-);
-const ArteRuimGroups = lazy(
-  () => import('pages/ArteRuim/ArteRuimGroups' /* webpackChunkName: "ArteRuimGroups" */),
-);
-const ArteRuimDrawings = lazy(
-  () => import('pages/ArteRuim/ArteRuimDrawings' /* webpackChunkName: "ArteRuimDrawings" */),
-);
-const ImageCardsRelationships = lazy(
-  () => import('pages/Images/ImageCardsRelationships' /* webpackChunkName: "ImageCardsRelationships" */),
-);
-const ImageCardsComparator = lazy(
-  () => import('pages/Images/ImageCardsComparator' /* webpackChunkName: "ImageCardsComparator" */),
-);
-const ImageCardsConnections = lazy(
-  () => import('pages/Images/ImageCardsConnections' /* webpackChunkName: "ImageCardsConnections" */),
-);
-const ImageCardsDescriptor = lazy(
-  () => import('pages/Images/ImageCardsDescriptor' /* webpackChunkName: "ImageCardsDescriptor" */),
-);
-const ImageCardsPasscode = lazy(
-  () => import('pages/Images/ImageCardsPasscode' /* webpackChunkName: "ImageCardsPasscode" */),
-);
-const Items = lazy(() => import('pages/Items/Items' /* webpackChunkName: "Items" */));
-const ItemsAttribution = lazy(
-  () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */),
-);
-const ItemsDiagramSets = lazy(
-  () => import('pages/Items/ItemsDiagramSets' /* webpackChunkName: "ItemsDiagramSets" */),
-);
-const ItemsGroups = lazy(() => import('pages/Items/ItemsGroups' /* webpackChunkName: "ItemsGroups" */));
-const ItemsDiscSets = lazy(() => import('pages/Items/ItemsDiscSets' /* webpackChunkName: "ItemsDiscSets" */));
-const ItemsMovieSets = lazy(
-  () => import('pages/Items/ItemsMovieSets' /* webpackChunkName: "ItemsMovieSets" */),
-);
-const ItemsQuartets = lazy(() => import('pages/Items/ItemsQuartets' /* webpackChunkName: "ItemsQuartets" */));
-const ItemsCrimeHistory = lazy(
-  () => import('pages/Items/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
-);
-const DailyPage = lazy(() => import('pages/DailyPage' /* webpackChunkName: "DailyPage" */));
-const CrimesHediondos = lazy(() => import('pages/CrimesHediondos' /* webpackChunkName: "CrimesHediondos" */));
-const MovieMaker = lazy(() => import('pages/MovieMaker' /* webpackChunkName: "MovieMaker" */));
-const FofocaQuente = lazy(() => import('pages/FofocaQuente' /* webpackChunkName: "FofocaQuente" */));
-const Contenders = lazy(() => import('pages/Contenders' /* webpackChunkName: "Contenders" */));
-const TestimoniesPage = lazy(
-  () => import('pages/Testimonies/TestimoniesPage' /* webpackChunkName: "TestimoniesPage" */),
-);
+// Helper function to wrap lazy components with Suspense
+const withSuspense = (lazyComponent: () => Promise<{ default: React.ComponentType }>) => {
+  const Component = lazy(lazyComponent);
+  return (
+    <Suspense fallback={<LoadingPage />}>
+      <Component />
+    </Suspense>
+  );
+};
 
-export const routes = (
-  <Routes>
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <Home />
-        </Suspense>
-      }
-      path="/"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <Resource />
-        </Suspense>
-      }
-      path="/resources/listing"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ResourceGenerator />
-        </Suspense>
-      }
-      path="/resources/generator"
-    />
+// Route configuration using React Router DOM v7 approach with inlined lazy imports
+export const routeConfig: RouteObject[] = [
+  {
+    path: '/',
+    element: withSuspense(() => import('pages/Home' /* webpackChunkName: "Home" */)),
+  },
+  {
+    path: '/resources/listing',
+    element: withSuspense(() => import('pages/Resource' /* webpackChunkName: "Resource" */)),
+  },
+  {
+    path: '/resources/generator',
+    element: withSuspense(
+      () => import('pages/ResourceGenerator' /* webpackChunkName: "ResourceGenerator" */),
+    ),
+  },
+  // Game routes
+  {
+    path: '/game',
+    children: [
+      {
+        path: 'arte-ruim-parser',
+        element: withSuspense(
+          () => import('pages/ArteRuim/ArteRuimParser' /* webpackChunkName: "ArteRuimParser" */),
+        ),
+      },
+      {
+        path: 'arte-ruim-groups',
+        element: withSuspense(
+          () => import('pages/ArteRuim/ArteRuimGroups' /* webpackChunkName: "ArteRuimGroups" */),
+        ),
+      },
+      {
+        path: 'arte-ruim-drawings',
+        element: withSuspense(
+          () => import('pages/ArteRuim/ArteRuimDrawings' /* webpackChunkName: "ArteRuimDrawings" */),
+        ),
+      },
+      {
+        path: 'crimes-hediondos',
+        element: withSuspense(
+          () => import('pages/CrimesHediondos' /* webpackChunkName: "CrimesHediondos" */),
+        ),
+      },
+      {
+        path: 'fofoca-quente',
+        element: withSuspense(() => import('pages/FofocaQuente' /* webpackChunkName: "FofocaQuente" */)),
+      },
+      {
+        path: 'contenders',
+        element: withSuspense(() => import('pages/Contenders' /* webpackChunkName: "Contenders" */)),
+      },
+      {
+        path: 'daily',
+        element: withSuspense(() => import('pages/DailyPage' /* webpackChunkName: "DailyPage" */)),
+      },
+      {
+        path: 'testimonies',
+        element: withSuspense(
+          () => import('pages/Testimonies/TestimoniesPage' /* webpackChunkName: "TestimoniesPage" */),
+        ),
+      },
+    ],
+  },
+  // Items routes
+  {
+    path: '/items',
+    children: [
+      {
+        index: true, // This matches /items exactly
+        element: withSuspense(() => import('pages/Items/Items' /* webpackChunkName: "Items" */)),
+      },
+      {
+        path: 'groups',
+        element: withSuspense(() => import('pages/Items/ItemsGroups' /* webpackChunkName: "ItemsGroups" */)),
+      },
+      {
+        path: 'attribution',
+        element: withSuspense(
+          () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */),
+        ),
+      },
+      {
+        path: 'diagrams',
+        element: withSuspense(
+          () => import('pages/Items/ItemsDiagramSets' /* webpackChunkName: "ItemsDiagramSets" */),
+        ),
+      },
+      {
+        path: 'discs',
+        element: withSuspense(
+          () => import('pages/Items/ItemsDiscSets' /* webpackChunkName: "ItemsDiscSets" */),
+        ),
+      },
+      {
+        path: 'movies',
+        element: withSuspense(
+          () => import('pages/Items/ItemsMovieSets' /* webpackChunkName: "ItemsMovieSets" */),
+        ),
+      },
+      {
+        path: 'crimes-history',
+        element: withSuspense(
+          () => import('pages/Items/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
+        ),
+      },
+      {
+        path: 'quartets',
+        element: withSuspense(
+          () => import('pages/Items/ItemsQuartets' /* webpackChunkName: "ItemsQuartets" */),
+        ),
+      },
+    ],
+  },
+  // Images routes
+  {
+    path: '/images',
+    children: [
+      {
+        path: 'sprites',
+        element: withSuspense(() => import('pages/Images/Sprites' /* webpackChunkName: "Sprites" */)),
+      },
+      {
+        path: 'suspects',
+        element: withSuspense(() => import('pages/Images/Suspects' /* webpackChunkName: "Suspects" */)),
+      },
+    ],
+  },
+  // Image Cards routes
+  {
+    path: '/image-cards',
+    children: [
+      {
+        path: 'decks',
+        element: withSuspense(() => import('pages/Images/ImageCards' /* webpackChunkName: "ImageCards" */)),
+      },
+      {
+        path: 'descriptor',
+        element: withSuspense(
+          () => import('pages/Images/ImageCardsDescriptor' /* webpackChunkName: "ImageCardsDescriptor" */),
+        ),
+      },
+      {
+        path: 'passcode',
+        element: withSuspense(
+          () => import('pages/Images/ImageCardsPasscode' /* webpackChunkName: "ImageCardsPasscode" */),
+        ),
+      },
+      {
+        path: 'relationships',
+        element: withSuspense(
+          () =>
+            import('pages/Images/ImageCardsRelationships' /* webpackChunkName: "ImageCardsRelationships" */),
+        ),
+      },
+      {
+        path: 'comparator',
+        element: withSuspense(
+          () => import('pages/Images/ImageCardsComparator' /* webpackChunkName: "ImageCardsComparator" */),
+        ),
+      },
+      {
+        path: 'connections',
+        element: withSuspense(
+          () => import('pages/Images/ImageCardsConnections' /* webpackChunkName: "ImageCardsConnections" */),
+        ),
+      },
+    ],
+  },
+  // Other routes
+  {
+    path: '/single-words',
+    element: withSuspense(
+      () => import('pages/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */),
+    ),
+  },
+  {
+    path: '/playground',
+    element: withSuspense(() => import('pages/Playground' /* webpackChunkName: "Playground" */)),
+  },
+  {
+    path: '/movie-maker',
+    element: withSuspense(() => import('pages/MovieMaker' /* webpackChunkName: "MovieMaker" */)),
+  },
+];
 
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ArteRuimParser />
-        </Suspense>
-      }
-      path="/game/arte-ruim-parser"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ArteRuimGroups />
-        </Suspense>
-      }
-      path="/game/arte-ruim-groups"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ArteRuimDrawings />
-        </Suspense>
-      }
-      path="/game/arte-ruim-drawings"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <CrimesHediondos />
-        </Suspense>
-      }
-      path="/game/crimes-hediondos"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <FofocaQuente />
-        </Suspense>
-      }
-      path="/game/fofoca-quente"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <Contenders />
-        </Suspense>
-      }
-      path="/game/contenders"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <DailyPage />
-        </Suspense>
-      }
-      path="/game/daily"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <TestimoniesPage />
-        </Suspense>
-      }
-      path="/game/testimonies"
-    />
-
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <Items />
-        </Suspense>
-      }
-      path="/items"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ItemsGroups />
-        </Suspense>
-      }
-      path="/items/groups"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ItemsAttribution />
-        </Suspense>
-      }
-      path="/items/attribution"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ItemsDiagramSets />
-        </Suspense>
-      }
-      path="/items/diagrams"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ItemsDiscSets />
-        </Suspense>
-      }
-      path="/items/discs"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ItemsMovieSets />
-        </Suspense>
-      }
-      path="/items/movies"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ItemsCrimeHistory />
-        </Suspense>
-      }
-      path="/items/crimes-history"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ItemsQuartets />
-        </Suspense>
-      }
-      path="/items/quartets"
-    />
-
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <Sprites />
-        </Suspense>
-      }
-      path="/images/sprites"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <Suspects />
-        </Suspense>
-      }
-      path="/images/suspects"
-    />
-
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ImageCards />
-        </Suspense>
-      }
-      path="/image-cards/decks"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ImageCardsDescriptor />
-        </Suspense>
-      }
-      path="/image-cards/descriptor"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ImageCardsPasscode />
-        </Suspense>
-      }
-      path="/image-cards/passcode"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ImageCardsRelationships />
-        </Suspense>
-      }
-      path="/image-cards/relationships"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ImageCardsComparator />
-        </Suspense>
-      }
-      path="/image-cards/comparator"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <ImageCardsConnections />
-        </Suspense>
-      }
-      path="/image-cards/connections"
-    />
-
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <SingleWordsExpander />
-        </Suspense>
-      }
-      path="/single-words"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <Playground />
-        </Suspense>
-      }
-      path="/playground"
-    />
-    <Route
-      element={
-        <Suspense fallback={<LoadingPage />}>
-          <MovieMaker />
-        </Suspense>
-      }
-      path="/movie-maker"
-    />
-  </Routes>
-);
+// Create the router using createHashRouter (since you're using HashRouter)
+export const router = createHashRouter(routeConfig);

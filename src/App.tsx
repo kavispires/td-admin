@@ -1,8 +1,8 @@
-import { routes } from 'Routes';
+import { router } from 'Routes';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { App as AntApp, ConfigProvider, theme } from 'antd';
 import { AuthWrapper } from 'components/Layout';
-import { HashRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,7 +33,7 @@ function App() {
       >
         <AntApp>
           <AuthWrapper>
-            <HashRouter>{routes}</HashRouter>
+            <RouterProvider router={router} />
           </AuthWrapper>
         </AntApp>
       </ConfigProvider>
