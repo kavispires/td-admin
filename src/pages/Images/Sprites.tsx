@@ -19,7 +19,10 @@ function Sprites() {
       .fill(0)
       .map((_, i) => {
         const id = (activeSprite?.startAt ?? 0) + i;
-        return `${activeSprite?.prefix}-${id}`;
+        return {
+          fullId: `${activeSprite?.prefix}-${id}`,
+          numericId: id.toString(),
+        };
       });
   }, [activeSprite]);
 
@@ -45,7 +48,9 @@ function Sprites() {
                   return null;
                 }
 
-                return <SpriteComponent key={id} {...{ [activeSprite.idProperty]: id }} />;
+                const props = { [activeSprite.idProperty]: id.numericId };
+                const Component = SpriteComponent as React.ComponentType<Record<string, unknown>>;
+                return <Component key={id.fullId} {...props} />;
               })}
             </Space>
           </DataLoadingWrapper>
