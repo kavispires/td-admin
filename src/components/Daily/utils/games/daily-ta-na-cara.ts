@@ -250,10 +250,10 @@ const countTestimonyAnswers = (
   const sorted = orderBy(
     Object.keys(globalCounts).map((testimonyId) => ({ testimonyId, counts: globalCounts[testimonyId] })),
     [
+      (o) => o.counts[0].length,
       (o) => o.counts[3].length,
       (o) => o.counts[2].length,
       (o) => o.counts[1].length,
-      (o) => o.counts[0].length,
     ],
     ['desc'],
   );

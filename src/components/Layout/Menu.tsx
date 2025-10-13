@@ -87,6 +87,10 @@ const items: MenuProps['items'] = [
         key: '/game/crimes-hediondos',
       },
       {
+        label: 'Escape Room',
+        key: '/game/escape-room',
+      },
+      {
         label: 'Fofoca Quente',
         key: '/game/fofoca-quente',
       },

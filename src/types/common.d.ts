@@ -62,6 +62,14 @@ type Tag = string;
 
 type Merge<A, B> = Omit<A, keyof B> & B;
 
+/**
+ * Takes an object type TData and transforms all root-level property values to strings
+ * while preserving the original keys structure.
+ */
+type StringifyValues<TData> = {
+  [K in keyof TData]: string;
+};
+
 type ElementProps<TElement = HTMLDivElement> = React.HTMLAttributes<TElement>;
 
 type ElementPropsWithChildren<TElement = HTMLDivElement> = {

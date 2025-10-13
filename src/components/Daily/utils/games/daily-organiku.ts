@@ -31,7 +31,7 @@ export const useDailyOrganikuGames = (
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
-    if (!enabled || itemGroupsQuery.isLoading || !organikuHistory) {
+    if (!enabled || !itemGroupsQuery.isLoading || !organikuHistory) {
       return {};
     }
 

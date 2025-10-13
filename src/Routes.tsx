@@ -103,6 +103,12 @@ export const routeConfig: RouteObject[] = [
         ),
       },
       {
+        path: 'escape-room',
+        element: withSuspense(
+          () => import('pages/EscapeRoom/EscapeRoom' /* webpackChunkName: "EscapeRoom" */),
+        ),
+      },
+      {
         path: 'fofoca-quente',
         element: withSuspense(() => import('pages/FofocaQuente' /* webpackChunkName: "FofocaQuente" */)),
       },
