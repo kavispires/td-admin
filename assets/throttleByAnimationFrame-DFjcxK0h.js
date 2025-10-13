@@ -1,0 +1,1 @@
+import{aJ as n,a9 as o}from"./index-CjsC1TtZ.js";function c(r){let t=null;const e=l=>()=>{t=null,r.apply(void 0,o(l))},a=(...l)=>{t===null&&(t=n(e(l)))};return a.cancel=()=>{n.cancel(t),t=null},a}export{c as t};
