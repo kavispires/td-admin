@@ -1,0 +1,1 @@
+import{aJ as n,_ as o}from"./index-CanllrSk.js";function c(r){let t=null;const e=l=>()=>{t=null,r.apply(void 0,o(l))},a=(...l)=>{t===null&&(t=n(e(l)))};return a.cancel=()=>{n.cancel(t),t=null},a}export{c as t};
