@@ -96,9 +96,9 @@ function SimulationGame({ entries }: SimulationGameProps) {
                   >
                     <SuspectImageCard
                       cardId={suspect.id}
+                      cardWidth={96}
                       className={clsx(showCulprit && suspect.id === entry.culpritId && 'red-border')}
                       key={suspect.id}
-                      width={96}
                     />
                     <Flex align="center" gap={6}>
                       <Switch checkedChildren="🚫" size="small" /> {suspect.id}

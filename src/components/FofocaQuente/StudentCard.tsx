@@ -7,7 +7,7 @@ import type { TeenageStudent } from 'types';
 export function StudentCard({ student }: { student: TeenageStudent }) {
   return (
     <Card
-      cover={<ImageCard cardId={student.id} preview={false} width={230} />}
+      cover={<ImageCard cardId={student.id} cardWidth={230} preview={false} />}
       hoverable
       style-={{ width: 230, maxWidth: 230 }}
     >

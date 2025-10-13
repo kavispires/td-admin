@@ -49,7 +49,7 @@ function Sprites() {
                 }
 
                 const props = { [activeSprite.idProperty]: id.numericId };
-                const Component = SpriteComponent as React.ComponentType<Record<string, unknown>>;
+                const Component = SpriteComponent as unknown as React.ComponentType<Record<string, unknown>>;
                 return <Component key={id.fullId} {...props} />;
               })}
             </Space>

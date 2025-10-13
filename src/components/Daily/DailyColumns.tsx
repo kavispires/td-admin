@@ -242,7 +242,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
             <Flex gap={6} vertical>
               <Space style={{ maxHeight: 200, overflowY: 'auto' }} wrap>
                 {suspects.map((suspect) => (
-                  <SuspectImageCard cardId={suspect.id} key={suspect.id} width={48} />
+                  <SuspectImageCard cardId={suspect.id} cardWidth={48} key={suspect.id} />
                 ))}
               </Space>
 
@@ -389,7 +389,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                   </span>
                   <Flex>
                     {c.imagesIds.map((i) => (
-                      <ImageCard cardId={i} key={i} width={48} />
+                      <ImageCard cardId={i} cardWidth={48} key={i} />
                     ))}
                   </Flex>
                 </Flex>
@@ -486,7 +486,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                     <span>{question.question}</span>
                     <Flex>
                       {question.suspectsIds?.map((suspectId) => (
-                        <ImageCard cardId={suspectId} key={suspectId} width={48} />
+                        <ImageCard cardId={suspectId} cardWidth={48} key={suspectId} />
                       ))}
                     </Flex>
                   </Flex>
@@ -494,7 +494,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               </Space>
               <Space style={{ maxHeight: 200, maxWidth: '500px', overflowY: 'auto' }} wrap>
                 {suspectsIds?.map((suspectId) => (
-                  <ImageCard cardId={suspectId} key={suspectId} width={48} />
+                  <ImageCard cardId={suspectId} cardWidth={48} key={suspectId} />
                 ))}
               </Space>
             </Flex>

@@ -73,7 +73,7 @@ export function RelationshipsContent() {
                       className="image-cards-group__button"
                       onClick={() => onSelect(cardId)}
                     >
-                      <ImageCard cardId={cardId} preview={false} width={cardWidth - 24} />
+                      <ImageCard cardId={cardId} cardWidth={cardWidth - 24} preview={false} />
                       <div>
                         {showIds && <IdTag>{cardId}</IdTag>}
                         {/* <Button size="small">{isSelected ? 'Deselect' : 'Select'}</Button> */}

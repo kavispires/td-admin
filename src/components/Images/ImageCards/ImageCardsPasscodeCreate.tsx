@@ -138,7 +138,7 @@ function ImageCardMultiCreate({ data, addEntryToUpdate }: ImageCardMultiCreatePr
             />
             <Button onClick={onSetRandomCard}>Random</Button>
           </Flex>
-          <ImageCard cardId={imageId} width={200} />
+          <ImageCard cardId={imageId} cardWidth={200} />
         </Flex>
         <Flex gap={8} vertical>
           <Flex>

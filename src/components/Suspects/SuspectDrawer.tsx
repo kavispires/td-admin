@@ -107,7 +107,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
     >
       <div className="suspect__drawer">
         <div className="grid" style={{ gridTemplateColumns: '1fr 1.25fr' }}>
-          <SuspectImageCard cardId={suspect.id} width={100} />
+          <SuspectImageCard cardId={suspect.id} cardWidth={100} />
 
           <Flex gap={4} key={`${name.pt}-${name.en}`} vertical>
             <DualLanguageTextField language="pt" onChange={(e) => setNamePt(e.target.value)} value={name} />

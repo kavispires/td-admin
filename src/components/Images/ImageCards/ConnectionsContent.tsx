@@ -40,7 +40,7 @@ export function ConnectionsContent() {
             {relatedCards.map((cardId) => (
               <Space key={`${row.origin}-${cardId}`}>
                 <Space direction="vertical">
-                  <ImageCard cardId={cardId} width={cardWidth} />
+                  <ImageCard cardId={cardId} cardWidth={cardWidth} />
                   {showIds && <Tag>{cardId}</Tag>}
                 </Space>
                 {relatedCards[relatedCards.length - 1] !== cardId && <RightCircleFilled />}

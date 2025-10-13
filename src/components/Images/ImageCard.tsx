@@ -13,7 +13,7 @@ export type ImageCardProps = {
   /**
    * The width of the card (Default: 200px)
    */
-  width?: number;
+  cardWidth?: number;
   /**
    * Optional custom class name
    */
@@ -33,7 +33,7 @@ export type ImageCardProps = {
  */
 export const ImageCard = ({
   cardId,
-  width = 200,
+  cardWidth = 200,
   className = '',
   preview = true,
   fileExtension = 'jpg',
@@ -47,7 +47,7 @@ export const ImageCard = ({
         fallback={getUrl('back/default.jpg')}
         preview={preview}
         src={getUrl(`${imageURL}.${fileExtension}`)}
-        width={width}
+        width={cardWidth}
       />
     </div>
   );

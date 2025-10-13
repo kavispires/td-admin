@@ -65,7 +65,7 @@ export function SuspectAnswersTable({
       title: 'Picture',
       dataIndex: 'id',
       render: (id) => {
-        return <SuspectImageCard cardId={id} width={48} />;
+        return <SuspectImageCard cardId={id} cardWidth={48} />;
       },
     },
     {
