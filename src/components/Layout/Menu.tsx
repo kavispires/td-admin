@@ -1,9 +1,11 @@
 import {
   BuildOutlined,
+  CalendarOutlined,
   FileImageOutlined,
   FolderViewOutlined,
   GiftOutlined,
   HddOutlined,
+  SmileOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu as AntMenu } from 'antd';
@@ -24,6 +26,37 @@ const items: MenuProps['items'] = [
         label: 'Generator',
         key: '/resources/generator',
       },
+      {
+        label: 'Single Words',
+        key: '/resources/single-words',
+      },
+    ],
+  },
+  {
+    label: 'Daily',
+    key: 'daily',
+    icon: <CalendarOutlined />,
+    children: [
+      {
+        label: 'Daily Setup',
+        key: '/daily',
+      },
+      {
+        label: 'Diagram Sets',
+        key: '/daily/diagrams',
+      },
+      {
+        label: 'Disc Sets',
+        key: '/daily/discs',
+      },
+      {
+        label: 'Movies',
+        key: '/daily/movies',
+      },
+      {
+        label: 'Quartets',
+        key: '/daily/quartets',
+      },
     ],
   },
   {
@@ -37,101 +70,48 @@ const items: MenuProps['items'] = [
         children: [
           {
             label: 'Parser',
-            key: '/game/arte-ruim-parser',
+            key: '/game/arte-ruim/parser',
           },
           {
             label: 'Groups',
-            key: '/game/arte-ruim-groups',
+            key: '/game/arte-ruim/groups',
           },
           {
             label: 'Drawings',
-            key: '/game/arte-ruim-drawings',
+            key: '/game/arte-ruim/drawings',
           },
         ],
-      },
-      {
-        label: 'Contenders',
-        key: '/game/contenders',
       },
       {
         label: 'Crimes Hediondos',
         key: '/game/crimes-hediondos',
       },
       {
-        label: 'Daily Setup',
-        key: '/game/daily',
-      },
-      {
         label: 'Fofoca Quente',
         key: '/game/fofoca-quente',
       },
-      {
-        label: 'Testimonies',
-        key: '/game/testimonies',
-      },
     ],
   },
   {
-    label: 'General',
-    key: 'general',
+    label: 'Libraries',
+    key: 'libraries',
     icon: <HddOutlined />,
     children: [
       {
-        label: 'Single Word Expander',
-        key: '/single-words',
-      },
-      {
-        label: 'Movie Maker',
-        key: '/movie-maker',
-      },
-      {
-        label: 'Playground',
-        key: '/playground',
-      },
-    ],
-  },
-  {
-    label: 'Images',
-    key: 'images',
-    icon: <FileImageOutlined />,
-    children: [
-      {
         label: 'Sprites',
-        key: '/images/sprites',
+        key: '/libraries/sprites',
       },
       {
         label: 'Suspects',
-        key: '/images/suspects',
+        key: '/libraries/suspects',
       },
       {
-        type: 'group',
-        label: 'Image Cards',
-        children: [
-          {
-            label: 'Decks',
-            key: '/image-cards/decks',
-          },
-          {
-            label: 'Descriptor',
-            key: '/image-cards/descriptor',
-          },
-          {
-            label: 'Comparator',
-            key: '/image-cards/comparator',
-          },
-          {
-            label: 'Image Passcode',
-            key: '/image-cards/passcode',
-          },
-          {
-            label: 'Relationships',
-            key: '/image-cards/relationships',
-          },
-          {
-            label: 'Connections Visualizer',
-            key: '/image-cards/connections',
-          },
-        ],
+        label: 'Contenders',
+        key: '/libraries/contenders',
+      },
+      {
+        label: 'Testimonies',
+        key: '/libraries/testimonies',
       },
     ],
   },
@@ -149,34 +129,64 @@ const items: MenuProps['items'] = [
         key: '/items/groups',
       },
       {
-        label: 'Attributes',
+        label: 'Attribution',
         key: '/items/attribution',
       },
       {
         label: 'Crimes History',
         key: '/items/crimes-history',
       },
+    ],
+  },
+  {
+    label: 'Images',
+    key: 'images',
+    icon: <FileImageOutlined />,
+    children: [
       {
         type: 'group',
-        label: 'Daily',
+        label: 'Image Cards',
         children: [
           {
-            label: 'Disc Sets',
-            key: '/items/discs',
+            label: 'Decks',
+            key: '/image/decks',
           },
           {
-            label: 'Movies',
-            key: '/items/movies',
+            label: 'Descriptor',
+            key: '/image/descriptor',
           },
           {
-            label: 'Quartets',
-            key: '/items/quartets',
+            label: 'Passcode',
+            key: '/image/passcode',
           },
           {
-            label: 'Diagram Sets',
-            key: '/items/diagrams',
+            label: 'Relationships',
+            key: '/image/relationships',
+          },
+          {
+            label: 'Comparator',
+            key: '/image/comparator',
+          },
+          {
+            label: 'Connections',
+            key: '/image/connections',
           },
         ],
+      },
+    ],
+  },
+  {
+    label: 'Fun',
+    key: 'fun',
+    icon: <SmileOutlined />,
+    children: [
+      {
+        label: 'Playground',
+        key: '/fun/playground',
+      },
+      {
+        label: 'Movie Maker',
+        key: '/fun/movie-maker',
       },
     ],
   },
