@@ -1,0 +1,40 @@
+@use "styles/sass" as *;
+
+/* Modal overlay background */
+.simple-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.85);
+
+  &__content {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  &__body {
+    transition: all 250ms ease-in-out;
+  }
+
+  &__close {
+    position: absolute;
+    right: get-unit(12);
+    top: get-unit(12);
+  }
+
+  &__controls-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: get-unit(6);
+    display: flex;
+    justify-content: center;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+  }
+}
