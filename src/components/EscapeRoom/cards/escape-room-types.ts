@@ -227,6 +227,12 @@ export type EscapeRoomContentCardType = ERDefaultCard & {
 };
 
 /**
+ * Position in the rows grid of the content
+ */
+export type Pos = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14;
+type GridPos = { pos: Pos };
+
+/**
  * Basic internal types
  */
 export type Size = 'small' | 'medium' | 'large';
@@ -245,7 +251,7 @@ export type SpriteEntry = {
 /**
  * Renders a title
  */
-export type TitleContent = {
+export type TitleContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.TITLE;
   text: string;
   variant?: BoxVariant;
@@ -256,7 +262,7 @@ export type TitleContent = {
 /**
  * Renders a larger text, used for single word or short phase
  */
-export type LabelContent = {
+export type LabelContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.LABEL;
   label: string;
   variant?: BoxVariant;
@@ -267,7 +273,7 @@ export type LabelContent = {
 /**
  * Renders a container with text, paragraph
  */
-export type TextBoxContent = {
+export type TextBoxContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.TEXT_BOX;
   text: string;
   variant?: BoxVariant;
@@ -278,7 +284,7 @@ export type TextBoxContent = {
 /**
  * Renders a icon from the Escape Room sprite internal library
  */
-export type SGVIconContent = {
+export type SGVIconContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.SVG_ICON;
   iconId: string;
   align?: Align;
@@ -287,7 +293,7 @@ export type SGVIconContent = {
 /**
  * Renders a sprite from the TD libraries
  */
-export type SpriteContent = {
+export type SpriteContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.SPRITE;
   size?: Size;
 } & SpriteEntry;
@@ -296,7 +302,8 @@ export type SpriteContent = {
  * Renders a collection of sprites in a random (predictable) order.
  * Max of 24 sprites
  */
-export type SpriteShuffleContent = {
+export type SpriteShuffleContent = GridPos & {
+  pos: number;
   type: typeof CARD_CONTENT_TYPES.SPRITE_SHUFFLE;
   library: SpriteLibraries;
   spriteIds: string[];
@@ -306,7 +313,7 @@ export type SpriteShuffleContent = {
  * Renders a grid of sprites.
  * Max of 12 sprites
  */
-export type SpriteGridContent = {
+export type SpriteGridContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.SPRITE_GRID;
   library: SpriteLibraries;
   spriteIds: (string | null)[];
@@ -318,7 +325,7 @@ export type SpriteGridContent = {
  * Renders a sequence of sprites.
  * Max of 10 sprites (5 recommended)
  */
-export type SpriteSequenceContent = {
+export type SpriteSequenceContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.SPRITE_SEQUENCE;
   library: SpriteLibraries;
   spriteIds: string[];
@@ -329,7 +336,7 @@ export type SpriteSequenceContent = {
  * Renders a wheel of sprites.
  * Max of 12 sprites
  */
-export type SpriteWheelContent = {
+export type SpriteWheelContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.SPRITE_WHEEL;
   library: SpriteLibraries;
   /**
@@ -344,7 +351,7 @@ export type SpriteWheelContent = {
  * Renders a background image.
  * This replaces the background image
  */
-export type ImageCardCoverContent = {
+export type ImageCardCoverContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.IMAGE_CARD_COVER;
   cardId: string;
 };
@@ -352,7 +359,7 @@ export type ImageCardCoverContent = {
 /**
  * Renders an image card
  */
-export type ImageCardContent = {
+export type ImageCardContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.IMAGE_CARD;
   cardId: string;
   /**
@@ -366,7 +373,7 @@ export type ImageCardContent = {
 /**
  * Renders a sequence of image cards
  */
-export type ImageCardSequenceContent = {
+export type ImageCardSequenceContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.IMAGE_CARD_SEQUENCE;
   cardIds: string[];
   scale?: ImageCardScale;
@@ -377,7 +384,7 @@ export type ImageCardSequenceContent = {
  * Renders a browser voice button.
  * It may have a illustrative iconId from the ER illustrative icon sprites
  */
-export type VoiceContent = {
+export type VoiceContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.VOICE;
   text: string;
   iconId?: string;
@@ -388,7 +395,7 @@ export type VoiceContent = {
  * Renders a playable audio file.
  * It may have a illustrative iconId from the ER illustrative icon sprites
  */
-export type AudioContent = {
+export type AudioContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.AUDIO;
   url: string;
   iconId?: string;
@@ -398,7 +405,7 @@ export type AudioContent = {
 /**
  * Renders a calendar with some das highlighted in given color
  */
-export type CalendarContent = {
+export type CalendarContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.CALENDAR;
   /**
    * 0-6 (Sunday-Saturday)
@@ -421,7 +428,7 @@ export type CalendarContent = {
 /**
  * Renders a 2xN table of entries, usually indicating that values on the left correspond to the right
  */
-export type CodexContent = {
+export type CodexContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.CODEX;
   /**
    * The 2xN table of entries
@@ -432,7 +439,7 @@ export type CodexContent = {
 /**
  * Renders a single digit (0-9)
  */
-export type DigitContent = {
+export type DigitContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.DIGIT;
   value: number;
   size?: Size;
@@ -442,7 +449,7 @@ export type DigitContent = {
 /**
  * Renders a single letter (A-Z)
  */
-export type LetterContent = {
+export type LetterContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.LETTER;
   letter: string;
   size?: Size;
@@ -452,7 +459,7 @@ export type LetterContent = {
 /**
  * TODO: I don't know if this is needed
  */
-export type NumberContent = {
+export type NumberContent = GridPos & {
   type: typeof CARD_CONTENT_TYPES.NUMBER;
   value: number;
   size?: Size;

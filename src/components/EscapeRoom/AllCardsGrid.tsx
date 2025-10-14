@@ -1,5 +1,6 @@
 import { Flex, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
+import { IdTag } from 'components/Common/IdTag';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
@@ -31,7 +32,12 @@ export function AllCardsGrid({ isLoading, missionSets, cards, isSuccess }: UseEs
       <PaginationWrapper className="full-width" pagination={pagination}>
         <Flex gap={16} wrap="wrap">
           {page.map((entry) => (
-            <EscapeRoomCard card={entry} key={entry.id} width={200} />
+            <Flex gap={8} key={entry.id} vertical>
+              <span>
+                ID <IdTag>{entry.id}</IdTag>
+              </span>
+              <EscapeRoomCard card={entry} width={200} />
+            </Flex>
           ))}
         </Flex>
       </PaginationWrapper>

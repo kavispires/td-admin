@@ -58,12 +58,12 @@ const EscapeRoomCompleteMissionCard = ({
       width={width}
     >
       <Content rows>
-        <ContentBox row={1}>
+        <ContentBox position={1}>
           <Title color="white">
             <Translate en="Complete Mission" pt="Completar Missão" />
           </Title>
         </ContentBox>
-        <ContentBox row={5}>
+        <ContentBox position={5}>
           <Subtitle align="center" color="white">
             <Translate
               en="When you think a mission is complete, play this card."
@@ -89,13 +89,13 @@ const EscapeRoomHelpCard = ({
       width={width}
     >
       <Content rows>
-        <ContentBox row={1}>
+        <ContentBox position={1}>
           <Title color="white">
             <Translate en="Help" pt="Ajuda" />
           </Title>
         </ContentBox>
 
-        <ContentBox row={5}>
+        <ContentBox position={5}>
           <Subtitle align="center" color="white">
             <Translate
               en="When played, this card will tell you how many cards are needed to complete the mission and if any played is wrong, without losing a life."
@@ -141,9 +141,11 @@ const EscapeRoomContentCard = ({
 }: EscapeRoomSpecificCardProps<EscapeRoomContentCardType>) => {
   return (
     <Card background={card.background} cardId={card.id} onPlayCard={onPlayCard} width={width}>
-      <Content center={card.content.length === 1}>
+      <Content center={card.content.length === 1} rows={card.content.length > 1}>
         {card.content.map((entry, index) => (
-          <ContentDelegator content={entry} key={`${card.id}-${index}`} width={width} />
+          <ContentBox key={`${card.id}-${index}`} position={entry.pos}>
+            <ContentDelegator content={entry} width={width} />
+          </ContentBox>
         ))}
       </Content>
     </Card>

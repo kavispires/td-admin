@@ -22,8 +22,8 @@ export const DEMO_CARDS_DICT: Dictionary<EscapeRoomCardType> = {
     number: 1,
     name: 'Um simples começo',
     content: [
-      { type: 'title', text: 'Um simples começo', size: 'large', align: 'center' },
-      { type: 'text-box', text: 'O resultado dessa missão é **facinho**.', variant: 'contained' },
+      { pos: 1, type: 'title', text: 'Um simples começo', size: 'large', align: 'center' },
+      { pos: 14, type: 'text-box', text: 'O resultado dessa missão é **facinho**.', variant: 'contained' },
     ],
   },
   'er-com-ms': {
