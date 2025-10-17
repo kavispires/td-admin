@@ -58,7 +58,7 @@ export function TestimoniesFilters({
       absoluteTotal,
       queriedTestimoniesCount: Object.keys(data).length,
       suspectsCount: Object.keys(suspects).length,
-      reliableSuspectsCount: Object.values(suspects).filter((count) => count >= 5).length,
+      reliableSuspectsCount: Object.values(suspects).filter((count) => count >= 30).length,
     };
   }, [data]);
 

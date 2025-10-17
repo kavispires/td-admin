@@ -23,7 +23,8 @@ export type DailyTaNaCaraEntry = {
   number: number;
   type: 'ta-na-cara';
   testimonies: TaNaCaraQuestion[];
-  suspectsIds?: string[];
+  suspectsIds: string[];
+  names: Dictionary<string>;
 };
 
 export const useDailyTaNaCaraGames = (
@@ -59,6 +60,7 @@ export const useDailyTaNaCaraGames = (
       suspectsQuery.data,
     );
 
+    const suspectDict = suspectsQuery.data ?? {};
     const gbSuspectIds = Object.keys(suspectsQuery.data).map((v) => getSuspectImageId(v, 'gb'));
 
     return buildDailyTaNaCaraGames(
@@ -67,6 +69,7 @@ export const useDailyTaNaCaraGames = (
       gbSuspectIds,
       testimoniesQuery.data,
       sortedTestimoniesCounts,
+      suspectDict,
     );
   }, [
     enabled,
@@ -92,6 +95,7 @@ export const buildDailyTaNaCaraGames = (
   allSuspectsIds: string[],
   testimoniesDict: Dictionary<TestimonyQuestionCard>,
   sortedTestimoniesCounts: ReturnType<typeof countTestimonyAnswers>,
+  suspectDict: Dictionary<SuspectCard>,
 ) => {
   console.count('Creating Tá Na Cara...');
 
@@ -102,6 +106,7 @@ export const buildDailyTaNaCaraGames = (
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     lastDate = id;
+    const names: Dictionary<string> = {};
 
     // Get testimony
     const testimonies: TaNaCaraQuestion[] = [];
@@ -120,11 +125,46 @@ export const buildDailyTaNaCaraGames = (
       true,
     );
 
-    // Get 6 extra suspects that don't appear in any of the selected testimonies
-    const extraSuspects = shuffle(allSuspectsIds.filter((id) => !selectedSuspectsIds[id])).slice(
-      0,
-      SUSPECTS_SIZE,
-    );
+    // Gather the names of the selected suspects
+    Object.keys(selectedSuspectsIds).forEach((suspectId) => {
+      names[suspectId] = suspectDict[getSuspectTDRId(suspectId)].name.pt;
+    });
+
+    // Gather 6 suspects that don't appear in any of the selected testimonies but that also don't have more than 30 answers on any of the selected testimonies either
+    const extraSuspects: string[] = [];
+    for (const suspectId of shuffle(allSuspectsIds)) {
+      if (extraSuspects.length >= SUSPECTS_SIZE) {
+        break;
+      }
+      if (selectedSuspectsIds[suspectId]) {
+        continue;
+      }
+
+      let hasHighAnswers = false;
+      for (const testimony of testimonies) {
+        const testimonyId = testimony.testimonyId;
+        const suspectTDRId = getSuspectTDRId(suspectId);
+        const answersForTestimony = sortedTestimoniesCounts.find((t) => t.testimonyId === testimonyId);
+        if (answersForTestimony) {
+          const counts = answersForTestimony.counts;
+          const highAnswerGroups = ['5+', '32+'];
+          for (const group of highAnswerGroups) {
+            if (counts[group]?.includes(suspectTDRId)) {
+              hasHighAnswers = true;
+              break;
+            }
+          }
+        }
+        if (hasHighAnswers) {
+          break;
+        }
+      }
+
+      if (!hasHighAnswers) {
+        extraSuspects.push(suspectId);
+        names[suspectId] = suspectDict[getSuspectTDRId(suspectId)].name.pt;
+      }
+    }
 
     entries[id] = {
       id,
@@ -132,6 +172,7 @@ export const buildDailyTaNaCaraGames = (
       number: history.latestNumber + i + 1,
       suspectsIds: extraSuspects,
       testimonies,
+      names,
     };
   }
 
@@ -171,8 +212,7 @@ const getTaNaCaraUsedDictionary = (previousHistory: string[]) => {
 
     // Handle suspect ids
     if (entryId.startsWith('us')) {
-      const suspectId = entryId.split('-');
-      const suspectKey = `${suspectId[0]}-${suspectId[2]}`;
+      const suspectKey = getSuspectTDRId(entryId);
 
       // TODO: REMOVE
       if (suspectKey.includes('undefined')) {
@@ -199,8 +239,7 @@ export const gatherUsedTaNaCaraEntries = (previousHistory: string[], currentData
       dict[testimony.testimonyId] += 1;
     });
     entry.suspectsIds?.forEach((suspectId) => {
-      const suspectIdSplit = suspectId.split('-');
-      const suspectKey = `${suspectIdSplit[0]}-${suspectIdSplit[2]}`;
+      const suspectKey = getSuspectTDRId(suspectId);
       if (dict[suspectKey] === undefined) {
         dict[suspectKey] = 0;
       }
@@ -231,6 +270,8 @@ const countTestimonyAnswers = (
         3: [],
         4: [],
         5: [],
+        '5+': [],
+        '32+': [],
       };
     }
 
@@ -239,10 +280,16 @@ const countTestimonyAnswers = (
     Object.keys(suspects).forEach((suspectId) => {
       const suspectAnswers = answersForSuspects[suspectId] || [];
       const suspectAnswersCount = countAnswers(suspectAnswers);
-      if (suspectAnswersCount >= 5) {
-        globalCounts[testimonyId][5].push(suspectId);
+      if (suspectAnswersCount >= 32) {
+        globalCounts[testimonyId]['32+'].push(suspectId);
+      } else if (suspectAnswersCount > 5 && suspectAnswersCount < 32) {
+        globalCounts[testimonyId]['5+'].push(suspectId);
       } else {
-        globalCounts[testimonyId][suspectAnswersCount].push(suspectId);
+        try {
+          globalCounts[testimonyId][suspectAnswersCount].push(suspectId);
+        } catch (error) {
+          console.error('Error updating globalCounts:', error);
+        }
       }
     });
   });
@@ -259,4 +306,12 @@ const countTestimonyAnswers = (
   );
 
   return sorted;
+};
+
+const getSuspectTDRId = (suspectId: string) => {
+  const parts = suspectId.split('-');
+  if (parts.length < 3) {
+    return suspectId;
+  }
+  return `${parts[0]}-${parts[2]}`;
 };
