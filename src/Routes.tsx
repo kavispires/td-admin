@@ -1,6 +1,7 @@
 import { LoadingPage } from 'pages/LoadingPage';
 import { lazy, Suspense } from 'react';
 import { createHashRouter, type RouteObject } from 'react-router-dom';
+import { RouteError } from './components/RouteError';
 
 // Helper function to wrap lazy components with Suspense
 const withSuspense = (lazyComponent: () => Promise<{ default: React.ComponentType }>) => {
@@ -221,5 +222,28 @@ export const routeConfig: RouteObject[] = [
   },
 ];
 
+// Add global error boundary to all routes
+routeConfig.forEach((route) => {
+  if (!route.errorElement) {
+    route.errorElement = <RouteError />;
+  }
+  // Also add to children if they exist
+  if (route.children) {
+    route.children.forEach((child) => {
+      if (!child.errorElement) {
+        child.errorElement = <RouteError />;
+      }
+    });
+  }
+});
+
 // Create the router using createHashRouter (since you're using HashRouter)
-export const router = createHashRouter(routeConfig);
+export const router = createHashRouter(routeConfig, {
+  future: {
+    v7_relativeSplatPath: true,
+    v7_fetcherPersist: true,
+    v7_normalizeFormMethod: true,
+    v7_partialHydration: true,
+    v7_skipActionErrorRevalidation: true,
+  },
+});
