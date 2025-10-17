@@ -7,7 +7,7 @@ import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
-import { checkMonday, checkWeekend, getNextDay } from '../utils';
+import { checkWeekend, getNextDay } from '../utils';
 import { addWarning } from '../warnings';
 
 type DailyAlienGameAttribute = {
@@ -139,12 +139,12 @@ export const buildDailyComunicacaoAlienigenaGames = (
     const id = getNextDay(lastDate);
     lastDate = id;
 
-    // Variation: Mondays (4 items), weekend (7 items), other days (5 items)
+    // Variation: Weekdays (4 items), Weekend (4+2 items)
     let itemsIds = shuffle(entry.itemsIds);
     if (checkWeekend(id)) {
-      itemsIds = shuffle([...itemsIds, ...sampleSize(entry.additionalItems, 3)].filter(Boolean));
-    } else if (!checkMonday(id)) {
-      itemsIds = shuffle([...itemsIds, ...sampleSize(entry.additionalItems, 1)].filter(Boolean));
+      itemsIds = shuffle([...itemsIds, ...sampleSize(entry.additionalItems, 2)].filter(Boolean));
+    } else {
+      itemsIds = shuffle(itemsIds);
     }
 
     entries[id] = {
@@ -197,7 +197,8 @@ const generateComunicacaoAlienigenaGame = (
     const isNotValueC = item.attributes[selectedAttributes[2].id] === ATTRIBUTE_VALUE.UNRELATED;
 
     if (isNotValueA && isNotValueB && isNotValueC) {
-      return none.push(item.id);
+      none.push(item.id);
+      return;
     }
     if (isVeryValueA && isNotValueB && isNotValueC) {
       attributeA.push(item.id);
