@@ -2,16 +2,28 @@
 import { Alert } from 'antd';
 import { Translate } from 'components/FromTD/Translate';
 // Components
-import { Card, Content, ContentBox, Header, Subtitle, Title } from './CardBuildingBlocks';
+import {
+  Card,
+  CenterBox,
+  Content,
+  ContentBox,
+  Header,
+  Label,
+  Sprite,
+  Subtitle,
+  TextBox,
+  Title,
+} from './CardBuildingBlocks';
 import { ContentDelegator } from './EscapeRoomContent';
 // Internal
 import {
   CARD_TYPES,
+  type EscapeRoomAnnouncementType,
   type EscapeRoomCardType,
-  type EscapeRoomCompleteMissionCardType,
-  type EscapeRoomContentCardType,
-  type EscapeRoomHelpCardType,
+  type EscapeRoomImageCardType,
   type EscapeRoomMissionCardType,
+  type EscapeRoomSpriteCardType,
+  type EscapeRoomWordCardType,
 } from './escape-room-types';
 
 type EscapeRoomCardProps = {
@@ -21,14 +33,16 @@ type EscapeRoomCardProps = {
 };
 export const EscapeRoomCard = ({ card, ...props }: EscapeRoomCardProps) => {
   switch (card.type) {
-    case CARD_TYPES.COMPLETE_MISSION:
-      return <EscapeRoomCompleteMissionCard card={card} {...props} />;
+    case CARD_TYPES.ANNOUNCEMENT:
+      return <EscapeRoomAnnouncementCard card={card} {...props} />;
     case CARD_TYPES.MISSION:
       return <EscapeRoomMissionCard card={card} {...props} />;
-    case CARD_TYPES.HELP:
-      return <EscapeRoomHelpCard card={card} {...props} />;
-    case CARD_TYPES.CONTENT:
-      return <EscapeRoomContentCard card={card} {...props} />;
+    case CARD_TYPES.WORD:
+      return <EscapeRoomWordCard card={card} {...props} />;
+    case CARD_TYPES.SPRITE:
+      return <EscapeRoomSpriteCard card={card} {...props} />;
+    case CARD_TYPES.IMAGE:
+      return <EscapeRoomImageCard card={card} {...props} />;
     default:
       return (
         <Alert
@@ -45,112 +59,155 @@ type EscapeRoomSpecificCardProps<T> = EscapeRoomCardProps & {
   card: T;
 };
 
-const EscapeRoomCompleteMissionCard = ({
+const EscapeRoomAnnouncementCard = ({
   card,
   width,
   onPlayCard,
-}: EscapeRoomSpecificCardProps<EscapeRoomCompleteMissionCardType>) => {
+}: EscapeRoomSpecificCardProps<EscapeRoomAnnouncementType>) => {
+  const { content } = card;
   return (
-    <Card
-      background={card.background ?? 'er/bg/completeMission.jpg'}
-      cardId={card.id}
-      onPlayCard={onPlayCard}
-      width={width}
-    >
+    <Card background={card.background} cardId={card.id} onPlayCard={onPlayCard} width={width}>
       <Content rows>
-        <ContentBox position={1}>
-          <Title color="white">
-            <Translate en="Complete Mission" pt="Completar Missão" />
-          </Title>
-        </ContentBox>
-        <ContentBox position={5}>
-          <Subtitle align="center" color="white">
-            <Translate
-              en="When you think a mission is complete, play this card."
-              pt="Quando vocês acharem que uma missão está completa, use esta carta."
-            />
-          </Subtitle>
-        </ContentBox>
+        {content.title && (
+          <ContentBox position={content.title.position}>
+            <Title
+              align={content.title.align ?? 'center'}
+              color={content.title.color}
+              size={content.title.size}
+              variant={content.title.variant}
+            >
+              {content.title.value}
+            </Title>
+          </ContentBox>
+        )}
+        {content.subtitle && (
+          <ContentBox position={content.subtitle.position}>
+            <Subtitle
+              align={content.subtitle.align ?? 'center'}
+              color={content.subtitle.color}
+              size={content.subtitle.size}
+              variant={content.subtitle.variant}
+            >
+              {content.subtitle.value}
+            </Subtitle>
+          </ContentBox>
+        )}
       </Content>
     </Card>
   );
 };
 
-const EscapeRoomHelpCard = ({
-  card,
-  width,
-  onPlayCard,
-}: EscapeRoomSpecificCardProps<EscapeRoomHelpCardType>) => {
+const EscapeRoomMissionCard = ({ card, width }: EscapeRoomSpecificCardProps<EscapeRoomMissionCardType>) => {
+  const { content, number } = card;
   return (
-    <Card
-      background={card.background ?? 'er/bg/help.jpg'}
-      cardId={card.id}
-      onPlayCard={onPlayCard}
-      width={width}
-    >
-      <Content rows>
-        <ContentBox position={1}>
-          <Title color="white">
-            <Translate en="Help" pt="Ajuda" />
-          </Title>
-        </ContentBox>
-
-        <ContentBox position={5}>
-          <Subtitle align="center" color="white">
-            <Translate
-              en="When played, this card will tell you how many cards are needed to complete the mission and if any played is wrong, without losing a life."
-              pt="Está carta dirá quantas cartas são necessárias para completar a missão e se alguma usada está errada, sem que percam uma vida."
-            />
-          </Subtitle>
-        </ContentBox>
-      </Content>
-    </Card>
-  );
-};
-
-const EscapeRoomMissionCard = ({
-  card,
-  width,
-  onPlayCard,
-}: EscapeRoomSpecificCardProps<EscapeRoomMissionCardType>) => {
-  const { number, content } = card;
-  return (
-    <Card
-      background={card.background ?? 'er/bg/mission.jpg'}
-      cardId={card.id}
-      onPlayCard={onPlayCard}
-      unplayable
-      width={width}
-    >
+    <Card background={card.background ?? 'er/bg/mission.jpg'} cardId={card.id} unplayable width={width}>
       <Header spriteId="mission" style={{ marginTop: '2em', display: 'flex', justifyContent: 'center' }}>
         <Translate en="Mission" pt="Missão" /> #{number}
       </Header>
       <Content style={{ padding: '2em' }}>
-        {content.map((entry, index) => (
-          <ContentDelegator content={entry} key={`${card.id}-${index}`} width={width} />
-        ))}
+        <Title align="center">{content.title.value}</Title>
+
+        <TextBox variant="transparent">{content.paragraphs.value}</TextBox>
+
+        <TextBox variant="boxed">{content.action.value}</TextBox>
       </Content>
     </Card>
   );
 };
 
-const EscapeRoomContentCard = ({
+const EscapeRoomWordCard = ({
   card,
   width,
   onPlayCard,
-}: EscapeRoomSpecificCardProps<EscapeRoomContentCardType>) => {
+}: EscapeRoomSpecificCardProps<EscapeRoomWordCardType>) => {
+  const { content } = card;
+
+  // Map size to font size
+  const fontSize = content.size === 'large' ? '2.5rem' : content.size === 'medium' ? '1.5rem' : '0.9rem';
+
   return (
     <Card background={card.background} cardId={card.id} onPlayCard={onPlayCard} width={width}>
-      <Content center={card.content.length === 1} rows={card.content.length > 1}>
-        {card.content.map((entry, index) => (
-          <ContentBox key={`${card.id}-${index}`} position={entry.pos}>
-            <ContentDelegator content={entry} width={width} />
-          </ContentBox>
-        ))}
+      <Content rows>
+        <ContentBox position={content.position}>
+          <span
+            className="er-font"
+            style={{
+              fontSize,
+              textAlign: content.align || 'center',
+              color: content.color,
+              // textShadow: getTextStroke(),
+              WebkitTextStroke: content.borderWidth
+                ? `${content.borderWidth}px ${content.borderColor || '#000'}`
+                : undefined,
+              WebkitTextFillColor: content.color || '#000',
+              display: 'inline-block',
+              fontWeight: 'bold',
+            }}
+          >
+            {content.word}
+          </span>
+        </ContentBox>
       </Content>
     </Card>
   );
 };
+
+const EscapeRoomSpriteCard = ({
+  card,
+  width,
+  onPlayCard,
+}: EscapeRoomSpecificCardProps<EscapeRoomSpriteCardType>) => {
+  const { content } = card;
+  return (
+    <Card background={card.background} cardId={card.id} onPlayCard={onPlayCard} width={width}>
+      <Content rows>
+        <ContentBox position={content.position}>
+          <CenterBox>
+            <Sprite
+              library={content.sprite.library}
+              rotate={content.sprite.rotate}
+              scale={content.sprite.scale}
+              spriteId={content.sprite.spriteId}
+              width={width / 2}
+            />
+            {content.name && <Label>{content.name}</Label>}
+            {content.description && <TextBox>{content.description}</TextBox>}
+          </CenterBox>
+        </ContentBox>
+      </Content>
+    </Card>
+  );
+};
+
+const EscapeRoomImageCard = ({
+  card,
+  width,
+  onPlayCard,
+}: EscapeRoomSpecificCardProps<EscapeRoomImageCardType>) => {
+  return (
+    <Card background={card.background} cardId={card.id} onPlayCard={onPlayCard} width={width}>
+      <span />
+    </Card>
+  );
+};
+
+// const EscapeRoomContentCard = ({
+//   card,
+//   width,
+//   onPlayCard,
+// }: EscapeRoomSpecificCardProps<EscapeRoomContentCardType>) => {
+//   return (
+//     <Card background={card.background} cardId={card.id} onPlayCard={onPlayCard} width={width}>
+//       <Content center={card.content.length === 1} rows={card.content.length > 1}>
+//         {card.content.map((entry, index) => (
+//           <ContentBox key={`${card.id}-${index}`} position={entry.pos}>
+//             <ContentDelegator content={entry} width={width} />
+//           </ContentBox>
+//         ))}
+//       </Content>
+//     </Card>
+//   );
+// };
 
 // const EscapeRoomText = ({ card, width, onPlayCard }: EscapeRoomSpecificCardProps<ERTextCard>) => {
 //   const { text, illustrationId } = card.content;

@@ -99,29 +99,18 @@ export interface MissionBriefing {
      * If none is provided a default message will be shown
      */
     message?: string;
-    /**
-     * Each mission must have 9 filler cards
-     */
-    fillersIds?: ERCardId[]; // TODO: REMOVE
   };
 }
 
 export const CARD_TYPES = {
-  /**
-   * The basic card type that give the directives for the players
-   */
+  ANNOUNCEMENT: 'announcement',
   MISSION: 'mission',
-  /**
-   * Card that should be played when the mission is completed
-   */
-  COMPLETE_MISSION: 'complete-mission',
-  /**
-   * Card that is played when players need help
-   */
-  HELP: 'help',
-  /**
-   * All other cards in the game that display content
-   */
+  IMAGE: 'image',
+  LEVER: 'lever',
+  WORD: 'word',
+  NUMBER: 'number',
+  LETTER: 'letter',
+  SPRITE: 'sprite',
   CONTENT: 'content',
 } as const;
 
@@ -141,25 +130,15 @@ export type ERDefaultCard = {
   /**
    * Overall style variant (TBD)
    */
-  background?: 'default' | string;
+  background: string;
   /**
    * All cards should be playable except for missions and some edge cases
    */
   unplayable?: boolean;
   /**
-   * Flag indicating the card is a filler card
-   * Each room should distribute equal number of cards among the players
-   * So these are use to fill the gap
+   * Last time the card was updated
    */
-  filler?: boolean;
-  /**
-   * Content alignment
-   */
-  align?: 'top' | 'center' | 'bottom';
-  /**
-   * Content that varies depending on the card type
-   */
-  content: EscapeRoomCardContentType[];
+  updatedAt: number;
 };
 
 export const CARD_CONTENT_TYPES = {
@@ -193,29 +172,78 @@ export const CARD_CONTENT_TYPES = {
 } as const;
 
 /**
+ * Card to announce something to the players
+ * It has a title and an optional subtitle
+ * e.g Complete Mission, Help Card
+ */
+export type EscapeRoomAnnouncementType = ERDefaultCard & {
+  type: typeof CARD_TYPES.ANNOUNCEMENT;
+  content: {
+    title?: {
+      value: string;
+      position: Pos;
+      color?: string;
+      align?: Align;
+      variant?: BoxVariant;
+      size?: Size;
+    };
+    subtitle?: {
+      value: string;
+      position: Pos;
+      color?: string;
+      align?: Align;
+      variant?: BoxVariant;
+      size?: Size;
+    };
+  };
+};
+
+/**
  * Card to describe a mission
  * It has blocks of text with title, subtitle and paragraphs
  */
 export type EscapeRoomMissionCardType = ERDefaultCard & {
   type: typeof CARD_TYPES.MISSION;
   number: number;
-  name: string;
-  content: EscapeRoomCardContentType[];
+  content: {
+    title: {
+      value: string;
+    };
+    paragraphs: {
+      value: string; // markdown
+    };
+    action: {
+      value: string; // markdown
+    };
+  };
 };
 
-/**
- * Card to be played when the mission is completed
- * It only has a simple and default title, no customizations
- */
-export type EscapeRoomCompleteMissionCardType = ERDefaultCard & {
-  type: typeof CARD_TYPES.COMPLETE_MISSION;
-  // TODO: It should be never but typescript is complaining
-  content: null[];
+export type EscapeRoomWordCardType = ERDefaultCard & {
+  type: typeof CARD_TYPES.WORD;
+  content: {
+    word: string;
+    position: Pos;
+    align?: Align;
+    size?: Size;
+    color?: string;
+    borderColor?: string;
+    borderWidth?: number;
+  };
 };
 
-export type EscapeRoomHelpCardType = ERDefaultCard & {
-  type: typeof CARD_TYPES.HELP;
-  content: null[];
+export type EscapeRoomSpriteCardType = ERDefaultCard & {
+  type: typeof CARD_TYPES.SPRITE;
+  content: {
+    position: Pos;
+    sprite: SpriteEntry;
+    name?: string;
+    description?: string;
+  };
+};
+
+export type EscapeRoomImageCardType = ERDefaultCard & {
+  type: typeof CARD_TYPES.IMAGE;
+  content: never;
 };
 
 /**
@@ -238,7 +266,7 @@ type GridPos = { pos: Pos };
 export type Size = 'small' | 'medium' | 'large';
 export type Align = 'left' | 'center' | 'right';
 export type Direction = 'horizontal' | 'vertical';
-export type BoxVariant = 'contained' | 'boxed' | 'button';
+export type BoxVariant = 'contained' | 'boxed' | 'button' | 'transparent' | 'highlighted';
 export type ImageCardScale = 1 | 2 | 3;
 export type SpriteLibraries = 'items' | 'warehouse-goods' | 'glyphs' | 'alien-signs' | 'emojis';
 export type SpriteEntry = {
@@ -467,9 +495,11 @@ export type NumberContent = GridPos & {
 };
 
 export type EscapeRoomCardType =
+  | EscapeRoomAnnouncementType
   | EscapeRoomMissionCardType
-  | EscapeRoomCompleteMissionCardType
-  | EscapeRoomHelpCardType
+  | EscapeRoomWordCardType
+  | EscapeRoomSpriteCardType
+  | EscapeRoomImageCardType
   | EscapeRoomContentCardType;
 
 export type EscapeRoomCardContentType =

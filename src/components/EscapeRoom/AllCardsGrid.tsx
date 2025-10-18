@@ -1,20 +1,26 @@
-import { Flex, Table, Typography } from 'antd';
+import { Flex, Select, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { IdTag } from 'components/Common/IdTag';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
+import { orderBy } from 'lodash';
 import type { UseEscapeRoomResourceReturnType } from 'pages/EscapeRoom/useEscapeRoomResource';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { EscapeRoomCard } from './cards/EscapeRoomCard';
 import type { EscapeRoomSet } from './cards/escape-room-types';
 import { MissionBriefingsTable } from './MissionBriefingsTable';
 
 export function AllCardsGrid({ isLoading, missionSets, cards, isSuccess }: UseEscapeRoomResourceReturnType) {
-  const cardsList = useMemo(() => Object.values(cards), [cards]);
+  const [sortByField, setSortByField] = useState<string>('updatedAt');
+  const [cardSize, setCardSize] = useState<number>(200);
+  const cardsList = useMemo(
+    () => orderBy(Object.values(cards), [sortByField], ['desc']),
+    [cards, sortByField],
+  );
   const filteredData = useMemo(() => cardsList, [cardsList]);
-  console.log(cards);
+
   const { page, pagination } = useGridPagination({
     data: filteredData,
     resetter: '',
@@ -27,6 +33,35 @@ export function AllCardsGrid({ isLoading, missionSets, cards, isSuccess }: UseEs
         <Typography.Title className="my-0" level={4}>
           All Cards
         </Typography.Title>
+        <Flex gap={12}>
+          <Flex align="center">
+            Sort By:{' '}
+            <Select
+              className="ml-2"
+              onChange={(value) => setSortByField(value)}
+              options={[
+                { label: 'Latest', value: 'updatedAt' },
+                { label: 'Type', value: 'type' },
+                { label: 'Id', value: 'id' },
+              ]}
+              value={sortByField}
+            />
+          </Flex>
+          <Flex align="center">
+            Card Size:{' '}
+            <Select
+              className="ml-2"
+              onChange={(value) => setCardSize(value)}
+              options={[
+                { label: '100', value: 100 },
+                { label: '150', value: 150 },
+                { label: '200', value: 200 },
+                { label: '250', value: 250 },
+              ]}
+              value={cardSize}
+            />
+          </Flex>
+        </Flex>
       </Flex>
 
       <PaginationWrapper className="full-width" pagination={pagination}>
@@ -34,9 +69,9 @@ export function AllCardsGrid({ isLoading, missionSets, cards, isSuccess }: UseEs
           {page.map((entry) => (
             <Flex gap={8} key={entry.id} vertical>
               <span>
-                ID <IdTag>{entry.id}</IdTag>
+                ID <IdTag withQuotes>{entry.id}</IdTag>
               </span>
-              <EscapeRoomCard card={entry} width={200} />
+              <EscapeRoomCard card={entry} width={cardSize} />
             </Flex>
           ))}
         </Flex>

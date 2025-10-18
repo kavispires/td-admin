@@ -8,7 +8,7 @@ import type {
 import { useGetFirestoreDoc } from 'hooks/useGetFirestoreDoc';
 import { useTDResourceNonCollection } from 'hooks/useTDResource';
 import { useUpdateFirestoreDoc } from 'hooks/useUpdateFirestoreDoc';
-import { cloneDeep, isEmpty } from 'lodash';
+import { cloneDeep, isEmpty, keyBy, merge, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 
 export type UseEscapeRoomResourceReturnType = {
@@ -126,13 +126,17 @@ export function useEscapeRoomResource(): UseEscapeRoomResourceReturnType {
   const firestoreData = firestoreQuery.data;
 
   const save = () => {
-    mutation.mutate(() => {
-      const dataToSave: StringifyValues<EscapeRoomDatabase> = {
-        cards: JSON.stringify(modifiedEntries.cards),
-        missionSets: JSON.stringify(modifiedEntries.missionSets),
-      };
-      return dataToSave;
+    const mergedCards = merge({}, firestoreData?.cards ?? {}, modifiedEntries.cards);
+    const missionSets = keyBy(firestoreData?.missionSets ?? [], 'id');
+    modifiedEntries.missionSets.forEach((ms) => {
+      missionSets[ms.id] = ms;
     });
+    const mergedMissionSets = orderBy(merge([], Object.values(missionSets)), ['updatedAt'], ['desc']);
+    const dataToSave: StringifyValues<EscapeRoomDatabase> = {
+      cards: JSON.stringify(mergedCards),
+      missionSets: JSON.stringify(mergedMissionSets),
+    };
+    mutation.mutate(dataToSave);
   };
 
   return {

@@ -219,7 +219,7 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
               <Switch checked={isRandomQuestion} onChange={setRandomQuestion} size="small" />
             </Flex>
             <Typography.Title className="text-center" level={4}>
-              {questions[state.testimonyId ?? '']?.question}
+              {state.testimonyId} - {questions[state.testimonyId ?? '']?.question}
             </Typography.Title>
             <Flex gap={8} justify="center" wrap="wrap">
               {Object.keys(state.suspectsIds).map((suspectId) => (

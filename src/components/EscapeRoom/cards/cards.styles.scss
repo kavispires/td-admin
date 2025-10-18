@@ -1,4 +1,11 @@
 @use "styles/sass" as *;
+@import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
+
+.er-font {
+  font-family: "Titan One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .er-card {
   // Background and elevation
@@ -220,11 +227,43 @@
   padding: 0 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-  background-color: rgba($color: white, $alpha: 0.7);
+  background-color: rgba(white, 0.7);
   margin-bottom: get-unit(1);
 
   &--center {
     text-align: center;
+  }
+
+  &--contained {
+    padding: 0 6px;
+    border-radius: 3px;
+    background-color: rgba(white, 0.7);
+    border: none;
+  }
+
+  &--boxed {
+    padding: 0 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    background-color: rgba(white, 0.7);
+  }
+
+  &--button {
+    padding: 4px 8px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &--transparent {
+    background: none;
+    border: none;
+  }
+
+  &--highlighted {
+    background-color: rgba(255, 255, 0, 0.3);
+    border: none;
   }
 }
 
@@ -241,6 +280,37 @@
   }
   &--right {
     justify-content: flex-end;
+  }
+
+  &--contained {
+    padding: 0 6px;
+    border-radius: 3px;
+    background-color: rgba(white, 0.7);
+  }
+
+  &--boxed {
+    padding: 0 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    background-color: rgba(white, 0.7);
+  }
+
+  &--button {
+    padding: 4px 8px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &--transparent {
+    background: none;
+    border: none;
+  }
+
+  &--highlighted {
+    background-color: rgba(255, 255, 0, 0.3);
+    border: none;
   }
 }
 .er-text {
