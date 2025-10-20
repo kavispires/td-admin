@@ -60,3 +60,15 @@ export function Glyph({
     </div>
   );
 }
+
+/**
+ * A glyph sprite component.
+ */
+export function GlyphSprite({
+  glyphId,
+  width = DEFAULT_SPRITE_SIZE,
+  ...props
+}: Pick<GlyphProps, 'glyphId' | 'width'> & ElementProps) {
+  const [source, id] = getSource(+glyphId);
+  return <Sprite padding={0} source={source} spriteId={id} width={width} {...props} />;
+}
