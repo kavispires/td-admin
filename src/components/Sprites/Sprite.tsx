@@ -2,6 +2,7 @@ import { WarningOutlined } from '@ant-design/icons';
 import { useQuery } from '@tanstack/react-query';
 import { Spin, Tooltip } from 'antd';
 import { useBaseUrl } from 'hooks/useBaseUrl';
+import { useEffect, useRef } from 'react';
 
 export const DEFAULT_SPRITE_SIZE = 72;
 export const DEFAULT_PADDING = 6;
@@ -57,7 +58,31 @@ export function Sprite({
     enabled: !!spriteId && !!source,
   });
 
+  const svgContainerRef = useRef<HTMLDivElement>(null);
   const paddedWidth = width - 12;
+  const svgContent = data;
+
+  // Insert the SVG sprite sheet into a hidden container
+  useEffect(() => {
+    if (svgContent && svgContainerRef.current) {
+      // Clear any existing content
+      svgContainerRef.current.innerHTML = '';
+
+      // Create a temporary container to parse the SVG
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = svgContent;
+
+      // Find the SVG element and append it to our container
+      const svgElement = tempDiv.querySelector('svg');
+      if (svgElement) {
+        // Ensure the SVG has an ID for referencing
+        if (!svgElement.id) {
+          svgElement.id = `sprite-sheet-${source}`;
+        }
+        svgContainerRef.current.appendChild(svgElement);
+      }
+    }
+  }, [svgContent, source]);
 
   if (isLoading) {
     return (
@@ -75,8 +100,6 @@ export function Sprite({
       </span>
     );
   }
-
-  const svgContent = data;
 
   if (isError || !svgContent) {
     return (
@@ -96,19 +119,24 @@ export function Sprite({
   }
 
   return (
-    <svg
-      className={className}
-      style={{ width: `${paddedWidth}px`, height: `${paddedWidth}px`, padding }}
-      viewBox="0 0 512 512"
-    >
-      <use dangerouslySetInnerHTML={{ __html: svgContent }} xlinkHref={`#${spriteId}`} />
-      <foreignObject height="100%" width="100%" x="0" y="0">
-        {title && (
-          <Tooltip title={title}>
-            <div style={{ background: 'transparent', width: '100%', height: '100vh' }}></div>
-          </Tooltip>
-        )}
-      </foreignObject>
-    </svg>
+    <>
+      {/* Hidden container for the sprite sheet */}
+      <div ref={svgContainerRef} style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} />
+
+      <svg
+        className={className}
+        style={{ width: `${paddedWidth}px`, height: `${paddedWidth}px`, padding }}
+        viewBox="0 0 512 512"
+      >
+        <use href={`#${spriteId}`} />
+        <foreignObject height="100%" width="100%" x="0" y="0">
+          {title && (
+            <Tooltip title={title}>
+              <div style={{ background: 'transparent', width: '100%', height: '100vh' }}></div>
+            </Tooltip>
+          )}
+        </foreignObject>
+      </svg>
+    </>
   );
 }
