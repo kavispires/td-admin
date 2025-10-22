@@ -1,1 +1,0 @@
-import{aQ as n,aa as o}from"./index-CHgUvU-Q.js";function c(r){let t=null;const e=a=>()=>{t=null,r.apply(void 0,o(a))},l=(...a)=>{t===null&&(t=n(e(a)))};return l.cancel=()=>{n.cancel(t),t=null},l}export{c as t};
