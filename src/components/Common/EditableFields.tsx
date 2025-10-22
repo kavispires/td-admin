@@ -11,13 +11,14 @@ export function Label({ strong, ...props }: TextProps) {
 type DualLanguageTextFieldProps = {
   value: DualLanguageValue;
   language: 'en' | 'pt';
+  placeholder?: string;
 } & Omit<InputProps, 'name' | 'value'>;
 
-export function DualLanguageTextField({ value, language, ...rest }: DualLanguageTextFieldProps) {
+export function DualLanguageTextField({ value, language, placeholder, ...rest }: DualLanguageTextFieldProps) {
   return (
     <Input
       defaultValue={value[language]}
-      placeholder={`Value in ${language.toUpperCase()}`}
+      placeholder={`${placeholder || 'Value'} in ${language.toUpperCase()}`}
       prefix={<LanguageFlag language={language} width="1em" />}
       size="small"
       {...rest}

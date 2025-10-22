@@ -116,19 +116,15 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
         },
       },
       {
-        title: 'Note',
-        dataIndex: 'note',
-        key: 'note',
-        render: (note: string, entry: SuspectCard) => (
+        title: 'Label',
+        dataIndex: 'label',
+        key: 'label',
+        render: (label: DualLanguageValue, entry: SuspectCard) => (
           <Flex vertical>
-            <Typography.Paragraph
-              code
-              editable={{
-                onChange: (value) => updateKeyValue(entry.id, 'note', value),
-              }}
-            >
-              {note}
-            </Typography.Paragraph>
+            <Flex vertical>
+              <Typography.Text>{label.pt}</Typography.Text>
+              <Typography.Text>{label.en}</Typography.Text>
+            </Flex>
 
             <Typography.Paragraph
               code
@@ -242,11 +238,15 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
                     <Flex align="center" gap={6}>
                       <Tag>{entry.id}</Tag> <PromptButton suspect={entry} />
                     </Flex>
-                    <Typography.Text italic type="secondary">
-                      <small>{truncate(entry.note || '-', { length: 18 })}</small>
-                    </Typography.Text>
                     <div>🇧🇷 {entry.name.pt}</div>
+                    <Typography.Text ellipsis italic type="secondary">
+                      <small>{truncate(entry.label.pt || '-', { length: 18 })}</small>
+                    </Typography.Text>
                     <div>🇺🇸 {entry.name.en}</div>
+                    <Typography.Text ellipsis italic type="secondary">
+                      <small>{truncate(entry.label.en || '-', { length: 18 })}</small>
+                    </Typography.Text>
+
                     <div className="suspect__info" style={getHeightBuildAlert(entry)}>
                       <div>
                         <div>

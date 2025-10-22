@@ -40,6 +40,8 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
 
   const [namePt, setNamePt] = useState(suspect?.name.pt || '');
   const [nameEn, setNameEn] = useState(suspect?.name.en || '');
+  const [labelPt, setLabelPt] = useState(suspect?.label.pt || '');
+  const [labelEn, setLabelEn] = useState(suspect?.label.en || '');
 
   // Reset local state when suspect changes
   // biome-ignore lint/correctness/useExhaustiveDependencies: set up name initial values
@@ -47,6 +49,8 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
     if (suspect) {
       setNamePt(suspect.name.pt);
       setNameEn(suspect.name.en);
+      setLabelPt(suspect.label.pt);
+      setLabelEn(suspect.label.en);
     }
   }, [suspect?.id]);
 
@@ -78,6 +82,34 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
     [nameEn],
   );
 
+  // Debounce label pt updates
+  useDebounce(
+    () => {
+      if (suspect && labelPt !== suspect.label.pt) {
+        addEntryToUpdate(suspect.id, {
+          ...suspect,
+          label: { ...suspect.label, pt: labelPt },
+        });
+      }
+    },
+    500,
+    [labelPt],
+  );
+
+  // Debounce label en updates
+  useDebounce(
+    () => {
+      if (suspect && labelEn !== suspect.label.en) {
+        addEntryToUpdate(suspect.id, {
+          ...suspect,
+          label: { ...suspect.label, en: labelEn },
+        });
+      }
+    },
+    500,
+    [labelEn],
+  );
+
   const updateKeyValue = (suspectId: string, key: keyof SuspectCard, value: unknown) => {
     const suspect = data[suspectId];
     if (!suspect) return;
@@ -97,6 +129,11 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
     en: nameEn,
   };
 
+  const label = {
+    pt: labelPt,
+    en: labelEn,
+  };
+
   return (
     <Drawer
       onClose={() => removeParam('suspectId')}
@@ -110,8 +147,31 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
           <SuspectImageCard cardId={suspect.id} cardWidth={100} />
 
           <Flex gap={4} key={`${name.pt}-${name.en}`} vertical>
-            <DualLanguageTextField language="pt" onChange={(e) => setNamePt(e.target.value)} value={name} />
-            <DualLanguageTextField language="en" onChange={(e) => setNameEn(e.target.value)} value={name} />
+            <DualLanguageTextField
+              language="pt"
+              onChange={(e) => setNamePt(e.target.value)}
+              placeholder="Name"
+              value={name}
+            />
+            <DualLanguageTextField
+              language="en"
+              onChange={(e) => setNameEn(e.target.value)}
+              placeholder="Name"
+              value={name}
+            />
+            <DualLanguageTextField
+              language="pt"
+              onChange={(e) => setLabelPt(e.target.value)}
+              placeholder="Label"
+              value={label}
+            />
+            <DualLanguageTextField
+              language="en"
+              onChange={(e) => setLabelEn(e.target.value)}
+              placeholder="Label"
+              value={label}
+            />
+
             <div>
               <Select
                 onChange={(value) => updateKeyValue(suspect.id, 'age', value)}
@@ -141,15 +201,7 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
               />
             </div>
             <div>
-              <Typography.Text strong>Additional Info</Typography.Text>
-              <Typography.Paragraph
-                code
-                editable={{
-                  onChange: (value) => updateKeyValue(suspect.id, 'note', value),
-                }}
-              >
-                {suspect.note}
-              </Typography.Paragraph>
+              <Typography.Text strong>Animal</Typography.Text>
               <Typography.Paragraph
                 code
                 editable={{
@@ -157,6 +209,15 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
                 }}
               >
                 {suspect.animal}
+              </Typography.Paragraph>
+              <Typography.Text strong>Prompt</Typography.Text>
+              <Typography.Paragraph
+                code
+                editable={{
+                  onChange: (value) => updateKeyValue(suspect.id, 'prompt', value),
+                }}
+              >
+                {suspect.prompt}
               </Typography.Paragraph>
             </div>
           </Flex>
@@ -309,6 +370,7 @@ export const FEATURES_BY_GROUP = [
       { id: 'patternedShirt', label: 'Patterned Shirt' },
       { id: 'wearingStripes', label: 'Wearing Stripes' },
       { id: 'buttonShirt', label: 'Button Shirt' },
+      { id: 'shirtless', label: 'Shirtless' },
     ],
   },
 ];

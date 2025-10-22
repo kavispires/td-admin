@@ -90,32 +90,42 @@ export function SuspectsFilters({
 
 function prepareFileForDownload(data: Dictionary<SuspectCard>) {
   const copy = cloneDeep(data);
-  for (const key in copy) {
-    const suspect = copy[key];
+  // TO PERFORM CLEANUPS OR UPDATES ON EXISTING SUSPECTS
+  // for (const key in copy) {
+  //   const suspect = copy[key];
+  // }
 
-    // if (suspect.height.length === 1 || suspect.build.length === 1) {
-    //   if (suspect.height === 'S') suspect.height = 'short';
-    //   if (suspect.height === 'M') suspect.height = 'medium';
-    //   if (suspect.height === 'L') suspect.height = 'tall';
+  // TO ADD NEW SUSPECTS
+  // Add 40 new blank suspects with ids from 151 to 190 following the SuspectCard type
+  // for (let i = 151; i <= 180; i++) {
+  //   const id = `us-${i.toString().padStart(3, '0')}`;
+  //   const newSuspect: SuspectCard = {
+  //     id,
+  //     name: { en: '', pt: '' },
+  //     label: { en: '', pt: '' },
+  //     gender: '',
+  //     ethnicity: '',
+  //     age: '',
+  //     build: '',
+  //     height: '',
+  //     features: [],
+  //     gbExclusive: true,
+  //     prompt: '',
+  //     animal: '',
+  //   };
+  //   copy[id] = newSuspect;
+  // }
 
-    //   if (suspect.build === 'S') suspect.build = 'thin';
-    //   if (suspect.build === 'M') suspect.build = 'average';
-    // }
-    // if (suspect.build === 'fat') suspect.build = 'large';
-    // if (suspect.build === 'heavy') suspect.build = 'large';
-    if (suspect.name.pt.endsWith('.')) {
-      suspect.name.pt = suspect.name.pt.slice(0, -1).trim();
-    }
-    if (suspect.name.en.endsWith('.')) {
-      suspect.name.en = suspect.name.en.slice(0, -1).trim();
-    }
-
-    // if Id number is over 114, add gbExclusive = true property
-    const numberedId = Number(suspect.id.match(/\d+/));
-    if (numberedId > 114) {
-      suspect.gbExclusive = true;
-    }
-  }
-
-  return sortJsonKeys(copy, ['gender', 'ethnicity', 'age', 'height', 'build', 'features']);
+  return sortJsonKeys(copy, [
+    'label',
+    'gender',
+    'ethnicity',
+    'age',
+    'height',
+    'build',
+    'features',
+    'gbExclusive',
+    'prompt',
+    'animal',
+  ]);
 }
