@@ -1,5 +1,5 @@
 import { SearchOutlined } from '@ant-design/icons';
-import { Badge, Button, Flex, Input, Space, Table, Typography } from 'antd';
+import { Badge, Button, Flex, Input, Space, Switch, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
@@ -42,6 +42,7 @@ export function SuspectAnswersExpandedRow({
   const { queryParams } = useQueryParams({ sortSuspectsBy: 'answers' });
   const sortSuspectsBy = queryParams.get('sortSuspectsBy') ?? 'answers';
   const [searchQuery, setSearchQuery] = useState('');
+  const [filterHighValues, setFilterHighValues] = useState(false);
 
   const list: RowType[] = useMemo(() => {
     const res = Object.values(questions).map((question) => {
@@ -57,7 +58,7 @@ export function SuspectAnswersExpandedRow({
         resolution,
         projection,
         complete,
-      } = calculateSuspectAnswersData(suspect.id, { [suspect.id]: answers });
+      } = calculateSuspectAnswersData(suspect.id, question.id, { [suspect.id]: answers });
 
       return {
         id: question.id,
@@ -159,27 +160,45 @@ export function SuspectAnswersExpandedRow({
   ];
 
   const filteredList = useMemo(() => {
-    if (!searchQuery.trim()) {
-      return list;
+    let filtered = list;
+
+    // Apply search filter
+    if (searchQuery.trim()) {
+      filtered = filtered.filter(
+        (item) =>
+          item.question.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.id.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
     }
-    return list.filter(
-      (item) =>
-        item.question.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.id.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
-  }, [list, searchQuery]);
+
+    // Apply high values filter
+    if (filterHighValues) {
+      filtered = filtered.filter((item) => {
+        const absoluteTotal = item.values.reduce((acc, val) => acc + Math.abs(val === 0 ? -1 : val), 0);
+        return absoluteTotal <= 2;
+      });
+    }
+
+    return filtered;
+  }, [list, searchQuery, filterHighValues]);
 
   return (
     <Space size="large" wrap>
       <Flex className="full-width" gap={16} vertical>
-        <Input
-          allowClear
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search questions..."
-          prefix={<SearchOutlined />}
-          style={{ marginBottom: 16, width: 320 }}
-          value={searchQuery}
-        />
+        <Flex gap={6}>
+          <Input
+            allowClear
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search questions..."
+            prefix={<SearchOutlined />}
+            style={{ marginBottom: 16, width: 320 }}
+            value={searchQuery}
+          />
+          <Flex align="center" gap={8}>
+            <Switch checked={filterHighValues} onChange={setFilterHighValues} />
+            <Typography.Text>Show only missing questions</Typography.Text>
+          </Flex>
+        </Flex>
         <Table
           bordered
           className="full-width"
@@ -228,7 +247,7 @@ export function ActionCell({ suspect, testimonyId, addEntryToUpdate, answers }: 
   const onRemoveValue = (suspectCardId: string, value: TestimonyAnswersValues) => {
     const newAnswers = { ...answers };
     // Find the index of the first occurrence of the value
-    const index = newAnswers[suspectCardId]?.findIndex((v) => v === value);
+    const index = newAnswers[suspectCardId]?.indexOf(value);
     // If found, remove only that occurrence
     if (index !== -1 && index !== undefined) {
       newAnswers[suspectCardId] = [

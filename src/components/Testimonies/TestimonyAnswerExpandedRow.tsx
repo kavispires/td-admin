@@ -30,7 +30,7 @@ export function TestimonyAnswerExpandedRow({
 
   const list = useMemo(() => {
     const res = Object.keys(suspects).map((suspectCardId) => {
-      return calculateSuspectAnswersData(suspectCardId, answers);
+      return calculateSuspectAnswersData(suspectCardId, testimonyId, answers);
     });
 
     if (sortSuspectsBy === 'answers') {
@@ -49,7 +49,7 @@ export function TestimonyAnswerExpandedRow({
     }
 
     return orderBy(res, (o) => Number(o.suspectCardId.split('-')[1]), ['asc']);
-  }, [answers, suspects, sortSuspectsBy]);
+  }, [answers, suspects, testimonyId, sortSuspectsBy]);
 
   const [selection, setSelection] = useState<string[]>([]);
 
@@ -172,6 +172,15 @@ function BatchOptions({
             })
             .map((e) => e.suspectCardId);
 
+    // Special filter for suspects with no values
+    if (activeFilters.includes('empty')) {
+      const emptySelection = Object.values(listDict)
+        .filter((e) => e.values.length === 0)
+        .map((e) => e.suspectCardId);
+      setSelection(emptySelection);
+      return;
+    }
+
     // Run filters
     const filteredSelection = source.filter((suspectId) => {
       const suspect = suspects[suspectId];
@@ -233,6 +242,11 @@ function BatchOptions({
         <>
           <Typography.Text className="nowrap mr-2">Selected {selection.length}</Typography.Text>
           <Flex align="center" gap={6} justify="center" wrap>
+            <FilterEntry
+              activeFilters={activeFilters}
+              filter="empty"
+              updateActiveFilter={updateActiveFilter}
+            />
             <FilterEntry
               activeFilters={activeFilters}
               filter="male"

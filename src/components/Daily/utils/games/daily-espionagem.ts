@@ -512,7 +512,11 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
   for (const questionId of Object.keys(data)) {
     const questionTestimonies = data[questionId];
     for (const suspectId of Object.keys(questionTestimonies)) {
-      const { resolution, projection } = calculateSuspectAnswersData(suspectId, questionTestimonies);
+      const { resolution, projection } = calculateSuspectAnswersData(
+        suspectId,
+        questionId,
+        questionTestimonies,
+      );
 
       if (!resolution && !projection) {
         // debugLog('⁉️ Ignoring testimony with no resolution or projection');

@@ -3,6 +3,7 @@ import type { TestimonyAnswers, TestimonyAnswersValues } from 'pages/Testimonies
 
 export const calculateSuspectAnswersData = (
   suspectCardId: string,
+  questionId: string,
   answers: TestimonyAnswers,
   options?: {
     reliabilityThreshold?: number;
@@ -15,28 +16,52 @@ export const calculateSuspectAnswersData = (
   const imageId = `us-gb-${num}`;
   const values = isEmpty(answers[suspectCardId]) ? [] : answers[suspectCardId];
 
-  let systemYesCount = 0;
-  let systemNoCount = 0;
+  const hasDeterministicValue = values.some((v) => v === 32 || v === -32); // Automatic enough data
+  let yesCountFromSystem = 0;
+  let noCountFromSystem = 0;
+  let yesCountAudience = 0;
+  let noCountAudience = 0;
+  let total = 0;
 
   values.forEach((v) => {
-    if (v > 0) systemYesCount += v;
-    if (v < 0) systemNoCount += Math.abs(v);
+    if (v === 32) {
+      yesCountFromSystem += 35;
+    } else if (v === -32) {
+      noCountFromSystem += 35;
+    } else if (v === 4) {
+      yesCountFromSystem += 4;
+    } else if (v === -4) {
+      noCountFromSystem += 4;
+    } else if (v > 0) {
+      yesCountAudience += v;
+    } else if (v < 0) {
+      noCountAudience += Math.abs(v);
+    }
+
+    total += Math.abs(v);
   });
-  const valuesWithoutSystem = values.filter((v) => ![-4, -3, 3, 4, -32, 32].includes(v));
+  const audienceCount = yesCountAudience + noCountAudience;
 
-  const votesCount = valuesWithoutSystem.length + systemYesCount + systemNoCount;
-  const total = Math.max(votesCount, 5);
-  const baseYesCount = values.filter((v) => v === 1).length;
-  const yesCount = baseYesCount + systemYesCount;
-  const yesPercentage = Math.round((yesCount / total) * 100);
-  const baseNoCount = values.filter((v) => v === 0).length;
-  const noCount = baseNoCount + systemNoCount;
-  const noPercentage = Math.round((noCount / total) * 100);
-  const blankPercentage = Math.round(((total - yesCount - noCount) / total) * 100);
-  const complete = valuesWithoutSystem.length + systemYesCount + systemNoCount >= 5;
+  // Use reliabilityThreshold as minimum denominator for percentage calculations
+  const percentageDenominator = Math.max(total, reliabilityThreshold);
+  const yesPercentage =
+    total === 0 ? 0 : Math.round(((yesCountFromSystem + yesCountAudience) / percentageDenominator) * 100);
+  const noPercentage =
+    total === 0 ? 0 : Math.round(((noCountFromSystem + noCountAudience) / percentageDenominator) * 100);
+  const yesCount = yesCountFromSystem + yesCountAudience;
+  const noCount = noCountFromSystem + noCountAudience;
+  const blankPercentage =
+    total === 0
+      ? 100
+      : Math.round(((percentageDenominator - yesCount - noCount) / percentageDenominator) * 100);
+  const complete = hasDeterministicValue || total >= reliabilityThreshold;
 
-  const enoughData = votesCount > 3;
-  const reliable = votesCount > reliabilityThreshold;
+  const enoughData = hasDeterministicValue || audienceCount > reliabilityThreshold / 1.5 || total >= 4;
+
+  // if (total > 3) {
+  //   console.log({ suspectCardId, total, enoughData, complete, values });
+  // }
+  const reliable = total > reliabilityThreshold && Math.abs(yesPercentage - noPercentage) >= 40;
 
   const resolution = (() => {
     if (reliable && Math.abs(yesPercentage - noPercentage) > 40)
@@ -48,7 +73,7 @@ export const calculateSuspectAnswersData = (
   // If it is not reliable, but has enough data, if the current data is more than 70% to yes or no, declare it's side (yes or no). If there's not enough data, likelihood is null
   const projection = (() => {
     if (!enoughData) return null;
-    if (Math.abs(yesPercentage - noPercentage) < 60) return null;
+    if (!reliable) return null;
     if (yesPercentage >= projectionThreshold) return '👍';
     if (noPercentage >= projectionThreshold) return '👎';
     return null;
@@ -57,6 +82,7 @@ export const calculateSuspectAnswersData = (
   return {
     suspectCardId,
     imageId,
+    questionId,
     enoughData,
     reliable,
     total,
@@ -97,7 +123,7 @@ export default function normalizeValues(arr: TestimonyAnswersValues[]): Testimon
   const processed = arr.map((v) => (v === 0 ? -1 : v));
 
   // Keep all -32 and 32 as is
-  // Keep all 3 and -3 as is
+  // Keep all 4 and -4 as is
   const final: number[] = arr.filter((v) => v === -32 || v === 32 || v === 4 || v === -4);
 
   // Process -1 and 1 values
@@ -105,7 +131,7 @@ export default function normalizeValues(arr: TestimonyAnswersValues[]): Testimon
 
   // This should be done just now because after the first time everything
   const others = processed
-    .filter((v) => ![-32, 32, 3, -3, -1, 1].includes(v))
+    .filter((v) => ![-32, 32, 4, -4, -1, 1].includes(v))
     .flatMap((v) => {
       return Array.from({ length: Math.abs(v) }, () => (v > 0 ? 1 : -1));
     });
@@ -113,7 +139,7 @@ export default function normalizeValues(arr: TestimonyAnswersValues[]): Testimon
   const allOnes = [...ones, ...others].sort((a, b) => a - b);
 
   /// From allOnes, every the THRESHOLD -1s become a -THRESHOLD, every THRESHOLD 1s become a +THRESHOLD, the reminder stay as is
-  const counts: { [-1]: number; [1]: number } = {
+  const counts: { [-1]: number; 1: number } = {
     '-1': 0,
     '1': 0,
   };

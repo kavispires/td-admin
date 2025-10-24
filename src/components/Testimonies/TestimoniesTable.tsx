@@ -83,6 +83,7 @@ export function TestimoniesTable({
       <TestimonyAnswerExpandedRow
         addEntryToUpdate={addEntryToUpdate}
         answers={data[record.id] ?? {}}
+        key={record.id}
         suspects={suspects}
         testimonyId={record.id}
       />

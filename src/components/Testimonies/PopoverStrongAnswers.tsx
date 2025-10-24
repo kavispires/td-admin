@@ -43,7 +43,7 @@ export function PopoverStrongAnswers({
   const onRemoveValue = (suspectCardId: string, value: TestimonyAnswersValues) => {
     const newAnswers = { ...answers };
     // Find the index of the first occurrence of the value
-    const index = newAnswers[suspectCardId]?.findIndex((v) => v === value);
+    const index = newAnswers[suspectCardId]?.indexOf(value);
     // If found, remove only that occurrence
     if (index !== -1 && index !== undefined) {
       newAnswers[suspectCardId] = [
@@ -94,6 +94,7 @@ export function PopoverStrongAnswers({
               <TrophyFilled style={{ color: 'gold' }} />
             </Tooltip>
           )}
+          {!!resolution && resolution}
         </div>
       )}
       <Flex align="flex-start" gap={12}>
