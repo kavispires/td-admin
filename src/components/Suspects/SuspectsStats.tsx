@@ -49,10 +49,25 @@ function StatsDrawer({ data, open, onClose }: StatsDrawerProps) {
     const heightGroup: NumberDictionary = {};
 
     Object.values(data).forEach((suspect) => {
+      if (!suspect.age) {
+        console.log('🎂 Missing age for suspect:', suspect.id);
+      }
       ageGroup[suspect.age] = (ageGroup[suspect.age] ?? 0) + 1;
+      if (!suspect.ethnicity) {
+        console.log('🌍 Missing ethnicity for suspect:', suspect.id);
+      }
       ethnicityGroup[suspect.ethnicity] = (ethnicityGroup[suspect.ethnicity] ?? 0) + 1;
+      if (!suspect.gender) {
+        console.log('⚧️ Missing gender for suspect:', suspect.id);
+      }
       genderGroup[suspect.gender] = (genderGroup[suspect.gender] ?? 0) + 1;
+      if (!suspect.build) {
+        console.log('💪 Missing build for suspect:', suspect.id);
+      }
       buildGroup[suspect.build || '?'] = (buildGroup[suspect.build || '?'] ?? 0) + 1;
+      if (!suspect.height) {
+        console.log('📏 Missing height for suspect:', suspect.id);
+      }
       heightGroup[suspect.height || '?'] = (heightGroup[suspect.height || '?'] ?? 0) + 1;
     });
 

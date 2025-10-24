@@ -222,7 +222,7 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
           ]}
         />
       </Flex>
-      <Space>
+      <Space style={{ position: 'sticky', top: 0, background: 'black', zIndex: 1, width: '100%' }}>
         <FeaturesFilterBar /> <PromptBuilder />
       </Space>
 
@@ -238,11 +238,15 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
                     <Flex align="center" gap={6}>
                       <Tag>{entry.id}</Tag> <PromptButton suspect={entry} />
                     </Flex>
-                    <div>🇧🇷 {entry.name.pt}</div>
+                    <div style={{ backgroundColor: !entry.name.pt ? 'red' : 'transparent' }}>
+                      🇧🇷 {entry.name.pt}
+                    </div>
                     <Typography.Text ellipsis italic type="secondary">
                       <small>{truncate(entry.label.pt || '-', { length: 18 })}</small>
                     </Typography.Text>
-                    <div>🇺🇸 {entry.name.en}</div>
+                    <div style={{ backgroundColor: !entry.name.en ? 'red' : 'transparent' }}>
+                      🇺🇸 {entry.name.en}
+                    </div>
                     <Typography.Text ellipsis italic type="secondary">
                       <small>{truncate(entry.label.en || '-', { length: 18 })}</small>
                     </Typography.Text>

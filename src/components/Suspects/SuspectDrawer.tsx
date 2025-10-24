@@ -1,9 +1,7 @@
-import { Drawer, Flex, Radio, Select, Switch, Typography } from 'antd';
-import { DualLanguageTextField } from 'components/Common/EditableFields';
+import { Drawer, Flex, Input, Radio, Select, Switch, Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useEffect, useState } from 'react';
-import { useDebounce } from 'react-use';
 import type { SuspectCard } from 'types';
 import { SuspectImageCard } from './SuspectImageCard';
 
@@ -54,61 +52,41 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
     }
   }, [suspect?.id]);
 
-  // Debounce name pt updates
-  useDebounce(
-    () => {
-      if (suspect && namePt !== suspect.name.pt) {
-        addEntryToUpdate(suspect.id, {
-          ...suspect,
-          name: { ...suspect.name, pt: namePt },
-        });
-      }
-    },
-    500,
-    [namePt],
-  );
+  const handleNamePtBlur = () => {
+    if (suspect && namePt !== suspect.name.pt) {
+      addEntryToUpdate(suspect.id, {
+        ...suspect,
+        name: { ...suspect.name, pt: namePt },
+      });
+    }
+  };
 
-  // Debounce name en updates
-  useDebounce(
-    () => {
-      if (suspect && nameEn !== suspect.name.en) {
-        addEntryToUpdate(suspect.id, {
-          ...suspect,
-          name: { ...suspect.name, en: nameEn },
-        });
-      }
-    },
-    500,
-    [nameEn],
-  );
+  const handleNameEnBlur = () => {
+    if (suspect && nameEn !== suspect.name.en) {
+      addEntryToUpdate(suspect.id, {
+        ...suspect,
+        name: { ...suspect.name, en: nameEn },
+      });
+    }
+  };
 
-  // Debounce label pt updates
-  useDebounce(
-    () => {
-      if (suspect && labelPt !== suspect.label.pt) {
-        addEntryToUpdate(suspect.id, {
-          ...suspect,
-          label: { ...suspect.label, pt: labelPt },
-        });
-      }
-    },
-    500,
-    [labelPt],
-  );
+  const handleLabelPtBlur = () => {
+    if (suspect && labelPt !== suspect.label.pt) {
+      addEntryToUpdate(suspect.id, {
+        ...suspect,
+        label: { ...suspect.label, pt: labelPt },
+      });
+    }
+  };
 
-  // Debounce label en updates
-  useDebounce(
-    () => {
-      if (suspect && labelEn !== suspect.label.en) {
-        addEntryToUpdate(suspect.id, {
-          ...suspect,
-          label: { ...suspect.label, en: labelEn },
-        });
-      }
-    },
-    500,
-    [labelEn],
-  );
+  const handleLabelEnBlur = () => {
+    if (suspect && labelEn !== suspect.label.en) {
+      addEntryToUpdate(suspect.id, {
+        ...suspect,
+        label: { ...suspect.label, en: labelEn },
+      });
+    }
+  };
 
   const updateKeyValue = (suspectId: string, key: keyof SuspectCard, value: unknown) => {
     const suspect = data[suspectId];
@@ -124,16 +102,6 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
 
   if (!suspect) return null;
 
-  const name = {
-    pt: namePt,
-    en: nameEn,
-  };
-
-  const label = {
-    pt: labelPt,
-    en: labelEn,
-  };
-
   return (
     <Drawer
       onClose={() => removeParam('suspectId')}
@@ -143,33 +111,59 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
       width={400}
     >
       <div className="suspect__drawer">
-        <div className="grid" style={{ gridTemplateColumns: '1fr 1.25fr' }}>
-          <SuspectImageCard cardId={suspect.id} cardWidth={100} />
+        <div
+          className="grid"
+          style={{ gridTemplateColumns: '1fr 1.25fr', height: '100%', overflowY: 'auto' }}
+        >
+          <div>
+            <div style={{ top: 64, position: 'fixed' }}>
+              <SuspectImageCard cardId={suspect.id} cardWidth={100} />
+            </div>
+            <div style={{ marginTop: 156 }}>
+              <Typography.Text strong>Prompt</Typography.Text>
+              <Typography.Paragraph
+                code
+                editable={{
+                  onChange: (value) => updateKeyValue(suspect.id, 'prompt', value),
+                }}
+              >
+                {suspect.prompt}
+              </Typography.Paragraph>
+            </div>
+          </div>
 
-          <Flex gap={4} key={`${name.pt}-${name.en}`} vertical>
-            <DualLanguageTextField
-              language="pt"
+          <Flex gap={4} vertical>
+            <Input
+              onBlur={handleNamePtBlur}
               onChange={(e) => setNamePt(e.target.value)}
-              placeholder="Name"
-              value={name}
+              placeholder="Name in PT"
+              prefix={<span>🇧🇷</span>}
+              size="small"
+              value={namePt}
             />
-            <DualLanguageTextField
-              language="en"
+            <Input
+              onBlur={handleNameEnBlur}
               onChange={(e) => setNameEn(e.target.value)}
-              placeholder="Name"
-              value={name}
+              placeholder="Name in EN"
+              prefix={<span>🇺🇸</span>}
+              size="small"
+              value={nameEn}
             />
-            <DualLanguageTextField
-              language="pt"
+            <Input
+              onBlur={handleLabelPtBlur}
               onChange={(e) => setLabelPt(e.target.value)}
-              placeholder="Label"
-              value={label}
+              placeholder="Label in PT"
+              prefix={<span>🇧🇷</span>}
+              size="small"
+              value={labelPt}
             />
-            <DualLanguageTextField
-              language="en"
+            <Input
+              onBlur={handleLabelEnBlur}
               onChange={(e) => setLabelEn(e.target.value)}
-              placeholder="Label"
-              value={label}
+              placeholder="Label in EN"
+              prefix={<span>🇺🇸</span>}
+              size="small"
+              value={labelEn}
             />
 
             <div>
@@ -209,15 +203,6 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
                 }}
               >
                 {suspect.animal}
-              </Typography.Paragraph>
-              <Typography.Text strong>Prompt</Typography.Text>
-              <Typography.Paragraph
-                code
-                editable={{
-                  onChange: (value) => updateKeyValue(suspect.id, 'prompt', value),
-                }}
-              >
-                {suspect.prompt}
               </Typography.Paragraph>
             </div>
           </Flex>
@@ -334,6 +319,8 @@ export const FEATURES_BY_GROUP = [
       { id: 'showTeeth', label: 'Showing Teeth' },
       { id: 'avoidingCamera', label: 'Avoiding Camera' },
       { id: 'hairyChest', label: 'Exposed Hairy Chest' },
+      { id: 'shirtless', label: 'Shirtless' },
+      { id: 'noHairInfo', label: 'No Hair Info' },
     ],
   },
   {
@@ -370,7 +357,6 @@ export const FEATURES_BY_GROUP = [
       { id: 'patternedShirt', label: 'Patterned Shirt' },
       { id: 'wearingStripes', label: 'Wearing Stripes' },
       { id: 'buttonShirt', label: 'Button Shirt' },
-      { id: 'shirtless', label: 'Shirtless' },
     ],
   },
 ];

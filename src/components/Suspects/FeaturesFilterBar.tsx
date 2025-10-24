@@ -6,7 +6,7 @@ import { FEATURES_BY_GROUP } from './SuspectDrawer';
 const flatFeatures = orderBy(
   FEATURES_BY_GROUP.reduce((acc: { value: string; label: string }[], group) => {
     group.features.forEach((feature) => {
-      acc.push({ value: feature.id, label: feature.label });
+      acc.push({ value: feature.id, label: `${group.title}: ${feature.label}` });
     });
     return acc;
   }, []),
@@ -30,7 +30,7 @@ export function FeaturesFilterBar() {
         onChange={(value) => addParam('activeFeature', value)}
         options={flatFeatures}
         size="small"
-        style={{ width: 200 }}
+        style={{ width: 275 }}
         value={queryParams.get('activeFeature') || undefined}
       />
     </Flex>
