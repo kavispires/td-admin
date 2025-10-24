@@ -1,11 +1,11 @@
-import { FireFilled } from '@ant-design/icons';
-import { Flex, Switch, Table, type TableProps, Typography } from 'antd';
+import { FireFilled, SearchOutlined } from '@ant-design/icons';
+import { Flex, Input, Switch, Table, type TableProps, Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
 import type { useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import type { TestimonyQuestionCard } from 'types';
 import { TestimonyAnswerExpandedRow } from './TestimonyAnswerExpandedRow';
 
@@ -22,6 +22,7 @@ export function TestimoniesTable({
   addEntryToUpdate,
 }: TestimoniesContentProps) {
   const { queryParams, addParam } = useQueryParams();
+  const [searchQuery, setSearchQuery] = useState('');
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: don't recalculate unless questions change
   const entriesRowData = useMemo(() => {
@@ -35,7 +36,18 @@ export function TestimoniesTable({
     );
   }, [questions]);
 
-  const paginationProps = useTablePagination({ total: entriesRowData.length, showQuickJumper: true });
+  const filteredRowData = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return entriesRowData;
+    }
+    return entriesRowData.filter(
+      (item) =>
+        item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.id.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+  }, [entriesRowData, searchQuery]);
+
+  const paginationProps = useTablePagination({ total: filteredRowData.length, showQuickJumper: true });
 
   const columns: TableProps<RowData>['columns'] = [
     {
@@ -91,11 +103,19 @@ export function TestimoniesTable({
           unCheckedChildren="Sort by Id"
         />
       </Flex>
+      <Input
+        allowClear
+        onChange={(e) => setSearchQuery(e.target.value)}
+        placeholder="Search questions by text or ID..."
+        prefix={<SearchOutlined />}
+        style={{ width: 320 }}
+        value={searchQuery}
+      />
       <Table
         bordered
         className="full-width"
         columns={columns}
-        dataSource={entriesRowData}
+        dataSource={filteredRowData}
         expandable={expandableProps}
         loading={isLoading}
         pagination={paginationProps}
