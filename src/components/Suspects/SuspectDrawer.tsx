@@ -26,7 +26,7 @@ const ETHNICITY_OPTIONS = [
   { label: 'Indian', value: 'indian' },
   { label: 'Middle Eastern', value: 'middle-eastern' },
   { label: 'Mixed', value: 'mixed' },
-  { label: 'Other', value: 'other' },
+  { persona: 'Other', value: 'other' },
 ];
 
 type SuspectDrawerProps = Pick<UseResourceFirestoreDataReturnType<SuspectCard>, 'data' | 'addEntryToUpdate'>;
@@ -38,8 +38,8 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
 
   const [namePt, setNamePt] = useState(suspect?.name.pt || '');
   const [nameEn, setNameEn] = useState(suspect?.name.en || '');
-  const [labelPt, setLabelPt] = useState(suspect?.label.pt || '');
-  const [labelEn, setLabelEn] = useState(suspect?.label.en || '');
+  const [personaPt, setPersonaPt] = useState(suspect?.persona.pt || '');
+  const [personaEn, setPersonaEn] = useState(suspect?.persona.en || '');
 
   // Reset local state when suspect changes
   // biome-ignore lint/correctness/useExhaustiveDependencies: set up name initial values
@@ -47,8 +47,8 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
     if (suspect) {
       setNamePt(suspect.name.pt);
       setNameEn(suspect.name.en);
-      setLabelPt(suspect.label.pt);
-      setLabelEn(suspect.label.en);
+      setPersonaPt(suspect.persona.pt);
+      setPersonaEn(suspect.persona.en);
     }
   }, [suspect?.id]);
 
@@ -70,20 +70,20 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
     }
   };
 
-  const handleLabelPtBlur = () => {
-    if (suspect && labelPt !== suspect.label.pt) {
+  const handlePersonaPtBlur = () => {
+    if (suspect && personaPt !== suspect.persona.pt) {
       addEntryToUpdate(suspect.id, {
         ...suspect,
-        label: { ...suspect.label, pt: labelPt },
+        persona: { ...suspect.persona, pt: personaPt },
       });
     }
   };
 
-  const handleLabelEnBlur = () => {
-    if (suspect && labelEn !== suspect.label.en) {
+  const handlePersonaEnBlur = () => {
+    if (suspect && personaEn !== suspect.persona.en) {
       addEntryToUpdate(suspect.id, {
         ...suspect,
-        label: { ...suspect.label, en: labelEn },
+        persona: { ...suspect.persona, en: personaEn },
       });
     }
   };
@@ -150,20 +150,20 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
               value={nameEn}
             />
             <Input
-              onBlur={handleLabelPtBlur}
-              onChange={(e) => setLabelPt(e.target.value)}
-              placeholder="Label in PT"
+              onBlur={handlePersonaPtBlur}
+              onChange={(e) => setPersonaPt(e.target.value)}
+              placeholder="Persona in PT"
               prefix={<span>🇧🇷</span>}
               size="small"
-              value={labelPt}
+              value={personaPt}
             />
             <Input
-              onBlur={handleLabelEnBlur}
-              onChange={(e) => setLabelEn(e.target.value)}
-              placeholder="Label in EN"
+              onBlur={handlePersonaEnBlur}
+              onChange={(e) => setPersonaEn(e.target.value)}
+              placeholder="Persona in EN"
               prefix={<span>🇺🇸</span>}
               size="small"
-              value={labelEn}
+              value={personaEn}
             />
 
             <div>

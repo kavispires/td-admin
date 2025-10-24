@@ -622,7 +622,7 @@ export type SuspectCard = {
   /**
    * Short description label of the suspect
    */
-  label: DualLanguageValue;
+  persona: DualLanguageValue;
   /**
    * AI prompt descritor
    */

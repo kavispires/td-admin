@@ -116,14 +116,14 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
         },
       },
       {
-        title: 'Label',
-        dataIndex: 'label',
-        key: 'label',
-        render: (label: DualLanguageValue, entry: SuspectCard) => (
+        title: 'Persona',
+        dataIndex: 'persona',
+        key: 'persona',
+        render: (persona: DualLanguageValue, entry: SuspectCard) => (
           <Flex vertical>
             <Flex vertical>
-              <Typography.Text>{label.pt}</Typography.Text>
-              <Typography.Text>{label.en}</Typography.Text>
+              <Typography.Text>{persona.pt}</Typography.Text>
+              <Typography.Text>{persona.en}</Typography.Text>
             </Flex>
 
             <Typography.Paragraph
@@ -242,13 +242,13 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
                       🇧🇷 {entry.name.pt}
                     </div>
                     <Typography.Text ellipsis italic type="secondary">
-                      <small>{truncate(entry.label.pt || '-', { length: 18 })}</small>
+                      <small>{truncate(entry.persona.pt || '-', { length: 18 })}</small>
                     </Typography.Text>
                     <div style={{ backgroundColor: !entry.name.en ? 'red' : 'transparent' }}>
                       🇺🇸 {entry.name.en}
                     </div>
                     <Typography.Text ellipsis italic type="secondary">
-                      <small>{truncate(entry.label.en || '-', { length: 18 })}</small>
+                      <small>{truncate(entry.persona.en || '-', { length: 18 })}</small>
                     </Typography.Text>
 
                     <div className="suspect__info" style={getHeightBuildAlert(entry)}>
