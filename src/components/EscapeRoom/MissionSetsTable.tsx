@@ -2,7 +2,7 @@ import { Flex, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
-import type { UseEscapeRoomResourceReturnType } from 'pages/EscapeRoom/useEscapeRoomResource';
+import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
 import type { EscapeRoomSet } from './cards/escape-room-types';
 import { MissionBriefingsTable } from './MissionBriefingsTable';
 

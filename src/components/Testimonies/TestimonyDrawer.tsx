@@ -2,7 +2,7 @@ import { Button, Flex, InputNumber, Modal, Segmented, Space, Switch, Typography 
 import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep, sample, sampleSize } from 'lodash';
-import type { useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
+import type { useTestimoniesResource } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { useEffectOnce, useStateWithHistory, useWindowSize } from 'react-use';

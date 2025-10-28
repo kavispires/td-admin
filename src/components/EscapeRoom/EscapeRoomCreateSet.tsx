@@ -15,7 +15,7 @@ import {
   Typography,
 } from 'antd';
 import { orderBy } from 'lodash';
-import type { UseEscapeRoomResourceReturnType } from 'pages/EscapeRoom/useEscapeRoomResource';
+import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
 import { useCallback, useMemo, useState } from 'react';
 import { createUUID } from 'utils';
 import { BACKGROUNDS } from './cards/CardBuildingBlocks';

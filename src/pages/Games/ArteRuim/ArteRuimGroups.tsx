@@ -8,10 +8,10 @@ import { useBaseUrl } from 'hooks/useBaseUrl';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
 import type { ArteRuimCard, ArteRuimGroup } from 'types';
-import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
-import { ResourceSelectionFilters } from '../../components/Resource/ResourceSelectionFilters';
-import { useResourceState } from '../../hooks/useResourceState';
-import { RESOURCE_NAMES } from '../../utils/constants';
+import { DataLoadingWrapper } from '../../../components/DataLoadingWrapper';
+import { ResourceSelectionFilters } from '../../../components/Resource/ResourceSelectionFilters';
+import { useResourceState } from '../../../hooks/useResourceState';
+import { RESOURCE_NAMES } from '../../../utils/constants';
 
 const { Text } = Typography;
 

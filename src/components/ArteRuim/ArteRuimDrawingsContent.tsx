@@ -8,7 +8,7 @@ import {
   ARTIST_ID_ALIAS,
   type DrawingPerArtist,
   type useDrawingsResourceData,
-} from 'pages/ArteRuim/useArteRuimDrawings';
+} from 'pages/Games/ArteRuim/useArteRuimDrawings';
 import { useMemo } from 'react';
 import type { DrawingData } from 'types';
 

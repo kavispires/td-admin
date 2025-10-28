@@ -13,7 +13,7 @@ import {
   countAnswers,
   type TestimonyAnswers,
   type useTestimoniesResource,
-} from 'pages/Testimonies/useTestimoniesResource';
+} from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import { deepCleanObject, deserializeFirestoreData, sortJsonKeys } from 'utils';
 import { TestimonyDrawer } from './TestimonyDrawer';

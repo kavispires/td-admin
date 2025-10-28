@@ -4,7 +4,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
-import type { useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
+import type { useTestimoniesResource } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo, useState } from 'react';
 import type { TestimonyQuestionCard } from 'types';
 import { TestimonyAnswerExpandedRow } from './TestimonyAnswerExpandedRow';

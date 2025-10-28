@@ -4,7 +4,7 @@ import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, cloneDeep, keyBy, orderBy } from 'lodash';
-import type { TestimonyAnswers } from 'pages/Testimonies/useTestimoniesResource';
+import type { TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useEffect, useMemo, useState } from 'react';
 import type { SuspectCard } from 'types';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';

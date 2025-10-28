@@ -1,6 +1,6 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { sampleSize, shuffle } from 'lodash';
-import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
+import { useDrawingsResourceData } from 'pages/Games/ArteRuim/useArteRuimDrawings';
 import { useMemo } from 'react';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';

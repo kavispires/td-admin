@@ -1,5 +1,5 @@
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseEscapeRoomResourceReturnType } from 'pages/EscapeRoom/useEscapeRoomResource';
+import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
 import { AllCardsGrid } from './AllCardsGrid';
 import { EscapeRoomCreateSet } from './EscapeRoomCreateSet';
 import { MissionSetsTable } from './MissionSetsTable';

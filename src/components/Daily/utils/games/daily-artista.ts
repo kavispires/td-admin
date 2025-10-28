@@ -1,7 +1,7 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
 import { sampleSize } from 'lodash';
-import { useDrawingsResourceData } from 'pages/ArteRuim/useArteRuimDrawings';
+import { useDrawingsResourceData } from 'pages/Games/ArteRuim/useArteRuimDrawings';
 import { useMemo } from 'react';
 import type { ArteRuimCard } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';

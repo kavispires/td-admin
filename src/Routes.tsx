@@ -25,18 +25,18 @@ export const routeConfig: RouteObject[] = [
     children: [
       {
         path: 'listing',
-        element: withSuspense(() => import('pages/Resource' /* webpackChunkName: "Resource" */)),
+        element: withSuspense(() => import('pages/Resources/Resource' /* webpackChunkName: "Resource" */)),
       },
       {
         path: 'generator',
         element: withSuspense(
-          () => import('pages/ResourceGenerator' /* webpackChunkName: "ResourceGenerator" */),
+          () => import('pages/Resources/ResourceGenerator' /* webpackChunkName: "ResourceGenerator" */),
         ),
       },
       {
         path: 'single-words',
         element: withSuspense(
-          () => import('pages/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */),
+          () => import('pages/Resources/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */),
         ),
       },
     ],
@@ -47,7 +47,7 @@ export const routeConfig: RouteObject[] = [
     children: [
       {
         index: true, // This matches /daily exactly
-        element: withSuspense(() => import('pages/DailyPage' /* webpackChunkName: "DailyPage" */)),
+        element: withSuspense(() => import('pages/Daily/DailyPage' /* webpackChunkName: "DailyPage" */)),
       },
       {
         path: 'diagrams',
@@ -82,36 +82,38 @@ export const routeConfig: RouteObject[] = [
       {
         path: 'arte-ruim/parser',
         element: withSuspense(
-          () => import('pages/ArteRuim/ArteRuimParser' /* webpackChunkName: "ArteRuimParser" */),
+          () => import('pages/Games/ArteRuim/ArteRuimParser' /* webpackChunkName: "ArteRuimParser" */),
         ),
       },
       {
         path: 'arte-ruim/groups',
         element: withSuspense(
-          () => import('pages/ArteRuim/ArteRuimGroups' /* webpackChunkName: "ArteRuimGroups" */),
+          () => import('pages/Games/ArteRuim/ArteRuimGroups' /* webpackChunkName: "ArteRuimGroups" */),
         ),
       },
       {
         path: 'arte-ruim/drawings',
         element: withSuspense(
-          () => import('pages/ArteRuim/ArteRuimDrawings' /* webpackChunkName: "ArteRuimDrawings" */),
+          () => import('pages/Games/ArteRuim/ArteRuimDrawings' /* webpackChunkName: "ArteRuimDrawings" */),
         ),
       },
       {
         path: 'crimes-hediondos',
         element: withSuspense(
-          () => import('pages/CrimesHediondos' /* webpackChunkName: "CrimesHediondos" */),
+          () => import('pages/Games/CrimesHediondos' /* webpackChunkName: "CrimesHediondos" */),
         ),
       },
       {
         path: 'escape-room',
         element: withSuspense(
-          () => import('pages/EscapeRoom/EscapeRoom' /* webpackChunkName: "EscapeRoom" */),
+          () => import('pages/Games/EscapeRoom/EscapeRoom' /* webpackChunkName: "EscapeRoom" */),
         ),
       },
       {
         path: 'fofoca-quente',
-        element: withSuspense(() => import('pages/FofocaQuente' /* webpackChunkName: "FofocaQuente" */)),
+        element: withSuspense(
+          () => import('pages/Games/FofocaQuente' /* webpackChunkName: "FofocaQuente" */),
+        ),
       },
     ],
   },
@@ -121,20 +123,23 @@ export const routeConfig: RouteObject[] = [
     children: [
       {
         path: 'sprites',
-        element: withSuspense(() => import('pages/Images/Sprites' /* webpackChunkName: "Sprites" */)),
+        element: withSuspense(() => import('pages/Libraries/Sprites' /* webpackChunkName: "Sprites" */)),
       },
       {
         path: 'suspects',
-        element: withSuspense(() => import('pages/Images/Suspects' /* webpackChunkName: "Suspects" */)),
+        element: withSuspense(() => import('pages/Libraries/Suspects' /* webpackChunkName: "Suspects" */)),
       },
       {
         path: 'contenders',
-        element: withSuspense(() => import('pages/Contenders' /* webpackChunkName: "Contenders" */)),
+        element: withSuspense(
+          () => import('pages/Libraries/Contenders' /* webpackChunkName: "Contenders" */),
+        ),
       },
       {
         path: 'testimonies',
         element: withSuspense(
-          () => import('pages/Testimonies/TestimoniesPage' /* webpackChunkName: "TestimoniesPage" */),
+          () =>
+            import('pages/Libraries/Testimonies/TestimoniesPage' /* webpackChunkName: "TestimoniesPage" */),
         ),
       },
     ],
@@ -206,16 +211,16 @@ export const routeConfig: RouteObject[] = [
       // Other routes
       {
         path: 'playground',
-        element: withSuspense(() => import('pages/Playground' /* webpackChunkName: "Playground" */)),
+        element: withSuspense(() => import('pages/Fun/Playground' /* webpackChunkName: "Playground" */)),
       },
       {
         path: 'movie-maker',
-        element: withSuspense(() => import('pages/MovieMaker' /* webpackChunkName: "MovieMaker" */)),
+        element: withSuspense(() => import('pages/Fun/MovieMaker' /* webpackChunkName: "MovieMaker" */)),
       },
       {
         path: 'crimes-history',
         element: withSuspense(
-          () => import('pages/Items/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
+          () => import('pages/Fun/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
         ),
       },
     ],

@@ -3,7 +3,10 @@ import { Badge, Button, Flex, Input, Space, Switch, Table, Typography } from 'an
 import type { TableProps } from 'antd/lib';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
-import type { TestimonyAnswers, TestimonyAnswersValues } from 'pages/Testimonies/useTestimoniesResource';
+import type {
+  TestimonyAnswers,
+  TestimonyAnswersValues,
+} from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo, useState } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';

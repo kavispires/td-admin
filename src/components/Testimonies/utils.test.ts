@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { TestimonyAnswersValues } from '../../pages/Testimonies/useTestimoniesResource';
+import type { TestimonyAnswersValues } from '../../pages/Libraries/Testimonies/useTestimoniesResource';
 import normalizeValues from './utils';
 
 describe('normalizeValues', () => {

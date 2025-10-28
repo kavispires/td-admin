@@ -7,7 +7,7 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep, orderBy } from 'lodash';
-import type { UseEscapeRoomResourceReturnType } from 'pages/EscapeRoom/useEscapeRoomResource';
+import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
 import { sortJsonKeys } from 'utils';
 import type { EscapeRoomDatabase } from './cards/escape-room-types';
 

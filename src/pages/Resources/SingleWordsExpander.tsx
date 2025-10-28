@@ -6,12 +6,12 @@ import { PageSider } from 'components/Layout/PageSider';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
 import type { TextCard } from 'types';
-import { DataLoadingWrapper } from '../components/DataLoadingWrapper';
-import { ResourceSelectionFilters } from '../components/Resource/ResourceSelectionFilters';
-import { SearchDuplicates } from '../components/SearchDuplicates';
-import { useResourceState } from '../hooks/useResourceState';
-import { findSimilar, stringRemoveAccents } from '../utils';
-import { RESOURCE_NAMES, SEARCH_THRESHOLD } from '../utils/constants';
+import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
+import { ResourceSelectionFilters } from '../../components/Resource/ResourceSelectionFilters';
+import { SearchDuplicates } from '../../components/SearchDuplicates';
+import { useResourceState } from '../../hooks/useResourceState';
+import { findSimilar, stringRemoveAccents } from '../../utils';
+import { RESOURCE_NAMES, SEARCH_THRESHOLD } from '../../utils/constants';
 
 const { Text } = Typography;
 

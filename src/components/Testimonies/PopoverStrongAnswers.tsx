@@ -1,6 +1,9 @@
 import { TrophyFilled } from '@ant-design/icons';
 import { Button, Divider, Flex, Popover, Progress, Space, Tooltip, Typography } from 'antd';
-import type { TestimonyAnswers, TestimonyAnswersValues } from 'pages/Testimonies/useTestimoniesResource';
+import type {
+  TestimonyAnswers,
+  TestimonyAnswersValues,
+} from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import type { SuspectCard } from 'types';
 
 type PopoverStrongAnswersProps = {

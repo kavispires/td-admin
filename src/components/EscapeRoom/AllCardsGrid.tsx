@@ -6,7 +6,7 @@ import { useGridPagination } from 'hooks/useGridPagination';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
-import type { UseEscapeRoomResourceReturnType } from 'pages/EscapeRoom/useEscapeRoomResource';
+import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
 import { useMemo, useState } from 'react';
 import { EscapeRoomCard } from './cards/EscapeRoomCard';
 import type { EscapeRoomSet } from './cards/escape-room-types';

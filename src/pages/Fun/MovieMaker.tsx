@@ -69,10 +69,10 @@ function MovieMaker() {
           <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
             <FeatureFilmView
               characterTraits={Object.values(characterTraitsQuery.data)}
-              // biome-ignore lint/style/noNonNullAssertion: data is guaranteed to be defined by DataLoadingWrapper
               items={Object.values(itemsQuery.data)}
               language={language}
               movieActors={Object.values(movieActorsQuery.data)}
+              // biome-ignore lint/style/noNonNullAssertion: movieGenres is guaranteed to be defined by DataLoadingWrapper
               movieGenres={movieGenresQuery.data!}
               movieTitles={Object.values(movieTitleQuery.data)}
             />

@@ -1,5 +1,5 @@
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { useTestimoniesResource } from 'pages/Testimonies/useTestimoniesResource';
+import type { useTestimoniesResource } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { EspionagemSimulator } from './EspionagemSimulator';
 import { SuspectAnswersTable } from './SuspectAnswersTable';
 import { TestimoniesTable } from './TestimoniesTable';

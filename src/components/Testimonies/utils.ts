@@ -1,5 +1,8 @@
 import { isEmpty } from 'lodash';
-import type { TestimonyAnswers, TestimonyAnswersValues } from 'pages/Testimonies/useTestimoniesResource';
+import type {
+  TestimonyAnswers,
+  TestimonyAnswersValues,
+} from 'pages/Libraries/Testimonies/useTestimoniesResource';
 
 export const calculateSuspectAnswersData = (
   suspectCardId: string,
