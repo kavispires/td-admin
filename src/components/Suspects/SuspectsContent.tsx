@@ -4,11 +4,14 @@ import {
   ColumnHeightOutlined,
   ColumnWidthOutlined,
   EditFilled,
+  GitlabFilled,
   ManOutlined,
+  MessageFilled,
   WomanOutlined,
 } from '@ant-design/icons';
 import { Button, Flex, Image, Segmented, Space, Switch, Table, Tag, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
+import clsx from 'clsx';
 import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
@@ -235,19 +238,31 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
                   <SuspectImageCard cardId={entry.id} cardWidth={cardWidth} className="suspect__image" />
 
                   <div className="suspect__name">
-                    <Flex align="center" gap={6}>
-                      <Tag>{entry.id}</Tag> <PromptButton suspect={entry} />
+                    <Flex align="center" gap={3}>
+                      <Tag>{entry.id}</Tag> <PromptButton suspect={entry} />{' '}
+                      {!entry.prompt && <MessageFilled style={{ color: 'red' }} />}{' '}
+                      {!!entry.animal && <GitlabFilled style={{ color: 'sandybrown' }} />}
                     </Flex>
                     <div style={{ backgroundColor: !entry.name.pt ? 'red' : 'transparent' }}>
                       🇧🇷 {entry.name.pt}
                     </div>
-                    <Typography.Text ellipsis italic type="secondary">
+                    <Typography.Text
+                      className={clsx({ 'missing-value': !entry.persona.pt })}
+                      ellipsis
+                      italic
+                      type="secondary"
+                    >
                       <small>{truncate(entry.persona.pt || '-', { length: 18 })}</small>
                     </Typography.Text>
                     <div style={{ backgroundColor: !entry.name.en ? 'red' : 'transparent' }}>
                       🇺🇸 {entry.name.en}
                     </div>
-                    <Typography.Text ellipsis italic type="secondary">
+                    <Typography.Text
+                      className={clsx({ 'missing-value': !entry.persona.en })}
+                      ellipsis
+                      italic
+                      type="secondary"
+                    >
                       <small>{truncate(entry.persona.en || '-', { length: 18 })}</small>
                     </Typography.Text>
 

@@ -14,11 +14,11 @@ type FilterSelectProps = {
 
 export function FilterSelect({ label, value, onChange, options, placeholder }: FilterSelectProps) {
   return (
-    <Form.Item label={label}>
-      <Select onChange={onChange} style={{ minWidth: '150px' }} value={value}>
+    <Form.Item label={label} style={{ marginBottom: 6 }} vertical>
+      <Select onChange={onChange} size="small" style={{ minWidth: '150px' }} value={value}>
         {placeholder && (
           <Select.Option disabled value={''}>
-            placeholder
+            {placeholder}
           </Select.Option>
         )}
         {options.map((entry) =>
@@ -48,11 +48,12 @@ type FilterNumberProps = {
 
 export function FilterNumber({ label, value, onChange, min = 0, max = 100, step }: FilterNumberProps) {
   return (
-    <Form.Item label={label}>
+    <Form.Item label={label} style={{ marginBottom: 6 }} vertical>
       <InputNumber
         max={max}
         min={min}
         onChange={(v) => onChange(v ?? max)}
+        size="small"
         step={step}
         style={{ minWidth: '150px', width: '100%' }}
         value={value}
@@ -71,7 +72,7 @@ type FilterSwitchProps = {
 
 export function FilterSwitch({ label, value, onChange, className, disabled }: FilterSwitchProps) {
   return (
-    <Form.Item className={className} label={label} valuePropName="checked">
+    <Form.Item className={className} label={label} style={{ marginBottom: 6 }} valuePropName="checked">
       <Switch checked={value} disabled={disabled} onChange={onChange} size="small" />
     </Form.Item>
   );
@@ -79,7 +80,7 @@ export function FilterSwitch({ label, value, onChange, className, disabled }: Fi
 
 export function FilterCheckBox({ label, value, onChange, disabled, className }: FilterSwitchProps) {
   return (
-    <Form.Item className={className} label={label} valuePropName="checked">
+    <Form.Item className={className} label={label} style={{ marginBottom: 6 }} valuePropName="checked">
       <Checkbox checked={value} disabled={disabled} onChange={(e) => onChange(e.target.checked)} />
     </Form.Item>
   );
@@ -94,7 +95,11 @@ type FilterSegmentsProps = {
 
 export function FilterSegments({ value, label, onChange, options }: FilterSegmentsProps) {
   return (
-    <Form.Item label={label} layout={options.length > 2 ? 'vertical' : 'horizontal'}>
+    <Form.Item
+      label={label}
+      layout={options.length > 2 ? 'vertical' : 'horizontal'}
+      style={{ marginBottom: 6 }}
+    >
       <Segmented
         block
         onChange={onChange}

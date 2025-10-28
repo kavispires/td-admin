@@ -263,3 +263,8 @@ body {
 .text-center {
   text-align: center;
 }
+
+.missing-value {
+  outline: 1px dashed red;
+  border-radius: get-unit(1);
+}

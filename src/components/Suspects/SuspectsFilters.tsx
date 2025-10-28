@@ -1,4 +1,4 @@
-import { Divider, Flex } from 'antd';
+import { Divider, Flex, Form } from 'antd';
 import { FilterNumber, FilterSelect } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
@@ -28,6 +28,15 @@ const SORT_BY = [
   { value: 'age', label: 'Age' },
   { value: 'height', label: 'Height' },
   { value: 'build', label: 'Build' },
+];
+
+const PROMPTS = [
+  { value: '', label: 'No Prompt/Custom' },
+  { value: 'gibli', label: 'Gibli Style' },
+  { value: 'realistic', label: 'Realistic Style' },
+  { value: 'pixar', label: 'Pixar Style' },
+  { value: 'fox', label: 'Fox Style' },
+  { value: 'zootopia', label: 'Zootopia Style' },
 ];
 
 export function SuspectsFilters({
@@ -63,26 +72,37 @@ export function SuspectsFilters({
       <Divider />
 
       <SuspectsStyleVariantSelector />
+      <Divider />
+      <Form layout="vertical">
+        <FilterNumber
+          label="Cards Per Row"
+          max={12}
+          min={2}
+          onChange={(v) => addParam('cardsPerRow', v)}
+          value={Number(queryParams.get('cardsPerRow') ?? '10')}
+        />
+        <FilterSelect
+          label="Sort By"
+          onChange={(v) => addParam('sortBy', v)}
+          options={SORT_BY}
+          value={queryParams.get('sortBy') ?? 'id'}
+        />
+        <FilterSelect
+          label="Other Versions"
+          onChange={(v) => addParam('variant', v)}
+          options={DEPRECATED_VERSIONS}
+          value={queryParams.get('variant') ?? 'gb'}
+        />
 
-      <FilterNumber
-        label="Cards Per Row"
-        max={12}
-        min={2}
-        onChange={(v) => addParam('cardsPerRow', v)}
-        value={Number(queryParams.get('cardsPerRow') ?? '10')}
-      />
-      <FilterSelect
-        label="Sort By"
-        onChange={(v) => addParam('sortBy', v)}
-        options={SORT_BY}
-        value={queryParams.get('sortBy') ?? 'id'}
-      />
-      <FilterSelect
-        label="Other Versions"
-        onChange={(v) => addParam('variant', v)}
-        options={DEPRECATED_VERSIONS}
-        value={queryParams.get('variant') ?? 'gb'}
-      />
+        <FilterSelect
+          label="Prompt Style"
+          onChange={(v) => addParam('prompt', v)}
+          options={PROMPTS}
+          value={queryParams.get('prompt') ?? ''}
+        />
+      </Form>
+
+      <Divider />
       <SuspectsStats data={data} />
     </SiderContent>
   );
@@ -117,7 +137,7 @@ function prepareFileForDownload(data: Dictionary<SuspectCard>) {
   // }
 
   return sortJsonKeys(copy, [
-    'label',
+    'persona',
     'gender',
     'ethnicity',
     'age',

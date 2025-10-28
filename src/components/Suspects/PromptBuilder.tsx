@@ -1,11 +1,23 @@
 import OpenAIOutlined from '@ant-design/icons/lib/icons/OpenAIOutlined';
-import { Button, Flex, Input, Switch, Typography } from 'antd';
+import { App, Button, Flex, Input, Switch, Typography } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { useState } from 'react';
 import type { SuspectCard } from 'types';
 
 export const PROMPT_KEY = 'TD_ADMIN_SUSPECTS_PROMPT';
 export const PROMPT_SUFFIX_KEY = 'TD_ADMIN_SUSPECTS_PROMPT_SUFFIX';
+
+const PROMPTS = {
+  ghili: "Make this picture ghibli style in 2:3 aspect-ratio. It's a ", // Used with an original picture,
+  fox: "Make this image in the Family Guy style, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a ",
+  pixar:
+    "Make this image in the 3d Pixar style, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a ",
+  realistic:
+    "Make this image realistic, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a ",
+  zootopia:
+    "Make this image to look like a character from Zootopia, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a ",
+};
 
 export function PromptBuilder() {
   const [prompt, setPrompt] = useState(
@@ -13,6 +25,7 @@ export function PromptBuilder() {
       "Make a pixar version of this image, keep the Polaroid frame and aspect ratio at 2:3. It's a",
   );
   const [suffix, setSuffix] = useState(localStorage.getItem(PROMPT_SUFFIX_KEY) === 'true');
+  const { queryParams } = useQueryParams();
 
   // Save to localStorage on change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,8 +41,14 @@ export function PromptBuilder() {
 
   return (
     <Flex align="center" className="my-2" gap={8}>
-      <Typography.Text>Prompt Prefix:</Typography.Text>
-      <Input onChange={handleChange} placeholder="AI Prompt" style={{ width: 320 }} value={prompt} />
+      <Typography.Text>Custom Prompt:</Typography.Text>
+      <Input
+        disabled={queryParams.has('prompt')}
+        onChange={handleChange}
+        placeholder="AI Prompt"
+        style={{ width: 320 }}
+        value={prompt}
+      />
       <Switch
         checked={suffix}
         checkedChildren="Include Features"
@@ -46,9 +65,36 @@ type PromptButtonProps = {
 
 export function PromptButton({ suspect }: PromptButtonProps) {
   const copyToClipboard = useCopyToClipboardFunction();
+  const { notification } = App.useApp();
+
+  const { queryParams } = useQueryParams();
+  const promptQP = queryParams.get('prompt');
 
   const handleClick = () => {
-    const prompt = localStorage.getItem(PROMPT_KEY) ?? '';
+    console.log('promptQP', promptQP);
+    let prompt = !promptQP
+      ? (localStorage.getItem(PROMPT_KEY) ?? '')
+      : PROMPTS[promptQP as keyof typeof PROMPTS];
+
+    if (promptQP === 'zootopia') {
+      if (!suspect.animal) {
+        notification.error({
+          message: 'Error',
+          description: 'Suspect does not have an animal type defined.',
+        });
+        return;
+      }
+      prompt += `${suspect.animal} `;
+    }
+
+    if (!suspect.prompt) {
+      notification.error({
+        message: 'Error',
+        description: 'Suspect does not have a prompt defined.',
+      });
+      return;
+    }
+
     let formattedPrompt = `${prompt} ${suspect.prompt}`;
 
     const includeFeatures = localStorage.getItem(PROMPT_SUFFIX_KEY) === 'true';
