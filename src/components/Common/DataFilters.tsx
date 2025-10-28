@@ -1,4 +1,4 @@
-import { Flex } from 'antd';
+import { Form } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, orderBy } from 'lodash';
 import { useMemo } from 'react';
@@ -53,7 +53,7 @@ export function DataFilters<T extends PlainObject>({ data, ignoreKeys = [] }: Da
   const filters = useMemo(() => buildDataFilters(data, ignoreKeys), [data, ignoreKeys]);
 
   return (
-    <Flex style={{ overflowY: 'auto' }} vertical>
+    <Form layout="vertical">
       {filters.filters.map((filter) => (
         <FilterSelect
           key={filter.label}
@@ -80,7 +80,7 @@ export function DataFilters<T extends PlainObject>({ data, ignoreKeys = [] }: Da
         ]}
         value={queryParams.get('order') ?? 'asc'}
       />
-    </Flex>
+    </Form>
   );
 }
 

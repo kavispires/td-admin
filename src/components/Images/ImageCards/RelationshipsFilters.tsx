@@ -1,4 +1,4 @@
-import { Flex } from 'antd';
+import { Flex, Form } from 'antd';
 import { FilterSelect, FilterSwitch, ResponseState } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
@@ -59,26 +59,28 @@ export function RelationshipsFilters() {
 
         <FilterSwitch label="Show Ids" onChange={(c) => setShowIds(c)} value={showIds} />
 
-        <FilterSelect
-          label="Tag Count"
-          onChange={(value) => setTagThreshold(value)}
-          options={TAGS_SELECTOR_OPTIONS}
-          value={tagThreshold}
-        />
+        <Form layout="vertical">
+          <FilterSelect
+            label="Tag Count"
+            onChange={(value) => setTagThreshold(value)}
+            options={TAGS_SELECTOR_OPTIONS}
+            value={tagThreshold}
+          />
 
-        <FilterSelect
-          label="Sample Size"
-          onChange={(value) => setSampleSize(value)}
-          options={SAMPLE_SIZE_OPTIONS}
-          value={sampleSize}
-        />
+          <FilterSelect
+            label="Sample Size"
+            onChange={(value) => setSampleSize(value)}
+            options={SAMPLE_SIZE_OPTIONS}
+            value={sampleSize}
+          />
 
-        <FilterSelect
-          label="Card Size"
-          onChange={(value) => setCardSize(value)}
-          options={CARD_SIZE_OPTIONS}
-          value={cardSize}
-        />
+          <FilterSelect
+            label="Card Size"
+            onChange={(value) => setCardSize(value)}
+            options={CARD_SIZE_OPTIONS}
+            value={cardSize}
+          />
+        </Form>
       </SiderContent>
 
       <SiderContent>

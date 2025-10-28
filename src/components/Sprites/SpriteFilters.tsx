@@ -1,3 +1,4 @@
+import { Form } from 'antd';
 import { FilterSelect } from 'components/Common';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -10,12 +11,14 @@ export function SpriteFilters() {
 
   return (
     <SiderContent>
-      <FilterSelect
-        label="Library"
-        onChange={(value) => addParam('sprite', value)}
-        options={SPRITES}
-        value={queryParams.get('sprite') ?? ''}
-      />
+      <Form layout="vertical">
+        <FilterSelect
+          label="Library"
+          onChange={(value) => addParam('sprite', value)}
+          options={SPRITES}
+          value={queryParams.get('sprite') ?? ''}
+        />
+      </Form>
     </SiderContent>
   );
 }

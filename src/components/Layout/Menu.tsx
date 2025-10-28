@@ -136,10 +136,6 @@ const items: MenuProps['items'] = [
         label: 'Attribution',
         key: '/items/attribution',
       },
-      {
-        label: 'Crimes History',
-        key: '/items/crimes-history',
-      },
     ],
   },
   {
@@ -148,34 +144,28 @@ const items: MenuProps['items'] = [
     icon: <FileImageOutlined />,
     children: [
       {
-        type: 'group',
-        label: 'Image Cards',
-        children: [
-          {
-            label: 'Decks',
-            key: '/image/decks',
-          },
-          {
-            label: 'Descriptor',
-            key: '/image/descriptor',
-          },
-          {
-            label: 'Passcode',
-            key: '/image/passcode',
-          },
-          {
-            label: 'Relationships',
-            key: '/image/relationships',
-          },
-          {
-            label: 'Comparator',
-            key: '/image/comparator',
-          },
-          {
-            label: 'Connections',
-            key: '/image/connections',
-          },
-        ],
+        label: 'Decks',
+        key: '/image/decks',
+      },
+      {
+        label: 'Descriptor',
+        key: '/image/descriptor',
+      },
+      {
+        label: 'Passcode',
+        key: '/image/passcode',
+      },
+      {
+        label: 'Relationships',
+        key: '/image/relationships',
+      },
+      {
+        label: 'Comparator',
+        key: '/image/comparator',
+      },
+      {
+        label: 'Connections',
+        key: '/image/connections',
       },
     ],
   },
@@ -191,6 +181,10 @@ const items: MenuProps['items'] = [
       {
         label: 'Movie Maker',
         key: '/fun/movie-maker',
+      },
+      {
+        label: 'Crimes History Maker',
+        key: '/fun/crimes-history',
       },
     ],
   },

@@ -52,6 +52,7 @@ export function ComparatorFilters({ query }: ComparatorFiltersProps) {
 
         <FilterSelect
           label="Cycle Threshold"
+          minWidth={20}
           onChange={(v) => addParam('cycle', v)}
           options={[1, 3, 5, 10]}
           value={queryParams.get('cycle') || 3}

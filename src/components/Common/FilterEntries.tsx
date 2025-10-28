@@ -10,12 +10,13 @@ type FilterSelectProps = {
   onChange: (value: any) => void;
   options: { value: StrOrNum; label: StrOrNum }[] | StrOrNum[];
   placeholder?: string;
+  minWidth?: number;
 };
 
-export function FilterSelect({ label, value, onChange, options, placeholder }: FilterSelectProps) {
+export function FilterSelect({ label, value, onChange, options, placeholder, minWidth }: FilterSelectProps) {
   return (
     <Form.Item label={label} style={{ marginBottom: 6 }} vertical>
-      <Select onChange={onChange} size="small" style={{ minWidth: '150px' }} value={value}>
+      <Select onChange={onChange} size="small" style={{ minWidth: minWidth ?? '150px' }} value={value}>
         {placeholder && (
           <Select.Option disabled value={''}>
             {placeholder}

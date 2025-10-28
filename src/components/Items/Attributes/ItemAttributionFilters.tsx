@@ -1,4 +1,4 @@
-import { Divider, Flex } from 'antd';
+import { Divider, Flex, Form } from 'antd';
 import { FilterSelect } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { SaveButton } from 'components/Common/SaveButton';
@@ -53,12 +53,14 @@ export function ItemAttributionFilters() {
 
       <ItemAttributionStats />
 
-      <FilterSelect
-        label="Display"
-        onChange={(v) => addParam('display', v)}
-        options={['classifier', 'sampler', 'grouping', 'comparator', 'simulator', 'stats']}
-        value={display}
-      />
+      <Form layout="vertical">
+        <FilterSelect
+          label="Display"
+          onChange={(v) => addParam('display', v)}
+          options={['classifier', 'sampler', 'grouping', 'comparator', 'simulator', 'stats']}
+          value={display}
+        />
+      </Form>
       <Divider />
 
       {display === 'classifier' && <ItemAttributionClassifierFilters />}

@@ -157,12 +157,6 @@ export const routeConfig: RouteObject[] = [
           () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */),
         ),
       },
-      {
-        path: 'crimes-history',
-        element: withSuspense(
-          () => import('pages/Items/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
-        ),
-      },
     ],
   },
   // Images routes
@@ -217,6 +211,12 @@ export const routeConfig: RouteObject[] = [
       {
         path: 'movie-maker',
         element: withSuspense(() => import('pages/MovieMaker' /* webpackChunkName: "MovieMaker" */)),
+      },
+      {
+        path: 'crimes-history',
+        element: withSuspense(
+          () => import('pages/Items/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
+        ),
       },
     ],
   },

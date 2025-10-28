@@ -108,18 +108,21 @@ export function ItemListingFilters() {
 
       <Divider className="my-4" />
 
-      <FilterSelect
-        label="Deck"
-        onChange={(value) => addParam('deck', value, 'all')}
-        options={[
-          { label: 'All', value: 'all' },
-          { label: 'NSFW', value: 'nsfw' },
-          { label: 'SFW', value: '!nsfw' },
-          ...deckOptions,
-          { label: 'No decks', value: '!all' },
-        ]}
-        value={queryParams.get('deck') ?? 'all'}
-      />
+      <Flex>
+        <FilterSelect
+          label="Deck"
+          minWidth={125}
+          onChange={(value) => addParam('deck', value, 'all')}
+          options={[
+            { label: 'All', value: 'all' },
+            { label: 'NSFW', value: 'nsfw' },
+            { label: 'SFW', value: '!nsfw' },
+            ...deckOptions,
+            { label: 'No decks', value: '!all' },
+          ]}
+          value={queryParams.get('deck') ?? 'all'}
+        />
+      </Flex>
 
       <Divider className="my-4" />
 

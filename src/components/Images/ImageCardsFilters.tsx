@@ -1,3 +1,4 @@
+import { Form } from 'antd';
 import { FilterNumber, FilterSelect } from 'components/Common';
 import { SiderContent } from 'components/Layout';
 import { useMemo } from 'react';
@@ -24,14 +25,16 @@ export function ImageCardsFilters({
   }, [decksData]);
   return (
     <SiderContent>
-      <FilterSelect label="Deck" onChange={setSelectedDeck} options={deckOptions} value={selectedDeck} />
-      <FilterNumber
-        label="Cards Per Row"
-        max={8}
-        min={1}
-        onChange={(v) => setCardsPerRow(v ?? 8)}
-        value={cardsPerRow}
-      />
+      <Form layout="vertical">
+        <FilterSelect label="Deck" onChange={setSelectedDeck} options={deckOptions} value={selectedDeck} />
+        <FilterNumber
+          label="Cards Per Row"
+          max={8}
+          min={1}
+          onChange={(v) => setCardsPerRow(v ?? 8)}
+          value={cardsPerRow}
+        />
+      </Form>
     </SiderContent>
   );
 }
