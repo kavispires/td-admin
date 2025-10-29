@@ -223,6 +223,12 @@ export const routeConfig: RouteObject[] = [
           () => import('pages/Fun/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
         ),
       },
+      {
+        path: 'suspects-personalities',
+        element: withSuspense(
+          () => import('pages/Fun/SuspectsPersonalities' /* webpackChunkName: "SuspectsPersonalities" */),
+        ),
+      },
     ],
   },
 ];

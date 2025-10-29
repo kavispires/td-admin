@@ -179,12 +179,16 @@ const items: MenuProps['items'] = [
         key: '/fun/playground',
       },
       {
+        label: 'Crimes History Maker',
+        key: '/fun/crimes-history',
+      },
+      {
         label: 'Movie Maker',
         key: '/fun/movie-maker',
       },
       {
-        label: 'Crimes History Maker',
-        key: '/fun/crimes-history',
+        label: 'Suspects Personalities',
+        key: '/fun/suspects-personalities',
       },
     ],
   },

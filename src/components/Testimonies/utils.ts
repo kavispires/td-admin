@@ -4,6 +4,37 @@ import type {
   TestimonyAnswersValues,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 
+/**
+ * Calculates statistical data and projections for a suspect's answers to a specific question.
+ *
+ * This function aggregates system and audience votes, determines reliability, completeness,
+ * and provides a projected resolution based on configurable thresholds.
+ *
+ * @param suspectCardId - The unique identifier for the suspect card (e.g., "suspect-1").
+ * @param questionId - The unique identifier for the question being answered.
+ * @param answers - An object containing all answers for suspects, keyed by suspectCardId.
+ * @param options - Optional configuration for calculation thresholds.
+ * @param options.reliabilityThreshold - Minimum total value required for reliable calculation (default: 4).
+ * @param options.projectionThreshold - Percentage threshold for projecting a likely outcome (default: 55).
+ * @param options.forceProjection - If true, forces projection calculation even with insufficient data.
+ *
+ * @returns An object containing calculated statistics and projections:
+ * - suspectCardId: The input suspectCardId.
+ * - imageId: The derived image identifier for the suspect.
+ * - questionId: The input questionId.
+ * - enoughData: Whether there is enough data to make a judgment.
+ * - reliable: Whether the data is considered reliable.
+ * - total: The total sum of absolute answer values.
+ * - yesCount: Aggregated "yes" votes from system and audience.
+ * - yesPercentage: Percentage of "yes" votes.
+ * - noCount: Aggregated "no" votes from system and audience.
+ * - noPercentage: Percentage of "no" votes.
+ * - blankPercentage: Percentage of unanswered or blank votes.
+ * - complete: Whether the answer set is complete or deterministic.
+ * - values: The array of answer values for the suspect.
+ * - resolution: The resolved outcome ('👍', '👎', or null).
+ * - projection: The projected likely outcome ('👍', '👎', or null).
+ */
 export const calculateSuspectAnswersData = (
   suspectCardId: string,
   questionId: string,
@@ -11,6 +42,8 @@ export const calculateSuspectAnswersData = (
   options?: {
     reliabilityThreshold?: number;
     projectionThreshold?: number;
+    // Ignores enough data to calculate projection
+    forceProjection?: boolean;
   },
 ) => {
   const { reliabilityThreshold = 4, projectionThreshold = 55 } = options || {};
@@ -64,7 +97,7 @@ export const calculateSuspectAnswersData = (
   // if (total > 3) {
   //   console.log({ suspectCardId, total, enoughData, complete, values });
   // }
-  const reliable = total > reliabilityThreshold && Math.abs(yesPercentage - noPercentage) >= 40;
+  const reliable = enoughData && total > reliabilityThreshold && Math.abs(yesPercentage - noPercentage) >= 40;
 
   const resolution = (() => {
     if (reliable && Math.abs(yesPercentage - noPercentage) > 40)
@@ -75,8 +108,7 @@ export const calculateSuspectAnswersData = (
   // Calculate projected likelihood
   // If it is not reliable, but has enough data, if the current data is more than 70% to yes or no, declare it's side (yes or no). If there's not enough data, likelihood is null
   const projection = (() => {
-    if (!enoughData) return null;
-    if (!reliable) return null;
+    if (Math.abs(yesPercentage - noPercentage) < 50) return null;
     if (yesPercentage >= projectionThreshold) return '👍';
     if (noPercentage >= projectionThreshold) return '👎';
     return null;
