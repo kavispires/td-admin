@@ -98,7 +98,7 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   patternedShirt: 'está usando roupa estampada',
   buttonShirt: 'está usando camisa com botões',
   bow: 'está usando um laço',
-  hairyChest: 'tem peito peludo',
+  hairyChest: 'está mostrando o peito peludo',
   wearingFlowers: 'está usando flores',
   showTeeth: 'está mostrando os dentes',
   hairTie: 'está usando um xuxinha ou fita no cabelo',

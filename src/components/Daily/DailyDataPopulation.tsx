@@ -38,7 +38,7 @@ export function DailyDataPopulation() {
         <FilterSelect
           label="Batch Size"
           onChange={setBatchSize}
-          options={[3, 7, 14, 21, 28]}
+          options={[1, 3, 7, 14, 21, 28]}
           placeholder="Select a number"
           value={batchSize}
         />
