@@ -9,7 +9,7 @@ export const PROMPT_KEY = 'TD_ADMIN_SUSPECTS_PROMPT';
 export const PROMPT_SUFFIX_KEY = 'TD_ADMIN_SUSPECTS_PROMPT_SUFFIX';
 
 const PROMPTS = {
-  ghili: "Make this picture ghibli style in 2:3 aspect-ratio. It's a ", // Used with an original picture,
+  ghibli: "Make this picture ghibli style in 2:3 aspect-ratio. It's a ", // Used with an original picture,
   fox: "Make this image in the Family Guy style, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a ",
   pixar:
     "Make this image in the 3d Pixar style, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a ",

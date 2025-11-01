@@ -32,7 +32,7 @@ const SORT_BY = [
 
 const PROMPTS = [
   { value: '', label: 'No Prompt/Custom' },
-  { value: 'gibli', label: 'Gibli Style' },
+  { value: 'ghibli', label: 'Ghibli Style' },
   { value: 'realistic', label: 'Realistic Style' },
   { value: 'pixar', label: 'Pixar Style' },
   { value: 'fox', label: 'Fox Style' },
@@ -117,12 +117,12 @@ function prepareFileForDownload(data: Dictionary<SuspectCard>) {
 
   // TO ADD NEW SUSPECTS
   // Add 40 new blank suspects with ids from 151 to 190 following the SuspectCard type
-  // for (let i = 151; i <= 180; i++) {
+  // for (let i = 181; i <= 195; i++) {
   //   const id = `us-${i.toString().padStart(3, '0')}`;
   //   const newSuspect: SuspectCard = {
   //     id,
   //     name: { en: '', pt: '' },
-  //     label: { en: '', pt: '' },
+  //     persona: { en: '', pt: '' },
   //     gender: '',
   //     ethnicity: '',
   //     age: '',
@@ -133,7 +133,9 @@ function prepareFileForDownload(data: Dictionary<SuspectCard>) {
   //     prompt: '',
   //     animal: '',
   //   };
-  //   copy[id] = newSuspect;
+  //   if (copy[id] === undefined) {
+  //     copy[id] = newSuspect;
+  //   }
   // }
 
   return sortJsonKeys(copy, [
