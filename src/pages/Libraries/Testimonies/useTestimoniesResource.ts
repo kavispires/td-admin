@@ -48,24 +48,3 @@ export function useTestimoniesResource(): UseTestimoniesResourceReturnType {
     hasNewData: dataQuery.hasFirestoreData,
   };
 }
-
-/**
- * Calculates the total count of answers based on specific values.
- *
- * @param values - An array of testimony answer values to be counted
- * @returns The total count of answers, where:
- *  - Values 0 or 1 contribute 1 to the count
- *  - Values 3 or -3 contribute 3 to the count
- *  - Values 4 or -4 contribute 4 to the count
- *  - Any other value contributes its absolute value to the count
- */
-export const countAnswers = (values: TestimonyAnswersValues[]): number => {
-  return values.reduce((acc: number, value) => {
-    const absValue = Math.abs(value);
-    if (absValue) {
-      return acc + absValue;
-    }
-
-    return acc;
-  }, 0);
-};

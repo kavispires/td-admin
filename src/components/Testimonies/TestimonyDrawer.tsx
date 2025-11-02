@@ -6,6 +6,7 @@ import type { useTestimoniesResource } from 'pages/Libraries/Testimonies/useTest
 import { useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { useEffectOnce, useStateWithHistory, useWindowSize } from 'react-use';
+import { countAnswersAbsoluteTotal } from './utils';
 
 export type TestimoniesContentProps = ReturnType<typeof useTestimoniesResource>;
 
@@ -73,7 +74,7 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
   const onNo = () => {
     if (state?.suspectId && state?.testimonyId) {
       const newAnswers = cloneDeep(answers[state?.testimonyId ?? ''] ?? {});
-      newAnswers[state.suspectId] = [...(newAnswers[state.suspectId] || []), 0];
+      newAnswers[state.suspectId] = [...(newAnswers[state.suspectId] || []), -1];
       addEntryToUpdate(state.testimonyId ?? '', newAnswers);
       getRandom();
     }
@@ -137,17 +138,24 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
   const [isRandomQuestion, setRandomQuestion] = useState(true);
 
   const getRandom = () => {
-    const suspectsSet = sampleSize(Object.keys(suspects), numberOfSuspects)?.reduce(
-      (acc: PendingSuspectsDict, id) => {
-        acc[id] = null;
-        return acc;
-      },
-      {},
-    );
+    const selectedTestimonyId =
+      (isRandomQuestion ? sample(Object.keys(questions)) : state?.testimonyId) ?? null;
+
+    const suspectsSet = sampleSize(
+      Object.keys(suspects).filter((suspectId) => {
+        const existingAnswers = answers[selectedTestimonyId ?? '']?.[suspectId] || [];
+        const absValue = countAnswersAbsoluteTotal(existingAnswers);
+        return absValue < 4;
+      }),
+      numberOfSuspects,
+    ).reduce((acc: PendingSuspectsDict, id) => {
+      acc[id] = null;
+      return acc;
+    }, {});
 
     setState({
       suspectsIds: suspectsSet,
-      testimonyId: (isRandomQuestion ? sample(Object.keys(questions)) : state?.testimonyId) ?? null,
+      testimonyId: selectedTestimonyId,
     });
   };
 

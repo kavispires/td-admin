@@ -9,15 +9,14 @@ import { SuspectsStyleVariantSelector } from 'components/Suspects/SuspectsStyleV
 import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
-import {
-  countAnswers,
-  type TestimonyAnswers,
-  type useTestimoniesResource,
+import type {
+  TestimonyAnswers,
+  useTestimoniesResource,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import { deepCleanObject, deserializeFirestoreData, sortJsonKeys } from 'utils';
 import { TestimonyDrawer } from './TestimonyDrawer';
-import normalizeValues from './utils';
+import normalizeValues, { countAnswersAbsoluteTotal } from './utils';
 
 export type TestimoniesFiltersProps = ReturnType<typeof useTestimoniesResource>;
 
@@ -43,7 +42,7 @@ export function TestimoniesFilters({
           if (!suspects[suspectId]) {
             suspects[suspectId] = 0;
           }
-          const count = countAnswers(suspectEntry[suspectId]);
+          const count = countAnswersAbsoluteTotal(suspectEntry[suspectId]);
           if (count >= 5) {
             suspects[suspectId] += 1;
           }

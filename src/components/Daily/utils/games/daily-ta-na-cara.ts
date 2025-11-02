@@ -1,8 +1,9 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { getSuspectImageId } from 'components/Suspects/SuspectImageCard';
+import { countAnswersAbsoluteTotal } from 'components/Testimonies/utils';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy, shuffle } from 'lodash';
-import { countAnswers, type TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimoniesResource';
+import type { TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { makeBooleanDictionary } from 'utils';
@@ -284,7 +285,7 @@ const countTestimonyAnswers = (
 
     Object.keys(suspects).forEach((suspectId) => {
       const suspectAnswers = answersForSuspects[suspectId] || [];
-      const suspectAnswersCount = countAnswers(suspectAnswers);
+      const suspectAnswersCount = countAnswersAbsoluteTotal(suspectAnswers);
       if (suspectAnswersCount >= 32) {
         globalCounts[testimonyId]['32+'].push(suspectId);
       } else if (suspectAnswersCount > 5 && suspectAnswersCount < 32) {
