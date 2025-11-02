@@ -63,6 +63,7 @@ export function PopoverStrongAnswers({
         <Flex align="center" vertical>
           <Typography.Text type="secondary">{values.join(', ')}</Typography.Text>
           <Space.Compact>
+            <Button icon="+" onClick={() => onAddValue(suspect.id, 1)} />
             <Button block icon="👍" onClick={() => onAddValue(suspect.id, 4)}>
               Fit
             </Button>
@@ -75,6 +76,7 @@ export function PopoverStrongAnswers({
 
           <Divider className="my-1" />
           <Space.Compact>
+            <Button icon="-" onClick={() => onAddValue(suspect.id, -1)} />
             <Button block icon="⬆️" onClick={() => onAddValue(suspect.id, 32)}>
               Sure
             </Button>
