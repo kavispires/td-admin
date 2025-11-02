@@ -42,7 +42,9 @@ export function SuspectsPersonalitiesContent({ data }: ReturnType<typeof useSusp
                 ) : (
                   <>
                     <Tooltip title={data.zodiacCrossReference[zodiacSign || 'N/A']?.description || ''}>
-                      <Typography.Text>{ZODIAC_SIGNS?.[zodiacSign] || 'N/A'}</Typography.Text>
+                      <Typography.Text type={!ZODIAC_SIGNS?.[zodiacSign] ? 'danger' : undefined}>
+                        {ZODIAC_SIGNS?.[zodiacSign] || 'N/A'}
+                      </Typography.Text>
                     </Tooltip>
                     <Tooltip title={data.zodiacCrossReference[ascendantSign || 'N/A']?.description || ''}>
                       <Typography.Text type="secondary">

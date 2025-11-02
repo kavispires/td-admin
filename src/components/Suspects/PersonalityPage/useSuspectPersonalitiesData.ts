@@ -96,15 +96,6 @@ export function useSuspectPersonalitiesData() {
     };
   }, [zodiacCrossRefQuery.data, mbtiCrossRefQuery.data]);
 
-  console.log(
-    'Unused Zodiac Testimony IDs:',
-    unusedZodiacTestimonyIds.map((id) => `${id} - ${testimoniesQuery.data?.[id]?.question || 'N/A'}`),
-  );
-  console.log(
-    'Unused MBTI Testimony IDs:',
-    unusedMbtiTestimonyIds.map((id) => `${id} - ${testimoniesQuery.data?.[id]?.question || 'N/A'}`),
-  );
-
   return {
     error:
       suspectsQuery.error ||
@@ -179,8 +170,12 @@ const getSuspectPersonalities = (
 
     // Determine zodiacSign and ascendantSign based on counts
     const sortedZodiac = Object.entries(zodiacCounts).sort((a, b) => b[1] - a[1]);
-    const zodiacSign = sortedZodiac[0]?.[0] || '';
-    const ascendantSign = sortedZodiac[1]?.[0] || '';
+
+    const cutoffZodiac = sortedZodiac.filter(([, count]) => count > 3);
+
+    const zodiacSign = cutoffZodiac[0]?.[0] || '';
+    const ascendantSign =
+      cutoffZodiac[1]?.[0] || sortedZodiac.filter(([zodiac]) => zodiac !== zodiacSign)[0]?.[0] || '';
 
     // Count MBTI types from positive and negative resolutions
     for (const crossRef of Object.values(mbtiCrossReference)) {
