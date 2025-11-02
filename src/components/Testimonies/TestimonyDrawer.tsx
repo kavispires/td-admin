@@ -123,11 +123,14 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
   );
 }
 
+type PendingValues = null | -4 | 4;
+type PendingSuspectsDict = Record<string, PendingValues>;
+
 function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: TestimonyDrawerProps) {
   const { width, height } = useWindowSize();
   const { is, removeParam } = useQueryParams();
   const [state, setState, _stateHistory] = useStateWithHistory<{
-    suspectsIds: Record<string, null | 0 | 1>;
+    suspectsIds: PendingSuspectsDict;
     testimonyId: string | null;
   }>();
   const [numberOfSuspects, setNumberOfSuspects] = useState(6);
@@ -135,7 +138,7 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
 
   const getRandom = () => {
     const suspectsSet = sampleSize(Object.keys(suspects), numberOfSuspects)?.reduce(
-      (acc: Record<string, null | 0 | 1>, id) => {
+      (acc: PendingSuspectsDict, id) => {
         acc[id] = null;
         return acc;
       },
@@ -151,9 +154,9 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
   useEffectOnce(() => getRandom());
 
   const onNext = () => {
-    // From the judged suspects, only keep the ones that have a value (1 or 0) and add to the answers
+    // From the judged suspects, only keep the ones that have a value (4 or -4) and add to the answers
     const judgedSuspects = Object.entries(state?.suspectsIds ?? {}).reduce(
-      (acc: Record<string, (0 | 1)[]>, [id, value]) => {
+      (acc: Record<string, (-4 | 4)[]>, [id, value]) => {
         if (value !== null) {
           acc[id] = [value];
         }
@@ -177,12 +180,12 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
 
   const hasEntry = !!state?.suspectsIds && !!state?.testimonyId;
 
-  const onSetAllNullTo = (value: 0 | 1) => {
+  const onSetAllNullTo = (value: -4 | 4) => {
     setState((prev) => {
       if (!prev) return prev;
 
       const newSuspectsIds = Object.entries(prev.suspectsIds).reduce(
-        (acc: Record<string, null | 0 | 1>, [id, val]) => {
+        (acc: PendingSuspectsDict, [id, val]) => {
           acc[id] = val === null ? value : val;
           return acc;
         },
@@ -241,15 +244,15 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
                           ...prev,
                           suspectsIds: {
                             ...prev.suspectsIds,
-                            [suspectId]: value as null | 0 | 1,
+                            [suspectId]: value as PendingValues,
                           },
                         };
                       })
                     }
                     options={[
-                      { value: 0, icon: '👎' },
+                      { value: -4, icon: '👎' },
                       { value: null, icon: '♾' },
-                      { value: 1, icon: '👍' },
+                      { value: 4, icon: '👍' },
                     ]}
                     shape="round"
                     size="large"
@@ -264,8 +267,8 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
         <Flex align="center" className="mt-8" justify="space-between">
           <span />
           <Flex gap={8}>
-            <Button onClick={() => onSetAllNullTo(0)}>Set all ♾ to 👎</Button>
-            <Button onClick={() => onSetAllNullTo(1)}>Set all ♾ to 👍</Button>
+            <Button onClick={() => onSetAllNullTo(-4)}>Set all ♾ to 👎</Button>
+            <Button onClick={() => onSetAllNullTo(4)}>Set all ♾ to 👍</Button>
           </Flex>
           <Button onClick={onNext} size="large">
             Next Set
