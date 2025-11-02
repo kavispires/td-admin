@@ -1,4 +1,5 @@
-import { Button, Checkbox, Divider, Flex, Popconfirm, Space, Switch, Typography } from 'antd';
+import { ExpandOutlined } from '@ant-design/icons';
+import { Button, Checkbox, Divider, Flex, FloatButton, Popconfirm, Space, Switch, Typography } from 'antd';
 import clsx from 'clsx';
 import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useCardWidth } from 'hooks/useCardWidth';
@@ -12,6 +13,7 @@ import { calculateSuspectAnswersData } from './utils';
 
 type TestimonyAnswerExpandedRowProps = {
   testimonyId: string;
+  question: string;
   answers: TestimonyAnswers;
   suspects: Dictionary<SuspectCard>;
   addEntryToUpdate: (id: string, entry: TestimonyAnswers) => void;
@@ -22,6 +24,7 @@ export function TestimonyAnswerExpandedRow({
   suspects,
   addEntryToUpdate,
   testimonyId,
+  question,
 }: TestimonyAnswerExpandedRowProps) {
   const [cardWidth, ref] = useCardWidth(12);
   const { queryParams, is } = useQueryParams({ sortSuspectsBy: 'answers' });
@@ -59,6 +62,7 @@ export function TestimonyAnswerExpandedRow({
         addEntryToUpdate={addEntryToUpdate}
         answers={answers}
         list={list}
+        question={question}
         selection={selection}
         setSelection={setSelection}
         suspects={suspects}
@@ -122,6 +126,7 @@ export function TestimonyAnswerExpandedRow({
 
 type BatchOptionsProps = {
   testimonyId: string;
+  question: string;
   selection: string[];
   setSelection: (selection: string[]) => void;
   suspects: Dictionary<SuspectCard>;
@@ -131,6 +136,7 @@ type BatchOptionsProps = {
 };
 
 function BatchOptions({
+  question,
   testimonyId,
   selection,
   setSelection,
@@ -220,118 +226,142 @@ function BatchOptions({
   };
 
   return (
-    <Flex align="center" className="mb-4" gap={6} justify="space-between">
-      <Flex gap={3}>
-        <Typography.Text className="nowrap" style={{ minWidth: '5ch' }}>
-          Batch
-        </Typography.Text>
-        <Switch
-          checkedChildren="On"
-          onChange={(checked) => {
-            if (checked) {
-              addParam('enableBatch', true);
-            } else {
-              removeParam('enableBatch');
-            }
-          }}
-          unCheckedChildren="Off"
-          value={isBatchEnabled}
-        />
+    <>
+      <Flex align="center" className="mb-4" gap={6} justify="space-between">
+        <Flex gap={3}>
+          <Typography.Text className="nowrap" style={{ minWidth: '5ch' }}>
+            Batch
+          </Typography.Text>
+          <Switch
+            checkedChildren="On"
+            onChange={(checked) => {
+              if (checked) {
+                addParam('enableBatch', true);
+              } else {
+                removeParam('enableBatch');
+              }
+            }}
+            unCheckedChildren="Off"
+            value={isBatchEnabled}
+          />
+        </Flex>
+        {isBatchEnabled && (
+          <>
+            <Typography.Text className="nowrap mr-2">Selected {selection.length}</Typography.Text>
+            <Flex align="center" gap={6} justify="center" wrap>
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="empty"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="male"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="female"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="young"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="adult"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="parent"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="senior"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="thin"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="muscular"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="large"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="asian"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="black"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="caucasian"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                filter="latino"
+                updateActiveFilter={updateActiveFilter}
+              />
+            </Flex>
+            <Flex align="center" gap={6}>
+              <Button danger onClick={() => setActiveFilters([])} size="small">
+                Clear
+              </Button>
+              <Popconfirm onConfirm={() => onApplyBatch(4)} title="Apply +4 to selected suspects?">
+                <Button className="ml-10" disabled={selection.length === 0} size="small" type="primary">
+                  Apply +4
+                </Button>
+              </Popconfirm>
+              <Divider type="vertical" />
+              <Popconfirm onConfirm={() => onApplyBatch(-4)} title="Apply -4 to selected suspects?">
+                <Button disabled={selection.length === 0} size="small" type="primary">
+                  Apply -4
+                </Button>
+              </Popconfirm>
+            </Flex>
+          </>
+        )}
       </Flex>
-      {isBatchEnabled && (
-        <>
-          <Typography.Text className="nowrap mr-2">Selected {selection.length}</Typography.Text>
-          <Flex align="center" gap={6} justify="center" wrap>
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="empty"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="male"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="female"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="young"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="adult"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="parent"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="senior"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="thin"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="muscular"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="large"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="asian"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="black"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="caucasian"
-              updateActiveFilter={updateActiveFilter}
-            />
-            <FilterEntry
-              activeFilters={activeFilters}
-              filter="latino"
-              updateActiveFilter={updateActiveFilter}
-            />
-          </Flex>
-          <Flex align="center" gap={6}>
-            <Button danger onClick={() => setActiveFilters([])} size="small">
-              Clear
-            </Button>
-            <Popconfirm onConfirm={() => onApplyBatch(4)} title="Apply +4 to selected suspects?">
-              <Button className="ml-10" disabled={selection.length === 0} size="small" type="primary">
-                Apply +4
-              </Button>
-            </Popconfirm>
-            <Divider type="vertical" />
-            <Popconfirm onConfirm={() => onApplyBatch(-4)} title="Apply -4 to selected suspects?">
-              <Button disabled={selection.length === 0} size="small" type="primary">
-                Apply -4
-              </Button>
-            </Popconfirm>
-          </Flex>
-        </>
+      {selection.length > 0 && (
+        <FloatButton.Group shape="square" style={{ insetInlineEnd: 94 }}>
+          <FloatButton
+            badge={{ count: selection.length, color: 'green', size: 'small' }}
+            icon="👍"
+            onClick={() => onApplyBatch(4)}
+            tooltip={question}
+          />
+          <FloatButton
+            badge={{ count: selection.length, color: 'red', size: 'small' }}
+            icon="👎"
+            onClick={() => onApplyBatch(-4)}
+            tooltip={question}
+          />
+          <FloatButton
+            icon={<ExpandOutlined />}
+            onClick={() => setActiveFilters([])}
+            tooltip="Clear selection"
+          />
+          <FloatButton.BackTop visibilityHeight={0} />
+        </FloatButton.Group>
       )}
-    </Flex>
+    </>
   );
 }
 

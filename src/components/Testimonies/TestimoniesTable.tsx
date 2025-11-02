@@ -1,9 +1,9 @@
-import { FireFilled, SearchOutlined } from '@ant-design/icons';
-import { Flex, Input, Switch, Table, type TableProps, Typography } from 'antd';
+import { CloudSyncOutlined, FireFilled, SearchOutlined } from '@ant-design/icons';
+import { Button, Flex, Input, Switch, Table, type TableProps, Tooltip, Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
-import { orderBy } from 'lodash';
+import { orderBy, sample } from 'lodash';
 import type { useTestimoniesResource } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo, useState } from 'react';
 import type { TestimonyQuestionCard } from 'types';
@@ -84,6 +84,7 @@ export function TestimoniesTable({
         addEntryToUpdate={addEntryToUpdate}
         answers={data[record.id] ?? {}}
         key={record.id}
+        question={record.question}
         suspects={suspects}
         testimonyId={record.id}
       />
@@ -104,14 +105,22 @@ export function TestimoniesTable({
           unCheckedChildren="Sort by Id"
         />
       </Flex>
-      <Input
-        allowClear
-        onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search questions by text or ID..."
-        prefix={<SearchOutlined />}
-        style={{ width: 320 }}
-        value={searchQuery}
-      />
+      <Flex gap={6}>
+        <Input
+          allowClear
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search questions by text or ID..."
+          prefix={<SearchOutlined />}
+          style={{ width: 320 }}
+          value={searchQuery}
+        />
+        <Tooltip title="Set random question">
+          <Button
+            icon={<CloudSyncOutlined />}
+            onClick={() => setSearchQuery(sample(Object.keys(questions)) ?? '')}
+          />
+        </Tooltip>
+      </Flex>
       <Table
         bordered
         className="full-width"
