@@ -1,6 +1,5 @@
 import { calculateSuspectAnswersData } from 'components/Testimonies/utils';
 import { useTDResource } from 'hooks/useTDResource';
-import { keyBy } from 'lodash';
 import type { TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
@@ -200,14 +199,13 @@ const getSuspectPersonalities = (
       ['T', 'F'],
       ['J', 'P'],
     ];
-    let insufficientData = false;
+
     let mbtiType = '';
 
     for (const [typeA, typeB] of PAIRS) {
       const countA = mbtiCounts[typeA] || 0;
       const countB = mbtiCounts[typeB] || 0;
       if (Math.abs(countA - countB) < 1) {
-        insufficientData = true;
         mbtiType += 'X';
       } else if (countA > countB) {
         mbtiType += typeA;

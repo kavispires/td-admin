@@ -187,6 +187,22 @@ function BatchOptions({
       return;
     }
 
+    if (activeFilters.includes('incompletePos')) {
+      const onlyIncompletePosSelection = Object.values(listDict)
+        .filter((e) => !e.complete && e.yesCount < 4 && e.yesCount > 0 && e.noCount === 0)
+        .map((e) => e.suspectCardId);
+      setSelection(onlyIncompletePosSelection);
+      return;
+    }
+
+    if (activeFilters.includes('incompleteNeg')) {
+      const onlyIncompleteNegSelection = Object.values(listDict)
+        .filter((e) => !e.complete && e.noCount < 4 && e.noCount > 0 && e.yesCount === 0)
+        .map((e) => e.suspectCardId);
+      setSelection(onlyIncompleteNegSelection);
+      return;
+    }
+
     // Run filters
     const filteredSelection = source.filter((suspectId) => {
       const suspect = suspects[suspectId];
@@ -247,13 +263,34 @@ function BatchOptions({
         </Flex>
         {isBatchEnabled && (
           <>
-            <Typography.Text className="nowrap mr-2">Selected {selection.length}</Typography.Text>
-            <Flex align="center" gap={6} justify="center" wrap>
+            <Typography.Text className="nowrap mr-2">
+              Selected {selection.length.toString().padStart(3, '0')}
+            </Typography.Text>
+            <Flex align="center" className="boxed" gap={6} justify="center" wrap>
               <FilterEntry
                 activeFilters={activeFilters}
+                end
                 filter="empty"
                 updateActiveFilter={updateActiveFilter}
               />
+            </Flex>
+            <Flex align="center" className="boxed" gap={6} justify="center" wrap>
+              <FilterEntry
+                activeFilters={activeFilters}
+                end
+                filter="incompletePos"
+                label="Incomplete+"
+                updateActiveFilter={updateActiveFilter}
+              />
+              <FilterEntry
+                activeFilters={activeFilters}
+                end
+                filter="incompleteNeg"
+                label="Incomplete-"
+                updateActiveFilter={updateActiveFilter}
+              />
+            </Flex>
+            <Flex align="center" className="boxed" gap={6} justify="center" wrap>
               <FilterEntry
                 activeFilters={activeFilters}
                 filter="male"
@@ -316,6 +353,7 @@ function BatchOptions({
               />
               <FilterEntry
                 activeFilters={activeFilters}
+                end
                 filter="latino"
                 updateActiveFilter={updateActiveFilter}
               />
@@ -345,18 +383,18 @@ function BatchOptions({
             badge={{ count: selection.length, color: 'green', size: 'small' }}
             icon="👍"
             onClick={() => onApplyBatch(4)}
-            tooltip={question}
+            tooltip={{ title: question, placement: 'left' }}
           />
           <FloatButton
             badge={{ count: selection.length, color: 'red', size: 'small' }}
             icon="👎"
             onClick={() => onApplyBatch(-4)}
-            tooltip={question}
+            tooltip={{ title: question, placement: 'left' }}
           />
           <FloatButton
             icon={<ExpandOutlined />}
             onClick={() => setActiveFilters([])}
-            tooltip="Clear selection"
+            tooltip={{ title: 'Clear selection', placement: 'left' }}
           />
           <FloatButton.BackTop visibilityHeight={0} />
         </FloatButton.Group>
@@ -367,18 +405,20 @@ function BatchOptions({
 
 type FilterEntryProps = {
   filter: string;
+  label?: string;
   activeFilters: string[];
   updateActiveFilter: (filter: string) => void;
+  end?: boolean;
 };
 
-function FilterEntry({ filter, activeFilters, updateActiveFilter }: FilterEntryProps) {
+function FilterEntry({ filter, activeFilters, updateActiveFilter, end, label }: FilterEntryProps) {
   return (
     <>
       <span>
         <Checkbox checked={activeFilters.includes(filter)} onClick={() => updateActiveFilter(filter)} />{' '}
-        {capitalize(filter)}
+        {label ?? capitalize(filter)}
       </span>
-      <Divider type="vertical" />
+      {!end && <Divider type="vertical" />}
     </>
   );
 }

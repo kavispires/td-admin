@@ -235,6 +235,13 @@ body {
   border: 2px solid red;
 }
 
+.boxed {
+  // background-color: rgba($color: #6f7273, $alpha: 0.1);
+  border: 1px solid rgba($color: #6f7273, $alpha: 0.2);
+  border-radius: get-unit(1);
+  padding: get-unit(2);
+}
+
 .bold {
   font-weight: bold;
 }
