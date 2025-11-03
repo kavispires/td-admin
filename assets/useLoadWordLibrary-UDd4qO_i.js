@@ -1,0 +1,1 @@
+import{a as n,u as c,l as d}from"./useBaseUrl-BFpYqAji.js";function p(s,r,a=!0,y){const{getUrl:o}=n("resources"),t=`words-${s}-letters-selected-${r}`,e=c({queryKey:[t],queryFn:async()=>await(await fetch(o(`${t}.json`))).json(),enabled:a&&!!s&&!!r}),u=!d.isEmpty(e.data);return{...e,data:e.data??[],hasResponseData:u}}export{p as u};
