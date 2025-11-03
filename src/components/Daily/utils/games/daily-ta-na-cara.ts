@@ -188,12 +188,11 @@ const buildTestimonyEntry = (
   testimony: TestimonyQuestionCard,
 ): TaNaCaraQuestion => {
   const suspectsIds = [
-    ...shuffle(sortedCounts.counts[3]),
-    ...shuffle(sortedCounts.counts[2]),
-    ...sortedCounts.counts[1],
+    ...shuffle([...sortedCounts.counts[3], ...sortedCounts.counts[2]]),
+    ...shuffle([...sortedCounts.counts[1], ...sortedCounts.counts[4]]),
     ...sortedCounts.counts[0],
     ...sortedCounts.counts[5],
-    ...sortedCounts.counts[4],
+    ...sortedCounts.counts['5+'],
   ]
     .filter(Boolean)
     .slice(0, SUSPECTS_SIZE)
@@ -303,14 +302,20 @@ const countTestimonyAnswers = (
   const sorted = orderBy(
     Object.keys(globalCounts).map((testimonyId) => ({ testimonyId, counts: globalCounts[testimonyId] })),
     [
-      (o) => o.counts[4].length,
-      (o) => o.counts[2].length,
       (o) => o.counts[3].length,
       (o) => o.counts[1].length,
+      (o) => o.counts[2].length,
+      (o) => o.counts[4].length,
       (o) => o.counts[0].length,
     ],
     ['desc'],
   );
+
+  for (let i = 0; i < sorted.length; i += 13) {
+    const chunk = sorted.slice(i, i + 13);
+    const shuffledChunk = shuffle(chunk);
+    sorted.splice(i, 13, ...shuffledChunk);
+  }
 
   return sorted;
 };

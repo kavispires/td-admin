@@ -483,7 +483,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               <Space direction="vertical" style={{ maxHeight: 100, overflowY: 'auto' }}>
                 {testimonies.map((question) => (
                   <Flex key={question.testimonyId} vertical>
-                    <span>{question.question}</span>
+                    <span>
+                      {question.question} ({question.testimonyId})
+                    </span>
                     <Flex>
                       {question.suspectsIds?.map((suspectId) => (
                         <ImageCard cardId={suspectId} cardWidth={48} key={suspectId} />
