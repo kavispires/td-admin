@@ -117,7 +117,7 @@ function prepareFileForDownload(data: Dictionary<SuspectCard>) {
 
   // TO ADD NEW SUSPECTS
   // Add 40 new blank suspects with ids from 151 to 190 following the SuspectCard type
-  // for (let i = 181; i <= 195; i++) {
+  // for (let i = 196; i <= 200; i++) {
   //   const id = `us-${i.toString().padStart(3, '0')}`;
   //   const newSuspect: SuspectCard = {
   //     id,

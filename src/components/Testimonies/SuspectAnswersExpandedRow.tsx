@@ -270,8 +270,6 @@ export function ActionCell({ suspect, testimonyId, addEntryToUpdate, answers }: 
     );
   }, [answers, suspect.id]);
 
-  console.log(answers[suspect.id]);
-
   return (
     <Flex align="center" gap={6} wrap="nowrap">
       <Badge color={total > 20 ? 'gold' : 'grey'} count={total} showZero style={{ minWidth: 32 }} />

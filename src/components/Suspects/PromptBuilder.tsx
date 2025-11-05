@@ -9,14 +9,13 @@ export const PROMPT_KEY = 'TD_ADMIN_SUSPECTS_PROMPT';
 export const PROMPT_SUFFIX_KEY = 'TD_ADMIN_SUSPECTS_PROMPT_SUFFIX';
 
 const PROMPTS = {
-  ghibli: "Make this picture ghibli style in 2:3 aspect-ratio. It's a ", // Used with an original picture,
-  fox: "Make this image in the Family Guy style, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a ",
-  pixar:
-    "Make this image in the 3d Pixar style, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a ",
+  ghibli: "Make this picture ghibli style in 2:3 aspect-ratio. It's a", // Used with an original picture,
+  fox: "Now make the image in the Family Guy style, aspect ratio at 2:3. It's a",
+  pixar: "Now make the image in the 3d Pixar style, aspect ratio at 2:3. It's a",
   realistic:
-    "Make this image realistic, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a ",
+    "Make this image realistic style, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a",
   zootopia:
-    "Make this image to look like a character from Zootopia, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a ",
+    "Make this image to look like a character from Zootopia, keep the Polaroid frame (don't make the image granular) and aspect ratio at 2:3. It's a",
 };
 
 export function PromptBuilder() {

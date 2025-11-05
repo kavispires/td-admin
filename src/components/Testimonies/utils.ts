@@ -94,9 +94,6 @@ export const calculateSuspectAnswersData = (
 
   const enoughData = hasDeterministicValue || audienceCount > reliabilityThreshold / 1.5 || total >= 4;
 
-  // if (total > 3) {
-  //   console.log({ suspectCardId, total, enoughData, complete, values });
-  // }
   const reliable = enoughData && total > reliabilityThreshold && Math.abs(yesPercentage - noPercentage) >= 40;
 
   const resolution = (() => {

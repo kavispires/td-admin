@@ -94,7 +94,7 @@ export const buildDailyQuartetosGames = (
     const perfectSets = scopedEligibleSets.filter((set) => set.itemsIds.length === 4);
     if (perfectSets.length === 0) {
       addWarning('quartet', 'No perfect sets found for Quartetos game');
-      return entries;
+      return;
     }
 
     let tries = 0;
@@ -102,16 +102,16 @@ export const buildDailyQuartetosGames = (
     while (sets.length < 3 && tries < ATTEMPTS_THRESHOLD) {
       tries++;
       const referenceSet = sample(perfectSets);
-      console.log({ referenceSet });
 
       if (!referenceSet) {
         addWarning('quartet', 'No reference set found for Quartetos game');
-        return entries;
+
+        return;
       }
 
       // Group sets that matches each element of the perfect reference set
       const relatedSets = gatherRelatedSets(referenceSet.itemsIds, quartetsSets);
-      console.log({ relatedSets });
+
       if (
         relatedSets[0].length === 0 &&
         relatedSets[1].length === 0 &&
@@ -401,7 +401,9 @@ const orderSetsWithoutIntersection = (sets: DailyQuartetSet[], minGap = 5): Dail
 
     for (let i = 1; i <= lookBackCount; i++) {
       const recentSet = result[result.length - i];
-      recentSet.itemsIds.forEach((id) => recentItemsSet.add(id));
+      recentSet.itemsIds.forEach((id) => {
+        recentItemsSet.add(id);
+      });
     }
 
     // Find the first set that doesn't intersect with recent items

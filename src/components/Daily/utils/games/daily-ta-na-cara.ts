@@ -198,9 +198,6 @@ const buildTestimonyEntry = (
     .slice(0, SUSPECTS_SIZE)
     .map((id) => getSuspectImageId(id, 'gb'));
 
-  if (suspectsIds.length === 0) {
-    console.log(sortedCounts);
-  }
   return {
     testimonyId: testimony.id,
     question: testimony.question,
