@@ -6,7 +6,7 @@ import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, cloneDeep, keyBy, orderBy } from 'lodash';
 import type { TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimoniesResource';
-import { useEffect, useMemo, useState } from 'react';
+import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import type { SuspectCard } from 'types';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';
 import { calculateSuspectAnswersData } from './utils';
@@ -67,59 +67,60 @@ export function TestimonyAnswerExpandedRow({
         setSelection={setSelection}
         suspects={suspects}
         testimonyId={testimonyId}
-      />
-      <Space ref={ref} size="large" wrap>
-        {list.map((entry) => {
-          return (
-            <Flex
-              className={clsx({
-                'selection-outline': isBatchEnabled && selection.includes(entry.suspectCardId),
-              })}
-              gap={6}
-              key={entry.suspectCardId}
-              vertical
-            >
-              <SuspectImageCard
-                cardId={entry.imageId}
-                cardWidth={cardWidth}
-                className={entry.values.length > 1 || entry.enoughData ? undefined : 'grayscale'}
-              />
-              <Flex gap={4}>
-                {isBatchEnabled && (
-                  <Checkbox
-                    checked={selection.includes(entry.suspectCardId)}
-                    disabled={entry.complete}
-                    onChange={(e) => {
-                      const checked = e.target.checked;
-                      setSelection((prev) => {
-                        if (checked) {
-                          return [...prev, entry.suspectCardId];
-                        }
-                        return prev.filter((id) => id !== entry.suspectCardId);
-                      });
-                    }}
-                  />
-                )}
-                <PopoverStrongAnswers
-                  addEntryToUpdate={addEntryToUpdate}
-                  answers={answers}
-                  barWidth={cardWidth}
-                  complete={entry.complete}
-                  enoughData={entry.enoughData}
-                  noPercentage={entry.noPercentage}
-                  projection={entry.projection}
-                  resolution={entry.resolution}
-                  showName
-                  suspect={suspects[entry.suspectCardId]}
-                  testimonyId={testimonyId}
-                  values={entry.values}
-                  yesPercentage={entry.yesPercentage}
+      >
+        <Space ref={ref} size="large" wrap>
+          {list.map((entry) => {
+            return (
+              <Flex
+                className={clsx({
+                  'selection-outline': isBatchEnabled && selection.includes(entry.suspectCardId),
+                })}
+                gap={6}
+                key={entry.suspectCardId}
+                vertical
+              >
+                <SuspectImageCard
+                  cardId={entry.imageId}
+                  cardWidth={cardWidth}
+                  className={entry.values.length > 1 || entry.enoughData ? undefined : 'grayscale'}
                 />
+                <Flex gap={4}>
+                  {isBatchEnabled && (
+                    <Checkbox
+                      checked={selection.includes(entry.suspectCardId)}
+                      disabled={entry.complete}
+                      onChange={(e) => {
+                        const checked = e.target.checked;
+                        setSelection((prev) => {
+                          if (checked) {
+                            return [...prev, entry.suspectCardId];
+                          }
+                          return prev.filter((id) => id !== entry.suspectCardId);
+                        });
+                      }}
+                    />
+                  )}
+                  <PopoverStrongAnswers
+                    addEntryToUpdate={addEntryToUpdate}
+                    answers={answers}
+                    barWidth={cardWidth}
+                    complete={entry.complete}
+                    enoughData={entry.enoughData}
+                    noPercentage={entry.noPercentage}
+                    projection={entry.projection}
+                    resolution={entry.resolution}
+                    showName
+                    suspect={suspects[entry.suspectCardId]}
+                    testimonyId={testimonyId}
+                    values={entry.values}
+                    yesPercentage={entry.yesPercentage}
+                  />
+                </Flex>
               </Flex>
-            </Flex>
-          );
-        })}
-      </Space>
+            );
+          })}
+        </Space>
+      </BatchOptions>
     </Space>
   );
 }
@@ -133,6 +134,7 @@ type BatchOptionsProps = {
   addEntryToUpdate: (id: string, entry: TestimonyAnswers) => void;
   list: ReturnType<typeof calculateSuspectAnswersData>[];
   answers: TestimonyAnswers;
+  children: ReactNode;
 };
 
 function BatchOptions({
@@ -144,6 +146,7 @@ function BatchOptions({
   addEntryToUpdate,
   list,
   answers,
+  children,
 }: BatchOptionsProps) {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const { addParam, removeParam, is } = useQueryParams({ sortSuspectsBy: 'answers' });
@@ -241,6 +244,82 @@ function BatchOptions({
     setActiveFilters([]);
   };
 
+  const options = (
+    <>
+      <Typography.Text className="nowrap mr-2">
+        Selected {selection.length.toString().padStart(3, '0')}
+      </Typography.Text>
+      <Flex align="center" className="boxed" gap={6} justify="center" wrap>
+        <FilterEntry
+          activeFilters={activeFilters}
+          end
+          filter="empty"
+          updateActiveFilter={updateActiveFilter}
+        />
+      </Flex>
+      <Flex align="center" className="boxed" gap={6} justify="center" wrap>
+        <FilterEntry
+          activeFilters={activeFilters}
+          end
+          filter="incompletePos"
+          label="Incomplete+"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          end
+          filter="incompleteNeg"
+          label="Incomplete-"
+          updateActiveFilter={updateActiveFilter}
+        />
+      </Flex>
+      <Flex align="center" className="boxed" gap={6} justify="center" wrap>
+        <FilterEntry activeFilters={activeFilters} filter="male" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry activeFilters={activeFilters} filter="female" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry activeFilters={activeFilters} filter="young" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry activeFilters={activeFilters} filter="adult" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry activeFilters={activeFilters} filter="parent" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry activeFilters={activeFilters} filter="senior" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry activeFilters={activeFilters} filter="thin" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="muscular"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry activeFilters={activeFilters} filter="large" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry activeFilters={activeFilters} filter="asian" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry activeFilters={activeFilters} filter="black" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="caucasian"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          end
+          filter="latino"
+          updateActiveFilter={updateActiveFilter}
+        />
+      </Flex>
+      <Flex align="center" gap={6}>
+        <Button danger onClick={() => setActiveFilters([])} size="small">
+          Clear
+        </Button>
+        <Popconfirm onConfirm={() => onApplyBatch(4)} title="Apply +4 to selected suspects?">
+          <Button className="ml-10" disabled={selection.length === 0} size="small" type="primary">
+            Apply +4
+          </Button>
+        </Popconfirm>
+        <Divider type="vertical" />
+        <Popconfirm onConfirm={() => onApplyBatch(-4)} title="Apply -4 to selected suspects?">
+          <Button disabled={selection.length === 0} size="small" type="primary">
+            Apply -4
+          </Button>
+        </Popconfirm>
+      </Flex>
+    </>
+  );
+
   return (
     <>
       <Flex align="center" className="mb-4" gap={6} justify="space-between">
@@ -261,122 +340,18 @@ function BatchOptions({
             value={isBatchEnabled}
           />
         </Flex>
-        {isBatchEnabled && (
-          <>
-            <Typography.Text className="nowrap mr-2">
-              Selected {selection.length.toString().padStart(3, '0')}
-            </Typography.Text>
-            <Flex align="center" className="boxed" gap={6} justify="center" wrap>
-              <FilterEntry
-                activeFilters={activeFilters}
-                end
-                filter="empty"
-                updateActiveFilter={updateActiveFilter}
-              />
-            </Flex>
-            <Flex align="center" className="boxed" gap={6} justify="center" wrap>
-              <FilterEntry
-                activeFilters={activeFilters}
-                end
-                filter="incompletePos"
-                label="Incomplete+"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                end
-                filter="incompleteNeg"
-                label="Incomplete-"
-                updateActiveFilter={updateActiveFilter}
-              />
-            </Flex>
-            <Flex align="center" className="boxed" gap={6} justify="center" wrap>
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="male"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="female"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="young"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="adult"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="parent"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="senior"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="thin"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="muscular"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="large"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="asian"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="black"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                filter="caucasian"
-                updateActiveFilter={updateActiveFilter}
-              />
-              <FilterEntry
-                activeFilters={activeFilters}
-                end
-                filter="latino"
-                updateActiveFilter={updateActiveFilter}
-              />
-            </Flex>
-            <Flex align="center" gap={6}>
-              <Button danger onClick={() => setActiveFilters([])} size="small">
-                Clear
-              </Button>
-              <Popconfirm onConfirm={() => onApplyBatch(4)} title="Apply +4 to selected suspects?">
-                <Button className="ml-10" disabled={selection.length === 0} size="small" type="primary">
-                  Apply +4
-                </Button>
-              </Popconfirm>
-              <Divider type="vertical" />
-              <Popconfirm onConfirm={() => onApplyBatch(-4)} title="Apply -4 to selected suspects?">
-                <Button disabled={selection.length === 0} size="small" type="primary">
-                  Apply -4
-                </Button>
-              </Popconfirm>
-            </Flex>
-          </>
-        )}
+        {isBatchEnabled && options}
       </Flex>
+      {children}
+
+      {isBatchEnabled && (
+        <>
+          <Divider />
+          <Flex align="center" className="mb-4" gap={6} justify="space-between">
+            {options}
+          </Flex>
+        </>
+      )}
       {selection.length > 0 && (
         <FloatButton.Group shape="square" style={{ insetInlineEnd: 94 }}>
           <FloatButton
