@@ -15,15 +15,14 @@ const PLACEHOLDER_ITEM = {
 
 type NewItemModalProps = {
   isModalOpen: boolean;
-  handleOk: () => void;
   handleCancel: () => void;
   newId: string;
 };
 
-function NewItemModal({ isModalOpen, handleOk, handleCancel, newId }: NewItemModalProps) {
+function NewItemModal({ isModalOpen, handleCancel, newId }: NewItemModalProps) {
   const [newItem] = useState(cloneDeep({ ...PLACEHOLDER_ITEM, id: newId }));
   return (
-    <Modal onCancel={handleCancel} onOk={handleOk} open={isModalOpen} title="Add new item">
+    <Modal footer={null} maskClosable={false} onCancel={handleCancel} open={isModalOpen} title="Add new item">
       <ItemCard editMode item={newItem} />
     </Modal>
   );
@@ -38,10 +37,6 @@ export function AddNewItem() {
     setOpenModal(true);
   };
 
-  const handleOk = () => {
-    setOpenModal(false);
-  };
-
   const handleCancel = () => {
     setOpenModal(false);
   };
@@ -52,13 +47,7 @@ export function AddNewItem() {
         Add New Item
       </Button>
       {isModalOpen && (
-        <NewItemModal
-          handleCancel={handleCancel}
-          handleOk={handleOk}
-          isModalOpen={isModalOpen}
-          key={newId}
-          newId={newId}
-        />
+        <NewItemModal handleCancel={handleCancel} isModalOpen={isModalOpen} key={newId} newId={newId} />
       )}
     </>
   );
