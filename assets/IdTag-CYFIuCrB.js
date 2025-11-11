@@ -1,1 +1,0 @@
-import{j as n}from"./index-D_2iZsMt.js";import{u as r}from"./useCopyToClipboardFunction-DyQeGUUO.js";import{T as a}from"./index-Da6fN85t.js";function u(o){const t=r(),i=o.withQuotes?`"${o.children?.toString()??""}"`:o.children?.toString()??"";return n.jsx(a,{onClick:()=>t(i),...o})}export{u as I};
