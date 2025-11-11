@@ -1,6 +1,7 @@
 import { Divider, Flex, Form } from 'antd';
 import { FilterSelect } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
@@ -48,6 +49,14 @@ export function ItemAttributionFilters() {
           fileName="items-attribute-values.json"
           hasNewData={hasFirestoreData}
         />
+
+        <Flex justify="center">
+          <FirestoreConsoleWipe
+            docId="itemsAttributeValues"
+            path="tdr"
+            queryKey={['tdr', 'itemsAttributeValues']}
+          />
+        </Flex>
       </Flex>
       <Divider />
 

@@ -2,7 +2,7 @@ import { FileAddOutlined, TableOutlined } from '@ant-design/icons';
 import { Divider, Flex, Tag, Typography } from 'antd';
 import { FilterSegments } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
-import { FirebaseConsoleWipe } from 'components/Common/FirestoreConsoleLink';
+import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -78,7 +78,7 @@ export function ImageCardsPasscodeFilters({
         />
 
         <Flex justify="center">
-          <FirebaseConsoleWipe
+          <FirestoreConsoleWipe
             docId="imagePasscode"
             label="FS TDR"
             path="tdr"

@@ -19,13 +19,13 @@ export function FirestoreConsoleLink({ path, label, disabled, ...rest }: Firesto
   );
 }
 
-type FirebaseConsoleWipeProps = {
+type FirestoreConsoleWipeProps = {
   /**
-   * The path to get to the document
+   * The path to get to the document (usually 'tdr')
    */
   path: string;
   /**
-   * The ID of the document
+   * The ID of the document (the name of the document in Firestore)
    */
   docId: string;
   /**
@@ -42,14 +42,14 @@ type FirebaseConsoleWipeProps = {
   disabled?: boolean;
 };
 
-export function FirebaseConsoleWipe({
+export function FirestoreConsoleWipe({
   path,
   docId,
   queryKey,
   label,
   disabled,
   ...rest
-}: FirebaseConsoleWipeProps) {
+}: FirestoreConsoleWipeProps) {
   const { getConsoleUrl } = useFirestoreConsoleUrl();
 
   const mutationQuery = useWipeFirebaseDoc({

@@ -2,6 +2,7 @@ import { OpenAIOutlined } from '@ant-design/icons';
 import { Divider, Flex, Typography } from 'antd';
 import { FilterCheckBox, FilterSelect, FilterSwitch } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsContext } from 'context/ItemsContext';
@@ -47,6 +48,10 @@ export function ItemListingFilters() {
           fileName="items.json"
           hasNewData={hasFirestoreData}
         />
+
+        <Flex justify="center">
+          <FirestoreConsoleWipe docId="items" path="tdr" queryKey={['tdr', 'items']} />
+        </Flex>
       </Flex>
       <Divider className="my-4" />
 
