@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 import type { CrimeReason, SuspectCard, TestimonyQuestionCard } from 'types';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
-import { getNextDay } from '../utils';
+import { checkWeekend, getNextDay } from '../utils';
 import { debugDailyStore } from './debug-daily';
 
 /**
@@ -137,6 +137,22 @@ export type DailyEspionagemEntry = {
   level: number;
 };
 
+/**
+ * Custom React hook to prepare and manage the data required for the "Daily Espionagem" games.
+ *
+ * This hook fetches and processes all necessary resources (suspects, questions, answers, and crime reasons)
+ * and computes derived data such as suspect answers and feature statistics. It then builds the daily espionagem
+ * game entries based on the provided batch size and user history.
+ *
+ * @param enabled - Whether the hook should be active and perform data fetching.
+ * @param queryLanguage - The language to use when querying for testimony questions.
+ * @param batchSize - The number of game entries to generate in a batch.
+ * @param dailyHistory - The user's daily game history, used to determine which games have been played.
+ *
+ * @returns An object containing:
+ *   - `entries`: The generated espionagem game entries, or an empty object if data is not ready.
+ *   - `isLoading`: A boolean indicating if any of the required resources are still loading.
+ */
 export const useDailyEspionagemGames = (
   enabled: boolean,
   queryLanguage: Language,
@@ -200,6 +216,19 @@ export const useDailyEspionagemGames = (
   };
 };
 
+/**
+ * Generates a batch of daily espionagem games, ensuring each game is valid and unique.
+ *
+ * @param batchSize - The number of games to generate in this batch.
+ * @param history - The parsed daily history entry, used to determine the latest date and number.
+ * @param suspects - A dictionary of suspect cards available for game generation.
+ * @param questions - A dictionary of testimony question cards available for game generation.
+ * @param suspectTestimonyAnswers - The mapping of suspects to their testimony answers.
+ * @param featuresStats - A dictionary containing feature statistics for suspects and questions.
+ * @param reasons - A dictionary of possible crime reasons.
+ * @returns A record mapping each generated game ID to its corresponding `DailyEspionagemEntry`.
+ * @throws Will throw an error if a valid game cannot be generated after the allowed number of attempts.
+ */
 export const buildDailyEspionagemGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
@@ -216,14 +245,22 @@ export const buildDailyEspionagemGames = (
   const entries: Record<string, DailyEspionagemEntry> = {};
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
+    const isWeekend = checkWeekend(id);
     lastDate = id;
+
+    // try {
+    //   console.log('Tree:', getValidTestimonyTree(suspectTestimonyAnswers));
+    // } catch (error) {
+    //   console.log('Error generating testimony tree:', error);
+    // }
 
     // Try up to 100 times to generate a valid game
     let validGame = null;
     let attempts = 0;
-    while (validGame === null && attempts < ATTEMPTS_THRESHOLD) {
+    if (isWeekend) {
       try {
         attempts++;
+        // TODO: Is not done yet
         const game = generateEspionagemGame(
           suspects,
           questions,
@@ -239,6 +276,27 @@ export const buildDailyEspionagemGames = (
         }
       } catch (_error) {
         // debugError('BOOM', _error);
+      }
+    } else {
+      while (validGame === null && attempts < ATTEMPTS_THRESHOLD) {
+        try {
+          attempts++;
+          const game = generateEspionagemGame(
+            suspects,
+            questions,
+            suspectTestimonyAnswers,
+            featuresStats,
+            usedIds,
+            reasons,
+          );
+
+          if (verifyGameDoability(game.statements)) {
+            validGame = game;
+            throw new Error(`Game is invalid after ${attempts} attempts`);
+          }
+        } catch (_error) {
+          // debugError('BOOM', _error);
+        }
       }
     }
 
@@ -261,6 +319,25 @@ export const buildDailyEspionagemGames = (
   return entries;
 };
 
+/**
+ * Generates a daily espionagem game entry by selecting suspects, testimonies, and feature-based statements.
+ *
+ * This function orchestrates the creation of a game round by:
+ * - Selecting two related testimonies and determining the culprit and possible suspects.
+ * - Ensuring the correct number of suspects are included, supplementing if necessary.
+ * - Gathering features that the culprit does not possess for use in feature statements.
+ * - Generating a series of statements (testimony, feature, and grid-based) to provide clues.
+ * - Randomizing suspect positions and assembling the final game entry object.
+ *
+ * @param suspects - A dictionary of all available suspects keyed by their IDs.
+ * @param questions - A dictionary of all available testimony question cards keyed by their IDs.
+ * @param suspectTestimonyAnswers - Mapping of testimony IDs to suspect answers.
+ * @param featuresStats - A dictionary mapping feature keys to dictionaries of suspect IDs who have that feature.
+ * @param usedIds - An array of suspect IDs that have already been used and should be excluded.
+ * @param reasons - A dictionary of possible crime reasons keyed by their IDs.
+ * @returns An object representing the generated espionagem game entry, omitting 'id', 'number', and 'type' fields.
+ * @throws If there are not enough possible suspects or if the generated statements are insufficient.
+ */
 function generateEspionagemGame(
   suspects: Dictionary<SuspectCard>,
   questions: Dictionary<TestimonyQuestionCard>,
@@ -457,6 +534,21 @@ const getRelevantSuspectsFeaturesDict = (statements: StatementClue[]) => {
   return usedFeaturesDictionary;
 };
 
+/**
+ * Creates an array of `SuspectEntry` objects from the provided suspect IDs and dictionaries.
+ *
+ * For each suspect ID, this function:
+ * - Retrieves the corresponding suspect from the `suspects` dictionary.
+ * - Maps the suspect's age to a descriptive category (e.g., 'young', 'adult', 'senior') if possible.
+ * - Constructs a list of all basic features (gender, mapped age, ethnicity, height, build).
+ * - Filters the suspect's additional features to include only those present in `relevantSuspectsFeaturesDict`.
+ * - Combines all features and returns a `SuspectEntry` object with the suspect's id, name, gender, and features.
+ *
+ * @param suspectsIds - An array of suspect IDs to process.
+ * @param suspects - A dictionary mapping suspect IDs to `SuspectCard` objects.
+ * @param relevantSuspectsFeaturesDict - A dictionary indicating which features are relevant (keys are feature names, values are `true`).
+ * @returns An array of `SuspectEntry` objects, each representing a suspect with filtered and mapped features.
+ */
 const createSuspectEntry = (
   suspectsIds: string[],
   suspects: Dictionary<SuspectCard>,
@@ -672,6 +764,22 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
   return result;
 };
 
+/**
+ * Selects two related testimonies from the provided suspect testimony answers, ensuring they share at least three suspects in common.
+ *
+ * The function attempts up to a defined threshold to randomly select two testimonies that have at least three suspects in common and have not been used before.
+ * It then determines a "culprit" suspect from the common suspects who has not been used, and filters possible suspects based on their answers differing from the culprit's answers in both testimonies.
+ *
+ * @param suspectTestimonyAnswers - An object mapping testimony IDs to objects mapping suspect IDs to their answers.
+ * @param usedIds - An array of suspect IDs that have already been used and should be excluded from selection as the culprit.
+ * @returns An object containing:
+ *   - selectedTestimonyId1: The ID of the first selected testimony.
+ *   - selectedTestimonyId2: The ID of the second selected testimony.
+ *   - culpritId: The ID of the selected culprit suspect.
+ *   - possibleSuspects: An array of suspect IDs that are possible suspects (excluding the culprit and those matching the culprit's answer pattern).
+ *   - impossibleSuspects: An array of suspect IDs that are not possible suspects.
+ * @throws Will throw an error if it fails to find two related testimonies with at least three suspects in common, or if it cannot determine a culprit.
+ */
 const getTwoRelatedTestimonies = (suspectTestimonyAnswers: TestimonySuspectAnswers, usedIds: string[]) => {
   // Using while, try a maximum of 500 attempts to get a random testimony, and then another testimony that has the at least one suspect in common
 
@@ -764,6 +872,15 @@ const updateExcludeScoreBoard = (scoreboard: Dictionary<number>, excludes: strin
   });
 };
 
+/**
+ * Generates a statement clue based on a suspect's testimony and their answer.
+ *
+ * @param culpritId - The ID of the suspect whose testimony is being processed.
+ * @param suspectsIds - An array of all suspect IDs involved in the testimony.
+ * @param testimony - The testimony question card containing the question and answer.
+ * @param answers - A dictionary mapping suspect IDs to their boolean answers.
+ * @returns A `StatementClue` object containing the generated statement, excluded suspects, and metadata.
+ */
 const getTestimonyStatement = (
   culpritId: string,
   suspectsIds: string[],
@@ -832,6 +949,16 @@ const ROWS_COLUMNS_GRID_INDEXES: Dictionary<{ indexes: number[]; text: string }>
   },
 };
 
+/**
+ * Generates a grid-based statement clue for a deduction game, selecting a grid rule (row or column)
+ * that excludes the culprit and has the least overlap with existing basic exclusion statements.
+ *
+ * @param culpritId - The ID of the culprit suspect.
+ * @param suspectsIds - An array of all suspect IDs, representing their positions in the grid.
+ * @param statements - An array of existing basic statement clues to consider for exclusion overlap.
+ * @param type - Specifies whether to use 'rows' or 'columns' grid rules.
+ * @returns A new StatementClue object representing a grid-based exclusion statement.
+ */
 const getGridStatement = (
   culpritId: string,
   suspectsIds: string[],
@@ -901,6 +1028,17 @@ const getGridStatement = (
   };
 };
 
+/**
+ * Generates a statement clue based on a feature that the culprit does not have, aiming to exclude suspects.
+ *
+ * @param culpritId - The ID of the culprit.
+ * @param suspectsIds - Array of all suspect IDs.
+ * @param featuresCulpritDoesNotHave - A dictionary mapping feature names to dictionaries of suspect IDs that do not have the feature.
+ * @param previousStatements - (Optional) Array of previously generated statement clues to avoid repeating features and suspects.
+ * @param type - (Optional) The selection strategy: 'best' (default) selects the most effective feature, 'worst' selects a less optimal one.
+ * @returns A `StatementClue` object representing the generated clue, including the feature, translated text, and excluded suspects.
+ * @throws If no suitable feature is found after a maximum number of attempts.
+ */
 const getFeatureStatement = (
   culpritId: string,
   suspectsIds: string[],
@@ -985,6 +1123,16 @@ const getFeatureStatement = (
   };
 };
 
+/**
+ * Determines whether a game is doable based on the provided statement clues.
+ *
+ * The function checks the following conditions using the first three statements:
+ * 1. The total number of excludes across the first three statements must be at least 10.
+ * 2. The set of unique excludes from these statements must cover all but one of the total suspects.
+ *
+ * @param statements - An array of `StatementClue` objects representing the clues for the game.
+ * @returns `true` if the game is considered doable according to the criteria; otherwise, `false`.
+ */
 const verifyGameDoability = (statements: StatementClue[]) => {
   const firstThree = statements.slice(0, 3);
 
@@ -999,6 +1147,17 @@ const verifyGameDoability = (statements: StatementClue[]) => {
   return uniqueExcludes.size === TOTAL_SUSPECTS - 1;
 };
 
+/**
+ * Selects a crime reason for a given suspect from a dictionary of possible reasons.
+ *
+ * Iterates through all available reasons and collects those that are either general
+ * or match one of the suspect's features. Randomly selects one of the collected reasons.
+ * If no suitable reason is found, returns a default "unknown" reason.
+ *
+ * @param suspect - The suspect card containing features to match against reasons.
+ * @param reasons - A dictionary of possible crime reasons keyed by their IDs.
+ * @returns The selected `CrimeReason` object, or a default "unknown" reason if none match.
+ */
 const getReason = (suspect: SuspectCard, reasons: Dictionary<CrimeReason>): CrimeReason => {
   const availableReasons: CrimeReason[] = [];
 
@@ -1027,6 +1186,16 @@ const getReason = (suspect: SuspectCard, reasons: Dictionary<CrimeReason>): Crim
   };
 };
 
+/**
+ * Determines the difficulty level based on the first three `StatementClue` objects.
+ *
+ * The function maps the number of excludes in each statement to a predefined level,
+ * calculates the average level (rounded to the nearest integer), and ensures the result
+ * is between 1 and 3 (inclusive).
+ *
+ * @param statements - An array of `StatementClue` objects to evaluate.
+ * @returns The calculated difficulty level (1, 2, or 3).
+ */
 const determineLevel = (statements: StatementClue[]) => {
   const firstThree = statements.slice(0, 3);
 
