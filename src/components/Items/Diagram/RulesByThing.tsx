@@ -96,6 +96,7 @@ export function RulesByThing({
 
       <AddNewThingFlow
         addEntryToUpdate={addEntryToUpdate}
+        allThings={things}
         availableThings={availableThings}
         rules={rules}
         width={containerWidth}

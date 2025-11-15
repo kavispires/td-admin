@@ -1,4 +1,4 @@
-import { Affix, Button, Flex, Form, Input, Modal, Radio, Switch } from 'antd';
+import { Affix, Button, Flex, Form, Input, Modal, Radio, Switch, Tag, Typography } from 'antd';
 import clsx from 'clsx';
 import { Item } from 'components/Sprites';
 import { orderBy } from 'lodash';
@@ -25,6 +25,7 @@ type EditThingModalProps = {
   subtitle?: string;
   okButtonText?: string;
   onGiveAnotherThing?: () => void;
+  allThings: Dictionary<DailyDiagramItem>;
 };
 
 export function EditThingModal({
@@ -38,6 +39,7 @@ export function EditThingModal({
   subtitle,
   okButtonText,
   onGiveAnotherThing,
+  allThings,
 }: EditThingModalProps) {
   // Sort rules properly by type
   const orderedRules = useMemo(() => {
@@ -203,6 +205,10 @@ export function EditThingModal({
 
   const splitSyllables: string[] = useMemo(() => (syllables ?? '').split(SYLLABLE_SEPARATOR), [syllables]);
 
+  const sameName = useMemo(() => {
+    return Object.values(allThings).filter((t) => t.name === thing.name && t.itemId !== thing.itemId);
+  }, [thing, allThings]);
+
   return (
     <Modal
       maskClosable={false}
@@ -230,15 +236,19 @@ export function EditThingModal({
       >
         <div className="diagram-container">
           <div>
-            <Item itemId={thing.itemId} width={50} />
+            <Flex gap={6}>
+              <Item itemId={thing.itemId} width={50} />
+              <Form.Item label="Id" name="itemId">
+                <Input readOnly />
+              </Form.Item>
+            </Flex>
+            <Form.Item label="Updated At" name="updatedAt">
+              <Input readOnly />
+            </Form.Item>
           </div>
 
           <Form.Item label="Name" name="name">
             <Input />
-          </Form.Item>
-
-          <Form.Item label="Item" name="itemId">
-            <Input readOnly />
           </Form.Item>
 
           <Form.Item label="Syllables" name="syllables">
@@ -255,18 +265,34 @@ export function EditThingModal({
             </Radio.Group>
           </Form.Item>
 
-          <Form.Item label="Updated At" name="updatedAt">
-            <Input readOnly value={new Date(thing.updatedAt).toLocaleString()} />
-          </Form.Item>
+          <div>
+            {itemAliases && (
+              <>
+                <Typography.Text>Options:</Typography.Text>{' '}
+                <Typography.Text type="secondary">{itemAliases?.join(', ')}</Typography.Text>
+              </>
+            )}
+            {sameName.length > 0 && (
+              <div>
+                <Typography.Text type="danger">
+                  ⚠️ Warning: There are other items with the same name:
+                </Typography.Text>
+                <div>
+                  {sameName.map((t) => (
+                    <Tag key={t.itemId}>{t.itemId}</Tag>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
 
           {(itemAliases || onGiveAnotherThing) && (
             <div>
               {onGiveAnotherThing && (
-                <Button className="mt-2" onClick={onGiveAnotherThing} size="small" type="dashed">
+                <Button className="mt-2" onClick={onGiveAnotherThing} size="large" type="dashed">
                   Give me another thing
                 </Button>
               )}
-              {itemAliases && <span>Options: {itemAliases?.join(', ')}</span>}
             </div>
           )}
 

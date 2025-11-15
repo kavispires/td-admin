@@ -135,6 +135,7 @@ export function ThingsByRule({
       <Space split={<Divider type="vertical" />} wrap>
         <AddNewThingFlow
           addEntryToUpdate={addEntryToUpdate}
+          allThings={things}
           availableThings={availableThings}
           rules={rules}
           width={containerWidth}

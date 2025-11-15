@@ -88,6 +88,7 @@ export function ItemsDiagramSetsContent({
         <ItemUpdateGuard addEntryToUpdate={addEntryToUpdate} rules={rules} things={data}>
           {activeThing && (
             <EditThingModal
+              allThings={data}
               isModalOpen={activeThing !== null}
               okButtonText="Update"
               onCancel={() => setActiveThing(null)}

@@ -11,9 +11,16 @@ type AddNewThingFlowProps = {
   availableThings: ItemT[];
   rules: Dictionary<DailyDiagramRule>;
   width: number;
+  allThings: Dictionary<DailyDiagramItem>;
 };
 
-export function AddNewThingFlow({ addEntryToUpdate, availableThings, rules, width }: AddNewThingFlowProps) {
+export function AddNewThingFlow({
+  addEntryToUpdate,
+  availableThings,
+  rules,
+  width,
+  allThings,
+}: AddNewThingFlowProps) {
   const { notification } = App.useApp();
 
   const [activeThing, setActiveThing] = useState<DailyDiagramItem | null>(null);
@@ -75,6 +82,7 @@ export function AddNewThingFlow({ addEntryToUpdate, availableThings, rules, widt
       </Button>
       {!!activeThing && (
         <EditThingModal
+          allThings={allThings}
           isModalOpen={activeThing !== null}
           itemAliases={aliases as string[]}
           onCancel={() => setActiveThing(null)}
