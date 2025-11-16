@@ -224,6 +224,10 @@ export const routeConfig: RouteObject[] = [
         ),
       },
       {
+        path: 'riddler',
+        element: withSuspense(() => import('pages/Fun/Riddler' /* webpackChunkName: "Riddler" */)),
+      },
+      {
         path: 'suspects-personalities',
         element: withSuspense(
           () => import('pages/Fun/SuspectsPersonalities' /* webpackChunkName: "SuspectsPersonalities" */),

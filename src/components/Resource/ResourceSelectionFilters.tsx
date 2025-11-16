@@ -1,19 +1,25 @@
 import { Button, Form, Select } from 'antd';
+import { LanguageToggle } from 'components/Common/LanguageToggle';
 import { SiderContent } from 'components/Layout';
 import { useState } from 'react';
 import { useQueryParams } from '../../hooks/useQueryParams';
-import { DUAL_LANGUAGE_RESOURCES, LANGUAGES } from '../../utils/constants';
+import { DUAL_LANGUAGE_RESOURCES } from '../../utils/constants';
 
 type ResourceSelectionFiltersProps = {
   resourceNames: string[];
 };
 
+type FormValues = {
+  resourceName: string;
+  language: string;
+};
+
 export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFiltersProps) {
   const { queryParams, addParam } = useQueryParams();
-  const [form] = Form.useForm();
+  const [form] = Form.useForm<FormValues>();
   const [currentResourceName, setCurrentResourceName] = useState(queryParams.get('resourceName') ?? '');
 
-  const onFinish = (v: any) => {
+  const onFinish = (v: FormValues) => {
     const isDualLanguageResource = DUAL_LANGUAGE_RESOURCES.includes(v.resourceName);
 
     addParam('language', isDualLanguageResource ? null : v.language);
@@ -46,16 +52,7 @@ export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFil
           </Select>
         </Form.Item>
         <Form.Item label="Language" name="language">
-          <Select
-            disabled={DUAL_LANGUAGE_RESOURCES.includes(currentResourceName)}
-            style={{ minWidth: '150px' }}
-          >
-            {LANGUAGES.map((entry) => (
-              <Select.Option key={entry} value={entry}>
-                {entry}
-              </Select.Option>
-            ))}
-          </Select>
+          <LanguageToggle disabled={DUAL_LANGUAGE_RESOURCES.includes(currentResourceName)} />
         </Form.Item>
         <Form.Item>
           <Button htmlType="submit" type="primary">

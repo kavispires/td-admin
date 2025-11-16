@@ -55,5 +55,9 @@ type LanguageFlagProps = {
 } & React.SVGProps<SVGSVGElement>;
 
 export function LanguageFlag({ language, ...props }: LanguageFlagProps) {
-  return language === 'pt' ? <BrazilFlag {...props} /> : <UnitedStatesFlag {...props} />;
+  return language === 'pt' ? (
+    <BrazilFlag width="1em" {...props} />
+  ) : (
+    <UnitedStatesFlag width="1em" {...props} />
+  );
 }

@@ -187,6 +187,10 @@ const items: MenuProps['items'] = [
         key: '/fun/movie-maker',
       },
       {
+        label: 'Riddler',
+        key: '/fun/riddler',
+      },
+      {
         label: 'Suspects Personalities',
         key: '/fun/suspects-personalities',
       },
