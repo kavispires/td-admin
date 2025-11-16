@@ -1,0 +1,1 @@
+import{j as e,cg as r,L as n,ch as t,D as s}from"./index-Mpn7fKLo.js";import{S as a}from"./index-De3Jpewb.js";function i(){return e.jsx(a,{direction:"vertical",children:e.jsx("div",{children:"?"})})}function d(){return r("Playground"),e.jsxs(n,{children:[e.jsx(t,{title:"Playground"}),e.jsx(s,{}),e.jsx(n.Content,{className:"content",children:e.jsx(i,{})})]})}export{d as default};
