@@ -257,10 +257,30 @@ export const buildDailyEspionagemGames = (
     // Try up to 100 times to generate a valid game
     let validGame = null;
     let attempts = 0;
-    if (isWeekend) {
+    // if (isWeekend) {
+    //   try {
+    //     attempts++;
+    //     // TODO: Is not done yet
+    //     const game = generateEspionagemGame(
+    //       suspects,
+    //       questions,
+    //       suspectTestimonyAnswers,
+    //       featuresStats,
+    //       usedIds,
+    //       reasons,
+    //     );
+
+    //     if (verifyGameDoability(game.statements)) {
+    //       validGame = game;
+    //       throw new Error(`Game is invalid after ${attempts} attempts`);
+    //     }
+    //   } catch (_error) {
+    //     // debugError('BOOM', _error);
+    //   }
+    // } else {
+    while (validGame === null && attempts < ATTEMPTS_THRESHOLD) {
       try {
         attempts++;
-        // TODO: Is not done yet
         const game = generateEspionagemGame(
           suspects,
           questions,
@@ -272,33 +292,13 @@ export const buildDailyEspionagemGames = (
 
         if (verifyGameDoability(game.statements)) {
           validGame = game;
-          throw new Error(`Game is invalid after ${attempts} attempts`);
+          // throw new Error(`Game is invalid after ${attempts} attempts`);
         }
       } catch (_error) {
         // debugError('BOOM', _error);
       }
-    } else {
-      while (validGame === null && attempts < ATTEMPTS_THRESHOLD) {
-        try {
-          attempts++;
-          const game = generateEspionagemGame(
-            suspects,
-            questions,
-            suspectTestimonyAnswers,
-            featuresStats,
-            usedIds,
-            reasons,
-          );
-
-          if (verifyGameDoability(game.statements)) {
-            validGame = game;
-            throw new Error(`Game is invalid after ${attempts} attempts`);
-          }
-        } catch (_error) {
-          // debugError('BOOM', _error);
-        }
-      }
     }
+    // }
 
     if (!validGame) {
       throw new Error(`Failed to generate valid game for ${id} after ${attempts} attempts`);
