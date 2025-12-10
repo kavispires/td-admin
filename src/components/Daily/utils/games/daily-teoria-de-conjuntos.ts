@@ -7,6 +7,7 @@ import type { DailyDiagramItem, DailyDiagramRule } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
+import { addWarning } from '../warnings';
 
 export type DailyTeoriaDeConjuntosEntry = {
   id: DateKey;
@@ -132,147 +133,185 @@ function getRuleSet(
   latestRuleUpdate: number,
   size: number,
 ) {
-  const availableThingsIds = shuffle(
-    Object.keys(things).filter(
-      (id) => !used.includes(id) && !getIsThingOutdated(things[id], latestRuleUpdate),
-    ),
-  );
+  try {
+    const availableThingsIds = shuffle(
+      Object.keys(things).filter(
+        (id) => !used.includes(id) && !getIsThingOutdated(things[id], latestRuleUpdate),
+      ),
+    );
 
-  // Get one random initial thing
-  const initialThingId = sample(availableThingsIds);
-  if (!initialThingId) throw new Error('No available things to choose from');
-  used.push(initialThingId);
+    // Get one random initial thing
+    const initialThingId = sample(availableThingsIds);
+    if (!initialThingId) throw new Error('No available things to choose from');
+    used.push(initialThingId);
 
-  const intersectingThing = {
-    id: initialThingId,
-    name: things[initialThingId].name,
-  };
+    const intersectingThing = {
+      id: initialThingId,
+      name: things[initialThingId].name,
+    };
 
-  // Group rules by type than get a random pair of rules of different types
-  const thingsRulesByType = things[initialThingId].rules.reduce((acc: Record<string, string[]>, ruleId) => {
-    const type = rules[ruleId].type;
-    if (!acc[type]) acc[type] = [];
-    acc[type].push(ruleId);
-    return acc;
-  }, {});
-  // Delete any rule with less than 2 rules
-  Object.keys(thingsRulesByType).forEach((type) => {
-    if (thingsRulesByType[type].length < 2) delete thingsRulesByType[type];
-  });
+    // Group rules by type than get a random pair of rules of different types
+    const thingsRulesByType = things[initialThingId].rules.reduce((acc: Record<string, string[]>, ruleId) => {
+      const type = rules[ruleId].type;
+      if (!acc[type]) acc[type] = [];
+      acc[type].push(ruleId);
+      return acc;
+    }, {});
+    // Delete any rule with less than 2 rules
+    Object.keys(thingsRulesByType).forEach((type) => {
+      if (thingsRulesByType[type].length < 2) delete thingsRulesByType[type];
+    });
 
-  const twoRandomTypes = sampleSize(Object.keys(thingsRulesByType), 2);
+    const twoRandomTypes = sampleSize(Object.keys(thingsRulesByType), 2);
 
-  if (twoRandomTypes.length !== 2) throw new Error('No types found for this thing');
-  const selectedRules = [
-    sample(thingsRulesByType[twoRandomTypes[0]]),
-    sample(thingsRulesByType[twoRandomTypes[1]]),
-  ];
-  if (!selectedRules[0] || !selectedRules[1]) throw new Error('No rules found for this thing');
+    if (twoRandomTypes.length !== 2) throw new Error('No types found for this thing');
+    const selectedRules = [
+      sample(thingsRulesByType[twoRandomTypes[0]]),
+      sample(thingsRulesByType[twoRandomTypes[1]]),
+    ];
+    if (!selectedRules[0] || !selectedRules[1]) throw new Error('No rules found for this thing');
 
-  const ruleId = [selectedRules[0], selectedRules[1]].sort().join('-');
-  used.push(ruleId);
+    const ruleId = [selectedRules[0], selectedRules[1]].sort().join('-');
+    used.push(ruleId);
 
-  const level = rules[selectedRules[0]].level + rules[selectedRules[1]].level - 1;
+    const level = rules[selectedRules[0]].level + rules[selectedRules[1]].level - 1;
 
-  // We don't need to modify thingsByRules since we're already filtering excluded items later
+    // We don't need to modify thingsByRules since we're already filtering excluded items later
 
-  const itemsOnlyInRule1 = shuffle(
-    difference(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]),
-  );
+    const itemsOnlyInRule1 = shuffle(
+      difference(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]),
+    );
 
-  const itemsOnlyInRule2 = shuffle(
-    difference(thingsByRules[selectedRules[1]], thingsByRules[selectedRules[0]]),
-  );
+    const itemsOnlyInRule2 = shuffle(
+      difference(thingsByRules[selectedRules[1]], thingsByRules[selectedRules[0]]),
+    );
 
-  const commonItems = shuffle(intersection(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]));
+    const commonItems = shuffle(
+      intersection(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]),
+    );
 
-  // Get one unique initial thing that only fits rule 1
-  const selectedInitialThingId1 = itemsOnlyInRule1.pop();
-  if (!selectedInitialThingId1) throw new Error('No only in rule 1 things to choose from');
-  const rule1 = {
-    id: selectedRules[0],
-    text: rules[selectedRules[0]].title,
-    level: rules[selectedRules[0]].level,
-    thing: {
-      id: selectedInitialThingId1,
-      name: things[selectedInitialThingId1].name,
-    },
-  };
+    // Get one unique initial thing that only fits rule 1
+    const selectedInitialThingId1 = itemsOnlyInRule1.pop();
+    if (!selectedInitialThingId1) throw new Error('No only in rule 1 things to choose from');
+    const rule1 = {
+      id: selectedRules[0],
+      text: rules[selectedRules[0]].title,
+      level: rules[selectedRules[0]].level,
+      thing: {
+        id: selectedInitialThingId1,
+        name: things[selectedInitialThingId1].name,
+      },
+    };
 
-  // Get one unique initial thing that only fits rule 2
-  const selectedInitialThingId2 = itemsOnlyInRule2.pop();
-  if (!selectedInitialThingId2) throw new Error('No only in rule 2 things to choose from');
-  const rule2 = {
-    id: selectedRules[1],
-    text: rules[selectedRules[1]].title,
-    level: rules[selectedRules[1]].level,
-    thing: {
-      id: selectedInitialThingId2,
-      name: things[selectedInitialThingId2].name,
-    },
-  };
+    // Get one unique initial thing that only fits rule 2
+    const selectedInitialThingId2 = itemsOnlyInRule2.pop();
+    if (!selectedInitialThingId2) throw new Error('No only in rule 2 things to choose from');
+    const rule2 = {
+      id: selectedRules[1],
+      text: rules[selectedRules[1]].title,
+      level: rules[selectedRules[1]].level,
+      thing: {
+        id: selectedInitialThingId2,
+        name: things[selectedInitialThingId2].name,
+      },
+    };
 
-  // Create a set of excluded items that shouldn't be in the things array
-  const excludedItems = new Set([initialThingId, selectedInitialThingId1, selectedInitialThingId2]);
+    // Create a set of excluded items that shouldn't be in the things array
+    const excludedItems = new Set([initialThingId, selectedInitialThingId1, selectedInitialThingId2]);
 
-  // Filter out the excluded items from each array
-  const filteredCommonItems = commonItems.filter((id) => !excludedItems.has(id));
-  const filteredItemsOnlyInRule1 = itemsOnlyInRule1.filter((id) => !excludedItems.has(id));
-  const filteredItemsOnlyInRule2 = itemsOnlyInRule2.filter((id) => !excludedItems.has(id));
+    // Filter out the excluded items from each array
+    const filteredCommonItems = commonItems.filter((id) => !excludedItems.has(id));
+    const filteredItemsOnlyInRule1 = itemsOnlyInRule1.filter((id) => !excludedItems.has(id));
+    const filteredItemsOnlyInRule2 = itemsOnlyInRule2.filter((id) => !excludedItems.has(id));
 
-  // Get up to 4 unique things that fit both rules, if possible
-  const sampleCommonThings = sampleSize(filteredCommonItems, size / 2);
-  const sampleRule1Things = sampleSize(filteredItemsOnlyInRule1, size);
-  const sampleRule2Things = sampleSize(filteredItemsOnlyInRule2, size);
-  const answerSheet: Record<string, number> = {};
-  sampleCommonThings.forEach((id) => {
-    answerSheet[id] = 0;
-  });
-  sampleRule1Things.forEach((id) => {
-    answerSheet[id] = 1;
-  });
-  sampleRule2Things.forEach((id) => {
-    answerSheet[id] = 2;
-  });
+    // Get up to 4 unique things that fit both rules, if possible
+    const sampleCommonThings = sampleSize(filteredCommonItems, size / 2);
+    const sampleRule1Things = sampleSize(filteredItemsOnlyInRule1, size);
+    const sampleRule2Things = sampleSize(filteredItemsOnlyInRule2, size);
+    const answerSheet: Record<string, number> = {};
+    sampleCommonThings.forEach((id) => {
+      answerSheet[id] = 0;
+    });
+    sampleRule1Things.forEach((id) => {
+      answerSheet[id] = 1;
+    });
+    sampleRule2Things.forEach((id) => {
+      answerSheet[id] = 2;
+    });
 
-  // Sample 8 things among the options, shuffleAndCombine prevents from having the first 4 items from the same rule
-  const selectionIds = shuffleAndCombine(sampleCommonThings, sampleRule1Things, sampleRule2Things, size);
+    // Sample 8 things among the options, shuffleAndCombine prevents from having the first 4 items from the same rule
+    const selectionIds = shuffleAndCombine(sampleCommonThings, sampleRule1Things, sampleRule2Things, size);
 
-  const selectedThings = selectionIds.map((id) => ({
-    id,
-    name: things[id].name,
-    rule: answerSheet[id],
-  }));
+    const selectedThings = selectionIds.map((id) => ({
+      id,
+      name: things[id].name,
+      rule: answerSheet[id],
+    }));
 
-  // Build title
-  const TITLES: Record<string, string> = {
-    contains: 'Inclusão',
-    starts: 'Inicialização',
-    ends: 'Terminação',
-    grammar: 'Gramática',
-    order: 'Sequência',
-    count: 'Contagem',
-    comparison: 'Comparação',
-    repetition: 'Repetição',
-  };
+    // Build title
+    const TITLES: Record<string, string> = {
+      contains: 'Inclusão',
+      starts: 'Inicialização',
+      ends: 'Terminação',
+      grammar: 'Gramática',
+      order: 'Sequência',
+      count: 'Contagem',
+      comparison: 'Comparação',
+      repetition: 'Repetição',
+    };
 
-  const title = [
-    TITLES?.[rules[rule1.id].type] ?? 'Desconhecido',
-    TITLES?.[rules[rule2.id].type] ?? 'Desconhecido',
-  ].join(' vs ');
-  const setId = [rule1.id, rule2.id].sort().join('::');
+    const title = [
+      TITLES?.[rules[rule1.id].type] ?? 'Desconhecido',
+      TITLES?.[rules[rule2.id].type] ?? 'Desconhecido',
+    ].join(' vs ');
+    const setId = [rule1.id, rule2.id].sort().join('::');
 
-  // Create the DailyTeoriaDeConjuntosEntry object
-  const entry: Omit<DailyTeoriaDeConjuntosEntry, 'id' | 'type' | 'number'> = {
-    title,
-    setId,
-    level,
-    rule1,
-    rule2,
-    intersectingThing,
-    things: selectedThings,
-  };
-  return entry;
+    // Create the DailyTeoriaDeConjuntosEntry object
+    const entry: Omit<DailyTeoriaDeConjuntosEntry, 'id' | 'type' | 'number'> = {
+      title,
+      setId,
+      level,
+      rule1,
+      rule2,
+      intersectingThing,
+      things: selectedThings,
+    };
+    return entry;
+  } catch (error) {
+    addWarning(
+      'teoria-de-conjuntos',
+      `Error generating Teoria de Conjuntos rule set: ${(error as Error).message}`,
+    );
+
+    return {
+      title: 'Erro na geração',
+      setId: 'error',
+      level: 1,
+      rule1: {
+        id: 'error-1',
+        text: 'Erro na geração',
+        level: 1,
+        thing: {
+          id: 'error-thing-1',
+          name: 'Erro na geração',
+        },
+      },
+      rule2: {
+        id: 'error-2',
+        text: 'Erro na geração',
+        level: 1,
+        thing: {
+          id: 'error-thing-2',
+          name: 'Erro na geração',
+        },
+      },
+      intersectingThing: {
+        id: 'error-intersecting-thing',
+        name: 'Erro na geração',
+      },
+      things: [],
+    };
+  }
 }
 
 function shuffleAndCombine(arr1: string[], arr2: string[], arr3: string[], size: number) {

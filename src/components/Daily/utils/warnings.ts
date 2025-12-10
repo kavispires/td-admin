@@ -9,6 +9,7 @@ export const warningsStore = new Store<WarningsState>({});
 
 // Function to add a warning
 export const addWarning = (key: string, message: string) => {
+  console.log('Adding warning:', { key, message });
   warningsStore.setState((prev) => ({
     ...prev,
     [key]: message,
@@ -29,4 +30,4 @@ export const clearWarnings = () => {
   warningsStore.setState(() => ({}));
 };
 
-export const useGetWarnings = () => useStore(warningsStore, () => warningsStore.state);
+export const useGetWarnings = () => useStore(warningsStore, (state) => state);

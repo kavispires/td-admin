@@ -8,6 +8,7 @@ import { SEPARATOR } from 'utils/constants';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
+import { addWarning } from '../warnings';
 
 type Corridor = {
   passcode: string;
@@ -111,7 +112,18 @@ export const buildDailyPortaisMagicosGames = (
     while (corridors.length < 3) {
       const selectedSet = entryAvailableSets.pop();
       if (!selectedSet) {
-        throw new Error('Not enough sets available');
+        addWarning('portais-magicos', `Not enough passcode sets to build Portais Mágicos for ${id}`);
+        // throw new Error('Not enough sets available');
+        // entries[id] = {
+        //   id,
+        //   type: 'portais-magicos',
+        //   setId: setsIds.join(SEPARATOR),
+        //   number: history.latestNumber + i + 1,
+        //   corridors: [],
+        //   goal: 0,
+        // };
+        console.error('Not enough sets available to build more corridors');
+        break;
       }
 
       // Select a random passcode

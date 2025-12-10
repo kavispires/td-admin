@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { type UseQueryResult, useQuery } from '@tanstack/react-query';
 import { useBaseUrl } from 'hooks/useBaseUrl';
 import { isEmpty } from 'lodash';
 
@@ -7,7 +7,10 @@ export function useLoadWordLibrary(
   language: Language,
   enabled = true,
   selected?: boolean,
-) {
+): Omit<UseQueryResult<string[], ResponseError>, 'data'> & {
+  data: string[];
+  hasResponseData: boolean;
+} {
   const { getUrl } = useBaseUrl('resources');
 
   const resourceName = selected

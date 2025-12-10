@@ -4,10 +4,10 @@ import { FilterSelect } from 'components/Common';
 import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { isEmpty } from 'lodash';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { dailyColumns } from './DailyColumns';
 import { useLoadDailySetup, useSaveDailySetup } from './hooks';
-import { useGetWarnings } from './utils/warnings';
+import { clearWarnings, useGetWarnings } from './utils/warnings';
 
 export const DEFAULT_LANGUAGE: Language = 'pt';
 
@@ -45,6 +45,7 @@ export function DailyDataPopulation() {
         <Button
           icon={<CloudSyncOutlined />}
           onClick={() => {
+            clearWarnings();
             setRerun(Date.now());
           }}
         />
@@ -67,6 +68,8 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
   const dataLoad = useLoadDailySetup(Boolean(queryLanguage), queryLanguage, batchSize);
 
   const warnings = useGetWarnings();
+  const warningsList = useMemo(() => Object.values(warnings), [warnings]);
+
   useEffect(() => {
     if (!isEmpty(warnings)) {
       console.log(warnings);
@@ -81,7 +84,7 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
         <Typography.Title level={4}>Total: {dataLoad.entries.length}</Typography.Title>
 
         <Button
-          disabled={(dataLoad.entries ?? []).length === 0}
+          disabled={(dataLoad.entries ?? []).length === 0 || warningsList.length > 0}
           icon={<SaveOutlined />}
           loading={isPending}
           onClick={() => save(dataLoad.entries)}
@@ -92,7 +95,7 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
         </Button>
       </Flex>
 
-      {Object.values(warnings).map((warning) => (
+      {warningsList.map((warning) => (
         <Alert banner key={warning} message={warning} showIcon type="warning" />
       ))}
 

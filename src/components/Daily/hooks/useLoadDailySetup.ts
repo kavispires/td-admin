@@ -77,8 +77,8 @@ export function useLoadDailySetup(
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: reset warnings on change of basic props
   useEffect(() => {
-    clearWarnings();
-  }, [batchSize, queryLanguage]);
+    // clearWarnings();
+  }, [batchSize]);
 
   const enableBuilders = enabled && historyQuery.isSuccess;
 
