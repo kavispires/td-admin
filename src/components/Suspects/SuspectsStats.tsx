@@ -2,7 +2,7 @@ import { Button, Drawer, Typography } from 'antd';
 import { capitalize, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { SuspectCard } from 'types';
-import { FEATURES_BY_GROUP } from './SuspectDrawer';
+import { FEATURES_BY_GROUP } from './options';
 
 type SuspectsStatsProps = {
   data: Dictionary<SuspectCard>;
@@ -41,9 +41,9 @@ type StatsDrawerProps = {
 };
 
 function StatsDrawer({ data, open, onClose }: StatsDrawerProps) {
-  const { ages, ethnicities, genders, builds, heights } = useMemo(() => {
+  const { ages, races, genders, builds, heights } = useMemo(() => {
     const ageGroup: NumberDictionary = {};
-    const ethnicityGroup: NumberDictionary = {};
+    const raceGroup: NumberDictionary = {};
     const genderGroup: NumberDictionary = {};
     const buildGroup: NumberDictionary = {};
     const heightGroup: NumberDictionary = {};
@@ -53,10 +53,10 @@ function StatsDrawer({ data, open, onClose }: StatsDrawerProps) {
         console.log('🎂 Missing age for suspect:', suspect.id);
       }
       ageGroup[suspect.age] = (ageGroup[suspect.age] ?? 0) + 1;
-      if (!suspect.ethnicity) {
-        console.log('🌍 Missing ethnicity for suspect:', suspect.id);
+      if (!suspect.race) {
+        console.log('🌍 Missing race for suspect:', suspect.id);
       }
-      ethnicityGroup[suspect.ethnicity] = (ethnicityGroup[suspect.ethnicity] ?? 0) + 1;
+      raceGroup[suspect.race] = (raceGroup[suspect.race] ?? 0) + 1;
       if (!suspect.gender) {
         console.log('⚧️ Missing gender for suspect:', suspect.id);
       }
@@ -75,7 +75,7 @@ function StatsDrawer({ data, open, onClose }: StatsDrawerProps) {
 
     return {
       ages: orderStat(ageGroup, total),
-      ethnicities: orderStat(ethnicityGroup, total),
+      races: orderStat(raceGroup, total),
       genders: orderStat(genderGroup, total),
       builds: orderStat(buildGroup, total),
       heights: orderStat(heightGroup, total),
@@ -98,18 +98,14 @@ function StatsDrawer({ data, open, onClose }: StatsDrawerProps) {
       return acc;
     }, []);
 
-    return orderBy(
-      orderStat(featureGroup, total),
-      (o) => flattenedFeatureGroup.findIndex((feature) => feature === o.key),
-      ['asc'],
-    );
+    return orderBy(orderStat(featureGroup, total), (o) => flattenedFeatureGroup.indexOf(o.key), ['asc']);
   }, [data]);
 
   return (
     <Drawer onClose={onClose} open={open} placement="right" title="Suspects Statistics" width={400}>
-      <Typography.Text strong>Ethnicity</Typography.Text>
+      <Typography.Text strong>Race</Typography.Text>
       <ul className="statistic__list">
-        {ethnicities.map((entry) => (
+        {races.map((entry) => (
           <li key={entry.key}>
             <strong>{entry.label}</strong> - {entry.percentage}%
           </li>

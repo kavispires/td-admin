@@ -105,3 +105,81 @@ export const ECONOMIC_CLASS_OPTIONS = [
   { label: 'Middle', value: 'middle' },
   { label: 'Upper', value: 'upper' },
 ];
+
+export const FEATURES_BY_GROUP = [
+  {
+    title: 'Hair Length',
+    features: [
+      { id: 'shortHair', label: 'Short Hair' },
+      { id: 'longHair', label: 'Long Hair' },
+      { id: 'mediumHair', label: 'Medium Hair' },
+      { id: 'bald', label: 'Bald' },
+    ],
+  },
+  {
+    title: 'Hair Color',
+    features: [
+      { id: 'blackHair', label: 'Black Hair' },
+      { id: 'brownHair', label: 'Brown Hair' },
+      { id: 'blondeHair', label: 'Blonde Hair' },
+      { id: 'redHair', label: 'Red Hair' },
+      { id: 'greyHair', label: 'Grey Hair' },
+      { id: 'coloredHair', label: 'Colored Hair' },
+    ],
+  },
+  {
+    title: 'Face',
+    features: [
+      { id: 'beard', label: 'Beard' },
+      { id: 'mustache', label: 'Mustache' },
+      { id: 'goatee', label: 'Goatee' },
+      { id: 'lipstick', label: 'Lipstick' },
+    ],
+  },
+  {
+    title: 'Specific',
+    features: [
+      { id: 'showTeeth', label: 'Showing Teeth' },
+      { id: 'avoidingCamera', label: 'Avoiding Camera' },
+      { id: 'hairyChest', label: 'Exposed Hairy Chest' },
+      { id: 'shirtless', label: 'Shirtless' },
+      { id: 'noHairInfo', label: 'No Hair Info' },
+    ],
+  },
+  {
+    title: 'Accessories',
+    features: [
+      { id: 'noAccessories', label: 'No Accessories' },
+      { id: 'glasses', label: 'Glasses' },
+      { id: 'piercings', label: 'Piercings' },
+      { id: 'earrings', label: 'Earrings' },
+      { id: 'necklace', label: 'Necklace' },
+      { id: 'hat', label: 'Hat' },
+      { id: 'scarf', label: 'Scarf' },
+      { id: 'hoodie', label: 'Hoodie' },
+      { id: 'tie', label: 'Tie' },
+      { id: 'headscarf', label: 'Headscarf/Bandana' },
+      { id: 'bow', label: 'Bow' },
+      { id: 'wearingFlowers', label: 'Wearing Flowers' },
+      { id: 'hairTie', label: 'Hair Tie' },
+    ],
+  },
+  {
+    title: 'Clothing',
+    features: [
+      { id: 'whiteShirt', label: 'White Shirt' },
+      { id: 'blackClothes', label: 'Black Clothes' },
+      { id: 'blueClothes', label: 'Blue Clothes' },
+      { id: 'redClothes', label: 'Red Clothes' },
+      { id: 'greenClothes', label: 'Green Clothes' },
+      { id: 'yellowClothes', label: 'Yellow Clothes' },
+      { id: 'purpleClothes', label: 'Purple Clothes' },
+      { id: 'pinkClothes', label: 'Pink Clothes' },
+      { id: 'orangeClothes', label: 'Orange Clothes' },
+      { id: 'brownClothes', label: 'Brown Clothes' },
+      { id: 'patternedShirt', label: 'Patterned Shirt' },
+      { id: 'wearingStripes', label: 'Wearing Stripes' },
+      { id: 'buttonShirt', label: 'Button Shirt' },
+    ],
+  },
+];

@@ -1,7 +1,7 @@
 import { Flex, Select, Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
-import { FEATURES_BY_GROUP } from './SuspectDrawer';
+import { FEATURES_BY_GROUP } from './options';
 
 const flatFeatures = orderBy(
   FEATURES_BY_GROUP.reduce((acc: { value: string; label: string }[], group) => {

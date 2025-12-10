@@ -23,6 +23,7 @@ import {
   BUILD_OPTIONS,
   ECONOMIC_CLASS_OPTIONS,
   EDUCATION_LEVEL_OPTIONS,
+  FEATURES_BY_GROUP,
   GENDER_OPTIONS,
   HEIGHT_OPTIONS,
   MBTI_OPTIONS,
@@ -277,7 +278,7 @@ function SelectionField({ label, suspectId, valueKey, value, options, updater }:
         onChange={(value) => updater(suspectId, valueKey, value)}
         options={options}
         placeholder={typeof label === 'string' ? label : ''}
-        style={{ width: '100%' }}
+        style={{ width: '100%', marginTop: 6 }}
         value={value}
       />
     </Flex>
@@ -347,7 +348,9 @@ function SuspectExtendedInfoForm({
   return (
     <>
       <Flex gap={8} vertical>
-        <Typography.Title level={5}>Extended Info</Typography.Title>
+        <Typography.Title italic level={5}>
+          Extended Info
+        </Typography.Title>
         <Flex gap={4} vertical>
           <Typography.Text strong>Persona</Typography.Text>
           <TextField
@@ -486,7 +489,20 @@ function SuspectExtendedInfoForm({
           valueKey="educationLevel"
         />
 
-        <div>TODO: Personality traits</div>
+        <Flex gap={4} vertical>
+          <Typography.Text strong>Personality Traits</Typography.Text>
+          <Select
+            defaultValue={suspectExtendedInfo.personalityTraits ?? []}
+            mode="tags"
+            onChange={(personalityTraits) =>
+              updateExtendedKeyValue(suspect.id, 'personalityTraits', personalityTraits.sort())
+            }
+            // options={[]}
+            placeholder="Personality Traits"
+            size="small"
+            style={{ width: '100%' }}
+          />
+        </Flex>
       </div>
     </>
   );
@@ -508,100 +524,27 @@ function SuspectFeatures({ suspect, addEntryToUpdate }: SuspectFeaturesProps) {
     addEntryToUpdate(suspect.id, { ...suspect, features: updatedFeatures });
   };
   return (
-    <div className="grid grid-2">
-      {FEATURES_BY_GROUP.map((group) => (
-        <div className="my-4" key={group.title}>
-          <Typography.Text strong>{group.title}</Typography.Text>
-          {group.features.map((feature) => (
-            <Flex className="my-2" gap={4} key={feature.id}>
-              <Switch
-                checked={features.includes(feature.id)}
-                onChange={() => onUpdateFeature(feature.id)}
-                size="small"
-              />{' '}
-              {feature.label}
-            </Flex>
-          ))}
-        </div>
-      ))}
-    </div>
+    <Flex gap={6} vertical>
+      <Typography.Title italic level={5}>
+        Image Features for gb style
+      </Typography.Title>
+      <div className="grid grid-2">
+        {FEATURES_BY_GROUP.map((group) => (
+          <div className="my-4" key={group.title}>
+            <Typography.Text strong>{group.title}</Typography.Text>
+            {group.features.map((feature) => (
+              <Flex className="my-2" gap={4} key={feature.id}>
+                <Switch
+                  checked={features.includes(feature.id)}
+                  onChange={() => onUpdateFeature(feature.id)}
+                  size="small"
+                />{' '}
+                {feature.label}
+              </Flex>
+            ))}
+          </div>
+        ))}
+      </div>
+    </Flex>
   );
 }
-
-export const FEATURES_BY_GROUP = [
-  {
-    title: 'Hair Length',
-    features: [
-      { id: 'shortHair', label: 'Short Hair' },
-      { id: 'longHair', label: 'Long Hair' },
-      { id: 'mediumHair', label: 'Medium Hair' },
-      { id: 'bald', label: 'Bald' },
-    ],
-  },
-  {
-    title: 'Hair Color',
-    features: [
-      { id: 'blackHair', label: 'Black Hair' },
-      { id: 'brownHair', label: 'Brown Hair' },
-      { id: 'blondeHair', label: 'Blonde Hair' },
-      { id: 'redHair', label: 'Red Hair' },
-      { id: 'greyHair', label: 'Grey Hair' },
-      { id: 'coloredHair', label: 'Colored Hair' },
-    ],
-  },
-  {
-    title: 'Face',
-    features: [
-      { id: 'beard', label: 'Beard' },
-      { id: 'mustache', label: 'Mustache' },
-      { id: 'goatee', label: 'Goatee' },
-      { id: 'lipstick', label: 'Lipstick' },
-    ],
-  },
-  {
-    title: 'Specific',
-    features: [
-      { id: 'showTeeth', label: 'Showing Teeth' },
-      { id: 'avoidingCamera', label: 'Avoiding Camera' },
-      { id: 'hairyChest', label: 'Exposed Hairy Chest' },
-      { id: 'shirtless', label: 'Shirtless' },
-      { id: 'noHairInfo', label: 'No Hair Info' },
-    ],
-  },
-  {
-    title: 'Accessories',
-    features: [
-      { id: 'noAccessories', label: 'No Accessories' },
-      { id: 'glasses', label: 'Glasses' },
-      { id: 'piercings', label: 'Piercings' },
-      { id: 'earrings', label: 'Earrings' },
-      { id: 'necklace', label: 'Necklace' },
-      { id: 'hat', label: 'Hat' },
-      { id: 'scarf', label: 'Scarf' },
-      { id: 'hoodie', label: 'Hoodie' },
-      { id: 'tie', label: 'Tie' },
-      { id: 'headscarf', label: 'Headscarf/Bandana' },
-      { id: 'bow', label: 'Bow' },
-      { id: 'wearingFlowers', label: 'Wearing Flowers' },
-      { id: 'hairTie', label: 'Hair Tie' },
-    ],
-  },
-  {
-    title: 'Clothing',
-    features: [
-      { id: 'whiteShirt', label: 'White Shirt' },
-      { id: 'blackClothes', label: 'Black Clothes' },
-      { id: 'blueClothes', label: 'Blue Clothes' },
-      { id: 'redClothes', label: 'Red Clothes' },
-      { id: 'greenClothes', label: 'Green Clothes' },
-      { id: 'yellowClothes', label: 'Yellow Clothes' },
-      { id: 'purpleClothes', label: 'Purple Clothes' },
-      { id: 'pinkClothes', label: 'Pink Clothes' },
-      { id: 'orangeClothes', label: 'Orange Clothes' },
-      { id: 'brownClothes', label: 'Brown Clothes' },
-      { id: 'patternedShirt', label: 'Patterned Shirt' },
-      { id: 'wearingStripes', label: 'Wearing Stripes' },
-      { id: 'buttonShirt', label: 'Button Shirt' },
-    ],
-  },
-];
