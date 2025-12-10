@@ -1,0 +1,1 @@
+import{a7 as o,a8 as r}from"./index-DiQmi0MW.js";const a=new o({}),c=(n,t)=>{console.log("Adding warning:",{key:n,message:t}),a.setState(s=>({...s,[n]:t}))},i=()=>{a.setState(()=>({}))},g=()=>r(a,n=>n);export{c as a,i as c,g as u};
