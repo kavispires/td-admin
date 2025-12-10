@@ -2,17 +2,20 @@ import { type UseQueryOptions, useQuery } from '@tanstack/react-query';
 import { isEmpty } from 'lodash';
 import { useBaseUrl } from './useBaseUrl';
 
-export function useTDResource<TData>(
+export function useTDResource<TData, TSerializedData = TData>(
   resourceName: string,
-  options?: Omit<UseQueryOptions<Dictionary<TData>, Error>, 'queryKey' | 'queryFn'>,
+  options?: Omit<
+    UseQueryOptions<Dictionary<TSerializedData>, Error, Dictionary<TData>>,
+    'queryKey' | 'queryFn'
+  >,
 ) {
   const { getUrl } = useBaseUrl('resources');
 
-  const query = useQuery<Dictionary<TData>, Error>({
+  const query = useQuery<Dictionary<TSerializedData>, Error, Dictionary<TData>>({
     queryKey: [resourceName],
     queryFn: async () => {
       const res = await fetch(getUrl(`${resourceName}.json`));
-      return (await res.json()) as Dictionary<TData>;
+      return (await res.json()) as Dictionary<TSerializedData>;
     },
     ...options,
   });
@@ -25,17 +28,17 @@ export function useTDResource<TData>(
   };
 }
 
-export function useTDResourceNonCollection<TData>(
+export function useTDResourceNonCollection<TData, TSerializedData = TData>(
   resourceName: string,
-  options?: Omit<UseQueryOptions<TData, Error>, 'queryKey' | 'queryFn'>,
+  options?: Omit<UseQueryOptions<TSerializedData, Error, TData>, 'queryKey' | 'queryFn'>,
 ) {
   const { getUrl } = useBaseUrl('resources');
 
-  const query = useQuery<TData, Error>({
+  const query = useQuery<TSerializedData, Error, TData>({
     queryKey: [resourceName],
     queryFn: async () => {
       const res = await fetch(getUrl(`${resourceName}.json`));
-      return (await res.json()) as TData;
+      return (await res.json()) as TSerializedData;
     },
     ...options,
   });

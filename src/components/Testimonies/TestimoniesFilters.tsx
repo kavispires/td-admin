@@ -158,7 +158,7 @@ export function TestimoniesFilters({
 }
 
 async function prepareFileForDownload(entriesToUpdate: Dictionary<TestimonyAnswers>) {
-  console.log('Preparing file for download...x');
+  console.log('Preparing file for download...');
 
   const firebaseRawData = await getDocQueryFunction<Dictionary<string>>('data', 'testimonies')();
   const parsedData = deserializeFirestoreData<TestimonyAnswers>(firebaseRawData);
@@ -167,20 +167,43 @@ async function prepareFileForDownload(entriesToUpdate: Dictionary<TestimonyAnswe
 
   // DO MIGRATIONS HERE
   const copy = cloneDeep(entriesToUpdate);
+  const results: Dictionary<Dictionary<string>> = {};
 
   Object.keys(copy).forEach((key) => {
     const entry = copy[key];
+    results[key] = {};
     const firestoreEntry = parsedData[key] || {};
+
     // For each person if they have 4 1s, convert into a 4 if they have 4 0s convert into a -4
     Object.keys(entry).forEach((suspectId) => {
-      const firestoreValues = firestoreEntry[suspectId] || [];
+      const isOldSuspectIdFormat = suspectId.length < 6; // old format like "us-1" vs new "us-001"
 
-      const values = normalizeValues([...entry[suspectId], ...firestoreValues]);
+      // Handle migration for old suspect ID format
+      if (isOldSuspectIdFormat) {
+        const suspectIdNumber = Number(suspectId.split('-')[1]);
+        const paddedSuspectId = `us-${suspectIdNumber.toString().padStart(3, '0')}`;
 
-      // Replace the values with the normalized ones
-      entry[suspectId] = values;
+        const firestoreValuesOld = firestoreEntry[suspectId] || [];
+        const firestoreValuesNew = firestoreEntry[paddedSuspectId] || [];
+        const localValuesNew = entry[paddedSuspectId] || [];
+
+        const values = normalizeValues([
+          ...entry[suspectId],
+          ...localValuesNew,
+          ...firestoreValuesOld,
+          ...firestoreValuesNew,
+        ]);
+
+        delete entry[suspectId];
+        results[key][paddedSuspectId] = JSON.stringify(values);
+      } else {
+        // Normal case: just normalize the values
+        const firestoreValues = firestoreEntry[suspectId] || [];
+        const values = normalizeValues([...entry[suspectId], ...firestoreValues]);
+        results[key][suspectId] = JSON.stringify(values);
+      }
     });
   });
 
-  return sortJsonKeys(deepCleanObject(copy));
+  return sortJsonKeys(deepCleanObject(results));
 }

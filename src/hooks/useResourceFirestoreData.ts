@@ -7,10 +7,11 @@ import { useGetFirestoreDoc } from './useGetFirestoreDoc';
 import { useTDResource } from './useTDResource';
 import { useUpdateFirestoreDoc } from './useUpdateFirestoreDoc';
 
-export type UseResourceFirestoreDataProps = {
+export type UseResourceFirestoreDataProps<TDRData, TDRSerializedData = TDRData> = {
   tdrResourceName: string;
   firestoreDataCollectionName: string;
   serialize?: boolean;
+  deserializer?: (data: Dictionary<TDRSerializedData>) => Dictionary<TDRData>;
 };
 
 export type UseResourceFirestoreDataReturnType<TDRData> = {
@@ -31,20 +32,28 @@ export type UseResourceFirestoreDataReturnType<TDRData> = {
  * Custom hook that fetches and manages data from both TDR (The Daily Refactor) and Firestore.
  * It merges the data from both sources and provides functions to update and save the data.
  *
- * @template TDRData - The type of data fetched from TDR.
+ * @template TDRData - The deserialized/final type of data from TDR (after deserializer runs).
  * @template TFirestoreData - The type of data fetched from Firestore.
+ * @template TDRSerializedData - The raw serialized type from TDR before deserialization (defaults to TDRData if no deserializer).
  *
  * The hook return object containing the merged data, loading state, error, and functions to update and save the data.
  */
-export function useResourceFirestoreData<TDRData = PlainObject, TFirestoreData = TDRData>({
+export function useResourceFirestoreData<
+  TDRData = PlainObject,
+  TDRSerializedData = TDRData,
+  TFirestoreData = TDRData,
+>({
   tdrResourceName,
   firestoreDataCollectionName,
   serialize,
-}: UseResourceFirestoreDataProps): UseResourceFirestoreDataReturnType<TDRData> {
+  deserializer,
+}: UseResourceFirestoreDataProps<TDRData, TDRSerializedData>): UseResourceFirestoreDataReturnType<TDRData> {
   const { notification } = App.useApp();
   const queryClient = useQueryClient();
 
-  const tdrQuery = useTDResource<TDRData>(tdrResourceName);
+  const tdrQuery = useTDResource<TDRData, TDRSerializedData>(tdrResourceName, {
+    select: deserializer ? deserializer : undefined,
+  });
   const firestoreQuery = useGetFirestoreDoc<Dictionary<TFirestoreData>, Dictionary<TDRData>>(
     'tdr',
     firestoreDataCollectionName,

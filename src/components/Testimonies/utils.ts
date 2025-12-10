@@ -48,7 +48,7 @@ export const calculateSuspectAnswersData = (
 ) => {
   const { reliabilityThreshold = 4, projectionThreshold = 55 } = options || {};
 
-  const num = suspectCardId.split('-')[1];
+  const num = suspectCardId.split('-')[1].padStart(3, '0');
   const imageId = `us-gb-${num}`;
   const values = isEmpty(answers[suspectCardId]) ? [] : answers[suspectCardId];
 

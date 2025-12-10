@@ -2,7 +2,10 @@ import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { calculateSuspectAnswersData } from 'components/Testimonies/utils';
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, difference, intersection, isEmpty, sample, sampleSize, shuffle, uniq } from 'lodash';
-import type { TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimoniesResource';
+import {
+  type TestimonyAnswers,
+  testimoniesDeserializer,
+} from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { CrimeReason, SuspectCard, TestimonyQuestionCard } from 'types';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
@@ -165,7 +168,10 @@ export const useDailyEspionagemGames = (
   const questionsQuery = useTDResource<TestimonyQuestionCard>(`testimony-questions-${queryLanguage}`, {
     enabled,
   });
-  const answersQuery = useTDResource<TestimonyAnswers>('testimony-answers', { enabled });
+  const answersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
+    select: testimoniesDeserializer,
+    enabled,
+  });
   const reasonsQuery = useTDResource<CrimeReason>('crime-reasons', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: Only if data query is updated

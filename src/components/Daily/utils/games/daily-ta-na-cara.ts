@@ -3,7 +3,10 @@ import { getSuspectImageId } from 'components/Suspects/SuspectImageCard';
 import { countAnswersAbsoluteTotal } from 'components/Testimonies/utils';
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy, shuffle } from 'lodash';
-import type { TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimoniesResource';
+import {
+  type TestimonyAnswers,
+  testimoniesDeserializer,
+} from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 import { makeBooleanDictionary } from 'utils';
@@ -40,7 +43,10 @@ export const useDailyTaNaCaraGames = (
   const testimoniesQuery = useTDResource<TestimonyQuestionCard>(`testimony-questions-${queryLanguage}`, {
     enabled,
   });
-  const answersQuery = useTDResource<TestimonyAnswers>('testimony-answers', { enabled });
+  const answersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
+    select: testimoniesDeserializer,
+    enabled,
+  });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {

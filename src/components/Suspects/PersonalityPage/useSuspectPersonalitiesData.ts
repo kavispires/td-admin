@@ -1,6 +1,9 @@
 import { calculateSuspectAnswersData } from 'components/Testimonies/utils';
 import { useTDResource } from 'hooks/useTDResource';
-import type { TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimoniesResource';
+import {
+  type TestimonyAnswers,
+  testimoniesDeserializer,
+} from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
 import type { SuspectCard, TestimonyQuestionCard } from 'types';
 
@@ -28,7 +31,9 @@ export function useSuspectPersonalitiesData() {
   const testimoniesQuery = useTDResource<TestimonyQuestionCard>('testimony-questions-pt');
 
   // Get Testimonies answers
-  const testimonyAnswersQuery = useTDResource<TestimonyAnswers>('testimony-answers');
+  const testimonyAnswersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
+    select: testimoniesDeserializer,
+  });
 
   // Get Cross-reference Zodiac
   const zodiacCrossRefQuery = useTDResource<CrossReferenceData>('suspect-testimony-crossreference-zodiac-pt');

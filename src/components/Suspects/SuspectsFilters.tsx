@@ -113,6 +113,15 @@ function prepareFileForDownload(data: Dictionary<SuspectCard>) {
   // TO PERFORM CLEANUPS OR UPDATES ON EXISTING SUSPECTS
   // for (const key in copy) {
   //   const suspect = copy[key];
+  //   // If key/id has a number lower than 100, I need to pad it with a 0
+  //   const idNumber = Number(suspect.id.split('-')[1]);
+  //   if (idNumber < 100) {
+  //     const paddedId = `us-${idNumber.toString().padStart(3, '0')}`;
+  //     copy[paddedId] = {
+  //       ...suspect,
+  //       id: paddedId,
+  //     };
+  //   }
   // }
 
   // TO ADD NEW SUSPECTS
