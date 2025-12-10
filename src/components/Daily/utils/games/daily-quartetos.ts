@@ -34,8 +34,8 @@ export const useDailyQuartetosGames = (
 ) => {
   const [quartetosHistory] = useParsedHistory(DAILY_GAMES_KEYS.QUARTETOS, dailyHistory);
 
-  const dailyQuartetSetQuery = useTDResource<DailyQuartetSet>('daily-quartet-sets', enabled);
-  const itemGroupsQuery = useTDResource<ItemGroup>('items-groups', enabled);
+  const dailyQuartetSetQuery = useTDResource<DailyQuartetSet>('daily-quartet-sets', { enabled });
+  const itemGroupsQuery = useTDResource<ItemGroup>('items-groups', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {

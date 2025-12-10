@@ -18,8 +18,10 @@ type Riddle = {
 export function Riddler() {
   const { queryParams } = useQueryParams({ language: 'pt' });
   const language = queryParams.get('language');
-  const riddleWordsQuery = useTDResource<TextCard>(`riddle-words-${language}`, !!language);
-  const riddleConjunctionsQuery = useTDResource<TextCard>(`riddle-conjunctions-${language}`, !!language);
+  const riddleWordsQuery = useTDResource<TextCard>(`riddle-words-${language}`, { enabled: !!language });
+  const riddleConjunctionsQuery = useTDResource<TextCard>(`riddle-conjunctions-${language}`, {
+    enabled: !!language,
+  });
   const [retrigger, setRetrigger] = useState(0);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: retrigger is only use to regenerate the riddles

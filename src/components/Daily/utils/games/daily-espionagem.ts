@@ -161,13 +161,12 @@ export const useDailyEspionagemGames = (
 ) => {
   const [espionagemHistory] = useParsedHistory(DAILY_GAMES_KEYS.ESPIONAGEM, dailyHistory);
 
-  const suspectsQuery = useTDResource<SuspectCard>('suspects', enabled);
-  const questionsQuery = useTDResource<TestimonyQuestionCard>(
-    `testimony-questions-${queryLanguage}`,
+  const suspectsQuery = useTDResource<SuspectCard>('suspects', { enabled });
+  const questionsQuery = useTDResource<TestimonyQuestionCard>(`testimony-questions-${queryLanguage}`, {
     enabled,
-  );
-  const answersQuery = useTDResource<TestimonyAnswers>('testimony-answers', enabled);
-  const reasonsQuery = useTDResource<CrimeReason>('crime-reasons', enabled);
+  });
+  const answersQuery = useTDResource<TestimonyAnswers>('testimony-answers', { enabled });
+  const reasonsQuery = useTDResource<CrimeReason>('crime-reasons', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: Only if data query is updated
   const testimonySuspectAnswers = useMemo(

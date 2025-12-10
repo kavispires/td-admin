@@ -56,12 +56,11 @@ export const useDailyComunicacaoAlienigenaGames = (
     dailyHistory,
   );
 
-  const tdrItemsQuery = useTDResource<Item>('items', enabled);
-  const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes', enabled);
-  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>(
-    'items-attribute-values',
+  const tdrItemsQuery = useTDResource<Item>('items', { enabled });
+  const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes', { enabled });
+  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>('items-attribute-values', {
     enabled,
-  );
+  });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {

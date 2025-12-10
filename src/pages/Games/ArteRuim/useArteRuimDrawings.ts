@@ -88,7 +88,7 @@ function extractCreatedAt(key: string): number {
 
 export function useDrawingsResourceData(enabled: boolean, language: string) {
   const firestoreDrawingsQueries = useLoadFirestoreDrawings(enabled, language as Language);
-  const tdrDrawingsQuery = useTDResource<DrawingData>(`arte-ruim-drawings-${language}`, enabled);
+  const tdrDrawingsQuery = useTDResource<DrawingData>(`arte-ruim-drawings-${language}`, { enabled });
 
   const isDrawingsLoading = firestoreDrawingsQueries.some((q) => q.isLoading);
   const isDrawingsSuccess = firestoreDrawingsQueries.every((q) => q.isSuccess);

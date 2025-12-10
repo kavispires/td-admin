@@ -26,7 +26,7 @@ export const useDailyArtistaGames = (
   const [artistaHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTISTA, dailyHistory);
   const [arteRuimHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTE_RUIM, dailyHistory);
 
-  const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`, enabled);
+  const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`, { enabled });
   const drawingsQuery = useDrawingsResourceData(enabled, queryLanguage);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated

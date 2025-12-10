@@ -28,7 +28,7 @@ export const useDailyFilmacoGames = (
 ) => {
   const [filmacoHistory] = useParsedHistory(DAILY_GAMES_KEYS.FILMACO, dailyHistory);
 
-  const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets', enabled);
+  const movieSetsQuery = useTDResource<DailyMovieSet>('daily-movie-sets', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {

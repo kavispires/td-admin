@@ -17,7 +17,7 @@ export function EspionagemSimulator() {
   const [run, setRun] = useState({ batchSize: 1, history: {} });
   const batchSizeRef = useRef<number>(1);
   const { entries } = useDailyEspionagemGames(true, 'pt', run.batchSize, run.history);
-  const suspectsQuery = useTDResource<SuspectCard>('suspects', !isEmpty(entries));
+  const suspectsQuery = useTDResource<SuspectCard>('suspects', { enabled: !isEmpty(entries) });
 
   console.log(countSuspectUse(entries, suspectsQuery.data ?? {}));
 

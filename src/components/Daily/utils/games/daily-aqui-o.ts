@@ -53,8 +53,8 @@ export const useDailyAquiOGames = (
 ) => {
   const [aquiOHistory] = useParsedHistory(DAILY_GAMES_KEYS.AQUI_O, dailyHistory);
 
-  const tdrItemsQuery = useTDResource<Item>('items', enabled);
-  const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets', enabled);
+  const tdrItemsQuery = useTDResource<Item>('items', { enabled });
+  const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {

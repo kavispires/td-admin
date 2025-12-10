@@ -1,8 +1,11 @@
-import { useQuery } from '@tanstack/react-query';
+import { type UseQueryOptions, useQuery } from '@tanstack/react-query';
 import { isEmpty } from 'lodash';
 import { useBaseUrl } from './useBaseUrl';
 
-export function useTDResource<TData>(resourceName: string, enabled = true) {
+export function useTDResource<TData>(
+  resourceName: string,
+  options?: Omit<UseQueryOptions<Dictionary<TData>, Error>, 'queryKey' | 'queryFn'>,
+) {
   const { getUrl } = useBaseUrl('resources');
 
   const query = useQuery<Dictionary<TData>, Error>({
@@ -11,7 +14,7 @@ export function useTDResource<TData>(resourceName: string, enabled = true) {
       const res = await fetch(getUrl(`${resourceName}.json`));
       return (await res.json()) as Dictionary<TData>;
     },
-    enabled,
+    ...options,
   });
   const hasResponseData = !isEmpty(query.data);
 
@@ -22,7 +25,10 @@ export function useTDResource<TData>(resourceName: string, enabled = true) {
   };
 }
 
-export function useTDResourceNonCollection<TData>(resourceName: string, enabled = true) {
+export function useTDResourceNonCollection<TData>(
+  resourceName: string,
+  options?: Omit<UseQueryOptions<TData, Error>, 'queryKey' | 'queryFn'>,
+) {
   const { getUrl } = useBaseUrl('resources');
 
   const query = useQuery<TData, Error>({
@@ -31,7 +37,7 @@ export function useTDResourceNonCollection<TData>(resourceName: string, enabled 
       const res = await fetch(getUrl(`${resourceName}.json`));
       return (await res.json()) as TData;
     },
-    enabled,
+    ...options,
   });
   const hasResponseData = !isEmpty(query.data);
 

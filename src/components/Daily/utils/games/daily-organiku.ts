@@ -27,7 +27,7 @@ export const useDailyOrganikuGames = (
 ) => {
   const [organikuHistory] = useParsedHistory(DAILY_GAMES_KEYS.ORGANIKU, dailyHistory);
 
-  const itemGroupsQuery = useTDResource<ItemGroup>('items-groups', enabled);
+  const itemGroupsQuery = useTDResource<ItemGroup>('items-groups', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {

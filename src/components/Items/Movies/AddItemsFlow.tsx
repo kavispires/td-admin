@@ -37,7 +37,7 @@ type ItemsSuggestionsProps = {
 };
 
 function ItemsSuggestions({ movie, onUpdate }: ItemsSuggestionsProps) {
-  const itemsTypeaheadQuery = useTDResource<ItemT>('items', true);
+  const itemsTypeaheadQuery = useTDResource<ItemT>('items');
 
   const suggestions: string[] = useMemo(() => {
     if (!itemsTypeaheadQuery.data) return [];

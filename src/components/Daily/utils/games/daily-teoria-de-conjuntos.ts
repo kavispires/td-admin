@@ -52,8 +52,8 @@ export const useDailyTeoriaDeConjuntosGames = (
 ) => {
   const [teoriaDeConjuntosHistory] = useParsedHistory(DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS, dailyHistory);
 
-  const thingsQuery = useTDResource<DailyDiagramItem>('daily-diagram-items', enabled);
-  const rulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules', enabled);
+  const thingsQuery = useTDResource<DailyDiagramItem>('daily-diagram-items', { enabled });
+  const rulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {

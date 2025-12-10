@@ -33,7 +33,7 @@ export const useDailyPortaisMagicosGames = (
 ) => {
   const [portaisMagicosHistory] = useParsedHistory(DAILY_GAMES_KEYS.PORTAIS_MAGICOS, dailyHistory);
 
-  const imageCardPasscodeSetsQuery = useTDResource<ImageCardPasscodeSet>('daily-passcode-sets', enabled);
+  const imageCardPasscodeSetsQuery = useTDResource<ImageCardPasscodeSet>('daily-passcode-sets', { enabled });
   const wordsThreeQuery = useLoadWordLibrary(3, queryLanguage, enabled, true);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated

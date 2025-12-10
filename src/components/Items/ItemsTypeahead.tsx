@@ -23,7 +23,7 @@ export function ItemsTypeahead({
   onFinishMultiple,
   ...rest
 }: ItemsTypeaheadProps) {
-  const tdrItemsQuery = useTDResource<Item>('items', !items && !isPending);
+  const tdrItemsQuery = useTDResource<Item>('items', { enabled: !items && !isPending });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: on purpose
   const { namesDict, options } = useMemo(() => {

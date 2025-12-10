@@ -36,12 +36,11 @@ export const useDailyTaNaCaraGames = (
 ) => {
   const [taNaCaraHistory] = useParsedHistory(DAILY_GAMES_KEYS.TA_NA_CARA, dailyHistory);
 
-  const suspectsQuery = useTDResource<SuspectCard>('suspects', enabled);
-  const testimoniesQuery = useTDResource<TestimonyQuestionCard>(
-    `testimony-questions-${queryLanguage}`,
+  const suspectsQuery = useTDResource<SuspectCard>('suspects', { enabled });
+  const testimoniesQuery = useTDResource<TestimonyQuestionCard>(`testimony-questions-${queryLanguage}`, {
     enabled,
-  );
-  const answersQuery = useTDResource<TestimonyAnswers>('testimony-answers', enabled);
+  });
+  const answersQuery = useTDResource<TestimonyAnswers>('testimony-answers', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {

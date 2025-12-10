@@ -83,7 +83,7 @@ export function useLoadDailySetup(
   const enableBuilders = enabled && historyQuery.isSuccess;
 
   // GET ITEMS FOR DICTIONARY
-  const tdrItemsQuery = useTDResource<Item>('items', enableBuilders);
+  const tdrItemsQuery = useTDResource<Item>('items', { enabled: enableBuilders });
 
   // BUILD AQUI Ó
   const aquiO = useDailyAquiOGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
