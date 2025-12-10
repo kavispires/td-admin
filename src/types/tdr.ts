@@ -561,6 +561,11 @@ export type SpyLocation = {
 };
 
 /**
+ * Suspect Style Variant
+ */
+export type SuspectStyleVariant = 'gb' | 'rl' | 'px' | 'fx' | (string & NonNullable<unknown>);
+
+/**
  * Suspect Card
  * Used for: suspects
  */
@@ -578,18 +583,21 @@ export type SuspectCard = {
    */
   gender: 'male' | 'female' | (string & NonNullable<unknown>);
   /**
-   * The ethnicity of the suspect
+   * The race of the suspect
    */
-  ethnicity:
-    | 'caucasian'
-    | 'black'
-    | 'asian'
-    | 'latino'
-    | 'indian'
-    | 'middle-eastern'
-    | 'mixed'
-    | 'indigenous'
+  race:
+    | 'white' // broadly European / light-skinned
+    | 'black' // broadly African / Afro-descendant
+    | 'asian' // East / Southeast / South Asian appearance
+    | 'brown' // many MENA / Latino / South Asian / mixed appearances
+    | 'indigenous' // Native / First Nations / Aboriginal, etc.
+    | 'mixed' // clearly mixed / ambiguous features
+    | 'other'
     | (string & NonNullable<unknown>);
+  /**
+   * Backwards compatibility (to be removed)
+   */
+  ethnicity: string;
   /**
    * The age range of the suspect
    */
@@ -612,28 +620,118 @@ export type SuspectCard = {
    */
   height: 'short' | 'medium' | 'tall' | (string & NonNullable<unknown>);
   /**
-   * List of features in the suspect image (gb style as reference)
+   * List of features in the suspect image (gb style as reference point)
    */
   features: string[];
   /**
    * Flag indicating if the suspect is exclusive to the gb style
    */
   gbExclusive?: true;
+};
+
+/**
+ * Extended Suspect Info Card
+ * Used for: suspects-extended-info
+ * Provides additional information about a suspect
+ */
+export type SuspectExtendedInfo = {
   /**
-   * Short description label of the suspect
+   * Unique identifier for the card that matches its SuspectCard equivalent
+   */
+  id: CardId;
+  /**
+   * Descriptive label of the suspect representing their persona
    */
   persona: DualLanguageValue;
   /**
-   * AI prompt descritor
+   * AI prompt descriptor
    */
   prompt: string;
+  /**
+   * AI description of the gb style variant
+   */
+  description: string;
   /**
    * Animal for zootopia style
    */
   animal: string;
+  /**
+   * Profession of the suspect
+   */
+  profession: string;
+  /**
+   * MBTI personality type of the suspect
+   */
+  mbti:
+    | 'INTJ'
+    | 'INTP'
+    | 'ENTJ'
+    | 'ENTP'
+    | 'INFJ'
+    | 'INFP'
+    | 'ENFJ'
+    | 'ENFP'
+    | 'ISTJ'
+    | 'ISFJ'
+    | 'ESTJ'
+    | 'ESFJ'
+    | 'ISTP'
+    | 'ISFP'
+    | 'ESTP'
+    | 'ESFP'
+    | (string & NonNullable<unknown>);
+  /**
+   * Zodiac sign of the suspect
+   */
+  zodiacSign:
+    | 'aries'
+    | 'taurus'
+    | 'gemini'
+    | 'cancer'
+    | 'leo'
+    | 'virgo'
+    | 'libra'
+    | 'scorpio'
+    | 'sagittarius'
+    | 'capricorn'
+    | 'aquarius'
+    | 'pisces'
+    | (string & NonNullable<unknown>);
+  /**
+   * Alignment of the suspect
+   */
+  alignment:
+    | 'lawful-good'
+    | 'neutral-good'
+    | 'chaotic-good'
+    | 'lawful-neutral'
+    | 'true-neutral'
+    | 'chaotic-neutral'
+    | 'lawful-evil'
+    | 'neutral-evil'
+    | 'chaotic-evil'
+    | (string & NonNullable<unknown>);
+  /**
+   * Sexual orientation of the suspect
+   */
+  sexualOrientation: 'straight' | 'gay' | 'bisexual' | 'other' | (string & NonNullable<unknown>);
+  /**
+   * Ethnicity of the suspect
+   */
+  ethnicity: string;
+  /**
+   * Economic class of the suspect
+   */
+  economicClass: 'lower' | 'middle' | 'upper' | (string & NonNullable<unknown>);
+  /**
+   * Education level of the suspect
+   */
+  educationLevel: 'none' | 'basic' | 'college' | 'high' | (string & NonNullable<unknown>);
+  /**
+   *
+   */
+  personalityTraits: string[];
 };
-
-export type SuspectStyleVariant = 'gb' | 'rl' | 'px' | 'fx' | (string & NonNullable<unknown>);
 
 /**
  * Testimony Question Card

@@ -17,16 +17,14 @@ const GENDER_OPTIONS = [
   { label: 'Other', value: 'other' },
 ];
 
-const ETHNICITY_OPTIONS = [
-  { label: 'Caucasian', value: 'caucasian' },
+const RACE_OPTIONS = [
+  { label: 'White', value: 'white' },
   { label: 'Black', value: 'black' },
   { label: 'Asian', value: 'asian' },
-  { label: 'Latino', value: 'latino' },
+  { label: 'Brown', value: 'brown' },
   { label: 'Indigenous', value: 'indigenous' },
-  { label: 'Indian', value: 'indian' },
-  { label: 'Middle Eastern', value: 'middle-eastern' },
   { label: 'Mixed', value: 'mixed' },
-  { persona: 'Other', value: 'other' },
+  { label: 'Other', value: 'other' },
 ];
 
 type SuspectDrawerProps = Pick<UseResourceFirestoreDataReturnType<SuspectCard>, 'data' | 'addEntryToUpdate'>;
@@ -38,8 +36,6 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
 
   const [namePt, setNamePt] = useState(suspect?.name.pt || '');
   const [nameEn, setNameEn] = useState(suspect?.name.en || '');
-  const [personaPt, setPersonaPt] = useState(suspect?.persona.pt || '');
-  const [personaEn, setPersonaEn] = useState(suspect?.persona.en || '');
 
   // Reset local state when suspect changes
   // biome-ignore lint/correctness/useExhaustiveDependencies: set up name initial values
@@ -47,8 +43,6 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
     if (suspect) {
       setNamePt(suspect.name.pt);
       setNameEn(suspect.name.en);
-      setPersonaPt(suspect.persona.pt);
-      setPersonaEn(suspect.persona.en);
     }
   }, [suspect?.id]);
 
@@ -66,24 +60,6 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
       addEntryToUpdate(suspect.id, {
         ...suspect,
         name: { ...suspect.name, en: nameEn },
-      });
-    }
-  };
-
-  const handlePersonaPtBlur = () => {
-    if (suspect && personaPt !== suspect.persona.pt) {
-      addEntryToUpdate(suspect.id, {
-        ...suspect,
-        persona: { ...suspect.persona, pt: personaPt },
-      });
-    }
-  };
-
-  const handlePersonaEnBlur = () => {
-    if (suspect && personaEn !== suspect.persona.en) {
-      addEntryToUpdate(suspect.id, {
-        ...suspect,
-        persona: { ...suspect.persona, en: personaEn },
       });
     }
   };
@@ -119,17 +95,6 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
             <div style={{ top: 64, position: 'fixed' }}>
               <SuspectImageCard cardId={suspect.id} cardWidth={100} />
             </div>
-            <div style={{ marginTop: 156 }}>
-              <Typography.Text strong>Prompt</Typography.Text>
-              <Typography.Paragraph
-                code
-                editable={{
-                  onChange: (value) => updateKeyValue(suspect.id, 'prompt', value),
-                }}
-              >
-                {suspect.prompt}
-              </Typography.Paragraph>
-            </div>
           </div>
 
           <Flex gap={4} vertical>
@@ -148,22 +113,6 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
               prefix={<span>🇺🇸</span>}
               size="small"
               value={nameEn}
-            />
-            <Input
-              onBlur={handlePersonaPtBlur}
-              onChange={(e) => setPersonaPt(e.target.value)}
-              placeholder="Persona in PT"
-              prefix={<span>🇧🇷</span>}
-              size="small"
-              value={personaPt}
-            />
-            <Input
-              onBlur={handlePersonaEnBlur}
-              onChange={(e) => setPersonaEn(e.target.value)}
-              placeholder="Persona in EN"
-              prefix={<span>🇺🇸</span>}
-              size="small"
-              value={personaEn}
             />
 
             <div>
@@ -187,23 +136,12 @@ export function SuspectDrawer({ data, addEntryToUpdate }: SuspectDrawerProps) {
             </div>
             <div>
               <Select
-                onChange={(value) => updateKeyValue(suspect.id, 'ethnicity', value)}
-                options={ETHNICITY_OPTIONS}
+                onChange={(value) => updateKeyValue(suspect.id, 'race', value)}
+                options={RACE_OPTIONS}
                 size="small"
                 style={{ width: 150 }}
-                value={suspect.ethnicity}
+                value={suspect.race}
               />
-            </div>
-            <div>
-              <Typography.Text strong>Animal</Typography.Text>
-              <Typography.Paragraph
-                code
-                editable={{
-                  onChange: (value) => updateKeyValue(suspect.id, 'animal', value),
-                }}
-              >
-                {suspect.animal}
-              </Typography.Paragraph>
             </div>
           </Flex>
         </div>

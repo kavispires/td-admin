@@ -76,14 +76,11 @@ export function SuspectAnswersTable({
       dataIndex: 'name',
       key: 'name',
       sorter: (a, b) => a.name.pt.localeCompare(b.name.pt),
-      render: (names, record) => {
+      render: (names) => {
         return (
           <Flex vertical>
             <Typography.Text>{names.pt}</Typography.Text>
             <Typography.Text type="secondary">{names.en}</Typography.Text>
-            <Typography.Text italic type="secondary">
-              <small>{record.persona.en}</small>
-            </Typography.Text>
           </Flex>
         );
       },

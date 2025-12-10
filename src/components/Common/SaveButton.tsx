@@ -19,6 +19,7 @@ export function SaveButton({
   isSaving,
   dirt,
   interval = 10 * 60 * 1000,
+  children,
   ...buttonProps
 }: SaveButtonProps) {
   // It saves after 10 minutes of the first time of being dirty, unless 'dirt' is provided and changed
@@ -71,7 +72,7 @@ export function SaveButton({
       type="primary"
       {...buttonProps}
     >
-      Save
+      {children ?? 'Save'}
     </Button>
   );
 }

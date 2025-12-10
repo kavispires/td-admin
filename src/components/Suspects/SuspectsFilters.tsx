@@ -1,13 +1,13 @@
 import { Divider, Flex, Form } from 'antd';
 import { FilterNumber, FilterSelect } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
-import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
+import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
-import type { SuspectCard } from 'types';
+import type { SuspectCard, SuspectExtendedInfo } from 'types';
 import { sortJsonKeys } from 'utils';
 import { SuspectsStats } from './SuspectsStats';
 import { SuspectsStyleVariantSelector } from './SuspectsStyleVariantSelector';
@@ -40,33 +40,65 @@ const PROMPTS = [
 ];
 
 export function SuspectsFilters({
-  data,
-  save,
-  isDirty,
-  isSaving,
-  entriesToUpdate,
-  hasFirestoreData,
-}: UseResourceFirestoreDataReturnType<SuspectCard>) {
+  suspectsQuery,
+  suspectsExtendedInfoQuery,
+}: {
+  suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCard>;
+  suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>;
+}) {
   const { addParam, queryParams } = useQueryParams();
   return (
     <SiderContent>
       <Flex gap={12} vertical>
         <SaveButton
-          dirt={JSON.stringify(entriesToUpdate)}
-          isDirty={isDirty}
-          isSaving={isSaving}
-          onSave={save}
-        />
+          dirt={JSON.stringify(suspectsQuery.entriesToUpdate)}
+          isDirty={suspectsQuery.isDirty}
+          isSaving={suspectsQuery.isSaving}
+          onSave={suspectsQuery.save}
+        >
+          Save Suspects
+        </SaveButton>
 
         <DownloadButton
           block
-          data={() => prepareFileForDownload(data)}
-          disabled={isDirty}
+          data={() => prepareSuspectFileForDownload(suspectsQuery.data)}
+          disabled={suspectsQuery.isDirty}
           fileName="suspects.json"
-          hasNewData={hasFirestoreData}
+          hasNewData={suspectsQuery.hasFirestoreData}
         />
 
-        <FirestoreConsoleLink className="text-center" path={'tdr/suspects'} />
+        <Flex justify="center">
+          <FirestoreConsoleWipe docId="suspects" path="tdr" queryKey={['tdr', 'suspects']} />
+        </Flex>
+      </Flex>
+
+      <Divider />
+
+      <Flex gap={12} vertical>
+        <SaveButton
+          dirt={JSON.stringify(suspectsExtendedInfoQuery.entriesToUpdate)}
+          isDirty={suspectsExtendedInfoQuery.isDirty}
+          isSaving={suspectsExtendedInfoQuery.isSaving}
+          onSave={suspectsExtendedInfoQuery.save}
+        >
+          Save Extended
+        </SaveButton>
+
+        <DownloadButton
+          block
+          data={() => prepareExtendedInfoFileForDownload(suspectsExtendedInfoQuery.data)}
+          disabled={suspectsExtendedInfoQuery.isDirty}
+          fileName="suspects-extended-info.json"
+          hasNewData={suspectsExtendedInfoQuery.hasFirestoreData}
+        />
+
+        <Flex justify="center">
+          <FirestoreConsoleWipe
+            docId="suspectsExtendedInfo"
+            path="tdr"
+            queryKey={['tdr', 'suspectsExtendedInfo']}
+          />
+        </Flex>
       </Flex>
 
       <Divider />
@@ -103,12 +135,12 @@ export function SuspectsFilters({
       </Form>
 
       <Divider />
-      <SuspectsStats data={data} />
+      <SuspectsStats data={suspectsQuery.data} />
     </SiderContent>
   );
 }
 
-function prepareFileForDownload(data: Dictionary<SuspectCard>) {
+function prepareSuspectFileForDownload(data: Dictionary<SuspectCard>) {
   const copy = cloneDeep(data);
   // TO PERFORM CLEANUPS OR UPDATES ON EXISTING SUSPECTS
   // for (const key in copy) {
@@ -148,15 +180,19 @@ function prepareFileForDownload(data: Dictionary<SuspectCard>) {
   // }
 
   return sortJsonKeys(copy, [
-    'persona',
+    'id',
+    'name',
     'gender',
+    'race',
     'ethnicity',
     'age',
     'height',
     'build',
     'features',
     'gbExclusive',
-    'prompt',
-    'animal',
   ]);
+}
+
+export function prepareExtendedInfoFileForDownload(data: Dictionary<SuspectExtendedInfo>) {
+  return sortJsonKeys(data, ['id', 'persona', 'prompt', 'description']);
 }

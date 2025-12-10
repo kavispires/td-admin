@@ -3,7 +3,7 @@ import { App, Button, Flex, Input, Switch, Typography } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useState } from 'react';
-import type { SuspectCard } from 'types';
+import type { SuspectCard, SuspectExtendedInfo } from 'types';
 
 export const PROMPT_KEY = 'TD_ADMIN_SUSPECTS_PROMPT';
 export const PROMPT_SUFFIX_KEY = 'TD_ADMIN_SUSPECTS_PROMPT_SUFFIX';
@@ -60,9 +60,10 @@ export function PromptBuilder() {
 
 type PromptButtonProps = {
   suspect: SuspectCard;
+  extendedInfo: SuspectExtendedInfo;
 };
 
-export function PromptButton({ suspect }: PromptButtonProps) {
+export function PromptButton({ suspect, extendedInfo }: PromptButtonProps) {
   const copyToClipboard = useCopyToClipboardFunction();
   const { notification } = App.useApp();
 
@@ -76,17 +77,17 @@ export function PromptButton({ suspect }: PromptButtonProps) {
       : PROMPTS[promptQP as keyof typeof PROMPTS];
 
     if (promptQP === 'zootopia') {
-      if (!suspect.animal) {
+      if (!extendedInfo.animal) {
         notification.error({
           message: 'Error',
           description: 'Suspect does not have an animal type defined.',
         });
         return;
       }
-      prompt += `${suspect.animal} `;
+      prompt += `${extendedInfo.animal} `;
     }
 
-    if (!suspect.prompt) {
+    if (!extendedInfo.prompt) {
       notification.error({
         message: 'Error',
         description: 'Suspect does not have a prompt defined.',
@@ -94,7 +95,7 @@ export function PromptButton({ suspect }: PromptButtonProps) {
       return;
     }
 
-    let formattedPrompt = `${prompt} ${suspect.prompt}`;
+    let formattedPrompt = `${prompt} ${extendedInfo.prompt}`;
 
     const includeFeatures = localStorage.getItem(PROMPT_SUFFIX_KEY) === 'true';
     if (includeFeatures) {

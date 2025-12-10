@@ -6,7 +6,7 @@ import { SuspectsContent } from 'components/Suspects/SuspectsContent';
 import { SuspectsFilters } from 'components/Suspects/SuspectsFilters';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { SuspectCard } from 'types';
+import type { SuspectCard, SuspectExtendedInfo } from 'types';
 
 function Suspects() {
   const suspectsQuery = useResourceFirestoreData<SuspectCard>({
@@ -14,21 +14,32 @@ function Suspects() {
     firestoreDataCollectionName: 'suspects',
     serialize: true,
   });
+  const suspectsExtendedInfoQuery = useResourceFirestoreData<SuspectExtendedInfo>({
+    tdrResourceName: 'suspects-extended-info',
+    firestoreDataCollectionName: 'suspectsExtendedInfo',
+    serialize: true,
+  });
 
   return (
     <PageLayout subtitle="Information" title="Suspects">
       <Layout hasSider>
         <PageSider>
-          <SuspectsFilters {...suspectsQuery} />
+          <SuspectsFilters
+            suspectsExtendedInfoQuery={suspectsExtendedInfoQuery}
+            suspectsQuery={suspectsQuery}
+          />
         </PageSider>
 
         <Layout.Content className="content">
           <DataLoadingWrapper
-            error={suspectsQuery.error}
-            hasResponseData={!isEmpty(suspectsQuery.data)}
-            isLoading={suspectsQuery.isLoading}
+            error={suspectsQuery.error || suspectsExtendedInfoQuery.error}
+            hasResponseData={!isEmpty(suspectsQuery.data) && !isEmpty(suspectsExtendedInfoQuery.data)}
+            isLoading={suspectsQuery.isLoading || suspectsExtendedInfoQuery.isLoading}
           >
-            <SuspectsContent {...suspectsQuery} />
+            <SuspectsContent
+              suspectsExtendedInfoQuery={suspectsExtendedInfoQuery}
+              suspectsQuery={suspectsQuery}
+            />
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>

@@ -17,14 +17,22 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy, truncate } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { SuspectCard } from 'types';
+import type { SuspectCard, SuspectExtendedInfo } from 'types';
 import { stringRemoveAccents } from 'utils';
 import { FeaturesFilterBar } from './FeaturesFilterBar';
 import { PromptBuilder, PromptButton } from './PromptBuilder';
 import { SuspectDrawer } from './SuspectDrawer';
 import { SuspectImageCard } from './SuspectImageCard';
 
-export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestoreDataReturnType<SuspectCard>) {
+export function SuspectsContent({
+  suspectsQuery,
+  suspectsExtendedInfoQuery,
+}: {
+  suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCard>;
+  suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>;
+}) {
+  const suspects = suspectsQuery.data;
+  const extendedInfo = suspectsExtendedInfoQuery.data;
   const { addParam, queryParams } = useQueryParams();
   const [view, setView] = useState('cards');
 
@@ -39,31 +47,30 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
 
   const deck: SuspectCard[] = useMemo(() => {
     return orderBy(
-      Object.values(data),
+      Object.values(suspects),
       (e) => {
-        if (sortBy === 'id') return Number(e.id.split('-').at(-1));
         if (sortBy === 'name.pt') return stringRemoveAccents(e.name.pt).toLowerCase();
         if (sortBy === 'name.en') return stringRemoveAccents(e.name.en).toLowerCase();
         return e[sortBy as keyof SuspectCard] ?? e.id;
       },
       ['asc'],
     );
-  }, [data, sortBy]);
+  }, [suspects, sortBy]);
 
   const updateFeature = (suspectId: string, featureId: string) => {
-    const suspect = data[suspectId];
+    const suspect = suspects[suspectId];
     if (!suspect) return;
 
     const features = suspect.features || [];
     if (features.includes(featureId)) {
       // Remove feature
-      addEntryToUpdate(suspectId, {
+      suspectsQuery.addEntryToUpdate(suspectId, {
         ...suspect,
         features: features.filter((f) => f !== featureId),
       });
     } else {
       // Add feature
-      addEntryToUpdate(suspectId, {
+      suspectsQuery.addEntryToUpdate(suspectId, {
         ...suspect,
         features: [...features, featureId],
       });
@@ -71,10 +78,10 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
   };
 
   const updateKeyValue = (suspectId: string, key: keyof SuspectCard, value: unknown) => {
-    const suspect = data[suspectId];
+    const suspect = suspects[suspectId];
     if (!suspect) return;
 
-    addEntryToUpdate(suspectId, {
+    suspectsQuery.addEntryToUpdate(suspectId, {
       ...suspect,
       [key]: value,
     });
@@ -94,7 +101,7 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
         render: (id: string, entry: SuspectCard) => (
           <Flex align="center" gap={4} vertical>
             <Flex align="center" gap={6}>
-              <Tag>{id}</Tag> <PromptButton suspect={entry} />
+              <Tag>{id}</Tag> <PromptButton extendedInfo={extendedInfo[entry.id]} suspect={entry} />
             </Flex>
             <SuspectImageCard cardId={entry.id} cardWidth={cardWidth / 1.5} className="suspect__image" />
           </Flex>
@@ -118,28 +125,17 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
           );
         },
       },
-      {
-        title: 'Persona',
-        dataIndex: 'persona',
-        key: 'persona',
-        render: (persona: DualLanguageValue, entry: SuspectCard) => (
-          <Flex vertical>
-            <Flex vertical>
-              <Typography.Text>{persona.pt}</Typography.Text>
-              <Typography.Text>{persona.en}</Typography.Text>
-            </Flex>
-
-            <Typography.Paragraph
-              code
-              editable={{
-                onChange: (value) => updateKeyValue(entry.id, 'animal', value),
-              }}
-            >
-              {entry.animal}
-            </Typography.Paragraph>
-          </Flex>
-        ),
-      },
+      // {
+      //   title: 'Persona',
+      //   dataIndex: 'persona',
+      //   key: 'persona',
+      //   render: (persona: DualLanguageValue, entry: SuspectCard) => (
+      //     <Flex vertical>
+      //       <Typography.Text>{persona.pt}</Typography.Text>
+      //       <Typography.Text>{persona.en}</Typography.Text>
+      //     </Flex>
+      //   ),
+      // },
       {
         title: 'Gender',
         dataIndex: 'gender',
@@ -154,10 +150,10 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
         sorter: (a: SuspectCard, b: SuspectCard) => a.age.localeCompare(b.age),
       },
       {
-        title: 'Ethnicity',
-        dataIndex: 'ethnicity',
-        key: 'ethnicity',
-        sorter: (a: SuspectCard, b: SuspectCard) => a.ethnicity.localeCompare(b.ethnicity),
+        title: 'Race',
+        dataIndex: 'race',
+        key: 'race',
+        sorter: (a: SuspectCard, b: SuspectCard) => a.race.localeCompare(b.race),
       },
       {
         title: 'Build',
@@ -214,9 +210,7 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
   return (
     <>
       <Flex align="center" justify="space-between">
-        <Typography.Title level={2}>
-          Deck {variant} ({deck.length})
-        </Typography.Title>
+        <Typography.Title level={2}>Total Suspects: {deck.length}</Typography.Title>
         <Segmented
           onChange={(value) => setView(value)}
           options={[
@@ -233,37 +227,38 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
         {view === 'cards' && (
           <Space className="my-2" key={variant} ref={ref} wrap>
             {deck.map((entry) => {
+              const extendedEntry = extendedInfo[entry.id];
               return (
                 <div className="suspect" key={entry.id} style={{ width: `${cardWidth}px` }}>
                   <SuspectImageCard cardId={entry.id} cardWidth={cardWidth} className="suspect__image" />
 
                   <div className="suspect__name">
                     <Flex align="center" gap={3}>
-                      <Tag>{entry.id}</Tag> <PromptButton suspect={entry} />{' '}
-                      {!entry.prompt && <MessageFilled style={{ color: 'red' }} />}{' '}
-                      {!!entry.animal && <GitlabFilled style={{ color: 'sandybrown' }} />}
+                      <Tag>{entry.id}</Tag> <PromptButton extendedInfo={extendedEntry} suspect={entry} />{' '}
+                      {!extendedEntry.prompt && <MessageFilled style={{ color: 'red' }} />}{' '}
+                      {!!extendedEntry.animal && <GitlabFilled style={{ color: 'sandybrown' }} />}
                     </Flex>
                     <div style={{ backgroundColor: !entry.name.pt ? 'red' : 'transparent' }}>
                       🇧🇷 {entry.name.pt}
                     </div>
                     <Typography.Text
-                      className={clsx({ 'missing-value': !entry.persona.pt })}
+                      className={clsx({ 'missing-value': !extendedEntry.persona.pt })}
                       ellipsis
                       italic
                       type="secondary"
                     >
-                      <small>{truncate(entry.persona.pt || '-', { length: 18 })}</small>
+                      <small>{truncate(extendedEntry.persona.pt || '-', { length: 18 })}</small>
                     </Typography.Text>
                     <div style={{ backgroundColor: !entry.name.en ? 'red' : 'transparent' }}>
                       🇺🇸 {entry.name.en}
                     </div>
                     <Typography.Text
-                      className={clsx({ 'missing-value': !entry.persona.en })}
+                      className={clsx({ 'missing-value': !extendedEntry.persona.en })}
                       ellipsis
                       italic
                       type="secondary"
                     >
-                      <small>{truncate(entry.persona.en || '-', { length: 18 })}</small>
+                      <small>{truncate(extendedEntry.persona.en || '-', { length: 18 })}</small>
                     </Typography.Text>
 
                     <div className="suspect__info" style={getHeightBuildAlert(entry)}>
@@ -271,8 +266,14 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
                         <div>
                           {entry.gender === 'male' ? <ManOutlined /> : <WomanOutlined />} {entry.age}
                         </div>
-                        <div>
-                          <em>{entry.ethnicity}</em>
+                        <div
+                          style={{
+                            backgroundColor: ['brown', 'mixed', 'other'].includes(entry.race)
+                              ? 'red'
+                              : 'transparent',
+                          }}
+                        >
+                          <em>{entry.race}</em>
                         </div>
                       </div>
                       <div className="uppercase">
@@ -315,7 +316,7 @@ export function SuspectsContent({ data, addEntryToUpdate }: UseResourceFirestore
 
         {view === 'table' && <Table columns={columns} dataSource={deck} pagination={false} rowKey="id" />}
       </Image.PreviewGroup>
-      <SuspectDrawer addEntryToUpdate={addEntryToUpdate} data={data} key={suspectId} />
+      <SuspectDrawer addEntryToUpdate={suspectsQuery.addEntryToUpdate} data={suspects} key={suspectId} />
     </>
   );
 }
