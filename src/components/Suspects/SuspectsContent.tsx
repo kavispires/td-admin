@@ -57,7 +57,7 @@ export function SuspectsContent({
     );
   }, [suspects, sortBy]);
 
-  const updateFeature = (suspectId: string, featureId: string) => {
+  const updateSuspectFeature = (suspectId: string, featureId: string) => {
     const suspect = suspects[suspectId];
     if (!suspect) return;
 
@@ -185,7 +185,7 @@ export function SuspectsContent({
                 <Switch
                   checked={features?.includes(activeFeature)}
                   checkedChildren={'✓'}
-                  onChange={() => updateFeature(entry.id, activeFeature)}
+                  onChange={() => updateSuspectFeature(entry.id, activeFeature)}
                   unCheckedChildren={'✗'}
                 />
               </Flex>
@@ -266,13 +266,7 @@ export function SuspectsContent({
                         <div>
                           {entry.gender === 'male' ? <ManOutlined /> : <WomanOutlined />} {entry.age}
                         </div>
-                        <div
-                          style={{
-                            backgroundColor: ['brown', 'mixed', 'other'].includes(entry.race)
-                              ? 'red'
-                              : 'transparent',
-                          }}
-                        >
+                        <div>
                           <em>{entry.race}</em>
                         </div>
                       </div>
@@ -302,7 +296,7 @@ export function SuspectsContent({
                         <Switch
                           checked={entry.features?.includes(activeFeature)}
                           checkedChildren={'✓'}
-                          onChange={() => updateFeature(entry.id, activeFeature)}
+                          onChange={() => updateSuspectFeature(entry.id, activeFeature)}
                           unCheckedChildren={'✗'}
                         />
                       </Flex>
@@ -316,7 +310,13 @@ export function SuspectsContent({
 
         {view === 'table' && <Table columns={columns} dataSource={deck} pagination={false} rowKey="id" />}
       </Image.PreviewGroup>
-      <SuspectDrawer addEntryToUpdate={suspectsQuery.addEntryToUpdate} data={suspects} key={suspectId} />
+      <SuspectDrawer
+        addExtendedInfoEntryToUpdate={suspectsExtendedInfoQuery.addEntryToUpdate}
+        addSuspectEntryToUpdate={suspectsQuery.addEntryToUpdate}
+        key={suspectId}
+        suspects={suspects}
+        suspectsExtendedInfos={suspectsExtendedInfoQuery.data}
+      />
     </>
   );
 }

@@ -258,6 +258,14 @@ body {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.gap-2 {
+  gap: get-unit(2);
+}
+
+.gap-4 {
+  gap: get-unit(4);
+}
+
 .uppercase {
   text-transform: uppercase;
 }
