@@ -1,4 +1,6 @@
+import { InfoCircleOutlined } from '@ant-design/icons';
 import {
+  Button,
   Drawer,
   Flex,
   Input,
@@ -9,6 +11,7 @@ import {
   Select,
   type SelectProps,
   Switch,
+  Tooltip,
   Typography,
 } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -16,7 +19,6 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { cloneDeep, set } from 'lodash';
 import { type ReactNode, useEffect, useState } from 'react';
 import type { SuspectCard, SuspectExtendedInfo } from 'types';
-import { T } from 'vitest/dist/chunks/traces.d.402V_yFI';
 import {
   AGE_OPTIONS,
   ALIGNMENT_OPTIONS,
@@ -83,6 +85,7 @@ export function SuspectDrawer({
 
   return (
     <Drawer
+      footer={<Footer />}
       onClose={() => removeParam('suspectId')}
       open={!!suspect}
       placement="right"
@@ -157,6 +160,34 @@ export function SuspectDrawer({
         )}
       </div>
     </Drawer>
+  );
+}
+
+function Footer() {
+  const { queryParams, addParam } = useQueryParams();
+  const suspectId = queryParams.get('suspectId') ?? '';
+
+  const onNextSuspect = () => {
+    const num = Number(suspectId?.split('-')[1]) ?? 0;
+    console.log('num', num);
+    if (num) {
+      addParam('suspectId', `us-${(num + 1).toString().padStart(3, '0')}`);
+    }
+  };
+
+  const onPreviousSuspect = () => {
+    const num = Number(suspectId?.split('-')[1]) ?? 0;
+
+    if (num && num > 1) {
+      addParam('suspectId', `us-${(num - 1).toString().padStart(3, '0')}`);
+    }
+  };
+
+  return (
+    <Flex gap={8} justify="end">
+      <Button onClick={onPreviousSuspect}>Previous</Button>
+      <Button onClick={onNextSuspect}>Next</Button>
+    </Flex>
   );
 }
 
@@ -268,13 +299,23 @@ type SelectionFieldProps = {
   value: string;
   options: SelectProps['options'];
   updater: (id: string, key: string, value: string) => void;
+  disabled?: boolean;
 };
 
-function SelectionField({ label, suspectId, valueKey, value, options, updater }: SelectionFieldProps) {
+function SelectionField({
+  label,
+  suspectId,
+  valueKey,
+  value,
+  options,
+  updater,
+  disabled,
+}: SelectionFieldProps) {
   return (
     <Flex vertical>
       <Typography.Text strong>{label}</Typography.Text>
       <Select
+        disabled={disabled}
         onChange={(value) => updater(suspectId, valueKey, value)}
         options={options}
         placeholder={typeof label === 'string' ? label : ''}
@@ -345,6 +386,12 @@ function SuspectExtendedInfoForm({
   updateExtendedKeyValue,
   addExtendedInfoEntryToUpdate,
 }: SuspectExtendedInfoProps) {
+  const inferredField = (
+    <Tooltip title="This field is inferred from Testimony Answers">
+      <InfoCircleOutlined />
+    </Tooltip>
+  );
+
   return (
     <>
       <Flex gap={8} vertical>
@@ -436,7 +483,8 @@ function SuspectExtendedInfoForm({
         </Flex>
 
         <SelectionField
-          label="Zodiac Sign"
+          disabled
+          label={<>Zodiac Sign {inferredField}</>}
           options={ZODIAC_SIGN_OPTIONS}
           suspectId={suspect.id}
           updater={updateExtendedKeyValue}
@@ -445,7 +493,8 @@ function SuspectExtendedInfoForm({
         />
 
         <SelectionField
-          label="Alignment"
+          disabled
+          label={<>Alignment {inferredField}</>}
           options={ALIGNMENT_OPTIONS}
           suspectId={suspect.id}
           updater={updateExtendedKeyValue}
@@ -454,7 +503,8 @@ function SuspectExtendedInfoForm({
         />
 
         <SelectionField
-          label="MBTI"
+          disabled
+          label={<>MBTI {inferredField}</>}
           options={MBTI_OPTIONS.map((v) => ({ label: v, value: v }))}
           suspectId={suspect.id}
           updater={updateExtendedKeyValue}
