@@ -19,7 +19,8 @@ import { orderBy, truncate } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { SuspectCard, SuspectExtendedInfo } from 'types';
 import { stringRemoveAccents } from 'utils';
-import { FeaturesFilterBar } from './FeaturesFilterBar';
+import { ActiveExtendedInfoSwitch, ExtendedInfoFilterBar } from './ExtendedInfoFilterBar';
+import { ActiveFeatureSwitch, FeaturesFilterBar } from './FeaturesFilterBar';
 import { PromptBuilder, PromptButton } from './PromptBuilder';
 import { SuspectDrawer } from './SuspectDrawer';
 import { SuspectImageCard } from './SuspectImageCard';
@@ -40,6 +41,7 @@ export function SuspectsContent({
   const sortBy = queryParams.get('sortBy') ?? 'id';
   const cardsPerRow = Number(queryParams.get('cardsPerRow')) || 10;
   const activeFeature = queryParams.get('activeFeature') || '';
+  const activeExtendedInfo = queryParams.get('activeExtendedInfo') || '';
   // Suspect id just to 'key' the drawer
   const suspectId = queryParams.get('suspectId');
 
@@ -56,6 +58,18 @@ export function SuspectsContent({
       ['asc'],
     );
   }, [suspects, sortBy]);
+
+  const personalityOptions = useMemo(() => {
+    const set = Object.values(extendedInfo).reduce((acc, info) => {
+      if (info.personalityTraits) {
+        info.personalityTraits.forEach((trait) => {
+          acc.add(trait);
+        });
+      }
+      return acc;
+    }, new Set<string>());
+    return Array.from(set).sort();
+  }, [extendedInfo]);
 
   const updateSuspectFeature = (suspectId: string, featureId: string) => {
     const suspect = suspects[suspectId];
@@ -77,7 +91,7 @@ export function SuspectsContent({
     }
   };
 
-  const updateKeyValue = (suspectId: string, key: keyof SuspectCard, value: unknown) => {
+  const _updateKeyValue = (suspectId: string, key: keyof SuspectCard, value: unknown) => {
     const suspect = suspects[suspectId];
     if (!suspect) return;
 
@@ -220,8 +234,10 @@ export function SuspectsContent({
         />
       </Flex>
       <Space style={{ position: 'sticky', top: 0, background: 'black', zIndex: 1, width: '100%' }}>
-        <FeaturesFilterBar /> <PromptBuilder />
+        <FeaturesFilterBar /> <ExtendedInfoFilterBar />
       </Space>
+
+      <PromptBuilder />
 
       <Image.PreviewGroup>
         {view === 'cards' && (
@@ -280,7 +296,12 @@ export function SuspectsContent({
                         <br />
                         {entry.height.charAt(0)}
                       </div>
-                      <div>{entry?.features?.length ?? 0} features</div>
+                      <div className={clsx({ 'missing-value': !entry.features?.length })}>
+                        {entry?.features?.length ?? 0} features
+                      </div>
+                      <div className={clsx({ 'missing-value': !extendedEntry?.personalityTraits?.length })}>
+                        {extendedEntry?.personalityTraits?.length ?? 0} traits
+                      </div>
                     </div>
                     <Button
                       block
@@ -290,17 +311,18 @@ export function SuspectsContent({
                     >
                       <EditFilled />
                     </Button>
-                    {!!activeFeature && (
-                      <Flex className="mt-2 mb-4" gap={8}>
-                        <Typography.Text keyboard>{activeFeature}:</Typography.Text>
-                        <Switch
-                          checked={entry.features?.includes(activeFeature)}
-                          checkedChildren={'✓'}
-                          onChange={() => updateSuspectFeature(entry.id, activeFeature)}
-                          unCheckedChildren={'✗'}
-                        />
-                      </Flex>
-                    )}
+
+                    <ActiveFeatureSwitch
+                      activeFeature={activeFeature}
+                      entry={entry}
+                      updateSuspectFeature={updateSuspectFeature}
+                    />
+
+                    <ActiveExtendedInfoSwitch
+                      activeExtendedInfo={activeExtendedInfo}
+                      addEntryToUpdate={suspectsExtendedInfoQuery.addEntryToUpdate}
+                      entry={extendedEntry}
+                    />
                   </div>
                 </div>
               );
@@ -314,6 +336,7 @@ export function SuspectsContent({
         addExtendedInfoEntryToUpdate={suspectsExtendedInfoQuery.addEntryToUpdate}
         addSuspectEntryToUpdate={suspectsQuery.addEntryToUpdate}
         key={suspectId}
+        personalityOptions={personalityOptions}
         suspects={suspects}
         suspectsExtendedInfos={suspectsExtendedInfoQuery.data}
       />

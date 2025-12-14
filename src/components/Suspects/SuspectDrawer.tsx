@@ -40,6 +40,7 @@ type SuspectDrawerProps = {
   suspectsExtendedInfos: Dictionary<SuspectExtendedInfo>;
   addSuspectEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectCard>['addEntryToUpdate'];
   addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>['addEntryToUpdate'];
+  personalityOptions: string[];
 };
 
 export function SuspectDrawer({
@@ -47,6 +48,7 @@ export function SuspectDrawer({
   suspectsExtendedInfos,
   addSuspectEntryToUpdate,
   addExtendedInfoEntryToUpdate,
+  personalityOptions,
 }: SuspectDrawerProps) {
   const { removeParam, queryParams, addParam } = useQueryParams();
   const suspectId = queryParams.get('suspectId');
@@ -153,6 +155,7 @@ export function SuspectDrawer({
           <SuspectExtendedInfoForm
             addExtendedInfoEntryToUpdate={addExtendedInfoEntryToUpdate}
             key={suspectId}
+            personalityOptions={personalityOptions}
             suspect={suspect}
             suspectExtendedInfo={suspectsExtendedInfos[suspect.id] || {}}
             updateExtendedKeyValue={updateExtendedKeyValue}
@@ -378,6 +381,7 @@ type SuspectExtendedInfoProps = {
   suspectExtendedInfo: SuspectExtendedInfo;
   updateExtendedKeyValue: (id: string, key: string, value: unknown) => void;
   addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>['addEntryToUpdate'];
+  personalityOptions: string[];
 };
 
 function SuspectExtendedInfoForm({
@@ -385,6 +389,7 @@ function SuspectExtendedInfoForm({
   suspectExtendedInfo,
   updateExtendedKeyValue,
   addExtendedInfoEntryToUpdate,
+  personalityOptions,
 }: SuspectExtendedInfoProps) {
   const inferredField = (
     <Tooltip title="This field is inferred from Testimony Answers">
@@ -522,7 +527,7 @@ function SuspectExtendedInfoForm({
         />
 
         <RadioSelectionGroup
-          label="Economic Status"
+          label="Economic Class"
           options={ECONOMIC_CLASS_OPTIONS}
           suspectId={suspect.id}
           updater={updateExtendedKeyValue}
@@ -547,7 +552,7 @@ function SuspectExtendedInfoForm({
             onChange={(personalityTraits) =>
               updateExtendedKeyValue(suspect.id, 'personalityTraits', personalityTraits.sort())
             }
-            // options={[]}
+            options={personalityOptions.map((trait) => ({ label: trait, value: trait }))}
             placeholder="Personality Traits"
             size="small"
             style={{ width: '100%' }}
