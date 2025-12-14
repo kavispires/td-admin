@@ -111,3 +111,35 @@ export function PromptButton({ suspect, extendedInfo }: PromptButtonProps) {
     </Button>
   );
 }
+
+export function DescriptionPromptButton({ extendedInfo }: { extendedInfo: SuspectExtendedInfo }) {
+  const copyToClipboard = useCopyToClipboardFunction();
+
+  const handleClick = () => {
+    let prompt = '';
+
+    if (extendedInfo.persona.en) {
+      prompt += `This one is: "${extendedInfo.persona.en}" `;
+    }
+
+    prompt += `Here is some info about the character: ${extendedInfo.prompt}`;
+
+    if (extendedInfo.economicClass) {
+      prompt += `(${extendedInfo.economicClass} class)`;
+    }
+    if (extendedInfo.educationLevel) {
+      prompt += `(${extendedInfo.educationLevel} education)`;
+    }
+    if (extendedInfo.sexualOrientation) {
+      prompt += `(${extendedInfo.sexualOrientation})`;
+    }
+
+    copyToClipboard(prompt);
+  };
+
+  return (
+    <Button onClick={handleClick} size="small">
+      <OpenAIOutlined />
+    </Button>
+  );
+}

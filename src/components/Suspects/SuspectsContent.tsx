@@ -61,8 +61,8 @@ export function SuspectsContent({
 
   const personalityOptions = useMemo(() => {
     const set = Object.values(extendedInfo).reduce((acc, info) => {
-      if (info.personalityTraits) {
-        info.personalityTraits.forEach((trait) => {
+      if (info.traits) {
+        info.traits.forEach((trait) => {
           acc.add(trait);
         });
       }
@@ -299,8 +299,8 @@ export function SuspectsContent({
                       <div className={clsx({ 'missing-value': !entry.features?.length })}>
                         {entry?.features?.length ?? 0} features
                       </div>
-                      <div className={clsx({ 'missing-value': !extendedEntry?.personalityTraits?.length })}>
-                        {extendedEntry?.personalityTraits?.length ?? 0} traits
+                      <div className={clsx({ 'missing-value': !extendedEntry?.traits?.length })}>
+                        {extendedEntry?.traits?.length ?? 0} traits
                       </div>
                     </div>
                     <Button

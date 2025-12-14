@@ -579,6 +579,10 @@ export type SuspectCard = {
    */
   name: DualLanguageValue;
   /**
+   * List of decks the suspect belongs to
+   */
+  decks: string[];
+  /**
    * The gender of the suspect
    */
   gender: 'male' | 'female' | (string & NonNullable<unknown>);
@@ -656,9 +660,9 @@ export type SuspectExtendedInfo = {
    */
   animal: string;
   /**
-   * Profession of the suspect
+   * Occupation of the suspect
    */
-  profession: string;
+  occupation: string;
   /**
    * MBTI personality type of the suspect
    */
@@ -728,9 +732,9 @@ export type SuspectExtendedInfo = {
    */
   educationLevel: 'none' | 'basic' | 'college' | 'high' | (string & NonNullable<unknown>);
   /**
-   *
+   * Personality traits of the suspect (e.g. religious, athletic, artistic, drunk, gamer, foodie, etc.)
    */
-  personalityTraits: string[];
+  traits: string[];
 };
 
 /**
@@ -754,6 +758,18 @@ export type TestimonyQuestionCard = {
    * Flag indicating if it's nsfw
    */
   nsfw?: boolean;
+  /**
+   * Personality types related to the question
+   */
+  mbti: string[];
+  /**
+   * Zodiac signs related to the question
+   */
+  zodiac: string[];
+  /**
+   * Alignment types related to the question
+   */
+  alignment: string[];
 };
 
 /**

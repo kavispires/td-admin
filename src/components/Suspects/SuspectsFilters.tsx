@@ -179,9 +179,22 @@ function prepareSuspectFileForDownload(data: Dictionary<SuspectCard>) {
   //   }
   // }
 
+  // for (const key in copy) {
+  //   const suspect = copy[key];
+  //   // Add decks field if missing
+  //   const idNumber = Number(suspect.id.split('-')[1]);
+  //   if (idNumber < 115) {
+  //     suspect.decks = ['base'];
+  //   }
+  //   if (idNumber >= 115 && idNumber < 200) {
+  //     suspect.decks = ['personas'];
+  //   }
+  // }
+
   return sortJsonKeys(copy, [
     'id',
     'name',
+    'decks',
     'gender',
     'race',
     'ethnicity',
@@ -194,5 +207,29 @@ function prepareSuspectFileForDownload(data: Dictionary<SuspectCard>) {
 }
 
 export function prepareExtendedInfoFileForDownload(data: Dictionary<SuspectExtendedInfo>) {
-  return sortJsonKeys(data, ['id', 'persona', 'prompt', 'description']);
+  // Change profession to occupation
+  // Change personalityTraits to traits
+  // for (const key in data) {
+  //   const info = data[key];
+  //   if ((info as any).profession !== undefined) {
+  //     info.occupation = (info as any).profession;
+  //     delete (info as any).profession;
+  //     info.traits = (info as any).personalityTraits;
+  //     delete (info as any).personalityTraits;
+  //   }
+  // }
+
+  return sortJsonKeys(data, [
+    'id',
+    'prompt',
+    'persona',
+    'description',
+    'animal',
+    'occupation',
+    'sexualOrientation',
+    'ethnicity',
+    'economicClass',
+    'educationLevel',
+    'traits',
+  ]);
 }
