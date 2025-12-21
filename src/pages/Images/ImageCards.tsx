@@ -68,7 +68,7 @@ function ImageCards() {
                     return (
                       <Flex align="center" key={id} style={{ gap: 8 }} vertical>
                         <ImageCard cardId={id} cardWidth={cardWidth} key={id} />
-                        {is('showImageIds') && <IdTag>{id}</IdTag>}
+                        {is('showImageIds') && <IdTag withQuotes>{id}</IdTag>}
                       </Flex>
                     );
                   })}
