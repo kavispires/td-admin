@@ -1,4 +1,4 @@
-import { Image, Layout, Space, Typography } from 'antd';
+import { Flex, Image, Layout, Space, Typography } from 'antd';
 import { ResponseState } from 'components/Common';
 import { IdTag } from 'components/Common/IdTag';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
@@ -16,7 +16,7 @@ const DECK = Array(252).fill(1);
 
 function ImageCards() {
   // Set default query params
-  const { queryParams, addParam } = useQueryParams({ deck: 'd1' });
+  const { queryParams, addParam, is } = useQueryParams({ deck: 'd1' });
   const deck = queryParams.get('deck') ?? 'd1';
 
   const { isLoading, error, data } = useImagesDecks();
@@ -65,7 +65,12 @@ function ImageCards() {
                     const num = e + i < 10 ? `0${e + i}` : `${e + i}`;
                     const id = `td-${deck}-${num}`;
 
-                    return <ImageCard cardId={id} cardWidth={cardWidth} key={id} />;
+                    return (
+                      <Flex align="center" key={id} style={{ gap: 8 }} vertical>
+                        <ImageCard cardId={id} cardWidth={cardWidth} key={id} />
+                        {is('showImageIds') && <IdTag>{id}</IdTag>}
+                      </Flex>
+                    );
                   })}
               </Space>
             </Image.PreviewGroup>

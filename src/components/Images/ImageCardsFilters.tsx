@@ -1,6 +1,7 @@
 import { Form } from 'antd';
-import { FilterNumber, FilterSelect } from 'components/Common';
+import { FilterNumber, FilterSelect, FilterSwitch } from 'components/Common';
 import { SiderContent } from 'components/Layout';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
 
 type ImageCardsFiltersProps = {
@@ -18,6 +19,7 @@ export function ImageCardsFilters({
   cardsPerRow,
   setCardsPerRow,
 }: ImageCardsFiltersProps) {
+  const { addParam, is } = useQueryParams();
   const deckOptions = useMemo(() => {
     return Object.keys(decksData)
       .filter((deck) => deck.startsWith('td-'))
@@ -33,6 +35,11 @@ export function ImageCardsFilters({
           min={1}
           onChange={(v) => setCardsPerRow(v ?? 8)}
           value={cardsPerRow}
+        />
+        <FilterSwitch
+          label="Show Image IDs"
+          onChange={(checked) => addParam('showImageIds', checked)}
+          value={is('showImageIds')}
         />
       </Form>
     </SiderContent>
