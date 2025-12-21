@@ -297,9 +297,14 @@ export function SuspectsContent({
                         {entry.height.charAt(0)}
                       </div>
                       <div className={clsx({ 'missing-value': !entry.features?.length })}>
-                        {entry?.features?.length ?? 0} features
+                        {entry?.features?.length ?? 0} feats
                       </div>
-                      <div className={clsx({ 'missing-value': !extendedEntry?.traits?.length })}>
+                      <div
+                        className={clsx({
+                          'missing-value': !extendedEntry?.traits?.length,
+                          'missing-value-alt': !extendedEntry?.description,
+                        })}
+                      >
                         {extendedEntry?.traits?.length ?? 0} traits
                       </div>
                     </div>

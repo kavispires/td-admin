@@ -279,6 +279,11 @@ body {
   text-align: center;
 }
 
+.missing-value-alt {
+  outline: 1px dashed orange;
+  border-radius: get-unit(1);
+}
+
 .missing-value {
   outline: 1px dashed red;
   border-radius: get-unit(1);
