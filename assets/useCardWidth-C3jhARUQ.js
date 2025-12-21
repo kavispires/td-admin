@@ -1,1 +1,0 @@
-import{m,r as d}from"./index-BeJKp5Hd.js";function M(r,i){const[c,{width:a}]=m(),{gap:e=32,minWidth:t=120,maxWidth:n=300,margin:o=0}=i??{};return[d.useMemo(()=>{const s=Math.min(Math.max(Math.floor((a-o)/r)-e,t),n);return Number.isNaN(s)?t:s},[a,r,e,t,n,o]),c]}export{M as u};
