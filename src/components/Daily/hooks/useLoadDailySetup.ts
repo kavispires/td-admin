@@ -27,8 +27,8 @@ import {
   type DailyTeoriaDeConjuntosEntry,
   useDailyTeoriaDeConjuntosGames,
 } from '../utils/games/daily-teoria-de-conjuntos';
+import { type DailyVitraisEntry, useDailyVitraisGames } from '../utils/games/daily-vitrais';
 import type { DateKey } from '../utils/types';
-import { clearWarnings } from '../utils/warnings';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
 export type DailyEntry = {
@@ -45,6 +45,7 @@ export type DailyEntry = {
   'portais-magicos': DailyPortaisMagicosEntry;
   quartetos: DailyQuartetosEntry;
   'teoria-de-conjuntos': DailyTeoriaDeConjuntosEntry;
+  vitrais: DailyVitraisEntry;
   // Contributions
   artista: DailyArtistaEntry;
   'ta-na-cara': DailyTaNaCaraEntry;
@@ -148,6 +149,9 @@ export function useLoadDailySetup(
     historyQuery.data ?? {},
   );
 
+  // BUILD VITRAIS
+  const vitrais = useDailyVitraisGames(enableBuilders, batchSize, historyQuery.data ?? {});
+
   // BUILD ARTISTA
   const artista = useDailyArtistaGames(
     enableBuilders,
@@ -182,6 +186,7 @@ export function useLoadDailySetup(
         'portais-magicos': portaisMagicos.entries[arteRuim.id],
         quartetos: quartetos.entries[arteRuim.id],
         'teoria-de-conjuntos': teoriaDeConjuntos.entries[arteRuim.id],
+        vitrais: vitrais.entries[arteRuim.id],
         // Contributions
         artista: artista.entries[arteRuim.id],
         'ta-na-cara': taNaCara.entries[arteRuim.id],
@@ -208,6 +213,7 @@ export function useLoadDailySetup(
     artista.entries,
     taNaCara.entries,
     espionagem.entries,
+    vitrais.entries,
     tdrItemsQuery.data,
   ]);
 
@@ -227,6 +233,7 @@ export function useLoadDailySetup(
       taNaCara.isLoading ||
       espionagem.isLoading ||
       organiku.isLoading ||
+      vitrais.isLoading ||
       tdrItemsQuery.isLoading,
     entries,
   };

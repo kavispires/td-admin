@@ -21,6 +21,7 @@ export const DAILY_GAMES_KEYS = {
   PORTAIS_MAGICOS: 'portais-magicos',
   QUARTETOS: 'quartetos',
   TEORIA_DE_CONJUNTOS: 'teoria-de-conjuntos',
+  VITRAIS: 'vitrais',
   // Contributions
   FILMACO: 'filmaco',
   TA_NA_CARA: 'ta-na-cara',

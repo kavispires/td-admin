@@ -7,6 +7,7 @@ import { AlienSign, Item } from 'components/Sprites';
 import { WarehouseGood } from 'components/Sprites/WarehouseGood';
 import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { truncate } from 'lodash';
+import moment from 'moment';
 import type { ReactNode } from 'react';
 import type { ArteRuimCard } from 'types';
 import type { DailyEntry } from './hooks';
@@ -51,6 +52,11 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     dataIndex: 'id',
     key: 'id',
     fixed: 'left',
+    render: (id: DailyEntry['id']) => (
+      <Typography.Text>
+        {id} <br /> {moment(id, 'YYYY-MM-DD').format('dddd')}
+      </Typography.Text>
+    ),
   },
   {
     title: 'Arte Ruim',
@@ -426,6 +432,33 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                   ))}
                 </Flex>
               ))}
+            </Flex>
+          </GamePopover>
+        </EntryCell>
+      );
+    },
+  },
+  {
+    title: 'Vitrais',
+    dataIndex: 'vitrais',
+    key: 'vitrais',
+    render: (entry: DailyEntry['vitrais']) => {
+      if (!entry) {
+        return <Alert message="No entry" type="error" />;
+      }
+
+      const { number, title, pieces } = entry;
+
+      return (
+        <EntryCell>
+          <GameNumber>{number}</GameNumber>
+
+          <GameInfo label="Title">{title}</GameInfo>
+          <GameInfo label="Pieces">{pieces.length}</GameInfo>
+
+          <GamePopover entry={entry}>
+            <Flex gap={6} style={{ maxWidth: '300px' }} wrap>
+              <ImageCard cardId={entry.cardId} cardWidth={75} />
             </Flex>
           </GamePopover>
         </EntryCell>
