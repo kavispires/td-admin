@@ -89,7 +89,7 @@ export function ItemsGroupsSubPages({
   return (
     <>
       {(is('display', 'group') || !queryParams.has('display')) && (
-        <Space className="mb-4" direction="vertical">
+        <Space className="mb-4" orientation="vertical">
           <ItemsGroupsSearch
             data={data}
             groupsTypeahead={groupsTypeahead}

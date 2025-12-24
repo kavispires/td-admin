@@ -69,7 +69,7 @@ type QuartetRowProps = {
 
 function QuartetRow({ quartet }: QuartetRowProps) {
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Typography.Text strong>
         {quartet.title} [{quartet.level}]
       </Typography.Text>

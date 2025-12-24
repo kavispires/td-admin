@@ -39,7 +39,7 @@ export function ConnectionsContent() {
           <Flex gap={2} wrap="wrap">
             {relatedCards.map((cardId) => (
               <Space key={`${row.origin}-${cardId}`}>
-                <Space direction="vertical">
+                <Space orientation="vertical">
                   <ImageCard cardId={cardId} cardWidth={cardWidth} />
                   {showIds && <Tag>{cardId}</Tag>}
                 </Space>

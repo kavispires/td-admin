@@ -86,7 +86,7 @@ export function ItemsMoviesSample({
   });
 
   return (
-    <Space className="my-4" direction="vertical">
+    <Space className="my-4" orientation="vertical">
       <Button onClick={onGetSample}>Get Random Movie</Button>
       {sampleEntryId && (
         <Table

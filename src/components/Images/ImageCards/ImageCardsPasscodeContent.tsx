@@ -24,7 +24,7 @@ function ImageCardsPasscodeTable(query: UseResourceFirestoreDataReturnType<Image
   const [searchSetId, setSearchSetId] = useState<string | null>();
 
   return (
-    <Space className="full-width my-4" direction="vertical">
+    <Space className="full-width my-4" orientation="vertical">
       <PasscodeSearch data={query.data} onFinish={(setId) => setSearchSetId(setId)} />
       {searchSetId && (
         <>

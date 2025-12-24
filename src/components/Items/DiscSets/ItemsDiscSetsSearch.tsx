@@ -15,7 +15,7 @@ export function ItemsDiscSetsSearch({
     return data[activeDiscSetId];
   }, [activeDiscSetId, data]);
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Typography.Title level={5}>Search Disc Set</Typography.Title>
 
       <Typeahead

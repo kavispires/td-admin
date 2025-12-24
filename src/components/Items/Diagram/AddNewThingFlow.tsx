@@ -55,7 +55,7 @@ export function AddNewThingFlow({
   const onAddItem = async (newThing: DailyDiagramItem) => {
     if (!activeThing) return;
     if (!newThing.name || !newThing.itemId) {
-      notification.error({ message: 'Name and Item ID are required' });
+      notification.error({ title: 'Name and Item ID are required' });
     }
 
     addEntryToUpdate(newThing.itemId, newThing);

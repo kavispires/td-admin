@@ -178,7 +178,7 @@ export function ItemsCrimeHistoryTable() {
   ];
 
   return (
-    <Space className="my-4" direction="vertical">
+    <Space className="my-4" orientation="vertical">
       <Table columns={columns} dataSource={crimes} pagination={{ showQuickJumper: true }} rowKey="id" />
     </Space>
   );

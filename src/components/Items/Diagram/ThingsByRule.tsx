@@ -127,12 +127,12 @@ export function ThingsByRule({
   ];
 
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Typography.Title level={4}>
         Things By Rule (Added: {Object.keys(things).length} | {availableThings.length}){' '}
       </Typography.Title>
 
-      <Space split={<Divider type="vertical" />} wrap>
+      <Space separator={<Divider orientation="vertical" />} wrap>
         <AddNewThingFlow
           addEntryToUpdate={addEntryToUpdate}
           allThings={things}

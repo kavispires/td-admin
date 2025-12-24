@@ -47,7 +47,7 @@ export function SceneTable({ sceneQuery, objects }: SceneTableProps) {
       dataIndex: 'title',
       key: 'title',
       render: (_, record) => (
-        <Space direction="vertical" style={{ minWidth: 150 }}>
+        <Space orientation="vertical" style={{ minWidth: 150 }}>
           <DualLanguageTextField language="en" readOnly value={record.title} />
           <DualLanguageTextField language="pt" readOnly value={record.title} />
         </Space>

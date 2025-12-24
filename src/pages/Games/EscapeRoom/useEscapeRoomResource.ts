@@ -58,7 +58,7 @@ export function useEscapeRoomResource(): UseEscapeRoomResourceReturnType {
   const mutation = useUpdateFirestoreDoc('tdr', 'escapeRoom', {
     onSuccess: () => {
       notification.success({
-        message: 'tdr/escapeRoom updated',
+        title: 'tdr/escapeRoom updated',
       });
       queryClient.refetchQueries({
         queryKey: ['firestore', 'tdr', 'escapeRoom'],
@@ -70,7 +70,7 @@ export function useEscapeRoomResource(): UseEscapeRoomResourceReturnType {
     },
     onError: (error) => {
       notification.error({
-        message: 'tdr/escapeRoom update failed',
+        title: 'tdr/escapeRoom update failed',
         description: error.message,
       });
     },

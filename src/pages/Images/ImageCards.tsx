@@ -49,7 +49,7 @@ function ImageCards() {
                 countRender: (current, total) => {
                   const id = `td-${deck}-${current.toString().padStart(2, '0')}`;
                   return (
-                    <Space align="center" direction="vertical">
+                    <Space align="center" orientation="vertical">
                       <Typography.Text>
                         {current} / {total}
                       </Typography.Text>

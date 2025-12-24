@@ -21,7 +21,7 @@ export function ItemsDiscSetsListing({
   const completeSetsCount = useMemo(() => sets.filter((s) => s.itemsIds.length >= 20).length, [sets]);
 
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <ItemsDiscSetsSearch addEntryToUpdate={addEntryToUpdate} data={data} />
       <Typography.Title level={5}>
         Total Disc Sets: {sets.length} | Complete Disc Sets: {completeSetsCount}

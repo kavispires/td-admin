@@ -29,7 +29,7 @@ export function ItemsGroupsSearch({
     return data[activeGroupId];
   }, [activeGroupId, data]);
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Typography.Title level={5}>Search Groups</Typography.Title>
 
       <Typeahead

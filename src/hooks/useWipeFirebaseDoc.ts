@@ -42,14 +42,14 @@ export function useWipeFirebaseDoc({
     onSuccess: () => {
       queryClient.refetchQueries({ queryKey: queryKey });
       notification.success({
-        message: `Document ${path}/${docId} wiped successfully`,
+        title: `Document ${path}/${docId} wiped successfully`,
       });
       onSuccess?.();
     },
     onError: (error: Error) => {
       console.error('Error wiping document:', error);
       notification.error({
-        message: `Failed to wipe document ${path}/${docId}`,
+        title: `Failed to wipe document ${path}/${docId}`,
         description: error.message,
       });
     },

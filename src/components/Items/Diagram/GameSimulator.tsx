@@ -60,7 +60,7 @@ export function GameSimulator({ things, rules }: GameSimulatorProps) {
   };
 
   return (
-    <Space direction="vertical" ref={ref}>
+    <Space orientation="vertical" ref={ref}>
       <Typography.Title level={5}>Game Simulator</Typography.Title>
 
       <Button onClick={onSimulate} size="large">

@@ -54,7 +54,7 @@ export function ImageCardsPasscodeCreate(query: ImageCardsPasscodeProps) {
   }, [placeholderSets]);
 
   return (
-    <Space className="full-width" direction="vertical">
+    <Space className="full-width" orientation="vertical">
       <Button disabled={!isDirty} onClick={onAddEntriesToDatabase} type="primary">
         Add Entries
       </Button>

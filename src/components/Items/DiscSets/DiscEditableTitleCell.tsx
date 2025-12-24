@@ -20,7 +20,7 @@ export function DiscEditableTitleCell({ value, disc, addEntryToUpdate }: DiscEdi
   };
 
   return (
-    <Space direction="vertical" size="small">
+    <Space orientation="vertical" size="small">
       <Typography.Text
         editable={{
           onChange: (v) => handleChange(v, 'pt'),

@@ -79,7 +79,7 @@ export function PromptButton({ suspect, extendedInfo }: PromptButtonProps) {
     if (promptQP === 'zootopia') {
       if (!extendedInfo.animal) {
         notification.error({
-          message: 'Error',
+          title: 'Error',
           description: 'Suspect does not have an animal type defined.',
         });
         return;
@@ -89,7 +89,7 @@ export function PromptButton({ suspect, extendedInfo }: PromptButtonProps) {
 
     if (!extendedInfo.prompt) {
       notification.error({
-        message: 'Error',
+        title: 'Error',
         description: 'Suspect does not have a prompt defined.',
       });
       return;

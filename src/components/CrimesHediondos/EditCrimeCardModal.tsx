@@ -43,7 +43,7 @@ export function EditCrimeCardModal({ onUpdateCard, card, buttonProps }: EditCrim
       >
         {open && (
           <Space>
-            <Space direction="vertical" style={{ minWidth: 150 }}>
+            <Space orientation="vertical" style={{ minWidth: 150 }}>
               <CrimeItemCard cardWidth={100} item={card} />
               <DualLanguageTextField
                 language="en"

@@ -27,7 +27,7 @@ export function useDailyHistoryQuery(
   useEffect(() => {
     if (historyQuery.isError) {
       notification.error({
-        message: 'Error loading daily/history',
+        title: 'Error loading daily/history',
         placement: 'bottomLeft',
       });
     }

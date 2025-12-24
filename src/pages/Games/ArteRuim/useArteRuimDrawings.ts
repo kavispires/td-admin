@@ -45,7 +45,7 @@ export function useLoadFirestoreDrawings(enabled: boolean, queryLanguage: Langua
   useEffect(() => {
     if (suffixCountsQuery.isError) {
       notification.error({
-        message: 'Error loading data/suffixCounts',
+        title: 'Error loading data/suffixCounts',
         placement: 'bottomLeft',
       });
     }
@@ -65,7 +65,7 @@ export function useLoadFirestoreDrawings(enabled: boolean, queryLanguage: Langua
         enabled: enabled && Boolean(libraryCount),
         onSuccess: () => {
           notification.info({
-            message: `Data Drawings ${docPrefix}${index + 1} loaded`,
+            title: `Data Drawings ${docPrefix}${index + 1} loaded`,
             placement: 'bottomLeft',
           });
         },

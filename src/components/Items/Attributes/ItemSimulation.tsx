@@ -208,8 +208,8 @@ export function ItemSimulation() {
                   itemAttributeValues.attributes[highlightedAttributeKey] > 0 &&
                   'simulator-grid__entry--highlighted',
               )}
-              direction="vertical"
               key={itemId}
+              orientation="vertical"
             >
               <Space>
                 <Flex vertical>

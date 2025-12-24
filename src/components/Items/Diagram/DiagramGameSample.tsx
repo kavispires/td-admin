@@ -44,7 +44,7 @@ export function DiagramGameSample({ game }: DiagramGameSampleProps) {
   // const
 
   return (
-    <Space align="center" direction="vertical">
+    <Space align="center" orientation="vertical">
       <Typography.Title level={4}>Game Sample</Typography.Title>
       <Typography.Title level={5}>"{game.title}"</Typography.Title>
       <Rate count={game.level} disabled value={game.level} />
@@ -113,7 +113,7 @@ export function DiagramGameSample({ game }: DiagramGameSampleProps) {
             key: '1',
             label: 'Resposta',
             children: (
-              <Space direction="vertical">
+              <Space orientation="vertical">
                 <Typography.Text strong>Regra Amarela</Typography.Text>
                 <ul>
                   <li>

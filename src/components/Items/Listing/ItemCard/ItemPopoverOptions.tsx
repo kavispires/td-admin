@@ -83,7 +83,7 @@ export function ItemPopoverOptions({ item }: ItemPopoverOptionsProps) {
   return (
     <Popover
       content={
-        <Space direction="vertical">
+        <Space orientation="vertical">
           <Button onClick={() => copyToClipboard(JSON.stringify(item, null, 2))} size="small">
             Complete Item
           </Button>

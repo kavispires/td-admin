@@ -15,7 +15,7 @@ export function ItemsMoviesSearch({
     return data[activeMovieId];
   }, [activeMovieId, data]);
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Typography.Title level={5}>Search Movie</Typography.Title>
 
       <Typeahead

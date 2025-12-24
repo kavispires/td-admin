@@ -146,7 +146,7 @@ export function useSaveDailySetup(queryLanguage: Language) {
 
     onSuccess: () => {
       notification.info({
-        message: 'Data saved',
+        title: 'Data saved',
         placement: 'bottomLeft',
       });
       queryClient.invalidateQueries({
@@ -157,7 +157,7 @@ export function useSaveDailySetup(queryLanguage: Language) {
 
     onError: () => {
       notification.error({
-        message: 'Error saving data',
+        title: 'Error saving data',
         placement: 'bottomLeft',
       });
     },

@@ -47,7 +47,7 @@ export function useItemsAttribution() {
   const mutation = useUpdateFirestoreDoc('tdr', 'itemsAttributeValues', {
     onSuccess: () => {
       notification.success({
-        message: 'itemsAttributeValues updated',
+        title: 'itemsAttributeValues updated',
       });
       queryClient.refetchQueries({
         queryKey: ['firestore', 'tdr', 'itemsAttributeValues'],
@@ -56,7 +56,7 @@ export function useItemsAttribution() {
     },
     onError: (error) => {
       notification.error({
-        message: 'itemsAttributeValues update failed',
+        title: 'itemsAttributeValues update failed',
         description: error.message,
       });
     },

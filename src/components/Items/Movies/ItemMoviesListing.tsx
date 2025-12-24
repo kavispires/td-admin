@@ -32,7 +32,7 @@ export function ItemMoviesListing({
   const completeMoviesCount = rows.filter((s) => s.itemsIds.length > 0).length;
 
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Typography.Title level={5}>
         Total Movies: {rows.length} | Complete Movies: {completeMoviesCount}
       </Typography.Title>

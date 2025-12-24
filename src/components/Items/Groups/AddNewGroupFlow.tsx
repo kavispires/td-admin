@@ -24,7 +24,7 @@ export function AddNewGroupFlow({ addEntryToUpdate, data }: AddNewGroupFlowProps
       itemsIds: [],
       keywords: values.keywords,
     });
-    notification.success({ message: 'Group added successfully' });
+    notification.success({ title: 'Group added successfully' });
     setOpen(false);
     form.resetFields();
   };

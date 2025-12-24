@@ -14,7 +14,7 @@ import type { DailyEntry } from './hooks';
 
 function EntryCell({ children }: { children: ReactNode }) {
   return (
-    <Space direction="vertical" style={{ maxWidth: 120 }}>
+    <Space orientation="vertical" style={{ maxWidth: 120 }}>
       {children}
     </Space>
   );
@@ -354,7 +354,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Keyword">{keyword}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Space direction="vertical">
+            <Space orientation="vertical">
               {words.map((word: string, index: number) => (
                 <span key={`${number}-${word}`}>
                   {word
@@ -513,7 +513,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
 
           <GamePopover entry={entry}>
             <Flex vertical>
-              <Space direction="vertical" style={{ maxHeight: 100, overflowY: 'auto' }}>
+              <Space orientation="vertical" style={{ maxHeight: 100, overflowY: 'auto' }}>
                 {testimonies.map((question) => (
                   <Flex key={question.testimonyId} vertical>
                     <span>

@@ -10,9 +10,9 @@ type FullScreenModalProps = {
 export function FullScreenModal({ open, onClose, ...props }: FullScreenModalProps) {
   return (
     <Card
-      bordered={false}
       className={clsx('full-screen-modal', !open && 'full-screen-modal--hidden')}
       extra={<Button icon={<CloseOutlined />} onClick={onClose} shape="circle" type="text" />}
+      variant="outlined"
       {...props}
     />
   );

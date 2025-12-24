@@ -31,7 +31,7 @@ export function ItemGroupsCard({
       }
     >
       <ItemSprite item={item} width={75} />
-      <Space className="my-4" direction="vertical" size="small">
+      <Space className="my-4" orientation="vertical" size="small">
         <ItemName item={item} language="en" />
         <ItemName item={item} language="pt" />
 

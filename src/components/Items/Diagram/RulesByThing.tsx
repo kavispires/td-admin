@@ -88,10 +88,10 @@ export function RulesByThing({
   }, [things]);
 
   return (
-    <Space direction="vertical" ref={ref}>
+    <Space orientation="vertical" ref={ref}>
       <Typography.Title level={5}>
-        Rules By Items <Divider type="vertical" /> Added: <Tag>{Object.keys(things).length}</Tag> Available to
-        add <Tag>{availableThings.length}</Tag>
+        Rules By Items <Divider orientation="vertical" /> Added: <Tag>{Object.keys(things).length}</Tag>{' '}
+        Available to add <Tag>{availableThings.length}</Tag>
       </Typography.Title>
 
       <AddNewThingFlow

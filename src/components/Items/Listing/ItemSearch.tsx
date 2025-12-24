@@ -48,7 +48,7 @@ export function ItemSearch() {
       )}
       <Flex className="my-4" gap={8} wrap="wrap">
         {activeItems?.map((item) => (
-          <Space className="my-4" direction="vertical" key={item.id}>
+          <Space className="my-4" key={item.id} orientation="vertical">
             <ItemCard item={item} />
             <Button block icon={<EnvironmentOutlined />} onClick={() => onFindInListing(item.id)}>
               Find in listing

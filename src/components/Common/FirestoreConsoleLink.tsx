@@ -63,7 +63,7 @@ export function FirestoreConsoleWipe({
       <Typography.Link disabled={disabled} href={getConsoleUrl(`${path}/${docId}`)} target="_blank" {...rest}>
         <GoogleOutlined /> {label ?? 'Console'} <ArrowUpOutlined style={{ rotate: '45deg' }} />
       </Typography.Link>
-      <Divider type="vertical" />
+      <Divider orientation="vertical" />
       <Popconfirm
         cancelText="No, don't wipe it"
         description="You should only do this if it has been downloaded to td-resources and deployed"

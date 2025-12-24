@@ -137,7 +137,7 @@ export function CrimeTable({
       key: 'name',
       sorter: (a, b) => a.name.en.localeCompare(b.name.en),
       render: (name, record) => (
-        <Space direction="vertical" style={{ minWidth: 150 }}>
+        <Space orientation="vertical" style={{ minWidth: 150 }}>
           <DualLanguageTextField
             language="en"
             onPressEnter={(e: any) => editName(e.target?.value || record.name.en, 'en', record)}

@@ -25,7 +25,7 @@ export function AddItemFlow({ movie, addEntryToUpdate }: AddItemFlowProps) {
       <div style={{ minWidth: 250 }}>
         <ItemsTypeahead onFinish={onUpdate} />
       </div>
-      <Divider type="vertical" variant="dotted" />
+      <Divider orientation="vertical" variant="dotted" />
       <ItemsSuggestions movie={movie} onUpdate={onUpdate} />
     </Flex>
   );

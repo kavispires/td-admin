@@ -46,7 +46,7 @@
         "useUniqueElementIds": "warn"
       },
       "nursery": {
-        "noDeprecatedImports": "warn",
+        "noDeprecatedImports": "error",
         "noDuplicateDependencies": "warn"
       },
       "security": {

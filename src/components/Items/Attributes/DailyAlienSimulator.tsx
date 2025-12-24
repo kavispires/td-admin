@@ -52,10 +52,10 @@ export function DailyAlienSimulator() {
 
       <div>
         {Boolean(simulation) && (
-          <Space direction="vertical" key={simulation?.setId}>
+          <Space key={simulation?.setId} orientation="vertical">
             <Typography.Title level={5}>{simulation?.setId}</Typography.Title>
             {!simulation?.valid && <Alert message="Invalid game" type="error" />}
-            <Space direction="vertical">
+            <Space orientation="vertical">
               {simulation?.attributes.map((attr) => (
                 <Flex gap={8} key={attr.id}>
                   <AlienSign signId={attr.spriteId} width={50} />
@@ -66,7 +66,7 @@ export function DailyAlienSimulator() {
               ))}
             </Space>
             <Divider className="my-1" />
-            <Space direction="horizontal">
+            <Space orientation="horizontal">
               {simulation?.requests.map((req) => (
                 <Flex key={req.itemId} vertical>
                   <AlienSign signId={req.spritesIds[2]} width={50} />
@@ -77,7 +77,7 @@ export function DailyAlienSimulator() {
             </Space>
 
             <Divider className="my-1" />
-            <Space direction="horizontal">
+            <Space orientation="horizontal">
               {simulation?.itemsIds.map((itemId) => (
                 <Item itemId={itemId || '0'} key={itemId} width={50} />
               ))}

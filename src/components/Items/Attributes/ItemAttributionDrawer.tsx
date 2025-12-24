@@ -56,7 +56,7 @@ export function ItemAttributionDrawer() {
 
       <Divider className="my-1" />
 
-      <Space className="my-4 attribute-button-container" direction="vertical" size="small" wrap>
+      <Space className="my-4 attribute-button-container" orientation="vertical" size="small" wrap>
         {filteredAttributesList.map((attribute) => (
           <AttributionValueButtons
             attribute={attribute}

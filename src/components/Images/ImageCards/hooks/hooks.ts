@@ -117,7 +117,7 @@ export function useImageCardsData() {
   useEffect(() => {
     if (isError) {
       notification.error({
-        message: 'Error loading data/imageCards',
+        title: 'Error loading data/imageCards',
         placement: 'bottomLeft',
       });
     }
@@ -138,7 +138,7 @@ export function useImageCardsData() {
     },
     onSuccess: () => {
       notification.success({
-        message: 'Saved',
+        title: 'Saved',
         placement: 'bottomLeft',
       });
       queryClient.refetchQueries({
@@ -295,7 +295,7 @@ export function useImageCardsRelationshipData(): UseImageCardsRelationshipDataRe
     },
     onSuccess: () => {
       notification.success({
-        message: 'Saved',
+        title: 'Saved',
         placement: 'bottomLeft',
       });
       queryClient.refetchQueries({

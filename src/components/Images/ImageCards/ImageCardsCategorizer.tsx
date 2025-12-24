@@ -48,7 +48,7 @@ function ImageCardsCategorizerPage() {
         {isLoading && <div>Loading...</div>}
         {isSaving && <div>Saving...</div>}
         {isSuccess && !isSaving && (
-          <Space className="space-container" direction="vertical">
+          <Space className="space-container" orientation="vertical">
             <Button onClick={onRandomCard}>Random Card</Button>
 
             <Card

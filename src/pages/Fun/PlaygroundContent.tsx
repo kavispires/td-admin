@@ -2,7 +2,7 @@ import { Space } from 'antd';
 
 export function PlaygroundContent() {
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <div>?</div>
     </Space>
   );

@@ -29,7 +29,7 @@ export function ItemsMovieSets() {
             hasResponseData={!isEmpty(moviesData.data)}
             isLoading={moviesData.isLoading}
           >
-            <Space direction="vertical">
+            <Space orientation="vertical">
               <ItemsMoviesSearch {...moviesData} />
               <ItemsMoviesSample {...moviesData} />
               <ItemMoviesListing {...moviesData} />

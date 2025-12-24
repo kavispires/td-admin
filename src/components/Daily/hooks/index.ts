@@ -18,7 +18,7 @@ export function useTempDaily(enabled = true) {
     },
     onSuccess: () => {
       notification.info({
-        message: 'New history data saved',
+        title: 'New history data saved',
         placement: 'bottomLeft',
       });
     },

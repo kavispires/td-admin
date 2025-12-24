@@ -15,7 +15,7 @@ export function ItemsQuartetSearch({
     return data[activeQuartetId];
   }, [activeQuartetId, data]);
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Typography.Title level={5}>Search Quartet</Typography.Title>
 
       <Typeahead

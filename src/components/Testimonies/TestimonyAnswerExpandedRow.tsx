@@ -57,7 +57,7 @@ export function TestimonyAnswerExpandedRow({
   const [selection, setSelection] = useState<string[]>([]);
 
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <BatchOptions
         addEntryToUpdate={addEntryToUpdate}
         answers={answers}
@@ -310,7 +310,7 @@ function BatchOptions({
             Apply +4
           </Button>
         </Popconfirm>
-        <Divider type="vertical" />
+        <Divider orientation="vertical" />
         <Popconfirm onConfirm={() => onApplyBatch(-4)} title="Apply -4 to selected suspects?">
           <Button disabled={selection.length === 0} size="small" type="primary">
             Apply -4
@@ -393,7 +393,7 @@ function FilterEntry({ filter, activeFilters, updateActiveFilter, end, label }: 
         <Checkbox checked={activeFilters.includes(filter)} onClick={() => updateActiveFilter(filter)} />{' '}
         {label ?? capitalize(filter)}
       </span>
-      {!end && <Divider type="vertical" />}
+      {!end && <Divider orientation="vertical" />}
     </>
   );
 }

@@ -68,7 +68,7 @@ export function useResourceFirestoreData<
   const mutation = useUpdateFirestoreDoc('tdr', firestoreDataCollectionName, {
     onSuccess: () => {
       notification.success({
-        message: `${firestoreDataCollectionName} updated`,
+        title: `${firestoreDataCollectionName} updated`,
       });
       queryClient.refetchQueries({
         queryKey: ['firestore', 'tdr', firestoreDataCollectionName],
@@ -77,7 +77,7 @@ export function useResourceFirestoreData<
     },
     onError: (error) => {
       notification.error({
-        message: `${firestoreDataCollectionName} update failed`,
+        title: `${firestoreDataCollectionName} update failed`,
         description: error.message,
       });
     },

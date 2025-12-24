@@ -27,7 +27,7 @@ export function ItemsQuartetsContent({
   const completeQuartetsCount = rows.filter((s) => s.itemsIds.length === 4).length;
 
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Typography.Title level={5}>
         Total Quartets: {rows.length} | Complete Quartets: {completeQuartetsCount}
       </Typography.Title>
