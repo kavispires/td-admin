@@ -99,8 +99,8 @@ export function SuspectDrawer({
       onClose={() => removeParam('suspectId')}
       open={!!suspect}
       placement="right"
-      title={suspect.name.pt}
-      width={400}
+      size={400}
+      title={`${suspect.name.pt} (${suspect.id})`}
     >
       <div className="suspect__drawer">
         <div
@@ -705,6 +705,7 @@ function useInferFieldsFromTestimonies(
           zodiacCounts[v] = (zodiacCounts[v] || 0) - 1;
         }
       });
+      console.log('Zodiac counts so far:', zodiacCounts);
 
       // Alignment
       testimony.alignment.forEach((v) => {

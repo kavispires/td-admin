@@ -114,6 +114,7 @@ export const FEATURES_BY_GROUP = [
       { id: 'longHair', label: 'Long Hair' },
       { id: 'mediumHair', label: 'Medium Hair' },
       { id: 'bald', label: 'Bald' },
+      { id: 'noHairInfo', label: 'No Hair Info' },
     ],
   },
   {
@@ -143,7 +144,6 @@ export const FEATURES_BY_GROUP = [
       { id: 'avoidingCamera', label: 'Avoiding Camera' },
       { id: 'hairyChest', label: 'Exposed Hairy Chest' },
       { id: 'shirtless', label: 'Shirtless' },
-      { id: 'noHairInfo', label: 'No Hair Info' },
     ],
   },
   {

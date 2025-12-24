@@ -1,5 +1,6 @@
+import { DotChartOutlined, TableOutlined } from '@ant-design/icons';
 import { Divider, Flex, Form } from 'antd';
-import { FilterNumber, FilterSelect } from 'components/Common';
+import { FilterNumber, FilterSegments, FilterSelect } from 'components/Common';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
 import { SaveButton } from 'components/Common/SaveButton';
@@ -9,7 +10,6 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { cloneDeep } from 'lodash';
 import type { SuspectCard, SuspectExtendedInfo } from 'types';
 import { sortJsonKeys } from 'utils';
-import { SuspectsStats } from './SuspectsStats';
 import { SuspectsStyleVariantSelector } from './SuspectsStyleVariantSelector';
 
 const DEPRECATED_VERSIONS = [
@@ -46,7 +46,7 @@ export function SuspectsFilters({
   suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCard>;
   suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>;
 }) {
-  const { addParam, queryParams } = useQueryParams();
+  const { addParam, queryParams, is } = useQueryParams();
   return (
     <SiderContent>
       <Flex gap={12} vertical>
@@ -104,38 +104,57 @@ export function SuspectsFilters({
       <Divider />
 
       <SuspectsStyleVariantSelector />
-      <Divider />
-      <Form layout="vertical">
-        <FilterNumber
-          label="Cards Per Row"
-          max={12}
-          min={2}
-          onChange={(v) => addParam('cardsPerRow', v)}
-          value={Number(queryParams.get('cardsPerRow') ?? '10')}
-        />
-        <FilterSelect
-          label="Sort By"
-          onChange={(v) => addParam('sortBy', v)}
-          options={SORT_BY}
-          value={queryParams.get('sortBy') ?? 'id'}
-        />
-        <FilterSelect
-          label="Other Versions"
-          onChange={(v) => addParam('variant', v)}
-          options={DEPRECATED_VERSIONS}
-          value={queryParams.get('variant') ?? 'gb'}
-        />
 
-        <FilterSelect
-          label="Prompt Style"
-          onChange={(v) => addParam('prompt', v)}
-          options={PROMPTS}
-          value={queryParams.get('prompt') ?? ''}
-        />
-      </Form>
+      <FilterSegments
+        label="Display"
+        onChange={(mode) => addParam('display', mode)}
+        options={[
+          {
+            title: 'Listing',
+            icon: <TableOutlined />,
+            value: 'listing',
+          },
+          {
+            title: 'Stats',
+            icon: <DotChartOutlined />,
+            value: 'stats',
+          },
+        ]}
+        value={queryParams.get('display') ?? 'listing'}
+      />
 
-      <Divider />
-      <SuspectsStats data={suspectsQuery.data} />
+      {!is('display', 'stats') && (
+        <Form layout="vertical">
+          <FilterNumber
+            label="Cards Per Row"
+            max={12}
+            min={2}
+            onChange={(v) => addParam('cardsPerRow', v)}
+            value={Number(queryParams.get('cardsPerRow') ?? '10')}
+          />
+          <FilterSelect
+            label="Sort By"
+            onChange={(v) => addParam('sortBy', v)}
+            options={SORT_BY}
+            value={queryParams.get('sortBy') ?? 'id'}
+          />
+          <FilterSelect
+            label="Other Versions"
+            onChange={(v) => addParam('variant', v)}
+            options={DEPRECATED_VERSIONS}
+            value={queryParams.get('variant') ?? 'gb'}
+          />
+
+          <FilterSelect
+            label="Prompt Style"
+            onChange={(v) => addParam('prompt', v)}
+            options={PROMPTS}
+            value={queryParams.get('prompt') ?? ''}
+          />
+        </Form>
+      )}
+
+      {/* <SuspectsStats data={suspectsQuery.data} /> */}
     </SiderContent>
   );
 }
