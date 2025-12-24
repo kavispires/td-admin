@@ -1,6 +1,7 @@
 import { Flex, Image, Layout, Space, Typography } from 'antd';
 import { ResponseState } from 'components/Common';
 import { IdTag } from 'components/Common/IdTag';
+import { VirtualizationWrapper } from 'components/Common/VirtualizationWrapper';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { ImageCard } from 'components/Images/ImageCard';
 import { ImageCardsFilters } from 'components/Images/ImageCardsFilters';
@@ -67,7 +68,9 @@ function ImageCards() {
 
                     return (
                       <Flex align="center" key={id} style={{ gap: 8 }} vertical>
-                        <ImageCard cardId={id} cardWidth={cardWidth} key={id} />
+                        <VirtualizationWrapper aspectRatio="2:3" width={cardWidth}>
+                          <ImageCard cardId={id} cardWidth={cardWidth} key={id} />
+                        </VirtualizationWrapper>
                         {is('showImageIds') && <IdTag withQuotes>{id}</IdTag>}
                       </Flex>
                     );
