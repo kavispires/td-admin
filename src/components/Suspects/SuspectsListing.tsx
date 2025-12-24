@@ -5,6 +5,7 @@ import {
   ColumnWidthOutlined,
   EditFilled,
   GitlabFilled,
+  InteractionFilled,
   ManOutlined,
   MessageFilled,
   WomanOutlined,
@@ -18,12 +19,13 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { orderBy, truncate } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { SuspectCard, SuspectExtendedInfo } from 'types';
-import { stringRemoveAccents } from 'utils';
+import { stringRemoveAccents, wait } from 'utils';
 import { ActiveExtendedInfoSwitch, ExtendedInfoFilterBar } from './ExtendedInfoFilterBar';
 import { ActiveFeatureSwitch, FeaturesFilterBar } from './FeaturesFilterBar';
 import { PromptBuilder, PromptButton } from './PromptBuilder';
 import { SuspectDrawer } from './SuspectDrawer';
 import { SuspectImageCard } from './SuspectImageCard';
+import { useInferFieldsFromTestimonies } from './useInferFieldsFromTestimonies';
 
 export function SuspectsListing({
   suspectsQuery,
@@ -139,17 +141,6 @@ export function SuspectsListing({
           );
         },
       },
-      // {
-      //   title: 'Persona',
-      //   dataIndex: 'persona',
-      //   key: 'persona',
-      //   render: (persona: DualLanguageValue, entry: SuspectCard) => (
-      //     <Flex vertical>
-      //       <Typography.Text>{persona.pt}</Typography.Text>
-      //       <Typography.Text>{persona.en}</Typography.Text>
-      //     </Flex>
-      //   ),
-      // },
       {
         title: 'Gender',
         dataIndex: 'gender',
@@ -221,6 +212,22 @@ export function SuspectsListing({
     ];
   }, [activeFeature, cardWidth]);
 
+  const onInfer = useInferFieldsFromTestimonies(suspectsExtendedInfoQuery.addEntryToUpdate);
+  const [inferring, setInferring] = useState(false);
+  const onInferForAll = () => {
+    setInferring(true);
+    Promise.resolve()
+      .then(async () => {
+        for (const entry of deck) {
+          // eslint-disable-next-line no-await-in-loop
+
+          await onInfer(extendedInfo[entry.id]);
+          await wait(300); // To avoid rate limits
+        }
+      })
+      .finally(() => setInferring(false));
+  };
+
   return (
     <>
       <Flex align="center" justify="space-between">
@@ -237,7 +244,14 @@ export function SuspectsListing({
         <FeaturesFilterBar /> <ExtendedInfoFilterBar />
       </Space>
 
-      <PromptBuilder />
+      <Flex align="center" className="my-2" gap={8} justify="space-between">
+        <PromptBuilder />
+        <Flex align="center" gap={8}>
+          <Button icon={<InteractionFilled />} loading={inferring} onClick={onInferForAll} size="small">
+            Infer info from Testimonies
+          </Button>
+        </Flex>
+      </Flex>
 
       <Image.PreviewGroup>
         {view === 'cards' && (

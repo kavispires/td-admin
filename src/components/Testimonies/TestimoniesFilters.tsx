@@ -152,6 +152,10 @@ export function TestimoniesFilters({
           questions={questions}
           suspects={suspects}
         />
+
+        <DownloadButton block data={questions} fileName="testimony-questions-pt.json" hasNewData={hasNewData}>
+          Questions (PT)
+        </DownloadButton>
       </SiderContent>
     </>
   );

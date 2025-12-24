@@ -70,10 +70,39 @@ export function TestimoniesTable({
       sorter: (a, b) => Number(a.nsfw) - Number(b.nsfw),
     },
     {
+      title: 'Level',
+      dataIndex: 'level',
+      key: 'level',
+      sorter: (a, b) => (a?.level ?? 0) - (b?.level ?? 0),
+    },
+    {
       title: 'Answers',
       dataIndex: 'answersCount',
       key: 'answersCount',
       sorter: (a, b) => a.answersCount - b.answersCount,
+    },
+    {
+      title: 'Info',
+      dataIndex: 'alignment',
+      key: 'alignment',
+      render: (_, record) => {
+        const mbti = record.mbti ? record.mbti.related.join(', ') : 'N/A';
+        const zodiac = record.zodiac ? record.zodiac.related.join(', ') : 'N/A';
+        const alignment = record.alignment ? record.alignment.related.join(', ') : 'N/A';
+        return (
+          <Typography.Paragraph style={{ fontSize: '0.85em', marginBottom: 0 }}>
+            <div>
+              <strong>MBTI:</strong> {mbti}
+            </div>
+            <div>
+              <strong>Zodiac:</strong> {zodiac}
+            </div>
+            <div>
+              <strong>Alignment:</strong> {alignment}
+            </div>
+          </Typography.Paragraph>
+        );
+      },
     },
   ];
 

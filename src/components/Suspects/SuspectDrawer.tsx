@@ -14,17 +14,11 @@ import {
   Tooltip,
   Typography,
 } from 'antd';
-import { calculateSuspectAnswersData } from 'components/Testimonies/utils';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, set } from 'lodash';
-import {
-  type TestimonyAnswers,
-  testimoniesDeserializer,
-} from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { type ReactNode, useEffect, useState } from 'react';
-import type { SuspectCard, SuspectExtendedInfo, TestimonyQuestionCard } from 'types';
+import type { SuspectCard, SuspectExtendedInfo } from 'types';
 import { AddDataModal } from './AddDataModal';
 import {
   AGE_OPTIONS,
@@ -42,6 +36,7 @@ import {
 } from './options';
 import { DescriptionPromptButton } from './PromptBuilder';
 import { SuspectImageCard } from './SuspectImageCard';
+import { useInferFieldsFromTestimonies } from './useInferFieldsFromTestimonies';
 
 type SuspectDrawerProps = {
   suspects: Dictionary<SuspectCard>;
@@ -627,162 +622,4 @@ function SuspectFeatures({ suspect, addEntryToUpdate }: SuspectFeaturesProps) {
       </div>
     </Flex>
   );
-}
-
-function useInferFieldsFromTestimonies(
-  addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>['addEntryToUpdate'],
-) {
-  const [enabled, setEnabled] = useState(true);
-
-  // Get Testimonies
-  const testimoniesQuery = useTDResource<TestimonyQuestionCard>('testimony-questions-pt', { enabled });
-
-  // Get Testimonies answers
-  const testimonyAnswersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
-    select: testimoniesDeserializer,
-    enabled,
-  });
-
-  const onInfer = async (suspectExtendedInfo: SuspectExtendedInfo) => {
-    const testimonies = testimoniesQuery.data;
-    const answers = testimonyAnswersQuery.data;
-
-    // Enable queries if not already enabled
-    if (!testimonies || !answers || !enabled) {
-      console.log('Enabling testimony queries for inference');
-      setEnabled(true);
-      return;
-    }
-
-    if (!testimonies || !answers) {
-      console.warn('Testimonies or answers data not available');
-      return;
-    }
-
-    const suspectAnswers = Object.keys(testimonies).reduce(
-      (acc, testimonyId) => {
-        const res = calculateSuspectAnswersData(
-          suspectExtendedInfo.id,
-          testimonyId,
-          answers?.[testimonyId] || {},
-        );
-        if (res.enoughData) {
-          acc[testimonyId] = res;
-        }
-
-        return acc;
-      },
-      {} as Record<string, ReturnType<typeof calculateSuspectAnswersData>>,
-    );
-
-    const mbtiCounts: Dictionary<number> = {};
-    const zodiacCounts: Dictionary<number> = {};
-    const alignmentCounts: Dictionary<number> = {};
-
-    Object.values(testimonies).forEach((testimony) => {
-      const projection = suspectAnswers?.[testimony.id]?.projection;
-      if (!projection) return;
-      const positiveAnswerResult = projection === '👍';
-
-      // MBTI
-      testimony.mbti.forEach((v) => {
-        if (v.startsWith('x')) return;
-
-        if (positiveAnswerResult) {
-          mbtiCounts[v] = (mbtiCounts[v] || 0) + 2;
-        } else {
-          mbtiCounts[v] = (mbtiCounts[v] || 0) - 1;
-        }
-      });
-
-      // Zodiac
-      testimony.zodiac.forEach((v) => {
-        if (!v || v.startsWith('x')) return;
-
-        if (positiveAnswerResult) {
-          zodiacCounts[v] = (zodiacCounts[v] || 0) + 2;
-        } else {
-          zodiacCounts[v] = (zodiacCounts[v] || 0) - 1;
-        }
-      });
-      console.log('Zodiac counts so far:', zodiacCounts);
-
-      // Alignment
-      testimony.alignment.forEach((v) => {
-        if (!v || v.startsWith('x')) return;
-
-        let [ethical, moral] = v.split('-');
-
-        if (ethical && !ethical.startsWith('x')) {
-          ethical =
-            {
-              True: 'NeutralX',
-              Neutral: 'NeutralX',
-              False: 'NeutralX',
-            }[ethical] || ethical;
-
-          if (positiveAnswerResult) {
-            alignmentCounts[ethical] = (alignmentCounts[ethical] || 0) + 2;
-          } else {
-            alignmentCounts[ethical] = (alignmentCounts[ethical] || 0) - 1;
-          }
-        }
-        if (moral && !moral.startsWith('x')) {
-          moral =
-            {
-              Good: 'NeutralY',
-              Neutral: 'NeutralY',
-              Evil: 'NeutralY',
-            }[moral] || moral;
-
-          if (positiveAnswerResult) {
-            alignmentCounts[moral] = (alignmentCounts[moral] || 0) + 2;
-          } else {
-            alignmentCounts[moral] = (alignmentCounts[moral] || 0) - 1;
-          }
-        }
-      });
-    });
-
-    const mbti = [
-      (mbtiCounts.E || 0) >= (mbtiCounts.I || 0) ? 'E' : 'I',
-      (mbtiCounts.S || 0) >= (mbtiCounts.N || 0) ? 'S' : 'N',
-      (mbtiCounts.T || 0) >= (mbtiCounts.F || 0) ? 'T' : 'F',
-      (mbtiCounts.J || 0) >= (mbtiCounts.P || 0) ? 'J' : 'P',
-    ].join('');
-
-    // Get the most voted zodiac sign, if there's a tie, use "Undefined"
-    const zodiacEntries = Object.entries(zodiacCounts).sort((a, b) => b[1] - a[1]);
-    const zodiac =
-      zodiacEntries.length > 0 && (zodiacEntries.length === 1 || zodiacEntries[0][1] > zodiacEntries[1][1])
-        ? zodiacEntries[0][0]
-        : 'Undefined';
-
-    const xAxis = ['Lawful', 'NeutralX', 'Chaotic'];
-    const yAxis = ['Good', 'NeutralY', 'Evil'];
-
-    const sortedXAlignmentEntries = Object.entries(alignmentCounts)
-      .filter(([key]) => xAxis.includes(key))
-      .sort((a, b) => b[1] - a[1])
-      .map(([key]) => (key ? (key === 'NeutralX' ? 'Neutral' : key) : key));
-    const sortedYAlignmentEntries = Object.entries(alignmentCounts)
-      .filter(([key]) => yAxis.includes(key))
-      .sort((a, b) => b[1] - a[1])
-      .map(([key]) => (key ? (key === 'NeutralY' ? 'Neutral' : key) : key));
-
-    let inferredAlignment = `${sortedXAlignmentEntries[0] || 'Neutral'}-${sortedYAlignmentEntries[0] || 'Neutral'}`;
-    inferredAlignment = inferredAlignment.replace('Neutral-Neutral', 'True Neutral');
-
-    // Update extended info with inferred values
-    const updatedExtendedInfo = {
-      ...suspectExtendedInfo,
-      mbti,
-      zodiacSign: zodiac,
-      alignment: inferredAlignment,
-    };
-
-    addExtendedInfoEntryToUpdate(suspectExtendedInfo.id, updatedExtendedInfo);
-  };
-
-  return onInfer;
 }

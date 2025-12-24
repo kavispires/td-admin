@@ -39,7 +39,7 @@ export function PromptBuilder() {
   };
 
   return (
-    <Flex align="center" className="my-2" gap={8}>
+    <Flex align="center" gap={8}>
       <Typography.Text>Custom Prompt:</Typography.Text>
       <Input
         disabled={queryParams.has('prompt')}

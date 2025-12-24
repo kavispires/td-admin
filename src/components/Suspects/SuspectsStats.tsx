@@ -64,8 +64,8 @@ export function SuspectsStats({
 
   const { totalFeatures, totalTraits } = useMemo(() => {
     return {
-      totalFeatures: mergedData.reduce((acc, suspect) => acc + (suspect.features?.length || 0), 0),
-      totalTraits: mergedData.reduce((acc, suspect) => acc + (suspect.traits?.length || 0), 0),
+      totalFeatures: new Set(mergedData.flatMap((suspect) => suspect.features || [])).size,
+      totalTraits: new Set(mergedData.flatMap((suspect) => suspect.traits || [])).size,
     };
   }, [mergedData]);
 
