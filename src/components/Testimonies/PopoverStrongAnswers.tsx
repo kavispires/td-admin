@@ -111,7 +111,8 @@ export function PopoverStrongAnswers({
               percent={noPercentage + yesPercentage}
               showInfo={false}
               size={[barWidth, 20]}
-              status="exception"
+              // status="exception"
+              strokeColor="#cf2323"
               success={{ percent: yesPercentage }}
             />
           ) : (
