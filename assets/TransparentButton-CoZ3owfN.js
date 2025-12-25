@@ -1,0 +1,1 @@
+import{j as o,m as p}from"./index-Kr2nSB3H.js";const c=({children:t,active:a=!1,activeClass:n="",className:s="",hoverType:r="scale",...e})=>o.jsx("button",{className:p("transparent-button",`transparent-button--${r}`,a&&(n||"transparent-button--active"),s),...e,children:t});export{c as T};
