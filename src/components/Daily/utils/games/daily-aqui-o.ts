@@ -108,13 +108,18 @@ export const buildDailyAquiOGames = (
   // Get list, if not enough, get from complete
   const entries: Dictionary<DailyAquiOEntry> = {};
   for (let i = 0; i < batchSize; i++) {
-    const setEntry = notUsedSets[i];
+    let setEntry = notUsedSets[i];
     if (!setEntry) {
       debugError('No aqui-o sets left');
     }
     const id = getNextDay(lastDate);
     const isWeekend = checkWeekend(id);
     lastDate = id;
+
+    // SPECIAL DATA HANDLER: Modify the date below
+    if (id === '2026-01-01') {
+      setEntry = discSets['2a97f'];
+    }
 
     if (isWeekend) {
       entries[id] = {

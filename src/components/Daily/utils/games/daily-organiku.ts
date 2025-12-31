@@ -67,27 +67,48 @@ export const buildDailyOrganikuGames = (
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     lastDate = id;
-
     const isWeekend = checkWeekend(id);
 
-    const group = eligibleGroups[i];
-    const itemsIds = sampleSize(group.itemsIds, isWeekend ? 6 : 5);
+    // SPECIAL DATA HANDLER: Modify the date below
+    if (id === '2026-01-01') {
+      const group = itemsGroups['2a97f']; // Add the group id here
+      const itemsIds = sampleSize(group.itemsIds, isWeekend ? 6 : 5);
 
-    // let tries = 0;
-    // let valid = false;
-    const grid = generateRandomLatinSquare(itemsIds);
-    const defaultRevealedIndexes = revealGridItems(grid, itemsIds, 1);
+      // let tries = 0;
+      // let valid = false;
+      const grid = generateRandomLatinSquare(itemsIds);
+      const defaultRevealedIndexes = revealGridItems(grid, itemsIds, 1);
 
-    entries[id] = {
-      id,
-      number: history.latestNumber + i + 1,
-      setId: group.id,
-      type: 'organiku',
-      title: capitalize(group.name[queryLanguage]),
-      grid,
-      defaultRevealedIndexes,
-      itemsIds,
-    };
+      entries[id] = {
+        id,
+        number: history.latestNumber + i + 1,
+        setId: group.id,
+        type: 'organiku',
+        title: capitalize(group.name[queryLanguage]),
+        grid,
+        defaultRevealedIndexes,
+        itemsIds,
+      };
+    } else {
+      const group = eligibleGroups[i];
+      const itemsIds = sampleSize(group.itemsIds, isWeekend ? 6 : 5);
+
+      // let tries = 0;
+      // let valid = false;
+      const grid = generateRandomLatinSquare(itemsIds);
+      const defaultRevealedIndexes = revealGridItems(grid, itemsIds, 1);
+
+      entries[id] = {
+        id,
+        number: history.latestNumber + i + 1,
+        setId: group.id,
+        type: 'organiku',
+        title: capitalize(group.name[queryLanguage]),
+        grid,
+        defaultRevealedIndexes,
+        itemsIds,
+      };
+    }
   }
 
   return entries;

@@ -1,6 +1,7 @@
 import { Drawer, Flex, Table, type TableProps, Typography } from 'antd';
 import { TransparentButton } from 'components/Common';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
+import { IdTag } from 'components/Common/IdTag';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
@@ -46,7 +47,11 @@ export function ItemsGroupsByGroupTable({
       title: 'id',
       dataIndex: 'id',
       key: 'id',
-      render: (id) => <span>{id}</span>,
+      render: (id) => (
+        <div>
+          <IdTag>{id}</IdTag>
+        </div>
+      ),
     },
     {
       title: 'Name',

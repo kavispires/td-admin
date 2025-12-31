@@ -73,6 +73,13 @@ export const buildDailyPalavreadoGames = (
     const isWeekend = checkWeekend(id);
     const size = isWeekend ? 5 : 4;
     lastDate = id;
+
+    // SPECIAL DATA HANDLER: Modify the date below
+    let fixedKeyword: string | undefined;
+    if (id === '2026-01-01') {
+      fixedKeyword = 'novo';
+    }
+
     entries[id] = {
       id,
       type: 'palavreado',
@@ -82,6 +89,7 @@ export const buildDailyPalavreadoGames = (
         [...Object.values(entries).map((e) => e.keyword), ...history.used],
         usedWords,
         size,
+        fixedKeyword,
       ),
     };
   }

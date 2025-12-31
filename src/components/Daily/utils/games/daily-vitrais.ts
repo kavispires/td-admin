@@ -85,11 +85,10 @@ export const buildDailyPuzzleGames = (
     lastDate = id;
 
     let selectedSet = eligibleSets[i];
-    if (id === '2025-12-24') {
-      selectedSet = natal24;
-    } else if (id === '2025-12-25') {
-      selectedSet = natal25;
+    if (id === '2026-01-01') {
+      selectedSet = puzzleSets['td-d5-21']; // Special set for New Year 2026
     }
+
     if (!selectedSet) {
       addWarning(
         'vitrais',
@@ -100,11 +99,22 @@ export const buildDailyPuzzleGames = (
 
     const piecesCount = isWeekend ? random(15, 20) : random(9, 14);
 
+    let result: ReturnType<typeof generatePuzzleData>;
+    try {
+      result = generatePuzzleData(selectedSet.id, capitalize(selectedSet.title), piecesCount);
+    } catch (e) {
+      addWarning(
+        'vitrais',
+        `Error generating Daily Vitrais puzzle for date ${id} with set ${selectedSet.title}: ${e}`,
+      );
+      return;
+    }
+
     entries[id] = {
       id,
       number: history.latestNumber + i + 1,
       type: 'vitrais',
-      ...generatePuzzleData(selectedSet.id, capitalize(selectedSet.title), piecesCount),
+      ...result,
     };
   });
 
