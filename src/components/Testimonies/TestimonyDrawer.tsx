@@ -112,7 +112,7 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
             block
             disabled={!hasEntry}
             icon="👍"
-            iconPosition="end"
+            iconPlacement="end"
             onClick={onYes}
             style={{ height: 64 }}
           >

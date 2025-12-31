@@ -10,6 +10,7 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { cloneDeep } from 'lodash';
 import type { SuspectCard, SuspectExtendedInfo } from 'types';
 import { sortJsonKeys } from 'utils';
+import { NewSuspectFlow } from './NewSuspectFlow';
 import { SuspectsStyleVariantSelector } from './SuspectsStyleVariantSelector';
 
 const DEPRECATED_VERSIONS = [
@@ -71,9 +72,7 @@ export function SuspectsFilters({
           <FirestoreConsoleWipe docId="suspects" path="tdr" queryKey={['tdr', 'suspects']} />
         </Flex>
       </Flex>
-
       <Divider />
-
       <Flex gap={12} vertical>
         <SaveButton
           dirt={JSON.stringify(suspectsExtendedInfoQuery.entriesToUpdate)}
@@ -100,11 +99,8 @@ export function SuspectsFilters({
           />
         </Flex>
       </Flex>
-
       <Divider />
-
       <SuspectsStyleVariantSelector />
-
       <FilterSegments
         label="Display"
         onChange={(mode) => addParam('display', mode)}
@@ -122,7 +118,6 @@ export function SuspectsFilters({
         ]}
         value={queryParams.get('display') ?? 'listing'}
       />
-
       {!is('display', 'stats') && (
         <Form layout="vertical">
           <FilterNumber
@@ -154,7 +149,29 @@ export function SuspectsFilters({
         </Form>
       )}
 
-      {/* <SuspectsStats data={suspectsQuery.data} /> */}
+      <Divider />
+
+      <NewSuspectFlow
+        addExtendedInfoEntryToUpdate={suspectsExtendedInfoQuery.addEntryToUpdate}
+        addSuspectEntryToUpdate={suspectsQuery.addEntryToUpdate}
+        suspects={suspectsQuery.data}
+        suspectsExtendedInfos={suspectsExtendedInfoQuery.data}
+      />
+
+      <DownloadButton
+        block
+        className="my-2"
+        data={() => {
+          return {
+            ...prepareSuspectFileForDownload(suspectsQuery.data),
+            ...prepareExtendedInfoFileForDownload(suspectsExtendedInfoQuery.data),
+          };
+        }}
+        disabled={suspectsQuery.isDirty || suspectsExtendedInfoQuery.isDirty}
+        fileName="suspects-combined.json"
+      >
+        Combined Data
+      </DownloadButton>
     </SiderContent>
   );
 }
