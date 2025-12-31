@@ -1,1 +1,0 @@
-import{t as o,v as r}from"./index-Kr2nSB3H.js";const t=new o({}),c=(n,s)=>{console.log("Adding warning:",{key:n,message:s}),t.setState(a=>({...a,[n]:s}))},i=()=>{t.setState(()=>({}))},g=()=>r(t,n=>n);export{c as a,i as c,g as u};
