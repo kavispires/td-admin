@@ -15,6 +15,7 @@ import type { DailyPortaisMagicosEntry } from '../utils/games/daily-portais-magi
 import type { DailyQuartetosEntry } from '../utils/games/daily-quartetos';
 import { gatherUsedTaNaCaraEntries } from '../utils/games/daily-ta-na-cara';
 import type { DailyTeoriaDeConjuntosEntry } from '../utils/games/daily-teoria-de-conjuntos';
+import type { DailyVitraisEntry } from '../utils/games/daily-vitrais';
 import type { DailyHistory, DailyHistoryEntry } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
@@ -136,6 +137,13 @@ export function useSaveDailySetup(queryLanguage: Language) {
           previousHistory,
           data,
           (e: DailyEspionagemEntry) => e.culpritId,
+        ),
+
+        [DAILY_GAMES_KEYS.VITRAIS]: updateHistory(
+          DAILY_GAMES_KEYS.VITRAIS,
+          previousHistory,
+          data,
+          (e: DailyVitraisEntry) => e.cardId,
         ),
       };
 
