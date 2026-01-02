@@ -1,1 +1,0 @@
-import{j as n,S as t,cj as r,L as e,ck as s,D as a}from"./index-Bl1jfJHn.js";function i(){return n.jsx(t,{orientation:"vertical",children:n.jsx("div",{children:"?"})})}function l(){return r("Playground"),n.jsxs(e,{children:[n.jsx(s,{title:"Playground"}),n.jsx(a,{}),n.jsx(e.Content,{className:"content",children:n.jsx(i,{})})]})}export{l as default};

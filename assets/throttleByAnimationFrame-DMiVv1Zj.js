@@ -1,1 +1,0 @@
-import{bu as r,_ as o}from"./index-Bl1jfJHn.js";function c(a){let t=null;const e=l=>()=>{t=null,a.apply(void 0,o(l))},n=(...l)=>{t===null&&(t=r(e(l)))};return n.cancel=()=>{r.cancel(t),t=null},n}export{c as t};
