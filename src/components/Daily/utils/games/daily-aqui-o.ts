@@ -118,7 +118,7 @@ export const buildDailyAquiOGames = (
 
     // SPECIAL DATA HANDLER: Modify the date below
     if (id === '2026-01-01') {
-      setEntry = discSets['2a97f'];
+      setEntry = discSets['white'];
     }
 
     if (isWeekend) {
