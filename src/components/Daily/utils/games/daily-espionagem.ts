@@ -65,6 +65,7 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   shortHair: 'tem cabelo curto',
   beard: 'tem barba',
   scarf: 'está usando um cachecol',
+  suspenders: 'está usando suspensórios',
   blondeHair: 'tem cabelo loiro',
   longHair: 'tem cabelo longo',
   greyHair: 'tem cabelo grisalho',

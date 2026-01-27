@@ -162,6 +162,7 @@ export const FEATURES_BY_GROUP = [
       { id: 'bow', label: 'Bow' },
       { id: 'wearingFlowers', label: 'Wearing Flowers' },
       { id: 'hairTie', label: 'Hair Tie' },
+      { id: 'suspenders', label: 'Suspenders' },
     ],
   },
   {
