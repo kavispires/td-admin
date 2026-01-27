@@ -182,10 +182,12 @@ export function useInferFieldsFromTestimonies(
               neutral: 'NeutralX',
             }[ethical] || capitalize(ethical);
 
-          if (positiveAnswerResult) {
-            alignmentCounts[ethical] = (alignmentCounts[ethical] || 0) - NEUTRAL_WEIGHT;
-          } else {
-            alignmentCounts[ethical] = (alignmentCounts[ethical] || 0) + NEUTRAL_WEIGHT;
+          if (!ethical.includes('Neutral')) {
+            if (positiveAnswerResult) {
+              alignmentCounts[ethical] = (alignmentCounts[ethical] || 0) - NEUTRAL_WEIGHT;
+            } else {
+              alignmentCounts[ethical] = (alignmentCounts[ethical] || 0) + NEUTRAL_WEIGHT;
+            }
           }
         }
         if (moral && !moral.startsWith('x')) {
@@ -194,10 +196,12 @@ export function useInferFieldsFromTestimonies(
               neutral: 'NeutralY',
             }[moral] || capitalize(moral);
 
-          if (positiveAnswerResult) {
-            alignmentCounts[moral] = (alignmentCounts[moral] || 0) - NEUTRAL_WEIGHT;
-          } else {
-            alignmentCounts[moral] = (alignmentCounts[moral] || 0) + NEUTRAL_WEIGHT;
+          if (!ethical.includes('Neutral')) {
+            if (positiveAnswerResult) {
+              alignmentCounts[moral] = (alignmentCounts[moral] || 0) - NEUTRAL_WEIGHT;
+            } else {
+              alignmentCounts[moral] = (alignmentCounts[moral] || 0) + NEUTRAL_WEIGHT;
+            }
           }
         }
       });
