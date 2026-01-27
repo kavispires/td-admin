@@ -68,7 +68,7 @@ export function DownloadButton({
       } else {
         downloadData = data;
       }
-
+      console.log('Preparing to download data:', downloadData);
       downloadObjectAsFile(downloadData, fileName);
     } catch (error) {
       console.error('Failed to download file:', error);

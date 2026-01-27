@@ -165,18 +165,31 @@ async function prepareFileForDownload(entriesToUpdate: Dictionary<TestimonyAnswe
   console.log('Preparing file for download...');
 
   const firebaseRawData = await getDocQueryFunction<Dictionary<string>>('data', 'testimonies')();
-  const parsedData = deserializeFirestoreData<TestimonyAnswers>(firebaseRawData);
-
+  // const parsedData = deserializeFirestoreData<TestimonyAnswers>(firebaseRawData);
+  const parsedData = Object.values(firebaseRawData).map((e: string) =>
+    deserializeFirestoreData<TestimonyAnswers>(JSON.parse(e)),
+  );
   console.log('Parsed data from Firestore:', parsedData);
 
   // DO MIGRATIONS HERE
   const copy = cloneDeep(entriesToUpdate);
   const results: Dictionary<Dictionary<string>> = {};
 
-  Object.keys(copy).forEach((key) => {
-    const entry = copy[key];
-    results[key] = {};
-    const firestoreEntry = parsedData[key] || {};
+  Object.keys(copy).forEach((testimonyId) => {
+    const entry = copy[testimonyId];
+    results[testimonyId] = {};
+    // const firestoreEntry = parsedData[0][testimonyId] || {};
+    const firestoreEntry = parsedData.reduce((acc: TestimonyAnswers, curr) => {
+      if (curr[testimonyId]) {
+        Object.keys(curr[testimonyId]).forEach((suspectId) => {
+          if (!acc[suspectId]) {
+            acc[suspectId] = [];
+          }
+          acc[suspectId] = acc[suspectId].concat(curr[testimonyId][suspectId]);
+        });
+      }
+      return acc;
+    }, {});
 
     // For each person if they have 4 1s, convert into a 4 if they have 4 0s convert into a -4
     Object.keys(entry).forEach((suspectId) => {
@@ -199,12 +212,22 @@ async function prepareFileForDownload(entriesToUpdate: Dictionary<TestimonyAnswe
         ]);
 
         delete entry[suspectId];
-        results[key][paddedSuspectId] = JSON.stringify(values);
+        results[testimonyId][paddedSuspectId] = JSON.stringify(values);
       } else {
         // Normal case: just normalize the values
         const firestoreValues = firestoreEntry[suspectId] || [];
+        if (firestoreValues.length > 0) {
+          console.log({
+            testimonyId,
+            suspectId,
+            prev: entry[suspectId],
+            firestoreValues,
+            result: normalizeValues([...entry[suspectId], ...firestoreValues]),
+          });
+        }
+
         const values = normalizeValues([...entry[suspectId], ...firestoreValues]);
-        results[key][suspectId] = JSON.stringify(values);
+        results[testimonyId][suspectId] = JSON.stringify(values);
       }
     });
   });

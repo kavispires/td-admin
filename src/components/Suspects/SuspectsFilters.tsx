@@ -7,7 +7,7 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { cloneDeep } from 'lodash';
+import { cloneDeep, merge } from 'lodash';
 import type { SuspectCard, SuspectExtendedInfo } from 'types';
 import { sortJsonKeys } from 'utils';
 import { NewSuspectFlow } from './NewSuspectFlow';
@@ -162,10 +162,11 @@ export function SuspectsFilters({
         block
         className="my-2"
         data={() => {
-          return {
-            ...prepareSuspectFileForDownload(suspectsQuery.data),
-            ...prepareExtendedInfoFileForDownload(suspectsExtendedInfoQuery.data),
-          };
+          return merge(
+            {},
+            prepareSuspectFileForDownload(suspectsQuery.data),
+            prepareExtendedInfoFileForDownload(suspectsExtendedInfoQuery.data),
+          );
         }}
         disabled={suspectsQuery.isDirty || suspectsExtendedInfoQuery.isDirty}
         fileName="suspects-combined.json"
@@ -247,12 +248,12 @@ export function prepareExtendedInfoFileForDownload(data: Dictionary<SuspectExten
   // Change personalityTraits to traits
   // for (const key in data) {
   //   const info = data[key];
-  //   if ((info as any).profession !== undefined) {
-  //     info.occupation = (info as any).profession;
-  //     delete (info as any).profession;
-  //     info.traits = (info as any).personalityTraits;
-  //     delete (info as any).personalityTraits;
-  //   }
+  // if ((info as any).profession !== undefined) {
+  //   info.occupation = (info as any).profession;
+  //   delete (info as any).profession;
+  //   info.traits = (info as any).personalityTraits;
+  //   delete (info as any).personalityTraits;
+  // }
   // }
 
   return sortJsonKeys(data, [
