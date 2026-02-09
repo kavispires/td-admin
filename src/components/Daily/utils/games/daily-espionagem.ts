@@ -1,7 +1,7 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { calculateSuspectAnswersData } from 'components/Testimonies/utils';
 import { useTDResource } from 'hooks/useTDResource';
-import { cloneDeep, difference, intersection, isEmpty, sample, sampleSize, shuffle, uniq } from 'lodash';
+import { cloneDeep, difference, isEmpty, sample, sampleSize, shuffle, uniq } from 'lodash';
 import {
   type TestimonyAnswers,
   testimoniesDeserializer,
@@ -65,7 +65,6 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   shortHair: 'tem cabelo curto',
   beard: 'tem barba',
   scarf: 'está usando um cachecol',
-  suspenders: 'está usando suspensórios',
   blondeHair: 'tem cabelo loiro',
   longHair: 'tem cabelo longo',
   greyHair: 'tem cabelo grisalho',
@@ -154,8 +153,8 @@ export type DailyEspionagemEntry = {
  * @param dailyHistory - The user's daily game history, used to determine which games have been played.
  *
  * @returns An object containing:
- *   - `entries`: The generated espionagem game entries, or an empty object if data is not ready.
- *   - `isLoading`: A boolean indicating if any of the required resources are still loading.
+ * - `entries`: The generated espionagem game entries, or an empty object if data is not ready.
+ * - `isLoading`: A boolean indicating if any of the required resources are still loading.
  */
 export const useDailyEspionagemGames = (
   enabled: boolean,
@@ -251,14 +250,8 @@ export const buildDailyEspionagemGames = (
   const entries: Record<string, DailyEspionagemEntry> = {};
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
-    const isWeekend = checkWeekend(id);
+    const _isWeekend = checkWeekend(id);
     lastDate = id;
-
-    // try {
-    //   console.log('Tree:', getValidTestimonyTree(suspectTestimonyAnswers));
-    // } catch (error) {
-    //   console.log('Error generating testimony tree:', error);
-    // }
 
     // Try up to 100 times to generate a valid game
     let validGame = null;
@@ -355,26 +348,12 @@ function generateEspionagemGame(
   const statements: StatementClue[] = [];
   const excludeScoreBoard: Dictionary<number> = {};
   debugLog('SuspectTestimonyAnswers', suspectTestimonyAnswers);
+
   // Get two related testimonies, the culprit ID, and the common suspects
-  const { selectedTestimonyId1, selectedTestimonyId2, culpritId, possibleSuspects, impossibleSuspects } =
-    getTwoRelatedTestimonies(suspectTestimonyAnswers, usedIds);
-
-  if (possibleSuspects.length < 2) {
-    throw new Error('Not enough possible suspects');
-  }
-
-  let suspectsIds: string[] = [...possibleSuspects];
-
-  // If there are not enough possible suspects, add new suspects that are not an impossible suspect
-  if (possibleSuspects.length < TOTAL_SUSPECTS - 1) {
-    const additionalSuspects = sampleSize(
-      Object.keys(suspects).filter(
-        (id) => !impossibleSuspects.includes(id) && !possibleSuspects.includes(id),
-      ),
-      TOTAL_SUSPECTS - possibleSuspects.length - 1,
-    );
-    suspectsIds.push(...additionalSuspects);
-  }
+  const { selectedTestimonyId1, selectedTestimonyId2, culpritId, suspectsIds } = findEspionagemScenario(
+    suspectTestimonyAnswers,
+    usedIds,
+  );
 
   // Gather features the culprit does not have
   const featuresCulpritDoesNotHave: Dictionary<Dictionary<true>> = {};
@@ -472,15 +451,15 @@ function generateEspionagemGame(
   }
 
   // Create random grid positions for the suspects
-  suspectsIds = shuffle([...suspectsIds, culpritId]);
+  const shuffledSuspectsIds = shuffle(suspectsIds);
 
   // COLUMN POSITION STATEMENT
-  const columnPositionStatement = getGridStatement(culpritId, suspectsIds, statements, 'columns');
+  const columnPositionStatement = getGridStatement(culpritId, shuffledSuspectsIds, statements, 'columns');
   statements.push(columnPositionStatement);
   updateExcludeScoreBoard(excludeScoreBoard, columnPositionStatement.excludes);
 
   // ROW POSITION STATEMENT
-  const rowPositionStatement = getGridStatement(culpritId, suspectsIds, statements, 'rows');
+  const rowPositionStatement = getGridStatement(culpritId, shuffledSuspectsIds, statements, 'rows');
   statements.push(rowPositionStatement);
   // updateExcludeScoreBoard(excludeScoreBoard, rowPositionStatement.excludes);
 
@@ -509,7 +488,7 @@ function generateEspionagemGame(
     culpritId,
     statements: sortedStatements,
     additionalStatements,
-    suspects: createSuspectEntry(suspectsIds, suspects, relevantSuspectsFeaturesDict),
+    suspects: createSuspectEntry(shuffledSuspectsIds, suspects, relevantSuspectsFeaturesDict),
     reason: reason.title,
     setId: `${culpritId}::${reason.id}::${sortedStatements[0].key}`,
     level: determineLevel(sortedStatements),
@@ -771,102 +750,117 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
 };
 
 /**
- * Selects two related testimonies from the provided suspect testimony answers, ensuring they share at least three suspects in common.
+ * Finds a valid game scenario by selecting a culprit and two testimonies (Q1, Q2) that
+ * effectively split the suspect pool according to specific constraints.
  *
- * The function attempts up to a defined threshold to randomly select two testimonies that have at least three suspects in common and have not been used before.
- * It then determines a "culprit" suspect from the common suspects who has not been used, and filters possible suspects based on their answers differing from the culprit's answers in both testimonies.
+ * Constraints:
+ * 1. Q1 must divide the suspects such that 5-7 suspects (40-60% of 12) have a different answer than the culprit.
+ * 2. Q2 must divide the remaining suspects (those who matched the culprit in Q1) such that all of them differ from the culprit in Q2.
+ * 3. The final pool of 12 suspects is constructed to satisfy these splits.
  *
- * @param suspectTestimonyAnswers - An object mapping testimony IDs to objects mapping suspect IDs to their answers.
- * @param usedIds - An array of suspect IDs that have already been used and should be excluded from selection as the culprit.
- * @returns An object containing:
- *   - selectedTestimonyId1: The ID of the first selected testimony.
- *   - selectedTestimonyId2: The ID of the second selected testimony.
- *   - culpritId: The ID of the selected culprit suspect.
- *   - possibleSuspects: An array of suspect IDs that are possible suspects (excluding the culprit and those matching the culprit's answer pattern).
- *   - impossibleSuspects: An array of suspect IDs that are not possible suspects.
- * @throws Will throw an error if it fails to find two related testimonies with at least three suspects in common, or if it cannot determine a culprit.
+ * @param suspectTestimonyAnswers - A dictionary mapping testimony IDs to suspect answers.
+ * @param usedIds - An array of previously used suspect IDs to avoid as culprits.
+ * @returns An object containing the selected culpritId, testimony IDs, and the list of 12 suspect IDs.
+ * @throws If no valid scenario can be found after the attempt threshold.
  */
-const getTwoRelatedTestimonies = (suspectTestimonyAnswers: TestimonySuspectAnswers, usedIds: string[]) => {
-  // Using while, try a maximum of 500 attempts to get a random testimony, and then another testimony that has the at least one suspect in common
-
+const findEspionagemScenario = (suspectTestimonyAnswers: TestimonySuspectAnswers, usedIds: string[]) => {
+  const questions = Object.keys(suspectTestimonyAnswers);
   let attempts = 0;
-  let testimonyId1: string | undefined;
-  let testimonyId2: string | undefined;
-  let commonSuspects: string[] = [];
 
-  while (attempts < ATTEMPTS_THRESHOLD && !testimonyId2 && commonSuspects.length === 0) {
+  while (attempts < ATTEMPTS_THRESHOLD) {
     attempts++;
-    testimonyId1 = sample(Object.keys(suspectTestimonyAnswers));
-    if (!testimonyId1) {
-      throw new Error('Failed to find a testimony');
-    }
+    // Step 1: Pick a random Question 1
+    const q1Id = sample(questions);
+    if (!q1Id) continue;
 
-    // Get the suspects in this testimony
-    const suspectsInTestimony1 = Object.keys(suspectTestimonyAnswers[testimonyId1]);
+    const suspectsInQ1 = Object.keys(suspectTestimonyAnswers[q1Id]);
+    // Step 2: Pick a random Culprit from Q1 who hasn't been used recently
+    const culpritId = sample(difference(suspectsInQ1, usedIds));
+    if (!culpritId) continue;
 
-    // Get a second testimony that has at least one suspect in common with the first
-    testimonyId2 = sample(
-      Object.keys(suspectTestimonyAnswers).filter(
-        (id) =>
-          id !== testimonyId1 &&
-          !isEmpty(difference(suspectsInTestimony1, Object.keys(suspectTestimonyAnswers[id]))),
-      ),
+    const q1Answer = suspectTestimonyAnswers[q1Id][culpritId];
+
+    // Step 3: Split suspects in Q1 into Diff (Excluded) and Match (Potential survivors)
+    // - poolS1Diff: Suspects who give a different answer than the culprit (Excluded by Q1)
+    // - poolS1Match: Suspects who give the same answer as the culprit (Survivors of Q1)
+    const poolS1Diff = suspectsInQ1.filter(
+      (id) => id !== culpritId && suspectTestimonyAnswers[q1Id][id] !== q1Answer,
+    );
+    const poolS1Match = suspectsInQ1.filter(
+      (id) => id !== culpritId && suspectTestimonyAnswers[q1Id][id] === q1Answer,
     );
 
-    if (testimonyId2) {
-      commonSuspects = intersection(
-        Object.keys(suspectTestimonyAnswers[testimonyId1]),
-        Object.keys(suspectTestimonyAnswers[testimonyId2]),
+    // Constraint: Q1 must exclude 40-60% of the total pool (5 to 7 suspects)
+    if (poolS1Diff.length < 5) continue;
+
+    // Step 4: Find Question 2
+    // We try a sample of other questions to find one that can eliminate the survivors of Q1
+    const q2Candidates = sampleSize(questions, 20);
+
+    for (const q2Id of q2Candidates) {
+      if (q2Id === q1Id) continue;
+      // Culprit must have an answer for Q2
+      if (suspectTestimonyAnswers[q2Id][culpritId] === undefined) continue;
+
+      const q2Answer = suspectTestimonyAnswers[q2Id][culpritId];
+
+      // Identify survivors from Q1 who are ALSO excluded by Q2
+      // These are the specific suspects we want to pick for the "Rest" of the pool
+      const poolS1Match_S2Diff = poolS1Match.filter(
+        (id) =>
+          suspectTestimonyAnswers[q2Id][id] !== undefined && suspectTestimonyAnswers[q2Id][id] !== q2Answer,
       );
-      break;
+
+      // We need to form a total pool of 11 non-culprits.
+      // We pick N_diff1 suspects from poolS1Diff (where N_diff1 is 5, 6, or 7).
+      // We pick the remaining (11 - N_diff1) suspects from poolS1Match_S2Diff.
+      const validConfigs = [5, 6, 7].filter(
+        (n) => poolS1Diff.length >= n && poolS1Match_S2Diff.length >= 11 - n,
+      );
+
+      if (validConfigs.length > 0) {
+        const chosenN = sample(validConfigs);
+        if (!chosenN) continue;
+        const chosenRest = sampleSize(poolS1Match_S2Diff, 11 - chosenN);
+
+        // Optimization: Prioritize "Overlap" for the Diff1 group.
+        // Ideally, suspects excluded by Q1 should ALSO be excluded by Q2 (double exclusion).
+        const poolS1Diff_S2Diff = poolS1Diff.filter(
+          (id) =>
+            suspectTestimonyAnswers[q2Id][id] !== undefined && suspectTestimonyAnswers[q2Id][id] !== q2Answer,
+        );
+        const poolS1Diff_Rest = difference(poolS1Diff, poolS1Diff_S2Diff);
+
+        let chosenDiff1: string[] = [];
+        if (poolS1Diff_S2Diff.length >= chosenN) {
+          chosenDiff1 = sampleSize(poolS1Diff_S2Diff, chosenN);
+        } else {
+          chosenDiff1 = [
+            ...poolS1Diff_S2Diff,
+            ...sampleSize(poolS1Diff_Rest, chosenN - poolS1Diff_S2Diff.length),
+          ];
+        }
+
+        const suspectsIds = [culpritId, ...chosenDiff1, ...chosenRest];
+
+        debugLog('<===============>');
+        debugLog(`⚙️ Culprit ID: ${culpritId}`);
+        debugLog(`⚙️ Selected Q1: ${q1Id} (Excludes ${chosenDiff1.length})`);
+        debugLog(`⚙️ Selected Q2: ${q2Id} (Excludes remaining ${chosenRest.length})`);
+        debugLog(`⚙️ Pool Size: ${suspectsIds.length}`);
+        debugLog('>===============<');
+
+        return {
+          selectedTestimonyId1: q1Id,
+          selectedTestimonyId2: q2Id,
+          culpritId,
+          suspectsIds,
+        };
+      }
     }
   }
 
-  if (!testimonyId1 || !testimonyId2 || commonSuspects.length < 3) {
-    throw new Error('Failed to find two related testimonies');
-  }
-
-  // Determine the culprit among the common suspects
-  const culpritId = sample(commonSuspects.filter((id) => !usedIds.includes(id)));
-  if (!culpritId) {
-    throw new Error('Failed to determine a culprit from common suspects');
-  }
-
-  debugLog('<===============>');
-  debugLog(`⚙️ Selected testimonies 1: ${testimonyId1}`);
-  debugLog(suspectTestimonyAnswers[testimonyId1]);
-  debugLog(`⚙️ Selected testimonies 2: ${testimonyId2}`);
-  debugLog(suspectTestimonyAnswers[testimonyId2]);
-  debugLog(`⚙️ Culprit ID: ${culpritId}`);
-  debugLog(`Testimony 1 answers: ${suspectTestimonyAnswers[testimonyId1][culpritId]}`);
-  debugLog(`Testimony 2 answers: ${suspectTestimonyAnswers[testimonyId2][culpritId]}`);
-
-  // Remove any suspect that has the same answer in both testimonies as the culprit
-  const culpritAnswerKey = `${suspectTestimonyAnswers[testimonyId1][culpritId]}-${suspectTestimonyAnswers[testimonyId2][culpritId]}`;
-
-  // Filter out suspects that have the same answer as the culprit
-  const possibleSuspects = sampleSize(
-    commonSuspects.filter(
-      (suspectId) =>
-        suspectId !== culpritId &&
-        `${suspectTestimonyAnswers[testimonyId1][suspectId]}-${suspectTestimonyAnswers[testimonyId2][suspectId]}` !==
-          culpritAnswerKey,
-    ),
-    TOTAL_SUSPECTS - 1,
-  );
-  const impossibleSuspects = difference(commonSuspects, possibleSuspects);
-  debugLog(`⚙️ Possible suspects: ${possibleSuspects.join(', ')}`);
-  debugLog(`⚙️ Impossible suspects: ${impossibleSuspects.join(', ')}`);
-
-  debugLog(`⚙️ Attempts made: ${attempts}`);
-  debugLog('>===============<');
-  return {
-    selectedTestimonyId1: testimonyId1,
-    selectedTestimonyId2: testimonyId2,
-    culpritId,
-    possibleSuspects,
-    impossibleSuspects,
-  };
+  throw new Error('Failed to find a valid espionagem scenario');
 };
 
 const updateExcludeScoreBoard = (scoreboard: Dictionary<number>, excludes: string[]) => {
