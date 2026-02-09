@@ -193,9 +193,9 @@ const buildTestimonyEntry = (
   testimony: TestimonyQuestionCard,
 ): TaNaCaraQuestion => {
   const suspectsIds = [
+    ...shuffle(sortedCounts.counts[0]),
     ...shuffle([...sortedCounts.counts[3], ...sortedCounts.counts[2]]),
     ...shuffle([...sortedCounts.counts[1], ...sortedCounts.counts[4]]),
-    ...sortedCounts.counts[0],
     ...sortedCounts.counts[5],
     ...sortedCounts.counts['5+'],
   ]
@@ -304,11 +304,11 @@ const countTestimonyAnswers = (
   const sorted = orderBy(
     Object.keys(globalCounts).map((testimonyId) => ({ testimonyId, counts: globalCounts[testimonyId] })),
     [
-      (o) => o.counts[3].length,
+      (o) => o.counts[0].length,
       (o) => o.counts[1].length,
       (o) => o.counts[2].length,
+      (o) => o.counts[3].length,
       (o) => o.counts[4].length,
-      (o) => o.counts[0].length,
     ],
     ['desc'],
   );

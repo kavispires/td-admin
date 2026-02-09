@@ -9,7 +9,7 @@ import {
 import { useState } from 'react';
 import type { SuspectExtendedInfo, TestimonyQuestionCard } from 'types';
 
-const POSITIVE_WEIGHT = 2;
+const POSITIVE_WEIGHT = 3;
 const NEUTRAL_WEIGHT = 1;
 
 /**
@@ -93,8 +93,6 @@ export function useInferFieldsFromTestimonies(
 
       // MBTI
       testimony?.mbti?.related.forEach((v) => {
-        if (v.startsWith('x')) return;
-
         if (positiveAnswerResult) {
           mbtiCounts[v] = (mbtiCounts[v] || 0) + POSITIVE_WEIGHT;
         } else {
@@ -103,8 +101,6 @@ export function useInferFieldsFromTestimonies(
       });
 
       testimony?.mbti?.unrelated.forEach((v) => {
-        if (v.startsWith('x')) return;
-
         if (positiveAnswerResult) {
           mbtiCounts[v] = (mbtiCounts[v] || 0) - NEUTRAL_WEIGHT;
         } else {
@@ -112,12 +108,8 @@ export function useInferFieldsFromTestimonies(
         }
       });
 
-      // console.log('MBTI counts so far:', mbtiCounts);
-
       // Zodiac
       testimony?.zodiac?.related.forEach((v) => {
-        if (!v || v.startsWith('x')) return;
-
         if (positiveAnswerResult) {
           zodiacCounts[v] = (zodiacCounts[v] || 0) + POSITIVE_WEIGHT;
         } else {
@@ -126,8 +118,6 @@ export function useInferFieldsFromTestimonies(
       });
 
       testimony?.zodiac?.unrelated.forEach((v) => {
-        if (!v || v.startsWith('x')) return;
-
         if (positiveAnswerResult) {
           zodiacCounts[v] = (zodiacCounts[v] || 0) - NEUTRAL_WEIGHT;
         } else {
@@ -135,79 +125,27 @@ export function useInferFieldsFromTestimonies(
         }
       });
 
-      // console.log('Zodiac counts so far:', zodiacCounts);
-
       // Alignment
       testimony?.alignment?.related.forEach((v) => {
-        if (!v || v.startsWith('x')) return;
-
-        let [ethical, moral] = v.split('-');
-
-        if (ethical && !ethical.startsWith('x')) {
-          ethical =
-            {
-              true: 'NeutralX',
-              neutral: 'NeutralX',
-            }[ethical] || capitalize(ethical);
-
-          if (positiveAnswerResult) {
-            alignmentCounts[ethical] = (alignmentCounts[ethical] || 0) + POSITIVE_WEIGHT;
-          } else {
-            alignmentCounts[ethical] = (alignmentCounts[ethical] || 0) - NEUTRAL_WEIGHT;
-          }
-        }
-        if (moral && !moral.startsWith('x')) {
-          moral =
-            {
-              neutral: 'NeutralY',
-            }[moral] || capitalize(moral);
-
-          if (positiveAnswerResult) {
-            alignmentCounts[moral] = (alignmentCounts[moral] || 0) + POSITIVE_WEIGHT;
-          } else {
-            alignmentCounts[moral] = (alignmentCounts[moral] || 0) - NEUTRAL_WEIGHT;
-          }
+        if (positiveAnswerResult) {
+          alignmentCounts[v] = (alignmentCounts[v] || 0) + POSITIVE_WEIGHT;
+        } else {
+          alignmentCounts[v] = (alignmentCounts[v] || 0) - NEUTRAL_WEIGHT;
         }
       });
 
       testimony?.alignment?.unrelated.forEach((v) => {
-        if (!v || v.startsWith('x')) return;
-
-        let [ethical, moral] = v.split('-');
-
-        if (ethical && !ethical.startsWith('x')) {
-          ethical =
-            {
-              true: 'NeutralX',
-              neutral: 'NeutralX',
-            }[ethical] || capitalize(ethical);
-
-          if (!ethical.includes('Neutral')) {
-            if (positiveAnswerResult) {
-              alignmentCounts[ethical] = (alignmentCounts[ethical] || 0) - NEUTRAL_WEIGHT;
-            } else {
-              alignmentCounts[ethical] = (alignmentCounts[ethical] || 0) + NEUTRAL_WEIGHT;
-            }
-          }
-        }
-        if (moral && !moral.startsWith('x')) {
-          moral =
-            {
-              neutral: 'NeutralY',
-            }[moral] || capitalize(moral);
-
-          if (!ethical.includes('Neutral')) {
-            if (positiveAnswerResult) {
-              alignmentCounts[moral] = (alignmentCounts[moral] || 0) - NEUTRAL_WEIGHT;
-            } else {
-              alignmentCounts[moral] = (alignmentCounts[moral] || 0) + NEUTRAL_WEIGHT;
-            }
-          }
+        if (positiveAnswerResult) {
+          alignmentCounts[v] = (alignmentCounts[v] || 0) - NEUTRAL_WEIGHT;
+        } else {
+          alignmentCounts[v] = (alignmentCounts[v] || 0) + NEUTRAL_WEIGHT;
         }
       });
-
-      // console.log('Alignment counts so far:', alignmentCounts);
     });
+
+    console.log('MBTI counts so far:', mbtiCounts);
+    console.log('Zodiac counts so far:', zodiacCounts);
+    console.log('Alignment counts so far:', alignmentCounts);
 
     const mbti = [
       (mbtiCounts.E || 0) >= (mbtiCounts.I || 0) ? 'E' : 'I',
@@ -223,19 +161,39 @@ export function useInferFieldsFromTestimonies(
         ? zodiacEntries[0][0]
         : 'Undefined';
 
-    const xAxis = ['Lawful', 'NeutralX', 'Chaotic'];
-    const yAxis = ['Good', 'NeutralY', 'Evil'];
+    const totalEthicalRange =
+      Math.max(alignmentCounts.lawful ?? 0, 0) + Math.max(alignmentCounts.chaotic ?? 0, 0);
+    const totalMoralRange = Math.max(alignmentCounts.good ?? 0, 0) + Math.max(alignmentCounts.evil ?? 0, 0);
 
-    const sortedXAlignmentEntries = Object.entries(alignmentCounts)
-      .filter(([key]) => xAxis.includes(key))
-      .sort((a, b) => b[1] - a[1])
-      .map(([key]) => (key ? (key === 'NeutralX' ? 'Neutral' : key) : key));
-    const sortedYAlignmentEntries = Object.entries(alignmentCounts)
-      .filter(([key]) => yAxis.includes(key))
-      .sort((a, b) => b[1] - a[1])
-      .map(([key]) => (key ? (key === 'NeutralY' ? 'Neutral' : key) : key));
+    const ethicalAbsoluteValue = Math.min(
+      Math.max((alignmentCounts.chaotic ?? 0) - (alignmentCounts.lawful ?? 0), 0),
+      totalEthicalRange,
+    );
+    const moralAbsoluteValue = Math.min(
+      Math.max((alignmentCounts.evil ?? 0) - (alignmentCounts.good ?? 0), 0),
+      totalMoralRange,
+    );
 
-    const inferredAlignment = `${sortedXAlignmentEntries[0] || 'Neutral'}-${sortedYAlignmentEntries[0] || 'Neutral'}`;
+    console.log('Total Ethical Range:', totalEthicalRange, 'Absolute Ethical Value:', ethicalAbsoluteValue);
+    console.log('Total Moral Range:', totalMoralRange, 'Absolute Moral Value:', moralAbsoluteValue);
+
+    const xAxisTitles = ['Lawful', 'Neutral', 'Chaotic'];
+    const xAxisValues = [totalEthicalRange / 3, (totalEthicalRange * 2) / 3, totalEthicalRange];
+
+    const yAxisTitles = ['Good', 'Neutral', 'Evil'];
+    const yAxisValues = [totalMoralRange / 3, (totalMoralRange * 2) / 3, totalMoralRange];
+
+    console.log('Ethical Axis Values:', xAxisValues, ethicalAbsoluteValue);
+    console.log('Moral Axis Values:', yAxisValues, moralAbsoluteValue);
+
+    const ethicalIndex = xAxisValues.findIndex((v) => ethicalAbsoluteValue <= v);
+    const moralIndex = yAxisValues.findIndex((v) => moralAbsoluteValue <= v);
+
+    const ethicalPart = xAxisTitles[ethicalIndex] || 'Neutral';
+    const moralPart = yAxisTitles[moralIndex] || 'Neutral';
+
+    const inferredAlignment = `${ethicalPart}-${moralPart}`;
+    console.log('Inferred Alignment:', inferredAlignment);
     // inferredAlignment = inferredAlignment.replace('Neutral-Neutral', 'True Neutral');
 
     // Update extended info with inferred values
