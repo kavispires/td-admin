@@ -131,7 +131,7 @@ export const buildDailyAquiOGames = (
           pt: 'Especial Fim de Semana',
           en: 'Weekend Special',
         },
-        itemsIds: ['0', ...sampleSize(availableItems, 45).map((item) => item.id)],
+        itemsIds: ['0', ...sampleSize(availableItems, 35).map((item) => item.id)],
       };
     } else {
       entries[id] = {
