@@ -372,7 +372,9 @@ const deserializeThing = (
       if (thing.updatedAt < rules[ruleId].updatedAt) {
         if (verifiers[ruleId]) {
           const reVerify = verifiers[ruleId](thing.name);
-          if (reVerify && thing.rules.includes(ruleId)) {
+          const wasIncluded = thing.rules.includes(ruleId);
+          // Rule changed if it was added or removed
+          if (reVerify !== wasIncluded) {
             wasAnyRuleUpdated = true;
           }
           acc[ruleId] = reVerify;

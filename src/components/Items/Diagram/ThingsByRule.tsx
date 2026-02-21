@@ -1,4 +1,16 @@
-import { Divider, Rate, Space, Switch, Table, type TableColumnsType, Tag, Typography } from 'antd';
+import {
+  Button,
+  Divider,
+  Flex,
+  Rate,
+  Space,
+  Switch,
+  Table,
+  type TableColumnsType,
+  Tag,
+  Typography,
+} from 'antd';
+import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTablePagination } from 'hooks/useTablePagination';
@@ -27,6 +39,7 @@ export function ThingsByRule({
   containerWidth,
 }: ThingsByRuleProps) {
   const { is, addParam } = useQueryParams();
+  const copyToClipboard = useCopyToClipboardFunction();
 
   const rows = useMemo(
     () =>
@@ -128,9 +141,14 @@ export function ThingsByRule({
 
   return (
     <Space orientation="vertical">
-      <Typography.Title level={4}>
-        Things By Rule (Added: {Object.keys(things).length} | {availableThings.length}){' '}
-      </Typography.Title>
+      <Flex align="center" gap={12}>
+        <Typography.Title level={4}>
+          Things By Rule (Added: {Object.keys(things).length} | {availableThings.length}){' '}
+        </Typography.Title>
+        <Button onClick={() => copyToClipboard(Date.now().toString())} size="small">
+          Now
+        </Button>
+      </Flex>
 
       <Space separator={<Divider orientation="vertical" />} wrap>
         <AddNewThingFlow

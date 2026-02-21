@@ -243,11 +243,17 @@ export const verifiers: Record<string, (word: string) => boolean> = {
 
   // The same consonant repeats 3 or more times
   'ddr-76-pt': (word: string) => {
-    return cleanupWord(word)
-      .split('')
-      .some((letter, index, array) => {
-        return letter === array[index + 1] && letter === array[index + 2];
-      });
+    console.log('Verifying ddr-76-pt for word:', word);
+    const letters = cleanupWord(word).split('');
+    const consonantCounts: Record<string, number> = {};
+
+    letters.forEach((letter) => {
+      if (CONSONANTS.includes(letter)) {
+        consonantCounts[letter] = (consonantCounts[letter] || 0) + 1;
+      }
+    });
+
+    return Object.values(consonantCounts).some((count) => count >= 3);
   },
 };
 
