@@ -10,7 +10,7 @@ import {
   MessageFilled,
   WomanOutlined,
 } from '@ant-design/icons';
-import { Button, Flex, Image, Segmented, Space, Switch, Table, Tag, Typography } from 'antd';
+import { Button, Flex, Image, Segmented, Space, Switch, Table, Tag, Tooltip, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import clsx from 'clsx';
 import { useCardWidth } from 'hooks/useCardWidth';
@@ -266,7 +266,11 @@ export function SuspectsListing({
                     <Flex align="center" gap={3}>
                       <Tag>{entry.id}</Tag> <PromptButton extendedInfo={extendedEntry} suspect={entry} />{' '}
                       {!extendedEntry.prompt && <MessageFilled style={{ color: 'red' }} />}{' '}
-                      {!!extendedEntry.animal && <GitlabFilled style={{ color: 'sandybrown' }} />}
+                      {!!extendedEntry.animal && (
+                        <Tooltip title={`Animal: ${extendedEntry.animal}`}>
+                          <GitlabFilled style={{ color: 'sandybrown' }} />
+                        </Tooltip>
+                      )}
                     </Flex>
                     <div style={{ backgroundColor: !entry.name.pt ? 'red' : 'transparent' }}>
                       🇧🇷 {entry.name.pt}

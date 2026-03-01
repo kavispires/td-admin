@@ -12,6 +12,11 @@ import type { SuspectCard, TestimonyQuestionCard } from 'types';
  * -4 = Auto-grouped four 0s
  */
 export type TestimonyAnswersValues = -1 | 1 | 0 | 4 | -4 | -8 | 8 | 32 | -32;
+
+/**
+ * Dictionary of suspect IDs to their corresponding testimony answers.
+ * E.g., { "suspect-001": [1, 0, -1], "suspect-002": [0, 0, 1] }
+ */
 export type TestimonyAnswers = Dictionary<TestimonyAnswersValues[]>;
 
 export type UseTestimoniesResourceReturnType = {

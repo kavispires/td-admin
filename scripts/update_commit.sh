@@ -102,9 +102,9 @@ t_opt1=$(get_random_time 9 13)
 t_opt2=$(get_random_time 16 21)
 t_opt3=$(get_random_time 28 36)
 
-echo "  [1] $t_opt1 (Prev + 9-13 mins)"
-echo "  [2] $t_opt2 (Prev + 16-21 mins)"
-echo "  [3] $t_opt3 (Prev + 28-36 mins)"
+echo "  [1] $t_opt1"
+echo "  [2] $t_opt2"
+echo "  [3] $t_opt3"
 echo "  [4] Custom Time"
 
 echo ""
