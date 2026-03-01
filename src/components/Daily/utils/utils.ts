@@ -45,14 +45,14 @@ export function checkWeekend(dateString: string): boolean {
 }
 
 /**
- * Checks if a given date is a Monday.
+ * Returns the day of the week for a given date string.
  *
- * @param dateString - The date in 'YYYY-MM-DD' format.
- * @returns True if the date is a Monday, false otherwise.
+ * @param dateString - A date string in `YYYY-MM-DD` format.
+ * @returns The day of the week as a number (0 for Sunday through 6 for Saturday).
  */
-export const checkMonday = (dateString: string): boolean => {
+export const getDayOfTheWeek = (dateString: string): number => {
   const date = moment(dateString, 'YYYY-MM-DD');
-  return date.day() === 1; // 1 represents Monday in moment.js
+  return date.day(); // Returns the day of the week as a number (0-6)
 };
 
 export function getWordsWithUniqueLetters(words: string[]): string[] {
