@@ -31,7 +31,7 @@ export function ImageCardsFilters({
         <FilterSelect label="Deck" onChange={setSelectedDeck} options={deckOptions} value={selectedDeck} />
         <FilterNumber
           label="Cards Per Row"
-          max={8}
+          max={10}
           min={1}
           onChange={(v) => setCardsPerRow(v ?? 8)}
           value={cardsPerRow}

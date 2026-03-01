@@ -45,21 +45,7 @@ function ImageCards() {
               Deck {deck} ({DECK.length})
             </Typography.Title>
 
-            <Image.PreviewGroup
-              preview={{
-                countRender: (current, total) => {
-                  const id = `td-${deck}-${current.toString().padStart(2, '0')}`;
-                  return (
-                    <Space align="center" orientation="vertical">
-                      <Typography.Text>
-                        {current} / {total}
-                      </Typography.Text>
-                      <IdTag>{id}</IdTag>
-                    </Space>
-                  );
-                },
-              }}
-            >
+            <Image.PreviewGroup>
               <Space className="my-2" key={deck} ref={ref} wrap>
                 {Boolean(deck) &&
                   DECK.map((e, i) => {
