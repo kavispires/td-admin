@@ -1,5 +1,6 @@
 import { Button, Divider, Flex } from 'antd';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -34,6 +35,10 @@ export function ImageCardsDescriptorFilters({
           disabled={isDirty}
           fileName="image-cards.json"
         />
+
+        <Flex justify="center">
+          <FirestoreConsoleWipe docId="imageCards" path="tdr" queryKey={['tdr', 'imageCards']} />
+        </Flex>
       </Flex>
 
       <Divider />

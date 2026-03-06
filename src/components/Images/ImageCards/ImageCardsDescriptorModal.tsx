@@ -9,6 +9,7 @@ import {
   type SelectProps,
   Slider,
 } from 'antd';
+import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { FullScreenModal } from 'components/Common/FullScreenModal';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
@@ -33,6 +34,7 @@ export function ImageCardsDescriptorModal({
   const cardId = queryParams.get('cardId');
   const imageCard = data[cardId ?? ''] ?? {
     id: cardId,
+    title: { en: '', pt: '' },
     keywords: [],
   };
 
@@ -65,8 +67,14 @@ export function ImageCardsDescriptorModal({
           value={cardSize}
         />
         <FavoriteImageCardButton addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
+        <ImageCardTitleField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} />
         <ImageCardKeywordsField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
         <ImageCardTriggersField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
+        <ImageCardAssociatedDreamsField
+          addEntryToUpdate={addEntryToUpdate}
+          imageCard={imageCard}
+          size="large"
+        />
       </Flex>
     </FullScreenModal>
   );
@@ -161,7 +169,78 @@ export function ImageCardTriggersField({
         { label: 'spiders', value: 'spiders' },
         { label: 'scarry', value: 'scarry' },
       ]}
-      placeholder="Please select"
+      placeholder="Triggers"
+      style={{ width: '100%', ...style }}
+      {...selectProps}
+    />
+  );
+}
+
+type ImageCardTitleFieldProps = {
+  imageCard: ImageCardDescriptor;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+};
+
+/**
+ * Component to edit the title field of an image card (dual language)
+ */
+export function ImageCardTitleField({ imageCard, addEntryToUpdate }: ImageCardTitleFieldProps) {
+  const onUpdateTitle = (value: string, language: 'en' | 'pt') => {
+    addEntryToUpdate(imageCard.id, {
+      ...imageCard,
+      title: {
+        ...imageCard.title,
+        [language]: value,
+      },
+    });
+  };
+
+  return (
+    <Flex gap={4} vertical>
+      <DualLanguageTextField
+        language="en"
+        onPressEnter={(e) => onUpdateTitle(e.currentTarget?.value || '', 'en')}
+        placeholder="Title"
+        value={imageCard.title ?? { en: '', pt: '' }}
+      />
+      <DualLanguageTextField
+        language="pt"
+        onPressEnter={(e) => onUpdateTitle(e.currentTarget?.value || '', 'pt')}
+        placeholder="Title"
+        value={imageCard.title ?? { en: '', pt: '' }}
+      />
+    </Flex>
+  );
+}
+
+type ImageCardAssociatedDreamsFieldProps = {
+  imageCard: ImageCardDescriptor;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+} & Omit<SelectProps, 'onClick' | 'icon' | 'shape'>;
+
+/**
+ * Component to edit the associatedDreams field (theme-words deck card ids)
+ */
+export function ImageCardAssociatedDreamsField({
+  imageCard,
+  addEntryToUpdate,
+  style,
+  ...selectProps
+}: ImageCardAssociatedDreamsFieldProps) {
+  const onUpdateAssociatedDreams = (associatedDreams: string[]) => {
+    addEntryToUpdate(imageCard.id, {
+      ...imageCard,
+      associatedDreams,
+    });
+  };
+
+  return (
+    <Select
+      allowClear
+      defaultValue={imageCard?.associatedDreams}
+      mode="tags"
+      onChange={onUpdateAssociatedDreams}
+      placeholder="Associated Dreams (theme-words IDs)"
       style={{ width: '100%', ...style }}
       {...selectProps}
     />

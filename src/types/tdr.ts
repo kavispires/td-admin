@@ -1369,6 +1369,10 @@ export type ImageCardDescriptor = {
    */
   id: string;
   /**
+   * A title for the image
+   */
+  title: DualLanguageValue;
+  /**
    * List of keywords/tags related to the image
    */
   keywords: string[];
