@@ -1,0 +1,57 @@
+.image-cards-descriptor-table-wrapper {
+  position: relative;
+}
+
+.image-cards-descriptor-table-wrapper .ant-table-tbody > tr {
+  position: relative;
+}
+
+.image-cards-descriptor-table-wrapper .ant-table-tbody > tr > td {
+  position: relative;
+}
+
+.floating-insert-buttons {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.insert-button-top,
+.insert-button-bottom {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+.insert-button-top {
+  top: -20px;
+}
+
+.insert-button-bottom {
+  bottom: -20px;
+}
+
+.image-cards-descriptor-table-wrapper .ant-table-tbody > tr:hover .insert-button-top,
+.image-cards-descriptor-table-wrapper .ant-table-tbody > tr:hover .insert-button-bottom {
+  opacity: 1;
+}
+
+/* Ensure buttons don't overlap with table content */
+.image-cards-descriptor-table-wrapper .ant-table-tbody > tr:hover {
+  position: relative;
+  z-index: 100;
+}
+
+/* Add some spacing for the floating buttons */
+.image-cards-descriptor-table-wrapper .ant-table {
+  border-spacing: 0 8px;
+}
