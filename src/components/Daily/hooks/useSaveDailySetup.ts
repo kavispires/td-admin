@@ -223,7 +223,9 @@ const updateHistory = (
     latestDate: data[data.length - 1].id,
     latestNumber: data[data.length - 1][key].number,
     used: JSON.stringify(
-      removeDuplicates([...previouslyUsed, ...data.map((e) => e[key]).map(parser)]).flat(),
+      removeDuplicates([...previouslyUsed, ...data.map((e) => e[key]).map(parser)])
+        .flat()
+        .sort(),
     ),
   };
 };
