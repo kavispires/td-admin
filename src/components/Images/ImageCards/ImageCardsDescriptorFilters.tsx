@@ -52,8 +52,27 @@ export function ImageCardsDescriptorFilters({
   );
 }
 
-function prepareFileForDownload(diagramItems: Dictionary<ImageCardDescriptor>) {
+/**
+ * Checks if an image card descriptor is empty (only has id, no other meaningful data)
+ */
+function isEmptyEntry(entry: ImageCardDescriptor): boolean {
+  const hasTitle = entry.title?.en || entry.title?.pt;
+  const hasKeywords = entry.keywords && entry.keywords.length > 0;
+  const hasTriggers = entry.triggers && entry.triggers.length > 0;
+  const hasAssociatedDreams = entry.associatedDreams && entry.associatedDreams.length > 0;
+  const hasFavorite = entry.favorite !== undefined;
+
+  return !hasTitle && !hasKeywords && !hasTriggers && !hasAssociatedDreams && !hasFavorite;
+}
+
+function prepareFileForDownload(data: Dictionary<ImageCardDescriptor>) {
   console.log('Preparing file for download...');
-  const copy = cloneDeep(diagramItems);
-  return sortJsonKeys(copy);
+  const copy = cloneDeep(data);
+
+  // Filter out empty entries
+  const filtered = Object.fromEntries(Object.entries(copy).filter(([_, entry]) => !isEmptyEntry(entry)));
+
+  console.log(`Filtered out ${Object.keys(copy).length - Object.keys(filtered).length} empty entries`);
+
+  return sortJsonKeys(filtered);
 }
