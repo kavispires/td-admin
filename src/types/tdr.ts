@@ -1075,17 +1075,6 @@ export type DailyQuartetSet = {
   flagged?: boolean;
 };
 
-export type DailyPuzzleSet = {
-  /**
-   * The id (the setId in the library OR the date in a daily game)
-   */
-  id: string;
-  /**
-   * The title of the set
-   */
-  title: string;
-};
-
 export type DailyDiagramRule = {
   /**
    * The id (the setId in the library OR the date in a daily game)

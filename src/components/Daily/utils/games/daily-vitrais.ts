@@ -2,7 +2,7 @@ import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
 import { sample, shuffle } from 'lodash';
 import { useMemo } from 'react';
-import type { DailyPuzzleSet } from 'types';
+import type { ImageCardDescriptor } from 'types';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, ParsedDailyHistoryEntry } from '../types';
 import { getDayOfTheWeek, getNextDay } from '../utils';
@@ -32,7 +32,7 @@ export type DailyVitraisEntry = {
 export const useDailyVitraisGames = (enabled: boolean, batchSize: number, dailyHistory: DailyHistory) => {
   const [vitraisHistory] = useParsedHistory(DAILY_GAMES_KEYS.VITRAIS, dailyHistory);
 
-  const dailyVitraisSetQuery = useTDResource<DailyPuzzleSet>('daily-puzzle-set', { enabled });
+  const dailyVitraisSetQuery = useTDResource<ImageCardDescriptor>('image-cards', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
@@ -52,13 +52,13 @@ export const useDailyVitraisGames = (enabled: boolean, batchSize: number, dailyH
 export const buildDailyPuzzleGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
-  puzzleSets: Dictionary<DailyPuzzleSet>,
+  puzzleSets: Dictionary<ImageCardDescriptor>,
 ) => {
   console.count('Creating Vitrais...');
 
-  // Filter out any incomplete sets and used sets
+  // Filter out any incomplete sets, used sets, and cards without Portuguese title
   const eligibleSets = shuffle(
-    Object.values(puzzleSets).filter((setEntry) => !history.used.includes(setEntry.id)),
+    Object.values(puzzleSets).filter((setEntry) => !history.used.includes(setEntry.id) && setEntry.title?.pt),
   );
 
   let lastDate = history.latestDate;
@@ -84,7 +84,7 @@ export const buildDailyPuzzleGames = (
     } catch (e) {
       addWarning(
         'vitrais',
-        `Error generating Daily Vitrais puzzle for date ${id} with set ${selectedSet.title}: ${e}`,
+        `Error generating Daily Vitrais puzzle for date ${id} with set ${selectedSet.title.pt}: ${e}`,
       );
       return;
     }
@@ -93,7 +93,7 @@ export const buildDailyPuzzleGames = (
       id,
       number: history.latestNumber + i + 1,
       type: 'vitrais',
-      title: selectedSet.title,
+      title: selectedSet.title.pt,
       cardId: selectedSet.id,
       pieces: result,
     };
