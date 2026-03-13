@@ -2,6 +2,7 @@ import { Drawer, Flex, Table, type TableProps, Typography } from 'antd';
 import { TransparentButton } from 'components/Common';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { IdTag } from 'components/Common/IdTag';
+import { VirtualizationWrapper } from 'components/Common/VirtualizationWrapper';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
@@ -83,7 +84,9 @@ export function ItemsGroupsByGroupTable({
           {itemsIds.map((itemId) => (
             <Flex gap={2} key={`${record.id}-${itemId}`} vertical>
               <TransparentButton onClick={() => setSelectedItemId(itemId)}>
-                <Item itemId={itemId} width={60} />
+                <VirtualizationWrapper width={60}>
+                  <Item itemId={itemId} width={60} />
+                </VirtualizationWrapper>
               </TransparentButton>
               <Flex justify="center">
                 <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
