@@ -445,7 +445,7 @@ function SuspectExtendedInfoForm({
             Prompt <DescriptionPromptButton extendedInfo={suspectExtendedInfo} />
           </Typography.Text>
           <TextField
-            defaultValue={suspectExtendedInfo.prompt || ''}
+            defaultValue={suspectExtendedInfo?.prompt || ''}
             label="Prompt"
             suspect={suspectExtendedInfo}
             suspectId={suspect.id}

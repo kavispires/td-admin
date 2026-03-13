@@ -87,7 +87,7 @@ export function PromptButton({ suspect, extendedInfo }: PromptButtonProps) {
       prompt += `${extendedInfo.animal} `;
     }
 
-    if (!extendedInfo.prompt) {
+    if (!extendedInfo?.prompt) {
       notification.error({
         title: 'Error',
         description: 'Suspect does not have a prompt defined.',
@@ -95,7 +95,7 @@ export function PromptButton({ suspect, extendedInfo }: PromptButtonProps) {
       return;
     }
 
-    let formattedPrompt = `${prompt} ${extendedInfo.prompt}`;
+    let formattedPrompt = `${prompt} ${extendedInfo?.prompt}`;
 
     const includeFeatures = localStorage.getItem(PROMPT_SUFFIX_KEY) === 'true';
     if (includeFeatures) {
@@ -122,7 +122,7 @@ export function DescriptionPromptButton({ extendedInfo }: { extendedInfo: Suspec
       prompt += `This one is: "${extendedInfo.persona.en}" `;
     }
 
-    prompt += `Here is some info about the character: ${extendedInfo.prompt}`;
+    prompt += `Here is some info about the character: ${extendedInfo?.prompt}`;
 
     if (extendedInfo.economicClass) {
       prompt += `(${extendedInfo.economicClass} class)`;
