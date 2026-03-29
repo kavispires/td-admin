@@ -9,6 +9,7 @@ import {
   type DailyComunicacaoAlienigenaEntry,
   useDailyComunicacaoAlienigenaGames,
 } from '../utils/games/daily-comunicacao-alienigena';
+import { type DailyConexoesEntry, useDailyConexoesGames } from '../utils/games/daily-conexoes';
 import {
   type DailyControleDeEstoqueEntry,
   useDailyControleDeEstoqueGames,
@@ -48,6 +49,7 @@ export type DailyEntry = {
   vitrais: DailyVitraisEntry;
   // Contributions
   artista: DailyArtistaEntry;
+  conexoes: DailyConexoesEntry;
   'ta-na-cara': DailyTaNaCaraEntry;
   // Additional info
   dictionary: Dictionary<string>;
@@ -165,6 +167,9 @@ export function useLoadDailySetup(
   // BUILD TA NA CARA
   const taNaCara = useDailyTaNaCaraGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
+  // BUILD CONEXOES
+  const conexoes = useDailyConexoesGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
+
   // STEP N: Create entries
   const entries = useMemo(() => {
     if (arteRuim.entries.length === 0) {
@@ -189,6 +194,7 @@ export function useLoadDailySetup(
         vitrais: vitrais.entries[arteRuim.id],
         // Contributions
         artista: artista.entries[arteRuim.id],
+        conexoes: conexoes.entries[arteRuim.id],
         'ta-na-cara': taNaCara.entries[arteRuim.id],
         // Additional info
         dictionary: {},
@@ -211,6 +217,7 @@ export function useLoadDailySetup(
     quartetos.entries,
     teoriaDeConjuntos.entries,
     artista.entries,
+    conexoes.entries,
     taNaCara.entries,
     espionagem.entries,
     vitrais.entries,
@@ -230,6 +237,7 @@ export function useLoadDailySetup(
       quartetos.isLoading ||
       teoriaDeConjuntos.isLoading ||
       artista.isLoading ||
+      conexoes.isLoading ||
       taNaCara.isLoading ||
       espionagem.isLoading ||
       organiku.isLoading ||

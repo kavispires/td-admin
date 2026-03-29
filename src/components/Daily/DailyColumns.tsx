@@ -494,6 +494,34 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     },
   },
   {
+    title: 'Conexões',
+    dataIndex: 'conexoes',
+    key: 'conexoes',
+    render: (entry: DailyEntry['conexoes']) => {
+      if (!entry) {
+        return <Alert message="No entry" type="error" />;
+      }
+
+      const { number, imageIds } = entry;
+
+      return (
+        <EntryCell>
+          <GameNumber>{number}</GameNumber>
+
+          <GameInfo label="Images">{imageIds.length}</GameInfo>
+
+          <GamePopover entry={entry}>
+            <Flex gap={6} style={{ maxWidth: 300 }} wrap>
+              {imageIds.slice(0, 15).map((imageId) => (
+                <ImageCard cardId={imageId} cardWidth={48} key={imageId} />
+              ))}
+            </Flex>
+          </GamePopover>
+        </EntryCell>
+      );
+    },
+  },
+  {
     title: 'Tá Na Cara',
     dataIndex: 'ta-na-cara',
     key: 'ta-na-cara',

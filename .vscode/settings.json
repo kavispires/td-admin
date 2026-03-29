@@ -16,6 +16,7 @@
     "randomizer",
     "sider",
     "tanstack",
-    "Tchan"
+    "Tchan",
+    "conexoes"
   ]
 }

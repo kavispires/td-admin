@@ -14,6 +14,7 @@ export const DAILY_GAMES_KEYS = {
   ARTE_RUIM: 'arte-ruim',
   ARTISTA: 'artista',
   COMUNICACAO_ALIENIGENA: 'comunicacao-alienigena',
+  CONEXOES: 'conexoes',
   CONTROLE_DE_ESTOQUE: 'controle-de-estoque',
   ESPIONAGEM: 'espionagem',
   ORGANIKU: 'organiku',
