@@ -25,7 +25,6 @@ export function NewSuspectFlow({
     if (ids.length === 0) return 'us-000';
     return `us-${(Math.max(...ids) + 1).toString().padStart(3, '0')}`;
   }, [suspects]);
-  console.log(nextId);
 
   return (
     <>

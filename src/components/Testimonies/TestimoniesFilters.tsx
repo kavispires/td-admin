@@ -8,9 +8,10 @@ import { SiderContent } from 'components/Layout';
 import { SuspectsStyleVariantSelector } from 'components/Suspects/SuspectsStyleVariantSelector';
 import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import { useQueryParams } from 'hooks/useQueryParams';
-import { cloneDeep } from 'lodash';
+import { uniq } from 'lodash';
 import type {
   TestimonyAnswers,
+  TestimonyAnswersValues,
   useTestimoniesResource,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
@@ -161,73 +162,60 @@ export function TestimoniesFilters({
   );
 }
 
-async function prepareFileForDownload(entriesToUpdate: Dictionary<TestimonyAnswers>) {
+async function prepareFileForDownload(localData: Dictionary<TestimonyAnswers>) {
   console.log('Preparing file for download...');
 
   const firebaseRawData = await getDocQueryFunction<Dictionary<string>>('data', 'testimonies')();
-  // const parsedData = deserializeFirestoreData<TestimonyAnswers>(firebaseRawData);
-  const parsedData = Object.values(firebaseRawData).map((e: string) =>
-    deserializeFirestoreData<TestimonyAnswers>(JSON.parse(e)),
-  );
+  const parsedData = deserializeFirestoreData<TestimonyAnswers>(firebaseRawData);
+
   console.log('Parsed data from Firestore:', parsedData);
 
-  // DO MIGRATIONS HERE
-  const copy = cloneDeep(entriesToUpdate);
   const results: Dictionary<Dictionary<string>> = {};
 
-  Object.keys(copy).forEach((testimonyId) => {
-    const entry = copy[testimonyId];
-    results[testimonyId] = {};
-    // const firestoreEntry = parsedData[0][testimonyId] || {};
-    const firestoreEntry = parsedData.reduce((acc: TestimonyAnswers, curr) => {
-      if (curr[testimonyId]) {
-        Object.keys(curr[testimonyId]).forEach((suspectId) => {
-          if (!acc[suspectId]) {
-            acc[suspectId] = [];
-          }
-          acc[suspectId] = acc[suspectId].concat(curr[testimonyId][suspectId]);
-        });
+  // 1. Get all unique Question IDs from both Local and Server data
+  // This prevents deleting questions that exist on the server but not locally
+  const allQuestionKeys = uniq([...Object.keys(localData), ...Object.keys(parsedData)]);
+
+  allQuestionKeys.forEach((questionKey) => {
+    results[questionKey] = {};
+    const localEntry = localData[questionKey] || {};
+    const serverEntry = parsedData[questionKey] || {};
+
+    // 2. Get all unique Suspect IDs for this question from both sources
+    const allSuspectIds = uniq([...Object.keys(localEntry), ...Object.keys(serverEntry)]);
+
+    // Temporary storage to group values by their NEW normalized ID
+    // This fixes the Overwrite Bug by collecting all variants (us-1, us-001) before processing
+    const groupedValues: Record<string, TestimonyAnswersValues[]> = {};
+
+    allSuspectIds.forEach((suspectId) => {
+      // Determine the target ID (Migration logic: us-1 -> us-001)
+      let targetId = suspectId;
+      if (suspectId.startsWith('us-') && suspectId.split('-')[1].length < 3) {
+        const num = Number(suspectId.split('-')[1]);
+        targetId = `us-${num.toString().padStart(3, '0')}`;
       }
-      return acc;
-    }, {});
 
-    // For each person if they have 4 1s, convert into a 4 if they have 4 0s convert into a -4
-    Object.keys(entry).forEach((suspectId) => {
-      const isOldSuspectIdFormat = suspectId.length < 6; // old format like "us-1" vs new "us-001"
+      if (!groupedValues[targetId]) {
+        groupedValues[targetId] = [];
+      }
 
-      // Handle migration for old suspect ID format
-      if (isOldSuspectIdFormat) {
-        const suspectIdNumber = Number(suspectId.split('-')[1]);
-        const paddedSuspectId = `us-${suspectIdNumber.toString().padStart(3, '0')}`;
+      // Collect values from Local
+      if (localEntry[suspectId]) {
+        groupedValues[targetId].push(...localEntry[suspectId]);
+      }
 
-        const firestoreValuesOld = firestoreEntry[suspectId] || [];
-        const firestoreValuesNew = firestoreEntry[paddedSuspectId] || [];
-        const localValuesNew = entry[paddedSuspectId] || [];
+      // Collect values from Server
+      if (serverEntry[suspectId]) {
+        groupedValues[targetId].push(...serverEntry[suspectId]);
+      }
+    });
 
-        const values = normalizeValues([
-          ...entry[suspectId],
-          ...localValuesNew,
-          ...firestoreValuesOld,
-          ...firestoreValuesNew,
-        ]);
-
-        delete entry[suspectId];
-        results[testimonyId][paddedSuspectId] = JSON.stringify(values);
-      } else {
-        // Normal case: just normalize the values
-        const firestoreValues = firestoreEntry[suspectId] || [];
-        if (firestoreValues.length > 0) {
-          console.log({
-            testimonyId,
-            suspectId,
-            prev: entry[suspectId],
-            firestoreValues,
-            result: normalizeValues([...entry[suspectId], ...firestoreValues]),
-          });
-        }
-
-        const values = normalizeValues([...entry[suspectId], ...firestoreValues]);
-        results[testimonyId][suspectId] = JSON.stringify(values);
+    // 3. Normalize and assign final values
+    Object.keys(groupedValues).forEach((finalId) => {
+      const combinedValues = groupedValues[finalId];
+      if (combinedValues.length > 0) {
+        results[questionKey][finalId] = JSON.stringify(normalizeValues(combinedValues));
       }
     });
   });
