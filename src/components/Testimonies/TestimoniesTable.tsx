@@ -1,5 +1,5 @@
 import { CloudSyncOutlined, FireFilled, SearchOutlined } from '@ant-design/icons';
-import { Button, Flex, Input, Switch, Table, type TableProps, Tooltip, Typography } from 'antd';
+import { Button, Flex, Input, Rate, Switch, Table, type TableProps, Tooltip, Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
@@ -74,6 +74,7 @@ export function TestimoniesTable({
       dataIndex: 'level',
       key: 'level',
       sorter: (a, b) => (a?.level ?? 0) - (b?.level ?? 0),
+      render: (level) => <Rate disabled size="small" value={level ?? 0} />,
     },
     {
       title: 'Answers',

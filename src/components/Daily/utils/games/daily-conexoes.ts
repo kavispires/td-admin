@@ -28,7 +28,6 @@ export const useDailyConexoesGames = (
   dailyHistory: DailyHistory,
 ) => {
   const [conexoesHistory] = useParsedHistory(DAILY_GAMES_KEYS.CONEXOES, dailyHistory);
-  console.log('Parsed Conexoes history:', conexoesHistory);
 
   const imageDecksQuery = useImagesDecks();
 

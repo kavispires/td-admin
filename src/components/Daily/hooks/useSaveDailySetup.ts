@@ -145,6 +145,8 @@ export function useSaveDailySetup(queryLanguage: Language) {
           data,
           (e: DailyVitraisEntry) => e.cardId,
         ),
+
+        [DAILY_GAMES_KEYS.CONEXOES]: updateHistory(DAILY_GAMES_KEYS.CONEXOES, previousHistory, data, null),
       };
 
       setDoc(historyDocRec, newHistory);

@@ -15,6 +15,11 @@ import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 
+// Toggle between selection modes:
+// 'BUCKET_DISTRIBUTION': prioritizes testimonies with more suspects in lower answer buckets (current behavior)
+// 'TOTAL_ANSWERS': prioritizes testimonies with the fewest total answers across all suspects
+const TESTIMONY_SELECTION_MODE: 'BUCKET_DISTRIBUTION' | 'TOTAL_ANSWERS' = 'TOTAL_ANSWERS';
+
 type TaNaCaraQuestion = {
   testimonyId: string;
   question: string;
@@ -64,6 +69,7 @@ export const useDailyTaNaCaraGames = (
       testimoniesQuery.data,
       answersQuery.data,
       suspectsQuery.data,
+      TESTIMONY_SELECTION_MODE,
     );
 
     const suspectDict = suspectsQuery.data ?? {};
@@ -189,6 +195,7 @@ const buildTestimonyEntry = (
   sortedCounts: {
     testimonyId: string;
     counts: Dictionary<string[]>;
+    totalAnswers?: number;
   },
   testimony: TestimonyQuestionCard,
 ): TaNaCaraQuestion => {
@@ -261,13 +268,14 @@ const countTestimonyAnswers = (
   testimonies: Dictionary<TestimonyQuestionCard>,
   answers: Dictionary<TestimonyAnswers>,
   suspects: Dictionary<SuspectCard>,
+  mode: 'BUCKET_DISTRIBUTION' | 'TOTAL_ANSWERS',
 ) => {
-  // Iterate over testimonies, for each testimony group suspectIds by the number of answers (0, 1, 2, 3, 4, 5+)
-  // Define proper types for the counts structure
   type SuspectCounts = Dictionary<string[]>;
   type TestimonyCounts = Dictionary<SuspectCounts>;
 
   const globalCounts: TestimonyCounts = {};
+  const totalAnswersPerTestimony: Dictionary<number> = {};
+
   Object.keys(testimonies).forEach((testimonyId) => {
     if (globalCounts[testimonyId] === undefined) {
       globalCounts[testimonyId] = {
@@ -283,10 +291,13 @@ const countTestimonyAnswers = (
     }
 
     const answersForSuspects = answers[testimonyId] || {};
+    let totalAnswers = 0;
 
     Object.keys(suspects).forEach((suspectId) => {
       const suspectAnswers = answersForSuspects[suspectId] || [];
       const suspectAnswersCount = countAnswersAbsoluteTotal(suspectAnswers);
+      totalAnswers += suspectAnswersCount;
+
       if (suspectAnswersCount >= 32) {
         globalCounts[testimonyId]['32+'].push(suspectId);
       } else if (suspectAnswersCount > 5 && suspectAnswersCount < 32) {
@@ -299,19 +310,41 @@ const countTestimonyAnswers = (
         }
       }
     });
+
+    totalAnswersPerTestimony[testimonyId] = totalAnswers;
   });
 
-  const sorted = orderBy(
-    Object.keys(globalCounts).map((testimonyId) => ({ testimonyId, counts: globalCounts[testimonyId] })),
-    [
-      (o) => o.counts[0].length,
-      (o) => o.counts[1].length,
-      (o) => o.counts[2].length,
-      (o) => o.counts[3].length,
-      (o) => o.counts[4].length,
-    ],
-    ['desc'],
-  );
+  let sorted: Array<{ testimonyId: string; counts: Dictionary<string[]>; totalAnswers: number }>;
+
+  if (mode === 'TOTAL_ANSWERS') {
+    // Sort by total answers across all suspects (ascending - fewest first)
+    sorted = orderBy(
+      Object.keys(globalCounts).map((testimonyId) => ({
+        testimonyId,
+        counts: globalCounts[testimonyId],
+        totalAnswers: totalAnswersPerTestimony[testimonyId],
+      })),
+      ['totalAnswers'],
+      ['asc'],
+    );
+  } else {
+    // Original mode: sort by bucket distribution (most suspects in lower buckets first)
+    sorted = orderBy(
+      Object.keys(globalCounts).map((testimonyId) => ({
+        testimonyId,
+        counts: globalCounts[testimonyId],
+        totalAnswers: totalAnswersPerTestimony[testimonyId],
+      })),
+      [
+        (o) => o.counts[0].length,
+        (o) => o.counts[1].length,
+        (o) => o.counts[2].length,
+        (o) => o.counts[3].length,
+        (o) => o.counts[4].length,
+      ],
+      ['desc'],
+    );
+  }
 
   for (let i = 0; i < sorted.length; i += 13) {
     const chunk = sorted.slice(i, i + 13);
