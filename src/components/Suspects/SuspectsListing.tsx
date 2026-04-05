@@ -34,8 +34,9 @@ export function SuspectsListing({
   suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCard>;
   suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>;
 }) {
-  const suspects = suspectsQuery.data;
-  const extendedInfo = suspectsExtendedInfoQuery.data;
+  const suspects = suspectsQuery.data ?? {};
+  const extendedInfo = suspectsExtendedInfoQuery.data ?? {};
+
   const { addParam, queryParams } = useQueryParams();
   const [view, setView] = useState('cards');
 
@@ -117,7 +118,10 @@ export function SuspectsListing({
         render: (id: string, entry: SuspectCard) => (
           <Flex align="center" gap={4} vertical>
             <Flex align="center" gap={6}>
-              <Tag>{id}</Tag> <PromptButton extendedInfo={extendedInfo[entry.id]} suspect={entry} />
+              <Tag>{id}</Tag>{' '}
+              {!!extendedInfo[entry.id] && (
+                <PromptButton extendedInfo={extendedInfo[entry.id]} suspect={entry} />
+              )}
             </Flex>
             <SuspectImageCard cardId={entry.id} cardWidth={cardWidth / 1.5} className="suspect__image" />
           </Flex>
@@ -257,7 +261,8 @@ export function SuspectsListing({
         {view === 'cards' && (
           <Space className="my-2" key={variant} ref={ref} wrap>
             {deck.map((entry) => {
-              const extendedEntry = extendedInfo[entry.id];
+              const extendedEntry = extendedInfo?.[entry.id] ?? {};
+
               return (
                 <div className="suspect" key={entry.id} style={{ width: `${cardWidth}px` }}>
                   <SuspectImageCard cardId={entry.id} cardWidth={cardWidth} className="suspect__image" />

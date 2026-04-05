@@ -1,4 +1,4 @@
-import OpenAIOutlined from '@ant-design/icons/lib/icons/OpenAIOutlined';
+import { OpenAIOutlined } from '@ant-design/icons';
 import { App, Button, Flex, Input, Switch, Typography } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useQueryParams } from 'hooks/useQueryParams';
