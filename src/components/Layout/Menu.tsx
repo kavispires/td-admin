@@ -194,6 +194,10 @@ const items: MenuProps['items'] = [
         label: 'Suspects Personalities',
         key: '/fun/suspects-personalities',
       },
+      {
+        label: 'AI Generator',
+        key: '/fun/ai-generator',
+      },
     ],
   },
 ];

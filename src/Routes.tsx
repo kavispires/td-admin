@@ -233,6 +233,10 @@ export const routeConfig: RouteObject[] = [
           () => import('pages/Fun/SuspectsPersonalities' /* webpackChunkName: "SuspectsPersonalities" */),
         ),
       },
+      {
+        path: 'ai-generator',
+        element: withSuspense(() => import('pages/Fun/AIGenerator' /* webpackChunkName: "AIGenerator" */)),
+      },
     ],
   },
 ];

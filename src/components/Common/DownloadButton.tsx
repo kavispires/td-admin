@@ -96,10 +96,6 @@ export function DownloadButton({
   };
 
   return (
-    // <Button loading={loading} onClick={handleDownload} {...props}>
-    //   {children ?? 'Download JSON'}
-    //   {hasNewData && <Badge status="warning" />}
-    // </Button>
     <>
       <Dropdown.Button
         disabled={loading}
