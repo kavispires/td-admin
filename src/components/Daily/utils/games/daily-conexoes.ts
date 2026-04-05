@@ -81,9 +81,9 @@ export const buildDailyConexoesGames = (
     const id = getNextDay(lastDate);
     lastDate = id;
 
-    // Generate 50 unique random image IDs
+    // Generate 60 unique random image IDs
     const imageIds = new Set<string>();
-    while (imageIds.size < 50) {
+    while (imageIds.size < 60) {
       const randomId = generateRandomImageId(decks);
       imageIds.add(randomId);
     }
