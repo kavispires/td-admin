@@ -1,0 +1,1 @@
+import{F as e,b as t,j as n,t as r,v as i}from"./Header-fwqi6LHC.js";var a=i();function o(){return(0,a.jsx)(`div`,{children:`Playground Content`})}function s(){return t(`Playground`),(0,a.jsxs)(n,{children:[(0,a.jsx)(r,{title:`Playground`}),(0,a.jsx)(e,{}),(0,a.jsx)(n.Content,{className:`content`,children:(0,a.jsx)(o,{})})]})}export{s as default};

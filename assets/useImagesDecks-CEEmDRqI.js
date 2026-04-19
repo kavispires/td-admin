@@ -1,1 +1,0 @@
-import{a,u as r}from"./useBaseUrl-Cx65ysf9.js";function n(){const{getUrl:s}=a("resources"),e=r({queryKey:["images-decks"],queryFn:async()=>await(await fetch(s("images-decks.json"))).json()});return{...e,data:e.data??{}}}export{n as u};

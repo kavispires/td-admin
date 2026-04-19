@@ -1,0 +1,1 @@
+import{E as e,v as t}from"./Header-fwqi6LHC.js";var n=t();function r({children:t,level:r,...i}){return(0,n.jsx)(e.Title,{level:r??3,...i,children:t})}export{r as t};
