@@ -1,1 +1,0 @@
-import{vi as e,wi as t,y as n}from"./Header-fwqi6LHC.js";var r=t(e());function i(e,t){let[i,{width:a}]=n(),{gap:o=32,minWidth:s=120,maxWidth:c=300,margin:l=0}=t??{};return[(0,r.useMemo)(()=>{let t=Math.min(Math.max(Math.floor((a-l)/e)-o,s),c);return Number.isNaN(t)?s:t},[a,e,o,s,c,l]),i]}export{i as t};

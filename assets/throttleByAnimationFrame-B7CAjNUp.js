@@ -1,0 +1,1 @@
+import{Ir as e,Lr as t}from"./Header-DwBGwq9e.js";function n(n){let r=null,i=e=>()=>{r=null,n.apply(void 0,t(e))},a=(...t)=>{r===null&&(r=e(i(t)))};return a.cancel=()=>{e.cancel(r),r=null},a}export{n as t};

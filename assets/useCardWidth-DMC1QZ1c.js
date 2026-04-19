@@ -1,0 +1,1 @@
+import{_ as e,ci as t,mi as n}from"./Header-DwBGwq9e.js";var r=n(t());function i(t,n){let[i,{width:a}]=e(),{gap:o=32,minWidth:s=120,maxWidth:c=300,margin:l=0}=n??{};return[(0,r.useMemo)(()=>{let e=Math.min(Math.max(Math.floor((a-l)/t)-o,s),c);return Number.isNaN(e)?s:e},[a,t,o,s,c,l]),i]}export{i as t};

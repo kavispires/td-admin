@@ -1,1 +1,0 @@
-import{g as e,h as t}from"./Header-fwqi6LHC.js";var n=new e({}),r=(e,t)=>{console.log(`Adding warning:`,{key:e,message:t}),n.setState(n=>({...n,[e]:t}))},i=()=>{n.setState(()=>({}))},a=()=>t(n,e=>e);export{i as n,a as r,r as t};

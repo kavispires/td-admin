@@ -1,1 +1,0 @@
-import{v as e}from"./Header-fwqi6LHC.js";import{o as t,r as n}from"./input-BbNcwSHW.js";import{t as r}from"./useCopyToClipboardFunction-DiiXznxk.js";var i=e();function a({ids:e}){let a=r();return(0,i.jsx)(n,{orientation:`vertical`,size:`small`,children:(0,i.jsx)(t,{onClick:()=>a(JSON.stringify(e)),size:`small`,children:`Copy Ids`})})}export{a as t};
