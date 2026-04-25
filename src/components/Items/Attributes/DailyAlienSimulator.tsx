@@ -54,7 +54,7 @@ export function DailyAlienSimulator() {
         {Boolean(simulation) && (
           <Space key={simulation?.setId} orientation="vertical">
             <Typography.Title level={5}>{simulation?.setId}</Typography.Title>
-            {!simulation?.valid && <Alert message="Invalid game" type="error" />}
+            {!simulation?.valid && <Alert title="Invalid game" type="error" />}
             <Space orientation="vertical">
               {simulation?.attributes.map((attr) => (
                 <Flex gap={8} key={attr.id}>

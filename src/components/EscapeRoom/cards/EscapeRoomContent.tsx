@@ -26,25 +26,25 @@ export const ContentDelegator = ({
 }) => {
   switch (content.type) {
     case CARD_CONTENT_TYPES.AUDIO:
-      return <Alert message="Audio not implemented" showIcon type="error" />;
+      return <Alert showIcon title="Audio not implemented" type="error" />;
     case CARD_CONTENT_TYPES.CALENDAR:
-      return <Alert message="Calendar not implemented" showIcon type="error" />;
+      return <Alert showIcon title="Calendar not implemented" type="error" />;
     case CARD_CONTENT_TYPES.CODEX:
-      return <Alert message="Codex not implemented" showIcon type="error" />;
+      return <Alert showIcon title="Codex not implemented" type="error" />;
     case CARD_CONTENT_TYPES.DIGIT:
-      return <Alert message="Digit not implemented" showIcon type="error" />;
+      return <Alert showIcon title="Digit not implemented" type="error" />;
     case CARD_CONTENT_TYPES.IMAGE_CARD:
       return <ImageCardContentComponent content={content} width={width} />;
     case CARD_CONTENT_TYPES.IMAGE_CARD_COVER:
-      return <Alert message="Image Card Cover not implemented" showIcon type="error" />;
+      return <Alert showIcon title="Image Card Cover not implemented" type="error" />;
     case CARD_CONTENT_TYPES.IMAGE_CARD_SEQUENCE:
       return <ImageCardSequenceContentComponent content={content} width={width} />;
     case CARD_CONTENT_TYPES.LABEL:
-      return <Alert message="Label not implemented" showIcon type="error" />;
+      return <Alert showIcon title="Label not implemented" type="error" />;
     case CARD_CONTENT_TYPES.LETTER:
-      return <Alert message="Letter not implemented" showIcon type="error" />;
+      return <Alert showIcon title="Letter not implemented" type="error" />;
     case CARD_CONTENT_TYPES.NUMBER:
-      return <Alert message="Number not implemented" showIcon type="error" />;
+      return <Alert showIcon title="Number not implemented" type="error" />;
     case CARD_CONTENT_TYPES.SPRITE:
       return <SpriteContentComponent content={content} width={width} />;
     case CARD_CONTENT_TYPES.SPRITE_GRID:
@@ -52,15 +52,15 @@ export const ContentDelegator = ({
     case CARD_CONTENT_TYPES.SPRITE_SEQUENCE:
       return <SpriteSequenceComponent content={content} width={width} />;
     case CARD_CONTENT_TYPES.SPRITE_SHUFFLE:
-      return <Alert message="Sprite Shuffle not implemented" showIcon type="error" />;
+      return <Alert showIcon title="Sprite Shuffle not implemented" type="error" />;
     case CARD_CONTENT_TYPES.SPRITE_WHEEL:
-      return <Alert message="Sprite Wheel not implemented" showIcon type="error" />;
+      return <Alert showIcon title="Sprite Wheel not implemented" type="error" />;
     case CARD_CONTENT_TYPES.TEXT_BOX:
       return <TextBoxContentComponent content={content} width={width} />;
     case CARD_CONTENT_TYPES.TITLE:
       return <TitleContentComponent content={content} width={width} />;
     default:
-      return <Alert message={`Content type ${content.type} not implemented`} showIcon type="error" />;
+      return <Alert showIcon title={`Content type ${content.type} not implemented`} type="error" />;
   }
 };
 
@@ -171,5 +171,5 @@ function ImageCardSequenceContentComponent({
 }
 
 function CalendarContentComponent({ content }: ContentComponentProps<CalendarContent>) {
-  return <Alert message="Calendar not implemented" showIcon type="error" />;
+  return <Alert showIcon title="Calendar not implemented" type="error" />;
 }

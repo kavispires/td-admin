@@ -64,7 +64,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'arte-ruim',
     render: (entry: DailyEntry['arte-ruim']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, cardId, text, drawings } = entry;
@@ -102,7 +102,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'aqui-o',
     render: (entry: DailyEntry['aqui-o']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, setId, title, itemsIds } = entry;
@@ -132,7 +132,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'comunicacao-alienigena',
     render: (entry: DailyEntry['comunicacao-alienigena']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, itemsIds, attributes } = entry;
@@ -167,7 +167,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'teoria-de-conjuntos',
     render: (entry: DailyEntry['teoria-de-conjuntos']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, rule1, intersectingThing, rule2, title, things } = entry;
@@ -202,7 +202,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'controle-de-estoque',
     render: (entry: DailyEntry['controle-de-estoque']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, title, goods } = entry;
@@ -231,7 +231,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'espionagem',
     render: (entry: DailyEntry['espionagem']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, statements, additionalStatements, suspects, culpritId } = entry;
@@ -253,11 +253,11 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               </Space>
 
               {statements.slice(0, 3).map((statement) => (
-                <Alert banner key={statement.key} message={statement.text} showIcon type="info" />
+                <Alert banner key={statement.key} showIcon title={statement.text} type="info" />
               ))}
 
               {additionalStatements.map((statement) => (
-                <Alert banner key={statement.key} message={statement.text} showIcon type="warning" />
+                <Alert banner key={statement.key} showIcon title={statement.text} type="warning" />
               ))}
             </Flex>
           </GamePopover>
@@ -271,7 +271,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'filmaco',
     render: (entry: DailyEntry['filmaco']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
       const { number, setId, title, year } = entry;
 
@@ -304,7 +304,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'organiku',
     render: (entry: DailyEntry['organiku']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, setId, title, grid, defaultRevealedIndexes } = entry;
@@ -341,7 +341,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'palavreado',
     render: (entry) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, letters, keyword, words } = entry;
@@ -375,7 +375,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'portais-magicos',
     render: (entry: DailyEntry['portais-magicos']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, setId, corridors } = entry;
@@ -412,7 +412,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'quartetos',
     render: (entry: DailyEntry['quartetos']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, setId, sets } = entry;
@@ -444,7 +444,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'vitrais',
     render: (entry: DailyEntry['vitrais']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, title, pieces } = entry;
@@ -471,7 +471,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'artista',
     render: (entry) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, cards } = entry;
@@ -499,7 +499,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'conexoes',
     render: (entry: DailyEntry['conexoes']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, imageIds } = entry;
@@ -527,7 +527,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'ta-na-cara',
     render: (entry: DailyEntry['ta-na-cara']) => {
       if (!entry) {
-        return <Alert message="No entry" type="error" />;
+        return <Alert title="No entry" type="error" />;
       }
 
       const { number, suspectsIds, testimonies } = entry;

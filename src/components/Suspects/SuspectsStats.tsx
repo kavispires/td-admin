@@ -6,7 +6,6 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  Cell,
   Legend,
   Pie,
   PieChart,
@@ -44,6 +43,17 @@ const TOOLTIP_STYLE = {
   border: '1px solid #303030',
   color: '#fff',
   borderRadius: '4px',
+};
+
+// Helper function to add colors to chart data
+const addColorsToData = <T extends { name: string; value: number }>(
+  data: T[],
+  colorOffset = 0,
+): (T & { fill: string })[] => {
+  return data.map((item, index) => ({
+    ...item,
+    fill: COLORS[(index + colorOffset) % COLORS.length],
+  }));
 };
 
 export function SuspectsStats({
@@ -148,16 +158,12 @@ export function SuspectsStats({
                 <Pie
                   cx="50%"
                   cy="50%"
-                  data={charts.race}
+                  data={addColorsToData(charts.race)}
                   dataKey="value"
                   innerRadius={40}
                   outerRadius={80}
                   paddingAngle={2}
-                >
-                  {charts.race.map((_, index) => (
-                    <Cell fill={COLORS[index % COLORS.length]} key={`cell-${index}`} />
-                  ))}
-                </Pie>
+                />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <Legend height={36} verticalAlign="bottom" />
               </PieChart>
@@ -173,16 +179,12 @@ export function SuspectsStats({
                 <Pie
                   cx="50%"
                   cy="50%"
-                  data={charts.gender}
+                  data={addColorsToData(charts.gender)}
                   dataKey="value"
                   innerRadius={40}
                   outerRadius={80}
                   paddingAngle={2}
-                >
-                  {charts.gender.map((_, index) => (
-                    <Cell fill={COLORS[index % COLORS.length]} key={`cell-${index}`} />
-                  ))}
-                </Pie>
+                />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <Legend height={36} verticalAlign="bottom" />
               </PieChart>
@@ -215,15 +217,11 @@ export function SuspectsStats({
                 <Pie
                   cx="50%"
                   cy="50%"
-                  data={charts.orientation}
+                  data={addColorsToData(charts.orientation)}
                   dataKey="value"
                   innerRadius={50}
                   outerRadius={70}
-                >
-                  {charts.orientation.map((_, index) => (
-                    <Cell fill={COLORS[index % COLORS.length]} key={`cell-${index}`} />
-                  ))}
-                </Pie>
+                />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <Legend height={36} verticalAlign="bottom" />
               </PieChart>
@@ -260,11 +258,13 @@ export function SuspectsStats({
               <Card style={cardStyle} title="Body Build" variant="borderless">
                 <ResponsiveContainer height={180} width="100%">
                   <PieChart>
-                    <Pie cx="50%" cy="50%" data={charts.build} dataKey="value" outerRadius={60}>
-                      {charts.build.map((_, index) => (
-                        <Cell fill={COLORS[index % COLORS.length]} key={`cell-${index}`} />
-                      ))}
-                    </Pie>
+                    <Pie
+                      cx="50%"
+                      cy="50%"
+                      data={addColorsToData(charts.build)}
+                      dataKey="value"
+                      outerRadius={60}
+                    />
                     <Tooltip contentStyle={TOOLTIP_STYLE} />
                     <Legend height={36} verticalAlign="bottom" />
                   </PieChart>
@@ -275,11 +275,13 @@ export function SuspectsStats({
               <Card style={cardStyle} title="Height" variant="borderless">
                 <ResponsiveContainer height={180} width="100%">
                   <PieChart>
-                    <Pie cx="50%" cy="50%" data={charts.height} dataKey="value" outerRadius={60}>
-                      {charts.height.map((_, index) => (
-                        <Cell fill={COLORS[(index + 2) % COLORS.length]} key={`cell-${index}`} />
-                      ))}
-                    </Pie>
+                    <Pie
+                      cx="50%"
+                      cy="50%"
+                      data={addColorsToData(charts.height, 2)}
+                      dataKey="value"
+                      outerRadius={60}
+                    />
                     <Tooltip contentStyle={TOOLTIP_STYLE} />
                     <Legend height={36} verticalAlign="bottom" />
                   </PieChart>
@@ -303,16 +305,12 @@ export function SuspectsStats({
                       <Pie
                         cx="50%"
                         cy="50%"
-                        data={group.data}
+                        data={addColorsToData(group.data)}
                         dataKey="value"
                         innerRadius={40}
                         outerRadius={70}
                         paddingAngle={2}
-                      >
-                        {group.data.map((_, index) => (
-                          <Cell fill={COLORS[index % COLORS.length]} key={`cell-${index}`} />
-                        ))}
-                      </Pie>
+                      />
                       <Tooltip contentStyle={TOOLTIP_STYLE} />
                       <Legend
                         align="right"
@@ -422,11 +420,13 @@ export function SuspectsStats({
           <Card style={cardStyle} title="Deck Distribution" variant="borderless">
             <ResponsiveContainer height={300} width="100%">
               <PieChart>
-                <Pie cx="50%" cy="50%" data={charts.decks} dataKey="value" outerRadius={60}>
-                  {charts.decks.map((_, index) => (
-                    <Cell fill={COLORS[index % COLORS.length]} key={`cell-${index}`} />
-                  ))}
-                </Pie>
+                <Pie
+                  cx="50%"
+                  cy="50%"
+                  data={addColorsToData(charts.decks)}
+                  dataKey="value"
+                  outerRadius={60}
+                />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <Legend height={36} verticalAlign="bottom" />
               </PieChart>

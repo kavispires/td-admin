@@ -85,7 +85,6 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
   return (
     <Modal
       footer={null}
-      maskClosable={false}
       onCancel={() => removeParam('testify')}
       open={is('testify', 'single')}
       title={<Typography>Does this person do this??</Typography>}
@@ -210,7 +209,6 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
   return (
     <Modal
       footer={null}
-      maskClosable={false}
       onCancel={() => removeParam('testify')}
       open={is('testify', 'group')}
       title={<Typography>Do these people do this??</Typography>}

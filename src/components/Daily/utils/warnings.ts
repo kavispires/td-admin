@@ -1,4 +1,4 @@
-import { useStore } from '@tanstack/react-store';
+import { useSelector } from '@tanstack/react-store';
 import { Store } from '@tanstack/store';
 
 // Define the type for warnings
@@ -30,4 +30,4 @@ export const clearWarnings = () => {
   warningsStore.setState(() => ({}));
 };
 
-export const useGetWarnings = () => useStore(warningsStore, (state) => state);
+export const useGetWarnings = () => useSelector(warningsStore, (state) => state);

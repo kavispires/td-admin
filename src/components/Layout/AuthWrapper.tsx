@@ -28,7 +28,7 @@ export function AuthWrapper({ children }: AuthWrapperProps) {
 
   if (isLoading) {
     return (
-      <Spin size="large" tip="Verifying auth...">
+      <Spin size="large">
         <div style={{ height: '100svh', width: '100svw' }} />
       </Spin>
     );
@@ -39,8 +39,8 @@ export function AuthWrapper({ children }: AuthWrapperProps) {
       <div style={{ height: '100svh', width: '100svw', display: 'grid', placeItems: 'center' }}>
         <Alert
           description="This app does not feature login capabilities."
-          message="You are not logged in"
           showIcon
+          title="You are not logged in"
           type="error"
         />
         <LoginModal />
@@ -98,8 +98,8 @@ function LoginModal() {
         <Alert
           className="login__error-alert"
           description={JSON.stringify(error)}
-          message="Error"
           showIcon
+          title="Error"
           type="error"
         />
       )}

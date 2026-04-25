@@ -63,7 +63,7 @@ export function CrimesHediondosContent({
       )}
 
       {is('display', 'tags') && (
-        <Alert closable message="Tags table is not implemented yet" showIcon type="info" />
+        <Alert closable showIcon title="Tags table is not implemented yet" type="info" />
       )}
 
       {is('display', 'scenes') && <SceneTable objects={rows} sceneQuery={scenesQuery} />}

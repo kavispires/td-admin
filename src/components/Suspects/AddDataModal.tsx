@@ -106,7 +106,7 @@ export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedI
           placeholder="Paste JSON partial data here"
           value={jsonInput}
         />
-        {error && <Alert message={`Error: ${error}`} type="error" />}
+        {error && <Alert title={`Error: ${error}`} type="error" />}
       </Modal>
     </>
   );

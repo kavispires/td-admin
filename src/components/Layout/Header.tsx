@@ -1,6 +1,6 @@
 import { Avatar, Layout, Typography } from 'antd';
 import logo from 'assets/images/logo.svg?url';
-import { type LegacyRef, type ReactNode, useEffect } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import { useMeasure, useTitle } from 'react-use';
 import { updateHeaderHeight } from 'store/headerHeight';
 import { Menu } from './Menu';
@@ -21,7 +21,7 @@ export function Header({ title, subtitle, extra }: HeaderProps) {
   }, [height]);
 
   return (
-    <div ref={ref as LegacyRef<HTMLDivElement>}>
+    <div ref={ref as React.Ref<HTMLDivElement>}>
       <Layout.Header className="header">
         <Typography.Title className="header__h1" level={1}>
           <Avatar size="large" src={logo} /> <span className="header__title">{title}</span>

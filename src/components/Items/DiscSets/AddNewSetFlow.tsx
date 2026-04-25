@@ -51,7 +51,6 @@ export function AddNewSetFlow({ addEntryToUpdate, ids }: AddNewSetFlowProps) {
         Add New Set
       </Button>
       <Modal
-        maskClosable={false}
         okButtonProps={{ htmlType: 'submit' }}
         okText="Add"
         onCancel={() => setOpen(false)}

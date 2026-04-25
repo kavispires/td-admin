@@ -124,7 +124,7 @@ function SimulationGame({ entries }: SimulationGameProps) {
                       banner
                       icon={getStatementIcon(statement.type)}
                       key={statement.key}
-                      message={statement.text}
+                      title={statement.text}
                       type="info"
                     />
                   </Badge>
@@ -137,7 +137,7 @@ function SimulationGame({ entries }: SimulationGameProps) {
                       banner
                       icon={getStatementIcon(statement.type)}
                       key={statement.key}
-                      message={statement.text}
+                      title={statement.text}
                       type="warning"
                     />
                   </Badge>

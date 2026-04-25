@@ -49,15 +49,16 @@ export function ItemGroupingCard() {
   const sortingComponent = (
     <Flex align="center">
       <Typography.Text className="mr-2">Sort by</Typography.Text>
-      <Select onChange={(v) => sorting.setSortBy(v)} style={{ width: 120 }} value={sorting.sortBy}>
-        <Select.Option value={null}>Last Updated</Select.Option>
-        <Select.Option value="prop::id">Id</Select.Option>
-        {attributesList.map((a) => (
-          <Select.Option key={a.id} value={`attribute::${a.id}`}>
-            {a.name.en}
-          </Select.Option>
-        ))}
-      </Select>
+      <Select
+        onChange={(v) => sorting.setSortBy(v)}
+        options={[
+          { value: null, label: 'Last Updated' },
+          { value: 'prop::id', label: 'Id' },
+          ...attributesList.map((a) => ({ value: `attribute::${a.id}`, label: a.name.en })),
+        ]}
+        style={{ width: 120 }}
+        value={sorting.sortBy}
+      />
     </Flex>
   );
 

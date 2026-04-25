@@ -149,7 +149,6 @@ export function SingleSampleModalFlow() {
         cancelButtonProps={{
           style: { display: 'none' },
         }}
-        maskClosable={false}
         onCancel={onClose}
         onOk={onClose}
         open={open}

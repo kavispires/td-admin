@@ -38,16 +38,13 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
           <Input placeholder="Prefix" type="text" />
         </Form.Item>
         <Form.Item label="Language" name="language">
-          <Select style={{ minWidth: '150px' }}>
-            {LANGUAGES.map((entry) => (
-              <Select.Option key={entry} value={entry}>
-                {entry}
-              </Select.Option>
-            ))}
-            <Select.Option key="random" value="dualLanguage">
-              Dual Language
-            </Select.Option>
-          </Select>
+          <Select
+            options={[
+              ...LANGUAGES.map((entry) => ({ value: entry, label: entry })),
+              { value: 'dualLanguage', label: 'Dual Language' },
+            ]}
+            style={{ minWidth: '150px' }}
+          />
         </Form.Item>
         <Form.Item label="Starting Id" name="startingId">
           <Input type="number" />
@@ -56,20 +53,15 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
           <Switch />
         </Form.Item>
         <Form.Item label="Transform text" name="transform">
-          <Select style={{ minWidth: '150px' }}>
-            <Select.Option key="none" value="none">
-              None
-            </Select.Option>
-            <Select.Option key="capitalize" value="capitalize">
-              Capitalize
-            </Select.Option>
-            <Select.Option key="lowercase" value="lowercase">
-              Lowercase
-            </Select.Option>
-            <Select.Option key="uppercase" value="uppercase">
-              Uppercase
-            </Select.Option>
-          </Select>
+          <Select
+            options={[
+              { value: 'none', label: 'None' },
+              { value: 'capitalize', label: 'Capitalize' },
+              { value: 'lowercase', label: 'Lowercase' },
+              { value: 'uppercase', label: 'Uppercase' },
+            ]}
+            style={{ minWidth: '150px' }}
+          />
         </Form.Item>
         <Form.Item>
           <Button disabled={!prefix?.trim()} htmlType="submit" type="primary">

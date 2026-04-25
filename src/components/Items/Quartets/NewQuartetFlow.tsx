@@ -73,7 +73,6 @@ export function NewQuartetFlow({ data, addEntryToUpdate }: NewQuartetFlowProps) 
       </Button>
 
       <Modal
-        maskClosable={false}
         okButtonProps={{ disabled: !activeQuartet.title, onClick: onEntry }}
         onCancel={() => setOpen(false)}
         open={open}

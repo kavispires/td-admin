@@ -126,16 +126,17 @@ export function Typeahead<T>({
   return (
     <AutoComplete
       allowClear
-      filterOption={(inputValue, option) =>
-        String(option?.value ?? '')
-          .toUpperCase()
-          .indexOf(inputValue?.toUpperCase()) !== -1
-      }
       notFoundContent={typedText.length > 0 ? 'No entries found' : 'Type to search...'}
-      onSearch={setTypedText}
       onSelect={onSelect}
       options={filteredOptions}
       placeholder={placeholder}
+      showSearch={{
+        filterOption: (inputValue, option) =>
+          String(option?.value ?? '')
+            .toUpperCase()
+            .indexOf(inputValue?.toUpperCase()) !== -1,
+        onSearch: setTypedText,
+      }}
       style={{ width: 250, ...style }}
       {...rest}
     >

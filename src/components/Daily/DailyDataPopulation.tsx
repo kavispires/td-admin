@@ -96,7 +96,7 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
       </Flex>
 
       {warningsList.map((warning) => (
-        <Alert banner key={warning} message={warning} showIcon type="warning" />
+        <Alert banner key={warning} showIcon title={warning} type="warning" />
       ))}
 
       <Table columns={dailyColumns} dataSource={dataLoad.entries ?? []} scroll={{ x: 'max-content' }} />

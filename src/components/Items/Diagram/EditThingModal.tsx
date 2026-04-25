@@ -211,7 +211,6 @@ export function EditThingModal({
 
   return (
     <Modal
-      maskClosable={false}
       okButtonProps={{ disabled: hasUndefinedValues, htmlType: 'submit', size: 'large' }}
       okText={okButtonText ?? 'Add Item'}
       onCancel={onCancel}

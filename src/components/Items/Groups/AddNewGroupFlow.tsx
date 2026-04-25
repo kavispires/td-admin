@@ -56,7 +56,6 @@ export function AddNewGroupFlow({ addEntryToUpdate, data }: AddNewGroupFlowProps
         Add New Group
       </Button>
       <Modal
-        maskClosable={false}
         okButtonProps={{ htmlType: 'submit' }}
         okText="Add"
         onCancel={() => setOpen(false)}

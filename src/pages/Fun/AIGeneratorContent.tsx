@@ -8,7 +8,7 @@ export function AIGeneratorContent() {
   const { data, isPending, isError, error, mutate } = useGenerativeContent();
 
   return (
-    <Space direction="vertical" style={{ width: '100%' }}>
+    <Space style={{ width: '100%' }} vertical>
       <Input.TextArea
         onChange={(e) => setPrompt(e.target.value)}
         placeholder="Enter your prompt here..."
@@ -19,7 +19,7 @@ export function AIGeneratorContent() {
         Fetch AI Response
       </Button>
 
-      {isError && <Alert description={error?.message} message="AI Error" type="error" />}
+      {isError && <Alert description={error?.message} title="AI Error" type="error" />}
 
       {data && <ReactJsonView src={JSON.parse(data) ?? {}} theme="twilight" />}
     </Space>

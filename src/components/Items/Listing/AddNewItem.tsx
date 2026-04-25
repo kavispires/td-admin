@@ -22,7 +22,7 @@ type NewItemModalProps = {
 function NewItemModal({ isModalOpen, handleCancel, newId }: NewItemModalProps) {
   const [newItem] = useState(cloneDeep({ ...PLACEHOLDER_ITEM, id: newId }));
   return (
-    <Modal footer={null} maskClosable={false} onCancel={handleCancel} open={isModalOpen} title="Add new item">
+    <Modal footer={null} onCancel={handleCancel} open={isModalOpen} title="Add new item">
       <ItemCard editMode item={newItem} />
     </Modal>
   );

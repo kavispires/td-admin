@@ -1,4 +1,4 @@
-import { useStore } from '@tanstack/react-store';
+import { useSelector } from '@tanstack/react-store';
 import { Store } from '@tanstack/store';
 
 // Define the type for the global state
@@ -17,4 +17,4 @@ export const updateHeaderHeight = (headerHeight: number) => {
   }));
 };
 
-export const useHeaderHeightState = () => useStore(headerHeightStore, () => headerHeightStore.state);
+export const useHeaderHeightState = () => useSelector(headerHeightStore, (state) => state);

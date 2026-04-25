@@ -46,9 +46,9 @@ export const EscapeRoomCard = ({ card, ...props }: EscapeRoomCardProps) => {
     default:
       return (
         <Alert
-          message={`Card type ${card} not implemented`}
           showIcon
           style={{ width: props.width }}
+          title={`Card type ${card} not implemented`}
           type="error"
         />
       );

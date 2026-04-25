@@ -34,7 +34,7 @@ export function ItemAttributionDrawer() {
   );
 
   return (
-    <Drawer onClose={onClose} open={!!queryParamsItemId} title={`Edit: ${activeItem.name.en}`} width="640px">
+    <Drawer onClose={onClose} open={!!queryParamsItemId} title={`Edit: ${activeItem.name.en}`} width={640}>
       <Flex gap={6}>
         <Flex gap={6} vertical>
           <ItemSprite item={activeItem} width={50} />

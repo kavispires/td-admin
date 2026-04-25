@@ -545,12 +545,13 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
                   const newId = generateNewCardId(value as 'ANNOUNCEMENT' | 'MISSION' | 'IMAGE' | 'WORD');
                   form.setFieldValue('id', newId);
                 }}
-              >
-                <Select.Option value="ANNOUNCEMENT">Announcement Card</Select.Option>
-                <Select.Option value="MISSION">Mission Card</Select.Option>
-                <Select.Option value="IMAGE">Image Card</Select.Option>
-                <Select.Option value="WORD">Word Card</Select.Option>
-              </Select>
+                options={[
+                  { value: 'ANNOUNCEMENT', label: 'Announcement Card' },
+                  { value: 'MISSION', label: 'Mission Card' },
+                  { value: 'IMAGE', label: 'Image Card' },
+                  { value: 'WORD', label: 'Word Card' },
+                ]}
+              />
             </Form.Item>
 
             {/* Card ID - Auto-generated based on card type */}
@@ -582,11 +583,12 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
 
             <Form.Item label="Background" name="background" rules={[{ required: true }]}>
               <AutoComplete
-                filterOption={(inputValue, option) =>
-                  option?.value.toLowerCase().includes(inputValue.toLowerCase()) ?? false
-                }
                 options={Object.keys(BACKGROUNDS).map((key) => ({ value: key, label: key }))}
                 placeholder="Select from list or enter custom background"
+                showSearch={{
+                  filterOption: (inputValue, option) =>
+                    option?.value.toLowerCase().includes(inputValue.toLowerCase()) ?? false,
+                }}
               />
             </Form.Item>
 
@@ -687,18 +689,24 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
                         />
                       </Form.Item>
                       <Form.Item label="Text Alignment" name="wordAlign">
-                        <Select placeholder="Select alignment">
-                          <Select.Option value="left">Left</Select.Option>
-                          <Select.Option value="center">Center</Select.Option>
-                          <Select.Option value="right">Right</Select.Option>
-                        </Select>
+                        <Select
+                          options={[
+                            { value: 'left', label: 'Left' },
+                            { value: 'center', label: 'Center' },
+                            { value: 'right', label: 'Right' },
+                          ]}
+                          placeholder="Select alignment"
+                        />
                       </Form.Item>
                       <Form.Item label="Text Size" name="wordSize">
-                        <Select placeholder="Select size">
-                          <Select.Option value="small">Small</Select.Option>
-                          <Select.Option value="medium">Medium</Select.Option>
-                          <Select.Option value="large">Large</Select.Option>
-                        </Select>
+                        <Select
+                          options={[
+                            { value: 'small', label: 'Small' },
+                            { value: 'medium', label: 'Medium' },
+                            { value: 'large', label: 'Large' },
+                          ]}
+                          placeholder="Select size"
+                        />
                       </Form.Item>
                       <Form.Item label="Text Color" name="wordColor">
                         <Input placeholder="CSS color (e.g., #FF0000, red)" type="color" />

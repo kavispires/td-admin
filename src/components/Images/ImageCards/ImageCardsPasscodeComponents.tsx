@@ -225,16 +225,17 @@ export function PasscodeSearch({ data, onFinish }: PasscodeSearchProps) {
   return (
     <AutoComplete
       allowClear={true}
-      filterOption={(inputValue, option) =>
-        String(option?.value ?? '')
-          .toUpperCase()
-          .indexOf(inputValue?.toUpperCase()) !== -1
-      }
       notFoundContent={typedText.length > 0 ? 'No items found' : 'Type to search...'}
-      onSearch={setTypedText}
       onSelect={onSelect}
       options={filteredOptions}
       placeholder={'Search...'}
+      showSearch={{
+        filterOption: (inputValue, option) =>
+          String(option?.value ?? '')
+            .toUpperCase()
+            .indexOf(inputValue?.toUpperCase()) !== -1,
+        onSearch: setTypedText,
+      }}
       style={{ width: 250 }}
     >
       <Input onPressEnter={handlePressEnter} />

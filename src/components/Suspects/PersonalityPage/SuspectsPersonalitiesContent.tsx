@@ -38,7 +38,7 @@ export function SuspectsPersonalitiesContent({ data }: ReturnType<typeof useSusp
                   {truncate(suspect.name.pt, { length: 10 })} ({suspect.age})
                 </Typography.Text>
                 {notEnoughData ? (
-                  <Alert message="N/A" type="warning" />
+                  <Alert title="N/A" type="warning" />
                 ) : (
                   <>
                     <Tooltip title={data.zodiacCrossReference[zodiacSign || 'N/A']?.description || ''}>

@@ -1,4 +1,4 @@
-import { useStore } from '@tanstack/react-store';
+import { useSelector } from '@tanstack/react-store';
 import { Store } from '@tanstack/store';
 
 // Define the type for the global state
@@ -18,4 +18,4 @@ export const togglePendingSave = (nextValue?: boolean) => {
   }));
 };
 
-export const useGlobalSaveState = () => useStore(globalSaveStore, () => globalSaveStore.state);
+export const useGlobalSaveState = () => useSelector(globalSaveStore, (state) => state);

@@ -16,7 +16,7 @@ export function DataLoadingWrapper({
   children,
 }: DataLoadingWrapperProps) {
   if (!isIdle && isLoading) {
-    return <Spin tip="Loading">{children}</Spin>;
+    return <Spin>{children}</Spin>;
   }
 
   if (error) {

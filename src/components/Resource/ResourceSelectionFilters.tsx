@@ -41,15 +41,10 @@ export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFil
         <Form.Item label="Resource" name="resourceName">
           <Select
             onChange={(e: string) => setCurrentResourceName(e)}
+            options={resourceNames.map((resourceName) => ({ value: resourceName, label: resourceName }))}
             style={{ minWidth: '150px' }}
             value={queryParams.get('resourceName')}
-          >
-            {resourceNames.map((resourceName) => (
-              <Select.Option key={resourceName} value={resourceName}>
-                {resourceName}
-              </Select.Option>
-            ))}
-          </Select>
+          />
         </Form.Item>
         <Form.Item label="Language" name="language">
           <LanguageToggle disabled={DUAL_LANGUAGE_RESOURCES.includes(currentResourceName)} />

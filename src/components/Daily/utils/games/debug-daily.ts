@@ -1,4 +1,4 @@
-import { useStore } from '@tanstack/react-store';
+import { useSelector } from '@tanstack/react-store';
 import { Store } from '@tanstack/store';
 
 // Define the type for debug features
@@ -113,9 +113,10 @@ export const resetAllDebugModes = () => {
 /**
  * Hook to access the debug state for all daily games
  */
-export const useDebugDailyState = () => useStore(debugDailyStore, () => debugDailyStore.state);
+export const useDebugDailyState = () => useSelector(debugDailyStore, (state) => state);
 
 /**
  * Hook to access debug state for a specific daily game
  */
-export const useDebugDailyGame = (gameId: DailyGameId) => useStore(debugDailyStore, (state) => state[gameId]);
+export const useDebugDailyGame = (gameId: DailyGameId) =>
+  useSelector(debugDailyStore, (state) => state[gameId]);

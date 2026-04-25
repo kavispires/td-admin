@@ -14,26 +14,24 @@ type FilterSelectProps = {
 };
 
 export function FilterSelect({ label, value, onChange, options, placeholder, minWidth }: FilterSelectProps) {
+  const selectOptions = [
+    ...(placeholder ? [{ value: '', label: placeholder, disabled: true }] : []),
+    ...options.map((entry) =>
+      typeof entry === 'object'
+        ? { value: entry.value, label: entry.label }
+        : { value: entry, label: String(entry) },
+    ),
+  ];
+
   return (
     <Form.Item label={label} style={{ marginBottom: 6 }} vertical>
-      <Select onChange={onChange} size="small" style={{ minWidth: minWidth ?? '150px' }} value={value}>
-        {placeholder && (
-          <Select.Option disabled value={''}>
-            {placeholder}
-          </Select.Option>
-        )}
-        {options.map((entry) =>
-          typeof entry === 'object' ? (
-            <Select.Option key={`${label}-${entry.value}`} value={entry.value}>
-              {entry.label}
-            </Select.Option>
-          ) : (
-            <Select.Option key={`${label}-${entry}`} value={entry}>
-              {entry}
-            </Select.Option>
-          ),
-        )}
-      </Select>
+      <Select
+        onChange={onChange}
+        options={selectOptions}
+        size="small"
+        style={{ minWidth: minWidth ?? '150px' }}
+        value={value}
+      />
     </Form.Item>
   );
 }
