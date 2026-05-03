@@ -1,0 +1,439 @@
+{
+  "room-tutorial-01": {
+    "id": "room-tutorial-01",
+    "title": "Tutorial I: O Básico da Comunicação",
+    "language": "pt",
+    "type": "tutorial",
+    "description": "Uma sala introdutória para ensinar os jogadores a comunicarem as propriedades visuais de suas cartas e entenderem o sistema de jogo.",
+    "doc": "Tutorial Room 1. V1: Muito Fácil (Pair). V2: Facinho (Size). V3: Meio Difícil (Alignment). V4: Meio Fácil (Alignment). V5: Muito Difícil (Pair).",
+    "appearance": {
+      "backgroundId": "bg_tabletop_wood",
+      "colorScheme": "light"
+    },
+    "difficulty": 1,
+    "updatedAt": 1715000000000,
+    "ready": true,
+    "versions": [
+      {
+        "versionId": 1,
+        "minCardsPerPlayer": 3,
+        "pools": {
+          "playable": [
+            "er-bp-action-complete",
+            "er-bp-action-help",
+            "er-bp-word-muito-pt",
+            "er-bp-word-facil-large-pt"
+          ],
+          "info": ["er-bp-surface-tut-obj-muitofacil-pt"],
+          "fillers": [
+            "er-bp-word-pouco-pt",
+            "er-bp-word-facil-small-pt",
+            "er-bp-word-dificil-center-pt",
+            "er-bp-word-quase-pt",
+            "er-bp-word-nem-pt"
+          ],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "ordered",
+          "cardIds": ["er-bp-word-muito-pt", "er-bp-word-facil-large-pt"],
+          "message": "Muito bem! O jogo começou."
+        }
+      },
+      {
+        "versionId": 2,
+        "minCardsPerPlayer": 3,
+        "pools": {
+          "playable": ["er-bp-action-complete", "er-bp-action-help", "er-bp-word-facil-small-pt"],
+          "info": ["er-bp-surface-tut-obj-facinho-pt"],
+          "fillers": [
+            "er-bp-word-facil-large-pt",
+            "er-bp-word-muito-pt",
+            "er-bp-word-pouco-pt",
+            "er-bp-word-dificil-small-pt",
+            "er-bp-word-nem-pt",
+            "er-bp-word-quase-pt"
+          ],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-word-facil-small-pt"],
+          "message": "Isso mesmo! O tamanho da fonte importa. Cartas menores podem significar diminutivos."
+        }
+      },
+      {
+        "versionId": 3,
+        "minCardsPerPlayer": 3,
+        "pools": {
+          "playable": ["er-bp-action-complete", "er-bp-action-help", "er-bp-word-dificil-center-pt"],
+          "info": ["er-bp-surface-tut-obj-meiodificil-pt"],
+          "fillers": [
+            "er-bp-word-dificil-large-pt",
+            "er-bp-word-facil-center-pt",
+            "er-bp-word-muito-pt",
+            "er-bp-word-quase-pt",
+            "er-bp-word-nem-pt"
+          ],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-word-dificil-center-pt"],
+          "message": "Exato! O alinhamento da carta muda o significado da palavra."
+        }
+      },
+      {
+        "versionId": 4,
+        "minCardsPerPlayer": 3,
+        "pools": {
+          "playable": ["er-bp-action-complete", "er-bp-action-help", "er-bp-word-facil-center-pt"],
+          "info": ["er-bp-surface-tut-obj-meiofacil-pt"],
+          "fillers": [
+            "er-bp-word-facil-large-pt",
+            "er-bp-word-dificil-center-pt",
+            "er-bp-word-pouco-pt",
+            "er-bp-word-nem-pt",
+            "er-bp-word-quase-pt"
+          ],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-word-facil-center-pt"],
+          "message": "Perfeito! A palavra 'fácil' perfeitamente centralizada era a resposta."
+        }
+      },
+      {
+        "versionId": 5,
+        "minCardsPerPlayer": 3,
+        "pools": {
+          "playable": [
+            "er-bp-action-complete",
+            "er-bp-action-help",
+            "er-bp-word-muito-pt",
+            "er-bp-word-dificil-large-pt"
+          ],
+          "info": ["er-bp-surface-tut-obj-muitodificil-pt"],
+          "fillers": [
+            "er-bp-word-pouco-pt",
+            "er-bp-word-facil-large-pt",
+            "er-bp-word-nem-pt",
+            "er-bp-word-quase-pt",
+            "er-bp-word-dificil-center-pt"
+          ],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "ordered",
+          "cardIds": ["er-bp-word-muito-pt", "er-bp-word-dificil-large-pt"],
+          "message": "Ótimo trabalho! A sequência exata das duas cartas resolveu o enigma."
+        }
+      }
+    ]
+  },
+  "room-tutorial-02": {
+    "id": "room-tutorial-02",
+    "title": "Tutorial II: Os Números",
+    "language": "pt",
+    "type": "tutorial",
+    "description": "Uma sala para testar o agrupamento de informações matemáticas e lógicas em equipe.",
+    "doc": "Tutorial Room 2. Teaches numerical logic communication. Uses the same pool of 6 numbers across all versions.",
+    "appearance": {
+      "backgroundId": "bg_tabletop_slate",
+      "colorScheme": "dark"
+    },
+    "difficulty": 1,
+    "updatedAt": 1715000000000,
+    "ready": true,
+    "versions": [
+      {
+        "versionId": 1,
+        "minCardsPerPlayer": 3,
+        "pools": {
+          "playable": ["er-bp-action-complete", "er-bp-action-help", "er-bp-number-1598"],
+          "info": ["er-bp-surface-tut2-obj-v1-en"],
+          "fillers": [
+            "er-bp-number-4183",
+            "er-bp-number-2751",
+            "er-bp-number-6934",
+            "er-bp-number-8302",
+            "er-bp-number-5247"
+          ],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-number-1598"],
+          "message": "Exato! Em ordem decrescente, 1598 é o último."
+        }
+      },
+      {
+        "versionId": 2,
+        "minCardsPerPlayer": 3,
+        "pools": {
+          "playable": ["er-bp-action-complete", "er-bp-action-help", "er-bp-number-6934"],
+          "info": ["er-bp-surface-tut2-obj-v2-en"],
+          "fillers": [
+            "er-bp-number-4183",
+            "er-bp-number-2751",
+            "er-bp-number-8302",
+            "er-bp-number-1598",
+            "er-bp-number-5247"
+          ],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-number-6934"],
+          "message": "Correto! 6934 é o penúltimo na ordem crescente."
+        }
+      },
+      {
+        "versionId": 3,
+        "minCardsPerPlayer": 3,
+        "pools": {
+          "playable": ["er-bp-action-complete", "er-bp-action-help", "er-bp-number-5247"],
+          "info": ["er-bp-surface-tut2-obj-v3-en"],
+          "fillers": [
+            "er-bp-number-4183",
+            "er-bp-number-2751",
+            "er-bp-number-6934",
+            "er-bp-number-8302",
+            "er-bp-number-1598"
+          ],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-number-5247"],
+          "message": "Perfeito! 5247 é o terceiro número quando lidos do maior para o menor."
+        }
+      },
+      {
+        "versionId": 4,
+        "minCardsPerPlayer": 3,
+        "pools": {
+          "playable": ["er-bp-action-complete", "er-bp-action-help", "er-bp-number-6934"],
+          "info": ["er-bp-surface-tut2-obj-v4-en"],
+          "fillers": [
+            "er-bp-number-4183",
+            "er-bp-number-2751",
+            "er-bp-number-8302",
+            "er-bp-number-1598",
+            "er-bp-number-5247"
+          ],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-number-6934"],
+          "message": "Matemática pura. 4183 + 2751 = 6934."
+        }
+      },
+      {
+        "versionId": 5,
+        "minCardsPerPlayer": 3,
+        "pools": {
+          "playable": ["er-bp-action-complete", "er-bp-action-help", "er-bp-number-4183"],
+          "info": ["er-bp-surface-tut2-obj-v5-en"],
+          "fillers": [
+            "er-bp-number-2751",
+            "er-bp-number-6934",
+            "er-bp-number-8302",
+            "er-bp-number-1598",
+            "er-bp-number-5247"
+          ],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-number-4183"],
+          "message": "Belo trabalho em equipe! O segundo dígito '1' coloca 4183 em primeiro lugar."
+        }
+      }
+    ]
+  },
+  "room-tutorial-03": {
+    "id": "room-tutorial-03",
+    "title": "Tutorial III: O Intruso",
+    "language": "pt",
+    "type": "tutorial",
+    "description": "Uma sala de categorização. O verdadeiro desafio não é o que a carta mostra, mas como ela se diferencia das outras.",
+    "doc": "Tutorial Room 3. Categorization logic. Uses the strict playable (core conflict) vs filler (padding) separation.",
+    "appearance": {
+      "backgroundId": "bg_tabletop_paper",
+      "colorScheme": "light"
+    },
+    "difficulty": 1,
+    "updatedAt": 1715000000000,
+    "ready": true,
+    "versions": [
+      {
+        "versionId": 1,
+        "minCardsPerPlayer": 4,
+        "pools": {
+          "playable": [
+            "er-bp-action-complete",
+            "er-bp-action-help",
+            "er-bp-sprite-penguin",
+            "er-bp-sprite-ostrich",
+            "er-bp-sprite-eagle"
+          ],
+          "info": ["er-bp-surface-tut3-obj-v1-pt"],
+          "fillers": ["er-bp-sprite-bat", "er-bp-sprite-airplane", "er-bp-sprite-whale"],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-sprite-penguin"],
+          "message": "Exato! O pinguim tem asas, mas 'voa' debaixo d'água."
+        }
+      },
+      {
+        "versionId": 2,
+        "minCardsPerPlayer": 4,
+        "pools": {
+          "playable": [
+            "er-bp-action-complete",
+            "er-bp-action-help",
+            "er-bp-sprite-bat",
+            "er-bp-sprite-eagle",
+            "er-bp-sprite-whale"
+          ],
+          "info": ["er-bp-surface-tut3-obj-v2-pt"],
+          "fillers": ["er-bp-sprite-airplane", "er-bp-sprite-penguin", "er-bp-sprite-ostrich"],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-sprite-bat"],
+          "message": "Correto! Apesar das asas, o morcego é o único mamífero que levanta voo."
+        }
+      },
+      {
+        "versionId": 3,
+        "minCardsPerPlayer": 4,
+        "pools": {
+          "playable": [
+            "er-bp-action-complete",
+            "er-bp-action-help",
+            "er-bp-sprite-airplane",
+            "er-bp-sprite-eagle",
+            "er-bp-sprite-bat"
+          ],
+          "info": ["er-bp-surface-tut3-obj-v3-pt"],
+          "fillers": ["er-bp-sprite-penguin", "er-bp-sprite-ostrich", "er-bp-sprite-whale"],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-sprite-airplane"],
+          "message": "Perfeito. O avião cruza os céus, mas é a única máquina entre os animais."
+        }
+      },
+      {
+        "versionId": 4,
+        "minCardsPerPlayer": 4,
+        "pools": {
+          "playable": [
+            "er-bp-action-complete",
+            "er-bp-action-help",
+            "er-bp-sprite-whale",
+            "er-bp-sprite-penguin",
+            "er-bp-sprite-bat"
+          ],
+          "info": ["er-bp-surface-tut3-obj-v4-pt"],
+          "fillers": ["er-bp-sprite-airplane", "er-bp-sprite-eagle", "er-bp-sprite-ostrich"],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-sprite-whale"],
+          "message": "Isso mesmo! A baleia é um mamífero imenso que passa a vida inteira nadando."
+        }
+      },
+      {
+        "versionId": 5,
+        "minCardsPerPlayer": 4,
+        "pools": {
+          "playable": [
+            "er-bp-action-complete",
+            "er-bp-action-help",
+            "er-bp-sprite-ostrich",
+            "er-bp-sprite-penguin",
+            "er-bp-sprite-eagle"
+          ],
+          "info": ["er-bp-surface-tut3-obj-v5-pt"],
+          "fillers": ["er-bp-sprite-bat", "er-bp-sprite-airplane", "er-bp-sprite-whale"],
+          "missions": [
+            "er-bp-mission-tut-rules-1-pt",
+            "er-bp-mission-tut-rules-2-pt",
+            "er-bp-mission-tut-rules-3-pt"
+          ]
+        },
+        "solution": {
+          "type": "all",
+          "cardIds": ["er-bp-sprite-ostrich"],
+          "message": "Correto! O avestruz é pesado demais para voar, mas compensa na corrida."
+        }
+      }
+    ]
+  }
+}

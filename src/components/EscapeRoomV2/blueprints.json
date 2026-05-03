@@ -1,0 +1,452 @@
+{
+  "er-bp-action-complete": {
+    "id": "er-bp-action-complete",
+    "type": "action",
+    "doc": "Global Complete Mission Button. Triggers the validation loop.",
+    "isPlayable": true,
+    "updatedAt": 1715000000000,
+    "data": {
+      "action": "COMPLETE_MISSION",
+      "title": "Completar Missão",
+      "description": "Quando vocês acharem que uma missão está completa, use esta carta."
+    }
+  },
+  "er-bp-action-help": {
+    "id": "er-bp-action-help",
+    "type": "action",
+    "doc": "Global Help Button. Shows card count and returns invalid picks to hands.",
+    "isPlayable": true,
+    "updatedAt": 1715000000000,
+    "data": {
+      "action": "HELP",
+      "title": "Ajuda",
+      "description": "Quando usada, o jogo dirá quantas cartas são necessárias para completar a missão e se alguma carta está errada. Só pode ser usada uma vez por jogo."
+    }
+  },
+  "er-bp-mission-tut-rules-1-pt": {
+    "id": "er-bp-mission-tut-rules-1-pt",
+    "type": "mission",
+    "doc": "Generic tutorial rules 1/3: Communication & Secrecy. Used in all tutorial rooms.",
+    "isPlayable": false,
+    "updatedAt": 1715000000000,
+    "data": {
+      "title": "Regras Básicas 1/3",
+      "order": 1,
+      "markdownText": "Entramos em um **Escape Room**. Cada um de nós tem acesso a um pedaço do quebra-cabeça com as cartas que temos em mãos. **A comunicação é a chave para sobreviver**."
+    }
+  },
+  "er-bp-mission-tut-rules-2-pt": {
+    "id": "er-bp-mission-tut-rules-2-pt",
+    "type": "mission",
+    "doc": "Generic tutorial rules 2/3: Playing mechanics and the Heart system.",
+    "isPlayable": false,
+    "updatedAt": 1715000000000,
+    "data": {
+      "title": "Regras Básicas 2/3",
+      "order": 2,
+      "markdownText": "Sempre leia as cartas Missão quando você começa uma sala. Use as cartas corretas para resolver a missão. Cuidado: **uma vez usada, a carta não volta**. Vocês têm 3 corações. Errar custa 1 vida."
+    }
+  },
+  "er-bp-mission-tut-rules-3-pt": {
+    "id": "er-bp-mission-tut-rules-3-pt",
+    "type": "mission",
+    "doc": "Generic tutorial rules 3/3: Validation trigger and the hook to read the Objective card.",
+    "isPlayable": false,
+    "updatedAt": 1715000000000,
+    "data": {
+      "title": "Regras Básicas 3/3",
+      "order": 3,
+      "markdownText": "Quando tiverem certeza, quem tiver a carta **Completar Missão** deve usá-la para validar a sala. Para começar este tutorial talvez quem tiver a carta **Objetivo**, deveria compartilhar o que sabe."
+    }
+  },
+  "er-bp-surface-tut-obj-muitofacil-pt": {
+    "id": "er-bp-surface-tut-obj-muitofacil-pt",
+    "type": "surface",
+    "doc": "Objective card for Tutorial 1 Version 1. Requires pair: 'muito' + 'fácil'.",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a combinação correta para:\n\n**MUITO FÁCIL**"
+    }
+  },
+  "er-bp-surface-tut-obj-facinho-pt": {
+    "id": "er-bp-surface-tut-obj-facinho-pt",
+    "type": "surface",
+    "doc": "Objective card for Tutorial 1 Version 2. Requires single card: small 'fácil'.",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta exata para:\n\n**FACINHO**"
+    }
+  },
+  "er-bp-surface-tut-obj-meiodificil-pt": {
+    "id": "er-bp-surface-tut-obj-meiodificil-pt",
+    "type": "surface",
+    "doc": "Objective card for Tutorial 1 Version 3. Requires 'meio' graphic + 'difícil'.",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a combinação exata para:\n\n**MEIO DIFÍCIL**"
+    }
+  },
+  "er-bp-surface-tut-obj-meiofacil-pt": {
+    "id": "er-bp-surface-tut-obj-meiofacil-pt",
+    "type": "surface",
+    "doc": "Objective card for V4. Requires 'meio' graphic + 'fácil'.",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a combinação exata para:\n\n**MEIO FÁCIL**"
+    }
+  },
+  "er-bp-surface-tut-obj-muitodificil-pt": {
+    "id": "er-bp-surface-tut-obj-muitodificil-pt",
+    "type": "surface",
+    "doc": "Objective card for V5. Requires pair: 'muito' + 'difícil'.",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a combinação correta para:\n\n**MUITO DIFÍCIL**"
+    }
+  },
+  "er-bp-word-muito-pt": {
+    "id": "er-bp-word-muito-pt",
+    "type": "word",
+    "doc": "Word: muito (Red)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "muito",
+      "size": "medium",
+      "alignment": "center",
+      "color": "#D32F2F"
+    }
+  },
+  "er-bp-word-pouco-pt": {
+    "id": "er-bp-word-pouco-pt",
+    "type": "word",
+    "doc": "Word: pouco (Blue)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "pouco",
+      "size": "medium",
+      "alignment": "center",
+      "color": "#1976D2"
+    }
+  },
+  "er-bp-word-facil-large-pt": {
+    "id": "er-bp-word-facil-large-pt",
+    "type": "word",
+    "doc": "Word: fácil (Large, Green)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "fácil",
+      "size": "large",
+      "alignment": "center",
+      "color": "#388E3C"
+    }
+  },
+  "er-bp-word-facil-small-pt": {
+    "id": "er-bp-word-facil-small-pt",
+    "type": "word",
+    "doc": "Word: fácil (Small, Yellow)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "fácil",
+      "size": "small",
+      "alignment": "center",
+      "color": "#FBC02D"
+    }
+  },
+  "er-bp-word-dificil-large-pt": {
+    "id": "er-bp-word-dificil-large-pt",
+    "type": "word",
+    "doc": "Word: difícil (Large, Purple)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "difícil",
+      "size": "large",
+      "alignment": "center",
+      "color": "#8E24AA"
+    }
+  },
+  "er-bp-word-dificil-small-pt": {
+    "id": "er-bp-word-dificil-small-pt",
+    "type": "word",
+    "doc": "Word: difícil (Small, Orange)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "difícil",
+      "size": "small",
+      "alignment": "center",
+      "color": "#F57C00"
+    }
+  },
+  "er-bp-word-quase-pt": {
+    "id": "er-bp-word-quase-pt",
+    "type": "word",
+    "doc": "Word: quase (Teal)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "quase",
+      "size": "medium",
+      "alignment": "center",
+      "color": "#0097A7"
+    }
+  },
+  "er-bp-word-nem-pt": {
+    "id": "er-bp-word-nem-pt",
+    "type": "word",
+    "doc": "Word: nem (Grey)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "nem",
+      "size": "medium",
+      "alignment": "center",
+      "color": "#616161"
+    }
+  },
+  "er-bp-surface-tut2-obj-v1-en": {
+    "id": "er-bp-surface-tut2-obj-v1-en",
+    "type": "surface",
+    "doc": "Objective card for Tut 2 V1. Answer: 1598",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta única contendo:\n\n**O último número em ordem crescente reversa.**"
+    }
+  },
+  "er-bp-surface-tut2-obj-v2-en": {
+    "id": "er-bp-surface-tut2-obj-v2-en",
+    "type": "surface",
+    "doc": "Objective card for Tut 2 V2. Answer: 6934",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta única contendo:\n\n**O penúltimo número em ordem crescente.**"
+    }
+  },
+  "er-bp-surface-tut2-obj-v3-en": {
+    "id": "er-bp-surface-tut2-obj-v3-en",
+    "type": "surface",
+    "doc": "Objective card for Tut 2 V3. Answer: 5247",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta única contendo:\n\n**O terceiro número em ordem decrescente.**"
+    }
+  },
+  "er-bp-surface-tut2-obj-v4-en": {
+    "id": "er-bp-surface-tut2-obj-v4-en",
+    "type": "surface",
+    "doc": "Objective card for Tut 2 V4. Answer: 6934",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta única contendo:\n\n**O número que é a soma de outros dois números.**"
+    }
+  },
+  "er-bp-surface-tut2-obj-v5-en": {
+    "id": "er-bp-surface-tut2-obj-v5-en",
+    "type": "surface",
+    "doc": "Objective card for Tut 2 V5. Answer: 4183",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta única contendo:\n\n**O primeiro número se vocês os ordenarem pelo segundo dígito (da esquerda para a direita).**"
+    }
+  },
+  "er-bp-number-4183": {
+    "id": "er-bp-number-4183",
+    "type": "number",
+    "doc": "Number: 4183 (Purple)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "4183",
+      "size": "large",
+      "alignment": "center",
+      "color": "#8E24AA"
+    }
+  },
+  "er-bp-number-2751": {
+    "id": "er-bp-number-2751",
+    "type": "number",
+    "doc": "Number: 2751 (Orange)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "2751",
+      "size": "large",
+      "alignment": "center",
+      "color": "#F57C00"
+    }
+  },
+  "er-bp-number-6934": {
+    "id": "er-bp-number-6934",
+    "type": "number",
+    "doc": "Number: 6934 (Blue)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "6934",
+      "size": "large",
+      "alignment": "center",
+      "color": "#1976D2"
+    }
+  },
+  "er-bp-number-8302": {
+    "id": "er-bp-number-8302",
+    "type": "number",
+    "doc": "Number: 8302 (Green)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "8302",
+      "size": "large",
+      "alignment": "center",
+      "color": "#388E3C"
+    }
+  },
+  "er-bp-number-1598": {
+    "id": "er-bp-number-1598",
+    "type": "number",
+    "doc": "Number: 1598 (Red)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "1598",
+      "size": "large",
+      "alignment": "center",
+      "color": "#D32F2F"
+    }
+  },
+  "er-bp-number-5247": {
+    "id": "er-bp-number-5247",
+    "type": "number",
+    "doc": "Number: 5247 (Teal)",
+    "updatedAt": 1715000000000,
+    "data": {
+      "text": "5247",
+      "size": "large",
+      "alignment": "center",
+      "color": "#0097A7"
+    }
+  },
+  "er-bp-surface-tut3-obj-v1-pt": {
+    "id": "er-bp-surface-tut3-obj-v1-pt",
+    "type": "surface",
+    "doc": "Objective V1: Pinguim. Rule: Bird, has wings, doesn't fly, lives in cold.",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta única que representa:\n\n**O único animal que tem asas, mas é feito para nadar no gelo e não para voar.**"
+    }
+  },
+  "er-bp-surface-tut3-obj-v2-pt": {
+    "id": "er-bp-surface-tut3-obj-v2-pt",
+    "type": "surface",
+    "doc": "Objective V2: Morcego. Rule: Mammal that flies.",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta única que representa:\n\n**O único mamífero desta lista que é capaz de voar de verdade.**"
+    }
+  },
+  "er-bp-surface-tut3-obj-v3-pt": {
+    "id": "er-bp-surface-tut3-obj-v3-pt",
+    "type": "surface",
+    "doc": "Objective V3: Avião. Rule: Flies, but is not alive.",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta única que representa:\n\n**O grande intruso: ele cruza os céus como os outros, mas não tem vida.**"
+    }
+  },
+  "er-bp-surface-tut3-obj-v4-pt": {
+    "id": "er-bp-surface-tut3-obj-v4-pt",
+    "type": "surface",
+    "doc": "Objective V4: Baleia. Rule: Mammal, swims.",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta única que representa:\n\n**O maior dos mamíferos, que domina a água ao invés do ar.**"
+    }
+  },
+  "er-bp-surface-tut3-obj-v5-pt": {
+    "id": "er-bp-surface-tut3-obj-v5-pt",
+    "type": "surface",
+    "doc": "Objective V5: Avestruz. Rule: Bird, runs, doesn't fly, savanna.",
+    "updatedAt": 1715000000000,
+    "data": {
+      "surfaceType": "panel",
+      "markdownText": "A solução para essa missão é a carta única que representa:\n\n**A ave gigante que prefere correr pelas planícies a tentar tirar os pés do chão.**"
+    }
+  },
+  "er-bp-sprite-penguin": {
+    "id": "er-bp-sprite-penguin",
+    "type": "sprite",
+    "doc": "Sprite: Pinguim",
+    "updatedAt": 1715000000000,
+    "data": {
+      "spriteId": "icon_penguin",
+      "name": "Pinguim",
+      "size": "large",
+      "alignment": "center"
+    }
+  },
+  "er-bp-sprite-bat": {
+    "id": "er-bp-sprite-bat",
+    "type": "sprite",
+    "doc": "Sprite: Morcego",
+    "updatedAt": 1715000000000,
+    "data": {
+      "spriteId": "icon_bat",
+      "name": "Morcego",
+      "size": "large",
+      "alignment": "center"
+    }
+  },
+  "er-bp-sprite-airplane": {
+    "id": "er-bp-sprite-airplane",
+    "type": "sprite",
+    "doc": "Sprite: Avião",
+    "updatedAt": 1715000000000,
+    "data": {
+      "spriteId": "icon_airplane",
+      "name": "Avião",
+      "size": "large",
+      "alignment": "center"
+    }
+  },
+  "er-bp-sprite-whale": {
+    "id": "er-bp-sprite-whale",
+    "type": "sprite",
+    "doc": "Sprite: Baleia",
+    "updatedAt": 1715000000000,
+    "data": {
+      "spriteId": "icon_whale",
+      "name": "Baleia",
+      "size": "large",
+      "alignment": "center"
+    }
+  },
+  "er-bp-sprite-ostrich": {
+    "id": "er-bp-sprite-ostrich",
+    "type": "sprite",
+    "doc": "Sprite: Avestruz",
+    "updatedAt": 1715000000000,
+    "data": {
+      "spriteId": "icon_ostrich",
+      "name": "Avestruz",
+      "size": "large",
+      "alignment": "center"
+    }
+  },
+  "er-bp-sprite-eagle": {
+    "id": "er-bp-sprite-eagle",
+    "type": "sprite",
+    "doc": "Sprite: Águia",
+    "updatedAt": 1715000000000,
+    "data": {
+      "spriteId": "icon_eagle",
+      "name": "Águia",
+      "size": "large",
+      "alignment": "center"
+    }
+  }
+}
