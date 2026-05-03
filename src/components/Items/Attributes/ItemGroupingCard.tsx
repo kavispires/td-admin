@@ -146,10 +146,11 @@ export function ItemGroupingCard() {
 function ItemGroupAttributeNavigationButtons() {
   const { queryParams, addParam } = useQueryParams();
   const { attributesList } = useItemsAttributeValuesContext();
-  const currentAttribute = queryParams.get('attribute');
+  const currentAttribute = queryParams.get('attribute') ?? 'ali';
 
   const onPreviousAttribute = () => {
     const currentIndex = attributesList.findIndex((a) => a.id === currentAttribute);
+    if (currentIndex <= 0) return; // Not found or already at first
     const previousAttribute = attributesList[currentIndex - 1];
     if (previousAttribute) {
       addParam('attribute', previousAttribute.id);
@@ -158,6 +159,7 @@ function ItemGroupAttributeNavigationButtons() {
 
   const onNextAttribute = () => {
     const currentIndex = attributesList.findIndex((a) => a.id === currentAttribute);
+    if (currentIndex === -1 || currentIndex >= attributesList.length - 1) return; // Not found or already at last
     const nextAttribute = attributesList[currentIndex + 1];
     if (nextAttribute) {
       addParam('attribute', nextAttribute.id);

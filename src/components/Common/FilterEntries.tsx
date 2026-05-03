@@ -24,7 +24,7 @@ export function FilterSelect({ label, value, onChange, options, placeholder, min
   ];
 
   return (
-    <Form.Item label={label} style={{ marginBottom: 6 }} vertical>
+    <Form.Item label={label} layout="vertical" style={{ marginBottom: 6 }}>
       <Select
         onChange={onChange}
         options={selectOptions}
@@ -47,7 +47,7 @@ type FilterNumberProps = {
 
 export function FilterNumber({ label, value, onChange, min = 0, max = 100, step }: FilterNumberProps) {
   return (
-    <Form.Item label={label} style={{ marginBottom: 6 }} vertical>
+    <Form.Item label={label} layout="vertical" style={{ marginBottom: 6 }}>
       <InputNumber
         max={max}
         min={min}

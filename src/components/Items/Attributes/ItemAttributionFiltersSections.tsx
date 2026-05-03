@@ -144,14 +144,12 @@ export function ItemAttributionGroupingFilters() {
         options={options}
         value={queryParams.get('attribute') || 'ali'}
       />
-
       <FilterSelect
         label="Scope"
         onChange={(v) => addParam('scope', v)}
         options={[{ value: 'unset', label: 'Unset' }, ...ATTRIBUTE_GROUP_VALUES]}
         value={queryParams.get('scope') || 'unset'}
       />
-
       <FilterSelect
         label="Results per page"
         onChange={(v) => addParam('pageSize', v)}
