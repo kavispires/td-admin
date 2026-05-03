@@ -243,7 +243,7 @@ function prepareFileForDownload(
       updatedAt: itemAttributeValues.updatedAt,
       signature: constructItemSignature(itemAttributeValues, attributes, {
         delimiter: ':',
-        // TODO: it should return attributes by key, not priority
+        sortBy: 'id',
       }),
     };
 

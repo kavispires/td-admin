@@ -32,9 +32,7 @@ export function ItemsDiscSetExpandedRow({ disc, addEntryToUpdate }: ItemsDiscSet
         <Typography.Paragraph>Add Item</Typography.Paragraph>
         <ItemsTypeahead onFinish={onUpdate} />
       </div>
-
-      <InspirationSample excludeList={disc.itemsIds} onSelect={onUpdate} />
-
+      <InspirationSample excludeList={disc.itemsIds} onSelect={onUpdate} sampleQuantity={64} />
       <PasteIds onUpdateBatch={onUpdateBatch} />
     </Flex>
   );

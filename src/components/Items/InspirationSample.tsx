@@ -19,12 +19,21 @@ type InspirationSampleProps = {
    * Initial quantity of items to sample.
    */
   initialQuantity?: number;
+  /**
+   * Quantity of items to sample when the "Get" button is clicked.
+   */
+  sampleQuantity?: number;
 };
 
 /**
  * InspirationSample component to display a sample of items for inspiration.
  */
-export function InspirationSample({ onSelect, excludeList, initialQuantity = 24 }: InspirationSampleProps) {
+export function InspirationSample({
+  onSelect,
+  excludeList,
+  initialQuantity = 24,
+  sampleQuantity = 24,
+}: InspirationSampleProps) {
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
   const [usedSampleIds, setUsedSampleIds] = useState<string[]>([...excludeList]);
 
@@ -36,7 +45,7 @@ export function InspirationSample({ onSelect, excludeList, initialQuantity = 24 
   const [sampledItems, setSampledItems] = useState<string[]>(getSample(initialQuantity));
 
   const onSample = () => {
-    const newSample = getSample(24);
+    const newSample = getSample(sampleQuantity);
     setSampledItems(newSample);
     setUsedSampleIds([...usedSampleIds, ...newSample]);
   };

@@ -64,6 +64,7 @@ export function OrphanItems({ data, addEntryToUpdate }: OrphanItemsProps) {
   const onlyOrphans = is('onlyOrphans');
 
   const { page, pagination } = useGridPagination({
+    prefix: 'orphans',
     data: onlyOrphans ? orphans : Object.values(itemsTypeaheadQuery.data),
     defaultPageSize: 64,
     resetter: onlyOrphans ? 'orphans' : 'all',
