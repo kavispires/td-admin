@@ -6,17 +6,17 @@ import { Store } from '@tanstack/store';
 type DebugDailyState = {
   'aqui-o': boolean;
   'arte-ruim': boolean;
-  artista: boolean;
-  'comunicacao-alienigena': boolean;
-  'controle-de-estoque': boolean;
-  espionagem: boolean;
+  picaco: boolean; // Renamed from 'artista'
+  alienado: boolean; // Renamed from 'comunicacao-alienigena'
+  estoquista: boolean; // Renamed from 'controle-de-estoque'
+  investigacao: boolean; // Renamed from 'espionagem'
   filmaco: boolean;
   organiku: boolean;
   palavreado: boolean;
-  'portais-magicos': boolean;
+  portais: boolean; // Renamed from 'portais-magicos'
   quartetos: boolean;
   'ta-na-cara': boolean;
-  'teoria-de-conjuntos': boolean;
+  conjuntos: boolean; // Renamed from 'teoria-de-conjuntos'
 };
 
 // Type for identifying each daily game
@@ -30,17 +30,17 @@ const loadInitialState = (): DebugDailyState => {
   const defaultState: DebugDailyState = {
     'aqui-o': false,
     'arte-ruim': false,
-    artista: false,
-    'comunicacao-alienigena': false,
-    'controle-de-estoque': false,
-    espionagem: false,
+    picaco: false,
+    alienado: false,
+    estoquista: false,
+    investigacao: false,
     filmaco: false,
     organiku: false,
     palavreado: false,
-    'portais-magicos': false,
+    portais: false,
     quartetos: false,
     'ta-na-cara': false,
-    'teoria-de-conjuntos': false,
+    conjuntos: false,
   };
 
   try {
@@ -61,17 +61,17 @@ debugDailyStore.subscribe(() => {
     const stateToSave: DebugDailyState = {
       'aqui-o': debugDailyStore.state['aqui-o'],
       'arte-ruim': debugDailyStore.state['arte-ruim'],
-      artista: debugDailyStore.state.artista,
-      'comunicacao-alienigena': debugDailyStore.state['comunicacao-alienigena'],
-      'controle-de-estoque': debugDailyStore.state['controle-de-estoque'],
-      espionagem: debugDailyStore.state.espionagem,
+      picaco: debugDailyStore.state.picaco,
+      alienado: debugDailyStore.state.alienado,
+      estoquista: debugDailyStore.state.estoquista,
+      investigacao: debugDailyStore.state.investigacao,
       filmaco: debugDailyStore.state.filmaco,
       organiku: debugDailyStore.state.organiku,
       palavreado: debugDailyStore.state.palavreado,
-      'portais-magicos': debugDailyStore.state['portais-magicos'],
+      portais: debugDailyStore.state.portais,
       quartetos: debugDailyStore.state.quartetos,
       'ta-na-cara': debugDailyStore.state['ta-na-cara'],
-      'teoria-de-conjuntos': debugDailyStore.state['teoria-de-conjuntos'],
+      conjuntos: debugDailyStore.state.conjuntos,
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
   } catch {
@@ -96,17 +96,17 @@ export const resetAllDebugModes = () => {
   debugDailyStore.setState(() => ({
     'aqui-o': false,
     'arte-ruim': false,
-    artista: false,
-    'comunicacao-alienigena': false,
-    'controle-de-estoque': false,
-    espionagem: false,
+    picaco: false,
+    alienado: false,
+    estoquista: false,
+    investigacao: false,
     filmaco: false,
     organiku: false,
     palavreado: false,
-    'portais-magicos': false,
+    portais: false,
     quartetos: false,
     'ta-na-cara': false,
-    'teoria-de-conjuntos': false,
+    conjuntos: false,
   }));
 };
 

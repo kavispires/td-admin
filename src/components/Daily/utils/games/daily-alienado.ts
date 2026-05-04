@@ -23,11 +23,11 @@ type DailyAlienGameRequest = {
   itemId: string;
 };
 
-export type DailyComunicacaoAlienigenaEntry = {
+export type DailyAlienadoEntry = {
   id: DateKey;
   setId: string;
   number: number;
-  type: 'comunicacao-alienigena';
+  type: 'alienado';
   attributes: DailyAlienGameAttribute[];
   requests: DailyAlienGameRequest[];
   solution: string;
@@ -35,7 +35,7 @@ export type DailyComunicacaoAlienigenaEntry = {
   valid?: boolean;
 };
 
-type ProposedDailyComunicacaoAlienigenaEntry = {
+type ProposedDailyAlienadoEntry = {
   setId: string;
   attributes: DailyAlienGameAttribute[];
   requests: DailyAlienGameRequest[];
@@ -45,16 +45,13 @@ type ProposedDailyComunicacaoAlienigenaEntry = {
   valid?: boolean;
 };
 
-export const useDailyComunicacaoAlienigenaGames = (
+export const useDailyAlienadoGames = (
   enabled: boolean,
   _queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
 ) => {
-  const [comunicacaoAlienigenaHistory] = useParsedHistory(
-    DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA,
-    dailyHistory,
-  );
+  const [alienadoHistory] = useParsedHistory(DAILY_GAMES_KEYS.ALIENADO, dailyHistory);
 
   const tdrItemsQuery = useTDResource<Item>('items', { enabled });
   const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes', { enabled });
@@ -66,7 +63,7 @@ export const useDailyComunicacaoAlienigenaGames = (
   const entries = useMemo(() => {
     if (
       !enabled ||
-      !comunicacaoAlienigenaHistory ||
+      !alienadoHistory ||
       !tdrAttributesQuery.isSuccess ||
       !tdrItemsAttributesValuesQuery.isSuccess ||
       !tdrItemsQuery.isSuccess
@@ -74,9 +71,9 @@ export const useDailyComunicacaoAlienigenaGames = (
       return {};
     }
 
-    return buildDailyComunicacaoAlienigenaGames(
+    return buildDailyAlienadoGames(
       batchSize,
-      comunicacaoAlienigenaHistory,
+      alienadoHistory,
       tdrAttributesQuery.data,
       tdrItemsAttributesValuesQuery.data,
       tdrItemsQuery.data,
@@ -84,8 +81,8 @@ export const useDailyComunicacaoAlienigenaGames = (
   }, [
     enabled,
     batchSize,
-    comunicacaoAlienigenaHistory,
-    comunicacaoAlienigenaHistory,
+    alienadoHistory,
+    alienadoHistory,
     tdrAttributesQuery.dataUpdatedAt,
     tdrItemsAttributesValuesQuery.dataUpdatedAt,
     tdrItemsQuery.dataUpdatedAt,
@@ -98,14 +95,14 @@ export const useDailyComunicacaoAlienigenaGames = (
   };
 };
 
-export const buildDailyComunicacaoAlienigenaGames = (
+export const buildDailyAlienadoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   attributes: Dictionary<ItemAttribute>,
   attributeValues: Dictionary<ItemAttributesValues>,
   items: Dictionary<Item>,
 ) => {
-  console.count('Creating Comunicacao Alienigena...');
+  console.count('Creating Alienado...');
   let lastDate = history.latestDate;
 
   const allAttributes = values(attributes);
@@ -114,10 +111,10 @@ export const buildDailyComunicacaoAlienigenaGames = (
     (i) => i.complete && items?.[i.id]?.nsfw !== true,
   );
 
-  const preliminaryEntries: Dictionary<ProposedDailyComunicacaoAlienigenaEntry> = {};
+  const preliminaryEntries: Dictionary<ProposedDailyAlienadoEntry> = {};
   let tries = 0;
   while (keys(preliminaryEntries).length < batchSize + 5 && tries < ATTEMPTS_THRESHOLD) {
-    const entry = generateComunicacaoAlienigenaGame(allAttributes, allAttributesValues);
+    const entry = generateAlienadoGame(allAttributes, allAttributesValues);
     if (entry.valid && !preliminaryEntries[entry.setId] && !history.used.includes(entry.setId)) {
       preliminaryEntries[entry.setId] = entry;
     }
@@ -130,10 +127,10 @@ export const buildDailyComunicacaoAlienigenaGames = (
   console.log(`🔆 Generating this batch took ${tries} tries`);
 
   if (tries >= 100) {
-    addWarning('comunicacao-alienigena', 'Not enough valid comunicacao alienigena games (over 100 attempts)');
+    addWarning('alienado', 'Not enough valid alienado games (over 100 attempts)');
   }
 
-  const entries: Dictionary<DailyComunicacaoAlienigenaEntry> = {};
+  const entries: Dictionary<DailyAlienadoEntry> = {};
   Object.values(preliminaryEntries).forEach((entry, index) => {
     const id = getNextDay(lastDate);
     lastDate = id;
@@ -149,7 +146,7 @@ export const buildDailyComunicacaoAlienigenaGames = (
     entries[id] = {
       id,
       number: history.latestNumber + index + 1,
-      type: 'comunicacao-alienigena',
+      type: 'alienado',
       setId: entry.setId,
       attributes: entry.attributes,
       requests: entry.requests,
@@ -161,10 +158,10 @@ export const buildDailyComunicacaoAlienigenaGames = (
   return entries;
 };
 
-const generateComunicacaoAlienigenaGame = (
+const generateAlienadoGame = (
   attributes: ItemAttribute[],
   attributeValues: ItemAttributesValues[],
-): ProposedDailyComunicacaoAlienigenaEntry => {
+): ProposedDailyAlienadoEntry => {
   const shuffledAttributeValues = shuffle(attributeValues);
 
   const spriteIDs = shuffle(makeArray(50, 0));
@@ -222,7 +219,7 @@ const generateComunicacaoAlienigenaGame = (
     }
   });
 
-  const gameAttributes: DailyComunicacaoAlienigenaEntry['attributes'] = selectedAttributes.map((attr) => ({
+  const gameAttributes: DailyAlienadoEntry['attributes'] = selectedAttributes.map((attr) => ({
     id: attr.id,
     name: attr.name.pt,
     description: attr.description.pt,
@@ -247,7 +244,7 @@ const generateComunicacaoAlienigenaGame = (
     usedItemsIds.push(...attr.itemsIds);
   });
 
-  const complexRequests: DailyComunicacaoAlienigenaEntry['requests'] = [];
+  const complexRequests: DailyAlienadoEntry['requests'] = [];
   // AB request
   if (attributeAB.length > 0) {
     complexRequests.push({
@@ -276,7 +273,7 @@ const generateComunicacaoAlienigenaGame = (
       itemId: sample(attributeABC) ?? '',
     });
   }
-  const simpleRequests: DailyComunicacaoAlienigenaEntry['requests'] = [];
+  const simpleRequests: DailyAlienadoEntry['requests'] = [];
   // Additional request A
   if (attributeA.length > 0) {
     simpleRequests.push({
@@ -314,7 +311,7 @@ const generateComunicacaoAlienigenaGame = (
 
   const requestItemsIds: string[] = requests.map((req) => req.itemId);
 
-  const result: ProposedDailyComunicacaoAlienigenaEntry = {
+  const result: ProposedDailyAlienadoEntry = {
     setId: gameAttributes
       .map((attr) => attr.id)
       .sort()

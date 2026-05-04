@@ -113,15 +113,15 @@ export function DailyDataArchive() {
               { value: '', label: 'All games' },
               { value: 'aqui-o', label: 'Aqui Ó' },
               { value: 'arte-ruim', label: 'Arte Ruim' },
-              { value: 'artista', label: 'Artista' },
-              { value: 'comunicacao-alienigena', label: 'Comunicação Alienígena' },
-              { value: 'controle-de-estoque', label: 'Controle de Estoque' },
+              { value: 'picaco', label: 'Picaço' },
+              { value: 'alienado', label: 'Comunicação Alienígena' },
+              { value: 'estoquista', label: 'Controle de Estoque' },
               { value: 'filmaco', label: 'Filmaço' },
               { value: 'palavreado', label: 'Palavreado' },
-              { value: 'portais-magicos', label: 'Portais Mágicos' },
+              { value: 'portais', label: 'Portais Mágicos' },
               { value: 'quartetos', label: 'Quartetos' },
               { value: 'ta-na-cara', label: 'Tá na Cara' },
-              { value: 'teoria-de-conjuntos', label: 'Teoria de Conjuntos' },
+              { value: 'conjuntos', label: 'Teoria de Conjuntos' },
             ]}
             placeholder="Filter by game"
             style={{ width: 200 }}

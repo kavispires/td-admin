@@ -17,34 +17,29 @@ type Corridor = {
   goal: number;
 };
 
-export type DailyPortaisMagicosEntry = {
+export type DailyPortaisEntry = {
   id: DateKey;
   setId: string;
   number: number;
-  type: 'portais-magicos';
+  type: 'portais';
   corridors: Corridor[];
   goal: number;
 };
 
-export const useDailyPortaisMagicosGames = (
+export const useDailyPortaisGames = (
   enabled: boolean,
   queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
 ) => {
-  const [portaisMagicosHistory] = useParsedHistory(DAILY_GAMES_KEYS.PORTAIS_MAGICOS, dailyHistory);
+  const [portaisHistory] = useParsedHistory(DAILY_GAMES_KEYS.PORTAIS, dailyHistory);
 
   const imageCardPasscodeSetsQuery = useTDResource<ImageCardPasscodeSet>('daily-passcode-sets', { enabled });
   const wordsThreeQuery = useLoadWordLibrary(3, queryLanguage, enabled, true);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
-    if (
-      !enabled ||
-      !imageCardPasscodeSetsQuery.isSuccess ||
-      !wordsThreeQuery.isSuccess ||
-      !portaisMagicosHistory
-    ) {
+    if (!enabled || !imageCardPasscodeSetsQuery.isSuccess || !wordsThreeQuery.isSuccess || !portaisHistory) {
       return {};
     }
 
@@ -65,9 +60,9 @@ export const useDailyPortaisMagicosGames = (
       },
     );
 
-    return buildDailyPortaisMagicosGames(
+    return buildDailyPortaisGames(
       batchSize,
-      portaisMagicosHistory,
+      portaisHistory,
       imageCardPasscodeSetsQuery.data,
       wordsLettersDict,
     );
@@ -77,7 +72,7 @@ export const useDailyPortaisMagicosGames = (
     imageCardPasscodeSetsQuery.dataUpdatedAt,
     wordsThreeQuery.isSuccess,
     wordsThreeQuery.dataUpdatedAt,
-    portaisMagicosHistory,
+    portaisHistory,
   ]);
 
   return {
@@ -86,13 +81,13 @@ export const useDailyPortaisMagicosGames = (
   };
 };
 
-export const buildDailyPortaisMagicosGames = (
+export const buildDailyPortaisGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   passcodeSets: Dictionary<ImageCardPasscodeSet>,
   wordsLettersDict: Dictionary<string[]>,
 ) => {
-  console.count('Creating Portais Mágicos...');
+  console.count('Creating Portais...');
 
   let lastDate = history.latestDate;
   const usedPasscode = history.used;
@@ -100,7 +95,7 @@ export const buildDailyPortaisMagicosGames = (
   const takenSetsIds: BooleanDictionary = {};
   let availableSets = shuffle(Object.values(passcodeSets).filter((s) => s.imageCardsIds.length > 0));
 
-  const entries: Dictionary<DailyPortaisMagicosEntry> = {};
+  const entries: Dictionary<DailyPortaisEntry> = {};
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     const setsIds: string[] = [];
@@ -112,7 +107,7 @@ export const buildDailyPortaisMagicosGames = (
     while (corridors.length < 3) {
       const selectedSet = entryAvailableSets.pop();
       if (!selectedSet) {
-        addWarning('portais-magicos', `Not enough passcode sets to build Portais Mágicos for ${id}`);
+        addWarning('portais', `Not enough passcode sets to build Portais for ${id}`);
         // throw new Error('Not enough sets available');
         // entries[id] = {
         //   id,
@@ -161,7 +156,7 @@ export const buildDailyPortaisMagicosGames = (
     lastDate = id;
     entries[id] = {
       id,
-      type: 'portais-magicos',
+      type: 'portais',
       setId: setsIds.join(SEPARATOR),
       number: history.latestNumber + i + 1,
       corridors: corridors.reverse(),

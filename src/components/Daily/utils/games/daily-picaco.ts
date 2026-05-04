@@ -9,21 +9,21 @@ import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 import type { DailyArteRuimEntry } from './daily-arte-ruim';
 
-export type DailyArtistaEntry = {
+export type DailyPicacoEntry = {
   id: DateKey;
   number: number;
-  type: 'artista';
+  type: 'picaco';
   cards: ArteRuimCard[];
 };
 
-export const useDailyArtistaGames = (
+export const useDailyPicacoGames = (
   enabled: boolean,
   queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
   arteRuimEntries: DailyArteRuimEntry[],
 ) => {
-  const [artistaHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTISTA, dailyHistory);
+  const [picacoHistory] = useParsedHistory(DAILY_GAMES_KEYS.PICACO, dailyHistory);
   const [arteRuimHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTE_RUIM, dailyHistory);
 
   const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`, { enabled });
@@ -31,15 +31,15 @@ export const useDailyArtistaGames = (
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
-    if (!enabled || !arteRuimCardsQuery.isSuccess || !drawingsQuery.hasResponseData || !artistaHistory) {
+    if (!enabled || !arteRuimCardsQuery.isSuccess || !drawingsQuery.hasResponseData || !picacoHistory) {
       return {};
     }
 
     const usedArteRuimIds = arteRuimEntries.map((arteRuim) => arteRuim.cardId);
 
-    return buildDailyArtistaGames(
+    return buildDailyPicacoGames(
       batchSize,
-      artistaHistory,
+      picacoHistory,
       arteRuimHistory,
       arteRuimCardsQuery.data,
       usedArteRuimIds,
@@ -49,7 +49,7 @@ export const useDailyArtistaGames = (
     enabled,
     arteRuimCardsQuery.dataUpdatedAt,
     arteRuimHistory,
-    artistaHistory,
+    picacoHistory,
     batchSize,
     arteRuimEntries,
     drawingsQuery.dataUpdatedAt,
@@ -62,7 +62,7 @@ export const useDailyArtistaGames = (
   };
 };
 
-export const buildDailyArtistaGames = (
+export const buildDailyPicacoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   arteRuimHistory: ParsedDailyHistoryEntry,
@@ -70,11 +70,11 @@ export const buildDailyArtistaGames = (
   recentlyUsedIds: CardId[],
   drawings: ReturnType<typeof useDrawingsResourceData>['drawings'],
 ) => {
-  console.count('Creating Artista...');
+  console.count('Creating Picaço...');
 
   let lastDate = history.latestDate;
 
-  const entries: Dictionary<DailyArtistaEntry> = {};
+  const entries: Dictionary<DailyPicacoEntry> = {};
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     const availableCardsIds = Object.keys(arteRuimCards ?? {}).filter(
@@ -88,7 +88,7 @@ export const buildDailyArtistaGames = (
     lastDate = id;
     entries[id] = {
       id,
-      type: 'artista',
+      type: 'picaco',
       number: history.latestNumber + i + 1,
       cards,
     };

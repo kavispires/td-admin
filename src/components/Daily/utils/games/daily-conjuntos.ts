@@ -9,10 +9,10 @@ import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
 import { addWarning } from '../warnings';
 
-export type DailyTeoriaDeConjuntosEntry = {
+export type DailyConjuntosEntry = {
   id: DateKey;
   number: number;
-  type: 'teoria-de-conjuntos';
+  type: 'conjuntos';
   title: string;
   level: number;
   setId: string;
@@ -45,30 +45,25 @@ export type DailyTeoriaDeConjuntosEntry = {
   }[];
 };
 
-export const useDailyTeoriaDeConjuntosGames = (
+export const useDailyConjuntosGames = (
   enabled: boolean,
   _queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
 ) => {
-  const [teoriaDeConjuntosHistory] = useParsedHistory(DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS, dailyHistory);
+  const [conjuntosHistory] = useParsedHistory(DAILY_GAMES_KEYS.CONJUNTOS, dailyHistory);
 
   const thingsQuery = useTDResource<DailyDiagramItem>('daily-diagram-items', { enabled });
   const rulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
-    if (!enabled || !teoriaDeConjuntosHistory || !thingsQuery.isSuccess || !rulesQuery.isSuccess) {
+    if (!enabled || !conjuntosHistory || !thingsQuery.isSuccess || !rulesQuery.isSuccess) {
       return {};
     }
 
-    return buildDailyTeoriaDeConjuntosGames(
-      batchSize,
-      teoriaDeConjuntosHistory,
-      rulesQuery.data,
-      thingsQuery.data,
-    );
-  }, [enabled, batchSize, teoriaDeConjuntosHistory, rulesQuery.dataUpdatedAt, thingsQuery.dataUpdatedAt]);
+    return buildDailyConjuntosGames(batchSize, conjuntosHistory, rulesQuery.data, thingsQuery.data);
+  }, [enabled, batchSize, conjuntosHistory, rulesQuery.dataUpdatedAt, thingsQuery.dataUpdatedAt]);
 
   return {
     entries,
@@ -78,13 +73,13 @@ export const useDailyTeoriaDeConjuntosGames = (
 
 const SELECTION_SIZE = 8;
 
-export const buildDailyTeoriaDeConjuntosGames = (
+export const buildDailyConjuntosGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   rules: Dictionary<DailyDiagramRule>,
   things: Dictionary<DailyDiagramItem>,
 ) => {
-  console.count('Creating Teoria de Conjuntos...');
+  console.count('Creating Conjuntos...');
   let lastDate = history.latestDate;
   const used: string[] = [...history.used];
 
@@ -107,7 +102,7 @@ export const buildDailyTeoriaDeConjuntosGames = (
     return dict;
   })();
 
-  const entries: Dictionary<DailyTeoriaDeConjuntosEntry> = {};
+  const entries: Dictionary<DailyConjuntosEntry> = {};
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     const isWeekend = checkWeekend(id);
@@ -117,7 +112,7 @@ export const buildDailyTeoriaDeConjuntosGames = (
     lastDate = id;
     entries[id] = {
       id,
-      type: 'teoria-de-conjuntos',
+      type: 'conjuntos',
       number: history.latestNumber + i + 1,
       ...getRuleSet(things, thingsByRules, rules, used, latestRuleUpdate, size),
     };
@@ -267,7 +262,7 @@ function getRuleSet(
     const setId = [rule1.id, rule2.id].sort().join('::');
 
     // Create the DailyTeoriaDeConjuntosEntry object
-    const entry: Omit<DailyTeoriaDeConjuntosEntry, 'id' | 'type' | 'number'> = {
+    const entry: Omit<DailyConjuntosEntry, 'id' | 'type' | 'number'> = {
       title,
       setId,
       level,
@@ -278,10 +273,7 @@ function getRuleSet(
     };
     return entry;
   } catch (error) {
-    addWarning(
-      'teoria-de-conjuntos',
-      `Error generating Teoria de Conjuntos rule set: ${(error as Error).message}`,
-    );
+    addWarning('teoria-de-conjuntos', `Error generating Conjuntos rule set: ${(error as Error).message}`);
 
     return {
       title: 'Erro na geração',

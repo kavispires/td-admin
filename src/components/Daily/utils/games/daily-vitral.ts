@@ -20,41 +20,41 @@ export type PieceState = Point & {
   isLocked: boolean;
 };
 
-export type DailyVitraisEntry = {
+export type DailyVitralEntry = {
   id: string;
   number: number;
-  type: 'vitrais';
+  type: 'vitral';
   title: string;
   cardId: string;
   pieces: number[]; // shuffled array of pieces ids. Each id is composed of a number that represents the piece index (0-N) of the puzzle in the correct order
 };
 
-export const useDailyVitraisGames = (enabled: boolean, batchSize: number, dailyHistory: DailyHistory) => {
-  const [vitraisHistory] = useParsedHistory(DAILY_GAMES_KEYS.VITRAIS, dailyHistory);
+export const useDailyVitralGames = (enabled: boolean, batchSize: number, dailyHistory: DailyHistory) => {
+  const [vitralHistory] = useParsedHistory(DAILY_GAMES_KEYS.VITRAL, dailyHistory);
 
-  const dailyVitraisSetQuery = useTDResource<ImageCardDescriptor>('image-cards', { enabled });
+  const dailyVitralSetQuery = useTDResource<ImageCardDescriptor>('image-cards', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
-    if (!enabled || dailyVitraisSetQuery.isLoading || !vitraisHistory) {
+    if (!enabled || dailyVitralSetQuery.isLoading || !vitralHistory) {
       return {};
     }
 
-    return buildDailyPuzzleGames(batchSize, vitraisHistory, dailyVitraisSetQuery.data);
-  }, [enabled, vitraisHistory, batchSize, dailyVitraisSetQuery.dataUpdatedAt]);
+    return buildDailyVitralGames(batchSize, vitralHistory, dailyVitralSetQuery.data);
+  }, [enabled, vitralHistory, batchSize, dailyVitralSetQuery.dataUpdatedAt]);
 
   return {
     entries,
-    isLoading: dailyVitraisSetQuery.isLoading,
+    isLoading: dailyVitralSetQuery.isLoading,
   };
 };
 
-export const buildDailyPuzzleGames = (
+export const buildDailyVitralGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   puzzleSets: Dictionary<ImageCardDescriptor>,
 ) => {
-  console.count('Creating Vitrais...');
+  console.count('Creating Vitral...');
 
   // Filter out any incomplete sets, used sets, and cards without Portuguese title
   const eligibleSets = shuffle(
@@ -62,7 +62,7 @@ export const buildDailyPuzzleGames = (
   );
 
   let lastDate = history.latestDate;
-  const entries: Dictionary<DailyVitraisEntry> = {};
+  const entries: Dictionary<DailyVitralEntry> = {};
   Array.from({ length: batchSize }).forEach((_, i) => {
     const id = getNextDay(lastDate);
 
@@ -72,8 +72,8 @@ export const buildDailyPuzzleGames = (
 
     if (!selectedSet) {
       addWarning(
-        'vitrais',
-        `Not enough eligible Daily Vitrais sets to create a new puzzle for date ${id}. Please add more sets or clear used history.`,
+        'vitral',
+        `Not enough eligible Daily Vitral sets to create a new puzzle for date ${id}. Please add more sets or clear used history.`,
       );
       return;
     }
@@ -92,7 +92,7 @@ export const buildDailyPuzzleGames = (
     entries[id] = {
       id,
       number: history.latestNumber + i + 1,
-      type: 'vitrais',
+      type: 'vitral',
       title: selectedSet.title.pt,
       cardId: selectedSet.id,
       pieces: result,

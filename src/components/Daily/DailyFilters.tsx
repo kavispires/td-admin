@@ -58,30 +58,22 @@ function DebugDailyFilters() {
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState.artista} disabled onChange={() => toggleDebugMode('artista')}>
-          Artista
+        <Checkbox checked={debugState.picaco} disabled onChange={() => toggleDebugMode('picaco')}>
+          Picaço
         </Checkbox>
       </div>
       <div>
-        <Checkbox
-          checked={debugState['comunicacao-alienigena']}
-          disabled
-          onChange={() => toggleDebugMode('comunicacao-alienigena')}
-        >
+        <Checkbox checked={debugState.alienado} disabled onChange={() => toggleDebugMode('alienado')}>
           Com. Alienígena
         </Checkbox>
       </div>
       <div>
-        <Checkbox
-          checked={debugState['controle-de-estoque']}
-          disabled
-          onChange={() => toggleDebugMode('controle-de-estoque')}
-        >
+        <Checkbox checked={debugState.estoquista} disabled onChange={() => toggleDebugMode('estoquista')}>
           Controle de Estoque
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState.espionagem} disabled onChange={() => toggleDebugMode('espionagem')}>
+        <Checkbox checked={debugState.investigacao} disabled onChange={() => toggleDebugMode('investigacao')}>
           Espionagem
         </Checkbox>
       </div>
@@ -101,11 +93,7 @@ function DebugDailyFilters() {
         </Checkbox>
       </div>
       <div>
-        <Checkbox
-          checked={debugState['portais-magicos']}
-          disabled
-          onChange={() => toggleDebugMode('portais-magicos')}
-        >
+        <Checkbox checked={debugState.portais} disabled onChange={() => toggleDebugMode('portais')}>
           Portais Mágicos
         </Checkbox>
       </div>
@@ -120,11 +108,7 @@ function DebugDailyFilters() {
         </Checkbox>
       </div>
       <div>
-        <Checkbox
-          checked={debugState['teoria-de-conjuntos']}
-          disabled
-          onChange={() => toggleDebugMode('teoria-de-conjuntos')}
-        >
+        <Checkbox checked={debugState.conjuntos} disabled onChange={() => toggleDebugMode('conjuntos')}>
           Teoria de Conjuntos
         </Checkbox>
       </div>

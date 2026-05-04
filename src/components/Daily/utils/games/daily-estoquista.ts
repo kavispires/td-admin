@@ -5,31 +5,31 @@ import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
 
-export type DailyControleDeEstoqueEntry = {
+export type DailyEstoquistaEntry = {
   id: DateKey;
   number: number;
-  type: 'controle-de-estoque';
+  type: 'estoquista';
   language: Language;
   title: string;
   goods: string[];
   orders: string[];
 };
 
-export const useDailyControleDeEstoqueGames = (
+export const useDailyEstoquistaGames = (
   enabled: boolean,
   _queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
 ) => {
-  const [controleDeEstoqueHistory] = useParsedHistory(DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE, dailyHistory);
+  const [estoquistaHistory] = useParsedHistory(DAILY_GAMES_KEYS.ESTOQUISTA, dailyHistory);
 
   const entries = useMemo(() => {
-    if (!enabled || !controleDeEstoqueHistory) {
+    if (!enabled || !estoquistaHistory) {
       return {};
     }
 
-    return buildDailyControleDeEstoqueGames(batchSize, controleDeEstoqueHistory);
-  }, [enabled, batchSize, controleDeEstoqueHistory]);
+    return buildDailyEstoquistaGames(batchSize, estoquistaHistory);
+  }, [enabled, batchSize, estoquistaHistory]);
 
   return {
     entries,
@@ -38,24 +38,24 @@ export const useDailyControleDeEstoqueGames = (
 };
 
 /**
- * Builds the Controle de Estoque games for the Daily component.
+ * Builds the Estoquista games for the Daily component.
  *
  * @param batchSize - The number of games to generate.
  * @param history - The parsed daily history entry.
- * @returns The dictionary of Controle de Estoque games.
+ * @returns The dictionary of Estoquista games.
  */
-export const buildDailyControleDeEstoqueGames = (batchSize: number, history: ParsedDailyHistoryEntry) => {
-  console.count('Creating Controle de Estoque...');
+export const buildDailyEstoquistaGames = (batchSize: number, history: ParsedDailyHistoryEntry) => {
+  console.count('Creating Estoquista...');
 
   let lastDate = history.latestDate;
 
   // Get list, if not enough, get from complete
-  const entries: Dictionary<DailyControleDeEstoqueEntry> = {};
+  const entries: Dictionary<DailyEstoquistaEntry> = {};
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     lastDate = id;
 
-    entries[id] = generateControleDeEstoqueGame(id, history.latestNumber + i + 1);
+    entries[id] = generateEstoquistaGame(id, history.latestNumber + i + 1);
   }
   return entries;
 };
@@ -65,13 +65,13 @@ const GOODS_SIZE = 16;
 const ORDER_SIZE = 4;
 const OUT_OF_STOCK_SIZE = 1;
 /**
- * Generates a DailyControleDeEstoqueEntry object based on the provided id and number.
+ * Generates a DailyEstoquistaEntry object based on the provided id and number.
  *
  * @param id - The id of the entry in the format "YYYY-MM-DD".
  * @param num - The number associated with the entry.
- * @returns The generated DailyControleDeEstoqueEntry object.
+ * @returns The generated DailyEstoquistaEntry object.
  */
-export const generateControleDeEstoqueGame = (id: string, num: number) => {
+export const generateEstoquistaGame = (id: string, num: number) => {
   const [year, month, day] = id.split('-').map(Number);
   const date = new Date(year, month - 1, day);
 
@@ -87,10 +87,10 @@ export const generateControleDeEstoqueGame = (id: string, num: number) => {
     'Sábado',
   ][dayOfWeekIndex];
 
-  const entry: DailyControleDeEstoqueEntry = {
+  const entry: DailyEstoquistaEntry = {
     id,
     number: num,
-    type: 'controle-de-estoque',
+    type: 'estoquista',
     language: 'pt',
     title: dayOfTheWeek,
     goods: [],

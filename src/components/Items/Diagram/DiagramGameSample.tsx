@@ -1,11 +1,11 @@
 import { Collapse, Rate, Space, Typography } from 'antd';
 import { TransparentButton } from 'components/Common';
-import type { DailyTeoriaDeConjuntosEntry } from 'components/Daily/utils/games/daily-teoria-de-conjuntos';
+import type { DailyConjuntosEntry } from 'components/Daily/utils/games/daily-conjuntos';
 import { type ReactNode, useState } from 'react';
 import { Thing } from './Thing';
 
 type DiagramGameSampleProps = {
-  game: DailyTeoriaDeConjuntosEntry;
+  game: DailyConjuntosEntry;
 };
 
 type TThing = {

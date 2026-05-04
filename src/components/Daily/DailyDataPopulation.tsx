@@ -23,6 +23,7 @@ export function DailyDataPopulation() {
       <Flex gap={12}>
         <FilterSelect
           label="Language"
+          layout="horizontal"
           onChange={setLanguage}
           options={[DEFAULT_LANGUAGE]}
           placeholder="Select a language"
@@ -30,6 +31,7 @@ export function DailyDataPopulation() {
         />
         <FilterSelect
           label="Minimum Drawings"
+          layout="horizontal"
           onChange={setDrawingsCount}
           options={[2, 3, 4]}
           placeholder="Select a number"
@@ -37,6 +39,7 @@ export function DailyDataPopulation() {
         />
         <FilterSelect
           label="Batch Size"
+          layout="horizontal"
           onChange={setBatchSize}
           options={[1, 3, 4, 7, 14, 21, 28]}
           placeholder="Select a number"

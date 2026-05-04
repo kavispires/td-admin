@@ -1,8 +1,8 @@
 import { Button, Space, Typography } from 'antd';
 import {
-  buildDailyTeoriaDeConjuntosGames,
-  type DailyTeoriaDeConjuntosEntry,
-} from 'components/Daily/utils/games/daily-teoria-de-conjuntos';
+  buildDailyConjuntosGames,
+  type DailyConjuntosEntry,
+} from 'components/Daily/utils/games/daily-conjuntos';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useState } from 'react';
 import { useMeasure } from 'react-use';
@@ -20,12 +20,12 @@ type GameSimulatorProps = {
 export function GameSimulator({ things, rules }: GameSimulatorProps) {
   const [ref] = useMeasure<HTMLDivElement>();
 
-  const [simulation, setSimulation] = useState<DailyTeoriaDeConjuntosEntry | null>(null);
+  const [simulation, setSimulation] = useState<DailyConjuntosEntry | null>(null);
 
   const onSimulate = () => {
     setSimulation(
       Object.values(
-        buildDailyTeoriaDeConjuntosGames(
+        buildDailyConjuntosGames(
           1,
           {
             latestDate: '2023/01/01',
@@ -42,7 +42,7 @@ export function GameSimulator({ things, rules }: GameSimulatorProps) {
   const onGenerateDemoGames = () => {
     let demos: any = null;
     try {
-      demos = buildDailyTeoriaDeConjuntosGames(
+      demos = buildDailyConjuntosGames(
         25,
         {
           latestDate: '2023/01/01',

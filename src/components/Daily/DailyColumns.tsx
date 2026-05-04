@@ -59,35 +59,32 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     ),
   },
   {
-    title: 'Arte Ruim',
-    dataIndex: 'arte-ruim',
-    key: 'arte-ruim',
-    render: (entry: DailyEntry['arte-ruim']) => {
+    title: 'Alienado',
+    dataIndex: 'alienado',
+    key: 'alienado',
+    render: (entry: DailyEntry['alienado']) => {
       if (!entry) {
         return <Alert title="No entry" type="error" />;
       }
 
-      const { number, cardId, text, drawings } = entry;
+      const { number, itemsIds, attributes } = entry;
 
       return (
         <EntryCell>
           <GameNumber>{number}</GameNumber>
 
-          <GameInfo label="CardId">{cardId}</GameInfo>
-          <GameInfo label="Drawings">{drawings.length}</GameInfo>
+          <GameInfo label="Items">{itemsIds.length}</GameInfo>
+
           <GamePopover entry={entry}>
-            <Flex gap={6} vertical>
-              <div>
-                "
-                {text
-                  .split('')
-                  .map((l: string, i: number) => (i < 2 || l === ' ' ? l : '⏹'))
-                  .join('')}
-                "
-              </div>
+            <Flex gap={6} style={{ maxWidth: '300px' }} vertical>
               <Space wrap>
-                {drawings.map((d: string) => (
-                  <CanvasSVG className="canvas" drawing={d} height={75} key={d} width={75} />
+                {attributes.map((req) => (
+                  <AlienSign key={req.spriteId} signId={`sign-${req.spriteId}`} width={48} />
+                ))}
+              </Space>
+              <Space wrap>
+                {itemsIds.map((itemId) => (
+                  <Item itemId={itemId} key={itemId} width={48} />
                 ))}
               </Space>
             </Flex>
@@ -127,32 +124,35 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     },
   },
   {
-    title: 'Alienígena',
-    dataIndex: 'comunicacao-alienigena',
-    key: 'comunicacao-alienigena',
-    render: (entry: DailyEntry['comunicacao-alienigena']) => {
+    title: 'Arte Ruim',
+    dataIndex: 'arte-ruim',
+    key: 'arte-ruim',
+    render: (entry: DailyEntry['arte-ruim']) => {
       if (!entry) {
         return <Alert title="No entry" type="error" />;
       }
 
-      const { number, itemsIds, attributes } = entry;
+      const { number, cardId, text, drawings } = entry;
 
       return (
         <EntryCell>
           <GameNumber>{number}</GameNumber>
 
-          <GameInfo label="Items">{itemsIds.length}</GameInfo>
-
+          <GameInfo label="CardId">{cardId}</GameInfo>
+          <GameInfo label="Drawings">{drawings.length}</GameInfo>
           <GamePopover entry={entry}>
-            <Flex gap={6} style={{ maxWidth: '300px' }} vertical>
+            <Flex gap={6} vertical>
+              <div>
+                "
+                {text
+                  .split('')
+                  .map((l: string, i: number) => (i < 2 || l === ' ' ? l : '⏹'))
+                  .join('')}
+                "
+              </div>
               <Space wrap>
-                {attributes.map((req) => (
-                  <AlienSign key={req.spriteId} signId={`sign-${req.spriteId}`} width={48} />
-                ))}
-              </Space>
-              <Space wrap>
-                {itemsIds.map((itemId) => (
-                  <Item itemId={itemId} key={itemId} width={48} />
+                {drawings.map((d: string) => (
+                  <CanvasSVG className="canvas" drawing={d} height={75} key={d} width={75} />
                 ))}
               </Space>
             </Flex>
@@ -163,9 +163,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Conjuntos',
-    dataIndex: 'teoria-de-conjuntos',
-    key: 'teoria-de-conjuntos',
-    render: (entry: DailyEntry['teoria-de-conjuntos']) => {
+    dataIndex: 'conjuntos',
+    key: 'conjuntos',
+    render: (entry: DailyEntry['conjuntos']) => {
       if (!entry) {
         return <Alert title="No entry" type="error" />;
       }
@@ -197,10 +197,10 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     },
   },
   {
-    title: 'Estoque',
-    dataIndex: 'controle-de-estoque',
-    key: 'controle-de-estoque',
-    render: (entry: DailyEntry['controle-de-estoque']) => {
+    title: 'Estoquista',
+    dataIndex: 'estoquista',
+    key: 'estoquista',
+    render: (entry: DailyEntry['estoquista']) => {
       if (!entry) {
         return <Alert title="No entry" type="error" />;
       }
@@ -218,46 +218,6 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
             <Flex gap={6} style={{ maxWidth: 245 }} wrap>
               {goods.map((good) => (
                 <WarehouseGood goodId={good} key={good} width={48} />
-              ))}
-            </Flex>
-          </GamePopover>
-        </EntryCell>
-      );
-    },
-  },
-  {
-    title: 'Espionagem',
-    dataIndex: 'espionagem',
-    key: 'espionagem',
-    render: (entry: DailyEntry['espionagem']) => {
-      if (!entry) {
-        return <Alert title="No entry" type="error" />;
-      }
-
-      const { number, statements, additionalStatements, suspects, culpritId } = entry;
-
-      return (
-        <EntryCell>
-          <GameNumber>{number}</GameNumber>
-
-          <GameInfo label="Suspects">{suspects.length}</GameInfo>
-          <GameInfo label="Culprit">{culpritId}</GameInfo>
-          <GameInfo label="Statements">{statements.length}</GameInfo>
-
-          <GamePopover entry={entry}>
-            <Flex gap={6} vertical>
-              <Space style={{ maxHeight: 200, overflowY: 'auto' }} wrap>
-                {suspects.map((suspect) => (
-                  <SuspectImageCard cardId={suspect.id} cardWidth={48} key={suspect.id} />
-                ))}
-              </Space>
-
-              {statements.slice(0, 3).map((statement) => (
-                <Alert banner key={statement.key} showIcon title={statement.text} type="info" />
-              ))}
-
-              {additionalStatements.map((statement) => (
-                <Alert banner key={statement.key} showIcon title={statement.text} type="warning" />
               ))}
             </Flex>
           </GamePopover>
@@ -292,6 +252,46 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                   .map((l: string, i: number) => (i < 1 || l === ' ' ? l : '⏹'))
                   .join('')}
               </span>
+            </Flex>
+          </GamePopover>
+        </EntryCell>
+      );
+    },
+  },
+  {
+    title: 'Investigação',
+    dataIndex: 'investigacao',
+    key: 'investigacao',
+    render: (entry: DailyEntry['investigacao']) => {
+      if (!entry) {
+        return <Alert title="No entry" type="error" />;
+      }
+
+      const { number, statements, additionalStatements, suspects, culpritId } = entry;
+
+      return (
+        <EntryCell>
+          <GameNumber>{number}</GameNumber>
+
+          <GameInfo label="Suspects">{suspects.length}</GameInfo>
+          <GameInfo label="Culprit">{culpritId}</GameInfo>
+          <GameInfo label="Statements">{statements.length}</GameInfo>
+
+          <GamePopover entry={entry}>
+            <Flex gap={6} vertical>
+              <Space style={{ maxHeight: 200, overflowY: 'auto' }} wrap>
+                {suspects.map((suspect) => (
+                  <SuspectImageCard cardId={suspect.id} cardWidth={48} key={suspect.id} />
+                ))}
+              </Space>
+
+              {statements.slice(0, 3).map((statement) => (
+                <Alert banner key={statement.key} showIcon title={statement.text} type="info" />
+              ))}
+
+              {additionalStatements.map((statement) => (
+                <Alert banner key={statement.key} showIcon title={statement.text} type="warning" />
+              ))}
             </Flex>
           </GamePopover>
         </EntryCell>
@@ -371,9 +371,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Portais',
-    dataIndex: 'portais-magicos',
-    key: 'portais-magicos',
-    render: (entry: DailyEntry['portais-magicos']) => {
+    dataIndex: 'portais',
+    key: 'portais',
+    render: (entry: DailyEntry['portais']) => {
       if (!entry) {
         return <Alert title="No entry" type="error" />;
       }
@@ -439,10 +439,10 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     },
   },
   {
-    title: 'Vitrais',
-    dataIndex: 'vitrais',
-    key: 'vitrais',
-    render: (entry: DailyEntry['vitrais']) => {
+    title: 'Vitral',
+    dataIndex: 'vitral',
+    key: 'vitral',
+    render: (entry: DailyEntry['vitral']) => {
       if (!entry) {
         return <Alert title="No entry" type="error" />;
       }
@@ -459,34 +459,6 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover entry={entry}>
             <Flex gap={6} style={{ maxWidth: '300px' }} wrap>
               <ImageCard cardId={entry.cardId} cardWidth={75} />
-            </Flex>
-          </GamePopover>
-        </EntryCell>
-      );
-    },
-  },
-  {
-    title: 'Picaço',
-    dataIndex: 'artista',
-    key: 'artista',
-    render: (entry) => {
-      if (!entry) {
-        return <Alert title="No entry" type="error" />;
-      }
-
-      const { number, cards } = entry;
-
-      return (
-        <EntryCell>
-          <GameNumber>{number}</GameNumber>
-
-          <GameInfo label="Cards">{cards.length}</GameInfo>
-
-          <GamePopover entry={entry}>
-            <Flex gap={6} style={{ maxHeight: 500, overflowY: 'auto' }} vertical>
-              {cards.map((card: ArteRuimCard, index: number) => (
-                <span key={`${card.id}-${index}`}>{card.text}</span>
-              ))}
             </Flex>
           </GamePopover>
         </EntryCell>
@@ -514,6 +486,34 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
             <Flex gap={6} style={{ maxWidth: 300 }} wrap>
               {imageIds.slice(0, 15).map((imageId) => (
                 <ImageCard cardId={imageId} cardWidth={48} key={imageId} />
+              ))}
+            </Flex>
+          </GamePopover>
+        </EntryCell>
+      );
+    },
+  },
+  {
+    title: 'Picaço',
+    dataIndex: 'picaco',
+    key: 'picaco',
+    render: (entry: DailyEntry['picaco']) => {
+      if (!entry) {
+        return <Alert title="No entry" type="error" />;
+      }
+
+      const { number, cards } = entry;
+
+      return (
+        <EntryCell>
+          <GameNumber>{number}</GameNumber>
+
+          <GameInfo label="Cards">{cards.length}</GameInfo>
+
+          <GamePopover entry={entry}>
+            <Flex gap={6} style={{ maxHeight: 500, overflowY: 'auto' }} vertical>
+              {cards.map((card: ArteRuimCard, index: number) => (
+                <span key={`${card.id}-${index}`}>{card.text}</span>
               ))}
             </Flex>
           </GamePopover>

@@ -3,9 +3,9 @@ import ReactJsonView from '@microlink/react-json-view';
 import { Alert, Badge, Button, Flex, InputNumber, Switch, Typography } from 'antd';
 import clsx from 'clsx';
 import {
-  type DailyEspionagemEntry,
-  useDailyEspionagemGames,
-} from 'components/Daily/utils/games/daily-espionagem';
+  type DailyInvestigacaoEntry,
+  useDailyInvestigacaoGames,
+} from 'components/Daily/utils/games/daily-investigacao';
 import { getToday } from 'components/Daily/utils/utils';
 import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useTDResource } from 'hooks/useTDResource';
@@ -16,7 +16,7 @@ import type { SuspectCard } from 'types';
 export function EspionagemSimulator() {
   const [run, setRun] = useState({ batchSize: 1, history: {} });
   const batchSizeRef = useRef<number>(1);
-  const { entries } = useDailyEspionagemGames(true, 'pt', run.batchSize, run.history);
+  const { entries } = useDailyInvestigacaoGames(true, 'pt', run.batchSize, run.history);
   const suspectsQuery = useTDResource<SuspectCard>('suspects', { enabled: !isEmpty(entries) });
 
   console.log(countSuspectUse(entries, suspectsQuery.data ?? {}));
@@ -47,7 +47,7 @@ export function EspionagemSimulator() {
 }
 
 type SimulationGameProps = {
-  entries: Dictionary<DailyEspionagemEntry>;
+  entries: Dictionary<DailyInvestigacaoEntry>;
 };
 
 function SimulationGame({ entries }: SimulationGameProps) {
@@ -151,7 +151,7 @@ function SimulationGame({ entries }: SimulationGameProps) {
   );
 }
 
-const getStatementIcon = (type: DailyEspionagemEntry['statements'][number]['type']) => {
+const getStatementIcon = (type: DailyInvestigacaoEntry['statements'][number]['type']) => {
   switch (type) {
     case 'testimony':
       return <AudioFilled />;
@@ -164,7 +164,7 @@ const getStatementIcon = (type: DailyEspionagemEntry['statements'][number]['type
   }
 };
 
-const countSuspectUse = (entries: Dictionary<DailyEspionagemEntry>, suspects: Dictionary<SuspectCard>) => {
+const countSuspectUse = (entries: Dictionary<DailyInvestigacaoEntry>, suspects: Dictionary<SuspectCard>) => {
   // Calculate how many times each suspect is used in the entries, and now many times they are the culprit
   const suspectUsage = Object.values(entries).reduce(
     (acc: Record<string, number>, entry) => {

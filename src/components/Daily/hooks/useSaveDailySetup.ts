@@ -5,17 +5,17 @@ import { useState } from 'react';
 import { firestore } from 'services/firebase';
 import { removeDuplicates } from 'utils';
 import { DAILY_GAMES_KEYS, LANGUAGE_PREFIX } from '../utils/constants';
+import type { DailyAlienadoEntry } from '../utils/games/daily-alienado';
 import type { DailyAquiOEntry } from '../utils/games/daily-aqui-o';
 import type { DailyArteRuimEntry } from '../utils/games/daily-arte-ruim';
-import type { DailyComunicacaoAlienigenaEntry } from '../utils/games/daily-comunicacao-alienigena';
-import type { DailyEspionagemEntry } from '../utils/games/daily-espionagem';
+import type { DailyConjuntosEntry } from '../utils/games/daily-conjuntos';
 import type { DailyFilmacoEntry } from '../utils/games/daily-filmaco';
+import type { DailyInvestigacaoEntry } from '../utils/games/daily-investigacao';
 import type { DailyPalavreadoEntry } from '../utils/games/daily-palavreado';
-import type { DailyPortaisMagicosEntry } from '../utils/games/daily-portais-magicos';
+import type { DailyPortaisEntry } from '../utils/games/daily-portais';
 import type { DailyQuartetosEntry } from '../utils/games/daily-quartetos';
 import { gatherUsedTaNaCaraEntries } from '../utils/games/daily-ta-na-cara';
-import type { DailyTeoriaDeConjuntosEntry } from '../utils/games/daily-teoria-de-conjuntos';
-import type { DailyVitraisEntry } from '../utils/games/daily-vitrais';
+import type { DailyVitralEntry } from '../utils/games/daily-vitral';
 import type { DailyHistory, DailyHistoryEntry } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
@@ -66,17 +66,17 @@ export function useSaveDailySetup(queryLanguage: Language) {
           (e: DailyArteRuimEntry) => e.cardId,
         ),
 
-        [DAILY_GAMES_KEYS.ARTISTA]: updateHistory(DAILY_GAMES_KEYS.ARTISTA, previousHistory, data, null),
+        [DAILY_GAMES_KEYS.PICACO]: updateHistory(DAILY_GAMES_KEYS.PICACO, previousHistory, data, null),
 
-        [DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA]: updateHistory(
-          DAILY_GAMES_KEYS.COMUNICACAO_ALIENIGENA,
+        [DAILY_GAMES_KEYS.ALIENADO]: updateHistory(
+          DAILY_GAMES_KEYS.ALIENADO,
           previousHistory,
           data,
-          (e: DailyComunicacaoAlienigenaEntry) => e.setId,
+          (e: DailyAlienadoEntry) => e.setId,
         ),
 
-        [DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE]: updateHistory(
-          DAILY_GAMES_KEYS.CONTROLE_DE_ESTOQUE,
+        [DAILY_GAMES_KEYS.ESTOQUISTA]: updateHistory(
+          DAILY_GAMES_KEYS.ESTOQUISTA,
           previousHistory,
           data,
           null,
@@ -96,11 +96,11 @@ export function useSaveDailySetup(queryLanguage: Language) {
           (e: DailyPalavreadoEntry) => e.keyword,
         ),
 
-        [DAILY_GAMES_KEYS.PORTAIS_MAGICOS]: updateHistory(
-          DAILY_GAMES_KEYS.PORTAIS_MAGICOS,
+        [DAILY_GAMES_KEYS.PORTAIS]: updateHistory(
+          DAILY_GAMES_KEYS.PORTAIS,
           previousHistory,
           data,
-          (e: DailyPortaisMagicosEntry) => e.corridors.map((c) => c.passcode),
+          (e: DailyPortaisEntry) => e.corridors.map((c) => c.passcode),
         ),
 
         [DAILY_GAMES_KEYS.TA_NA_CARA]: updateHistory(
@@ -118,32 +118,32 @@ export function useSaveDailySetup(queryLanguage: Language) {
           (e: DailyQuartetosEntry) => e.sets.map((set) => set.id),
         ),
 
-        [DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS]: updateHistory(
-          DAILY_GAMES_KEYS.TEORIA_DE_CONJUNTOS,
+        [DAILY_GAMES_KEYS.CONJUNTOS]: updateHistory(
+          DAILY_GAMES_KEYS.CONJUNTOS,
           previousHistory,
           data,
-          (e: DailyTeoriaDeConjuntosEntry) => [e.intersectingThing.id, e.setId],
+          (e: DailyConjuntosEntry) => [e.intersectingThing.id, e.setId],
         ),
 
         [DAILY_GAMES_KEYS.ORGANIKU]: updateHistory(
           DAILY_GAMES_KEYS.ORGANIKU,
           previousHistory,
           data,
-          (e: DailyTeoriaDeConjuntosEntry) => e.setId,
+          (e: DailyConjuntosEntry) => e.setId,
         ),
 
-        [DAILY_GAMES_KEYS.ESPIONAGEM]: updateHistory(
-          DAILY_GAMES_KEYS.ESPIONAGEM,
+        [DAILY_GAMES_KEYS.INVESTIGACAO]: updateHistory(
+          DAILY_GAMES_KEYS.INVESTIGACAO,
           previousHistory,
           data,
-          (e: DailyEspionagemEntry) => e.culpritId,
+          (e: DailyInvestigacaoEntry) => e.culpritId,
         ),
 
-        [DAILY_GAMES_KEYS.VITRAIS]: updateHistory(
-          DAILY_GAMES_KEYS.VITRAIS,
+        [DAILY_GAMES_KEYS.VITRAL]: updateHistory(
+          DAILY_GAMES_KEYS.VITRAL,
           previousHistory,
           data,
-          (e: DailyVitraisEntry) => e.cardId,
+          (e: DailyVitralEntry) => e.cardId,
         ),
 
         [DAILY_GAMES_KEYS.CONEXOES]: updateHistory(DAILY_GAMES_KEYS.CONEXOES, previousHistory, data, null),

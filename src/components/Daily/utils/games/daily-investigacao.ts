@@ -17,7 +17,7 @@ import { debugDailyStore } from './debug-daily';
  * Debug logging function that only logs if debug mode is enabled for espionagem
  */
 const debugLog = (...args: unknown[]) => {
-  if (debugDailyStore.state.espionagem) {
+  if (debugDailyStore.state.investigacao) {
     console.log(...args);
   }
 };
@@ -26,7 +26,7 @@ const debugLog = (...args: unknown[]) => {
  * Debug count function that only counts if debug mode is enabled for espionagem
  */
 const debugCount = (label: string) => {
-  if (debugDailyStore.state.espionagem) {
+  if (debugDailyStore.state.investigacao) {
     console.count(label);
   }
 };
@@ -35,7 +35,7 @@ const debugCount = (label: string) => {
  * Debug error function that only logs errors if debug mode is enabled for espionagem
  */
 const debugError = (...args: unknown[]) => {
-  if (debugDailyStore.state.espionagem) {
+  if (debugDailyStore.state.investigacao) {
     console.error(...args);
   }
 };
@@ -127,10 +127,10 @@ type SuspectEntry = {
   features: string[];
 };
 
-export type DailyEspionagemEntry = {
+export type DailyInvestigacaoEntry = {
   id: DateKey;
   number: number;
-  type: 'espionagem';
+  type: 'investigacao';
   setId: string;
   culpritId: string;
   statements: StatementClue[];
@@ -157,13 +157,13 @@ export type DailyEspionagemEntry = {
  * - `entries`: The generated espionagem game entries, or an empty object if data is not ready.
  * - `isLoading`: A boolean indicating if any of the required resources are still loading.
  */
-export const useDailyEspionagemGames = (
+export const useDailyInvestigacaoGames = (
   enabled: boolean,
   queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
 ) => {
-  const [espionagemHistory] = useParsedHistory(DAILY_GAMES_KEYS.ESPIONAGEM, dailyHistory);
+  const [investigacaoHistory] = useParsedHistory(DAILY_GAMES_KEYS.INVESTIGACAO, dailyHistory);
 
   const suspectsQuery = useTDResource<SuspectCard>('suspects', { enabled });
   const questionsQuery = useTDResource<TestimonyQuestionCard>(`testimony-questions-${queryLanguage}`, {
@@ -186,7 +186,7 @@ export const useDailyEspionagemGames = (
   const entries = useMemo(() => {
     if (
       !enabled ||
-      !espionagemHistory ||
+      !investigacaoHistory ||
       !suspectsQuery.isSuccess ||
       !questionsQuery.isSuccess ||
       !answersQuery.isSuccess ||
@@ -195,9 +195,9 @@ export const useDailyEspionagemGames = (
       return {};
     }
 
-    return buildDailyEspionagemGames(
+    return buildDailyInvestigacaoGames(
       batchSize,
-      espionagemHistory,
+      investigacaoHistory,
       suspectsQuery.data,
       questionsQuery.data,
       testimonySuspectAnswers,
@@ -206,7 +206,7 @@ export const useDailyEspionagemGames = (
     );
   }, [
     enabled,
-    espionagemHistory,
+    investigacaoHistory,
     suspectsQuery,
     questionsQuery,
     answersQuery,
@@ -235,7 +235,7 @@ export const useDailyEspionagemGames = (
  * @returns A record mapping each generated game ID to its corresponding `DailyEspionagemEntry`.
  * @throws Will throw an error if a valid game cannot be generated after the allowed number of attempts.
  */
-export const buildDailyEspionagemGames = (
+export const buildDailyInvestigacaoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   suspects: Dictionary<SuspectCard>,
@@ -244,11 +244,11 @@ export const buildDailyEspionagemGames = (
   featuresStats: Dictionary<Dictionary<true>>,
   reasons: Dictionary<CrimeReason>,
 ) => {
-  debugCount('Creating Espionagem...');
+  debugCount('Creating Investigacao...');
   let lastDate = history.latestDate;
   const usedIds: string[] = [];
 
-  const entries: Record<string, DailyEspionagemEntry> = {};
+  const entries: Record<string, DailyInvestigacaoEntry> = {};
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     const isWeekend = checkWeekend(id);
@@ -261,7 +261,7 @@ export const buildDailyEspionagemGames = (
     while (validGame === null && attempts < ATTEMPTS_THRESHOLD) {
       try {
         attempts++;
-        const game = generateEspionagemGame(
+        const game = generateInvestigacaoGame(
           suspects,
           questions,
           suspectTestimonyAnswers,
@@ -289,7 +289,7 @@ export const buildDailyEspionagemGames = (
 
     entries[id] = {
       id,
-      type: 'espionagem',
+      type: 'investigacao',
       number: history.latestNumber + i + 1,
       ...validGame,
     };
@@ -318,7 +318,7 @@ export const buildDailyEspionagemGames = (
  * @returns An object representing the generated espionagem game entry, omitting 'id', 'number', and 'type' fields.
  * @throws If there are not enough possible suspects or if the generated statements are insufficient.
  */
-function generateEspionagemGame(
+function generateInvestigacaoGame(
   suspects: Dictionary<SuspectCard>,
   questions: Dictionary<TestimonyQuestionCard>,
   suspectTestimonyAnswers: TestimonySuspectAnswers,
@@ -326,7 +326,7 @@ function generateEspionagemGame(
   usedIds: string[],
   reasons: Dictionary<CrimeReason>,
   isWeekend: boolean,
-): Omit<DailyEspionagemEntry, 'id' | 'number' | 'type'> {
+): Omit<DailyInvestigacaoEntry, 'id' | 'number' | 'type'> {
   const statements: StatementClue[] = [];
   const excludeScoreBoard: Dictionary<number> = {};
   const totalSuspects = isWeekend ? TOTAL_SUSPECTS_WEEKEND : TOTAL_SUSPECTS_WEEKDAY;
@@ -335,7 +335,7 @@ function generateEspionagemGame(
 
   // Get testimonies, the culprit ID, and the common suspects
   const { selectedTestimonyId1, selectedTestimonyId2, selectedTestimonyId3, culpritId, suspectsIds } =
-    findEspionagemScenario(suspectTestimonyAnswers, usedIds, isWeekend);
+    findInvestigacaoScenario(suspectTestimonyAnswers, usedIds, isWeekend);
 
   // Gather features the culprit does not have
   const featuresCulpritDoesNotHave: Dictionary<Dictionary<true>> = {};
@@ -623,7 +623,6 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
       );
 
       if (!resolution && !projection) {
-        // debugLog('⁉️ Ignoring testimony with no resolution or projection');
         continue;
       }
 
@@ -640,8 +639,6 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
         result[questionId][suspectId] = projection === '👍';
         // continue;
       }
-
-      // debugLog('⁉️ Ignoring testimony with not enough values');
     }
   }
 
@@ -797,7 +794,7 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
  * @returns An object containing the selected culpritId, testimony IDs, and the list of suspect IDs.
  * @throws If no valid scenario can be found after the attempt threshold.
  */
-const findEspionagemScenario = (
+const findInvestigacaoScenario = (
   suspectTestimonyAnswers: TestimonySuspectAnswers,
   usedIds: string[],
   isWeekend: boolean,
@@ -980,7 +977,7 @@ const findEspionagemScenario = (
     }
   }
 
-  throw new Error('Failed to find a valid espionagem scenario');
+  throw new Error('Failed to find a valid investigacao scenario');
 };
 
 const updateExcludeScoreBoard = (scoreboard: Dictionary<number>, excludes: string[]) => {

@@ -11,9 +11,18 @@ type FilterSelectProps = {
   options: { value: StrOrNum; label: StrOrNum }[] | StrOrNum[];
   placeholder?: string;
   minWidth?: number;
+  layout?: 'horizontal' | 'vertical';
 };
 
-export function FilterSelect({ label, value, onChange, options, placeholder, minWidth }: FilterSelectProps) {
+export function FilterSelect({
+  label,
+  value,
+  onChange,
+  options,
+  placeholder,
+  minWidth,
+  layout = 'vertical',
+}: FilterSelectProps) {
   const selectOptions = [
     ...(placeholder ? [{ value: '', label: placeholder, disabled: true }] : []),
     ...options.map((entry) =>
@@ -24,7 +33,7 @@ export function FilterSelect({ label, value, onChange, options, placeholder, min
   ];
 
   return (
-    <Form.Item label={label} layout="vertical" style={{ marginBottom: 6 }}>
+    <Form.Item label={label} layout={layout} style={{ marginBottom: 6 }}>
       <Select
         onChange={onChange}
         options={selectOptions}

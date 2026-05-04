@@ -2,33 +2,21 @@ import { useTDResource } from 'hooks/useTDResource';
 import { useEffect, useMemo } from 'react';
 import type { Item } from 'types/tdr';
 import { LANGUAGE_PREFIX } from '../utils/constants';
+import { type DailyAlienadoEntry, useDailyAlienadoGames } from '../utils/games/daily-alienado';
 import { type DailyAquiOEntry, useDailyAquiOGames } from '../utils/games/daily-aqui-o';
 import { type DailyArteRuimEntry, useDailyArteRuimGames } from '../utils/games/daily-arte-ruim';
-import { type DailyArtistaEntry, useDailyArtistaGames } from '../utils/games/daily-artista';
-import {
-  type DailyComunicacaoAlienigenaEntry,
-  useDailyComunicacaoAlienigenaGames,
-} from '../utils/games/daily-comunicacao-alienigena';
 import { type DailyConexoesEntry, useDailyConexoesGames } from '../utils/games/daily-conexoes';
-import {
-  type DailyControleDeEstoqueEntry,
-  useDailyControleDeEstoqueGames,
-} from '../utils/games/daily-controle-de-estoque';
-import { type DailyEspionagemEntry, useDailyEspionagemGames } from '../utils/games/daily-espionagem';
+import { type DailyConjuntosEntry, useDailyConjuntosGames } from '../utils/games/daily-conjuntos';
+import { type DailyEstoquistaEntry, useDailyEstoquistaGames } from '../utils/games/daily-estoquista';
 import { type DailyFilmacoEntry, useDailyFilmacoGames } from '../utils/games/daily-filmaco';
+import { type DailyInvestigacaoEntry, useDailyInvestigacaoGames } from '../utils/games/daily-investigacao';
 import { type DailyOrganikuEntry, useDailyOrganikuGames } from '../utils/games/daily-organiku';
 import { type DailyPalavreadoEntry, useDailyPalavreadoGames } from '../utils/games/daily-palavreado';
-import {
-  type DailyPortaisMagicosEntry,
-  useDailyPortaisMagicosGames,
-} from '../utils/games/daily-portais-magicos';
+import { type DailyPicacoEntry, useDailyPicacoGames } from '../utils/games/daily-picaco';
+import { type DailyPortaisEntry, useDailyPortaisGames } from '../utils/games/daily-portais';
 import { type DailyQuartetosEntry, useDailyQuartetosGames } from '../utils/games/daily-quartetos';
 import { type DailyTaNaCaraEntry, useDailyTaNaCaraGames } from '../utils/games/daily-ta-na-cara';
-import {
-  type DailyTeoriaDeConjuntosEntry,
-  useDailyTeoriaDeConjuntosGames,
-} from '../utils/games/daily-teoria-de-conjuntos';
-import { type DailyVitraisEntry, useDailyVitraisGames } from '../utils/games/daily-vitrais';
+import { type DailyVitralEntry, useDailyVitralGames } from '../utils/games/daily-vitral';
 import type { DateKey } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
@@ -37,18 +25,18 @@ export type DailyEntry = {
   // Games
   'arte-ruim': DailyArteRuimEntry;
   'aqui-o': DailyAquiOEntry;
-  'comunicacao-alienigena': DailyComunicacaoAlienigenaEntry;
-  'controle-de-estoque': DailyControleDeEstoqueEntry;
-  espionagem: DailyEspionagemEntry;
+  alienado: DailyAlienadoEntry; // Renamed from 'comunicacao-alienigena'
+  estoquista: DailyEstoquistaEntry; // Renamed from 'controle-de-estoque'
+  investigacao: DailyInvestigacaoEntry; // Renamed from 'espionagem'
   filmaco: DailyFilmacoEntry;
   organiku: DailyOrganikuEntry;
   palavreado: DailyPalavreadoEntry;
-  'portais-magicos': DailyPortaisMagicosEntry;
+  portais: DailyPortaisEntry; // Renamed from 'portais-magicos'
   quartetos: DailyQuartetosEntry;
-  'teoria-de-conjuntos': DailyTeoriaDeConjuntosEntry;
-  vitrais: DailyVitraisEntry;
+  conjuntos: DailyConjuntosEntry; // Renamed from 'teoria-de-conjuntos'
+  vitral: DailyVitralEntry; // Renamed from 'vitrais'
   // Contributions
-  artista: DailyArtistaEntry;
+  picaco: DailyPicacoEntry; // Renamed from 'artista'
   conexoes: DailyConexoesEntry;
   'ta-na-cara': DailyTaNaCaraEntry;
   // Additional info
@@ -94,16 +82,16 @@ export function useLoadDailySetup(
   // BUILD ARTE RUIM
   const arteRuim = useDailyArteRuimGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
-  // BUILD COMUNICAÇÃO ALIENÍGENA
-  const comunicacaoAlienigena = useDailyComunicacaoAlienigenaGames(
+  // BUILD ALIENADO
+  const comunicacaoAlienigena = useDailyAlienadoGames(
     enableBuilders,
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
   );
 
-  // BUILD CONTROLE DE ESTOQUE
-  const controleDeEstoque = useDailyControleDeEstoqueGames(
+  // BUILD ESTOQUISTA
+  const controleDeEstoque = useDailyEstoquistaGames(
     enableBuilders,
     queryLanguage,
     batchSize,
@@ -124,16 +112,16 @@ export function useLoadDailySetup(
   // BUILD QUARTETOS
   const quartetos = useDailyQuartetosGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
-  // BUILD TEORIA DE CONJUNTOS
-  const teoriaDeConjuntos = useDailyTeoriaDeConjuntosGames(
+  // BUILD CONJUNTOS
+  const teoriaDeConjuntos = useDailyConjuntosGames(
     enableBuilders,
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
   );
 
-  // BUILD PORTAIS MAGICOS
-  const portaisMagicos = useDailyPortaisMagicosGames(
+  // BUILD PORTAIS
+  const portaisMagicos = useDailyPortaisGames(
     enableBuilders,
     queryLanguage,
     batchSize,
@@ -143,19 +131,19 @@ export function useLoadDailySetup(
   // BUILD ORGANIKU
   const organiku = useDailyOrganikuGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
-  // BUILD ESPIONAGEM
-  const espionagem = useDailyEspionagemGames(
+  // BUILD INVESTIGAÇÃO
+  const espionagem = useDailyInvestigacaoGames(
     enableBuilders,
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
   );
 
-  // BUILD VITRAIS
-  const vitrais = useDailyVitraisGames(enableBuilders, batchSize, historyQuery.data ?? {});
+  // BUILD VITRAL
+  const vitrais = useDailyVitralGames(enableBuilders, batchSize, historyQuery.data ?? {});
 
-  // BUILD ARTISTA
-  const artista = useDailyArtistaGames(
+  // BUILD PICAÇO
+  const artista = useDailyPicacoGames(
     enableBuilders,
     queryLanguage,
     batchSize,
@@ -182,18 +170,18 @@ export function useLoadDailySetup(
         // Games
         'arte-ruim': arteRuim,
         'aqui-o': aquiO.entries[arteRuim.id],
-        'comunicacao-alienigena': comunicacaoAlienigena.entries[arteRuim.id],
-        'controle-de-estoque': controleDeEstoque.entries[arteRuim.id],
-        espionagem: espionagem.entries[arteRuim.id],
+        alienado: comunicacaoAlienigena.entries[arteRuim.id],
+        estoquista: controleDeEstoque.entries[arteRuim.id],
+        investigacao: espionagem.entries[arteRuim.id],
         filmaco: filmaco.entries[arteRuim.id],
         organiku: organiku.entries[arteRuim.id],
         palavreado: palavreado.entries[arteRuim.id],
-        'portais-magicos': portaisMagicos.entries[arteRuim.id],
+        portais: portaisMagicos.entries[arteRuim.id],
         quartetos: quartetos.entries[arteRuim.id],
-        'teoria-de-conjuntos': teoriaDeConjuntos.entries[arteRuim.id],
-        vitrais: vitrais.entries[arteRuim.id],
+        conjuntos: teoriaDeConjuntos.entries[arteRuim.id],
+        vitral: vitrais.entries[arteRuim.id],
         // Contributions
-        artista: artista.entries[arteRuim.id],
+        picaco: artista.entries[arteRuim.id],
         conexoes: conexoes.entries[arteRuim.id],
         'ta-na-cara': taNaCara.entries[arteRuim.id],
         // Additional info
@@ -201,7 +189,7 @@ export function useLoadDailySetup(
       };
 
       // Generate dictionary for the entry
-      dailyEntry.dictionary = generateDictionary(dailyEntry, tdrItemsQuery.data);
+      dailyEntry.dictionary = generateItemNamesDictionary(dailyEntry, tdrItemsQuery.data);
 
       return dailyEntry;
     });
@@ -247,7 +235,7 @@ export function useLoadDailySetup(
   };
 }
 
-const generateDictionary = (entry: DailyEntry, items: Dictionary<Item>): Dictionary<string> => {
+const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<Item>): Dictionary<string> => {
   const dictionary: Dictionary<string> = {};
 
   // Gather Aqui Ó items
@@ -258,14 +246,14 @@ const generateDictionary = (entry: DailyEntry, items: Dictionary<Item>): Diction
     }
   });
 
-  // Gather Comunicacao Alienigena items
-  entry['comunicacao-alienigena'].itemsIds.forEach((itemId) => {
+  // Gather Alienado items
+  entry.alienado.itemsIds.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;
     }
   });
-  entry['comunicacao-alienigena'].attributes.forEach((attribute) => {
+  entry.alienado.attributes.forEach((attribute) => {
     attribute.itemsIds.forEach((itemId) => {
       const item = items[itemId];
       if (item) {
