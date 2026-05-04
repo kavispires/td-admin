@@ -1,0 +1,1 @@
+import{g as e}from"./Header-BvPy6lJr.js";import{t}from"./tag-ytpRfz0w.js";import{t as n}from"./useCopyToClipboardFunction-8eMzai0L.js";var r=e();function i(e){let i=n(),a=e.withQuotes?`"${e.children?.toString()??``}"`:e.children?.toString()??``;return(0,r.jsx)(t,{onClick:()=>i(a),...e})}export{i as t};
