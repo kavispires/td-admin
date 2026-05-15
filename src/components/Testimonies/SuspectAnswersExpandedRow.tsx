@@ -1,5 +1,5 @@
-import { SearchOutlined } from '@ant-design/icons';
-import { Badge, Button, Flex, Input, Space, Switch, Table, Typography } from 'antd';
+import { FireFilled, SearchOutlined } from '@ant-design/icons';
+import { Badge, Button, Flex, Input, Space, Switch, Table, Tag, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
@@ -42,8 +42,8 @@ export function SuspectAnswersExpandedRow({
   addEntryToUpdate,
   allAnswers,
 }: SuspectAnswersExpandedRowProps) {
-  const { queryParams } = useQueryParams({ sortSuspectsBy: 'answers' });
-  const sortSuspectsBy = queryParams.get('sortSuspectsBy') ?? 'answers';
+  const { queryParams } = useQueryParams({ sortSuspectsBy: 'id' });
+  const sortSuspectsBy = queryParams.get('sortSuspectsBy') ?? 'id';
   const [searchQuery, setSearchQuery] = useState('');
   const [filterHighValues, setFilterHighValues] = useState(false);
 
@@ -79,12 +79,12 @@ export function SuspectAnswersExpandedRow({
       };
     });
 
+    if (sortSuspectsBy === 'level') {
+      return orderBy(res, [(o) => o.question.level, (o) => Number(o.id.split('-')[1])], ['asc', 'asc']);
+    }
+
     if (sortSuspectsBy === 'answers') {
-      return orderBy(
-        res,
-        ['reliable', 'enoughData', 'yesPercentage', (o) => o.values.length],
-        ['desc', 'desc', 'desc', 'desc'],
-      );
+      return orderBy(res, ['reliable', 'enoughData', 'yesPercentage'], ['desc', 'desc', 'desc']);
     }
 
     return orderBy(res, (o) => Number(o.id.split('-')[1]), ['asc']);
@@ -105,7 +105,12 @@ export function SuspectAnswersExpandedRow({
       key: 'question',
       title: 'Question',
       dataIndex: 'question',
-      render: (question) => question.question,
+      render: (question) => (
+        <Flex align="center" gap={6}>
+          <span>{question.question}</span> <Tag>L{question.level}</Tag>{' '}
+          {question.nsfw && <FireFilled style={{ color: 'hotPink' }} />}
+        </Flex>
+      ),
     },
     {
       key: 'answer',

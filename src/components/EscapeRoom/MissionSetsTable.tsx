@@ -1,5 +1,6 @@
 import { Flex, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
+import { PageContent } from 'components/Common/PageContent';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
@@ -71,7 +72,7 @@ export function MissionSetsTable({
   });
 
   return (
-    <Flex className="full-width py-4" gap={12} vertical>
+    <PageContent>
       <Flex align="center" justify="space-between">
         <Typography.Title className="my-0" level={4}>
           Mission Sets
@@ -81,7 +82,7 @@ export function MissionSetsTable({
           checkedChildren="Sort by Answers"
           onChange={(checked) => addParam('sortSuspectsBy', checked ? 'answers' : 'id')}
           unCheckedChildren="Sort by Id"
-        /> */}
+          /> */}
       </Flex>
       <Table
         bordered
@@ -93,6 +94,6 @@ export function MissionSetsTable({
         pagination={paginationProps}
         rowKey="id"
       />
-    </Flex>
+    </PageContent>
   );
 }

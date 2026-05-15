@@ -14,6 +14,7 @@ import {
   Switch,
   Typography,
 } from 'antd';
+import { PageContent } from 'components/Common/PageContent';
 import { orderBy } from 'lodash';
 import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
 import { useCallback, useMemo, useState } from 'react';
@@ -490,7 +491,7 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
   };
 
   return (
-    <Flex className="full-width py-4" gap={12} vertical>
+    <PageContent>
       <Flex align="center" justify="space-between">
         <Typography.Title className="my-0" level={5}>
           Card Creator
@@ -753,7 +754,7 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
           </Card>
         </div>
       </Flex>
-    </Flex>
+    </PageContent>
   );
 }
 

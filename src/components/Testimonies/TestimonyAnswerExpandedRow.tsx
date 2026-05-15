@@ -54,6 +54,17 @@ export function TestimonyAnswerExpandedRow({
       );
     }
 
+    if (sortSuspectsBy === 'new') {
+      return orderBy(
+        res,
+        [
+          (o) => (Number(o.suspectCardId.split('-')[1]) > 200 ? 0 : 1),
+          (o) => Number(o.suspectCardId.split('-')[1]),
+        ],
+        ['asc', 'asc'],
+      );
+    }
+
     return orderBy(res, (o) => Number(o.suspectCardId.split('-')[1]), ['asc']);
   }, [answers, filteredSuspects, testimonyId, sortSuspectsBy]);
 

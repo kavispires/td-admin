@@ -1,5 +1,6 @@
-import { Flex, Switch, Table, type TableProps, Typography } from 'antd';
+import { Flex, Segmented, Table, type TableProps, Typography } from 'antd';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { PageContent } from 'components/Common/PageContent';
 import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
@@ -118,18 +119,26 @@ export function SuspectAnswersTable({
   });
 
   return (
-    <Flex className="full-width py-4" gap={12} vertical>
+    <PageContent>
       <Flex align="center" justify="space-between">
-        <Typography.Title className="my-0" level={4}>
-          Testimonies by Suspect
-        </Typography.Title>
-        <DownloadButton data={newq} fileName={'newQuestions.json'} />
-        <Switch
-          checked={queryParams.get('sortSuspectsBy') === 'answers'}
-          checkedChildren="Sort by Answers"
-          onChange={(checked) => addParam('sortSuspectsBy', checked ? 'answers' : 'id')}
-          unCheckedChildren="Sort by Id"
-        />
+        <Flex>
+          <Typography.Title className="my-0" level={4}>
+            Testimonies by Suspect
+          </Typography.Title>
+          <DownloadButton data={newq} fileName={'newQuestions.json'} />
+        </Flex>
+        <Flex align="center" gap={3}>
+          <span style={{ whiteSpace: 'nowrap' }}>Sort by:</span>
+          <Segmented
+            onChange={(value) => addParam('sortSuspectsBy', value)}
+            options={[
+              { label: 'IDs', value: 'id' },
+              { label: 'Answers', value: 'answers' },
+              { label: 'Level', value: 'level' },
+            ]}
+            value={queryParams.get('sortSuspectsBy') ?? 'id'}
+          />
+        </Flex>
       </Flex>
       <Table
         bordered
@@ -141,6 +150,6 @@ export function SuspectAnswersTable({
         pagination={paginationProps}
         rowKey="id"
       />
-    </Flex>
+    </PageContent>
   );
 }

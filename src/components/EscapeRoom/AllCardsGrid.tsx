@@ -1,6 +1,7 @@
 import { Flex, Select, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { IdTag } from 'components/Common/IdTag';
+import { PageContent } from 'components/Common/PageContent';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
@@ -28,7 +29,7 @@ export function AllCardsGrid({ isLoading, missionSets, cards, isSuccess }: UseEs
   });
 
   return (
-    <Flex className="full-width py-4" gap={12} vertical>
+    <PageContent>
       <Flex align="center" justify="space-between">
         <Typography.Title className="my-0" level={4}>
           All Cards
@@ -76,6 +77,6 @@ export function AllCardsGrid({ isLoading, missionSets, cards, isSuccess }: UseEs
           ))}
         </Flex>
       </PaginationWrapper>
-    </Flex>
+    </PageContent>
   );
 }

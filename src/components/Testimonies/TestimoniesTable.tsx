@@ -1,5 +1,6 @@
 import { CloudSyncOutlined, FireFilled, SearchOutlined } from '@ant-design/icons';
-import { Button, Flex, Input, Rate, Switch, Table, type TableProps, Tooltip, Typography } from 'antd';
+import { Button, Flex, Input, Rate, Segmented, Table, type TableProps, Tooltip, Typography } from 'antd';
+import { PageContent } from 'components/Common/PageContent';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
@@ -123,17 +124,23 @@ export function TestimoniesTable({
   });
 
   return (
-    <Flex className="full-width py-4" gap={12} vertical>
+    <PageContent>
       <Flex align="center" justify="space-between">
         <Typography.Title className="my-0" level={4}>
           Suspects by Testimony
         </Typography.Title>
-        <Switch
-          checked={queryParams.get('sortSuspectsBy') === 'answers'}
-          checkedChildren="Sort by Answers"
-          onChange={(checked) => addParam('sortSuspectsBy', checked ? 'answers' : 'id')}
-          unCheckedChildren="Sort by Id"
-        />
+        <Flex align="center" gap={3}>
+          <span style={{ whiteSpace: 'nowrap' }}>Sort by:</span>
+          <Segmented
+            onChange={(value) => addParam('sortSuspectsBy', value)}
+            options={[
+              { label: 'IDs', value: 'id' },
+              { label: 'Answers', value: 'answers' },
+              { label: 'New > 200', value: 'new' },
+            ]}
+            value={queryParams.get('sortSuspectsBy') ?? 'id'}
+          />
+        </Flex>
       </Flex>
       <Flex gap={6}>
         <Input
@@ -161,6 +168,6 @@ export function TestimoniesTable({
         pagination={paginationProps}
         rowKey="id"
       />
-    </Flex>
+    </PageContent>
   );
 }
