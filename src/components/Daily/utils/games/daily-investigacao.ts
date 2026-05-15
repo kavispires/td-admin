@@ -302,10 +302,10 @@ export const buildDailyInvestigacaoGames = (
  * Generates a daily espionagem game entry by selecting suspects, testimonies, and feature-based statements.
  *
  * This function orchestrates the creation of a game round by:
- * - Selecting two related testimonies and determining the culprit and possible suspects.
- * - Ensuring the correct number of suspects are included, supplementing if necessary.
+ * - Selecting testimonies (3 for weekdays, 4 for weekends) and determining the culprit and possible suspects.
  * - Gathering features that the culprit does not possess for use in feature statements.
- * - Generating a series of statements (testimony, feature, and grid-based) to provide clues.
+ * - Generating alternating testimony and feature statements (6 for weekdays, 8 for weekends).
+ * - Creating 3 grid-based statements (column, row, corners) as additional clues.
  * - Randomizing suspect positions and assembling the final game entry object.
  *
  * @param suspects - A dictionary of all available suspects keyed by their IDs.
@@ -314,7 +314,7 @@ export const buildDailyInvestigacaoGames = (
  * @param featuresStats - A dictionary mapping feature keys to dictionaries of suspect IDs who have that feature.
  * @param usedIds - An array of suspect IDs that have already been used and should be excluded.
  * @param reasons - A dictionary of possible crime reasons keyed by their IDs.
- * @param isWeekend - Whether the game is for a weekend date (larger grid).
+ * @param isWeekend - Whether the game is for a weekend date (larger grid with more statements).
  * @returns An object representing the generated espionagem game entry, omitting 'id', 'number', and 'type' fields.
  * @throws If there are not enough possible suspects or if the generated statements are insufficient.
  */
@@ -334,8 +334,14 @@ function generateInvestigacaoGame(
   debugLog('SuspectTestimonyAnswers', suspectTestimonyAnswers);
 
   // Get testimonies, the culprit ID, and the common suspects
-  const { selectedTestimonyId1, selectedTestimonyId2, selectedTestimonyId3, culpritId, suspectsIds } =
-    findInvestigacaoScenario(suspectTestimonyAnswers, usedIds, isWeekend);
+  const {
+    selectedTestimonyId1,
+    selectedTestimonyId2,
+    selectedTestimonyId3,
+    selectedTestimonyId4,
+    culpritId,
+    suspectsIds,
+  } = findInvestigacaoScenario(suspectTestimonyAnswers, usedIds, isWeekend);
 
   // Gather features the culprit does not have
   const featuresCulpritDoesNotHave: Dictionary<Dictionary<true>> = {};
@@ -381,126 +387,156 @@ function generateInvestigacaoGame(
   statements.push(testimonyStatement2);
   updateExcludeScoreBoard(excludeScoreBoard, testimonyStatement2.excludes);
 
-  let testimonyStatement3: StatementClue | undefined;
-  if (isWeekend && selectedTestimonyId3) {
-    const testimony3 = questions[selectedTestimonyId3];
-    testimonyStatement3 = getTestimonyStatement(
+  // TESTIMONY STATEMENT 3: Add third testimony to statements (both weekday and weekend now have 3)
+  const testimony3 = questions[selectedTestimonyId3];
+  const testimonyStatement3 = getTestimonyStatement(
+    culpritId,
+    suspectsIds,
+    testimony3,
+    suspectTestimonyAnswers[selectedTestimonyId3],
+  );
+  statements.push(testimonyStatement3);
+  updateExcludeScoreBoard(excludeScoreBoard, testimonyStatement3.excludes);
+
+  // TESTIMONY STATEMENT 4: Add fourth testimony to statements (weekend only)
+  let testimonyStatement4: StatementClue | undefined;
+  if (isWeekend && selectedTestimonyId4) {
+    const testimony4 = questions[selectedTestimonyId4];
+    testimonyStatement4 = getTestimonyStatement(
       culpritId,
       suspectsIds,
-      testimony3,
-      suspectTestimonyAnswers[selectedTestimonyId3],
+      testimony4,
+      suspectTestimonyAnswers[selectedTestimonyId4],
     );
-    statements.push(testimonyStatement3);
-    updateExcludeScoreBoard(excludeScoreBoard, testimonyStatement3.excludes);
+    statements.push(testimonyStatement4);
+    updateExcludeScoreBoard(excludeScoreBoard, testimonyStatement4.excludes);
   }
 
-  // BEST FEATURE STATEMENT 1
-  const bestFeatureStatement1 = getFeatureStatement(
+  // FEATURE STATEMENT 1
+  const featureStatement1 = getFeatureStatement(
     culpritId,
     suspectsIds,
     featuresCulpritDoesNotHave,
     [],
-    'best',
+    'worst',
     totalSuspects,
   );
-  if (bestFeatureStatement1.excludes.length === totalSuspects - 2) {
-    throw new Error('Best feature statement excludes too many suspects');
+  if (featureStatement1.excludes.length === totalSuspects - 2) {
+    throw new Error('Feature statement 1 excludes too many suspects');
+  }
+  statements.push(featureStatement1);
+  updateExcludeScoreBoard(excludeScoreBoard, featureStatement1.excludes);
+
+  // FEATURE STATEMENT 2
+  const featureStatement2 = getFeatureStatement(
+    culpritId,
+    suspectsIds,
+    featuresCulpritDoesNotHave,
+    [featureStatement1],
+    'worst',
+    totalSuspects,
+  );
+  statements.push(featureStatement2);
+  updateExcludeScoreBoard(excludeScoreBoard, featureStatement2.excludes);
+
+  // FEATURE STATEMENT 3
+  const featureStatement3 = getFeatureStatement(
+    culpritId,
+    suspectsIds,
+    featuresCulpritDoesNotHave,
+    [featureStatement1, featureStatement2],
+    'worst',
+    totalSuspects,
+  );
+  statements.push(featureStatement3);
+  updateExcludeScoreBoard(excludeScoreBoard, featureStatement3.excludes);
+
+  // FEATURE STATEMENT 4 (weekend only)
+  let featureStatement4: StatementClue | undefined;
+  if (isWeekend) {
+    featureStatement4 = getFeatureStatement(
+      culpritId,
+      suspectsIds,
+      featuresCulpritDoesNotHave,
+      [featureStatement1, featureStatement2, featureStatement3],
+      'worst',
+      totalSuspects,
+    );
+    statements.push(featureStatement4);
+    updateExcludeScoreBoard(excludeScoreBoard, featureStatement4.excludes);
   }
 
-  statements.push(bestFeatureStatement1);
-  updateExcludeScoreBoard(excludeScoreBoard, bestFeatureStatement1.excludes);
-
-  // BEST FEATURE STATEMENT 2
-  const bestFeatureStatement2 = getFeatureStatement(
-    culpritId,
-    suspectsIds,
-    featuresCulpritDoesNotHave,
-    [bestFeatureStatement1],
-    'best',
-    totalSuspects,
-  );
-  statements.push(bestFeatureStatement2);
-  // updateExcludeScoreBoard(excludeScoreBoard, bestFeatureStatement2.excludes);
-
-  // WORST FEATURE STATEMENT 1
-  const worstFeatureStatement1 = getFeatureStatement(
-    culpritId,
-    suspectsIds,
-    featuresCulpritDoesNotHave,
-    [bestFeatureStatement1, bestFeatureStatement2], // Pass previous statements
-    'worst',
-    totalSuspects,
-  );
-  statements.push(worstFeatureStatement1);
-  updateExcludeScoreBoard(excludeScoreBoard, worstFeatureStatement1.excludes);
-
-  // WORST FEATURE STATEMENT 2
-  const worstFeatureStatement2 = getFeatureStatement(
-    culpritId,
-    suspectsIds,
-    featuresCulpritDoesNotHave,
-    [bestFeatureStatement1, bestFeatureStatement2, worstFeatureStatement1], // Pass previous statements
-    'worst',
-    totalSuspects,
-  );
-  statements.push(worstFeatureStatement2);
-
-  if (statements.length < 6) {
-    throw new Error('Not enough statements generated');
+  const expectedStatements = isWeekend ? 8 : 6;
+  if (statements.length < expectedStatements) {
+    throw new Error(`Not enough statements generated: ${statements.length} < ${expectedStatements}`);
   }
 
   // Create random grid positions for the suspects
   const shuffledSuspectsIds = shuffle(suspectsIds);
 
-  // COLUMN POSITION STATEMENT
-  const columnPositionStatement = getGridStatement(
+  // Track used grid keys to avoid duplicates
+  const usedGridKeys: string[] = [];
+
+  // GRID STATEMENT 1 - COLUMN POSITION
+  const gridStatement1 = getGridStatement(
     culpritId,
     shuffledSuspectsIds,
     statements,
     'columns',
     totalSuspects,
+    usedGridKeys,
   );
-  statements.push(columnPositionStatement);
-  updateExcludeScoreBoard(excludeScoreBoard, columnPositionStatement.excludes);
+  // Extract the grid key from the statement key (e.g., "not.grid.column2" -> "column2")
+  usedGridKeys.push(gridStatement1.key.replace('not.grid.', ''));
 
-  // ROW POSITION STATEMENT
-  const rowPositionStatement = getGridStatement(
+  // GRID STATEMENT 2 - ROW POSITION
+  const gridStatement2 = getGridStatement(
     culpritId,
     shuffledSuspectsIds,
     statements,
     'rows',
     totalSuspects,
+    usedGridKeys,
   );
-  statements.push(rowPositionStatement);
-  // updateExcludeScoreBoard(excludeScoreBoard, rowPositionStatement.excludes);
+  usedGridKeys.push(gridStatement2.key.replace('not.grid.', ''));
 
-  // Order the statements
+  // GRID STATEMENT 3 - Try corners first, but if culprit is in corners, pick the best remaining option
+  const culpritPosition = shuffledSuspectsIds.indexOf(culpritId);
+  const cornersIndexes = totalSuspects === TOTAL_SUSPECTS_WEEKEND ? [0, 3, 12, 15] : [0, 3, 8, 11];
+  const isCulpritInCorners = cornersIndexes.includes(culpritPosition);
+
+  const gridStatement3 = isCulpritInCorners
+    ? getGridStatement(culpritId, shuffledSuspectsIds, statements, 'any', totalSuspects, usedGridKeys)
+    : getGridStatement(culpritId, shuffledSuspectsIds, statements, 'corners', totalSuspects, usedGridKeys);
+
+  // Order the statements to alternate between testimony and feature
   let sortedStatements: StatementClue[] = [];
-  if (isWeekend && testimonyStatement3) {
+  if (isWeekend && testimonyStatement4 && featureStatement4) {
+    // Weekend: T1, F1, T2, F2, T3, F3, T4, F4
     sortedStatements = [
       testimonyStatement1,
-      worstFeatureStatement1,
+      featureStatement1,
       testimonyStatement2,
-      bestFeatureStatement1,
+      featureStatement2,
       testimonyStatement3,
-      columnPositionStatement,
-      worstFeatureStatement2,
-      rowPositionStatement,
+      featureStatement3,
+      testimonyStatement4,
+      featureStatement4,
     ];
   } else {
+    // Weekday: T1, F1, T2, F2, T3, F3
     sortedStatements = [
       testimonyStatement1,
-      worstFeatureStatement1,
+      featureStatement1,
       testimonyStatement2,
-      bestFeatureStatement1,
-      columnPositionStatement,
-      worstFeatureStatement2,
+      featureStatement2,
+      testimonyStatement3,
+      featureStatement3,
     ];
   }
 
-  const additionalStatements = isWeekend
-    ? [bestFeatureStatement2]
-    : [bestFeatureStatement2, rowPositionStatement];
+  // Additional statements are always the 3 grid statements
+  const additionalStatements = shuffle([gridStatement1, gridStatement2, gridStatement3]);
 
   // Get reason
   const reason = getReason(suspects[culpritId], reasons);
@@ -511,7 +547,12 @@ function generateInvestigacaoGame(
   ]);
 
   return {
-    isNsfw: testimony1.nsfw || testimony2.nsfw || false,
+    isNsfw:
+      testimony1.nsfw ||
+      testimony2.nsfw ||
+      testimony3.nsfw ||
+      (isWeekend && selectedTestimonyId4 ? questions[selectedTestimonyId4].nsfw : false) ||
+      false,
     culpritId,
     statements: sortedStatements,
     additionalStatements,
@@ -522,6 +563,16 @@ function generateInvestigacaoGame(
   };
 }
 
+/**
+ * Extracts and groups all relevant features from the provided statement clues.
+ *
+ * This function identifies all feature-based statements (those containing '.feature.' in their key),
+ * extracts the feature keys, and adds related features from the same feature group.
+ * For example, if 'brownHair' is used, all hair color features will be included.
+ *
+ * @param statements - An array of statement clues to analyze for feature usage
+ * @returns A dictionary mapping feature keys to true for all features that should be included in the game
+ */
 const getRelevantSuspectsFeaturesDict = (statements: StatementClue[]) => {
   const usedFeaturesDictionary: Dictionary<true> = {};
   statements.forEach((feature) => {
@@ -750,6 +801,7 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
 
   // List of features that will not be helpful in the game
   const BANNED_FEATURES = [
+    '0-10',
     '18-21',
     '21-30',
     '30-40',
@@ -777,21 +829,23 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
  * Finds a valid game scenario by selecting a culprit and testimonies that
  * effectively split the suspect pool according to specific constraints.
  *
- * Weekday Constraints (12 suspects):
- * 1. Q1 must divide the suspects such that 5-7 suspects (40-60% of 12) have a different answer than the culprit.
- * 2. Q2 must divide the remaining suspects (those who matched the culprit in Q1) such that all of them differ from the culprit in Q2.
- * 3. The final pool of 12 suspects is constructed to satisfy these splits.
- *
- * Weekend Constraints (16 suspects):
- * 1. Q1 must divide the suspects such that 6-10 suspects (40-60% of 16) have a different answer than the culprit.
+ * Weekday Constraints (12 suspects, 3 testimonies):
+ * 1. Q1 must divide the suspects such that some suspects (40-60% of 12) have a different answer than the culprit.
  * 2. Q2 excludes a portion of the survivors of Q1.
  * 3. Q3 excludes the remaining survivors.
- * 4. The final pool of 16 suspects is constructed to satisfy these splits.
+ * 4. The final pool of 12 suspects is constructed to satisfy these splits.
+ *
+ * Weekend Constraints (16 suspects, 4 testimonies):
+ * 1. Q1 must divide the suspects such that 6-10 suspects (40-60% of 16) have a different answer than the culprit.
+ * 2. Q2 excludes a portion of the survivors of Q1.
+ * 3. Q3 excludes a portion of the remaining survivors.
+ * 4. Q4 excludes the final remaining survivors.
+ * 5. The final pool of 16 suspects is constructed to satisfy these splits.
  *
  * @param suspectTestimonyAnswers - A dictionary mapping testimony IDs to suspect answers.
  * @param usedIds - An array of previously used suspect IDs to avoid as culprits.
- * @param isWeekend - Whether the game is for a weekend date (larger pool, 3 questions).
- * @returns An object containing the selected culpritId, testimony IDs, and the list of suspect IDs.
+ * @param isWeekend - Whether the game is for a weekend date (larger pool, 4 questions vs 3).
+ * @returns An object containing the selected culpritId, testimony IDs (3 for weekday, 4 for weekend), and the list of suspect IDs.
  * @throws If no valid scenario can be found after the attempt threshold.
  */
 const findInvestigacaoScenario = (
@@ -854,31 +908,126 @@ const findInvestigacaoScenario = (
           suspectTestimonyAnswers[q2Id][id] !== undefined && suspectTestimonyAnswers[q2Id][id] === q2Answer,
       );
 
-      if (isWeekend) {
-        // Weekend Logic: 3 Questions, 16 Suspects
-        const q3Candidates = sampleSize(questions, 10);
-        for (const q3Id of q3Candidates) {
-          if (q3Id === q1Id || q3Id === q2Id) continue;
-          if (suspectTestimonyAnswers[q3Id][culpritId] === undefined) continue;
+      // Both weekday and weekend now use 3+ testimonies
+      const q3Candidates = sampleSize(questions, 10);
+      for (const q3Id of q3Candidates) {
+        if (q3Id === q1Id || q3Id === q2Id) continue;
+        if (suspectTestimonyAnswers[q3Id][culpritId] === undefined) continue;
 
-          const q3Answer = suspectTestimonyAnswers[q3Id][culpritId];
+        const q3Answer = suspectTestimonyAnswers[q3Id][culpritId];
 
-          // Identify survivors from Q1+Q2 who are excluded by Q3
-          const poolS1Match_S2Match_S3Diff = poolS1Match_S2Match.filter(
-            (id) =>
-              suspectTestimonyAnswers[q3Id][id] !== undefined &&
-              suspectTestimonyAnswers[q3Id][id] !== q3Answer,
-          );
+        // Identify survivors from Q1+Q2 who are excluded by Q3
+        const poolS1Match_S2Match_S3Diff = poolS1Match_S2Match.filter(
+          (id) =>
+            suspectTestimonyAnswers[q3Id][id] !== undefined && suspectTestimonyAnswers[q3Id][id] !== q3Answer,
+        );
 
-          // Construct Pool for Weekend
-          // We need totalSuspects - 1 non-culprits (15)
-          // N1 from Diff1, N2 from S1Match_S2Diff, N3 from S1Match_S2Match_S3Diff
+        // Identify survivors from Q1+Q2 who match Q3
+        const poolS1Match_S2Match_S3Match = poolS1Match_S2Match.filter(
+          (id) =>
+            suspectTestimonyAnswers[q3Id][id] !== undefined && suspectTestimonyAnswers[q3Id][id] === q3Answer,
+        );
+
+        if (isWeekend) {
+          // Weekend Logic: 4 Questions, 16 Suspects
+          const q4Candidates = sampleSize(questions, 10);
+          for (const q4Id of q4Candidates) {
+            if (q4Id === q1Id || q4Id === q2Id || q4Id === q3Id) continue;
+            if (suspectTestimonyAnswers[q4Id][culpritId] === undefined) continue;
+
+            const q4Answer = suspectTestimonyAnswers[q4Id][culpritId];
+
+            // Identify survivors from Q1+Q2+Q3 who are excluded by Q4
+            const poolS1Match_S2Match_S3Match_S4Diff = poolS1Match_S2Match_S3Match.filter(
+              (id) =>
+                suspectTestimonyAnswers[q4Id][id] !== undefined &&
+                suspectTestimonyAnswers[q4Id][id] !== q4Answer,
+            );
+
+            // Construct Pool for Weekend (4 Questions)
+            // We need totalSuspects - 1 non-culprits (15)
+            // N1 from Diff1, N2 from S1Match_S2Diff, N3 from S1Match_S2Match_S3Diff, N4 from S1Match_S2Match_S3Match_S4Diff
+            const validConfigs = [];
+            for (let n = minDiff1; n <= maxDiff1; n++) {
+              if (poolS1Diff.length >= n) {
+                const remaining = totalSuspects - 1 - n;
+                // We need to fill 'remaining' with S2Diff, S3Diff, and S4Diff
+                if (
+                  poolS1Match_S2Diff.length +
+                    poolS1Match_S2Match_S3Diff.length +
+                    poolS1Match_S2Match_S3Match_S4Diff.length >=
+                  remaining
+                ) {
+                  validConfigs.push(n);
+                }
+              }
+            }
+
+            if (validConfigs.length > 0) {
+              const chosenN1 = sample(validConfigs) ?? validConfigs[0];
+              const remainingForQ2Q3Q4 = totalSuspects - 1 - chosenN1;
+
+              // Distribute remaining spots between Q2, Q3, and Q4
+              const minQ4 = 1; // At least 1 for Q4
+              const minQ3 = 1; // At least 1 for Q3
+              const maxAvailableForQ2Q3 = remainingForQ2Q3Q4 - minQ4;
+              const maxQ2 = Math.min(poolS1Match_S2Diff.length, maxAvailableForQ2Q3 - minQ3);
+              const minQ2 = Math.max(1, maxAvailableForQ2Q3 - poolS1Match_S2Match_S3Diff.length);
+
+              if (maxQ2 >= minQ2) {
+                const chosenN2 = Math.floor(Math.random() * (maxQ2 - minQ2 + 1)) + minQ2;
+                const remainingForQ3Q4 = remainingForQ2Q3Q4 - chosenN2;
+                const maxQ3 = Math.min(poolS1Match_S2Match_S3Diff.length, remainingForQ3Q4 - minQ4);
+                const minQ3Actual = Math.max(
+                  minQ3,
+                  remainingForQ3Q4 - poolS1Match_S2Match_S3Match_S4Diff.length,
+                );
+
+                if (maxQ3 >= minQ3Actual) {
+                  const chosenN3 = Math.floor(Math.random() * (maxQ3 - minQ3Actual + 1)) + minQ3Actual;
+                  const chosenN4 = remainingForQ3Q4 - chosenN3;
+
+                  const chosenDiff1 = sampleSize(poolS1Diff, chosenN1);
+                  const chosenDiff2 = sampleSize(poolS1Match_S2Diff, chosenN2);
+                  const chosenDiff3 = sampleSize(poolS1Match_S2Match_S3Diff, chosenN3);
+                  const chosenDiff4 = sampleSize(poolS1Match_S2Match_S3Match_S4Diff, chosenN4);
+
+                  const suspectsIds = [
+                    culpritId,
+                    ...chosenDiff1,
+                    ...chosenDiff2,
+                    ...chosenDiff3,
+                    ...chosenDiff4,
+                  ];
+
+                  debugLog('<===============>');
+                  debugLog(`⚙️ Weekend Mode: ${totalSuspects} Suspects`);
+                  debugLog(`⚙️ Culprit ID: ${culpritId}`);
+                  debugLog(`⚙️ Q1: ${q1Id} (Excludes ${chosenDiff1.length})`);
+                  debugLog(`⚙️ Q2: ${q2Id} (Excludes ${chosenDiff2.length})`);
+                  debugLog(`⚙️ Q3: ${q3Id} (Excludes ${chosenDiff3.length})`);
+                  debugLog(`⚙️ Q4: ${q4Id} (Excludes ${chosenDiff4.length})`);
+                  debugLog('>===============<');
+
+                  return {
+                    selectedTestimonyId1: q1Id,
+                    selectedTestimonyId2: q2Id,
+                    selectedTestimonyId3: q3Id,
+                    selectedTestimonyId4: q4Id,
+                    culpritId,
+                    suspectsIds,
+                  };
+                }
+              }
+            }
+          }
+        } else {
+          // Weekday Logic: 3 Questions, 12 Suspects
+          // We need 11 non-culprits.
           const validConfigs = [];
           for (let n = minDiff1; n <= maxDiff1; n++) {
             if (poolS1Diff.length >= n) {
               const remaining = totalSuspects - 1 - n;
-              // We need to fill 'remaining' with S2Diff and S3Diff
-              // Let's try to split them somewhat evenly or just ensure we have enough
               if (poolS1Match_S2Diff.length + poolS1Match_S2Match_S3Diff.length >= remaining) {
                 validConfigs.push(n);
               }
@@ -890,7 +1039,6 @@ const findInvestigacaoScenario = (
             const remainingForQ2Q3 = totalSuspects - 1 - chosenN1;
 
             // Distribute remaining spots between Q2 and Q3
-            // Prioritize Q2 having a good chunk
             const minQ3 = 1; // At least 1 for Q3
             const maxQ2 = Math.min(poolS1Match_S2Diff.length, remainingForQ2Q3 - minQ3);
             const minQ2 = Math.max(1, remainingForQ2Q3 - poolS1Match_S2Match_S3Diff.length);
@@ -899,11 +1047,6 @@ const findInvestigacaoScenario = (
               const chosenN2 = Math.floor(Math.random() * (maxQ2 - minQ2 + 1)) + minQ2;
               const chosenN3 = remainingForQ2Q3 - chosenN2;
 
-              // Select suspects
-              // Optimization: Prioritize "Overlap" for the Diff1 group (suspects excluded by Q1 should also be excluded by Q2/Q3 if possible)
-              // For simplicity in this complex 3-step, we just take random samples for now,
-              // but we could refine to prioritize Diff1_Diff2 or Diff1_Diff3 overlap.
-
               const chosenDiff1 = sampleSize(poolS1Diff, chosenN1);
               const chosenDiff2 = sampleSize(poolS1Match_S2Diff, chosenN2);
               const chosenDiff3 = sampleSize(poolS1Match_S2Match_S3Diff, chosenN3);
@@ -911,7 +1054,7 @@ const findInvestigacaoScenario = (
               const suspectsIds = [culpritId, ...chosenDiff1, ...chosenDiff2, ...chosenDiff3];
 
               debugLog('<===============>');
-              debugLog(`⚙️ Weekend Mode: ${totalSuspects} Suspects`);
+              debugLog(`⚙️ Weekday Mode: ${totalSuspects} Suspects`);
               debugLog(`⚙️ Culprit ID: ${culpritId}`);
               debugLog(`⚙️ Q1: ${q1Id} (Excludes ${chosenDiff1.length})`);
               debugLog(`⚙️ Q2: ${q2Id} (Excludes ${chosenDiff2.length})`);
@@ -928,51 +1071,6 @@ const findInvestigacaoScenario = (
             }
           }
         }
-      } else {
-        // Weekday Logic: 2 Questions, 12 Suspects
-        // We need 11 non-culprits.
-        const validConfigs = [minDiff1, minDiff1 + 1, maxDiff1].filter(
-          (n) => poolS1Diff.length >= n && poolS1Match_S2Diff.length >= 11 - n,
-        );
-
-        if (validConfigs.length > 0) {
-          const chosenN = sample(validConfigs) ?? validConfigs[0];
-          const chosenRest = sampleSize(poolS1Match_S2Diff, 11 - chosenN);
-
-          // Optimization: Prioritize "Overlap" for the Diff1 group.
-          const poolS1Diff_S2Diff = poolS1Diff.filter(
-            (id) =>
-              suspectTestimonyAnswers[q2Id][id] !== undefined &&
-              suspectTestimonyAnswers[q2Id][id] !== q2Answer,
-          );
-          const poolS1Diff_Rest = difference(poolS1Diff, poolS1Diff_S2Diff);
-
-          let chosenDiff1: string[] = [];
-          if (poolS1Diff_S2Diff.length >= chosenN) {
-            chosenDiff1 = sampleSize(poolS1Diff_S2Diff, chosenN);
-          } else {
-            chosenDiff1 = [
-              ...poolS1Diff_S2Diff,
-              ...sampleSize(poolS1Diff_Rest, chosenN - poolS1Diff_S2Diff.length),
-            ];
-          }
-
-          const suspectsIds = [culpritId, ...chosenDiff1, ...chosenRest];
-
-          debugLog('<===============>');
-          debugLog(`⚙️ Culprit ID: ${culpritId}`);
-          debugLog(`⚙️ Selected Q1: ${q1Id} (Excludes ${chosenDiff1.length})`);
-          debugLog(`⚙️ Selected Q2: ${q2Id} (Excludes remaining ${chosenRest.length})`);
-          debugLog(`⚙️ Pool Size: ${suspectsIds.length}`);
-          debugLog('>===============<');
-
-          return {
-            selectedTestimonyId1: q1Id,
-            selectedTestimonyId2: q2Id,
-            culpritId,
-            suspectsIds,
-          };
-        }
       }
     }
   }
@@ -980,6 +1078,12 @@ const findInvestigacaoScenario = (
   throw new Error('Failed to find a valid investigacao scenario');
 };
 
+/**
+ * Updates the exclusion scoreboard by incrementing the count for each excluded suspect.
+ *
+ * @param scoreboard - A dictionary tracking how many times each suspect ID has been excluded
+ * @param excludes - An array of suspect IDs to increment in the scoreboard
+ */
 const updateExcludeScoreBoard = (scoreboard: Dictionary<number>, excludes: string[]) => {
   excludes.forEach((id) => {
     if (scoreboard[id] === undefined) {
@@ -1109,35 +1213,51 @@ const GRID_4X4_ROWS: Dictionary<{ indexes: number[]; text: string }> = {
 };
 
 /**
- * Generates a grid-based statement clue for a deduction game, selecting a grid rule (row or column)
+ * Generates a grid-based statement clue for a deduction game, selecting a grid rule (row, column, corners, or any)
  * that excludes the culprit and has the least overlap with existing basic exclusion statements.
  *
  * @param culpritId - The ID of the culprit suspect.
  * @param suspectsIds - An array of all suspect IDs, representing their positions in the grid.
  * @param statements - An array of existing basic statement clues to consider for exclusion overlap.
- * @param type - Specifies whether to use 'rows' or 'columns' grid rules.
+ * @param type - Specifies whether to use 'rows', 'columns', 'corners', or 'any' (picks best from all) grid rules.
  * @param totalSuspects - The total number of suspects (determines grid size).
+ * @param usedGridKeys - Optional array of grid keys that have already been used to avoid duplicates.
  * @returns A new StatementClue object representing a grid-based exclusion statement.
  */
 const getGridStatement = (
   culpritId: string,
   suspectsIds: string[],
   statements: StatementClue[],
-  type: 'rows' | 'columns',
+  type: 'rows' | 'columns' | 'corners' | 'any',
   totalSuspects: number,
+  usedGridKeys: string[] = [],
 ): StatementClue => {
   // Get culprit row and column
   const culpritPosition = suspectsIds.indexOf(culpritId);
-  // Calculate the grid rule that has the least amount of excludes
 
+  // Calculate the grid rule that has the least amount of excludes
   const basicStatements = statements.slice(0, 3);
 
   // Select the correct grid definition based on total suspects and type
   let INDEXES: Dictionary<{ indexes: number[]; text: string }>;
-  if (totalSuspects === TOTAL_SUSPECTS_WEEKEND) {
-    INDEXES = type === 'rows' ? GRID_4X4_ROWS : GRID_4X4_COLUMNS;
+  if (type === 'corners') {
+    // Corners are defined in the column indexes
+    const sourceIndexes = totalSuspects === TOTAL_SUSPECTS_WEEKEND ? GRID_4X4_COLUMNS : GRID_COLUMNS_INDEXES;
+    // Filter to only use corners
+    INDEXES = { corners: sourceIndexes.corners };
+  } else if (type === 'columns') {
+    // For columns, exclude corners to avoid repetition
+    const sourceIndexes = totalSuspects === TOTAL_SUSPECTS_WEEKEND ? GRID_4X4_COLUMNS : GRID_COLUMNS_INDEXES;
+    INDEXES = { ...sourceIndexes };
+    delete INDEXES.corners;
+  } else if (type === 'rows') {
+    // For rows
+    INDEXES = totalSuspects === TOTAL_SUSPECTS_WEEKEND ? GRID_4X4_ROWS : ROWS_COLUMNS_GRID_INDEXES;
   } else {
-    INDEXES = type === 'rows' ? ROWS_COLUMNS_GRID_INDEXES : GRID_COLUMNS_INDEXES;
+    // type === 'any': Use all available grid positions
+    const columns = totalSuspects === TOTAL_SUSPECTS_WEEKEND ? GRID_4X4_COLUMNS : GRID_COLUMNS_INDEXES;
+    const rows = totalSuspects === TOTAL_SUSPECTS_WEEKEND ? GRID_4X4_ROWS : ROWS_COLUMNS_GRID_INDEXES;
+    INDEXES = { ...columns, ...rows };
   }
 
   const gridIndexesCounts: Dictionary<number> = {};
@@ -1145,6 +1265,11 @@ const getGridStatement = (
     const { indexes } = INDEXES[key];
 
     if (indexes.includes(culpritPosition)) {
+      continue;
+    }
+
+    // Skip if this grid key has already been used
+    if (usedGridKeys.includes(key)) {
       continue;
     }
 
@@ -1185,7 +1310,16 @@ const getGridStatement = (
   // Randomly select one of the best options
   const bestGridCondition = sample(bestOptions) || Object.keys(gridIndexesCounts)[0];
 
-  const excludes = INDEXES[bestGridCondition].indexes.map((index) => suspectsIds[index]);
+  const excludes = INDEXES[bestGridCondition].indexes
+    .map((index) => suspectsIds[index])
+    .filter((id): id is string => id !== undefined); // Filter out any undefined values
+
+  if (excludes.length === 0) {
+    debugError(
+      `No valid excludes found for grid ${bestGridCondition}. Culprit at ${culpritPosition}, total suspects: ${totalSuspects}, suspects array length: ${suspectsIds.length}`,
+    );
+    throw new Error(`Failed to generate grid statement: no valid excludes for ${bestGridCondition}`);
+  }
 
   return {
     key: `not.grid.${bestGridCondition}`,
@@ -1305,33 +1439,31 @@ const getFeatureStatement = (
 /**
  * Determines whether a game is doable based on the provided statement clues.
  *
- * The function checks the following conditions using the first three statements:
- * 1. The total number of excludes across the first three statements must be at least 10 (or 16 for weekend).
- * 2. The set of unique excludes from these statements must cover all but one of the total suspects.
+ * The function checks the following conditions using all main statements (excluding grid statements):
+ * 1. The total number of excludes across all main statements must meet minimum thresholds.
+ * 2. The set of unique excludes from these statements must cover all but a few of the total suspects.
  *
  * @param statements - An array of `StatementClue` objects representing the clues for the game.
  * @param isWeekend - Whether it is a weekend game.
  * @returns `true` if the game is considered doable according to the criteria; otherwise, `false`.
  */
 const verifyGameDoability = (statements: StatementClue[], isWeekend: boolean) => {
-  // Use first 3 statements for weekday, first 5 for weekend (T1, F, T2, F, T3)
-  // Actually, let's just use "all statements except the grid ones at the end" logic or strict first N.
-  // The original code checked first 3. For weekend with T1, F, T2, F, T3, we should check more.
-
-  const limit = isWeekend ? 5 : 3;
-  const firstBatch = statements.slice(0, limit);
+  // Use all main statements (6 for weekday, 8 for weekend)
+  // These are all testimony and feature statements (alternating T-F-T-F-T-F or T-F-T-F-T-F-T-F)
+  const limit = isWeekend ? 8 : 6;
+  const mainStatements = statements.slice(0, limit);
   const totalSuspects = isWeekend ? TOTAL_SUSPECTS_WEEKEND : TOTAL_SUSPECTS_WEEKDAY;
-  const minExcludes = isWeekend ? 13 : 10;
+  const minExcludes = isWeekend ? 18 : 12;
 
   // Easiness of puzzle based on total excludes
-  const totalExcludes = firstBatch.reduce((acc, stmt) => acc + stmt.excludes.length, 0);
+  const totalExcludes = mainStatements.reduce((acc, stmt) => acc + stmt.excludes.length, 0);
   if (totalExcludes < minExcludes) {
     return false;
   }
 
-  // Gather the first batch statements and all unique excludes
-  const uniqueExcludes = new Set(firstBatch.flatMap((stmt) => stmt.excludes));
-  // Ideally, we want almost everyone excluded by the time we hit the grid clues
+  // Gather all unique excludes from main statements
+  const uniqueExcludes = new Set(mainStatements.flatMap((stmt) => stmt.excludes));
+  // Ideally, we want almost everyone excluded by the main statements
   return uniqueExcludes.size >= totalSuspects - 2;
 };
 

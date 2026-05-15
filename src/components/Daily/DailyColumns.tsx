@@ -1,5 +1,6 @@
-import { EyeFilled } from '@ant-design/icons';
+import { AppstoreOutlined, EyeFilled, NotificationFilled, SkinFilled } from '@ant-design/icons';
 import { Alert, Button, Flex, Popover, Space, type TableColumnsType, Tag, Typography } from 'antd';
+import clsx from 'clsx';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { CanvasSVG } from 'components/Daily/CanvasSVG';
 import { ImageCard } from 'components/Images/ImageCard';
@@ -279,19 +280,49 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
 
           <GamePopover entry={entry}>
             <Flex gap={6} vertical>
-              <Space style={{ maxHeight: 200, overflowY: 'auto' }} wrap>
+              <Space
+                style={{
+                  maxHeight: 200,
+                  overflowY: 'auto',
+                  display: 'grid',
+                  gridTemplateColumns: `repeat(${Math.ceil(suspects.length / 4)}, 50px)`,
+                  gap: '8px',
+                }}
+                wrap
+              >
                 {suspects.map((suspect) => (
-                  <SuspectImageCard cardId={suspect.id} cardWidth={48} key={suspect.id} />
+                  <SuspectImageCard
+                    cardId={suspect.id}
+                    cardWidth={48}
+                    className={clsx({ 'red-border': suspect.id === culpritId })}
+                    key={suspect.id}
+                  />
                 ))}
               </Space>
 
-              {statements.slice(0, 3).map((statement) => (
-                <Alert banner key={statement.key} showIcon title={statement.text} type="info" />
-              ))}
+              <Space style={{ maxHeight: 200, overflowY: 'auto' }} vertical>
+                {statements.map((statement) => (
+                  <Alert
+                    banner
+                    icon={statement.type === 'testimony' ? <NotificationFilled /> : <SkinFilled />}
+                    key={statement.key}
+                    showIcon
+                    title={statement.text}
+                    type="info"
+                  />
+                ))}
 
-              {additionalStatements.map((statement) => (
-                <Alert banner key={statement.key} showIcon title={statement.text} type="warning" />
-              ))}
+                {additionalStatements.map((statement) => (
+                  <Alert
+                    banner
+                    icon={<AppstoreOutlined />}
+                    key={statement.key}
+                    showIcon
+                    title={statement.text}
+                    type="warning"
+                  />
+                ))}
+              </Space>
             </Flex>
           </GamePopover>
         </EntryCell>
