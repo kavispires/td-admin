@@ -73,7 +73,9 @@ export const useDailyTaNaCaraGames = (
     );
 
     const suspectDict = suspectsQuery.data ?? {};
-    const gbSuspectIds = Object.keys(suspectsQuery.data).map((v) => getSuspectImageId(v, 'gb'));
+    const gbSuspectIds = Object.keys(suspectsQuery.data)
+      .filter((id) => suspectDict[id].deck === 'adult')
+      .map((v) => getSuspectImageId(v, 'gb'));
 
     return buildDailyTaNaCaraGames(
       batchSize,
@@ -293,23 +295,25 @@ const countTestimonyAnswers = (
     const answersForSuspects = answers[testimonyId] || {};
     let totalAnswers = 0;
 
-    Object.keys(suspects).forEach((suspectId) => {
-      const suspectAnswers = answersForSuspects[suspectId] || [];
-      const suspectAnswersCount = countAnswersAbsoluteTotal(suspectAnswers);
-      totalAnswers += suspectAnswersCount;
+    Object.keys(suspects)
+      .filter((suspectId) => suspects[suspectId].deck === 'adult')
+      .forEach((suspectId) => {
+        const suspectAnswers = answersForSuspects[suspectId] || [];
+        const suspectAnswersCount = countAnswersAbsoluteTotal(suspectAnswers);
+        totalAnswers += suspectAnswersCount;
 
-      if (suspectAnswersCount >= 32) {
-        globalCounts[testimonyId]['32+'].push(suspectId);
-      } else if (suspectAnswersCount > 5 && suspectAnswersCount < 32) {
-        globalCounts[testimonyId]['5+'].push(suspectId);
-      } else {
-        try {
-          globalCounts[testimonyId][suspectAnswersCount].push(suspectId);
-        } catch (error) {
-          console.error('Error updating globalCounts:', error);
+        if (suspectAnswersCount >= 32) {
+          globalCounts[testimonyId]['32+'].push(suspectId);
+        } else if (suspectAnswersCount > 5 && suspectAnswersCount < 32) {
+          globalCounts[testimonyId]['5+'].push(suspectId);
+        } else {
+          try {
+            globalCounts[testimonyId][suspectAnswersCount].push(suspectId);
+          } catch (error) {
+            console.error('Error updating globalCounts:', error);
+          }
         }
-      }
-    });
+      });
 
     totalAnswersPerTestimony[testimonyId] = totalAnswers;
   });
