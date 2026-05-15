@@ -182,34 +182,23 @@ function prepareSuspectFileForDownload(data: Dictionary<SuspectCard>) {
   // TO PERFORM CLEANUPS OR UPDATES ON EXISTING SUSPECTS
   // for (const key in copy) {
   //   const suspect = copy[key];
-  //   // If key/id has a number lower than 100, I need to pad it with a 0
-  //   const idNumber = Number(suspect.id.split('-')[1]);
-  //   if (idNumber < 100) {
-  //     const paddedId = `us-${idNumber.toString().padStart(3, '0')}`;
-  //     copy[paddedId] = {
-  //       ...suspect,
-  //       id: paddedId,
-  //     };
-  //   }
   // }
 
   // TO ADD NEW SUSPECTS
-  // Add 40 new blank suspects with ids from 151 to 190 following the SuspectCard type
-  // for (let i = 196; i <= 200; i++) {
+  // Add
+  // for (let i = 251; i <= 251; i++) {
   //   const id = `us-${i.toString().padStart(3, '0')}`;
   //   const newSuspect: SuspectCard = {
   //     id,
   //     name: { en: '', pt: '' },
-  //     persona: { en: '', pt: '' },
+  //     deck: 'pet',
   //     gender: '',
-  //     ethnicity: '',
   //     age: '',
   //     build: '',
   //     height: '',
   //     features: [],
   //     gbExclusive: true,
-  //     prompt: '',
-  //     animal: '',
+  //     race: '',
   //   };
   //   if (copy[id] === undefined) {
   //     copy[id] = newSuspect;
@@ -234,7 +223,6 @@ function prepareSuspectFileForDownload(data: Dictionary<SuspectCard>) {
     'decks',
     'gender',
     'race',
-    'ethnicity',
     'age',
     'height',
     'build',

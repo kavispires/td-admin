@@ -96,7 +96,7 @@ export function SuspectsStats({
       build: getDistribution(mergedData, 'build'),
       height: getDistribution(mergedData, 'height'),
       traits: getTopArrayItems(mergedData, 'traits'),
-      decks: getTopArrayItems(mergedData, 'decks'),
+      deck: getDistribution(mergedData, 'deck'),
       animals: getDistribution(mergedData, 'animal').slice(0, 5),
       nameInitials: getNameInitialStats(mergedData),
       featureGroups: getFeatureStatsByGroup(mergedData),
@@ -420,13 +420,7 @@ export function SuspectsStats({
           <Card style={cardStyle} title="Deck Distribution" variant="borderless">
             <ResponsiveContainer height={300} width="100%">
               <PieChart>
-                <Pie
-                  cx="50%"
-                  cy="50%"
-                  data={addColorsToData(charts.decks)}
-                  dataKey="value"
-                  outerRadius={60}
-                />
+                <Pie cx="50%" cy="50%" data={addColorsToData(charts.deck)} dataKey="value" outerRadius={60} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <Legend height={36} verticalAlign="bottom" />
               </PieChart>

@@ -579,9 +579,9 @@ export type SuspectCard = {
    */
   name: DualLanguageValue;
   /**
-   * List of decks the suspect belongs to
+   * The deck the suspect belongs to
    */
-  decks: string[];
+  deck: 'adult' | 'kid' | 'pet' | 'teen' | 'other' | (string & NonNullable<unknown>);
   /**
    * The gender of the suspect
    */
@@ -598,10 +598,6 @@ export type SuspectCard = {
     | 'mixed' // clearly mixed / ambiguous features
     | 'other'
     | (string & NonNullable<unknown>);
-  /**
-   * Backwards compatibility (to be removed)
-   */
-  ethnicity: string;
   /**
    * The age range of the suspect
    */

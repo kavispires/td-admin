@@ -206,7 +206,7 @@ const buildMoviePrompt = (movie: FeatureFilm) => {
     )}. Para a idade, escolha um número aleatório dentre a faixa dada, por exemplo 20-30, diga 26 anos. Não use parenteses no texto. Adicione um plot twist inesperado. Aqui vão os personagens: \n`;
 
   movie.castingRoles.forEach((role) => {
-    prompt += `\n${role.title.pt}: ${role.actor.name.pt.split(' ')[0]}, ${role.actor.age} anos, ${genders[role.actor.gender]}, ${ethnicity[role.actor.ethnicity]}, com as características: ${role.traits.join(', ')}.\n`;
+    prompt += `\n${role.title.pt}: ${role.actor.name.pt.split(' ')[0]}, ${role.actor.age} anos, ${genders[role.actor.gender]}, ${ethnicity[role.actor.race]}, com as características: ${role.traits.join(', ')}.\n`;
   });
 
   return prompt;
@@ -222,7 +222,7 @@ const buildTVSeriesPrompt = (movie: FeatureFilm) => {
   prompt += `. Incorpore o título da série e todos os personagens as suas características na trama, seja criativo e também incorpore esses objetos na trama: ${movie.props.map((item) => item.name.pt).join(', ')}. Para a idade, escolha um número aleatório dentre a faixa dada, por exemplo 20-30, diga 26 anos. Não use parenteses no texto. Cada episódio deve terminar com um cliffhanger e o próximo episódio deve continuar desse cliffhanger. Aqui vão os personagens: \n`;
 
   movie.castingRoles.forEach((role) => {
-    prompt += `\n${role.title.pt}: ${role.actor.name.pt.split(' ')[0]}, ${role.actor.age} anos, ${genders[role.actor.gender]}, ${ethnicity[role.actor.ethnicity]}, com as características: ${role.traits.join(', ')}.\n`;
+    prompt += `\n${role.title.pt}: ${role.actor.name.pt.split(' ')[0]}, ${role.actor.age} anos, ${genders[role.actor.gender]}, ${ethnicity[role.actor.race]}, com as características: ${role.traits.join(', ')}.\n`;
   });
 
   return prompt;

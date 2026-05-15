@@ -581,7 +581,7 @@ const createSuspectEntry = (
         '80-90': 'senior',
       }[suspect.age as string] || suspect.age;
 
-    const allFeatures = [suspect.gender, age, suspect.ethnicity, suspect.height, suspect.build];
+    const allFeatures = [suspect.gender, age, suspect.race, suspect.height, suspect.build];
 
     // Keep only the features that are used in the statements (and directly related ones)
     const features = suspect.features.filter((feature) => relevantSuspectsFeaturesDict[feature]);
@@ -689,7 +689,7 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
 
   // Gather the props (gender, ethnicity, build, and every feature) for each suspect
   for (const suspectId of Object.keys(data)) {
-    const { gender, ethnicity, age, build, height, features } = data[suspectId];
+    const { gender, race, age, build, height, features } = data[suspectId];
     if (!build) {
       debugLog('⁉️ Ignoring suspect with missing build', suspectId);
       continue;
@@ -710,10 +710,10 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
     }
     result[gender][suspectId] = true;
 
-    if (result[ethnicity] === undefined) {
-      result[ethnicity] = {};
+    if (result[race] === undefined) {
+      result[race] = {};
     }
-    result[ethnicity][suspectId] = true;
+    result[race][suspectId] = true;
 
     if (result[age] === undefined) {
       result[age] = {};

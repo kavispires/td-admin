@@ -30,7 +30,7 @@ export function ActorRole({ role, language }: ActorRoleProps) {
                 {role.actor.gender === 'male' ? <ManOutlined /> : <WomanOutlined />} {role.actor.age}
               </div>
               <div>
-                <em>{role.actor.ethnicity}</em>
+                <em>{role.actor.race}</em>
               </div>
             </div>
             <div>

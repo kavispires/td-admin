@@ -209,7 +209,7 @@ function BatchOptions({
     // Run filters
     const filteredSelection = source.filter((suspectId) => {
       const suspect = suspects[suspectId];
-      const searchString = [suspect.gender, suspect.ethnicity, suspect.build, suspect.height];
+      const searchString = [suspect.gender, suspect.race, suspect.build, suspect.height];
       if (suspect.age === '18-21') {
         searchString.push('young');
       }
