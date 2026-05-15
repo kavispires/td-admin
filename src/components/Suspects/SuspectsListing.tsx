@@ -18,7 +18,7 @@ import { useCardWidth } from 'hooks/useCardWidth';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy, truncate } from 'lodash';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { SuspectCard, SuspectExtendedInfo } from 'types';
 import { stringRemoveAccents, wait } from 'utils';
 import { ActiveExtendedInfoSwitch, ExtendedInfoFilterBar } from './ExtendedInfoFilterBar';
@@ -233,6 +233,11 @@ export function SuspectsListing({
       .finally(() => setInferring(false));
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: on purpose to log just once on mount
+  useEffect(() => {
+    printNameLogging(suspectsList);
+  }, []);
+
   return (
     <>
       <Flex align="center" justify="space-between">
@@ -394,4 +399,47 @@ const getHeightBuildAlert = (entry: SuspectCard) => {
     return { borderColor: 'red' };
   }
   return {};
+};
+
+const printNameLogging = (suspectsList: SuspectCard[]) => {
+  console.log('ALL NAMES PT');
+  console.log(orderBy(suspectsList.map((s) => s.name.pt).filter(Boolean)).join(', '));
+  // log duplicated names
+  const duplicatedNamesPT = suspectsList
+    .map((s) => s.name.pt)
+    .filter(Boolean)
+    .reduce(
+      (acc, name) => {
+        acc[name] = (acc[name] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
+  console.log('DUPLICATED NAMES PT');
+  console.log(
+    Object.entries(duplicatedNamesPT)
+      .filter(([, count]) => count > 1)
+      .map(([name, count]) => `${name} (${count})`)
+      .join(', '),
+  );
+
+  console.log('ALL NAMES EN');
+  console.log(orderBy(suspectsList.map((s) => s.name.en).filter(Boolean)).join(', '));
+  const duplicatedNamesEN = suspectsList
+    .map((s) => s.name.en)
+    .filter(Boolean)
+    .reduce(
+      (acc, name) => {
+        acc[name] = (acc[name] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
+  console.log('DUPLICATED NAMES EN');
+  console.log(
+    Object.entries(duplicatedNamesEN)
+      .filter(([, count]) => count > 1)
+      .map(([name, count]) => `${name} (${count})`)
+      .join(', '),
+  );
 };

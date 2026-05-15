@@ -86,7 +86,7 @@ export function SuspectsFilters({
 
         <DownloadButton
           block
-          data={() => prepareExtendedInfoFileForDownload(suspectsExtendedInfoQuery.data)}
+          data={() => prepareExtendedInfoFileForDownload(suspectsExtendedInfoQuery.data, suspectsQuery.data)}
           disabled={suspectsExtendedInfoQuery.isDirty}
           fileName="suspects-extended-info.json"
           hasNewData={suspectsExtendedInfoQuery.hasFirestoreData}
@@ -232,7 +232,10 @@ function prepareSuspectFileForDownload(data: Dictionary<SuspectCard>) {
   ]);
 }
 
-export function prepareExtendedInfoFileForDownload(data: Dictionary<SuspectExtendedInfo>) {
+export function prepareExtendedInfoFileForDownload(
+  data: Dictionary<SuspectExtendedInfo>,
+  suspectsData?: Dictionary<SuspectCard>,
+) {
   // Change profession to occupation
   // Change personalityTraits to traits
   // for (const key in data) {
@@ -244,6 +247,33 @@ export function prepareExtendedInfoFileForDownload(data: Dictionary<SuspectExten
   //   delete (info as any).personalityTraits;
   // }
   // }
+
+  // If there is not extendedInfo for a suspect, add an empty one
+  if (suspectsData) {
+    for (const suspectId in suspectsData) {
+      if (data[suspectId] === undefined && suspectsData[suspectId].deck === 'adult') {
+        data[suspectId] = {
+          id: suspectId,
+          prompt: '',
+          persona: {
+            en: '',
+            pt: '',
+          },
+          description: '',
+          animal: '',
+          occupation: '',
+          sexualOrientation: '',
+          ethnicity: '',
+          economicClass: '',
+          educationLevel: '',
+          traits: [],
+          mbti: '',
+          zodiacSign: '',
+          alignment: '',
+        };
+      }
+    }
+  }
 
   return sortJsonKeys(data, [
     'id',
