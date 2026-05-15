@@ -4,6 +4,7 @@ import {
   ColumnHeightOutlined,
   ColumnWidthOutlined,
   EditFilled,
+  FileExclamationOutlined,
   GitlabFilled,
   InteractionFilled,
   ManOutlined,
@@ -50,7 +51,7 @@ export function SuspectsListing({
 
   const [cardWidth, ref] = useCardWidth(cardsPerRow, { margin: 0, gap: 8 });
 
-  const deck: SuspectCard[] = useMemo(() => {
+  const suspectsList: SuspectCard[] = useMemo(() => {
     return orderBy(
       Object.values(suspects),
       (e) => {
@@ -222,7 +223,7 @@ export function SuspectsListing({
     setInferring(true);
     Promise.resolve()
       .then(async () => {
-        for (const entry of deck) {
+        for (const entry of suspectsList) {
           // eslint-disable-next-line no-await-in-loop
 
           await onInfer(extendedInfo[entry.id]);
@@ -235,7 +236,7 @@ export function SuspectsListing({
   return (
     <>
       <Flex align="center" justify="space-between">
-        <Typography.Title level={2}>Total Suspects: {deck.length}</Typography.Title>
+        <Typography.Title level={2}>Total Suspects: {suspectsList.length}</Typography.Title>
         <Segmented
           onChange={(value) => setView(value)}
           options={[
@@ -260,7 +261,7 @@ export function SuspectsListing({
       <Image.PreviewGroup>
         {view === 'cards' && (
           <Space className="my-2" key={variant} ref={ref} wrap>
-            {deck.map((entry) => {
+            {suspectsList.map((entry) => {
               const extendedEntry = extendedInfo?.[entry.id] ?? {};
 
               return (
@@ -270,10 +271,24 @@ export function SuspectsListing({
                   <div className="suspect__name">
                     <Flex align="center" gap={3}>
                       <Tag>{entry.id}</Tag> <PromptButton extendedInfo={extendedEntry} suspect={entry} />{' '}
-                      {!extendedEntry.prompt && <MessageFilled style={{ color: 'red' }} />}{' '}
+                      {!extendedEntry.prompt && (
+                        <Tooltip title="Missing prompt">
+                          <MessageFilled style={{ color: 'red' }} />
+                        </Tooltip>
+                      )}
                       {!!extendedEntry.animal && (
                         <Tooltip title={`Animal: ${extendedEntry.animal}`}>
                           <GitlabFilled style={{ color: 'sandybrown' }} />
+                        </Tooltip>
+                      )}
+                      {!entry.age && (
+                        <Tooltip title="Missing age">
+                          <FileExclamationOutlined style={{ color: 'orange' }} />
+                        </Tooltip>
+                      )}
+                      {!entry.race && (
+                        <Tooltip title="Missing race">
+                          <FileExclamationOutlined style={{ color: 'orange' }} />
                         </Tooltip>
                       )}
                     </Flex>
@@ -281,23 +296,23 @@ export function SuspectsListing({
                       🇧🇷 {entry.name.pt}
                     </div>
                     <Typography.Text
-                      className={clsx({ 'missing-value': !extendedEntry.persona.pt })}
+                      className={clsx({ 'missing-value': !extendedEntry.persona?.pt })}
                       ellipsis
                       italic
                       type="secondary"
                     >
-                      <small>{truncate(extendedEntry.persona.pt || '-', { length: 18 })}</small>
+                      <small>{truncate(extendedEntry.persona?.pt || '-', { length: 18 })}</small>
                     </Typography.Text>
                     <div style={{ backgroundColor: !entry.name.en ? 'red' : 'transparent' }}>
                       🇺🇸 {entry.name.en}
                     </div>
                     <Typography.Text
-                      className={clsx({ 'missing-value': !extendedEntry.persona.en })}
+                      className={clsx({ 'missing-value': !extendedEntry.persona?.en })}
                       ellipsis
                       italic
                       type="secondary"
                     >
-                      <small>{truncate(extendedEntry.persona.en || '-', { length: 18 })}</small>
+                      <small>{truncate(extendedEntry.persona?.en || '-', { length: 18 })}</small>
                     </Typography.Text>
 
                     <div className="suspect__info" style={getHeightBuildAlert(entry)}>
@@ -358,7 +373,9 @@ export function SuspectsListing({
           </Space>
         )}
 
-        {view === 'table' && <Table columns={columns} dataSource={deck} pagination={false} rowKey="id" />}
+        {view === 'table' && (
+          <Table columns={columns} dataSource={suspectsList} pagination={false} rowKey="id" />
+        )}
       </Image.PreviewGroup>
       <SuspectDrawer
         addExtendedInfoEntryToUpdate={suspectsExtendedInfoQuery.addEntryToUpdate}

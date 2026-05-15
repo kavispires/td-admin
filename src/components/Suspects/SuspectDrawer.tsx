@@ -24,6 +24,7 @@ import {
   AGE_OPTIONS,
   ALIGNMENT_OPTIONS,
   BUILD_OPTIONS,
+  DECK_OPTIONS,
   ECONOMIC_CLASS_OPTIONS,
   EDUCATION_LEVEL_OPTIONS,
   FEATURES_BY_GROUP,
@@ -134,16 +135,22 @@ export function SuspectDrawer({
               valueKey="name.en"
             />
 
-            <div>
+            <Flex gap={6}>
               <Select
                 onChange={(value) => updateSuspectKeyValue(suspect.id, 'age', value)}
                 options={AGE_OPTIONS}
                 placeholder="Select Age"
-                // size="small"
-                style={{ width: 128 }}
+                style={{ width: '50%' }}
                 value={suspect.age}
               />
-            </div>
+              <Select
+                onChange={(value) => updateSuspectKeyValue(suspect.id, 'deck', value)}
+                options={DECK_OPTIONS}
+                placeholder="Select Deck"
+                style={{ width: '50%' }}
+                value={suspect.deck}
+              />
+            </Flex>
           </Flex>
         </div>
         {drawerTab === 'Basic' && (

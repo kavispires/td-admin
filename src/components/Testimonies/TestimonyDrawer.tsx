@@ -6,7 +6,7 @@ import type { useTestimoniesResource } from 'pages/Libraries/Testimonies/useTest
 import { useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { useEffectOnce, useStateWithHistory, useWindowSize } from 'react-use';
-import { countAnswersAbsoluteTotal } from './utils';
+import { countAnswersAbsoluteTotal, filterAdultSuspects } from './utils';
 
 export type TestimoniesContentProps = ReturnType<typeof useTestimoniesResource>;
 
@@ -52,8 +52,9 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
   });
 
   const getRandom = () => {
+    const adultSuspects = filterAdultSuspects(suspects);
     setState({
-      suspectId: sample(Object.keys(suspects)) || null,
+      suspectId: sample(Object.keys(adultSuspects)) || null,
       testimonyId: sample(Object.keys(questions)) || null,
     });
   };
@@ -140,8 +141,9 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
     const selectedTestimonyId =
       (isRandomQuestion ? sample(Object.keys(questions)) : state?.testimonyId) ?? null;
 
+    const adultSuspects = filterAdultSuspects(suspects);
     const suspectsSet = sampleSize(
-      Object.keys(suspects).filter((suspectId) => {
+      Object.keys(adultSuspects).filter((suspectId) => {
         const existingAnswers = answers[selectedTestimonyId ?? '']?.[suspectId] || [];
         const absValue = countAnswersAbsoluteTotal(existingAnswers);
         return absValue < 4;

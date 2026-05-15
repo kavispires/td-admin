@@ -1,11 +1,27 @@
 import { capitalize } from 'lodash';
 
-export const AGE_OPTIONS = ['18-21', '21-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90'].map(
-  (v) => ({
-    label: v,
-    value: v,
-  }),
-);
+export const DECK_OPTIONS = [
+  { label: 'Adult', value: 'adult' },
+  { label: 'Teen', value: 'teen' },
+  { label: 'Kid', value: 'kid' },
+  { label: 'Pet', value: 'pet' },
+  { label: 'Other', value: 'other' },
+];
+
+export const AGE_OPTIONS = [
+  '0-10',
+  '18-21',
+  '21-30',
+  '30-40',
+  '40-50',
+  '50-60',
+  '60-70',
+  '70-80',
+  '80-90',
+].map((v) => ({
+  label: v,
+  value: v,
+}));
 
 export const GENDER_OPTIONS = [
   { label: 'Male', value: 'male' },

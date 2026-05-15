@@ -17,7 +17,7 @@ import type {
 import { useMemo } from 'react';
 import { deepCleanObject, deserializeFirestoreData, sortJsonKeys } from 'utils';
 import { TestimonyDrawer } from './TestimonyDrawer';
-import normalizeValues, { countAnswersAbsoluteTotal } from './utils';
+import normalizeValues, { countAnswersAbsoluteTotal, filterAdultSuspects } from './utils';
 
 export type TestimoniesFiltersProps = ReturnType<typeof useTestimoniesResource>;
 
@@ -34,18 +34,21 @@ export function TestimoniesFilters({
 }: TestimoniesFiltersProps) {
   const { queryParams, addParams } = useQueryParams();
 
+  // Filter to only include adult suspects in testimonies
+  const filteredSuspects = useMemo(() => filterAdultSuspects(suspects), [suspects]);
+
   const counts = useMemo(() => {
     let absoluteTotal = 0;
-    const suspects: Record<string, number> = {};
+    const suspectCounts: Record<string, number> = {};
     Object.values(data).forEach((suspectEntry) => {
       Object.keys(suspectEntry).forEach((suspectId) => {
         if (suspectEntry[suspectId]) {
-          if (!suspects[suspectId]) {
-            suspects[suspectId] = 0;
+          if (!suspectCounts[suspectId]) {
+            suspectCounts[suspectId] = 0;
           }
           const count = countAnswersAbsoluteTotal(suspectEntry[suspectId]);
           if (count >= 5) {
-            suspects[suspectId] += 1;
+            suspectCounts[suspectId] += 1;
           }
           if (count >= 3) {
             absoluteTotal += 1;
@@ -57,10 +60,10 @@ export function TestimoniesFilters({
     return {
       absoluteTotal,
       queriedTestimoniesCount: Object.keys(data).length,
-      suspectsCount: Object.keys(suspects).length,
-      reliableSuspectsCount: Object.values(suspects).filter((count) => count >= 30).length,
+      suspectsCount: Object.keys(filteredSuspects).length,
+      reliableSuspectsCount: Object.values(suspectCounts).filter((count) => count >= 30).length,
     };
-  }, [data]);
+  }, [data, filteredSuspects]);
 
   const total = counts.queriedTestimoniesCount * counts.suspectsCount;
 
@@ -151,7 +154,7 @@ export function TestimoniesFilters({
           addEntryToUpdate={addEntryToUpdate}
           answers={data}
           questions={questions}
-          suspects={suspects}
+          suspects={filteredSuspects}
         />
 
         <DownloadButton block data={questions} fileName="testimony-questions-pt.json" hasNewData={hasNewData}>

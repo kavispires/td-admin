@@ -602,6 +602,7 @@ export type SuspectCard = {
    * The age range of the suspect
    */
   age:
+    | '0-10'
     | '18-21'
     | '21-30'
     | '30-40'

@@ -9,7 +9,7 @@ import type { TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimonie
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import type { SuspectCard } from 'types';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';
-import { calculateSuspectAnswersData } from './utils';
+import { calculateSuspectAnswersData, filterAdultSuspects } from './utils';
 
 type TestimonyAnswerExpandedRowProps = {
   testimonyId: string;
@@ -31,8 +31,11 @@ export function TestimonyAnswerExpandedRow({
   const isBatchEnabled = is('enableBatch');
   const sortSuspectsBy = queryParams.get('sortSuspectsBy') ?? 'answers';
 
+  // Filter to only include adult suspects in testimonies
+  const filteredSuspects = useMemo(() => filterAdultSuspects(suspects), [suspects]);
+
   const list = useMemo(() => {
-    const res = Object.keys(suspects).map((suspectCardId) => {
+    const res = Object.keys(filteredSuspects).map((suspectCardId) => {
       return calculateSuspectAnswersData(suspectCardId, testimonyId, answers);
     });
 
@@ -52,7 +55,7 @@ export function TestimonyAnswerExpandedRow({
     }
 
     return orderBy(res, (o) => Number(o.suspectCardId.split('-')[1]), ['asc']);
-  }, [answers, suspects, testimonyId, sortSuspectsBy]);
+  }, [answers, filteredSuspects, testimonyId, sortSuspectsBy]);
 
   const [selection, setSelection] = useState<string[]>([]);
 

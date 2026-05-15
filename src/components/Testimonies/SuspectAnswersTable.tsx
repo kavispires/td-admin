@@ -12,6 +12,7 @@ import type {
 import { useMemo } from 'react';
 import type { SuspectCard } from 'types';
 import { SuspectAnswersExpandedRow } from './SuspectAnswersExpandedRow';
+import { filterAdultSuspects } from './utils';
 
 export type TestimoniesContentProps = ReturnType<typeof useTestimoniesResource>;
 
@@ -45,15 +46,18 @@ export function SuspectAnswersTable({
     }, {});
   }, [data]);
 
+  // Filter to only include adult suspects in testimonies
+  const filteredSuspects = useMemo(() => filterAdultSuspects(suspects), [suspects]);
+
   const entries: SuspectRow[] = useMemo(() => {
     // id, id (picture), name, answers, reliable answers
 
     return orderBy(
-      Object.values(suspects).map((s) => ({ ...s, answers: answersPerSuspect[s.id] })),
+      Object.values(filteredSuspects).map((s) => ({ ...s, answers: answersPerSuspect[s.id] })),
       (entry) => Number(entry.id.split('-')[1]),
       'asc',
     );
-  }, [suspects, answersPerSuspect]);
+  }, [filteredSuspects, answersPerSuspect]);
 
   const paginationProps = useTablePagination({ total: entries.length, showQuickJumper: true });
 

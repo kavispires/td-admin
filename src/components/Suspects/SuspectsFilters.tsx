@@ -24,11 +24,12 @@ const SORT_BY = [
   { value: 'id', label: 'Id' },
   { value: 'name.pt', label: 'Name (PT)' },
   { value: 'name.en', label: 'Name (EN)' },
-  { value: 'ethnicity', label: 'Ethnicity' },
+  { value: 'race', label: 'Race' },
   { value: 'gender', label: 'Gender' },
   { value: 'age', label: 'Age' },
   { value: 'height', label: 'Height' },
   { value: 'build', label: 'Build' },
+  { value: 'deck', label: 'Deck' },
 ];
 
 const PROMPTS = [
