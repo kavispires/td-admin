@@ -1,1 +1,0 @@
-import{h as e,p as t}from"./Header-BvPy6lJr.js";var n=new e({}),r=(e,t)=>{console.log(`Adding warning:`,{key:e,message:t}),n.setState(n=>({...n,[e]:t}))},i=()=>{n.setState(()=>({}))},a=()=>t(n,e=>e);export{i as n,a as r,r as t};

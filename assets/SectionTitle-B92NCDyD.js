@@ -1,1 +1,0 @@
-import{g as e,w as t}from"./Header-BvPy6lJr.js";var n=e();function r({children:e,level:r,...i}){return(0,n.jsx)(t.Title,{level:r??3,...i,children:e})}export{r as t};

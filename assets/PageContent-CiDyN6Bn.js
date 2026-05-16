@@ -1,0 +1,1 @@
+import{g as e}from"./Header-D1MJH7aZ.js";import{x as t}from"./Layout-BnzeHO3M.js";var n=e();function r({children:e,className:r,vertical:i=!0,...a}){return(0,n.jsx)(t,{className:`full-width py-4 ${r}`,gap:12,vertical:i,...a,children:e})}export{r as t};

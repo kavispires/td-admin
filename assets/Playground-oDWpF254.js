@@ -1,1 +1,0 @@
-import{N as e,O as t,g as n,t as r,v as i}from"./Header-BvPy6lJr.js";var a=n();function o(){return(0,a.jsx)(`div`,{children:`Playground Content`})}function s(){return i(`Playground`),(0,a.jsxs)(t,{children:[(0,a.jsx)(r,{title:`Playground`}),(0,a.jsx)(e,{}),(0,a.jsx)(t.Content,{className:`content`,children:(0,a.jsx)(o,{})})]})}export{s as default};
