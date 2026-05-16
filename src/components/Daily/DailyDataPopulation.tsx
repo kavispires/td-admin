@@ -1,12 +1,12 @@
 import { CloudSyncOutlined, SaveOutlined } from '@ant-design/icons';
-import { Alert, Button, Flex, Table, Typography } from 'antd';
+import { Alert, App, Button, Flex, Table, Typography } from 'antd';
 import { FilterSelect } from 'components/Common';
 import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { isEmpty } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import { dailyColumns } from './DailyColumns';
-import { useLoadDailySetup, useSaveDailySetup } from './hooks';
+import { type DailyEntry, useLoadDailySetup, useSaveDailySetup } from './hooks';
 import { clearWarnings, useGetWarnings } from './utils/warnings';
 
 export const DEFAULT_LANGUAGE: Language = 'pt';
@@ -41,7 +41,7 @@ export function DailyDataPopulation() {
           label="Batch Size"
           layout="horizontal"
           onChange={setBatchSize}
-          options={[1, 3, 4, 7, 14, 21, 28]}
+          options={[1, 2, 3, 4, 7, 14, 21, 28]}
           placeholder="Select a number"
           value={batchSize}
         />
@@ -67,6 +67,7 @@ type DataPopulationProps = {
 };
 
 function DataPopulation({ language, batchSize }: DataPopulationProps) {
+  const { notification } = App.useApp();
   const queryLanguage = language as Language;
   const dataLoad = useLoadDailySetup(Boolean(queryLanguage), queryLanguage, batchSize);
 
@@ -90,7 +91,22 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
           disabled={(dataLoad.entries ?? []).length === 0 || warningsList.length > 0}
           icon={<SaveOutlined />}
           loading={isPending}
-          onClick={() => save(dataLoad.entries)}
+          onClick={() => {
+            console.log('Saving data...');
+            console.log(dataLoad.entries);
+
+            const undefinedIssues = verifyUndefinedValues(dataLoad.entries ?? []);
+            if (undefinedIssues.length > 0) {
+              console.error('Found undefined values:', undefinedIssues);
+              notification.error({
+                message: 'Undefined Values Found',
+                description: `Found ${undefinedIssues.length} undefined values. Check console for details.`,
+              });
+              return;
+            }
+
+            save(dataLoad.entries);
+          }}
           size="large"
           type="primary"
         >
@@ -105,4 +121,41 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
       <Table columns={dailyColumns} dataSource={dataLoad.entries ?? []} scroll={{ x: 'max-content' }} />
     </DataLoadingWrapper>
   );
+}
+
+/**
+ * Deeply checks for any undefined values in the entries and returns a list of issues found
+ */
+function verifyUndefinedValues(entries: DailyEntry[]): string[] {
+  const issues: string[] = [];
+
+  function checkValue(value: unknown, path: string): void {
+    if (value === undefined) {
+      issues.push(path);
+      return;
+    }
+
+    if (value === null || typeof value !== 'object') {
+      return;
+    }
+
+    if (Array.isArray(value)) {
+      value.forEach((item, index) => {
+        checkValue(item, `${path}[${index}]`);
+      });
+    } else {
+      const obj = value as Record<string, unknown>;
+      for (const key in obj) {
+        if (Object.hasOwn(obj, key)) {
+          checkValue(obj[key], `${path}.${key}`);
+        }
+      }
+    }
+  }
+
+  entries.forEach((entry, index) => {
+    checkValue(entry, `entry[${index}](id: ${entry.id})`);
+  });
+
+  return issues;
 }
