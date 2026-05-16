@@ -49,7 +49,7 @@ export function SuspectsListing({
   // Suspect id just to 'key' the drawer
   const suspectId = queryParams.get('suspectId');
 
-  const [cardWidth, ref] = useCardWidth(cardsPerRow, { margin: 0, gap: 8 });
+  const [cardWidth, ref] = useCardWidth(cardsPerRow, { margin: 0, gap: 8, maxWidth: 192 });
 
   const suspectsList: SuspectCard[] = useMemo(() => {
     return orderBy(

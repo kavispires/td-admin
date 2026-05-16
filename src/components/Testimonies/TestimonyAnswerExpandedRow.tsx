@@ -26,7 +26,7 @@ export function TestimonyAnswerExpandedRow({
   testimonyId,
   question,
 }: TestimonyAnswerExpandedRowProps) {
-  const [cardWidth, ref] = useCardWidth(12);
+  const [cardWidth, ref] = useCardWidth(12, { maxWidth: 168 });
   const { queryParams, is } = useQueryParams({ sortSuspectsBy: 'answers' });
   const isBatchEnabled = is('enableBatch');
   const sortSuspectsBy = queryParams.get('sortSuspectsBy') ?? 'answers';
