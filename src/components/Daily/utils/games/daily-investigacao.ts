@@ -47,6 +47,7 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   black: 'é negro(a)',
   asian: 'é asiático(a)',
   latino: 'é latino(a)',
+  brown: 'é pardo/moreno/marrom',
   thin: 'é magrelo(a)',
   fat: 'é gordo(a)',
   large: 'é gordo(a)',

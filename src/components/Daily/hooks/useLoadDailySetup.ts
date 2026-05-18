@@ -10,6 +10,7 @@ import { type DailyConjuntosEntry, useDailyConjuntosGames } from '../utils/games
 import { type DailyEstoquistaEntry, useDailyEstoquistaGames } from '../utils/games/daily-estoquista';
 import { type DailyFilmacoEntry, useDailyFilmacoGames } from '../utils/games/daily-filmaco';
 import { type DailyInvestigacaoEntry, useDailyInvestigacaoGames } from '../utils/games/daily-investigacao';
+import { type DailyMapeamentoEntry, useDailyMapeamentoGames } from '../utils/games/daily-mapeamento';
 import { type DailyOrganikuEntry, useDailyOrganikuGames } from '../utils/games/daily-organiku';
 import { type DailyPalavreadoEntry, useDailyPalavreadoGames } from '../utils/games/daily-palavreado';
 import { type DailyPicacoEntry, useDailyPicacoGames } from '../utils/games/daily-picaco';
@@ -29,6 +30,7 @@ export type DailyEntry = {
   estoquista: DailyEstoquistaEntry; // Renamed from 'controle-de-estoque'
   investigacao: DailyInvestigacaoEntry; // Renamed from 'espionagem'
   filmaco: DailyFilmacoEntry;
+  mapeamento: DailyMapeamentoEntry; // Renamed from 'mapeamento'
   organiku: DailyOrganikuEntry;
   palavreado: DailyPalavreadoEntry;
   portais: DailyPortaisEntry; // Renamed from 'portais-magicos'
@@ -83,15 +85,10 @@ export function useLoadDailySetup(
   const arteRuim = useDailyArteRuimGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // BUILD ALIENADO
-  const comunicacaoAlienigena = useDailyAlienadoGames(
-    enableBuilders,
-    queryLanguage,
-    batchSize,
-    historyQuery.data ?? {},
-  );
+  const alienado = useDailyAlienadoGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // BUILD ESTOQUISTA
-  const controleDeEstoque = useDailyEstoquistaGames(
+  const estoquista = useDailyEstoquistaGames(
     enableBuilders,
     queryLanguage,
     batchSize,
@@ -113,26 +110,16 @@ export function useLoadDailySetup(
   const quartetos = useDailyQuartetosGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // BUILD CONJUNTOS
-  const teoriaDeConjuntos = useDailyConjuntosGames(
-    enableBuilders,
-    queryLanguage,
-    batchSize,
-    historyQuery.data ?? {},
-  );
+  const conjuntos = useDailyConjuntosGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
-  // BUILD PORTAIS
-  const portaisMagicos = useDailyPortaisGames(
-    enableBuilders,
-    queryLanguage,
-    batchSize,
-    historyQuery.data ?? {},
-  );
+  // BUILD PORTAL
+  const portais = useDailyPortaisGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // BUILD ORGANIKU
   const organiku = useDailyOrganikuGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
   // BUILD INVESTIGAÇÃO
-  const espionagem = useDailyInvestigacaoGames(
+  const investigacao = useDailyInvestigacaoGames(
     enableBuilders,
     queryLanguage,
     batchSize,
@@ -140,7 +127,15 @@ export function useLoadDailySetup(
   );
 
   // BUILD VITRAL
-  const vitrais = useDailyVitralGames(enableBuilders, batchSize, historyQuery.data ?? {});
+  const vitral = useDailyVitralGames(enableBuilders, batchSize, historyQuery.data ?? {});
+
+  // BUILD MAPEAMENTO
+  const mapeamento = useDailyMapeamentoGames(
+    enableBuilders,
+    queryLanguage,
+    batchSize,
+    historyQuery.data ?? {},
+  );
 
   // BUILD PICAÇO
   const artista = useDailyPicacoGames(
@@ -170,16 +165,17 @@ export function useLoadDailySetup(
         // Games
         'arte-ruim': arteRuim,
         'aqui-o': aquiO.entries[arteRuim.id],
-        alienado: comunicacaoAlienigena.entries[arteRuim.id],
-        estoquista: controleDeEstoque.entries[arteRuim.id],
-        investigacao: espionagem.entries[arteRuim.id],
+        alienado: alienado.entries[arteRuim.id],
+        estoquista: estoquista.entries[arteRuim.id],
+        investigacao: investigacao.entries[arteRuim.id],
         filmaco: filmaco.entries[arteRuim.id],
         organiku: organiku.entries[arteRuim.id],
         palavreado: palavreado.entries[arteRuim.id],
-        portais: portaisMagicos.entries[arteRuim.id],
+        portais: portais.entries[arteRuim.id],
         quartetos: quartetos.entries[arteRuim.id],
-        conjuntos: teoriaDeConjuntos.entries[arteRuim.id],
-        vitral: vitrais.entries[arteRuim.id],
+        conjuntos: conjuntos.entries[arteRuim.id],
+        vitral: vitral.entries[arteRuim.id],
+        mapeamento: mapeamento.entries[arteRuim.id],
         // Contributions
         picaco: artista.entries[arteRuim.id],
         conexoes: conexoes.entries[arteRuim.id],
@@ -196,19 +192,20 @@ export function useLoadDailySetup(
   }, [
     arteRuim.entries,
     aquiO.entries,
-    comunicacaoAlienigena.entries,
-    controleDeEstoque.entries,
+    alienado.entries,
+    estoquista.entries,
     filmaco.entries,
     organiku.entries,
     palavreado.entries,
-    portaisMagicos.entries,
+    portais.entries,
     quartetos.entries,
-    teoriaDeConjuntos.entries,
+    conjuntos.entries,
     artista.entries,
     conexoes.entries,
     taNaCara.entries,
-    espionagem.entries,
-    vitrais.entries,
+    investigacao.entries,
+    vitral.entries,
+    mapeamento.entries,
     tdrItemsQuery.data,
   ]);
 
@@ -217,19 +214,20 @@ export function useLoadDailySetup(
       historyQuery.isLoading ||
       aquiO.isLoading ||
       arteRuim.isLoading ||
-      comunicacaoAlienigena.isLoading ||
-      controleDeEstoque.isLoading ||
+      alienado.isLoading ||
+      estoquista.isLoading ||
       filmaco.isLoading ||
       palavreado.isLoading ||
-      portaisMagicos.isLoading ||
+      portais.isLoading ||
       quartetos.isLoading ||
-      teoriaDeConjuntos.isLoading ||
+      conjuntos.isLoading ||
       artista.isLoading ||
       conexoes.isLoading ||
       taNaCara.isLoading ||
-      espionagem.isLoading ||
+      investigacao.isLoading ||
       organiku.isLoading ||
-      vitrais.isLoading ||
+      vitral.isLoading ||
+      mapeamento.isLoading ||
       tdrItemsQuery.isLoading,
     entries,
   };

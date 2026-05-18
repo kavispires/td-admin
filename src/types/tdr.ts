@@ -1026,6 +1026,21 @@ export type DailyDiscSet = {
   itemsIds: ItemId[];
 };
 
+export type DailyLocationSet = {
+  /**
+   * The id (the setId in the library OR the date in a daily game)
+   */
+  id: string;
+  /**
+   * The name of the location
+   */
+  location: string;
+  /**
+   * An array of 5 clues related to the location, ordered from the most obscure to the most obvious
+   */
+  clues: string[];
+};
+
 export type DailyMovieSet = {
   /**
    * The id (the setId in the library OR the date in a daily game)

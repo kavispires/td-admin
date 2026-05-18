@@ -11,6 +11,7 @@ import type { DailyArteRuimEntry } from '../utils/games/daily-arte-ruim';
 import type { DailyConjuntosEntry } from '../utils/games/daily-conjuntos';
 import type { DailyFilmacoEntry } from '../utils/games/daily-filmaco';
 import type { DailyInvestigacaoEntry } from '../utils/games/daily-investigacao';
+import type { DailyMapeamentoEntry } from '../utils/games/daily-mapeamento';
 import type { DailyPalavreadoEntry } from '../utils/games/daily-palavreado';
 import type { DailyPortaisEntry } from '../utils/games/daily-portais';
 import type { DailyQuartetosEntry } from '../utils/games/daily-quartetos';
@@ -123,6 +124,13 @@ export function useSaveDailySetup(queryLanguage: Language) {
           previousHistory,
           data,
           (e: DailyConjuntosEntry) => [e.intersectingThing.id, e.setId],
+        ),
+
+        [DAILY_GAMES_KEYS.MAPEAMENTO]: updateHistory(
+          DAILY_GAMES_KEYS.MAPEAMENTO,
+          previousHistory,
+          data,
+          (e: DailyMapeamentoEntry) => e.setId,
         ),
 
         [DAILY_GAMES_KEYS.ORGANIKU]: updateHistory(

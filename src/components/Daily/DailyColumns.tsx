@@ -330,6 +330,37 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     },
   },
   {
+    title: 'Mapeamento',
+    dataIndex: 'mapeamento',
+    key: 'mapeamento',
+    render: (entry: DailyEntry['mapeamento']) => {
+      if (!entry) {
+        return <Alert title="No entry" type="error" />;
+      }
+      const { number, setId, location } = entry;
+
+      return (
+        <EntryCell>
+          <GameNumber>{number}</GameNumber>
+
+          <GameInfo label="SetId">{setId}</GameInfo>
+
+          <GamePopover entry={entry}>
+            <Flex gap={6} vertical>
+              <span>
+                Location:{' '}
+                {location
+                  .split('')
+                  .map((l: string, i: number) => (i < 1 || l === ' ' ? l : '⏹'))
+                  .join('')}
+              </span>
+            </Flex>
+          </GamePopover>
+        </EntryCell>
+      );
+    },
+  },
+  {
     title: 'Organiku',
     dataIndex: 'organiku',
     key: 'organiku',
