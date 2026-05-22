@@ -199,13 +199,23 @@ export function ImageCardTitleField({ imageCard, addEntryToUpdate }: ImageCardTi
     <Flex gap={4} vertical>
       <DualLanguageTextField
         language="en"
-        onPressEnter={(e) => onUpdateTitle(e.currentTarget?.value || '', 'en')}
+        onBlur={(e) =>
+          e.currentTarget?.value && e.currentTarget?.value.trim() !== imageCard.title?.en
+            ? onUpdateTitle(e.currentTarget?.value.trim() || '', 'en')
+            : undefined
+        }
+        onPressEnter={(e) => onUpdateTitle(e.currentTarget?.value?.trim() || '', 'en')}
         placeholder="Title"
         value={imageCard.title ?? { en: '', pt: '' }}
       />
       <DualLanguageTextField
         language="pt"
-        onPressEnter={(e) => onUpdateTitle(e.currentTarget?.value || '', 'pt')}
+        onBlur={(e) =>
+          e.currentTarget?.value && e.currentTarget?.value.trim() !== imageCard.title?.pt
+            ? onUpdateTitle(e.currentTarget?.value.trim() || '', 'pt')
+            : undefined
+        }
+        onPressEnter={(e) => onUpdateTitle(e.currentTarget?.value?.trim() || '', 'pt')}
         placeholder="Title"
         value={imageCard.title ?? { en: '', pt: '' }}
       />

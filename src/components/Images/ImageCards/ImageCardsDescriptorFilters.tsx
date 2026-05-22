@@ -16,6 +16,7 @@ export function ImageCardsDescriptorFilters({
   isDirty,
   isSaving,
   entriesToUpdate,
+  hasFirestoreData,
 }: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
   const { addParam } = useQueryParams();
   const { onRandomCard } = useImageCardsDecks();
@@ -34,6 +35,7 @@ export function ImageCardsDescriptorFilters({
           data={() => prepareFileForDownload(data)}
           disabled={isDirty}
           fileName="image-cards.json"
+          hasNewData={hasFirestoreData}
         />
 
         <Flex justify="center">
