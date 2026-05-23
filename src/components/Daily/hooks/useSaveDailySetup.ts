@@ -13,6 +13,7 @@ import type { DailyFilmacoEntry } from '../utils/games/daily-filmaco';
 import type { DailyInvestigacaoEntry } from '../utils/games/daily-investigacao';
 import type { DailyMapeamentoEntry } from '../utils/games/daily-mapeamento';
 import type { DailyPalavreadoEntry } from '../utils/games/daily-palavreado';
+import type { DailyPirralhosEntry } from '../utils/games/daily-pirralhos';
 import type { DailyPortaisEntry } from '../utils/games/daily-portais';
 import type { DailyQuartetosEntry } from '../utils/games/daily-quartetos';
 import { gatherUsedTaNaCaraEntries } from '../utils/games/daily-ta-na-cara';
@@ -152,6 +153,13 @@ export function useSaveDailySetup(queryLanguage: Language) {
           previousHistory,
           data,
           (e: DailyVitralEntry) => e.cardId,
+        ),
+
+        [DAILY_GAMES_KEYS.PIRRALHOS]: updateHistory(
+          DAILY_GAMES_KEYS.PIRRALHOS,
+          previousHistory,
+          data,
+          (e: DailyPirralhosEntry) => e.hashId,
         ),
 
         [DAILY_GAMES_KEYS.CONEXOES]: updateHistory(DAILY_GAMES_KEYS.CONEXOES, previousHistory, data, null),

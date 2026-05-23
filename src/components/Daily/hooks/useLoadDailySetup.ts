@@ -14,6 +14,7 @@ import { type DailyMapeamentoEntry, useDailyMapeamentoGames } from '../utils/gam
 import { type DailyOrganikuEntry, useDailyOrganikuGames } from '../utils/games/daily-organiku';
 import { type DailyPalavreadoEntry, useDailyPalavreadoGames } from '../utils/games/daily-palavreado';
 import { type DailyPicacoEntry, useDailyPicacoGames } from '../utils/games/daily-picaco';
+import { type DailyPirralhosEntry, useDailyPirralhosGames } from '../utils/games/daily-pirralhos';
 import { type DailyPortaisEntry, useDailyPortaisGames } from '../utils/games/daily-portais';
 import { type DailyQuartetosEntry, useDailyQuartetosGames } from '../utils/games/daily-quartetos';
 import { type DailyTaNaCaraEntry, useDailyTaNaCaraGames } from '../utils/games/daily-ta-na-cara';
@@ -37,6 +38,7 @@ export type DailyEntry = {
   quartetos: DailyQuartetosEntry;
   conjuntos: DailyConjuntosEntry; // Renamed from 'teoria-de-conjuntos'
   vitral: DailyVitralEntry; // Renamed from 'vitrais'
+  pirralhos: DailyPirralhosEntry;
   // Contributions
   picaco: DailyPicacoEntry; // Renamed from 'artista'
   conexoes: DailyConexoesEntry;
@@ -137,6 +139,8 @@ export function useLoadDailySetup(
     historyQuery.data ?? {},
   );
 
+  const pirralhos = useDailyPirralhosGames(enableBuilders, batchSize, historyQuery.data ?? {});
+
   // BUILD PICAÇO
   const artista = useDailyPicacoGames(
     enableBuilders,
@@ -176,6 +180,7 @@ export function useLoadDailySetup(
         conjuntos: conjuntos.entries[arteRuim.id],
         vitral: vitral.entries[arteRuim.id],
         mapeamento: mapeamento.entries[arteRuim.id],
+        pirralhos: pirralhos.entries[arteRuim.id],
         // Contributions
         picaco: artista.entries[arteRuim.id],
         conexoes: conexoes.entries[arteRuim.id],
@@ -206,6 +211,7 @@ export function useLoadDailySetup(
     investigacao.entries,
     vitral.entries,
     mapeamento.entries,
+    pirralhos.entries,
     tdrItemsQuery.data,
   ]);
 
@@ -228,6 +234,7 @@ export function useLoadDailySetup(
       organiku.isLoading ||
       vitral.isLoading ||
       mapeamento.isLoading ||
+      pirralhos.isLoading ||
       tdrItemsQuery.isLoading,
     entries,
   };

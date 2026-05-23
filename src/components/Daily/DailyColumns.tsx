@@ -432,6 +432,36 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     },
   },
   {
+    title: 'Pirralhos',
+    dataIndex: 'pirralhos',
+    key: 'pirralhos',
+    render: (entry: DailyEntry['pirralhos']) => {
+      if (!entry) {
+        return <Alert title="No entry" type="error" />;
+      }
+
+      const { number, hashId, kids, liarsIds, possibleLiars } = entry;
+
+      return (
+        <EntryCell>
+          <GameNumber>{number}</GameNumber>
+
+          <GameInfo label="HashId">{truncate(hashId, { length: 9 })}</GameInfo>
+
+          <GamePopover entry={entry}>
+            <Flex gap={6} vertical>
+              <span>Kids: {kids.length}</span>
+              <span>Culprits: 1</span>
+              <span>Actual Liars: {liarsIds.length}</span>
+              <span>Possible Liars: {possibleLiars}</span>
+              <span>Full Hash: {hashId}</span>
+            </Flex>
+          </GamePopover>
+        </EntryCell>
+      );
+    },
+  },
+  {
     title: 'Portais',
     dataIndex: 'portais',
     key: 'portais',

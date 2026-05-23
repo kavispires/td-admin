@@ -22,6 +22,7 @@ export const DAILY_GAMES_KEYS = {
   MAPEAMENTO: 'mapeamento',
   ORGANIKU: 'organiku',
   PALAVREADO: 'palavreado',
+  PIRRALHOS: 'pirralhos',
   // PORTAIS_MAGICOS: 'portais-magicos', // Renamed to PORTAIS
   PORTAIS: 'portais',
   QUARTETOS: 'quartetos',
