@@ -8,7 +8,6 @@ import { getDayOfTheWeek, getNextDay } from '../utils';
 export type Gender = 'boy' | 'girl';
 export interface Kid {
   id: UID;
-  cardId: string;
   name: DualLanguageValue;
   gender: Gender;
   height: number;
@@ -16,81 +15,71 @@ export interface Kid {
 }
 
 export const KIDS_LIBRARY: Dictionary<Kid> = {
-  '1': {
-    id: '1',
-    cardId: 'us-gb-231',
+  'us-gb-231': {
+    id: 'us-gb-231',
     name: { en: 'Miles', pt: 'Marcus Vinícius' },
     gender: 'boy',
     height: 124,
     color: '#2b72ff',
   },
-  '2': {
-    id: '2',
-    cardId: 'us-gb-232',
+  'us-gb-232': {
+    id: 'us-gb-232',
     name: { en: 'Penny', pt: 'Penélope' },
     gender: 'girl',
     height: 120,
     color: '#ff69c0',
   },
-  '3': {
-    id: '3',
-    cardId: 'us-gb-233',
+  'us-gb-233': {
+    id: 'us-gb-233',
     name: { en: 'Dylan', pt: 'Daniel' },
     gender: 'boy',
     height: 109,
     color: '#41a00b',
   },
-  '4': {
-    id: '4',
-    cardId: 'us-gb-234',
+  'us-gb-234': {
+    id: 'us-gb-234',
     name: { en: 'Sandy', pt: 'Sabrina' },
     gender: 'girl',
     height: 100,
     color: '#962196',
   },
-  '5': {
-    id: '5',
-    cardId: 'us-gb-235',
+  'us-gb-235': {
+    id: 'us-gb-235',
     name: { en: 'Brent', pt: 'Breno' },
     gender: 'boy',
     height: 122,
     color: '#e54122',
   },
-  '6': {
-    id: '6',
-    cardId: 'us-gb-236',
+  'us-gb-236': {
+    id: 'us-gb-236',
     name: { en: 'Alice', pt: 'Alice' },
     gender: 'girl',
     height: 117,
     color: '#ffd800',
   },
-  '7': {
-    id: '7',
-    cardId: 'us-gb-237',
+  'us-gb-237': {
+    id: 'us-gb-237',
     name: { en: 'Isaac', pt: 'Igor' },
     gender: 'boy',
     height: 127,
     color: 'white',
   },
-  '8': {
-    id: '8',
-    cardId: 'us-gb-238',
+  'us-gb-238': {
+    id: 'us-gb-238',
     name: { en: 'Anna', pt: 'Aninha' },
     gender: 'girl',
     height: 104,
     color: 'orange',
   },
-  '9': {
-    id: '9',
-    cardId: 'us-gb-239',
+  'us-gb-239': {
+    id: 'us-gb-239',
     name: { en: 'Linus', pt: 'Lino' },
     gender: 'boy',
     height: 112,
     color: 'teal',
   },
-  '10': {
-    id: '10',
-    cardId: 'us-gb-240',
+  'us-gb-240': {
+    id: 'us-gb-240',
     name: { en: 'Matilda', pt: 'Matilda' },
     gender: 'girl',
     height: 115,
