@@ -1,11 +1,12 @@
 import { ColumnHeightOutlined, ColumnWidthOutlined, ManOutlined, WomanOutlined } from '@ant-design/icons';
 import { Tag, Typography } from 'antd';
 import { ImageCard } from 'components/Images/ImageCard';
+import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useCardWidth } from 'hooks/useCardWidth';
-import type { FeatureFilRole } from './FeatureFilmView';
+import type { FeatureFilmRole } from './FeatureFilmViewV2';
 
 type ActorRoleProps = {
-  role: FeatureFilRole;
+  role: FeatureFilmRole;
   language: Language;
 };
 
@@ -15,15 +16,24 @@ export function ActorRole({ role, language }: ActorRoleProps) {
   return (
     <div key={role.id}>
       <Typography.Title level={3}>{role.title[language]}</Typography.Title>
-      <div className="suspect" style={{ width: `${cardWidth}px` }}>
-        <ImageCard cardId={role.actor.id} cardWidth={cardWidth} className="suspect__image" />
+      <div className="suspect">
+        <SuspectImageCard
+          cardId={role.actor.id}
+          cardWidth={cardWidth}
+          className="suspect__image"
+          variant="gb"
+        />
 
         <div className="suspect__name">
           <div>
             <Tag>{role.actor.id}</Tag>
           </div>
-          <div>🇧🇷 {role.actor.name.pt}</div>
-          <div>🇺🇸 {role.actor.name.en}</div>
+          <div>
+            🇧🇷 {role.actor.name.pt}, {role.persona.pt}
+          </div>
+          <div>
+            🇺🇸 {role.actor.name.en}, {role.persona.en}
+          </div>
           <div className="suspect__info">
             <div>
               <div>

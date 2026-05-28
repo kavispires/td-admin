@@ -4,9 +4,17 @@ import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { FeatureFilmView } from 'components/Movie/FeatureFilmView';
+import { FeatureFilmViewV2 } from 'components/Movie/FeatureFilmViewV2';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTDResource, useTDResourceNonCollection } from 'hooks/useTDResource';
-import type { Item, MovieCard, MovieGenres, SuspectCard, TestimonyQuestionCard } from 'types';
+import type {
+  Item,
+  MovieCard,
+  MovieGenres,
+  SuspectCard,
+  SuspectExtendedInfo,
+  TestimonyQuestionCard,
+} from 'types';
 
 function MovieMaker() {
   const { queryParams } = useQueryParams({ language: 'pt' });
@@ -17,6 +25,8 @@ function MovieMaker() {
   const movieGenresQuery = useTDResourceNonCollection<MovieGenres>('movie-genres');
   // Gather movie actors
   const movieActorsQuery = useTDResource<SuspectCard>('suspects');
+  // Gather extended info about suspects
+  const suspectsExtendedQuery = useTDResource<SuspectExtendedInfo>('suspects-extended-info');
   // Gather character traits
   const characterTraitsQuery = useTDResource<TestimonyQuestionCard>(`testimony-questions-${language}`);
   // Gather items
@@ -26,37 +36,23 @@ function MovieMaker() {
     movieTitleQuery.hasResponseData &&
     movieGenresQuery.hasResponseData &&
     movieActorsQuery.hasResponseData &&
+    suspectsExtendedQuery.hasResponseData &&
     itemsQuery.hasResponseData &&
     characterTraitsQuery.hasResponseData;
   const isLoading =
     movieTitleQuery.isLoading ||
     movieGenresQuery.isLoading ||
     movieActorsQuery.isLoading ||
+    suspectsExtendedQuery.isLoading ||
     itemsQuery.isLoading ||
     characterTraitsQuery.isLoading;
   const error =
-    movieTitleQuery.error || movieGenresQuery.error || movieActorsQuery.error || characterTraitsQuery.error;
-
-  // const roleStats = useMemo(() => {
-  //   const roleStats: Record<string, number> = {};
-
-  //   Object.values(movieGenresQuery.data?.roles ?? {}).forEach((role) => {
-  //     roleStats[role.id] = 0;
-  //   });
-
-  //   Object.values(movieGenresQuery.data?.genres ?? {}).forEach((genre) => {
-  //     genre.rolesIds.forEach((roleId) => {
-  //       roleStats[roleId]++;
-  //     });
-  //   });
-
-  //   Object.values(movieGenresQuery.data?.subGenres ?? {}).forEach((genre) => {
-  //     genre.rolesIds.forEach((roleId) => {
-  //       roleStats[roleId]++;
-  //     });
-  //   });
-  //   return roleStats;
-  // }, [movieGenresQuery.data]);
+    movieTitleQuery.error ||
+    movieGenresQuery.error ||
+    movieActorsQuery.error ||
+    suspectsExtendedQuery.error ||
+    itemsQuery.error ||
+    characterTraitsQuery.error;
 
   return (
     <PageLayout title="Movie Maker">
@@ -67,15 +63,17 @@ function MovieMaker() {
 
         <Layout.Content className="content">
           <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
-            <FeatureFilmView
-              characterTraits={Object.values(characterTraitsQuery.data)}
-              items={Object.values(itemsQuery.data)}
-              language={language}
-              movieActors={Object.values(movieActorsQuery.data)}
-              // biome-ignore lint/style/noNonNullAssertion: movieGenres is guaranteed to be defined by DataLoadingWrapper
-              movieGenres={movieGenresQuery.data!}
-              movieTitles={Object.values(movieTitleQuery.data)}
-            />
+            {movieGenresQuery.data && (
+              <FeatureFilmViewV2
+                actorsExtendedInfo={suspectsExtendedQuery.data ?? {}}
+                characterTraits={characterTraitsQuery.data ?? {}}
+                items={itemsQuery.data}
+                language={language}
+                movieActors={movieActorsQuery.data ?? {}}
+                movieGenres={movieGenresQuery.data}
+                movieTitles={movieTitleQuery.data ?? {}}
+              />
+            )}
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>

@@ -92,9 +92,9 @@ export function FeatureFilmView({
           </Typography.Paragraph>
 
           <Space style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', alignItems: 'flex-start' }}>
-            {featureFilm.castingRoles.map((role) => (
+            {/* {featureFilm.castingRoles.map((role) => (
               <ActorRole key={role.id} language={language} role={role} />
-            ))}
+            ))} */}
           </Space>
 
           <Divider />
