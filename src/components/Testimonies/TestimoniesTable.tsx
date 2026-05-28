@@ -1,5 +1,5 @@
 import { CloudSyncOutlined, FireFilled, SearchOutlined } from '@ant-design/icons';
-import { Button, Flex, Input, Rate, Segmented, Table, type TableProps, Tooltip, Typography } from 'antd';
+import { Button, Flex, Input, Rate, Segmented, Table, type TableProps, Tag, Tooltip, Typography } from 'antd';
 import { PageContent } from 'components/Common/PageContent';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
@@ -61,6 +61,12 @@ export function TestimoniesTable({
       title: 'Question',
       dataIndex: 'question',
       key: 'question',
+      render: (question, record) => (
+        <div>
+          {question}
+          {record.deprecated && <Tag color="error">Deprecated</Tag>}
+        </div>
+      ),
       sorter: (a, b) => a.question.localeCompare(b.question),
     },
     {

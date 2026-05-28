@@ -109,6 +109,7 @@ export function SuspectAnswersExpandedRow({
         <Flex align="center" gap={6}>
           <span>{question.question}</span> <Tag>L{question.level}</Tag>{' '}
           {question.nsfw && <FireFilled style={{ color: 'hotPink' }} />}
+          {question.deprecated && <Tag color="error">Deprecated</Tag>}
         </Flex>
       ),
     },

@@ -800,6 +800,10 @@ export type TestimonyQuestionCard = {
    * Alignment types related to the question
    */
   alignment?: DualRelation<AlignmentType>;
+  /**
+   * Flag indicating if the question is deprecated and shouldn't be used in new testimonies
+   */
+  deprecated?: boolean;
 };
 
 /**
@@ -1161,6 +1165,10 @@ type MovieGender = {
    * Lists of roles this genre requires
    */
   rolesIds: string[];
+  /**
+   * The description of the genre
+   */
+  description: DualLanguageValue;
 };
 
 type MovieSubGenre = {
@@ -1180,6 +1188,10 @@ type MovieSubGenre = {
    * Lists of roles this sub-genre might have
    */
   rolesIds: string[];
+  /**
+   * The description of the subgenre
+   */
+  description: DualLanguageValue;
 };
 
 type MovieRole = {
