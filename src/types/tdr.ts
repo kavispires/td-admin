@@ -1287,6 +1287,10 @@ export type TeenageStudent = {
    * The teenager's height ("short", "medium", "tall")
    */
   height: string;
+  /**
+   * us-gb id for the student
+   */
+  imageId: string;
 };
 
 /**

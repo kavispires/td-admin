@@ -1,15 +1,24 @@
 import { ManOutlined, QuestionOutlined, WomanOutlined } from '@ant-design/icons';
 import { Card, Flex, Tag } from 'antd';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
+import { IdField } from 'components/Common/EditableFields';
 import { ImageCard } from 'components/Images/ImageCard';
+import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
+import { useQueryParams } from 'hooks/useQueryParams';
 import type { TeenageStudent } from 'types';
 
 export function StudentCard({ student }: { student: TeenageStudent }) {
+  const { is } = useQueryParams();
   return (
     <Card
-      cover={<ImageCard cardId={student.id} cardWidth={230} preview={false} />}
+      cover={
+        is('imageVariant', 'gb') ? (
+          <SuspectImageCard cardId={student.imageId} cardWidth={220} className="suspect__image" />
+        ) : (
+          <ImageCard cardId={student.id} cardWidth={220} preview={false} />
+        )
+      }
       hoverable
-      style-={{ width: 230, maxWidth: 230 }}
+      style={{ width: 230, maxWidth: 230 }}
     >
       <Card.Meta
         avatar={getGenderIcon(student)}
@@ -24,8 +33,9 @@ export function StudentCard({ student }: { student: TeenageStudent }) {
               <Tag style={{ textTransform: 'uppercase' }}>{student.build[0]}</Tag>
               <Tag style={{ textTransform: 'uppercase' }}>{student.height[0]}</Tag>
             </Flex>
-            <Flex gap={8}>
-              {student.id} <CopyToClipboardButton content={student.id} />
+            <Flex vertical>
+              <IdField value={student.id} />
+              <IdField value={student.imageId.split('-')[2]} />
             </Flex>
           </Flex>
         }
@@ -48,146 +58,32 @@ const getGenderIcon = (student: TeenageStudent) => {
 };
 
 const getSocialGroup = (socialGroupId: TeenageStudent['socialGroupId']) => {
-  switch (socialGroupId) {
-    case 'arts':
-      return (
-        <Tag
-          style={{
-            textTransform: 'uppercase',
-            width: '100%',
-            background: '#fff30a',
-            color: '#746f04',
-            borderColor: '#746f04',
-          }}
-        >
-          {socialGroupId}
-        </Tag>
-      );
-    case 'immigrants':
-      return (
-        <Tag
-          style={{
-            textTransform: 'uppercase',
-            width: '100%',
-            background: '#532b23',
-            color: '#c4867a',
-            borderColor: '#c4867a',
-          }}
-        >
-          {socialGroupId}
-        </Tag>
-      );
-    case 'jet-set':
-      return (
-        <Tag
-          style={{
-            textTransform: 'uppercase',
-            width: '100%',
-            background: '#f914e4',
-            color: '#f1b1eb',
-            borderColor: '#f1b1eb',
-          }}
-        >
-          {socialGroupId}
-        </Tag>
-      );
-    case 'jocks':
-      return (
-        <Tag
-          style={{
-            textTransform: 'uppercase',
-            width: '100%',
-            background: '#fa2e45',
-            color: '#ffd9dd',
-            borderColor: '#ffd9dd',
-          }}
-        >
-          {socialGroupId}
-        </Tag>
-      );
-    case 'leaders':
-      return (
-        <Tag
-          style={{
-            textTransform: 'uppercase',
-            width: '100%',
-            background: '#015aca',
-            color: '#7eb4f8',
-            borderColor: '#7eb4f8',
-          }}
-        >
-          {socialGroupId}
-        </Tag>
-      );
-    case 'nerds':
-      return (
-        <Tag
-          style={{
-            textTransform: 'uppercase',
-            width: '100%',
-            background: '#01efb7',
-            color: '#064939',
-            borderColor: '#064939',
-          }}
-        >
-          {socialGroupId}
-        </Tag>
-      );
-    case 'outcasts':
-      return (
-        <Tag
-          style={{
-            textTransform: 'uppercase',
-            width: '100%',
-            background: '#ff9743',
-            color: '#853d02',
-            borderColor: '#853d02',
-          }}
-        >
-          {socialGroupId}
-        </Tag>
-      );
-    case 'special-needs':
-      return (
-        <Tag
-          style={{
-            textTransform: 'uppercase',
-            width: '100%',
-            background: '#32c91e',
-            color: '#125908',
-            borderColor: '#125908',
-          }}
-        >
-          {socialGroupId}
-        </Tag>
-      );
-    case 'troublemakers':
-      return (
-        <Tag
-          style={{
-            textTransform: 'uppercase',
-            width: '100%',
-            background: '#7746c8',
-            color: '#cdb1fa',
-            borderColor: '#cdb1fa',
-          }}
-        >
-          {socialGroupId}
-        </Tag>
-      );
-    default:
-      return (
-        <Tag
-          style={{
-            textTransform: 'uppercase',
-            width: '100%',
-            background: '#fff30a',
-            color: '#746f04',
-            borderColor: '#746f04',
-          }}
-        >
-          {socialGroupId}
-        </Tag>
-      );
-  }
+  const colorMap: Record<string, { background: string; borderColor: string }> = {
+    arts: { background: '#fff30a', borderColor: '#746f04' },
+    outsiders: { background: '#532b23', borderColor: '#c4867a' },
+    'jet-set': { background: '#f914e4', borderColor: '#f1b1eb' },
+    jocks: { background: '#fa2e45', borderColor: '#ffd9dd' },
+    leaders: { background: '#015aca', borderColor: '#7eb4f8' },
+    nerds: { background: '#01efb7', borderColor: '#064939' },
+    outcasts: { background: '#ff9743', borderColor: '#853d02' },
+    'special-needs': { background: '#32c91e', borderColor: '#125908' },
+    troublemakers: { background: '#7746c8', borderColor: '#cdb1fa' },
+    misfits: { background: '#b5ab9f', borderColor: '#766d62' },
+  };
+
+  const colors = colorMap[socialGroupId];
+
+  return (
+    <Tag
+      style={{
+        textTransform: 'uppercase',
+        width: '100%',
+        background: colors?.background,
+        color: `contrast-color(${colors?.background})`,
+        borderColor: colors?.borderColor,
+      }}
+    >
+      {socialGroupId}
+    </Tag>
+  );
 };
