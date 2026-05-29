@@ -153,6 +153,7 @@ function SelectiveModal({ open, onClose, data, fileName }: SelectiveModalProps) 
       }
       return data;
     },
+    enabled: open, // Only fetch data when modal is open
     staleTime: 30 * 1000, // Data is fresh for 30 seconds
     gcTime: 5 * 60 * 1000, // Cache for 5 minutes
   });
