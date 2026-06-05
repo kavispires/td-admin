@@ -449,12 +449,19 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="HashId">{truncate(hashId, { length: 9 })}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} vertical>
+            <Flex gap={6} style={{ maxWidth: 300 }} vertical>
+              <Flex gap={6} wrap>
+                {kids.map((kid) => (
+                  <ImageCard cardId={kid.kidId} cardWidth={48} key={kid.kidId} />
+                ))}
+              </Flex>
               <span>Kids: {kids.length}</span>
               <span>Culprits: 1</span>
               <span>Actual Liars: {liarsIds.length}</span>
               <span>Possible Liars: {possibleLiars}</span>
-              <span>Full Hash: {hashId}</span>
+              <Typography.Text copyable ellipsis>
+                Full Hash: {hashId}
+              </Typography.Text>
             </Flex>
           </GamePopover>
         </EntryCell>

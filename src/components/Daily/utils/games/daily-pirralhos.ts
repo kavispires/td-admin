@@ -141,20 +141,30 @@ export const buildDailyPirralhosGames = (batchSize: number, history: ParsedDaily
     lastDate = id;
     const dayOfTheWeek = getDayOfTheWeek(id);
 
-    let kidsCount = 4;
+    // Default Mondays values
+    let difficulty = 1;
+    let kidsCount = 3;
     // Weekdays but Mondays
     if (dayOfTheWeek !== 1) {
-      kidsCount = sample([4, 5, 6]) ?? 4;
+      kidsCount = sample([5, 6]) ?? 5;
+      difficulty = sample([1, 2]) ?? 1;
     }
-    // Sunday or Saturday
-    if (dayOfTheWeek === 0 || dayOfTheWeek === 6) {
-      kidsCount = sample([6, 7]) ?? 7;
+    // Saturdays
+    if (dayOfTheWeek === 6) {
+      kidsCount = sample([6, 7]) ?? 6;
+      difficulty = sample([2, 3]) ?? 2;
     }
 
-    let newGame = generatePuzzle(kidsCount, avoidIds);
+    // Sundays
+    if (dayOfTheWeek === 0) {
+      kidsCount = sample([4, 4, 5, 6, 7]) ?? 6;
+      difficulty = kidsCount === 4 ? 1 : (sample([2, 3]) ?? 3);
+    }
+
+    let newGame = generatePuzzle(kidsCount, difficulty, avoidIds);
     let attempts = 0;
     while (avoidIds.includes(newGame.hashId) && attempts < ATTEMPTS_THRESHOLD) {
-      newGame = generatePuzzle(kidsCount, avoidIds);
+      newGame = generatePuzzle(kidsCount, difficulty, avoidIds);
       attempts++;
     }
     avoidIds.push(newGame.hashId);
@@ -218,7 +228,8 @@ const STATEMENT_POOL: StatementDef[] = [
     difficultyWeight: 1,
     generateParam: (speaker, allKids) => pickRandom(allKids.filter((k) => k.id !== speaker.id)).id,
     build: (_, allKids, param) => {
-      const target = allKids.find((k) => k.id === param)!;
+      const target = allKids.find((k) => k.id === param);
+      if (!target) throw new Error('Invalid parameter for statement generation');
       return {
         text: {
           en: `${target.name.en} did it`,
@@ -233,7 +244,8 @@ const STATEMENT_POOL: StatementDef[] = [
     difficultyWeight: 1,
     generateParam: (speaker, allKids) => pickRandom(allKids.filter((k) => k.id !== speaker.id)).id,
     build: (_, allKids, param) => {
-      const target = allKids.find((k) => k.id === param)!;
+      const target = allKids.find((k) => k.id === param);
+      if (!target) throw new Error('Invalid parameter for statement generation');
       return {
         text: {
           en: `${target.name.en} didn't do it`,
@@ -248,7 +260,8 @@ const STATEMENT_POOL: StatementDef[] = [
     difficultyWeight: 2,
     generateParam: (speaker, allKids) => pickRandom(allKids.filter((k) => k.id !== speaker.id)).id,
     build: (_, allKids, param) => {
-      const target = allKids.find((k) => k.id === param)!;
+      const target = allKids.find((k) => k.id === param);
+      if (!target) throw new Error('Invalid parameter for statement generation');
       return {
         text: { en: `${target.name.en} is lying`, pt: `${target.name.pt} tá mentindo` },
         evaluate: (ctx) => ctx.liars.some((l) => l.id === target.id),
@@ -260,7 +273,8 @@ const STATEMENT_POOL: StatementDef[] = [
     difficultyWeight: 3,
     generateParam: (speaker, allKids) => pickRandom(allKids.filter((k) => k.id !== speaker.id)).id,
     build: (speaker, allKids, param) => {
-      const target = allKids.find((k) => k.id === param)!;
+      const target = allKids.find((k) => k.id === param);
+      if (!target) throw new Error('Invalid parameter for statement generation');
       return {
         text: {
           en: `${target.name.en} or I did it`,
@@ -333,6 +347,55 @@ const STATEMENT_POOL: StatementDef[] = [
       evaluate: (ctx) => ctx.culprits.some((c) => c.gender !== speaker.gender),
     }),
   },
+  {
+    // 10: <character> is telling the truth
+    difficultyWeight: 2,
+    generateParam: (speaker, allKids) => pickRandom(allKids.filter((k) => k.id !== speaker.id)).id,
+    build: (_, allKids, param) => {
+      const target = allKids.find((k) => k.id === param);
+      if (!target) throw new Error('Invalid parameter');
+      return {
+        text: {
+          en: `${target.name.en} is telling the truth`,
+          pt: `${target.name.pt} está falando a verdade`,
+        },
+        evaluate: (ctx) => !ctx.liars.some((l) => l.id === target.id),
+      };
+    },
+  },
+  {
+    // 11: I didn't do it
+    difficultyWeight: 1,
+    generateParam: () => undefined,
+    build: (speaker) => ({
+      text: { en: "I didn't do it!", pt: 'Não fui eu!' },
+      evaluate: (ctx) => !ctx.culprits.some((c) => c.id === speaker.id),
+    }),
+  },
+  {
+    // 12: The culprit is NOT next to me
+    difficultyWeight: 2,
+    generateParam: () => undefined,
+    build: (speaker, allKids) => ({
+      text: { en: 'The culprit is not next to me', pt: 'Não foi ninguém do meu lado' },
+      evaluate: (ctx) => {
+        const { left, right } = getNeighbors(speaker, allKids);
+        return !ctx.culprits.some((c) => c.id === left.id || c.id === right.id);
+      },
+    }),
+  },
+  {
+    // 13: The culprit has the same gender as me
+    difficultyWeight: 2,
+    generateParam: () => undefined,
+    build: (speaker) => ({
+      text: {
+        en: 'The culprit has the same gender as me',
+        pt: 'Quem pegou é do mesmo gênero que eu',
+      },
+      evaluate: (ctx) => ctx.culprits.some((c) => c.gender === speaker.gender),
+    }),
+  },
 ];
 
 /**
@@ -353,19 +416,33 @@ function getCombinations<T>(array: T[], size: number): T[][] {
   return result;
 }
 
+const KID_PREFIX = 'us-gb-';
+
 /**
  * Encodes puzzle parameters into a base64 hash ID.
  */
 function encodePuzzleId(
-  numKids: number,
+  activeKids: Kid[], // Pass the actual kids array instead of numKids
   exactLiars: number,
   possibleLiars: number,
   stmts: StatementInstance[],
 ): string {
+  // Strip the prefix from the active kids' IDs
+  const kidsStr = activeKids.map((k) => k.id.replace(KID_PREFIX, '')).join(',');
+
   const stmtString = stmts
-    .map((s) => (s.param !== undefined ? `${s.type},${s.param}` : `${s.type}`))
+    .map((s) => {
+      if (s.param === undefined) return `${s.type}`;
+
+      // If the param is a string (a Kid ID), strip the prefix.
+      // Otherwise (like the height number in type 7), leave it as is.
+      const paramStr = typeof s.param === 'string' ? s.param.replace(KID_PREFIX, '') : s.param;
+      return `${s.type},${paramStr}`;
+    })
     .join('-');
-  const rawId = `${numKids}|1|${exactLiars}|${possibleLiars}|${stmtString}`;
+
+  // Format: kidIds|numCulprits|exactLiars|possibleLiars|statements
+  const rawId = `${kidsStr}|1|${exactLiars}|${possibleLiars}|${stmtString}`;
   return globalThis.btoa(rawId);
 }
 
@@ -375,7 +452,10 @@ function encodePuzzleId(
 function decodePuzzleId(hash: string) {
   const rawId = globalThis.atob(hash);
   const [kidsStr, culpritsStr, liarsStr, possibleLiarsStr, stmtsStr] = rawId.split('|');
-  const numKids = Number.parseInt(kidsStr, 10);
+
+  // Re-attach the prefix to the active kids' IDs
+  const activeKidIds = kidsStr.split(',').map((id) => `${KID_PREFIX}${id}`);
+
   const numCulprits = Number.parseInt(culpritsStr, 10);
   const exactLiars = Number.parseInt(liarsStr, 10);
   const possibleLiars = Number.parseInt(possibleLiarsStr, 10);
@@ -384,16 +464,17 @@ function decodePuzzleId(hash: string) {
     const [typeStr, paramStr] = s.split(',');
     const type = Number.parseInt(typeStr, 10);
 
-    // Type 7 expects a Number param (height), all others expect a String param (UID) or undefined
     let param: string | number | undefined;
     if (paramStr !== undefined && paramStr !== '') {
-      param = type === 7 ? Number.parseInt(paramStr, 10) : paramStr;
+      // Type 7 is a height threshold (number). All other params are Kid IDs (strings).
+      // We re-attach the prefix only if it is supposed to be a string ID.
+      param = type === 7 ? Number.parseInt(paramStr, 10) : `${KID_PREFIX}${paramStr}`;
     }
 
     return { type, param };
   });
 
-  return { numKids, numCulprits, exactLiars, possibleLiars, parsedStmts };
+  return { activeKidIds, numCulprits, exactLiars, possibleLiars, parsedStmts };
 }
 
 /**
@@ -417,27 +498,24 @@ function calculateDifficulty(
 }
 
 /**
- * Solves a puzzle by testing all possible combinations of culprits and liars to find a unique solution.
+ * Solves a puzzle by testing all possible combinations of culprits and liars.
  */
 function solvePuzzle(
   activeKids: Kid[],
-  numCulprits: number,
-  exactLiars: number,
   statements: { kid: Kid; stmt: StatementInstance }[],
+  possibleCulpritCombos: Kid[][], // Passed in to save calculation time
+  possibleLiarCombos: Kid[][], // Passed in to save calculation time
 ) {
-  const possibleCulpritCombos = getCombinations(activeKids, numCulprits);
-  const possibleLiarCombos = getCombinations(activeKids, exactLiars);
-
   let validSolutionsCount = 0;
   let finalCulprits: Kid[] = [];
   let finalLiars: Kid[] = [];
 
   for (const testCulprits of possibleCulpritCombos) {
     for (const testLiars of possibleLiarCombos) {
-      // RULE: The culprit must ALWAYS be a liar.
-      if (!testLiars.some((l) => testCulprits.some((c) => c.id === l.id))) {
-        continue;
-      }
+      // // RULE: The culprit must ALWAYS be a liar.
+      // if (!testLiars.some((l) => testCulprits.some((c) => c.id === l.id))) {
+      //   continue;
+      // }
 
       let isValidState = true;
       for (const ks of statements) {
@@ -468,18 +546,46 @@ function solvePuzzle(
 /**
  * Generates a unique daily Pirralhos puzzle based strictly on numKids.
  */
-export function generatePuzzle(numKids: number, avoidIds: string[] = []): DailyPirralhosEntry {
+export function generatePuzzle(
+  numKids: number,
+  difficultyOverride = 1,
+  avoidIds: string[] = [],
+): DailyPirralhosEntry {
   const activeKids = sampleSize(ALL_KIDS, numKids);
 
   const numCulprits = 1;
-  let exactLiars = 2;
+  let exactLiars = 1;
+  let possibleLiars = exactLiars;
 
-  if (numKids >= 6) {
-    exactLiars = pickRandom([2, 3, 4]);
+  // Difficulty override logic
+  if (difficultyOverride === 2) {
+    if (numKids <= 5) {
+      exactLiars = pickRandom([1, 2]);
+    } else {
+      exactLiars = pickRandom([3, 4]);
+    }
+    possibleLiars = Math.random() < 0.9 ? exactLiars : exactLiars + 1;
   }
 
-  const possibleLiars = exactLiars + (Math.random() > 0.5 ? 1 : 0);
+  if (difficultyOverride === 3) {
+    if (numKids <= 5) {
+      exactLiars = pickRandom([2, 3]);
+      possibleLiars = Math.random() < 0.5 ? exactLiars : exactLiars + 1;
+    } else {
+      exactLiars = pickRandom([3, 4]);
+      possibleLiars = Math.random() < 0.7 ? exactLiars : exactLiars + 1;
+    }
+  }
+
+  // Guard when number of kids is low (3)
+  if (numKids === 3) {
+    exactLiars = 0;
+    possibleLiars = 0;
+  }
+
+  // PRECOMPUTE ONCE:
   const possibleCulpritCombos = getCombinations(activeKids, numCulprits);
+  const possibleLiarCombos = getCombinations(activeKids, exactLiars);
 
   let attempts = 0;
 
@@ -487,11 +593,12 @@ export function generatePuzzle(numKids: number, avoidIds: string[] = []): DailyP
     attempts++;
 
     const trueCulprits = pickRandom(possibleCulpritCombos);
-    const theCulprit = trueCulprits[0];
+    // const theCulprit = trueCulprits[0];
 
-    const otherKids = activeKids.filter((k) => k.id !== theCulprit.id);
-    const otherLiarsCombos = getCombinations(otherKids, exactLiars - 1);
-    const trueLiars = [theCulprit, ...pickRandom(otherLiarsCombos)];
+    // const otherKids = activeKids.filter((k) => k.id !== theCulprit.id);
+    // const otherLiarsCombos = getCombinations(otherKids, exactLiars - 1);
+    // const trueLiars = [theCulprit, ...pickRandom(otherLiarsCombos)];
+    const trueLiars = pickRandom(possibleLiarCombos);
 
     const kidStatements = activeKids.map((kid) => {
       let stmtInstance: StatementInstance | null = null;
@@ -525,11 +632,16 @@ export function generatePuzzle(numKids: number, avoidIds: string[] = []): DailyP
       continue;
     }
 
-    const solution = solvePuzzle(activeKids, numCulprits, exactLiars, kidStatements);
+    const solution = solvePuzzle(
+      activeKids,
+      kidStatements,
+      possibleCulpritCombos,
+      possibleLiarCombos, // Inject precomputed combinations here
+    );
 
     if (solution.validSolutionsCount === 1) {
       const stmtInstances = kidStatements.map((ks) => ks.stmt);
-      const puzzleId = encodePuzzleId(numKids, exactLiars, possibleLiars, stmtInstances);
+      const puzzleId = encodePuzzleId(activeKids, exactLiars, possibleLiars, stmtInstances);
 
       if (avoidIds.includes(puzzleId)) {
         continue;
@@ -560,8 +672,8 @@ export function generatePuzzle(numKids: number, avoidIds: string[] = []): DailyP
  * Retrieves and reconstructs a puzzle from its hash ID.
  */
 export function getPuzzleById(hashId: string): DailyPirralhosEntry {
-  const { numKids, numCulprits, exactLiars, possibleLiars, parsedStmts } = decodePuzzleId(hashId);
-  const activeKids = ALL_KIDS.slice(0, numKids);
+  const { activeKidIds, numCulprits, exactLiars, possibleLiars, parsedStmts } = decodePuzzleId(hashId);
+  const activeKids = activeKidIds.map((id) => KIDS_LIBRARY[id]);
 
   const kidStatements = activeKids.map((kid, index) => {
     const parsed = parsedStmts[index];
@@ -572,14 +684,17 @@ export function getPuzzleById(hashId: string): DailyPirralhosEntry {
     };
   });
 
-  const solution = solvePuzzle(activeKids, numCulprits, exactLiars, kidStatements);
+  const possibleCulpritCombos = getCombinations(activeKids, numCulprits);
+  const possibleLiarCombos = getCombinations(activeKids, exactLiars);
+
+  const solution = solvePuzzle(activeKids, kidStatements, possibleCulpritCombos, possibleLiarCombos);
 
   if (solution.validSolutionsCount !== 1) {
     throw new Error('Invalid puzzle ID provided. Puzzle does not have a unique solution.');
   }
 
   const stmtInstances = kidStatements.map((ks) => ks.stmt);
-  const difficulty = calculateDifficulty(numKids, numCulprits, exactLiars, stmtInstances);
+  const difficulty = calculateDifficulty(activeKids.length, numCulprits, exactLiars, stmtInstances);
 
   return {
     id: '',
