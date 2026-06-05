@@ -44,6 +44,7 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   male: 'é homem',
   female: 'é mulher',
   caucasian: 'é branco(a)',
+  white: 'é branco(a)',
   black: 'é negro(a)',
   asian: 'é asiático(a)',
   latino: 'é latino(a)',
