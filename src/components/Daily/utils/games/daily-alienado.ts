@@ -232,11 +232,11 @@ const generateAlienadoGame = (
   );
   gameAttributes[1].itemsIds = sampleSize(
     attributeB,
-    attributeB.length > 3 ? 3 : Math.max(attributeA.length - 1, 1),
+    attributeB.length > 3 ? 3 : Math.max(attributeB.length - 1, 1),
   );
   gameAttributes[2].itemsIds = sampleSize(
     attributeC,
-    attributeC.length > 3 ? 3 : Math.max(attributeA.length - 1, 1),
+    attributeC.length > 3 ? 3 : Math.max(attributeC.length - 1, 1),
   );
 
   const usedItemsIds: string[] = [];
