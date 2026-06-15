@@ -14,6 +14,7 @@ export type DailyPalavreadoEntry = {
   keyword: string;
   words: string[];
   letters: string[];
+  scoringWords?: string[];
 };
 
 export const useDailyPalavreadoGames = (
@@ -29,14 +30,7 @@ export const useDailyPalavreadoGames = (
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
-    if (
-      !enabled ||
-      !wordsFourQuery.data ||
-      !wordsFourQuery.data.length ||
-      !wordsFiveQuery.data ||
-      !wordsFiveQuery.data.length ||
-      !palavreadoHistory
-    ) {
+    if (!enabled || !wordsFourQuery.data?.length || !wordsFiveQuery.data?.length || !palavreadoHistory) {
       return {};
     }
 
@@ -128,10 +122,13 @@ export const generatePalavreadoGame = (
 
   newUsedWords.push(keyword, ...selectedWords);
 
+  const scoringWords = getScoringWords(selectedWords, words, keyword, size);
+
   return {
     keyword,
     words: selectedWords,
     letters: shuffleLetters(selectedWords, keyword.length),
+    scoringWords,
   };
 };
 
@@ -174,6 +171,57 @@ const shuffleLetters = (selectedWords: string[], size: number) => {
   }
 
   return shuffledLetters;
+};
+
+const getScoringWords = (selectedWords: string[], words: string[], keyword: string, size: number) => {
+  // 1. Get the flat array of all letters in the grid
+  const allLetters = flatMap(selectedWords.map((word) => word.split('')));
+
+  // Create the diagonal indexes dynamically based on size (e.g., for size 4: [0, 5, 10, 15])
+  const preservedIndexes = Array.from({ length: size }, (_, i) => i * size + i);
+
+  // 2. Isolate the letters the player is allowed to move
+  const movablePool = allLetters.filter((_, index) => !preservedIndexes.includes(index));
+
+  const scoringWordsSet = new Set<string>();
+
+  // 3. Find all possible bonus words
+  for (const word of words) {
+    // Skip if wrong size or if it's already one of the main answer words
+    if (word.length !== size || selectedWords.includes(word)) continue;
+
+    // Check if the word can be formed in ANY of the rows
+    for (let row = 0; row < size; row++) {
+      // The word MUST share the fixed letter for this specific row
+      if (word[row] === keyword[row]) {
+        let canForm = true;
+        const availableLetters = [...movablePool];
+
+        // Verify if we have the remaining letters in our movable pool
+        for (let col = 0; col < size; col++) {
+          if (row === col) continue; // Skip the fixed letter
+
+          const neededChar = word[col];
+          const poolIndex = availableLetters.indexOf(neededChar);
+
+          if (poolIndex !== -1) {
+            availableLetters.splice(poolIndex, 1); // Consume the letter
+          } else {
+            canForm = false; // Missing a required letter
+            break;
+          }
+        }
+
+        // If we successfully built the word, add it and stop checking other rows for this same word
+        if (canForm) {
+          scoringWordsSet.add(word);
+          break;
+        }
+      }
+    }
+  }
+
+  return Array.from(scoringWordsSet);
 };
 
 const _usePalavreadoStats = () => {

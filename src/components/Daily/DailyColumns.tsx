@@ -406,7 +406,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
         return <Alert title="No entry" type="error" />;
       }
 
-      const { number, letters, keyword, words } = entry;
+      const { number, letters, keyword, words, scoringWords = [] } = entry;
 
       return (
         <EntryCell>
@@ -426,6 +426,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                 </span>
               ))}
             </Space>
+            <Flex>
+              <GameInfo label="Scoring Words">{scoringWords.length}</GameInfo>
+            </Flex>
           </GamePopover>
         </EntryCell>
       );
