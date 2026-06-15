@@ -564,23 +564,35 @@ export function generatePuzzle(
     } else {
       exactLiars = pickRandom([3, 4]);
     }
-    possibleLiars = Math.random() < 0.9 ? exactLiars : exactLiars + 1;
+    const variance = pickRandom([-1, 0, 0, 1]);
+    possibleLiars = Math.max(0, exactLiars + variance);
   }
 
   if (difficultyOverride === 3) {
     if (numKids <= 5) {
       exactLiars = pickRandom([2, 3]);
-      possibleLiars = Math.random() < 0.5 ? exactLiars : exactLiars + 1;
+      // More variance for harder puzzles
+      const variance = pickRandom([-1, -1, 0, 1, 1]);
+      possibleLiars = Math.max(0, exactLiars + variance);
     } else {
-      exactLiars = pickRandom([3, 4]);
-      possibleLiars = Math.random() < 0.7 ? exactLiars : exactLiars + 1;
+      exactLiars = pickRandom([2, 3, 4]);
+
+      if (exactLiars === 2) {
+        // For 2 liars, we can have 0, 1, or 2 possible (40% exact, 40% +1, 20% -1)
+        const variance = pickRandom([-2, -1, 0, 0, 1, 2]);
+        possibleLiars = Math.max(0, exactLiars + variance);
+      } else {
+        // For 3 or 4 liars, we can have 2 to 5 possible (20% -1, 40% exact, 40% +1)
+        const variance = pickRandom([-1, -1, 0, 1, 1]);
+        possibleLiars = Math.max(0, exactLiars + variance);
+      }
     }
   }
 
   // Guard when number of kids is low (3)
   if (numKids === 3) {
     exactLiars = 0;
-    possibleLiars = 0;
+    possibleLiars = pickRandom([0, 0, 1]);
   }
 
   // PRECOMPUTE ONCE:
@@ -624,7 +636,11 @@ export function generatePuzzle(
           isValid = true;
         }
       }
-      return { kid, stmt: stmtInstance! };
+      if (!stmtInstance) {
+        throw new Error('Failed to generate statement instance for Pirralhos puzzle');
+      }
+
+      return { kid, stmt: stmtInstance };
     });
 
     const statementTexts = kidStatements.map((ks) => ks.stmt.text.en);
