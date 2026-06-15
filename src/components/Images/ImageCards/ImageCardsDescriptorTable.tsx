@@ -110,7 +110,6 @@ export function ImageCardsDescriptorTable({
   const { addParam, queryParams } = useQueryParams();
   const { message } = App.useApp();
   const language = (queryParams.get('language') || 'en') as Language;
-  console.log('D');
 
   const rows = useMemo(
     () =>
