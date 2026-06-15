@@ -1,42 +1,40 @@
 import { HeartFilled, HeartOutlined } from '@ant-design/icons';
-import {
-  Button,
-  type ButtonProps,
-  Flex,
-  Input,
-  type InputProps,
-  Select,
-  type SelectProps,
-  Slider,
-} from 'antd';
+import { Button, type ButtonProps, Flex, Input, Select, type SelectProps, Slider } from 'antd';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { FullScreenModal } from 'components/Common/FullScreenModal';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
+import { useTDResource } from 'hooks/useTDResource';
 import type { ImageCardDescriptor } from 'types';
 import { removeDuplicates } from 'utils';
 import { ImageCard } from '../ImageCard';
+import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 
 const DEFAULT_CARD_SIZE = 200;
 
 export function ImageCardsDescriptorModal({
   data,
   addEntryToUpdate,
-  onClose,
-  onNewCard,
-}: UseResourceFirestoreDataReturnType<ImageCardDescriptor> & {
-  onNewCard: () => void;
-  onClose: () => void;
-}) {
+}: Pick<UseResourceFirestoreDataReturnType<ImageCardDescriptor>, 'data' | 'addEntryToUpdate'>) {
   const { queryParams, removeParam, addParam } = useQueryParams();
+  const cardId = queryParams.get('cardId') || '';
+  const imageCardsDecksQuery = useImageCardsDecks({ enabled: !!cardId });
+  const tdrImagesCredoQuery = useTDResource('images-credo', { enabled: !!cardId });
   const cardSize = Number(queryParams.get('cardSize') ?? DEFAULT_CARD_SIZE);
 
-  const cardId = queryParams.get('cardId');
   const imageCard = data[cardId ?? ''] ?? {
     id: cardId,
     title: { en: '', pt: '' },
-    keywords: [],
+    description: { en: '', pt: '' },
+    keywords: { en: '', pt: '' },
   };
+
+  const onClose = () => removeParam('cardId');
+
+  const onNewCard = () => addParam('cardId', imageCardsDecksQuery.onRandomCard());
+
+  if (!cardId) return null;
+  if (!imageCardsDecksQuery.isSuccess || !tdrImagesCredoQuery.isSuccess) return null;
 
   return (
     <FullScreenModal
@@ -44,7 +42,7 @@ export function ImageCardsDescriptorModal({
         <Button className="my-10" key="cancel" onClick={onClose}>
           Close
         </Button>,
-        <Button className="my-10" key="cancel" onClick={onNewCard}>
+        <Button className="my-10" key="new" onClick={onNewCard}>
           New Card
         </Button>,
       ]}
@@ -68,7 +66,8 @@ export function ImageCardsDescriptorModal({
         />
         <FavoriteImageCardButton addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
         <ImageCardTitleField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} />
-        <ImageCardKeywordsField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
+        <ImageCardDescriptionField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} />
+        <ImageCardKeywordsField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} />
         <ImageCardTriggersField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
         <ImageCardAssociatedDreamsField
           addEntryToUpdate={addEntryToUpdate}
@@ -105,36 +104,47 @@ export function FavoriteImageCardButton({
 type ImageCardKeywordsFieldProps = {
   imageCard: ImageCardDescriptor;
   addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
-} & Omit<InputProps, 'onSearch' | 'icon' | 'shape'>;
+};
 
-export function ImageCardKeywordsField({
-  imageCard,
-  addEntryToUpdate,
-  style,
-  ...inputProps
-}: ImageCardKeywordsFieldProps) {
-  const onUpdateKeywords = (keywords: string) => {
+/**
+ * Component to edit the keywords field of an image card (dual language)
+ */
+export function ImageCardKeywordsField({ imageCard, addEntryToUpdate }: ImageCardKeywordsFieldProps) {
+  const onUpdateKeywords = (keywords: string, language: 'en' | 'pt') => {
+    const keywordArray = keywords
+      .toLocaleLowerCase()
+      .split(/, |,| /)
+      .filter(Boolean)
+      .map((v) => v.trim())
+      .sort();
+
+    const processedKeywords = removeDuplicates(keywordArray).join(',');
     addEntryToUpdate(imageCard.id, {
       ...imageCard,
-      keywords: removeDuplicates(
-        keywords
-          .toLocaleLowerCase()
-          .split(/, |,| /)
-          .filter(Boolean)
-          .map((v) => v.trim())
-          .sort(),
-      ),
+      keywords: {
+        ...imageCard.keywords,
+        [language]: processedKeywords,
+      },
     });
   };
 
   return (
-    <Input.Search
-      defaultValue={imageCard.keywords.join(' ')}
-      enterButton="Update"
-      onSearch={(v) => onUpdateKeywords(v)}
-      style={{ maxWidth: 500, width: '100%', ...style }}
-      {...inputProps}
-    />
+    <Flex gap={4} vertical>
+      <Input.Search
+        defaultValue={imageCard.keywords?.en}
+        enterButton="Update EN"
+        onSearch={(v) => onUpdateKeywords(v, 'en')}
+        placeholder="Keywords (EN)"
+        style={{ maxWidth: 500, width: '100%' }}
+      />
+      <Input.Search
+        defaultValue={imageCard.keywords?.pt}
+        enterButton="Update PT"
+        onSearch={(v) => onUpdateKeywords(v, 'pt')}
+        placeholder="Keywords (PT)"
+        style={{ maxWidth: 500, width: '100%' }}
+      />
+    </Flex>
   );
 }
 
@@ -218,6 +228,53 @@ export function ImageCardTitleField({ imageCard, addEntryToUpdate }: ImageCardTi
         onPressEnter={(e) => onUpdateTitle(e.currentTarget?.value?.trim() || '', 'pt')}
         placeholder="Title"
         value={imageCard.title ?? { en: '', pt: '' }}
+      />
+    </Flex>
+  );
+}
+
+type ImageCardDescriptionFieldProps = {
+  imageCard: ImageCardDescriptor;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+};
+
+/**
+ * Component to edit the description field of an image card (dual language)
+ */
+export function ImageCardDescriptionField({ imageCard, addEntryToUpdate }: ImageCardDescriptionFieldProps) {
+  const onUpdateDescription = (value: string, language: 'en' | 'pt') => {
+    addEntryToUpdate(imageCard.id, {
+      ...imageCard,
+      description: {
+        ...imageCard.description,
+        [language]: value,
+      },
+    });
+  };
+
+  return (
+    <Flex gap={4} vertical>
+      <DualLanguageTextField
+        language="en"
+        onBlur={(e) =>
+          e.currentTarget?.value && e.currentTarget?.value.trim() !== imageCard.description?.en
+            ? onUpdateDescription(e.currentTarget?.value.trim() || '', 'en')
+            : undefined
+        }
+        onPressEnter={(e) => onUpdateDescription(e.currentTarget?.value?.trim() || '', 'en')}
+        placeholder="Description (up to 50 words)"
+        value={imageCard.description ?? { en: '', pt: '' }}
+      />
+      <DualLanguageTextField
+        language="pt"
+        onBlur={(e) =>
+          e.currentTarget?.value && e.currentTarget?.value.trim() !== imageCard.description?.pt
+            ? onUpdateDescription(e.currentTarget?.value.trim() || '', 'pt')
+            : undefined
+        }
+        onPressEnter={(e) => onUpdateDescription(e.currentTarget?.value?.trim() || '', 'pt')}
+        placeholder="Descrição (até 50 palavras)"
+        value={imageCard.description ?? { en: '', pt: '' }}
       />
     </Flex>
   );

@@ -1,6 +1,7 @@
 import { Button, Divider, Flex } from 'antd';
 import { DownloadButton } from 'components/Common/DownloadButton';
 import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
+import { LanguageToggle } from 'components/Common/LanguageToggle';
 import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
@@ -8,7 +9,9 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { cloneDeep } from 'lodash';
 import type { ImageCardDescriptor } from 'types';
 import { sortJsonKeys } from 'utils';
+import { AddImageCardDataModal } from './AddImageCardDataModal';
 import { useImageCardsDecks } from './hooks/useImageCardsDecks';
+import { ImageCardsDescriptorModal } from './ImageCardsDescriptorModal';
 
 export function ImageCardsDescriptorFilters({
   data,
@@ -16,10 +19,12 @@ export function ImageCardsDescriptorFilters({
   isDirty,
   isSaving,
   entriesToUpdate,
+  addEntryToUpdate,
   hasFirestoreData,
 }: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
   const { addParam } = useQueryParams();
   const { onRandomCard } = useImageCardsDecks();
+
   return (
     <SiderContent>
       <Flex gap={12} vertical>
@@ -49,7 +54,15 @@ export function ImageCardsDescriptorFilters({
         Random Card
       </Button>
 
+      <ImageCardsDescriptorModal addEntryToUpdate={addEntryToUpdate} data={data} />
+
       <Divider />
+
+      <LanguageToggle withLabel withQueryParams />
+
+      <Divider />
+
+      <AddImageCardDataModal addEntryToUpdate={addEntryToUpdate} />
     </SiderContent>
   );
 }
@@ -59,12 +72,13 @@ export function ImageCardsDescriptorFilters({
  */
 function isEmptyEntry(entry: ImageCardDescriptor): boolean {
   const hasTitle = entry.title?.en || entry.title?.pt;
-  const hasKeywords = entry.keywords && entry.keywords.length > 0;
+  const hasDescription = entry.description?.en || entry.description?.pt;
+  const hasKeywords = entry.keywords?.en || entry.keywords?.pt;
   const hasTriggers = entry.triggers && entry.triggers.length > 0;
   const hasAssociatedDreams = entry.associatedDreams && entry.associatedDreams.length > 0;
   const hasFavorite = entry.favorite !== undefined;
 
-  return !hasTitle && !hasKeywords && !hasTriggers && !hasAssociatedDreams && !hasFavorite;
+  return !hasTitle && !hasDescription && !hasKeywords && !hasTriggers && !hasAssociatedDreams && !hasFavorite;
 }
 
 function prepareFileForDownload(data: Dictionary<ImageCardDescriptor>) {
@@ -74,7 +88,9 @@ function prepareFileForDownload(data: Dictionary<ImageCardDescriptor>) {
   // Filter out empty entries
   const filtered = Object.fromEntries(Object.entries(copy).filter(([_, entry]) => !isEmptyEntry(entry)));
 
-  console.log(`Filtered out ${Object.keys(copy).length - Object.keys(filtered).length} empty entries`);
+  if (Object.keys(filtered).length > 0) {
+    console.log(`Filtered out ${Object.keys(copy).length - Object.keys(filtered).length} empty entries`);
+  }
 
   return sortJsonKeys(filtered);
 }

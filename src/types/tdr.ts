@@ -1390,9 +1390,14 @@ export type ImageCardDescriptor = {
    */
   title: DualLanguageValue;
   /**
-   * List of keywords/tags related to the image
+   * A detailed description of the image (up to 50 words)
    */
-  keywords: string[];
+  description: DualLanguageValue;
+  /**
+   * List of keywords/tags related to the image per language stringified with commas
+   * (e.g. "cat,animal,pet" or "gato,animal,estimação")
+   */
+  keywords: DualLanguageValue;
   /**
    * Flag indicating an outstanding card
    */

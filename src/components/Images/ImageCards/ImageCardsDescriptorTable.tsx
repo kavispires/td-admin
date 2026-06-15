@@ -10,6 +10,7 @@ import { FavoriteImageCardButton } from './ImageCardsDescriptorModal';
 import './ImageCardsDescriptorTable.css';
 import { IdTag } from 'components/Common/IdTag';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
+import { PageContent } from 'components/Common/PageContent';
 
 /**
  * Parses a card ID into its components
@@ -90,7 +91,10 @@ function isEmptyEntry(entry: ImageCardDescriptor): boolean {
   return (
     !entry.title?.en &&
     !entry.title?.pt &&
-    (!entry.keywords || entry.keywords.length === 0) &&
+    !entry.description?.en &&
+    !entry.description?.pt &&
+    !entry.keywords?.en &&
+    !entry.keywords?.pt &&
     (!entry.triggers || entry.triggers.length === 0) &&
     (!entry.associatedDreams || entry.associatedDreams.length === 0) &&
     !entry.favorite
@@ -103,8 +107,10 @@ export function ImageCardsDescriptorTable({
   firestoreData,
   entriesToUpdate,
 }: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
-  const { addParam } = useQueryParams();
+  const { addParam, queryParams } = useQueryParams();
   const { message } = App.useApp();
+  const language = (queryParams.get('language') || 'en') as Language;
+  console.log('D');
 
   const rows = useMemo(
     () =>
@@ -127,7 +133,8 @@ export function ImageCardsDescriptorTable({
     const newEntry: ImageCardDescriptor = {
       id: newCardId,
       title: { en: '', pt: '' },
-      keywords: [],
+      description: { en: '', pt: '' },
+      keywords: { en: '', pt: '' },
     };
 
     addEntryToUpdate(newCardId, newEntry);
@@ -160,167 +167,238 @@ export function ImageCardsDescriptorTable({
     }
   };
 
-  const columns: TableProps<ImageCardDescriptor>['columns'] = [
-    {
-      title: 'CardId',
-      dataIndex: 'id',
-      key: 'id',
-      sorter: (a, b) => sortCardIds(a.id, b.id),
-      render: (id: string) => <IdTag>{id}</IdTag>,
-    },
-    {
-      title: 'Image',
-      dataIndex: 'id',
-      key: 'image',
-      render: (id: string) => (
-        <Button onClick={() => addParam('cardId', id)} style={{ padding: 0, height: 'auto' }} type="link">
-          <ImageCard cardId={id} cardWidth={50} preview={false} />
-        </Button>
-      ),
-    },
-    {
-      title: 'Favorite',
-      dataIndex: 'favorite',
-      key: 'favorite',
-      sorter: (a, b) => (a.favorite ? 1 : 0) - (b.favorite ? 1 : 0),
-      render: (_, record) => (
-        <FavoriteImageCardButton addEntryToUpdate={addEntryToUpdate} imageCard={record} />
-      ),
-    },
-    {
-      title: 'Title (EN)',
-      dataIndex: ['title', 'en'],
-      key: 'title-en',
-      sorter: (a, b) => (a.title?.en || '').localeCompare(b.title?.en || ''),
-      render: (titleEn: string, record) => (
-        <Flex gap={6}>
-          <LanguageFlag language="en" />
-          <Typography.Text
-            editable={{
-              onChange: (value) => {
-                if (value !== (record.title?.en || '')) {
-                  addEntryToUpdate(record.id, {
-                    ...record,
-                    title: { ...record.title, en: value },
-                  });
-                }
-              },
-            }}
-          >
-            {titleEn || '?'}
-          </Typography.Text>
-        </Flex>
-      ),
-    },
-    {
-      title: 'Title (PT)',
-      dataIndex: ['title', 'pt'],
-      key: 'title-pt',
-      sorter: (a, b) => (a.title?.pt || '').localeCompare(b.title?.pt || ''),
-      render: (titlePt: string, record) => (
-        <Flex gap={6}>
-          <LanguageFlag language="pt" />
-          <Typography.Text
-            editable={{
-              onChange: (value) => {
-                if (value !== (record.title?.pt || '')) {
-                  addEntryToUpdate(record.id, {
-                    ...record,
-                    title: { ...record.title, pt: value },
-                  });
-                }
-              },
-            }}
-          >
-            {titlePt || '?'}
-          </Typography.Text>
-        </Flex>
-      ),
-    },
-    {
-      title: 'Keywords',
-      dataIndex: 'keywords',
-      key: 'keywords',
-      sorter: (a, b) => (a.keywords?.length || 0) - (b.keywords?.length || 0),
-      render: (keywords: string[]) => (
-        <>
-          {keywords?.join(', ') || ''}
-          {keywords?.length > 0 && <Tag style={{ marginLeft: 8 }}>{keywords.length}</Tag>}
-        </>
-      ),
-    },
-    {
-      title: 'Associated Dreams',
-      dataIndex: 'associatedDreams',
-      key: 'associatedDreams',
-      sorter: (a, b) => (a.associatedDreams?.length || 0) - (b.associatedDreams?.length || 0),
-      render: (associatedDreams: string[]) => (
-        <>
-          {associatedDreams?.join(', ') || '-'}
-          {associatedDreams?.length > 0 && <Tag style={{ marginLeft: 8 }}>{associatedDreams.length}</Tag>}
-        </>
-      ),
-    },
-    {
-      title: 'Triggers',
-      dataIndex: 'triggers',
-      key: 'triggers',
-      sorter: (a, b) => (a.triggers?.length || 0) - (b.triggers?.length || 0),
-      render: (triggers: string[], record) => {
-        const isFirst = isFirstCardInDeck(record.id);
-        const isLast = isLastCardInDeck(record.id);
-        const previousCardId = getPreviousCardId(record.id);
-        const nextCardId = getNextCardId(record.id);
-        const previousCardExists = data[previousCardId];
-        const nextCardExists = data[nextCardId];
-
-        return (
-          <>
-            <div className="floating-insert-buttons">
-              {!isFirst && !previousCardExists && (
-                <Button
-                  className="insert-button-top"
-                  icon={<PlusOutlined />}
-                  onClick={() => handleInsertEntry(record.id, 'before')}
-                  size="small"
-                  title={`Insert ${previousCardId} before this card`}
-                >
-                  Insert {previousCardId}
-                </Button>
-              )}
-              {!isLast && !nextCardExists && (
-                <Button
-                  className="insert-button-bottom"
-                  icon={<PlusOutlined />}
-                  onClick={() => handleInsertEntry(record.id, 'after')}
-                  size="small"
-                  title={`Insert ${nextCardId} after this card`}
-                >
-                  Insert {nextCardId}
-                </Button>
-              )}
-            </div>
-            <div>
-              {triggers?.join(', ') || ''}
-              {isEmptyEntry(record) && (
-                <Popconfirm onConfirm={() => handleDeleteEntry(record.id)} title="Delete this empty entry?">
-                  <Button danger icon={<DeleteOutlined />} size="small" style={{ marginLeft: 8 }}>
-                    Delete
-                  </Button>
-                </Popconfirm>
-              )}
-            </div>
-          </>
-        );
+  // biome-ignore lint/correctness/useExhaustiveDependencies: No functions as dependencies
+  const columns: TableProps<ImageCardDescriptor>['columns'] = useMemo(
+    () => [
+      {
+        title: 'CardId',
+        dataIndex: 'id',
+        key: 'id',
+        sorter: (a, b) => sortCardIds(a.id, b.id),
+        render: (id: string, record) => (
+          <Flex vertical>
+            <IdTag>{id}</IdTag>
+            <Button onClick={() => addParam('cardId', id)} style={{ padding: 0, height: 'auto' }} type="link">
+              <ImageCard cardId={id} cardWidth={50} preview={false} />
+            </Button>
+            <FavoriteImageCardButton addEntryToUpdate={addEntryToUpdate} imageCard={record} />
+          </Flex>
+        ),
       },
-    },
-  ];
+      {
+        title: 'Title',
+        dataIndex: ['title', language],
+        key: 'title',
+        sorter: (a, b) => (a.title?.[language] || '').localeCompare(b.title?.[language] || ''),
+        render: (_, record: ImageCardDescriptor) => (
+          <Flex gap={4} vertical>
+            <Flex gap={6}>
+              <LanguageFlag language="en" />
+              <Typography.Text
+                copyable
+                editable={{
+                  onChange: (value) => {
+                    if (value !== (record.title?.en || '')) {
+                      addEntryToUpdate(record.id, {
+                        ...record,
+                        title: { ...record.title, en: value },
+                      });
+                    }
+                  },
+                }}
+              >
+                {record.title?.en || '-'}
+              </Typography.Text>
+            </Flex>
+            <Flex gap={6}>
+              <LanguageFlag language="pt" />
+              <Typography.Text
+                copyable
+                editable={{
+                  onChange: (value) => {
+                    if (value !== (record.title?.pt || '')) {
+                      addEntryToUpdate(record.id, {
+                        ...record,
+                        title: { ...record.title, pt: value },
+                      });
+                    }
+                  },
+                }}
+              >
+                {record.title?.pt || '-'}
+              </Typography.Text>
+            </Flex>
+          </Flex>
+        ),
+      },
+      {
+        title: 'Description',
+        dataIndex: ['description', language],
+        key: 'description',
+        render: (_, record) => (
+          <Flex gap={4} vertical>
+            <Flex gap={6}>
+              <LanguageFlag language="en" />
+              <Typography.Paragraph
+                copyable
+                editable={{
+                  onChange: (value) => {
+                    if (value !== (record.description?.en || '')) {
+                      addEntryToUpdate(record.id, {
+                        ...record,
+                        description: { ...record.description, en: value },
+                      });
+                    }
+                  },
+                }}
+                ellipsis={{ rows: 2, expandable: true, symbol: 'more' }}
+              >
+                {record.description?.en || '-'}
+              </Typography.Paragraph>
+            </Flex>
+            <Flex gap={6}>
+              <LanguageFlag language="pt" />
+              <Typography.Paragraph
+                copyable
+                editable={{
+                  onChange: (value) => {
+                    if (value !== (record.description?.pt || '')) {
+                      addEntryToUpdate(record.id, {
+                        ...record,
+                        description: { ...record.description, pt: value },
+                      });
+                    }
+                  },
+                }}
+                ellipsis={{ rows: 2, expandable: true, symbol: 'more' }}
+              >
+                {record.description?.pt || '-'}
+              </Typography.Paragraph>
+            </Flex>
+          </Flex>
+        ),
+      },
+      {
+        title: 'Keywords',
+        dataIndex: ['keywords', language],
+        key: 'keywords',
+        render: (_, record) => (
+          <Flex gap={4} vertical>
+            <Flex gap={6}>
+              <LanguageFlag language="en" />
+              <Typography.Paragraph
+                copyable
+                editable={{
+                  onChange: (value) => {
+                    if (value !== (record.keywords?.en || '')) {
+                      addEntryToUpdate(record.id, {
+                        ...record,
+                        keywords: { ...record.keywords, en: value },
+                      });
+                    }
+                  },
+                }}
+                ellipsis={{ rows: 2, expandable: true, symbol: 'more' }}
+              >
+                {record.keywords?.en || '-'}
+              </Typography.Paragraph>
+            </Flex>
+            <Flex gap={6}>
+              <LanguageFlag language="pt" />
+              <Typography.Paragraph
+                copyable
+                editable={{
+                  onChange: (value) => {
+                    if (value !== (record.keywords?.pt || '')) {
+                      addEntryToUpdate(record.id, {
+                        ...record,
+                        keywords: { ...record.keywords, pt: value },
+                      });
+                    }
+                  },
+                }}
+                ellipsis={{ rows: 2, expandable: true, symbol: 'more' }}
+              >
+                {record.keywords?.pt || '-'}
+              </Typography.Paragraph>
+            </Flex>
+          </Flex>
+        ),
+      },
+      {
+        title: 'Associated Dreams',
+        dataIndex: 'associatedDreams',
+        key: 'associatedDreams',
+        sorter: (a, b) => (a.associatedDreams?.length || 0) - (b.associatedDreams?.length || 0),
+        render: (associatedDreams: string[]) => (
+          <>
+            {associatedDreams?.join(', ') || '-'}
+            {associatedDreams?.length > 0 && <Tag style={{ marginLeft: 8 }}>{associatedDreams.length}</Tag>}
+          </>
+        ),
+      },
+      {
+        title: 'Triggers',
+        dataIndex: 'triggers',
+        key: 'triggers',
+        sorter: (a, b) => (a.triggers?.length || 0) - (b.triggers?.length || 0),
+        render: (triggers: string[], record) => {
+          const isFirst = isFirstCardInDeck(record.id);
+          const isLast = isLastCardInDeck(record.id);
+          const previousCardId = getPreviousCardId(record.id);
+          const nextCardId = getNextCardId(record.id);
+          const previousCardExists = data[previousCardId];
+          const nextCardExists = data[nextCardId];
+
+          return (
+            <>
+              <div className="floating-insert-buttons">
+                {!isFirst && !previousCardExists && (
+                  <Button
+                    className="insert-button-top"
+                    icon={<PlusOutlined />}
+                    onClick={() => handleInsertEntry(record.id, 'before')}
+                    size="small"
+                    title={`Insert ${previousCardId} before this card`}
+                  >
+                    Insert {previousCardId}
+                  </Button>
+                )}
+                {!isLast && !nextCardExists && (
+                  <Button
+                    className="insert-button-bottom"
+                    icon={<PlusOutlined />}
+                    onClick={() => handleInsertEntry(record.id, 'after')}
+                    size="small"
+                    title={`Insert ${nextCardId} after this card`}
+                  >
+                    Insert {nextCardId}
+                  </Button>
+                )}
+              </div>
+              <div>
+                {triggers?.join(', ') || ''}
+                {isEmptyEntry(record) && (
+                  <Popconfirm onConfirm={() => handleDeleteEntry(record.id)} title="Delete this empty entry?">
+                    <Button danger icon={<DeleteOutlined />} size="small" style={{ marginLeft: 8 }}>
+                      Delete
+                    </Button>
+                  </Popconfirm>
+                )}
+              </div>
+            </>
+          );
+        },
+      },
+    ],
+    [data, language],
+  );
 
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
   return (
-    <div className="image-cards-descriptor-table-wrapper">
+    <PageContent className="image-cards-descriptor-table-wrapper">
       <Table columns={columns} dataSource={rows} pagination={paginationProps} rowKey="id" />
-    </div>
+    </PageContent>
   );
 }

@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ImageCardsDescriptorContent } from 'components/Images/ImageCards/ImageCardsDescriptorContent';
 import { ImageCardsDescriptorFilters } from 'components/Images/ImageCards/ImageCardsDescriptorFilters';
+import { ImageCardsDescriptorTable } from 'components/Images/ImageCards/ImageCardsDescriptorTable';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
@@ -14,7 +14,6 @@ export function ImageCardsDescriptor() {
     firestoreDataCollectionName: 'imageCards',
     serialize: true,
   });
-
   return (
     <PageLayout subtitle="Descriptors" title="Image Cards">
       <Layout hasSider>
@@ -28,7 +27,7 @@ export function ImageCardsDescriptor() {
             hasResponseData={!isEmpty(imageCardsQuery.data)}
             isLoading={imageCardsQuery.isLoading}
           >
-            <ImageCardsDescriptorContent {...imageCardsQuery} />
+            <ImageCardsDescriptorTable {...imageCardsQuery} />
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>

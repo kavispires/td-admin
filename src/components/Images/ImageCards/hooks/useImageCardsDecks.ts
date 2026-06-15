@@ -1,8 +1,8 @@
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty, random, sample } from 'lodash';
 
-export function useImageCardsDecks() {
-  const tdrImagesDecksQuery = useTDResource<number>('images-decks');
+export function useImageCardsDecks(options?: { enabled?: boolean }) {
+  const tdrImagesDecksQuery = useTDResource<number>('images-decks', { enabled: options?.enabled });
   const decks = tdrImagesDecksQuery.data ?? {};
 
   const onRandomCard = () => {
@@ -42,7 +42,7 @@ export function useImageCardsDecks() {
         continue;
       }
       randomCards.push(randomCard);
-      tries - 0;
+      tries = 0;
     }
     if (tries > 30 && randomCards.length < quantity) {
       throw new Error('Could not find enough unique cards');
