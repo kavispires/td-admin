@@ -38,7 +38,6 @@ export function AddImageCardDataModal({ addEntryToUpdate }: AddImageCardDataModa
       }
     });
 
-    console.log(updatedData);
     addEntryToUpdate(cardId, updatedData);
 
     message.success(`Image card descriptor ${cardId} added successfully`);

@@ -394,7 +394,7 @@ export function ImageCardsDescriptorTable({
   );
 
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
-
+  console.log('T render');
   return (
     <PageContent className="image-cards-descriptor-table-wrapper">
       <Table columns={columns} dataSource={rows} pagination={paginationProps} rowKey="id" />

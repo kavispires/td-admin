@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
+import { ImageCardsDescriptorContent } from 'components/Images/ImageCards/ImageCardsDescriptorContent';
 import { ImageCardsDescriptorFilters } from 'components/Images/ImageCards/ImageCardsDescriptorFilters';
-import { ImageCardsDescriptorTable } from 'components/Images/ImageCards/ImageCardsDescriptorTable';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
@@ -27,7 +27,7 @@ export function ImageCardsDescriptor() {
             hasResponseData={!isEmpty(imageCardsQuery.data)}
             isLoading={imageCardsQuery.isLoading}
           >
-            <ImageCardsDescriptorTable {...imageCardsQuery} />
+            <ImageCardsDescriptorContent {...imageCardsQuery} />
           </DataLoadingWrapper>
         </Layout.Content>
       </Layout>

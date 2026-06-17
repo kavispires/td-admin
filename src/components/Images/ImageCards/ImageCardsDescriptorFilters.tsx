@@ -1,5 +1,7 @@
+import { FileMarkdownOutlined, TableOutlined } from '@ant-design/icons';
 import { Button, Divider, Flex } from 'antd';
 import { DownloadButton } from 'components/Common/DownloadButton';
+import { FilterSegments } from 'components/Common/FilterEntries';
 import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
 import { LanguageToggle } from 'components/Common/LanguageToggle';
 import { SaveButton } from 'components/Common/SaveButton';
@@ -22,7 +24,7 @@ export function ImageCardsDescriptorFilters({
   addEntryToUpdate,
   hasFirestoreData,
 }: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
-  const { addParam } = useQueryParams();
+  const { addParam, addParams, queryParams } = useQueryParams();
   const { onRandomCard } = useImageCardsDecks();
 
   return (
@@ -50,9 +52,23 @@ export function ImageCardsDescriptorFilters({
 
       <Divider />
 
-      <Button block onClick={() => addParam('cardId', onRandomCard())}>
-        Random Card
-      </Button>
+      <FilterSegments
+        label="Display"
+        onChange={(mode) => addParams({ display: mode, page: 1 }, { page: 1, display: 'table' })}
+        options={[
+          {
+            title: 'Table',
+            icon: <TableOutlined />,
+            value: 'table',
+          },
+          {
+            title: 'Keywords',
+            icon: <FileMarkdownOutlined />,
+            value: 'keywords',
+          },
+        ]}
+        value={queryParams.get('display') ?? 'table'}
+      />
 
       <ImageCardsDescriptorModal addEntryToUpdate={addEntryToUpdate} data={data} />
 
@@ -61,6 +77,10 @@ export function ImageCardsDescriptorFilters({
       <LanguageToggle withLabel withQueryParams />
 
       <Divider />
+
+      <Button block className="mb-4" onClick={() => addParam('cardId', onRandomCard())}>
+        Random Card
+      </Button>
 
       <AddImageCardDataModal addEntryToUpdate={addEntryToUpdate} />
     </SiderContent>
