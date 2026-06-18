@@ -173,6 +173,7 @@ export function ImageCardsDescriptorTable({
         title: 'CardId',
         dataIndex: 'id',
         key: 'id',
+        width: '10%',
         sorter: (a, b) => sortCardIds(a.id, b.id),
         render: (id: string, record) => (
           <Flex vertical>
@@ -188,6 +189,7 @@ export function ImageCardsDescriptorTable({
         title: 'Title',
         dataIndex: ['title', language],
         key: 'title',
+        width: '25%',
         sorter: (a, b) => (a.title?.[language] || '').localeCompare(b.title?.[language] || ''),
         render: (_, record: ImageCardDescriptor) => (
           <Flex gap={4} vertical>
@@ -234,6 +236,7 @@ export function ImageCardsDescriptorTable({
         title: 'Description',
         dataIndex: ['description', language],
         key: 'description',
+        width: '25%',
         render: (_, record) => (
           <Flex gap={4} vertical>
             <Flex gap={6}>
@@ -281,6 +284,7 @@ export function ImageCardsDescriptorTable({
         title: 'Keywords',
         dataIndex: ['keywords', language],
         key: 'keywords',
+        width: '25%',
         render: (_, record) => (
           <Flex gap={4} vertical>
             <Flex gap={6}>
@@ -328,6 +332,7 @@ export function ImageCardsDescriptorTable({
         title: 'Associated Dreams',
         dataIndex: 'associatedDreams',
         key: 'associatedDreams',
+        width: '7.5%',
         sorter: (a, b) => (a.associatedDreams?.length || 0) - (b.associatedDreams?.length || 0),
         render: (associatedDreams: string[]) => (
           <>
@@ -340,6 +345,7 @@ export function ImageCardsDescriptorTable({
         title: 'Triggers',
         dataIndex: 'triggers',
         key: 'triggers',
+        width: '7.5%',
         sorter: (a, b) => (a.triggers?.length || 0) - (b.triggers?.length || 0),
         render: (triggers: string[], record) => {
           const isFirst = isFirstCardInDeck(record.id);

@@ -107,7 +107,7 @@ export function ImageCardsDescriptorKeywords({
   );
 
   const paginationProps = useTablePagination({ total: groupedByKeywordsRows.length, showQuickJumper: true });
-  console.log('K render');
+
   return (
     <PageContent className="image-cards-descriptor-table-wrapper">
       <Table
