@@ -1,6 +1,6 @@
-import { CheckSquareOutlined } from '@ant-design/icons';
+import { CheckSquareOutlined, DownOutlined } from '@ant-design/icons';
 import { useQuery } from '@tanstack/react-query';
-import { Alert, Badge, Button, Cascader, Dropdown, type DropdownProps, Modal, Spin } from 'antd';
+import { Alert, Badge, Button, type ButtonProps, Cascader, Dropdown, Modal, Space, Spin } from 'antd';
 import { isEmpty } from 'lodash';
 import { useMemo, useState } from 'react';
 import { downloadObjectAsFile, wait } from 'utils';
@@ -30,7 +30,7 @@ type DownloadButtonProps = {
    * Icon to display in the button
    */
   icon?: React.ReactNode;
-} & DropdownProps;
+} & Omit<ButtonProps, 'onClick' | 'loading'>;
 
 /**
  * Button to download a JSON object as a file
@@ -97,18 +97,15 @@ export function DownloadButton({
 
   return (
     <>
-      <Dropdown.Button
-        disabled={loading}
-        icon={icon}
-        loading={loading}
-        menu={{ items, onClick: onMenuClick }}
-        onClick={handleDownload}
-        style={block ? { width: '100%' } : undefined}
-        {...props}
-      >
-        {children ?? 'Download JSON'}
-        {hasNewData && <Badge status="warning" />}
-      </Dropdown.Button>
+      <Space.Compact style={block ? { width: '100%' } : undefined}>
+        <Button disabled={loading} icon={icon} loading={loading} onClick={handleDownload} {...props}>
+          {children ?? 'Download JSON'}
+          {hasNewData && <Badge status="warning" />}
+        </Button>
+        <Dropdown menu={{ items, onClick: onMenuClick }}>
+          <Button disabled={loading} icon={<DownOutlined />} loading={loading} />
+        </Dropdown>
+      </Space.Compact>
       <SelectiveModal
         data={data}
         fileName={fileName}

@@ -1,4 +1,4 @@
-import { CopyOutlined } from '@ant-design/icons';
+import { CopyOutlined, DownOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Flex, Form, InputNumber, Space, Typography } from 'antd';
 import { useItemsContext } from 'context/ItemsContext';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
@@ -77,14 +77,18 @@ export function ItemRandomizer() {
           Get Sample
         </Button>
 
-        <Dropdown.Button
-          disabled={randomItems.length === 0}
-          icon={<CopyOutlined />}
-          menu={{ items, onClick: onMenuClick }}
-          onClick={() => copyToClipboard(JSON.stringify(randomItems, null, 2))}
-        >
-          Copy
-        </Dropdown.Button>
+        <Space.Compact>
+          <Button
+            disabled={randomItems.length === 0}
+            icon={<CopyOutlined />}
+            onClick={() => copyToClipboard(JSON.stringify(randomItems, null, 2))}
+          >
+            Copy
+          </Button>
+          <Dropdown menu={{ items, onClick: onMenuClick }}>
+            <Button disabled={randomItems.length === 0} icon={<DownOutlined />} />
+          </Dropdown>
+        </Space.Compact>
       </Flex>
 
       <Space className="my-4" wrap>
