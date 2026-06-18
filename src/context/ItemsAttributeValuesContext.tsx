@@ -3,7 +3,7 @@ import { getNewItem, getNewItemAttributeValues } from 'components/Items/utils';
 import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty, orderBy, random } from 'lodash';
-import { createContext, type ReactNode, useContext, useMemo, useState } from 'react';
+import { createContext, type ReactNode, useCallback, useContext, useMemo, useState } from 'react';
 import type { Item, ItemAttribute, ItemAttributesValues } from 'types';
 import { sortJsonKeys } from 'utils';
 
@@ -80,7 +80,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
   const { queryParams } = useQueryParams();
   const sortBy = queryParams.get('sortBy');
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: no functions as dependencies
   const sortedAvailableItemsIds = useMemo(() => {
     if (sortBy === 'id') {
       return orderBy(availableItemIds, (id) => Number(id), 'asc');
@@ -105,84 +105,91 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
     }
 
     return availableItemIds;
-  }, [availableItemIds, sortBy]);
+  }, [availableItemIds, sortBy, attributesList]);
 
   const [itemIndex, setItemIndex] = useState(random(0, sortedAvailableItemsIds.length - 1));
   const activeItem = getItem(sortedAvailableItemsIds[itemIndex]);
   const itemAttributeValues = getItemAttributeValues(activeItem.id);
 
-  const jumpToItem = (direction: string, itemId?: string) => {
-    if (direction === 'next') {
-      setItemIndex((prev) => (prev + 1) % sortedAvailableItemsIds.length);
-      return;
-    }
-    if (direction === 'previous') {
-      setItemIndex((prev) => (prev - 1 + sortedAvailableItemsIds.length) % sortedAvailableItemsIds.length);
-      return;
-    }
-    if (direction === 'random') {
-      setItemIndex(random(0, sortedAvailableItemsIds.length - 1));
-      return;
-    }
-
-    if (direction === 'first') {
-      setItemIndex(0);
-      return;
-    }
-    if (direction === 'last') {
-      setItemIndex(sortedAvailableItemsIds.length - 1);
-      return;
-    }
-    if (direction === 'next10') {
-      setItemIndex((prev) => (prev + 10) % sortedAvailableItemsIds.length);
-      return;
-    }
-    if (direction === 'previous10') {
-      setItemIndex((prev) => (prev - 10 + sortedAvailableItemsIds.length) % sortedAvailableItemsIds.length);
-      return;
-    }
-
-    if (direction === 'incomplete') {
-      setItemIndex((prev) => {
-        let index = prev + 1;
-        while (index < sortedAvailableItemsIds.length) {
-          const item = getItemAttributeValues(sortedAvailableItemsIds[index]);
-          if (Object.keys(item.attributes).length !== attributesList.length) {
-            // TODO: Account for filtered attributes in qp
-            return index;
-          }
-          if (index === sortedAvailableItemsIds.length - 1) {
-            message.info('No more incomplete items found.');
-            return prev;
-          }
-          index++;
-        }
-        return prev;
-      });
-      return;
-    }
-
-    if (direction === 'goTo' && itemId !== undefined) {
-      const index = sortedAvailableItemsIds.indexOf(itemId);
-      if (index !== -1) {
-        setItemIndex(index);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: no functions as dependencies
+  const jumpToItem = useCallback(
+    (direction: string, itemId?: string) => {
+      if (direction === 'next') {
+        setItemIndex((prev) => (prev + 1) % sortedAvailableItemsIds.length);
         return;
       }
-      message.error(`Item ${itemId} is not available for attribution.`);
-    }
-  };
+      if (direction === 'previous') {
+        setItemIndex((prev) => (prev - 1 + sortedAvailableItemsIds.length) % sortedAvailableItemsIds.length);
+        return;
+      }
+      if (direction === 'random') {
+        setItemIndex(random(0, sortedAvailableItemsIds.length - 1));
+        return;
+      }
 
-  const onAttributeChange = (attributeId: string, value: number) => {
-    addAttributesToUpdate(activeItem.id, {
-      ...itemAttributeValues,
-      attributes: {
-        ...itemAttributeValues.attributes,
-        [attributeId]: value,
-      },
-    });
-  };
+      if (direction === 'first') {
+        setItemIndex(0);
+        return;
+      }
+      if (direction === 'last') {
+        setItemIndex(sortedAvailableItemsIds.length - 1);
+        return;
+      }
+      if (direction === 'next10') {
+        setItemIndex((prev) => (prev + 10) % sortedAvailableItemsIds.length);
+        return;
+      }
+      if (direction === 'previous10') {
+        setItemIndex((prev) => (prev - 10 + sortedAvailableItemsIds.length) % sortedAvailableItemsIds.length);
+        return;
+      }
 
-  const prepareItemsAttributesFileForDownload = () => {
+      if (direction === 'incomplete') {
+        setItemIndex((prev) => {
+          let index = prev + 1;
+          while (index < sortedAvailableItemsIds.length) {
+            const item = getItemAttributeValues(sortedAvailableItemsIds[index]);
+            if (Object.keys(item.attributes).length !== attributesList.length) {
+              // TODO: Account for filtered attributes in qp
+              return index;
+            }
+            if (index === sortedAvailableItemsIds.length - 1) {
+              message.info('No more incomplete items found.');
+              return prev;
+            }
+            index++;
+          }
+          return prev;
+        });
+        return;
+      }
+
+      if (direction === 'goTo' && itemId !== undefined) {
+        const index = sortedAvailableItemsIds.indexOf(itemId);
+        if (index !== -1) {
+          setItemIndex(index);
+          return;
+        }
+        message.error(`Item ${itemId} is not available for attribution.`);
+      }
+    },
+    [sortedAvailableItemsIds, attributesList, message],
+  );
+
+  const onAttributeChange = useCallback(
+    (attributeId: string, value: number) => {
+      addAttributesToUpdate(activeItem.id, {
+        ...itemAttributeValues,
+        attributes: {
+          ...itemAttributeValues.attributes,
+          [attributeId]: value,
+        },
+      });
+    },
+    [addAttributesToUpdate, activeItem.id, itemAttributeValues],
+  );
+
+  const prepareItemsAttributesFileForDownload = useCallback(() => {
     return sortJsonKeys(
       availableItemIds.reduce((acc: Dictionary<ItemAttributesValues>, itemId) => {
         // Get items and only the ones with attributes
@@ -196,7 +203,6 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         if (Object.keys(item.attributes).length === attributesList.length) {
           item.complete = true;
         } else {
-          // biome-ignore lint/performance/noDelete: <explanation>
           delete item.complete;
         }
 
@@ -205,7 +211,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
         return acc;
       }, {}),
     );
-  };
+  }, [availableItemIds, getItemAttributeValues, attributesList]);
 
   return (
     <ItemsAttributeValuesContext.Provider

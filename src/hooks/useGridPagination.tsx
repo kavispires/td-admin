@@ -1,5 +1,5 @@
 import type { TableProps } from 'antd';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { usePrevious } from 'react-use';
 import { useQueryParams } from './useQueryParams';
 
@@ -55,12 +55,19 @@ export function useGridPagination<TData>({
     return data.slice(start, end);
   }, [currentPage, pageSize, data]);
 
-  const onChange = (page: number) => {
-    addParam(`${prefix}page`, page.toString(), String(defaultCurrent));
-  };
-  const onShowSizeChange = (_: number, size: number) => {
-    addParam(`${prefix}pageSize`, size.toString(), String(defaultPageSize));
-  };
+  const onChange = useCallback(
+    (page: number) => {
+      addParam(`${prefix}page`, page.toString(), String(defaultCurrent));
+    },
+    [addParam, prefix, defaultCurrent],
+  );
+
+  const onShowSizeChange = useCallback(
+    (_: number, size: number) => {
+      addParam(`${prefix}pageSize`, size.toString(), String(defaultPageSize));
+    },
+    [addParam, prefix, defaultPageSize],
+  );
 
   if (resetter !== previous) {
     onChange(defaultCurrent);

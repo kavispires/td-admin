@@ -5,7 +5,7 @@ import { ImageCardsDescriptorKeywords } from './ImageCardsDescriptorKeywords';
 import { ImageCardsDescriptorTable } from './ImageCardsDescriptorTable';
 
 export function ImageCardsDescriptorContent(query: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
-  const { is, queryParams } = useQueryParams();
+  const { queryParams } = useQueryParams();
 
   const displayMode = queryParams.get('display') || 'table';
 

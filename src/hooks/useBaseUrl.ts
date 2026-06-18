@@ -37,6 +37,18 @@ export function useBaseUrl(library: 'images' | 'sprites' | 'resources' | 'classi
   };
 }
 
+function encodeFirestorePath(documentPath: string): string {
+  // Split the path by '/'
+  // Remove any leading/trailing slashes and then split
+  const pathSegments = documentPath.replace(/^\/+|\/+$/g, '').split('/');
+
+  // URL-encode each segment and join with '~2F'
+  // Firestore console uses '~2F' as an encoded '/' for the path part
+  const encodedPath = pathSegments.map((segment) => encodeURIComponent(segment)).join('~2F');
+
+  return encodedPath ? `~2F${encodedPath}` : '';
+}
+
 /**
  * A hook that generates a URL for the Firestore console.
  */
@@ -45,18 +57,6 @@ export function useFirestoreConsoleUrl() {
   const firestoreProjectId = import.meta.env.VITE__FIREBASE_PROJECT_ID;
   const firestorePath = import.meta.env.VITE__FIRESTORE_PATH;
   const baseConsoleUrl = `${firestoreUrl}/${firestoreProjectId}/${firestorePath}`;
-
-  function encodeFirestorePath(documentPath: string): string {
-    // Split the path by '/'
-    // Remove any leading/trailing slashes and then split
-    const pathSegments = documentPath.replace(/^\/+|\/+$/g, '').split('/');
-
-    // URL-encode each segment and join with '~2F'
-    // Firestore console uses '~2F' as an encoded '/' for the path part
-    const encodedPath = pathSegments.map((segment) => encodeURIComponent(segment)).join('~2F');
-
-    return encodedPath ? `~2F${encodedPath}` : '';
-  }
 
   return {
     baseConsoleUrl: `${firestoreUrl}/${firestoreProjectId}/${firestorePath}`,

@@ -24,11 +24,12 @@ export function LanguageToggle({ withQueryParams, withLabel, ...props }: Languag
     }
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: no functions on dependencies
   useEffect(() => {
     if (withQueryParams && activeValue) {
       addParam('language', activeValue);
     }
-  }, [withQueryParams, activeValue, addParam]);
+  }, [withQueryParams, activeValue]);
 
   const ptLabel = (
     <Tooltip arrow title="PT" trigger="hover">

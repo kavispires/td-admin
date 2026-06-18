@@ -1,6 +1,6 @@
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { orderBy } from 'lodash';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { useQueryParams } from './useQueryParams';
 
@@ -26,7 +26,7 @@ export function useItemGrouping() {
   const [sortBy, setSortBy] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: No functions as dependencies
   const group = useMemo(() => {
     const itemsAttributes = availableItemIds.map((id) => getItemAttributeValues(id));
     const scopeValue =
@@ -50,7 +50,7 @@ export function useItemGrouping() {
     );
   }, [attributeKey, scope, sortBy, sortOrder]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: No functions as dependencies
   const pageIds = useMemo(() => {
     if (previousAttribute !== attributeKey || previousScope !== scope) {
       setPreviousAttribute(attributeKey);
@@ -65,21 +65,27 @@ export function useItemGrouping() {
     return group.slice(start, end);
   }, [page, pageSize, group]);
 
-  const attribute = attributesList.find((a) => a.id === attributeKey);
+  const attribute = useMemo(
+    () => attributesList.find((a) => a.id === attributeKey),
+    [attributesList, attributeKey],
+  );
 
-  const updateAttributeValue = (itemId: string, attributeId: string, value: number) => {
-    const currentItemAttributeValues = getItemAttributeValues(itemId);
+  const updateAttributeValue = useCallback(
+    (itemId: string, attributeId: string, value: number) => {
+      const currentItemAttributeValues = getItemAttributeValues(itemId);
 
-    addAttributesToUpdate(itemId, {
-      ...currentItemAttributeValues,
-      attributes: {
-        ...currentItemAttributeValues.attributes,
-        [attributeId]: value,
-      },
-    });
-  };
+      addAttributesToUpdate(itemId, {
+        ...currentItemAttributeValues,
+        attributes: {
+          ...currentItemAttributeValues.attributes,
+          [attributeId]: value,
+        },
+      });
+    },
+    [getItemAttributeValues, addAttributesToUpdate],
+  );
 
-  const updatePageItemsAsUnrelated = () => {
+  const updatePageItemsAsUnrelated = useCallback(() => {
     addMultipleAttributesToUpdate(
       pageIds.map((id) => {
         const prev = getItemAttributeValues(id);
@@ -90,7 +96,7 @@ export function useItemGrouping() {
         return prev;
       }),
     );
-  };
+  }, [addMultipleAttributesToUpdate, pageIds, getItemAttributeValues, attributeKey]);
 
   return {
     group,
@@ -113,8 +119,11 @@ export function useItemGrouping() {
       total: group.length,
       current: Number(page),
       pageSize: Number(pageSize),
-      onChange: (page: number) => addParam('page', String(page)),
-      onShowSizeChange: (_: number, pageSize: number) => addParam('pageSize', String(pageSize)),
+      onChange: useCallback((page: number) => addParam('page', String(page)), [addParam]),
+      onShowSizeChange: useCallback(
+        (_: number, pageSize: number) => addParam('pageSize', String(pageSize)),
+        [addParam],
+      ),
       pageSizeOptions: [12, 24, 48, 96],
     },
   };
