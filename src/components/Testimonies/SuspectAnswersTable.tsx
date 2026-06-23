@@ -11,13 +11,13 @@ import type {
   useTestimoniesResource,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
-import type { SuspectCard } from 'types';
+import type { SuspectCardData } from 'types';
 import { SuspectAnswersExpandedRow } from './SuspectAnswersExpandedRow';
 import { filterAdultSuspects } from './utils';
 
 export type TestimoniesContentProps = ReturnType<typeof useTestimoniesResource>;
 
-type SuspectRow = SuspectCard & {
+type SuspectRow = SuspectCardData & {
   answers: TestimonyAnswers;
 };
 
@@ -73,7 +73,12 @@ export function SuspectAnswersTable({
       title: 'Picture',
       dataIndex: 'id',
       render: (id) => {
-        return <SuspectImageCard cardId={id} cardWidth={48} />;
+        return (
+          <SuspectImageCard
+            cardId={id}
+            cardWidth={48}
+          />
+        );
       },
     },
     {
@@ -120,14 +125,26 @@ export function SuspectAnswersTable({
 
   return (
     <PageContent>
-      <Flex align="center" justify="space-between">
+      <Flex
+        align="center"
+        justify="space-between"
+      >
         <Flex>
-          <Typography.Title className="my-0" level={4}>
+          <Typography.Title
+            className="my-0"
+            level={4}
+          >
             Testimonies by Suspect
           </Typography.Title>
-          <DownloadButton data={newq} fileName={'newQuestions.json'} />
+          <DownloadButton
+            data={newq}
+            fileName={'newQuestions.json'}
+          />
         </Flex>
-        <Flex align="center" gap={3}>
+        <Flex
+          align="center"
+          gap={3}
+        >
           <span style={{ whiteSpace: 'nowrap' }}>Sort by:</span>
           <Segmented
             onChange={(value) => addParam('sortSuspectsBy', value)}

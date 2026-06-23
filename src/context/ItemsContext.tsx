@@ -2,19 +2,19 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { orderBy } from 'lodash';
 import { createContext, type ReactNode, useContext, useMemo } from 'react';
-import type { Item } from 'types';
+import type { ItemData } from 'types';
 
 export type ItemsContextType = {
-  items: Dictionary<Item>;
+  items: Dictionary<ItemData>;
   isLoading: boolean;
   error: ResponseError;
   hasResponseData: boolean;
   decksDict: Dictionary<string>;
   decks: { value: string }[];
-  listing: Item[];
+  listing: ItemData[];
   isDirty: boolean;
-  addItemToUpdate: (id: string, item: Item) => void;
-  itemsToUpdate: Dictionary<Item>;
+  addItemToUpdate: (id: string, item: ItemData) => void;
+  itemsToUpdate: Dictionary<ItemData>;
   isSaving: boolean;
   save: () => void;
   newId: string;
@@ -55,7 +55,7 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
     entriesToUpdate: itemsToUpdate,
     isDirty,
     hasFirestoreData,
-  } = useResourceFirestoreData<Item>({
+  } = useResourceFirestoreData<ItemData>({
     tdrResourceName: 'items',
     firestoreDataCollectionName: 'items',
   });

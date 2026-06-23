@@ -3,7 +3,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo } from 'react';
-import type { ImageCardDescriptor } from 'types';
+import type { ImageCardDescriptorData } from 'types';
 import { ImageCard } from '../ImageCard';
 import './ImageCardsDescriptorTable.css';
 import { IdTag } from 'components/Common/IdTag';
@@ -18,7 +18,7 @@ type KeywordGroup = {
 
 export function ImageCardsDescriptorKeywords({
   data,
-}: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
+}: UseResourceFirestoreDataReturnType<ImageCardDescriptorData>) {
   const { queryParams } = useQueryParams();
   const language = (queryParams.get('language') || 'en') as Language;
 
@@ -92,11 +92,25 @@ export function ImageCardsDescriptorKeywords({
         key: 'cardsIds',
         sorter: (a, b) => a.cardsIds.length - b.cardsIds.length,
         render: (cardsIds: string[]) => (
-          <Flex gap={12} wrap>
+          <Flex
+            gap={12}
+            wrap
+          >
             {cardsIds.map((cardId: string) => (
-              <Flex align="center" gap={4} key={cardId} vertical>
-                <VirtualizationWrapper key={cardId} width={64}>
-                  <ImageCard cardId={cardId} cardWidth={64} />
+              <Flex
+                align="center"
+                gap={4}
+                key={cardId}
+                vertical
+              >
+                <VirtualizationWrapper
+                  key={cardId}
+                  width={64}
+                >
+                  <ImageCard
+                    cardId={cardId}
+                    cardWidth={64}
+                  />
                 </VirtualizationWrapper>
                 <div>
                   <IdTag>{cardId}</IdTag>

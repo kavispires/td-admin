@@ -4,7 +4,7 @@ import { Item } from 'components/Sprites';
 import { useTDResource } from 'hooks/useTDResource';
 import { useMemo } from 'react';
 import stringSimilarity from 'string-similarity';
-import type { DailyMovieSet, Item as ItemT } from 'types';
+import type { DailyMovieSet, ItemData as ItemT } from 'types';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 
 type AddItemFlowProps = {
@@ -25,8 +25,14 @@ export function AddItemFlow({ movie, addEntryToUpdate }: AddItemFlowProps) {
       <div style={{ minWidth: 250 }}>
         <ItemsTypeahead onFinish={onUpdate} />
       </div>
-      <Divider orientation="vertical" variant="dotted" />
-      <ItemsSuggestions movie={movie} onUpdate={onUpdate} />
+      <Divider
+        orientation="vertical"
+        variant="dotted"
+      />
+      <ItemsSuggestions
+        movie={movie}
+        onUpdate={onUpdate}
+      />
     </Flex>
   );
 }
@@ -77,17 +83,38 @@ function ItemsSuggestions({ movie, onUpdate }: ItemsSuggestionsProps) {
   }, [itemsTypeaheadQuery.data, movie]);
 
   return (
-    <Flex gap={12} vertical>
+    <Flex
+      gap={12}
+      vertical
+    >
       <Typography.Text strong>Suggestions</Typography.Text>
-      <Flex gap={16} wrap="wrap">
+      <Flex
+        gap={16}
+        wrap="wrap"
+      >
         {suggestions.map((itemId, index) => {
           const item = itemsTypeaheadQuery.data?.[itemId];
           return (
-            <Flex gap={2} key={`sample-${itemId}-${index}`} vertical>
-              <Item itemId={itemId} title={`${item.name.en} | ${item.name.pt}`} width={60} />
-              <Flex gap={6} justify="center">
+            <Flex
+              gap={2}
+              key={`sample-${itemId}-${index}`}
+              vertical
+            >
+              <Item
+                itemId={itemId}
+                title={`${item.name.en} | ${item.name.pt}`}
+                width={60}
+              />
+              <Flex
+                gap={6}
+                justify="center"
+              >
                 <Typography.Text>{itemId}</Typography.Text>
-                <Button onClick={() => onUpdate(itemId)} shape="circle" size="small">
+                <Button
+                  onClick={() => onUpdate(itemId)}
+                  shape="circle"
+                  size="small"
+                >
                   <PlusOutlined />
                 </Button>
               </Flex>

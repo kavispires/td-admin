@@ -46,8 +46,12 @@ export function ItemAttributionCard() {
       <Card>
         <Typography.Text type="secondary">
           No item selected.{' '}
-          <Button onClick={() => jumpToItem('random')} size="small" type="primary">
-            Random Item
+          <Button
+            onClick={() => jumpToItem('random')}
+            size="small"
+            type="primary"
+          >
+            Random ItemData
           </Button>
         </Typography.Text>
       </Card>
@@ -55,24 +59,53 @@ export function ItemAttributionCard() {
 
   return (
     <Card>
-      <div className="item-attribution-card" key={`${activeItem.id}`}>
-        <Affix className="item-attribution-card__item" offsetTop={120}>
-          <Flex gap={6} vertical>
-            <ItemSprite item={activeItem} width={150} />
+      <div
+        className="item-attribution-card"
+        key={`${activeItem.id}`}
+      >
+        <Affix
+          className="item-attribution-card__item"
+          offsetTop={120}
+        >
+          <Flex
+            gap={6}
+            vertical
+          >
+            <ItemSprite
+              item={activeItem}
+              width={150}
+            />
             <ItemId item={activeItem} />
-            <ItemName item={activeItem} language="en" />
-            <ItemName item={activeItem} language="pt" />
+            <ItemName
+              item={activeItem}
+              language="en"
+            />
+            <ItemName
+              item={activeItem}
+              language="pt"
+            />
 
             <Divider className="my-2" />
-            <ItemAttributeStats attributesList={attributesList} itemAttributeValues={itemAttributeValues} />
+            <ItemAttributeStats
+              attributesList={attributesList}
+              itemAttributeValues={itemAttributeValues}
+            />
             <Divider className="my-2" />
             <Typography.Text type="secondary">
-              <ItemAttributeDescription attributes={attributes} itemAttributeValues={itemAttributeValues} />
+              <ItemAttributeDescription
+                attributes={attributes}
+                itemAttributeValues={itemAttributeValues}
+              />
             </Typography.Text>
           </Flex>
         </Affix>
 
-        <Space className="my-4 attribute-button-container" orientation="vertical" size="small" wrap>
+        <Space
+          className="my-4 attribute-button-container"
+          orientation="vertical"
+          size="small"
+          wrap
+        >
           {filteredAttributesList.map((attribute) => (
             <AttributionValueButtons
               attribute={attribute}

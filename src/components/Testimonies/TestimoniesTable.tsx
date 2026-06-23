@@ -7,12 +7,12 @@ import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy, sample } from 'lodash';
 import type { useTestimoniesResource } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo, useState } from 'react';
-import type { TestimonyQuestionCard } from 'types';
+import type { TestimonyQuestionCardData } from 'types';
 import { TestimonyAnswerExpandedRow } from './TestimonyAnswerExpandedRow';
 
 export type TestimoniesContentProps = ReturnType<typeof useTestimoniesResource>;
 
-type RowData = TestimonyQuestionCard & { answersCount: number };
+type RowData = TestimonyQuestionCardData & { answersCount: number };
 
 export function TestimoniesTable({
   data,
@@ -81,7 +81,13 @@ export function TestimoniesTable({
       dataIndex: 'level',
       key: 'level',
       sorter: (a, b) => (a?.level ?? 0) - (b?.level ?? 0),
-      render: (level) => <Rate disabled size="small" value={level ?? 0} />,
+      render: (level) => (
+        <Rate
+          disabled
+          size="small"
+          value={level ?? 0}
+        />
+      ),
     },
     {
       title: 'Answers',
@@ -131,11 +137,20 @@ export function TestimoniesTable({
 
   return (
     <PageContent>
-      <Flex align="center" justify="space-between">
-        <Typography.Title className="my-0" level={4}>
+      <Flex
+        align="center"
+        justify="space-between"
+      >
+        <Typography.Title
+          className="my-0"
+          level={4}
+        >
           Suspects by Testimony
         </Typography.Title>
-        <Flex align="center" gap={3}>
+        <Flex
+          align="center"
+          gap={3}
+        >
           <span style={{ whiteSpace: 'nowrap' }}>Sort by:</span>
           <Segmented
             onChange={(value) => addParam('sortSuspectsBy', value)}

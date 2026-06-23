@@ -19,7 +19,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import type { SuspectCard, SuspectExtendedInfo } from 'types/tdr';
+import type { SuspectCardData, SuspectExtendedInfoData } from 'types/tdr';
 import { FEATURES_BY_GROUP } from './options';
 
 const { Title } = Typography;
@@ -60,8 +60,8 @@ export function SuspectsStats({
   suspectsQuery,
   suspectsExtendedInfoQuery,
 }: {
-  suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCard>;
-  suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>;
+  suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCardData>;
+  suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfoData>;
 }) {
   const { token } = useToken();
 
@@ -112,9 +112,15 @@ export function SuspectsStats({
       <Title level={3}>Suspect Database Analytics</Title>
 
       {/* --- SECTION 1: HIGH LEVEL KPI --- */}
-      <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
+      <Row
+        gutter={[16, 16]}
+        style={{ marginBottom: 24 }}
+      >
         <Col span={6}>
-          <Card style={cardStyle} variant="borderless">
+          <Card
+            style={cardStyle}
+            variant="borderless"
+          >
             <Statistic
               styles={{ content: { color: '#fff' } }}
               title={<span style={{ color: '#888' }}>Total Profiles</span>}
@@ -123,7 +129,10 @@ export function SuspectsStats({
           </Card>
         </Col>
         <Col span={6}>
-          <Card style={cardStyle} variant="borderless">
+          <Card
+            style={cardStyle}
+            variant="borderless"
+          >
             <Statistic
               styles={{ content: { color: '#4dbd9c' } }}
               title={<span style={{ color: '#888' }}>Total Features</span>}
@@ -132,7 +141,10 @@ export function SuspectsStats({
           </Card>
         </Col>
         <Col span={6}>
-          <Card style={cardStyle} variant="borderless">
+          <Card
+            style={cardStyle}
+            variant="borderless"
+          >
             <Statistic
               styles={{ content: { color: '#c74a68' } }}
               title={<span style={{ color: '#888' }}>Total Traits</span>}
@@ -141,19 +153,35 @@ export function SuspectsStats({
           </Card>
         </Col>
         <Col span={6}>
-          <Card style={cardStyle} variant="borderless"></Card>
+          <Card
+            style={cardStyle}
+            variant="borderless"
+          ></Card>
         </Col>
       </Row>
 
       {/* --- SECTION 2: DEMOGRAPHICS --- */}
-      <Title level={4} style={{ color: '#888', marginTop: 20 }}>
+      <Title
+        level={4}
+        style={{ color: '#888', marginTop: 20 }}
+      >
         Demographics
       </Title>
       <Row gutter={[24, 24]}>
         {/* Race / Ethnicity */}
-        <Col lg={6} xs={24}>
-          <Card style={cardStyle} title="Race Distribution" variant="borderless">
-            <ResponsiveContainer height={250} width="100%">
+        <Col
+          lg={6}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Race Distribution"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={250}
+              width="100%"
+            >
               <PieChart>
                 <Pie
                   cx="50%"
@@ -165,16 +193,29 @@ export function SuspectsStats({
                   paddingAngle={2}
                 />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend height={36} verticalAlign="bottom" />
+                <Legend
+                  height={36}
+                  verticalAlign="bottom"
+                />
               </PieChart>
             </ResponsiveContainer>
           </Card>
         </Col>
 
         {/* Gender Distribution */}
-        <Col lg={6} xs={24}>
-          <Card style={cardStyle} title="Gender Distribution" variant="borderless">
-            <ResponsiveContainer height={250} width="100%">
+        <Col
+          lg={6}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Gender Distribution"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={250}
+              width="100%"
+            >
               <PieChart>
                 <Pie
                   cx="50%"
@@ -186,33 +227,74 @@ export function SuspectsStats({
                   paddingAngle={2}
                 />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend height={36} verticalAlign="bottom" />
+                <Legend
+                  height={36}
+                  verticalAlign="bottom"
+                />
               </PieChart>
             </ResponsiveContainer>
           </Card>
         </Col>
 
         {/* Age Groups */}
-        <Col lg={12} xs={24}>
-          <Card style={cardStyle} title="Age Groups" variant="borderless">
-            <ResponsiveContainer height={250} width="100%">
+        <Col
+          lg={12}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Age Groups"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={250}
+              width="100%"
+            >
               <BarChart data={charts.age}>
-                <CartesianGrid stroke="#303030" strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="name" fontSize={12} stroke="#888" />
+                <CartesianGrid
+                  stroke="#303030"
+                  strokeDasharray="3 3"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="name"
+                  fontSize={12}
+                  stroke="#888"
+                />
                 <YAxis stroke="#888" />
-                <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ fill: '#303030' }} />
-                <Bar dataKey="value" fill="#2a7aa8" radius={[4, 4, 0, 0]} />
+                <Tooltip
+                  contentStyle={TOOLTIP_STYLE}
+                  cursor={{ fill: '#303030' }}
+                />
+                <Bar
+                  dataKey="value"
+                  fill="#2a7aa8"
+                  radius={[4, 4, 0, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </Card>
         </Col>
       </Row>
 
-      <Row gutter={[24, 24]} style={{ marginTop: 24 }}>
+      <Row
+        gutter={[24, 24]}
+        style={{ marginTop: 24 }}
+      >
         {/* Sexual Orientation */}
-        <Col lg={8} xs={24}>
-          <Card style={cardStyle} title="Sexual Orientation" variant="borderless">
-            <ResponsiveContainer height={250} width="100%">
+        <Col
+          lg={8}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Sexual Orientation"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={250}
+              width="100%"
+            >
               <PieChart>
                 <Pie
                   cx="50%"
@@ -223,23 +305,59 @@ export function SuspectsStats({
                   outerRadius={70}
                 />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend height={36} verticalAlign="bottom" />
+                <Legend
+                  height={36}
+                  verticalAlign="bottom"
+                />
               </PieChart>
             </ResponsiveContainer>
           </Card>
         </Col>
         {/* Name Initials */}
-        <Col lg={16} xs={24}>
-          <Card style={cardStyle} title="Name Initials (A-Z)" variant="borderless">
-            <ResponsiveContainer height={250} width="100%">
+        <Col
+          lg={16}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Name Initials (A-Z)"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={250}
+              width="100%"
+            >
               <BarChart data={charts.nameInitials}>
-                <CartesianGrid stroke="#303030" strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="name" fontSize={12} stroke="#888" />
+                <CartesianGrid
+                  stroke="#303030"
+                  strokeDasharray="3 3"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="name"
+                  fontSize={12}
+                  stroke="#888"
+                />
                 <YAxis stroke="#888" />
-                <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ fill: '#303030' }} />
+                <Tooltip
+                  contentStyle={TOOLTIP_STYLE}
+                  cursor={{ fill: '#303030' }}
+                />
                 <Legend />
-                <Bar dataKey="en" fill="#2a7aa8" name="English Name" radius={[0, 0, 4, 4]} stackId="a" />
-                <Bar dataKey="pt" fill="#8c9e5e" name="Portuguese Name" radius={[4, 4, 0, 0]} stackId="a" />
+                <Bar
+                  dataKey="en"
+                  fill="#2a7aa8"
+                  name="English Name"
+                  radius={[0, 0, 4, 4]}
+                  stackId="a"
+                />
+                <Bar
+                  dataKey="pt"
+                  fill="#8c9e5e"
+                  name="Portuguese Name"
+                  radius={[4, 4, 0, 0]}
+                  stackId="a"
+                />
               </BarChart>
             </ResponsiveContainer>
           </Card>
@@ -247,16 +365,29 @@ export function SuspectsStats({
       </Row>
 
       {/* --- SECTION 3: PHYSICAL ATTRIBUTES --- */}
-      <Title level={4} style={{ color: '#888', marginTop: 20 }}>
+      <Title
+        level={4}
+        style={{ color: '#888', marginTop: 20 }}
+      >
         Physical Attributes
       </Title>
       <Row gutter={[24, 24]}>
         {/* Height & Build Donuts */}
-        <Col lg={10} xs={24}>
+        <Col
+          lg={10}
+          xs={24}
+        >
           <Row gutter={[16, 16]}>
             <Col span={12}>
-              <Card style={cardStyle} title="Body Build" variant="borderless">
-                <ResponsiveContainer height={180} width="100%">
+              <Card
+                style={cardStyle}
+                title="Body Build"
+                variant="borderless"
+              >
+                <ResponsiveContainer
+                  height={180}
+                  width="100%"
+                >
                   <PieChart>
                     <Pie
                       cx="50%"
@@ -266,14 +397,24 @@ export function SuspectsStats({
                       outerRadius={60}
                     />
                     <Tooltip contentStyle={TOOLTIP_STYLE} />
-                    <Legend height={36} verticalAlign="bottom" />
+                    <Legend
+                      height={36}
+                      verticalAlign="bottom"
+                    />
                   </PieChart>
                 </ResponsiveContainer>
               </Card>
             </Col>
             <Col span={12}>
-              <Card style={cardStyle} title="Height" variant="borderless">
-                <ResponsiveContainer height={180} width="100%">
+              <Card
+                style={cardStyle}
+                title="Height"
+                variant="borderless"
+              >
+                <ResponsiveContainer
+                  height={180}
+                  width="100%"
+                >
                   <PieChart>
                     <Pie
                       cx="50%"
@@ -283,7 +424,10 @@ export function SuspectsStats({
                       outerRadius={60}
                     />
                     <Tooltip contentStyle={TOOLTIP_STYLE} />
-                    <Legend height={36} verticalAlign="bottom" />
+                    <Legend
+                      height={36}
+                      verticalAlign="bottom"
+                    />
                   </PieChart>
                 </ResponsiveContainer>
               </Card>
@@ -292,15 +436,34 @@ export function SuspectsStats({
         </Col>
 
         {/* --- DETAILED FEATURES GRID (PIE CHARTS) --- */}
-        <Col lg={24} style={{ marginTop: 20 }} xs={24}>
-          <Title level={5} style={{ color: '#888' }}>
+        <Col
+          lg={24}
+          style={{ marginTop: 20 }}
+          xs={24}
+        >
+          <Title
+            level={5}
+            style={{ color: '#888' }}
+          >
             Detailed Feature Analysis
           </Title>
           <Row gutter={[16, 16]}>
             {charts.featureGroups.map((group) => (
-              <Col key={group.title} lg={8} md={12} xs={24}>
-                <Card style={cardStyle} title={group.title} variant="borderless">
-                  <ResponsiveContainer height={250} width="100%">
+              <Col
+                key={group.title}
+                lg={8}
+                md={12}
+                xs={24}
+              >
+                <Card
+                  style={cardStyle}
+                  title={group.title}
+                  variant="borderless"
+                >
+                  <ResponsiveContainer
+                    height={250}
+                    width="100%"
+                  >
                     <PieChart>
                       <Pie
                         cx="50%"
@@ -329,19 +492,51 @@ export function SuspectsStats({
       </Row>
 
       {/* --- SECTION 4: PSYCHOLOGY & BACKGROUND --- */}
-      <Title level={4} style={{ color: '#888', marginTop: 20 }}>
+      <Title
+        level={4}
+        style={{ color: '#888', marginTop: 20 }}
+      >
         Psychological Profile
       </Title>
       <Row gutter={[24, 24]}>
         {/* Zodiac Radar */}
-        <Col lg={8} xs={24}>
-          <Card style={cardStyle} title="Zodiac Signs" variant="borderless">
-            <ResponsiveContainer height={300} width="100%">
-              <RadarChart cx="50%" cy="50%" data={charts.zodiac} outerRadius="70%">
+        <Col
+          lg={8}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Zodiac Signs"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={300}
+              width="100%"
+            >
+              <RadarChart
+                cx="50%"
+                cy="50%"
+                data={charts.zodiac}
+                outerRadius="70%"
+              >
                 <PolarGrid stroke="#444" />
-                <PolarAngleAxis dataKey="subject" fontSize={10} stroke="#888" />
-                <PolarRadiusAxis angle={30} domain={[0, 'auto']} stroke="#444" />
-                <Radar dataKey="A" fill="#9d5bc2" fillOpacity={0.5} name="Count" stroke="#9d5bc2" />
+                <PolarAngleAxis
+                  dataKey="subject"
+                  fontSize={10}
+                  stroke="#888"
+                />
+                <PolarRadiusAxis
+                  angle={30}
+                  domain={[0, 'auto']}
+                  stroke="#444"
+                />
+                <Radar
+                  dataKey="A"
+                  fill="#9d5bc2"
+                  fillOpacity={0.5}
+                  name="Count"
+                  stroke="#9d5bc2"
+                />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
               </RadarChart>
             </ResponsiveContainer>
@@ -349,31 +544,94 @@ export function SuspectsStats({
         </Col>
 
         {/* MBTI Dichotomies */}
-        <Col lg={8} xs={24}>
-          <Card style={cardStyle} title="MBTI Dichotomies" variant="borderless">
-            <ResponsiveContainer height={300} width="100%">
-              <BarChart data={charts.mbtiPairs} layout="horizontal">
-                <CartesianGrid stroke="#303030" strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="name" fontSize={12} stroke="#888" />
+        <Col
+          lg={8}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="MBTI Dichotomies"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={300}
+              width="100%"
+            >
+              <BarChart
+                data={charts.mbtiPairs}
+                layout="horizontal"
+              >
+                <CartesianGrid
+                  stroke="#303030"
+                  strokeDasharray="3 3"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="name"
+                  fontSize={12}
+                  stroke="#888"
+                />
                 <YAxis stroke="#888" />
-                <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ fill: '#303030' }} />
+                <Tooltip
+                  contentStyle={TOOLTIP_STYLE}
+                  cursor={{ fill: '#303030' }}
+                />
                 <Legend />
-                <Bar dataKey="left" fill="#2a7aa8" name="Left (E, S, T, J)" radius={[4, 4, 0, 0]} />
-                <Bar dataKey="right" fill="#d9694c" name="Right (I, N, F, P)" radius={[4, 4, 0, 0]} />
+                <Bar
+                  dataKey="left"
+                  fill="#2a7aa8"
+                  name="Left (E, S, T, J)"
+                  radius={[4, 4, 0, 0]}
+                />
+                <Bar
+                  dataKey="right"
+                  fill="#d9694c"
+                  name="Right (I, N, F, P)"
+                  radius={[4, 4, 0, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </Card>
         </Col>
 
         {/* MBTI Types (Radar) */}
-        <Col lg={8} xs={24}>
-          <Card style={cardStyle} title="MBTI Types Radar" variant="borderless">
-            <ResponsiveContainer height={300} width="100%">
-              <RadarChart cx="50%" cy="50%" data={charts.mbti} outerRadius="70%">
+        <Col
+          lg={8}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="MBTI Types Radar"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={300}
+              width="100%"
+            >
+              <RadarChart
+                cx="50%"
+                cy="50%"
+                data={charts.mbti}
+                outerRadius="70%"
+              >
                 <PolarGrid stroke="#444" />
-                <PolarAngleAxis dataKey="subject" fontSize={10} stroke="#888" />
-                <PolarRadiusAxis angle={30} domain={[0, 'auto']} stroke="#444" />
-                <Radar dataKey="A" fill="#637585" fillOpacity={0.5} name="Count" stroke="#637585" />
+                <PolarAngleAxis
+                  dataKey="subject"
+                  fontSize={10}
+                  stroke="#888"
+                />
+                <PolarRadiusAxis
+                  angle={30}
+                  domain={[0, 'auto']}
+                  stroke="#444"
+                />
+                <Radar
+                  dataKey="A"
+                  fill="#637585"
+                  fillOpacity={0.5}
+                  name="Count"
+                  stroke="#637585"
+                />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
               </RadarChart>
             </ResponsiveContainer>
@@ -381,65 +639,164 @@ export function SuspectsStats({
         </Col>
       </Row>
 
-      <Row gutter={[24, 24]} style={{ marginTop: 24 }}>
+      <Row
+        gutter={[24, 24]}
+        style={{ marginTop: 24 }}
+      >
         {/* Socio-Economic Stacked Bar */}
-        <Col lg={8} xs={24}>
-          <Card style={cardStyle} title="Education by Class" variant="borderless">
-            <ResponsiveContainer height={300} width="100%">
+        <Col
+          lg={8}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Education by Class"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={300}
+              width="100%"
+            >
               <BarChart data={charts.econEdu}>
-                <CartesianGrid stroke="#303030" strokeDasharray="3 3" />
-                <XAxis dataKey="name" stroke="#888" />
+                <CartesianGrid
+                  stroke="#303030"
+                  strokeDasharray="3 3"
+                />
+                <XAxis
+                  dataKey="name"
+                  stroke="#888"
+                />
                 <YAxis stroke="#888" />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <Legend />
-                <Bar dataKey="Basic" fill="#2a7aa8" stackId="a" />
-                <Bar dataKey="High" fill="#4dbd9c" stackId="a" />
-                <Bar dataKey="College" fill="#e3a024" stackId="a" />
+                <Bar
+                  dataKey="Basic"
+                  fill="#2a7aa8"
+                  stackId="a"
+                />
+                <Bar
+                  dataKey="High"
+                  fill="#4dbd9c"
+                  stackId="a"
+                />
+                <Bar
+                  dataKey="College"
+                  fill="#e3a024"
+                  stackId="a"
+                />
               </BarChart>
             </ResponsiveContainer>
           </Card>
         </Col>
 
         {/* Personality Traits Bar */}
-        <Col lg={8} xs={24}>
-          <Card style={cardStyle} title="Dominant Personality Traits" variant="borderless">
-            <ResponsiveContainer height={300} width="100%">
-              <BarChart data={charts.traits} layout="vertical" margin={{ left: 20 }}>
-                <CartesianGrid horizontal={false} stroke="#303030" strokeDasharray="3 3" />
-                <XAxis hide stroke="#888" type="number" />
-                <YAxis dataKey="name" fontSize={12} stroke="#888" type="category" width={100} />
-                <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ fill: '#303030' }} />
-                <Bar barSize={15} dataKey="value" fill="#e3a024" radius={[0, 4, 4, 0]} />
+        <Col
+          lg={8}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Dominant Personality Traits"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={300}
+              width="100%"
+            >
+              <BarChart
+                data={charts.traits}
+                layout="vertical"
+                margin={{ left: 20 }}
+              >
+                <CartesianGrid
+                  horizontal={false}
+                  stroke="#303030"
+                  strokeDasharray="3 3"
+                />
+                <XAxis
+                  hide
+                  stroke="#888"
+                  type="number"
+                />
+                <YAxis
+                  dataKey="name"
+                  fontSize={12}
+                  stroke="#888"
+                  type="category"
+                  width={100}
+                />
+                <Tooltip
+                  contentStyle={TOOLTIP_STYLE}
+                  cursor={{ fill: '#303030' }}
+                />
+                <Bar
+                  barSize={15}
+                  dataKey="value"
+                  fill="#e3a024"
+                  radius={[0, 4, 4, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </Card>
         </Col>
 
         {/* Decks */}
-        <Col lg={8} xs={24}>
-          <Card style={cardStyle} title="Deck Distribution" variant="borderless">
-            <ResponsiveContainer height={300} width="100%">
+        <Col
+          lg={8}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Deck Distribution"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={300}
+              width="100%"
+            >
               <PieChart>
-                <Pie cx="50%" cy="50%" data={addColorsToData(charts.deck)} dataKey="value" outerRadius={60} />
+                <Pie
+                  cx="50%"
+                  cy="50%"
+                  data={addColorsToData(charts.deck)}
+                  dataKey="value"
+                  outerRadius={60}
+                />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend height={36} verticalAlign="bottom" />
+                <Legend
+                  height={36}
+                  verticalAlign="bottom"
+                />
               </PieChart>
             </ResponsiveContainer>
           </Card>
         </Col>
       </Row>
 
-      <Row gutter={[24, 24]} style={{ marginTop: 24 }}>
+      <Row
+        gutter={[24, 24]}
+        style={{ marginTop: 24 }}
+      >
         {/* Alignment & Spirit Animals */}
-        <Col lg={6} xs={24}>
-          <Card style={cardStyle} title="Top Alignments" variant="borderless">
+        <Col
+          lg={6}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Top Alignments"
+            variant="borderless"
+          >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {charts.alignment.slice(0, 7).map((item) => (
                 <div
                   key={item.name}
                   style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
                 >
-                  <Tag color="geekblue" style={{ margin: 0 }}>
+                  <Tag
+                    color="geekblue"
+                    style={{ margin: 0 }}
+                  >
                     {item.name}
                   </Tag>
                   <strong style={{ color: '#fff' }}>{item.value}</strong>
@@ -449,8 +806,15 @@ export function SuspectsStats({
           </Card>
         </Col>
 
-        <Col lg={6} xs={24}>
-          <Card style={cardStyle} title="Top Spirit Animals" variant="borderless">
+        <Col
+          lg={6}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Top Spirit Animals"
+            variant="borderless"
+          >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {charts.animals.map((item) => (
                 <div
@@ -458,7 +822,10 @@ export function SuspectsStats({
                   style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
                 >
                   <span style={{ color: '#ccc', textTransform: 'capitalize' }}>{item.name}</span>
-                  <Tag color="gold" style={{ margin: 0 }}>
+                  <Tag
+                    color="gold"
+                    style={{ margin: 0 }}
+                  >
                     {item.value}
                   </Tag>
                 </div>
@@ -473,12 +840,12 @@ export function SuspectsStats({
 
 // --- HELPER FUNCTIONS ---
 
-type MergedSuspect = SuspectCard & SuspectExtendedInfo;
+type MergedSuspect = SuspectCardData & SuspectExtendedInfoData;
 
 // 1. Data Merger
 export const mergeSuspectsData = (
-  physicalData: Record<string, SuspectCard>,
-  extendedData: Record<string, SuspectExtendedInfo>,
+  physicalData: Record<string, SuspectCardData>,
+  extendedData: Record<string, SuspectExtendedInfoData>,
 ): MergedSuspect[] => {
   return Object.keys(physicalData).map((key) => {
     const physical = physicalData[key];
@@ -497,7 +864,7 @@ export const getDistribution = (data: MergedSuspect[], field: keyof MergedSuspec
     .value();
 };
 
-// 3. Array Item Counter
+// 3. Array ItemData Counter
 export const getTopArrayItems = (data: MergedSuspect[], field: keyof MergedSuspect) => {
   return _.chain(data)
     .flatMap(field)

@@ -10,7 +10,12 @@ import {
 } from 'components/Items/utils';
 import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { Item, ItemAttribute, ItemAttributesValues, ItemAttributesValuesFirestore } from 'types';
+import type {
+  ItemAttributeData,
+  ItemAttributesValuesData,
+  ItemAttributesValuesFirestore,
+  ItemData,
+} from 'types';
 import { deserializeFirestoreData, serializeFirestoreData } from 'utils';
 import { useGetFirestoreDoc } from './useGetFirestoreDoc';
 import { useTDResource } from './useTDResource';
@@ -19,19 +24,19 @@ import { useUpdateFirestoreDoc } from './useUpdateFirestoreDoc';
 /**
  * This is to avoid new items being generated and unused just for the sake of placeholders.
  */
-const globalNewItemsAttributesValues: Dictionary<ItemAttributesValues> = {};
+const globalNewItemsAttributesValues: Dictionary<ItemAttributesValuesData> = {};
 
 export function useItemsAttribution() {
   const { notification, message } = App.useApp();
   const queryClient = useQueryClient();
 
   // Gather basic item data
-  const tdrItemsQuery = useTDResource<Item>('items');
-  const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes');
-  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>('items-attribute-values');
+  const tdrItemsQuery = useTDResource<ItemData>('items');
+  const tdrAttributesQuery = useTDResource<ItemAttributeData>('items-attributes');
+  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValuesData>('items-attribute-values');
   const firestoreItemsAttributeValuesQuery = useGetFirestoreDoc<
     Dictionary<string>,
-    Dictionary<ItemAttributesValues>
+    Dictionary<ItemAttributesValuesData>
   >('tdr', 'itemsAttributeValues', {
     select: (data) =>
       deserializeItemAttributesValues({
@@ -40,9 +45,9 @@ export function useItemsAttribution() {
       }),
   });
 
-  const [modifiedAttributeValues, setModifiedAttributeValues] = useState<Dictionary<ItemAttributesValues>>(
-    {},
-  );
+  const [modifiedAttributeValues, setModifiedAttributeValues] = useState<
+    Dictionary<ItemAttributesValuesData>
+  >({});
 
   const mutation = useUpdateFirestoreDoc('tdr', 'itemsAttributeValues', {
     onSuccess: () => {
@@ -70,10 +75,10 @@ export function useItemsAttribution() {
   }, [tdrItemsAttributesValuesQuery.data, firestoreItemsAttributeValuesQuery.data]);
 
   const isDirty = !isEmpty(modifiedAttributeValues);
-  const addAttributesToUpdate = (id: string, item: ItemAttributesValues) => {
+  const addAttributesToUpdate = (id: string, item: ItemAttributesValuesData) => {
     setModifiedAttributeValues((prev) => ({ ...prev, [id]: { ...item, updatedAt: Date.now() } }));
   };
-  const addMultipleAttributesToUpdate = (itemsArr: ItemAttributesValues[]) => {
+  const addMultipleAttributesToUpdate = (itemsArr: ItemAttributesValuesData[]) => {
     setModifiedAttributeValues((prev) => ({
       ...prev,
       ...mapKeys(
@@ -111,7 +116,7 @@ export function useItemsAttribution() {
       return tdrItemsQuery.data[id];
     }
     if (id) {
-      message.info(`Item ${id} not found in TDR. Creating a new item...`);
+      message.info(`ItemData ${id} not found in TDR. Creating a new item...`);
     }
     return getNewItem({ id });
   };
@@ -155,10 +160,10 @@ export function useItemsAttribution() {
 }
 
 const serializeItemAttributesValues = (
-  itemAttributesValues: Dictionary<ItemAttributesValues>,
-  itemAttributes: Dictionary<ItemAttribute>,
+  itemAttributesValues: Dictionary<ItemAttributesValuesData>,
+  itemAttributes: Dictionary<ItemAttributeData>,
 ): Dictionary<string> => {
-  const serializeEntry = (entry: ItemAttributesValues): ItemAttributesValuesFirestore => {
+  const serializeEntry = (entry: ItemAttributesValuesData): ItemAttributesValuesFirestore => {
     return {
       id: entry.id,
       tempSignature: constructItemSignature(entry, itemAttributes),
@@ -166,7 +171,7 @@ const serializeItemAttributesValues = (
     };
   };
 
-  return serializeFirestoreData<ItemAttributesValues, ItemAttributesValuesFirestore>(
+  return serializeFirestoreData<ItemAttributesValuesData, ItemAttributesValuesFirestore>(
     itemAttributesValues,
     serializeEntry,
   );
@@ -174,12 +179,12 @@ const serializeItemAttributesValues = (
 
 const deserializeItemAttributesValues = (data: {
   itemAttributesValues: Dictionary<string>;
-  itemAttributes: Dictionary<ItemAttribute>;
-}): Dictionary<ItemAttributesValues> => {
+  itemAttributes: Dictionary<ItemAttributeData>;
+}): Dictionary<ItemAttributesValuesData> => {
   const { itemAttributesValues, itemAttributes } = data;
   const totalAttributes = Object.keys(itemAttributes).length;
 
-  const deserializeEntry = (entry: ItemAttributesValuesFirestore): ItemAttributesValues => {
+  const deserializeEntry = (entry: ItemAttributesValuesFirestore): ItemAttributesValuesData => {
     const attributes = constructItemAttributes(entry.tempSignature);
     const complete = Object.keys(attributes).length === totalAttributes;
 
@@ -201,7 +206,7 @@ const deserializeItemAttributesValues = (data: {
     return newEntry;
   };
 
-  return deserializeFirestoreData<ItemAttributesValuesFirestore, ItemAttributesValues>(
+  return deserializeFirestoreData<ItemAttributesValuesFirestore, ItemAttributesValuesData>(
     itemAttributesValues,
     deserializeEntry,
   );

@@ -19,7 +19,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy, truncate } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
-import type { SuspectCard, SuspectExtendedInfo } from 'types';
+import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 import { stringRemoveAccents, wait } from 'utils';
 import { ActiveExtendedInfoSwitch, ExtendedInfoFilterBar } from './ExtendedInfoFilterBar';
 import { ActiveFeatureSwitch, FeaturesFilterBar } from './FeaturesFilterBar';
@@ -32,8 +32,8 @@ export function SuspectsListing({
   suspectsQuery,
   suspectsExtendedInfoQuery,
 }: {
-  suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCard>;
-  suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>;
+  suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCardData>;
+  suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfoData>;
 }) {
   const suspects = suspectsQuery.data ?? {};
   const extendedInfo = suspectsExtendedInfoQuery.data ?? {};
@@ -51,13 +51,13 @@ export function SuspectsListing({
 
   const [cardWidth, ref] = useCardWidth(cardsPerRow, { margin: 0, gap: 8, maxWidth: 192 });
 
-  const suspectsList: SuspectCard[] = useMemo(() => {
+  const suspectsList: SuspectCardData[] = useMemo(() => {
     return orderBy(
       Object.values(suspects),
       (e) => {
         if (sortBy === 'name.pt') return stringRemoveAccents(e.name.pt).toLowerCase();
         if (sortBy === 'name.en') return stringRemoveAccents(e.name.en).toLowerCase();
-        return e[sortBy as keyof SuspectCard] ?? e.id;
+        return e[sortBy as keyof SuspectCardData] ?? e.id;
       },
       ['asc'],
     );
@@ -95,7 +95,7 @@ export function SuspectsListing({
     }
   };
 
-  const _updateKeyValue = (suspectId: string, key: keyof SuspectCard, value: unknown) => {
+  const _updateKeyValue = (suspectId: string, key: keyof SuspectCardData, value: unknown) => {
     const suspect = suspects[suspectId];
     if (!suspect) return;
 
@@ -106,25 +106,39 @@ export function SuspectsListing({
   };
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: no need to re-create for the functions
-  const columns: TableProps<SuspectCard>['columns'] = useMemo(() => {
+  const columns: TableProps<SuspectCardData>['columns'] = useMemo(() => {
     return [
       {
         title: 'ID',
         dataIndex: 'id',
         key: 'id',
         width: 80,
-        sorter: (a: SuspectCard, b: SuspectCard) => {
+        sorter: (a: SuspectCardData, b: SuspectCardData) => {
           return Number(a.id.split('-').at(-1)) - Number(b.id.split('-').at(-1));
         },
-        render: (id: string, entry: SuspectCard) => (
-          <Flex align="center" gap={4} vertical>
-            <Flex align="center" gap={6}>
+        render: (id: string, entry: SuspectCardData) => (
+          <Flex
+            align="center"
+            gap={4}
+            vertical
+          >
+            <Flex
+              align="center"
+              gap={6}
+            >
               <Tag>{id}</Tag>{' '}
               {!!extendedInfo[entry.id] && (
-                <PromptButton extendedInfo={extendedInfo[entry.id]} suspect={entry} />
+                <PromptButton
+                  extendedInfo={extendedInfo[entry.id]}
+                  suspect={entry}
+                />
               )}
             </Flex>
-            <SuspectImageCard cardId={entry.id} cardWidth={cardWidth / 1.5} className="suspect__image" />
+            <SuspectImageCard
+              cardId={entry.id}
+              cardWidth={cardWidth / 1.5}
+              className="suspect__image"
+            />
           </Flex>
         ),
       },
@@ -132,12 +146,12 @@ export function SuspectsListing({
         title: 'Name (PT)',
         dataIndex: ['name', 'pt'],
         key: 'name.pt',
-        sorter: (a: SuspectCard, b: SuspectCard) => {
+        sorter: (a: SuspectCardData, b: SuspectCardData) => {
           return stringRemoveAccents(a.name.pt.toLocaleLowerCase()).localeCompare(
             stringRemoveAccents(b.name.pt.toLocaleLowerCase()),
           );
         },
-        render: (_, entry: SuspectCard) => {
+        render: (_, entry: SuspectCardData) => {
           return (
             <Flex vertical>
               <Typography.Text>{entry.name.pt}</Typography.Text>
@@ -150,47 +164,56 @@ export function SuspectsListing({
         title: 'Gender',
         dataIndex: 'gender',
         key: 'gender',
-        sorter: (a: SuspectCard, b: SuspectCard) => a.gender.localeCompare(b.gender),
+        sorter: (a: SuspectCardData, b: SuspectCardData) => a.gender.localeCompare(b.gender),
       },
       {
         title: 'Age',
         dataIndex: 'age',
         key: 'age',
         render: (age: number) => <Tag>{age}</Tag>,
-        sorter: (a: SuspectCard, b: SuspectCard) => a.age.localeCompare(b.age),
+        sorter: (a: SuspectCardData, b: SuspectCardData) => a.age.localeCompare(b.age),
       },
       {
         title: 'Race',
         dataIndex: 'race',
         key: 'race',
-        sorter: (a: SuspectCard, b: SuspectCard) => a.race.localeCompare(b.race),
+        sorter: (a: SuspectCardData, b: SuspectCardData) => a.race.localeCompare(b.race),
       },
       {
         title: 'Build',
         dataIndex: 'build',
         key: 'build',
-        sorter: (a: SuspectCard, b: SuspectCard) => a.build.localeCompare(b.build),
+        sorter: (a: SuspectCardData, b: SuspectCardData) => a.build.localeCompare(b.build),
       },
       {
         title: 'Height',
         dataIndex: 'height',
         key: 'height',
-        sorter: (a: SuspectCard, b: SuspectCard) => a.height.localeCompare(b.height),
+        sorter: (a: SuspectCardData, b: SuspectCardData) => a.height.localeCompare(b.height),
       },
       {
         title: 'Features',
         dataIndex: 'features',
         key: 'features',
-        sorter: (a: SuspectCard, b: SuspectCard) => a.features.length - b.features.length,
-        render: (features: string[], entry: SuspectCard) => (
-          <Flex gap={8} vertical>
-            <Flex gap={8} wrap="wrap">
+        sorter: (a: SuspectCardData, b: SuspectCardData) => a.features.length - b.features.length,
+        render: (features: string[], entry: SuspectCardData) => (
+          <Flex
+            gap={8}
+            vertical
+          >
+            <Flex
+              gap={8}
+              wrap="wrap"
+            >
               {features.map((feature) => (
                 <Tag key={feature}>{feature}</Tag>
               ))}
             </Flex>
             {!!activeFeature && (
-              <Flex className="mt-2 mb-4" gap={8}>
+              <Flex
+                className="mt-2 mb-4"
+                gap={8}
+              >
                 <Typography.Text keyboard>{activeFeature}:</Typography.Text>
                 <Switch
                   checked={features?.includes(activeFeature)}
@@ -209,7 +232,11 @@ export function SuspectsListing({
         key: 'edit',
         width: 80,
         render: (id: string) => (
-          <Button block onClick={() => addParam('suspectId', id)} size="small">
+          <Button
+            block
+            onClick={() => addParam('suspectId', id)}
+            size="small"
+          >
             <EditFilled />
           </Button>
         ),
@@ -240,7 +267,10 @@ export function SuspectsListing({
 
   return (
     <>
-      <Flex align="center" justify="space-between">
+      <Flex
+        align="center"
+        justify="space-between"
+      >
         <Typography.Title level={2}>Total Suspects: {suspectsList.length}</Typography.Title>
         <Segmented
           onChange={(value) => setView(value)}
@@ -254,10 +284,23 @@ export function SuspectsListing({
         <FeaturesFilterBar /> <ExtendedInfoFilterBar />
       </Space>
 
-      <Flex align="center" className="my-2" gap={8} justify="space-between">
+      <Flex
+        align="center"
+        className="my-2"
+        gap={8}
+        justify="space-between"
+      >
         <PromptBuilder />
-        <Flex align="center" gap={8}>
-          <Button icon={<InteractionFilled />} loading={inferring} onClick={onInferForAll} size="small">
+        <Flex
+          align="center"
+          gap={8}
+        >
+          <Button
+            icon={<InteractionFilled />}
+            loading={inferring}
+            onClick={onInferForAll}
+            size="small"
+          >
             Infer info from Testimonies
           </Button>
         </Flex>
@@ -265,17 +308,37 @@ export function SuspectsListing({
 
       <Image.PreviewGroup>
         {view === 'cards' && (
-          <Space className="my-2" key={variant} ref={ref} wrap>
+          <Space
+            className="my-2"
+            key={variant}
+            ref={ref}
+            wrap
+          >
             {suspectsList.map((entry) => {
               const extendedEntry = extendedInfo?.[entry.id] ?? {};
 
               return (
-                <div className="suspect" key={entry.id} style={{ width: `${cardWidth}px` }}>
-                  <SuspectImageCard cardId={entry.id} cardWidth={cardWidth} className="suspect__image" />
+                <div
+                  className="suspect"
+                  key={entry.id}
+                  style={{ width: `${cardWidth}px` }}
+                >
+                  <SuspectImageCard
+                    cardId={entry.id}
+                    cardWidth={cardWidth}
+                    className="suspect__image"
+                  />
 
                   <div className="suspect__name">
-                    <Flex align="center" gap={3}>
-                      <Tag>{entry.id}</Tag> <PromptButton extendedInfo={extendedEntry} suspect={entry} />{' '}
+                    <Flex
+                      align="center"
+                      gap={3}
+                    >
+                      <Tag>{entry.id}</Tag>{' '}
+                      <PromptButton
+                        extendedInfo={extendedEntry}
+                        suspect={entry}
+                      />{' '}
                       {!extendedEntry.prompt && (
                         <Tooltip title="Missing prompt">
                           <MessageFilled style={{ color: 'red' }} />
@@ -320,7 +383,10 @@ export function SuspectsListing({
                       <small>{truncate(extendedEntry.persona?.en || '-', { length: 18 })}</small>
                     </Typography.Text>
 
-                    <div className="suspect__info" style={getHeightBuildAlert(entry)}>
+                    <div
+                      className="suspect__info"
+                      style={getHeightBuildAlert(entry)}
+                    >
                       <div>
                         <div>
                           {entry.gender === 'male' ? <ManOutlined /> : <WomanOutlined />} {entry.age}
@@ -379,7 +445,12 @@ export function SuspectsListing({
         )}
 
         {view === 'table' && (
-          <Table columns={columns} dataSource={suspectsList} pagination={false} rowKey="id" />
+          <Table
+            columns={columns}
+            dataSource={suspectsList}
+            pagination={false}
+            rowKey="id"
+          />
         )}
       </Image.PreviewGroup>
       <SuspectDrawer
@@ -394,14 +465,14 @@ export function SuspectsListing({
   );
 }
 
-const getHeightBuildAlert = (entry: SuspectCard) => {
+const getHeightBuildAlert = (entry: SuspectCardData) => {
   if (!entry.build || !entry.height || entry.build.length === 1 || entry.height.length === 1) {
     return { borderColor: 'red' };
   }
   return {};
 };
 
-const printNameLogging = (suspectsList: SuspectCard[]) => {
+const printNameLogging = (suspectsList: SuspectCardData[]) => {
   console.log('ALL NAMES PT');
   console.log(orderBy(suspectsList.map((s) => s.name.pt).filter(Boolean)).join(', '));
   // log duplicated names

@@ -10,12 +10,15 @@ import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { truncate } from 'lodash';
 import moment from 'moment';
 import type { ReactNode } from 'react';
-import type { ArteRuimCard } from 'types';
+import type { ArteRuimCardData } from 'types';
 import type { DailyEntry } from './hooks';
 
 function EntryCell({ children }: { children: ReactNode }) {
   return (
-    <Space orientation="vertical" style={{ maxWidth: 120 }}>
+    <Space
+      orientation="vertical"
+      style={{ maxWidth: 120 }}
+    >
       {children}
     </Space>
   );
@@ -65,7 +68,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'alienado',
     render: (entry: DailyEntry['alienado']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, itemsIds, attributes } = entry;
@@ -77,15 +85,27 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Items">{itemsIds.length}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} style={{ maxWidth: '300px' }} vertical>
+            <Flex
+              gap={6}
+              style={{ maxWidth: '300px' }}
+              vertical
+            >
               <Space wrap>
                 {attributes.map((req) => (
-                  <AlienSign key={req.spriteId} signId={`sign-${req.spriteId}`} width={48} />
+                  <AlienSign
+                    key={req.spriteId}
+                    signId={`sign-${req.spriteId}`}
+                    width={48}
+                  />
                 ))}
               </Space>
               <Space wrap>
                 {itemsIds.map((itemId) => (
-                  <Item itemId={itemId} key={itemId} width={48} />
+                  <Item
+                    itemId={itemId}
+                    key={itemId}
+                    width={48}
+                  />
                 ))}
               </Space>
             </Flex>
@@ -100,7 +120,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'aqui-o',
     render: (entry: DailyEntry['aqui-o']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, setId, title, itemsIds } = entry;
@@ -114,9 +139,17 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Items">{itemsIds.length}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} style={{ maxWidth: 500 }} wrap>
+            <Flex
+              gap={6}
+              style={{ maxWidth: 500 }}
+              wrap
+            >
               {itemsIds.map((itemId) => (
-                <Item itemId={itemId} key={itemId} width={48} />
+                <Item
+                  itemId={itemId}
+                  key={itemId}
+                  width={48}
+                />
               ))}
             </Flex>
           </GamePopover>
@@ -130,7 +163,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'arte-ruim',
     render: (entry: DailyEntry['arte-ruim']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, cardId, text, drawings } = entry;
@@ -142,7 +180,10 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="CardId">{cardId}</GameInfo>
           <GameInfo label="Drawings">{drawings.length}</GameInfo>
           <GamePopover entry={entry}>
-            <Flex gap={6} vertical>
+            <Flex
+              gap={6}
+              vertical
+            >
               <div>
                 "
                 {text
@@ -153,7 +194,13 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               </div>
               <Space wrap>
                 {drawings.map((d: string) => (
-                  <CanvasSVG className="canvas" drawing={d} height={75} key={d} width={75} />
+                  <CanvasSVG
+                    className="canvas"
+                    drawing={d}
+                    height={75}
+                    key={d}
+                    width={75}
+                  />
                 ))}
               </Space>
             </Flex>
@@ -168,7 +215,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'conjuntos',
     render: (entry: DailyEntry['conjuntos']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, rule1, intersectingThing, rule2, title, things } = entry;
@@ -180,15 +232,31 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Title">{title}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} vertical>
+            <Flex
+              gap={6}
+              vertical
+            >
               <Flex gap={6}>
-                <Item itemId={rule1.thing.id} width={48} />
-                <Item itemId={intersectingThing.id} width={48} />
-                <Item itemId={rule2.thing.id} width={48} />
+                <Item
+                  itemId={rule1.thing.id}
+                  width={48}
+                />
+                <Item
+                  itemId={intersectingThing.id}
+                  width={48}
+                />
+                <Item
+                  itemId={rule2.thing.id}
+                  width={48}
+                />
               </Flex>
               <Flex gap={6}>
                 {things.map((thing) => (
-                  <Item itemId={thing.id} key={thing.id} width={35} />
+                  <Item
+                    itemId={thing.id}
+                    key={thing.id}
+                    width={35}
+                  />
                 ))}
               </Flex>
             </Flex>
@@ -203,7 +271,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'estoquista',
     render: (entry: DailyEntry['estoquista']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, title, goods } = entry;
@@ -216,9 +289,17 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Goods">{goods.length}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} style={{ maxWidth: 245 }} wrap>
+            <Flex
+              gap={6}
+              style={{ maxWidth: 245 }}
+              wrap
+            >
               {goods.map((good) => (
-                <WarehouseGood goodId={good} key={good} width={48} />
+                <WarehouseGood
+                  goodId={good}
+                  key={good}
+                  width={48}
+                />
               ))}
             </Flex>
           </GamePopover>
@@ -232,7 +313,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'filmaco',
     render: (entry: DailyEntry['filmaco']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
       const { number, setId, title, year } = entry;
 
@@ -243,7 +329,10 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="SetId">{setId}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} vertical>
+            <Flex
+              gap={6}
+              vertical
+            >
               <span>Year: {year}</span>
 
               <span>
@@ -265,7 +354,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'investigacao',
     render: (entry: DailyEntry['investigacao']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, statements, additionalStatements, suspects, culpritId } = entry;
@@ -279,7 +373,10 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Statements">{statements.length}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} vertical>
+            <Flex
+              gap={6}
+              vertical
+            >
               <Space
                 style={{
                   maxHeight: 200,
@@ -300,7 +397,10 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                 ))}
               </Space>
 
-              <Space style={{ maxHeight: 200, overflowY: 'auto' }} vertical>
+              <Space
+                style={{ maxHeight: 200, overflowY: 'auto' }}
+                vertical
+              >
                 {statements.map((statement) => (
                   <Alert
                     banner
@@ -335,7 +435,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'mapeamento',
     render: (entry: DailyEntry['mapeamento']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
       const { number, setId, location } = entry;
 
@@ -346,7 +451,10 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="SetId">{setId}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} vertical>
+            <Flex
+              gap={6}
+              vertical
+            >
               <span>
                 Location:{' '}
                 {location
@@ -366,7 +474,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'organiku',
     render: (entry: DailyEntry['organiku']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, setId, title, grid, defaultRevealedIndexes } = entry;
@@ -383,7 +496,10 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               style={{ gridTemplateColumns: `repeat(${grid?.length % 5 === 0 ? 5 : 6}, 1fr)`, gap: '8px' }}
             >
               {(grid ?? []).map((itemId, index) => (
-                <div className="grid-item" key={`${itemId}-${index}`}>
+                <div
+                  className="grid-item"
+                  key={`${itemId}-${index}`}
+                >
                   <Item
                     className={defaultRevealedIndexes.includes(index) ? 'red-border' : ''}
                     itemId={!defaultRevealedIndexes.includes(index) ? '0' : itemId || '0'}
@@ -403,7 +519,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'palavreado',
     render: (entry) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, letters, keyword, words, scoringWords = [] } = entry;
@@ -440,7 +561,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'pirralhos',
     render: (entry: DailyEntry['pirralhos']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, hashId, kids, liarsIds, possibleLiars } = entry;
@@ -452,17 +578,31 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="HashId">{truncate(hashId, { length: 9 })}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} style={{ maxWidth: 300 }} vertical>
-              <Flex gap={6} wrap>
+            <Flex
+              gap={6}
+              style={{ maxWidth: 300 }}
+              vertical
+            >
+              <Flex
+                gap={6}
+                wrap
+              >
                 {kids.map((kid) => (
-                  <ImageCard cardId={kid.kidId} cardWidth={48} key={kid.kidId} />
+                  <ImageCard
+                    cardId={kid.kidId}
+                    cardWidth={48}
+                    key={kid.kidId}
+                  />
                 ))}
               </Flex>
               <span>Kids: {kids.length}</span>
               <span>Culprits: 1</span>
               <span>Actual Liars: {liarsIds.length}</span>
               <span>Possible Liars: {possibleLiars}</span>
-              <Typography.Text copyable ellipsis>
+              <Typography.Text
+                copyable
+                ellipsis
+              >
                 Full Hash: {hashId}
               </Typography.Text>
             </Flex>
@@ -477,7 +617,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'portais',
     render: (entry: DailyEntry['portais']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, setId, corridors } = entry;
@@ -489,15 +634,26 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="SetId">{truncate(setId, { length: 9 })}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} vertical>
+            <Flex
+              gap={6}
+              vertical
+            >
               {corridors.map((c) => (
-                <Flex gap={6} key={c.passcode} vertical>
+                <Flex
+                  gap={6}
+                  key={c.passcode}
+                  vertical
+                >
                   <span>
                     Passcode: {c.passcode} ({c.goal})
                   </span>
                   <Flex>
                     {c.imagesIds.map((i) => (
-                      <ImageCard cardId={i} cardWidth={48} key={i} />
+                      <ImageCard
+                        cardId={i}
+                        cardWidth={48}
+                        key={i}
+                      />
                     ))}
                   </Flex>
                 </Flex>
@@ -514,7 +670,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'quartetos',
     render: (entry: DailyEntry['quartetos']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, setId, sets } = entry;
@@ -528,9 +689,17 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GamePopover entry={entry}>
             <Flex gap={6}>
               {sets.map((s) => (
-                <Flex gap={6} key={s.id} vertical>
+                <Flex
+                  gap={6}
+                  key={s.id}
+                  vertical
+                >
                   {s.itemsIds.map((i) => (
-                    <Item itemId={i} key={i} width={48} />
+                    <Item
+                      itemId={i}
+                      key={i}
+                      width={48}
+                    />
                   ))}
                 </Flex>
               ))}
@@ -546,7 +715,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'vitral',
     render: (entry: DailyEntry['vitral']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, title, pieces } = entry;
@@ -559,8 +733,15 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Pieces">{pieces.length}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} style={{ maxWidth: '300px' }} wrap>
-              <ImageCard cardId={entry.cardId} cardWidth={75} />
+            <Flex
+              gap={6}
+              style={{ maxWidth: '300px' }}
+              wrap
+            >
+              <ImageCard
+                cardId={entry.cardId}
+                cardWidth={75}
+              />
             </Flex>
           </GamePopover>
         </EntryCell>
@@ -573,7 +754,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'conexoes',
     render: (entry: DailyEntry['conexoes']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, imageIds } = entry;
@@ -585,9 +771,17 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Images">{imageIds.length}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} style={{ maxWidth: 300 }} wrap>
+            <Flex
+              gap={6}
+              style={{ maxWidth: 300 }}
+              wrap
+            >
               {imageIds.slice(0, 15).map((imageId) => (
-                <ImageCard cardId={imageId} cardWidth={48} key={imageId} />
+                <ImageCard
+                  cardId={imageId}
+                  cardWidth={48}
+                  key={imageId}
+                />
               ))}
             </Flex>
           </GamePopover>
@@ -601,7 +795,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'picaco',
     render: (entry: DailyEntry['picaco']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, cards } = entry;
@@ -613,8 +812,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
           <GameInfo label="Cards">{cards.length}</GameInfo>
 
           <GamePopover entry={entry}>
-            <Flex gap={6} style={{ maxHeight: 500, overflowY: 'auto' }} vertical>
-              {cards.map((card: ArteRuimCard, index: number) => (
+            <Flex
+              gap={6}
+              style={{ maxHeight: 500, overflowY: 'auto' }}
+              vertical
+            >
+              {cards.map((card: ArteRuimCardData, index: number) => (
                 <span key={`${card.id}-${index}`}>{card.text}</span>
               ))}
             </Flex>
@@ -629,7 +832,12 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     key: 'ta-na-cara',
     render: (entry: DailyEntry['ta-na-cara']) => {
       if (!entry) {
-        return <Alert title="No entry" type="error" />;
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
       }
 
       const { number, suspectsIds, testimonies } = entry;
@@ -643,23 +851,40 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
 
           <GamePopover entry={entry}>
             <Flex vertical>
-              <Space orientation="vertical" style={{ maxHeight: 100, overflowY: 'auto' }}>
+              <Space
+                orientation="vertical"
+                style={{ maxHeight: 100, overflowY: 'auto' }}
+              >
                 {testimonies.map((question) => (
-                  <Flex key={question.testimonyId} vertical>
+                  <Flex
+                    key={question.testimonyId}
+                    vertical
+                  >
                     <span>
                       {question.question} ({question.testimonyId})
                     </span>
                     <Flex>
                       {question.suspectsIds?.map((suspectId) => (
-                        <ImageCard cardId={suspectId} cardWidth={48} key={suspectId} />
+                        <ImageCard
+                          cardId={suspectId}
+                          cardWidth={48}
+                          key={suspectId}
+                        />
                       ))}
                     </Flex>
                   </Flex>
                 ))}
               </Space>
-              <Space style={{ maxHeight: 200, maxWidth: '500px', overflowY: 'auto' }} wrap>
+              <Space
+                style={{ maxHeight: 200, maxWidth: '500px', overflowY: 'auto' }}
+                wrap
+              >
                 {suspectsIds?.map((suspectId) => (
-                  <ImageCard cardId={suspectId} cardWidth={48} key={suspectId} />
+                  <ImageCard
+                    cardId={suspectId}
+                    cardWidth={48}
+                    key={suspectId}
+                  />
                 ))}
               </Space>
             </Flex>

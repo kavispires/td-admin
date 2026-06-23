@@ -2,7 +2,7 @@ import { Flex, Select, Switch, Typography } from 'antd';
 import clsx from 'clsx';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
-import type { SuspectExtendedInfo } from 'types';
+import type { SuspectExtendedInfoData } from 'types';
 import { ECONOMIC_CLASS_OPTIONS, EDUCATION_LEVEL_OPTIONS, SEXUAL_ORIENTATION_OPTIONS } from './options';
 
 const sexualOrientation = SEXUAL_ORIENTATION_OPTIONS.map((option) => ({
@@ -26,7 +26,11 @@ export function ExtendedInfoFilterBar() {
   const { addParam, queryParams } = useQueryParams();
 
   return (
-    <Flex align="center" className="my-2" gap={8}>
+    <Flex
+      align="center"
+      className="my-2"
+      gap={8}
+    >
       <Typography.Text>Extended Info Highlight:</Typography.Text>{' '}
       <Select
         allowClear
@@ -41,8 +45,8 @@ export function ExtendedInfoFilterBar() {
 }
 
 type ActiveExtendedInfoProps = {
-  entry: SuspectExtendedInfo;
-  addEntryToUpdate: (id: string, item: SuspectExtendedInfo) => void;
+  entry: SuspectExtendedInfoData;
+  addEntryToUpdate: (id: string, item: SuspectExtendedInfoData) => void;
   activeExtendedInfo?: string;
 };
 
@@ -87,7 +91,7 @@ export function ActiveExtendedInfoSwitch({
     const [group, key] = activeExtendedInfo.split('.');
     if (!group || !key) return;
 
-    const updatedEntry: SuspectExtendedInfo = { ...entry };
+    const updatedEntry: SuspectExtendedInfoData = { ...entry };
 
     if (group === 'sexualOrientation') {
       updatedEntry.sexualOrientation = checked ? '' : key;
@@ -105,7 +109,10 @@ export function ActiveExtendedInfoSwitch({
   if (!activeExtendedInfo) return null;
 
   return (
-    <Flex className={clsx('mt-2 mb-4', { 'missing-value': !currentValue })} gap={8}>
+    <Flex
+      className={clsx('mt-2 mb-4', { 'missing-value': !currentValue })}
+      gap={8}
+    >
       <Typography.Text keyboard>{activeExtendedInfo}:</Typography.Text>
       <Switch
         checked={checked}

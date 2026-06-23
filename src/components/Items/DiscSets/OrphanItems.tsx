@@ -8,7 +8,7 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { useTDResource } from 'hooks/useTDResource';
 import { isEqual } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { DailyDiscSet, Item as ItemT } from 'types';
+import type { DailyDiscSet, ItemData as ItemT } from 'types';
 
 type OrphanItemsProps = Pick<UseResourceFirestoreDataReturnType<DailyDiscSet>, 'data' | 'addEntryToUpdate'>;
 
@@ -89,7 +89,11 @@ export function OrphanItems({ data, addEntryToUpdate }: OrphanItemsProps) {
         />
       </Space>
 
-      <Drawer onClose={() => setActiveItem(null)} open={!!activeItem} title="Add Item to Set">
+      <Drawer
+        onClose={() => setActiveItem(null)}
+        open={!!activeItem}
+        title="Add ItemData to Set"
+      >
         {!!activeItem && (
           <DrawerContent
             activeItem={activeItem}
@@ -102,10 +106,19 @@ export function OrphanItems({ data, addEntryToUpdate }: OrphanItemsProps) {
           />
         )}
       </Drawer>
-      <PaginationWrapper className="full-width" pagination={pagination}>
-        <Flex gap={16} wrap="wrap">
+      <PaginationWrapper
+        className="full-width"
+        pagination={pagination}
+      >
+        <Flex
+          gap={16}
+          wrap="wrap"
+        >
           {page.map((item) => (
-            <TransparentButton key={item.id} onClick={() => setActiveItem(item.id)}>
+            <TransparentButton
+              key={item.id}
+              onClick={() => setActiveItem(item.id)}
+            >
               <Item itemId={item.id} />
             </TransparentButton>
           ))}
@@ -163,13 +176,28 @@ export function DrawerContent({
   const options = sortedSets.map((set) => ({ value: set.id, label: set.title.pt }));
 
   return (
-    <Flex gap={16} vertical>
+    <Flex
+      gap={16}
+      vertical
+    >
       <Item itemId={activeItem} />
-      <Button disabled={isEqual(activeItemSets, selections)} onClick={onAdd} type="primary">
+      <Button
+        disabled={isEqual(activeItemSets, selections)}
+        onClick={onAdd}
+        type="primary"
+      >
         Save to Sets
       </Button>
-      <Select mode="tags" onChange={onSelect} options={options} value={selections}></Select>
-      <Flex gap={8} wrap="wrap">
+      <Select
+        mode="tags"
+        onChange={onSelect}
+        options={options}
+        value={selections}
+      ></Select>
+      <Flex
+        gap={8}
+        wrap="wrap"
+      >
         {sortedSets.map((set) => (
           <Tag
             color={selections.includes(set.id) ? 'gold' : undefined}

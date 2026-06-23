@@ -8,7 +8,7 @@ import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, orderBy } from 'lodash';
-import type { DailyQuartetSet, Item as ItemT } from 'types';
+import type { DailyQuartetSet, ItemData as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 import { InspirationSample } from '../InspirationSample';
 import { ItemsTypeahead } from '../ItemsTypeahead';
@@ -36,7 +36,10 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
       dataIndex: 'id',
       render(id, record) {
         return (
-          <Flex align="center" gap={3}>
+          <Flex
+            align="center"
+            gap={3}
+          >
             {record.itemsIds.length >= 4 && !record.level && <WarningOutlined style={{ color: 'red' }} />}
             <Typography.Text copyable>{id}</Typography.Text>
           </Flex>
@@ -135,7 +138,12 @@ export function ItemsQuartetsTable({ rows, addEntryToUpdate }: ItemsQuartetsTabl
 
   const expandableProps = useTableExpandableRows<DailyQuartetSet>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <AddItemFlow addEntryToUpdate={addEntryToUpdate} quartet={record} />,
+    expandedRowRender: (record) => (
+      <AddItemFlow
+        addEntryToUpdate={addEntryToUpdate}
+        quartet={record}
+      />
+    ),
     rowExpandable: () => itemsTypeaheadQuery.isSuccess,
   });
 
@@ -167,7 +175,11 @@ export function AddItemFlow({ quartet, addEntryToUpdate }: AddItemFlowProps) {
   return (
     <div>
       <ItemsTypeahead onFinish={onUpdate} />
-      <InspirationSample excludeList={quartet.itemsIds} initialQuantity={0} onSelect={onUpdate} />
+      <InspirationSample
+        excludeList={quartet.itemsIds}
+        initialQuantity={0}
+        onSelect={onUpdate}
+      />
     </div>
   );
 }
@@ -193,7 +205,11 @@ export function RemoveItemFlow({ quartet, addEntryToUpdate, itemId }: RemoveItem
       onConfirm={onRemove}
       title="Are you sure you want to remove this item?"
     >
-      <Button icon={<DeleteFilled />} size="small" type="text" />
+      <Button
+        icon={<DeleteFilled />}
+        size="small"
+        type="text"
+      />
     </Popconfirm>
   );
 }
@@ -212,13 +228,32 @@ export function QuartetItemsCell({
   addEntryToUpdate,
 }: QuartetItemsCellProps) {
   return (
-    <Flex gap={6} key={`items-${quartet.title}`} wrap="wrap">
+    <Flex
+      gap={6}
+      key={`items-${quartet.title}`}
+      wrap="wrap"
+    >
       {itemsIds.map((itemId) => (
-        <Flex gap={2} key={`${quartet.title}-${itemId}`} vertical>
-          {itemId ? <Item itemId={String(itemId)} width={60} /> : '"ERROR"'}
+        <Flex
+          gap={2}
+          key={`${quartet.title}-${itemId}`}
+          vertical
+        >
+          {itemId ? (
+            <Item
+              itemId={String(itemId)}
+              width={60}
+            />
+          ) : (
+            '"ERROR"'
+          )}
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
-            <RemoveItemFlow addEntryToUpdate={addEntryToUpdate} itemId={itemId} quartet={quartet} />
+            <RemoveItemFlow
+              addEntryToUpdate={addEntryToUpdate}
+              itemId={itemId}
+              quartet={quartet}
+            />
           </Flex>
         </Flex>
       ))}

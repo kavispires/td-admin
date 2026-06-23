@@ -3,12 +3,12 @@ import { LanguageFlag } from 'components/Common/LanguageFlag';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
 import stringSimilarity from 'string-similarity';
-import type { ItemGroup } from 'types';
+import type { ItemGroupData } from 'types';
 import { createUUID } from 'utils';
 
 type AddNewGroupFlowProps = {
-  data: UseResourceFirestoreDataReturnType<ItemGroup>['data'];
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<ItemGroup>['addEntryToUpdate'];
+  data: UseResourceFirestoreDataReturnType<ItemGroupData>['data'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ItemGroupData>['addEntryToUpdate'];
 };
 
 export function AddNewGroupFlow({ addEntryToUpdate, data }: AddNewGroupFlowProps) {
@@ -52,7 +52,12 @@ export function AddNewGroupFlow({ addEntryToUpdate, data }: AddNewGroupFlowProps
 
   return (
     <>
-      <Button block className="mb-4" onClick={() => setOpen(true)} type="dashed">
+      <Button
+        block
+        className="mb-4"
+        onClick={() => setOpen(true)}
+        type="dashed"
+      >
         Add New Group
       </Button>
       <Modal
@@ -63,18 +68,39 @@ export function AddNewGroupFlow({ addEntryToUpdate, data }: AddNewGroupFlowProps
         open={open}
         title="Add New Set"
       >
-        <Form form={form} onFinish={onFinish}>
-          <Form.Item label="Nome" name="nome" rules={[{ required: true }]}>
+        <Form
+          form={form}
+          onFinish={onFinish}
+        >
+          <Form.Item
+            label="Nome"
+            name="nome"
+            rules={[{ required: true }]}
+          >
             <Input
               placeholder={'Name in pt'}
-              prefix={<LanguageFlag language="pt" width="1em" />}
+              prefix={
+                <LanguageFlag
+                  language="pt"
+                  width="1em"
+                />
+              }
               size="small"
             />
           </Form.Item>
-          <Form.Item label="Name" name="name" rules={[{ required: true }]}>
+          <Form.Item
+            label="Name"
+            name="name"
+            rules={[{ required: true }]}
+          >
             <Input
               placeholder={'Name in en'}
-              prefix={<LanguageFlag language="en" width="1em" />}
+              prefix={
+                <LanguageFlag
+                  language="en"
+                  width="1em"
+                />
+              }
               size="small"
             />
           </Form.Item>

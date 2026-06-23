@@ -5,7 +5,7 @@ import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo } from 'react';
-import type { CrimeSceneTile } from 'types';
+import type { CrimeSceneTileData } from 'types';
 import type { CrimesHediondosContentProps, CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
 type SceneTableProps = {
@@ -19,7 +19,7 @@ export function SceneTable({ sceneQuery, objects }: SceneTableProps) {
 
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
-  const onCopyOptions = (scene: CrimeSceneTile) => {
+  const onCopyOptions = (scene: CrimeSceneTileData) => {
     const result: string[] = [];
     result.push(`"${scene.description.en}"`);
     scene.values.forEach((value, index) => {
@@ -29,7 +29,7 @@ export function SceneTable({ sceneQuery, objects }: SceneTableProps) {
     onCopyToClipboard(result.join('\n'));
   };
 
-  const columns: TableColumnsType<CrimeSceneTile> = [
+  const columns: TableColumnsType<CrimeSceneTileData> = [
     {
       title: 'Id',
       dataIndex: 'id',
@@ -47,9 +47,20 @@ export function SceneTable({ sceneQuery, objects }: SceneTableProps) {
       dataIndex: 'title',
       key: 'title',
       render: (_, record) => (
-        <Space orientation="vertical" style={{ minWidth: 150 }}>
-          <DualLanguageTextField language="en" readOnly value={record.title} />
-          <DualLanguageTextField language="pt" readOnly value={record.title} />
+        <Space
+          orientation="vertical"
+          style={{ minWidth: 150 }}
+        >
+          <DualLanguageTextField
+            language="en"
+            readOnly
+            value={record.title}
+          />
+          <DualLanguageTextField
+            language="pt"
+            readOnly
+            value={record.title}
+          />
         </Space>
       ),
     },
@@ -82,14 +93,22 @@ export function SceneTable({ sceneQuery, objects }: SceneTableProps) {
     },
   ];
 
-  const expandableProps = useTableExpandableRows<CrimeSceneTile>({
+  const expandableProps = useTableExpandableRows<CrimeSceneTileData>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <SceneLikelihoodCards objects={objects} scene={record} />,
+    expandedRowRender: (record) => (
+      <SceneLikelihoodCards
+        objects={objects}
+        scene={record}
+      />
+    ),
   });
 
   return (
     <div className="my-4">
-      <Typography.Title className="my-0" level={2}>
+      <Typography.Title
+        className="my-0"
+        level={2}
+      >
         Scenes
       </Typography.Title>
 
@@ -105,7 +124,7 @@ export function SceneTable({ sceneQuery, objects }: SceneTableProps) {
 }
 
 type SceneLikelihoodCardsProps = {
-  scene: CrimeSceneTile;
+  scene: CrimeSceneTileData;
   objects: CrimesHediondosInnerContentProps['rows'];
 };
 

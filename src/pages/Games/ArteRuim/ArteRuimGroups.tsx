@@ -7,7 +7,7 @@ import { PageSider } from 'components/Layout/PageSider';
 import { useBaseUrl } from 'hooks/useBaseUrl';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
-import type { ArteRuimCard, ArteRuimGroup } from 'types';
+import type { ArteRuimCardData, ArteRuimGroupData } from 'types';
 import { DataLoadingWrapper } from '../../../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../../../components/Resource/ResourceSelectionFilters';
 import { useResourceState } from '../../../hooks/useResourceState';
@@ -15,7 +15,7 @@ import { RESOURCE_NAMES } from '../../../utils/constants';
 
 const { Text } = Typography;
 
-const parseData = (cards: Record<CardId, ArteRuimCard>, groups: Record<string, ArteRuimGroup>) => {
+const parseData = (cards: Record<CardId, ArteRuimCardData>, groups: Record<string, ArteRuimGroupData>) => {
   const themes = Object.values(groups)
     .map((entry) => entry.theme)
     .sort();
@@ -87,7 +87,10 @@ function ArteRuimGroups() {
   }, [cards, groups, isLoading, loadingLevel4]);
 
   return (
-    <PageLayout subtitle={language ? `${language}` : ''} title="Arte Ruim Groups">
+    <PageLayout
+      subtitle={language ? `${language}` : ''}
+      title="Arte Ruim Groups"
+    >
       <Layout hasSider>
         <PageSider>
           <ResponseState

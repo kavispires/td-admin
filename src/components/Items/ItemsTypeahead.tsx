@@ -3,10 +3,10 @@ import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useDebounce } from 'react-use';
-import type { Item } from 'types';
+import type { ItemData } from 'types';
 
 type ItemsTypeaheadProps = {
-  items?: Dictionary<Item>;
+  items?: Dictionary<ItemData>;
   isPending?: boolean;
   onFinish: (id: string) => void;
   onFinishMultiple?: (ids: string[]) => void;
@@ -23,7 +23,7 @@ export function ItemsTypeahead({
   onFinishMultiple,
   ...rest
 }: ItemsTypeaheadProps) {
-  const tdrItemsQuery = useTDResource<Item>('items', { enabled: !items && !isPending });
+  const tdrItemsQuery = useTDResource<ItemData>('items', { enabled: !items && !isPending });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: on purpose
   const { namesDict, options } = useMemo(() => {

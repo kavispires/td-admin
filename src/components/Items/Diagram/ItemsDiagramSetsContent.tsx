@@ -6,7 +6,7 @@ import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useMeasure } from 'react-use';
-import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
+import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from 'types';
 import { EditThingModal } from './EditThingModal';
 import { GameSimulator } from './GameSimulator';
 import { ItemUpdateGuard } from './ItemUpdateGuard';
@@ -21,10 +21,10 @@ const getSingleWordAlias = (aliases: string[]) => {
 export function ItemsDiagramSetsContent({
   data,
   addEntryToUpdate,
-}: UseResourceFirestoreDataReturnType<DailyDiagramItem>) {
+}: UseResourceFirestoreDataReturnType<DailyDiagramItemData>) {
   const [ref, { width: containerWidth }] = useMeasure<HTMLDivElement>();
   const tdrItemsQuery = useTDResource<ItemT>('items');
-  const tdrDiagramRulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules');
+  const tdrDiagramRulesQuery = useTDResource<DailyDiagramRuleData>('daily-diagram-rules');
 
   const availableThings = useMemo(() => {
     return Object.values(tdrItemsQuery.data ?? {}).filter((item) => {
@@ -69,13 +69,13 @@ export function ItemsDiagramSetsContent({
   }, [data, rules]);
 
   const { is, queryParams } = useQueryParams();
-  const [activeThing, setActiveThing] = useState<DailyDiagramItem | null>(null);
+  const [activeThing, setActiveThing] = useState<DailyDiagramItemData | null>(null);
 
   if (tdrItemsQuery.isLoading || tdrDiagramRulesQuery.isLoading) {
     return <Typography.Text>Loading...</Typography.Text>;
   }
 
-  const onUpdateThing = (newThing: DailyDiagramItem) => {
+  const onUpdateThing = (newThing: DailyDiagramItemData) => {
     addEntryToUpdate(newThing.itemId, newThing);
   };
 
@@ -85,7 +85,11 @@ export function ItemsDiagramSetsContent({
       isLoading={tdrItemsQuery.isLoading || tdrDiagramRulesQuery.isLoading}
     >
       <div ref={ref}>
-        <ItemUpdateGuard addEntryToUpdate={addEntryToUpdate} rules={rules} things={data}>
+        <ItemUpdateGuard
+          addEntryToUpdate={addEntryToUpdate}
+          rules={rules}
+          things={data}
+        >
           {activeThing && (
             <EditThingModal
               allThings={data}

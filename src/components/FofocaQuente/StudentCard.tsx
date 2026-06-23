@@ -4,17 +4,25 @@ import { IdField } from 'components/Common/EditableFields';
 import { ImageCard } from 'components/Images/ImageCard';
 import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { TeenageStudent } from 'types';
+import type { TeenageStudentData } from 'types';
 
-export function StudentCard({ student }: { student: TeenageStudent }) {
+export function StudentCard({ student }: { student: TeenageStudentData }) {
   const { is } = useQueryParams();
   return (
     <Card
       cover={
         is('imageVariant', 'gb') ? (
-          <SuspectImageCard cardId={student.imageId} cardWidth={220} className="suspect__image" />
+          <SuspectImageCard
+            cardId={student.imageId}
+            cardWidth={220}
+            className="suspect__image"
+          />
         ) : (
-          <ImageCard cardId={student.id} cardWidth={220} preview={false} />
+          <ImageCard
+            cardId={student.id}
+            cardWidth={220}
+            preview={false}
+          />
         )
       }
       hoverable
@@ -46,7 +54,7 @@ export function StudentCard({ student }: { student: TeenageStudent }) {
   );
 }
 
-const getGenderIcon = (student: TeenageStudent) => {
+const getGenderIcon = (student: TeenageStudentData) => {
   switch (student.gender) {
     case 'male':
       return <ManOutlined />;
@@ -57,7 +65,7 @@ const getGenderIcon = (student: TeenageStudent) => {
   }
 };
 
-const getSocialGroup = (socialGroupId: TeenageStudent['socialGroupId']) => {
+const getSocialGroup = (socialGroupId: TeenageStudentData['socialGroupId']) => {
   const colorMap: Record<string, { background: string; borderColor: string }> = {
     arts: { background: '#fff30a', borderColor: '#746f04' },
     outsiders: { background: '#532b23', borderColor: '#c4867a' },

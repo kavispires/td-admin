@@ -3,7 +3,7 @@ import { useTDResource } from 'hooks/useTDResource';
 import { sampleSize } from 'lodash';
 import { useDrawingsResourceData } from 'pages/Games/ArteRuim/useArteRuimDrawings';
 import { useMemo } from 'react';
-import type { ArteRuimCard } from 'types';
+import type { ArteRuimCardData } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { getNextDay } from '../utils';
@@ -13,7 +13,7 @@ export type DailyPicacoEntry = {
   id: DateKey;
   number: number;
   type: 'picaco';
-  cards: ArteRuimCard[];
+  cards: ArteRuimCardData[];
 };
 
 export const useDailyPicacoGames = (
@@ -26,7 +26,7 @@ export const useDailyPicacoGames = (
   const [picacoHistory] = useParsedHistory(DAILY_GAMES_KEYS.PICACO, dailyHistory);
   const [arteRuimHistory] = useParsedHistory(DAILY_GAMES_KEYS.ARTE_RUIM, dailyHistory);
 
-  const arteRuimCardsQuery = useTDResource<ArteRuimCard>(`arte-ruim-cards-${queryLanguage}`, { enabled });
+  const arteRuimCardsQuery = useTDResource<ArteRuimCardData>(`arte-ruim-cards-${queryLanguage}`, { enabled });
   const drawingsQuery = useDrawingsResourceData(enabled, queryLanguage);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
@@ -66,7 +66,7 @@ export const buildDailyPicacoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   arteRuimHistory: ParsedDailyHistoryEntry,
-  arteRuimCards: Dictionary<ArteRuimCard>,
+  arteRuimCards: Dictionary<ArteRuimCardData>,
   recentlyUsedIds: CardId[],
   drawings: ReturnType<typeof useDrawingsResourceData>['drawings'],
 ) => {

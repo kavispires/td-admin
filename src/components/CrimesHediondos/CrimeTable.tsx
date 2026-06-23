@@ -17,7 +17,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { cloneDeep } from 'lodash';
-import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
+import type { CrimeSceneTileData, CrimesHediondosCardData } from 'types';
 import { CrimeItemCard } from './CrimeItemCard';
 import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
@@ -30,11 +30,11 @@ export function CrimeTableContent({
   victims,
   scenes,
 }: CrimesHediondosInnerContentProps & {
-  weapons: CrimesHediondosCard[];
-  evidence: CrimesHediondosCard[];
-  locations: CrimesHediondosCard[];
-  victims: CrimesHediondosCard[];
-  scenes: Dictionary<CrimeSceneTile>;
+  weapons: CrimesHediondosCardData[];
+  evidence: CrimesHediondosCardData[];
+  locations: CrimesHediondosCardData[];
+  victims: CrimesHediondosCardData[];
+  scenes: Dictionary<CrimeSceneTileData>;
 }) {
   const { queryParams, addParams } = useQueryParams();
   const type = queryParams.get('type');
@@ -43,27 +43,57 @@ export function CrimeTableContent({
     {
       key: 'all',
       label: 'All',
-      children: <CrimeTable onUpdateCard={onUpdateCard} rows={rows} scenes={scenes} />,
+      children: (
+        <CrimeTable
+          onUpdateCard={onUpdateCard}
+          rows={rows}
+          scenes={scenes}
+        />
+      ),
     },
     {
       key: 'weapons',
       label: 'Weapons',
-      children: <CrimeTable onUpdateCard={onUpdateCard} rows={weapons} scenes={scenes} />,
+      children: (
+        <CrimeTable
+          onUpdateCard={onUpdateCard}
+          rows={weapons}
+          scenes={scenes}
+        />
+      ),
     },
     {
       key: 'evidence',
       label: 'Evidence',
-      children: <CrimeTable onUpdateCard={onUpdateCard} rows={evidence} scenes={scenes} />,
+      children: (
+        <CrimeTable
+          onUpdateCard={onUpdateCard}
+          rows={evidence}
+          scenes={scenes}
+        />
+      ),
     },
     {
       key: 'locations',
       label: 'Locations',
-      children: <CrimeTable onUpdateCard={onUpdateCard} rows={locations} scenes={scenes} />,
+      children: (
+        <CrimeTable
+          onUpdateCard={onUpdateCard}
+          rows={locations}
+          scenes={scenes}
+        />
+      ),
     },
     {
       key: 'victims',
       label: 'Victims',
-      children: <CrimeTable onUpdateCard={onUpdateCard} rows={victims} scenes={scenes} />,
+      children: (
+        <CrimeTable
+          onUpdateCard={onUpdateCard}
+          rows={victims}
+          scenes={scenes}
+        />
+      ),
     },
   ];
 
@@ -73,7 +103,11 @@ export function CrimeTableContent({
 
   return (
     <div className="my-4">
-      <Tabs defaultActiveKey={type || 'all'} items={tabs} onChange={onChangeTab} />
+      <Tabs
+        defaultActiveKey={type || 'all'}
+        items={tabs}
+        onChange={onChangeTab}
+      />
     </div>
   );
 }
@@ -82,17 +116,17 @@ export function CrimeTable({
   rows,
   onUpdateCard,
   scenes,
-}: CrimesHediondosInnerContentProps & { scenes: Dictionary<CrimeSceneTile> }) {
+}: CrimesHediondosInnerContentProps & { scenes: Dictionary<CrimeSceneTileData> }) {
   const onCopyToClipboard = useCopyToClipboardFunction();
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
-  const editName = (name: string, language: 'pt' | 'en', card: CrimesHediondosCard) => {
+  const editName = (name: string, language: 'pt' | 'en', card: CrimesHediondosCardData) => {
     const copy = cloneDeep(card);
     copy.name[language] = name;
     onUpdateCard(copy);
   };
 
-  const columns: TableColumnsType<CrimesHediondosCard> = [
+  const columns: TableColumnsType<CrimesHediondosCardData> = [
     Table.EXPAND_COLUMN,
     {
       title: 'Id',
@@ -111,8 +145,14 @@ export function CrimeTable({
       dataIndex: 'itemId',
       key: 'itemId',
       render: (_, record) => (
-        <Flex align="center" gap={8}>
-          <CrimeItemCard cardWidth={70} item={record} />
+        <Flex
+          align="center"
+          gap={8}
+        >
+          <CrimeItemCard
+            cardWidth={70}
+            item={record}
+          />
           <div>
             <Input
               defaultValue={record.itemId}
@@ -137,7 +177,10 @@ export function CrimeTable({
       key: 'name',
       sorter: (a, b) => a.name.en.localeCompare(b.name.en),
       render: (name, record) => (
-        <Space orientation="vertical" style={{ minWidth: 150 }}>
+        <Space
+          orientation="vertical"
+          style={{ minWidth: 150 }}
+        >
           <DualLanguageTextField
             language="en"
             onPressEnter={(e: any) => editName(e.target?.value || record.name.en, 'en', record)}
@@ -160,9 +203,14 @@ export function CrimeTable({
     },
   ];
 
-  const expandableProps = useTableExpandableRows<CrimesHediondosCard>({
+  const expandableProps = useTableExpandableRows<CrimesHediondosCardData>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <CardSceneLikelihood card={record} scenes={scenes} />,
+    expandedRowRender: (record) => (
+      <CardSceneLikelihood
+        card={record}
+        scenes={scenes}
+      />
+    ),
   });
 
   const onCopyPageCards = () => {
@@ -200,8 +248,8 @@ export function CrimeTable({
 }
 
 type CardSceneLikelihoodProps = {
-  card: CrimesHediondosCard;
-  scenes: Dictionary<CrimeSceneTile>;
+  card: CrimesHediondosCardData;
+  scenes: Dictionary<CrimeSceneTileData>;
 };
 
 function CardSceneLikelihood({ card, scenes }: CardSceneLikelihoodProps) {
@@ -217,7 +265,10 @@ function CardSceneLikelihood({ card, scenes }: CardSceneLikelihoodProps) {
           const hasSecondMostLikely = secondMostLikely !== undefined;
           const secondLikelyData = scene.values?.[secondMostLikely]?.en;
           return (
-            <div className="likelihood-entry" key={scene.id}>
+            <div
+              className="likelihood-entry"
+              key={scene.id}
+            >
               <div className="bold">{scene.title.en}</div>
               <div
                 className={clsx('likely-result', { 'likely-result--no-data': !hasMostLikely || !likelyData })}

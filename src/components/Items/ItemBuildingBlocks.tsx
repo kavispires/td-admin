@@ -4,7 +4,7 @@ import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { Item } from 'components/Sprites';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useSearchParams } from 'react-router-dom'; // TODO: replace with useQueryParams
-import type { Item as ItemT } from 'types';
+import type { ItemData as ItemT } from 'types';
 
 type ItemBlockProps = {
   item: ItemT;
@@ -23,7 +23,12 @@ export function ItemSprite({
   className,
 }: ItemBlockProps & Pick<ItemBlocksAdditionalProps, 'width' | 'className'>) {
   return (
-    <Item className={className} itemId={item.id} title={`${item.name.en} | ${item.name.pt}`} width={width} />
+    <Item
+      className={className}
+      itemId={item.id}
+      title={`${item.name.en} | ${item.name.pt}`}
+      width={width}
+    />
   );
 }
 
@@ -49,7 +54,12 @@ export function ItemName({ item, language }: ItemBlockProps & Pick<ItemBlocksAdd
   return (
     <Input
       placeholder={`Name in ${language.toUpperCase()}`}
-      prefix={<LanguageFlag language={language} width="1em" />}
+      prefix={
+        <LanguageFlag
+          language={language}
+          width="1em"
+        />
+      }
       readOnly
       size="small"
       value={item.name[language]}
@@ -70,7 +80,11 @@ export function ItemGoTo({ item }: ItemBlockProps) {
 
   return (
     <span>
-      <Button onClick={onGoTo} shape="round" size="small">
+      <Button
+        onClick={onGoTo}
+        shape="round"
+        size="small"
+      >
         Go to
       </Button>
     </span>

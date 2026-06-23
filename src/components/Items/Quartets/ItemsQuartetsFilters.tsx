@@ -8,7 +8,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { useEffect } from 'react';
-import type { DailyQuartetSet, Item } from 'types';
+import type { DailyQuartetSet, ItemData } from 'types';
 import { sortJsonKeys } from 'utils';
 import { NewQuartetFlow } from './NewQuartetFlow';
 
@@ -27,7 +27,10 @@ export function ItemsQuartetsFilters({
 
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(entriesToUpdate)}
           isDirty={isDirty}
@@ -52,7 +55,10 @@ export function ItemsQuartetsFilters({
         value={is('emptyOnly')}
       />
 
-      <NewQuartetFlow addEntryToUpdate={addEntryToUpdate} data={data} />
+      <NewQuartetFlow
+        addEntryToUpdate={addEntryToUpdate}
+        data={data}
+      />
 
       <Divider />
 
@@ -103,7 +109,7 @@ function prepareFileForDownload(quartets: Dictionary<DailyQuartetSet>) {
 }
 
 function useGroupItemsByNameEnding() {
-  const tdrItemsQuery = useTDResource<Item>('items');
+  const tdrItemsQuery = useTDResource<ItemData>('items');
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: only rerun during data updates
   useEffect(() => {
@@ -111,7 +117,7 @@ function useGroupItemsByNameEnding() {
 
     // Group items by the last two, three, and four characters of their names
     // Use only item.name.pt if it's a single word, otherwise search item.aliasesPt for a single word name, if there is none, use the regular one only two words.
-    const groupedItems: Dictionary<Dictionary<Item[]>> = {
+    const groupedItems: Dictionary<Dictionary<ItemData[]>> = {
       twoChars: {},
       threeChars: {},
       fourChars: {},

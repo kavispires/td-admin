@@ -1,14 +1,14 @@
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
-import type { DailyDiagramItem, DailyDiagramRule } from 'types';
+import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
 import { wait } from 'utils';
 import { EditThingModal } from './EditThingModal';
 import { SYLLABLE_SEPARATOR } from './utils';
 
 type ItemUpdateGuardProps = {
-  things: UseResourceFirestoreDataReturnType<DailyDiagramItem>['data'];
-  rules: Dictionary<DailyDiagramRule>;
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
+  things: UseResourceFirestoreDataReturnType<DailyDiagramItemData>['data'];
+  rules: Dictionary<DailyDiagramRuleData>;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItemData>['addEntryToUpdate'];
   children: ReactNode;
 };
 
@@ -37,10 +37,10 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
     });
   }, [things, rules]);
 
-  const [activeThing, setActiveThing] = useState<DailyDiagramItem | null>(null);
+  const [activeThing, setActiveThing] = useState<DailyDiagramItemData | null>(null);
 
   useEffect(() => {
-    const updateThings = async (_: DailyDiagramItem) => {
+    const updateThings = async (_: DailyDiagramItemData) => {
       console.log('Found things that need to update...');
       setActiveThing(null);
 
@@ -58,7 +58,7 @@ export function ItemUpdateGuard({ children, things, rules, addEntryToUpdate }: I
     }
   }, [toUpdateThings]);
 
-  const onUpdateThing = (newThing: DailyDiagramItem) => {
+  const onUpdateThing = (newThing: DailyDiagramItemData) => {
     addEntryToUpdate(newThing.itemId, newThing);
   };
 

@@ -6,7 +6,7 @@ import { useItemsContext } from 'context/ItemsContext';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useItemUpdate } from 'hooks/useItemUpdate';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { Item as ItemT } from 'types';
+import type { ItemData as ItemT } from 'types';
 import { ItemDeckCheckboxes } from './ItemCard/ItemDecksCheckboxes';
 import { ItemPopoverOptions } from './ItemCard/ItemPopoverOptions';
 import { VerifyIfThing } from './ItemCard/VerifyIfThing';
@@ -34,24 +34,48 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
           ? undefined
           : isDirty
             ? [
-                <RollbackOutlined key="reset" onClick={onReset} />,
-                <SaveOutlined key="save" onClick={onModify} />,
+                <RollbackOutlined
+                  key="reset"
+                  onClick={onReset}
+                />,
+                <SaveOutlined
+                  key="save"
+                  onClick={onModify}
+                />,
               ]
-            : [<EditOutlined key="edit" onClick={toggleEditMode} />]
+            : [
+                <EditOutlined
+                  key="edit"
+                  onClick={toggleEditMode}
+                />,
+              ]
       }
       extra={<ItemPopoverOptions item={item} />}
       size={isSimplified ? 'small' : 'default'}
       style={{ maxWidth: 250 }}
       title={<Typography.Text onClick={() => copyToClipboard(item.id)}>{item.id}</Typography.Text>}
     >
-      <Item itemId={item.id} title={`${item.name.en} | ${item.name.pt}`} width={isSimplified ? 75 : 125} />
-      <Space className={isSimplified ? 'my-2' : 'my-4'} orientation="vertical" size="small">
+      <Item
+        itemId={item.id}
+        title={`${item.name.en} | ${item.name.pt}`}
+        width={isSimplified ? 75 : 125}
+      />
+      <Space
+        className={isSimplified ? 'my-2' : 'my-4'}
+        orientation="vertical"
+        size="small"
+      >
         <Input
           defaultValue={item.name.en}
           key={`en-${item.name.en}`}
           onChange={(e) => onEdit({ name: { ...editableItem.name, en: e.target.value } })}
           placeholder="Name in EN"
-          prefix={<LanguageFlag language="en" width="1em" />}
+          prefix={
+            <LanguageFlag
+              language="en"
+              width="1em"
+            />
+          }
           readOnly={!isEditing}
           size="small"
           variant={isEditing ? 'outlined' : 'borderless'}
@@ -61,7 +85,12 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
           key={`pt-${item.name.pt}`}
           onChange={(e) => onEdit({ name: { ...editableItem.name, pt: e.target.value } })}
           placeholder="Name in PT"
-          prefix={<LanguageFlag language="pt" width="1em" />}
+          prefix={
+            <LanguageFlag
+              language="pt"
+              width="1em"
+            />
+          }
           readOnly={!isEditing}
           size="small"
           variant={isEditing ? 'outlined' : 'borderless'}
@@ -71,7 +100,12 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
             {!is('hideDecks') && (
               <div>
                 {is('deckCheckboxes') ? (
-                  <ItemDeckCheckboxes decks={decks} isEditing={isEditing} item={item} onEdit={onEdit} />
+                  <ItemDeckCheckboxes
+                    decks={decks}
+                    isEditing={isEditing}
+                    item={item}
+                    onEdit={onEdit}
+                  />
                 ) : (
                   <Select
                     defaultValue={item.decks}
@@ -92,7 +126,10 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
             {!is('hideAliases') && (
               <>
                 <Flex gap={6}>
-                  <LanguageFlag language="en" width="1em" />
+                  <LanguageFlag
+                    language="en"
+                    width="1em"
+                  />
                   <Select
                     defaultValue={item.aliasesEn}
                     disabled={!isEditing}
@@ -107,7 +144,10 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
                 </Flex>
 
                 <Flex gap={6}>
-                  <LanguageFlag language="pt" width="1em" />
+                  <LanguageFlag
+                    language="pt"
+                    width="1em"
+                  />
                   <Select
                     defaultValue={item.aliasesPt}
                     disabled={!isEditing}
@@ -123,7 +163,10 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
               </>
             )}
 
-            <AgeDecks item={item} onEdit={onEdit} />
+            <AgeDecks
+              item={item}
+              onEdit={onEdit}
+            />
 
             {is('showVerifyThing') && (
               <div>
@@ -132,7 +175,10 @@ export function ItemCard({ item, editMode = false, simplified: simplifiedProp }:
             )}
             {(isEditing || item.nsfw) && (
               <div>
-                <Form.Item label="nsfw" valuePropName="checked">
+                <Form.Item
+                  label="nsfw"
+                  valuePropName="checked"
+                >
                   <Switch
                     checked={item.nsfw}
                     checkedChildren={<FireFilled style={{ color: 'hotpink' }} />}
@@ -169,11 +215,31 @@ function AgeDecks({ item, onEdit }: AgeDecksProps) {
     <div>
       <Typography.Text strong>Ages</Typography.Text>
       <Flex gap={6}>
-        <Checkbox checked={itemDecks.includes('age1')} onChange={() => handleCheckboxChange('age1')} />1
-        <Checkbox checked={itemDecks.includes('age2')} onChange={() => handleCheckboxChange('age2')} />2
-        <Checkbox checked={itemDecks.includes('age3')} onChange={() => handleCheckboxChange('age3')} />3
-        <Checkbox checked={itemDecks.includes('age4')} onChange={() => handleCheckboxChange('age4')} />4
-        <Checkbox checked={itemDecks.includes('age5')} onChange={() => handleCheckboxChange('age5')} />5
+        <Checkbox
+          checked={itemDecks.includes('age1')}
+          onChange={() => handleCheckboxChange('age1')}
+        />
+        1
+        <Checkbox
+          checked={itemDecks.includes('age2')}
+          onChange={() => handleCheckboxChange('age2')}
+        />
+        2
+        <Checkbox
+          checked={itemDecks.includes('age3')}
+          onChange={() => handleCheckboxChange('age3')}
+        />
+        3
+        <Checkbox
+          checked={itemDecks.includes('age4')}
+          onChange={() => handleCheckboxChange('age4')}
+        />
+        4
+        <Checkbox
+          checked={itemDecks.includes('age5')}
+          onChange={() => handleCheckboxChange('age5')}
+        />
+        5
       </Flex>
     </div>
   );

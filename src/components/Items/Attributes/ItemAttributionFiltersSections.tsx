@@ -53,7 +53,10 @@ export function ItemAttributionStats() {
   return (
     <>
       <Flex vertical>
-        <Typography.Text className="mb-2" strong>
+        <Typography.Text
+          className="mb-2"
+          strong
+        >
           Items Stats
         </Typography.Text>
         <Stat label="Total">{total}</Stat>
@@ -63,7 +66,10 @@ export function ItemAttributionStats() {
         <Stat label="Initiated">
           {hasDataCount} ({initiatedPercentage}%)
         </Stat>
-        <Typography.Text className="mt-4 mb-2" strong>
+        <Typography.Text
+          className="mt-4 mb-2"
+          strong
+        >
           Attributes Stats
         </Typography.Text>
         <Stat label="Total">{progressTotal}</Stat>
@@ -81,8 +87,12 @@ export function ItemAttributionClassifierFilters() {
 
   return (
     <>
-      <Button block onClick={() => jumpToItem('random')} type="primary">
-        Random Item
+      <Button
+        block
+        onClick={() => jumpToItem('random')}
+        type="primary"
+      >
+        Random ItemData
       </Button>
       <FilterSwitch
         className="mt-4"

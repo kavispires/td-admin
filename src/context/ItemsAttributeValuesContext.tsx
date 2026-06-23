@@ -4,29 +4,29 @@ import { useItemsAttribution } from 'hooks/useItemsAttribution';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty, orderBy, random } from 'lodash';
 import { createContext, type ReactNode, useCallback, useContext, useMemo, useState } from 'react';
-import type { Item, ItemAttribute, ItemAttributesValues } from 'types';
+import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from 'types';
 import { sortJsonKeys } from 'utils';
 
 export type ItemsAttributeValuesContextType = {
-  getItem: (itemId: string) => Item;
-  getItemAttributeValues: (itemId: string) => ItemAttributesValues;
+  getItem: (itemId: string) => ItemData;
+  getItemAttributeValues: (itemId: string) => ItemAttributesValuesData;
   isLoading: boolean;
   error: ResponseError;
   hasResponseData: boolean;
   isDirty: boolean;
-  itemAttributeValues: ItemAttributesValues;
-  prepareItemsAttributesFileForDownload: () => Dictionary<ItemAttributesValues>;
+  itemAttributeValues: ItemAttributesValuesData;
+  prepareItemsAttributesFileForDownload: () => Dictionary<ItemAttributesValuesData>;
   jumpToItem: (direction: string, itemId?: string) => void;
-  activeItem: Item;
+  activeItem: ItemData;
   onAttributeChange: (attributeId: string, value: number) => void;
   isSaving: boolean;
   save: () => void;
-  attributesList: ItemAttribute[];
+  attributesList: ItemAttributeData[];
   availableItemIds: string[];
-  addAttributesToUpdate: (itemId: string, attributes: ItemAttributesValues) => void;
-  addMultipleAttributesToUpdate: (itemsArr: ItemAttributesValues[]) => void;
-  attributes: Dictionary<ItemAttribute>;
-  attributesToUpdate: Dictionary<ItemAttributesValues>;
+  addAttributesToUpdate: (itemId: string, attributes: ItemAttributesValuesData) => void;
+  addMultipleAttributesToUpdate: (itemsArr: ItemAttributesValuesData[]) => void;
+  attributes: Dictionary<ItemAttributeData>;
+  attributesToUpdate: Dictionary<ItemAttributesValuesData>;
   hasFirestoreData: boolean;
 };
 
@@ -170,7 +170,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
           setItemIndex(index);
           return;
         }
-        message.error(`Item ${itemId} is not available for attribution.`);
+        message.error(`ItemData ${itemId} is not available for attribution.`);
       }
     },
     [sortedAvailableItemsIds, attributesList, message],
@@ -191,7 +191,7 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
 
   const prepareItemsAttributesFileForDownload = useCallback(() => {
     return sortJsonKeys(
-      availableItemIds.reduce((acc: Dictionary<ItemAttributesValues>, itemId) => {
+      availableItemIds.reduce((acc: Dictionary<ItemAttributesValuesData>, itemId) => {
         // Get items and only the ones with attributes
         const item = getItemAttributeValues(itemId);
 

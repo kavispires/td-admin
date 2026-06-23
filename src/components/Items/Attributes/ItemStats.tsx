@@ -9,7 +9,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { ItemAttribute, ItemAttributesValues } from 'types';
+import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
 import { deepCleanObject, sortJsonKeys } from 'utils';
 
 export function ItemStats() {
@@ -51,18 +51,30 @@ export function ItemStats() {
 
   return (
     <div className="my-4">
-      <Flex align="center" justify="space-between">
+      <Flex
+        align="center"
+        justify="space-between"
+      >
         <Typography.Title level={5}>Stats</Typography.Title>
-        <DownloadButton data={() => prepareFileForDownload(attributes)} fileName="items-attributes.json">
+        <DownloadButton
+          data={() => prepareFileForDownload(attributes)}
+          fileName="items-attributes.json"
+        >
           Download Attribute Json
         </DownloadButton>
       </Flex>
-      <Tabs defaultActiveKey="1" items={items} />
+      <Tabs
+        defaultActiveKey="1"
+        items={items}
+      />
     </div>
   );
 }
 
-const calculateAttributeStats = (attribute: ItemAttribute, itemsAttributes: ItemAttributesValues[]) => {
+const calculateAttributeStats = (
+  attribute: ItemAttributeData,
+  itemsAttributes: ItemAttributesValuesData[],
+) => {
   let completionCount = 0;
   let tensCount = 0;
   let fivesCount = 0;
@@ -175,8 +187,16 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       dataIndex: 'name',
       key: 'name',
       render: (name, record) => (
-        <Flex align="center" gap={8}>
-          {is('showGlyphs') && <AlienSign signId={record.spriteId} width={30} />}
+        <Flex
+          align="center"
+          gap={8}
+        >
+          {is('showGlyphs') && (
+            <AlienSign
+              signId={record.spriteId}
+              width={30}
+            />
+          )}
           {name.en}
           {record.default && <Tag className="ml-1">default</Tag>}
           {record.limited && <Tag className="ml-1">limited</Tag>}
@@ -195,7 +215,13 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       title: <SkinOutlined />,
       dataIndex: 'spriteId',
       key: 'spriteId',
-      render: (spriteId) => <AlienSign padding={0} signId={spriteId} width={18} />,
+      render: (spriteId) => (
+        <AlienSign
+          padding={0}
+          signId={spriteId}
+          width={18}
+        />
+      ),
     },
     {
       title: 'Priority',
@@ -260,7 +286,10 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       dataIndex: 'completionPercentage',
       key: 'completionPercentage',
       render: (completionPercentage: string) => (
-        <Progress percent={Number.parseFloat(completionPercentage)} size="small" />
+        <Progress
+          percent={Number.parseFloat(completionPercentage)}
+          size="small"
+        />
       ),
       sorter: (a, b) => Number.parseFloat(a.completionPercentage) - Number.parseFloat(b.completionPercentage),
     },
@@ -268,7 +297,13 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
       title: 'Level',
       dataIndex: 'level',
       key: 'level',
-      render: (level) => <Rate count={4} disabled value={level} />,
+      render: (level) => (
+        <Rate
+          count={4}
+          disabled
+          value={level}
+        />
+      ),
       sorter: (a, b) => a.level - b.level,
     },
     {
@@ -301,13 +336,25 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
     <>
       <Typography.Paragraph>Total: {rows.length}</Typography.Paragraph>
 
-      <Table columns={columns} dataSource={rows} pagination={false} rowKey="id" size="small" />
+      <Table
+        columns={columns}
+        dataSource={rows}
+        pagination={false}
+        rowKey="id"
+        size="small"
+      />
 
-      <Flex gap={8} wrap="wrap">
+      <Flex
+        gap={8}
+        wrap="wrap"
+      >
         {unusedSpriteIds.map((id) => (
           <div key={id}>
             #{id}
-            <AlienSign key={id} signId={`sign-${id}`} />
+            <AlienSign
+              key={id}
+              signId={`sign-${id}`}
+            />
           </div>
         ))}
       </Flex>
@@ -315,7 +362,7 @@ function AttributesStatsTable({ type }: AttributesStatsTableProps) {
   );
 }
 
-function prepareFileForDownload(attributes: Dictionary<ItemAttribute>) {
+function prepareFileForDownload(attributes: Dictionary<ItemAttributeData>) {
   const copy = cloneDeep(attributes);
 
   // Object.values(copy).forEach((attribute) => {

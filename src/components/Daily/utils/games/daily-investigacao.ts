@@ -7,7 +7,7 @@ import {
   testimoniesDeserializer,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
-import type { CrimeReason, SuspectCard, TestimonyQuestionCard } from 'types';
+import type { CrimeReasonData, SuspectCardData, TestimonyQuestionCardData } from 'types';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
@@ -167,15 +167,15 @@ export const useDailyInvestigacaoGames = (
 ) => {
   const [investigacaoHistory] = useParsedHistory(DAILY_GAMES_KEYS.INVESTIGACAO, dailyHistory);
 
-  const suspectsQuery = useTDResource<SuspectCard>('suspects', { enabled });
-  const questionsQuery = useTDResource<TestimonyQuestionCard>(`testimony-questions-${queryLanguage}`, {
+  const suspectsQuery = useTDResource<SuspectCardData>('suspects', { enabled });
+  const questionsQuery = useTDResource<TestimonyQuestionCardData>(`testimony-questions-${queryLanguage}`, {
     enabled,
   });
   const answersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
     select: testimoniesDeserializer,
     enabled,
   });
-  const reasonsQuery = useTDResource<CrimeReason>('crime-reasons', { enabled });
+  const reasonsQuery = useTDResource<CrimeReasonData>('crime-reasons', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: Only if data query is updated
   const testimonySuspectAnswers = useMemo(
@@ -240,11 +240,11 @@ export const useDailyInvestigacaoGames = (
 export const buildDailyInvestigacaoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
-  suspects: Dictionary<SuspectCard>,
-  questions: Dictionary<TestimonyQuestionCard>,
+  suspects: Dictionary<SuspectCardData>,
+  questions: Dictionary<TestimonyQuestionCardData>,
   suspectTestimonyAnswers: TestimonySuspectAnswers,
   featuresStats: Dictionary<Dictionary<true>>,
-  reasons: Dictionary<CrimeReason>,
+  reasons: Dictionary<CrimeReasonData>,
 ) => {
   debugCount('Creating Investigacao...');
   let lastDate = history.latestDate;
@@ -321,12 +321,12 @@ export const buildDailyInvestigacaoGames = (
  * @throws If there are not enough possible suspects or if the generated statements are insufficient.
  */
 function generateInvestigacaoGame(
-  suspects: Dictionary<SuspectCard>,
-  questions: Dictionary<TestimonyQuestionCard>,
+  suspects: Dictionary<SuspectCardData>,
+  questions: Dictionary<TestimonyQuestionCardData>,
   suspectTestimonyAnswers: TestimonySuspectAnswers,
   featuresStats: Dictionary<Dictionary<true>>,
   usedIds: string[],
-  reasons: Dictionary<CrimeReason>,
+  reasons: Dictionary<CrimeReasonData>,
   isWeekend: boolean,
 ): Omit<DailyInvestigacaoEntry, 'id' | 'number' | 'type'> {
   const statements: StatementClue[] = [];
@@ -610,13 +610,13 @@ const getRelevantSuspectsFeaturesDict = (statements: StatementClue[]) => {
  * - Combines all features and returns a `SuspectEntry` object with the suspect's id, name, gender, and features.
  *
  * @param suspectsIds - An array of suspect IDs to process.
- * @param suspects - A dictionary mapping suspect IDs to `SuspectCard` objects.
+ * @param suspects - A dictionary mapping suspect IDs to `SuspectCardData` objects.
  * @param relevantSuspectsFeaturesDict - A dictionary indicating which features are relevant (keys are feature names, values are `true`).
  * @returns An array of `SuspectEntry` objects, each representing a suspect with filtered and mapped features.
  */
 const createSuspectEntry = (
   suspectsIds: string[],
-  suspects: Dictionary<SuspectCard>,
+  suspects: Dictionary<SuspectCardData>,
   relevantSuspectsFeaturesDict: Dictionary<true>,
 ): SuspectEntry[] => {
   return suspectsIds.map((id) => {
@@ -737,7 +737,7 @@ const calculateSuspectAnswers = (data: Dictionary<TestimonyAnswers>) => {
  * @param data - Dictionary mapping suspect IDs to their attribute cards
  * @returns A dictionary where keys are attributes and values are dictionaries of suspect IDs that have those attributes
  */
-const calculateFeaturesStats = (data: Dictionary<SuspectCard>) => {
+const calculateFeaturesStats = (data: Dictionary<SuspectCardData>) => {
   const result: Dictionary<Dictionary<true>> = {};
 
   // Gather the props (gender, ethnicity, build, and every feature) for each suspect
@@ -1107,7 +1107,7 @@ const updateExcludeScoreBoard = (scoreboard: Dictionary<number>, excludes: strin
 const getTestimonyStatement = (
   culpritId: string,
   suspectsIds: string[],
-  testimony: TestimonyQuestionCard,
+  testimony: TestimonyQuestionCardData,
   answers: Dictionary<boolean>,
 ): StatementClue => {
   const culpritAnswer = answers[culpritId];
@@ -1478,10 +1478,10 @@ const verifyGameDoability = (statements: StatementClue[], isWeekend: boolean) =>
  *
  * @param suspect - The suspect card containing features to match against reasons.
  * @param reasons - A dictionary of possible crime reasons keyed by their IDs.
- * @returns The selected `CrimeReason` object, or a default "unknown" reason if none match.
+ * @returns The selected `CrimeReasonData` object, or a default "unknown" reason if none match.
  */
-const getReason = (suspect: SuspectCard, reasons: Dictionary<CrimeReason>): CrimeReason => {
-  const availableReasons: CrimeReason[] = [];
+const getReason = (suspect: SuspectCardData, reasons: Dictionary<CrimeReasonData>): CrimeReasonData => {
+  const availableReasons: CrimeReasonData[] = [];
 
   Object.values(reasons).forEach((reason) => {
     if (reason.feature === 'general') {

@@ -8,7 +8,7 @@ import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep, merge } from 'lodash';
-import type { SuspectCard, SuspectExtendedInfo } from 'types';
+import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 import { sortJsonKeys } from 'utils';
 import { NewSuspectFlow } from './NewSuspectFlow';
 import { SuspectsStyleVariantSelector } from './SuspectsStyleVariantSelector';
@@ -45,13 +45,16 @@ export function SuspectsFilters({
   suspectsQuery,
   suspectsExtendedInfoQuery,
 }: {
-  suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCard>;
-  suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>;
+  suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCardData>;
+  suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfoData>;
 }) {
   const { addParam, queryParams, is } = useQueryParams();
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(suspectsQuery.entriesToUpdate)}
           isDirty={suspectsQuery.isDirty}
@@ -70,11 +73,18 @@ export function SuspectsFilters({
         />
 
         <Flex justify="center">
-          <FirestoreConsoleWipe docId="suspects" path="tdr" queryKey={['tdr', 'suspects']} />
+          <FirestoreConsoleWipe
+            docId="suspects"
+            path="tdr"
+            queryKey={['tdr', 'suspects']}
+          />
         </Flex>
       </Flex>
       <Divider />
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(suspectsExtendedInfoQuery.entriesToUpdate)}
           isDirty={suspectsExtendedInfoQuery.isDirty}
@@ -178,7 +188,7 @@ export function SuspectsFilters({
   );
 }
 
-function prepareSuspectFileForDownload(data: Dictionary<SuspectCard>) {
+function prepareSuspectFileForDownload(data: Dictionary<SuspectCardData>) {
   const copy = cloneDeep(data);
   // TO PERFORM CLEANUPS OR UPDATES ON EXISTING SUSPECTS
   // for (const key in copy) {
@@ -189,7 +199,7 @@ function prepareSuspectFileForDownload(data: Dictionary<SuspectCard>) {
   // Add
   // for (let i = 311; i <= 311; i++) {
   //   const id = `us-${i.toString().padStart(3, '0')}`;
-  //   const newSuspect: SuspectCard = {
+  //   const newSuspect: SuspectCardData = {
   //     id,
   //     name: { en: '', pt: '' },
   //     deck: 'pet',
@@ -233,8 +243,8 @@ function prepareSuspectFileForDownload(data: Dictionary<SuspectCard>) {
 }
 
 export function prepareExtendedInfoFileForDownload(
-  data: Dictionary<SuspectExtendedInfo>,
-  suspectsData?: Dictionary<SuspectCard>,
+  data: Dictionary<SuspectExtendedInfoData>,
+  suspectsData?: Dictionary<SuspectCardData>,
 ) {
   // Change profession to occupation
   // Change personalityTraits to traits

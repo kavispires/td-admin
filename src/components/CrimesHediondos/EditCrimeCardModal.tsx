@@ -3,20 +3,20 @@ import { Button, type ButtonProps, Modal, Space } from 'antd';
 import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { cloneDeep } from 'lodash';
 import { useToggle } from 'react-use';
-import type { CrimesHediondosCard } from 'types';
+import type { CrimesHediondosCardData } from 'types';
 import { CrimeItemCard } from './CrimeItemCard';
 import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
 type EditCrimeCardModalProps = {
   onUpdateCard: CrimesHediondosInnerContentProps['onUpdateCard'];
-  card: CrimesHediondosCard;
+  card: CrimesHediondosCardData;
   buttonProps?: Omit<ButtonProps, 'onClick'>;
 };
 
 export function EditCrimeCardModal({ onUpdateCard, card, buttonProps }: EditCrimeCardModalProps) {
   const [open, toggleOpen] = useToggle(false);
 
-  const editName = (name: string, language: 'pt' | 'en', card: CrimesHediondosCard) => {
+  const editName = (name: string, language: 'pt' | 'en', card: CrimesHediondosCardData) => {
     const copy = cloneDeep(card);
     copy.name[language] = name;
     onUpdateCard(copy);
@@ -43,8 +43,14 @@ export function EditCrimeCardModal({ onUpdateCard, card, buttonProps }: EditCrim
       >
         {open && (
           <Space>
-            <Space orientation="vertical" style={{ minWidth: 150 }}>
-              <CrimeItemCard cardWidth={100} item={card} />
+            <Space
+              orientation="vertical"
+              style={{ minWidth: 150 }}
+            >
+              <CrimeItemCard
+                cardWidth={100}
+                item={card}
+              />
               <DualLanguageTextField
                 language="en"
                 onPressEnter={(e: any) => editName(e.target?.value || card.name.en, 'en', card)}

@@ -3,7 +3,7 @@ import { App, Button, Flex, Input, Switch, Typography } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useState } from 'react';
-import type { SuspectCard, SuspectExtendedInfo } from 'types';
+import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 
 export const PROMPT_KEY = 'TD_ADMIN_SUSPECTS_PROMPT';
 export const PROMPT_SUFFIX_KEY = 'TD_ADMIN_SUSPECTS_PROMPT_SUFFIX';
@@ -39,7 +39,10 @@ export function PromptBuilder() {
   };
 
   return (
-    <Flex align="center" gap={8}>
+    <Flex
+      align="center"
+      gap={8}
+    >
       <Typography.Text>Custom Prompt:</Typography.Text>
       <Input
         disabled={queryParams.has('prompt')}
@@ -59,8 +62,8 @@ export function PromptBuilder() {
 }
 
 type PromptButtonProps = {
-  suspect: SuspectCard;
-  extendedInfo: SuspectExtendedInfo;
+  suspect: SuspectCardData;
+  extendedInfo: SuspectExtendedInfoData;
 };
 
 export function PromptButton({ suspect, extendedInfo }: PromptButtonProps) {
@@ -106,13 +109,16 @@ export function PromptButton({ suspect, extendedInfo }: PromptButtonProps) {
   };
 
   return (
-    <Button onClick={handleClick} size="small">
+    <Button
+      onClick={handleClick}
+      size="small"
+    >
       <OpenAIOutlined />
     </Button>
   );
 }
 
-export function DescriptionPromptButton({ extendedInfo }: { extendedInfo: SuspectExtendedInfo }) {
+export function DescriptionPromptButton({ extendedInfo }: { extendedInfo: SuspectExtendedInfoData }) {
   const copyToClipboard = useCopyToClipboardFunction();
 
   const handleClick = () => {
@@ -138,7 +144,10 @@ export function DescriptionPromptButton({ extendedInfo }: { extendedInfo: Suspec
   };
 
   return (
-    <Button onClick={handleClick} size="small">
+    <Button
+      onClick={handleClick}
+      size="small"
+    >
       <OpenAIOutlined />
     </Button>
   );

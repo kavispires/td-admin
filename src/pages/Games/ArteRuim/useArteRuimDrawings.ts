@@ -6,7 +6,7 @@ import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
 import { useEffect, useMemo } from 'react';
 import { printFirebase } from 'services/firebase';
-import type { DrawingData, DrawingEntry } from 'types';
+import type { DrawingData, DrawingEntryData } from 'types';
 import { SEPARATOR } from 'utils/constants';
 
 /**
@@ -119,7 +119,7 @@ export function useDrawingsResourceData(enabled: boolean, language: string) {
         const createdAt = extractCreatedAt(key);
         const artistId = dataDrawing.playerId ?? 'unknown';
         const entryId = [cardId, artistId, createdAt].join(SEPARATOR);
-        const drawingEntry: DrawingEntry = {
+        const drawingEntry: DrawingEntryData = {
           id: entryId,
           drawing: dataDrawing.drawing,
           artistId,

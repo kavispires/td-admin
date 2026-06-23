@@ -6,16 +6,19 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { ImageCardDescriptor } from 'types';
+import type { ImageCardDescriptorData } from 'types';
 
 export function ImageCardsDescriptor() {
-  const imageCardsQuery = useResourceFirestoreData<ImageCardDescriptor>({
+  const imageCardsQuery = useResourceFirestoreData<ImageCardDescriptorData>({
     tdrResourceName: 'image-cards',
     firestoreDataCollectionName: 'imageCards',
     serialize: true,
   });
   return (
-    <PageLayout subtitle="Descriptors" title="Image Cards">
+    <PageLayout
+      subtitle="Descriptors"
+      title="Image Cards"
+    >
       <Layout hasSider>
         <PageSider>
           <ImageCardsDescriptorFilters {...imageCardsQuery} />

@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Item } from 'components/Sprites';
 import { orderBy } from 'lodash';
 import { useEffect, useMemo } from 'react';
-import type { DailyDiagramItem, DailyDiagramRule } from 'types';
+import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
 import {
   SYLLABLE_SEPARATOR,
   separateSyllables,
@@ -16,16 +16,16 @@ export type ThingFormValues = Record<string, boolean | string | number>;
 
 type EditThingModalProps = {
   isModalOpen: boolean;
-  onSaveThing: (item: DailyDiagramItem) => void;
+  onSaveThing: (item: DailyDiagramItemData) => void;
   onCancel: () => void;
-  thing: DailyDiagramItem;
-  rules: Dictionary<DailyDiagramRule>;
+  thing: DailyDiagramItemData;
+  rules: Dictionary<DailyDiagramRuleData>;
   width?: number | string;
   itemAliases?: string[];
   subtitle?: string;
   okButtonText?: string;
   onGiveAnotherThing?: () => void;
-  allThings: Dictionary<DailyDiagramItem>;
+  allThings: Dictionary<DailyDiagramItemData>;
 };
 
 export function EditThingModal({
@@ -212,7 +212,7 @@ export function EditThingModal({
   return (
     <Modal
       okButtonProps={{ disabled: hasUndefinedValues, htmlType: 'submit', size: 'large' }}
-      okText={okButtonText ?? 'Add Item'}
+      okText={okButtonText ?? 'Add ItemData'}
       onCancel={onCancel}
       onOk={form.submit}
       open={isModalOpen}
@@ -236,28 +236,52 @@ export function EditThingModal({
         <div className="diagram-container">
           <div>
             <Flex gap={6}>
-              <Item itemId={thing.itemId} width={50} />
-              <Form.Item label="Id" name="itemId">
+              <Item
+                itemId={thing.itemId}
+                width={50}
+              />
+              <Form.Item
+                label="Id"
+                name="itemId"
+              >
                 <Input readOnly />
               </Form.Item>
             </Flex>
-            <Form.Item label="Updated At" name="updatedAt">
+            <Form.Item
+              label="Updated At"
+              name="updatedAt"
+            >
               <Input readOnly />
             </Form.Item>
           </div>
 
-          <Form.Item label="Name" name="name">
+          <Form.Item
+            label="Name"
+            name="name"
+          >
             <Input />
           </Form.Item>
 
-          <Form.Item label="Syllables" name="syllables">
+          <Form.Item
+            label="Syllables"
+            name="syllables"
+          >
             <Input />
           </Form.Item>
 
-          <Form.Item label="Stressed Syllable" name="stressedSyllable">
-            <Radio.Group buttonStyle="solid" optionType="button">
+          <Form.Item
+            label="Stressed Syllable"
+            name="stressedSyllable"
+          >
+            <Radio.Group
+              buttonStyle="solid"
+              optionType="button"
+            >
               {splitSyllables.map((syllable, index) => (
-                <Radio key={index} value={splitSyllables.length - index - 1}>
+                <Radio
+                  key={index}
+                  value={splitSyllables.length - index - 1}
+                >
                   {syllable}
                 </Radio>
               ))}
@@ -288,7 +312,12 @@ export function EditThingModal({
           {(itemAliases || onGiveAnotherThing) && (
             <div>
               {onGiveAnotherThing && (
-                <Button className="mt-2" onClick={onGiveAnotherThing} size="large" type="dashed">
+                <Button
+                  className="mt-2"
+                  onClick={onGiveAnotherThing}
+                  size="large"
+                  type="dashed"
+                >
                   Give me another thing
                 </Button>
               )}
@@ -297,9 +326,17 @@ export function EditThingModal({
 
           <div>
             <Affix offsetTop={50}>
-              <Flex align="center" justify="center">
-                <Button disabled={hasUndefinedValues} htmlType="submit" size="large" type="primary">
-                  {okButtonText ?? 'Add Item'}
+              <Flex
+                align="center"
+                justify="center"
+              >
+                <Button
+                  disabled={hasUndefinedValues}
+                  htmlType="submit"
+                  size="large"
+                  type="primary"
+                >
+                  {okButtonText ?? 'Add ItemData'}
                 </Button>
               </Flex>
             </Affix>
@@ -316,7 +353,11 @@ export function EditThingModal({
                   name={rule.id}
                   valuePropName="checked"
                 >
-                  <Switch checkedChildren="✅" disabled unCheckedChildren="❌" />
+                  <Switch
+                    checkedChildren="✅"
+                    disabled
+                    unCheckedChildren="❌"
+                  />
                 </Form.Item>
               );
             }
@@ -330,7 +371,11 @@ export function EditThingModal({
                   name={rule.id}
                   valuePropName="checked"
                 >
-                  <Switch checkedChildren="✅" disabled unCheckedChildren="❌" />
+                  <Switch
+                    checkedChildren="✅"
+                    disabled
+                    unCheckedChildren="❌"
+                  />
                 </Form.Item>
               );
             }
@@ -342,7 +387,10 @@ export function EditThingModal({
                 label={rule.title}
                 name={rule.id}
               >
-                <Radio.Group buttonStyle="solid" optionType="button">
+                <Radio.Group
+                  buttonStyle="solid"
+                  optionType="button"
+                >
                   <Radio value={true}>✅</Radio>
                   <Radio value={false}>❌</Radio>
                 </Radio.Group>
@@ -356,8 +404,8 @@ export function EditThingModal({
 }
 
 const deserializeThing = (
-  thing: DailyDiagramItem,
-  rules: Dictionary<DailyDiagramRule>,
+  thing: DailyDiagramItemData,
+  rules: Dictionary<DailyDiagramRuleData>,
 ): Record<string, boolean | string | number> => {
   let wasAnyRuleUpdated = false;
   return {
@@ -390,7 +438,7 @@ const deserializeThing = (
   };
 };
 
-const serializeThing = (values: Record<string, boolean | string | number>): DailyDiagramItem => {
+const serializeThing = (values: Record<string, boolean | string | number>): DailyDiagramItemData => {
   const { itemId, name, syllables, stressedSyllable, ...thingRules } = values;
 
   return {

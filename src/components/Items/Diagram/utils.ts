@@ -1,5 +1,5 @@
 import { memoize } from 'lodash';
-import type { DailyDiagramItem, DailyDiagramRule } from 'types';
+import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
 import { stringRemoveAccents } from 'utils';
 
 export const SYLLABLE_SEPARATOR = '|';
@@ -327,13 +327,13 @@ export const stressSyllableDependencyVerifier: Record<
   },
 };
 
-export const getLatestRuleUpdate = (rules: Dictionary<DailyDiagramRule>) => {
+export const getLatestRuleUpdate = (rules: Dictionary<DailyDiagramRuleData>) => {
   return Object.values(rules).reduce((acc, rule) => {
     return Math.max(acc, rule.updatedAt);
   }, 0);
 };
 
-export const getIsThingOutdated = (thing: DailyDiagramItem, latestRuleUpdate: number) => {
+export const getIsThingOutdated = (thing: DailyDiagramItemData, latestRuleUpdate: number) => {
   return latestRuleUpdate > thing.updatedAt;
 };
 

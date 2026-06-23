@@ -29,10 +29,14 @@ export function ItemsDiscSetExpandedRow({ disc, addEntryToUpdate }: ItemsDiscSet
   return (
     <Flex gap={16}>
       <div>
-        <Typography.Paragraph>Add Item</Typography.Paragraph>
+        <Typography.Paragraph>Add ItemData</Typography.Paragraph>
         <ItemsTypeahead onFinish={onUpdate} />
       </div>
-      <InspirationSample excludeList={disc.itemsIds} onSelect={onUpdate} sampleQuantity={64} />
+      <InspirationSample
+        excludeList={disc.itemsIds}
+        onSelect={onUpdate}
+        sampleQuantity={64}
+      />
       <PasteIds onUpdateBatch={onUpdateBatch} />
     </Flex>
   );

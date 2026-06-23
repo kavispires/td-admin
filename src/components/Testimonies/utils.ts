@@ -3,7 +3,7 @@ import type {
   TestimonyAnswers,
   TestimonyAnswersValues,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
-import type { SuspectCard } from 'types';
+import type { SuspectCardData } from 'types';
 
 /**
  * Calculates statistical data and projections for a suspect's answers to a specific question.
@@ -229,6 +229,6 @@ export const countAnswersAbsoluteTotal = (values: TestimonyAnswersValues[]): num
  * @param suspects - Dictionary of suspects to filter
  * @returns Dictionary containing only suspects with deck === 'adult'
  */
-export const filterAdultSuspects = (suspects: Dictionary<SuspectCard>): Dictionary<SuspectCard> => {
+export const filterAdultSuspects = (suspects: Dictionary<SuspectCardData>): Dictionary<SuspectCardData> => {
   return Object.fromEntries(Object.entries(suspects).filter(([_, suspect]) => suspect.deck === 'adult'));
 };

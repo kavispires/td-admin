@@ -4,7 +4,7 @@ import { Item } from 'components/Sprites';
 import { useTDResource } from 'hooks/useTDResource';
 import { difference, sampleSize } from 'lodash';
 import { useState } from 'react';
-import type { Item as ItemT } from 'types';
+import type { ItemData as ItemT } from 'types';
 
 type InspirationSampleProps = {
   /**
@@ -56,27 +56,59 @@ export function InspirationSample({
 
   return (
     <div className="mt-2">
-      <Flex className="mb-2" gap={12}>
+      <Flex
+        className="mb-2"
+        gap={12}
+      >
         <Typography.Text>
           Inspiration Sample{' '}
           <small>({Object.keys(itemsTypeaheadQuery.data ?? {}).length - usedSampleIds.length})</small>{' '}
         </Typography.Text>
-        <Button onClick={onSample} size="small">
+        <Button
+          onClick={onSample}
+          size="small"
+        >
           Get
         </Button>
-        <Popconfirm cancelText="No" okText="Yes" onConfirm={onRefresh} title="Are you sure?">
-          <Button icon={<SyncOutlined />} size="small" />
+        <Popconfirm
+          cancelText="No"
+          okText="Yes"
+          onConfirm={onRefresh}
+          title="Are you sure?"
+        >
+          <Button
+            icon={<SyncOutlined />}
+            size="small"
+          />
         </Popconfirm>
       </Flex>
-      <Flex gap={16} wrap="wrap">
+      <Flex
+        gap={16}
+        wrap="wrap"
+      >
         {sampledItems.map((itemId, index) => {
           const item = itemsTypeaheadQuery.data?.[itemId];
           return (
-            <Flex gap={2} key={`sample-${itemId}-${index}`} vertical>
-              <Item itemId={itemId} title={`${item.name.en} | ${item.name.pt}`} width={60} />
-              <Flex gap={6} justify="center">
+            <Flex
+              gap={2}
+              key={`sample-${itemId}-${index}`}
+              vertical
+            >
+              <Item
+                itemId={itemId}
+                title={`${item.name.en} | ${item.name.pt}`}
+                width={60}
+              />
+              <Flex
+                gap={6}
+                justify="center"
+              >
                 <Typography.Text>{itemId}</Typography.Text>
-                <Button onClick={() => onSelect(itemId)} shape="circle" size="small">
+                <Button
+                  onClick={() => onSelect(itemId)}
+                  shape="circle"
+                  size="small"
+                >
                   <PlusOutlined />
                 </Button>
               </Flex>

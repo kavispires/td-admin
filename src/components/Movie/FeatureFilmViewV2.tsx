@@ -3,17 +3,17 @@ import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import _ from 'lodash';
 import { useState } from 'react';
 import type {
-  Item,
-  MovieCard,
+  ItemData,
+  MovieCardData,
   MovieGenres,
-  SuspectCard,
-  SuspectExtendedInfo,
-  TestimonyQuestionCard,
+  SuspectCardData,
+  SuspectExtendedInfoData,
+  TestimonyQuestionCardData,
 } from 'types';
 import { ActorRole } from './ActorRole';
 
 export type FeatureFilmRole = {
-  actor: SuspectCard;
+  actor: SuspectCardData;
   traits: string[];
   persona: DualLanguageValue;
   id: string;
@@ -32,17 +32,17 @@ export type FeatureFilm = {
   castingRoles: FeatureFilmRole[];
   features: MovieGenres['features'][keyof MovieGenres['features']][];
   rating: number;
-  props: Item[];
+  props: ItemData[];
   prompt: string;
 };
 
 type FeatureFilmViewProps = {
-  movieTitles: Dictionary<MovieCard>;
+  movieTitles: Dictionary<MovieCardData>;
   movieGenres: MovieGenres;
-  movieActors: Dictionary<SuspectCard>;
-  actorsExtendedInfo: Dictionary<SuspectExtendedInfo>;
-  characterTraits: Dictionary<TestimonyQuestionCard>;
-  items: Dictionary<Item>;
+  movieActors: Dictionary<SuspectCardData>;
+  actorsExtendedInfo: Dictionary<SuspectExtendedInfoData>;
+  characterTraits: Dictionary<TestimonyQuestionCardData>;
+  items: Dictionary<ItemData>;
   language: Language;
 };
 
@@ -85,7 +85,10 @@ export function FeatureFilmViewV2({
 
   return (
     <>
-      <Flex gap={16} wrap>
+      <Flex
+        gap={16}
+        wrap
+      >
         <Button onClick={onCreateFeatureFilm}>Create Feature Film</Button>
         <Button onClick={onCreateTVShow}>Create TV Show</Button>
       </Flex>
@@ -120,7 +123,11 @@ export function FeatureFilmViewV2({
 
           <Space style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', alignItems: 'flex-start' }}>
             {featureFilm.castingRoles.map((role) => (
-              <ActorRole key={role.id} language={language} role={role} />
+              <ActorRole
+                key={role.id}
+                language={language}
+                role={role}
+              />
             ))}
           </Space>
 
@@ -129,7 +136,10 @@ export function FeatureFilmViewV2({
           <Typography.Title level={2}>
             Prompt <CopyToClipboardButton content={featureFilm.prompt} />
           </Typography.Title>
-          <Input.TextArea autoSize={{ minRows: 3, maxRows: 10 }} value={featureFilm.prompt} />
+          <Input.TextArea
+            autoSize={{ minRows: 3, maxRows: 10 }}
+            value={featureFilm.prompt}
+          />
         </>
       )}
     </>
@@ -140,12 +150,12 @@ export function generateFeatureFilm(
   type: 'movie' | 'show',
   lang: 'pt' | 'en',
   db: {
-    movies: Record<string, MovieCard>;
+    movies: Record<string, MovieCardData>;
     genresData: MovieGenres;
-    suspects: Record<string, SuspectCard>;
-    suspectsExtended: Record<string, SuspectExtendedInfo>;
-    testimonies: Record<string, TestimonyQuestionCard>;
-    items: Record<string, Item>;
+    suspects: Record<string, SuspectCardData>;
+    suspectsExtended: Record<string, SuspectExtendedInfoData>;
+    testimonies: Record<string, TestimonyQuestionCardData>;
+    items: Record<string, ItemData>;
   },
 ): FeatureFilm {
   // 1. Gerar Título

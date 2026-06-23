@@ -1,7 +1,7 @@
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { sample as lodashSample, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { ItemAttribute } from 'types';
+import type { ItemAttributeData } from 'types';
 import { useQueryParams } from './useQueryParams';
 
 export function useItemSampler() {
@@ -10,7 +10,7 @@ export function useItemSampler() {
   const { queryParams } = useQueryParams();
 
   const [sampleIds, setSampleIds] = useState<string[]>([]);
-  const [attribute, setAttribute] = useState<ItemAttribute>();
+  const [attribute, setAttribute] = useState<ItemAttributeData>();
 
   const getSample = () => {
     const attributeKey = queryParams.get('attribute') ?? lodashSample(attributesList)?.id ?? 'ali';

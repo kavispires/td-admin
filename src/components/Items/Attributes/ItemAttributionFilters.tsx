@@ -6,7 +6,7 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { ItemAttribute, ItemAttributesValues } from 'types';
+import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
 import { deepCleanObject, sortJsonKeys } from 'utils';
 import { calculateItemReliability, calculateItemScore, constructItemSignature } from '../utils';
 import {
@@ -34,7 +34,10 @@ export function ItemAttributionFilters() {
 
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(attributesToUpdate)}
           isDirty={isDirty}
@@ -82,8 +85,8 @@ export function ItemAttributionFilters() {
 }
 
 function prepareFileForDownload(
-  itemsAttributes: Dictionary<ItemAttributesValues>,
-  attributes: Dictionary<ItemAttribute>,
+  itemsAttributes: Dictionary<ItemAttributesValuesData>,
+  attributes: Dictionary<ItemAttributeData>,
 ) {
   const total = Object.keys(attributes).length;
 

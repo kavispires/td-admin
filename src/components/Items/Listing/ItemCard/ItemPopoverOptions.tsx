@@ -3,7 +3,7 @@ import { Button, Popover, Space } from 'antd';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { snakeCase } from 'lodash';
 import { useToggle } from 'react-use';
-import type { Item as ItemT } from 'types';
+import type { ItemData as ItemT } from 'types';
 
 export type EscapeRoomItemCard = {
   /**
@@ -43,7 +43,7 @@ export type EscapeRoomItemCard = {
   };
   content: {
     /**
-     * The item id for the Item Sprite
+     * The item id for the ItemData Sprite
      */
     itemId: string;
     /**
@@ -58,8 +58,8 @@ const buildEscapeRoomItemCard = (item: ItemT): EscapeRoomItemCard => ({
   type: 'item',
   header: {
     title: {
-      en: 'Item',
-      pt: 'Item',
+      en: 'ItemData',
+      pt: 'ItemData',
     },
     iconId: '2077',
   },
@@ -84,20 +84,29 @@ export function ItemPopoverOptions({ item }: ItemPopoverOptionsProps) {
     <Popover
       content={
         <Space orientation="vertical">
-          <Button onClick={() => copyToClipboard(JSON.stringify(item, null, 2))} size="small">
-            Complete Item
+          <Button
+            onClick={() => copyToClipboard(JSON.stringify(item, null, 2))}
+            size="small"
+          >
+            Complete ItemData
           </Button>
-          <Button onClick={() => copyToClipboard(item.name.en)} size="small">
+          <Button
+            onClick={() => copyToClipboard(item.name.en)}
+            size="small"
+          >
             EN Name
           </Button>
-          <Button onClick={() => copyToClipboard(item.name.pt)} size="small">
+          <Button
+            onClick={() => copyToClipboard(item.name.pt)}
+            size="small"
+          >
             PT Name
           </Button>
           <Button
             onClick={() => copyToClipboard(JSON.stringify(buildEscapeRoomItemCard(item), null, 2))}
             size="small"
           >
-            Escape Room Item
+            Escape Room ItemData
           </Button>
         </Space>
       }
@@ -106,7 +115,10 @@ export function ItemPopoverOptions({ item }: ItemPopoverOptionsProps) {
       title="Copy"
       trigger="click"
     >
-      <Button icon={<MenuOutlined />} type="text" />
+      <Button
+        icon={<MenuOutlined />}
+        type="text"
+      />
     </Popover>
   );
 }

@@ -6,15 +6,15 @@ import {
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useState } from 'react';
 import { useMeasure } from 'react-use';
-import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
+import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from 'types';
 import { DiagramGameSample } from './DiagramGameSample';
 import './GameSimulator.scss';
 
 type GameSimulatorProps = {
-  things: UseResourceFirestoreDataReturnType<DailyDiagramItem>['data'];
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
+  things: UseResourceFirestoreDataReturnType<DailyDiagramItemData>['data'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItemData>['addEntryToUpdate'];
   availableThings: ItemT[];
-  rules: Dictionary<DailyDiagramRule>;
+  rules: Dictionary<DailyDiagramRuleData>;
 };
 
 export function GameSimulator({ things, rules }: GameSimulatorProps) {
@@ -60,18 +60,32 @@ export function GameSimulator({ things, rules }: GameSimulatorProps) {
   };
 
   return (
-    <Space orientation="vertical" ref={ref}>
+    <Space
+      orientation="vertical"
+      ref={ref}
+    >
       <Typography.Title level={5}>Game Simulator</Typography.Title>
 
-      <Button onClick={onSimulate} size="large">
+      <Button
+        onClick={onSimulate}
+        size="large"
+      >
         Simulate
       </Button>
 
-      <Button onClick={onGenerateDemoGames} size="large">
+      <Button
+        onClick={onGenerateDemoGames}
+        size="large"
+      >
         Generate Demos (log)
       </Button>
 
-      {simulation && <DiagramGameSample game={simulation} key={JSON.stringify(simulation)} />}
+      {simulation && (
+        <DiagramGameSample
+          game={simulation}
+          key={JSON.stringify(simulation)}
+        />
+      )}
     </Space>
   );
 }

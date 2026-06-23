@@ -1,12 +1,12 @@
 import { DatabaseOutlined } from '@ant-design/icons';
 import { Alert, App, Button, Collapse, Input, Modal, Tooltip } from 'antd';
 import { useState } from 'react';
-import type { SuspectCard, SuspectExtendedInfo } from 'types';
+import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 
 type AddDataModalProps = {
-  suspect: SuspectCard;
-  suspectExtendedInfo: SuspectExtendedInfo;
-  addSuspectExtendedInfo: (id: string, item: SuspectExtendedInfo) => void;
+  suspect: SuspectCardData;
+  suspectExtendedInfo: SuspectExtendedInfoData;
+  addSuspectExtendedInfo: (id: string, item: SuspectExtendedInfoData) => void;
 };
 
 export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedInfo }: AddDataModalProps) {
@@ -16,8 +16,8 @@ export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedI
   const [error, setError] = useState<string | null>(null);
 
   const handleDataInsertion = () => {
-    const parsed = JSON.parse(jsonInput) as Partial<SuspectExtendedInfo>;
-    const updatedData: SuspectExtendedInfo = {
+    const parsed = JSON.parse(jsonInput) as Partial<SuspectExtendedInfoData>;
+    const updatedData: SuspectExtendedInfoData = {
       ...suspectExtendedInfo,
       ...parsed,
     };
@@ -31,7 +31,7 @@ export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedI
     setError(null);
     try {
       const parsed = JSON.parse(value);
-      // Check if parse values has any keys not in SuspectExtendedInfo
+      // Check if parse values has any keys not in SuspectExtendedInfoData
       const allowedKeys = [
         'persona',
         'prompt',
@@ -67,7 +67,11 @@ export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedI
   return (
     <>
       <Tooltip title="Add JSON partial data">
-        <Button icon={<DatabaseOutlined />} onClick={() => setOpen(true)} size="small">
+        <Button
+          icon={<DatabaseOutlined />}
+          onClick={() => setOpen(true)}
+          size="small"
+        >
           Add
         </Button>
       </Tooltip>
@@ -82,7 +86,10 @@ export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedI
         title={`JSON Partial Data for ${suspect.name} (${suspect.id})`}
       >
         <Collapse size="small">
-          <Collapse.Panel header="Instructions" key="instructions">
+          <Collapse.Panel
+            header="Instructions"
+            key="instructions"
+          >
             <p>
               You can add or update specific fields for this suspect by providing a JSON partial data. This
               allows you to modify only the fields you want without affecting the rest of the data.
@@ -106,7 +113,12 @@ export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedI
           placeholder="Paste JSON partial data here"
           value={jsonInput}
         />
-        {error && <Alert title={`Error: ${error}`} type="error" />}
+        {error && (
+          <Alert
+            title={`Error: ${error}`}
+            type="error"
+          />
+        )}
       </Modal>
     </>
   );

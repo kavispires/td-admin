@@ -4,7 +4,7 @@ import { useItemsContext } from 'context/ItemsContext';
 import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { chunk, sampleSize } from 'lodash';
 import { useState } from 'react';
-import type { Item as ItemT } from 'types';
+import type { ItemData as ItemT } from 'types';
 import { ItemCard } from './ItemCard';
 
 export function ItemRandomizer() {
@@ -57,7 +57,11 @@ export function ItemRandomizer() {
     <div>
       <Typography.Title level={2}>
         Randomized Sample{' '}
-        <Button icon={<CopyOutlined />} onClick={onGenerateMidjourneySample} size="small">
+        <Button
+          icon={<CopyOutlined />}
+          onClick={onGenerateMidjourneySample}
+          size="small"
+        >
           MJ
         </Button>
       </Typography.Title>
@@ -73,7 +77,10 @@ export function ItemRandomizer() {
             value={sampleQuantity}
           />
         </div>
-        <Button onClick={onRandomSample} type="primary">
+        <Button
+          onClick={onRandomSample}
+          type="primary"
+        >
           Get Sample
         </Button>
 
@@ -86,14 +93,24 @@ export function ItemRandomizer() {
             Copy
           </Button>
           <Dropdown menu={{ items, onClick: onMenuClick }}>
-            <Button disabled={randomItems.length === 0} icon={<DownOutlined />} />
+            <Button
+              disabled={randomItems.length === 0}
+              icon={<DownOutlined />}
+            />
           </Dropdown>
         </Space.Compact>
       </Flex>
 
-      <Space className="my-4" wrap>
+      <Space
+        className="my-4"
+        wrap
+      >
         {randomItems.map((item) => (
-          <ItemCard item={item} key={item.id} simplified />
+          <ItemCard
+            item={item}
+            key={item.id}
+            simplified
+          />
         ))}
       </Space>
     </div>

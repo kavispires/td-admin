@@ -39,10 +39,12 @@
     "build": "vite build",
     "serve": "vite preview",
     "prepare": "husky",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "lint": "biome check --staged --write --no-errors-on-unmatched",
     "clean": "rm -rf node_modules && yarn cache clean",
+    "sync:types": "curl -s -o src/types/tdr.ts https://raw.githubusercontent.com/kavispires/td-resources/main/types/tdr.ts",
+    "predev": "npm run sync:types",
     "test": "vitest",
     "update-commit": "td amend-commit-date"
   },

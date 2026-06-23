@@ -10,7 +10,7 @@ import { SearchDuplicates } from 'components/SearchDuplicates';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceState } from 'hooks/useResourceState';
 import { useEffect, useState } from 'react';
-import type { ArteRuimCard } from 'types';
+import type { ArteRuimCardData } from 'types';
 import { checkForDuplicates, findSimilar, stringRemoveAccents } from 'utils';
 import { RESOURCE_NAMES, SEARCH_THRESHOLD } from 'utils/constants';
 
@@ -50,7 +50,7 @@ export function ArteRuimParser() {
     }
 
     const result = parsedInput.reduce(
-      (acc: Record<CardId, ArteRuimCard>, text: string, index: number) => {
+      (acc: Record<CardId, ArteRuimCardData>, text: string, index: number) => {
         if (text && resourceName) {
           const newId = `${resourceName[0]}-${lastId + index + 1}-${language}`;
           acc[newId] = {
@@ -68,19 +68,36 @@ export function ArteRuimParser() {
   };
 
   return (
-    <PageLayout subtitle={resourceName && language ? `Parser (${language})` : ''} title="Arte Ruim">
+    <PageLayout
+      subtitle={resourceName && language ? `Parser (${language})` : ''}
+      title="Arte Ruim"
+    >
       <Layout hasSider>
         <PageSider>
-          <ResponseState error={error} hasResponseData={hasResponseData} isLoading={isLoading} />
+          <ResponseState
+            error={error}
+            hasResponseData={hasResponseData}
+            isLoading={isLoading}
+          />
           <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
+          <DataLoadingWrapper
+            error={error}
+            hasResponseData={hasResponseData}
+            isLoading={isLoading}
+          >
             <div className="parser-container">
               <div className="parser-main">
                 <SectionTitle>Input New Data</SectionTitle>
-                <Input.TextArea cols={15} id="" name="input" onChange={onInputChange} rows={5} />
+                <Input.TextArea
+                  cols={15}
+                  id=""
+                  name="input"
+                  onChange={onInputChange}
+                  rows={5}
+                />
 
                 <SectionTitle>Output</SectionTitle>
                 <Input.TextArea
@@ -118,7 +135,10 @@ export function ArteRuimParser() {
                   value={JSON.stringify(searchResults, null, 4)}
                 />
 
-                <SearchDuplicates property={property} response={response} />
+                <SearchDuplicates
+                  property={property}
+                  response={response}
+                />
               </aside>
             </div>
           </DataLoadingWrapper>

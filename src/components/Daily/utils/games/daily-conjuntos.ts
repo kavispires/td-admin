@@ -3,7 +3,7 @@ import { getIsThingOutdated, getLatestRuleUpdate } from 'components/Items/Diagra
 import { useTDResource } from 'hooks/useTDResource';
 import { difference, intersection, sample, sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
-import type { DailyDiagramItem, DailyDiagramRule } from 'types';
+import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
@@ -53,8 +53,8 @@ export const useDailyConjuntosGames = (
 ) => {
   const [conjuntosHistory] = useParsedHistory(DAILY_GAMES_KEYS.CONJUNTOS, dailyHistory);
 
-  const thingsQuery = useTDResource<DailyDiagramItem>('daily-diagram-items', { enabled });
-  const rulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules', { enabled });
+  const thingsQuery = useTDResource<DailyDiagramItemData>('daily-diagram-items', { enabled });
+  const rulesQuery = useTDResource<DailyDiagramRuleData>('daily-diagram-rules', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
@@ -76,8 +76,8 @@ const SELECTION_SIZE = 8;
 export const buildDailyConjuntosGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
-  rules: Dictionary<DailyDiagramRule>,
-  things: Dictionary<DailyDiagramItem>,
+  rules: Dictionary<DailyDiagramRuleData>,
+  things: Dictionary<DailyDiagramItemData>,
 ) => {
   console.count('Creating Conjuntos...');
   let lastDate = history.latestDate;
@@ -121,9 +121,9 @@ export const buildDailyConjuntosGames = (
 };
 
 function getRuleSet(
-  things: Dictionary<DailyDiagramItem>,
+  things: Dictionary<DailyDiagramItemData>,
   thingsByRules: Record<string, string[]>,
-  rules: Dictionary<DailyDiagramRule>,
+  rules: Dictionary<DailyDiagramRuleData>,
   used: string[],
   latestRuleUpdate: number,
   size: number,

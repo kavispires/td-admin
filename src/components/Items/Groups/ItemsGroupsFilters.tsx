@@ -8,7 +8,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, isEmpty, omitBy } from 'lodash';
-import type { Item, ItemGroup } from 'types';
+import type { ItemData, ItemGroupData } from 'types';
 import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
 import { AddNewGroupFlow } from './AddNewGroupFlow';
 
@@ -20,13 +20,16 @@ export function ItemsGroupsFilters({
   entriesToUpdate,
   addEntryToUpdate,
   hasFirestoreData,
-}: UseResourceFirestoreDataReturnType<ItemGroup>) {
+}: UseResourceFirestoreDataReturnType<ItemGroupData>) {
   const { queryParams, addParam, addParams, is } = useQueryParams();
-  const tdrItemsQuery = useTDResource<Item>('items');
+  const tdrItemsQuery = useTDResource<ItemData>('items');
 
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(prepareObjectToSave(entriesToUpdate))}
           isDirty={isDirty}
@@ -62,7 +65,10 @@ export function ItemsGroupsFilters({
         value={queryParams.get('display') ?? 'group'}
       />
 
-      <AddNewGroupFlow addEntryToUpdate={addEntryToUpdate} data={data} />
+      <AddNewGroupFlow
+        addEntryToUpdate={addEntryToUpdate}
+        data={data}
+      />
 
       {is('display', 'item') && (
         <FilterSwitch
@@ -75,11 +81,11 @@ export function ItemsGroupsFilters({
   );
 }
 
-function prepareObjectToSave(groups: Dictionary<ItemGroup>) {
+function prepareObjectToSave(groups: Dictionary<ItemGroupData>) {
   return omitBy(cloneDeep(groups), (group) => isEmpty(group.itemsIds));
 }
 
-function prepareFileForDownload(groups: Dictionary<ItemGroup>, items: Dictionary<Item>) {
+function prepareFileForDownload(groups: Dictionary<ItemGroupData>, items: Dictionary<ItemData>) {
   Object.keys(groups).forEach((key) => {
     groups[key].itemsIds = sortItemsIds(removeDuplicates(groups[key].itemsIds));
 

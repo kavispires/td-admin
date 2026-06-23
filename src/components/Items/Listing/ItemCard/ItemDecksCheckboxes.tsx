@@ -1,6 +1,6 @@
 import { Checkbox, Form } from 'antd';
 import { truncate } from 'lodash';
-import type { Item as ItemT } from 'types';
+import type { ItemData as ItemT } from 'types';
 
 type ItemDeckCheckboxesProps = {
   item: ItemT;
@@ -18,7 +18,10 @@ export function ItemDeckCheckboxes({ item, isEditing, onEdit, decks }: ItemDeckC
         const itemDecks = item.decks ?? [];
         const isChecked = itemDecks.includes(deck.value);
         return (
-          <Form.Item key={deck.value} style={{ margin: 0, minHeight: 1 }}>
+          <Form.Item
+            key={deck.value}
+            style={{ margin: 0, minHeight: 1 }}
+          >
             <Checkbox
               checked={isChecked}
               disabled={!isEditing}

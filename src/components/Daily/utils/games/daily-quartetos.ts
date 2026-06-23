@@ -2,7 +2,7 @@ import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
 import { capitalize, cloneDeep, orderBy, sample, sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
-import type { DailyQuartetSet, ItemGroup } from 'types';
+import type { DailyQuartetSet, ItemGroupData } from 'types';
 import { SEPARATOR } from 'utils/constants';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
@@ -35,7 +35,7 @@ export const useDailyQuartetosGames = (
   const [quartetosHistory] = useParsedHistory(DAILY_GAMES_KEYS.QUARTETOS, dailyHistory);
 
   const dailyQuartetSetQuery = useTDResource<DailyQuartetSet>('daily-quartet-sets', { enabled });
-  const itemGroupsQuery = useTDResource<ItemGroup>('items-groups', { enabled });
+  const itemGroupsQuery = useTDResource<ItemGroupData>('items-groups', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
@@ -70,7 +70,7 @@ export const buildDailyQuartetosGames = (
   history: ParsedDailyHistoryEntry,
   queryLanguage: Language,
   quartetsSets: Dictionary<DailyQuartetSet>,
-  itemsGroups: Dictionary<ItemGroup>,
+  itemsGroups: Dictionary<ItemGroupData>,
 ) => {
   console.count('Creating Quartetos...');
 
@@ -298,7 +298,7 @@ export const buildDailyQuartetosGamesRandom = (
   history: ParsedDailyHistoryEntry,
   queryLanguage: Language,
   quartetsSets: Dictionary<DailyQuartetSet>,
-  itemsGroups: Dictionary<ItemGroup>,
+  itemsGroups: Dictionary<ItemGroupData>,
 ) => {
   console.count('Creating Quartetos...');
 

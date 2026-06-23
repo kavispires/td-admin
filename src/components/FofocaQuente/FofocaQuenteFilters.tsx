@@ -5,9 +5,9 @@ import { FilterSegments } from 'components/Common/FilterEntries';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { useTDResource } from 'hooks/useTDResource';
-import type { TeenageStudent } from 'types';
+import type { TeenageStudentData } from 'types';
 
-export type FofocaQuenteFiltersProps = ReturnType<typeof useTDResource<TeenageStudent>>;
+export type FofocaQuenteFiltersProps = ReturnType<typeof useTDResource<TeenageStudentData>>;
 
 export function FofocaQuenteFilters({ data }: FofocaQuenteFiltersProps) {
   const { addParam, queryParams, is } = useQueryParams();

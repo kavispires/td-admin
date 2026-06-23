@@ -2,16 +2,16 @@ import { App, Button } from 'antd';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { sample } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
+import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from 'types';
 import { wait } from 'utils';
 import { EditThingModal } from './EditThingModal';
 
 type AddNewThingFlowProps = {
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItemData>['addEntryToUpdate'];
   availableThings: ItemT[];
-  rules: Dictionary<DailyDiagramRule>;
+  rules: Dictionary<DailyDiagramRuleData>;
   width: number;
-  allThings: Dictionary<DailyDiagramItem>;
+  allThings: Dictionary<DailyDiagramItemData>;
 };
 
 export function AddNewThingFlow({
@@ -23,7 +23,7 @@ export function AddNewThingFlow({
 }: AddNewThingFlowProps) {
   const { notification } = App.useApp();
 
-  const [activeThing, setActiveThing] = useState<DailyDiagramItem | null>(null);
+  const [activeThing, setActiveThing] = useState<DailyDiagramItemData | null>(null);
   const [cycledThings, setCycledThings] = useState<Dictionary<boolean>>({});
 
   const onActivateThing = () => {
@@ -52,10 +52,10 @@ export function AddNewThingFlow({
     return [item?.name.pt, ...(item?.aliasesPt ?? [])].filter(Boolean);
   }, [activeThing, availableThings]);
 
-  const onAddItem = async (newThing: DailyDiagramItem) => {
+  const onAddItem = async (newThing: DailyDiagramItemData) => {
     if (!activeThing) return;
     if (!newThing.name || !newThing.itemId) {
-      notification.error({ title: 'Name and Item ID are required' });
+      notification.error({ title: 'Name and ItemData ID are required' });
     }
 
     addEntryToUpdate(newThing.itemId, newThing);
@@ -77,8 +77,11 @@ export function AddNewThingFlow({
 
   return (
     <>
-      <Button onClick={onActivateThing} size="large">
-        Classify New Item
+      <Button
+        onClick={onActivateThing}
+        size="large"
+      >
+        Classify New ItemData
       </Button>
       {!!activeThing && (
         <EditThingModal

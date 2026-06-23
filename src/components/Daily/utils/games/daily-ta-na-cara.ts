@@ -8,7 +8,7 @@ import {
   testimoniesDeserializer,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
-import type { SuspectCard, TestimonyQuestionCard } from 'types';
+import type { SuspectCardData, TestimonyQuestionCardData } from 'types';
 import { makeBooleanDictionary } from 'utils';
 import { SEPARATOR } from 'utils/constants';
 import { DAILY_GAMES_KEYS } from '../constants';
@@ -44,8 +44,8 @@ export const useDailyTaNaCaraGames = (
 ) => {
   const [taNaCaraHistory] = useParsedHistory(DAILY_GAMES_KEYS.TA_NA_CARA, dailyHistory);
 
-  const suspectsQuery = useTDResource<SuspectCard>('suspects', { enabled });
-  const testimoniesQuery = useTDResource<TestimonyQuestionCard>(`testimony-questions-${queryLanguage}`, {
+  const suspectsQuery = useTDResource<SuspectCardData>('suspects', { enabled });
+  const testimoniesQuery = useTDResource<TestimonyQuestionCardData>(`testimony-questions-${queryLanguage}`, {
     enabled,
   });
   const answersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
@@ -107,9 +107,9 @@ export const buildDailyTaNaCaraGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   allSuspectsIds: string[],
-  testimoniesDict: Dictionary<TestimonyQuestionCard>,
+  testimoniesDict: Dictionary<TestimonyQuestionCardData>,
   sortedTestimoniesCounts: ReturnType<typeof countTestimonyAnswers>,
-  suspectDict: Dictionary<SuspectCard>,
+  suspectDict: Dictionary<SuspectCardData>,
 ) => {
   console.count('Creating Tá Na Cara...');
 
@@ -199,7 +199,7 @@ const buildTestimonyEntry = (
     counts: Dictionary<string[]>;
     totalAnswers?: number;
   },
-  testimony: TestimonyQuestionCard,
+  testimony: TestimonyQuestionCardData,
 ): TaNaCaraQuestion => {
   const suspectsIds = [
     ...shuffle(sortedCounts.counts[0]),
@@ -267,9 +267,9 @@ export const gatherUsedTaNaCaraEntries = (previousHistory: string[], currentData
 };
 
 const countTestimonyAnswers = (
-  testimonies: Dictionary<TestimonyQuestionCard>,
+  testimonies: Dictionary<TestimonyQuestionCardData>,
   answers: Dictionary<TestimonyAnswers>,
-  suspects: Dictionary<SuspectCard>,
+  suspects: Dictionary<SuspectCardData>,
   mode: 'BUCKET_DISTRIBUTION' | 'TOTAL_ANSWERS',
 ) => {
   type SuspectCounts = Dictionary<string[]>;

@@ -3,7 +3,7 @@ import { Button, Flex, Space, Typography } from 'antd';
 import { useItemsContext } from 'context/ItemsContext';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { Fragment, useState } from 'react';
-import type { Item as ItemT } from 'types';
+import type { ItemData as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { ItemCard } from './ItemCard';
@@ -46,11 +46,23 @@ export function ItemSearch() {
           />
         </Flex>
       )}
-      <Flex className="my-4" gap={8} wrap="wrap">
+      <Flex
+        className="my-4"
+        gap={8}
+        wrap="wrap"
+      >
         {activeItems?.map((item) => (
-          <Space className="my-4" key={item.id} orientation="vertical">
+          <Space
+            className="my-4"
+            key={item.id}
+            orientation="vertical"
+          >
             <ItemCard item={item} />
-            <Button block icon={<EnvironmentOutlined />} onClick={() => onFindInListing(item.id)}>
+            <Button
+              block
+              icon={<EnvironmentOutlined />}
+              onClick={() => onFindInListing(item.id)}
+            >
               Find in listing
             </Button>
           </Space>

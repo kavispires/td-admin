@@ -1,4 +1,4 @@
-import type { ContenderCard } from 'types';
+import type { ContenderCardData } from 'types';
 import './Contenders.scss';
 import { Flex, Typography } from 'antd';
 import { useFilterDataByDataFilters } from 'components/Common/DataFilters';
@@ -9,7 +9,7 @@ import { cloneDeep } from 'lodash';
 import { useEffect } from 'react';
 import { ContenderEditCard } from './ContenderEditCard';
 
-export type ContendersContentProps = ReturnType<typeof useResourceFirestoreData<ContenderCard>>;
+export type ContendersContentProps = ReturnType<typeof useResourceFirestoreData<ContenderCardData>>;
 
 export function ContendersContent({ data, addEntryToUpdate }: ContendersContentProps) {
   const filteredData = useFilterDataByDataFilters(data);
@@ -28,10 +28,20 @@ export function ContendersContent({ data, addEntryToUpdate }: ContendersContentP
         Listing - Contenders ({filteredData.length} | {Object.values(data ?? {}).length})
       </Typography.Title>
 
-      <PaginationWrapper className="full-width" pagination={pagination}>
-        <Flex gap={16} wrap="wrap">
+      <PaginationWrapper
+        className="full-width"
+        pagination={pagination}
+      >
+        <Flex
+          gap={16}
+          wrap="wrap"
+        >
           {page.map((entry) => (
-            <ContenderEditCard addEntryToUpdate={addEntryToUpdate} contender={entry} key={entry.id} />
+            <ContenderEditCard
+              addEntryToUpdate={addEntryToUpdate}
+              contender={entry}
+              key={entry.id}
+            />
           ))}
         </Flex>
       </PaginationWrapper>
@@ -41,7 +51,7 @@ export function ContendersContent({ data, addEntryToUpdate }: ContendersContentP
 
 const DECK_PRIORITY = ['random', 'cartoon', 'comics', 'pop-culture', 'movies', 'television'];
 
-const parsedData = (data: Dictionary<ContenderCard>) => {
+const parsedData = (data: Dictionary<ContenderCardData>) => {
   const result = Object.values(cloneDeep(data)).reduce(
     (acc: any, entry) => {
       if (entry.decks?.includes('base')) {

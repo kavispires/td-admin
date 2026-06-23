@@ -2,11 +2,11 @@ import { Button, Divider, Flex, Input, Space, Tag, Typography } from 'antd';
 import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { cloneDeep, sample, sampleSize, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { Item, MovieCard, MovieGenres, SuspectCard, TestimonyQuestionCard } from 'types';
+import type { ItemData, MovieCardData, MovieGenres, SuspectCardData, TestimonyQuestionCardData } from 'types';
 import { ActorRole } from './ActorRole';
 
 export type FeatureFilRole = {
-  actor: SuspectCard;
+  actor: SuspectCardData;
   traits: string[];
   id: string;
   title: DualLanguageValue;
@@ -23,15 +23,15 @@ export type FeatureFilm = {
   castingRoles: FeatureFilRole[];
   features: { id: string; name: DualLanguageValue; probability: number; rating: number }[];
   rating: number;
-  props: Item[];
+  props: ItemData[];
 };
 
 type FeatureFilmViewProps = {
-  movieTitles: MovieCard[];
+  movieTitles: MovieCardData[];
   movieGenres: MovieGenres;
-  movieActors: SuspectCard[];
-  characterTraits: TestimonyQuestionCard[];
-  items: Item[];
+  movieActors: SuspectCardData[];
+  characterTraits: TestimonyQuestionCardData[];
+  items: ItemData[];
   language: Language;
 };
 
@@ -102,12 +102,18 @@ export function FeatureFilmView({
           <Typography.Title level={2}>
             Movie Prompt <CopyToClipboardButton content={moviePrompt} />
           </Typography.Title>
-          <Input.TextArea autoSize={{ minRows: 3, maxRows: 10 }} value={moviePrompt} />
+          <Input.TextArea
+            autoSize={{ minRows: 3, maxRows: 10 }}
+            value={moviePrompt}
+          />
 
           <Typography.Title level={2}>
             TV Series Prompt <CopyToClipboardButton content={tvShowPrompt} />
           </Typography.Title>
-          <Input.TextArea autoSize={{ minRows: 3, maxRows: 10 }} value={tvShowPrompt} />
+          <Input.TextArea
+            autoSize={{ minRows: 3, maxRows: 10 }}
+            value={tvShowPrompt}
+          />
         </>
       )}
     </>
@@ -115,11 +121,11 @@ export function FeatureFilmView({
 }
 
 const buildFeatureFilm = (
-  movieTitles: MovieCard[],
+  movieTitles: MovieCardData[],
   movieGenres: MovieGenres,
-  movieActors: SuspectCard[],
-  characterTraits: TestimonyQuestionCard[],
-  items: Item[],
+  movieActors: SuspectCardData[],
+  characterTraits: TestimonyQuestionCardData[],
+  items: ItemData[],
 ): FeatureFilm => {
   // Define title
   const movieTitle = sampleSize(movieTitles, 2)

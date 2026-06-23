@@ -2,7 +2,7 @@ import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
 import { keys, sample, sampleSize, shuffle, values } from 'lodash';
 import { useMemo } from 'react';
-import type { Item, ItemAttribute, ItemAttributesValues } from 'types';
+import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
@@ -53,9 +53,9 @@ export const useDailyAlienadoGames = (
 ) => {
   const [alienadoHistory] = useParsedHistory(DAILY_GAMES_KEYS.ALIENADO, dailyHistory);
 
-  const tdrItemsQuery = useTDResource<Item>('items', { enabled });
-  const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes', { enabled });
-  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>('items-attribute-values', {
+  const tdrItemsQuery = useTDResource<ItemData>('items', { enabled });
+  const tdrAttributesQuery = useTDResource<ItemAttributeData>('items-attributes', { enabled });
+  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValuesData>('items-attribute-values', {
     enabled,
   });
 
@@ -98,9 +98,9 @@ export const useDailyAlienadoGames = (
 export const buildDailyAlienadoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
-  attributes: Dictionary<ItemAttribute>,
-  attributeValues: Dictionary<ItemAttributesValues>,
-  items: Dictionary<Item>,
+  attributes: Dictionary<ItemAttributeData>,
+  attributeValues: Dictionary<ItemAttributesValuesData>,
+  items: Dictionary<ItemData>,
 ) => {
   console.count('Creating Alienado...');
   let lastDate = history.latestDate;
@@ -159,8 +159,8 @@ export const buildDailyAlienadoGames = (
 };
 
 const generateAlienadoGame = (
-  attributes: ItemAttribute[],
-  attributeValues: ItemAttributesValues[],
+  attributes: ItemAttributeData[],
+  attributeValues: ItemAttributesValuesData[],
 ): ProposedDailyAlienadoEntry => {
   const shuffledAttributeValues = shuffle(attributeValues);
 

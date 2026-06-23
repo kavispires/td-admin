@@ -2,7 +2,7 @@ import { CheckCircleFilled } from '@ant-design/icons';
 import { Radio, type RadioGroupProps } from 'antd';
 import { PopoverInfo } from 'components/Common/PopoverInfo';
 import { truncate } from 'lodash';
-import type { ItemAttribute } from 'types';
+import type { ItemAttributeData } from 'types';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 const attributeOptions = [
@@ -22,7 +22,7 @@ const attributeLimitedOptions = [
 ];
 
 type AttributionValueButtonsProps = {
-  attribute: ItemAttribute;
+  attribute: ItemAttributeData;
   value?: number;
   onChange: (attributeId: string, value: number) => void;
   onlyButtons?: boolean;
@@ -52,7 +52,10 @@ export function AttributionValueButtons({
   }
 
   return (
-    <div className="attribute-button-container__row" key={attribute.id}>
+    <div
+      className="attribute-button-container__row"
+      key={attribute.id}
+    >
       <span className="attribute-button-container__label">
         {truncate(attribute.name.en, { length: 12 })} <PopoverInfo title={attribute.description.en} />
       </span>

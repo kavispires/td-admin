@@ -1,9 +1,9 @@
-import type { ItemGroup } from 'types';
+import type { ItemGroupData } from 'types';
 import { InspirationSample } from '../InspirationSample';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 
 type AddItemFlowProps = {
-  group: ItemGroup;
+  group: ItemGroupData;
   onUpdateGroupItems: (groupId: string, itemIds: string[]) => void;
 };
 
@@ -15,7 +15,11 @@ export function AddItemFlow({ group, onUpdateGroupItems }: AddItemFlowProps) {
   return (
     <div>
       <ItemsTypeahead onFinish={onUpdate} />
-      <InspirationSample excludeList={group.itemsIds} initialQuantity={0} onSelect={onUpdate} />
+      <InspirationSample
+        excludeList={group.itemsIds}
+        initialQuantity={0}
+        onSelect={onUpdate}
+      />
     </div>
   );
 }

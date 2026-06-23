@@ -3,17 +3,17 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo } from 'react';
 import { useMeasure } from 'react-use';
-import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
+import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from 'types';
 import { AddNewThingFlow } from './AddNewThingFlow';
 import { ThingButton } from './Thing';
 
 type RulesByThingProps = {
-  things: UseResourceFirestoreDataReturnType<DailyDiagramItem>['data'];
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
+  things: UseResourceFirestoreDataReturnType<DailyDiagramItemData>['data'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItemData>['addEntryToUpdate'];
   availableThings: ItemT[];
-  rules: Dictionary<DailyDiagramRule>;
+  rules: Dictionary<DailyDiagramRuleData>;
   thingsByRules: Record<string, string[]>;
-  setActiveThing: React.Dispatch<React.SetStateAction<DailyDiagramItem | null>>;
+  setActiveThing: React.Dispatch<React.SetStateAction<DailyDiagramItemData | null>>;
 };
 
 export function RulesByThing({
@@ -29,7 +29,7 @@ export function RulesByThing({
 
   const paginationProps = useTablePagination({ total: rows.length, showQuickJumper: true });
 
-  const columns: TableColumnsType<DailyDiagramItem> = [
+  const columns: TableColumnsType<DailyDiagramItemData> = [
     {
       title: 'ItemId',
       dataIndex: 'itemId',
@@ -49,7 +49,11 @@ export function RulesByThing({
       dataIndex: 'itemId',
       key: 'sprite',
       render: (itemId: string) => (
-        <ThingButton key={`i-${itemId}`} onActivateThing={setActiveThing} thing={things[itemId]} />
+        <ThingButton
+          key={`i-${itemId}`}
+          onActivateThing={setActiveThing}
+          thing={things[itemId]}
+        />
       ),
     },
     {
@@ -59,7 +63,10 @@ export function RulesByThing({
       render: (itemRules: string[], record) => (
         <Space wrap>
           {itemRules.map((ruleId) => (
-            <Tooltip key={ruleId} title={rules[ruleId].title}>
+            <Tooltip
+              key={ruleId}
+              title={rules[ruleId].title}
+            >
               <Tag color={rules[ruleId].updatedAt > record.updatedAt ? 'red' : undefined}>{ruleId}</Tag>
             </Tooltip>
           ))}
@@ -88,7 +95,10 @@ export function RulesByThing({
   }, [things]);
 
   return (
-    <Space orientation="vertical" ref={ref}>
+    <Space
+      orientation="vertical"
+      ref={ref}
+    >
       <Typography.Title level={5}>
         Rules By Items <Divider orientation="vertical" /> Added: <Tag>{Object.keys(things).length}</Tag>{' '}
         Available to add <Tag>{availableThings.length}</Tag>
@@ -104,7 +114,12 @@ export function RulesByThing({
 
       <Divider />
 
-      <Table columns={columns} dataSource={rows} pagination={paginationProps} rowKey="itemId" />
+      <Table
+        columns={columns}
+        dataSource={rows}
+        pagination={paginationProps}
+        rowKey="itemId"
+      />
 
       <Divider />
 
@@ -112,10 +127,17 @@ export function RulesByThing({
       <Space wrap>
         {duplicatedThings.length === 0 && <Typography.Text>No duplicated things</Typography.Text>}
         {duplicatedThings.map((ids) => (
-          <Flex align="center" key={ids[0]}>
+          <Flex
+            align="center"
+            key={ids[0]}
+          >
             <Tag color="red">{ids.length}</Tag>
             {ids.map((itemId) => (
-              <ThingButton key={`i-${itemId}`} onActivateThing={setActiveThing} thing={things[itemId]} />
+              <ThingButton
+                key={`i-${itemId}`}
+                onActivateThing={setActiveThing}
+                thing={things[itemId]}
+              />
             ))}
           </Flex>
         ))}

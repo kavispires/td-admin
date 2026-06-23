@@ -4,12 +4,12 @@ import { FilterSwitch } from 'components/Common';
 import { AlienSign } from 'components/Sprites';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
-import type { ItemAttribute, ItemAttributesValues } from 'types';
+import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
 import { filterMessage, getItemAttributePriorityResponse, parseAttribute } from '../utils';
 
 type ItemAttributeDescriptionProps = {
-  itemAttributeValues: ItemAttributesValues;
-  attributes: Dictionary<ItemAttribute>;
+  itemAttributeValues: ItemAttributesValuesData;
+  attributes: Dictionary<ItemAttributeData>;
 };
 
 export function ItemAttributeDescription({ itemAttributeValues, attributes }: ItemAttributeDescriptionProps) {
@@ -30,7 +30,10 @@ export function ItemAttributeDescription({ itemAttributeValues, attributes }: It
   const Component = is('signs') ? AttributeSprite : AttributeText;
 
   return (
-    <Flex gap={6} vertical>
+    <Flex
+      gap={6}
+      vertical
+    >
       <FilterSwitch
         className="full-width m-0"
         label="Show Unrelated"
@@ -49,7 +52,11 @@ export function ItemAttributeDescription({ itemAttributeValues, attributes }: It
         onChange={(v) => addParam('signs', v ? 'true' : '')}
         value={is('signs')}
       />
-      <Flex className="item-attribute-value-statement" gap={6} wrap="wrap">
+      <Flex
+        className="item-attribute-value-statement"
+        gap={6}
+        wrap="wrap"
+      >
         {filteredResponse.map((keyVariant, index, arr) => (
           <Component
             attributes={attributes}
@@ -66,7 +73,7 @@ export function ItemAttributeDescription({ itemAttributeValues, attributes }: It
 
 type AttributeSpriteProps = {
   keyVariant: string;
-  attributes: Dictionary<ItemAttribute>;
+  attributes: Dictionary<ItemAttributeData>;
   firstElement: boolean;
   lastElement: boolean;
 };
@@ -79,7 +86,10 @@ export function AttributeSprite({
   const { key, className, text } = parseAttribute(keyVariant);
 
   return (
-    <Flex align="center" vertical>
+    <Flex
+      align="center"
+      vertical
+    >
       <AlienSign
         className={clsx('item-attribute-alien-sign', `item-attribute-alien-sign--${className}`)}
         signId={attributes[key].spriteId}

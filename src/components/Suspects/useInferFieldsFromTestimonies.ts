@@ -7,7 +7,7 @@ import {
   testimoniesDeserializer,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useState } from 'react';
-import type { SuspectExtendedInfo, TestimonyQuestionCard } from 'types';
+import type { SuspectExtendedInfoData, TestimonyQuestionCardData } from 'types';
 
 const POSITIVE_WEIGHT = 3;
 const NEUTRAL_WEIGHT = 1;
@@ -37,12 +37,12 @@ const NEUTRAL_WEIGHT = 1;
  * ```
  */
 export function useInferFieldsFromTestimonies(
-  addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>['addEntryToUpdate'],
+  addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfoData>['addEntryToUpdate'],
 ) {
   const [enabled, setEnabled] = useState(true);
 
   // Get Testimonies
-  const testimoniesQuery = useTDResource<TestimonyQuestionCard>('testimony-questions-pt', { enabled });
+  const testimoniesQuery = useTDResource<TestimonyQuestionCardData>('testimony-questions-pt', { enabled });
 
   // Get Testimonies answers
   const testimonyAnswersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
@@ -50,7 +50,7 @@ export function useInferFieldsFromTestimonies(
     enabled,
   });
 
-  const onInfer = async (suspectExtendedInfo: SuspectExtendedInfo) => {
+  const onInfer = async (suspectExtendedInfo: SuspectExtendedInfoData) => {
     const testimonies = testimoniesQuery.data;
     const answers = testimonyAnswersQuery.data;
 

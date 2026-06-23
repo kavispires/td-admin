@@ -5,7 +5,7 @@ import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { ImageCard } from 'components/Images/ImageCard';
 import type { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { merge } from 'lodash';
-import type { ContenderCard } from 'types';
+import type { ContenderCardData } from 'types';
 import { removeDuplicates } from 'utils';
 import { PLACEHOLDER_DUAL_LANGUAGE_OBJECT } from 'utils/constants';
 
@@ -43,12 +43,12 @@ const checkInvalidDecks = (decks?: string[], exclusivity?: string) => {
 };
 
 type ContenderEditCardProps = {
-  contender: ContenderCard;
-  addEntryToUpdate: ReturnType<typeof useResourceFirestoreData<ContenderCard>>['addEntryToUpdate'];
+  contender: ContenderCardData;
+  addEntryToUpdate: ReturnType<typeof useResourceFirestoreData<ContenderCardData>>['addEntryToUpdate'];
 };
 
 export function ContenderEditCard({ contender, addEntryToUpdate }: ContenderEditCardProps) {
-  const onUpdateDualText = (value: string, field: keyof ContenderCard, language: 'en' | 'pt') => {
+  const onUpdateDualText = (value: string, field: keyof ContenderCardData, language: 'en' | 'pt') => {
     addEntryToUpdate(
       contender.id,
       merge({ [field]: { en: '', pt: '' } }, contender, { [field]: { [language]: value } }),
@@ -65,7 +65,12 @@ export function ContenderEditCard({ contender, addEntryToUpdate }: ContenderEdit
 
   return (
     <Card
-      cover={<ImageCard cardId={contender.id} cardWidth={240} />}
+      cover={
+        <ImageCard
+          cardId={contender.id}
+          cardWidth={240}
+        />
+      }
       hoverable
       style={{ width: 240, maxWidth: 240 }}
     >
@@ -107,11 +112,21 @@ export function ContenderEditCard({ contender, addEntryToUpdate }: ContenderEdit
             />
             <Flex align="center">
               <Label>NSFW</Label>{' '}
-              <NSFWField onChange={(e) => onUpdateNSFW(e)} size="small" value={contender.nsfw} />
+              <NSFWField
+                onChange={(e) => onUpdateNSFW(e)}
+                size="small"
+                value={contender.nsfw}
+              />
             </Flex>
-            <Flex align="center" gap={8}>
+            <Flex
+              align="center"
+              gap={8}
+            >
               <Label>Exclusivity</Label>{' '}
-              <Exclusivity addEntryToUpdate={addEntryToUpdate} contender={contender} />
+              <Exclusivity
+                addEntryToUpdate={addEntryToUpdate}
+                contender={contender}
+              />
             </Flex>
           </Flex>
         }
@@ -128,8 +143,24 @@ function Exclusivity({ contender, addEntryToUpdate }: ContenderEditCardProps) {
   };
 
   const options = [
-    { value: 'en', label: <LanguageFlag language="en" style={{ width: 24 }} /> },
-    { value: 'pt', label: <LanguageFlag language="pt" style={{ width: 24 }} /> },
+    {
+      value: 'en',
+      label: (
+        <LanguageFlag
+          language="en"
+          style={{ width: 24 }}
+        />
+      ),
+    },
+    {
+      value: 'pt',
+      label: (
+        <LanguageFlag
+          language="pt"
+          style={{ width: 24 }}
+        />
+      ),
+    },
     { value: 'none', label: 'None' },
   ];
 
@@ -145,10 +176,24 @@ function Exclusivity({ contender, addEntryToUpdate }: ContenderEditCardProps) {
 
   return (
     <Flex gap={8}>
-      {contender?.exclusivity === 'en' && <LanguageFlag language="en" style={{ width: 24 }} />}
-      {contender?.exclusivity === 'pt' && <LanguageFlag language="pt" style={{ width: 24 }} />}
+      {contender?.exclusivity === 'en' && (
+        <LanguageFlag
+          language="en"
+          style={{ width: 24 }}
+        />
+      )}
+      {contender?.exclusivity === 'pt' && (
+        <LanguageFlag
+          language="pt"
+          style={{ width: 24 }}
+        />
+      )}
       {!contender?.exclusivity && 'None'}
-      <Popover content={content} title="Change exclusivity?" trigger="click">
+      <Popover
+        content={content}
+        title="Change exclusivity?"
+        trigger="click"
+      >
         <EditOutlined />
       </Popover>
     </Flex>

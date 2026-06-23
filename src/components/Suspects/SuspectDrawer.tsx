@@ -18,7 +18,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep, set } from 'lodash';
 import { type ReactNode, useEffect, useState } from 'react';
-import type { SuspectCard, SuspectExtendedInfo } from 'types';
+import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 import { AddDataModal } from './AddDataModal';
 import {
   AGE_OPTIONS,
@@ -40,10 +40,10 @@ import { SuspectImageCard } from './SuspectImageCard';
 import { useInferFieldsFromTestimonies } from './useInferFieldsFromTestimonies';
 
 type SuspectDrawerProps = {
-  suspects: Dictionary<SuspectCard>;
-  suspectsExtendedInfos: Dictionary<SuspectExtendedInfo>;
-  addSuspectEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectCard>['addEntryToUpdate'];
-  addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>['addEntryToUpdate'];
+  suspects: Dictionary<SuspectCardData>;
+  suspectsExtendedInfos: Dictionary<SuspectExtendedInfoData>;
+  addSuspectEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectCardData>['addEntryToUpdate'];
+  addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfoData>['addEntryToUpdate'];
   personalityOptions: string[];
 };
 
@@ -59,11 +59,11 @@ export function SuspectDrawer({
   const drawerTab = queryParams.get('drawerTab') || 'Basic';
   const suspect = suspects[suspectId ?? ''];
 
-  const updateSuspectKeyValue = (suspectId: string, key: keyof SuspectCard | string, value: unknown) => {
+  const updateSuspectKeyValue = (suspectId: string, key: keyof SuspectCardData | string, value: unknown) => {
     const suspect = suspects[suspectId];
     if (!suspect) return;
 
-    if (suspect[key as keyof SuspectCard] === value) return;
+    if (suspect[key as keyof SuspectCardData] === value) return;
 
     addSuspectEntryToUpdate(suspectId, {
       ...suspect,
@@ -73,13 +73,13 @@ export function SuspectDrawer({
 
   const updateExtendedKeyValue = (
     suspectId: string,
-    key: keyof SuspectExtendedInfo | string,
+    key: keyof SuspectExtendedInfoData | string,
     value: unknown,
   ) => {
     const suspectExtendedInfo = suspectsExtendedInfos[suspectId];
     if (!suspectExtendedInfo) return;
 
-    if (suspectExtendedInfo[key as keyof SuspectExtendedInfo] === value) return;
+    if (suspectExtendedInfo[key as keyof SuspectExtendedInfoData] === value) return;
 
     addExtendedInfoEntryToUpdate(suspectId, {
       ...suspectExtendedInfo,
@@ -105,11 +105,17 @@ export function SuspectDrawer({
         >
           <div>
             <div style={{ top: 64, position: 'fixed' }}>
-              <SuspectImageCard cardId={suspect.id} cardWidth={100} />
+              <SuspectImageCard
+                cardId={suspect.id}
+                cardWidth={100}
+              />
             </div>
           </div>
 
-          <Flex gap={4} vertical>
+          <Flex
+            gap={4}
+            vertical
+          >
             <Segmented
               onChange={(value) => addParam('drawerTab', value)}
               options={['Basic', 'Features', 'Extended']}
@@ -154,11 +160,19 @@ export function SuspectDrawer({
           </Flex>
         </div>
         {drawerTab === 'Basic' && (
-          <SuspectBasicInfo key={suspectId} suspect={suspect} updateSuspectKeyValue={updateSuspectKeyValue} />
+          <SuspectBasicInfo
+            key={suspectId}
+            suspect={suspect}
+            updateSuspectKeyValue={updateSuspectKeyValue}
+          />
         )}
 
         {drawerTab === 'Features' && (
-          <SuspectFeatures addEntryToUpdate={addSuspectEntryToUpdate} key={suspectId} suspect={suspect} />
+          <SuspectFeatures
+            addEntryToUpdate={addSuspectEntryToUpdate}
+            key={suspectId}
+            suspect={suspect}
+          />
         )}
 
         {drawerTab === 'Extended' && (
@@ -197,20 +211,23 @@ function Footer() {
   };
 
   return (
-    <Flex gap={8} justify="end">
+    <Flex
+      gap={8}
+      justify="end"
+    >
       <Button onClick={onPreviousSuspect}>Previous</Button>
       <Button onClick={onNextSuspect}>Next</Button>
     </Flex>
   );
 }
 
-type TextFieldProps<TSuspect extends SuspectCard | SuspectExtendedInfo> = {
+type TextFieldProps<TSuspect extends SuspectCardData | SuspectExtendedInfoData> = {
   /**
    * The ID of the suspect
    */
   suspectId: string;
   /**
-   * The suspect object (SuspectCard or SuspectExtendedInfo)
+   * The suspect object (SuspectCardData or SuspectExtendedInfoData)
    */
   suspect: TSuspect;
   /**
@@ -231,7 +248,7 @@ type TextFieldProps<TSuspect extends SuspectCard | SuspectExtendedInfo> = {
   updater: (id: string, value: TSuspect) => void;
 } & Omit<InputProps, 'onChange' | 'value'>;
 
-function TextField<TSuspect extends SuspectCard | SuspectExtendedInfo>({
+function TextField<TSuspect extends SuspectCardData | SuspectExtendedInfoData>({
   label,
   defaultValue,
   suspect,
@@ -273,7 +290,7 @@ function TextField<TSuspect extends SuspectCard | SuspectExtendedInfo>({
 type RadioSelectionGroupProps = {
   label: ReactNode;
   suspectId: string;
-  valueKey: keyof SuspectCard | keyof SuspectExtendedInfo;
+  valueKey: keyof SuspectCardData | keyof SuspectExtendedInfoData;
   value: string;
   options: RadioGroupProps['options'];
   updater: (id: string, key: string, value: string) => void;
@@ -308,7 +325,7 @@ function RadioSelectionGroup({
 type SelectionFieldProps = {
   label: ReactNode;
   suspectId: string;
-  valueKey: keyof SuspectCard | keyof SuspectExtendedInfo;
+  valueKey: keyof SuspectCardData | keyof SuspectExtendedInfoData;
   value: string;
   options: SelectProps['options'];
   updater: (id: string, key: string, value: string) => void;
@@ -340,7 +357,7 @@ function SelectionField({
 }
 
 type SuspectBasicInfoProps = {
-  suspect: SuspectCard;
+  suspect: SuspectCardData;
   updateSuspectKeyValue: (id: string, key: string, value: unknown) => void;
 };
 
@@ -387,10 +404,10 @@ function SuspectBasicInfo({ suspect, updateSuspectKeyValue }: SuspectBasicInfoPr
 }
 
 type SuspectExtendedInfoProps = {
-  suspect: SuspectCard;
-  suspectExtendedInfo: SuspectExtendedInfo;
+  suspect: SuspectCardData;
+  suspectExtendedInfo: SuspectExtendedInfoData;
   updateExtendedKeyValue: (id: string, key: string, value: unknown) => void;
-  addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>['addEntryToUpdate'];
+  addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfoData>['addEntryToUpdate'];
   personalityOptions: string[];
 };
 
@@ -415,8 +432,14 @@ function SuspectExtendedInfoForm({
 
   return (
     <>
-      <Flex gap={8} vertical>
-        <Typography.Title italic level={5}>
+      <Flex
+        gap={8}
+        vertical
+      >
+        <Typography.Title
+          italic
+          level={5}
+        >
           Extended Info{' '}
           <AddDataModal
             addSuspectExtendedInfo={addExtendedInfoEntryToUpdate}
@@ -424,7 +447,10 @@ function SuspectExtendedInfoForm({
             suspectExtendedInfo={suspectExtendedInfo}
           />
         </Typography.Title>
-        <Flex gap={4} vertical>
+        <Flex
+          gap={4}
+          vertical
+        >
           <Typography.Text strong>Persona</Typography.Text>
           <TextField
             defaultValue={suspectExtendedInfo.persona?.pt || ''}
@@ -447,7 +473,10 @@ function SuspectExtendedInfoForm({
           />
         </Flex>
 
-        <Flex gap={4} vertical>
+        <Flex
+          gap={4}
+          vertical
+        >
           <Typography.Text strong>
             Prompt <DescriptionPromptButton extendedInfo={suspectExtendedInfo} />
           </Typography.Text>
@@ -461,7 +490,10 @@ function SuspectExtendedInfoForm({
           />
         </Flex>
 
-        <Flex gap={4} vertical>
+        <Flex
+          gap={4}
+          vertical
+        >
           <Typography.Text strong>Description</Typography.Text>
           <TextField
             defaultValue={suspectExtendedInfo.description || ''}
@@ -474,7 +506,10 @@ function SuspectExtendedInfoForm({
         </Flex>
       </Flex>
       <div className="grid grid-2 gap-4 my-4">
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           <Typography.Text strong>Animal</Typography.Text>
           <TextField
             defaultValue={suspectExtendedInfo.animal || ''}
@@ -486,7 +521,10 @@ function SuspectExtendedInfoForm({
           />
         </Flex>
 
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           <Typography.Text strong>Occupation</Typography.Text>
           <TextField
             defaultValue={suspectExtendedInfo.occupation || ''}
@@ -498,7 +536,10 @@ function SuspectExtendedInfoForm({
           />
         </Flex>
 
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           <Typography.Text strong>Ethnicity</Typography.Text>
           <TextField
             defaultValue={suspectExtendedInfo.ethnicity || ''}
@@ -541,7 +582,12 @@ function SuspectExtendedInfoForm({
         />
 
         <div style={{ gridColumn: 'span 2' }}>
-          <Button block icon={<CloudSyncOutlined />} onClick={handleInfer} size="small">
+          <Button
+            block
+            icon={<CloudSyncOutlined />}
+            onClick={handleInfer}
+            size="small"
+          >
             Infer fields from Testimonies
           </Button>
         </div>
@@ -573,7 +619,10 @@ function SuspectExtendedInfoForm({
           valueKey="educationLevel"
         />
 
-        <Flex gap={4} vertical>
+        <Flex
+          gap={4}
+          vertical
+        >
           <Typography.Text strong>Traits</Typography.Text>
           <Select
             defaultValue={suspectExtendedInfo.traits ?? []}
@@ -591,8 +640,8 @@ function SuspectExtendedInfoForm({
 }
 
 type SuspectFeaturesProps = {
-  suspect: SuspectCard;
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectCard>['addEntryToUpdate'];
+  suspect: SuspectCardData;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectCardData>['addEntryToUpdate'];
 };
 
 function SuspectFeatures({ suspect, addEntryToUpdate }: SuspectFeaturesProps) {
@@ -606,16 +655,29 @@ function SuspectFeatures({ suspect, addEntryToUpdate }: SuspectFeaturesProps) {
     addEntryToUpdate(suspect.id, { ...suspect, features: updatedFeatures });
   };
   return (
-    <Flex gap={6} vertical>
-      <Typography.Title italic level={5}>
+    <Flex
+      gap={6}
+      vertical
+    >
+      <Typography.Title
+        italic
+        level={5}
+      >
         Image Features for gb style
       </Typography.Title>
       <div className="grid grid-2">
         {FEATURES_BY_GROUP.map((group) => (
-          <div className="my-4" key={group.title}>
+          <div
+            className="my-4"
+            key={group.title}
+          >
             <Typography.Text strong>{group.title}</Typography.Text>
             {group.features.map((feature) => (
-              <Flex className="my-2" gap={4} key={feature.id}>
+              <Flex
+                className="my-2"
+                gap={4}
+                key={feature.id}
+              >
                 <Switch
                   checked={features.includes(feature.id)}
                   onChange={() => onUpdateFeature(feature.id)}

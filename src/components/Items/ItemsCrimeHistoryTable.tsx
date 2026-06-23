@@ -7,7 +7,7 @@ import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useTDResource } from 'hooks/useTDResource';
 import { shuffle } from 'lodash';
 import { useMemo } from 'react';
-import type { CrimesHediondosCard, Item as ItemT } from 'types';
+import type { CrimesHediondosCardData, ItemData as ItemT } from 'types';
 import { ItemId, ItemName } from './ItemBuildingBlocks';
 
 type Crime = {
@@ -55,7 +55,7 @@ export function ItemsCrimeHistoryTable() {
 
   const onCopyAsCrimesHediondosCard = (record: ItemT, kind: string) => {
     const prefix = kind === 'weapon' ? 'wp' : 'ev';
-    const card: CrimesHediondosCard = {
+    const card: CrimesHediondosCardData = {
       id: `dmhk-${prefix}-000`,
       type: kind,
       name: {
@@ -79,13 +79,25 @@ export function ItemsCrimeHistoryTable() {
       title: 'Suspect',
       dataIndex: 'suspect',
       render: (item) => (
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           {item ? (
             <>
-              <Item itemId={item.id} width={60} />
+              <Item
+                itemId={item.id}
+                width={60}
+              />
               <ItemId item={item} />
-              <ItemName item={item} language="pt" />
-              <ItemName item={item} language="en" />
+              <ItemName
+                item={item}
+                language="pt"
+              />
+              <ItemName
+                item={item}
+                language="en"
+              />
             </>
           ) : (
             '?'
@@ -97,13 +109,25 @@ export function ItemsCrimeHistoryTable() {
       title: 'Means of Murder',
       dataIndex: 'weapon',
       render: (item) => (
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           {item ? (
             <>
-              <Item itemId={item.id} width={60} />
+              <Item
+                itemId={item.id}
+                width={60}
+              />
               <ItemId item={item} />
-              <ItemName item={item} language="pt" />
-              <ItemName item={item} language="en" />
+              <ItemName
+                item={item}
+                language="pt"
+              />
+              <ItemName
+                item={item}
+                language="en"
+              />
               <Button
                 icon={<CopyOutlined />}
                 onClick={() => onCopyAsCrimesHediondosCard(item, 'weapon')}
@@ -122,13 +146,25 @@ export function ItemsCrimeHistoryTable() {
       title: 'Evidence',
       dataIndex: 'evidence',
       render: (item) => (
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           {item ? (
             <>
-              <Item itemId={item.id} width={60} />
+              <Item
+                itemId={item.id}
+                width={60}
+              />
               <ItemId item={item} />
-              <ItemName item={item} language="pt" />
-              <ItemName item={item} language="en" />
+              <ItemName
+                item={item}
+                language="pt"
+              />
+              <ItemName
+                item={item}
+                language="en"
+              />
               <Button
                 icon={<CopyOutlined />}
                 onClick={() => onCopyAsCrimesHediondosCard(item, 'evidence')}
@@ -147,13 +183,25 @@ export function ItemsCrimeHistoryTable() {
       title: 'Location',
       dataIndex: 'location',
       render: (item) => (
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           {item ? (
             <>
-              <Item itemId={item.id} width={60} />
+              <Item
+                itemId={item.id}
+                width={60}
+              />
               <ItemId item={item} />
-              <ItemName item={item} language="pt" />
-              <ItemName item={item} language="en" />
+              <ItemName
+                item={item}
+                language="pt"
+              />
+              <ItemName
+                item={item}
+                language="en"
+              />
             </>
           ) : (
             '?'
@@ -170,7 +218,11 @@ export function ItemsCrimeHistoryTable() {
         return (
           <Flex vertical>
             <CopyToClipboardButton content={content} />
-            <Input.TextArea readOnly rows={3} value={content} />
+            <Input.TextArea
+              readOnly
+              rows={3}
+              value={content}
+            />
           </Flex>
         );
       },
@@ -178,8 +230,16 @@ export function ItemsCrimeHistoryTable() {
   ];
 
   return (
-    <Space className="my-4" orientation="vertical">
-      <Table columns={columns} dataSource={crimes} pagination={{ showQuickJumper: true }} rowKey="id" />
+    <Space
+      className="my-4"
+      orientation="vertical"
+    >
+      <Table
+        columns={columns}
+        dataSource={crimes}
+        pagination={{ showQuickJumper: true }}
+        rowKey="id"
+      />
     </Space>
   );
 }

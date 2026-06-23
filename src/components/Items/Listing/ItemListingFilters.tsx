@@ -9,7 +9,7 @@ import { useItemsContext } from 'context/ItemsContext';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, cloneDeep, orderBy } from 'lodash';
 import { useMemo } from 'react';
-import type { Item } from 'types';
+import type { ItemData } from 'types';
 import { deepCleanObject, sortJsonKeys } from 'utils';
 import { AddNewItem } from './AddNewItem';
 
@@ -33,7 +33,10 @@ export function ItemListingFilters() {
 
   return (
     <SiderContent>
-      <Flex gap={6} vertical>
+      <Flex
+        gap={6}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(itemsToUpdate)}
           isDirty={isDirty}
@@ -50,7 +53,11 @@ export function ItemListingFilters() {
         />
 
         <Flex justify="center">
-          <FirestoreConsoleWipe docId="items" path="tdr" queryKey={['tdr', 'items']} />
+          <FirestoreConsoleWipe
+            docId="items"
+            path="tdr"
+            queryKey={['tdr', 'items']}
+          />
         </Flex>
       </Flex>
       <Divider className="my-4" />
@@ -148,11 +155,11 @@ export function ItemListingFilters() {
   );
 }
 
-function prepareFileForDownload(items: Dictionary<Item>) {
+function prepareFileForDownload(items: Dictionary<ItemData>) {
   console.log('Preparing file for download...');
   const copy = cloneDeep(items);
 
-  Object.values(copy).reduce((acc: Dictionary<Item>, item) => {
+  Object.values(copy).reduce((acc: Dictionary<ItemData>, item) => {
     // Fixed aliases
     item.aliasesEn = Object.values(item.aliasesEn ?? {}).sort();
     if (item.aliasesEn.length === 0) {
@@ -190,7 +197,7 @@ type OpenAiItem = {
   };
 };
 
-function prepareOpenAIFileForDownload(items: Dictionary<Item>) {
+function prepareOpenAIFileForDownload(items: Dictionary<ItemData>) {
   return sortJsonKeys(
     Object.values(cloneDeep(items)).reduce((acc: Dictionary<OpenAiItem>, item) => {
       const entry = {

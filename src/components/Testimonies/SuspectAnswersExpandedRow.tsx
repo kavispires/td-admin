@@ -8,21 +8,21 @@ import type {
   TestimonyAnswersValues,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo, useState } from 'react';
-import type { SuspectCard, TestimonyQuestionCard } from 'types';
+import type { SuspectCardData, TestimonyQuestionCardData } from 'types';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';
 import { calculateSuspectAnswersData } from './utils';
 
 type SuspectAnswersExpandedRowProps = {
-  suspect: SuspectCard;
+  suspect: SuspectCardData;
   answersPerQuestion: TestimonyAnswers;
-  questions: Dictionary<TestimonyQuestionCard>;
+  questions: Dictionary<TestimonyQuestionCardData>;
   addEntryToUpdate: (testimonyId: string, answers: TestimonyAnswers) => void;
   allAnswers: Dictionary<TestimonyAnswers>;
 };
 
 type RowType = {
   id: string;
-  question: TestimonyQuestionCard;
+  question: TestimonyQuestionCardData;
   enoughData: boolean;
   reliable: boolean;
   total: number;
@@ -106,7 +106,10 @@ export function SuspectAnswersExpandedRow({
       title: 'Question',
       dataIndex: 'question',
       render: (question) => (
-        <Flex align="center" gap={6}>
+        <Flex
+          align="center"
+          gap={6}
+        >
           <span>{question.question}</span> <Tag>L{question.level}</Tag>{' '}
           {question.nsfw && <FireFilled style={{ color: 'hotPink' }} />}
           {question.deprecated && <Tag color="error">Deprecated</Tag>}
@@ -126,7 +129,10 @@ export function SuspectAnswersExpandedRow({
         }
 
         return (
-          <Flex gap={8} wrap="nowrap">
+          <Flex
+            gap={8}
+            wrap="nowrap"
+          >
             <PopoverStrongAnswers
               addEntryToUpdate={addEntryToUpdate}
               answers={allAnswers[entry.question.id] || {}}
@@ -192,8 +198,15 @@ export function SuspectAnswersExpandedRow({
   }, [list, searchQuery, filterHighValues]);
 
   return (
-    <Space size="large" wrap>
-      <Flex className="full-width" gap={16} vertical>
+    <Space
+      size="large"
+      wrap
+    >
+      <Flex
+        className="full-width"
+        gap={16}
+        vertical
+      >
         <Flex gap={6}>
           <Input
             allowClear
@@ -203,8 +216,14 @@ export function SuspectAnswersExpandedRow({
             style={{ marginBottom: 16, width: 320 }}
             value={searchQuery}
           />
-          <Flex align="center" gap={8}>
-            <Switch checked={filterHighValues} onChange={setFilterHighValues} />
+          <Flex
+            align="center"
+            gap={8}
+          >
+            <Switch
+              checked={filterHighValues}
+              onChange={setFilterHighValues}
+            />
             <Typography.Text>Show only missing questions</Typography.Text>
           </Flex>
         </Flex>
@@ -217,16 +236,24 @@ export function SuspectAnswersExpandedRow({
           tableLayout="fixed"
         />
       </Flex>
-      <Flex gap={8} vertical>
+      <Flex
+        gap={8}
+        vertical
+      >
         <Typography.Title level={5}>Suspect Description</Typography.Title>
 
-        <Input.TextArea className="full-width" readOnly rows={7} value={description} />
+        <Input.TextArea
+          className="full-width"
+          readOnly
+          rows={7}
+          value={description}
+        />
       </Flex>
     </Space>
   );
 }
 
-const writeDescription = (suspect: SuspectCard, list: RowType[]) => {
+const writeDescription = (suspect: SuspectCardData, list: RowType[]) => {
   const sentences = list
     .filter((entry) => entry.resolution || entry.projection)
     .map((entry) => {
@@ -243,7 +270,7 @@ type ActionCellProps = {
   testimonyId: string;
   answers: TestimonyAnswers;
   addEntryToUpdate: (testimonyId: string, answers: TestimonyAnswers) => void;
-  suspect: SuspectCard;
+  suspect: SuspectCardData;
 };
 
 export function ActionCell({ suspect, testimonyId, addEntryToUpdate, answers }: ActionCellProps) {
@@ -277,26 +304,63 @@ export function ActionCell({ suspect, testimonyId, addEntryToUpdate, answers }: 
   }, [answers, suspect.id]);
 
   return (
-    <Flex align="center" gap={6} wrap="nowrap">
-      <Badge color={total > 20 ? 'gold' : 'grey'} count={total} showZero style={{ minWidth: 32 }} />
+    <Flex
+      align="center"
+      gap={6}
+      wrap="nowrap"
+    >
+      <Badge
+        color={total > 20 ? 'gold' : 'grey'}
+        count={total}
+        showZero
+        style={{ minWidth: 32 }}
+      />
       <Space.Compact>
-        <Button block icon="👍" onClick={() => onAddValue(suspect.id, 4)}>
+        <Button
+          block
+          icon="👍"
+          onClick={() => onAddValue(suspect.id, 4)}
+        >
           FIT
         </Button>
-        <Button icon="❌" onClick={() => onRemoveValue(suspect.id, 4)} />
-        <Button block icon="👎" onClick={() => onAddValue(suspect.id, -4)}>
+        <Button
+          icon="❌"
+          onClick={() => onRemoveValue(suspect.id, 4)}
+        />
+        <Button
+          block
+          icon="👎"
+          onClick={() => onAddValue(suspect.id, -4)}
+        >
           UNFIT
         </Button>
-        <Button icon="❌" onClick={() => onRemoveValue(suspect.id, -4)} />
+        <Button
+          icon="❌"
+          onClick={() => onRemoveValue(suspect.id, -4)}
+        />
 
-        <Button block icon="⬆️" onClick={() => onAddValue(suspect.id, 32)}>
+        <Button
+          block
+          icon="⬆️"
+          onClick={() => onAddValue(suspect.id, 32)}
+        >
           Sure
         </Button>
-        <Button icon="✖️" onClick={() => onRemoveValue(suspect.id, 32)} />
-        <Button block icon="⬇️" onClick={() => onAddValue(suspect.id, -32)}>
+        <Button
+          icon="✖️"
+          onClick={() => onRemoveValue(suspect.id, 32)}
+        />
+        <Button
+          block
+          icon="⬇️"
+          onClick={() => onAddValue(suspect.id, -32)}
+        >
           Sure
         </Button>
-        <Button icon="✖️" onClick={() => onRemoveValue(suspect.id, -32)} />
+        <Button
+          icon="✖️"
+          onClick={() => onRemoveValue(suspect.id, -32)}
+        />
       </Space.Compact>
     </Flex>
   );

@@ -2,7 +2,7 @@ import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
 import { intersection, sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
-import type { DailyDiscSet, Item } from 'types';
+import type { DailyDiscSet, ItemData } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
@@ -53,7 +53,7 @@ export const useDailyAquiOGames = (
 ) => {
   const [aquiOHistory] = useParsedHistory(DAILY_GAMES_KEYS.AQUI_O, dailyHistory);
 
-  const tdrItemsQuery = useTDResource<Item>('items', { enabled });
+  const tdrItemsQuery = useTDResource<ItemData>('items', { enabled });
   const aquiOSetsQuery = useTDResource<DailyDiscSet>('daily-disc-sets', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
@@ -83,7 +83,7 @@ export const buildDailyAquiOGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   discSets: Dictionary<DailyDiscSet>,
-  items: Dictionary<Item>,
+  items: Dictionary<ItemData>,
 ) => {
   debugCount('Creating Aqui Ó...');
   // Filter complete sets only
@@ -118,7 +118,7 @@ export const buildDailyAquiOGames = (
 
     // SPECIAL DATA HANDLER: Modify the date below
     if (id === '2026-01-01') {
-      setEntry = discSets['white'];
+      setEntry = discSets.white;
     }
 
     if (isWeekend) {

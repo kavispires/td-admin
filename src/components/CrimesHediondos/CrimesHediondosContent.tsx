@@ -1,23 +1,23 @@
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo } from 'react';
-import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
+import type { CrimeSceneTileData, CrimesHediondosCardData } from 'types';
 import { CrimeTableContent } from './CrimeTable';
 import './CrimesHediondos.scss';
 import { Alert } from 'antd';
 import { SceneTable } from './SceneTable';
 
 export type CrimesHediondosContentProps = {
-  weaponsQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCard>;
-  evidenceQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCard>;
-  locationsQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCard>;
-  victimsQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCard>;
-  scenesQuery: UseResourceFirestoreDataReturnType<CrimeSceneTile>;
+  weaponsQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCardData>;
+  evidenceQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCardData>;
+  locationsQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCardData>;
+  victimsQuery: UseResourceFirestoreDataReturnType<CrimesHediondosCardData>;
+  scenesQuery: UseResourceFirestoreDataReturnType<CrimeSceneTileData>;
 };
 
 export type CrimesHediondosInnerContentProps = {
-  rows: CrimesHediondosCard[];
-  onUpdateCard: (card: CrimesHediondosCard) => void;
+  rows: CrimesHediondosCardData[];
+  onUpdateCard: (card: CrimesHediondosCardData) => void;
 };
 
 export function CrimesHediondosContent({
@@ -38,7 +38,7 @@ export function CrimesHediondosContent({
     ];
   }, [weaponsQuery.data, evidenceQuery.data, locationsQuery.data, victimsQuery.data]);
 
-  const onUpdateCard = (card: CrimesHediondosCard) => {
+  const onUpdateCard = (card: CrimesHediondosCardData) => {
     if (card.type === 'weapon') {
       weaponsQuery.addEntryToUpdate(card.id, card);
     } else if (card.type === 'evidence') {
@@ -63,10 +63,20 @@ export function CrimesHediondosContent({
       )}
 
       {is('display', 'tags') && (
-        <Alert closable showIcon title="Tags table is not implemented yet" type="info" />
+        <Alert
+          closable
+          showIcon
+          title="Tags table is not implemented yet"
+          type="info"
+        />
       )}
 
-      {is('display', 'scenes') && <SceneTable objects={rows} sceneQuery={scenesQuery} />}
+      {is('display', 'scenes') && (
+        <SceneTable
+          objects={rows}
+          sceneQuery={scenesQuery}
+        />
+      )}
     </>
   );
 }

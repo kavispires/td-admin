@@ -2,12 +2,12 @@ import { filterMessage, getItemAttributePriorityResponse } from 'components/Item
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { keyBy, orderBy } from 'lodash';
 import { useMemo } from 'react';
-import type { Item, ItemAttributesValues } from 'types';
+import type { ItemAttributesValuesData, ItemData } from 'types';
 import { useQueryParams } from './useQueryParams';
 
 export type ItemMessageObject = {
-  item: Item;
-  itemAttributesValues: ItemAttributesValues;
+  item: ItemData;
+  itemAttributesValues: ItemAttributesValuesData;
   message: string[];
   fullMessage: string[];
 };

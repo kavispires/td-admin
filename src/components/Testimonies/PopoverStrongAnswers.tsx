@@ -4,14 +4,14 @@ import type {
   TestimonyAnswers,
   TestimonyAnswersValues,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
-import type { SuspectCard } from 'types';
+import type { SuspectCardData } from 'types';
 
 type PopoverStrongAnswersProps = {
   testimonyId: string;
   answers: TestimonyAnswers;
   addEntryToUpdate: (testimonyId: string, answers: TestimonyAnswers) => void;
   barWidth: number;
-  suspect: SuspectCard;
+  suspect: SuspectCardData;
   values: number[];
   resolution: string | null;
   projection: string | null;
@@ -60,31 +60,68 @@ export function PopoverStrongAnswers({
   return (
     <Popover
       content={
-        <Flex align="center" vertical>
+        <Flex
+          align="center"
+          vertical
+        >
           <Typography.Text type="secondary">{values.join(', ')}</Typography.Text>
           <Space.Compact>
-            <Button icon="+" onClick={() => onAddValue(suspect.id, 1)} />
-            <Button block icon="👍" onClick={() => onAddValue(suspect.id, 4)}>
+            <Button
+              icon="+"
+              onClick={() => onAddValue(suspect.id, 1)}
+            />
+            <Button
+              block
+              icon="👍"
+              onClick={() => onAddValue(suspect.id, 4)}
+            >
               Fit
             </Button>
-            <Button icon="❌" onClick={() => onRemoveValue(suspect.id, 4)} />
-            <Button block icon="👎" onClick={() => onAddValue(suspect.id, -4)}>
+            <Button
+              icon="❌"
+              onClick={() => onRemoveValue(suspect.id, 4)}
+            />
+            <Button
+              block
+              icon="👎"
+              onClick={() => onAddValue(suspect.id, -4)}
+            >
               Unfit
             </Button>
-            <Button icon="❌" onClick={() => onRemoveValue(suspect.id, -4)} />
+            <Button
+              icon="❌"
+              onClick={() => onRemoveValue(suspect.id, -4)}
+            />
           </Space.Compact>
 
           <Divider className="my-1" />
           <Space.Compact>
-            <Button icon="-" onClick={() => onAddValue(suspect.id, -1)} />
-            <Button block icon="⬆️" onClick={() => onAddValue(suspect.id, 32)}>
+            <Button
+              icon="-"
+              onClick={() => onAddValue(suspect.id, -1)}
+            />
+            <Button
+              block
+              icon="⬆️"
+              onClick={() => onAddValue(suspect.id, 32)}
+            >
               Sure
             </Button>
-            <Button icon="✖️" onClick={() => onRemoveValue(suspect.id, 32)} />
-            <Button block icon="⬇️" onClick={() => onAddValue(suspect.id, -32)}>
+            <Button
+              icon="✖️"
+              onClick={() => onRemoveValue(suspect.id, 32)}
+            />
+            <Button
+              block
+              icon="⬇️"
+              onClick={() => onAddValue(suspect.id, -32)}
+            >
               Sure
             </Button>
-            <Button icon="✖️" onClick={() => onRemoveValue(suspect.id, -32)} />
+            <Button
+              icon="✖️"
+              onClick={() => onRemoveValue(suspect.id, -32)}
+            />
           </Space.Compact>
         </Flex>
       }
@@ -102,7 +139,10 @@ export function PopoverStrongAnswers({
           {!!resolution && resolution}
         </div>
       )}
-      <Flex align="flex-start" gap={12}>
+      <Flex
+        align="flex-start"
+        gap={12}
+      >
         <Tooltip
           title={`Values: ${values.join(', ')} : ${resolution ? resolution : projection ? `${projection}*` : ''}`}
         >

@@ -6,7 +6,7 @@ import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTDResource } from 'hooks/useTDResource';
 import { sample } from 'lodash';
 import { useState } from 'react';
-import type { DailyMovieSet, Item as ItemT } from 'types';
+import type { DailyMovieSet, ItemData as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 import { AddItemFlow } from './AddItemsFlow';
 import { MovieEditableCell, MovieItemsCell } from './ItemsMoviesTable';
@@ -54,7 +54,12 @@ export function ItemsMoviesSample({
       title: 'Year',
       dataIndex: 'year',
       render: (year, record) => (
-        <MovieEditableCell addEntryToUpdate={addEntryToUpdate} movie={record} property="year" value={year} />
+        <MovieEditableCell
+          addEntryToUpdate={addEntryToUpdate}
+          movie={record}
+          property="year"
+          value={year}
+        />
       ),
     },
     Table.EXPAND_COLUMN,
@@ -81,12 +86,20 @@ export function ItemsMoviesSample({
 
   const expandableProps = useTableExpandableRows<DailyMovieSet>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <AddItemFlow addEntryToUpdate={addEntryToUpdate} movie={record} />,
+    expandedRowRender: (record) => (
+      <AddItemFlow
+        addEntryToUpdate={addEntryToUpdate}
+        movie={record}
+      />
+    ),
     rowExpandable: () => itemsTypeaheadQuery.isSuccess,
   });
 
   return (
-    <Space className="my-4" orientation="vertical">
+    <Space
+      className="my-4"
+      orientation="vertical"
+    >
       <Button onClick={onGetSample}>Get Random Movie</Button>
       {sampleEntryId && (
         <Table

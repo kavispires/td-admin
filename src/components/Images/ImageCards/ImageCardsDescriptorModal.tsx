@@ -5,7 +5,7 @@ import { FullScreenModal } from 'components/Common/FullScreenModal';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
-import type { ImageCardDescriptor } from 'types';
+import type { ImageCardDescriptorData } from 'types';
 import { removeDuplicates } from 'utils';
 import { ImageCard } from '../ImageCard';
 import { useImageCardsDecks } from './hooks/useImageCardsDecks';
@@ -15,7 +15,7 @@ const DEFAULT_CARD_SIZE = 200;
 export function ImageCardsDescriptorModal({
   data,
   addEntryToUpdate,
-}: Pick<UseResourceFirestoreDataReturnType<ImageCardDescriptor>, 'data' | 'addEntryToUpdate'>) {
+}: Pick<UseResourceFirestoreDataReturnType<ImageCardDescriptorData>, 'data' | 'addEntryToUpdate'>) {
   const { queryParams, removeParam, addParam } = useQueryParams();
   const cardId = queryParams.get('cardId') || '';
   const imageCardsDecksQuery = useImageCardsDecks({ enabled: !!cardId });
@@ -39,23 +39,43 @@ export function ImageCardsDescriptorModal({
   return (
     <FullScreenModal
       actions={[
-        <Button className="my-10" key="cancel" onClick={onClose}>
+        <Button
+          className="my-10"
+          key="cancel"
+          onClick={onClose}
+        >
           Close
         </Button>,
-        <Button className="my-10" key="new" onClick={onNewCard}>
+        <Button
+          className="my-10"
+          key="new"
+          onClick={onNewCard}
+        >
           New Card
         </Button>,
       ]}
       cover={
-        <Flex align="center" justify="center" style={{ width: '100vw' }}>
-          <ImageCard cardId={cardId ?? ''} cardWidth={cardSize} />
+        <Flex
+          align="center"
+          justify="center"
+          style={{ width: '100vw' }}
+        >
+          <ImageCard
+            cardId={cardId ?? ''}
+            cardWidth={cardSize}
+          />
         </Flex>
       }
       onClose={() => removeParam('cardId')}
       open={!!cardId}
       title={`Image Card Descriptor for ${cardId}`}
     >
-      <Flex gap={8} key={cardId} style={{ maxWidth: '500px' }} vertical>
+      <Flex
+        gap={8}
+        key={cardId}
+        style={{ maxWidth: '500px' }}
+        vertical
+      >
         <Slider
           max={500}
           min={100}
@@ -64,11 +84,28 @@ export function ImageCardsDescriptorModal({
           style={{ maxWidth: 500, width: '100%' }}
           value={cardSize}
         />
-        <FavoriteImageCardButton addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
-        <ImageCardTitleField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} />
-        <ImageCardDescriptionField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} />
-        <ImageCardKeywordsField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} />
-        <ImageCardTriggersField addEntryToUpdate={addEntryToUpdate} imageCard={imageCard} size="large" />
+        <FavoriteImageCardButton
+          addEntryToUpdate={addEntryToUpdate}
+          imageCard={imageCard}
+          size="large"
+        />
+        <ImageCardTitleField
+          addEntryToUpdate={addEntryToUpdate}
+          imageCard={imageCard}
+        />
+        <ImageCardDescriptionField
+          addEntryToUpdate={addEntryToUpdate}
+          imageCard={imageCard}
+        />
+        <ImageCardKeywordsField
+          addEntryToUpdate={addEntryToUpdate}
+          imageCard={imageCard}
+        />
+        <ImageCardTriggersField
+          addEntryToUpdate={addEntryToUpdate}
+          imageCard={imageCard}
+          size="large"
+        />
         <ImageCardAssociatedDreamsField
           addEntryToUpdate={addEntryToUpdate}
           imageCard={imageCard}
@@ -80,8 +117,8 @@ export function ImageCardsDescriptorModal({
 }
 
 type FavoriteImageCardButtonProps = {
-  imageCard: ImageCardDescriptor;
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+  imageCard: ImageCardDescriptorData;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptorData>['addEntryToUpdate'];
 } & Omit<ButtonProps, 'onClick' | 'icon' | 'shape'>;
 
 export function FavoriteImageCardButton({
@@ -102,8 +139,8 @@ export function FavoriteImageCardButton({
 }
 
 type ImageCardKeywordsFieldProps = {
-  imageCard: ImageCardDescriptor;
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+  imageCard: ImageCardDescriptorData;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptorData>['addEntryToUpdate'];
 };
 
 /**
@@ -129,7 +166,10 @@ export function ImageCardKeywordsField({ imageCard, addEntryToUpdate }: ImageCar
   };
 
   return (
-    <Flex gap={4} vertical>
+    <Flex
+      gap={4}
+      vertical
+    >
       <Input.Search
         defaultValue={imageCard.keywords?.en}
         enterButton="Update EN"
@@ -149,8 +189,8 @@ export function ImageCardKeywordsField({ imageCard, addEntryToUpdate }: ImageCar
 }
 
 type ImageCardTriggersFieldProps = {
-  imageCard: ImageCardDescriptor;
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+  imageCard: ImageCardDescriptorData;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptorData>['addEntryToUpdate'];
 } & Omit<SelectProps, 'onClick' | 'icon' | 'shape'>;
 
 export function ImageCardTriggersField({
@@ -187,8 +227,8 @@ export function ImageCardTriggersField({
 }
 
 type ImageCardTitleFieldProps = {
-  imageCard: ImageCardDescriptor;
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+  imageCard: ImageCardDescriptorData;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptorData>['addEntryToUpdate'];
 };
 
 /**
@@ -206,7 +246,10 @@ export function ImageCardTitleField({ imageCard, addEntryToUpdate }: ImageCardTi
   };
 
   return (
-    <Flex gap={4} vertical>
+    <Flex
+      gap={4}
+      vertical
+    >
       <DualLanguageTextField
         language="en"
         onBlur={(e) =>
@@ -234,8 +277,8 @@ export function ImageCardTitleField({ imageCard, addEntryToUpdate }: ImageCardTi
 }
 
 type ImageCardDescriptionFieldProps = {
-  imageCard: ImageCardDescriptor;
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+  imageCard: ImageCardDescriptorData;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptorData>['addEntryToUpdate'];
 };
 
 /**
@@ -253,7 +296,10 @@ export function ImageCardDescriptionField({ imageCard, addEntryToUpdate }: Image
   };
 
   return (
-    <Flex gap={4} vertical>
+    <Flex
+      gap={4}
+      vertical
+    >
       <DualLanguageTextField
         language="en"
         onBlur={(e) =>
@@ -281,8 +327,8 @@ export function ImageCardDescriptionField({ imageCard, addEntryToUpdate }: Image
 }
 
 type ImageCardAssociatedDreamsFieldProps = {
-  imageCard: ImageCardDescriptor;
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptor>['addEntryToUpdate'];
+  imageCard: ImageCardDescriptorData;
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<ImageCardDescriptorData>['addEntryToUpdate'];
 } & Omit<SelectProps, 'onClick' | 'icon' | 'shape'>;
 
 /**

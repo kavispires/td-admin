@@ -3,10 +3,10 @@ import { useFilterDataByDataFilters } from 'components/Common/DataFilters';
 import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { useGridPagination } from 'hooks/useGridPagination';
 import type { useTDResource } from 'hooks/useTDResource';
-import type { TeenageStudent } from 'types/tdr';
+import type { TeenageStudentData } from 'types/tdr';
 import { StudentCard } from './StudentCard';
 
-export type StudentListingProps = ReturnType<typeof useTDResource<TeenageStudent>>;
+export type StudentListingProps = ReturnType<typeof useTDResource<TeenageStudentData>>;
 
 export function StudentListing({ data }: StudentListingProps) {
   const filteredData = useFilterDataByDataFilters(data);
@@ -22,10 +22,19 @@ export function StudentListing({ data }: StudentListingProps) {
         Listing - Fofoca Quente items ({filteredData.length} | {Object.values(data ?? {}).length})
       </Typography.Title>
 
-      <PaginationWrapper className="full-width" pagination={pagination}>
-        <Flex gap={16} wrap="wrap">
+      <PaginationWrapper
+        className="full-width"
+        pagination={pagination}
+      >
+        <Flex
+          gap={16}
+          wrap="wrap"
+        >
           {page.map((student) => (
-            <StudentCard key={student.id} student={student} />
+            <StudentCard
+              key={student.id}
+              student={student}
+            />
           ))}
         </Flex>
       </PaginationWrapper>

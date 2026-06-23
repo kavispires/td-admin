@@ -4,7 +4,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo } from 'react';
-import type { ImageCardDescriptor } from 'types';
+import type { ImageCardDescriptorData } from 'types';
 import { ImageCard } from '../ImageCard';
 import { FavoriteImageCardButton } from './ImageCardsDescriptorModal';
 import './ImageCardsDescriptorTable.css';
@@ -87,7 +87,7 @@ function isLastCardInDeck(cardId: string): boolean {
 /**
  * Checks if an image card descriptor is empty (no meaningful data)
  */
-function isEmptyEntry(entry: ImageCardDescriptor): boolean {
+function isEmptyEntry(entry: ImageCardDescriptorData): boolean {
   return (
     !entry.title?.en &&
     !entry.title?.pt &&
@@ -106,7 +106,7 @@ export function ImageCardsDescriptorTable({
   addEntryToUpdate,
   firestoreData,
   entriesToUpdate,
-}: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
+}: UseResourceFirestoreDataReturnType<ImageCardDescriptorData>) {
   const { addParam, queryParams } = useQueryParams();
   const { message } = App.useApp();
   const language = (queryParams.get('language') || 'en') as Language;
@@ -114,7 +114,7 @@ export function ImageCardsDescriptorTable({
   const rows = useMemo(
     () =>
       Object.values(data)
-        .filter((entry): entry is ImageCardDescriptor => entry !== null && entry !== undefined)
+        .filter((entry): entry is ImageCardDescriptorData => entry !== null && entry !== undefined)
         .sort((a, b) => sortCardIds(a.id, b.id)),
     [data],
   );
@@ -129,7 +129,7 @@ export function ImageCardsDescriptorTable({
     }
 
     // Create an empty entry
-    const newEntry: ImageCardDescriptor = {
+    const newEntry: ImageCardDescriptorData = {
       id: newCardId,
       title: { en: '', pt: '' },
       description: { en: '', pt: '' },
@@ -155,7 +155,7 @@ export function ImageCardsDescriptorTable({
       // We need to "undo" its creation by removing it from the update queue
       // Since we don't have direct access to setModifiedEntries, we'll mark it for deletion
       // by setting null/undefined which Firebase interprets as deletion
-      addEntryToUpdate(cardId, null as unknown as ImageCardDescriptor);
+      addEntryToUpdate(cardId, null as unknown as ImageCardDescriptorData);
       message.success(`Removed new entry: ${cardId}`);
     } else if (!existsInOriginalData) {
       message.warning(`Entry ${cardId} doesn't exist in the database`);
@@ -167,7 +167,7 @@ export function ImageCardsDescriptorTable({
   };
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: No functions as dependencies
-  const columns: TableProps<ImageCardDescriptor>['columns'] = useMemo(
+  const columns: TableProps<ImageCardDescriptorData>['columns'] = useMemo(
     () => [
       {
         title: 'CardId',
@@ -178,10 +178,21 @@ export function ImageCardsDescriptorTable({
         render: (id: string, record) => (
           <Flex vertical>
             <IdTag>{id}</IdTag>
-            <Button onClick={() => addParam('cardId', id)} style={{ padding: 0, height: 'auto' }} type="link">
-              <ImageCard cardId={id} cardWidth={50} preview={false} />
+            <Button
+              onClick={() => addParam('cardId', id)}
+              style={{ padding: 0, height: 'auto' }}
+              type="link"
+            >
+              <ImageCard
+                cardId={id}
+                cardWidth={50}
+                preview={false}
+              />
             </Button>
-            <FavoriteImageCardButton addEntryToUpdate={addEntryToUpdate} imageCard={record} />
+            <FavoriteImageCardButton
+              addEntryToUpdate={addEntryToUpdate}
+              imageCard={record}
+            />
           </Flex>
         ),
       },
@@ -191,8 +202,11 @@ export function ImageCardsDescriptorTable({
         key: 'title',
         width: '25%',
         sorter: (a, b) => (a.title?.[language] || '').localeCompare(b.title?.[language] || ''),
-        render: (_, record: ImageCardDescriptor) => (
-          <Flex gap={4} vertical>
+        render: (_, record: ImageCardDescriptorData) => (
+          <Flex
+            gap={4}
+            vertical
+          >
             <Flex gap={6}>
               <LanguageFlag language="en" />
               <Typography.Text
@@ -238,7 +252,10 @@ export function ImageCardsDescriptorTable({
         key: 'description',
         width: '25%',
         render: (_, record) => (
-          <Flex gap={4} vertical>
+          <Flex
+            gap={4}
+            vertical
+          >
             <Flex gap={6}>
               <LanguageFlag language="en" />
               <Typography.Paragraph
@@ -286,7 +303,10 @@ export function ImageCardsDescriptorTable({
         key: 'keywords',
         width: '25%',
         render: (_, record) => (
-          <Flex gap={4} vertical>
+          <Flex
+            gap={4}
+            vertical
+          >
             <Flex gap={6}>
               <LanguageFlag language="en" />
               <Typography.Paragraph
@@ -384,8 +404,16 @@ export function ImageCardsDescriptorTable({
               <div>
                 {triggers?.join(', ') || ''}
                 {isEmptyEntry(record) && (
-                  <Popconfirm onConfirm={() => handleDeleteEntry(record.id)} title="Delete this empty entry?">
-                    <Button danger icon={<DeleteOutlined />} size="small" style={{ marginLeft: 8 }}>
+                  <Popconfirm
+                    onConfirm={() => handleDeleteEntry(record.id)}
+                    title="Delete this empty entry?"
+                  >
+                    <Button
+                      danger
+                      icon={<DeleteOutlined />}
+                      size="small"
+                      style={{ marginLeft: 8 }}
+                    >
                       Delete
                     </Button>
                   </Popconfirm>
@@ -403,7 +431,12 @@ export function ImageCardsDescriptorTable({
 
   return (
     <PageContent className="image-cards-descriptor-table-wrapper">
-      <Table columns={columns} dataSource={rows} pagination={paginationProps} rowKey="id" />
+      <Table
+        columns={columns}
+        dataSource={rows}
+        pagination={paginationProps}
+        rowKey="id"
+      />
     </PageContent>
   );
 }

@@ -14,7 +14,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import type { TeenageStudent } from 'types/tdr';
+import type { TeenageStudentData } from 'types/tdr';
 
 const { Title } = Typography;
 const { useToken } = theme;
@@ -56,7 +56,7 @@ const formatSocialGroup = (socialGroupId: string): string => {
   return _.startCase(socialGroupId);
 };
 
-export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageStudent>>) {
+export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageStudentData>>) {
   const { token } = useToken();
 
   // Convert dictionary to array
@@ -108,9 +108,15 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
       <Title level={3}>Student Database Analytics</Title>
 
       {/* --- SECTION 1: HIGH LEVEL KPI --- */}
-      <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
+      <Row
+        gutter={[16, 16]}
+        style={{ marginBottom: 24 }}
+      >
         <Col span={6}>
-          <Card style={cardStyle} variant="borderless">
+          <Card
+            style={cardStyle}
+            variant="borderless"
+          >
             <Statistic
               styles={{ content: { color: '#fff' } }}
               title={<span style={{ color: '#888' }}>Total Students</span>}
@@ -119,7 +125,10 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
           </Card>
         </Col>
         <Col span={6}>
-          <Card style={cardStyle} variant="borderless">
+          <Card
+            style={cardStyle}
+            variant="borderless"
+          >
             <Statistic
               styles={{ content: { color: '#4dbd9c' } }}
               title={<span style={{ color: '#888' }}>Social Groups</span>}
@@ -128,7 +137,10 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
           </Card>
         </Col>
         <Col span={6}>
-          <Card style={cardStyle} variant="borderless">
+          <Card
+            style={cardStyle}
+            variant="borderless"
+          >
             <Statistic
               styles={{ content: { color: '#c74a68' } }}
               suffix="%"
@@ -138,7 +150,10 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
           </Card>
         </Col>
         <Col span={6}>
-          <Card style={cardStyle} variant="borderless">
+          <Card
+            style={cardStyle}
+            variant="borderless"
+          >
             <Statistic
               styles={{ content: { color: '#e3a024' } }}
               title={<span style={{ color: '#888' }}>M / F Ratio</span>}
@@ -149,14 +164,27 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
       </Row>
 
       {/* --- SECTION 2: DEMOGRAPHICS --- */}
-      <Title level={4} style={{ color: '#888', marginTop: 20 }}>
+      <Title
+        level={4}
+        style={{ color: '#888', marginTop: 20 }}
+      >
         Demographics
       </Title>
       <Row gutter={[24, 24]}>
         {/* Gender Distribution */}
-        <Col lg={6} xs={24}>
-          <Card style={cardStyle} title="Gender Distribution" variant="borderless">
-            <ResponsiveContainer height={250} width="100%">
+        <Col
+          lg={6}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Gender Distribution"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={250}
+              width="100%"
+            >
               <PieChart>
                 <Pie
                   cx="50%"
@@ -168,16 +196,29 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
                   paddingAngle={2}
                 />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend height={36} verticalAlign="bottom" />
+                <Legend
+                  height={36}
+                  verticalAlign="bottom"
+                />
               </PieChart>
             </ResponsiveContainer>
           </Card>
         </Col>
 
         {/* Ethnicity Distribution */}
-        <Col lg={6} xs={24}>
-          <Card style={cardStyle} title="Ethnicity Distribution" variant="borderless">
-            <ResponsiveContainer height={250} width="100%">
+        <Col
+          lg={6}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Ethnicity Distribution"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={250}
+              width="100%"
+            >
               <PieChart>
                 <Pie
                   cx="50%"
@@ -189,22 +230,50 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
                   paddingAngle={2}
                 />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend height={36} verticalAlign="bottom" />
+                <Legend
+                  height={36}
+                  verticalAlign="bottom"
+                />
               </PieChart>
             </ResponsiveContainer>
           </Card>
         </Col>
 
         {/* Age/Grade Distribution */}
-        <Col lg={12} xs={24}>
-          <Card style={cardStyle} title="Grade Level Distribution" variant="borderless">
-            <ResponsiveContainer height={250} width="100%">
+        <Col
+          lg={12}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Grade Level Distribution"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={250}
+              width="100%"
+            >
               <BarChart data={charts.age}>
-                <CartesianGrid stroke="#303030" strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="name" fontSize={12} stroke="#888" />
+                <CartesianGrid
+                  stroke="#303030"
+                  strokeDasharray="3 3"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="name"
+                  fontSize={12}
+                  stroke="#888"
+                />
                 <YAxis stroke="#888" />
-                <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ fill: '#303030' }} />
-                <Bar dataKey="value" fill="#2a7aa8" radius={[4, 4, 0, 0]} />
+                <Tooltip
+                  contentStyle={TOOLTIP_STYLE}
+                  cursor={{ fill: '#303030' }}
+                />
+                <Bar
+                  dataKey="value"
+                  fill="#2a7aa8"
+                  radius={[4, 4, 0, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </Card>
@@ -212,14 +281,27 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
       </Row>
 
       {/* --- SECTION 3: SOCIAL DYNAMICS --- */}
-      <Title level={4} style={{ color: '#888', marginTop: 20 }}>
+      <Title
+        level={4}
+        style={{ color: '#888', marginTop: 20 }}
+      >
         Social Dynamics
       </Title>
       <Row gutter={[24, 24]}>
         {/* Social Groups */}
-        <Col lg={8} xs={24}>
-          <Card style={cardStyle} title="Social Groups" variant="borderless">
-            <ResponsiveContainer height={300} width="100%">
+        <Col
+          lg={8}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Social Groups"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={300}
+              width="100%"
+            >
               <PieChart>
                 <Pie
                   cx="50%"
@@ -231,24 +313,60 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
                   paddingAngle={3}
                 />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend height={100} verticalAlign="bottom" />
+                <Legend
+                  height={100}
+                  verticalAlign="bottom"
+                />
               </PieChart>
             </ResponsiveContainer>
           </Card>
         </Col>
 
         {/* Name Initials */}
-        <Col lg={16} xs={24}>
-          <Card style={cardStyle} title="Name Initials (A-Z)" variant="borderless">
-            <ResponsiveContainer height={300} width="100%">
+        <Col
+          lg={16}
+          xs={24}
+        >
+          <Card
+            style={cardStyle}
+            title="Name Initials (A-Z)"
+            variant="borderless"
+          >
+            <ResponsiveContainer
+              height={300}
+              width="100%"
+            >
               <BarChart data={charts.nameInitials}>
-                <CartesianGrid stroke="#303030" strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="name" fontSize={12} stroke="#888" />
+                <CartesianGrid
+                  stroke="#303030"
+                  strokeDasharray="3 3"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="name"
+                  fontSize={12}
+                  stroke="#888"
+                />
                 <YAxis stroke="#888" />
-                <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ fill: '#303030' }} />
+                <Tooltip
+                  contentStyle={TOOLTIP_STYLE}
+                  cursor={{ fill: '#303030' }}
+                />
                 <Legend />
-                <Bar dataKey="en" fill="#2a7aa8" name="English Name" radius={[0, 0, 4, 4]} stackId="a" />
-                <Bar dataKey="pt" fill="#8c9e5e" name="Portuguese Name" radius={[4, 4, 0, 0]} stackId="a" />
+                <Bar
+                  dataKey="en"
+                  fill="#2a7aa8"
+                  name="English Name"
+                  radius={[0, 0, 4, 4]}
+                  stackId="a"
+                />
+                <Bar
+                  dataKey="pt"
+                  fill="#8c9e5e"
+                  name="Portuguese Name"
+                  radius={[4, 4, 0, 0]}
+                  stackId="a"
+                />
               </BarChart>
             </ResponsiveContainer>
           </Card>
@@ -256,16 +374,29 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
       </Row>
 
       {/* --- SECTION 4: PHYSICAL ATTRIBUTES --- */}
-      <Title level={4} style={{ color: '#888', marginTop: 20 }}>
+      <Title
+        level={4}
+        style={{ color: '#888', marginTop: 20 }}
+      >
         Physical Attributes
       </Title>
       <Row gutter={[24, 24]}>
         {/* Build & Height Donuts */}
-        <Col lg={12} xs={24}>
+        <Col
+          lg={12}
+          xs={24}
+        >
           <Row gutter={[16, 16]}>
             <Col span={12}>
-              <Card style={cardStyle} title="Body Build" variant="borderless">
-                <ResponsiveContainer height={220} width="100%">
+              <Card
+                style={cardStyle}
+                title="Body Build"
+                variant="borderless"
+              >
+                <ResponsiveContainer
+                  height={220}
+                  width="100%"
+                >
                   <PieChart>
                     <Pie
                       cx="50%"
@@ -275,14 +406,24 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
                       outerRadius={70}
                     />
                     <Tooltip contentStyle={TOOLTIP_STYLE} />
-                    <Legend height={36} verticalAlign="bottom" />
+                    <Legend
+                      height={36}
+                      verticalAlign="bottom"
+                    />
                   </PieChart>
                 </ResponsiveContainer>
               </Card>
             </Col>
             <Col span={12}>
-              <Card style={cardStyle} title="Height" variant="borderless">
-                <ResponsiveContainer height={220} width="100%">
+              <Card
+                style={cardStyle}
+                title="Height"
+                variant="borderless"
+              >
+                <ResponsiveContainer
+                  height={220}
+                  width="100%"
+                >
                   <PieChart>
                     <Pie
                       cx="50%"
@@ -292,7 +433,10 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
                       outerRadius={70}
                     />
                     <Tooltip contentStyle={TOOLTIP_STYLE} />
-                    <Legend height={36} verticalAlign="bottom" />
+                    <Legend
+                      height={36}
+                      verticalAlign="bottom"
+                    />
                   </PieChart>
                 </ResponsiveContainer>
               </Card>
@@ -309,7 +453,7 @@ export function StudentsStats({ data }: ReturnType<typeof useTDResource<TeenageS
 /**
  * Generic distribution grouper for single-value fields
  */
-const getDistribution = (data: TeenageStudent[], field: keyof TeenageStudent) => {
+const getDistribution = (data: TeenageStudentData[], field: keyof TeenageStudentData) => {
   return _.chain(data)
     .filter((item) => item[field] !== undefined && item[field] !== null && item[field] !== '')
     .countBy(field)
@@ -321,7 +465,7 @@ const getDistribution = (data: TeenageStudent[], field: keyof TeenageStudent) =>
 /**
  * Count name initials for both EN and PT
  */
-const getNameInitialStats = (data: TeenageStudent[]) => {
+const getNameInitialStats = (data: TeenageStudentData[]) => {
   const counts: Record<string, { pt: number; en: number }> = {};
 
   data.forEach((student) => {

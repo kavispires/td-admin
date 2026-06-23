@@ -6,13 +6,16 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
-import type { TeenageStudent } from 'types';
+import type { TeenageStudentData } from 'types';
 
 export function FofocaQuente() {
-  const teenageStudentsQuery = useTDResource<TeenageStudent>('teenage-students');
+  const teenageStudentsQuery = useTDResource<TeenageStudentData>('teenage-students');
 
   return (
-    <PageLayout subtitle="Teenage Student Cards" title="Fofoca Quente">
+    <PageLayout
+      subtitle="Teenage Student Cards"
+      title="Fofoca Quente"
+    >
       <Layout hasSider>
         <PageSider>
           <FofocaQuenteFilters {...teenageStudentsQuery} />

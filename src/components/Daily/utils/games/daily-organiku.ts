@@ -2,7 +2,7 @@ import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
 import { capitalize, range, sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
-import type { ItemGroup } from 'types';
+import type { ItemGroupData } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
@@ -27,7 +27,7 @@ export const useDailyOrganikuGames = (
 ) => {
   const [organikuHistory] = useParsedHistory(DAILY_GAMES_KEYS.ORGANIKU, dailyHistory);
 
-  const itemGroupsQuery = useTDResource<ItemGroup>('items-groups', { enabled });
+  const itemGroupsQuery = useTDResource<ItemGroupData>('items-groups', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
@@ -48,11 +48,11 @@ export const buildDailyOrganikuGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   queryLanguage: Language,
-  itemsGroups: Dictionary<ItemGroup>,
+  itemsGroups: Dictionary<ItemGroupData>,
 ) => {
   console.count('Creating Organiku...');
 
-  const eligibleGroups: ItemGroup[] = shuffle(
+  const eligibleGroups: ItemGroupData[] = shuffle(
     Object.values(itemsGroups).filter(
       (group) => group.itemsIds.length > 6 && history.used.includes(group.id) === false,
     ),

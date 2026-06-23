@@ -1,7 +1,7 @@
 import { Flex } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { memoize } from 'lodash';
-import type { Item as ItemT } from 'types';
+import type { ItemData as ItemT } from 'types';
 
 type VerifyIfThingProps = {
   item: ItemT;
@@ -22,8 +22,18 @@ const verifyIfThingCheck = memoize((item: ItemT) => {
 
   return (
     <>
-      {result.en && <LanguageFlag language="en" width="1em" />}
-      {result.pt && <LanguageFlag language="pt" width="1em" />}
+      {result.en && (
+        <LanguageFlag
+          language="en"
+          width="1em"
+        />
+      )}
+      {result.pt && (
+        <LanguageFlag
+          language="pt"
+          width="1em"
+        />
+      )}
     </>
   );
 });

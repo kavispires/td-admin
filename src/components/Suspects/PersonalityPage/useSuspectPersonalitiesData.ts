@@ -5,7 +5,7 @@ import {
   testimoniesDeserializer,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
-import type { SuspectCard, TestimonyQuestionCard } from 'types';
+import type { SuspectCardData, TestimonyQuestionCardData } from 'types';
 
 export type CrossReferenceData = {
   id: string;
@@ -25,10 +25,10 @@ type SuspectPersonality = {
 
 export function useSuspectPersonalitiesData() {
   // Get Suspects
-  const suspectsQuery = useTDResource<SuspectCard>('suspects');
+  const suspectsQuery = useTDResource<SuspectCardData>('suspects');
 
   // Get Testimonies
-  const testimoniesQuery = useTDResource<TestimonyQuestionCard>('testimony-questions-pt');
+  const testimoniesQuery = useTDResource<TestimonyQuestionCardData>('testimony-questions-pt');
 
   // Get Testimonies answers
   const testimonyAnswersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
@@ -127,8 +127,8 @@ export function useSuspectPersonalitiesData() {
 }
 
 const getSuspectPersonalities = (
-  suspects: Dictionary<SuspectCard>,
-  testimonies: Dictionary<TestimonyQuestionCard>,
+  suspects: Dictionary<SuspectCardData>,
+  testimonies: Dictionary<TestimonyQuestionCardData>,
   testimonyAnswers: Dictionary<TestimonyAnswers>,
   zodiacCrossReference: Dictionary<CrossReferenceData>,
   mbtiCrossReference: Dictionary<CrossReferenceData>,

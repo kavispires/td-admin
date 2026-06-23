@@ -8,7 +8,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { TextCard } from 'types';
+import type { TextCardData } from 'types';
 
 type Riddle = {
   id: string;
@@ -18,8 +18,8 @@ type Riddle = {
 export function Riddler() {
   const { queryParams } = useQueryParams({ language: 'pt' });
   const language = queryParams.get('language');
-  const riddleWordsQuery = useTDResource<TextCard>(`riddle-words-${language}`, { enabled: !!language });
-  const riddleConjunctionsQuery = useTDResource<TextCard>(`riddle-conjunctions-${language}`, {
+  const riddleWordsQuery = useTDResource<TextCardData>(`riddle-words-${language}`, { enabled: !!language });
+  const riddleConjunctionsQuery = useTDResource<TextCardData>(`riddle-conjunctions-${language}`, {
     enabled: !!language,
   });
   const [retrigger, setRetrigger] = useState(0);
@@ -67,12 +67,22 @@ export function Riddler() {
   ];
 
   return (
-    <PageLayout subtitle="Randomly generate riddle prompts" title="Riddler">
+    <PageLayout
+      subtitle="Randomly generate riddle prompts"
+      title="Riddler"
+    >
       <Layout hasSider>
         <PageSider>
           <SiderContent>
-            <LanguageToggle value={language ? language : undefined} withLabel withQueryParams />
-            <Button block onClick={() => setRetrigger((prev) => prev + 1)}>
+            <LanguageToggle
+              value={language ? language : undefined}
+              withLabel
+              withQueryParams
+            />
+            <Button
+              block
+              onClick={() => setRetrigger((prev) => prev + 1)}
+            >
               Retrigger
             </Button>
           </SiderContent>

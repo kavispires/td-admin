@@ -7,7 +7,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, cloneDeep, keyBy, orderBy } from 'lodash';
 import type { TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
-import type { SuspectCard } from 'types';
+import type { SuspectCardData } from 'types';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';
 import { calculateSuspectAnswersData, filterAdultSuspects } from './utils';
 
@@ -15,7 +15,7 @@ type TestimonyAnswerExpandedRowProps = {
   testimonyId: string;
   question: string;
   answers: TestimonyAnswers;
-  suspects: Dictionary<SuspectCard>;
+  suspects: Dictionary<SuspectCardData>;
   addEntryToUpdate: (id: string, entry: TestimonyAnswers) => void;
 };
 
@@ -82,7 +82,11 @@ export function TestimonyAnswerExpandedRow({
         suspects={suspects}
         testimonyId={testimonyId}
       >
-        <Space ref={ref} size="large" wrap>
+        <Space
+          ref={ref}
+          size="large"
+          wrap
+        >
           {list.map((entry) => {
             return (
               <Flex
@@ -144,7 +148,7 @@ type BatchOptionsProps = {
   question: string;
   selection: string[];
   setSelection: (selection: string[]) => void;
-  suspects: Dictionary<SuspectCard>;
+  suspects: Dictionary<SuspectCardData>;
   addEntryToUpdate: (id: string, entry: TestimonyAnswers) => void;
   list: ReturnType<typeof calculateSuspectAnswersData>[];
   answers: TestimonyAnswers;
@@ -263,7 +267,13 @@ function BatchOptions({
       <Typography.Text className="nowrap mr-2">
         Selected {selection.length.toString().padStart(3, '0')}
       </Typography.Text>
-      <Flex align="center" className="boxed" gap={6} justify="center" wrap>
+      <Flex
+        align="center"
+        className="boxed"
+        gap={6}
+        justify="center"
+        wrap
+      >
         <FilterEntry
           activeFilters={activeFilters}
           end
@@ -271,7 +281,13 @@ function BatchOptions({
           updateActiveFilter={updateActiveFilter}
         />
       </Flex>
-      <Flex align="center" className="boxed" gap={6} justify="center" wrap>
+      <Flex
+        align="center"
+        className="boxed"
+        gap={6}
+        justify="center"
+        wrap
+      >
         <FilterEntry
           activeFilters={activeFilters}
           end
@@ -287,22 +303,68 @@ function BatchOptions({
           updateActiveFilter={updateActiveFilter}
         />
       </Flex>
-      <Flex align="center" className="boxed" gap={6} justify="center" wrap>
-        <FilterEntry activeFilters={activeFilters} filter="male" updateActiveFilter={updateActiveFilter} />
-        <FilterEntry activeFilters={activeFilters} filter="female" updateActiveFilter={updateActiveFilter} />
-        <FilterEntry activeFilters={activeFilters} filter="young" updateActiveFilter={updateActiveFilter} />
-        <FilterEntry activeFilters={activeFilters} filter="adult" updateActiveFilter={updateActiveFilter} />
-        <FilterEntry activeFilters={activeFilters} filter="parent" updateActiveFilter={updateActiveFilter} />
-        <FilterEntry activeFilters={activeFilters} filter="senior" updateActiveFilter={updateActiveFilter} />
-        <FilterEntry activeFilters={activeFilters} filter="thin" updateActiveFilter={updateActiveFilter} />
+      <Flex
+        align="center"
+        className="boxed"
+        gap={6}
+        justify="center"
+        wrap
+      >
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="male"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="female"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="young"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="adult"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="parent"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="senior"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="thin"
+          updateActiveFilter={updateActiveFilter}
+        />
         <FilterEntry
           activeFilters={activeFilters}
           filter="muscular"
           updateActiveFilter={updateActiveFilter}
         />
-        <FilterEntry activeFilters={activeFilters} filter="large" updateActiveFilter={updateActiveFilter} />
-        <FilterEntry activeFilters={activeFilters} filter="asian" updateActiveFilter={updateActiveFilter} />
-        <FilterEntry activeFilters={activeFilters} filter="black" updateActiveFilter={updateActiveFilter} />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="large"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="asian"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="black"
+          updateActiveFilter={updateActiveFilter}
+        />
         <FilterEntry
           activeFilters={activeFilters}
           filter="caucasian"
@@ -315,18 +377,40 @@ function BatchOptions({
           updateActiveFilter={updateActiveFilter}
         />
       </Flex>
-      <Flex align="center" gap={6}>
-        <Button danger onClick={() => setActiveFilters([])} size="small">
+      <Flex
+        align="center"
+        gap={6}
+      >
+        <Button
+          danger
+          onClick={() => setActiveFilters([])}
+          size="small"
+        >
           Clear
         </Button>
-        <Popconfirm onConfirm={() => onApplyBatch(4)} title="Apply +4 to selected suspects?">
-          <Button className="ml-10" disabled={selection.length === 0} size="small" type="primary">
+        <Popconfirm
+          onConfirm={() => onApplyBatch(4)}
+          title="Apply +4 to selected suspects?"
+        >
+          <Button
+            className="ml-10"
+            disabled={selection.length === 0}
+            size="small"
+            type="primary"
+          >
             Apply +4
           </Button>
         </Popconfirm>
         <Divider orientation="vertical" />
-        <Popconfirm onConfirm={() => onApplyBatch(-4)} title="Apply -4 to selected suspects?">
-          <Button disabled={selection.length === 0} size="small" type="primary">
+        <Popconfirm
+          onConfirm={() => onApplyBatch(-4)}
+          title="Apply -4 to selected suspects?"
+        >
+          <Button
+            disabled={selection.length === 0}
+            size="small"
+            type="primary"
+          >
             Apply -4
           </Button>
         </Popconfirm>
@@ -336,9 +420,17 @@ function BatchOptions({
 
   return (
     <>
-      <Flex align="center" className="mb-4" gap={6} justify="space-between">
+      <Flex
+        align="center"
+        className="mb-4"
+        gap={6}
+        justify="space-between"
+      >
         <Flex gap={3}>
-          <Typography.Text className="nowrap" style={{ minWidth: '5ch' }}>
+          <Typography.Text
+            className="nowrap"
+            style={{ minWidth: '5ch' }}
+          >
             Batch
           </Typography.Text>
           <Switch
@@ -361,13 +453,21 @@ function BatchOptions({
       {isBatchEnabled && (
         <>
           <Divider />
-          <Flex align="center" className="mb-4" gap={6} justify="space-between">
+          <Flex
+            align="center"
+            className="mb-4"
+            gap={6}
+            justify="space-between"
+          >
             {options}
           </Flex>
         </>
       )}
       {selection.length > 0 && (
-        <FloatButton.Group shape="square" style={{ insetInlineEnd: 94 }}>
+        <FloatButton.Group
+          shape="square"
+          style={{ insetInlineEnd: 94 }}
+        >
           <FloatButton
             badge={{ count: selection.length, color: 'green', size: 'small' }}
             icon="👍"
@@ -404,7 +504,10 @@ function FilterEntry({ filter, activeFilters, updateActiveFilter, end, label }: 
   return (
     <>
       <span>
-        <Checkbox checked={activeFilters.includes(filter)} onClick={() => updateActiveFilter(filter)} />{' '}
+        <Checkbox
+          checked={activeFilters.includes(filter)}
+          onClick={() => updateActiveFilter(filter)}
+        />{' '}
         {label ?? capitalize(filter)}
       </span>
       {!end && <Divider orientation="vertical" />}

@@ -9,7 +9,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep } from 'lodash';
-import type { DailyDiagramItem, DailyDiagramRule } from 'types';
+import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
 import { sortJsonKeys } from 'utils';
 import { stressSyllableDependencyVerifier, syllableDependencyVerifier, verifiers } from './utils';
 
@@ -20,13 +20,16 @@ export function ItemsDiagramFilters({
   isSaving,
   entriesToUpdate,
   hasFirestoreData,
-}: UseResourceFirestoreDataReturnType<DailyDiagramItem>) {
+}: UseResourceFirestoreDataReturnType<DailyDiagramItemData>) {
   const { addParams, queryParams } = useQueryParams();
-  const tdrDiagramRulesQuery = useTDResource<DailyDiagramRule>('daily-diagram-rules');
+  const tdrDiagramRulesQuery = useTDResource<DailyDiagramRuleData>('daily-diagram-rules');
 
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(entriesToUpdate)}
           isDirty={isDirty}
@@ -70,7 +73,10 @@ export function ItemsDiagramFilters({
 
       <Divider />
 
-      <Typography.Paragraph className="my-6" type="secondary">
+      <Typography.Paragraph
+        className="my-6"
+        type="secondary"
+      >
         v2.1.0
       </Typography.Paragraph>
 
@@ -85,8 +91,8 @@ export function ItemsDiagramFilters({
 }
 
 function prepareFileForDownload(
-  diagramItems: Dictionary<DailyDiagramItem>,
-  rules: Dictionary<DailyDiagramRule>,
+  diagramItems: Dictionary<DailyDiagramItemData>,
+  rules: Dictionary<DailyDiagramRuleData>,
 ) {
   console.log('Preparing file for download...');
   const copy = cloneDeep(diagramItems);

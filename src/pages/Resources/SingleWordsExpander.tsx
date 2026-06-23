@@ -5,7 +5,7 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useState } from 'react';
-import type { TextCard } from 'types';
+import type { TextCardData } from 'types';
 import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
 import { ResourceSelectionFilters } from '../../components/Resource/ResourceSelectionFilters';
 import { SearchDuplicates } from '../../components/SearchDuplicates';
@@ -21,7 +21,7 @@ function SingleWordsExpander() {
 
   const [output, setOutput] = useState({});
   const [duplicates, setDuplicates] = useState({});
-  const [reference, setReference] = useState<Record<CardId, TextCard>>({});
+  const [reference, setReference] = useState<Record<CardId, TextCardData>>({});
   const property = 'text';
 
   const { language, isLoading, error, hasResponseData, response } = useResourceState([
@@ -32,7 +32,7 @@ function SingleWordsExpander() {
     if (response) {
       const cache: BooleanDictionary = {};
       const newDuplicates: StringDictionary = {};
-      const selected = Object.values(response as Record<CardId, TextCard>)
+      const selected = Object.values(response as Record<CardId, TextCardData>)
         .filter((entry) => {
           const parsedString = stringRemoveAccents(entry.text).toLowerCase();
           if (cache[parsedString]) {
@@ -42,11 +42,11 @@ function SingleWordsExpander() {
           cache[parsedString] = true;
           return true;
         })
-        .map((e: TextCard, i) => ({
+        .map((e: TextCardData, i) => ({
           ...e,
           id: `sw-${i + 1}-${language}`,
         }))
-        .reduce((acc: Record<CardId, TextCard>, entry) => {
+        .reduce((acc: Record<CardId, TextCardData>, entry) => {
           acc[entry.id] = entry;
           return acc;
         }, {});
@@ -65,7 +65,7 @@ function SingleWordsExpander() {
     const lastId = Number(dataArray[dataArray.length - 1].id.split('-')[1]) || 1;
 
     const result = parsedInput.reduce(
-      (acc: Record<CardId, TextCard>, text: string, index: number) => {
+      (acc: Record<CardId, TextCardData>, text: string, index: number) => {
         // Check if it is duplicate
         const isDuplicate = isExactDuplicate(text, response, property);
 
@@ -85,20 +85,37 @@ function SingleWordsExpander() {
   };
 
   return (
-    <PageLayout subtitle={language ? `${language}` : ''} title="Single Word Expander">
+    <PageLayout
+      subtitle={language ? `${language}` : ''}
+      title="Single Word Expander"
+    >
       <Layout hasSider>
         <PageSider>
-          <ResponseState error={error} hasResponseData={hasResponseData} isLoading={isLoading} />
+          <ResponseState
+            error={error}
+            hasResponseData={hasResponseData}
+            isLoading={isLoading}
+          />
           <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]} />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
+          <DataLoadingWrapper
+            error={error}
+            hasResponseData={hasResponseData}
+            isLoading={isLoading}
+          >
             <div className="parser-container">
               <div className="parser-main">
                 <SectionTitle>Input New Data</SectionTitle>
 
-                <Input.TextArea cols={15} id="" name="input" onChange={onInputChange} rows={5} />
+                <Input.TextArea
+                  cols={15}
+                  id=""
+                  name="input"
+                  onChange={onInputChange}
+                  rows={5}
+                />
 
                 <SectionTitle>Output ({Object.keys(output).length})</SectionTitle>
                 <Input.TextArea
@@ -126,7 +143,10 @@ function SingleWordsExpander() {
                 <Text>
                   {Object.keys(response ?? {}).length} entries / {Object.keys(reference ?? {}).length}
                 </Text>
-                <SearchDuplicates property={property} response={response} />
+                <SearchDuplicates
+                  property={property}
+                  response={response}
+                />
               </aside>
             </div>
           </DataLoadingWrapper>

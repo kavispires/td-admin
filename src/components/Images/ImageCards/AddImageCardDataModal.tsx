@@ -1,11 +1,11 @@
 import { DatabaseOutlined } from '@ant-design/icons';
 import { Alert, App, Button, Collapse, Flex, Input, InputNumber, Modal, Tooltip, Typography } from 'antd';
 import { useState } from 'react';
-import type { ImageCardDescriptor } from 'types';
+import type { ImageCardDescriptorData } from 'types';
 import { ImageCard } from '../ImageCard';
 
 type AddImageCardDataModalProps = {
-  addEntryToUpdate: (id: string, item: ImageCardDescriptor) => void;
+  addEntryToUpdate: (id: string, item: ImageCardDescriptorData) => void;
 };
 
 export function AddImageCardDataModal({ addEntryToUpdate }: AddImageCardDataModalProps) {
@@ -16,12 +16,12 @@ export function AddImageCardDataModal({ addEntryToUpdate }: AddImageCardDataModa
   const [buildId, setBuildId] = useState<[number, number]>([1, 1]);
 
   const handleAdd = () => {
-    const parsed = JSON.parse(jsonInput) as Partial<ImageCardDescriptor>;
+    const parsed = JSON.parse(jsonInput) as Partial<ImageCardDescriptorData>;
 
     // Use provided ID or generate from buildId
     const cardId = parsed.id || `td-d${buildId[0].toString()}-${buildId[1].toString().padStart(2, '0')}`;
 
-    const updatedData: ImageCardDescriptor = {
+    const updatedData: ImageCardDescriptorData = {
       id: cardId,
       title: parsed.title || { en: '', pt: '' },
       description: parsed.description || { en: '', pt: '' },
@@ -33,8 +33,8 @@ export function AddImageCardDataModal({ addEntryToUpdate }: AddImageCardDataModa
 
     // Remove any undefined fields that are optional
     Object.keys(updatedData).forEach((key) => {
-      if (updatedData[key as keyof ImageCardDescriptor] === undefined) {
-        delete updatedData[key as keyof ImageCardDescriptor];
+      if (updatedData[key as keyof ImageCardDescriptorData] === undefined) {
+        delete updatedData[key as keyof ImageCardDescriptorData];
       }
     });
 
@@ -114,13 +114,20 @@ export function AddImageCardDataModal({ addEntryToUpdate }: AddImageCardDataModa
   return (
     <>
       <Tooltip title="Add JSON data for a card">
-        <Button block icon={<DatabaseOutlined />} onClick={() => setOpen(true)}>
+        <Button
+          block
+          icon={<DatabaseOutlined />}
+          onClick={() => setOpen(true)}
+        >
           Add Card Data
         </Button>
       </Tooltip>
       <Modal
         footer={[
-          <Button key="cancel" onClick={handleCancel}>
+          <Button
+            key="cancel"
+            onClick={handleCancel}
+          >
             Cancel
           </Button>,
           <Button
@@ -141,7 +148,10 @@ export function AddImageCardDataModal({ addEntryToUpdate }: AddImageCardDataModa
         <div style={{ display: 'grid', gap: 8, gridTemplateColumns: '1fr auto' }}>
           <Flex vertical>
             <Collapse size="small">
-              <Collapse.Panel header="Instructions" key="instructions">
+              <Collapse.Panel
+                header="Instructions"
+                key="instructions"
+              >
                 <p>
                   You can add or update an image card descriptor by providing JSON data. If you include an{' '}
                   <code>id</code> field, it will use that ID; otherwise, it will generate an ID from the deck
@@ -202,9 +212,18 @@ export function AddImageCardDataModal({ addEntryToUpdate }: AddImageCardDataModa
               </Collapse.Panel>
             </Collapse>
 
-            <Flex className="mt-4" gap={8}>
+            <Flex
+              className="mt-4"
+              gap={8}
+            >
               <Typography.Text type="secondary">ID:</Typography.Text>{' '}
-              <Input readOnly size="small" style={{ width: 48 }} value="td-d" variant="borderless" />
+              <Input
+                readOnly
+                size="small"
+                style={{ width: 48 }}
+                value="td-d"
+                variant="borderless"
+              />
               <InputNumber
                 max={20}
                 min={1}
@@ -213,7 +232,13 @@ export function AddImageCardDataModal({ addEntryToUpdate }: AddImageCardDataModa
                 style={{ width: 56 }}
                 value={buildId[0] ?? 1}
               />
-              <Input readOnly size="small" style={{ width: 24 }} value="-" variant="borderless" />
+              <Input
+                readOnly
+                size="small"
+                style={{ width: 24 }}
+                value="-"
+                variant="borderless"
+              />
               <InputNumber
                 max={255}
                 min={1}
@@ -225,7 +250,10 @@ export function AddImageCardDataModal({ addEntryToUpdate }: AddImageCardDataModa
             </Flex>
           </Flex>
 
-          <ImageCard cardId={imageId} cardWidth={64} />
+          <ImageCard
+            cardId={imageId}
+            cardWidth={64}
+          />
         </div>
 
         <Input.TextArea

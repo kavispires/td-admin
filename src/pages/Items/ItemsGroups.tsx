@@ -7,18 +7,21 @@ import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
-import type { Item, ItemGroup } from 'types';
+import type { ItemData, ItemGroupData } from 'types';
 
 export function ItemsGroups() {
-  const groupsQuery = useResourceFirestoreData<ItemGroup>({
+  const groupsQuery = useResourceFirestoreData<ItemGroupData>({
     tdrResourceName: 'items-groups',
     firestoreDataCollectionName: 'itemsGroups',
     serialize: true,
   });
-  const itemsTypeaheadQuery = useTDResource<Item>('items');
+  const itemsTypeaheadQuery = useTDResource<ItemData>('items');
 
   return (
-    <PageLayout subtitle="Groups Sets" title="Items">
+    <PageLayout
+      subtitle="Groups Sets"
+      title="Items"
+    >
       <Layout hasSider>
         <PageSider>
           <ItemsGroupsFilters {...groupsQuery} />

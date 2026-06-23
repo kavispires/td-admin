@@ -5,13 +5,16 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
-import type { Item } from 'types';
+import type { ItemData } from 'types';
 
 export function ItemsCrimeHistorySets() {
-  const itemsTypeaheadQuery = useTDResource<Item>('items');
+  const itemsTypeaheadQuery = useTDResource<ItemData>('items');
 
   return (
-    <PageLayout subtitle="Crime History Random Sets" title="Items">
+    <PageLayout
+      subtitle="Crime History Random Sets"
+      title="Items"
+    >
       <Layout hasSider>
         <PageSider>-</PageSider>
 

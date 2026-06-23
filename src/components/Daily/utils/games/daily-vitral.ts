@@ -2,7 +2,7 @@ import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
 import { sample, shuffle } from 'lodash';
 import { useMemo } from 'react';
-import type { ImageCardDescriptor } from 'types';
+import type { ImageCardDescriptorData } from 'types';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, ParsedDailyHistoryEntry } from '../types';
 import { getDayOfTheWeek, getNextDay } from '../utils';
@@ -32,7 +32,7 @@ export type DailyVitralEntry = {
 export const useDailyVitralGames = (enabled: boolean, batchSize: number, dailyHistory: DailyHistory) => {
   const [vitralHistory] = useParsedHistory(DAILY_GAMES_KEYS.VITRAL, dailyHistory);
 
-  const dailyVitralSetQuery = useTDResource<ImageCardDescriptor>('image-cards', { enabled });
+  const dailyVitralSetQuery = useTDResource<ImageCardDescriptorData>('image-cards', { enabled });
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
   const entries = useMemo(() => {
@@ -52,7 +52,7 @@ export const useDailyVitralGames = (enabled: boolean, batchSize: number, dailyHi
 export const buildDailyVitralGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
-  puzzleSets: Dictionary<ImageCardDescriptor>,
+  puzzleSets: Dictionary<ImageCardDescriptorData>,
 ) => {
   console.count('Creating Vitral...');
 

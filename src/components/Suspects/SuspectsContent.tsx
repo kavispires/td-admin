@@ -1,12 +1,12 @@
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import type { SuspectCard, SuspectExtendedInfo } from 'types';
+import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 import { SuspectsListing } from './SuspectsListing';
 import { SuspectsStats } from './SuspectsStats';
 
 export function SuspectsContent(props: {
-  suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCard>;
-  suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>;
+  suspectsQuery: UseResourceFirestoreDataReturnType<SuspectCardData>;
+  suspectsExtendedInfoQuery: UseResourceFirestoreDataReturnType<SuspectExtendedInfoData>;
 }) {
   const { queryParams, is } = useQueryParams();
 

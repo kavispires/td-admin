@@ -1,5 +1,5 @@
 import { keyBy, keys, orderBy, sampleSize, shuffle, sortBy } from 'lodash';
-import type { Item, ItemAttribute, ItemAttributesValues, ItemId } from 'types';
+import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from 'types';
 
 /**
  * TD ALIEN ATTRIBUTES TOOLKIT FUNCTIONS
@@ -7,10 +7,10 @@ import type { Item, ItemAttribute, ItemAttributesValues, ItemId } from 'types';
  */
 
 /**
- * Alien Item object
+ * Alien ItemData object
  */
-type AlienItem = Pick<Item, 'id' | 'name' | 'nsfw'> &
-  Pick<ItemAttributesValues, 'attributes'> & {
+type AlienItem = Pick<ItemData, 'id' | 'name' | 'nsfw'> &
+  Pick<ItemAttributesValuesData, 'attributes'> & {
     /**
      * The type of aliem item
      */
@@ -29,7 +29,7 @@ type AlienItem = Pick<Item, 'id' | 'name' | 'nsfw'> &
  * Alien Attribute object
  */
 type AlienAttribute = Pick<
-  ItemAttribute,
+  ItemAttributeData,
   'id' | 'name' | 'description' | 'limited' | 'spriteId' | 'priority'
 > & {
   /**
@@ -116,8 +116,8 @@ const prefixDictionary = keyBy(ATTRIBUTE_VALUE_DICT, 'prefix');
  * @returns The newly created AlienItem object.
  */
 function createAlienItem(
-  item: Item,
-  itemAttributesValues: ItemAttributesValues,
+  item: ItemData,
+  itemAttributesValues: ItemAttributesValuesData,
   attributeKeysInUse: string[],
 ): AlienItem {
   const itemAttributes = itemAttributesValues.attributes;
@@ -143,12 +143,12 @@ function createAlienItem(
 }
 
 /**
- * Creates an AlienAttribute object from an ItemAttribute object.
+ * Creates an AlienAttribute object from an ItemAttributeData object.
  *
  * @param itemAttribute - The item attribute to convert.
  * @returns The created AlienAttribute object.
  */
-function createAlienAttribute(itemAttribute: ItemAttribute): AlienAttribute {
+function createAlienAttribute(itemAttribute: ItemAttributeData): AlienAttribute {
   const { id, name, description, limited, spriteId, priority } = itemAttribute;
 
   const result: AlienAttribute = {
@@ -189,9 +189,9 @@ function createAlienAttribute(itemAttribute: ItemAttribute): AlienAttribute {
  * 6. Returns the top 25 attributes and their representative items.
  */
 function buildAlienGameGrids(
-  items: Record<string, Item>,
-  itemAttributesValues: ItemAttributesValues[],
-  itemAttributes: ItemAttribute[],
+  items: Record<string, ItemData>,
+  itemAttributesValues: ItemAttributesValuesData[],
+  itemAttributes: ItemAttributeData[],
   options?: {
     nsfw?: boolean;
     itemsGridSize?: number;
@@ -219,7 +219,7 @@ function buildAlienGameGrids(
   const usedItems: Record<string, boolean> = {};
   const uniqueItemsPerAttribute = itemAttributes
     .map((attr) => {
-      let selection: ItemAttributesValues | null = null;
+      let selection: ItemAttributesValuesData | null = null;
       let tries = 0;
       while (tries < 500 && !selection) {
         if (tries === 499) throw new Error('Could not find a deterministic item for attribute');
@@ -248,14 +248,14 @@ function buildAlienGameGrids(
       }
       return selection;
     })
-    .filter(Boolean) as ItemAttributesValues[];
+    .filter(Boolean) as ItemAttributesValuesData[];
 
   // Step 3: Score each itemAttribute based on the positive values it has on each items
   const attributeAggregatedScores = itemAttributes.reduce((acc: Record<string, number>, attr) => {
     acc[attr.id] = 0;
     return acc;
   }, {});
-  const uniqueItemsPerAttributePerId: Record<string, ItemAttributesValues> = {};
+  const uniqueItemsPerAttributePerId: Record<string, ItemAttributesValuesData> = {};
   uniqueItemsPerAttribute.forEach((itemAttrVal, index) => {
     uniqueItemsPerAttributePerId[itemAttributes[index].id] = itemAttrVal;
     Object.keys(itemAttrVal.attributes).forEach((attrId) => {
@@ -316,7 +316,7 @@ function buildAlienGameGrids(
 function getBestAttributes(
   alienItems: AlienItem[],
   alienAttributes: AlienAttribute[],
-  inquiredItemIds: ItemId[],
+  inquiredItemIds: UID[],
 ): AlienAttribute[] {
   // Filter the alien items to include only those with IDs in inquiredItemIds
   const inquiredItems = alienItems.filter((item) => inquiredItemIds.includes(item.id));
@@ -365,7 +365,7 @@ const ATTRIBUTE_VALUE_PRIORITY = ['*', '^', '+', '~', '!'];
 function getAlienItemSignature(
   alienItems: AlienItem[],
   alienAttributes: AlienAttribute[],
-  itemId: ItemId,
+  itemId: UID,
   options?: {
     useOnlyKnownAttributes?: boolean;
     length?: number;
@@ -477,8 +477,8 @@ function getCursesDeterministicAttributesIds(alienItems: AlienItem[]) {
 function getNonClashingItem(
   alienItems: AlienItem[],
   alienAttributes: AlienAttribute[],
-  previouslyInquiredItemsIds?: ItemId[],
-  recentlyInquiredItemsIds?: ItemId[],
+  previouslyInquiredItemsIds?: UID[],
+  recentlyInquiredItemsIds?: UID[],
 ) {
   // Filter items by type and exclude items with offerings
   const items = alienItems.filter((item) => item.type === 'ITEM' && item.offerings.length === 0);
@@ -625,4 +625,4 @@ export const alienAttributesUtils = {
   ATTRIBUTE_VALUE_PRIORITY,
 };
 
-export type { AlienItem, AlienAttribute };
+export type { AlienAttribute, AlienItem };

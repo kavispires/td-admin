@@ -1,11 +1,11 @@
 import { Space, Typography } from 'antd';
 import { Typeahead } from 'components/Common/Typeahead';
 import { useMemo, useState } from 'react';
-import type { ItemGroup, Item as ItemT } from 'types';
+import type { ItemGroupData, ItemData as ItemT } from 'types';
 import { ItemsGroupsByGroupTable } from './ItemsGroupsByGroupTable';
 
 type ItemsGroupsSearchProps = {
-  data: Dictionary<ItemGroup>;
+  data: Dictionary<ItemGroupData>;
   items: Dictionary<ItemT>;
   grousByItem: Record<string, string[]>;
   groupsTypeahead: { value: string; label: string }[];
@@ -55,7 +55,7 @@ export function ItemsGroupsSearch({
   );
 }
 
-const typeaheadParser = (data: Record<string, ItemGroup>) => {
+const typeaheadParser = (data: Record<string, ItemGroupData>) => {
   return Object.values(data ?? {}).reduce((acc: Record<string, string>, group) => {
     acc[`${group.name.en}`] = group.id;
     acc[`${group.name.pt}`] = group.id;

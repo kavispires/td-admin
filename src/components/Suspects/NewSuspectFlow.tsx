@@ -1,13 +1,13 @@
 import { Button, Modal } from 'antd';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
-import type { SuspectCard, SuspectExtendedInfo } from 'types';
+import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 
 type NewSuspectFlowProps = {
-  suspects: Dictionary<SuspectCard>;
-  suspectsExtendedInfos: Dictionary<SuspectExtendedInfo>;
-  addSuspectEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectCard>['addEntryToUpdate'];
-  addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfo>['addEntryToUpdate'];
+  suspects: Dictionary<SuspectCardData>;
+  suspectsExtendedInfos: Dictionary<SuspectExtendedInfoData>;
+  addSuspectEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectCardData>['addEntryToUpdate'];
+  addExtendedInfoEntryToUpdate: UseResourceFirestoreDataReturnType<SuspectExtendedInfoData>['addEntryToUpdate'];
 };
 
 export function NewSuspectFlow({
@@ -28,10 +28,18 @@ export function NewSuspectFlow({
 
   return (
     <>
-      <Button block onClick={() => setOpen(true)}>
+      <Button
+        block
+        onClick={() => setOpen(true)}
+      >
         New Suspect
       </Button>
-      <Modal onCancel={() => setOpen(false)} onOk={() => setOpen(false)} open={open} title="New Suspect">
+      <Modal
+        onCancel={() => setOpen(false)}
+        onOk={() => setOpen(false)}
+        open={open}
+        title="New Suspect"
+      >
         ???
       </Modal>
     </>

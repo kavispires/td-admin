@@ -17,7 +17,7 @@ import {
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { keys, sampleSize, shuffle, sortBy } from 'lodash';
 import { useState } from 'react';
-import type { ItemAttribute, ItemAttributesValues } from 'types';
+import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { DailyAlienSimulator } from './DailyAlienSimulator';
@@ -29,7 +29,7 @@ type AttributeSummary = {
   deterministicCount: number;
   unclearCount: number;
   oppositeCount: number;
-} & ItemAttribute;
+} & ItemAttributeData;
 
 export function ItemSimulation() {
   const { attributes, availableItemIds, getItemAttributeValues, getItem } = useItemsAttributeValuesContext();
@@ -73,7 +73,7 @@ export function ItemSimulation() {
       if (itemAttributeValues.signature && !keysDict[itemAttributeValues.signature]) {
         keysDict[itemAttributeValues.signature] = itemId;
       } else {
-        console.log('Item has identical key to another item. Skipping.', getItem(itemId).name.en);
+        console.log('ItemData has identical key to another item. Skipping.', getItem(itemId).name.en);
       }
     }
     const result = Object.values(keysDict);
@@ -156,7 +156,10 @@ export function ItemSimulation() {
         Generates a board with items different enough to get Deterministic values in all selected attributes.
       </Typography.Paragraph>
 
-      <Flex gap={12} wrap>
+      <Flex
+        gap={12}
+        wrap
+      >
         <FilterSelect
           label="Grid Size"
           onChange={(value) => setGridSize(value)}
@@ -171,13 +174,27 @@ export function ItemSimulation() {
           step={5}
           value={reliabilityThreshold}
         />
-        <FilterSwitch label="NSFW" onChange={setNsfw} value={nsfw} />
-        <Button onClick={onGetSample} type="primary">
+        <FilterSwitch
+          label="NSFW"
+          onChange={setNsfw}
+          value={nsfw}
+        />
+        <Button
+          onClick={onGetSample}
+          type="primary"
+        >
           Get Sample Board
         </Button>
       </Flex>
-      <Flex gap={12} wrap>
-        <FilterCheckBox label="Show Id" onChange={() => onUpdateDisplays('id')} value={!!displays.id} />
+      <Flex
+        gap={12}
+        wrap
+      >
+        <FilterCheckBox
+          label="Show Id"
+          onChange={() => onUpdateDisplays('id')}
+          value={!!displays.id}
+        />
         <FilterCheckBox
           label="Show Name (EN)"
           onChange={() => onUpdateDisplays('nameEn')}
@@ -195,7 +212,10 @@ export function ItemSimulation() {
         />
       </Flex>
 
-      <div className="simulator-grid" style={{ gridTemplateColumns: `repeat(${Math.sqrt(gridSize)}, 1fr)` }}>
+      <div
+        className="simulator-grid"
+        style={{ gridTemplateColumns: `repeat(${Math.sqrt(gridSize)}, 1fr)` }}
+      >
         {selectedItemsIds.map((itemId) => {
           const item = getItem(itemId);
           const itemAttributeValues = getItemAttributeValues(itemId);
@@ -233,11 +253,24 @@ export function ItemSimulation() {
                   {displays.id && <ItemGoTo item={item} />}
                 </Flex>
 
-                <ItemSprite item={item} width={50} />
+                <ItemSprite
+                  item={item}
+                  width={50}
+                />
               </Space>
 
-              {displays.nameEn && <ItemName item={item} language="en" />}
-              {displays.namePt && <ItemName item={item} language="pt" />}
+              {displays.nameEn && (
+                <ItemName
+                  item={item}
+                  language="en"
+                />
+              )}
+              {displays.namePt && (
+                <ItemName
+                  item={item}
+                  language="pt"
+                />
+              )}
             </Space>
           );
         })}
@@ -255,7 +288,11 @@ export function ItemSimulation() {
             onClick={() => setHighlightedAttributeKey(attributeSummary.id)}
           >
             {attributeSummary.name.en} {ROMAN_NUMERALS[attributeSummary.level]}
-            <Flex className="my-1" gap={6} justify="center">
+            <Flex
+              className="my-1"
+              gap={6}
+              justify="center"
+            >
               <span>
                 <CheckSquareOutlined
                   style={{ color: attributeSummary.deterministicCount ? 'dodgerblue' : undefined }}
@@ -287,9 +324,9 @@ export function ItemSimulation() {
 }
 
 function getHighestAttributeKeys(
-  selectedItemsAttributesValues: ItemAttributesValues[],
+  selectedItemsAttributesValues: ItemAttributesValuesData[],
   quantity: number,
-  attributes: Dictionary<ItemAttribute>,
+  attributes: Dictionary<ItemAttributeData>,
 ): string[] {
   // 1. Count the number of times each attribute is present. Make sure to gather any deterministic value
   const attributesCounts: Record<string, number> = {};

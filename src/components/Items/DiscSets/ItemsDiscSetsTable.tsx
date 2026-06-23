@@ -5,7 +5,7 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
-import type { DailyDiscSet, Item as ItemT } from 'types';
+import type { DailyDiscSet, ItemData as ItemT } from 'types';
 import { removeDuplicates, sortItemsIds } from 'utils';
 import { DiscEditableTitleCell } from './DiscEditableTitleCell';
 import { DiscItemsCell } from './DiscItemsCell';
@@ -36,7 +36,11 @@ export function ItemsDiscSetsTable({ rows, addEntryToUpdate }: ItemsDiscSetsTabl
       key: 'title',
       sorter: (a, b) => a.title.en.localeCompare(b.title.en),
       render: (title, record) => (
-        <DiscEditableTitleCell addEntryToUpdate={addEntryToUpdate} disc={record} value={title} />
+        <DiscEditableTitleCell
+          addEntryToUpdate={addEntryToUpdate}
+          disc={record}
+          value={title}
+        />
       ),
     },
     Table.EXPAND_COLUMN,
@@ -64,7 +68,10 @@ export function ItemsDiscSetsTable({ rows, addEntryToUpdate }: ItemsDiscSetsTabl
   const expandableProps = useTableExpandableRows<DailyDiscSet>({
     maxExpandedRows: 1,
     expandedRowRender: (record) => (
-      <ItemsDiscSetExpandedRow addEntryToUpdate={addEntryToUpdate} disc={record} />
+      <ItemsDiscSetExpandedRow
+        addEntryToUpdate={addEntryToUpdate}
+        disc={record}
+      />
     ),
     rowExpandable: () => itemsTypeaheadQuery.isSuccess,
   });

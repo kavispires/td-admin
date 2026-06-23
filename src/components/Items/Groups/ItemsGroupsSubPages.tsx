@@ -4,7 +4,7 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
-import type { ItemGroup, Item as ItemT } from 'types';
+import type { ItemGroupData, ItemData as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 import { ItemsGroupsByGroupTable } from './ItemsGroupsByGroupTable';
 import { ItemsGroupsByItemTable } from './ItemsGroupsByItemTable';
@@ -13,7 +13,7 @@ import { ItemsGroupsSearch } from './ItemsGroupsSearch';
 export function ItemsGroupsSubPages({
   data,
   addEntryToUpdate,
-}: UseResourceFirestoreDataReturnType<ItemGroup>) {
+}: UseResourceFirestoreDataReturnType<ItemGroupData>) {
   const { is, queryParams } = useQueryParams();
   const itemsTypeaheadQuery = useTDResource<ItemT>('items');
 
@@ -89,7 +89,10 @@ export function ItemsGroupsSubPages({
   return (
     <>
       {(is('display', 'group') || !queryParams.has('display')) && (
-        <Space className="mb-4" orientation="vertical">
+        <Space
+          className="mb-4"
+          orientation="vertical"
+        >
           <ItemsGroupsSearch
             data={data}
             groupsTypeahead={groupsTypeahead}

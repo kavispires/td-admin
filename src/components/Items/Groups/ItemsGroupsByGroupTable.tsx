@@ -19,14 +19,14 @@ import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
 import { useRef, useState } from 'react';
-import type { ItemGroup, Item as ItemT } from 'types';
+import type { ItemGroupData, ItemData as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 import { CopyIdsButton } from '../CopyIdsButton';
 import { AddItemFlow } from './AddItemFlow';
 import { ItemGroupsCard } from './ItemGroupsCard';
 
 type ItemsGroupsTablesProps = {
-  rows: ItemGroup[];
+  rows: ItemGroupData[];
   items: Dictionary<ItemT>;
   grousByItem: Record<string, string[]>;
   groupsTypeahead: { value: string; label: string }[];
@@ -66,7 +66,7 @@ export function ItemsGroupsByGroupTable({
     total: rows.length,
   });
 
-  const columns: TableProps<ItemGroup>['columns'] = [
+  const columns: TableProps<ItemGroupData>['columns'] = [
     {
       title: 'id',
       dataIndex: 'id',
@@ -82,7 +82,10 @@ export function ItemsGroupsByGroupTable({
       dataIndex: 'name',
       key: 'name',
       render: (name: DualLanguageValue, record) => (
-        <Flex gap={4} vertical>
+        <Flex
+          gap={4}
+          vertical
+        >
           <DualLanguageTextField
             language="en"
             onChange={(e) => onUpdateName(e.target.value, 'en', record.id)}
@@ -125,9 +128,15 @@ export function ItemsGroupsByGroupTable({
         };
 
         return (
-          <Flex gap={6} vertical>
+          <Flex
+            gap={6}
+            vertical
+          >
             {hasSelections && (
-              <Flex align="center" gap={8}>
+              <Flex
+                align="center"
+                gap={8}
+              >
                 <Typography.Text>
                   {selectedItems.length} item{selectedItems.length > 1 ? 's' : ''} selected
                 </Typography.Text>
@@ -137,7 +146,11 @@ export function ItemsGroupsByGroupTable({
                   onConfirm={handleBatchRemove}
                   title={`Remove ${selectedItems.length} item${selectedItems.length > 1 ? 's' : ''} from this group?`}
                 >
-                  <Button danger size="small" type="primary">
+                  <Button
+                    danger
+                    size="small"
+                    type="primary"
+                  >
                     Batch Remove
                   </Button>
                 </Popconfirm>
@@ -282,7 +295,10 @@ export function ItemsGroupsByGroupTable({
                   }}
                   vertical
                 >
-                  <Flex align="center" gap={4}>
+                  <Flex
+                    align="center"
+                    gap={4}
+                  >
                     <Checkbox
                       checked={selectedItems.includes(itemId)}
                       onChange={(e) => handleCheckboxChange(itemId, e.target.checked)}
@@ -302,7 +318,10 @@ export function ItemsGroupsByGroupTable({
                             items[itemId] ? `${items[itemId].name.en} | ${items[itemId].name.pt}` : itemId
                           }
                         >
-                          <Item itemId={itemId} width={60} />
+                          <Item
+                            itemId={itemId}
+                            width={60}
+                          />
                         </Tooltip>
                       </VirtualizationWrapper>
                     </TransparentButton>
@@ -334,9 +353,14 @@ export function ItemsGroupsByGroupTable({
 
   const selectedItem = selectedItemId ? items[selectedItemId] : null;
 
-  const expandableProps = useTableExpandableRows<ItemGroup>({
+  const expandableProps = useTableExpandableRows<ItemGroupData>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <AddItemFlow group={record} onUpdateGroupItems={onUpdateGroupItems} />,
+    expandedRowRender: (record) => (
+      <AddItemFlow
+        group={record}
+        onUpdateGroupItems={onUpdateGroupItems}
+      />
+    ),
     rowExpandable: () => itemsTypeaheadQuery.isSuccess,
   });
 
@@ -350,7 +374,11 @@ export function ItemsGroupsByGroupTable({
         pagination={paginationProps}
         rowKey="id"
       />
-      <Drawer onClose={() => setSelectedItemId(null)} open={!!selectedItem} title="Edit Item Group">
+      <Drawer
+        onClose={() => setSelectedItemId(null)}
+        open={!!selectedItem}
+        title="Edit ItemData Group"
+      >
         {selectedItem && (
           <ItemGroupsCard
             groupsTypeahead={groupsTypeahead}

@@ -6,17 +6,20 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { ContenderCard } from 'types';
+import type { ContenderCardData } from 'types';
 
 export function Contenders() {
-  const contendersQuery = useResourceFirestoreData<ContenderCard>({
+  const contendersQuery = useResourceFirestoreData<ContenderCardData>({
     tdrResourceName: 'contenders',
     firestoreDataCollectionName: 'contenders',
     serialize: true,
   });
 
   return (
-    <PageLayout subtitle="Characters, Celebrities, Personalities" title="Contenders">
+    <PageLayout
+      subtitle="Characters, Celebrities, Personalities"
+      title="Contenders"
+    >
       <Layout hasSider>
         <PageSider>
           <ContendersFilters {...contendersQuery} />

@@ -1,6 +1,6 @@
 import { useTDResource } from 'hooks/useTDResource';
 import { useEffect, useMemo } from 'react';
-import type { Item } from 'types/tdr';
+import type { ItemData } from 'types/tdr';
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import { type DailyAlienadoEntry, useDailyAlienadoGames } from '../utils/games/daily-alienado';
 import { type DailyAquiOEntry, useDailyAquiOGames } from '../utils/games/daily-aqui-o';
@@ -78,7 +78,7 @@ export function useLoadDailySetup(
   const enableBuilders = enabled && historyQuery.isSuccess;
 
   // GET ITEMS FOR DICTIONARY
-  const tdrItemsQuery = useTDResource<Item>('items', { enabled: enableBuilders });
+  const tdrItemsQuery = useTDResource<ItemData>('items', { enabled: enableBuilders });
 
   // BUILD AQUI Ó
   const aquiO = useDailyAquiOGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
@@ -240,7 +240,7 @@ export function useLoadDailySetup(
   };
 }
 
-const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<Item>): Dictionary<string> => {
+const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemData>): Dictionary<string> => {
   const dictionary: Dictionary<string> = {};
 
   // Gather Aqui Ó items

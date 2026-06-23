@@ -11,20 +11,30 @@ import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
 import { useMemo, useRef, useState } from 'react';
-import type { SuspectCard } from 'types';
+import type { SuspectCardData } from 'types';
 
 export function EspionagemSimulator() {
   const [run, setRun] = useState({ batchSize: 1, history: {} });
   const batchSizeRef = useRef<number>(1);
   const { entries } = useDailyInvestigacaoGames(true, 'pt', run.batchSize, run.history);
-  const suspectsQuery = useTDResource<SuspectCard>('suspects', { enabled: !isEmpty(entries) });
+  const suspectsQuery = useTDResource<SuspectCardData>('suspects', { enabled: !isEmpty(entries) });
 
   console.log(countSuspectUse(entries, suspectsQuery.data ?? {}));
 
   return (
-    <Flex className="p-4" gap={12} vertical>
-      <Flex align="center" justify="space-between">
-        <Typography.Title className="my-0" level={4}>
+    <Flex
+      className="p-4"
+      gap={12}
+      vertical
+    >
+      <Flex
+        align="center"
+        justify="space-between"
+      >
+        <Typography.Title
+          className="my-0"
+          level={4}
+        >
           Espionagem Simulator
         </Typography.Title>
         <Flex gap={6}>
@@ -36,7 +46,10 @@ export function EspionagemSimulator() {
               batchSizeRef.current = value ?? 1;
             }}
           />
-          <Button onClick={() => setRun({ batchSize: batchSizeRef.current, history: {} })} type="primary">
+          <Button
+            onClick={() => setRun({ batchSize: batchSizeRef.current, history: {} })}
+            type="primary"
+          >
             Re-run Simulation
           </Button>
         </Flex>
@@ -73,11 +86,21 @@ function SimulationGame({ entries }: SimulationGameProps) {
   }, [entry]);
 
   return (
-    <div className="full-width grid" style={{ gridTemplateColumns: '2fr 3fr' }}>
-      <ReactJsonView collapsed={3} src={entries ?? {}} theme="twilight" />
+    <div
+      className="full-width grid"
+      style={{ gridTemplateColumns: '2fr 3fr' }}
+    >
+      <ReactJsonView
+        collapsed={3}
+        src={entries ?? {}}
+        theme="twilight"
+      />
       <div>
         {entry && (
-          <Flex className="p-4" gap={18}>
+          <Flex
+            className="p-4"
+            gap={18}
+          >
             <div>
               <div
                 style={{
@@ -100,8 +123,15 @@ function SimulationGame({ entries }: SimulationGameProps) {
                       className={clsx(showCulprit && suspect.id === entry.culpritId && 'red-border')}
                       key={suspect.id}
                     />
-                    <Flex align="center" gap={6}>
-                      <Switch checkedChildren="🚫" size="small" /> {suspect.id}
+                    <Flex
+                      align="center"
+                      gap={6}
+                    >
+                      <Switch
+                        checkedChildren="🚫"
+                        size="small"
+                      />{' '}
+                      {suspect.id}
                     </Flex>
                   </Badge.Ribbon>
                 ))}
@@ -119,7 +149,10 @@ function SimulationGame({ entries }: SimulationGameProps) {
               </div>
               {entry.statements.map((statement) => (
                 <Typography.Paragraph key={statement.key}>
-                  <Badge color="cyan" count={statement.excludes.length}>
+                  <Badge
+                    color="cyan"
+                    count={statement.excludes.length}
+                  >
                     <Alert
                       banner
                       icon={getStatementIcon(statement.type)}
@@ -132,7 +165,10 @@ function SimulationGame({ entries }: SimulationGameProps) {
               ))}
               {entry.additionalStatements.map((statement) => (
                 <Typography.Paragraph key={statement.key}>
-                  <Badge color="cyan" count={statement.excludes.length}>
+                  <Badge
+                    color="cyan"
+                    count={statement.excludes.length}
+                  >
                     <Alert
                       banner
                       icon={getStatementIcon(statement.type)}
@@ -164,7 +200,10 @@ const getStatementIcon = (type: DailyInvestigacaoEntry['statements'][number]['ty
   }
 };
 
-const countSuspectUse = (entries: Dictionary<DailyInvestigacaoEntry>, suspects: Dictionary<SuspectCard>) => {
+const countSuspectUse = (
+  entries: Dictionary<DailyInvestigacaoEntry>,
+  suspects: Dictionary<SuspectCardData>,
+) => {
   // Calculate how many times each suspect is used in the entries, and now many times they are the culprit
   const suspectUsage = Object.values(entries).reduce(
     (acc: Record<string, number>, entry) => {

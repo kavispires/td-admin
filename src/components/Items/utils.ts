@@ -1,6 +1,6 @@
 import { alienAttributesUtils } from 'toolKits/alien-attributes';
 import { cloneDeep, keyBy, memoize, merge, orderBy, sortBy } from 'lodash';
-import type { Item, ItemAttribute, ItemAttributesValues } from 'types';
+import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from 'types';
 import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX } from 'utils/constants';
 
 /**
@@ -9,7 +9,7 @@ import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX } from 'utils/constants';
  * @param partialItem - The partial item to merge with the default values.
  * @returns The new item with merged values.
  */
-export const getNewItem = (partialItem: Partial<Item> = {}): Item => {
+export const getNewItem = (partialItem: Partial<ItemData> = {}): ItemData => {
   return cloneDeep(
     merge(
       {
@@ -24,15 +24,15 @@ export const getNewItem = (partialItem: Partial<Item> = {}): Item => {
 };
 
 /**
- * Creates a new `ItemAttributesValues` object by merging the provided `partialItemAttributeValues`
+ * Creates a new `ItemAttributesValuesData` object by merging the provided `partialItemAttributeValues`
  * with a default object that has an empty `id` and an empty `attributes` object.
  *
  * @param partialItemAttributeValues - The partial item attribute values to merge.
- * @returns The new `ItemAttributesValues` object.
+ * @returns The new `ItemAttributesValuesData` object.
  */
 export const getNewItemAttributeValues = (
-  partialItemAttributeValues: Partial<ItemAttributesValues> = {},
-): ItemAttributesValues => {
+  partialItemAttributeValues: Partial<ItemAttributesValuesData> = {},
+): ItemAttributesValuesData => {
   return cloneDeep(
     merge(
       {
@@ -53,8 +53,8 @@ export const getNewItemAttributeValues = (
  * @returns
  */
 export const getItemAttributePriorityResponse = (
-  itemAttributesValues: ItemAttributesValues,
-  itemAttributes: Dictionary<ItemAttribute>,
+  itemAttributesValues: ItemAttributesValuesData,
+  itemAttributes: Dictionary<ItemAttributeData>,
   /**
    * Ignore attributes that are UNRELATED or UNCLEAR
    */
@@ -169,8 +169,8 @@ export const filterMessage = (message: string[], showUnclear: boolean, showUnrel
  * - `length`: A number indicating the maximum number of attributes to include in the signature.
  **/
 export function constructItemSignature(
-  item: ItemAttributesValues,
-  itemAttributes: Dictionary<ItemAttribute>,
+  item: ItemAttributesValuesData,
+  itemAttributes: Dictionary<ItemAttributeData>,
   options?: {
     onlyRelevant?: boolean;
     length?: number;
@@ -243,9 +243,9 @@ const prefixDictionary = keyBy(alienAttributesUtils.ATTRIBUTE_VALUE_DICT, 'prefi
  * @param signature - The signature string containing the attributes.
  * @returns An object representing the item attributes.
  */
-export function constructItemAttributes(signature: string): ItemAttributesValues['attributes'] {
+export function constructItemAttributes(signature: string): ItemAttributesValuesData['attributes'] {
   const entries = signature.match(/[\^*+~!][a-zA-Z0-9]+/g) ?? [];
-  return entries.reduce((acc: ItemAttributesValues['attributes'], entry) => {
+  return entries.reduce((acc: ItemAttributesValuesData['attributes'], entry) => {
     const prefix = entry[0];
     const id = entry.slice(1);
     const value = prefixDictionary[prefix].value;
@@ -254,7 +254,7 @@ export function constructItemAttributes(signature: string): ItemAttributesValues
   }, {});
 }
 
-export function calculateItemScore(itemAttributesValues: ItemAttributesValues): number {
+export function calculateItemScore(itemAttributesValues: ItemAttributesValuesData): number {
   return Object.values(itemAttributesValues.attributes).reduce((accumulator: number, value) => {
     let updatedAccumulator = accumulator;
     if (value <= 0) {
@@ -269,7 +269,7 @@ export function calculateItemScore(itemAttributesValues: ItemAttributesValues): 
 }
 
 export function calculateItemReliability(
-  itemAttributesValues: ItemAttributesValues,
+  itemAttributesValues: ItemAttributesValuesData,
   totalAttributes: number,
 ): number {
   const unclearCount = Object.values(itemAttributesValues.attributes).filter(

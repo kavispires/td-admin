@@ -1,7 +1,7 @@
 import { Flex, Select, Switch, Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
-import type { SuspectCard } from 'types';
+import type { SuspectCardData } from 'types';
 import { FEATURES_BY_GROUP } from './options';
 
 const flatFeatures = orderBy(
@@ -24,7 +24,11 @@ export function FeaturesFilterBar() {
   const { addParam, queryParams } = useQueryParams();
 
   return (
-    <Flex align="center" className="my-2" gap={8}>
+    <Flex
+      align="center"
+      className="my-2"
+      gap={8}
+    >
       <Typography.Text>Feature Highlight:</Typography.Text>{' '}
       <Select
         allowClear
@@ -39,7 +43,7 @@ export function FeaturesFilterBar() {
 }
 
 type ActiveFeatureSwitchProps = {
-  entry: SuspectCard;
+  entry: SuspectCardData;
   updateSuspectFeature: (id: string, feature: string) => void;
   activeFeature?: string;
 };
@@ -52,7 +56,10 @@ export function ActiveFeatureSwitch({
   if (!activeFeature) return null;
 
   return (
-    <Flex className="mt-2 mb-4" gap={8}>
+    <Flex
+      className="mt-2 mb-4"
+      gap={8}
+    >
       <Typography.Text keyboard>{activeFeature}:</Typography.Text>
       <Switch
         checked={entry.features?.includes(activeFeature)}

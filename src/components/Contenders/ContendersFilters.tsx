@@ -6,11 +6,11 @@ import { SiderContent } from 'components/Layout';
 import type { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
-import type { ContenderCard } from 'types';
+import type { ContenderCardData } from 'types';
 import { deepCleanObject, sortJsonKeys } from 'utils';
 import { DECKS } from './ContenderEditCard';
 
-export type ContendersFiltersProps = ReturnType<typeof useResourceFirestoreData<ContenderCard>>;
+export type ContendersFiltersProps = ReturnType<typeof useResourceFirestoreData<ContenderCardData>>;
 
 export function ContendersFilters({
   data,
@@ -23,7 +23,10 @@ export function ContendersFilters({
   return (
     <>
       <SiderContent>
-        <Flex gap={12} vertical>
+        <Flex
+          gap={12}
+          vertical
+        >
           <SaveButton
             dirt={JSON.stringify(entriesToUpdate)}
             isDirty={isDirty}
@@ -42,7 +45,10 @@ export function ContendersFilters({
       </SiderContent>
 
       <SiderContent>
-        <DataFilters data={data} ignoreKeys={['description']} />
+        <DataFilters
+          data={data}
+          ignoreKeys={['description']}
+        />
       </SiderContent>
 
       <SiderContent>
@@ -52,7 +58,7 @@ export function ContendersFilters({
   );
 }
 
-function prepareFileForDownload(entriesToUpdate: Dictionary<ContenderCard>) {
+function prepareFileForDownload(entriesToUpdate: Dictionary<ContenderCardData>) {
   console.log('Preparing file for download...');
   const copy = cloneDeep(entriesToUpdate);
   // Remove any undefined values of any keys in each entry
@@ -96,10 +102,17 @@ function DeckCounts({ data }: Pick<ContendersFiltersProps, 'data'>) {
   }, [data]);
 
   return (
-    <Flex gap={8} vertical>
+    <Flex
+      gap={8}
+      vertical
+    >
       <Typography.Text strong>Deck Counts</Typography.Text>
 
-      <Flex gap={8} style={{ maxHeight: '300px', overflowY: 'auto' }} vertical>
+      <Flex
+        gap={8}
+        style={{ maxHeight: '300px', overflowY: 'auto' }}
+        vertical
+      >
         {DECKS.map((entry) => (
           <Typography.Text key={entry.value}>
             {entry.label}: {counts.deckCounts[entry.value] ?? 0}
@@ -110,7 +123,11 @@ function DeckCounts({ data }: Pick<ContendersFiltersProps, 'data'>) {
       <Divider className="my-2" />
 
       <Typography.Text strong>Invalid Decks</Typography.Text>
-      <Flex gap={8} style={{ maxHeight: '300px', overflowY: 'auto' }} vertical>
+      <Flex
+        gap={8}
+        style={{ maxHeight: '300px', overflowY: 'auto' }}
+        vertical
+      >
         {counts.invalidDecks.map((deck) => (
           <Typography.Text key={deck}>{deck}</Typography.Text>
         ))}
@@ -119,7 +136,10 @@ function DeckCounts({ data }: Pick<ContendersFiltersProps, 'data'>) {
       <Divider className="my-2" />
 
       <Typography.Text strong>Exclusivity</Typography.Text>
-      <Flex gap={8} vertical>
+      <Flex
+        gap={8}
+        vertical
+      >
         <Typography.Text>English: {counts.englishExclusivity}</Typography.Text>
         <Typography.Text>Portuguese: {counts.portugueseExclusivity}</Typography.Text>
         <Typography.Text>Both: {counts.bothExclusivity}</Typography.Text>

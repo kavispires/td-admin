@@ -7,40 +7,40 @@ import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
 import { useEffect } from 'react';
-import type { CrimeSceneTile, CrimesHediondosCard, Item } from 'types';
+import type { CrimeSceneTileData, CrimesHediondosCardData, ItemData } from 'types';
 
 function CrimesHediondos() {
-  const weaponsQuery = useResourceFirestoreData<CrimesHediondosCard>({
+  const weaponsQuery = useResourceFirestoreData<CrimesHediondosCardData>({
     tdrResourceName: 'crime-weapons',
     firestoreDataCollectionName: 'crimeWeapons',
     serialize: true,
   });
 
-  const evidenceQuery = useResourceFirestoreData<CrimesHediondosCard>({
+  const evidenceQuery = useResourceFirestoreData<CrimesHediondosCardData>({
     tdrResourceName: 'crime-evidence',
     firestoreDataCollectionName: 'crimeEvidence',
     serialize: true,
   });
 
-  const locationsQuery = useResourceFirestoreData<CrimesHediondosCard>({
+  const locationsQuery = useResourceFirestoreData<CrimesHediondosCardData>({
     tdrResourceName: 'crime-locations',
     firestoreDataCollectionName: 'crimeLocations',
     serialize: true,
   });
 
-  const victimsQuery = useResourceFirestoreData<CrimesHediondosCard>({
+  const victimsQuery = useResourceFirestoreData<CrimesHediondosCardData>({
     tdrResourceName: 'crime-victims',
     firestoreDataCollectionName: 'crimeVictims',
     serialize: true,
   });
 
-  const scenesQuery = useResourceFirestoreData<CrimeSceneTile>({
+  const scenesQuery = useResourceFirestoreData<CrimeSceneTileData>({
     tdrResourceName: 'crime-scenes',
     firestoreDataCollectionName: 'crimeScenes',
     serialize: true,
   });
 
-  const itemsTypeaheadQuery = useTDResource<Item>('items');
+  const itemsTypeaheadQuery = useTDResource<ItemData>('items');
 
   useEffect(() => {
     const slimScenes = Object.values(scenesQuery.data).map((scene) => {
@@ -69,7 +69,10 @@ function CrimesHediondos() {
   // }, [victimsQuery.data]);
 
   return (
-    <PageLayout subtitle="Categorizer" title="Crimes Hediondos">
+    <PageLayout
+      subtitle="Categorizer"
+      title="Crimes Hediondos"
+    >
       <Layout hasSider>
         <PageSider>
           <CrimesHediondosFilters

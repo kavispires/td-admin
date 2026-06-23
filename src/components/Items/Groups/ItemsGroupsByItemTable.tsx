@@ -3,7 +3,7 @@ import { PaginationWrapper } from 'components/Common/PaginationWrapper';
 import { useGridPagination } from 'hooks/useGridPagination';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
-import type { Item as ItemT } from 'types';
+import type { ItemData as ItemT } from 'types';
 import { ItemGroupsCard } from './ItemGroupsCard';
 
 type ItemsGroupsTablesProps = {
@@ -35,9 +35,19 @@ export function ItemsGroupsByItemTable({
     <>
       <Typography.Title level={2}>Groups by Items ({data.length})</Typography.Title>
       <PaginationWrapper pagination={pagination}>
-        <Row className="my-4" gutter={[16, 16]}>
+        <Row
+          className="my-4"
+          gutter={[16, 16]}
+        >
           {page.map((item) => (
-            <Col key={item.id} lg={6} md={12} sm={24} xl={4} xs={24}>
+            <Col
+              key={item.id}
+              lg={6}
+              md={12}
+              sm={24}
+              xl={4}
+              xs={24}
+            >
               <ItemGroupsCard
                 groupsTypeahead={groupsTypeahead}
                 item={item}

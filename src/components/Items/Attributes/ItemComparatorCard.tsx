@@ -2,7 +2,7 @@ import { Button, Flex, Space, Table, type TableColumnsType, Typography } from 'a
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { type ItemMessageObject, useItemsComparator } from 'hooks/useItemsComparator';
 import { useQueryParams } from 'hooks/useQueryParams';
-import type { Item } from 'types';
+import type { ItemData } from 'types';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributeSprite } from './ItemAttributeDescription';
 import { ItemAttributionDrawer } from './ItemAttributionDrawer';
@@ -14,15 +14,19 @@ export function ItemComparatorCard() {
 
   const columns: TableColumnsType<ItemMessageObject> = [
     {
-      title: 'Item Id',
+      title: 'ItemData Id',
       dataIndex: 'item',
       key: 'id',
-      render: (item: Item) => (
+      render: (item: ItemData) => (
         <div>
           <ItemId item={item} />
           <Space.Compact>
             <ItemGoTo item={item} />
-            <Button onClick={() => addParam('drawer', item.id)} shape="round" size="small">
+            <Button
+              onClick={() => addParam('drawer', item.id)}
+              shape="round"
+              size="small"
+            >
               Drawer
             </Button>
           </Space.Compact>
@@ -34,16 +38,27 @@ export function ItemComparatorCard() {
       title: 'Sprite',
       dataIndex: 'item',
       key: 'sprite',
-      render: (item: Item) => <ItemSprite item={item} width={75} />,
+      render: (item: ItemData) => (
+        <ItemSprite
+          item={item}
+          width={75}
+        />
+      ),
     },
     {
       title: 'Name',
       dataIndex: 'item',
       key: 'name',
-      render: (item: Item) => (
+      render: (item: ItemData) => (
         <>
-          <ItemName item={item} language="en" />
-          <ItemName item={item} language="pt" />
+          <ItemName
+            item={item}
+            language="en"
+          />
+          <ItemName
+            item={item}
+            language="pt"
+          />
         </>
       ),
       sorter: (a, b) => a.item.name.en.localeCompare(b.item.name.en),
@@ -92,8 +107,12 @@ export function ItemComparatorCard() {
 
   return (
     <div className="my-4">
-      <Typography.Title level={5}>Item Comparator</Typography.Title>
-      <Table columns={columns} dataSource={itemMessages} pagination={{ showQuickJumper: true }} />
+      <Typography.Title level={5}>ItemData Comparator</Typography.Title>
+      <Table
+        columns={columns}
+        dataSource={itemMessages}
+        pagination={{ showQuickJumper: true }}
+      />
       <ItemAttributionDrawer />
     </div>
   );

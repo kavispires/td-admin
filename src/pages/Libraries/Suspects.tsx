@@ -6,22 +6,25 @@ import { SuspectsContent } from 'components/Suspects/SuspectsContent';
 import { SuspectsFilters } from 'components/Suspects/SuspectsFilters';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { SuspectCard, SuspectExtendedInfo } from 'types';
+import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 
 function Suspects() {
-  const suspectsQuery = useResourceFirestoreData<SuspectCard>({
+  const suspectsQuery = useResourceFirestoreData<SuspectCardData>({
     tdrResourceName: 'suspects',
     firestoreDataCollectionName: 'suspects',
     serialize: true,
   });
-  const suspectsExtendedInfoQuery = useResourceFirestoreData<SuspectExtendedInfo>({
+  const suspectsExtendedInfoQuery = useResourceFirestoreData<SuspectExtendedInfoData>({
     tdrResourceName: 'suspects-extended-info',
     firestoreDataCollectionName: 'suspectsExtendedInfo',
     serialize: true,
   });
 
   return (
-    <PageLayout subtitle="Information" title="Suspects">
+    <PageLayout
+      subtitle="Information"
+      title="Suspects"
+    >
       <Layout hasSider>
         <PageSider>
           <SuspectsFilters

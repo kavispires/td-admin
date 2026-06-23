@@ -6,7 +6,7 @@ import { SaveButton } from 'components/Common/SaveButton';
 import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
-import type { CrimeSceneTile, CrimesHediondosCard } from 'types';
+import type { CrimeSceneTileData, CrimesHediondosCardData } from 'types';
 import { sortJsonKeys } from 'utils';
 import type { CrimesHediondosContentProps } from './CrimesHediondosContent';
 
@@ -21,9 +21,15 @@ export function CrimesHediondosFilters({
 
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <Flex gap={6}>
-          <Flex gap={6} vertical>
+          <Flex
+            gap={6}
+            vertical
+          >
             <span>Weapons</span>
             <SaveButton
               dirt={JSON.stringify(weaponsQuery.entriesToUpdate)}
@@ -44,7 +50,10 @@ export function CrimesHediondosFilters({
             </DownloadButton>
           </Flex>
 
-          <Flex gap={6} vertical>
+          <Flex
+            gap={6}
+            vertical
+          >
             <span>Evidence</span>
             <SaveButton
               dirt={JSON.stringify(evidenceQuery.entriesToUpdate)}
@@ -67,7 +76,10 @@ export function CrimesHediondosFilters({
         </Flex>
 
         <Flex gap={6}>
-          <Flex gap={6} vertical>
+          <Flex
+            gap={6}
+            vertical
+          >
             <span>Locations</span>
             <SaveButton
               dirt={JSON.stringify(weaponsQuery.entriesToUpdate)}
@@ -87,7 +99,10 @@ export function CrimesHediondosFilters({
             </DownloadButton>
           </Flex>
 
-          <Flex gap={6} vertical>
+          <Flex
+            gap={6}
+            vertical
+          >
             <span>Victims</span>
             <SaveButton
               dirt={JSON.stringify(weaponsQuery.entriesToUpdate)}
@@ -159,7 +174,7 @@ export function CrimesHediondosFilters({
   );
 }
 
-function prepareFileForDownload(cards: Dictionary<CrimesHediondosCard>) {
+function prepareFileForDownload(cards: Dictionary<CrimesHediondosCardData>) {
   console.log('Preparing file for download...');
   const copy = cloneDeep(cards);
   Object.values(copy).forEach((card) => {
@@ -171,7 +186,7 @@ function prepareFileForDownload(cards: Dictionary<CrimesHediondosCard>) {
   return sortJsonKeys(copy);
 }
 
-function prepareScenesFileForDownload(scenes: Dictionary<CrimeSceneTile>) {
+function prepareScenesFileForDownload(scenes: Dictionary<CrimeSceneTileData>) {
   console.log('Preparing scenes file for download...');
   const copy = cloneDeep(scenes);
   // Object.values(copy).forEach((scene) => {

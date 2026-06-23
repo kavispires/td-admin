@@ -4,17 +4,17 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo } from 'react';
-import type { DailyDiagramItem, DailyDiagramRule, Item as ItemT } from 'types';
+import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from 'types';
 import { AddNewThingFlow } from './AddNewThingFlow';
 import { ThingButton } from './Thing';
 
 type ThingsByRuleProps = {
-  things: UseResourceFirestoreDataReturnType<DailyDiagramItem>['data'];
-  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItem>['addEntryToUpdate'];
+  things: UseResourceFirestoreDataReturnType<DailyDiagramItemData>['data'];
+  addEntryToUpdate: UseResourceFirestoreDataReturnType<DailyDiagramItemData>['addEntryToUpdate'];
   availableThings: ItemT[];
-  rules: Dictionary<DailyDiagramRule>;
+  rules: Dictionary<DailyDiagramRuleData>;
   thingsByRules: Record<string, string[]>;
-  setActiveThing: React.Dispatch<React.SetStateAction<DailyDiagramItem | null>>;
+  setActiveThing: React.Dispatch<React.SetStateAction<DailyDiagramItemData | null>>;
   containerWidth: number;
 };
 
@@ -53,7 +53,7 @@ export function ThingsByRule({
     };
   }, [thingsByRules]);
 
-  const columns: TableColumnsType<DailyDiagramRule & { thingsCount: number }> = [
+  const columns: TableColumnsType<DailyDiagramRuleData & { thingsCount: number }> = [
     {
       title: 'Id',
       dataIndex: 'id',
@@ -88,7 +88,10 @@ export function ThingsByRule({
         <Space size="small">
           <Tag>{thingsCount}</Tag>
           {is('showThings') ? (
-            <Space size="small" wrap>
+            <Space
+              size="small"
+              wrap
+            >
               {thingsByRules[record.id].slice(0, 20).map((itemId) => (
                 <ThingButton
                   key={`${record.id}-${itemId}`}
@@ -101,7 +104,10 @@ export function ThingsByRule({
               )}
             </Space>
           ) : (
-            <Space size="small" wrap>
+            <Space
+              size="small"
+              wrap
+            >
               {thingsByRules[record.id].slice(0, 5).map((itemId) => (
                 <ThingButton
                   key={`${record.id}-${itemId}`}
@@ -123,22 +129,38 @@ export function ThingsByRule({
       dataIndex: 'level',
       key: 'level',
       sorter: (a, b) => a.level - b.level,
-      render: (level: number) => <Rate count={3} disabled value={level} />,
+      render: (level: number) => (
+        <Rate
+          count={3}
+          disabled
+          value={level}
+        />
+      ),
     },
   ];
 
   return (
     <Space orientation="vertical">
-      <Flex align="center" gap={12} justify="space-between">
+      <Flex
+        align="center"
+        gap={12}
+        justify="space-between"
+      >
         <Typography.Title level={4}>
           Things By Rule (Added: {Object.keys(things).length} | {availableThings.length}){' '}
         </Typography.Title>
-        <CopyToClipboardButton content={() => Date.now().toString()} shape="default">
+        <CopyToClipboardButton
+          content={() => Date.now().toString()}
+          shape="default"
+        >
           Now
         </CopyToClipboardButton>
       </Flex>
 
-      <Space separator={<Divider orientation="vertical" />} wrap>
+      <Space
+        separator={<Divider orientation="vertical" />}
+        wrap
+      >
         <AddNewThingFlow
           addEntryToUpdate={addEntryToUpdate}
           allThings={things}
@@ -167,7 +189,11 @@ export function ThingsByRule({
         />
       </Space>
 
-      <Table columns={columns} dataSource={rows} pagination={paginationProps} />
+      <Table
+        columns={columns}
+        dataSource={rows}
+        pagination={paginationProps}
+      />
     </Space>
   );
 }

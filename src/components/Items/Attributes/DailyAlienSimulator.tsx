@@ -3,13 +3,13 @@ import { AlienSign, Item } from 'components/Sprites';
 import { useTDResource } from 'hooks/useTDResource';
 import { keys, sample, sampleSize, shuffle, values } from 'lodash';
 import { useState } from 'react';
-import type { ItemAttribute, ItemAttributesValues } from 'types';
+import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
 import { makeArray } from 'utils';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 export function DailyAlienSimulator() {
-  const tdrAttributesQuery = useTDResource<ItemAttribute>('items-attributes');
-  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValues>('items-attribute-values');
+  const tdrAttributesQuery = useTDResource<ItemAttributeData>('items-attributes');
+  const tdrItemsAttributesValuesQuery = useTDResource<ItemAttributesValuesData>('items-attribute-values');
 
   const [simulation, setSimulation] = useState<DailyAlienGame | null>(null);
 
@@ -44,7 +44,10 @@ export function DailyAlienSimulator() {
       <Typography.Paragraph>Generates a daily game for Alien Communication</Typography.Paragraph>
 
       <Space>
-        <Button onClick={onSimulate} type="primary">
+        <Button
+          onClick={onSimulate}
+          type="primary"
+        >
           Generate
         </Button>
         <Button onClick={onSimulateMany}>Generate List</Button>
@@ -52,15 +55,33 @@ export function DailyAlienSimulator() {
 
       <div>
         {Boolean(simulation) && (
-          <Space key={simulation?.setId} orientation="vertical">
+          <Space
+            key={simulation?.setId}
+            orientation="vertical"
+          >
             <Typography.Title level={5}>{simulation?.setId}</Typography.Title>
-            {!simulation?.valid && <Alert title="Invalid game" type="error" />}
+            {!simulation?.valid && (
+              <Alert
+                title="Invalid game"
+                type="error"
+              />
+            )}
             <Space orientation="vertical">
               {simulation?.attributes.map((attr) => (
-                <Flex gap={8} key={attr.id}>
-                  <AlienSign signId={attr.spriteId} width={50} />
+                <Flex
+                  gap={8}
+                  key={attr.id}
+                >
+                  <AlienSign
+                    signId={attr.spriteId}
+                    width={50}
+                  />
                   {attr.itemsIds.map((itemId) => (
-                    <Item itemId={itemId || '0'} key={itemId} width={50} />
+                    <Item
+                      itemId={itemId || '0'}
+                      key={itemId}
+                      width={50}
+                    />
                   ))}
                 </Flex>
               ))}
@@ -68,10 +89,22 @@ export function DailyAlienSimulator() {
             <Divider className="my-1" />
             <Space orientation="horizontal">
               {simulation?.requests.map((req) => (
-                <Flex key={req.itemId} vertical>
-                  <AlienSign signId={req.spritesIds[2]} width={50} />
-                  <AlienSign signId={req.spritesIds[1]} width={50} />
-                  <AlienSign signId={req.spritesIds[0]} width={50} />
+                <Flex
+                  key={req.itemId}
+                  vertical
+                >
+                  <AlienSign
+                    signId={req.spritesIds[2]}
+                    width={50}
+                  />
+                  <AlienSign
+                    signId={req.spritesIds[1]}
+                    width={50}
+                  />
+                  <AlienSign
+                    signId={req.spritesIds[0]}
+                    width={50}
+                  />
                 </Flex>
               ))}
             </Space>
@@ -79,7 +112,11 @@ export function DailyAlienSimulator() {
             <Divider className="my-1" />
             <Space orientation="horizontal">
               {simulation?.itemsIds.map((itemId) => (
-                <Item itemId={itemId || '0'} key={itemId} width={50} />
+                <Item
+                  itemId={itemId || '0'}
+                  key={itemId}
+                  width={50}
+                />
               ))}
             </Space>
           </Space>
@@ -115,8 +152,8 @@ type DailyAlienGame = {
 };
 
 const generateDailyAlienGame = (
-  attributes: Dictionary<ItemAttribute>,
-  itemsAttributesValues: Dictionary<ItemAttributesValues>,
+  attributes: Dictionary<ItemAttributeData>,
+  itemsAttributesValues: Dictionary<ItemAttributesValuesData>,
 ): DailyAlienGame => {
   const allAttributes = values(attributes).filter((attr) => !attr.limited || attr.id === 'sol');
   const allItems = shuffle(values(itemsAttributesValues).filter((i) => i.complete));

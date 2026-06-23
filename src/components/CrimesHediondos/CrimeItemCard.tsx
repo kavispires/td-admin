@@ -2,7 +2,7 @@
 import { Popover } from 'antd';
 import clsx from 'clsx';
 // Types
-import type { CrimesHediondosCard } from 'types/tdr';
+import type { CrimesHediondosCardData } from 'types/tdr';
 // Sass
 import './CrimeItemCard.scss';
 import { Item } from 'components/Sprites';
@@ -13,7 +13,7 @@ type CrimeItemCardProps = {
   /**
    * Crime item
    */
-  item: CrimesHediondosCard;
+  item: CrimesHediondosCardData;
   /**
    * Card width
    */
@@ -64,14 +64,21 @@ export function CrimeItemCard({
             </>
           }
         >
-          <div className="crime-item-card__name" style={{ maxWidth: `${cardWidth}px` }}>
+          <div
+            className="crime-item-card__name"
+            style={{ maxWidth: `${cardWidth}px` }}
+          >
             <span>{item.name.en}</span>
           </div>
         </Popover>
         <div
           className={clsx('crime-item-card__item-container', `crime-item-card__item-container--${item.type}`)}
         >
-          <Item className="crime-item-card__item" itemId={item.itemId} width={cardWidth * 0.75} />
+          <Item
+            className="crime-item-card__item"
+            itemId={item.itemId}
+            width={cardWidth * 0.75}
+          />
         </div>
       </div>
     );

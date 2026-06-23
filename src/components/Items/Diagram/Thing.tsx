@@ -1,7 +1,7 @@
 import { Flex, Typography } from 'antd';
 import { TransparentButton } from 'components/Common';
 import { Item } from 'components/Sprites';
-import type { DailyDiagramItem } from 'types';
+import type { DailyDiagramItemData } from 'types';
 
 type ThingProps = {
   itemId: string;
@@ -11,9 +11,18 @@ type ThingProps = {
 
 export function Thing({ itemId, name, width = 50 }: ThingProps) {
   return (
-    <Flex align="center" vertical>
-      <Item itemId={itemId} width={width} />
-      <Typography.Text code key={itemId}>
+    <Flex
+      align="center"
+      vertical
+    >
+      <Item
+        itemId={itemId}
+        width={width}
+      />
+      <Typography.Text
+        code
+        key={itemId}
+      >
         {name}
       </Typography.Text>
     </Flex>
@@ -21,15 +30,19 @@ export function Thing({ itemId, name, width = 50 }: ThingProps) {
 }
 
 type ThingButtonProps = {
-  thing: DailyDiagramItem;
-  onActivateThing: (thing: DailyDiagramItem) => void;
+  thing: DailyDiagramItemData;
+  onActivateThing: (thing: DailyDiagramItemData) => void;
   width?: number;
 };
 
 export function ThingButton({ thing, width = 50, onActivateThing }: ThingButtonProps) {
   return (
     <TransparentButton onClick={() => onActivateThing(thing)}>
-      <Thing itemId={thing.itemId} name={thing.name} width={width} />
+      <Thing
+        itemId={thing.itemId}
+        name={thing.name}
+        width={width}
+      />
     </TransparentButton>
   );
 }

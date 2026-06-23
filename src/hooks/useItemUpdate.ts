@@ -1,7 +1,7 @@
 import { useItemsContext } from 'context/ItemsContext';
 import { cloneDeep } from 'lodash';
 import { useState } from 'react';
-import type { Item as ItemT } from 'types';
+import type { ItemData as ItemT } from 'types';
 
 export function useItemUpdate(currentItem: ItemT, editMode = false) {
   const { addItemToUpdate, itemsToUpdate } = useItemsContext();

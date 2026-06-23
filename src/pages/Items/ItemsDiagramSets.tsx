@@ -6,17 +6,20 @@ import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { DailyDiagramItem } from 'types';
+import type { DailyDiagramItemData } from 'types';
 
 export function ItemsDiagramSets() {
-  const diagramData = useResourceFirestoreData<DailyDiagramItem>({
+  const diagramData = useResourceFirestoreData<DailyDiagramItemData>({
     tdrResourceName: 'daily-diagram-items',
     firestoreDataCollectionName: 'diagramItems',
     serialize: true,
   });
 
   return (
-    <PageLayout subtitle="Diagram Sets" title="Items">
+    <PageLayout
+      subtitle="Diagram Sets"
+      title="Items"
+    >
       <Layout hasSider>
         <PageSider>
           <ItemsDiagramFilters {...diagramData} />
@@ -28,7 +31,10 @@ export function ItemsDiagramSets() {
             hasResponseData={!isEmpty(diagramData.data)}
             isLoading={diagramData.isLoading || diagramData.isSaving}
           >
-            <Flex gap={24} vertical>
+            <Flex
+              gap={24}
+              vertical
+            >
               <ItemsDiagramSetsContent {...diagramData} />
             </Flex>
           </DataLoadingWrapper>

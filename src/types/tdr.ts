@@ -1,13 +1,51 @@
+// ==========================================
+// TDR TYPES
+// Version: 2.0.0
+// ==========================================
+
+// ==========================================
+// SHARED PRIMITIVES
+// ==========================================
+
+export type UID = string;
+export type Language = 'en' | 'pt';
+export type DualLanguageValue = { en: string; pt: string };
+export type DateMilliseconds = number;
+
+// ==========================================
+// SPECIAL CASES
+// ==========================================
+
+/**
+ * Word List used in words-N-letters**.json files
+ */
+export type WordList = string[];
+
+/**
+ * Image Credo Data used in image-credo.json file
+ */
+export type ImageCredoData = Record<string, UID[]>;
+
+/**
+ * Image Decks Data used in image-decks.json file
+ */
+export type ImageDecksData = Record<string, number>;
+
+// ==========================================
+// TDR CARD STYLE TYPES
+// ==========================================
+
 /**
  * Generic text card
  * Used for: adjectives, categories, challenges, characters, galeria-de-sonhos, labirinto-secreto,
- * linhas-cruzadas, scenarios, single-words, spy-questions, things-qualities, emotions, colors
+ * linhas-cruzadas, scenarios, single-words, spy-questions, things-qualities, emotions, colors, descriptors,
+ * tree-words, warning-signs-descriptors, warning-signs-subjects, riddle-words, ridder-conjunctions
  */
-export type TextCard = {
+export type TextCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The text of the card
    */
@@ -26,11 +64,11 @@ export type TextCard = {
  * Arte Ruim Card
  * Used for: arte-ruim-cards
  */
-export type ArteRuimCard = {
+export type ArteRuimCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * the text of the card
    */
@@ -45,7 +83,7 @@ export type ArteRuimCard = {
  * Arte Ruim Card
  * Used for: arte-ruim-groups
  */
-export type ArteRuimGroup = {
+export type ArteRuimGroupData = {
   /**
    * Unique identifier for the card
    */
@@ -57,14 +95,14 @@ export type ArteRuimGroup = {
   /**
    * The cards in the group
    */
-  cards: Record<ArteRuimCard['id'], ArteRuimCard['text']>;
+  cards: Record<ArteRuimCardData['id'], ArteRuimCardData['text']>;
 };
 
 /**
  * Arte Ruim Pair
  * Used for: arte-ruim-pairs
  */
-export type ArteRuimPair = {
+export type ArteRuimPairData = {
   /**
    * Unique identifier for the card
    */
@@ -79,12 +117,16 @@ export type ArteRuimPair = {
  * Boss Idea card
  * Used for: warehouse-boss-ideas
  */
-export type BossIdeaCard = {
+export type BossIdeaCardData = {
   id: string;
   /**
    * The title of the boss idea.
    */
   title: DualLanguageValue;
+  /**
+   * The type of the boss idea, used for filtering and sorting (eg: communication, movement, etc). Can be a custom string depending on the game.
+   */
+  type: string;
   /**
    * The boss idea speech bubble.
    */
@@ -94,6 +136,10 @@ export type BossIdeaCard = {
    */
   description: DualLanguageValue;
   /**
+   * The instructions after the placement is confirmed
+   */
+  afterPlacement: DualLanguageValue;
+  /**
    * The level of difficulty
    */
   difficulty: number;
@@ -101,13 +147,16 @@ export type BossIdeaCard = {
    * The original rule
    */
   ogRule?: string;
+  /**
+   * If the idea is implemented in the game
+   */
+  disabled?: boolean;
 };
-
 /**
  * Choice Card
  * Used for: choices
  */
-export type ChoiceCard = {
+export type ChoiceCardData = {
   /**
    * Unique identifier for the card
    */
@@ -130,7 +179,7 @@ export type ChoiceCard = {
  * City Location Card
  * Used for: planejamento-urbano
  */
-export type CityLocation = {
+export type CityLocationData = {
   /**
    * Unique identifier for the card
    */
@@ -153,11 +202,11 @@ export type CityLocation = {
  * Concept Card
  * Used for: concepts
  */
-export type Concept = {
+export type ConceptData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The name of the concept
    */
@@ -184,11 +233,11 @@ export type Concept = {
  * Contender Card
  * Used for: contenders
  */
-export type ContenderCard = {
+export type ContenderCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The name of the contender
    */
@@ -213,13 +262,13 @@ export type ContenderCard = {
 
 /**
  * Crime Hediondo Card
- * Used for: crime-evidence, crime-weapons
+ * Used for: crime-evidence, crime-weapons, crime-victims, crime-locations
  */
-export type CrimesHediondosCard = {
+export type CrimesHediondosCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The type of the card
    */
@@ -240,9 +289,9 @@ export type CrimesHediondosCard = {
 
 /**
  * Crime Scene Tile
- * Used for: crime-tiles
+ * Used for: crime-scenes
  */
-export type CrimeSceneTile = {
+export type CrimeSceneTileData = {
   /**
    * Unique identifier for the card
    */
@@ -277,7 +326,7 @@ export type CrimeSceneTile = {
  * Crime Reason Card
  * Used for: crime-reasons
  */
-export type CrimeReason = {
+export type CrimeReasonData = {
   /**
    * Unique identifier for the card
    */
@@ -296,11 +345,11 @@ export type CrimeReason = {
  * Dating Candidate Card
  * Used for: dating-candidate
  */
-export type DatingCandidateCard = {
+export type DatingCandidateCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The text of the card
    */
@@ -315,11 +364,11 @@ export type DatingCandidateCard = {
  * Dating Candidate Image Card
  * Used for: dating-candidate-heads, dating-candidate-bodies
  */
-export type DatingCandidateImageCard = {
+export type DatingCandidateImageCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The name of the image
    */
@@ -330,11 +379,11 @@ export type DatingCandidateImageCard = {
   type: 'head' | 'body';
 };
 
-export type DiagramTopic = {
+export type DiagramTopicData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The text of the card
    */
@@ -353,11 +402,11 @@ export type DiagramTopic = {
   og?: boolean;
 };
 
-export type DilemmaCard = {
+export type DilemmaCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The prompt of the card (usually a prefix)
    */
@@ -382,11 +431,11 @@ export type DilemmaCard = {
  * eg: Name 3 fruits
  * Used for: group-questions
  */
-export type GroupQuestionCard = {
+export type GroupQuestionCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The prefix in the question
    */
@@ -402,10 +451,45 @@ export type GroupQuestionCard = {
 };
 
 /**
+ * Image Cards Descriptor
+ */
+export type ImageCardDescriptorData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * A title for the image
+   */
+  title: DualLanguageValue;
+  /**
+   * A detailed description of the image (up to 50 words)
+   */
+  description: DualLanguageValue;
+  /**
+   * List of keywords/tags related to the image per language stringified with commas
+   * (e.g. "cat,animal,pet" or "gato,animal,estimação")
+   */
+  keywords: DualLanguageValue;
+  /**
+   * Flag indicating an outstanding card
+   */
+  favorite?: boolean;
+  /**
+   * List of triggers present in the image (credo)
+   */
+  triggers?: string[];
+  /**
+   * Card ids from the theme-words deck associated with the image
+   */
+  associatedDreams?: UID[];
+};
+
+/**
  * Monster Image Orientation data
  * Used for: monster-orientation
  */
-export type MonsterImage = {
+export type MonsterImageData = {
   /**
    * Unique identifier for the card
    */
@@ -420,11 +504,11 @@ export type MonsterImage = {
  * Movie Card
  * Used for: movies
  */
-export type MovieCard = {
+export type MovieCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The prefix of the title of the movie
    */
@@ -439,11 +523,11 @@ export type MovieCard = {
  * Movie Review Card
  * Used for: movie-reviews
  */
-export type MovieReviewCard = {
+export type MovieReviewCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * the text of the card
    */
@@ -464,11 +548,11 @@ export type MovieReviewCard = {
  * eg: Name an animal
  * Used for: naming-prompts
  */
-export type NamingPromptCard = {
+export type NamingPromptCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * the text of the card
    */
@@ -478,16 +562,16 @@ export type NamingPromptCard = {
    */
   set: string;
   /**
-   *
+   * The level of difficulty of the card
    */
   level: number;
 };
 
-export type ObjectFeatureCard = {
+export type ObjectFeatureCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The text of the feature
    */
@@ -506,11 +590,11 @@ export type ObjectFeatureCard = {
  * Quantitative Question Card
  * Used for: quantitative-questions
  */
-export type QuantitativeQuestionCard = {
+export type QuantitativeQuestionCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The question of the card
    */
@@ -526,11 +610,11 @@ export type QuantitativeQuestionCard = {
  * eg: Hot - Cold
  * Used for: spectrums
  */
-export type SpectrumCard = {
+export type SpectrumCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The left side of the spectrum (usually negative)
    */
@@ -545,11 +629,11 @@ export type SpectrumCard = {
  * Spy Location Card
  * Use for: spy-locations
  */
-export type SpyLocation = {
+export type SpyLocationData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The name of the location
    */
@@ -561,6 +645,636 @@ export type SpyLocation = {
 };
 
 /**
+ * Teenage Student Card
+ * Used for: teenage-students
+ */
+export type TeenageStudentData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * The title of the teenager
+   */
+  title: DualLanguageValue;
+  /**
+   * The name of the teenager
+   */
+  name: DualLanguageValue;
+  /**
+   * The social group the student belongs to
+   */
+  socialGroupId: string;
+  /**
+   * The gender of the teenager (male, female, both)
+   **/
+  gender: string;
+  /**
+   * the teenager ethnicity (white, black, asian, mixed, latino, etc...)
+   */
+  ethnicity: string;
+  /**
+   * The teenager's age range ("freshman", "sophomore", "junior", "senior")
+   */
+  age: string;
+  /**
+   * The teenager's build ("small", "medium", "large")
+   */
+  build: string;
+  /**
+   * The teenager's height ("short", "medium", "tall")
+   */
+  height: string;
+  /**
+   * us-gb id for the student
+   */
+  imageId: UID;
+};
+
+/**
+ * Teenage Rumor Card
+ * Used for: teenage-rumors
+ */
+export type TeenageRumorData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * The text of the rumor
+   */
+  text: DualLanguageValue;
+  /**
+   * If the rumour is exclusive to a student type
+   */
+  exclusive: string;
+};
+
+/**
+ * Teenage Motivation Card
+ * Used for: teenage-motivations
+ */
+export type TeenageMotivationData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * The title of the motivation
+   */
+  title: DualLanguageValue;
+  /**
+   * The description of the motivation
+   */
+  description: DualLanguageValue;
+  /**
+   * Indication if the motivation is a beginner one
+   */
+  beginner?: boolean;
+};
+
+/**
+ * Thing Prompt Card to usually name something
+ * Used for: things-qualities
+ */
+export type ThingPromptCardData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * The text of the card
+   */
+  text: string;
+  /**
+   * Optional description to clarify the text
+   */
+  description?: string;
+};
+
+/**
+ * Topic Card
+ * Used for: topics
+ */
+export type TopicCardData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * The topic label
+   */
+  label: string;
+  /**
+   * The topic category
+   */
+  category: string;
+  /**
+   * The level of difficulty
+   */
+  level: number;
+  /**
+   * Flag indicating if it's nsfw
+   */
+  nsfw?: boolean;
+};
+
+/**
+ * Tweet Card
+ * Used for: tweets
+ */
+export type TweetCardData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * the text of the card
+   */
+  text: string;
+};
+
+// ==========================================
+// ITEMS AND ATTRIBUTES TYPES
+// ==========================================
+
+/**
+ * Item Card
+ * Used for: items
+ */
+export type ItemData = {
+  /**
+   * Unique identifier for the item
+   */
+  id: UID;
+  /**
+   * The name of the item
+   */
+  name: DualLanguageValue;
+  /**
+   * The groups the item can be used in
+   */
+  decks?: string[];
+  /**
+   * Flag indicating if it's nsfw
+   */
+  nsfw?: boolean;
+  /**
+   * Other names for the item in English
+   */
+  aliasesEn?: string[];
+  /**
+   * Other names for the item in Portuguese
+   */
+  aliasesPt?: string[];
+};
+
+/**
+ * Item Atributes Values
+ */
+export type ItemAttributesValuesData = {
+  /**
+   * Unique identifier for the item
+   */
+  id: UID;
+  /**
+   * The dictionary of ItemAttribute id and their values
+   */
+  attributes: Record<string, -10 | -3 | -1 | 5 | 10 | (number & NonNullable<unknown>)>;
+  /**
+   * Indicates if all attributes have been assigned numbers
+   */
+  complete?: boolean;
+  /**
+   * The timestamp of the last update
+   */
+  updatedAt?: number;
+  /**
+   * The alien message using prefixes and attribute keys (only available if the item is complete)
+   * (^) -10, (!) -3, (~) -1, (+) 5, (*) 10
+   */
+  signature?: string;
+  /**
+   * The percentage of non-unclear attribute values
+   */
+  reliability?: number;
+  /***
+   * The value of the absolute extreme opposite and all positive values in attributes
+   */
+  score?: number;
+};
+
+/**
+ * Item Attribute
+ */
+export type ItemAttributeData = {
+  /**
+   * Unique identifier for the attribute (first 3 letters)
+   */
+  id: string;
+  /**
+   * The name of the attribute
+   */
+  name: DualLanguageValue;
+  /**
+   * The description of the attribute
+   */
+  description: DualLanguageValue;
+  /**
+   * The level of difficulty
+   */
+  level: number;
+  /**
+   * Priority value when sorting ties (opposite attributes share the same priority)
+   */
+  priority: number;
+  /**
+   * The sprite id of the attribute
+   */
+  spriteId: string;
+  /**
+   * Present on the original game
+   */
+  default?: boolean;
+  /**
+   * Used for attributes that only accept yes/no (unclear) values (-3, -1, 5)
+   */
+  limited?: boolean;
+  /**
+   * Used for attributes who are a subset of others or very specific
+   */
+  specific?: boolean;
+  /**
+   * Flag indicating another attribute that is directly the opposite of this one
+   */
+  oppositeId?: string;
+  /**
+   * Flag indicating another attribute that is a super set of this one and confusing in the same context
+   */
+  relatedId?: string;
+  /**
+   * Keywords string to help with search
+   */
+  keywords: string;
+};
+
+export type ItemGroupData = {
+  /**
+   * Unique identifier for the group
+   */
+  id: UID;
+  /**
+   * The name of the group
+   */
+  name: DualLanguageValue;
+  /**
+   * The items in the group
+   */
+  itemsIds: UID[];
+  /**
+   * Keywords to search for the group
+   */
+  keywords: string;
+  /**
+   * Flag indicating if it's nsfw (usually if more than 30% of its items are nsfw)
+   */
+  nsfw?: boolean;
+};
+
+// ==========================================
+// DAILY SETS
+// ==========================================
+
+export type DailyDiscSet = {
+  /**
+   * The id (the setId in the library OR the date in a daily game)
+   */
+  id: string;
+  /**
+   * The title of the set
+   */
+  title: DualLanguageValue;
+  /**
+   * The items in the set
+   */
+  itemsIds: UID[];
+};
+
+export type DailyLocationSet = {
+  /**
+   * The id (the setId in the library OR the date in a daily game)
+   */
+  id: UID;
+  /**
+   * The name of the location
+   */
+  location: string;
+  /**
+   * An array of 5 clues related to the location, ordered from the most obscure to the most obvious
+   */
+  clues: string[];
+};
+
+export type DailyMovieSet = {
+  /**
+   * The id (the setId in the library OR the date in a daily game)
+   */
+  id: UID;
+  /**
+   * The title of the set
+   */
+  title: string;
+  /**
+   * The items in the set
+   */
+  itemsIds: UID[];
+  /**
+   * The release year of the movie
+   */
+  year: number;
+};
+
+/**
+ * Image Card Passcode Set
+ * @deprecated
+ */
+export type ImageCardPasscodeSet = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * List of passcode for the cards, it should be order from easier to harder
+   */
+  passcode: string[];
+  /**
+   * Cards related to the passcode. Minimum of 3 cards
+   */
+  imageCardsIds: UID[];
+};
+
+/**
+ * Daily Passcode Set
+ */
+export type DailyPasscodeSet = {
+  /**
+   * Unique identifier for the set
+   */
+  id: UID;
+  /**
+   * Main passcode words extracted from ImageCardDescriptorData.keywords
+   */
+  passcodes: string[];
+  /**
+   * List of synonyms for the passcodes
+   */
+  synonyms: string[];
+};
+
+export type DailyQuartetSet = {
+  /**
+   * The id (the setId in the library OR the date in a daily game)
+   */
+  id: UID;
+  /**
+   * The title of the set
+   */
+  title: string;
+  /**
+   * The items in the set
+   */
+  itemsIds: UID[];
+  /**
+   * The level of difficulty of the set
+   */
+  level: number;
+  /**
+   * The type of quartet (visual, word, general, meaning)
+   */
+  type?: string;
+  /**
+   * Indicating that something must be done with the set
+   */
+  flagged?: boolean;
+};
+
+export type DailyDiagramRuleData = {
+  /**
+   * The id (the setId in the library OR the date in a daily game)
+   */
+  id: UID;
+  /**
+   * The title of the set
+   */
+  title: string;
+  /**
+   * The level of difficulty of the set
+   */
+  level: number;
+  /**
+   * The type of rules
+   */
+  type: string;
+  /**
+   * Indicates  how a rule is verified
+   */
+  method: 'auto' | 'manual' | 'dependency';
+  /**
+   * The date in milliseconds the rule was last updated
+   */
+  updatedAt: DateMilliseconds;
+};
+
+export type DailyDiagramItemData = {
+  /**
+   * The item id
+   */
+  itemId: UID;
+  /**
+   * The set name of the item
+   * (if changed, the rules must be re-checked)
+   */
+  name: string;
+  /**
+   * Word separated in syllables with : as a separator
+   * e.g. "alien" -> "a:li:en"
+   */
+  syllables?: string;
+  /**
+   * The stressed syllable in the word
+   * 0 is the last syllable, 1 is the second to last, etc.
+   */
+  stressedSyllable?: number;
+  /**
+   * The list of rules the item agrees with
+   */
+  rules: string[];
+  /**
+   * The date in milliseconds the rule was last updated
+   */
+  updatedAt: DateMilliseconds;
+};
+
+// ==========================================
+// AGGREGATED DATA TYPES
+// ==========================================
+
+/**
+ * Represents an entry of a drawing.
+ */
+export type DrawingEntryData = {
+  /**
+   * The unique identifier of the drawing entry (format: "<cardId>;;<artistId>;;<timestamp>").
+   */
+  id: UID;
+  /**
+   * The drawing content (a stringified JSON array of points).
+   */
+  drawing: string;
+  /**
+   * The timestamp when the drawing was created, in milliseconds.
+   */
+  createdAt: DateMilliseconds;
+  /**
+   * The unique identifier of the artist who created the drawing.
+   */
+  artistId: string;
+};
+
+/**
+ * TDR Drawing Data
+ */
+export type DrawingData = {
+  /**
+   * The unique identifier of the card. (same as ArteRuimCard.id).
+   */
+  id: UID;
+  /**
+   * The text of the card. (same as ArteRuimCard.text).
+   */
+  text: string;
+  /**
+   * The list of drawing entries for the card.
+   */
+  drawings: DrawingEntryData[];
+  /**
+   * The timestamp when the drawing was last updated, in milliseconds.
+   */
+  updatedAt: DateMilliseconds;
+};
+
+// ==========================================
+// MOVIE GENRE DATA TYPES
+// ==========================================
+
+type MovieGenderData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * The name of the genre
+   */
+  name: DualLanguageValue;
+  /**
+   * The additive rating level (to determine the audience rating)
+   */
+  rating: number;
+  /**
+   * Lists of roles this genre requires
+   */
+  rolesIds: UID[];
+  /**
+   * The description of the genre
+   */
+  description: DualLanguageValue;
+};
+
+type MovieSubGenreData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * The name of the subgenre
+   */
+  name: DualLanguageValue;
+  /**
+   * The additive rating level (to determine the audience rating)
+   */
+  rating: number;
+  /**
+   * Lists of roles this sub-genre might have
+   */
+  rolesIds: UID[];
+  /**
+   * The description of the subgenre
+   */
+  description: DualLanguageValue;
+};
+
+type MovieRoleData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * The name of the role
+   */
+  title: DualLanguageValue;
+  /**
+   * The description of the role
+   */
+  description: DualLanguageValue;
+  /**
+   * The level of complexity of the role (how many starting traits it requires 1-3)
+   */
+  complexity: number;
+  /**
+   * The number of actors that would audition to this role
+   */
+  pool: number;
+  /**
+   * The type of role (main, supporting, extra) for iconography purposes
+   */
+  type: string;
+};
+
+type MovieFeatureData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
+   * The name of the feature
+   */
+  name: DualLanguageValue;
+  /**
+   * The probability of the feature appearing in the movie (percentage 0-100)
+   */
+  probability: number;
+  /**
+   * The additive rating level (to determine the audience rating) (may be negative)
+   */
+  rating: number;
+};
+
+/**
+ * Movie Genres Data
+ * Used in movie-genres
+ */
+export type MovieGenres = {
+  genres: Record<string, MovieGenderData>;
+  subGenres: Record<string, MovieSubGenreData>;
+  roles: Record<string, MovieRoleData>;
+  features: Record<string, MovieFeatureData>;
+};
+
+// ==========================================
+// SUSPECTS AND TESTIMONY DATA TYPES
+// ==========================================
+
+/**
  * Suspect Style Variant
  */
 export type SuspectStyleVariant = 'gb' | 'rl' | 'px' | 'fx' | (string & NonNullable<unknown>);
@@ -569,11 +1283,11 @@ export type SuspectStyleVariant = 'gb' | 'rl' | 'px' | 'fx' | (string & NonNulla
  * Suspect Card
  * Used for: suspects
  */
-export type SuspectCard = {
+export type SuspectCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The name of the suspect
    */
@@ -627,7 +1341,7 @@ export type SuspectCard = {
   /**
    * Flag indicating if the suspect is exclusive to the gb style
    */
-  gbExclusive?: true;
+  gbExclusive?: true | boolean;
 };
 
 /**
@@ -635,11 +1349,11 @@ export type SuspectCard = {
  * Used for: suspects-extended-info
  * Provides additional information about a suspect
  */
-export type SuspectExtendedInfo = {
+export type SuspectExtendedInfoData = {
   /**
    * Unique identifier for the card that matches its SuspectCard equivalent
    */
-  id: CardId;
+  id: UID;
   /**
    * Descriptive label of the suspect representing their persona
    */
@@ -734,8 +1448,14 @@ export type SuspectExtendedInfo = {
   traits: string[];
 };
 
-export type MBTIType = 'E' | 'I' | 'N' | 'S' | 'F' | 'T' | 'J' | 'P';
-export type ZodiacSign =
+/**
+ * Internal use for MBTI in TestimonyQuestionCardData
+ */
+type MBTIType = 'E' | 'I' | 'N' | 'S' | 'F' | 'T' | 'J' | 'P';
+/**
+ * Internal use for Zodiac Sign in TestimonyQuestionCardData
+ */
+type ZodiacSign =
   | 'Aries'
   | 'Taurus'
   | 'Gemini'
@@ -748,7 +1468,10 @@ export type ZodiacSign =
   | 'Capricorn'
   | 'Aquarius'
   | 'Pisces';
-export type AlignmentType =
+/**
+ * Internal use for Alignment in TestimonyQuestionCardData
+ */
+type AlignmentType =
   | 'lawful-good'
   | 'neutral-good'
   | 'chaotic-good'
@@ -758,7 +1481,10 @@ export type AlignmentType =
   | 'lawful-evil'
   | 'neutral-evil'
   | 'chaotic-evil';
-export type DualRelation<T> = {
+/**
+ * Dual Relation type used in TestimonyQuestionCardData to relate or unrelate MBTI, Zodiac and Alignment types
+ */
+type DualRelation<T> = {
   related: T[];
   unrelated: T[];
 };
@@ -767,11 +1493,11 @@ export type DualRelation<T> = {
  * Testimony Question Card
  * Used for: testimony-questions
  */
-export type TestimonyQuestionCard = {
+export type TestimonyQuestionCardData = {
   /**
    * Unique identifier for the card
    */
-  id: CardId;
+  id: UID;
   /**
    * The testimony question text
    */
@@ -807,622 +1533,18 @@ export type TestimonyQuestionCard = {
 };
 
 /**
- * Thing Prompt Card to usually name something
- * Used for: things-qualities
+ * Complex data structure to store testimony answers for each testimony by each suspect, and a stringified array of number values
+ * <testimony-id>: { <suspect-id>: <stringified-array-of-number-values> }
  */
-export type ThingPromptCard = {
-  /**
-   * Unique identifier for the card
-   */
-  id: CardId;
-  /**
-   * The text of the card
-   */
-  text: string;
-  /**
-   * Optional description to clarify the text
-   */
-  description?: string;
-};
+export type TestimonyAnswersData = Record<UID, Record<UID, string>>;
 
 /**
- * Topic Card
- * Used for: topics
+ * MBTI personality types with related testimony question IDs, used as an array in suspect-testimony-crossreference-mbti-pt.json
  */
-export type TopicCard = {
-  /**
-   * Unique identifier for the card
-   */
-  id: CardId;
-  /**
-   * The topic label
-   */
-  label: string;
-  /**
-   * The topic category
-   */
-  category: string;
-  /**
-   * The level of difficulty
-   */
-  level: number;
-  /**
-   * Flag indicating if it's nsfw
-   */
-  nsfw?: boolean;
-};
-
-/**
- * Tweet Card
- * Used for: tweets
- */
-export type Tweet = {
-  /**
-   * Unique identifier for the card
-   */
-  id: CardId;
-  /**
-   * the text of the card
-   */
-  text: string;
-};
-
-/**
- * Unique identifier for an item.
- */
-export type ItemId = string;
-
-/**
- * Item Card
- * Used for: items
- */
-export type Item = {
-  /**
-   * Unique identifier for the item
-   */
-  id: ItemId;
-  /**
-   * The name of the item
-   */
-  name: DualLanguageValue;
-  /**
-   * The groups the item can be used in
-   */
-  decks?: string[];
-  /**
-   * Flag indicating if it's nsfw
-   */
-  nsfw?: boolean;
-  /**
-   * Other names for the item in English
-   */
-  aliasesEn?: string[];
-  /**
-   * Other names for the item in Portuguese
-   */
-  aliasesPt?: string[];
-};
-
-/**
- * Item Atributes Values
- */
-export type ItemAttributesValues = {
-  /**
-   * Unique identifier for the item
-   */
-  id: ItemId;
-  /**
-   * The dictionary of ItemAttribute id and their values
-   */
-  attributes: Record<string, -10 | -3 | -1 | 5 | 10 | (number & NonNullable<unknown>)>;
-  /**
-   * Indicates if all attributes have been assigned numbers
-   */
-  complete?: boolean;
-  /**
-   * The timestamp of the last update
-   */
-  updatedAt?: number;
-  /**
-   * The alien message using prefixes and attribute keys (only available if the item is complete)
-   * (^) -10, (!) -3, (~) -1, (+) 5, (*) 10
-   */
-  signature?: string;
-  /**
-   * The percentage of non-unclear attribute values
-   */
-  reliability?: number;
-  /***
-   * The value of the absolute extreme opposite and all positive values in attributes
-   */
-  score?: number;
-};
-
-/**
- * Item Attribute
- */
-export type ItemAttribute = {
-  /**
-   * Unique identifier for the attribute (first 3 letters)
-   */
+export type TestimonyCrossReferenceData = {
   id: string;
-  /**
-   * The name of the attribute
-   */
-  name: DualLanguageValue;
-  /**
-   * The description of the attribute
-   */
-  description: DualLanguageValue;
-  /**
-   * The level of difficulty
-   */
-  level: number;
-  /**
-   * Priority value when sorting ties (opposite attributes share the same priority)
-   */
-  priority: number;
-  /**
-   * The sprite id of the attribute
-   */
-  spriteId: string;
-  /**
-   * Present on the original game
-   */
-  default?: boolean;
-  /**
-   * Used for attributes that only accept yes/no (unclear) values (-3, -1, 5)
-   */
-  limited?: boolean;
-  /**
-   * Used for attributes who are a subset of others or very specific
-   */
-  specific?: boolean;
-  /**
-   * Flag indicating another attribute that is directly the opposite of this one
-   */
-  oppositeId?: string;
-  /**
-   * Flag indicating another attribute that is a super set of this one and confusing in the same context
-   */
-  relatedId?: string;
-  /**
-   * Keywords string to help with search
-   */
-  keywords: string;
-};
-
-export type ItemGroup = {
-  /**
-   * Unique identifier for the group
-   */
-  id: string;
-  /**
-   * The name of the group
-   */
-  name: DualLanguageValue;
-  /**
-   * The items in the group
-   */
-  itemsIds: string[];
-  /**
-   * Keywords to search for the group
-   */
-  keywords: string;
-  /**
-   * Flag indicating if it's nsfw (usually if more than 30% of its items are nsfw)
-   */
-  nsfw?: boolean;
-};
-
-export type DailyDiscSet = {
-  /**
-   * The id (the setId in the library OR the date in a daily game)
-   */
-  id: string;
-  /**
-   * The title of the set
-   */
-  title: DualLanguageValue;
-  /**
-   * The items in the set
-   */
-  itemsIds: ItemId[];
-};
-
-export type DailyLocationSet = {
-  /**
-   * The id (the setId in the library OR the date in a daily game)
-   */
-  id: string;
-  /**
-   * The name of the location
-   */
-  location: string;
-  /**
-   * An array of 5 clues related to the location, ordered from the most obscure to the most obvious
-   */
-  clues: string[];
-};
-
-export type DailyMovieSet = {
-  /**
-   * The id (the setId in the library OR the date in a daily game)
-   */
-  id: string;
-  /**
-   * The title of the set
-   */
-  title: string;
-  /**
-   * The items in the set
-   */
-  itemsIds: ItemId[];
-  /**
-   * The release year of the movie
-   */
-  year: number;
-};
-
-export type DailyQuartetSet = {
-  /**
-   * The id (the setId in the library OR the date in a daily game)
-   */
-  id: string;
-  /**
-   * The title of the set
-   */
-  title: string;
-  /**
-   * The items in the set
-   */
-  itemsIds: ItemId[];
-  /**
-   * The level of difficulty of the set
-   */
-  level: number;
-  /**
-   * The type of quartet (visual, word, general, meaning)
-   */
-  type?: string;
-  /**
-   * Indicating that something must be done with the set
-   */
-  flagged?: boolean;
-};
-
-export type DailyDiagramRule = {
-  /**
-   * The id (the setId in the library OR the date in a daily game)
-   */
-  id: string;
-  /**
-   * The title of the set
-   */
-  title: string;
-  /**
-   * The level of difficulty of the set
-   */
-  level: number;
-  /**
-   * The type of rules
-   */
-  type: string;
-  /**
-   * Indicates  how a rule is verified
-   */
-  method: 'auto' | 'manual' | 'dependency';
-  /**
-   * The date in milliseconds the rule was last updated
-   */
-  updatedAt: DateMilliseconds;
-};
-
-export type DailyDiagramItem = {
-  /**
-   * The item id
-   */
-  itemId: string;
-  /**
-   * The set name of the item
-   * (if changed, the rules must be re-checked)
-   */
   name: string;
-  /**
-   * Word separated in syllables with : as a separator
-   * e.g. "alien" -> "a:li:en"
-   */
-  syllables?: string;
-  /**
-   * The stressed syllable in the word
-   * 0 is the last syllable, 1 is the second to last, etc.
-   */
-  stressedSyllable?: number;
-  /**
-   * The list of rules the item agrees with
-   */
-  rules: string[];
-  /**
-   * The date in milliseconds the rule was last updated
-   */
-  updatedAt: DateMilliseconds;
-};
-
-type MovieGender = {
-  /**
-   * Unique identifier for the card
-   */
-  id: string;
-  /**
-   * The name of the genre
-   */
-  name: DualLanguageValue;
-  /**
-   * The additive rating level (to determine the audience rating)
-   */
-  rating: number;
-  /**
-   * Lists of roles this genre requires
-   */
-  rolesIds: string[];
-  /**
-   * The description of the genre
-   */
-  description: DualLanguageValue;
-};
-
-type MovieSubGenre = {
-  /**
-   * Unique identifier for the card
-   */
-  id: string;
-  /**
-   * The name of the subgenre
-   */
-  name: DualLanguageValue;
-  /**
-   * The additive rating level (to determine the audience rating)
-   */
-  rating: number;
-  /**
-   * Lists of roles this sub-genre might have
-   */
-  rolesIds: string[];
-  /**
-   * The description of the subgenre
-   */
-  description: DualLanguageValue;
-};
-
-type MovieRole = {
-  /**
-   * Unique identifier for the card
-   */
-  id: string;
-  /**
-   * The name of the role
-   */
-  title: DualLanguageValue;
-  /**
-   * The description of the role
-   */
-  description: DualLanguageValue;
-  /**
-   * The level of complexity of the role (how many starting traits it requires 1-3)
-   */
-  complexity: number;
-  /**
-   * The number of actors that would audition to this role
-   */
-  pool: number;
-  /**
-   * The type of role (main, supporting, extra) for iconography purposes
-   */
-  type: string;
-};
-
-type MovieFeature = {
-  /**
-   * Unique identifier for the card
-   */
-  id: string;
-  /**
-   * The name of the feature
-   */
-  name: DualLanguageValue;
-  /**
-   * The probability of the feature appearing in the movie (percentage 0-100)
-   */
-  probability: number;
-  /**
-   * The additive rating level (to determine the audience rating) (may be negative)
-   */
-  rating: number;
-};
-
-export type MovieGenres = {
-  genres: Record<string, MovieGender>;
-  subGenres: Record<string, MovieSubGenre>;
-  roles: Record<string, MovieRole>;
-  features: Record<string, MovieFeature>;
-};
-
-/**
- * Teenage Student Card
- */
-export type TeenageStudent = {
-  /**
-   * Unique identifier for the card
-   */
-  id: string;
-  /**
-   * The title of the teenager
-   */
-  title: DualLanguageValue;
-  /**
-   * The name of the teenager
-   */
-  name: DualLanguageValue;
-  /**
-   * The social group the student belongs to
-   */
-  socialGroupId: string;
-  /**
-   * The gender of the teenager (male, female, both)
-   **/
-  gender: string;
-  /**
-   * the teenager ethnicity (white, black, asian, mixed, latino, etc...)
-   */
-  ethnicity: string;
-  /**
-   * The teenager's age range ("freshman", "sophomore", "junior", "senior")
-   */
-  age: string;
-  /**
-   * The teenager's build ("small", "medium", "large")
-   */
-  build: string;
-  /**
-   * The teenager's height ("short", "medium", "tall")
-   */
-  height: string;
-  /**
-   * us-gb id for the student
-   */
-  imageId: string;
-};
-
-/**
- * Teenage Rumor Card
- */
-export type TeenageRumor = {
-  /**
-   * Unique identifier for the card
-   */
-  id: string;
-  /**
-   * The text of the rumor
-   */
-  text: DualLanguageValue;
-  /**
-   * If the rumour is exclusive to a student type
-   */
-  exclusive: string;
-};
-
-/**
- * Teenage Motivation Card
- */
-export type TeenageMotivation = {
-  /**
-   * Unique identifier for the card
-   */
-  id: string;
-  /**
-   * The title of the motivation
-   */
-  title: DualLanguageValue;
-  /**
-   * The description of the motivation
-   */
-  description: DualLanguageValue;
-  /**
-   * Indication if the motivation is a beginner one
-   */
-  beginner?: boolean;
-};
-
-/**
- * Represents an entry of a drawing.
- */
-export type DrawingEntry = {
-  /**
-   * The unique identifier of the drawing entry (format: "<cardId>;;<artistId>;;<timestamp>").
-   */
-  id: string;
-  /**
-   * The drawing content (a stringified JSON array of points).
-   */
-  drawing: string;
-  /**
-   * The timestamp when the drawing was created, in milliseconds.
-   */
-  createdAt: DateMilliseconds;
-  /**
-   * The unique identifier of the artist who created the drawing.
-   */
-  artistId: string;
-};
-
-/**
- * TDR Drawing Data
- */
-export type DrawingData = {
-  /**
-   * The unique identifier of the card. (same as ArteRuimCard.id).
-   */
-  id: CardId;
-  /**
-   * The text of the card. (same as ArteRuimCard.text).
-   */
-  text: string;
-  /**
-   * The list of drawing entries for the card.
-   */
-  drawings: DrawingEntry[];
-  /**
-   * The timestamp when the drawing was last updated, in milliseconds.
-   */
-  updatedAt: DateMilliseconds;
-};
-
-/**
- * Image Cards Descriptor
- */
-export type ImageCardDescriptor = {
-  /**
-   * Unique identifier for the card
-   */
-  id: string;
-  /**
-   * A title for the image
-   */
-  title: DualLanguageValue;
-  /**
-   * A detailed description of the image (up to 50 words)
-   */
-  description: DualLanguageValue;
-  /**
-   * List of keywords/tags related to the image per language stringified with commas
-   * (e.g. "cat,animal,pet" or "gato,animal,estimação")
-   */
-  keywords: DualLanguageValue;
-  /**
-   * Flag indicating an outstanding card
-   */
-  favorite?: boolean;
-  /**
-   * List of triggers present in the image (credo)
-   */
-  triggers?: string[];
-  /**
-   * Card ids from the theme-words deck associated with the image
-   */
-  associatedDreams?: string[];
-};
-
-export type ImageCardPasscodeSet = {
-  /**
-   * Unique identifier for the card
-   */
-  id: string;
-  /**
-   * List of passcode for the cards, it should be order from easier to harder
-   */
-  passcode: string[];
-  /**
-   * Cards related to the passcode. Minimum of 3 cards
-   */
-  imageCardsIds: string[];
+  description: string;
+  relatedTestimonyIds: UID[];
+  unrelatedTestimonyIds?: UID[];
 };

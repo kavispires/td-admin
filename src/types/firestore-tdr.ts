@@ -1,13 +1,11 @@
-import type { ItemId } from './tdr';
-
 /**
- * Item Atributes Values
+ * ItemData Atributes Values
  */
 export type ItemAttributesValuesFirestore = {
   /**
    * Unique identifier for the item
    */
-  id: ItemId;
+  id: UID;
   /**
    * The alien message using prefixes and attribute keys
    * (^) -10, (!) -3, (~) -1, (+) 5, (*) 10

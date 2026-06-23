@@ -9,7 +9,7 @@ import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
-import type { ImageCardDescriptor } from 'types';
+import type { ImageCardDescriptorData } from 'types';
 import { sortJsonKeys } from 'utils';
 import { AddImageCardDataModal } from './AddImageCardDataModal';
 import { useImageCardsDecks } from './hooks/useImageCardsDecks';
@@ -23,13 +23,16 @@ export function ImageCardsDescriptorFilters({
   entriesToUpdate,
   addEntryToUpdate,
   hasFirestoreData,
-}: UseResourceFirestoreDataReturnType<ImageCardDescriptor>) {
+}: UseResourceFirestoreDataReturnType<ImageCardDescriptorData>) {
   const { addParam, addParams, queryParams } = useQueryParams();
   const { onRandomCard } = useImageCardsDecks();
 
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(entriesToUpdate)}
           isDirty={isDirty}
@@ -46,7 +49,11 @@ export function ImageCardsDescriptorFilters({
         />
 
         <Flex justify="center">
-          <FirestoreConsoleWipe docId="imageCards" path="tdr" queryKey={['tdr', 'imageCards']} />
+          <FirestoreConsoleWipe
+            docId="imageCards"
+            path="tdr"
+            queryKey={['tdr', 'imageCards']}
+          />
         </Flex>
       </Flex>
 
@@ -70,15 +77,25 @@ export function ImageCardsDescriptorFilters({
         value={queryParams.get('display') ?? 'table'}
       />
 
-      <ImageCardsDescriptorModal addEntryToUpdate={addEntryToUpdate} data={data} />
+      <ImageCardsDescriptorModal
+        addEntryToUpdate={addEntryToUpdate}
+        data={data}
+      />
 
       <Divider />
 
-      <LanguageToggle withLabel withQueryParams />
+      <LanguageToggle
+        withLabel
+        withQueryParams
+      />
 
       <Divider />
 
-      <Button block className="mb-4" onClick={() => addParam('cardId', onRandomCard())}>
+      <Button
+        block
+        className="mb-4"
+        onClick={() => addParam('cardId', onRandomCard())}
+      >
         Random Card
       </Button>
 
@@ -90,7 +107,7 @@ export function ImageCardsDescriptorFilters({
 /**
  * Checks if an image card descriptor is empty (only has id, no other meaningful data)
  */
-function isEmptyEntry(entry: ImageCardDescriptor): boolean {
+function isEmptyEntry(entry: ImageCardDescriptorData): boolean {
   const hasTitle = entry.title?.en || entry.title?.pt;
   const hasDescription = entry.description?.en || entry.description?.pt;
   const hasKeywords = entry.keywords?.en || entry.keywords?.pt;
@@ -101,7 +118,7 @@ function isEmptyEntry(entry: ImageCardDescriptor): boolean {
   return !hasTitle && !hasDescription && !hasKeywords && !hasTriggers && !hasAssociatedDreams && !hasFavorite;
 }
 
-function prepareFileForDownload(data: Dictionary<ImageCardDescriptor>) {
+function prepareFileForDownload(data: Dictionary<ImageCardDescriptorData>) {
   console.log('Preparing file for download...');
   const copy = cloneDeep(data);
 

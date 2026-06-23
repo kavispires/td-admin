@@ -1,6 +1,6 @@
 import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
-import type { SuspectCard, TestimonyQuestionCard } from 'types';
+import type { SuspectCardData, TestimonyQuestionCardData } from 'types';
 
 /**
  * Values <suspectId, answers>
@@ -24,8 +24,8 @@ export type UseTestimoniesResourceReturnType = {
   isSuccess: boolean;
   error: ResponseError;
   data: Dictionary<TestimonyAnswers>;
-  questions: Dictionary<TestimonyQuestionCard>;
-  suspects: Dictionary<SuspectCard>;
+  questions: Dictionary<TestimonyQuestionCardData>;
+  suspects: Dictionary<SuspectCardData>;
   hasNewData: boolean;
   isSaving: boolean;
   save: () => void;
@@ -35,8 +35,8 @@ export type UseTestimoniesResourceReturnType = {
 };
 
 export function useTestimoniesResource(): UseTestimoniesResourceReturnType {
-  const suspectsQuery = useTDResource<SuspectCard>('suspects');
-  const questionsQuery = useTDResource<TestimonyQuestionCard>('testimony-questions-pt');
+  const suspectsQuery = useTDResource<SuspectCardData>('suspects');
+  const questionsQuery = useTDResource<TestimonyQuestionCardData>('testimony-questions-pt');
   const dataQuery = useResourceFirestoreData<TestimonyAnswers, Dictionary<string>>({
     tdrResourceName: 'testimony-answers',
     firestoreDataCollectionName: 'testimonies',

@@ -7,7 +7,7 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
-import type { DailyMovieSet, Item as ItemT } from 'types';
+import type { DailyMovieSet, ItemData as ItemT } from 'types';
 import { removeDuplicates } from 'utils';
 import { AddItemFlow } from './AddItemsFlow';
 import { useMovieUsedHistory } from './useMovieUsedHistory';
@@ -42,7 +42,12 @@ export function ItemsMoviesTable({ rows, addEntryToUpdate }: ItemsMoviesTablePro
       title: 'Year',
       dataIndex: 'year',
       render: (year, record) => (
-        <MovieEditableCell addEntryToUpdate={addEntryToUpdate} movie={record} property="year" value={year} />
+        <MovieEditableCell
+          addEntryToUpdate={addEntryToUpdate}
+          movie={record}
+          property="year"
+          value={year}
+        />
       ),
       sorter: (a, b) => a.year - b.year,
     },
@@ -84,7 +89,12 @@ export function ItemsMoviesTable({ rows, addEntryToUpdate }: ItemsMoviesTablePro
 
   const expandableProps = useTableExpandableRows<DailyMovieSet>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <AddItemFlow addEntryToUpdate={addEntryToUpdate} movie={record} />,
+    expandedRowRender: (record) => (
+      <AddItemFlow
+        addEntryToUpdate={addEntryToUpdate}
+        movie={record}
+      />
+    ),
     rowExpandable: () => itemsTypeaheadQuery.isSuccess,
   });
 
@@ -120,7 +130,11 @@ export function RemoveItemFlow({ movie, addEntryToUpdate, itemId }: RemoveItemFl
       onConfirm={onRemove}
       title="Are you sure you want to remove this item?"
     >
-      <Button icon={<DeleteFilled />} size="small" type="text" />
+      <Button
+        icon={<DeleteFilled />}
+        size="small"
+        type="text"
+      />
     </Popconfirm>
   );
 }
@@ -134,13 +148,28 @@ type MovieItemsCellProps = {
 
 export function MovieItemsCell({ movie, itemsIds, copyToClipboard, addEntryToUpdate }: MovieItemsCellProps) {
   return (
-    <Flex gap={6} key={`items-${movie.title}`} wrap="wrap">
+    <Flex
+      gap={6}
+      key={`items-${movie.title}`}
+      wrap="wrap"
+    >
       {itemsIds.map((itemId, index) => (
-        <Flex gap={2} key={`${movie.title}-${itemId}-${index}`} vertical>
-          <Item itemId={itemId} width={60} />
+        <Flex
+          gap={2}
+          key={`${movie.title}-${itemId}-${index}`}
+          vertical
+        >
+          <Item
+            itemId={itemId}
+            width={60}
+          />
           <Flex justify="center">
             <Typography.Text onClick={() => copyToClipboard(itemId)}>{itemId}</Typography.Text>
-            <RemoveItemFlow addEntryToUpdate={addEntryToUpdate} itemId={itemId} movie={movie} />
+            <RemoveItemFlow
+              addEntryToUpdate={addEntryToUpdate}
+              itemId={itemId}
+              movie={movie}
+            />
           </Flex>
         </Flex>
       ))}
