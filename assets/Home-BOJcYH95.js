@@ -1,0 +1,1 @@
+import{_ as e,k as t,w as n}from"./Header-CH5elSq1.js";import{R as r,S as i}from"./index-Chk6YPxA.js";var a=e();function o(){return(0,a.jsx)(i,{title:`TD Admin`,children:(0,a.jsx)(t.Content,{className:`content-center`,children:(0,a.jsx)(r,{alt:`logo`,className:`home-logo`,preview:!1,src:n,width:512})})})}export{o as default};
