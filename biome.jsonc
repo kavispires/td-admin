@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.1/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -10,26 +10,27 @@
     "includes": ["**/src/**"]
   },
   "formatter": {
+    "attributePosition": "multiline",
+    "bracketSpacing": true,
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "lineWidth": 110,
-    "attributePosition": "auto",
-    "bracketSpacing": true
+    "lineWidth": 110
   },
   "assist": {
     "actions": {
       "source": {
         "organizeImports": "on",
-        "useSortedAttributes": "on"
+        "useSortedAttributes": "on",
+        "noDuplicateClasses": "on"
       }
     }
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "a11y": {
         "noSvgWithoutTitle": "off",
         "useKeyWithClickEvents": "off",
@@ -62,15 +63,17 @@
         "noUselessElse": "error"
       },
       "suspicious": {
-        "noExplicitAny": "warn",
         "noArrayIndexKey": "off",
+        "noConsole": "warn",
         "noDeprecatedImports": "error",
-        "noDuplicateDependencies": "warn"
+        "noDuplicateDependencies": "warn",
+        "noExplicitAny": "warn"
       }
     }
   },
   "javascript": {
     "formatter": {
+      "attributePosition": "multiline",
       "quoteStyle": "single"
     }
   }
