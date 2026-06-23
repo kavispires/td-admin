@@ -9,7 +9,7 @@ import './ImageCardsDescriptorTable.css';
 import { IdTag } from 'components/Common/IdTag';
 import { PageContent } from 'components/Common/PageContent';
 import { VirtualizationWrapper } from 'components/Common/VirtualizationWrapper';
-import { uniq } from 'lodash';
+import { orderBy, uniq } from 'lodash';
 
 type KeywordGroup = {
   keyword: string;
@@ -67,10 +67,14 @@ export function ImageCardsDescriptorKeywords({
       });
     });
 
-    return Object.values(groups).map((group) => ({
-      ...group,
-      cardsIds: uniq(group.cardsIds),
-    }));
+    return orderBy(
+      Object.values(groups).map((group) => ({
+        ...group,
+        cardsIds: uniq(group.cardsIds),
+      })),
+      [(o) => o.cardsIds.length],
+      ['desc'],
+    );
   }, [data, language]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: No functions as dependencies
