@@ -1,9 +1,9 @@
 import { Button, Form, Select } from 'antd';
 import { LanguageToggle } from 'components/Common/LanguageToggle';
 import { SiderContent } from 'components/Layout';
+import { useQueryParams } from 'hooks/useQueryParams';
 import { useState } from 'react';
-import { useQueryParams } from '../../hooks/useQueryParams';
-import { DUAL_LANGUAGE_RESOURCES } from '../../utils/constants';
+import { DUAL_LANGUAGE_RESOURCES } from 'utils/resources-list';
 
 type ResourceSelectionFiltersProps = {
   resourceNames: string[];
@@ -18,9 +18,10 @@ export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFil
   const { queryParams, addParam } = useQueryParams();
   const [form] = Form.useForm<FormValues>();
   const [currentResourceName, setCurrentResourceName] = useState(queryParams.get('resourceName') ?? '');
+  const dualLanguageResources = DUAL_LANGUAGE_RESOURCES as readonly string[];
 
   const onFinish = (v: FormValues) => {
-    const isDualLanguageResource = DUAL_LANGUAGE_RESOURCES.includes(v.resourceName);
+    const isDualLanguageResource = dualLanguageResources.includes(v.resourceName);
 
     addParam('language', isDualLanguageResource ? null : v.language);
     addParam('resourceName', v.resourceName);
@@ -38,7 +39,10 @@ export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFil
         onFinish={onFinish}
         size="small"
       >
-        <Form.Item label="Resource" name="resourceName">
+        <Form.Item
+          label="Resource"
+          name="resourceName"
+        >
           <Select
             onChange={(e: string) => setCurrentResourceName(e)}
             options={resourceNames.map((resourceName) => ({ value: resourceName, label: resourceName }))}
@@ -46,11 +50,17 @@ export function ResourceSelectionFilters({ resourceNames }: ResourceSelectionFil
             value={queryParams.get('resourceName')}
           />
         </Form.Item>
-        <Form.Item label="Language" name="language">
-          <LanguageToggle disabled={DUAL_LANGUAGE_RESOURCES.includes(currentResourceName)} />
+        <Form.Item
+          label="Language"
+          name="language"
+        >
+          <LanguageToggle disabled={dualLanguageResources.includes(currentResourceName)} />
         </Form.Item>
         <Form.Item>
-          <Button htmlType="submit" type="primary">
+          <Button
+            htmlType="submit"
+            type="primary"
+          >
             Load
           </Button>
         </Form.Item>

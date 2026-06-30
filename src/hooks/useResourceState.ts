@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { DUAL_LANGUAGE_RESOURCES } from 'utils/constants';
+import { DUAL_LANGUAGE_RESOURCES } from 'utils/resources-list';
 import { useBaseUrl } from './useBaseUrl';
 import { useQueryParams } from './useQueryParams';
 
@@ -25,7 +25,7 @@ export function useResourceState(availableResources: AvailableResources): Resour
     queryKey: ['resource', resourceName, language],
     queryFn: async () => {
       const url =
-        language && !DUAL_LANGUAGE_RESOURCES.includes(resourceName)
+        language && !(DUAL_LANGUAGE_RESOURCES as readonly string[]).includes(resourceName)
           ? getUrl(`${resourceName}-${language}.json`)
           : getUrl(`${resourceName}.json`);
 

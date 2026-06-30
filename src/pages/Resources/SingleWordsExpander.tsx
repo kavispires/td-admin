@@ -1,23 +1,24 @@
 import { Input, Layout, Typography } from 'antd';
 import { ResponseState } from 'components/Common';
 import { SectionTitle } from 'components/Common/SectionTitle';
+import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
+import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionFilters';
+import { SearchDuplicates } from 'components/SearchDuplicates';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { useResourceState } from 'hooks/useResourceState';
 import { useEffect, useState } from 'react';
 import type { TextCardData } from 'types';
-import { DataLoadingWrapper } from '../../components/DataLoadingWrapper';
-import { ResourceSelectionFilters } from '../../components/Resource/ResourceSelectionFilters';
-import { SearchDuplicates } from '../../components/SearchDuplicates';
-import { useResourceState } from '../../hooks/useResourceState';
-import { findSimilar, stringRemoveAccents } from '../../utils';
-import { RESOURCE_NAMES, SEARCH_THRESHOLD } from '../../utils/constants';
+import { findSimilar, stringRemoveAccents } from 'utils';
+import { SEARCH_THRESHOLD } from 'utils/constants';
+import { RESOURCES_NAMES } from 'utils/resources-list';
 
 const { Text } = Typography;
 
 function SingleWordsExpander() {
   // Set default query params
-  useQueryParams({ resourceName: RESOURCE_NAMES.SINGLE_WORDS, language: 'pt' });
+  useQueryParams({ resourceName: RESOURCES_NAMES.SINGLE_WORDS, language: 'pt' });
 
   const [output, setOutput] = useState({});
   const [duplicates, setDuplicates] = useState({});
@@ -25,7 +26,7 @@ function SingleWordsExpander() {
   const property = 'text';
 
   const { language, isLoading, error, hasResponseData, response } = useResourceState([
-    RESOURCE_NAMES.SINGLE_WORDS,
+    RESOURCES_NAMES.SINGLE_WORDS,
   ]);
 
   useEffect(() => {
@@ -96,7 +97,7 @@ function SingleWordsExpander() {
             hasResponseData={hasResponseData}
             isLoading={isLoading}
           />
-          <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.SINGLE_WORDS]} />
+          <ResourceSelectionFilters resourceNames={[RESOURCES_NAMES.SINGLE_WORDS]} />
         </PageSider>
 
         <Layout.Content className="content">

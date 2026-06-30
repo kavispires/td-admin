@@ -12,11 +12,12 @@ import { useResourceState } from 'hooks/useResourceState';
 import { useEffect, useState } from 'react';
 import type { ArteRuimCardData } from 'types';
 import { checkForDuplicates, findSimilar, stringRemoveAccents } from 'utils';
-import { RESOURCE_NAMES, SEARCH_THRESHOLD } from 'utils/constants';
+import { SEARCH_THRESHOLD } from 'utils/constants';
+import { RESOURCES_NAMES } from 'utils/resources-list';
 
 export function ArteRuimParser() {
   // Set default query params
-  useQueryParams({ resourceName: RESOURCE_NAMES.ARTE_RUIM_CARDS, language: 'pt' });
+  useQueryParams({ resourceName: RESOURCES_NAMES.ARTE_RUIM_CARDS, language: 'pt' });
 
   const [searchResults, setSearchResults] = useState({});
   const [output, setOutput] = useState({});
@@ -24,7 +25,7 @@ export function ArteRuimParser() {
   const property = 'text';
 
   const { resourceName, language, isLoading, error, hasResponseData, response } = useResourceState([
-    RESOURCE_NAMES.ARTE_RUIM_CARDS,
+    RESOURCES_NAMES.ARTE_RUIM_CARDS,
   ]);
 
   useEffect(() => {
@@ -79,7 +80,7 @@ export function ArteRuimParser() {
             hasResponseData={hasResponseData}
             isLoading={isLoading}
           />
-          <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
+          <ResourceSelectionFilters resourceNames={[RESOURCES_NAMES.ARTE_RUIM_CARDS]} />
         </PageSider>
 
         <Layout.Content className="content">

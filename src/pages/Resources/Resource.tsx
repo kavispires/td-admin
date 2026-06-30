@@ -10,9 +10,9 @@ import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionF
 import { ResourceTable } from 'components/Resource/ResourceTable';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceState } from 'hooks/useResourceState';
-import { RESOURCE_NAMES } from 'utils/constants';
+import { RESOURCES_NAMES } from 'utils/resources-list';
 
-const resourceNames = Object.values(RESOURCE_NAMES);
+const resourceNames = Object.values(RESOURCES_NAMES);
 
 function Resource() {
   const {
@@ -53,15 +53,24 @@ function Resource() {
             isLoading={isLoading}
           >
             {display === 'json' && (
-              <ResourceJson resourceName={resourceName ?? ''} response={response ?? {}} />
+              <ResourceJson
+                resourceName={resourceName ?? ''}
+                response={response ?? {}}
+              />
             )}
 
             {display === 'table' && (
-              <ResourceTable resourceName={resourceName ?? ''} response={response ?? {}} />
+              <ResourceTable
+                resourceName={resourceName ?? ''}
+                response={response ?? {}}
+              />
             )}
 
             {display === 'cards' && (
-              <ResourceCards resourceName={resourceName ?? ''} response={response ?? {}} />
+              <ResourceCards
+                resourceName={resourceName ?? ''}
+                response={response ?? {}}
+              />
             )}
           </DataLoadingWrapper>
         </Layout.Content>

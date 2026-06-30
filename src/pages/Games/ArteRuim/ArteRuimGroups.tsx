@@ -2,16 +2,16 @@ import { useQuery } from '@tanstack/react-query';
 import { Input, Layout, List, Typography } from 'antd';
 import { ResponseState } from 'components/Common';
 import { SectionTitle } from 'components/Common/SectionTitle';
+import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { PageLayout } from 'components/Layout';
 import { PageSider } from 'components/Layout/PageSider';
+import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionFilters';
 import { useBaseUrl } from 'hooks/useBaseUrl';
 import { useQueryParams } from 'hooks/useQueryParams';
+import { useResourceState } from 'hooks/useResourceState';
 import { useEffect, useState } from 'react';
 import type { ArteRuimCardData, ArteRuimGroupData } from 'types';
-import { DataLoadingWrapper } from '../../../components/DataLoadingWrapper';
-import { ResourceSelectionFilters } from '../../../components/Resource/ResourceSelectionFilters';
-import { useResourceState } from '../../../hooks/useResourceState';
-import { RESOURCE_NAMES } from '../../../utils/constants';
+import { RESOURCES_NAMES } from 'utils/resources-list';
 
 const { Text } = Typography;
 
@@ -45,7 +45,7 @@ const parseData = (cards: Record<CardId, ArteRuimCardData>, groups: Record<strin
 
 function ArteRuimGroups() {
   // Set default query params
-  useQueryParams({ resourceName: RESOURCE_NAMES.ARTE_RUIM_CARDS, language: 'pt' });
+  useQueryParams({ resourceName: RESOURCES_NAMES.ARTE_RUIM_CARDS, language: 'pt' });
   const { getUrl } = useBaseUrl('resources');
 
   const [used, setUsed] = useState({});
@@ -59,16 +59,16 @@ function ArteRuimGroups() {
     error,
     hasResponseData,
     response: cards,
-  } = useResourceState([RESOURCE_NAMES.ARTE_RUIM_CARDS]);
+  } = useResourceState([RESOURCES_NAMES.ARTE_RUIM_CARDS]);
 
   const {
     data: groups,
     isLoading: loadingLevel4,
     error: errorLevel4,
   } = useQuery<any, ResponseError>({
-    queryKey: [RESOURCE_NAMES.ARTE_RUIM_GROUPS, language],
+    queryKey: [RESOURCES_NAMES.ARTE_RUIM_GROUPS, language],
     queryFn: async () => {
-      const response = await fetch(getUrl(`${RESOURCE_NAMES.ARTE_RUIM_GROUPS}-${language}.json`));
+      const response = await fetch(getUrl(`${RESOURCES_NAMES.ARTE_RUIM_GROUPS}-${language}.json`));
       const result = await response.json();
 
       return result;
@@ -98,7 +98,7 @@ function ArteRuimGroups() {
             hasResponseData={hasResponseData && Boolean(groups)}
             isLoading={isLoading || loadingLevel4}
           />
-          <ResourceSelectionFilters resourceNames={[RESOURCE_NAMES.ARTE_RUIM_CARDS]} />
+          <ResourceSelectionFilters resourceNames={[RESOURCES_NAMES.ARTE_RUIM_CARDS]} />
         </PageSider>
 
         <Layout.Content className="content">
@@ -112,7 +112,7 @@ function ArteRuimGroups() {
                 <SectionTitle>Used in Groups ({Object.keys(used).length})</SectionTitle>
                 <Input.TextArea
                   cols={15}
-                  id=""
+                  id="used-groups"
                   name="output"
                   readOnly
                   rows={10}
@@ -121,7 +121,7 @@ function ArteRuimGroups() {
                 <SectionTitle>Unused in Groups ({Object.keys(unused).length})</SectionTitle>
                 <Input.TextArea
                   cols={15}
-                  id=""
+                  id="unused-groups"
                   name="output"
                   readOnly
                   rows={10}
@@ -130,7 +130,7 @@ function ArteRuimGroups() {
                 <SectionTitle>In More than One Group ({Object.keys(duplicated).length})</SectionTitle>
                 <Input.TextArea
                   cols={15}
-                  id=""
+                  id="duplicated-groups"
                   name="duplicates"
                   readOnly
                   rows={5}
