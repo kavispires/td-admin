@@ -39,6 +39,12 @@ export const routeConfig: RouteObject[] = [
           () => import('pages/Resources/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */),
         ),
       },
+      {
+        path: 'converter',
+        element: withSuspense(
+          () => import('pages/Resources/ResourceConverter' /* webpackChunkName: "ResourceConverter" */),
+        ),
+      },
     ],
   },
   // Daily Group

@@ -30,6 +30,10 @@ const items: MenuProps['items'] = [
         label: 'Single Words',
         key: '/resources/single-words',
       },
+      {
+        label: 'Converter',
+        key: '/resources/converter',
+      },
     ],
   },
   {
