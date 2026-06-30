@@ -1,11 +1,12 @@
-import { Flex, Table, type TableProps } from 'antd';
+import { Button, Flex, Table, type TableProps, Typography } from 'antd';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTablePagination } from 'hooks/useTablePagination';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import type { ImageCardDescriptorData } from 'types';
 import { ImageCard } from '../ImageCard';
 import './ImageCardsDescriptorTable.css';
+import { DownloadButton } from 'components/Common/DownloadButton';
 import { IdTag } from 'components/Common/IdTag';
 import { PageContent } from 'components/Common/PageContent';
 import { VirtualizationWrapper } from 'components/Common/VirtualizationWrapper';
@@ -91,34 +92,7 @@ export function ImageCardsDescriptorKeywords({
         dataIndex: 'cardsIds',
         key: 'cardsIds',
         sorter: (a, b) => a.cardsIds.length - b.cardsIds.length,
-        render: (cardsIds: string[]) => (
-          <Flex
-            gap={12}
-            wrap
-          >
-            {cardsIds.map((cardId: string) => (
-              <Flex
-                align="center"
-                gap={4}
-                key={cardId}
-                vertical
-              >
-                <VirtualizationWrapper
-                  key={cardId}
-                  width={64}
-                >
-                  <ImageCard
-                    cardId={cardId}
-                    cardWidth={64}
-                  />
-                </VirtualizationWrapper>
-                <div>
-                  <IdTag>{cardId}</IdTag>
-                </div>
-              </Flex>
-            ))}
-          </Flex>
-        ),
+        render: (cardsIds: string[]) => <CardsRowContent cardsIds={cardsIds} />,
       },
     ],
     [data, language],
@@ -128,6 +102,23 @@ export function ImageCardsDescriptorKeywords({
 
   return (
     <PageContent className="image-cards-descriptor-table-wrapper">
+      <Flex
+        align="center"
+        justify="space-between"
+      >
+        <Typography.Title
+          className="my-0"
+          level={4}
+        >
+          Cards by Keywords
+        </Typography.Title>
+        <DownloadButton
+          data={() => groupedByKeywordsRows.map((row) => row.keyword).sort((a, b) => a.localeCompare(b))}
+          fileName={'image-cards-descriptions-keywords.json'}
+        >
+          Download Keywords
+        </DownloadButton>
+      </Flex>
       <Table
         columns={columns}
         dataSource={groupedByKeywordsRows}
@@ -135,5 +126,55 @@ export function ImageCardsDescriptorKeywords({
         rowKey="keyword"
       />
     </PageContent>
+  );
+}
+
+type CardsRowContentProps = {
+  cardsIds: UID[];
+};
+
+const THRESHOLD = 10; // Number of cards to show before "See All" button appears
+
+function CardsRowContent({ cardsIds }: CardsRowContentProps) {
+  const [seeAll, setSeeAll] = useState(false);
+
+  const displayedCardsIds = seeAll ? cardsIds : cardsIds.slice(0, THRESHOLD);
+
+  return (
+    <Flex
+      align="center"
+      gap={12}
+      wrap
+    >
+      {displayedCardsIds.map((cardId: string) => (
+        <Flex
+          align="center"
+          gap={4}
+          key={cardId}
+          vertical
+        >
+          <VirtualizationWrapper
+            key={cardId}
+            width={64}
+          >
+            <ImageCard
+              cardId={cardId}
+              cardWidth={64}
+            />
+          </VirtualizationWrapper>
+          <div>
+            <IdTag>{cardId}</IdTag>
+          </div>
+        </Flex>
+      ))}
+      {cardsIds.length > THRESHOLD && (
+        <Button
+          onClick={() => setSeeAll(!seeAll)}
+          type="link"
+        >
+          {seeAll ? 'See Less' : 'See All'}
+        </Button>
+      )}
+    </Flex>
   );
 }
