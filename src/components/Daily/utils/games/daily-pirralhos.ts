@@ -1,16 +1,33 @@
+/** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
+import { useQuery } from '@tanstack/react-query';
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { sample, sampleSize } from 'lodash';
-import { useMemo } from 'react';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
-import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { getDayOfTheWeek, getNextDay } from '../utils';
+import { debugDailyStore } from './debug-daily';
 
 export type Gender = 'boy' | 'girl';
 export interface Kid {
+  /**
+   * Kid card identifier
+   */
   id: UID;
+  /**
+   * Kid's name in multiple languages
+   */
   name: DualLanguageValue;
+  /**
+   * Gender identifier
+   */
   gender: Gender;
+  /**
+   * Height in centimeters
+   */
   height: number;
+  /**
+   * Associated color code
+   */
   color: string;
 }
 
@@ -88,63 +105,161 @@ export const KIDS_LIBRARY: Dictionary<Kid> = {
 };
 
 export interface GeneratedKid {
+  /**
+   * Kid identifier
+   */
   kidId: UID;
+  /**
+   * Kid's statement in multiple languages
+   */
   statement: DualLanguageValue;
 }
 
 export interface StatementContext {
+  /**
+   * Kid making the statement
+   */
   speaker: Kid;
+  /**
+   * All kids in this game
+   */
   allKids: Kid[];
+  /**
+   * Kids who are culprits
+   */
   culprits: Kid[];
+  /**
+   * Kids who are lying
+   */
   liars: Kid[];
 }
 
 export type DailyPirralhosEntry = {
+  /**
+   * Date-based identifier (YYYY-MM-DD)
+   */
   id: DateKey;
+  /**
+   * Daily puzzle number
+   */
   number: number;
   type: 'pirralhos';
+  /**
+   * Unique base64-encoded puzzle identifier
+   */
   hashId: string;
+  /**
+   * Kids and their statements
+   */
   kids: GeneratedKid[];
+  /**
+   * Culprit kid identifier
+   */
   culpritId: UID;
+  /**
+   * Liar kid identifiers
+   */
   liarsIds: UID[];
+  /**
+   * Number of possible liars (may differ from actual)
+   */
   possibleLiars: number;
-  difficulty: number; // The calculated 1-100 difficulty score
+  /**
+   * Calculated difficulty score (1-100)
+   */
+  difficulty: number;
 };
 
-export const useDailyPirralhosGames = (enabled: boolean, batchSize: number, dailyHistory: DailyHistory) => {
+/**
+ * Hook for generating daily Pirralhos games
+ *
+ * Creates logic puzzles where players identify a culprit and liars based on kids' statements.
+ * Game complexity varies by day of the week (Mondays are simplest, weekends are hardest).
+ *
+ * @param enabled - Whether the generation is enabled
+ * @param batchSize - Number of games to generate
+ * @param dailyHistory - Historical data for tracking used puzzles
+ * @returns Generated Pirralhos game entries with history updates
+ */
+export const useDailyPirralhosGames = (
+  enabled: boolean,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+): UseDailyGeneratorResponse<DailyPirralhosEntry> => {
+  // Fetch prerequisite data
   const [pirralhosHistory] = useParsedHistory(DAILY_GAMES_KEYS.PIRRALHOS, dailyHistory);
 
-  const entries = useMemo(() => {
-    if (!enabled || !pirralhosHistory) {
-      return {};
-    }
+  // Ensure all prerequisite data is available before generating
+  const isReadyToGenerate = enabled && !!pirralhosHistory;
 
-    return buildDailyPirralhosGames(batchSize, pirralhosHistory);
-  }, [enabled, pirralhosHistory, batchSize]);
+  // Generator query
+  const generatorQuery = useQuery({
+    queryKey: ['generate-daily', 'pirralhos', batchSize, pirralhosHistory?.latestDate],
+    queryFn: () => {
+      if (!pirralhosHistory) {
+        throw new Error('Critical: Prerequisite history data is missing during query execution.');
+      }
+      return buildDailyPirralhosGames(batchSize, pirralhosHistory);
+    },
+    enabled: isReadyToGenerate,
+    staleTime: Number.POSITIVE_INFINITY,
+  });
 
+  // Map TanStack states to response type
   return {
-    entries,
-    isLoading: false,
+    entries: generatorQuery.data?.entries ?? {},
+    isLoading: !isReadyToGenerate || generatorQuery.isLoading,
+    isGenerating: generatorQuery.isFetching,
+    isError: generatorQuery.isError || !!generatorQuery.data?.errors?.length,
+    errors: generatorQuery.data?.errors ?? (generatorQuery.error ? [generatorQuery.error.message] : []),
+    isSuccess: generatorQuery.isSuccess && Object.keys(generatorQuery.data?.entries ?? {}).length > 0,
+    historyUpdate: generatorQuery.data?.historyUpdate ?? {
+      latestDate: pirralhosHistory?.latestDate ?? '',
+      latestNumber: pirralhosHistory?.latestNumber ?? 0,
+      used: [],
+      updateType: 'add',
+    },
   };
 };
 
+/**
+ * Builds a batch of daily Pirralhos games
+ *
+ * Generates logic puzzles with varying complexity based on day of week:
+ * - Mondays: 3 kids, difficulty 1
+ * - Other weekdays: 5-6 kids, difficulty 1-2
+ * - Saturdays: 6-7 kids, difficulty 2-3
+ * - Sundays: 4-7 kids, variable difficulty
+ *
+ * @param batchSize - Number of games to generate
+ * @param history - Historical data for tracking used puzzle hashes
+ * @returns Generated entries, errors, and history update
+ */
 export const buildDailyPirralhosGames = (batchSize: number, history: ParsedDailyHistoryEntry) => {
-  console.count('Creating Pirralhos...');
+  if (debugDailyStore.state.pirralhos) {
+    console.count('Creating Pirralhos...');
+  }
 
-  let lastDate = history.latestDate;
-  const entries: Dictionary<DailyPirralhosEntry> = {};
+  const errors: string[] = [];
+  const entries: Record<string, DailyPirralhosEntry> = {};
+  const used: string[] = [];
 
-  const avoidIds = history.used;
+  let latestDate = history.latestDate;
+  let latestNumber = history.latestNumber;
+
+  // Track used puzzle hashes during generation
+  const avoidIds = [...history.used];
 
   for (let i = 0; i < batchSize; i++) {
-    const id = getNextDay(lastDate);
-    lastDate = id;
+    const id = getNextDay(latestDate);
+    latestDate = id;
+    latestNumber = history.latestNumber + i + 1;
     const dayOfTheWeek = getDayOfTheWeek(id);
 
-    // Default Mondays values
+    // Set difficulty and kid count by day of week
     let difficulty = 1;
     let kidsCount = 3;
-    // Weekdays but Mondays
+    // Weekdays except Mondays
     if (dayOfTheWeek !== 1) {
       kidsCount = sample([5, 6]) ?? 5;
       difficulty = sample([1, 2]) ?? 1;
@@ -161,34 +276,69 @@ export const buildDailyPirralhosGames = (batchSize: number, history: ParsedDaily
       difficulty = kidsCount === 4 ? 1 : (sample([2, 3]) ?? 3);
     }
 
-    let newGame = generatePuzzle(kidsCount, difficulty, avoidIds);
-    let attempts = 0;
-    while (avoidIds.includes(newGame.hashId) && attempts < ATTEMPTS_THRESHOLD) {
-      newGame = generatePuzzle(kidsCount, difficulty, avoidIds);
-      attempts++;
-    }
-    avoidIds.push(newGame.hashId);
+    try {
+      let newGame = generatePuzzle(kidsCount, difficulty, avoidIds);
+      let attempts = 0;
 
-    entries[id] = {
-      id,
-      number: history.latestNumber + i + 1,
-      type: 'pirralhos',
-      hashId: newGame.hashId,
-      kids: newGame.kids,
-      culpritId: newGame.culpritId,
-      liarsIds: newGame.liarsIds,
-      possibleLiars: newGame.possibleLiars,
-      difficulty: newGame.difficulty,
-    };
+      // Ensure unique puzzle hash
+      while (avoidIds.includes(newGame.hashId) && attempts < ATTEMPTS_THRESHOLD) {
+        newGame = generatePuzzle(kidsCount, difficulty, avoidIds);
+        attempts++;
+      }
+
+      if (avoidIds.includes(newGame.hashId)) {
+        throw new Error(
+          `Exceeded ATTEMPTS_THRESHOLD (${ATTEMPTS_THRESHOLD}) trying to find a unique puzzle.`,
+        );
+      }
+
+      avoidIds.push(newGame.hashId);
+      used.push(newGame.hashId);
+
+      entries[id] = {
+        id,
+        number: latestNumber,
+        type: 'pirralhos',
+        hashId: newGame.hashId,
+        kids: newGame.kids,
+        culpritId: newGame.culpritId,
+        liarsIds: newGame.liarsIds,
+        possibleLiars: newGame.possibleLiars,
+        difficulty: newGame.difficulty,
+      };
+    } catch (error: unknown) {
+      // Catch failure for this specific day
+      if (debugDailyStore.state.pirralhos) {
+        console.error(`Pirralhos Day ${id} Failed:`, error);
+      }
+      errors.push(`Day ${id}: ${(error as Error).message || 'Unknown generation error'}`);
+    }
   }
 
-  return entries;
+  return {
+    entries,
+    errors,
+    historyUpdate: {
+      latestDate,
+      latestNumber,
+      used,
+      updateType: 'add' as const,
+    },
+  };
 };
 
 export interface StatementDef {
-  difficultyWeight: number; // 1 (Easy) to 3 (Hard)
-  // Param can now be a string (UID) or a number (height)
+  /**
+   * Difficulty weight (1 = Easy, 3 = Hard)
+   */
+  difficultyWeight: number;
+  /**
+   * Generates parameter for statement (kid ID or height)
+   */
   generateParam: (speaker: Kid, allKids: Kid[]) => string | number | undefined;
+  /**
+   * Builds statement text and evaluation function
+   */
   build: (
     speaker: Kid,
     allKids: Kid[],
@@ -197,18 +347,30 @@ export interface StatementDef {
 }
 
 export interface StatementInstance {
+  /**
+   * Statement type index from STATEMENT_POOL
+   */
   type: number;
+  /**
+   * Optional parameter (kid ID or height)
+   */
   param?: string | number;
+  /**
+   * Statement text in multiple languages
+   */
   text: DualLanguageValue;
+  /**
+   * Evaluation function for statement truth
+   */
   evaluate: (ctx: StatementContext) => boolean;
 }
 
-// Derive the array for logic processing
+// Derive array for logic processing
 const ALL_KIDS = Object.values(KIDS_LIBRARY);
 const HEIGHT_THRESHOLDS = ALL_KIDS.map((k) => k.height).sort();
 
 /**
- * Gets the left and right neighbors of a kid in the lineup.
+ * Gets the left and right neighbors of a kid in the lineup
  */
 const getNeighbors = (kid: Kid, allKids: Kid[]) => {
   const index = allKids.findIndex((k) => k.id === kid.id);
@@ -218,7 +380,7 @@ const getNeighbors = (kid: Kid, allKids: Kid[]) => {
 };
 
 /**
- * Randomly selects an element from an array.
+ * Randomly selects an element from an array
  */
 const pickRandom = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
 
@@ -419,10 +581,10 @@ function getCombinations<T>(array: T[], size: number): T[][] {
 const KID_PREFIX = 'us-gb-';
 
 /**
- * Encodes puzzle parameters into a base64 hash ID.
+ * Encodes puzzle parameters into a base64 hash ID
  */
 function encodePuzzleId(
-  activeKids: Kid[], // Pass the actual kids array instead of numKids
+  activeKids: Kid[],
   exactLiars: number,
   possibleLiars: number,
   stmts: StatementInstance[],
@@ -434,8 +596,7 @@ function encodePuzzleId(
     .map((s) => {
       if (s.param === undefined) return `${s.type}`;
 
-      // If the param is a string (a Kid ID), strip the prefix.
-      // Otherwise (like the height number in type 7), leave it as is.
+      // If param is a kid ID, strip prefix; otherwise (height) leave as is
       const paramStr = typeof s.param === 'string' ? s.param.replace(KID_PREFIX, '') : s.param;
       return `${s.type},${paramStr}`;
     })
@@ -447,13 +608,13 @@ function encodePuzzleId(
 }
 
 /**
- * Decodes a base64 hash ID back into puzzle parameters.
+ * Decodes a base64 hash ID back into puzzle parameters
  */
 function decodePuzzleId(hash: string) {
   const rawId = globalThis.atob(hash);
   const [kidsStr, culpritsStr, liarsStr, possibleLiarsStr, stmtsStr] = rawId.split('|');
 
-  // Re-attach the prefix to the active kids' IDs
+  // Re-attach prefix to kid IDs
   const activeKidIds = kidsStr.split(',').map((id) => `${KID_PREFIX}${id}`);
 
   const numCulprits = Number.parseInt(culpritsStr, 10);
@@ -466,8 +627,7 @@ function decodePuzzleId(hash: string) {
 
     let param: string | number | undefined;
     if (paramStr !== undefined && paramStr !== '') {
-      // Type 7 is a height threshold (number). All other params are Kid IDs (strings).
-      // We re-attach the prefix only if it is supposed to be a string ID.
+      // Type 7 is height (number). All other params are kid IDs (strings).
       param = type === 7 ? Number.parseInt(paramStr, 10) : `${KID_PREFIX}${paramStr}`;
     }
 
@@ -478,7 +638,7 @@ function decodePuzzleId(hash: string) {
 }
 
 /**
- * Calculates the difficulty score for a puzzle.
+ * Calculates the difficulty score for a puzzle
  */
 function calculateDifficulty(
   numKids: number,
@@ -498,13 +658,13 @@ function calculateDifficulty(
 }
 
 /**
- * Solves a puzzle by testing all possible combinations of culprits and liars.
+ * Solves a puzzle by testing all possible combinations of culprits and liars
  */
 function solvePuzzle(
   activeKids: Kid[],
   statements: { kid: Kid; stmt: StatementInstance }[],
-  possibleCulpritCombos: Kid[][], // Passed in to save calculation time
-  possibleLiarCombos: Kid[][], // Passed in to save calculation time
+  possibleCulpritCombos: Kid[][],
+  possibleLiarCombos: Kid[][],
 ) {
   let validSolutionsCount = 0;
   let finalCulprits: Kid[] = [];
@@ -512,11 +672,6 @@ function solvePuzzle(
 
   for (const testCulprits of possibleCulpritCombos) {
     for (const testLiars of possibleLiarCombos) {
-      // // RULE: The culprit must ALWAYS be a liar.
-      // if (!testLiars.some((l) => testCulprits.some((c) => c.id === l.id))) {
-      //   continue;
-      // }
-
       let isValidState = true;
       for (const ks of statements) {
         const isLiarInThisState = testLiars.some((l) => l.id === ks.kid.id);
@@ -544,7 +699,18 @@ function solvePuzzle(
 }
 
 /**
- * Generates a unique daily Pirralhos puzzle based strictly on numKids.
+ * Generates a unique daily Pirralhos puzzle
+ *
+ * Creates a logic puzzle by:
+ * 1. Selecting random kids, culprits, and liars
+ * 2. Generating valid statements for each kid
+ * 3. Verifying the puzzle has exactly one solution
+ * 4. Encoding the puzzle into a unique hash ID
+ *
+ * @param numKids - Number of kids in the puzzle
+ * @param difficultyOverride - Target difficulty level (1-3)
+ * @param avoidIds - Previously used puzzle hashes to avoid duplicates
+ * @returns Generated puzzle entry
  */
 export function generatePuzzle(
   numKids: number,
@@ -578,24 +744,24 @@ export function generatePuzzle(
       exactLiars = pickRandom([2, 3, 4]);
 
       if (exactLiars === 2) {
-        // For 2 liars, we can have 0, 1, or 2 possible (40% exact, 40% +1, 20% -1)
+        // For 2 liars, variance ranges from -2 to +2
         const variance = pickRandom([-2, -1, 0, 0, 1, 2]);
         possibleLiars = Math.max(0, exactLiars + variance);
       } else {
-        // For 3 or 4 liars, we can have 2 to 5 possible (20% -1, 40% exact, 40% +1)
+        // For 3 or 4 liars, variance ranges from -1 to +1
         const variance = pickRandom([-1, -1, 0, 1, 1]);
         possibleLiars = Math.max(0, exactLiars + variance);
       }
     }
   }
 
-  // Guard when number of kids is low (3)
+  // Special handling for 3-kid puzzles
   if (numKids === 3) {
     exactLiars = 0;
     possibleLiars = pickRandom([0, 0, 1]);
   }
 
-  // PRECOMPUTE ONCE:
+  // Precompute combinations once
   const possibleCulpritCombos = getCombinations(activeKids, numCulprits);
   const possibleLiarCombos = getCombinations(activeKids, exactLiars);
 
@@ -605,11 +771,6 @@ export function generatePuzzle(
     attempts++;
 
     const trueCulprits = pickRandom(possibleCulpritCombos);
-    // const theCulprit = trueCulprits[0];
-
-    // const otherKids = activeKids.filter((k) => k.id !== theCulprit.id);
-    // const otherLiarsCombos = getCombinations(otherKids, exactLiars - 1);
-    // const trueLiars = [theCulprit, ...pickRandom(otherLiarsCombos)];
     const trueLiars = pickRandom(possibleLiarCombos);
 
     const kidStatements = activeKids.map((kid) => {
@@ -648,12 +809,7 @@ export function generatePuzzle(
       continue;
     }
 
-    const solution = solvePuzzle(
-      activeKids,
-      kidStatements,
-      possibleCulpritCombos,
-      possibleLiarCombos, // Inject precomputed combinations here
-    );
+    const solution = solvePuzzle(activeKids, kidStatements, possibleCulpritCombos, possibleLiarCombos);
 
     if (solution.validSolutionsCount === 1) {
       const stmtInstances = kidStatements.map((ks) => ks.stmt);
@@ -670,10 +826,8 @@ export function generatePuzzle(
         type: 'pirralhos',
         number: 0,
         hashId: puzzleId,
-        // Using the updated GeneratedKid structure
         kids: kidStatements.map((ks) => ({ kidId: ks.kid.id, statement: ks.stmt.text })),
-        // Changed mapping to map by ID instead of cardId
-        culpritId: trueCulprits.map((c) => c.id)[0],
+        culpritId: trueCulprits[0]?.id ?? '',
         liarsIds: trueLiars.map((l) => l.id),
         possibleLiars,
         difficulty,
@@ -685,11 +839,17 @@ export function generatePuzzle(
 }
 
 /**
- * Retrieves and reconstructs a puzzle from its hash ID.
+ * Retrieves and reconstructs a puzzle from its hash ID
  */
 export function getPuzzleById(hashId: string): DailyPirralhosEntry {
   const { activeKidIds, numCulprits, exactLiars, possibleLiars, parsedStmts } = decodePuzzleId(hashId);
-  const activeKids = activeKidIds.map((id) => KIDS_LIBRARY[id]);
+
+  // Instantiate kids from library
+  const activeKids = activeKidIds.map((id) => {
+    const kid = KIDS_LIBRARY[id];
+    if (!kid) throw new Error(`Kid ID ${id} not found in library.`);
+    return kid;
+  });
 
   const kidStatements = activeKids.map((kid, index) => {
     const parsed = parsedStmts[index];
@@ -717,10 +877,8 @@ export function getPuzzleById(hashId: string): DailyPirralhosEntry {
     type: 'pirralhos',
     number: 0,
     hashId,
-    // Using the updated GeneratedKid structure
     kids: kidStatements.map((ks) => ({ kidId: ks.kid.id, statement: ks.stmt.text })),
-    // Changed mapping to map by ID instead of cardId
-    culpritId: solution.finalCulprits.map((c) => c.id)[0],
+    culpritId: solution.finalCulprits[0]?.id ?? '',
     liarsIds: solution.finalLiars.map((l) => l.id),
     possibleLiars,
     difficulty,

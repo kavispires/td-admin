@@ -1,13 +1,12 @@
 import { useTDResource } from 'hooks/useTDResource';
 import { useEffect, useMemo } from 'react';
-import type { ItemData } from 'types/tdr';
+import type { ItemData } from 'types';
+
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import { type DailyAlienadoEntry, useDailyAlienadoGames } from '../utils/games/daily-alienado';
 import { type DailyAquiOEntry, useDailyAquiOGames } from '../utils/games/daily-aqui-o';
 import { type DailyArteRuimEntry, useDailyArteRuimGames } from '../utils/games/daily-arte-ruim';
-import { type DailyConexoesEntry, useDailyConexoesGames } from '../utils/games/daily-conexoes';
 import { type DailyConjuntosEntry, useDailyConjuntosGames } from '../utils/games/daily-conjuntos';
-import { type DailyEstoquistaEntry, useDailyEstoquistaGames } from '../utils/games/daily-estoquista';
 import { type DailyFilmacoEntry, useDailyFilmacoGames } from '../utils/games/daily-filmaco';
 import { type DailyInvestigacaoEntry, useDailyInvestigacaoGames } from '../utils/games/daily-investigacao';
 import { type DailyMapeamentoEntry, useDailyMapeamentoGames } from '../utils/games/daily-mapeamento';
@@ -19,7 +18,7 @@ import { type DailyPortaisEntry, useDailyPortaisGames } from '../utils/games/dai
 import { type DailyQuartetosEntry, useDailyQuartetosGames } from '../utils/games/daily-quartetos';
 import { type DailyTaNaCaraEntry, useDailyTaNaCaraGames } from '../utils/games/daily-ta-na-cara';
 import { type DailyVitralEntry, useDailyVitralGames } from '../utils/games/daily-vitral';
-import type { DateKey } from '../utils/types';
+import type { DateKey, UseDailyGeneratorResponse } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
 export type DailyEntry = {
@@ -27,170 +26,152 @@ export type DailyEntry = {
   // Games
   'arte-ruim': DailyArteRuimEntry;
   'aqui-o': DailyAquiOEntry;
-  alienado: DailyAlienadoEntry; // Renamed from 'comunicacao-alienigena'
-  estoquista: DailyEstoquistaEntry; // Renamed from 'controle-de-estoque'
-  investigacao: DailyInvestigacaoEntry; // Renamed from 'espionagem'
+  alienado: DailyAlienadoEntry;
+  investigacao: DailyInvestigacaoEntry;
   filmaco: DailyFilmacoEntry;
-  mapeamento: DailyMapeamentoEntry; // Renamed from 'mapeamento'
+  mapeamento: DailyMapeamentoEntry;
   organiku: DailyOrganikuEntry;
   palavreado: DailyPalavreadoEntry;
-  portais: DailyPortaisEntry; // Renamed from 'portais-magicos'
+  portais: DailyPortaisEntry;
   quartetos: DailyQuartetosEntry;
-  conjuntos: DailyConjuntosEntry; // Renamed from 'teoria-de-conjuntos'
-  vitral: DailyVitralEntry; // Renamed from 'vitrais'
+  conjuntos: DailyConjuntosEntry;
+  vitral: DailyVitralEntry;
   pirralhos: DailyPirralhosEntry;
   // Contributions
-  picaco: DailyPicacoEntry; // Renamed from 'artista'
-  conexoes: DailyConexoesEntry;
+  picaco: DailyPicacoEntry;
   'ta-na-cara': DailyTaNaCaraEntry;
   // Additional info
   dictionary: Dictionary<string>;
 };
 
-export type UseLoadDailySetup = {
+// Extracted the history payload type from our standard response
+type HistoryPayload = UseDailyGeneratorResponse<any>['historyUpdate'];
+
+export type DailyHistoryUpdates = {
+  'arte-ruim': HistoryPayload;
+  'aqui-o': HistoryPayload;
+  alienado: HistoryPayload;
+  investigacao: HistoryPayload;
+  filmaco: HistoryPayload;
+  mapeamento: HistoryPayload;
+  organiku: HistoryPayload;
+  palavreado: HistoryPayload;
+  portais: HistoryPayload;
+  quartetos: HistoryPayload;
+  conjuntos: HistoryPayload;
+  vitral: HistoryPayload;
+  pirralhos: HistoryPayload;
+  picaco: HistoryPayload;
+  'ta-na-cara': HistoryPayload;
+};
+
+export type UseLoadDailySetupResponse = {
   isLoading: boolean;
+  isGenerating: boolean;
+  isError: boolean;
+  isSuccess: boolean;
+  errors: string[];
   entries: DailyEntry[];
+  historyUpdates: DailyHistoryUpdates;
 };
 
 /**
  * Custom hook for loading daily setup data.
- *
- * @param enabled - Indicates whether the loading is enabled or not.
- * @param queryLanguage - Optional language parameter for the query.
- * @param drawingsCount - The number of drawings to load.
- * @param batchSize - The size of the batch to load.
- * @returns An object containing the loading status, daily entries, latest date, latest number, and round 5 sample.
  */
 export function useLoadDailySetup(
   enabled: boolean,
   queryLanguage: Language,
   batchSize: number,
-): UseLoadDailySetup {
+): UseLoadDailySetupResponse {
   // STEP 1: HISTORY
   const source = LANGUAGE_PREFIX.DAILY[queryLanguage ?? 'pt'];
   const historyQuery = useDailyHistoryQuery(source, { enabled });
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: reset warnings on change of basic props
-  useEffect(() => {
-    // clearWarnings();
-  }, [batchSize]);
+  // useEffect(() => {
+  //   // clearWarnings();
+  // }, [batchSize]);
 
   const enableBuilders = enabled && historyQuery.isSuccess;
 
   // GET ITEMS FOR DICTIONARY
   const tdrItemsQuery = useTDResource<ItemData>('items', { enabled: enableBuilders });
 
-  // BUILD AQUI Ó
+  // BUILD GAMES
   const aquiO = useDailyAquiOGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
-
-  // BUILD ARTE RUIM
   const arteRuim = useDailyArteRuimGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
-
-  // BUILD ALIENADO
   const alienado = useDailyAlienadoGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
-
-  // BUILD ESTOQUISTA
-  const estoquista = useDailyEstoquistaGames(
-    enableBuilders,
-    queryLanguage,
-    batchSize,
-    historyQuery.data ?? {},
-  );
-
-  // BUILD FILMAÇO
   const filmaco = useDailyFilmacoGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
-
-  // BUILD PALAVREADO
   const palavreado = useDailyPalavreadoGames(
     enableBuilders,
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
   );
-
-  // BUILD QUARTETOS
   const quartetos = useDailyQuartetosGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
-
-  // BUILD CONJUNTOS
   const conjuntos = useDailyConjuntosGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
-
-  // BUILD PORTAL
   const portais = useDailyPortaisGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
-
-  // BUILD ORGANIKU
   const organiku = useDailyOrganikuGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
-
-  // BUILD INVESTIGAÇÃO
   const investigacao = useDailyInvestigacaoGames(
     enableBuilders,
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
   );
-
-  // BUILD VITRAL
   const vitral = useDailyVitralGames(enableBuilders, batchSize, historyQuery.data ?? {});
-
-  // BUILD MAPEAMENTO
   const mapeamento = useDailyMapeamentoGames(
     enableBuilders,
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
   );
-
   const pirralhos = useDailyPirralhosGames(enableBuilders, batchSize, historyQuery.data ?? {});
+  const taNaCara = useDailyTaNaCaraGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
 
-  // BUILD PICAÇO
-  const artista = useDailyPicacoGames(
+  const picaco = useDailyPicacoGames(
     enableBuilders,
     queryLanguage,
     batchSize,
     historyQuery.data ?? {},
-
-    arteRuim.entries,
+    arteRuim.entries, // This is now a Record/Dictionary as required
   );
 
-  // BUILD TA NA CARA
-  const taNaCara = useDailyTaNaCaraGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
-
-  // BUILD CONEXOES
-  const conexoes = useDailyConexoesGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
-
-  // STEP N: Create entries
+  // STEP N: Create entries bundle
   const entries = useMemo(() => {
-    if (arteRuim.entries.length === 0) {
+    const dates = Object.keys(arteRuim.entries).sort();
+
+    if (dates.length === 0) {
       return [];
     }
+
     console.count('Bundling entries...');
-    return arteRuim.entries.map((arteRuim) => {
-      const dailyEntry = {
-        id: arteRuim.id,
+
+    return dates.map((id) => {
+      const dailyEntry: DailyEntry = {
+        id,
         // Games
-        'arte-ruim': arteRuim,
-        'aqui-o': aquiO.entries[arteRuim.id],
-        alienado: alienado.entries[arteRuim.id],
-        estoquista: estoquista.entries[arteRuim.id],
-        investigacao: investigacao.entries[arteRuim.id],
-        filmaco: filmaco.entries[arteRuim.id],
-        organiku: organiku.entries[arteRuim.id],
-        palavreado: palavreado.entries[arteRuim.id],
-        portais: portais.entries[arteRuim.id],
-        quartetos: quartetos.entries[arteRuim.id],
-        conjuntos: conjuntos.entries[arteRuim.id],
-        vitral: vitral.entries[arteRuim.id],
-        mapeamento: mapeamento.entries[arteRuim.id],
-        pirralhos: pirralhos.entries[arteRuim.id],
+        'arte-ruim': arteRuim.entries[id],
+        'aqui-o': aquiO.entries[id],
+        alienado: alienado.entries[id],
+        investigacao: investigacao.entries[id],
+        filmaco: filmaco.entries[id],
+        organiku: organiku.entries[id],
+        palavreado: palavreado.entries[id],
+        portais: portais.entries[id],
+        quartetos: quartetos.entries[id],
+        conjuntos: conjuntos.entries[id],
+        vitral: vitral.entries[id],
+        mapeamento: mapeamento.entries[id],
+        pirralhos: pirralhos.entries[id],
         // Contributions
-        picaco: artista.entries[arteRuim.id],
-        conexoes: conexoes.entries[arteRuim.id],
-        'ta-na-cara': taNaCara.entries[arteRuim.id],
+        picaco: picaco.entries[id],
+        'ta-na-cara': taNaCara.entries[id],
         // Additional info
         dictionary: {},
       };
 
       // Generate dictionary for the entry
-      dailyEntry.dictionary = generateItemNamesDictionary(dailyEntry, tdrItemsQuery.data);
+      // Using fallback `{}` in case items are still loading so it doesn't crash
+      dailyEntry.dictionary = generateItemNamesDictionary(dailyEntry, tdrItemsQuery.data ?? {});
 
       return dailyEntry;
     });
@@ -198,15 +179,13 @@ export function useLoadDailySetup(
     arteRuim.entries,
     aquiO.entries,
     alienado.entries,
-    estoquista.entries,
     filmaco.entries,
     organiku.entries,
     palavreado.entries,
     portais.entries,
     quartetos.entries,
     conjuntos.entries,
-    artista.entries,
-    conexoes.entries,
+    picaco.entries,
     taNaCara.entries,
     investigacao.entries,
     vitral.entries,
@@ -215,28 +194,145 @@ export function useLoadDailySetup(
     tdrItemsQuery.data,
   ]);
 
+  // STEP N+1: Aggregate History Updates
+  const historyUpdates: DailyHistoryUpdates = useMemo(
+    () => ({
+      'arte-ruim': arteRuim.historyUpdate,
+      'aqui-o': aquiO.historyUpdate,
+      alienado: alienado.historyUpdate,
+      investigacao: investigacao.historyUpdate,
+      filmaco: filmaco.historyUpdate,
+      mapeamento: mapeamento.historyUpdate,
+      organiku: organiku.historyUpdate,
+      palavreado: palavreado.historyUpdate,
+      portais: portais.historyUpdate,
+      quartetos: quartetos.historyUpdate,
+      conjuntos: conjuntos.historyUpdate,
+      vitral: vitral.historyUpdate,
+      pirralhos: pirralhos.historyUpdate,
+      picaco: picaco.historyUpdate,
+      'ta-na-cara': taNaCara.historyUpdate,
+    }),
+    [
+      arteRuim.historyUpdate,
+      aquiO.historyUpdate,
+      alienado.historyUpdate,
+      investigacao.historyUpdate,
+      filmaco.historyUpdate,
+      mapeamento.historyUpdate,
+      organiku.historyUpdate,
+      palavreado.historyUpdate,
+      portais.historyUpdate,
+      quartetos.historyUpdate,
+      conjuntos.historyUpdate,
+      vitral.historyUpdate,
+      pirralhos.historyUpdate,
+      picaco.historyUpdate,
+      taNaCara.historyUpdate,
+    ],
+  );
+
+  // STEP N+2: Aggregate Errors with prefixes
+  const errors = useMemo(
+    () => [
+      ...arteRuim.errors.map((e) => `[Arte Ruim] ${e}`),
+      ...aquiO.errors.map((e) => `[Aqui Ó] ${e}`),
+      ...alienado.errors.map((e) => `[Alienado] ${e}`),
+      ...investigacao.errors.map((e) => `[Investigação] ${e}`),
+      ...filmaco.errors.map((e) => `[Filmaço] ${e}`),
+      ...mapeamento.errors.map((e) => `[Mapeamento] ${e}`),
+      ...organiku.errors.map((e) => `[Organiku] ${e}`),
+      ...palavreado.errors.map((e) => `[Palavreado] ${e}`),
+      ...portais.errors.map((e) => `[Portais] ${e}`),
+      ...quartetos.errors.map((e) => `[Quartetos] ${e}`),
+      ...conjuntos.errors.map((e) => `[Conjuntos] ${e}`),
+      ...vitral.errors.map((e) => `[Vitral] ${e}`),
+      ...pirralhos.errors.map((e) => `[Pirralhos] ${e}`),
+      ...picaco.errors.map((e) => `[Picaço] ${e}`),
+      ...taNaCara.errors.map((e) => `[Tá Na Cara] ${e}`),
+    ],
+    [
+      arteRuim.errors,
+      aquiO.errors,
+      alienado.errors,
+      investigacao.errors,
+      filmaco.errors,
+      mapeamento.errors,
+      organiku.errors,
+      palavreado.errors,
+      portais.errors,
+      quartetos.errors,
+      conjuntos.errors,
+      vitral.errors,
+      pirralhos.errors,
+      picaco.errors,
+      taNaCara.errors,
+    ],
+  );
+
+  const isLoading =
+    historyQuery.isLoading ||
+    tdrItemsQuery.isLoading ||
+    arteRuim.isLoading ||
+    aquiO.isLoading ||
+    alienado.isLoading ||
+    filmaco.isLoading ||
+    palavreado.isLoading ||
+    portais.isLoading ||
+    quartetos.isLoading ||
+    conjuntos.isLoading ||
+    picaco.isLoading ||
+    taNaCara.isLoading ||
+    investigacao.isLoading ||
+    organiku.isLoading ||
+    vitral.isLoading ||
+    mapeamento.isLoading ||
+    pirralhos.isLoading;
+
+  const isGenerating =
+    arteRuim.isGenerating ||
+    aquiO.isGenerating ||
+    alienado.isGenerating ||
+    filmaco.isGenerating ||
+    palavreado.isGenerating ||
+    portais.isGenerating ||
+    quartetos.isGenerating ||
+    conjuntos.isGenerating ||
+    picaco.isGenerating ||
+    taNaCara.isGenerating ||
+    investigacao.isGenerating ||
+    organiku.isGenerating ||
+    vitral.isGenerating ||
+    mapeamento.isGenerating ||
+    pirralhos.isGenerating;
+
+  const isError =
+    historyQuery.isError ||
+    tdrItemsQuery.isError ||
+    arteRuim.isError ||
+    aquiO.isError ||
+    alienado.isError ||
+    filmaco.isError ||
+    palavreado.isError ||
+    portais.isError ||
+    quartetos.isError ||
+    conjuntos.isError ||
+    picaco.isError ||
+    taNaCara.isError ||
+    investigacao.isError ||
+    organiku.isError ||
+    vitral.isError ||
+    mapeamento.isError ||
+    pirralhos.isError;
+
   return {
-    isLoading:
-      historyQuery.isLoading ||
-      aquiO.isLoading ||
-      arteRuim.isLoading ||
-      alienado.isLoading ||
-      estoquista.isLoading ||
-      filmaco.isLoading ||
-      palavreado.isLoading ||
-      portais.isLoading ||
-      quartetos.isLoading ||
-      conjuntos.isLoading ||
-      artista.isLoading ||
-      conexoes.isLoading ||
-      taNaCara.isLoading ||
-      investigacao.isLoading ||
-      organiku.isLoading ||
-      vitral.isLoading ||
-      mapeamento.isLoading ||
-      pirralhos.isLoading ||
-      tdrItemsQuery.isLoading,
+    isLoading,
+    isGenerating,
+    isError,
+    isSuccess: entries.length > 0 && !isLoading && !isGenerating,
+    errors,
     entries,
+    historyUpdates,
   };
 }
 
@@ -244,7 +340,7 @@ const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemDa
   const dictionary: Dictionary<string> = {};
 
   // Gather Aqui Ó items
-  entry['aqui-o'].itemsIds.forEach((itemId) => {
+  entry['aqui-o']?.itemsIds?.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;
@@ -252,13 +348,13 @@ const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemDa
   });
 
   // Gather Alienado items
-  entry.alienado.itemsIds.forEach((itemId) => {
+  entry.alienado?.itemsIds?.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;
     }
   });
-  entry.alienado.attributes.forEach((attribute) => {
+  entry.alienado?.attributes?.forEach((attribute) => {
     attribute.itemsIds.forEach((itemId) => {
       const item = items[itemId];
       if (item) {
@@ -268,7 +364,7 @@ const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemDa
   });
 
   // Gather Filmaço items
-  entry.filmaco.itemsIds.forEach((itemId) => {
+  entry.filmaco?.itemsIds?.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;
@@ -276,7 +372,7 @@ const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemDa
   });
 
   // Gather Quartetos items
-  entry.quartetos.grid.forEach((itemId) => {
+  entry.quartetos?.grid?.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;
@@ -284,7 +380,7 @@ const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemDa
   });
 
   // Gather Organiku items
-  entry.organiku.itemsIds.forEach((itemId) => {
+  entry.organiku?.itemsIds?.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;

@@ -5,7 +5,6 @@ import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { CanvasSVG } from 'components/Daily/CanvasSVG';
 import { ImageCard } from 'components/Images/ImageCard';
 import { AlienSign, Item } from 'components/Sprites';
-import { WarehouseGood } from 'components/Sprites/WarehouseGood';
 import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { truncate } from 'lodash';
 import moment from 'moment';
@@ -94,7 +93,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                 {attributes.map((req) => (
                   <AlienSign
                     key={req.spriteId}
-                    signId={`sign-${req.spriteId}`}
+                    signId={req.spriteId}
                     width={48}
                   />
                 ))}
@@ -259,48 +258,6 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                   />
                 ))}
               </Flex>
-            </Flex>
-          </GamePopover>
-        </EntryCell>
-      );
-    },
-  },
-  {
-    title: 'Estoquista',
-    dataIndex: 'estoquista',
-    key: 'estoquista',
-    render: (entry: DailyEntry['estoquista']) => {
-      if (!entry) {
-        return (
-          <Alert
-            title="No entry"
-            type="error"
-          />
-        );
-      }
-
-      const { number, title, goods } = entry;
-
-      return (
-        <EntryCell>
-          <GameNumber>{number}</GameNumber>
-
-          <GameInfo label="Title">{title}</GameInfo>
-          <GameInfo label="Goods">{goods.length}</GameInfo>
-
-          <GamePopover entry={entry}>
-            <Flex
-              gap={6}
-              style={{ maxWidth: 245 }}
-              wrap
-            >
-              {goods.map((good) => (
-                <WarehouseGood
-                  goodId={good}
-                  key={good}
-                  width={48}
-                />
-              ))}
             </Flex>
           </GamePopover>
         </EntryCell>
@@ -742,47 +699,6 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                 cardId={entry.cardId}
                 cardWidth={75}
               />
-            </Flex>
-          </GamePopover>
-        </EntryCell>
-      );
-    },
-  },
-  {
-    title: 'Conexões',
-    dataIndex: 'conexoes',
-    key: 'conexoes',
-    render: (entry: DailyEntry['conexoes']) => {
-      if (!entry) {
-        return (
-          <Alert
-            title="No entry"
-            type="error"
-          />
-        );
-      }
-
-      const { number, imageIds } = entry;
-
-      return (
-        <EntryCell>
-          <GameNumber>{number}</GameNumber>
-
-          <GameInfo label="Images">{imageIds.length}</GameInfo>
-
-          <GamePopover entry={entry}>
-            <Flex
-              gap={6}
-              style={{ maxWidth: 300 }}
-              wrap
-            >
-              {imageIds.slice(0, 15).map((imageId) => (
-                <ImageCard
-                  cardId={imageId}
-                  cardWidth={48}
-                  key={imageId}
-                />
-              ))}
             </Flex>
           </GamePopover>
         </EntryCell>

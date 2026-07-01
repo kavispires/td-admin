@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useImagesDecks } from 'hooks/useImagesDecks';
 import { random, sample } from 'lodash';
@@ -20,6 +21,7 @@ export type DailyConexoesEntry = {
  * @param batchSize - Number of daily entries to generate
  * @param dailyHistory - History of daily games
  * @returns Entries dictionary and loading state
+ * @deprecated This hook is deprecated and will be removed in future versions. Use the new game generation system instead.
  */
 export const useDailyConexoesGames = (
   enabled: boolean,

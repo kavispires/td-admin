@@ -23,20 +23,23 @@ export function GameSimulator({ things, rules }: GameSimulatorProps) {
   const [simulation, setSimulation] = useState<DailyConjuntosEntry | null>(null);
 
   const onSimulate = () => {
-    setSimulation(
-      Object.values(
-        buildDailyConjuntosGames(
-          1,
-          {
-            latestDate: '2023/01/01',
-            latestNumber: 0,
-            used: [],
-          },
-          rules,
-          things,
-        ),
-      )[0],
+    const entries = buildDailyConjuntosGames(
+      1,
+      {
+        latestDate: '2023/01/01',
+        latestNumber: 0,
+        used: [],
+        reset: 0,
+      },
+      rules,
+      things,
     );
+
+    const firstEntry = Object.values(entries.entries)[0] ?? null;
+
+    if (firstEntry) {
+      setSimulation(firstEntry);
+    }
   };
 
   const onGenerateDemoGames = () => {
@@ -48,6 +51,7 @@ export function GameSimulator({ things, rules }: GameSimulatorProps) {
           latestDate: '2023/01/01',
           latestNumber: 0,
           used: [],
+          reset: 0,
         },
         rules,
         things,

@@ -1,21 +1,96 @@
+/** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
+import { useQuery } from '@tanstack/react-query';
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { getIsThingOutdated, getLatestRuleUpdate } from 'components/Items/Diagram/utils';
 import { useTDResource } from 'hooks/useTDResource';
-import { difference, intersection, sample, sampleSize, shuffle } from 'lodash';
-import { useMemo } from 'react';
-import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
+import { shuffle } from 'lodash';
 import { DAILY_GAMES_KEYS } from '../constants';
-import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
-import { checkWeekend, getNextDay } from '../utils';
-import { addWarning } from '../warnings';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
+import { getNextDay } from '../utils';
+import { debugDailyStore } from './debug-daily';
+
+export type UID = string;
+export type DateMilliseconds = number;
+
+export type DailyDiagramRuleData = {
+  /**
+   * Rule identifier
+   */
+  id: UID;
+  /**
+   * Rule title/description
+   */
+  title: string;
+  /**
+   * Difficulty level
+   */
+  level: number;
+  /**
+   * Rule type
+   */
+  type: string;
+  /**
+   * How the rule was created
+   */
+  method: 'auto' | 'manual' | 'dependency';
+  /**
+   * Last update timestamp
+   */
+  updatedAt: DateMilliseconds;
+};
+
+export type DailyDiagramItemData = {
+  /**
+   * Item identifier
+   */
+  itemId: UID;
+  /**
+   * Item name
+   */
+  name: string;
+  /**
+   * Syllable breakdown
+   */
+  syllables?: string;
+  /**
+   * Which syllable is stressed
+   */
+  stressedSyllable?: number;
+  /**
+   * Rule IDs this item matches
+   */
+  rules: string[];
+  /**
+   * Last update timestamp
+   */
+  updatedAt: DateMilliseconds;
+};
 
 export type DailyConjuntosEntry = {
+  /**
+   * Date-based identifier (YYYY-MM-DD)
+   */
   id: DateKey;
+  /**
+   * Daily puzzle number
+   */
   number: number;
   type: 'conjuntos';
+  /**
+   * Puzzle title
+   */
   title: string;
+  /**
+   * Difficulty level (max of both rules)
+   */
   level: number;
+  /**
+   * Set identifier
+   */
   setId: string;
+  /**
+   * First rule with example item
+   */
   rule1: {
     id: string;
     text: string;
@@ -25,6 +100,9 @@ export type DailyConjuntosEntry = {
       name: string;
     };
   };
+  /**
+   * Second rule with example item
+   */
   rule2: {
     id: string;
     text: string;
@@ -34,10 +112,16 @@ export type DailyConjuntosEntry = {
       name: string;
     };
   };
+  /**
+   * Item that matches both rules
+   */
   intersectingThing: {
     id: string;
     name: string;
   };
+  /**
+   * Items to categorize (2 per rule + 2 unrelated)
+   */
   things: {
     id: string;
     name: string;
@@ -45,287 +129,351 @@ export type DailyConjuntosEntry = {
   }[];
 };
 
+/**
+ * Hook for generating daily Conjuntos games
+ *
+ * @param enabled - Whether the generation is enabled
+ * @param _queryLanguage - Target language (currently unused)
+ * @param batchSize - Number of games to generate
+ * @param dailyHistory - Historical data for tracking used rules
+ * @returns Generated Conjuntos game entries with history updates
+ */
 export const useDailyConjuntosGames = (
   enabled: boolean,
   _queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-) => {
+): UseDailyGeneratorResponse<DailyConjuntosEntry> => {
+  // Fetch prerequisite data
   const [conjuntosHistory] = useParsedHistory(DAILY_GAMES_KEYS.CONJUNTOS, dailyHistory);
+  const tdrThingsQuery = useTDResource<DailyDiagramItemData>('daily-diagram-items', { enabled });
+  const tdrRulesQuery = useTDResource<DailyDiagramRuleData>('daily-diagram-rules', { enabled });
 
-  const thingsQuery = useTDResource<DailyDiagramItemData>('daily-diagram-items', { enabled });
-  const rulesQuery = useTDResource<DailyDiagramRuleData>('daily-diagram-rules', { enabled });
+  // Ensure all prerequisite data is available before generating
+  const isReadyToGenerate =
+    enabled && tdrThingsQuery.isSuccess && tdrRulesQuery.isSuccess && !!conjuntosHistory;
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
-  const entries = useMemo(() => {
-    if (!enabled || !conjuntosHistory || !thingsQuery.isSuccess || !rulesQuery.isSuccess) {
-      return {};
-    }
+  // Generator query
+  const generatorQuery = useQuery({
+    queryKey: [
+      'generate-daily',
+      'conjuntos',
+      batchSize,
+      tdrThingsQuery.dataUpdatedAt,
+      tdrRulesQuery.dataUpdatedAt,
+    ],
+    queryFn: () => {
+      // Type narrowing to satisfy non-null assertion rules
+      if (!conjuntosHistory || !tdrRulesQuery.data || !tdrThingsQuery.data) {
+        throw new Error('Critical: Prerequisite data is missing during query execution.');
+      }
 
-    return buildDailyConjuntosGames(batchSize, conjuntosHistory, rulesQuery.data, thingsQuery.data);
-  }, [enabled, batchSize, conjuntosHistory, rulesQuery.dataUpdatedAt, thingsQuery.dataUpdatedAt]);
+      return buildDailyConjuntosGames(batchSize, conjuntosHistory, tdrRulesQuery.data, tdrThingsQuery.data);
+    },
+    enabled: isReadyToGenerate,
+    staleTime: Number.POSITIVE_INFINITY,
+  });
 
+  // Map TanStack states to response type
   return {
-    entries,
-    isLoading: thingsQuery.isLoading || rulesQuery.isLoading,
+    entries: generatorQuery.data?.entries ?? {},
+    isLoading: !isReadyToGenerate || generatorQuery.isLoading,
+    isGenerating: generatorQuery.isFetching,
+    isError: generatorQuery.isError || !!generatorQuery.data?.errors?.length,
+    errors: generatorQuery.data?.errors ?? (generatorQuery.error ? [generatorQuery.error.message] : []),
+    isSuccess: generatorQuery.isSuccess && Object.keys(generatorQuery.data?.entries ?? {}).length > 0,
+    historyUpdate: generatorQuery.data?.historyUpdate ?? {
+      latestDate: conjuntosHistory?.latestDate ?? '',
+      latestNumber: conjuntosHistory?.latestNumber ?? 0,
+      used: [],
+      updateType: 'add',
+    },
   };
 };
 
-const SELECTION_SIZE = 8;
+/**
+ * Picks unique items from a pool without duplicating any names
+ *
+ * Safely rolls back the usedNames Set if it fails to find enough items.
+ *
+ * @param poolIds - Array of item IDs to choose from
+ * @param count - Number of items to pick
+ * @param usedNames - Set of already used item names
+ * @param validItemsMap - Map of item IDs to item data
+ * @returns Array of selected item IDs, or null if not enough unique items found
+ */
+function pickUniqueNames(
+  poolIds: string[],
+  count: number,
+  usedNames: Set<string>,
+  validItemsMap: Map<string, DailyDiagramItemData>,
+): string[] | null {
+  const picked: string[] = [];
+  const shuffledPool = shuffle(poolIds);
 
+  for (const id of shuffledPool) {
+    const item = validItemsMap.get(id);
+    const name = item?.name;
+
+    // Skip if no valid name or name already used
+    if (!name || usedNames.has(name)) continue;
+
+    picked.push(id);
+    usedNames.add(name);
+
+    if (picked.length === count) return picked;
+  }
+
+  // Rollback on failure to avoid polluting the Set for next retry
+  for (const id of picked) {
+    const name = validItemsMap.get(id)?.name;
+    if (name) usedNames.delete(name);
+  }
+
+  return null;
+}
+
+/**
+ * Builds a batch of daily Conjuntos games
+ *
+ * Generates games by finding two rules that have intersecting items and ensuring all
+ * 9 items have unique names. Uses a queue system to prioritize fresh rules with LRU fallback.
+ * Each game requires:
+ * - 1 item matching both rules (intersection)
+ * - 3 items matching only rule 1
+ * - 3 items matching only rule 2
+ * - 2 items matching neither rule
+ *
+ * @param batchSize - Number of games to generate
+ * @param history - Historical data for tracking used rules
+ * @param rules - Available diagram rules
+ * @param items - Available diagram items
+ * @returns Generated entries, errors, and history update
+ */
 export const buildDailyConjuntosGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   rules: Dictionary<DailyDiagramRuleData>,
-  things: Dictionary<DailyDiagramItemData>,
+  items: Dictionary<DailyDiagramItemData>,
 ) => {
-  console.count('Creating Conjuntos...');
-  let lastDate = history.latestDate;
-  const used: string[] = [...history.used];
+  if (debugDailyStore.state.conjuntos) {
+    console.count('Creating Conjuntos...');
+  }
 
-  const latestRuleUpdate = getLatestRuleUpdate(rules);
+  const errors: string[] = [];
+  const entries: Record<string, DailyConjuntosEntry> = {};
+  const used: string[] = [];
 
-  const thingsByRules = (() => {
-    const dict = Object.values(rules).reduce((acc: Record<string, string[]>, rule) => {
-      acc[rule.id] = [];
-      return acc;
-    }, {});
+  let latestDate = history.latestDate;
+  let latestNumber = history.latestNumber;
 
-    Object.values(things).forEach((entry) => {
-      // Only use things that are not outdated
-      if (!getIsThingOutdated(entry, latestRuleUpdate)) {
-        entry.rules.forEach((ruleId) => {
-          dict[ruleId].push(entry.itemId);
+  try {
+    // Calculate latest rule update timestamp
+    const latestRuleUpdate = getLatestRuleUpdate(rules);
+
+    // Filter out outdated items
+    const validItemsMap = new Map<string, DailyDiagramItemData>();
+    for (const item of Object.values(items)) {
+      if (!getIsThingOutdated(item, latestRuleUpdate)) {
+        validItemsMap.set(item.itemId, item);
+      }
+    }
+    const allValidItemIds = Array.from(validItemsMap.keys());
+
+    // Build inverted mapping: Rule ID -> Item IDs
+    const ruleItemIdsMap = new Map<string, Set<string>>();
+    for (const item of validItemsMap.values()) {
+      for (const ruleId of item.rules) {
+        let ruleSet = ruleItemIdsMap.get(ruleId);
+        if (!ruleSet) {
+          ruleSet = new Set<string>();
+          ruleItemIdsMap.set(ruleId, ruleSet);
+        }
+        ruleSet.add(item.itemId);
+      }
+    }
+
+    // Filter rules with at least 15 valid items
+    type ProcessedRule = DailyDiagramRuleData & { validItemIds: string[] };
+    const validRules: ProcessedRule[] = [];
+
+    for (const rule of Object.values(rules)) {
+      const validIdsSet = ruleItemIdsMap.get(rule.id);
+      if (validIdsSet && validIdsSet.size >= 15) {
+        validRules.push({
+          ...rule,
+          validItemIds: Array.from(validIdsSet),
         });
       }
-    });
-    return dict;
-  })();
+    }
 
-  const entries: Dictionary<DailyConjuntosEntry> = {};
-  for (let i = 0; i < batchSize; i++) {
-    const id = getNextDay(lastDate);
-    const isWeekend = checkWeekend(id);
-    // Weekend have 2 more things (one to start and one for an extra mistake)
-    const size = isWeekend ? SELECTION_SIZE + 2 : SELECTION_SIZE;
+    if (validRules.length === 0) {
+      throw new Error('Critical: No valid Conjuntos rules (>= 15 items) found.');
+    }
 
-    lastDate = id;
-    entries[id] = {
-      id,
-      type: 'conjuntos',
-      number: history.latestNumber + i + 1,
-      ...getRuleSet(things, thingsByRules, rules, used, latestRuleUpdate, size),
-    };
+    // Setup rule queue with fresh rules first, then LRU fallback
+    const freshRules = validRules.filter((r) => !history.used.includes(r.id));
+    const usedRulesLRU = validRules
+      .filter((r) => history.used.includes(r.id))
+      .sort((a, b) => history.used.indexOf(a.id) - history.used.indexOf(b.id));
+
+    let availableRules = [...shuffle(freshRules), ...usedRulesLRU];
+
+    if (freshRules.length < batchSize * 2) {
+      if (debugDailyStore.state.conjuntos) {
+        console.log('🔆 Not enough fresh conjuntos rules left, recycling...');
+      }
+      errors.push('Not enough fresh Conjuntos rules. Recycling historical data.');
+    }
+
+    // Generate the batch
+    for (let i = 0; i < batchSize; i++) {
+      let attempts = 0;
+      let found = false;
+      let selectedRule1: ProcessedRule | null = null;
+      let selectedRule2: ProcessedRule | null = null;
+      let finalIntersect = '';
+      let finalR1: string[] = [];
+      let finalR2: string[] = [];
+      let finalOut: string[] = [];
+
+      const attemptedPairs = new Set<string>();
+
+      // Search for valid rule pair satisfying all constraints
+      while (attempts < 100 && !found) {
+        attempts++;
+
+        // Select from front of queue to prioritize fresh rules
+        const poolSize = Math.min(availableRules.length, 30);
+        const r1 = availableRules[Math.floor(Math.random() * poolSize)];
+        const r2 = availableRules[Math.floor(Math.random() * poolSize)];
+
+        if (!r1 || !r2 || r1.id === r2.id) continue;
+
+        // Skip already tested pairs
+        const pairKey = [r1.id, r2.id].sort().join('-');
+        if (attemptedPairs.has(pairKey)) continue;
+        attemptedPairs.add(pairKey);
+
+        const r1Set = new Set(r1.validItemIds);
+        const r2Set = new Set(r2.validItemIds);
+
+        // Calculate item pools
+        const intersectionIds = r1.validItemIds.filter((id) => r2Set.has(id));
+        if (intersectionIds.length < 1) continue;
+
+        const r1ExclusiveIds = r1.validItemIds.filter((id) => !r2Set.has(id));
+        if (r1ExclusiveIds.length < 3) continue;
+
+        const r2ExclusiveIds = r2.validItemIds.filter((id) => !r1Set.has(id));
+        if (r2ExclusiveIds.length < 3) continue;
+
+        const outsideIds = allValidItemIds.filter((id) => !r1Set.has(id) && !r2Set.has(id));
+        if (outsideIds.length < 2) continue;
+
+        // Enforce unique name constraint across all 9 items
+        const usedNames = new Set<string>();
+
+        const intersectIds = pickUniqueNames(intersectionIds, 1, usedNames, validItemsMap);
+        if (!intersectIds) continue;
+
+        const r1Items = pickUniqueNames(r1ExclusiveIds, 3, usedNames, validItemsMap);
+        if (!r1Items) continue;
+
+        const r2Items = pickUniqueNames(r2ExclusiveIds, 3, usedNames, validItemsMap);
+        if (!r2Items) continue;
+
+        const outItems = pickUniqueNames(outsideIds, 2, usedNames, validItemsMap);
+        if (!outItems) continue;
+
+        // Valid game structure found
+        found = true;
+        selectedRule1 = r1;
+        selectedRule2 = r2;
+        finalIntersect = intersectIds[0];
+        finalR1 = r1Items;
+        finalR2 = r2Items;
+        finalOut = outItems;
+      }
+
+      if (!found || !selectedRule1 || !selectedRule2) {
+        errors.push(`Could not find a valid combination for entry ${i + 1} after 100 attempts.`);
+        continue;
+      }
+
+      const rule1Id = selectedRule1.id;
+      const rule2Id = selectedRule2.id;
+
+      // Remove used rules from queue
+      availableRules = availableRules.filter((r) => r.id !== rule1Id && r.id !== rule2Id);
+
+      const id = getNextDay(latestDate);
+      latestDate = id;
+      latestNumber = history.latestNumber + i + 1;
+
+      // Track usage for history update
+      used.push(rule1Id, rule2Id);
+
+      // Use first item from each exclusive array as example
+      const rule1ExampleId = finalR1[0];
+      const rule2ExampleId = finalR2[0];
+      const finalR1Board = finalR1.slice(1);
+      const finalR2Board = finalR2.slice(1);
+
+      // Build remaining items array
+      const combinedThings = shuffle([
+        ...finalR1Board.map((tid) => ({ id: tid, name: validItemsMap.get(tid)?.name ?? 'Unknown', rule: 1 })),
+        ...finalR2Board.map((tid) => ({ id: tid, name: validItemsMap.get(tid)?.name ?? 'Unknown', rule: 2 })),
+        ...finalOut.map((tid) => ({ id: tid, name: validItemsMap.get(tid)?.name ?? 'Unknown', rule: 3 })),
+      ]);
+
+      entries[id] = {
+        id,
+        number: latestNumber,
+        type: 'conjuntos',
+        title: 'Conjuntos',
+        level: Math.max(selectedRule1.level, selectedRule2.level),
+        setId: 'conjuntos',
+        rule1: {
+          id: rule1Id,
+          text: selectedRule1.title,
+          level: selectedRule1.level,
+          thing: {
+            id: rule1ExampleId,
+            name: validItemsMap.get(rule1ExampleId)?.name ?? 'Unknown',
+          },
+        },
+        rule2: {
+          id: rule2Id,
+          text: selectedRule2.title,
+          level: selectedRule2.level,
+          thing: {
+            id: rule2ExampleId,
+            name: validItemsMap.get(rule2ExampleId)?.name ?? 'Unknown',
+          },
+        },
+        intersectingThing: {
+          id: finalIntersect,
+          name: validItemsMap.get(finalIntersect)?.name ?? 'Unknown',
+        },
+        things: combinedThings,
+      };
+    }
+  } catch (error: unknown) {
+    if (debugDailyStore.state.conjuntos) {
+      console.error(error);
+    }
+    errors.push((error as Error).message || 'An unknown error occurred during Conjuntos generation.');
   }
-  return entries;
+
+  return {
+    entries,
+    errors,
+    historyUpdate: {
+      latestDate,
+      latestNumber,
+      used,
+      updateType: 'add' as const,
+    },
+  };
 };
-
-function getRuleSet(
-  things: Dictionary<DailyDiagramItemData>,
-  thingsByRules: Record<string, string[]>,
-  rules: Dictionary<DailyDiagramRuleData>,
-  used: string[],
-  latestRuleUpdate: number,
-  size: number,
-) {
-  try {
-    const availableThingsIds = shuffle(
-      Object.keys(things).filter(
-        (id) => !used.includes(id) && !getIsThingOutdated(things[id], latestRuleUpdate),
-      ),
-    );
-
-    // Get one random initial thing
-    const initialThingId = sample(availableThingsIds);
-    if (!initialThingId) throw new Error('No available things to choose from');
-    used.push(initialThingId);
-
-    const intersectingThing = {
-      id: initialThingId,
-      name: things[initialThingId].name,
-    };
-
-    // Group rules by type than get a random pair of rules of different types
-    const thingsRulesByType = things[initialThingId].rules.reduce((acc: Record<string, string[]>, ruleId) => {
-      const type = rules[ruleId].type;
-      if (!acc[type]) acc[type] = [];
-      acc[type].push(ruleId);
-      return acc;
-    }, {});
-    // Delete any rule with less than 2 rules
-    Object.keys(thingsRulesByType).forEach((type) => {
-      if (thingsRulesByType[type].length < 2) delete thingsRulesByType[type];
-    });
-
-    const twoRandomTypes = sampleSize(Object.keys(thingsRulesByType), 2);
-
-    if (twoRandomTypes.length !== 2) throw new Error('No types found for this thing');
-    const selectedRules = [
-      sample(thingsRulesByType[twoRandomTypes[0]]),
-      sample(thingsRulesByType[twoRandomTypes[1]]),
-    ];
-    if (!selectedRules[0] || !selectedRules[1]) throw new Error('No rules found for this thing');
-
-    const ruleId = [selectedRules[0], selectedRules[1]].sort().join('-');
-    used.push(ruleId);
-
-    const level = rules[selectedRules[0]].level + rules[selectedRules[1]].level - 1;
-
-    // We don't need to modify thingsByRules since we're already filtering excluded items later
-
-    const itemsOnlyInRule1 = shuffle(
-      difference(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]),
-    );
-
-    const itemsOnlyInRule2 = shuffle(
-      difference(thingsByRules[selectedRules[1]], thingsByRules[selectedRules[0]]),
-    );
-
-    const commonItems = shuffle(
-      intersection(thingsByRules[selectedRules[0]], thingsByRules[selectedRules[1]]),
-    );
-
-    // Get one unique initial thing that only fits rule 1
-    const selectedInitialThingId1 = itemsOnlyInRule1.pop();
-    if (!selectedInitialThingId1) throw new Error('No only in rule 1 things to choose from');
-    const rule1 = {
-      id: selectedRules[0],
-      text: rules[selectedRules[0]].title,
-      level: rules[selectedRules[0]].level,
-      thing: {
-        id: selectedInitialThingId1,
-        name: things[selectedInitialThingId1].name,
-      },
-    };
-
-    // Get one unique initial thing that only fits rule 2
-    const selectedInitialThingId2 = itemsOnlyInRule2.pop();
-    if (!selectedInitialThingId2) throw new Error('No only in rule 2 things to choose from');
-    const rule2 = {
-      id: selectedRules[1],
-      text: rules[selectedRules[1]].title,
-      level: rules[selectedRules[1]].level,
-      thing: {
-        id: selectedInitialThingId2,
-        name: things[selectedInitialThingId2].name,
-      },
-    };
-
-    // Create a set of excluded items that shouldn't be in the things array
-    const excludedItems = new Set([initialThingId, selectedInitialThingId1, selectedInitialThingId2]);
-
-    // Filter out the excluded items from each array
-    const filteredCommonItems = commonItems.filter((id) => !excludedItems.has(id));
-    const filteredItemsOnlyInRule1 = itemsOnlyInRule1.filter((id) => !excludedItems.has(id));
-    const filteredItemsOnlyInRule2 = itemsOnlyInRule2.filter((id) => !excludedItems.has(id));
-
-    // Get up to 4 unique things that fit both rules, if possible
-    const sampleCommonThings = sampleSize(filteredCommonItems, size / 2);
-    const sampleRule1Things = sampleSize(filteredItemsOnlyInRule1, size);
-    const sampleRule2Things = sampleSize(filteredItemsOnlyInRule2, size);
-    const answerSheet: Record<string, number> = {};
-    sampleCommonThings.forEach((id) => {
-      answerSheet[id] = 0;
-    });
-    sampleRule1Things.forEach((id) => {
-      answerSheet[id] = 1;
-    });
-    sampleRule2Things.forEach((id) => {
-      answerSheet[id] = 2;
-    });
-
-    // Sample 8 things among the options, shuffleAndCombine prevents from having the first 4 items from the same rule
-    const selectionIds = shuffleAndCombine(sampleCommonThings, sampleRule1Things, sampleRule2Things, size);
-
-    const selectedThings = selectionIds.map((id) => ({
-      id,
-      name: things[id].name,
-      rule: answerSheet[id],
-    }));
-
-    // Build title
-    const TITLES: Record<string, string> = {
-      contains: 'Inclusão',
-      starts: 'Inicialização',
-      ends: 'Terminação',
-      grammar: 'Gramática',
-      order: 'Sequência',
-      count: 'Contagem',
-      comparison: 'Comparação',
-      repetition: 'Repetição',
-    };
-
-    const title = [
-      TITLES?.[rules[rule1.id].type] ?? 'Desconhecido',
-      TITLES?.[rules[rule2.id].type] ?? 'Desconhecido',
-    ].join(' vs ');
-    const setId = [rule1.id, rule2.id].sort().join('::');
-
-    // Create the DailyTeoriaDeConjuntosEntry object
-    const entry: Omit<DailyConjuntosEntry, 'id' | 'type' | 'number'> = {
-      title,
-      setId,
-      level,
-      rule1,
-      rule2,
-      intersectingThing,
-      things: selectedThings,
-    };
-    return entry;
-  } catch (error) {
-    addWarning('teoria-de-conjuntos', `Error generating Conjuntos rule set: ${(error as Error).message}`);
-
-    return {
-      title: 'Erro na geração',
-      setId: 'error',
-      level: 1,
-      rule1: {
-        id: 'error-1',
-        text: 'Erro na geração',
-        level: 1,
-        thing: {
-          id: 'error-thing-1',
-          name: 'Erro na geração',
-        },
-      },
-      rule2: {
-        id: 'error-2',
-        text: 'Erro na geração',
-        level: 1,
-        thing: {
-          id: 'error-thing-2',
-          name: 'Erro na geração',
-        },
-      },
-      intersectingThing: {
-        id: 'error-intersecting-thing',
-        name: 'Erro na geração',
-      },
-      things: [],
-    };
-  }
-}
-
-function shuffleAndCombine(arr1: string[], arr2: string[], arr3: string[], size: number) {
-  // Get the first 3 items from each array
-  const firstThreeArr1 = arr1.slice(0, 3);
-  const firstThreeArr2 = arr2.slice(0, 3);
-  const firstThreeArr3 = arr3.slice(0, 3);
-
-  // Combine and shuffle the first three items from each
-  let combined = sampleSize([...firstThreeArr1, ...firstThreeArr2, ...firstThreeArr3], size);
-
-  // If the combined length is less than 9, gather remaining items
-  if (combined.length < size) {
-    const remainingArr1 = arr1.slice(3);
-    const remainingArr2 = arr2.slice(3);
-    const remainingArr3 = arr3.slice(3);
-
-    const remaining = shuffle([...remainingArr1, ...remainingArr2, ...remainingArr3]);
-
-    // Append remaining items to the combined list
-    combined = [...combined, ...remaining];
-  }
-
-  return combined.slice(0, size);
-}

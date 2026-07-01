@@ -1,55 +1,142 @@
+/** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
+import { useQuery } from '@tanstack/react-query';
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
 import { difference, flatMap, shuffle, sortBy, uniq } from 'lodash';
 import { useMemo } from 'react';
 import { DAILY_GAMES_KEYS } from '../constants';
-import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
+import { debugDailyStore } from './debug-daily';
 
 export type DailyPalavreadoEntry = {
+  /**
+   * Date-based identifier (YYYY-MM-DD)
+   */
   id: DateKey;
+  /**
+   * Daily puzzle number
+   */
   number: number;
   type: 'palavreado';
+  /**
+   * Keyword to spell along the diagonal
+   */
   keyword: string;
+  /**
+   * Words forming the grid rows
+   */
   words: string[];
+  /**
+   * Shuffled letters for the grid
+   */
   letters: string[];
+  /**
+   * Additional valid words findable by swapping
+   */
   scoringWords?: string[];
 };
 
+/**
+ * Hook for generating daily Palavreado games
+ *
+ * Creates word grid puzzles where players swap letters to form words that spell a keyword
+ * along the diagonal. Weekday games use 4x4 grids, weekend games use 5x5 grids.
+ *
+ * @param enabled - Whether the generation is enabled
+ * @param queryLanguage - Target language for word dictionaries
+ * @param batchSize - Number of games to generate
+ * @param dailyHistory - Historical data for tracking used keywords
+ * @returns Generated Palavreado game entries with history updates
+ */
+/**
+ * Hook for generating daily Palavreado games
+ *
+ * Creates word grid puzzles where players swap letters to form words that spell a keyword
+ * along the diagonal. Weekday games use 4x4 grids, weekend games use 5x5 grids.
+ *
+ * @param enabled - Whether the generation is enabled
+ * @param queryLanguage - Target language for word dictionaries
+ * @param batchSize - Number of games to generate
+ * @param dailyHistory - Historical data for tracking used keywords
+ * @returns Generated Palavreado game entries with history updates
+ */
 export const useDailyPalavreadoGames = (
   enabled: boolean,
   queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-) => {
+): UseDailyGeneratorResponse<DailyPalavreadoEntry> => {
+  // Fetch prerequisite data
   const [palavreadoHistory] = useParsedHistory(DAILY_GAMES_KEYS.PALAVREADO, dailyHistory);
-
   const wordsFourQuery = useLoadWordLibrary(4, queryLanguage, enabled, true);
   const wordsFiveQuery = useLoadWordLibrary(5, queryLanguage, enabled, true);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
-  const entries = useMemo(() => {
-    if (!enabled || !wordsFourQuery.data?.length || !wordsFiveQuery.data?.length || !palavreadoHistory) {
-      return {};
-    }
+  // Ensure all prerequisite data is available before generating
+  const isReadyToGenerate =
+    enabled &&
+    wordsFourQuery.isSuccess &&
+    wordsFiveQuery.isSuccess &&
+    !!palavreadoHistory &&
+    !!wordsFourQuery.data?.length &&
+    !!wordsFiveQuery.data?.length;
 
-    return buildDailyPalavreadoGames(batchSize, palavreadoHistory, wordsFourQuery.data, wordsFiveQuery.data);
-  }, [enabled, wordsFourQuery.dataUpdatedAt, wordsFiveQuery.dataUpdatedAt, palavreadoHistory, batchSize]);
+  // Generator query
+  const generatorQuery = useQuery({
+    queryKey: [
+      'generate-daily',
+      'palavreado',
+      batchSize,
+      wordsFourQuery.dataUpdatedAt,
+      wordsFiveQuery.dataUpdatedAt,
+    ],
+    queryFn: () => {
+      // Type narrowing to satisfy non-null assertion rules
+      if (!palavreadoHistory || !wordsFourQuery.data || !wordsFiveQuery.data) {
+        throw new Error('Critical: Prerequisite data is missing during query execution.');
+      }
 
+      return buildDailyPalavreadoGames(
+        batchSize,
+        palavreadoHistory,
+        wordsFourQuery.data,
+        wordsFiveQuery.data,
+      );
+    },
+    enabled: isReadyToGenerate,
+    staleTime: Number.POSITIVE_INFINITY,
+  });
+
+  // Map TanStack states to response type
   return {
-    entries,
-    isLoading: wordsFourQuery.isLoading || wordsFiveQuery.isLoading,
+    entries: generatorQuery.data?.entries ?? {},
+    isLoading: !isReadyToGenerate || wordsFourQuery.isLoading || wordsFiveQuery.isLoading,
+    isGenerating: generatorQuery.isFetching,
+    isError: generatorQuery.isError || !!generatorQuery.data?.errors?.length,
+    errors: generatorQuery.data?.errors ?? (generatorQuery.error ? [generatorQuery.error.message] : []),
+    isSuccess: generatorQuery.isSuccess && Object.keys(generatorQuery.data?.entries ?? {}).length > 0,
+    historyUpdate: generatorQuery.data?.historyUpdate ?? {
+      latestDate: palavreadoHistory?.latestDate ?? '',
+      latestNumber: palavreadoHistory?.latestNumber ?? 0,
+      used: [],
+      updateType: 'add',
+    },
   };
 };
 
 /**
- * Builds a dictionary of DailyPalavreadoEntry games.
+ * Builds a batch of daily Palavreado games
  *
- * @param batchSize - The number of games to generate.
- * @param history - The parsed daily history entry.
- * @param fourLetterWords - An array of four-letter words.
- * @returns A dictionary of DailyPalavreadoEntry games.
+ * Creates word grid puzzles where a keyword is spelled along the diagonal.
+ * Uses backtracking to find valid word combinations. Supports special fixed keywords
+ * for specific dates (e.g., 'novo' for New Year's Day).
+ *
+ * @param batchSize - Number of games to generate
+ * @param history - Historical data for tracking used keywords
+ * @param fourLetterWords - 4-letter word dictionary (weekdays)
+ * @param fiveLetterWords - 5-letter word dictionary (weekends)
+ * @returns Generated entries, errors, and history update
  */
 export const buildDailyPalavreadoGames = (
   batchSize: number,
@@ -57,51 +144,81 @@ export const buildDailyPalavreadoGames = (
   fourLetterWords: string[],
   fiveLetterWords: string[],
 ) => {
-  console.count('Creating Palavreado...');
-  let lastDate = history.latestDate;
+  if (debugDailyStore.state.palavreado) {
+    console.count('Creating Palavreado...');
+  }
+
+  const errors: string[] = [];
+  const entries: Record<string, DailyPalavreadoEntry> = {};
   const usedWords: string[] = [];
 
-  const entries: Dictionary<DailyPalavreadoEntry> = {};
-  for (let i = 0; i < batchSize; i++) {
-    const id = getNextDay(lastDate);
-    const isWeekend = checkWeekend(id);
-    const size = isWeekend ? 5 : 4;
-    lastDate = id;
+  let latestDate = history.latestDate;
+  let latestNumber = history.latestNumber;
 
-    // SPECIAL DATA HANDLER: Modify the date below
-    let fixedKeyword: string | undefined;
-    if (id === '2026-01-01') {
-      fixedKeyword = 'novo';
+  try {
+    if (fourLetterWords.length === 0 || fiveLetterWords.length === 0) {
+      throw new Error('Critical: Required word dictionaries are empty.');
     }
 
-    entries[id] = {
-      id,
-      type: 'palavreado',
-      number: history.latestNumber + i + 1,
-      ...generatePalavreadoGame(
+    for (let i = 0; i < batchSize; i++) {
+      const id = getNextDay(latestDate);
+      const isWeekend = checkWeekend(id);
+      const size = isWeekend ? 5 : 4;
+      latestDate = id;
+      latestNumber = history.latestNumber + i + 1;
+
+      // Special keyword handler for specific dates
+      let fixedKeyword: string | undefined;
+      if (id === '2026-01-01') {
+        fixedKeyword = 'novo';
+      }
+
+      const gameData = generatePalavreadoGame(
         isWeekend ? fiveLetterWords : fourLetterWords,
         [...Object.values(entries).map((e) => e.keyword), ...history.used],
         usedWords,
         size,
         fixedKeyword,
-      ),
-    };
+      );
+
+      entries[id] = {
+        id,
+        type: 'palavreado',
+        number: latestNumber,
+        ...gameData,
+      };
+    }
+  } catch (error: unknown) {
+    if (debugDailyStore.state.palavreado) {
+      console.error(error);
+    }
+    errors.push((error as Error).message || 'An unknown error occurred during Palavreado generation.');
   }
-  return entries;
+
+  return {
+    entries,
+    errors,
+    historyUpdate: {
+      latestDate,
+      latestNumber,
+      used: Object.values(entries).map((e) => e.keyword),
+      updateType: 'add' as const,
+    },
+  };
 };
 
-// ===========================
-// PALAVREADO GENERATOR
-// ===========================
-
 /**
- * Generates a Palavreado game.
+ * Generates a single Palavreado puzzle
  *
- * @param words - An array of words to choose from.
- * @param previouslyUsedWords - An array of words that have been used previously.
- * @param newUsedWords - An array of words that have been used in this game.
- * @param size - The number of words to generate.
- * @returns An object containing the keyword, selected words, and shuffled letters.
+ * Uses backtracking to find a valid grid where each row is a word and the diagonal
+ * spells the keyword. Includes history recycling when keywords are exhausted.
+ *
+ * @param words - Available word dictionary
+ * @param previouslyUsedWords - Historical keywords to avoid
+ * @param newUsedWords - Keywords used in current batch
+ * @param size - Grid dimension (4 or 5)
+ * @param fixedKeyword - Optional specific keyword to use
+ * @returns Puzzle with keyword, words, shuffled letters, and scoring words
  */
 export const generatePalavreadoGame = (
   words: string[],
@@ -110,12 +227,13 @@ export const generatePalavreadoGame = (
   size = 4,
   fixedKeyword?: string,
 ) => {
-  // 1. History Recycling Logic
+  // History recycling logic
   let availableKeywords = difference(words, newUsedWords, previouslyUsedWords);
 
   if (availableKeywords.length === 0) {
-    console.warn('Keyword pool exhausted. Recycling historical words.');
-    // Fall back to just avoiding words used in the current batch
+    if (debugDailyStore.state.palavreado) {
+      console.warn('Keyword pool exhausted. Recycling historical words.');
+    }
     availableKeywords = difference(words, newUsedWords);
   }
 
@@ -125,7 +243,7 @@ export const generatePalavreadoGame = (
     shuffledKeywords = [fixedKeyword, ...difference(shuffledKeywords, [fixedKeyword])];
   }
 
-  // 2. Backtracking Loop
+  // Backtracking loop to find valid grid
   for (const keyword of shuffledKeywords) {
     const selectedWords: string[] = [];
     let isValidGrid = true;
@@ -134,14 +252,14 @@ export const generatePalavreadoGame = (
       const newWord = getNewWord(words, keyword, selectedWords, i);
 
       if (!newWord) {
-        isValidGrid = false; // Dead end reached
-        break; // Break the inner loop, try the next keyword
+        isValidGrid = false;
+        break;
       }
 
       selectedWords.push(newWord);
     }
 
-    // If we successfully found a word for every row, lock it in!
+    // Successfully found words for all rows
     if (isValidGrid) {
       newUsedWords.push(keyword, ...selectedWords);
 
@@ -154,18 +272,20 @@ export const generatePalavreadoGame = (
     }
   }
 
-  // 3. Absolute Fallback
+  // Fallback if no valid grid found
   throw new Error('Failed to generate a valid game grid with the available dictionary.');
 };
 
 /**
- * Retrieves a new word from the given list of words based on the provided keyword, selected words, and index.
+ * Finds a word for a specific row that matches the keyword character at that position
  *
- * @param words - The list of words to choose from.
- * @param keyword - The keyword to match against.
- * @param selectedWords - The list of already selected words.
- * @param index - The index to compare against in each word.
- * @returns The new word selected based on the keyword, selected words, and index.
+ * Prioritizes words that reuse existing letters in the grid to minimize unique letters.
+ *
+ * @param words - Available word dictionary
+ * @param keyword - Target keyword for diagonal
+ * @param selectedWords - Already selected words for previous rows
+ * @param index - Current row index
+ * @returns Matching word or undefined if none found
  */
 const getNewWord = (
   words: string[],
@@ -173,24 +293,21 @@ const getNewWord = (
   selectedWords: string[],
   index: number,
 ): string | undefined => {
-  // Explicitly mark return type
   const targetChar = keyword[index];
 
-  // Find all words that match the required letter at the required index
+  // Find words matching the required letter at the required index
   const possibleWords = words.filter((word) => word[index] === targetChar && !selectedWords.includes(word));
 
   if (possibleWords.length === 0) {
-    return undefined; // Let the parent function know this path failed
+    return undefined;
   }
 
   const usedLetters = uniq([...flatMap(selectedWords.map((word) => word.split(''))), ...keyword.split('')]);
 
   const shortList = shuffle(possibleWords);
 
-  // Only sort if you really want to bias towards reusing letters.
-  // Otherwise, just returning shortList[0] is significantly faster.
+  // Rank words by letter reuse to minimize unique letters
   const rankedList = sortBy(shortList, (word) => {
-    // Optimization: avoid split('') by iterating over the string directly
     let matchCount = 0;
     for (const char of word) {
       if (usedLetters.includes(char)) matchCount++;
@@ -198,13 +315,19 @@ const getNewWord = (
     return matchCount;
   });
 
-  // Since we checked possibleWords.length > 0 earlier, this is safe
   return rankedList[0];
 };
 
+/**
+ * Shuffles grid letters while preserving diagonal positions
+ *
+ * @param selectedWords - Words forming the grid rows
+ * @param size - Grid dimension
+ * @returns Flattened array of shuffled letters with fixed diagonal
+ */
 const shuffleLetters = (selectedWords: string[], size: number) => {
   const letters = flatMap(selectedWords.map((word) => word.split('')));
-  // Create preserved indexes dynamically: [0, 5, 10, 15] or [0, 6, 12, 18, 24]
+  // Diagonal indexes: [0, 5, 10, 15] or [0, 6, 12, 18, 24]
   const preservedIndexes = Array.from({ length: size }, (_, i) => i * size + i);
 
   const otherLetters = shuffle(letters.filter((_, index) => !preservedIndexes.includes(index)));
@@ -214,46 +337,58 @@ const shuffleLetters = (selectedWords: string[], size: number) => {
   );
 };
 
+/**
+ * Finds additional valid words that can be formed by swapping letters
+ *
+ * Searches for words of the correct size that can be formed in any row by moving
+ * letters from the movable pool while respecting the fixed diagonal letter.
+ *
+ * @param selectedWords - Main answer words
+ * @param words - Full word dictionary
+ * @param keyword - Diagonal keyword
+ * @param size - Grid dimension
+ * @returns Array of bonus words findable by swapping
+ */
 const getScoringWords = (selectedWords: string[], words: string[], keyword: string, size: number) => {
-  // 1. Get the flat array of all letters in the grid
+  // Get flat array of all grid letters
   const allLetters = flatMap(selectedWords.map((word) => word.split('')));
 
-  // Create the diagonal indexes dynamically based on size (e.g., for size 4: [0, 5, 10, 15])
+  // Diagonal indexes
   const preservedIndexes = Array.from({ length: size }, (_, i) => i * size + i);
 
-  // 2. Isolate the letters the player is allowed to move
+  // Isolate movable letters
   const movablePool = allLetters.filter((_, index) => !preservedIndexes.includes(index));
 
   const scoringWordsSet = new Set<string>();
 
-  // 3. Find all possible bonus words
+  // Find all possible bonus words
   for (const word of words) {
-    // Skip if wrong size or if it's already one of the main answer words
+    // Skip if wrong size or already a main answer
     if (word.length !== size || selectedWords.includes(word)) continue;
 
-    // Check if the word can be formed in ANY of the rows
+    // Check if word can be formed in any row
     for (let row = 0; row < size; row++) {
-      // The word MUST share the fixed letter for this specific row
+      // Word must share the fixed letter for this row
       if (word[row] === keyword[row]) {
         let canForm = true;
         const availableLetters = [...movablePool];
 
-        // Verify if we have the remaining letters in our movable pool
+        // Verify remaining letters are available
         for (let col = 0; col < size; col++) {
-          if (row === col) continue; // Skip the fixed letter
+          if (row === col) continue;
 
           const neededChar = word[col];
           const poolIndex = availableLetters.indexOf(neededChar);
 
           if (poolIndex !== -1) {
-            availableLetters.splice(poolIndex, 1); // Consume the letter
+            availableLetters.splice(poolIndex, 1);
           } else {
-            canForm = false; // Missing a required letter
+            canForm = false;
             break;
           }
         }
 
-        // If we successfully built the word, add it and stop checking other rows for this same word
+        // Successfully built the word
         if (canForm) {
           scoringWordsSet.add(word);
           break;
@@ -264,10 +399,6 @@ const getScoringWords = (selectedWords: string[], words: string[], keyword: stri
 
   return Array.from(scoringWordsSet);
 };
-
-// ===========================
-// STATS SUMMARIZER
-// ===========================
 
 const _usePalavreadoStats = () => {
   const palavreado100Query = useTDResource<Dictionary<DailyPalavreadoEntry>>('daily-archive-palavreado-100');
@@ -363,10 +494,6 @@ const _usePalavreadoStats = () => {
   }, [data]);
 };
 
-// ===========================
-// PALAVREADO SOLVER
-// ===========================
-
 export type GridCoordinate = {
   index: number;
   row: number;
@@ -379,29 +506,32 @@ export type SwapAction = {
 };
 
 /**
- * Calculates the optimal minimum sequence of swaps to solve a Palavreado game.
- * * @param targetWords The final correct words (e.g., ['TENT', 'READ', 'SASH', 'TART'])
- * @param currentLetters The current 1D array of letters in the grid
- * @param size The grid size (4 or 5)
- * @returns An array of SwapActions representing the exact moves to win
+ * Calculates the optimal minimum sequence of swaps to solve a Palavreado puzzle
+ *
+ * Uses a greedy algorithm that prioritizes perfect swaps (2-cycles) where both positions
+ * need each other's letters. Preserves diagonal letters throughout.
+ *
+ * @param targetWords - Final correct words (e.g., ['TENT', 'READ', 'SASH', 'TART'])
+ * @param currentLetters - Current 1D array of letters in the grid
+ * @param size - Grid dimension (4 or 5)
+ * @returns Array of swap actions to solve the puzzle
  */
 export const calculateOptimalSwaps = (
   targetWords: string[],
   currentLetters: string[],
   size: number,
 ): SwapAction[] => {
-  // 1. Flatten the target words into a 1D target array
+  // Flatten target words into 1D array
   const target = targetWords.join('').split('');
 
-  // Clone the current letters so we can mutate them during simulation
   const current = [...currentLetters];
 
-  // Calculate the fixed diagonal indices (e.g., [0, 5, 10, 15] for size 4)
+  // Fixed diagonal indices (e.g., [0, 5, 10, 15] for size 4)
   const fixedIndexes = Array.from({ length: size }, (_, i) => i * size + i);
 
   const swaps: SwapAction[] = [];
 
-  // Helper to format the 1D index into 2D UI coordinates
+  // Format 1D index into 2D coordinates
   const getCoords = (index: number): GridCoordinate => ({
     index,
     row: Math.floor(index / size),
@@ -409,18 +539,16 @@ export const calculateOptimalSwaps = (
   });
 
   while (true) {
-    // 2. Find the first letter that is NOT in its correct position (and is not fixed)
+    // Find first incorrect non-fixed letter
     const i = current.findIndex((char, idx) => char !== target[idx] && !fixedIndexes.includes(idx));
 
-    // If no incorrect letters are found, the puzzle is solved!
+    // Puzzle is solved
     if (i === -1) break;
 
     const charNeededHere = target[i];
     const charCurrentlyHere = current[i];
 
-    // 3. PRIORITY 1: Look for a "Perfect Swap" (2-cycle)
-    // We want a position 'j' that currently has the character we need,
-    // AND it specifically needs the character we are trying to get rid of.
+    // Priority 1: Look for a perfect swap (2-cycle)
     let bestJ = current.findIndex(
       (char, idx) =>
         idx !== i &&
@@ -429,9 +557,7 @@ export const calculateOptimalSwaps = (
         target[idx] === charCurrentlyHere,
     );
 
-    // 4. PRIORITY 2: Any valid swap
-    // If no perfect swap exists, just find ANY movable position that has the
-    // character we need and isn't already in its correct final spot.
+    // Priority 2: Any valid swap
     if (bestJ === -1) {
       bestJ = current.findIndex(
         (char, idx) =>
@@ -439,17 +565,19 @@ export const calculateOptimalSwaps = (
       );
     }
 
-    // Safety check (should only happen if the input data is malformed)
+    // Safety check for malformed input
     if (bestJ === -1) {
-      console.warn(`Palavreado Solver: Could not find required letter '${charNeededHere}'`);
+      if (debugDailyStore.state.palavreado) {
+        console.warn(`Palavreado Solver: Could not find required letter '${charNeededHere}'`);
+      }
       break;
     }
 
-    // 5. Execute the swap in our simulated array
+    // Execute the swap
     current[i] = current[bestJ];
     current[bestJ] = charCurrentlyHere;
 
-    // 6. Record the swap with helpful UI coordinates
+    // Record the swap
     swaps.push({
       from: getCoords(i),
       to: getCoords(bestJ),

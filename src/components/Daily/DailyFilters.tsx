@@ -35,7 +35,10 @@ export function DailyFilters() {
         />
       </SiderContent>
       <SiderContent>
-        <FirestoreConsoleLink label="History" path="/diario/history" />
+        <FirestoreConsoleLink
+          label="History"
+          path="/diario/history"
+        />
       </SiderContent>
       <DebugDailyFilters />
     </>
@@ -48,68 +51,123 @@ function DebugDailyFilters() {
     <SiderContent>
       <Typography.Title level={5}>Debuggers</Typography.Title>
       <div>
-        <Checkbox checked={debugState['aqui-o']} disabled onChange={() => toggleDebugMode('aqui-o')}>
+        <Checkbox
+          checked={debugState.alienado}
+          onChange={() => toggleDebugMode('alienado')}
+        >
+          Alienado
+        </Checkbox>
+      </div>
+      <div>
+        <Checkbox
+          checked={debugState['aqui-o']}
+          onChange={() => toggleDebugMode('aqui-o')}
+        >
           Aqui o
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState['arte-ruim']} disabled onChange={() => toggleDebugMode('arte-ruim')}>
+        <Checkbox
+          checked={debugState['arte-ruim']}
+          onChange={() => toggleDebugMode('arte-ruim')}
+        >
           Arte Ruim
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState.picaco} disabled onChange={() => toggleDebugMode('picaco')}>
-          Picaço
+        <Checkbox
+          checked={debugState.conjuntos}
+          onChange={() => toggleDebugMode('conjuntos')}
+        >
+          Conjuntos
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState.alienado} disabled onChange={() => toggleDebugMode('alienado')}>
-          Com. Alienígena
-        </Checkbox>
-      </div>
-      <div>
-        <Checkbox checked={debugState.estoquista} disabled onChange={() => toggleDebugMode('estoquista')}>
-          Controle de Estoque
-        </Checkbox>
-      </div>
-      <div>
-        <Checkbox checked={debugState.investigacao} disabled onChange={() => toggleDebugMode('investigacao')}>
-          Espionagem
-        </Checkbox>
-      </div>
-      <div>
-        <Checkbox checked={debugState.filmaco} disabled onChange={() => toggleDebugMode('filmaco')}>
+        <Checkbox
+          checked={debugState.filmaco}
+          onChange={() => toggleDebugMode('filmaco')}
+        >
           Filmaco
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState.organiku} disabled onChange={() => toggleDebugMode('organiku')}>
+        <Checkbox
+          checked={debugState.investigacao}
+          onChange={() => toggleDebugMode('investigacao')}
+        >
+          Espionagem
+        </Checkbox>
+      </div>
+      <div>
+        <Checkbox
+          checked={debugState.mapeamento}
+          onChange={() => toggleDebugMode('mapeamento')}
+        >
+          Mapeamento
+        </Checkbox>
+      </div>
+      <div>
+        <Checkbox
+          checked={debugState.organiku}
+          onChange={() => toggleDebugMode('organiku')}
+        >
           Organiku
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState.palavreado} disabled onChange={() => toggleDebugMode('palavreado')}>
+        <Checkbox
+          checked={debugState.palavreado}
+          onChange={() => toggleDebugMode('palavreado')}
+        >
           Palavreado
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState.portais} disabled onChange={() => toggleDebugMode('portais')}>
+        <Checkbox
+          checked={debugState.picaco}
+          onChange={() => toggleDebugMode('picaco')}
+        >
+          Picaço
+        </Checkbox>
+      </div>
+      <div>
+        <Checkbox
+          checked={debugState.pirralhos}
+          onChange={() => toggleDebugMode('pirralhos')}
+        >
+          Pirralhos
+        </Checkbox>
+      </div>
+      <div>
+        <Checkbox
+          checked={debugState.portais}
+          onChange={() => toggleDebugMode('portais')}
+        >
           Portais Mágicos
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState.quartetos} disabled onChange={() => toggleDebugMode('quartetos')}>
+        <Checkbox
+          checked={debugState.quartetos}
+          onChange={() => toggleDebugMode('quartetos')}
+        >
           Quartetos
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState['ta-na-cara']} disabled onChange={() => toggleDebugMode('ta-na-cara')}>
+        <Checkbox
+          checked={debugState['ta-na-cara']}
+          onChange={() => toggleDebugMode('ta-na-cara')}
+        >
           Tá na Cara
         </Checkbox>
       </div>
       <div>
-        <Checkbox checked={debugState.conjuntos} disabled onChange={() => toggleDebugMode('conjuntos')}>
-          Teoria de Conjuntos
+        <Checkbox
+          checked={debugState.vitral}
+          onChange={() => toggleDebugMode('vitral')}
+        >
+          Vitral
         </Checkbox>
       </div>
     </SiderContent>

@@ -1,111 +1,220 @@
+/** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
+import { useQuery } from '@tanstack/react-query';
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
 import { capitalize, range, sampleSize, shuffle } from 'lodash';
-import { useMemo } from 'react';
 import type { ItemGroupData } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
-import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
-import { addWarning } from '../warnings';
+import { debugDailyStore } from './debug-daily';
 
 export type DailyOrganikuEntry = {
+  /**
+   * Date-based identifier (YYYY-MM-DD)
+   */
   id: DateKey;
+  /**
+   * Daily puzzle number
+   */
   number: number;
   type: 'organiku';
+  /**
+   * Item group identifier
+   */
   setId: string;
+  /**
+   * Group title in target language
+   */
   title: string;
+  /**
+   * Item IDs used in this puzzle
+   */
   itemsIds: CardId[];
+  /**
+   * Flattened Latin square grid
+   */
   grid: CardId[];
+  /**
+   * Initially revealed cell positions
+   */
   defaultRevealedIndexes: number[];
 };
 
+/**
+ * Hook for generating daily Organiku games
+ *
+ * Creates Latin square puzzles where players arrange items in a grid following the constraint
+ * that each item appears exactly once per row and column. Weekday games use 5x5 grids,
+ * weekend games use 6x6 grids.
+ *
+ * @param enabled - Whether the generation is enabled
+ * @param queryLanguage - Target language for group titles
+ * @param batchSize - Number of games to generate
+ * @param dailyHistory - Historical data for tracking used groups
+ * @returns Generated Organiku game entries with history updates
+ */
 export const useDailyOrganikuGames = (
   enabled: boolean,
   queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-) => {
+): UseDailyGeneratorResponse<DailyOrganikuEntry> => {
+  // Fetch prerequisite data
   const [organikuHistory] = useParsedHistory(DAILY_GAMES_KEYS.ORGANIKU, dailyHistory);
-
   const itemGroupsQuery = useTDResource<ItemGroupData>('items-groups', { enabled });
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
-  const entries = useMemo(() => {
-    if (!enabled || !itemGroupsQuery.isSuccess || !organikuHistory) {
-      return {};
-    }
+  // Ensure all prerequisite data is available before generating
+  const isReadyToGenerate = enabled && itemGroupsQuery.isSuccess && !!organikuHistory;
 
-    return buildDailyOrganikuGames(batchSize, organikuHistory, queryLanguage, itemGroupsQuery.data);
-  }, [enabled, queryLanguage, organikuHistory, batchSize, itemGroupsQuery.dataUpdatedAt]);
+  // Generator query
+  const generatorQuery = useQuery({
+    queryKey: ['generate-daily', 'organiku', batchSize, queryLanguage, itemGroupsQuery.dataUpdatedAt],
+    queryFn: () => {
+      // Type narrowing to satisfy non-null assertion rules
+      if (!organikuHistory || !itemGroupsQuery.data) {
+        throw new Error('Critical: Prerequisite data is missing during query execution.');
+      }
 
+      return buildDailyOrganikuGames(batchSize, organikuHistory, queryLanguage, itemGroupsQuery.data);
+    },
+    enabled: isReadyToGenerate,
+    staleTime: Number.POSITIVE_INFINITY,
+  });
+
+  // Map TanStack states to response type
   return {
-    entries,
-    isLoading: itemGroupsQuery.isLoading,
+    entries: generatorQuery.data?.entries ?? {},
+    isLoading: !isReadyToGenerate || itemGroupsQuery.isLoading,
+    isGenerating: generatorQuery.isFetching,
+    isError: generatorQuery.isError || !!generatorQuery.data?.errors?.length,
+    errors: generatorQuery.data?.errors ?? (generatorQuery.error ? [generatorQuery.error.message] : []),
+    isSuccess: generatorQuery.isSuccess && Object.keys(generatorQuery.data?.entries ?? {}).length > 0,
+    historyUpdate: generatorQuery.data?.historyUpdate ?? {
+      latestDate: organikuHistory?.latestDate ?? '',
+      latestNumber: organikuHistory?.latestNumber ?? 0,
+      used: [],
+      updateType: 'add',
+    },
   };
 };
 
+/**
+ * Builds a batch of daily Organiku games
+ *
+ * Generates Latin square puzzles with minimal revealed cells for solvability.
+ * Uses recycling when data is exhausted. Weekday games use 5x5 grids, weekends use 6x6.
+ *
+ * @param batchSize - Number of games to generate
+ * @param history - Historical data for tracking used groups
+ * @param queryLanguage - Target language for group titles
+ * @param itemsGroups - Available item groups
+ * @returns Generated entries, errors, and history update
+ */
 export const buildDailyOrganikuGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   queryLanguage: Language,
   itemsGroups: Dictionary<ItemGroupData>,
 ) => {
-  console.count('Creating Organiku...');
-
-  // FIX 1: Change to >= 6 so groups with exactly 6 items are included
-  const allValidGroups = Object.values(itemsGroups).filter((group) => group.itemsIds.length >= 6);
-
-  let eligibleGroups = shuffle(allValidGroups.filter((group) => !history.used.includes(group.id)));
-
-  // FIX 2: History Recycling to prevent fatal crashes
-  if (eligibleGroups.length < batchSize) {
-    addWarning('organiku', 'Not enough organiku groups left. Recycling historical data.');
-
-    // Fill the remaining required slots by recycling groups we've used before,
-    // prioritizing ones that haven't been used in this specific batch yet.
-    const needed = batchSize - eligibleGroups.length;
-    const recycledPool = shuffle(
-      allValidGroups.filter((group) => !eligibleGroups.some((eg) => eg.id === group.id)),
-    );
-
-    eligibleGroups = [...eligibleGroups, ...recycledPool.slice(0, needed)];
+  if (debugDailyStore.state.organiku) {
+    console.count('Creating Organiku...');
   }
 
-  let lastDate = history.latestDate;
-  const entries: Dictionary<DailyOrganikuEntry> = {};
+  const errors: string[] = [];
+  const entries: Record<string, DailyOrganikuEntry> = {};
+  const used: string[] = [];
 
-  for (let i = 0; i < batchSize; i++) {
-    const id = getNextDay(lastDate);
-    lastDate = id;
-    const isWeekend = checkWeekend(id);
+  let latestDate = history.latestDate;
+  let latestNumber = history.latestNumber;
 
-    // FIX 3: Safe fallback using modulo just in case the total valid
-    // groups in the database is somehow less than the batchSize
-    const safeIndex = i % eligibleGroups.length;
-    const group = eligibleGroups[safeIndex];
+  try {
+    // Filter groups with sufficient items for weekend grids
+    const allValidGroups = Object.values(itemsGroups).filter((group) => group.itemsIds.length >= 6);
 
-    const size = isWeekend ? 6 : 5;
-    const partialGame = generateOrganiku(size, group.itemsIds);
+    if (allValidGroups.length === 0) {
+      throw new Error('Critical: No valid Organiku groups (>= 6 items) found in the database.');
+    }
 
-    entries[id] = {
-      id,
-      number: history.latestNumber + i + 1,
-      setId: group.id,
-      type: 'organiku',
-      title: capitalize(group.name[queryLanguage]),
-      grid: partialGame.grid,
-      defaultRevealedIndexes: partialGame.defaultRevealedIndexes,
-      itemsIds: partialGame.itemsIds,
-    };
+    let eligibleGroups = shuffle(allValidGroups.filter((group) => !history.used.includes(group.id)));
+
+    // Recycle when data exhausted
+    if (eligibleGroups.length < batchSize) {
+      if (debugDailyStore.state.organiku) {
+        console.log('🔆 Not enough fresh organiku groups left, recycling...');
+      }
+      errors.push('Not enough fresh organiku groups left. Recycling historical data.');
+
+      const needed = batchSize - eligibleGroups.length;
+
+      const recycledPool = shuffle(
+        allValidGroups.filter((group) => !eligibleGroups.some((eg) => eg.id === group.id)),
+      );
+
+      // Repeat groups if database is too small
+      while (recycledPool.length < needed) {
+        recycledPool.push(...shuffle(allValidGroups));
+      }
+
+      eligibleGroups = [...eligibleGroups, ...recycledPool.slice(0, needed)];
+    }
+
+    // Build the batch
+    for (let i = 0; i < batchSize; i++) {
+      const id = getNextDay(latestDate);
+      latestDate = id;
+      latestNumber = history.latestNumber + i + 1;
+      const isWeekend = checkWeekend(id);
+
+      const safeIndex = i % eligibleGroups.length;
+      const group = eligibleGroups[safeIndex];
+
+      const size = isWeekend ? 6 : 5;
+      const partialGame = generateOrganiku(size, group.itemsIds);
+
+      // Track usage
+      used.push(group.id);
+
+      entries[id] = {
+        id,
+        number: latestNumber,
+        setId: group.id,
+        type: 'organiku',
+        title: capitalize(group.name[queryLanguage] ?? group.name.pt),
+        grid: partialGame.grid,
+        defaultRevealedIndexes: partialGame.defaultRevealedIndexes,
+        itemsIds: partialGame.itemsIds,
+      };
+    }
+  } catch (error: unknown) {
+    if (debugDailyStore.state.organiku) {
+      console.error(error);
+    }
+    errors.push((error as Error).message || 'An unknown error occurred during Organiku generation.');
   }
 
-  return entries;
+  return {
+    entries,
+    errors,
+    historyUpdate: {
+      latestDate,
+      latestNumber,
+      used,
+      updateType: 'add' as const,
+    },
+  };
 };
 
-// ===========================
-// ORGANIKU GENERATOR
-// ===========================
-
+/**
+ * Generates a single Organiku puzzle
+ *
+ * Creates a random Latin square, finds minimal reveals for solvability,
+ * and maps numbers to actual item IDs.
+ *
+ * @param size - Grid dimension (5, 6, or 7)
+ * @param cardIds - Available item card IDs
+ * @returns Puzzle with items, grid, and revealed positions
+ */
 function generateOrganiku(
   size: 5 | 6 | 7,
   cardIds: CardId[],
@@ -125,8 +234,15 @@ function generateOrganiku(
   };
 }
 
-// --- Latin square generation (backtracking with random value ordering) ---
-
+/**
+ * Generates a random Latin square using backtracking
+ *
+ * Creates an NxN grid where each value 0..(N-1) appears exactly once per row and column.
+ * Uses randomized value ordering to produce different squares each time.
+ *
+ * @param n - Grid dimension
+ * @returns Flattened Latin square array
+ */
 function generateLatinSquare(n: number): number[] {
   const grid = new Array(n * n).fill(-1);
 
@@ -159,8 +275,17 @@ function generateLatinSquare(n: number): number[] {
   return [...grid];
 }
 
-// --- Solvability check via constraint propagation (naked + hidden singles) ---
-
+/**
+ * Checks if a puzzle is solvable using logical techniques
+ *
+ * Uses constraint propagation (naked singles + hidden singles) without guessing.
+ * A puzzle is solvable if all cells can be determined from the revealed set.
+ *
+ * @param grid - Complete Latin square solution
+ * @param n - Grid dimension
+ * @param revealed - Set of revealed cell indexes
+ * @returns Whether the puzzle can be solved logically
+ */
 function isSolvable(grid: number[], n: number, revealed: ReadonlySet<number>): boolean {
   const total = n * n;
   const known = new Set(revealed);
@@ -241,8 +366,16 @@ function isSolvable(grid: number[], n: number, revealed: ReadonlySet<number>): b
   return known.size === total;
 }
 
-// --- Find minimal revealed cells (top-down: start full, remove pairs greedily) ---
-
+/**
+ * Finds minimal set of revealed cells for solvability
+ *
+ * Starts with all cells revealed, then greedily removes pairs of same-type cells
+ * while maintaining solvability. Uses randomization to create variety.
+ *
+ * @param grid - Complete Latin square solution
+ * @param n - Grid dimension
+ * @returns Array of cell indexes that must be revealed
+ */
 function findMinimalReveals(grid: number[], n: number): number[] {
   const total = n * n;
   const revealed = new Set(range(total));
@@ -291,10 +424,6 @@ function findMinimalReveals(grid: number[], n: number): number[] {
   return [...revealed].sort((a, b) => a - b);
 }
 
-// ===========================
-// ORGANIKU SOLVER
-// ===========================
-
 export type GridCoordinate = {
   index: number;
   row: number;
@@ -304,16 +433,24 @@ export type GridCoordinate = {
 export type PlacementAction = {
   at: GridCoordinate;
   itemId: string;
-  // Tells the UI *why* this was the best move, great for advanced hint text!
+  /**
+   * Solving technique used for this move
+   */
   technique: 'naked_single' | 'hidden_row' | 'hidden_col' | 'deduction';
 };
 
 /**
- * Calculates the optimal sequence of logical placements to win an Organiku game.
- * * @param currentGrid 1D array of the current board state (use `null` for empty cells)
- * @param allItemsIds Array of all unique item IDs available in this puzzle
- * @param size Grid size (5 or 6)
- * @returns An array of PlacementActions representing the exact sequence of moves to win
+ * Calculates the optimal sequence of logical placements to solve an Organiku puzzle
+ *
+ * Uses three logical techniques in order:
+ * 1. Naked singles: cells with only one valid item
+ * 2. Hidden row singles: items that can only go in one cell within a row
+ * 3. Hidden column singles: items that can only go in one cell within a column
+ *
+ * @param currentGrid - Current board state (use null for empty cells)
+ * @param allItemsIds - All unique item IDs in this puzzle
+ * @param size - Grid dimension (5 or 6)
+ * @returns Sequence of placement actions to solve the puzzle
  */
 export const calculateOptimalPlacements = (
   currentGrid: (string | null)[],
@@ -329,7 +466,7 @@ export const calculateOptimalPlacements = (
     col: index % size,
   });
 
-  // Helper: Check if placing an item at a specific index violates Latin Square rules
+  // Check if placing an item at a position violates Latin square rules
   const isSafe = (index: number, itemId: string): boolean => {
     const { row, col } = getCoords(index);
     for (let i = 0; i < size; i++) {
@@ -343,11 +480,11 @@ export const calculateOptimalPlacements = (
 
   let progress = true;
 
-  // Loop until the board is full or we get stuck (which shouldn't happen with valid puzzles)
+  // Loop until board is full or stuck
   while (progress && grid.includes(null)) {
     progress = false;
 
-    // 1. NAKED SINGLES: Is there a cell that can only legally accept exactly ONE item?
+    // Naked singles: cells with only one valid item
     for (let i = 0; i < grid.length; i++) {
       if (grid[i] !== null) continue;
 
@@ -361,15 +498,15 @@ export const calculateOptimalPlacements = (
           technique: 'naked_single',
         });
         progress = true;
-        break; // Board state changed, restart logical scan
+        break;
       }
     }
     if (progress) continue;
 
-    // 2. HIDDEN SINGLES (ROWS): In this row, is there an item that can only go in ONE specific cell?
+    // Hidden row singles: items with only one valid cell in a row
     for (let row = 0; row < size; row++) {
       for (const item of allItemsIds) {
-        // If item is already in this row, skip
+        // Skip if item already in this row
         if (Array.from({ length: size }, (_, c) => grid[row * size + c]).includes(item)) continue;
 
         const validCells = [];
@@ -389,17 +526,17 @@ export const calculateOptimalPlacements = (
             technique: 'hidden_row',
           });
           progress = true;
-          break; // Break inner item loop
+          break;
         }
       }
-      if (progress) break; // Break row loop to restart scan
+      if (progress) break;
     }
     if (progress) continue;
 
-    // 3. HIDDEN SINGLES (COLS): Same concept, but checking columns vertically
+    // Hidden column singles: items with only one valid cell in a column
     for (let col = 0; col < size; col++) {
       for (const item of allItemsIds) {
-        // If item is already in this col, skip
+        // Skip if item already in this column
         if (Array.from({ length: size }, (_, r) => grid[r * size + col]).includes(item)) continue;
 
         const validCells = [];
@@ -426,7 +563,7 @@ export const calculateOptimalPlacements = (
     }
   }
 
-  // Safety fallback for malformed puzzles
+  // Safety check for malformed puzzles
   if (grid.includes(null)) {
     console.warn('Organiku Solver: Grid requires guessing or is invalid. Cannot deduce further.');
   }

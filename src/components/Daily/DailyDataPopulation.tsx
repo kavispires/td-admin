@@ -1,4 +1,5 @@
 import { CloudSyncOutlined, SaveOutlined } from '@ant-design/icons';
+import { useQueryClient } from '@tanstack/react-query';
 import { Alert, App, Button, Flex, Table, Typography } from 'antd';
 import { FilterSelect } from 'components/Common';
 import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
@@ -12,10 +13,15 @@ import { clearWarnings, useGetWarnings } from './utils/warnings';
 export const DEFAULT_LANGUAGE: Language = 'pt';
 
 export function DailyDataPopulation() {
+  const queryClient = useQueryClient();
   const [language, setLanguage] = useState('');
   const [drawingsCount, setDrawingsCount] = useState(3);
   const [batchSize, setBatchSize] = useState(7);
-  const [rerun, setRerun] = useState(Date.now());
+
+  const onRerun = () => {
+    queryClient.invalidateQueries({ queryKey: ['generate-daily'] });
+    clearWarnings();
+  };
 
   return (
     <div>
@@ -47,16 +53,19 @@ export function DailyDataPopulation() {
         />
         <Button
           icon={<CloudSyncOutlined />}
-          onClick={() => {
-            clearWarnings();
-            setRerun(Date.now());
-          }}
+          onClick={onRerun}
         />
 
-        <FirestoreConsoleLink className="ml-2" path="diario/history" />
+        <FirestoreConsoleLink
+          className="ml-2"
+          path="diario/history"
+        />
       </Flex>
 
-      <DataPopulation batchSize={batchSize} key={rerun} language={language} />
+      <DataPopulation
+        batchSize={batchSize}
+        language={language}
+      />
     </div>
   );
 }
@@ -83,8 +92,15 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
   const { save, isPending } = useSaveDailySetup(queryLanguage ?? 'pt');
 
   return (
-    <DataLoadingWrapper error={null} hasResponseData={!dataLoad.isLoading} isLoading={dataLoad.isLoading}>
-      <Flex align="center" justify="space-between">
+    <DataLoadingWrapper
+      error={null}
+      hasResponseData={!dataLoad.isLoading}
+      isLoading={!!queryLanguage && dataLoad.isLoading}
+    >
+      <Flex
+        align="center"
+        justify="space-between"
+      >
         <Typography.Title level={4}>Total: {dataLoad.entries.length}</Typography.Title>
 
         <Button
@@ -93,7 +109,7 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
           loading={isPending}
           onClick={() => {
             console.log('Saving data...');
-            console.log(dataLoad.entries);
+            console.log(dataLoad);
 
             const undefinedIssues = verifyUndefinedValues(dataLoad.entries ?? []);
             if (undefinedIssues.length > 0) {
@@ -105,7 +121,7 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
               return;
             }
 
-            save(dataLoad.entries);
+            save(dataLoad);
           }}
           size="large"
           type="primary"
@@ -115,10 +131,29 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
       </Flex>
 
       {warningsList.map((warning) => (
-        <Alert banner key={warning} showIcon title={warning} type="warning" />
+        <Alert
+          banner
+          key={warning}
+          showIcon
+          title={warning}
+          type="warning"
+        />
+      ))}
+      {dataLoad.errors.map((error) => (
+        <Alert
+          banner
+          key={error}
+          showIcon
+          title={error}
+          type="error"
+        />
       ))}
 
-      <Table columns={dailyColumns} dataSource={dataLoad.entries ?? []} scroll={{ x: 'max-content' }} />
+      <Table
+        columns={dailyColumns}
+        dataSource={dataLoad.entries ?? []}
+        scroll={{ x: 'max-content' }}
+      />
     </DataLoadingWrapper>
   );
 }

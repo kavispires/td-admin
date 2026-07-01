@@ -12,6 +12,7 @@ export function useParsedHistory(
         latestDate: getYesterday(),
         latestNumber: 0,
         used: '[]',
+        reset: 0,
       },
     [data, key],
   );
@@ -21,6 +22,7 @@ export function useParsedHistory(
       latestNumber: history?.latestNumber ?? 0,
       latestDate: history?.latestDate ?? getYesterday(),
       used: JSON.parse(history?.used ?? '[]'),
+      reset: history?.reset ?? 0,
     };
   }, [history]);
 

@@ -1,51 +1,124 @@
+/** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
+import { useQuery } from '@tanstack/react-query';
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
 import { sample, shuffle } from 'lodash';
-import { useMemo } from 'react';
 import type { ImageCardDescriptorData } from 'types';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
-import type { DailyHistory, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { getDayOfTheWeek, getNextDay } from '../utils';
-import { addWarning } from '../warnings';
+import { debugDailyStore } from './debug-daily';
 
-export type Point = { x: number; y: number };
+export type Point = {
+  /**
+   * X coordinate
+   */
+  x: number;
+  /**
+   * Y coordinate
+   */
+  y: number;
+};
 
 export type Piece = {
+  /**
+   * Piece identifier
+   */
   id: string;
-  correctPos: number; // what grid index it belongs to
+  /**
+   * Correct grid index for this piece
+   */
+  correctPos: number;
+  /**
+   * Shape defined by points
+   */
   shape: Point[];
 };
 
 export type PieceState = Point & {
+  /**
+   * Whether piece is locked in position
+   */
   isLocked: boolean;
 };
 
 export type DailyVitralEntry = {
-  id: string;
+  /**
+   * Date-based identifier (YYYY-MM-DD)
+   */
+  id: DateKey;
+  /**
+   * Daily puzzle number
+   */
   number: number;
   type: 'vitral';
+  /**
+   * Image title in Portuguese
+   */
   title: string;
+  /**
+   * Image card identifier
+   */
   cardId: string;
-  pieces: number[]; // shuffled array of pieces ids. Each id is composed of a number that represents the piece index (0-N) of the puzzle in the correct order
+  /**
+   * Shuffled piece indices (derangement: no piece at correct position)
+   */
+  pieces: number[];
 };
 
-export const useDailyVitralGames = (enabled: boolean, batchSize: number, dailyHistory: DailyHistory) => {
+/**
+ * Hook for generating daily Vitral games
+ *
+ * Creates jigsaw puzzles from image cards. Piece count varies by day of week
+ * (Mondays have fewest pieces, weekends have most). Uses LRU recycling when
+ * data is exhausted. Ensures no piece starts in its correct position (derangement).
+ *
+ * @param enabled - Whether the generation is enabled
+ * @param batchSize - Number of games to generate
+ * @param dailyHistory - Historical data for tracking used image cards
+ * @returns Generated Vitral game entries with history updates
+ */
+export const useDailyVitralGames = (
+  enabled: boolean,
+  batchSize: number,
+  dailyHistory: DailyHistory,
+): UseDailyGeneratorResponse<DailyVitralEntry> => {
+  // Fetch prerequisite data
   const [vitralHistory] = useParsedHistory(DAILY_GAMES_KEYS.VITRAL, dailyHistory);
-
   const dailyVitralSetQuery = useTDResource<ImageCardDescriptorData>('image-cards', { enabled });
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
-  const entries = useMemo(() => {
-    if (!enabled || dailyVitralSetQuery.isLoading || !vitralHistory) {
-      return {};
-    }
+  // Ensure all prerequisite data is available before generating
+  const isReadyToGenerate = enabled && dailyVitralSetQuery.isSuccess && !!vitralHistory;
 
-    return buildDailyVitralGames(batchSize, vitralHistory, dailyVitralSetQuery.data);
-  }, [enabled, vitralHistory, batchSize, dailyVitralSetQuery.dataUpdatedAt]);
+  // Generator query
+  const generatorQuery = useQuery({
+    queryKey: ['generate-daily', 'vitral', batchSize, dailyVitralSetQuery.dataUpdatedAt],
+    queryFn: () => {
+      // Type narrowing to satisfy non-null assertion rules
+      if (!vitralHistory || !dailyVitralSetQuery.data) {
+        throw new Error('Critical: Prerequisite data is missing during query execution.');
+      }
 
+      return buildDailyVitralGames(batchSize, vitralHistory, dailyVitralSetQuery.data);
+    },
+    enabled: isReadyToGenerate,
+    staleTime: Number.POSITIVE_INFINITY,
+  });
+
+  // Map TanStack states to response type
   return {
-    entries,
-    isLoading: dailyVitralSetQuery.isLoading,
+    entries: generatorQuery.data?.entries ?? {},
+    isLoading: !isReadyToGenerate || dailyVitralSetQuery.isLoading,
+    isGenerating: generatorQuery.isFetching,
+    isError: generatorQuery.isError || !!generatorQuery.data?.errors?.length,
+    errors: generatorQuery.data?.errors ?? (generatorQuery.error ? [generatorQuery.error.message] : []),
+    isSuccess: generatorQuery.isSuccess && Object.keys(generatorQuery.data?.entries ?? {}).length > 0,
+    historyUpdate: generatorQuery.data?.historyUpdate ?? {
+      latestDate: vitralHistory?.latestDate ?? '',
+      latestNumber: vitralHistory?.latestNumber ?? 0,
+      used: [],
+      updateType: 'add',
+    },
   };
 };
 
@@ -54,58 +127,101 @@ export const buildDailyVitralGames = (
   history: ParsedDailyHistoryEntry,
   puzzleSets: Dictionary<ImageCardDescriptorData>,
 ) => {
-  console.count('Creating Vitral...');
+  if (debugDailyStore.state.vitral) {
+    console.count('Creating Vitral...');
+  }
 
-  // Filter out any incomplete sets, used sets, and cards without Portuguese title
-  const eligibleSets = shuffle(
-    Object.values(puzzleSets).filter((setEntry) => !history.used.includes(setEntry.id) && setEntry.title?.pt),
-  );
+  const errors: string[] = [];
+  const entries: Record<string, DailyVitralEntry> = {};
+  const used: string[] = [];
 
-  let lastDate = history.latestDate;
-  const entries: Dictionary<DailyVitralEntry> = {};
-  Array.from({ length: batchSize }).forEach((_, i) => {
-    const id = getNextDay(lastDate);
+  let latestDate = history.latestDate;
+  let latestNumber = history.latestNumber;
 
-    lastDate = id;
+  try {
+    // Filter sets with Portuguese titles only
+    const allValidSets = Object.values(puzzleSets).filter((setEntry) => !!setEntry.title?.pt);
 
-    const selectedSet = eligibleSets[i];
-
-    if (!selectedSet) {
-      addWarning(
-        'vitral',
-        `Not enough eligible Daily Vitral sets to create a new puzzle for date ${id}. Please add more sets or clear used history.`,
-      );
-      return;
+    if (allValidSets.length === 0) {
+      throw new Error('Critical: No valid Vitral sets (with Portuguese titles) found in the database.');
     }
 
-    let result: number[];
-    try {
-      result = shufflePieces(getDayOfTheWeek(id));
-    } catch (e) {
-      addWarning(
-        'vitrais',
-        `Error generating Daily Vitrais puzzle for date ${id} with set ${selectedSet.title.pt}: ${e}`,
-      );
-      return;
+    // Separate into fresh pool
+    const freshSets = allValidSets.filter((setEntry) => !history.used.includes(setEntry.id));
+    let eligibleSets = shuffle(freshSets);
+
+    // History recycling using LRU strategy
+    if (eligibleSets.length < batchSize) {
+      if (debugDailyStore.state.vitral) {
+        console.log('🔆 Not enough fresh vitral sets left, recycling...');
+      }
+      errors.push('Not enough fresh Vitral sets. Recycling historical data.');
+
+      const needed = batchSize - eligibleSets.length;
+
+      // Prioritize least recently used sets (LRU)
+      const usedSetsLRU = allValidSets
+        .filter((s) => history.used.includes(s.id))
+        .sort((a, b) => history.used.indexOf(a.id) - history.used.indexOf(b.id));
+
+      const fallbackPool = usedSetsLRU.length > 0 ? usedSetsLRU : shuffle(allValidSets);
+
+      // Generate recycled sets safely
+      const recycledPool = Array.from({ length: needed }).map((_, index) => {
+        return fallbackPool[index % fallbackPool.length];
+      });
+
+      eligibleSets = [...eligibleSets, ...recycledPool];
     }
 
-    entries[id] = {
-      id,
-      number: history.latestNumber + i + 1,
-      type: 'vitral',
-      title: selectedSet.title.pt,
-      cardId: selectedSet.id,
-      pieces: result,
-    };
-  });
+    // Build the batch
+    for (let i = 0; i < batchSize; i++) {
+      const id = getNextDay(latestDate);
+      latestDate = id;
+      latestNumber = history.latestNumber + i + 1;
+      const dayOfWeek = getDayOfTheWeek(id);
 
-  return entries;
+      const selectedSet = eligibleSets[i];
+
+      // Track usage
+      used.push(selectedSet.id);
+
+      entries[id] = {
+        id,
+        number: latestNumber,
+        type: 'vitral',
+        title: selectedSet.title.pt,
+        cardId: selectedSet.id,
+        pieces: shufflePieces(dayOfWeek),
+      };
+    }
+  } catch (error: unknown) {
+    if (debugDailyStore.state.vitral) {
+      console.error(error);
+    }
+    errors.push((error as Error).message || 'An unknown error occurred during Vitral generation.');
+  }
+
+  return {
+    entries,
+    errors,
+    historyUpdate: {
+      latestDate,
+      latestNumber,
+      used,
+      updateType: 'add' as const,
+    },
+  };
 };
 
 /**
  * Shuffles puzzle pieces ensuring no piece is in its correct position (derangement)
- * @param isWeekend - Whether the puzzle is for a weekend (more pieces)
- * @returns An array of shuffled piece indices where pieces[i] !== i for all i
+ *
+ * Uses random shuffling until a valid derangement is found. For arrays N >= 9,
+ * a random shuffle has ~36.8% chance of being a perfect derangement.
+ *
+ * @param dayOfWeek - Day of week (0-6) determines piece count
+ * @returns Shuffled piece indices where pieces[i] !== i for all i
  */
 function shufflePieces(dayOfWeek: number): number[] {
   const piecesOptions: Record<number, number[]> = {
@@ -125,16 +241,11 @@ function shufflePieces(dayOfWeek: number): number[] {
   let shuffled = [...pieces];
 
   while (tries < ATTEMPTS_THRESHOLD && !valid) {
-    shuffled = shuffle([...pieces]);
-    // Fix any pieces that are in their correct position by swapping with the next element
-    for (let i = 0; i < shuffled.length; i++) {
-      if (shuffled[i] === i) {
-        const nextIndex = (i + 1) % shuffled.length;
-        [shuffled[i], shuffled[nextIndex]] = [shuffled[nextIndex], shuffled[i]];
-      }
-    }
-    // Check if any piece is in its correct position
+    shuffled = shuffle(pieces);
+
+    // Check for valid derangement
     valid = shuffled.every((pieceId, index) => pieceId !== index);
+
     tries++;
   }
 
@@ -142,10 +253,6 @@ function shufflePieces(dayOfWeek: number): number[] {
     throw new Error(
       `Failed to generate valid derangement for ${piecesCount} pieces after ${ATTEMPTS_THRESHOLD} attempts`,
     );
-  }
-
-  if (pieces.length !== piecesCount) {
-    throw new Error(`Generated pieces count mismatch: expected ${piecesCount}, got ${pieces.length}`);
   }
 
   return shuffled;

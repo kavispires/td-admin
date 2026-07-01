@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
+import { useQuery } from '@tanstack/react-query';
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { getSuspectImageId } from 'components/Suspects/SuspectImageCard';
 import { countAnswersAbsoluteTotal } from 'components/Testimonies/utils';
@@ -7,41 +9,86 @@ import {
   type TestimonyAnswers,
   testimoniesDeserializer,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
-import { useMemo } from 'react';
 import type { SuspectCardData, TestimonyQuestionCardData } from 'types';
 import { makeBooleanDictionary } from 'utils';
 import { SEPARATOR } from 'utils/constants';
 import { DAILY_GAMES_KEYS } from '../constants';
-import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
+import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { getNextDay } from '../utils';
+import { debugDailyStore } from './debug-daily';
 
-// Toggle between selection modes:
-// 'BUCKET_DISTRIBUTION': prioritizes testimonies with more suspects in lower answer buckets (current behavior)
-// 'TOTAL_ANSWERS': prioritizes testimonies with the fewest total answers across all suspects
+/**
+ * Testimony selection mode:
+ * - BUCKET_DISTRIBUTION: prioritizes testimonies with more suspects in lower answer buckets
+ * - TOTAL_ANSWERS: prioritizes testimonies with fewest total answers across all suspects
+ */
 const TESTIMONY_SELECTION_MODE: 'BUCKET_DISTRIBUTION' | 'TOTAL_ANSWERS' = 'TOTAL_ANSWERS';
+const TESTIMONY_SIZE = 15;
+const SUSPECTS_SIZE = 7;
 
 type TaNaCaraQuestion = {
+  /**
+   * Testimony question identifier
+   */
   testimonyId: string;
+  /**
+   * Question text
+   */
   question: string;
+  /**
+   * Whether testimony contains NSFW content
+   */
   nsfw?: boolean;
+  /**
+   * Suspects with low answer counts for this testimony
+   */
   suspectsIds?: string[];
 };
 
 export type DailyTaNaCaraEntry = {
+  /**
+   * Date-based identifier (YYYY-MM-DD)
+   */
   id: DateKey;
+  /**
+   * Daily puzzle number
+   */
   number: number;
   type: 'ta-na-cara';
+  /**
+   * 15 testimony questions for this game
+   */
   testimonies: TaNaCaraQuestion[];
+  /**
+   * 7 extra suspects not directly referenced in testimonies
+   */
   suspectsIds: string[];
+  /**
+   * Suspect names dictionary
+   */
   names: Dictionary<string>;
 };
 
+/**
+ * Hook for generating daily Tá Na Cara games
+ *
+ * Creates suspect guessing puzzles using testimony questions. Selects 15 testimonies
+ * with the fewest total answers, and 7 extra suspects not referenced in those testimonies.
+ * Uses cumulative usage tracking to minimize repeats across daily games.
+ *
+ * @param enabled - Whether the generation is enabled
+ * @param queryLanguage - Target language for testimony questions
+ * @param batchSize - Number of games to generate
+ * @param dailyHistory - Historical data for tracking testimony/suspect usage
+ * @returns Generated Tá Na Cara game entries with history updates
+ */
 export const useDailyTaNaCaraGames = (
   enabled: boolean,
   queryLanguage: Language,
   batchSize: number,
   dailyHistory: DailyHistory,
-) => {
+): UseDailyGeneratorResponse<DailyTaNaCaraEntry> => {
+  // Fetch prerequisite data
   const [taNaCaraHistory] = useParsedHistory(DAILY_GAMES_KEYS.TA_NA_CARA, dailyHistory);
 
   const suspectsQuery = useTDResource<SuspectCardData>('suspects', { enabled });
@@ -53,55 +100,72 @@ export const useDailyTaNaCaraGames = (
     enabled,
   });
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: game should be recreated only if data has been updated
-  const entries = useMemo(() => {
-    if (
-      !enabled ||
-      !suspectsQuery.isSuccess ||
-      !testimoniesQuery.isSuccess ||
-      !taNaCaraHistory ||
-      !answersQuery.isSuccess
-    ) {
-      return {};
-    }
+  // Ensure all prerequisite data is available before generating
+  const isReadyToGenerate =
+    enabled &&
+    suspectsQuery.isSuccess &&
+    testimoniesQuery.isSuccess &&
+    answersQuery.isSuccess &&
+    !!taNaCaraHistory;
 
-    const sortedTestimoniesCounts = countTestimonyAnswers(
-      testimoniesQuery.data,
-      answersQuery.data,
-      suspectsQuery.data,
-      TESTIMONY_SELECTION_MODE,
-    );
-
-    const suspectDict = suspectsQuery.data ?? {};
-    const gbSuspectIds = Object.keys(suspectsQuery.data)
-      .filter((id) => suspectDict[id].deck === 'adult')
-      .map((v) => getSuspectImageId(v, 'gb'));
-
-    return buildDailyTaNaCaraGames(
+  // Generator query
+  const generatorQuery = useQuery({
+    queryKey: [
+      'generate-daily',
+      'ta-na-cara',
       batchSize,
-      taNaCaraHistory,
-      gbSuspectIds,
-      testimoniesQuery.data,
-      sortedTestimoniesCounts,
-      suspectDict,
-    );
-  }, [
-    enabled,
-    suspectsQuery.dataUpdatedAt,
-    testimoniesQuery.dataUpdatedAt,
-    answersQuery.dataUpdatedAt,
-    taNaCaraHistory,
-    batchSize,
-  ]);
+      suspectsQuery.dataUpdatedAt,
+      testimoniesQuery.dataUpdatedAt,
+      answersQuery.dataUpdatedAt,
+    ],
+    queryFn: () => {
+      // Type narrowing to satisfy non-null assertion rules
+      if (!taNaCaraHistory || !suspectsQuery.data || !testimoniesQuery.data || !answersQuery.data) {
+        throw new Error('Critical: Prerequisite data is missing during query execution.');
+      }
 
+      const sortedTestimoniesCounts = countTestimonyAnswers(
+        testimoniesQuery.data,
+        answersQuery.data,
+        suspectsQuery.data,
+        TESTIMONY_SELECTION_MODE,
+      );
+
+      const suspectDict = suspectsQuery.data;
+      const gbSuspectIds = Object.keys(suspectDict)
+        .filter((id) => suspectDict[id]?.deck === 'adult')
+        .map((v) => getSuspectImageId(v, 'gb'));
+
+      return buildDailyTaNaCaraGames(
+        batchSize,
+        taNaCaraHistory,
+        gbSuspectIds,
+        testimoniesQuery.data,
+        sortedTestimoniesCounts,
+        suspectDict,
+      );
+    },
+    enabled: isReadyToGenerate,
+    staleTime: Number.POSITIVE_INFINITY,
+  });
+
+  // Map TanStack states to response type
   return {
-    entries,
-    isLoading: suspectsQuery.isLoading || testimoniesQuery.isLoading,
+    entries: generatorQuery.data?.entries ?? {},
+    isLoading:
+      !isReadyToGenerate || suspectsQuery.isLoading || testimoniesQuery.isLoading || answersQuery.isLoading,
+    isGenerating: generatorQuery.isFetching,
+    isError: generatorQuery.isError || !!generatorQuery.data?.errors?.length,
+    errors: generatorQuery.data?.errors ?? (generatorQuery.error ? [generatorQuery.error.message] : []),
+    isSuccess: generatorQuery.isSuccess && Object.keys(generatorQuery.data?.entries ?? {}).length > 0,
+    historyUpdate: generatorQuery.data?.historyUpdate ?? {
+      latestDate: taNaCaraHistory?.latestDate ?? '',
+      latestNumber: taNaCaraHistory?.latestNumber ?? 0,
+      used: [],
+      updateType: 'replace',
+    },
   };
 };
-
-const TESTIMONY_SIZE = 15;
-const SUSPECTS_SIZE = 7;
 
 export const buildDailyTaNaCaraGames = (
   batchSize: number,
@@ -111,86 +175,149 @@ export const buildDailyTaNaCaraGames = (
   sortedTestimoniesCounts: ReturnType<typeof countTestimonyAnswers>,
   suspectDict: Dictionary<SuspectCardData>,
 ) => {
-  console.count('Creating Tá Na Cara...');
-
-  let sortedTestimoniesCountsIndex = 0;
-
-  let lastDate = history.latestDate;
-  const entries: Dictionary<DailyTaNaCaraEntry> = {};
-  for (let i = 0; i < batchSize; i++) {
-    const id = getNextDay(lastDate);
-    lastDate = id;
-    const names: Dictionary<string> = {};
-
-    // Get testimony
-    const testimonies: TaNaCaraQuestion[] = [];
-    for (let j = 0; j < TESTIMONY_SIZE; j++) {
-      if (sortedTestimoniesCountsIndex >= sortedTestimoniesCounts.length) {
-        sortedTestimoniesCountsIndex = 0;
-      }
-      const testimonyCount = sortedTestimoniesCounts[sortedTestimoniesCountsIndex];
-      testimonies.push(buildTestimonyEntry(testimonyCount, testimoniesDict[testimonyCount.testimonyId]));
-      sortedTestimoniesCountsIndex += 1;
-    }
-
-    // Get 6 extra suspects that don't appear in any of the selected testimonies
-    const selectedSuspectsIds = makeBooleanDictionary(
-      testimonies.flatMap((testimony) => testimony.suspectsIds || []),
-      true,
-    );
-
-    // Gather the names of the selected suspects
-    Object.keys(selectedSuspectsIds).forEach((suspectId) => {
-      names[suspectId] = suspectDict[getSuspectTDRId(suspectId)].name.pt;
-    });
-
-    // Gather 6 suspects that don't appear in any of the selected testimonies but that also don't have more than 30 answers on any of the selected testimonies either
-    const extraSuspects: string[] = [];
-    for (const suspectId of shuffle(allSuspectsIds)) {
-      if (extraSuspects.length >= SUSPECTS_SIZE) {
-        break;
-      }
-      if (selectedSuspectsIds[suspectId]) {
-        continue;
-      }
-
-      let hasHighAnswers = false;
-      for (const testimony of testimonies) {
-        const testimonyId = testimony.testimonyId;
-        const suspectTDRId = getSuspectTDRId(suspectId);
-        const answersForTestimony = sortedTestimoniesCounts.find((t) => t.testimonyId === testimonyId);
-        if (answersForTestimony) {
-          const counts = answersForTestimony.counts;
-          const highAnswerGroups = ['5+', '32+'];
-          for (const group of highAnswerGroups) {
-            if (counts[group]?.includes(suspectTDRId)) {
-              hasHighAnswers = true;
-              break;
-            }
-          }
-        }
-        if (hasHighAnswers) {
-          break;
-        }
-      }
-
-      if (!hasHighAnswers) {
-        extraSuspects.push(suspectId);
-        names[suspectId] = suspectDict[getSuspectTDRId(suspectId)].name.pt;
-      }
-    }
-
-    entries[id] = {
-      id,
-      type: 'ta-na-cara',
-      number: history.latestNumber + i + 1,
-      suspectsIds: extraSuspects,
-      testimonies,
-      names,
-    };
+  if (debugDailyStore.state['ta-na-cara']) {
+    console.count('Creating Tá Na Cara...');
   }
 
-  return entries;
+  const errors: string[] = [];
+  const entries: Record<string, DailyTaNaCaraEntry> = {};
+
+  let latestDate = history.latestDate;
+  let latestNumber = history.latestNumber;
+
+  // Initialize the cumulative usage dictionary from history (id::count format)
+  const cumulativeUsedDict = getTaNaCaraUsedDictionary(history.used);
+
+  for (let i = 0; i < batchSize; i++) {
+    const id = getNextDay(latestDate);
+    latestDate = id;
+    latestNumber = history.latestNumber + i + 1;
+
+    try {
+      const names: Dictionary<string> = {};
+
+      // 1. Dynamically sort testimonies based on DAILY usage first, to prevent repeats
+      const dynamicAvailableTestimonies = orderBy(
+        sortedTestimoniesCounts,
+        [
+          (t) => cumulativeUsedDict[t.testimonyId] || 0, // Least used in Daily games first
+          (t) => t.totalAnswers, // Then fallback to the crowdsourced distribution logic
+        ],
+        ['asc', 'asc'],
+      );
+
+      const testimonies: TaNaCaraQuestion[] = [];
+      const selectedTestimonies = dynamicAvailableTestimonies.slice(0, TESTIMONY_SIZE);
+
+      if (selectedTestimonies.length < TESTIMONY_SIZE) {
+        throw new Error('Critical: Not enough valid testimonies to build the game.');
+      }
+
+      // Build the testimonies and track usage
+      for (const t of selectedTestimonies) {
+        const testimonyData = testimoniesDict[t.testimonyId];
+        if (!testimonyData) {
+          throw new Error(`Testimony data missing for ID: ${t.testimonyId}`);
+        }
+
+        const entry = buildTestimonyEntry(t, testimonyData);
+        testimonies.push(entry);
+
+        // Increment usage count for history
+        cumulativeUsedDict[t.testimonyId] = (cumulativeUsedDict[t.testimonyId] || 0) + 1;
+      }
+
+      // 2. Gather names for all suspects organically involved in the testimonies
+      const selectedSuspectsIds = makeBooleanDictionary(
+        testimonies.flatMap((testimony) => testimony.suspectsIds || []),
+        true,
+      );
+
+      Object.keys(selectedSuspectsIds).forEach((suspectId) => {
+        const tdrId = getSuspectTDRId(suspectId);
+        if (suspectDict[tdrId]) {
+          names[suspectId] = suspectDict[tdrId].name.pt;
+        }
+      });
+
+      // 3. Find extra suspects that don't appear in the selected testimonies
+      // Prioritize suspects that haven't been used often in daily games
+      const sortedSuspects = orderBy(
+        allSuspectsIds,
+        [(s) => cumulativeUsedDict[getSuspectTDRId(s)] || 0],
+        ['asc'],
+      );
+
+      const extraSuspects: string[] = [];
+
+      for (const suspectId of sortedSuspects) {
+        if (extraSuspects.length >= SUSPECTS_SIZE) {
+          break;
+        }
+        if (selectedSuspectsIds[suspectId]) {
+          continue;
+        }
+
+        let hasHighAnswers = false;
+        for (const testimony of testimonies) {
+          const testimonyId = testimony.testimonyId;
+          const suspectTDRId = getSuspectTDRId(suspectId);
+          const answersForTestimony = sortedTestimoniesCounts.find((t) => t.testimonyId === testimonyId);
+
+          if (answersForTestimony) {
+            const counts = answersForTestimony.counts;
+            const highAnswerGroups = ['5+', '32+'];
+            for (const group of highAnswerGroups) {
+              if (counts[group]?.includes(suspectTDRId)) {
+                hasHighAnswers = true;
+                break;
+              }
+            }
+          }
+          if (hasHighAnswers) {
+            break;
+          }
+        }
+
+        if (!hasHighAnswers) {
+          extraSuspects.push(suspectId);
+          const tdrId = getSuspectTDRId(suspectId);
+
+          if (suspectDict[tdrId]) {
+            names[suspectId] = suspectDict[tdrId].name.pt;
+          }
+
+          // Increment usage count for the extra suspect
+          cumulativeUsedDict[tdrId] = (cumulativeUsedDict[tdrId] || 0) + 1;
+        }
+      }
+
+      entries[id] = {
+        id,
+        type: 'ta-na-cara',
+        number: latestNumber,
+        suspectsIds: extraSuspects,
+        testimonies,
+        names,
+      };
+    } catch (error: unknown) {
+      if (debugDailyStore.state['ta-na-cara']) {
+        console.error(`Tá Na Cara Day ${id} Failed:`, error);
+      }
+      errors.push(`Day ${id}: ${(error as Error).message || 'Unknown generation error'}`);
+    }
+  }
+
+  return {
+    entries,
+    errors,
+    historyUpdate: {
+      latestDate,
+      latestNumber,
+      used: [],
+      updateType: 'replace' as const, // We must REPLACE because this is an accumulated dictionary, appending will bloat it
+    },
+  };
 };
 
 const buildTestimonyEntry = (
@@ -229,12 +356,9 @@ const getTaNaCaraUsedDictionary = (previousHistory: string[]) => {
     // Handle suspect ids
     if (entryId.startsWith('us')) {
       const suspectKey = getSuspectTDRId(entryId);
-
-      // TODO: REMOVE
       if (suspectKey.includes('undefined')) {
         return acc;
       }
-
       acc[suspectKey] = count || 0;
       return acc;
     }
@@ -242,28 +366,6 @@ const getTaNaCaraUsedDictionary = (previousHistory: string[]) => {
     acc[entryId] = count || 0;
     return acc;
   }, {});
-};
-
-export const gatherUsedTaNaCaraEntries = (previousHistory: string[], currentData: DailyTaNaCaraEntry[]) => {
-  const dict = getTaNaCaraUsedDictionary(previousHistory);
-
-  currentData.forEach((entry) => {
-    entry.testimonies.forEach((testimony) => {
-      if (dict[testimony.testimonyId] === undefined) {
-        dict[testimony.testimonyId] = 0;
-      }
-      dict[testimony.testimonyId] += 1;
-    });
-    entry.suspectsIds?.forEach((suspectId) => {
-      const suspectKey = getSuspectTDRId(suspectId);
-      if (dict[suspectKey] === undefined) {
-        dict[suspectKey] = 0;
-      }
-      dict[suspectKey] += 1;
-    });
-  });
-
-  return Object.entries(dict).map(([id, count]) => `${id}${SEPARATOR}${count}`);
 };
 
 const countTestimonyAnswers = (
@@ -296,7 +398,7 @@ const countTestimonyAnswers = (
     let totalAnswers = 0;
 
     Object.keys(suspects)
-      .filter((suspectId) => suspects[suspectId].deck === 'adult')
+      .filter((suspectId) => suspects[suspectId]?.deck === 'adult')
       .forEach((suspectId) => {
         const suspectAnswers = answersForSuspects[suspectId] || [];
         const suspectAnswersCount = countAnswersAbsoluteTotal(suspectAnswers);

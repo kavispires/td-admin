@@ -6,17 +6,19 @@ import { Store } from '@tanstack/store';
 type DebugDailyState = {
   'aqui-o': boolean;
   'arte-ruim': boolean;
-  picaco: boolean; // Renamed from 'artista'
-  alienado: boolean; // Renamed from 'comunicacao-alienigena'
-  estoquista: boolean; // Renamed from 'controle-de-estoque'
-  investigacao: boolean; // Renamed from 'espionagem'
+  picaco: boolean;
+  alienado: boolean;
+  investigacao: boolean;
+  mapeamento: boolean;
+  pirralhos: boolean;
+  vitral: boolean;
   filmaco: boolean;
   organiku: boolean;
   palavreado: boolean;
-  portais: boolean; // Renamed from 'portais-magicos'
+  portais: boolean;
   quartetos: boolean;
   'ta-na-cara': boolean;
-  conjuntos: boolean; // Renamed from 'teoria-de-conjuntos'
+  conjuntos: boolean;
 };
 
 // Type for identifying each daily game
@@ -32,15 +34,17 @@ const loadInitialState = (): DebugDailyState => {
     'arte-ruim': false,
     picaco: false,
     alienado: false,
-    estoquista: false,
     investigacao: false,
     filmaco: false,
     organiku: false,
     palavreado: false,
     portais: false,
+    mapeamento: false,
+    pirralhos: false,
     quartetos: false,
     'ta-na-cara': false,
     conjuntos: false,
+    vitral: false,
   };
 
   try {
@@ -63,7 +67,8 @@ debugDailyStore.subscribe(() => {
       'arte-ruim': debugDailyStore.state['arte-ruim'],
       picaco: debugDailyStore.state.picaco,
       alienado: debugDailyStore.state.alienado,
-      estoquista: debugDailyStore.state.estoquista,
+      mapeamento: debugDailyStore.state.mapeamento,
+      pirralhos: debugDailyStore.state.pirralhos,
       investigacao: debugDailyStore.state.investigacao,
       filmaco: debugDailyStore.state.filmaco,
       organiku: debugDailyStore.state.organiku,
@@ -72,6 +77,7 @@ debugDailyStore.subscribe(() => {
       quartetos: debugDailyStore.state.quartetos,
       'ta-na-cara': debugDailyStore.state['ta-na-cara'],
       conjuntos: debugDailyStore.state.conjuntos,
+      vitral: debugDailyStore.state.vitral,
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
   } catch {
@@ -98,7 +104,8 @@ export const resetAllDebugModes = () => {
     'arte-ruim': false,
     picaco: false,
     alienado: false,
-    estoquista: false,
+    mapeamento: false,
+    pirralhos: false,
     investigacao: false,
     filmaco: false,
     organiku: false,
@@ -107,6 +114,7 @@ export const resetAllDebugModes = () => {
     quartetos: false,
     'ta-na-cara': false,
     conjuntos: false,
+    vitral: false,
   }));
 };
 

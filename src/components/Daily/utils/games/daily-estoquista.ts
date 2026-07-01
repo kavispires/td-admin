@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useMemo } from 'react';
 import { DAILY_GAMES_KEYS } from '../constants';
@@ -14,6 +15,15 @@ export type DailyEstoquistaEntry = {
   orders: string[];
 };
 
+/**
+ *
+ * @param enabled
+ * @param _queryLanguage
+ * @param batchSize
+ * @param dailyHistory
+ * @returns
+ * @deprecated Game will be generated in the UI
+ */
 export const useDailyEstoquistaGames = (
   enabled: boolean,
   _queryLanguage: Language,
