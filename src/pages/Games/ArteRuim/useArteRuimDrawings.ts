@@ -149,30 +149,44 @@ export function useDrawingsResourceData(enabled: boolean, language: string) {
   }, [firestoreDrawingsQueries, isDrawingsSuccess, tdrDrawingsQuery.data, tdrDrawingsQuery.isSuccess]);
 
   const drawingsPerArtist = useMemo(() => {
-    return Object.values(drawings).reduce((acc: Record<string, DrawingPerArtist>, drawing) => {
+    const artistTimestamps: Record<string, number[]> = {};
+
+    // Collect all timestamps per artist
+    Object.values(drawings).forEach((drawing) => {
       drawing.drawings.forEach((drawingEntry) => {
         const artistId = drawingEntry.artistId;
-        if (acc[artistId] === undefined) {
-          acc[artistId] = {
-            artistId,
-            drawingsCount: 1,
-            firstDrawingAt: drawingEntry.createdAt,
-            lastDrawingAt: drawingEntry.createdAt,
-          };
-        } else {
-          acc[artistId].drawingsCount += 1;
-
-          if (drawingEntry.createdAt < acc[artistId].firstDrawingAt) {
-            acc[artistId].firstDrawingAt = drawingEntry.createdAt;
-          }
-          if (drawingEntry.createdAt > acc[artistId].lastDrawingAt) {
-            acc[artistId].lastDrawingAt = drawingEntry.createdAt;
-          }
+        if (!artistTimestamps[artistId]) {
+          artistTimestamps[artistId] = [];
         }
+        artistTimestamps[artistId].push(drawingEntry.createdAt);
       });
+    });
 
-      return acc;
-    }, {});
+    // Calculate stats for each artist
+    return Object.entries(artistTimestamps).reduce(
+      (acc: Record<string, DrawingPerArtist>, [artistId, timestamps]) => {
+        // Get unique timestamps and sort them
+        const uniqueTimestamps = [...new Set(timestamps)].sort((a, b) => a - b);
+        const firstDrawingAt = uniqueTimestamps[0];
+        const lastDrawingAt = uniqueTimestamps[uniqueTimestamps.length - 1];
+        const secondToLastDrawingAt =
+          uniqueTimestamps.length > 1 ? uniqueTimestamps[uniqueTimestamps.length - 2] : undefined;
+
+        acc[artistId] = {
+          artistId,
+          drawingsCount: timestamps.length,
+          firstDrawingAt,
+          lastDrawingAt,
+          daysBetweenLastTwoDrawings: secondToLastDrawingAt
+            ? Math.floor((lastDrawingAt - secondToLastDrawingAt) / (1000 * 60 * 60 * 24))
+            : undefined,
+          daysSinceLastDraw: Math.floor((Date.now() - lastDrawingAt) / (1000 * 60 * 60 * 24)),
+        };
+
+        return acc;
+      },
+      {},
+    );
   }, [drawings]);
 
   return {
@@ -191,6 +205,14 @@ export type DrawingPerArtist = {
   drawingsCount: number;
   firstDrawingAt: DateMilliseconds;
   lastDrawingAt: DateMilliseconds;
+  /**
+   * Number of days between the last and second-to-last drawing
+   */
+  daysBetweenLastTwoDrawings?: number;
+  /**
+   * Number of days since the last drawing
+   */
+  daysSinceLastDraw: number;
 };
 
 export const ARTIST_ID_ALIAS: Record<string, string> = {

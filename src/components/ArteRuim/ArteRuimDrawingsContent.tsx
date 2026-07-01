@@ -35,17 +35,24 @@ function ByArtistContent(query: ArteRuimDrawingsContentProps) {
       dataIndex: 'artistId',
       key: 'artistId',
       render: (artistId: string) => <IdField value={artistId} />,
+      sorter: (a, b) => a.artistId.localeCompare(b.artistId),
     },
     {
       title: 'Alias',
       dataIndex: 'artistId',
       key: 'artistId',
       render: (artistId: string) => ARTIST_ID_ALIAS?.[artistId.substring(0, 5)] ?? '',
+      sorter: (a, b) => {
+        const aliasA = ARTIST_ID_ALIAS?.[a.artistId.substring(0, 5)] ?? '';
+        const aliasB = ARTIST_ID_ALIAS?.[b.artistId.substring(0, 5)] ?? '';
+        return aliasA.localeCompare(aliasB);
+      },
     },
     {
       title: 'Drawings',
       dataIndex: 'drawingsCount',
       key: 'drawingsCount',
+      sorter: (a, b) => a.drawingsCount - b.drawingsCount,
     },
     {
       title: 'First Drawing',
@@ -56,19 +63,43 @@ function ByArtistContent(query: ArteRuimDrawingsContentProps) {
           {moment(date).format('MM/DD/YYYY HH:mm:ss')} <IdField value={date} />
         </span>
       ),
+      sorter: (a, b) => a.firstDrawingAt - b.firstDrawingAt,
     },
     {
       title: 'Last Drawing',
       dataIndex: 'lastDrawingAt',
       key: 'lastDrawingAt',
       render: (date: string) => moment(date).format('MM/DD/YYYY HH:mm:ss'),
+      sorter: (a, b) => a.lastDrawingAt - b.lastDrawingAt,
+    },
+    {
+      title: 'Days Between Entries',
+      dataIndex: 'daysBetweenLastTwoDrawings',
+      key: 'daysBetweenLastTwoDrawings',
+      render: (days: number | undefined) => (days !== undefined ? days : 'N/A'),
+      sorter: (a, b) => {
+        const daysA = a.daysBetweenLastTwoDrawings ?? -1;
+        const daysB = b.daysBetweenLastTwoDrawings ?? -1;
+        return daysA - daysB;
+      },
+    },
+    {
+      title: 'Days Since Last Draw',
+      dataIndex: 'daysSinceLastDraw',
+      key: 'daysSinceLastDraw',
+      render: (days: number) => (days !== undefined ? days : 'N/A'),
+      sorter: (a, b) => a.daysSinceLastDraw - b.daysSinceLastDraw,
     },
   ];
 
   return (
     <div>
       <h1>Drawings Per Artist</h1>
-      <Table columns={columns} dataSource={sortedRows} rowKey="artistId" />
+      <Table
+        columns={columns}
+        dataSource={sortedRows}
+        rowKey="artistId"
+      />
     </div>
   );
 }
@@ -84,11 +115,17 @@ function ByDrawingContent(query: ArteRuimDrawingsContentProps) {
       dataIndex: 'id',
       key: 'id',
       render: (cardId: string) => <IdField value={cardId} />,
+      sorter: (a, b) => {
+        const numA = Number(a.id.split('-')[1]);
+        const numB = Number(b.id.split('-')[1]);
+        return numA - numB;
+      },
     },
     {
       title: 'Text',
       dataIndex: 'text',
       key: 'text',
+      sorter: (a, b) => a.text.localeCompare(b.text),
     },
     {
       title: 'Drawings',
@@ -98,19 +135,29 @@ function ByDrawingContent(query: ArteRuimDrawingsContentProps) {
         <Flex gap={8}>
           {drawings.map((drawing) => (
             <div key={drawing.id}>
-              <CanvasSVG className="canvas" drawing={drawing.drawing} key={drawing.id} width={50} />
+              <CanvasSVG
+                className="canvas"
+                drawing={drawing.drawing}
+                key={drawing.id}
+                width={50}
+              />
               <pre>{drawing.artistId.substring(0, 5)}</pre>
             </div>
           ))}
         </Flex>
       ),
+      sorter: (a, b) => a.drawings.length - b.drawings.length,
     },
   ];
 
   return (
     <div>
       <h1>Drawings Per Card</h1>
-      <Table columns={columns} dataSource={sortedRows} rowKey="cardId" />
+      <Table
+        columns={columns}
+        dataSource={sortedRows}
+        rowKey="cardId"
+      />
     </div>
   );
 }
