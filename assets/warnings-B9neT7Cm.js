@@ -1,1 +1,0 @@
-import{h as e,m as t}from"./Header-CH5elSq1.js";var n=new t({}),r=(e,t)=>{console.log(`Adding warning:`,{key:e,message:t}),n.setState(n=>({...n,[e]:t}))},i=()=>{n.setState(()=>({}))},a=()=>e(n,e=>e);export{i as n,a as r,r as t};

@@ -1,0 +1,1 @@
+import{Ei as e,bi as t,v as n}from"./Header-DSYECK3p.js";var r=e(t());function i(e,t){let[i,{width:a}]=n(),{gap:o=32,minWidth:s=120,maxWidth:c=300,margin:l=0}=t??{};return[(0,r.useMemo)(()=>{let t=Math.min(Math.max(Math.floor((a-l)/e)-o,s),c);return Number.isNaN(t)?s:t},[a,e,o,s,c,l]),i]}export{i as t};
