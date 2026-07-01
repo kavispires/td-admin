@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { App } from 'antd';
 import { doc, setDoc } from 'firebase/firestore';
-import { cloneDeep } from 'lodash';
+import { cloneDeep, intersection } from 'lodash';
 import { useState } from 'react';
 import { firestore } from 'services/firebase';
 import { removeDuplicates } from 'utils';
@@ -51,21 +51,19 @@ export function useSaveDailySetup(queryLanguage: Language) {
           reset: previousHistory[key]?.reset ?? 0,
         };
 
+        const previousUsed = JSON.parse(previousHistory[key]?.used ?? '[]');
         if (update.updateType === 'add') {
-          const previousUsed = JSON.parse(previousHistory[key]?.used ?? '[]');
           const newUsed = removeDuplicates([...previousUsed, ...update.used])
             .flat()
             .sort();
           newHistory[key].used = JSON.stringify(newUsed);
         } else if (update.updateType === 'replace') {
-          newHistory[key].used = JSON.stringify(update.used);
+          // Compare the current used and only keep items in the new used that do not exist in the previous used using lodash
+          const newUsed = intersection(update.used, previousUsed).sort();
+          newHistory[key].used = JSON.stringify(newUsed);
           newHistory[key].reset = (previousHistory[key]?.reset ?? 0) + 1;
         }
       });
-
-      // Delete legacy history entries
-      delete newHistory[DAILY_GAMES_KEYS.CONEXOES];
-      delete newHistory[DAILY_GAMES_KEYS.ESTOQUISTA];
 
       saves.push(setDoc(historyDocRec, newHistory));
 

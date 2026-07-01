@@ -4,11 +4,9 @@ import { Alert, App, Button, Flex, Table, Typography } from 'antd';
 import { FilterSelect } from 'components/Common';
 import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
 import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { isEmpty } from 'lodash';
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { dailyColumns } from './DailyColumns';
 import { type DailyEntry, useLoadDailySetup, useSaveDailySetup } from './hooks';
-import { clearWarnings, useGetWarnings } from './utils/warnings';
 
 export const DEFAULT_LANGUAGE: Language = 'pt';
 
@@ -20,7 +18,6 @@ export function DailyDataPopulation() {
 
   const onRerun = () => {
     queryClient.invalidateQueries({ queryKey: ['generate-daily'] });
-    clearWarnings();
   };
 
   return (
@@ -80,15 +77,6 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
   const queryLanguage = language as Language;
   const dataLoad = useLoadDailySetup(Boolean(queryLanguage), queryLanguage, batchSize);
 
-  const warnings = useGetWarnings();
-  const warningsList = useMemo(() => Object.values(warnings), [warnings]);
-
-  useEffect(() => {
-    if (!isEmpty(warnings)) {
-      console.log(warnings);
-    }
-  }, [warnings]);
-
   const { save, isPending } = useSaveDailySetup(queryLanguage ?? 'pt');
 
   return (
@@ -104,15 +92,20 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
         <Typography.Title level={4}>Total: {dataLoad.entries.length}</Typography.Title>
 
         <Button
-          disabled={(dataLoad.entries ?? []).length === 0 || warningsList.length > 0}
+          disabled={(dataLoad.entries ?? []).length === 0}
           icon={<SaveOutlined />}
           loading={isPending}
           onClick={() => {
+            // biome-ignore lint/suspicious/noConsole: on purpose
             console.log('Saving data...');
-            console.log(dataLoad);
+            // biome-ignore lint/suspicious/noConsole: on purpose
+            console.log('Entries to save:', dataLoad.entries);
+            // biome-ignore lint/suspicious/noConsole: on purpose
+            console.log('History update:', dataLoad.historyUpdates);
 
             const undefinedIssues = verifyUndefinedValues(dataLoad.entries ?? []);
             if (undefinedIssues.length > 0) {
+              // biome-ignore lint/suspicious/noConsole: on purpose
               console.error('Found undefined values:', undefinedIssues);
               notification.error({
                 message: 'Undefined Values Found',
@@ -130,15 +123,14 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
         </Button>
       </Flex>
 
-      {warningsList.map((warning) => (
+      {dataLoad.isMissingEntries && (
         <Alert
           banner
-          key={warning}
-          showIcon
-          title={warning}
+          title={`Warning: ${dataLoad.missingEntries.length} entries are missing or incomplete. Check console for details.`}
           type="warning"
         />
-      ))}
+      )}
+
       {dataLoad.errors.map((error) => (
         <Alert
           banner

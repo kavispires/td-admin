@@ -222,6 +222,7 @@ export const buildDailyAlienadoGames = (
 
   const errors: string[] = [];
   const entries: Record<string, DailyAlienadoEntry> = {};
+  let updateType: 'add' | 'replace' = 'add';
   const used: string[] = [];
 
   let latestDate = history.latestDate;
@@ -265,18 +266,15 @@ export const buildDailyAlienadoGames = (
     if (debugDailyStore.state.alienado) {
       console.log(`🔆 Generating this batch took ${tries} tries`);
     }
-
     let finalGames = [...freshGames];
 
     // FALLBACK 1: Recycle historical games using LRU if insufficient fresh games
     if (finalGames.length < batchSize) {
       errors.push('Not enough fresh valid Alienado games found. Recycling historical data.');
-
-      // Sort by Least Recently Used
-      usedGames.sort((a, b) => history.used.indexOf(a.setId) - history.used.indexOf(b.setId));
+      updateType = 'replace';
 
       const needed = batchSize - finalGames.length;
-      finalGames = [...finalGames, ...usedGames.slice(0, needed)];
+      finalGames = [...finalGames, ...shuffle(usedGames).slice(0, needed)];
     }
 
     // FALLBACK 2: Repeat games if database is too small
@@ -332,7 +330,7 @@ export const buildDailyAlienadoGames = (
       latestDate,
       latestNumber,
       used,
-      updateType: 'add' as const,
+      updateType,
     },
   };
 };

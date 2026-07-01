@@ -117,6 +117,8 @@ export const buildDailyAquiOGames = (
 
   const errors: string[] = [];
   const entries: Record<string, DailyAquiOEntry> = {};
+
+  let updateType: 'add' | 'replace' = 'add';
   const used: string[] = [];
 
   let latestDate = history.latestDate;
@@ -142,30 +144,21 @@ export const buildDailyAquiOGames = (
       throw new Error('Critical: No complete Aqui Ó sets (>= 20 items) found.');
     }
 
-    // Build queue system with fresh sets and LRU fallback
     const freshSets = completeSets.filter((setEntry) => !history.used.includes(setEntry.id));
     const setQueue = shuffle(freshSets);
-
-    const usedSetsLRU = completeSets
-      .filter((s) => history.used.includes(s.id))
-      .sort((a, b) => history.used.indexOf(a.id) - history.used.indexOf(b.id));
-
-    const fallbackPool = usedSetsLRU.length > 0 ? usedSetsLRU : shuffle(completeSets);
+    const fallbackPool = shuffle(completeSets);
 
     let queueIndex = 0;
     let warningLogged = false;
 
-    // Safely fetch the next set from queue or fallback pool
     const getNextSafeSet = (): DailyDiscSet => {
       if (queueIndex < setQueue.length) {
         return setQueue[queueIndex++];
       }
 
       if (!warningLogged) {
-        if (debugDailyStore.state['aqui-o']) {
-          console.log('🔆 Not enough fresh aqui-o sets left, recycling...');
-        }
         errors.push('Not enough fresh aqui-o sets left. Recycling historical data.');
+        updateType = 'replace';
         warningLogged = true;
       }
 
@@ -237,7 +230,7 @@ export const buildDailyAquiOGames = (
       latestDate,
       latestNumber,
       used,
-      updateType: 'add' as const,
+      updateType,
     },
   };
 };

@@ -1,5 +1,5 @@
 import { useTDResource } from 'hooks/useTDResource';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import type { ItemData } from 'types';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
@@ -21,9 +21,7 @@ import { type DailyVitralEntry, useDailyVitralGames } from '../utils/games/daily
 import type { DateKey, UseDailyGeneratorResponse } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
-export type DailyEntry = {
-  id: DateKey;
-  // Games
+type GamesEntries = {
   'arte-ruim': DailyArteRuimEntry;
   'aqui-o': DailyAquiOEntry;
   alienado: DailyAlienadoEntry;
@@ -40,12 +38,17 @@ export type DailyEntry = {
   // Contributions
   picaco: DailyPicacoEntry;
   'ta-na-cara': DailyTaNaCaraEntry;
-  // Additional info
-  dictionary: Dictionary<string>;
 };
 
+export type DailyEntry = {
+  id: DateKey;
+  // Games
+  // Additional info
+  dictionary: Dictionary<string>;
+} & GamesEntries;
+
 // Extracted the history payload type from our standard response
-type HistoryPayload = UseDailyGeneratorResponse<any>['historyUpdate'];
+type HistoryPayload = UseDailyGeneratorResponse<GamesEntries[keyof GamesEntries]>['historyUpdate'];
 
 export type DailyHistoryUpdates = {
   'arte-ruim': HistoryPayload;
@@ -73,6 +76,14 @@ export type UseLoadDailySetupResponse = {
   errors: string[];
   entries: DailyEntry[];
   historyUpdates: DailyHistoryUpdates;
+  /**
+   * A boolean indicating whether there are any missing entries in the generated data.
+   */
+  isMissingEntries: boolean;
+  /**
+   * An array of IDs of the generated entries that are missing or incomplete.
+   */
+  missingEntries: string[];
 };
 
 /**
@@ -86,10 +97,6 @@ export function useLoadDailySetup(
   // STEP 1: HISTORY
   const source = LANGUAGE_PREFIX.DAILY[queryLanguage ?? 'pt'];
   const historyQuery = useDailyHistoryQuery(source, { enabled });
-
-  // useEffect(() => {
-  //   // clearWarnings();
-  // }, [batchSize]);
 
   const enableBuilders = enabled && historyQuery.isSuccess;
 
@@ -143,6 +150,7 @@ export function useLoadDailySetup(
       return [];
     }
 
+    // biome-ignore lint/suspicious/noConsole: on purpose
     console.count('Bundling entries...');
 
     return dates.map((id) => {
@@ -325,6 +333,39 @@ export function useLoadDailySetup(
     mapeamento.isError ||
     pirralhos.isError;
 
+  // STEP N+3: Check for missing entries
+  const { isMissingEntries, missingEntries } = useMemo(() => {
+    const missing: string[] = [];
+
+    entries.forEach((entry) => {
+      if (
+        !entry.id ||
+        !entry['arte-ruim'] ||
+        !entry['aqui-o'] ||
+        !entry.alienado ||
+        !entry.investigacao ||
+        !entry.filmaco ||
+        !entry.organiku ||
+        !entry.palavreado ||
+        !entry.portais ||
+        !entry.quartetos ||
+        !entry.conjuntos ||
+        !entry.vitral ||
+        !entry.mapeamento ||
+        !entry.pirralhos ||
+        !entry.picaco ||
+        !entry['ta-na-cara']
+      ) {
+        missing.push(entry.id);
+      }
+    });
+
+    return {
+      isMissingEntries: missing.length > 0,
+      missingEntries: missing,
+    };
+  }, [entries]);
+
   return {
     isLoading,
     isGenerating,
@@ -333,6 +374,8 @@ export function useLoadDailySetup(
     errors,
     entries,
     historyUpdates,
+    isMissingEntries,
+    missingEntries,
   };
 }
 
