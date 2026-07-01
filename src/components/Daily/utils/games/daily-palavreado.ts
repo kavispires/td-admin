@@ -1,7 +1,7 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
 import { useTDResource } from 'hooks/useTDResource';
-import { difference, flatMap, intersection, shuffle, sortBy, uniq } from 'lodash';
+import { difference, flatMap, shuffle, sortBy, uniq } from 'lodash';
 import { useMemo } from 'react';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';
@@ -90,6 +90,10 @@ export const buildDailyPalavreadoGames = (
   return entries;
 };
 
+// ===========================
+// PALAVREADO GENERATOR
+// ===========================
+
 /**
  * Generates a Palavreado game.
  *
@@ -106,30 +110,52 @@ export const generatePalavreadoGame = (
   size = 4,
   fixedKeyword?: string,
 ) => {
-  let shuffledWords = shuffle(difference(words, newUsedWords, previouslyUsedWords));
+  // 1. History Recycling Logic
+  let availableKeywords = difference(words, newUsedWords, previouslyUsedWords);
 
-  // Select a random word from the list and call it 'keyword'
-  const keyword = fixedKeyword ? fixedKeyword : (shuffledWords.pop() ?? '');
+  if (availableKeywords.length === 0) {
+    console.warn('Keyword pool exhausted. Recycling historical words.');
+    // Fall back to just avoiding words used in the current batch
+    availableKeywords = difference(words, newUsedWords);
+  }
+
+  let shuffledKeywords = shuffle(availableKeywords);
+
   if (fixedKeyword) {
-    shuffledWords = difference(shuffledWords, [fixedKeyword]);
+    shuffledKeywords = [fixedKeyword, ...difference(shuffledKeywords, [fixedKeyword])];
   }
 
-  const selectedWords: string[] = [];
-  for (let i = 0; i < size; i++) {
-    const newWord = getNewWord(words, keyword, selectedWords, i);
-    selectedWords.push(newWord);
+  // 2. Backtracking Loop
+  for (const keyword of shuffledKeywords) {
+    const selectedWords: string[] = [];
+    let isValidGrid = true;
+
+    for (let i = 0; i < size; i++) {
+      const newWord = getNewWord(words, keyword, selectedWords, i);
+
+      if (!newWord) {
+        isValidGrid = false; // Dead end reached
+        break; // Break the inner loop, try the next keyword
+      }
+
+      selectedWords.push(newWord);
+    }
+
+    // If we successfully found a word for every row, lock it in!
+    if (isValidGrid) {
+      newUsedWords.push(keyword, ...selectedWords);
+
+      return {
+        keyword,
+        words: selectedWords,
+        letters: shuffleLetters(selectedWords, size),
+        scoringWords: getScoringWords(selectedWords, words, keyword, size),
+      };
+    }
   }
 
-  newUsedWords.push(keyword, ...selectedWords);
-
-  const scoringWords = getScoringWords(selectedWords, words, keyword, size);
-
-  return {
-    keyword,
-    words: selectedWords,
-    letters: shuffleLetters(selectedWords, keyword.length),
-    scoringWords,
-  };
+  // 3. Absolute Fallback
+  throw new Error('Failed to generate a valid game grid with the available dictionary.');
 };
 
 /**
@@ -141,36 +167,51 @@ export const generatePalavreadoGame = (
  * @param index - The index to compare against in each word.
  * @returns The new word selected based on the keyword, selected words, and index.
  */
-const getNewWord = (words: string[], keyword: string, selectedWords: string[], index: number) => {
+const getNewWord = (
+  words: string[],
+  keyword: string,
+  selectedWords: string[],
+  index: number,
+): string | undefined => {
+  // Explicitly mark return type
+  const targetChar = keyword[index];
+
+  // Find all words that match the required letter at the required index
+  const possibleWords = words.filter((word) => word[index] === targetChar && !selectedWords.includes(word));
+
+  if (possibleWords.length === 0) {
+    return undefined; // Let the parent function know this path failed
+  }
+
   const usedLetters = uniq([...flatMap(selectedWords.map((word) => word.split(''))), ...keyword.split('')]);
 
-  const shortList = shuffle(
-    words.filter((word) => word[index] === keyword[index] && !selectedWords.includes(word)),
-  );
-  const rankedList = sortBy(shortList, (word) => {
-    const matchCount = intersection(word.split(''), usedLetters).length;
+  const shortList = shuffle(possibleWords);
 
+  // Only sort if you really want to bias towards reusing letters.
+  // Otherwise, just returning shortList[0] is significantly faster.
+  const rankedList = sortBy(shortList, (word) => {
+    // Optimization: avoid split('') by iterating over the string directly
+    let matchCount = 0;
+    for (const char of word) {
+      if (usedLetters.includes(char)) matchCount++;
+    }
     return matchCount;
   });
 
+  // Since we checked possibleWords.length > 0 earlier, this is safe
   return rankedList[0];
 };
 
 const shuffleLetters = (selectedWords: string[], size: number) => {
   const letters = flatMap(selectedWords.map((word) => word.split('')));
-  const preservedIndexes = size === 4 ? [0, 5, 10, 15] : [0, 6, 12, 18, 24];
+  // Create preserved indexes dynamically: [0, 5, 10, 15] or [0, 6, 12, 18, 24]
+  const preservedIndexes = Array.from({ length: size }, (_, i) => i * size + i);
+
   const otherLetters = shuffle(letters.filter((_, index) => !preservedIndexes.includes(index)));
 
-  const shuffledLetters: string[] = [];
-  for (let i = 0; i < letters.length; i++) {
-    if (preservedIndexes.includes(i)) {
-      shuffledLetters.push(letters[i]);
-    } else {
-      shuffledLetters.push(otherLetters.shift() ?? '');
-    }
-  }
-
-  return shuffledLetters;
+  return letters.map((letter, index) =>
+    preservedIndexes.includes(index) ? letter : (otherLetters.shift() ?? ''),
+  );
 };
 
 const getScoringWords = (selectedWords: string[], words: string[], keyword: string, size: number) => {
@@ -223,6 +264,10 @@ const getScoringWords = (selectedWords: string[], words: string[], keyword: stri
 
   return Array.from(scoringWordsSet);
 };
+
+// ===========================
+// STATS SUMMARIZER
+// ===========================
 
 const _usePalavreadoStats = () => {
   const palavreado100Query = useTDResource<Dictionary<DailyPalavreadoEntry>>('daily-archive-palavreado-100');
@@ -316,4 +361,100 @@ const _usePalavreadoStats = () => {
       topWords,
     };
   }, [data]);
+};
+
+// ===========================
+// PALAVREADO SOLVER
+// ===========================
+
+export type GridCoordinate = {
+  index: number;
+  row: number;
+  col: number;
+};
+
+export type SwapAction = {
+  from: GridCoordinate;
+  to: GridCoordinate;
+};
+
+/**
+ * Calculates the optimal minimum sequence of swaps to solve a Palavreado game.
+ * * @param targetWords The final correct words (e.g., ['TENT', 'READ', 'SASH', 'TART'])
+ * @param currentLetters The current 1D array of letters in the grid
+ * @param size The grid size (4 or 5)
+ * @returns An array of SwapActions representing the exact moves to win
+ */
+export const calculateOptimalSwaps = (
+  targetWords: string[],
+  currentLetters: string[],
+  size: number,
+): SwapAction[] => {
+  // 1. Flatten the target words into a 1D target array
+  const target = targetWords.join('').split('');
+
+  // Clone the current letters so we can mutate them during simulation
+  const current = [...currentLetters];
+
+  // Calculate the fixed diagonal indices (e.g., [0, 5, 10, 15] for size 4)
+  const fixedIndexes = Array.from({ length: size }, (_, i) => i * size + i);
+
+  const swaps: SwapAction[] = [];
+
+  // Helper to format the 1D index into 2D UI coordinates
+  const getCoords = (index: number): GridCoordinate => ({
+    index,
+    row: Math.floor(index / size),
+    col: index % size,
+  });
+
+  while (true) {
+    // 2. Find the first letter that is NOT in its correct position (and is not fixed)
+    const i = current.findIndex((char, idx) => char !== target[idx] && !fixedIndexes.includes(idx));
+
+    // If no incorrect letters are found, the puzzle is solved!
+    if (i === -1) break;
+
+    const charNeededHere = target[i];
+    const charCurrentlyHere = current[i];
+
+    // 3. PRIORITY 1: Look for a "Perfect Swap" (2-cycle)
+    // We want a position 'j' that currently has the character we need,
+    // AND it specifically needs the character we are trying to get rid of.
+    let bestJ = current.findIndex(
+      (char, idx) =>
+        idx !== i &&
+        !fixedIndexes.includes(idx) &&
+        char === charNeededHere &&
+        target[idx] === charCurrentlyHere,
+    );
+
+    // 4. PRIORITY 2: Any valid swap
+    // If no perfect swap exists, just find ANY movable position that has the
+    // character we need and isn't already in its correct final spot.
+    if (bestJ === -1) {
+      bestJ = current.findIndex(
+        (char, idx) =>
+          idx !== i && !fixedIndexes.includes(idx) && char === charNeededHere && char !== target[idx],
+      );
+    }
+
+    // Safety check (should only happen if the input data is malformed)
+    if (bestJ === -1) {
+      console.warn(`Palavreado Solver: Could not find required letter '${charNeededHere}'`);
+      break;
+    }
+
+    // 5. Execute the swap in our simulated array
+    current[i] = current[bestJ];
+    current[bestJ] = charCurrentlyHere;
+
+    // 6. Record the swap with helpful UI coordinates
+    swaps.push({
+      from: getCoords(i),
+      to: getCoords(bestJ),
+    });
+  }
+
+  return swaps;
 };

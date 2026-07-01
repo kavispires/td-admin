@@ -302,58 +302,99 @@ export const buildDailyQuartetosGamesRandom = (
 ) => {
   console.count('Creating Quartetos...');
 
-  // Filter out any incomplete sets and used sets
-  const eligibleSets = shuffle(
-    Object.values(quartetsSets).filter(
-      (setEntry) => setEntry.itemsIds.length >= 4 && !history.used.includes(setEntry.id) && !setEntry.flagged,
-    ),
+  // 1. Get all valid sets, regardless of history
+  const allValidSets = Object.values(quartetsSets).filter(
+    (setEntry) => setEntry.itemsIds.length >= 4 && !setEntry.flagged,
   );
 
+  // 2. Filter out used sets for our initial fresh pool
+  let eligibleSets = shuffle(allValidSets.filter((setEntry) => !history.used.includes(setEntry.id)));
+
+  // 3. HISTORY RECYCLING: Guarantee we have enough sets for the batch
+  // A batch needs exactly 3 curated sets per day, and potentially a 4th fallback.
+  const requiredSets = batchSize * 4;
+  if (eligibleSets.length < requiredSets) {
+    addWarning('quartetos', 'Not enough fresh sets. Recycling historical data.');
+    const needed = requiredSets - eligibleSets.length;
+
+    // Grab historical sets, prioritizing ones not already in our eligible pool
+    const recycledPool = shuffle(
+      allValidSets.filter((setEntry) => !eligibleSets.some((es) => es.id === setEntry.id)),
+    );
+
+    // If the database is extremely small, allow duplicates to fulfill the requirement
+    while (eligibleSets.length + recycledPool.length < requiredSets) {
+      recycledPool.push(...shuffle(allValidSets));
+    }
+
+    eligibleSets = [...eligibleSets, ...recycledPool.slice(0, needed)];
+  }
+
+  // 4. Order them to avoid intersection, and treat it as a consumable "deck"
   let lastDate = history.latestDate;
   const entries: Dictionary<DailyQuartetosEntry> = {};
+  const availableCuratedSets = orderSetsWithoutIntersection(eligibleSets, 5);
 
-  const orderedEligibleSets = orderSetsWithoutIntersection(eligibleSets, 5);
-
-  // Keep track of items that are ineligible for selection
   Array.from({ length: batchSize }).forEach((_, i) => {
-    // for (let i = 0; i < batchSize; i++) {
-    // The game always consists of 3 quartets sets and 1 random group entry
     const sets: QuartetosSet[] = [];
     const takenItemsIds: BooleanDictionary = {};
 
-    // Add 3 quartets to the sets
+    // 5. Add 3 curated quartets by shifting them off the top of our deck
     for (let j = 0; j < 3; j++) {
-      const set = orderedEligibleSets[i * 3 + j];
+      const set = availableCuratedSets.shift();
       if (set) {
+        const selectedItems = sampleSize(set.itemsIds, 4);
         sets.push({
           id: set.id,
           title: set.title,
-          itemsIds: sampleSize(set.itemsIds, 4),
+          itemsIds: selectedItems,
           level: set.level ?? 1,
         });
-        set.itemsIds.forEach((id) => {
+        selectedItems.forEach((id) => {
           takenItemsIds[id] = true;
         });
       }
     }
 
-    // Find a item group that doesn't have any colliding items
+    // 6. WILDCARD SEARCH: Strict constraints applied
     const availableGroups = shuffle(Object.values(itemsGroups)).filter((group) => {
-      return group.itemsIds.length >= 6 && !group.itemsIds.some((itemId) => takenItemsIds[itemId]);
+      // Must have >= 10 items AND 0% collision with the current board
+      return group.itemsIds.length >= 10 && !group.itemsIds.some((itemId) => takenItemsIds[itemId]);
     });
 
     if (availableGroups.length > 0) {
-      const randomGroup = sampleSize(availableGroups, 1)[0];
+      // Success! We found a safe wildcard group.
+      const randomGroup = availableGroups[0];
       sets.push({
         id: randomGroup.id,
         title: `${capitalize(randomGroup.name[queryLanguage])}*`,
         itemsIds: sampleSize(randomGroup.itemsIds, 4),
         level: 1,
       });
+    } else {
+      // 7. SAFE FALLBACK: If wildcard fails, pull a 4th curated set
+      console.warn(`No safe wildcard found for day ${i}. Falling back to 4th curated set.`);
+
+      // Find a backup set from our deck that ALSO has 0% collision with the board
+      const fallbackIndex = availableCuratedSets.findIndex(
+        (set) => !set.itemsIds.some((id) => takenItemsIds[id]),
+      );
+
+      if (fallbackIndex !== -1) {
+        // Remove it from the deck and use it
+        const fallbackSet = availableCuratedSets.splice(fallbackIndex, 1)[0];
+        sets.push({
+          id: fallbackSet.id,
+          title: fallbackSet.title,
+          itemsIds: sampleSize(fallbackSet.itemsIds, 4),
+          level: fallbackSet.level ?? 1,
+        });
+      }
     }
 
+    // 8. Absolute safety check
     if (sets.length < 4) {
-      throw new Error('Kaboom! Could not get 4 sets');
+      throw new Error('Kaboom! Complete data exhaustion. Cannot complete a 4x4 grid.');
     }
 
     const difficulty = Math.ceil(sets.reduce((acc, set) => acc + set.level, 0) / sets.length);

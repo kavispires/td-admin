@@ -52,13 +52,23 @@ export const buildDailyOrganikuGames = (
 ) => {
   console.count('Creating Organiku...');
 
-  const eligibleGroups: ItemGroupData[] = shuffle(
-    Object.values(itemsGroups).filter(
-      (group) => group.itemsIds.length > 6 && history.used.includes(group.id) === false,
-    ),
-  );
+  // FIX 1: Change to >= 6 so groups with exactly 6 items are included
+  const allValidGroups = Object.values(itemsGroups).filter((group) => group.itemsIds.length >= 6);
+
+  let eligibleGroups = shuffle(allValidGroups.filter((group) => !history.used.includes(group.id)));
+
+  // FIX 2: History Recycling to prevent fatal crashes
   if (eligibleGroups.length < batchSize) {
-    addWarning('organiku', 'Not enough organiku groups left');
+    addWarning('organiku', 'Not enough organiku groups left. Recycling historical data.');
+
+    // Fill the remaining required slots by recycling groups we've used before,
+    // prioritizing ones that haven't been used in this specific batch yet.
+    const needed = batchSize - eligibleGroups.length;
+    const recycledPool = shuffle(
+      allValidGroups.filter((group) => !eligibleGroups.some((eg) => eg.id === group.id)),
+    );
+
+    eligibleGroups = [...eligibleGroups, ...recycledPool.slice(0, needed)];
   }
 
   let lastDate = history.latestDate;
@@ -69,49 +79,12 @@ export const buildDailyOrganikuGames = (
     lastDate = id;
     const isWeekend = checkWeekend(id);
 
-    // SPECIAL DATA HANDLER: Modify the date below
-    // if (id === '2026-01-01') {
-    //   const group = itemsGroups['2a97f']; // Add the group id here
-    //   const itemsIds = sampleSize(group.itemsIds, isWeekend ? 6 : 5);
-
-    // let tries = 0;
-    // let valid = false;
-    //   const grid = generateRandomLatinSquare(itemsIds);
-    //   const defaultRevealedIndexes = revealGridItems(grid, itemsIds, 1);
-
-    //   entries[id] = {
-    //     id,
-    //     number: history.latestNumber + i + 1,
-    //     setId: group.id,
-    //     type: 'organiku',
-    //     title: capitalize(group.name[queryLanguage]),
-    //     grid,
-    //     defaultRevealedIndexes,
-    //     itemsIds,
-    //   };
-    // } else {
-    //   const group = eligibleGroups[i];
-    //   const itemsIds = sampleSize(group.itemsIds, isWeekend ? 6 : 5);
-
-    //   // let tries = 0;
-    //   // let valid = false;
-    //   const grid = generateRandomLatinSquare(itemsIds);
-    //   const defaultRevealedIndexes = revealGridItems(grid, itemsIds, 1);
-
-    //   entries[id] = {
-    //     id,
-    //     number: history.latestNumber + i + 1,
-    //     setId: group.id,
-    //     type: 'organiku',
-    //     title: capitalize(group.name[queryLanguage]),
-    //     grid,
-    //     defaultRevealedIndexes,
-    //     itemsIds,
-    //   };
-    // }
+    // FIX 3: Safe fallback using modulo just in case the total valid
+    // groups in the database is somehow less than the batchSize
+    const safeIndex = i % eligibleGroups.length;
+    const group = eligibleGroups[safeIndex];
 
     const size = isWeekend ? 6 : 5;
-    const group = eligibleGroups[i];
     const partialGame = generateOrganiku(size, group.itemsIds);
 
     entries[id] = {
@@ -128,6 +101,10 @@ export const buildDailyOrganikuGames = (
 
   return entries;
 };
+
+// ===========================
+// ORGANIKU GENERATOR
+// ===========================
 
 function generateOrganiku(
   size: 5 | 6 | 7,
@@ -313,3 +290,146 @@ function findMinimalReveals(grid: number[], n: number): number[] {
 
   return [...revealed].sort((a, b) => a - b);
 }
+
+// ===========================
+// ORGANIKU SOLVER
+// ===========================
+
+export type GridCoordinate = {
+  index: number;
+  row: number;
+  col: number;
+};
+
+export type PlacementAction = {
+  at: GridCoordinate;
+  itemId: string;
+  // Tells the UI *why* this was the best move, great for advanced hint text!
+  technique: 'naked_single' | 'hidden_row' | 'hidden_col' | 'deduction';
+};
+
+/**
+ * Calculates the optimal sequence of logical placements to win an Organiku game.
+ * * @param currentGrid 1D array of the current board state (use `null` for empty cells)
+ * @param allItemsIds Array of all unique item IDs available in this puzzle
+ * @param size Grid size (5 or 6)
+ * @returns An array of PlacementActions representing the exact sequence of moves to win
+ */
+export const calculateOptimalPlacements = (
+  currentGrid: (string | null)[],
+  allItemsIds: string[],
+  size: number,
+): PlacementAction[] => {
+  const grid = [...currentGrid];
+  const moves: PlacementAction[] = [];
+
+  const getCoords = (index: number): GridCoordinate => ({
+    index,
+    row: Math.floor(index / size),
+    col: index % size,
+  });
+
+  // Helper: Check if placing an item at a specific index violates Latin Square rules
+  const isSafe = (index: number, itemId: string): boolean => {
+    const { row, col } = getCoords(index);
+    for (let i = 0; i < size; i++) {
+      // Check row
+      if (grid[row * size + i] === itemId) return false;
+      // Check column
+      if (grid[i * size + col] === itemId) return false;
+    }
+    return true;
+  };
+
+  let progress = true;
+
+  // Loop until the board is full or we get stuck (which shouldn't happen with valid puzzles)
+  while (progress && grid.includes(null)) {
+    progress = false;
+
+    // 1. NAKED SINGLES: Is there a cell that can only legally accept exactly ONE item?
+    for (let i = 0; i < grid.length; i++) {
+      if (grid[i] !== null) continue;
+
+      const validItems = allItemsIds.filter((item) => isSafe(i, item));
+
+      if (validItems.length === 1) {
+        grid[i] = validItems[0];
+        moves.push({
+          at: getCoords(i),
+          itemId: validItems[0],
+          technique: 'naked_single',
+        });
+        progress = true;
+        break; // Board state changed, restart logical scan
+      }
+    }
+    if (progress) continue;
+
+    // 2. HIDDEN SINGLES (ROWS): In this row, is there an item that can only go in ONE specific cell?
+    for (let row = 0; row < size; row++) {
+      for (const item of allItemsIds) {
+        // If item is already in this row, skip
+        if (Array.from({ length: size }, (_, c) => grid[row * size + c]).includes(item)) continue;
+
+        const validCells = [];
+        for (let col = 0; col < size; col++) {
+          const index = row * size + col;
+          if (grid[index] === null && isSafe(index, item)) {
+            validCells.push(index);
+          }
+        }
+
+        if (validCells.length === 1) {
+          const targetIndex = validCells[0];
+          grid[targetIndex] = item;
+          moves.push({
+            at: getCoords(targetIndex),
+            itemId: item,
+            technique: 'hidden_row',
+          });
+          progress = true;
+          break; // Break inner item loop
+        }
+      }
+      if (progress) break; // Break row loop to restart scan
+    }
+    if (progress) continue;
+
+    // 3. HIDDEN SINGLES (COLS): Same concept, but checking columns vertically
+    for (let col = 0; col < size; col++) {
+      for (const item of allItemsIds) {
+        // If item is already in this col, skip
+        if (Array.from({ length: size }, (_, r) => grid[r * size + col]).includes(item)) continue;
+
+        const validCells = [];
+        for (let row = 0; row < size; row++) {
+          const index = row * size + col;
+          if (grid[index] === null && isSafe(index, item)) {
+            validCells.push(index);
+          }
+        }
+
+        if (validCells.length === 1) {
+          const targetIndex = validCells[0];
+          grid[targetIndex] = item;
+          moves.push({
+            at: getCoords(targetIndex),
+            itemId: item,
+            technique: 'hidden_col',
+          });
+          progress = true;
+          break;
+        }
+      }
+      if (progress) break;
+    }
+  }
+
+  // Safety fallback for malformed puzzles
+  if (grid.includes(null)) {
+    console.warn('Organiku Solver: Grid requires guessing or is invalid. Cannot deduce further.');
+  }
+
+  return moves;
+};

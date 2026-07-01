@@ -1,6 +1,6 @@
 import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
-import { intersection, orderBy, shuffle } from 'lodash';
+import { groupBy, intersection, orderBy, sampleSize, shuffle } from 'lodash';
 import { useMemo } from 'react';
 import type { DailyMovieSet } from 'types';
 import { removeDuplicates } from 'utils';
@@ -61,38 +61,48 @@ export const useDailyFilmacoGames = (
  * @param movies - The dictionary of DailyMovieSet objects.
  * @returns A dictionary of DailyFilmacoEntry objects.
  */
+/**
+ * Builds a dictionary of DailyFilmacoEntry objects based on the given parameters.
+ *
+ * @param batchSize - The number of DailyFilmacoEntry objects to generate.
+ * @param history - The parsed daily history entry.
+ * @param movies - The dictionary of DailyMovieSet objects.
+ * @returns A dictionary of DailyFilmacoEntry objects.
+ */
 export const buildDailyFilmacoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   movies: Dictionary<DailyMovieSet>,
 ) => {
   console.count('Creating Filmaço...');
-  // Filter complete sets only
+
+  // 1. Filter complete sets only
   const completeSets = shuffle(
     Object.values(movies).filter((setEntry) => setEntry.itemsIds.filter(Boolean).length > 0),
   );
-  // Filter not-used sets only
+
+  // 2. Filter not-used sets only for weekdays
   const availableFilms = shuffle(completeSets.filter((setEntry) => !history.used.includes(setEntry.id)));
 
   if (availableFilms.length < batchSize) {
     availableFilms.push(...shuffle(completeSets));
   }
 
-  // Double-feature for weekends
-  const usedFilms = shuffle(
-    Object.values(movies).filter((movie) => movie.itemsIds.length > 0 && history.used.includes(movie.id)),
-  );
+  // 3. Historical pool for weekends
+  const usedFilms = shuffle(completeSets.filter((movie) => history.used.includes(movie.id)));
 
   let lastDate = history.latestDate;
-  // Get list, if not enough, get from complete
   const entries: Dictionary<DailyFilmacoEntry> = {};
+
   for (let i = 0; i < batchSize; i++) {
     const id = getNextDay(lastDate);
     const isWeekend = checkWeekend(id);
 
-    const setEntry = isWeekend ? getWeekendFilms(usedFilms) : availableFilms[i];
+    // Use .shift() to safely pull from the top of the deck instead of indexing [i]
+    const setEntry = isWeekend ? getWeekendFilms(usedFilms, completeSets) : availableFilms.shift();
+
     if (!setEntry) {
-      addWarning('filmaco', 'No filmaço sets left');
+      addWarning('filmaco', `No filmaço sets left to generate day ${id}`);
       break;
     }
 
@@ -115,23 +125,63 @@ export const buildDailyFilmacoGames = (
   return entries;
 };
 
-const getWeekendFilms = (films: DailyMovieSet[]) => {
-  let selectedFilms: DailyMovieSet[] = [];
+/**
+ * Finds two movies from the same year to create a Double Feature.
+ * Prioritizes historical movies, falls back to the full database if needed.
+ */
+const getWeekendFilms = (usedFilms: DailyMovieSet[], allFilms: DailyMovieSet[]) => {
+  // Helper to find a pair of non-intersecting movies from the same year
+  const findValidPairByYear = (pool: DailyMovieSet[]) => {
+    const filmsByYear = groupBy(pool, 'year');
+    // Only look at years that actually have 2 or more movies
+    const validYears = Object.keys(filmsByYear).filter((year) => filmsByYear[year].length >= 2);
 
-  while (selectedFilms.length < 2 && films.length > 0) {
-    const film = films.pop();
-    if (film && intersection(film.itemsIds, selectedFilms?.[0]?.itemsIds || []).length === 0) {
-      selectedFilms.push(film);
+    for (const year of shuffle(validYears)) {
+      const filmsOfYear = shuffle(filmsByYear[year]);
+
+      // Look for two movies in this year that don't share items
+      for (let i = 0; i < filmsOfYear.length; i++) {
+        for (let j = i + 1; j < filmsOfYear.length; j++) {
+          if (intersection(filmsOfYear[i].itemsIds, filmsOfYear[j].itemsIds).length === 0) {
+            return [filmsOfYear[i], filmsOfYear[j]];
+          }
+        }
+      }
+    }
+    return null; // No valid disjoint pair found in this pool
+  };
+
+  // 1. Try to find a pair entirely from History
+  let selectedFilms = findValidPairByYear(usedFilms);
+
+  // 2. SAFE FALLBACK: Try the whole database if history doesn't have a matching pair
+  if (!selectedFilms) {
+    selectedFilms = findValidPairByYear(allFilms);
+  }
+
+  // 3. EXTREME FALLBACK: Database is very small/overlapping, just grab ANY two from same year
+  if (!selectedFilms) {
+    console.warn('Filmaço: Falling back to intersecting same-year pair.');
+    const allFilmsByYear = groupBy(allFilms, 'year');
+    const fallbackYears = Object.keys(allFilmsByYear).filter((year) => allFilmsByYear[year].length >= 2);
+
+    if (fallbackYears.length > 0) {
+      const randomYear = shuffle(fallbackYears)[0];
+      selectedFilms = sampleSize(allFilmsByYear[randomYear], 2);
+    } else {
+      // Absolute failure state (Database has 0 years with >= 2 movies)
+      selectedFilms = sampleSize(allFilms, 2);
     }
   }
 
   selectedFilms = orderBy(selectedFilms, (f) => f.year, 'asc');
 
-  const doubleFeatureSet: Merge<DailyMovieSet, { year: string }> = {
+  const doubleFeatureSet: Merge<DailyMovieSet, { year: string | number }> = {
     id: `df-${selectedFilms.map((f) => f.id).join('-')}`,
     title: `${selectedFilms.map((f) => f.title).join(' × ')}`,
     itemsIds: shuffle(removeDuplicates(selectedFilms.flatMap((f) => f.itemsIds))),
-    year: selectedFilms.map((f) => f.year).join(' × '),
+    // They are the same year, so we only need to display the year once!
+    year: selectedFilms[0].year,
   };
 
   return doubleFeatureSet;
