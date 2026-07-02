@@ -1,7 +1,7 @@
 import { DeleteFilled } from '@ant-design/icons';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyDiscSet } from '@types';
 import { Button, Popconfirm } from 'antd';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import type { DailyDiscSet } from 'types';
 
 type RemoveItemFlowProps = {
   disc: DailyDiscSet;
@@ -24,7 +24,11 @@ export function RemoveItemFlow({ disc, addEntryToUpdate, itemId }: RemoveItemFlo
       onConfirm={onRemove}
       title="Are you sure you want to remove this item?"
     >
-      <Button icon={<DeleteFilled />} size="small" type="text" />
+      <Button
+        icon={<DeleteFilled />}
+        size="small"
+        type="text"
+      />
     </Popconfirm>
   );
 }

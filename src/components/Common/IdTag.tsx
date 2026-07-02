@@ -1,5 +1,5 @@
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
 import { Tag, type TagProps } from 'antd';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 
 export function IdTag(props: TagProps & { withQuotes?: boolean }) {
   const copyToClipboard = useCopyToClipboardFunction();
@@ -7,5 +7,10 @@ export function IdTag(props: TagProps & { withQuotes?: boolean }) {
     ? `"${props.children?.toString() ?? ''}"`
     : (props.children?.toString() ?? '');
 
-  return <Tag onClick={() => copyToClipboard(value)} {...props} />;
+  return (
+    <Tag
+      onClick={() => copyToClipboard(value)}
+      {...props}
+    />
+  );
 }

@@ -1,10 +1,10 @@
 import { FireFilled, IdcardOutlined } from '@ant-design/icons';
+import { LanguageFlag } from '@components/Common/LanguageFlag';
+import { Item } from '@components/Sprites';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import type { ItemData as ItemT } from '@types';
 import { Button, Input } from 'antd';
-import { LanguageFlag } from 'components/Common/LanguageFlag';
-import { Item } from 'components/Sprites';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useSearchParams } from 'react-router-dom'; // TODO: replace with useQueryParams
-import type { ItemData as ItemT } from 'types';
 
 type ItemBlockProps = {
   item: ItemT;

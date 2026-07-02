@@ -1,12 +1,12 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import { useTDResource } from '@hooks/useTDResource';
+import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from '@types';
 import { Typography } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useMeasure } from 'react-use';
-import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from 'types';
 import { EditThingModal } from './EditThingModal';
 import { GameSimulator } from './GameSimulator';
 import { ItemUpdateGuard } from './ItemUpdateGuard';

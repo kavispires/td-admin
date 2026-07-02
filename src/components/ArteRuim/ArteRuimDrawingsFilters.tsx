@@ -1,12 +1,12 @@
 import { FileImageOutlined, UserOutlined } from '@ant-design/icons';
+import { FilterSegments, FilterSelect } from '@components/Common';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { useDrawingsResourceData } from '@pages/Games/ArteRuim/useArteRuimDrawings';
+import type { DrawingData } from '@types';
+import { sortJsonKeys } from '@utils/json';
 import { Divider, Flex } from 'antd';
-import { FilterSegments, FilterSelect } from 'components/Common';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { useDrawingsResourceData } from 'pages/Games/ArteRuim/useArteRuimDrawings';
-import type { DrawingData } from 'types';
-import { sortJsonKeys } from 'utils/json';
 
 type ArteRuimDrawingsFiltersProps = ReturnType<typeof useDrawingsResourceData>;
 

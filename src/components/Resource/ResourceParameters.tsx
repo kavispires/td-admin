@@ -1,5 +1,5 @@
+import { SiderContent } from '@components/Layout';
 import { Button, Form, Input, Select, Switch } from 'antd';
-import { SiderContent } from 'components/Layout';
 import { LANGUAGES } from '../../utils/constants';
 
 export type Parameters = {
@@ -33,11 +33,27 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
 
   return (
     <SiderContent>
-      <Form form={form} initialValues={INITIAL_PARAMETERS} layout="vertical" onFinish={onFinish} size="small">
-        <Form.Item label="Prefix" name="prefix" required>
-          <Input placeholder="Prefix" type="text" />
+      <Form
+        form={form}
+        initialValues={INITIAL_PARAMETERS}
+        layout="vertical"
+        onFinish={onFinish}
+        size="small"
+      >
+        <Form.Item
+          label="Prefix"
+          name="prefix"
+          required
+        >
+          <Input
+            placeholder="Prefix"
+            type="text"
+          />
         </Form.Item>
-        <Form.Item label="Language" name="language">
+        <Form.Item
+          label="Language"
+          name="language"
+        >
           <Select
             options={[
               ...LANGUAGES.map((entry) => ({ value: entry, label: entry })),
@@ -46,13 +62,22 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
             style={{ minWidth: '150px' }}
           />
         </Form.Item>
-        <Form.Item label="Starting Id" name="startingId">
+        <Form.Item
+          label="Starting Id"
+          name="startingId"
+        >
           <Input type="number" />
         </Form.Item>
-        <Form.Item label="First Line Headers?" name="headers">
+        <Form.Item
+          label="First Line Headers?"
+          name="headers"
+        >
           <Switch />
         </Form.Item>
-        <Form.Item label="Transform text" name="transform">
+        <Form.Item
+          label="Transform text"
+          name="transform"
+        >
           <Select
             options={[
               { value: 'none', label: 'None' },
@@ -64,7 +89,11 @@ export function ResourceParameters({ onUpdateParameters }: ResourceParametersPro
           />
         </Form.Item>
         <Form.Item>
-          <Button disabled={!prefix?.trim()} htmlType="submit" type="primary">
+          <Button
+            disabled={!prefix?.trim()}
+            htmlType="submit"
+            type="primary"
+          >
             Generate
           </Button>
         </Form.Item>

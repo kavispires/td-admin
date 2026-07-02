@@ -1,7 +1,7 @@
 import './dev-image-cards.scss';
 import { CheckCircleFilled } from '@ant-design/icons';
+import { useCardWidth } from '@hooks/useCardWidth';
 import { Button, Card, Layout, Select, Space, Switch } from 'antd';
-import { useCardWidth } from 'hooks/useCardWidth';
 import { useMemo } from 'react';
 import { useTitle } from 'react-use';
 import { ImageCard } from '../ImageCard';
@@ -48,7 +48,10 @@ function ImageCardsCategorizerPage() {
         {isLoading && <div>Loading...</div>}
         {isSaving && <div>Saving...</div>}
         {isSuccess && !isSaving && (
-          <Space className="space-container" orientation="vertical">
+          <Space
+            className="space-container"
+            orientation="vertical"
+          >
             <Button onClick={onRandomCard}>Random Card</Button>
 
             <Card
@@ -58,7 +61,10 @@ function ImageCardsCategorizerPage() {
             >
               <div className="image-card-card">
                 <div className="image-card-card__image">
-                  <ImageCard cardId={cardId} cardWidth={cardWidth} />
+                  <ImageCard
+                    cardId={cardId}
+                    cardWidth={cardWidth}
+                  />
                 </div>
                 <div className="image-card-card__data">
                   <div className="image-card-card__item">
@@ -129,14 +135,23 @@ function ImageCardsCategorizerPage() {
                   <div className="image-card-card__item">
                     <label htmlFor="highlight-switch">Highlight</label>
                     <div>
-                      <Switch checked={card.highlight} id="highlight-switch" onChange={toggleHighlight} />
+                      <Switch
+                        checked={card.highlight}
+                        id="highlight-switch"
+                        onChange={toggleHighlight}
+                      />
                     </div>
                   </div>
                 </div>
               </div>
             </Card>
 
-            <Button disabled={!isDirty} loading={isSaving} onClick={() => save({})} type="primary">
+            <Button
+              disabled={!isDirty}
+              loading={isSaving}
+              onClick={() => save({})}
+              type="primary"
+            >
               Save
             </Button>
           </Space>

@@ -1,6 +1,6 @@
 import { CopyOutlined } from '@ant-design/icons';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
 import { Button, type ButtonProps } from 'antd';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 
 type CopyToClipboardButtonProps = {
   content: string | (() => string);

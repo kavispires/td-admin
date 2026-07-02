@@ -1,9 +1,9 @@
+import { Item } from '@components/Sprites';
+import type { DailyDiagramItemData, DailyDiagramRuleData } from '@types';
 import { Affix, Button, Flex, Form, Input, Modal, Radio, Switch, Tag, Typography } from 'antd';
 import clsx from 'clsx';
-import { Item } from 'components/Sprites';
 import { orderBy } from 'lodash';
 import { useEffect, useMemo } from 'react';
-import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
 import {
   SYLLABLE_SEPARATOR,
   separateSyllables,

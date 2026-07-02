@@ -1,12 +1,12 @@
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyQuartetSet } from '@types';
+import { removeDuplicates } from '@utils/array';
+import { createUUID } from '@utils/id';
+import { compareTwoStrings } from '@utils/string';
+import { wait } from '@utils/time';
 import { Button, Card, Flex, Modal } from 'antd';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { DailyQuartetSet } from 'types';
-import { removeDuplicates } from 'utils/array';
-import { createUUID } from 'utils/id';
-import { compareTwoStrings } from 'utils/string';
-import { wait } from 'utils/time';
 import { InspirationSample } from '../InspirationSample';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 

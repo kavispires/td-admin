@@ -1,9 +1,9 @@
 import { OpenAIOutlined } from '@ant-design/icons';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { SuspectCardData, SuspectExtendedInfoData } from '@types';
 import { App, Button, Flex, Input, Switch, Typography } from 'antd';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useState } from 'react';
-import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 
 export const PROMPT_KEY = 'TD_ADMIN_SUSPECTS_PROMPT';
 export const PROMPT_SUFFIX_KEY = 'TD_ADMIN_SUSPECTS_PROMPT_SUFFIX';

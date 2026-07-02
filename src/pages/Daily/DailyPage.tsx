@@ -1,8 +1,8 @@
+import { DailyContent } from '@components/Daily/DailyContent';
+import { DailyFilters } from '@components/Daily/DailyFilters';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
 import { Layout } from 'antd';
-import { DailyContent } from 'components/Daily/DailyContent';
-import { DailyFilters } from 'components/Daily/DailyFilters';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
 
 function DailyPage() {
   return (

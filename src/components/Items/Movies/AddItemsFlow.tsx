@@ -1,10 +1,10 @@
 import { PlusOutlined } from '@ant-design/icons';
+import { Item } from '@components/Sprites';
+import { useTDResource } from '@hooks/useTDResource';
+import type { DailyMovieSet, ItemData as ItemT } from '@types';
+import { findBestStringMatch } from '@utils/string';
 import { Button, Divider, Flex, Typography } from 'antd';
-import { Item } from 'components/Sprites';
-import { useTDResource } from 'hooks/useTDResource';
 import { useMemo } from 'react';
-import type { DailyMovieSet, ItemData as ItemT } from 'types';
-import { findBestStringMatch } from 'utils/string';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 
 type AddItemFlowProps = {

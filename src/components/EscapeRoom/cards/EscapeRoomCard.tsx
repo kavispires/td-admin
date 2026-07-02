@@ -1,6 +1,7 @@
 // Ant Design Resources
+
+import { Translate } from '@components/FromTD/Translate';
 import { Alert } from 'antd';
-import { Translate } from 'components/FromTD/Translate';
 // Components
 import {
   Card,
@@ -34,15 +35,40 @@ type EscapeRoomCardProps = {
 export const EscapeRoomCard = ({ card, ...props }: EscapeRoomCardProps) => {
   switch (card.type) {
     case CARD_TYPES.ANNOUNCEMENT:
-      return <EscapeRoomAnnouncementCard card={card} {...props} />;
+      return (
+        <EscapeRoomAnnouncementCard
+          card={card}
+          {...props}
+        />
+      );
     case CARD_TYPES.MISSION:
-      return <EscapeRoomMissionCard card={card} {...props} />;
+      return (
+        <EscapeRoomMissionCard
+          card={card}
+          {...props}
+        />
+      );
     case CARD_TYPES.WORD:
-      return <EscapeRoomWordCard card={card} {...props} />;
+      return (
+        <EscapeRoomWordCard
+          card={card}
+          {...props}
+        />
+      );
     case CARD_TYPES.SPRITE:
-      return <EscapeRoomSpriteCard card={card} {...props} />;
+      return (
+        <EscapeRoomSpriteCard
+          card={card}
+          {...props}
+        />
+      );
     case CARD_TYPES.IMAGE:
-      return <EscapeRoomImageCard card={card} {...props} />;
+      return (
+        <EscapeRoomImageCard
+          card={card}
+          {...props}
+        />
+      );
     default:
       return (
         <Alert
@@ -66,7 +92,12 @@ const EscapeRoomAnnouncementCard = ({
 }: EscapeRoomSpecificCardProps<EscapeRoomAnnouncementType>) => {
   const { content } = card;
   return (
-    <Card background={card.background} cardId={card.id} onPlayCard={onPlayCard} width={width}>
+    <Card
+      background={card.background}
+      cardId={card.id}
+      onPlayCard={onPlayCard}
+      width={width}
+    >
       <Content rows>
         {content.title && (
           <ContentBox position={content.title.position}>
@@ -100,9 +131,21 @@ const EscapeRoomAnnouncementCard = ({
 const EscapeRoomMissionCard = ({ card, width }: EscapeRoomSpecificCardProps<EscapeRoomMissionCardType>) => {
   const { content, number } = card;
   return (
-    <Card background={card.background ?? 'er/bg/mission.jpg'} cardId={card.id} unplayable width={width}>
-      <Header spriteId="mission" style={{ marginTop: '2em', display: 'flex', justifyContent: 'center' }}>
-        <Translate en="Mission" pt="Missão" /> #{number}
+    <Card
+      background={card.background ?? 'er/bg/mission.jpg'}
+      cardId={card.id}
+      unplayable
+      width={width}
+    >
+      <Header
+        spriteId="mission"
+        style={{ marginTop: '2em', display: 'flex', justifyContent: 'center' }}
+      >
+        <Translate
+          en="Mission"
+          pt="Missão"
+        />{' '}
+        #{number}
       </Header>
       <Content style={{ padding: '2em' }}>
         <Title align="center">{content.title.value}</Title>
@@ -126,7 +169,12 @@ const EscapeRoomWordCard = ({
   const fontSize = content.size === 'large' ? '2.5rem' : content.size === 'medium' ? '1.5rem' : '0.9rem';
 
   return (
-    <Card background={card.background} cardId={card.id} onPlayCard={onPlayCard} width={width}>
+    <Card
+      background={card.background}
+      cardId={card.id}
+      onPlayCard={onPlayCard}
+      width={width}
+    >
       <Content rows>
         <ContentBox position={content.position}>
           <span
@@ -159,7 +207,12 @@ const EscapeRoomSpriteCard = ({
 }: EscapeRoomSpecificCardProps<EscapeRoomSpriteCardType>) => {
   const { content } = card;
   return (
-    <Card background={card.background} cardId={card.id} onPlayCard={onPlayCard} width={width}>
+    <Card
+      background={card.background}
+      cardId={card.id}
+      onPlayCard={onPlayCard}
+      width={width}
+    >
       <Content rows>
         <ContentBox position={content.position}>
           <CenterBox>
@@ -185,7 +238,12 @@ const EscapeRoomImageCard = ({
   onPlayCard,
 }: EscapeRoomSpecificCardProps<EscapeRoomImageCardType>) => {
   return (
-    <Card background={card.background} cardId={card.id} onPlayCard={onPlayCard} width={width}>
+    <Card
+      background={card.background}
+      cardId={card.id}
+      onPlayCard={onPlayCard}
+      width={width}
+    >
       <span />
     </Card>
   );

@@ -1,8 +1,8 @@
+import { auth, signIn } from '@services/firebase';
 import { Alert, App, Button, Flex, Form, Input, Modal, Spin } from 'antd';
 import type { User } from 'firebase/auth';
 import { type ReactNode, useState } from 'react';
 import { useEffectOnce, useKeyPressEvent } from 'react-use';
-import { auth, signIn } from 'services/firebase';
 
 type AuthWrapperProps = {
   children: ReactNode;
@@ -93,7 +93,11 @@ function LoginModal() {
   };
 
   return (
-    <Modal footer={null} open={open > 3} title="Login">
+    <Modal
+      footer={null}
+      open={open > 3}
+      title="Login"
+    >
       {Boolean(error) && (
         <Alert
           className="login__error-alert"
@@ -111,14 +115,27 @@ function LoginModal() {
         name="sign-in"
         onValuesChange={onValuesChange}
       >
-        <Form.Item {...tailLayout} className="login__form-item" label="E-mail" name="email">
+        <Form.Item
+          {...tailLayout}
+          className="login__form-item"
+          label="E-mail"
+          name="email"
+        >
           <Input type="email" />
         </Form.Item>
-        <Form.Item {...tailLayout} className="login__form-item" label="Password" name="password">
+        <Form.Item
+          {...tailLayout}
+          className="login__form-item"
+          label="Password"
+          name="password"
+        >
           <Input type="password" />
         </Form.Item>
         <Flex justify="flex-end">
-          <Button onClick={onHandleSubmit} type="primary">
+          <Button
+            onClick={onHandleSubmit}
+            type="primary"
+          >
             Login
           </Button>
         </Flex>

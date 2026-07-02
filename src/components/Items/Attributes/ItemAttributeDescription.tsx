@@ -1,10 +1,10 @@
+import { FilterSwitch } from '@components/Common';
+import { AlienSign } from '@components/Sprites';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { ItemAttributeData, ItemAttributesValuesData } from '@types';
 import { Flex } from 'antd';
 import clsx from 'clsx';
-import { FilterSwitch } from 'components/Common';
-import { AlienSign } from 'components/Sprites';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
-import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
 import { filterMessage, getItemAttributePriorityResponse, parseAttribute } from '../utils';
 
 type ItemAttributeDescriptionProps = {

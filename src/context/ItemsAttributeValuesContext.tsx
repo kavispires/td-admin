@@ -1,11 +1,11 @@
+import { getNewItem, getNewItemAttributeValues } from '@components/Items/utils';
+import { useItemsAttribution } from '@hooks/useItemsAttribution';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from '@types';
+import { sortJsonKeys } from '@utils/json';
 import { App } from 'antd';
-import { getNewItem, getNewItemAttributeValues } from 'components/Items/utils';
-import { useItemsAttribution } from 'hooks/useItemsAttribution';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty, orderBy, random } from 'lodash';
 import { createContext, type ReactNode, useCallback, useContext, useMemo, useState } from 'react';
-import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from 'types';
-import { sortJsonKeys } from 'utils/json';
 
 export type ItemsAttributeValuesContextType = {
   getItem: (itemId: string) => ItemData;

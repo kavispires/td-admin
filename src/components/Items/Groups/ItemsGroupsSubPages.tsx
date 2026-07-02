@@ -1,11 +1,11 @@
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import { useTDResource } from '@hooks/useTDResource';
+import type { ItemGroupData, ItemData as ItemT } from '@types';
+import { removeDuplicates } from '@utils/array';
 import { Space, Typography } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
-import type { ItemGroupData, ItemData as ItemT } from 'types';
-import { removeDuplicates } from 'utils/array';
 import { ItemsGroupsByGroupTable } from './ItemsGroupsByGroupTable';
 import { ItemsGroupsByItemTable } from './ItemsGroupsByItemTable';
 import { ItemsGroupsSearch } from './ItemsGroupsSearch';

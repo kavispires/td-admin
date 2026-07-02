@@ -1,10 +1,10 @@
 import { CloseCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { LanguageToggle } from '@components/Common/LanguageToggle';
+import { SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { DUAL_LANGUAGE_RESOURCES } from '@utils/resources-list';
 import { Badge, Button, Divider, Form, Select, Space, Tag, Typography } from 'antd';
-import { LanguageToggle } from 'components/Common/LanguageToggle';
-import { SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useState } from 'react';
-import { DUAL_LANGUAGE_RESOURCES } from 'utils/resources-list';
 
 type MultiResourceSelectionFiltersProps = {
   /**

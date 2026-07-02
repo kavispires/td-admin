@@ -1,7 +1,7 @@
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyDiscSet } from '@types';
+import { removeDuplicates, sortItemsIds } from '@utils/array';
 import { Flex, Typography } from 'antd';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import type { DailyDiscSet } from 'types';
-import { removeDuplicates, sortItemsIds } from 'utils/array';
 import { InspirationSample } from '../InspirationSample';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { PasteIds } from '../ParseIds';

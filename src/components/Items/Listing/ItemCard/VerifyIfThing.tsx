@@ -1,7 +1,7 @@
+import { LanguageFlag } from '@components/Common/LanguageFlag';
+import type { ItemData as ItemT } from '@types';
 import { Flex } from 'antd';
-import { LanguageFlag } from 'components/Common/LanguageFlag';
 import { memoize } from 'lodash';
-import type { ItemData as ItemT } from 'types';
 
 type VerifyIfThingProps = {
   item: ItemT;

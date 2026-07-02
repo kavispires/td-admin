@@ -1,5 +1,5 @@
 import { Text, View } from '@react-pdf/renderer';
-import { chunkArray, flattenForTable, formatFieldKey, getTableColumns } from 'utils/pdf-helpers';
+import { chunkArray, flattenForTable, formatFieldKey, getTableColumns } from '@utils/pdf-helpers';
 import { pdfStyles } from './PDFStyles';
 
 type PDFTableViewProps = {

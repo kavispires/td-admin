@@ -1,17 +1,18 @@
 /** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
-import { useQuery } from '@tanstack/react-query';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { getSuspectImageId } from 'components/Suspects/SuspectImageCard';
-import { countAnswersAbsoluteTotal } from 'components/Testimonies/utils';
-import { useTDResource } from 'hooks/useTDResource';
-import { orderBy, shuffle } from 'lodash';
+
+import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
+import { getSuspectImageId } from '@components/Suspects/SuspectImageCard';
+import { countAnswersAbsoluteTotal } from '@components/Testimonies/utils';
+import { useTDResource } from '@hooks/useTDResource';
 import {
   type TestimonyAnswers,
   testimoniesDeserializer,
-} from 'pages/Libraries/Testimonies/useTestimoniesResource';
-import type { SuspectCardData, TestimonyQuestionCardData } from 'types';
-import { SEPARATOR } from 'utils/constants';
-import { makeBooleanDictionary } from 'utils/object';
+} from '@pages/Libraries/Testimonies/useTestimoniesResource';
+import { useQuery } from '@tanstack/react-query';
+import type { SuspectCardData, TestimonyQuestionCardData } from '@types';
+import { SEPARATOR } from '@utils/constants';
+import { makeBooleanDictionary } from '@utils/object';
+import { orderBy, shuffle } from 'lodash';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { getNextDay } from '../utils';

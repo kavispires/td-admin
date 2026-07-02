@@ -1,4 +1,4 @@
-import { useTDResource } from 'hooks/useTDResource';
+import { useTDResource } from '@hooks/useTDResource';
 import { isEmpty, random, sample } from 'lodash';
 
 export function useImageCardsDecks(options?: { enabled?: boolean }) {

@@ -1,8 +1,8 @@
+import { Typeahead } from '@components/Common/Typeahead';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyDiscSet } from '@types';
 import { Space, Typography } from 'antd';
-import { Typeahead } from 'components/Common/Typeahead';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
-import type { DailyDiscSet } from 'types';
 import { ItemsDiscSetsTable } from './ItemsDiscSetsTable';
 
 export function ItemsDiscSetsSearch({
@@ -26,7 +26,12 @@ export function ItemsDiscSetsSearch({
         style={{ width: '100%', minWidth: 450 }}
       />
 
-      {!!activeDiscSet && <ItemsDiscSetsTable addEntryToUpdate={addEntryToUpdate} rows={[activeDiscSet]} />}
+      {!!activeDiscSet && (
+        <ItemsDiscSetsTable
+          addEntryToUpdate={addEntryToUpdate}
+          rows={[activeDiscSet]}
+        />
+      )}
     </Space>
   );
 }

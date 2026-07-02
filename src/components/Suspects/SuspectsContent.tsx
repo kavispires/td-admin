@@ -1,6 +1,6 @@
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { SuspectCardData, SuspectExtendedInfoData } from '@types';
 import { SuspectsListing } from './SuspectsListing';
 import { SuspectsStats } from './SuspectsStats';
 

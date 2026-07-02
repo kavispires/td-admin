@@ -1,7 +1,7 @@
 import { WarningOutlined } from '@ant-design/icons';
+import { useBaseUrl } from '@hooks/useBaseUrl';
 import { useQuery } from '@tanstack/react-query';
 import { Spin, Tooltip } from 'antd';
-import { useBaseUrl } from 'hooks/useBaseUrl';
 import { useEffect, useRef } from 'react';
 
 export const DEFAULT_SPRITE_SIZE = 72;
@@ -121,7 +121,10 @@ export function Sprite({
   return (
     <>
       {/* Hidden container for the sprite sheet */}
-      <div ref={svgContainerRef} style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} />
+      <div
+        ref={svgContainerRef}
+        style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}
+      />
 
       <svg
         className={className}
@@ -129,7 +132,12 @@ export function Sprite({
         viewBox="0 0 512 512"
       >
         <use href={`#${spriteId}`} />
-        <foreignObject height="100%" width="100%" x="0" y="0">
+        <foreignObject
+          height="100%"
+          width="100%"
+          x="0"
+          y="0"
+        >
           {title && (
             <Tooltip title={title}>
               <div style={{ background: 'transparent', width: '100%', height: '100vh' }}></div>

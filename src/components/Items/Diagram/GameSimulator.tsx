@@ -1,12 +1,12 @@
-import { Button, Space, Typography } from 'antd';
 import {
   buildDailyConjuntosGames,
   type DailyConjuntosEntry,
-} from 'components/Daily/utils/games/daily-conjuntos';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
+} from '@components/Daily/utils/games/daily-conjuntos';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from '@types';
+import { Button, Space, Typography } from 'antd';
 import { useState } from 'react';
 import { useMeasure } from 'react-use';
-import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from 'types';
 import { DiagramGameSample } from './DiagramGameSample';
 import './GameSimulator.scss';
 

@@ -1,11 +1,11 @@
+import { DualLanguageTextField } from '@components/Common/EditableFields';
+import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
+import { useTablePagination } from '@hooks/useTablePagination';
+import type { CrimeSceneTileData } from '@types';
 import { Button, Space, Table, type TableColumnsType, Tag, Typography } from 'antd';
-import { DualLanguageTextField } from 'components/Common/EditableFields';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo } from 'react';
-import type { CrimeSceneTileData } from 'types';
 import type { CrimesHediondosContentProps, CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 
 type SceneTableProps = {

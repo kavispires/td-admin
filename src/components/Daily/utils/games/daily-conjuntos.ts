@@ -1,8 +1,9 @@
 /** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
+
+import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
+import { getIsThingOutdated, getLatestRuleUpdate } from '@components/Items/Diagram/utils';
+import { useTDResource } from '@hooks/useTDResource';
 import { useQuery } from '@tanstack/react-query';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { getIsThingOutdated, getLatestRuleUpdate } from 'components/Items/Diagram/utils';
-import { useTDResource } from 'hooks/useTDResource';
 import { shuffle } from 'lodash';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';

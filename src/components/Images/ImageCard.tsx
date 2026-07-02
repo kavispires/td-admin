@@ -1,9 +1,9 @@
 // Ant Design Resources
-import { Image, type ImageProps } from 'antd';
-import clsx from 'clsx';
 
 // Hooks
-import { useBaseUrl } from 'hooks/useBaseUrl';
+import { useBaseUrl } from '@hooks/useBaseUrl';
+import { Image, type ImageProps } from 'antd';
+import clsx from 'clsx';
 
 export type ImageCardProps = {
   /**

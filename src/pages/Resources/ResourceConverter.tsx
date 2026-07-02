@@ -1,13 +1,13 @@
+import { ResponseState } from '@components/Common';
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { MultiResourceSelectionFilters } from '@components/Resource/MultiResourceSelectionFilters';
+import { ResourceExportControls } from '@components/Resource/ResourceExportControls';
+import { useMultiResourceState } from '@hooks/useMultiResourceState';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { RESOURCES_NAMES } from '@utils/resources-list';
 import { Alert, Divider, Layout, Space, Table, Typography } from 'antd';
-import { ResponseState } from 'components/Common';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { MultiResourceSelectionFilters } from 'components/Resource/MultiResourceSelectionFilters';
-import { ResourceExportControls } from 'components/Resource/ResourceExportControls';
-import { useMultiResourceState } from 'hooks/useMultiResourceState';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { RESOURCES_NAMES } from 'utils/resources-list';
 
 const resourceNames = Object.values(RESOURCES_NAMES);
 

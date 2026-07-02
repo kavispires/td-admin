@@ -1,12 +1,12 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { SuspectsContent } from '@components/Suspects/SuspectsContent';
+import { SuspectsFilters } from '@components/Suspects/SuspectsFilters';
+import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import type { SuspectCardData, SuspectExtendedInfoData } from '@types';
 import { Layout } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { SuspectsContent } from 'components/Suspects/SuspectsContent';
-import { SuspectsFilters } from 'components/Suspects/SuspectsFilters';
-import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 
 function Suspects() {
   const suspectsQuery = useResourceFirestoreData<SuspectCardData>({

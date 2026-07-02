@@ -1,23 +1,23 @@
 import { ContactsOutlined, RobotOutlined, TableOutlined } from '@ant-design/icons';
-import { Flex, Tooltip } from 'antd';
-import { FilterSegments } from 'components/Common';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { FirestoreConsoleLink, FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
-import { SaveButton } from 'components/Common/SaveButton';
-import { SiderContent } from 'components/Layout';
-import { SuspectsStyleVariantSelector } from 'components/Suspects/SuspectsStyleVariantSelector';
-import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { uniq } from 'lodash';
+import { FilterSegments } from '@components/Common';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { FirestoreConsoleLink, FirestoreConsoleWipe } from '@components/Common/FirestoreConsoleLink';
+import { SaveButton } from '@components/Common/SaveButton';
+import { SiderContent } from '@components/Layout';
+import { SuspectsStyleVariantSelector } from '@components/Suspects/SuspectsStyleVariantSelector';
+import { getDocQueryFunction } from '@hooks/useGetFirestoreDoc';
+import { useQueryParams } from '@hooks/useQueryParams';
 import type {
   TestimonyAnswers,
   TestimonyAnswersValues,
   useTestimoniesResource,
-} from 'pages/Libraries/Testimonies/useTestimoniesResource';
+} from '@pages/Libraries/Testimonies/useTestimoniesResource';
+import { deserializeFirestoreData } from '@utils/firestore';
+import { sortJsonKeys } from '@utils/json';
+import { deepCleanObject } from '@utils/object';
+import { Flex, Tooltip } from 'antd';
+import { uniq } from 'lodash';
 import { useMemo } from 'react';
-import { deserializeFirestoreData } from 'utils/firestore';
-import { sortJsonKeys } from 'utils/json';
-import { deepCleanObject } from 'utils/object';
 import { TestimonyDrawer } from './TestimonyDrawer';
 import normalizeValues, { countAnswersAbsoluteTotal, filterAdultSuspects } from './utils';
 

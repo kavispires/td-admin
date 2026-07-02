@@ -1,16 +1,16 @@
-import { Flex, Table, type TableProps } from 'antd';
-import { IdField } from 'components/Common/EditableFields';
-import { CanvasSVG } from 'components/Daily/CanvasSVG';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { orderBy } from 'lodash';
-import moment from 'moment';
+import { IdField } from '@components/Common/EditableFields';
+import { CanvasSVG } from '@components/Daily/CanvasSVG';
+import { useQueryParams } from '@hooks/useQueryParams';
 import {
   ARTIST_ID_ALIAS,
   type DrawingPerArtist,
   type useDrawingsResourceData,
-} from 'pages/Games/ArteRuim/useArteRuimDrawings';
+} from '@pages/Games/ArteRuim/useArteRuimDrawings';
+import type { DrawingData } from '@types';
+import { Flex, Table, type TableProps } from 'antd';
+import { orderBy } from 'lodash';
+import moment from 'moment';
 import { useMemo } from 'react';
-import type { DrawingData } from 'types';
 
 type ArteRuimDrawingsContentProps = ReturnType<typeof useDrawingsResourceData>;
 

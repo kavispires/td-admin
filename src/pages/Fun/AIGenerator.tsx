@@ -1,5 +1,5 @@
+import { Header } from '@components/Layout/Header';
 import { Divider, Layout } from 'antd';
-import { Header } from 'components/Layout/Header';
 import { useTitle } from 'react-use';
 import { AIGeneratorContent } from './AIGeneratorContent';
 

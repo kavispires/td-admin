@@ -1,6 +1,7 @@
 /** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
+
+import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
 import { useQuery } from '@tanstack/react-query';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { sample, sampleSize } from 'lodash';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';

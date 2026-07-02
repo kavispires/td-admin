@@ -1,8 +1,8 @@
+import { Typeahead } from '@components/Common/Typeahead';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyQuartetSet } from '@types';
 import { Space, Typography } from 'antd';
-import { Typeahead } from 'components/Common/Typeahead';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
-import type { DailyQuartetSet } from 'types';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 
 export function ItemsQuartetSearch({
@@ -25,7 +25,12 @@ export function ItemsQuartetSearch({
         placeholder="Search quartet by title..."
       />
 
-      {!!activeQuartet && <ItemsQuartetsTable addEntryToUpdate={addEntryToUpdate} rows={[activeQuartet]} />}
+      {!!activeQuartet && (
+        <ItemsQuartetsTable
+          addEntryToUpdate={addEntryToUpdate}
+          rows={[activeQuartet]}
+        />
+      )}
     </Space>
   );
 }

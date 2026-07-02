@@ -1,6 +1,6 @@
+import type { ItemData as ItemT } from '@types';
 import { Checkbox, Form } from 'antd';
 import { truncate } from 'lodash';
-import type { ItemData as ItemT } from 'types';
 
 type ItemDeckCheckboxesProps = {
   item: ItemT;

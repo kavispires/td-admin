@@ -1,7 +1,7 @@
 import { DatabaseOutlined } from '@ant-design/icons';
+import type { SuspectCardData, SuspectExtendedInfoData } from '@types';
 import { Alert, App, Button, Collapse, Input, Modal, Tooltip } from 'antd';
 import { useState } from 'react';
-import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 
 type AddDataModalProps = {
   suspect: SuspectCardData;

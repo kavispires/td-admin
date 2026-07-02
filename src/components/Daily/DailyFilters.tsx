@@ -1,9 +1,9 @@
 import { CalendarOutlined, CloudUploadOutlined, ContainerOutlined } from '@ant-design/icons';
+import { FilterSegments } from '@components/Common';
+import { FirestoreConsoleLink } from '@components/Common/FirestoreConsoleLink';
+import { SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Checkbox, Typography } from 'antd';
-import { FilterSegments } from 'components/Common';
-import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
-import { SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { toggleDebugMode, useDebugDailyState } from './utils/games/debug-daily';
 
 export function DailyFilters() {

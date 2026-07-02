@@ -1,20 +1,20 @@
+import { ArteRuimLevels } from '@components/ArteRuimLevels';
+import { ResponseState } from '@components/Common';
+import { SectionTitle } from '@components/Common/SectionTitle';
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { ResourceSelectionFilters } from '@components/Resource/ResourceSelectionFilters';
+import { SearchDuplicates } from '@components/SearchDuplicates';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { useResourceState } from '@hooks/useResourceState';
+import type { ArteRuimCardData } from '@types';
+import { SEARCH_THRESHOLD } from '@utils/constants';
+import { checkForDuplicates } from '@utils/object';
+import { RESOURCES_NAMES } from '@utils/resources-list';
+import { findSimilar, stringRemoveAccents } from '@utils/string';
 import { Input, Layout } from 'antd';
-import { ArteRuimLevels } from 'components/ArteRuimLevels';
-import { ResponseState } from 'components/Common';
-import { SectionTitle } from 'components/Common/SectionTitle';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionFilters';
-import { SearchDuplicates } from 'components/SearchDuplicates';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { useResourceState } from 'hooks/useResourceState';
 import { useEffect, useState } from 'react';
-import type { ArteRuimCardData } from 'types';
-import { SEARCH_THRESHOLD } from 'utils/constants';
-import { checkForDuplicates } from 'utils/object';
-import { RESOURCES_NAMES } from 'utils/resources-list';
-import { findSimilar, stringRemoveAccents } from 'utils/string';
 
 export function ArteRuimParser() {
   // Set default query params

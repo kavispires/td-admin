@@ -1,9 +1,9 @@
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyMovieSet } from '@types';
 import { Space, Typography } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
-import type { DailyMovieSet } from 'types';
 import { ItemsMoviesTable } from './ItemsMoviesTable';
 
 function orderSets(givenSets: DailyMovieSet[]) {
@@ -36,7 +36,10 @@ export function ItemMoviesListing({
       <Typography.Title level={5}>
         Total Movies: {rows.length} | Complete Movies: {completeMoviesCount}
       </Typography.Title>
-      <ItemsMoviesTable addEntryToUpdate={addEntryToUpdate} rows={rows} />
+      <ItemsMoviesTable
+        addEntryToUpdate={addEntryToUpdate}
+        rows={rows}
+      />
     </Space>
   );
 }

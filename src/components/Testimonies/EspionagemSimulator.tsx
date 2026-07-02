@@ -1,17 +1,17 @@
 import { AppstoreFilled, AudioFilled, SkinFilled } from '@ant-design/icons';
-import ReactJsonView from '@microlink/react-json-view';
-import { Alert, Badge, Button, Flex, InputNumber, Switch, Typography } from 'antd';
-import clsx from 'clsx';
 import {
   type DailyInvestigacaoEntry,
   useDailyInvestigacaoGames,
-} from 'components/Daily/utils/games/daily-investigacao';
-import { getToday } from 'components/Daily/utils/utils';
-import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
-import { useTDResource } from 'hooks/useTDResource';
+} from '@components/Daily/utils/games/daily-investigacao';
+import { getToday } from '@components/Daily/utils/utils';
+import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
+import { useTDResource } from '@hooks/useTDResource';
+import ReactJsonView from '@microlink/react-json-view';
+import type { SuspectCardData } from '@types';
+import { Alert, Badge, Button, Flex, InputNumber, Switch, Typography } from 'antd';
+import clsx from 'clsx';
 import { isEmpty } from 'lodash';
 import { useMemo, useRef, useState } from 'react';
-import type { SuspectCardData } from 'types';
 
 export function EspionagemSimulator() {
   const [run, setRun] = useState({ batchSize: 1, history: {} });

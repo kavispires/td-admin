@@ -1,10 +1,10 @@
 import { PlusOutlined, SyncOutlined } from '@ant-design/icons';
+import { Item } from '@components/Sprites';
+import { useTDResource } from '@hooks/useTDResource';
+import type { ItemData as ItemT } from '@types';
 import { Button, Flex, Popconfirm, Typography } from 'antd';
-import { Item } from 'components/Sprites';
-import { useTDResource } from 'hooks/useTDResource';
 import { difference, sampleSize } from 'lodash';
 import { useState } from 'react';
-import type { ItemData as ItemT } from 'types';
 
 type InspirationSampleProps = {
   /**

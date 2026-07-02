@@ -6,14 +6,14 @@ import ReactMarkdown from 'react-markdown';
 import { useWindowSize } from 'react-use';
 import escapeRoomSprite from './escape-room-sprites.svg?url';
 import './cards.styles.scss';
-import { ModalOverlay } from 'components/FromTD/ModalOverlay';
-import { Translate } from 'components/FromTD/Translate';
-import { AlienSign as SignSprite } from 'components/Sprites/AlienSign';
-import { Emoji as EmojiSprite } from 'components/Sprites/Emoji';
-import { Glyph as GlyphSprite } from 'components/Sprites/Glyph';
-import { Item as ItemSprite } from 'components/Sprites/Item';
-import { WarehouseGood as WarehouseGoodSprite } from 'components/Sprites/WarehouseGood';
-import { useBaseUrl as useTDBaseUrl } from 'hooks/useBaseUrl';
+import { ModalOverlay } from '@components/FromTD/ModalOverlay';
+import { Translate } from '@components/FromTD/Translate';
+import { AlienSign as SignSprite } from '@components/Sprites/AlienSign';
+import { Emoji as EmojiSprite } from '@components/Sprites/Emoji';
+import { Glyph as GlyphSprite } from '@components/Sprites/Glyph';
+import { Item as ItemSprite } from '@components/Sprites/Item';
+import { WarehouseGood as WarehouseGoodSprite } from '@components/Sprites/WarehouseGood';
+import { useBaseUrl as useTDBaseUrl } from '@hooks/useBaseUrl';
 import type { Align, BoxVariant, Pos, Size } from './escape-room-types';
 
 export function Markdown({ children, className = '' }: { children?: string; className?: string }) {
@@ -33,7 +33,12 @@ type ERSpriteProps = {
 } & React.SVGProps<SVGSVGElement>;
 export function ERSprite({ spriteId, width, ...props }: ERSpriteProps) {
   return (
-    <svg height={`${width}em`} viewBox="0 0 512 512" width={`${width}em`} {...props}>
+    <svg
+      height={`${width}em`}
+      viewBox="0 0 512 512"
+      width={`${width}em`}
+      {...props}
+    >
       <use href={`${escapeRoomSprite}#${spriteId}`}></use>
     </svg>
   );
@@ -123,23 +128,53 @@ export function Card({
 
   return (
     <div>
-      <ModalOverlay onClose={() => setOpen(false)} open={open}>
+      <ModalOverlay
+        onClose={() => setOpen(false)}
+        open={open}
+      >
         <Component s={scale} />
       </ModalOverlay>
 
       <div className="er-card-container">
-        <Space.Compact size="small" style={{ width: '100%' }}>
-          <Button aria-label="View card" block onClick={() => setOpen(true)} title="View card">
+        <Space.Compact
+          size="small"
+          style={{ width: '100%' }}
+        >
+          <Button
+            aria-label="View card"
+            block
+            onClick={() => setOpen(true)}
+            title="View card"
+          >
             <EyeOutlined />
           </Button>
           {!unplayable && (
-            <Tooltip title={<Translate en="Play card" pt="Usar card" />}>
+            <Tooltip
+              title={
+                <Translate
+                  en="Play card"
+                  pt="Usar card"
+                />
+              }
+            >
               <Popconfirm
                 onConfirm={() => onPlayCard?.(cardId)}
-                title={<Translate en="Do you want to play this card?" pt="Deseja usar esta carta?" />}
+                title={
+                  <Translate
+                    en="Do you want to play this card?"
+                    pt="Deseja usar esta carta?"
+                  />
+                }
               >
-                <Button block className="er-card-play-button" disabled={!onPlayCard}>
-                  <ERSprite spriteId="play-card" width={1} />
+                <Button
+                  block
+                  className="er-card-play-button"
+                  disabled={!onPlayCard}
+                >
+                  <ERSprite
+                    spriteId="play-card"
+                    width={1}
+                  />
                 </Button>
               </Popconfirm>
             </Tooltip>
@@ -165,15 +200,50 @@ export function Sprite({ library, spriteId, scale = 1, rotate = 0, width = 10, c
 
   switch (library) {
     case 'alien-signs':
-      return <SignSprite className={className} signId={spriteId} style={style} width={width} />;
+      return (
+        <SignSprite
+          className={className}
+          signId={spriteId}
+          style={style}
+          width={width}
+        />
+      );
     case 'emojis':
-      return <EmojiSprite className={className} emojiId={spriteId} style={style} width={width} />;
+      return (
+        <EmojiSprite
+          className={className}
+          emojiId={spriteId}
+          style={style}
+          width={width}
+        />
+      );
     case 'glyphs':
-      return <GlyphSprite className={className} glyphId={spriteId} style={style} width={width} />;
+      return (
+        <GlyphSprite
+          className={className}
+          glyphId={spriteId}
+          style={style}
+          width={width}
+        />
+      );
     case 'items':
-      return <ItemSprite className={className} itemId={spriteId} style={style} width={width} />;
+      return (
+        <ItemSprite
+          className={className}
+          itemId={spriteId}
+          style={style}
+          width={width}
+        />
+      );
     case 'warehouse-goods':
-      return <WarehouseGoodSprite className={className} goodId={spriteId} style={style} width={width} />;
+      return (
+        <WarehouseGoodSprite
+          className={className}
+          goodId={spriteId}
+          style={style}
+          width={width}
+        />
+      );
     default:
       return <WarningOutlined style={{ color: 'red' }} />;
   }
@@ -212,8 +282,16 @@ type HeaderProps = BasicBlockProps & {
 };
 export function Header({ children, spriteId, contained, ...props }: HeaderProps) {
   return (
-    <div className={clsx('er-card-header', contained && 'er-card-header--contained')} {...props}>
-      {spriteId && <ERSprite spriteId={spriteId} width={2} />}
+    <div
+      className={clsx('er-card-header', contained && 'er-card-header--contained')}
+      {...props}
+    >
+      {spriteId && (
+        <ERSprite
+          spriteId={spriteId}
+          width={2}
+        />
+      )}
       <h2>{children}</h2>
     </div>
   );
@@ -264,14 +342,22 @@ export function ContentBox({ children, className, position, ...props }: ContentB
 
 export function CenterBox({ children, ...props }: BasicBlockProps) {
   return (
-    <div className="er-center-box" {...props}>
+    <div
+      className="er-center-box"
+      {...props}
+    >
       {children}
     </div>
   );
 }
 
 export function Empty({ size = 1, className, ...props }: ElementProps & { size?: number }) {
-  return <div className={clsx('er-empty', `er-empty-${size}`, className)} {...props} />;
+  return (
+    <div
+      className={clsx('er-empty', `er-empty-${size}`, className)}
+      {...props}
+    />
+  );
 }
 
 export function getBoxClasses(

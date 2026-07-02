@@ -1,6 +1,6 @@
+import { findSimilar, stringRemoveAccents } from '@utils/string';
 import { Input } from 'antd';
 import { useState } from 'react';
-import { findSimilar, stringRemoveAccents } from 'utils/string';
 import { SEARCH_THRESHOLD } from '../utils/constants';
 import { SectionTitle } from './Common/SectionTitle';
 

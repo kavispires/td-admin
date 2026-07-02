@@ -1,14 +1,14 @@
 import { DeleteFilled } from '@ant-design/icons';
+import { Item } from '@components/Sprites';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
+import { useTablePagination } from '@hooks/useTablePagination';
+import { useTDResource } from '@hooks/useTDResource';
+import type { DailyMovieSet, ItemData as ItemT } from '@types';
+import { removeDuplicates } from '@utils/array';
 import type { TableProps } from 'antd';
 import { Button, Flex, Popconfirm, Space, Table, Typography } from 'antd';
-import { Item } from 'components/Sprites';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { useTablePagination } from 'hooks/useTablePagination';
-import { useTDResource } from 'hooks/useTDResource';
-import type { DailyMovieSet, ItemData as ItemT } from 'types';
-import { removeDuplicates } from 'utils/array';
 import { AddItemFlow } from './AddItemsFlow';
 import { useMovieUsedHistory } from './useMovieUsedHistory';
 

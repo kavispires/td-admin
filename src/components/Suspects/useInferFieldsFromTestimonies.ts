@@ -1,13 +1,13 @@
-import { calculateSuspectAnswersData } from 'components/Testimonies/utils';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
-import { capitalize } from 'lodash';
+import { calculateSuspectAnswersData } from '@components/Testimonies/utils';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import { useTDResource } from '@hooks/useTDResource';
 import {
   type TestimonyAnswers,
   testimoniesDeserializer,
-} from 'pages/Libraries/Testimonies/useTestimoniesResource';
+} from '@pages/Libraries/Testimonies/useTestimoniesResource';
+import type { SuspectExtendedInfoData, TestimonyQuestionCardData } from '@types';
+import { capitalize } from 'lodash';
 import { useState } from 'react';
-import type { SuspectExtendedInfoData, TestimonyQuestionCardData } from 'types';
 
 const POSITIVE_WEIGHT = 3;
 const NEUTRAL_WEIGHT = 1;

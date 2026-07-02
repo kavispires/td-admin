@@ -1,9 +1,9 @@
 import { MenuOutlined } from '@ant-design/icons';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import type { ItemData as ItemT } from '@types';
 import { Button, Popover, Space } from 'antd';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { snakeCase } from 'lodash';
 import { useToggle } from 'react-use';
-import type { ItemData as ItemT } from 'types';
 
 export type EscapeRoomItemCard = {
   /**

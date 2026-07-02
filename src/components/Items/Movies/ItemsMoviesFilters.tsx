@@ -1,14 +1,14 @@
+import { FilterSwitch } from '@components/Common';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { SaveButton } from '@components/Common/SaveButton';
+import { SiderContent } from '@components/Layout';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyMovieSet } from '@types';
+import { createIncrementalUID } from '@utils/id';
+import { sortJsonKeys } from '@utils/json';
 import { App, Button, Divider, Flex } from 'antd';
-import { FilterSwitch } from 'components/Common';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { SaveButton } from 'components/Common/SaveButton';
-import { SiderContent } from 'components/Layout';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import type { DailyMovieSet } from 'types';
-import { createIncrementalUID } from 'utils/id';
-import { sortJsonKeys } from 'utils/json';
 
 export function ItemsMoviesFilters({
   data,

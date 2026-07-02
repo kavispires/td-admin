@@ -1,11 +1,11 @@
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import { useItemSampler } from '@hooks/useItemSampler';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { wait } from '@utils/time';
 import { Button, Card, Divider, Empty, Flex, Modal, Space, Typography } from 'antd';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useItemSampler } from 'hooks/useItemSampler';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty } from 'lodash';
 import { Fragment } from 'react';
 import { useToggle } from 'react-use';
-import { wait } from 'utils/time';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
 import { ItemAttributionDrawer } from './ItemAttributionDrawer';

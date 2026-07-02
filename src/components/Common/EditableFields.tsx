@@ -1,11 +1,16 @@
 import { FireFilled, IdcardOutlined } from '@ant-design/icons';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
 import { Input, type InputProps, Switch, type SwitchProps, Typography } from 'antd';
 import type { TextProps } from 'antd/lib/typography/Text';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { LanguageFlag } from './LanguageFlag';
 
 export function Label({ strong, ...props }: TextProps) {
-  return <Typography.Text strong={strong ?? true} {...props} />;
+  return (
+    <Typography.Text
+      strong={strong ?? true}
+      {...props}
+    />
+  );
 }
 
 type DualLanguageTextFieldProps = {
@@ -19,7 +24,12 @@ export function DualLanguageTextField({ value, language, placeholder, ...rest }:
     <Input
       defaultValue={value[language]}
       placeholder={`${placeholder || 'Value'} in ${language.toUpperCase()}`}
-      prefix={<LanguageFlag language={language} width="1em" />}
+      prefix={
+        <LanguageFlag
+          language={language}
+          width="1em"
+        />
+      }
       size="small"
       {...rest}
     />
@@ -31,7 +41,13 @@ type NSFWFieldProps = {
 } & Omit<SwitchProps, 'checked' | 'checkedChildren'>;
 
 export function NSFWField({ value, ...props }: NSFWFieldProps) {
-  return <Switch checked={value} checkedChildren={<FireFilled style={{ color: 'hotpink' }} />} {...props} />;
+  return (
+    <Switch
+      checked={value}
+      checkedChildren={<FireFilled style={{ color: 'hotpink' }} />}
+      {...props}
+    />
+  );
 }
 
 type IdFieldProps = {

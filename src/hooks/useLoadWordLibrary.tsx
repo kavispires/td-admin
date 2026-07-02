@@ -1,5 +1,5 @@
+import { useBaseUrl } from '@hooks/useBaseUrl';
 import { type UseQueryResult, useQuery } from '@tanstack/react-query';
-import { useBaseUrl } from 'hooks/useBaseUrl';
 import { isEmpty } from 'lodash';
 
 export function useLoadWordLibrary(

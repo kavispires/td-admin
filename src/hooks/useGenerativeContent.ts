@@ -1,5 +1,5 @@
+import { fetchGenerativeContent } from '@services/aiGenerator';
 import { type UseMutationOptions, useMutation } from '@tanstack/react-query';
-import { fetchGenerativeContent } from 'services/aiGenerator';
 
 /**
  * Custom hook to fetch generative content from AI using React Query mutation

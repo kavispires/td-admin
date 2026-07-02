@@ -1,13 +1,13 @@
+import { CrimesHediondosContent } from '@components/CrimesHediondos/CrimesHediondosContent';
+import { CrimesHediondosFilters } from '@components/CrimesHediondos/CrimesHediondosFilters';
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { PageLayout, PageSider } from '@components/Layout';
+import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import { useTDResource } from '@hooks/useTDResource';
+import type { CrimeSceneTileData, CrimesHediondosCardData, ItemData } from '@types';
 import { Layout } from 'antd';
-import { CrimesHediondosContent } from 'components/CrimesHediondos/CrimesHediondosContent';
-import { CrimesHediondosFilters } from 'components/CrimesHediondos/CrimesHediondosFilters';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageLayout, PageSider } from 'components/Layout';
-import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
 import { useEffect } from 'react';
-import type { CrimeSceneTileData, CrimesHediondosCardData, ItemData } from 'types';
 
 function CrimesHediondos() {
   const weaponsQuery = useResourceFirestoreData<CrimesHediondosCardData>({

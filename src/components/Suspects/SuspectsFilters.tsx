@@ -1,15 +1,15 @@
 import { DotChartOutlined, TableOutlined } from '@ant-design/icons';
+import { FilterNumber, FilterSegments, FilterSelect } from '@components/Common';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { FirestoreConsoleWipe } from '@components/Common/FirestoreConsoleLink';
+import { SaveButton } from '@components/Common/SaveButton';
+import { SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { SuspectCardData, SuspectExtendedInfoData } from '@types';
+import { sortJsonKeys } from '@utils/json';
 import { Divider, Flex, Form } from 'antd';
-import { FilterNumber, FilterSegments, FilterSelect } from 'components/Common';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
-import { SaveButton } from 'components/Common/SaveButton';
-import { SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep, merge } from 'lodash';
-import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
-import { sortJsonKeys } from 'utils/json';
 import { NewSuspectFlow } from './NewSuspectFlow';
 import { SuspectsStyleVariantSelector } from './SuspectsStyleVariantSelector';
 

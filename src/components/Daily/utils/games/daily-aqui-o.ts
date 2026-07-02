@@ -1,9 +1,10 @@
 /** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
+
+import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
+import { useTDResource } from '@hooks/useTDResource';
 import { useQuery } from '@tanstack/react-query';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { useTDResource } from 'hooks/useTDResource';
+import type { DailyDiscSet, ItemData } from '@types';
 import { intersection, sampleSize, shuffle } from 'lodash';
-import type { DailyDiscSet, ItemData } from 'types';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { checkWeekend, getNextDay } from '../utils';

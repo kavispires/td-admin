@@ -1,6 +1,6 @@
 import { FireFilled } from '@ant-design/icons';
+import { LanguageFlag } from '@components/Common/LanguageFlag';
 import { Flex, Tag } from 'antd';
-import { LanguageFlag } from 'components/Common/LanguageFlag';
 import type { ReactNode } from 'react';
 
 type LabelProps = {
@@ -55,11 +55,19 @@ export function EntryDualLanguage({ label, children }: EntryDualLanguageProps) {
   const value = (
     <>
       <div>
-        <LanguageFlag language="en" width="1em" /> {children.en}
+        <LanguageFlag
+          language="en"
+          width="1em"
+        />{' '}
+        {children.en}
       </div>
 
       <div>
-        <LanguageFlag language="pt" width="1em" /> {children.pt}
+        <LanguageFlag
+          language="pt"
+          width="1em"
+        />{' '}
+        {children.pt}
       </div>
     </>
   );
@@ -92,7 +100,10 @@ export function EntryLanguage({ label = 'language', children }: EntryLanguagePro
         <Label>{label}</Label>
       </div>
       <Value>
-        <LanguageFlag language={children as Language} width="1em" />
+        <LanguageFlag
+          language={children as Language}
+          width="1em"
+        />
       </Value>
     </Flex>
   );

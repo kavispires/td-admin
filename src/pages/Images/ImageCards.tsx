@@ -1,15 +1,15 @@
+import { ResponseState } from '@components/Common';
+import { IdTag } from '@components/Common/IdTag';
+import { VirtualizationWrapper } from '@components/Common/VirtualizationWrapper';
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { ImageCard } from '@components/Images/ImageCard';
+import { ImageCardsFilters } from '@components/Images/ImageCardsFilters';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { useCardWidth } from '@hooks/useCardWidth';
+import { useImagesDecks } from '@hooks/useImagesDecks';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Flex, Image, Layout, Space, Typography } from 'antd';
-import { ResponseState } from 'components/Common';
-import { IdTag } from 'components/Common/IdTag';
-import { VirtualizationWrapper } from 'components/Common/VirtualizationWrapper';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ImageCard } from 'components/Images/ImageCard';
-import { ImageCardsFilters } from 'components/Images/ImageCardsFilters';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { useCardWidth } from 'hooks/useCardWidth';
-import { useImagesDecks } from 'hooks/useImagesDecks';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty } from 'lodash';
 import { useState } from 'react';
 
@@ -26,10 +26,17 @@ function ImageCards() {
   const [cardWidth, ref] = useCardWidth(cardsPerRow);
 
   return (
-    <PageLayout subtitle="Image Cards" title="Images">
+    <PageLayout
+      subtitle="Image Cards"
+      title="Images"
+    >
       <Layout hasSider>
         <PageSider>
-          <ResponseState error={error} hasResponseData={hasResponseData} isLoading={isLoading} />
+          <ResponseState
+            error={error}
+            hasResponseData={hasResponseData}
+            isLoading={isLoading}
+          />
           <ImageCardsFilters
             cardsPerRow={cardsPerRow}
             decksData={data}
@@ -40,22 +47,43 @@ function ImageCards() {
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper error={error} hasResponseData={hasResponseData} isLoading={isLoading}>
+          <DataLoadingWrapper
+            error={error}
+            hasResponseData={hasResponseData}
+            isLoading={isLoading}
+          >
             <Typography.Title level={2}>
               Deck {deck} ({DECK.length})
             </Typography.Title>
 
             <Image.PreviewGroup>
-              <Space className="my-2" key={deck} ref={ref} wrap>
+              <Space
+                className="my-2"
+                key={deck}
+                ref={ref}
+                wrap
+              >
                 {Boolean(deck) &&
                   DECK.map((e, i) => {
                     const num = e + i < 10 ? `0${e + i}` : `${e + i}`;
                     const id = `td-${deck}-${num}`;
 
                     return (
-                      <Flex align="center" key={id} style={{ gap: 8 }} vertical>
-                        <VirtualizationWrapper aspectRatio="2:3" width={cardWidth}>
-                          <ImageCard cardId={id} cardWidth={cardWidth} key={id} />
+                      <Flex
+                        align="center"
+                        key={id}
+                        style={{ gap: 8 }}
+                        vertical
+                      >
+                        <VirtualizationWrapper
+                          aspectRatio="2:3"
+                          width={cardWidth}
+                        >
+                          <ImageCard
+                            cardId={id}
+                            cardWidth={cardWidth}
+                            key={id}
+                          />
                         </VirtualizationWrapper>
                         {is('showImageIds') && <IdTag withQuotes>{id}</IdTag>}
                       </Flex>

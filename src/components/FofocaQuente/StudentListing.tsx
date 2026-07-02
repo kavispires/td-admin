@@ -1,8 +1,8 @@
+import { useFilterDataByDataFilters } from '@components/Common/DataFilters';
+import { PaginationWrapper } from '@components/Common/PaginationWrapper';
+import { useGridPagination } from '@hooks/useGridPagination';
+import type { useTDResource } from '@hooks/useTDResource';
 import { Flex, Typography } from 'antd';
-import { useFilterDataByDataFilters } from 'components/Common/DataFilters';
-import { PaginationWrapper } from 'components/Common/PaginationWrapper';
-import { useGridPagination } from 'hooks/useGridPagination';
-import type { useTDResource } from 'hooks/useTDResource';
 import type { TeenageStudentData } from 'types/tdr';
 import { StudentCard } from './StudentCard';
 

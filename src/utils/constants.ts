@@ -1,5 +1,5 @@
-import { AlienSign, Emoji, Glyph } from 'components/Sprites';
-import { WarehouseGood } from 'components/Sprites/WarehouseGood';
+import { AlienSign, Emoji, Glyph } from '@components/Sprites';
+import { WarehouseGood } from '@components/Sprites/WarehouseGood';
 import { capitalize, invert, keyBy } from 'lodash';
 
 export const SEARCH_THRESHOLD: number = 2;

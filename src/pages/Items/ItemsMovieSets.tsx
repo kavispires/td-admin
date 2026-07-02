@@ -1,14 +1,14 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { ItemMoviesListing } from '@components/Items/Movies/ItemMoviesListing';
+import { ItemsMoviesSearch } from '@components/Items/Movies/ItemMoviesSearch';
+import { ItemsMoviesFilters } from '@components/Items/Movies/ItemsMoviesFilters';
+import { ItemsMoviesSample } from '@components/Items/Movies/ItemsMoviesSample';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import type { DailyMovieSet } from '@types';
 import { Layout, Space } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemMoviesListing } from 'components/Items/Movies/ItemMoviesListing';
-import { ItemsMoviesSearch } from 'components/Items/Movies/ItemMoviesSearch';
-import { ItemsMoviesFilters } from 'components/Items/Movies/ItemsMoviesFilters';
-import { ItemsMoviesSample } from 'components/Items/Movies/ItemsMoviesSample';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { DailyMovieSet } from 'types';
 
 export function ItemsMovieSets() {
   const moviesData = useResourceFirestoreData<DailyMovieSet>({
@@ -17,7 +17,10 @@ export function ItemsMovieSets() {
   });
 
   return (
-    <PageLayout subtitle="Movie Sets" title="Items">
+    <PageLayout
+      subtitle="Movie Sets"
+      title="Items"
+    >
       <Layout hasSider>
         <PageSider>
           <ItemsMoviesFilters {...moviesData} />

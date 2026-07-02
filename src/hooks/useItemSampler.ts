@@ -1,7 +1,7 @@
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import type { ItemAttributeData } from '@types';
 import { sample as lodashSample, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { ItemAttributeData } from 'types';
 import { useQueryParams } from './useQueryParams';
 
 export function useItemSampler() {

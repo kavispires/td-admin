@@ -1,10 +1,10 @@
+import { LanguageFlag } from '@components/Common/LanguageFlag';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyDiscSet } from '@types';
+import { findBestStringMatch } from '@utils/string';
 import { Button, Form, Input, Modal, Typography } from 'antd';
-import { LanguageFlag } from 'components/Common/LanguageFlag';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { camelCase } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { DailyDiscSet } from 'types';
-import { findBestStringMatch } from 'utils/string';
 
 type AddNewSetFlowProps = {
   ids: string[];

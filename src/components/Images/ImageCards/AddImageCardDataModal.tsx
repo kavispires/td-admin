@@ -1,7 +1,7 @@
 import { DatabaseOutlined } from '@ant-design/icons';
+import type { ImageCardDescriptorData } from '@types';
 import { Alert, App, Button, Collapse, Flex, Input, InputNumber, Modal, Tooltip, Typography } from 'antd';
 import { useState } from 'react';
-import type { ImageCardDescriptorData } from 'types';
 import { ImageCard } from '../ImageCard';
 
 type AddImageCardDataModalProps = {

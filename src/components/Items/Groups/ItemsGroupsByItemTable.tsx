@@ -1,9 +1,9 @@
+import { PaginationWrapper } from '@components/Common/PaginationWrapper';
+import { useGridPagination } from '@hooks/useGridPagination';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { ItemData as ItemT } from '@types';
 import { Col, Row, Typography } from 'antd';
-import { PaginationWrapper } from 'components/Common/PaginationWrapper';
-import { useGridPagination } from 'hooks/useGridPagination';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
-import type { ItemData as ItemT } from 'types';
 import { ItemGroupsCard } from './ItemGroupsCard';
 
 type ItemsGroupsTablesProps = {

@@ -1,7 +1,4 @@
-import { Button, Divider, Flex, Input, Space, Tag, Typography } from 'antd';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-import _ from 'lodash';
-import { useState } from 'react';
+import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
 import type {
   ItemData,
   MovieCardData,
@@ -9,7 +6,10 @@ import type {
   SuspectCardData,
   SuspectExtendedInfoData,
   TestimonyQuestionCardData,
-} from 'types';
+} from '@types';
+import { Button, Divider, Flex, Input, Space, Tag, Typography } from 'antd';
+import _ from 'lodash';
+import { useState } from 'react';
 import { ActorRole } from './ActorRole';
 
 export type FeatureFilmRole = {

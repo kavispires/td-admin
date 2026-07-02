@@ -1,12 +1,11 @@
-import { Layout } from 'antd';
-import { ResponseState } from 'components/Common';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { FeatureFilmView } from 'components/Movie/FeatureFilmView';
-import { FeatureFilmViewV2 } from 'components/Movie/FeatureFilmViewV2';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { useTDResource, useTDResourceNonCollection } from 'hooks/useTDResource';
+import { ResponseState } from '@components/Common';
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { FeatureFilmView } from '@components/Movie/FeatureFilmView';
+import { FeatureFilmViewV2 } from '@components/Movie/FeatureFilmViewV2';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { useTDResource, useTDResourceNonCollection } from '@hooks/useTDResource';
 import type {
   ItemData,
   MovieCardData,
@@ -14,7 +13,8 @@ import type {
   SuspectCardData,
   SuspectExtendedInfoData,
   TestimonyQuestionCardData,
-} from 'types';
+} from '@types';
+import { Layout } from 'antd';
 
 function MovieMaker() {
   const { queryParams } = useQueryParams({ language: 'pt' });

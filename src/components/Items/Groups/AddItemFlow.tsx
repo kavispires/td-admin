@@ -1,4 +1,4 @@
-import type { ItemGroupData } from 'types';
+import type { ItemGroupData } from '@types';
 import { InspirationSample } from '../InspirationSample';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 

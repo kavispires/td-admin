@@ -1,13 +1,13 @@
+import { IdTag } from '@components/Common/IdTag';
+import { PageContent } from '@components/Common/PageContent';
+import { PaginationWrapper } from '@components/Common/PaginationWrapper';
+import { useGridPagination } from '@hooks/useGridPagination';
+import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
+import { useTablePagination } from '@hooks/useTablePagination';
+import type { UseEscapeRoomResourceReturnType } from '@pages/Games/EscapeRoom/useEscapeRoomResource';
 import { Flex, Select, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
-import { IdTag } from 'components/Common/IdTag';
-import { PageContent } from 'components/Common/PageContent';
-import { PaginationWrapper } from 'components/Common/PaginationWrapper';
-import { useGridPagination } from 'hooks/useGridPagination';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
-import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
 import { useMemo, useState } from 'react';
 import { EscapeRoomCard } from './cards/EscapeRoomCard';
 import type { EscapeRoomSet } from './cards/escape-room-types';
@@ -30,8 +30,14 @@ export function AllCardsGrid({ isLoading, missionSets, cards, isSuccess }: UseEs
 
   return (
     <PageContent>
-      <Flex align="center" justify="space-between">
-        <Typography.Title className="my-0" level={4}>
+      <Flex
+        align="center"
+        justify="space-between"
+      >
+        <Typography.Title
+          className="my-0"
+          level={4}
+        >
           All Cards
         </Typography.Title>
         <Flex gap={12}>
@@ -65,14 +71,27 @@ export function AllCardsGrid({ isLoading, missionSets, cards, isSuccess }: UseEs
         </Flex>
       </Flex>
 
-      <PaginationWrapper className="full-width" pagination={pagination}>
-        <Flex gap={16} wrap="wrap">
+      <PaginationWrapper
+        className="full-width"
+        pagination={pagination}
+      >
+        <Flex
+          gap={16}
+          wrap="wrap"
+        >
           {page.map((entry) => (
-            <Flex gap={8} key={entry.id} vertical>
+            <Flex
+              gap={8}
+              key={entry.id}
+              vertical
+            >
               <span>
                 ID <IdTag withQuotes>{entry.id}</IdTag>
               </span>
-              <EscapeRoomCard card={entry} width={cardSize} />
+              <EscapeRoomCard
+                card={entry}
+                width={cardSize}
+              />
             </Flex>
           ))}
         </Flex>

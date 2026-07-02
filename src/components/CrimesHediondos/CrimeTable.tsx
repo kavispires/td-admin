@@ -1,3 +1,10 @@
+import { DualLanguageTextField } from '@components/Common/EditableFields';
+import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
+import { useTablePagination } from '@hooks/useTablePagination';
+import type { CrimeSceneTileData, CrimesHediondosCardData } from '@types';
 import {
   Button,
   Flex,
@@ -10,14 +17,7 @@ import {
   Typography,
 } from 'antd';
 import clsx from 'clsx';
-import { DualLanguageTextField } from 'components/Common/EditableFields';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { cloneDeep } from 'lodash';
-import type { CrimeSceneTileData, CrimesHediondosCardData } from 'types';
 import { CrimeItemCard } from './CrimeItemCard';
 import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 

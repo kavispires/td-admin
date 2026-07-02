@@ -1,5 +1,5 @@
+import { SiderContent } from '@components/Layout';
 import { Form, Tag } from 'antd';
-import { SiderContent } from 'components/Layout';
 
 type TagStateProps = {
   /**

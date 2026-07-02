@@ -1,7 +1,7 @@
+import { FirestoreConsoleLink } from '@components/Common/FirestoreConsoleLink';
+import { GoToTopButton } from '@components/Common/GoToTopButton';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Empty, Flex } from 'antd';
-import { FirestoreConsoleLink } from 'components/Common/FirestoreConsoleLink';
-import { GoToTopButton } from 'components/Common/GoToTopButton';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { ItemAttributionCard } from './ItemAttributionCard';
 import {
   ItemAttributionFilterAttributes,
@@ -21,14 +21,22 @@ export function ItemAttributionPageContent() {
   if (display === 'classifier') {
     return (
       <>
-        <Flex align="center" className="my-4" gap={8} wrap>
+        <Flex
+          align="center"
+          className="my-4"
+          gap={8}
+          wrap
+        >
           <ItemAttributionNavigation />
           <ItemAttributionFilterAttributes />
           <ItemAttributionSortBy />
           <FirestoreConsoleLink path="/tdr/itemsAttributeValues" />
         </Flex>
         <ItemAttributionCard />
-        <Flex className="my-4" justify="flex-end">
+        <Flex
+          className="my-4"
+          justify="flex-end"
+        >
           <GoToTopButton />
         </Flex>
       </>
@@ -55,5 +63,10 @@ export function ItemAttributionPageContent() {
     return <ItemStats />;
   }
 
-  return <Empty className="my-10" description="Unknown display has been selected" />;
+  return (
+    <Empty
+      className="my-10"
+      description="Unknown display has been selected"
+    />
+  );
 }

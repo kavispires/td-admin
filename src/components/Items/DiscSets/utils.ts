@@ -1,6 +1,6 @@
+import type { DailyDiscSet } from '@types';
+import { LETTERS } from '@utils/constants';
 import { fromPairs, isEqual, orderBy, range, sampleSize } from 'lodash';
-import type { DailyDiscSet } from 'types';
-import { LETTERS } from 'utils/constants';
 
 export function generateUniqueArrays(sets: Dictionary<DailyDiscSet>, N: number): string[][] {
   const result: number[][] = [];

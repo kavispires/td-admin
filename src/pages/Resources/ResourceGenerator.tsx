@@ -1,13 +1,13 @@
-import { Input, Layout } from 'antd';
-import { SectionTitle } from 'components/Common/SectionTitle';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
+import { SectionTitle } from '@components/Common/SectionTitle';
+import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
 import {
   INITIAL_PARAMETERS,
   type Parameters,
   ResourceParameters,
-} from 'components/Resource/ResourceParameters';
+} from '@components/Resource/ResourceParameters';
+import { Input, Layout } from 'antd';
 import { set } from 'lodash';
 import { useMemo, useState } from 'react';
 
@@ -40,7 +40,14 @@ function ResourceGenerator() {
             <SectionTitle>
               Output <CopyToClipboardButton content={stringifiedResult} />
             </SectionTitle>
-            <Input.TextArea cols={15} id="" name="output" readOnly rows={20} value={stringifiedResult} />
+            <Input.TextArea
+              cols={15}
+              id=""
+              name="output"
+              readOnly
+              rows={20}
+              value={stringifiedResult}
+            />
           </div>
         </Layout.Content>
       </Layout>

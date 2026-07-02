@@ -1,12 +1,12 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { FofocaQuenteContent } from '@components/FofocaQuente/FofocaQuenteContent';
+import { FofocaQuenteFilters } from '@components/FofocaQuente/FofocaQuenteFilters';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { useTDResource } from '@hooks/useTDResource';
+import type { TeenageStudentData } from '@types';
 import { Layout } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { FofocaQuenteContent } from 'components/FofocaQuente/FofocaQuenteContent';
-import { FofocaQuenteFilters } from 'components/FofocaQuente/FofocaQuenteFilters';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
-import type { TeenageStudentData } from 'types';
 
 export function FofocaQuente() {
   const teenageStudentsQuery = useTDResource<TeenageStudentData>('teenage-students');

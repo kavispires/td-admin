@@ -1,8 +1,8 @@
+import { firestore } from '@services/firebase';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { wait } from '@utils/time';
 import { App } from 'antd';
 import { doc, setDoc } from 'firebase/firestore';
-import { firestore } from 'services/firebase';
-import { wait } from 'utils/time';
 
 /**
  * Hook that provides a mutation function to set a document in Firestore

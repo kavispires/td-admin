@@ -1,16 +1,16 @@
 import { ClusterOutlined, RobotOutlined, TableOutlined } from '@ant-design/icons';
+import { FilterSegments } from '@components/Common';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { FirestoreConsoleWipe } from '@components/Common/FirestoreConsoleLink';
+import { SaveButton } from '@components/Common/SaveButton';
+import { SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import { useTDResource } from '@hooks/useTDResource';
+import type { DailyDiagramItemData, DailyDiagramRuleData } from '@types';
+import { sortJsonKeys } from '@utils/json';
 import { Divider, Flex, Typography } from 'antd';
-import { FilterSegments } from 'components/Common';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
-import { SaveButton } from 'components/Common/SaveButton';
-import { SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep } from 'lodash';
-import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
-import { sortJsonKeys } from 'utils/json';
 import { stressSyllableDependencyVerifier, syllableDependencyVerifier, verifiers } from './utils';
 
 export function ItemsDiagramFilters({

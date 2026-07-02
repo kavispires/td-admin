@@ -7,10 +7,10 @@ import {
   HddOutlined,
   SmileOutlined,
 } from '@ant-design/icons';
+import { useGlobalSaveState } from '@store/globalSave';
 import type { MenuProps } from 'antd';
 import { Menu as AntMenu } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useGlobalSaveState } from 'store/globalSave';
 
 const items: MenuProps['items'] = [
   {

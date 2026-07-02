@@ -1,5 +1,5 @@
+import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
 import { Col, Row, Table, Typography } from 'antd';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useMemo } from 'react';
 
 type ResourceCardsProps = {
@@ -42,7 +42,10 @@ export function ResourceTable({ response }: ResourceCardsProps) {
 
       <Row gutter={16}>
         <Col span={24}>
-          <Table columns={columns} dataSource={list} />
+          <Table
+            columns={columns}
+            dataSource={list}
+          />
         </Col>
       </Row>
     </>

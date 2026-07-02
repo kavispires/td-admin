@@ -1,17 +1,17 @@
+import { ResponseState } from '@components/Common';
+import { SectionTitle } from '@components/Common/SectionTitle';
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { ResourceSelectionFilters } from '@components/Resource/ResourceSelectionFilters';
+import { useBaseUrl } from '@hooks/useBaseUrl';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { useResourceState } from '@hooks/useResourceState';
 import { useQuery } from '@tanstack/react-query';
+import type { ArteRuimCardData, ArteRuimGroupData } from '@types';
+import { RESOURCES_NAMES } from '@utils/resources-list';
 import { Input, Layout, List, Typography } from 'antd';
-import { ResponseState } from 'components/Common';
-import { SectionTitle } from 'components/Common/SectionTitle';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { ResourceSelectionFilters } from 'components/Resource/ResourceSelectionFilters';
-import { useBaseUrl } from 'hooks/useBaseUrl';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { useResourceState } from 'hooks/useResourceState';
 import { useEffect, useState } from 'react';
-import type { ArteRuimCardData, ArteRuimGroupData } from 'types';
-import { RESOURCES_NAMES } from 'utils/resources-list';
 
 const { Text } = Typography;
 

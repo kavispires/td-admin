@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { DUAL_LANGUAGE_RESOURCES } from 'utils/resources-list';
+import { DUAL_LANGUAGE_RESOURCES } from '@utils/resources-list';
 import { useBaseUrl } from './useBaseUrl';
 import { useQueryParams } from './useQueryParams';
 

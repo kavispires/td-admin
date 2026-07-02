@@ -1,11 +1,11 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { SpriteFilters } from '@components/Sprites/SpriteFilters';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { SPRITE_LIBRARY } from '@utils/constants';
 import { Layout, Space, Typography } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { SpriteFilters } from 'components/Sprites/SpriteFilters';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
-import { SPRITE_LIBRARY } from 'utils/constants';
 
 function Sprites() {
   // Set default query params
@@ -29,14 +29,21 @@ function Sprites() {
   const SpriteComponent = activeSprite?.component;
 
   return (
-    <PageLayout subtitle="Sprites" title="Images">
+    <PageLayout
+      subtitle="Sprites"
+      title="Images"
+    >
       <Layout hasSider>
         <PageSider>
           <SpriteFilters />
         </PageSider>
 
         <Layout.Content className="content">
-          <DataLoadingWrapper error={null} hasResponseData={true} isLoading={false}>
+          <DataLoadingWrapper
+            error={null}
+            hasResponseData={true}
+            isLoading={false}
+          >
             <Typography.Title level={2}>
               {activeSprite?.name ?? 'Select a library'}{' '}
               {activeSprite?.quantity ? `(${activeSprite?.quantity})` : ''}
@@ -50,7 +57,12 @@ function Sprites() {
 
                 const props = { [activeSprite.idProperty]: id.numericId };
                 const Component = SpriteComponent as unknown as React.ComponentType<Record<string, unknown>>;
-                return <Component key={id.fullId} {...props} />;
+                return (
+                  <Component
+                    key={id.fullId}
+                    {...props}
+                  />
+                );
               })}
             </Space>
           </DataLoadingWrapper>

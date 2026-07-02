@@ -1,9 +1,9 @@
-import { isEmpty } from 'lodash';
 import type {
   TestimonyAnswers,
   TestimonyAnswersValues,
-} from 'pages/Libraries/Testimonies/useTestimoniesResource';
-import type { SuspectCardData } from 'types';
+} from '@pages/Libraries/Testimonies/useTestimoniesResource';
+import type { SuspectCardData } from '@types';
+import { isEmpty } from 'lodash';
 
 /**
  * Calculates statistical data and projections for a suspect's answers to a specific question.

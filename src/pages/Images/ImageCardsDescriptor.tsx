@@ -1,12 +1,12 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { ImageCardsDescriptorContent } from '@components/Images/ImageCards/ImageCardsDescriptorContent';
+import { ImageCardsDescriptorFilters } from '@components/Images/ImageCards/ImageCardsDescriptorFilters';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import type { ImageCardDescriptorData } from '@types';
 import { Layout } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ImageCardsDescriptorContent } from 'components/Images/ImageCards/ImageCardsDescriptorContent';
-import { ImageCardsDescriptorFilters } from 'components/Images/ImageCards/ImageCardsDescriptorFilters';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { ImageCardDescriptorData } from 'types';
 
 export function ImageCardsDescriptor() {
   const imageCardsQuery = useResourceFirestoreData<ImageCardDescriptorData>({

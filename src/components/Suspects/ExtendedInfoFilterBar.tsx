@@ -1,8 +1,8 @@
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { SuspectExtendedInfoData } from '@types';
 import { Flex, Select, Switch, Typography } from 'antd';
 import clsx from 'clsx';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
-import type { SuspectExtendedInfoData } from 'types';
 import { ECONOMIC_CLASS_OPTIONS, EDUCATION_LEVEL_OPTIONS, SEXUAL_ORIENTATION_OPTIONS } from './options';
 
 const sexualOrientation = SEXUAL_ORIENTATION_OPTIONS.map((option) => ({

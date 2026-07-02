@@ -1,6 +1,6 @@
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import type { ItemData as ItemT } from '@types';
 import { Card, Select, Space, Typography } from 'antd';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import type { ItemData as ItemT } from 'types';
 import { ItemName, ItemNsfw, ItemSprite } from '../ItemBuildingBlocks';
 
 const COLORS_GROUPS = ['8bc4f', '96efa', 'c10eb', '16ec3', '2a97f', '4bba8', '565ed', '5fb57', '62a8b'];

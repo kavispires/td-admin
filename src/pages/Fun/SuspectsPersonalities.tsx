@@ -1,9 +1,9 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { PageLayout, PageSider } from '@components/Layout';
+import { Header } from '@components/Layout/Header';
+import { SuspectsPersonalitiesContent } from '@components/Suspects/PersonalityPage/SuspectsPersonalitiesContent';
+import { useSuspectPersonalitiesData } from '@components/Suspects/PersonalityPage/useSuspectPersonalitiesData';
 import { Divider, Layout } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageLayout, PageSider } from 'components/Layout';
-import { Header } from 'components/Layout/Header';
-import { SuspectsPersonalitiesContent } from 'components/Suspects/PersonalityPage/SuspectsPersonalitiesContent';
-import { useSuspectPersonalitiesData } from 'components/Suspects/PersonalityPage/useSuspectPersonalitiesData';
 import { isEmpty } from 'lodash';
 import { useTitle } from 'react-use';
 import { PlaygroundContent } from './PlaygroundContent';

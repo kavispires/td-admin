@@ -1,6 +1,6 @@
-import { useDailyHistoryQuery } from 'components/Daily/hooks/useDailyHistoryQuery';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { LANGUAGE_PREFIX } from 'components/Daily/utils/constants';
+import { useDailyHistoryQuery } from '@components/Daily/hooks/useDailyHistoryQuery';
+import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
+import { LANGUAGE_PREFIX } from '@components/Daily/utils/constants';
 import { keyBy, mapValues } from 'lodash';
 import { useMemo } from 'react';
 

@@ -1,9 +1,9 @@
 import { CheckCircleFilled, CloseCircleOutlined } from '@ant-design/icons';
+import { Stat } from '@components/Common/Stat';
+import type { ItemAttributeData, ItemAttributesValuesData } from '@types';
+import { ATTRIBUTE_VALUE } from '@utils/constants';
 import { Flex, Progress, Tooltip, Typography } from 'antd';
-import { Stat } from 'components/Common/Stat';
 import { useMemo } from 'react';
-import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 type ItemAttributeStatsProps = {
   attributesList: ItemAttributeData[];

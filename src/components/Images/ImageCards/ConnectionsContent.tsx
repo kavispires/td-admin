@@ -1,6 +1,6 @@
 import { RightCircleFilled } from '@ant-design/icons';
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
 import { Flex, Image, Space, Table, Tag } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { memoize, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import { useMeasure } from 'react-use';
@@ -36,11 +36,17 @@ export function ConnectionsContent() {
       key: 'relationship',
       render: (relatedCards: CardId[], row: any) => (
         <Image.PreviewGroup>
-          <Flex gap={2} wrap="wrap">
+          <Flex
+            gap={2}
+            wrap="wrap"
+          >
             {relatedCards.map((cardId) => (
               <Space key={`${row.origin}-${cardId}`}>
                 <Space orientation="vertical">
-                  <ImageCard cardId={cardId} cardWidth={cardWidth} />
+                  <ImageCard
+                    cardId={cardId}
+                    cardWidth={cardWidth}
+                  />
                   {showIds && <Tag>{cardId}</Tag>}
                 </Space>
                 {relatedCards[relatedCards.length - 1] !== cardId && <RightCircleFilled />}
@@ -69,9 +75,19 @@ export function ConnectionsContent() {
   }, [cardIds, data]);
 
   return (
-    <DataLoadingWrapper error={query.error} hasResponseData={true} isLoading={query.isLoading}>
-      <div className="my-6" ref={ref}>
-        <Table columns={columns} dataSource={dataSource} />
+    <DataLoadingWrapper
+      error={query.error}
+      hasResponseData={true}
+      isLoading={query.isLoading}
+    >
+      <div
+        className="my-6"
+        ref={ref}
+      >
+        <Table
+          columns={columns}
+          dataSource={dataSource}
+        />
       </div>
     </DataLoadingWrapper>
   );

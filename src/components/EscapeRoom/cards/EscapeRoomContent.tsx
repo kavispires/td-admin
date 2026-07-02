@@ -1,7 +1,8 @@
 // Ant Design Resources
+
+import { ImageCard } from '@components/Images/ImageCard';
 import { Alert } from 'antd';
 import clsx from 'clsx';
-import { ImageCard } from 'components/Images/ImageCard';
 // Internal
 import { CenterBox, getBoxClasses, Sprite, TextBox, Title } from './CardBuildingBlocks';
 import {
@@ -26,41 +27,142 @@ export const ContentDelegator = ({
 }) => {
   switch (content.type) {
     case CARD_CONTENT_TYPES.AUDIO:
-      return <Alert showIcon title="Audio not implemented" type="error" />;
+      return (
+        <Alert
+          showIcon
+          title="Audio not implemented"
+          type="error"
+        />
+      );
     case CARD_CONTENT_TYPES.CALENDAR:
-      return <Alert showIcon title="Calendar not implemented" type="error" />;
+      return (
+        <Alert
+          showIcon
+          title="Calendar not implemented"
+          type="error"
+        />
+      );
     case CARD_CONTENT_TYPES.CODEX:
-      return <Alert showIcon title="Codex not implemented" type="error" />;
+      return (
+        <Alert
+          showIcon
+          title="Codex not implemented"
+          type="error"
+        />
+      );
     case CARD_CONTENT_TYPES.DIGIT:
-      return <Alert showIcon title="Digit not implemented" type="error" />;
+      return (
+        <Alert
+          showIcon
+          title="Digit not implemented"
+          type="error"
+        />
+      );
     case CARD_CONTENT_TYPES.IMAGE_CARD:
-      return <ImageCardContentComponent content={content} width={width} />;
+      return (
+        <ImageCardContentComponent
+          content={content}
+          width={width}
+        />
+      );
     case CARD_CONTENT_TYPES.IMAGE_CARD_COVER:
-      return <Alert showIcon title="Image Card Cover not implemented" type="error" />;
+      return (
+        <Alert
+          showIcon
+          title="Image Card Cover not implemented"
+          type="error"
+        />
+      );
     case CARD_CONTENT_TYPES.IMAGE_CARD_SEQUENCE:
-      return <ImageCardSequenceContentComponent content={content} width={width} />;
+      return (
+        <ImageCardSequenceContentComponent
+          content={content}
+          width={width}
+        />
+      );
     case CARD_CONTENT_TYPES.LABEL:
-      return <Alert showIcon title="Label not implemented" type="error" />;
+      return (
+        <Alert
+          showIcon
+          title="Label not implemented"
+          type="error"
+        />
+      );
     case CARD_CONTENT_TYPES.LETTER:
-      return <Alert showIcon title="Letter not implemented" type="error" />;
+      return (
+        <Alert
+          showIcon
+          title="Letter not implemented"
+          type="error"
+        />
+      );
     case CARD_CONTENT_TYPES.NUMBER:
-      return <Alert showIcon title="Number not implemented" type="error" />;
+      return (
+        <Alert
+          showIcon
+          title="Number not implemented"
+          type="error"
+        />
+      );
     case CARD_CONTENT_TYPES.SPRITE:
-      return <SpriteContentComponent content={content} width={width} />;
+      return (
+        <SpriteContentComponent
+          content={content}
+          width={width}
+        />
+      );
     case CARD_CONTENT_TYPES.SPRITE_GRID:
-      return <SpriteGridContentComponent content={content} width={width} />;
+      return (
+        <SpriteGridContentComponent
+          content={content}
+          width={width}
+        />
+      );
     case CARD_CONTENT_TYPES.SPRITE_SEQUENCE:
-      return <SpriteSequenceComponent content={content} width={width} />;
+      return (
+        <SpriteSequenceComponent
+          content={content}
+          width={width}
+        />
+      );
     case CARD_CONTENT_TYPES.SPRITE_SHUFFLE:
-      return <Alert showIcon title="Sprite Shuffle not implemented" type="error" />;
+      return (
+        <Alert
+          showIcon
+          title="Sprite Shuffle not implemented"
+          type="error"
+        />
+      );
     case CARD_CONTENT_TYPES.SPRITE_WHEEL:
-      return <Alert showIcon title="Sprite Wheel not implemented" type="error" />;
+      return (
+        <Alert
+          showIcon
+          title="Sprite Wheel not implemented"
+          type="error"
+        />
+      );
     case CARD_CONTENT_TYPES.TEXT_BOX:
-      return <TextBoxContentComponent content={content} width={width} />;
+      return (
+        <TextBoxContentComponent
+          content={content}
+          width={width}
+        />
+      );
     case CARD_CONTENT_TYPES.TITLE:
-      return <TitleContentComponent content={content} width={width} />;
+      return (
+        <TitleContentComponent
+          content={content}
+          width={width}
+        />
+      );
     default:
-      return <Alert showIcon title={`Content type ${content.type} not implemented`} type="error" />;
+      return (
+        <Alert
+          showIcon
+          title={`Content type ${content.type} not implemented`}
+          type="error"
+        />
+      );
   }
 };
 
@@ -82,7 +184,10 @@ function SpriteContentComponent({ content, width }: ContentComponentProps<Sprite
   const { scale = 1 } = content;
   return (
     <CenterBox>
-      <Sprite {...content} width={(width / 5) * scale} />
+      <Sprite
+        {...content}
+        width={(width / 5) * scale}
+      />
     </CenterBox>
   );
 }
@@ -171,5 +276,11 @@ function ImageCardSequenceContentComponent({
 }
 
 function CalendarContentComponent({ content }: ContentComponentProps<CalendarContent>) {
-  return <Alert showIcon title="Calendar not implemented" type="error" />;
+  return (
+    <Alert
+      showIcon
+      title="Calendar not implemented"
+      type="error"
+    />
+  );
 }

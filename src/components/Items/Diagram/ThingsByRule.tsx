@@ -1,10 +1,10 @@
+import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import { useTablePagination } from '@hooks/useTablePagination';
+import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from '@types';
 import { Divider, Flex, Rate, Space, Switch, Table, type TableColumnsType, Tag, Typography } from 'antd';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo } from 'react';
-import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from 'types';
 import { AddNewThingFlow } from './AddNewThingFlow';
 import { ThingButton } from './Thing';
 

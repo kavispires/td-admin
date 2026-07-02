@@ -1,7 +1,7 @@
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { SuspectCardData, SuspectExtendedInfoData } from '@types';
 import { Button, Modal } from 'antd';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
-import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 
 type NewSuspectFlowProps = {
   suspects: Dictionary<SuspectCardData>;

@@ -1,6 +1,6 @@
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import type { ImageCardDescriptorData } from 'types';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { ImageCardDescriptorData } from '@types';
 import { ImageCardsDescriptorKeywords } from './ImageCardsDescriptorKeywords';
 import { ImageCardsDescriptorTable } from './ImageCardsDescriptorTable';
 

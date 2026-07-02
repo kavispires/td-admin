@@ -1,13 +1,13 @@
 import { EditOutlined } from '@ant-design/icons';
+import { DualLanguageTextField, Label, NSFWField } from '@components/Common/EditableFields';
+import { LanguageFlag } from '@components/Common/LanguageFlag';
+import { ImageCard } from '@components/Images/ImageCard';
+import type { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import type { ContenderCardData } from '@types';
+import { removeDuplicates } from '@utils/array';
+import { PLACEHOLDER_DUAL_LANGUAGE_OBJECT } from '@utils/constants';
 import { Card, Flex, Popover, Radio, Select } from 'antd';
-import { DualLanguageTextField, Label, NSFWField } from 'components/Common/EditableFields';
-import { LanguageFlag } from 'components/Common/LanguageFlag';
-import { ImageCard } from 'components/Images/ImageCard';
-import type { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { merge } from 'lodash';
-import type { ContenderCardData } from 'types';
-import { removeDuplicates } from 'utils/array';
-import { PLACEHOLDER_DUAL_LANGUAGE_OBJECT } from 'utils/constants';
 
 export const DECKS = [
   { value: 'base', label: 'Base' },

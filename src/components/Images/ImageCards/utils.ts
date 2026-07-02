@@ -1,5 +1,5 @@
+import { deepCleanObject } from '@utils/object';
 import { cloneDeep, uniq } from 'lodash';
-import { deepCleanObject } from 'utils/object';
 import { SUGGESTED_COLORS, SUGGESTED_MOODS } from './constants';
 import type { FirebaseImageCardLibrary, ImageCardData } from './types';
 

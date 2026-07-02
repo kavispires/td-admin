@@ -1,11 +1,11 @@
+import { IdTag } from '@components/Common/IdTag';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import { useTablePagination } from '@hooks/useTablePagination';
+import type { ImageCardPasscodeSet } from '@types';
 import { AutoComplete, Button, Flex, Input, Select, Table, type TableProps } from 'antd';
-import { IdTag } from 'components/Common/IdTag';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useDebounce } from 'react-use';
-import type { ImageCardPasscodeSet } from 'types';
 import { ImageCard } from '../ImageCard';
 
 type ImageCardsPasscodeProps = UseResourceFirestoreDataReturnType<ImageCardPasscodeSet>;
@@ -31,14 +31,24 @@ export function SetsTable({ sets, addEntryToUpdate, hidePagination }: SetsTableP
       dataIndex: 'passcode',
       key: 'passcode',
       sorter: (a, b) => a.passcode[0].localeCompare(b.passcode[0]),
-      render: (_, record) => <EditablePasscodeEntries addEntryToUpdate={addEntryToUpdate} entry={record} />,
+      render: (_, record) => (
+        <EditablePasscodeEntries
+          addEntryToUpdate={addEntryToUpdate}
+          entry={record}
+        />
+      ),
     },
 
     {
       title: 'Cards',
       dataIndex: 'imageCardsIds',
       key: 'imageCardsIds',
-      render: (_, record) => <EditableImageCardsEntries addEntryToUpdate={addEntryToUpdate} entry={record} />,
+      render: (_, record) => (
+        <EditableImageCardsEntries
+          addEntryToUpdate={addEntryToUpdate}
+          entry={record}
+        />
+      ),
     },
   ];
 
@@ -92,12 +102,26 @@ export function EditableImageCardsEntries({ entry, addEntryToUpdate }: EditableI
   };
 
   return (
-    <Flex align="flex-end" gap={6} wrap="wrap">
+    <Flex
+      align="flex-end"
+      gap={6}
+      wrap="wrap"
+    >
       {entry.imageCardsIds.map((id) => (
-        <Flex gap={2} key={id} vertical>
-          <ImageCard cardId={id} cardWidth={60} />
+        <Flex
+          gap={2}
+          key={id}
+          vertical
+        >
+          <ImageCard
+            cardId={id}
+            cardWidth={60}
+          />
           <IdTag>{id}</IdTag>
-          <Button onClick={() => onRemoveImageCard(id)} size="small">
+          <Button
+            onClick={() => onRemoveImageCard(id)}
+            size="small"
+          >
             Remove
           </Button>
         </Flex>

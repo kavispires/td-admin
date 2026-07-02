@@ -1,11 +1,11 @@
+import { AlienSign, Item } from '@components/Sprites';
+import { useTDResource } from '@hooks/useTDResource';
+import type { ItemAttributeData, ItemAttributesValuesData } from '@types';
+import { makeArray } from '@utils/array';
+import { ATTRIBUTE_VALUE } from '@utils/constants';
 import { Alert, Button, Divider, Flex, Space, Typography } from 'antd';
-import { AlienSign, Item } from 'components/Sprites';
-import { useTDResource } from 'hooks/useTDResource';
 import { keys, sample, sampleSize, shuffle, values } from 'lodash';
 import { useState } from 'react';
-import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
-import { makeArray } from 'utils/array';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 
 export function DailyAlienSimulator() {
   const tdrAttributesQuery = useTDResource<ItemAttributeData>('items-attributes');

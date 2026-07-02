@@ -1,13 +1,13 @@
 import { CopyOutlined } from '@ant-design/icons';
+import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
+import { Item } from '@components/Sprites';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import { useTDResource } from '@hooks/useTDResource';
+import type { CrimesHediondosCardData, ItemData as ItemT } from '@types';
 import type { TableProps } from 'antd';
 import { Button, Flex, Input, Space, Table } from 'antd';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-import { Item } from 'components/Sprites';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { useTDResource } from 'hooks/useTDResource';
 import { shuffle } from 'lodash';
 import { useMemo } from 'react';
-import type { CrimesHediondosCardData, ItemData as ItemT } from 'types';
 import { ItemId, ItemName } from './ItemBuildingBlocks';
 
 type Crime = {

@@ -1,5 +1,5 @@
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Form, Segmented, type SegmentedProps, Tooltip } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect } from 'react';
 import { LanguageFlag } from './LanguageFlag';
 
@@ -32,12 +32,20 @@ export function LanguageToggle({ withQueryParams, withLabel, ...props }: Languag
   }, [withQueryParams, activeValue]);
 
   const ptLabel = (
-    <Tooltip arrow title="PT" trigger="hover">
+    <Tooltip
+      arrow
+      title="PT"
+      trigger="hover"
+    >
       <LanguageFlag language="pt" />
     </Tooltip>
   );
   const enLabel = (
-    <Tooltip arrow title="EN" trigger="hover">
+    <Tooltip
+      arrow
+      title="EN"
+      trigger="hover"
+    >
       <LanguageFlag language="en" />
     </Tooltip>
   );
@@ -56,7 +64,10 @@ export function LanguageToggle({ withQueryParams, withLabel, ...props }: Languag
 
   if (withLabel) {
     return (
-      <Form.Item label="Language" name="language">
+      <Form.Item
+        label="Language"
+        name="language"
+      >
         {segment}
       </Form.Item>
     );

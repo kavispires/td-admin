@@ -1,6 +1,6 @@
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Divider, Drawer, Flex, Space, Switch } from 'antd';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useMemo, useState } from 'react';
 import { ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
@@ -34,17 +34,40 @@ export function ItemAttributionDrawer() {
   );
 
   return (
-    <Drawer onClose={onClose} open={!!queryParamsItemId} title={`Edit: ${activeItem.name.en}`} width={640}>
+    <Drawer
+      onClose={onClose}
+      open={!!queryParamsItemId}
+      title={`Edit: ${activeItem.name.en}`}
+      width={640}
+    >
       <Flex gap={6}>
-        <Flex gap={6} vertical>
-          <ItemSprite item={activeItem} width={50} />
+        <Flex
+          gap={6}
+          vertical
+        >
+          <ItemSprite
+            item={activeItem}
+            width={50}
+          />
           <ItemId item={activeItem} />
         </Flex>
-        <Flex gap={6} vertical>
-          <ItemName item={activeItem} language="en" />
-          <ItemName item={activeItem} language="pt" />
+        <Flex
+          gap={6}
+          vertical
+        >
+          <ItemName
+            item={activeItem}
+            language="en"
+          />
+          <ItemName
+            item={activeItem}
+            language="pt"
+          />
         </Flex>
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           <Switch
             checked={showOnlyUnset}
             checkedChildren="Unset"
@@ -56,7 +79,12 @@ export function ItemAttributionDrawer() {
 
       <Divider className="my-1" />
 
-      <Space className="my-4 attribute-button-container" orientation="vertical" size="small" wrap>
+      <Space
+        className="my-4 attribute-button-container"
+        orientation="vertical"
+        size="small"
+        wrap
+      >
         {filteredAttributesList.map((attribute) => (
           <AttributionValueButtons
             attribute={attribute}

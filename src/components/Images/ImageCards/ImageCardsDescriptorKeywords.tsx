@@ -1,15 +1,15 @@
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import { useTablePagination } from '@hooks/useTablePagination';
+import type { ImageCardDescriptorData } from '@types';
 import { Button, Flex, Table, type TableProps, Typography } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo, useState } from 'react';
-import type { ImageCardDescriptorData } from 'types';
 import { ImageCard } from '../ImageCard';
 import './ImageCardsDescriptorTable.css';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { IdTag } from 'components/Common/IdTag';
-import { PageContent } from 'components/Common/PageContent';
-import { VirtualizationWrapper } from 'components/Common/VirtualizationWrapper';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { IdTag } from '@components/Common/IdTag';
+import { PageContent } from '@components/Common/PageContent';
+import { VirtualizationWrapper } from '@components/Common/VirtualizationWrapper';
 import { orderBy, uniq } from 'lodash';
 
 type KeywordGroup = {

@@ -1,12 +1,12 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { ImageCardsPasscodeContent } from '@components/Images/ImageCards/ImageCardsPasscodeContent';
+import { ImageCardsPasscodeFilters } from '@components/Images/ImageCards/ImageCardsPasscodeFilters';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import type { ImageCardPasscodeSet } from '@types';
 import { Layout } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ImageCardsPasscodeContent } from 'components/Images/ImageCards/ImageCardsPasscodeContent';
-import { ImageCardsPasscodeFilters } from 'components/Images/ImageCards/ImageCardsPasscodeFilters';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { ImageCardPasscodeSet } from 'types';
 
 export function ImageCardsPasscode() {
   const imageCardsPasscodeQuery = useResourceFirestoreData<ImageCardPasscodeSet>({
@@ -16,7 +16,10 @@ export function ImageCardsPasscode() {
   });
 
   return (
-    <PageLayout subtitle="Daily Set Entries" title="Image Cards Passcode Sets">
+    <PageLayout
+      subtitle="Daily Set Entries"
+      title="Image Cards Passcode Sets"
+    >
       <Layout hasSider>
         <PageSider>
           <ImageCardsPasscodeFilters {...imageCardsPasscodeQuery} />

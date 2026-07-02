@@ -1,10 +1,10 @@
 import { CloseCircleOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import { useItemsContext } from '@context/ItemsContext';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { ItemData as ItemT } from '@types';
+import { removeDuplicates } from '@utils/array';
 import { Button, Flex, Space, Typography } from 'antd';
-import { useItemsContext } from 'context/ItemsContext';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { Fragment, useState } from 'react';
-import type { ItemData as ItemT } from 'types';
-import { removeDuplicates } from 'utils/array';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 import { ItemCard } from './ItemCard';
 

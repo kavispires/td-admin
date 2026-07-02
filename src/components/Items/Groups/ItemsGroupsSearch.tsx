@@ -1,7 +1,7 @@
+import { Typeahead } from '@components/Common/Typeahead';
+import type { ItemGroupData, ItemData as ItemT } from '@types';
 import { Space, Typography } from 'antd';
-import { Typeahead } from 'components/Common/Typeahead';
 import { useMemo, useState } from 'react';
-import type { ItemGroupData, ItemData as ItemT } from 'types';
 import { ItemsGroupsByGroupTable } from './ItemsGroupsByGroupTable';
 
 type ItemsGroupsSearchProps = {

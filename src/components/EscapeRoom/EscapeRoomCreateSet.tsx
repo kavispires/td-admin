@@ -1,4 +1,7 @@
 import { CopyOutlined, EditOutlined, ReloadOutlined, SaveOutlined } from '@ant-design/icons';
+import { PageContent } from '@components/Common/PageContent';
+import type { UseEscapeRoomResourceReturnType } from '@pages/Games/EscapeRoom/useEscapeRoomResource';
+import { createUUID } from '@utils/id';
 import {
   App,
   AutoComplete,
@@ -14,11 +17,8 @@ import {
   Switch,
   Typography,
 } from 'antd';
-import { PageContent } from 'components/Common/PageContent';
 import { orderBy } from 'lodash';
-import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
 import { useCallback, useMemo, useState } from 'react';
-import { createUUID } from 'utils/id';
 import { BACKGROUNDS } from './cards/CardBuildingBlocks';
 import { EscapeRoomCard } from './cards/EscapeRoomCard';
 import type {

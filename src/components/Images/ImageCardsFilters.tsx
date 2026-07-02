@@ -1,7 +1,7 @@
+import { FilterNumber, FilterSelect, FilterSwitch } from '@components/Common';
+import { SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Form } from 'antd';
-import { FilterNumber, FilterSelect, FilterSwitch } from 'components/Common';
-import { SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
 
 type ImageCardsFiltersProps = {
@@ -28,7 +28,12 @@ export function ImageCardsFilters({
   return (
     <SiderContent>
       <Form layout="vertical">
-        <FilterSelect label="Deck" onChange={setSelectedDeck} options={deckOptions} value={selectedDeck} />
+        <FilterSelect
+          label="Deck"
+          onChange={setSelectedDeck}
+          options={deckOptions}
+          value={selectedDeck}
+        />
         <FilterNumber
           label="Cards Per Row"
           max={10}

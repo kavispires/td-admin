@@ -1,7 +1,7 @@
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { SuspectCardData } from '@types';
 import { Flex, Select, Switch, Typography } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { orderBy } from 'lodash';
-import type { SuspectCardData } from 'types';
 import { FEATURES_BY_GROUP } from './options';
 
 const flatFeatures = orderBy(

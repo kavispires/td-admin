@@ -1,4 +1,4 @@
-import { useQueryParams } from 'hooks/useQueryParams';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { DailyDataArchive } from './DailyDataArchive';
 import { DailyDataCheck } from './DailyDataCheck';
 import { DailyDataPopulation } from './DailyDataPopulation';

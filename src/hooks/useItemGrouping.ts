@@ -1,7 +1,7 @@
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import { ATTRIBUTE_VALUE } from '@utils/constants';
 import { orderBy } from 'lodash';
 import { useCallback, useMemo, useState } from 'react';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { useQueryParams } from './useQueryParams';
 
 export function useItemGrouping() {

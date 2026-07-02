@@ -1,3 +1,14 @@
+import { TransparentButton } from '@components/Common';
+import { DualLanguageTextField } from '@components/Common/EditableFields';
+import { IdTag } from '@components/Common/IdTag';
+import { VirtualizationWrapper } from '@components/Common/VirtualizationWrapper';
+import { Item } from '@components/Sprites';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
+import { useTablePagination } from '@hooks/useTablePagination';
+import { useTDResource } from '@hooks/useTDResource';
+import type { ItemGroupData, ItemData as ItemT } from '@types';
+import { removeDuplicates } from '@utils/array';
 import {
   Button,
   Checkbox,
@@ -9,18 +20,7 @@ import {
   Tooltip,
   Typography,
 } from 'antd';
-import { TransparentButton } from 'components/Common';
-import { DualLanguageTextField } from 'components/Common/EditableFields';
-import { IdTag } from 'components/Common/IdTag';
-import { VirtualizationWrapper } from 'components/Common/VirtualizationWrapper';
-import { Item } from 'components/Sprites';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { useTablePagination } from 'hooks/useTablePagination';
-import { useTDResource } from 'hooks/useTDResource';
 import { useRef, useState } from 'react';
-import type { ItemGroupData, ItemData as ItemT } from 'types';
-import { removeDuplicates } from 'utils/array';
 import { CopyIdsButton } from '../CopyIdsButton';
 import { AddItemFlow } from './AddItemFlow';
 import { ItemGroupsCard } from './ItemGroupsCard';

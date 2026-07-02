@@ -1,5 +1,5 @@
+import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from '@types';
 import { keyBy, keys, orderBy, sampleSize, shuffle, sortBy } from 'lodash';
-import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from 'types';
 
 /**
  * TD ALIEN ATTRIBUTES TOOLKIT FUNCTIONS

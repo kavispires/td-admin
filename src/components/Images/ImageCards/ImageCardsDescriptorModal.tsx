@@ -1,12 +1,12 @@
 import { HeartFilled, HeartOutlined } from '@ant-design/icons';
+import { DualLanguageTextField } from '@components/Common/EditableFields';
+import { FullScreenModal } from '@components/Common/FullScreenModal';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import { useTDResource } from '@hooks/useTDResource';
+import type { ImageCardDescriptorData } from '@types';
+import { removeDuplicates } from '@utils/array';
 import { Button, type ButtonProps, Flex, Input, Select, type SelectProps, Slider } from 'antd';
-import { DualLanguageTextField } from 'components/Common/EditableFields';
-import { FullScreenModal } from 'components/Common/FullScreenModal';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
-import type { ImageCardDescriptorData } from 'types';
-import { removeDuplicates } from 'utils/array';
 import { ImageCard } from '../ImageCard';
 import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 

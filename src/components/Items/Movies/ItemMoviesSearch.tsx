@@ -1,8 +1,8 @@
+import { Typeahead } from '@components/Common/Typeahead';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyMovieSet } from '@types';
 import { Space, Typography } from 'antd';
-import { Typeahead } from 'components/Common/Typeahead';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
-import type { DailyMovieSet } from 'types';
 import { ItemsMoviesTable } from './ItemsMoviesTable';
 
 export function ItemsMoviesSearch({
@@ -26,7 +26,12 @@ export function ItemsMoviesSearch({
         style={{ width: '100%', minWidth: 450 }}
       />
 
-      {!!activeMovie && <ItemsMoviesTable addEntryToUpdate={addEntryToUpdate} rows={[activeMovie]} />}
+      {!!activeMovie && (
+        <ItemsMoviesTable
+          addEntryToUpdate={addEntryToUpdate}
+          rows={[activeMovie]}
+        />
+      )}
     </Space>
   );
 }

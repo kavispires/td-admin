@@ -1,7 +1,7 @@
-import { alienAttributesUtils } from 'toolKits/alien-attributes';
+import { alienAttributesUtils } from '@toolKits/alien-attributes';
+import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from '@types';
+import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX } from '@utils/constants';
 import { cloneDeep, keyBy, memoize, merge, orderBy, sortBy } from 'lodash';
-import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from 'types';
-import { ATTRIBUTE_VALUE, ATTRIBUTE_VALUE_PREFIX } from 'utils/constants';
 
 /**
  * Creates a new item with default values and merges it with the provided partial item.

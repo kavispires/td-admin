@@ -1,7 +1,7 @@
 import { AppstoreOutlined, FileTextOutlined, TableOutlined } from '@ant-design/icons';
-import { FilterSegments } from 'components/Common';
-import { SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
+import { FilterSegments } from '@components/Common';
+import { SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
 
 export function ResourceDisplayMode() {
   const { queryParams, addParam } = useQueryParams();

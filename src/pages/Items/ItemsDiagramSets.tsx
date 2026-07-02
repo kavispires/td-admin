@@ -1,12 +1,12 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { ItemsDiagramFilters } from '@components/Items/Diagram/ItemsDiagramFilters';
+import { ItemsDiagramSetsContent } from '@components/Items/Diagram/ItemsDiagramSetsContent';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import type { DailyDiagramItemData } from '@types';
 import { Flex, Layout } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemsDiagramFilters } from 'components/Items/Diagram/ItemsDiagramFilters';
-import { ItemsDiagramSetsContent } from 'components/Items/Diagram/ItemsDiagramSetsContent';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { DailyDiagramItemData } from 'types';
 
 export function ItemsDiagramSets() {
   const diagramData = useResourceFirestoreData<DailyDiagramItemData>({

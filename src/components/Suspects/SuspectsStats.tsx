@@ -1,5 +1,5 @@
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
 import { Card, Col, Row, Statistic, Tag, Typography, theme } from 'antd';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import _ from 'lodash';
 import { useMemo } from 'react';
 import {

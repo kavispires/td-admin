@@ -1,9 +1,9 @@
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from '@types';
+import { wait } from '@utils/time';
 import { App, Button } from 'antd';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { sample } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from 'types';
-import { wait } from 'utils/time';
 import { EditThingModal } from './EditThingModal';
 
 type AddNewThingFlowProps = {

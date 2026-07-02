@@ -1,11 +1,11 @@
-import { calculateSuspectAnswersData } from 'components/Testimonies/utils';
-import { useTDResource } from 'hooks/useTDResource';
+import { calculateSuspectAnswersData } from '@components/Testimonies/utils';
+import { useTDResource } from '@hooks/useTDResource';
 import {
   type TestimonyAnswers,
   testimoniesDeserializer,
-} from 'pages/Libraries/Testimonies/useTestimoniesResource';
+} from '@pages/Libraries/Testimonies/useTestimoniesResource';
+import type { SuspectCardData, TestimonyQuestionCardData } from '@types';
 import { useMemo } from 'react';
-import type { SuspectCardData, TestimonyQuestionCardData } from 'types';
 
 export type CrossReferenceData = {
   id: string;

@@ -1,10 +1,10 @@
 import { CopyOutlined, DownOutlined } from '@ant-design/icons';
+import { useItemsContext } from '@context/ItemsContext';
+import { useCopyToClipboardFunction } from '@hooks/useCopyToClipboardFunction';
+import type { ItemData as ItemT } from '@types';
 import { Button, Dropdown, Flex, Form, InputNumber, Space, Typography } from 'antd';
-import { useItemsContext } from 'context/ItemsContext';
-import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { chunk, sampleSize } from 'lodash';
 import { useState } from 'react';
-import type { ItemData as ItemT } from 'types';
 import { ItemCard } from './ItemCard';
 
 export function ItemRandomizer() {

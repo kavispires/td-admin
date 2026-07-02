@@ -1,5 +1,5 @@
 import { Text, View } from '@react-pdf/renderer';
-import { analyzeFields, formatFieldKey, formatValue, isDualLanguage } from 'utils/pdf-helpers';
+import { analyzeFields, formatFieldKey, formatValue, isDualLanguage } from '@utils/pdf-helpers';
 import { pdfStyles } from './PDFStyles';
 
 type PDFCardViewProps = {

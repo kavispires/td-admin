@@ -1,7 +1,7 @@
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyDiagramItemData, DailyDiagramRuleData } from '@types';
+import { wait } from '@utils/time';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
-import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
-import { wait } from 'utils/time';
 import { EditThingModal } from './EditThingModal';
 import { SYLLABLE_SEPARATOR } from './utils';
 

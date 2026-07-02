@@ -1,5 +1,3 @@
-import { useQueryClient } from '@tanstack/react-query';
-import { App } from 'antd';
 import {
   calculateItemReliability,
   calculateItemScore,
@@ -7,16 +5,18 @@ import {
   constructItemSignature,
   getNewItem,
   getNewItemAttributeValues,
-} from 'components/Items/utils';
-import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
-import { useMemo, useState } from 'react';
+} from '@components/Items/utils';
+import { useQueryClient } from '@tanstack/react-query';
 import type {
   ItemAttributeData,
   ItemAttributesValuesData,
   ItemAttributesValuesFirestore,
   ItemData,
-} from 'types';
-import { deserializeFirestoreData, serializeFirestoreData } from 'utils/firestore';
+} from '@types';
+import { deserializeFirestoreData, serializeFirestoreData } from '@utils/firestore';
+import { App } from 'antd';
+import { isEmpty, mapKeys, merge, orderBy } from 'lodash';
+import { useMemo, useState } from 'react';
 import { useGetFirestoreDoc } from './useGetFirestoreDoc';
 import { useTDResource } from './useTDResource';
 import { useUpdateFirestoreDoc } from './useUpdateFirestoreDoc';

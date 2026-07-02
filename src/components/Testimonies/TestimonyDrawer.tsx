@@ -1,8 +1,8 @@
+import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { useTestimoniesResource } from '@pages/Libraries/Testimonies/useTestimoniesResource';
 import { Button, Flex, InputNumber, Modal, Segmented, Space, Switch, Typography } from 'antd';
-import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep, sample, sampleSize } from 'lodash';
-import type { useTestimoniesResource } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { useEffectOnce, useStateWithHistory, useWindowSize } from 'react-use';
@@ -21,11 +21,20 @@ export function TestimonyDrawer(props: TestimonyDrawerProps) {
   const { addParam } = useQueryParams();
 
   return (
-    <Flex gap={8} vertical>
-      <Button block onClick={() => addParam('testify', 'single')}>
+    <Flex
+      gap={8}
+      vertical
+    >
+      <Button
+        block
+        onClick={() => addParam('testify', 'single')}
+      >
         Testify Drawer
       </Button>
-      <Button block onClick={() => addParam('testify', 'group')}>
+      <Button
+        block
+        onClick={() => addParam('testify', 'group')}
+      >
         Testify Group
       </Button>
       <SingleDrawerContent {...props} />
@@ -93,19 +102,45 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
     >
       <div {...handlers}>
         {hasEntry && (
-          <Flex align="center" className="mb-8" gap={8} justify="center" vertical>
-            <SuspectImageCard cardId={state.suspectId ?? ''} cardWidth={Math.max(height / 4, 128)} />
-            <Typography.Title className="text-center" level={5}>
+          <Flex
+            align="center"
+            className="mb-8"
+            gap={8}
+            justify="center"
+            vertical
+          >
+            <SuspectImageCard
+              cardId={state.suspectId ?? ''}
+              cardWidth={Math.max(height / 4, 128)}
+            />
+            <Typography.Title
+              className="text-center"
+              level={5}
+            >
               {questions[state.testimonyId ?? '']?.question}
             </Typography.Title>
           </Flex>
         )}
 
-        <Space.Compact block className="mb-8" size="large">
-          <Button block disabled={!hasEntry} icon="👎" onClick={onNo} style={{ height: 64 }}>
+        <Space.Compact
+          block
+          className="mb-8"
+          size="large"
+        >
+          <Button
+            block
+            disabled={!hasEntry}
+            icon="👎"
+            onClick={onNo}
+            style={{ height: 64 }}
+          >
             No
           </Button>
-          <Button block onClick={onSkip} style={{ height: 64 }}>
+          <Button
+            block
+            onClick={onSkip}
+            style={{ height: 64 }}
+          >
             Skip
           </Button>
           <Button
@@ -218,8 +253,18 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
     >
       <div>
         {hasEntry && (
-          <Flex align="center" className="mb-8" gap={8} justify="center" vertical>
-            <Flex align="center" gap={6} justify="center">
+          <Flex
+            align="center"
+            className="mb-8"
+            gap={8}
+            justify="center"
+            vertical
+          >
+            <Flex
+              align="center"
+              gap={6}
+              justify="center"
+            >
               <Typography.Text>Number of Suspects:</Typography.Text>
               <InputNumber
                 onChange={(value) => setNumberOfSuspects(value ?? 6)}
@@ -227,14 +272,30 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
                 value={numberOfSuspects}
               />
               <Typography.Text>Random Questions:</Typography.Text>
-              <Switch checked={isRandomQuestion} onChange={setRandomQuestion} size="small" />
+              <Switch
+                checked={isRandomQuestion}
+                onChange={setRandomQuestion}
+                size="small"
+              />
             </Flex>
-            <Typography.Title className="text-center" level={4}>
+            <Typography.Title
+              className="text-center"
+              level={4}
+            >
               {state.testimonyId} - {questions[state.testimonyId ?? '']?.question}
             </Typography.Title>
-            <Flex gap={8} justify="center" wrap="wrap">
+            <Flex
+              gap={8}
+              justify="center"
+              wrap="wrap"
+            >
               {Object.keys(state.suspectsIds).map((suspectId) => (
-                <Flex align="center" justify="center" key={suspectId} vertical>
+                <Flex
+                  align="center"
+                  justify="center"
+                  key={suspectId}
+                  vertical
+                >
                   <Typography.Text className="text-center">
                     {suspects[suspectId]?.name?.pt || 'Unknown'}
                   </Typography.Text>
@@ -272,13 +333,20 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
           </Flex>
         )}
 
-        <Flex align="center" className="mt-8" justify="space-between">
+        <Flex
+          align="center"
+          className="mt-8"
+          justify="space-between"
+        >
           <span />
           <Flex gap={8}>
             <Button onClick={() => onSetAllNullTo(-4)}>Set all ♾ to 👎</Button>
             <Button onClick={() => onSetAllNullTo(4)}>Set all ♾ to 👍</Button>
           </Flex>
-          <Button onClick={onNext} size="large">
+          <Button
+            onClick={onNext}
+            size="large"
+          >
             Next Set
           </Button>
         </Flex>

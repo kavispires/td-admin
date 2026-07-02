@@ -1,11 +1,11 @@
+import { FilterNumber, FilterSelect, FilterSwitch } from '@components/Common';
+import { Stat } from '@components/Common/Stat';
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { ATTRIBUTE_GROUP_VALUES } from '@utils/constants';
 import { Button, Divider, Flex, Typography } from 'antd';
-import { FilterNumber, FilterSelect, FilterSwitch } from 'components/Common';
-import { Stat } from 'components/Common/Stat';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty } from 'lodash';
 import { useMemo } from 'react';
-import { ATTRIBUTE_GROUP_VALUES } from 'utils/constants';
 
 export function ItemAttributionStats() {
   const { getItemAttributeValues, availableItemIds, attributesList } = useItemsAttributeValuesContext();

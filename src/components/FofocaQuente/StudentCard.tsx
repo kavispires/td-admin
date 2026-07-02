@@ -1,10 +1,10 @@
 import { ManOutlined, QuestionOutlined, WomanOutlined } from '@ant-design/icons';
+import { IdField } from '@components/Common/EditableFields';
+import { ImageCard } from '@components/Images/ImageCard';
+import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { TeenageStudentData } from '@types';
 import { Card, Flex, Tag } from 'antd';
-import { IdField } from 'components/Common/EditableFields';
-import { ImageCard } from 'components/Images/ImageCard';
-import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { TeenageStudentData } from 'types';
 
 export function StudentCard({ student }: { student: TeenageStudentData }) {
   const { is } = useQueryParams();

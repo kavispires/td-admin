@@ -1,8 +1,8 @@
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyDiscSet } from '@types';
 import { Space, Typography } from 'antd';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
-import type { DailyDiscSet } from 'types';
 import { ItemsDiscSetsSearch } from './ItemsDiscSetsSearch';
 import { ItemsDiscSetsTable } from './ItemsDiscSetsTable';
 
@@ -22,11 +22,17 @@ export function ItemsDiscSetsListing({
 
   return (
     <Space orientation="vertical">
-      <ItemsDiscSetsSearch addEntryToUpdate={addEntryToUpdate} data={data} />
+      <ItemsDiscSetsSearch
+        addEntryToUpdate={addEntryToUpdate}
+        data={data}
+      />
       <Typography.Title level={5}>
         Total Disc Sets: {sets.length} | Complete Disc Sets: {completeSetsCount}
       </Typography.Title>
-      <ItemsDiscSetsTable addEntryToUpdate={addEntryToUpdate} rows={sets} />
+      <ItemsDiscSetsTable
+        addEntryToUpdate={addEntryToUpdate}
+        rows={sets}
+      />
     </Space>
   );
 }

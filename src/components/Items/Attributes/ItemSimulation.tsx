@@ -5,20 +5,20 @@ import {
   PlusSquareOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { App, Button, Flex, InputNumber, Space, Typography } from 'antd';
-import clsx from 'clsx';
 import {
   FilterCheckBox,
   FilterNumber,
   FilterSelect,
   FilterSwitch,
   TransparentButton,
-} from 'components/Common';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
+} from '@components/Common';
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import type { ItemAttributeData, ItemAttributesValuesData } from '@types';
+import { ATTRIBUTE_VALUE } from '@utils/constants';
+import { App, Button, Flex, InputNumber, Space, Typography } from 'antd';
+import clsx from 'clsx';
 import { keys, sampleSize, shuffle, sortBy } from 'lodash';
 import { useState } from 'react';
-import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
-import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { DailyAlienSimulator } from './DailyAlienSimulator';
 

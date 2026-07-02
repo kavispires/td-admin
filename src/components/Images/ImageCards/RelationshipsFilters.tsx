@@ -1,10 +1,10 @@
+import { FilterSelect, FilterSwitch, ResponseState } from '@components/Common';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { SaveButton } from '@components/Common/SaveButton';
+import { PageSider, SiderContent } from '@components/Layout';
+import { CARD_SIZE_OPTIONS, SAMPLE_SIZE_OPTIONS, TAGS_SELECTOR_OPTIONS } from '@utils/constants';
 import { Flex, Form } from 'antd';
-import { FilterSelect, FilterSwitch, ResponseState } from 'components/Common';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { SaveButton } from 'components/Common/SaveButton';
-import { PageSider, SiderContent } from 'components/Layout';
 import { isEmpty } from 'lodash';
-import { CARD_SIZE_OPTIONS, SAMPLE_SIZE_OPTIONS, TAGS_SELECTOR_OPTIONS } from 'utils/constants';
 import { useImagesRelationshipsContext } from './ImagesRelationshipsContext';
 import { RelationshipsStats } from './RelationshipsStats';
 
@@ -25,7 +25,10 @@ export function RelationshipsFilters() {
   return (
     <PageSider>
       <SiderContent>
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           <SaveButton
             dirt={JSON.stringify(data)}
             isDirty={isDirty}
@@ -57,7 +60,11 @@ export function RelationshipsFilters() {
           value={filters.useCycles}
         />
 
-        <FilterSwitch label="Show Ids" onChange={(c) => setShowIds(c)} value={showIds} />
+        <FilterSwitch
+          label="Show Ids"
+          onChange={(c) => setShowIds(c)}
+          value={showIds}
+        />
 
         <Form layout="vertical">
           <FilterSelect

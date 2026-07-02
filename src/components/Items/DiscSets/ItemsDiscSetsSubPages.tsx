@@ -1,6 +1,6 @@
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import type { DailyDiscSet } from 'types';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyDiscSet } from '@types';
 import { ItemsDiscSetsListing } from './ItemsDiscSetsListing';
 import { OrphanItems } from './OrphanItems';
 
@@ -13,11 +13,17 @@ export function ItemsDiscSetsSubPages({
   return (
     <>
       {(is('display', 'sets') || !queryParams.has('display')) && (
-        <ItemsDiscSetsListing addEntryToUpdate={addEntryToUpdate} data={data} />
+        <ItemsDiscSetsListing
+          addEntryToUpdate={addEntryToUpdate}
+          data={data}
+        />
       )}
 
       {(is('display', 'orphans') || !queryParams.has('display')) && (
-        <OrphanItems addEntryToUpdate={addEntryToUpdate} data={data} />
+        <OrphanItems
+          addEntryToUpdate={addEntryToUpdate}
+          data={data}
+        />
       )}
     </>
   );

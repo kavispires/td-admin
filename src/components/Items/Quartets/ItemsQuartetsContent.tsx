@@ -1,9 +1,9 @@
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { DailyQuartetSet } from '@types';
 import { Space, Typography } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
-import type { DailyQuartetSet } from 'types';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 
 export function ItemsQuartetsContent({
@@ -31,7 +31,10 @@ export function ItemsQuartetsContent({
       <Typography.Title level={5}>
         Total Quartets: {rows.length} | Complete Quartets: {completeQuartetsCount}
       </Typography.Title>
-      <ItemsQuartetsTable addEntryToUpdate={addEntryToUpdate} rows={rows} />
+      <ItemsQuartetsTable
+        addEntryToUpdate={addEntryToUpdate}
+        rows={rows}
+      />
     </Space>
   );
 }

@@ -5,8 +5,8 @@ import clsx from 'clsx';
 import type { CrimesHediondosCardData } from 'types/tdr';
 // Sass
 import './CrimeItemCard.scss';
-import { Item } from 'components/Sprites';
-import { useBaseUrl } from 'hooks/useBaseUrl';
+import { Item } from '@components/Sprites';
+import { useBaseUrl } from '@hooks/useBaseUrl';
 import { capitalize } from 'lodash';
 
 type CrimeItemCardProps = {

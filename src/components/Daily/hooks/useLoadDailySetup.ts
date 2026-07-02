@@ -1,6 +1,6 @@
-import { useTDResource } from 'hooks/useTDResource';
+import { useTDResource } from '@hooks/useTDResource';
+import type { ItemData } from '@types';
 import { useMemo } from 'react';
-import type { ItemData } from 'types';
 
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import { type DailyAlienadoEntry, useDailyAlienadoGames } from '../utils/games/daily-alienado';

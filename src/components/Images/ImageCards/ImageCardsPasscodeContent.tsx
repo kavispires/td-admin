@@ -1,9 +1,9 @@
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { ImageCardPasscodeSet } from '@types';
 import { Button, Space } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { ImageCardPasscodeSet } from 'types';
 import { PasscodeSearch, SetsTable } from './ImageCardsPasscodeComponents';
 import { ImageCardsPasscodeCreate } from './ImageCardsPasscodeCreate';
 
@@ -24,8 +24,14 @@ function ImageCardsPasscodeTable(query: UseResourceFirestoreDataReturnType<Image
   const [searchSetId, setSearchSetId] = useState<string | null>();
 
   return (
-    <Space className="full-width my-4" orientation="vertical">
-      <PasscodeSearch data={query.data} onFinish={(setId) => setSearchSetId(setId)} />
+    <Space
+      className="full-width my-4"
+      orientation="vertical"
+    >
+      <PasscodeSearch
+        data={query.data}
+        onFinish={(setId) => setSearchSetId(setId)}
+      />
       {searchSetId && (
         <>
           <SetsTable
@@ -33,12 +39,18 @@ function ImageCardsPasscodeTable(query: UseResourceFirestoreDataReturnType<Image
             hidePagination
             sets={[query.data[searchSetId]]}
           />
-          <Button onClick={() => setSearchSetId(null)} size="small">
+          <Button
+            onClick={() => setSearchSetId(null)}
+            size="small"
+          >
             Clear search
           </Button>
         </>
       )}
-      <SetsTable addEntryToUpdate={query.addEntryToUpdate} sets={allSets} />
+      <SetsTable
+        addEntryToUpdate={query.addEntryToUpdate}
+        sets={allSets}
+      />
     </Space>
   );
 }

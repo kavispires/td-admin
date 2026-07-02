@@ -1,14 +1,14 @@
+import { FilterSelect } from '@components/Common';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { FirestoreConsoleWipe } from '@components/Common/FirestoreConsoleLink';
+import { SaveButton } from '@components/Common/SaveButton';
+import { SiderContent } from '@components/Layout';
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { ItemAttributeData, ItemAttributesValuesData } from '@types';
+import { sortJsonKeys } from '@utils/json';
+import { deepCleanObject } from '@utils/object';
 import { Divider, Flex, Form } from 'antd';
-import { FilterSelect } from 'components/Common';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { FirestoreConsoleWipe } from 'components/Common/FirestoreConsoleLink';
-import { SaveButton } from 'components/Common/SaveButton';
-import { SiderContent } from 'components/Layout';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
-import { sortJsonKeys } from 'utils/json';
-import { deepCleanObject } from 'utils/object';
 import { calculateItemReliability, calculateItemScore, constructItemSignature } from '../utils';
 import {
   ItemAttributionClassifierFilters,

@@ -6,10 +6,10 @@ import {
   SyncOutlined,
   WarningOutlined,
 } from '@ant-design/icons';
+import { TransparentButton } from '@components/Common';
+import { IdTag } from '@components/Common/IdTag';
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
 import { Card, FloatButton, Image, Tooltip } from 'antd';
-import { TransparentButton } from 'components/Common';
-import { IdTag } from 'components/Common/IdTag';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
 import { isEmpty } from 'lodash';
 import { useMemo, useRef } from 'react';
 import { useMeasure } from 'react-use';
@@ -45,7 +45,10 @@ export function RelationshipsContent() {
       hasResponseData={!isEmpty(query.data)}
       isLoading={query.isLoading}
     >
-      <div className="my-6" ref={ref}>
+      <div
+        className="my-6"
+        ref={ref}
+      >
         <Card
           className="image-card-categorizer-card"
           extra={
@@ -66,14 +69,21 @@ export function RelationshipsContent() {
                 const card = cards[index];
 
                 return (
-                  <div className="image-card-card__image" key={cardId}>
+                  <div
+                    className="image-card-card__image"
+                    key={cardId}
+                  >
                     <TransparentButton
                       active={isSelected}
                       activeClass="image-cards-group__button--active"
                       className="image-cards-group__button"
                       onClick={() => onSelect(cardId)}
                     >
-                      <ImageCard cardId={cardId} cardWidth={cardWidth - 24} preview={false} />
+                      <ImageCard
+                        cardId={cardId}
+                        cardWidth={cardWidth - 24}
+                        preview={false}
+                      />
                       <div>
                         {showIds && <IdTag>{cardId}</IdTag>}
                         {/* <Button size="small">{isSelected ? 'Deselect' : 'Select'}</Button> */}
@@ -121,7 +131,11 @@ const Actions = ({ isSaving, isDirty, selection, relate, deselectAll, onNextSet 
   return (
     <>
       {isDirty && (
-        <FloatButton icon={<WarningOutlined />} style={{ right: 24 + 70 + 70 + 70 }} type="primary" />
+        <FloatButton
+          icon={<WarningOutlined />}
+          style={{ right: 24 + 70 + 70 + 70 }}
+          type="primary"
+        />
       )}
       <FloatButton
         icon={<ExpandOutlined />}

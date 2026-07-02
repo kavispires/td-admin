@@ -1,7 +1,7 @@
-import { VirtualizationWrapper } from 'components/Common/VirtualizationWrapper';
-import { ImageCard, type ImageCardProps } from 'components/Images/ImageCard';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { SuspectStyleVariant } from 'types';
+import { VirtualizationWrapper } from '@components/Common/VirtualizationWrapper';
+import { ImageCard, type ImageCardProps } from '@components/Images/ImageCard';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { SuspectStyleVariant } from '@types';
 
 type SuspectImageCardProps = {
   cardId: string;
@@ -13,8 +13,14 @@ export function SuspectImageCard({ cardId, variant, ...imageCardProps }: Suspect
   const vr = variant ?? queryParams.get('variant') ?? 'gb';
 
   return (
-    <VirtualizationWrapper aspectRatio="2:3" width={imageCardProps.cardWidth ?? 75}>
-      <ImageCard cardId={getSuspectImageId(cardId, vr)} {...imageCardProps} />
+    <VirtualizationWrapper
+      aspectRatio="2:3"
+      width={imageCardProps.cardWidth ?? 75}
+    >
+      <ImageCard
+        cardId={getSuspectImageId(cardId, vr)}
+        {...imageCardProps}
+      />
     </VirtualizationWrapper>
   );
 }

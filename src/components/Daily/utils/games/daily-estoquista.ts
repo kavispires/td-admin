@@ -1,5 +1,5 @@
 /** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
+import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
 import { useMemo } from 'react';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry } from '../types';

@@ -1,7 +1,7 @@
-import type { TeenageStudentData } from 'types';
+import type { TeenageStudentData } from '@types';
 import './FofocaQuente.scss';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { useTDResource } from 'hooks/useTDResource';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { useTDResource } from '@hooks/useTDResource';
 import { StudentListing } from './StudentListing';
 import { StudentsStats } from './StudentsStats';
 

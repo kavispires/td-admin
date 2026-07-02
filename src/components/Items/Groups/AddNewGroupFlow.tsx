@@ -1,10 +1,10 @@
+import { LanguageFlag } from '@components/Common/LanguageFlag';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { ItemGroupData } from '@types';
+import { createUUID } from '@utils/id';
+import { compareTwoStrings } from '@utils/string';
 import { App, Button, Form, Input, Modal, Typography } from 'antd';
-import { LanguageFlag } from 'components/Common/LanguageFlag';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
-import type { ItemGroupData } from 'types';
-import { createUUID } from 'utils/id';
-import { compareTwoStrings } from 'utils/string';
 
 type AddNewGroupFlowProps = {
   data: UseResourceFirestoreDataReturnType<ItemGroupData>['data'];

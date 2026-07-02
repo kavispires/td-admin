@@ -1,4 +1,4 @@
-import { LoadingPage } from 'pages/LoadingPage';
+import { LoadingPage } from '@pages/LoadingPage';
 import { lazy, Suspense } from 'react';
 import { createHashRouter, type RouteObject } from 'react-router-dom';
 import { RouteError } from './components/RouteError';
@@ -17,7 +17,7 @@ const withSuspense = (lazyComponent: () => Promise<{ default: React.ComponentTyp
 export const routeConfig: RouteObject[] = [
   {
     path: '/',
-    element: withSuspense(() => import('pages/Home' /* webpackChunkName: "Home" */)),
+    element: withSuspense(() => import('@pages/Home' /* webpackChunkName: "Home" */)),
   },
   // Resources Group
   {
@@ -25,24 +25,24 @@ export const routeConfig: RouteObject[] = [
     children: [
       {
         path: 'listing',
-        element: withSuspense(() => import('pages/Resources/Resource' /* webpackChunkName: "Resource" */)),
+        element: withSuspense(() => import('@pages/Resources/Resource' /* webpackChunkName: "Resource" */)),
       },
       {
         path: 'generator',
         element: withSuspense(
-          () => import('pages/Resources/ResourceGenerator' /* webpackChunkName: "ResourceGenerator" */),
+          () => import('@pages/Resources/ResourceGenerator' /* webpackChunkName: "ResourceGenerator" */),
         ),
       },
       {
         path: 'single-words',
         element: withSuspense(
-          () => import('pages/Resources/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */),
+          () => import('@pages/Resources/SingleWordsExpander' /* webpackChunkName: "SingleWordsExpander" */),
         ),
       },
       {
         path: 'converter',
         element: withSuspense(
-          () => import('pages/Resources/ResourceConverter' /* webpackChunkName: "ResourceConverter" */),
+          () => import('@pages/Resources/ResourceConverter' /* webpackChunkName: "ResourceConverter" */),
         ),
       },
     ],
@@ -53,30 +53,30 @@ export const routeConfig: RouteObject[] = [
     children: [
       {
         index: true, // This matches /daily exactly
-        element: withSuspense(() => import('pages/Daily/DailyPage' /* webpackChunkName: "DailyPage" */)),
+        element: withSuspense(() => import('@pages/Daily/DailyPage' /* webpackChunkName: "DailyPage" */)),
       },
       {
         path: 'diagrams',
         element: withSuspense(
-          () => import('pages/Items/ItemsDiagramSets' /* webpackChunkName: "ItemsDiagramSets" */),
+          () => import('@pages/Items/ItemsDiagramSets' /* webpackChunkName: "ItemsDiagramSets" */),
         ),
       },
       {
         path: 'discs',
         element: withSuspense(
-          () => import('pages/Items/ItemsDiscSets' /* webpackChunkName: "ItemsDiscSets" */),
+          () => import('@pages/Items/ItemsDiscSets' /* webpackChunkName: "ItemsDiscSets" */),
         ),
       },
       {
         path: 'movies',
         element: withSuspense(
-          () => import('pages/Items/ItemsMovieSets' /* webpackChunkName: "ItemsMovieSets" */),
+          () => import('@pages/Items/ItemsMovieSets' /* webpackChunkName: "ItemsMovieSets" */),
         ),
       },
       {
         path: 'quartets',
         element: withSuspense(
-          () => import('pages/Items/ItemsQuartets' /* webpackChunkName: "ItemsQuartets" */),
+          () => import('@pages/Items/ItemsQuartets' /* webpackChunkName: "ItemsQuartets" */),
         ),
       },
     ],
@@ -88,37 +88,37 @@ export const routeConfig: RouteObject[] = [
       {
         path: 'arte-ruim/parser',
         element: withSuspense(
-          () => import('pages/Games/ArteRuim/ArteRuimParser' /* webpackChunkName: "ArteRuimParser" */),
+          () => import('@pages/Games/ArteRuim/ArteRuimParser' /* webpackChunkName: "ArteRuimParser" */),
         ),
       },
       {
         path: 'arte-ruim/groups',
         element: withSuspense(
-          () => import('pages/Games/ArteRuim/ArteRuimGroups' /* webpackChunkName: "ArteRuimGroups" */),
+          () => import('@pages/Games/ArteRuim/ArteRuimGroups' /* webpackChunkName: "ArteRuimGroups" */),
         ),
       },
       {
         path: 'arte-ruim/drawings',
         element: withSuspense(
-          () => import('pages/Games/ArteRuim/ArteRuimDrawings' /* webpackChunkName: "ArteRuimDrawings" */),
+          () => import('@pages/Games/ArteRuim/ArteRuimDrawings' /* webpackChunkName: "ArteRuimDrawings" */),
         ),
       },
       {
         path: 'crimes-hediondos',
         element: withSuspense(
-          () => import('pages/Games/CrimesHediondos' /* webpackChunkName: "CrimesHediondos" */),
+          () => import('@pages/Games/CrimesHediondos' /* webpackChunkName: "CrimesHediondos" */),
         ),
       },
       {
         path: 'escape-room',
         element: withSuspense(
-          () => import('pages/Games/EscapeRoom/EscapeRoom' /* webpackChunkName: "EscapeRoom" */),
+          () => import('@pages/Games/EscapeRoom/EscapeRoom' /* webpackChunkName: "EscapeRoom" */),
         ),
       },
       {
         path: 'fofoca-quente',
         element: withSuspense(
-          () => import('pages/Games/FofocaQuente' /* webpackChunkName: "FofocaQuente" */),
+          () => import('@pages/Games/FofocaQuente' /* webpackChunkName: "FofocaQuente" */),
         ),
       },
     ],
@@ -129,23 +129,23 @@ export const routeConfig: RouteObject[] = [
     children: [
       {
         path: 'sprites',
-        element: withSuspense(() => import('pages/Libraries/Sprites' /* webpackChunkName: "Sprites" */)),
+        element: withSuspense(() => import('@pages/Libraries/Sprites' /* webpackChunkName: "Sprites" */)),
       },
       {
         path: 'suspects',
-        element: withSuspense(() => import('pages/Libraries/Suspects' /* webpackChunkName: "Suspects" */)),
+        element: withSuspense(() => import('@pages/Libraries/Suspects' /* webpackChunkName: "Suspects" */)),
       },
       {
         path: 'contenders',
         element: withSuspense(
-          () => import('pages/Libraries/Contenders' /* webpackChunkName: "Contenders" */),
+          () => import('@pages/Libraries/Contenders' /* webpackChunkName: "Contenders" */),
         ),
       },
       {
         path: 'testimonies',
         element: withSuspense(
           () =>
-            import('pages/Libraries/Testimonies/TestimoniesPage' /* webpackChunkName: "TestimoniesPage" */),
+            import('@pages/Libraries/Testimonies/TestimoniesPage' /* webpackChunkName: "TestimoniesPage" */),
         ),
       },
     ],
@@ -156,16 +156,16 @@ export const routeConfig: RouteObject[] = [
     children: [
       {
         index: true, // This matches /items exactly
-        element: withSuspense(() => import('pages/Items/Items' /* webpackChunkName: "Items" */)),
+        element: withSuspense(() => import('@pages/Items/Items' /* webpackChunkName: "Items" */)),
       },
       {
         path: 'groups',
-        element: withSuspense(() => import('pages/Items/ItemsGroups' /* webpackChunkName: "ItemsGroups" */)),
+        element: withSuspense(() => import('@pages/Items/ItemsGroups' /* webpackChunkName: "ItemsGroups" */)),
       },
       {
         path: 'attribution',
         element: withSuspense(
-          () => import('pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */),
+          () => import('@pages/Items/ItemsAttribution' /* webpackChunkName: "ItemsAttribution" */),
         ),
       },
     ],
@@ -176,37 +176,37 @@ export const routeConfig: RouteObject[] = [
     children: [
       {
         path: 'decks',
-        element: withSuspense(() => import('pages/Images/ImageCards' /* webpackChunkName: "ImageCards" */)),
+        element: withSuspense(() => import('@pages/Images/ImageCards' /* webpackChunkName: "ImageCards" */)),
       },
       {
         path: 'descriptor',
         element: withSuspense(
-          () => import('pages/Images/ImageCardsDescriptor' /* webpackChunkName: "ImageCardsDescriptor" */),
+          () => import('@pages/Images/ImageCardsDescriptor' /* webpackChunkName: "ImageCardsDescriptor" */),
         ),
       },
       {
         path: 'passcode',
         element: withSuspense(
-          () => import('pages/Images/ImageCardsPasscode' /* webpackChunkName: "ImageCardsPasscode" */),
+          () => import('@pages/Images/ImageCardsPasscode' /* webpackChunkName: "ImageCardsPasscode" */),
         ),
       },
       {
         path: 'relationships',
         element: withSuspense(
           () =>
-            import('pages/Images/ImageCardsRelationships' /* webpackChunkName: "ImageCardsRelationships" */),
+            import('@pages/Images/ImageCardsRelationships' /* webpackChunkName: "ImageCardsRelationships" */),
         ),
       },
       {
         path: 'comparator',
         element: withSuspense(
-          () => import('pages/Images/ImageCardsComparator' /* webpackChunkName: "ImageCardsComparator" */),
+          () => import('@pages/Images/ImageCardsComparator' /* webpackChunkName: "ImageCardsComparator" */),
         ),
       },
       {
         path: 'connections',
         element: withSuspense(
-          () => import('pages/Images/ImageCardsConnections' /* webpackChunkName: "ImageCardsConnections" */),
+          () => import('@pages/Images/ImageCardsConnections' /* webpackChunkName: "ImageCardsConnections" */),
         ),
       },
     ],
@@ -217,31 +217,31 @@ export const routeConfig: RouteObject[] = [
       // Other routes
       {
         path: 'playground',
-        element: withSuspense(() => import('pages/Fun/Playground' /* webpackChunkName: "Playground" */)),
+        element: withSuspense(() => import('@pages/Fun/Playground' /* webpackChunkName: "Playground" */)),
       },
       {
         path: 'movie-maker',
-        element: withSuspense(() => import('pages/Fun/MovieMaker' /* webpackChunkName: "MovieMaker" */)),
+        element: withSuspense(() => import('@pages/Fun/MovieMaker' /* webpackChunkName: "MovieMaker" */)),
       },
       {
         path: 'crimes-history',
         element: withSuspense(
-          () => import('pages/Fun/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
+          () => import('@pages/Fun/ItemsCrimeHistory' /* webpackChunkName: "ItemsCrimeHistory" */),
         ),
       },
       {
         path: 'riddler',
-        element: withSuspense(() => import('pages/Fun/Riddler' /* webpackChunkName: "Riddler" */)),
+        element: withSuspense(() => import('@pages/Fun/Riddler' /* webpackChunkName: "Riddler" */)),
       },
       {
         path: 'suspects-personalities',
         element: withSuspense(
-          () => import('pages/Fun/SuspectsPersonalities' /* webpackChunkName: "SuspectsPersonalities" */),
+          () => import('@pages/Fun/SuspectsPersonalities' /* webpackChunkName: "SuspectsPersonalities" */),
         ),
       },
       {
         path: 'ai-generator',
-        element: withSuspense(() => import('pages/Fun/AIGenerator' /* webpackChunkName: "AIGenerator" */)),
+        element: withSuspense(() => import('@pages/Fun/AIGenerator' /* webpackChunkName: "AIGenerator" */)),
       },
     ],
   },

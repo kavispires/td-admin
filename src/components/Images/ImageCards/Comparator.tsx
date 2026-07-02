@@ -1,8 +1,8 @@
+import { FullScreenModal } from '@components/Common/FullScreenModal';
+import { useCardWidth } from '@hooks/useCardWidth';
+import { useLoadWordLibrary } from '@hooks/useLoadWordLibrary';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Button, Flex, Image, Input, Layout, Tag, Typography } from 'antd';
-import { FullScreenModal } from 'components/Common/FullScreenModal';
-import { useCardWidth } from 'hooks/useCardWidth';
-import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty, sample } from 'lodash';
 import { useState } from 'react';
 import { useKey, useWindowSize } from 'react-use';
@@ -35,7 +35,10 @@ export function Comparator({ query }: ComparatorProps) {
 
   return (
     <Layout.Content className="dev-content py-4">
-      <Button block onClick={() => addParam('open', 'true')}>
+      <Button
+        block
+        onClick={() => addParam('open', 'true')}
+      >
         Open Modal
       </Button>
 
@@ -43,10 +46,21 @@ export function Comparator({ query }: ComparatorProps) {
 
       <FullScreenModal
         actions={[
-          <Button block key="1" onClick={unrelate} size="large">
+          <Button
+            block
+            key="1"
+            onClick={unrelate}
+            size="large"
+          >
             Unrelated
           </Button>,
-          <Button block key="2" onClick={relate} size="large" type="primary">
+          <Button
+            block
+            key="2"
+            onClick={relate}
+            size="large"
+            type="primary"
+          >
             Related
           </Button>,
         ]}
@@ -55,16 +69,26 @@ export function Comparator({ query }: ComparatorProps) {
         title={`Card A: ${cardAId} vs Card B: ${cardBId}`}
       >
         <Image.PreviewGroup>
-          <Flex className="center" justify="center" wrap="wrap">
+          <Flex
+            className="center"
+            justify="center"
+            wrap="wrap"
+          >
             <Flex vertical>
-              <ImageCard cardId={cardAId} cardWidth={cardWidth} />
+              <ImageCard
+                cardId={cardAId}
+                cardWidth={cardWidth}
+              />
               <Flex>
                 <RelationshipCountTag card={cardA} />
                 <Tag>{cardAId}</Tag>
               </Flex>
             </Flex>
             <Flex vertical>
-              <ImageCard cardId={cardBId} cardWidth={cardWidth} />
+              <ImageCard
+                cardId={cardBId}
+                cardWidth={cardWidth}
+              />
               <Flex>
                 <RelationshipCountTag card={cardB} />
                 <Tag>{cardBId}</Tag>
@@ -109,18 +133,27 @@ function PasscodeWords() {
 
   return (
     <>
-      <Typography.Title className="center" level={3}>
+      <Typography.Title
+        className="center"
+        level={3}
+      >
         Passcode Words
       </Typography.Title>
 
       <Flex>
         <Input onChange={(e) => setInput(e.target.value)} />
-        <Button disabled={isLoading || input.length === 0} onClick={onGetWords}>
+        <Button
+          disabled={isLoading || input.length === 0}
+          onClick={onGetWords}
+        >
           Get
         </Button>
       </Flex>
 
-      <Input.TextArea className="mt-4" value={JSON.stringify(words)} />
+      <Input.TextArea
+        className="mt-4"
+        value={JSON.stringify(words)}
+      />
     </>
   );
 }

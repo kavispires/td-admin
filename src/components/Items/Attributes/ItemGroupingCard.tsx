@@ -1,8 +1,8 @@
+import { GoToTopButton } from '@components/Common/GoToTopButton';
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import { useItemGrouping } from '@hooks/useItemGrouping';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Button, Card, Empty, Flex, Pagination, Popconfirm, Select, Space, Typography } from 'antd';
-import { GoToTopButton } from 'components/Common/GoToTopButton';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useItemGrouping } from 'hooks/useItemGrouping';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty } from 'lodash';
 import { useMedia } from 'react-use';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
@@ -69,7 +69,12 @@ export function ItemGroupingCard() {
       onConfirm={updatePageItemsAsUnrelated}
       title={`Are you sure everything is unrelated to ${attribute.name.en}?`}
     >
-      <Button className="mx-2" danger disabled={pageIds.length === 0} type="primary">
+      <Button
+        className="mx-2"
+        danger
+        disabled={pageIds.length === 0}
+        type="primary"
+      >
         Unrelate Unset Items on Page
       </Button>
     </Popconfirm>
@@ -77,7 +82,10 @@ export function ItemGroupingCard() {
   return (
     <Card
       actions={[
-        <Flex justify="space-between" key="options">
+        <Flex
+          justify="space-between"
+          key="options"
+        >
           {unrelateButton}
           <ItemGroupAttributeNavigationButtons key="navigation-buttons" />
         </Flex>,
@@ -85,7 +93,11 @@ export function ItemGroupingCard() {
       ].filter(Boolean)}
       className="my-4"
       extra={
-        <Flex align="center" className="mx-2" justify="space-around">
+        <Flex
+          align="center"
+          className="mx-2"
+          justify="space-around"
+        >
           {sortingComponent}
 
           {paginationComponent}
@@ -114,17 +126,33 @@ export function ItemGroupingCard() {
             style={{ width: isNarrow ? '50%' : '25%' }}
           >
             <Flex gap={6}>
-              <Flex gap={6} vertical>
-                <ItemSprite item={item} width={75} />
+              <Flex
+                gap={6}
+                vertical
+              >
+                <ItemSprite
+                  item={item}
+                  width={75}
+                />
                 <ItemId item={item} />
                 <Space.Compact>
                   <ItemGoTo item={item} />
-                  <Button onClick={() => addParam('drawer', item.id)} shape="round" size="small">
+                  <Button
+                    onClick={() => addParam('drawer', item.id)}
+                    shape="round"
+                    size="small"
+                  >
                     Drawer
                   </Button>
                 </Space.Compact>
-                <ItemName item={item} language="en" />
-                <ItemName item={item} language="pt" />
+                <ItemName
+                  item={item}
+                  language="en"
+                />
+                <ItemName
+                  item={item}
+                  language="pt"
+                />
               </Flex>
               <AttributionValueButtons
                 attribute={attribute}
@@ -167,7 +195,11 @@ function ItemGroupAttributeNavigationButtons() {
   };
 
   return (
-    <Flex className="mx-8" gap={6} justify="space-between">
+    <Flex
+      className="mx-8"
+      gap={6}
+      justify="space-between"
+    >
       <Button
         disabled={currentAttribute === attributesList[0]?.id}
         key="previous"

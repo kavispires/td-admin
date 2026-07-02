@@ -1,6 +1,6 @@
-import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
-import type { SuspectCardData, TestimonyQuestionCardData } from 'types';
+import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import { useTDResource } from '@hooks/useTDResource';
+import type { SuspectCardData, TestimonyQuestionCardData } from '@types';
 
 /**
  * Values <suspectId, answers>

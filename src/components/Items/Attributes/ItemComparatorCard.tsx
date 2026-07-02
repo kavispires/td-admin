@@ -1,8 +1,8 @@
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import { type ItemMessageObject, useItemsComparator } from '@hooks/useItemsComparator';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { ItemData } from '@types';
 import { Button, Flex, Space, Table, type TableColumnsType, Typography } from 'antd';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { type ItemMessageObject, useItemsComparator } from 'hooks/useItemsComparator';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { ItemData } from 'types';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributeSprite } from './ItemAttributeDescription';
 import { ItemAttributionDrawer } from './ItemAttributionDrawer';

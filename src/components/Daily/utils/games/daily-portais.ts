@@ -1,11 +1,12 @@
 /** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
+
+import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
+import { useLoadWordLibrary } from '@hooks/useLoadWordLibrary';
+import { useTDResource } from '@hooks/useTDResource';
 import { useQuery } from '@tanstack/react-query';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { useLoadWordLibrary } from 'hooks/useLoadWordLibrary';
-import { useTDResource } from 'hooks/useTDResource';
+import type { ImageCardPasscodeSet } from '@types';
+import { SEPARATOR } from '@utils/constants';
 import { sample, sampleSize, shuffle } from 'lodash';
-import type { ImageCardPasscodeSet } from 'types';
-import { SEPARATOR } from 'utils/constants';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { getNextDay } from '../utils';

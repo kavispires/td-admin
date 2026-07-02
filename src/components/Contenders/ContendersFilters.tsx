@@ -1,14 +1,14 @@
+import { DataFilters } from '@components/Common/DataFilters';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { SaveButton } from '@components/Common/SaveButton';
+import { SiderContent } from '@components/Layout';
+import type { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import type { ContenderCardData } from '@types';
+import { sortJsonKeys } from '@utils/json';
+import { deepCleanObject } from '@utils/object';
 import { Divider, Flex, Typography } from 'antd';
-import { DataFilters } from 'components/Common/DataFilters';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { SaveButton } from 'components/Common/SaveButton';
-import { SiderContent } from 'components/Layout';
-import type { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
-import type { ContenderCardData } from 'types';
-import { sortJsonKeys } from 'utils/json';
-import { deepCleanObject } from 'utils/object';
 import { DECKS } from './ContenderEditCard';
 
 export type ContendersFiltersProps = ReturnType<typeof useResourceFirestoreData<ContenderCardData>>;

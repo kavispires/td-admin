@@ -1,12 +1,12 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { ItemsDiscSetsFilters } from '@components/Items/DiscSets/ItemsDiscSetsFilters';
+import { ItemsDiscSetsSubPages } from '@components/Items/DiscSets/ItemsDiscSetsSubPages';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import type { DailyDiscSet } from '@types';
 import { Layout } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemsDiscSetsFilters } from 'components/Items/DiscSets/ItemsDiscSetsFilters';
-import { ItemsDiscSetsSubPages } from 'components/Items/DiscSets/ItemsDiscSetsSubPages';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { DailyDiscSet } from 'types';
 
 export function ItemsDiscSets() {
   const discSetsData = useResourceFirestoreData<DailyDiscSet>({
@@ -16,7 +16,10 @@ export function ItemsDiscSets() {
   });
 
   return (
-    <PageLayout subtitle="Disc Sets" title="Items">
+    <PageLayout
+      subtitle="Disc Sets"
+      title="Items"
+    >
       <Layout hasSider>
         <PageSider>
           <ItemsDiscSetsFilters {...discSetsData} />

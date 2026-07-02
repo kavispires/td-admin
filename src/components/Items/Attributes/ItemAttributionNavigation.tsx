@@ -8,9 +8,9 @@ import {
   VerticalLeftOutlined,
   VerticalRightOutlined,
 } from '@ant-design/icons';
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Button, Popover, Select, Space } from 'antd';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useMemo } from 'react';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 
@@ -18,13 +18,22 @@ export function ItemAttributionNavigation() {
   const { jumpToItem } = useItemsAttributeValuesContext();
   return (
     <Space.Compact>
-      <Button icon={<VerticalRightOutlined />} onClick={() => jumpToItem('first')}>
+      <Button
+        icon={<VerticalRightOutlined />}
+        onClick={() => jumpToItem('first')}
+      >
         First
       </Button>
-      <Button icon={<DoubleLeftOutlined />} onClick={() => jumpToItem('previous10')}>
+      <Button
+        icon={<DoubleLeftOutlined />}
+        onClick={() => jumpToItem('previous10')}
+      >
         Previous 10
       </Button>
-      <Button icon={<LeftOutlined />} onClick={() => jumpToItem('previous')}>
+      <Button
+        icon={<LeftOutlined />}
+        onClick={() => jumpToItem('previous')}
+      >
         Previous
       </Button>
       <Button onClick={() => jumpToItem('next')}>
@@ -36,7 +45,10 @@ export function ItemAttributionNavigation() {
       <Button onClick={() => jumpToItem('last')}>
         Last <VerticalLeftOutlined />
       </Button>
-      <Popover content={<GoToItemPopOverContent />} title="Go to item">
+      <Popover
+        content={<GoToItemPopOverContent />}
+        title="Go to item"
+      >
         <Button>Go To</Button>
       </Popover>
       <Button onClick={() => jumpToItem('incomplete')}>Next Incomplete</Button>
@@ -46,7 +58,12 @@ export function ItemAttributionNavigation() {
 
 function GoToItemPopOverContent() {
   const { jumpToItem } = useItemsAttributeValuesContext();
-  return <ItemsTypeahead isPending={false} onFinish={(itemId) => jumpToItem('goTo', itemId)} />;
+  return (
+    <ItemsTypeahead
+      isPending={false}
+      onFinish={(itemId) => jumpToItem('goTo', itemId)}
+    />
+  );
 }
 
 export function ItemAttributionFilterAttributes() {
@@ -81,7 +98,10 @@ export function ItemAttributionFilterAttributes() {
   );
 
   return (
-    <Popover content={content} title="Filter Attributes">
+    <Popover
+      content={content}
+      title="Filter Attributes"
+    >
       <Button>{activeFilters ? <FilterFilled style={{ color: 'gold' }} /> : <FilterOutlined />}</Button>
     </Popover>
   );
@@ -118,7 +138,10 @@ export function ItemAttributionSortBy() {
   );
 
   return (
-    <Popover content={content} title="Sort By">
+    <Popover
+      content={content}
+      title="Sort By"
+    >
       <Button>Sort</Button>
     </Popover>
   );

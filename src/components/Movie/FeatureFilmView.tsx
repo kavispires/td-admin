@@ -1,8 +1,14 @@
+import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
+import type {
+  ItemData,
+  MovieCardData,
+  MovieGenres,
+  SuspectCardData,
+  TestimonyQuestionCardData,
+} from '@types';
 import { Button, Divider, Flex, Input, Space, Tag, Typography } from 'antd';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { cloneDeep, sample, sampleSize, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { ItemData, MovieCardData, MovieGenres, SuspectCardData, TestimonyQuestionCardData } from 'types';
 import { ActorRole } from './ActorRole';
 
 export type FeatureFilRole = {

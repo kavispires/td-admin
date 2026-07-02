@@ -1,9 +1,9 @@
+import { PageContent } from '@components/Common/PageContent';
+import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
+import { useTablePagination } from '@hooks/useTablePagination';
+import type { UseEscapeRoomResourceReturnType } from '@pages/Games/EscapeRoom/useEscapeRoomResource';
 import { Flex, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
-import { PageContent } from 'components/Common/PageContent';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { useTablePagination } from 'hooks/useTablePagination';
-import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
 import type { EscapeRoomSet } from './cards/escape-room-types';
 import { MissionBriefingsTable } from './MissionBriefingsTable';
 
@@ -67,14 +67,25 @@ export function MissionSetsTable({
 
   const expandableProps = useTableExpandableRows<EscapeRoomSet>({
     maxExpandedRows: 1,
-    expandedRowRender: (record) => <MissionBriefingsTable cards={cards} missionBriefings={record.missions} />,
+    expandedRowRender: (record) => (
+      <MissionBriefingsTable
+        cards={cards}
+        missionBriefings={record.missions}
+      />
+    ),
     rowExpandable: () => isSuccess,
   });
 
   return (
     <PageContent>
-      <Flex align="center" justify="space-between">
-        <Typography.Title className="my-0" level={4}>
+      <Flex
+        align="center"
+        justify="space-between"
+      >
+        <Typography.Title
+          className="my-0"
+          level={4}
+        >
           Mission Sets
         </Typography.Title>
         {/* <Switch

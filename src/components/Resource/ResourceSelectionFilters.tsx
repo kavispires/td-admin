@@ -1,9 +1,9 @@
+import { LanguageToggle } from '@components/Common/LanguageToggle';
+import { SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { DUAL_LANGUAGE_RESOURCES } from '@utils/resources-list';
 import { Button, Form, Select } from 'antd';
-import { LanguageToggle } from 'components/Common/LanguageToggle';
-import { SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useState } from 'react';
-import { DUAL_LANGUAGE_RESOURCES } from 'utils/resources-list';
 
 type ResourceSelectionFiltersProps = {
   resourceNames: string[];

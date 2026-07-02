@@ -1,6 +1,7 @@
 /** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { useImagesDecks } from 'hooks/useImagesDecks';
+
+import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
+import { useImagesDecks } from '@hooks/useImagesDecks';
 import { random, sample } from 'lodash';
 import { useMemo } from 'react';
 import { DAILY_GAMES_KEYS } from '../constants';

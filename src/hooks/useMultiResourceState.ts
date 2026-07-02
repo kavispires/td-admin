@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
+import { DUAL_LANGUAGE_RESOURCES } from '@utils/resources-list';
 import { useMemo } from 'react';
-import { DUAL_LANGUAGE_RESOURCES } from 'utils/resources-list';
 import { useBaseUrl } from './useBaseUrl';
 
 type ResourceLoadState = {

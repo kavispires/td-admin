@@ -1,5 +1,5 @@
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Form } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import { FilterSelect } from './FilterEntries';

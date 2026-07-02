@@ -1,13 +1,13 @@
 import { ExpandOutlined } from '@ant-design/icons';
+import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
+import { useCardWidth } from '@hooks/useCardWidth';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { TestimonyAnswers } from '@pages/Libraries/Testimonies/useTestimoniesResource';
+import type { SuspectCardData } from '@types';
 import { Button, Checkbox, Divider, Flex, FloatButton, Popconfirm, Space, Switch, Typography } from 'antd';
 import clsx from 'clsx';
-import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
-import { useCardWidth } from 'hooks/useCardWidth';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, cloneDeep, keyBy, orderBy } from 'lodash';
-import type { TestimonyAnswers } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
-import type { SuspectCardData } from 'types';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';
 import { calculateSuspectAnswersData, filterAdultSuspects } from './utils';
 

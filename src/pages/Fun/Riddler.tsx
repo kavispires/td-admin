@@ -1,14 +1,14 @@
+import { LanguageToggle } from '@components/Common/LanguageToggle';
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { PageLayout, SiderContent } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { useTDResource } from '@hooks/useTDResource';
+import type { TextCardData } from '@types';
 import { Button, Layout, Table, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
-import { LanguageToggle } from 'components/Common/LanguageToggle';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageLayout, SiderContent } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty, shuffle } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { TextCardData } from 'types';
 
 type Riddle = {
   id: string;

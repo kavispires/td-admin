@@ -1,8 +1,8 @@
 import { ColumnHeightOutlined, ColumnWidthOutlined, ManOutlined, WomanOutlined } from '@ant-design/icons';
+import { ImageCard } from '@components/Images/ImageCard';
+import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
+import { useCardWidth } from '@hooks/useCardWidth';
 import { Tag, Typography } from 'antd';
-import { ImageCard } from 'components/Images/ImageCard';
-import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
-import { useCardWidth } from 'hooks/useCardWidth';
 import type { FeatureFilmRole } from './FeatureFilmViewV2';
 
 type ActorRoleProps = {

@@ -1,13 +1,13 @@
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { ItemsGroupsFilters } from '@components/Items/Groups/ItemsGroupsFilters';
+import { ItemsGroupsSubPages } from '@components/Items/Groups/ItemsGroupsSubPages';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import { useTDResource } from '@hooks/useTDResource';
+import type { ItemData, ItemGroupData } from '@types';
 import { Layout } from 'antd';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { ItemsGroupsFilters } from 'components/Items/Groups/ItemsGroupsFilters';
-import { ItemsGroupsSubPages } from 'components/Items/Groups/ItemsGroupsSubPages';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
-import { useTDResource } from 'hooks/useTDResource';
 import { isEmpty } from 'lodash';
-import type { ItemData, ItemGroupData } from 'types';
 
 export function ItemsGroups() {
   const groupsQuery = useResourceFirestoreData<ItemGroupData>({

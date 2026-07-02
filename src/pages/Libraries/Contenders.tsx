@@ -1,12 +1,12 @@
+import { ContendersContent } from '@components/Contenders/ContendersContent';
+import { ContendersFilters } from '@components/Contenders/ContendersFilters';
+import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
+import { PageLayout } from '@components/Layout';
+import { PageSider } from '@components/Layout/PageSider';
+import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
+import type { ContenderCardData } from '@types';
 import { Layout } from 'antd';
-import { ContendersContent } from 'components/Contenders/ContendersContent';
-import { ContendersFilters } from 'components/Contenders/ContendersFilters';
-import { DataLoadingWrapper } from 'components/DataLoadingWrapper';
-import { PageLayout } from 'components/Layout';
-import { PageSider } from 'components/Layout/PageSider';
-import { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { isEmpty } from 'lodash';
-import type { ContenderCardData } from 'types';
 
 export function Contenders() {
   const contendersQuery = useResourceFirestoreData<ContenderCardData>({

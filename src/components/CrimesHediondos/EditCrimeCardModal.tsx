@@ -1,9 +1,9 @@
 import { EditOutlined } from '@ant-design/icons';
+import { DualLanguageTextField } from '@components/Common/EditableFields';
+import type { CrimesHediondosCardData } from '@types';
 import { Button, type ButtonProps, Modal, Space } from 'antd';
-import { DualLanguageTextField } from 'components/Common/EditableFields';
 import { cloneDeep } from 'lodash';
 import { useToggle } from 'react-use';
-import type { CrimesHediondosCardData } from 'types';
 import { CrimeItemCard } from './CrimeItemCard';
 import type { CrimesHediondosInnerContentProps } from './CrimesHediondosContent';
 

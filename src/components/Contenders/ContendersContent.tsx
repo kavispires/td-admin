@@ -1,10 +1,10 @@
-import type { ContenderCardData } from 'types';
+import type { ContenderCardData } from '@types';
 import './Contenders.scss';
+import { useFilterDataByDataFilters } from '@components/Common/DataFilters';
+import { PaginationWrapper } from '@components/Common/PaginationWrapper';
+import { useGridPagination } from '@hooks/useGridPagination';
+import type { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
 import { Flex, Typography } from 'antd';
-import { useFilterDataByDataFilters } from 'components/Common/DataFilters';
-import { PaginationWrapper } from 'components/Common/PaginationWrapper';
-import { useGridPagination } from 'hooks/useGridPagination';
-import type { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import { useEffect } from 'react';
 import { ContenderEditCard } from './ContenderEditCard';

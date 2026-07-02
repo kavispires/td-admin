@@ -11,17 +11,17 @@ import {
   MessageFilled,
   WomanOutlined,
 } from '@ant-design/icons';
+import { useCardWidth } from '@hooks/useCardWidth';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { SuspectCardData, SuspectExtendedInfoData } from '@types';
+import { stringRemoveAccents } from '@utils/string';
+import { wait } from '@utils/time';
 import { Button, Flex, Image, Segmented, Space, Switch, Table, Tag, Tooltip, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import clsx from 'clsx';
-import { useCardWidth } from 'hooks/useCardWidth';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { orderBy, truncate } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
-import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
-import { stringRemoveAccents } from 'utils/string';
-import { wait } from 'utils/time';
 import { ActiveExtendedInfoSwitch, ExtendedInfoFilterBar } from './ExtendedInfoFilterBar';
 import { ActiveFeatureSwitch, FeaturesFilterBar } from './FeaturesFilterBar';
 import { PromptBuilder, PromptButton } from './PromptBuilder';

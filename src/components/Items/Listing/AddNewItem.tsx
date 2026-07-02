@@ -1,5 +1,5 @@
+import { useItemsContext } from '@context/ItemsContext';
 import { Button, Modal } from 'antd';
-import { useItemsContext } from 'context/ItemsContext';
 import { cloneDeep } from 'lodash';
 import { useState } from 'react';
 import { ItemCard } from './ItemCard';

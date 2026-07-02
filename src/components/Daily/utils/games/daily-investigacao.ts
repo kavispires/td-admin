@@ -1,14 +1,15 @@
 /** biome-ignore-all lint/suspicious/noConsole: debugging purposes */
-import { useQuery } from '@tanstack/react-query';
-import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
-import { calculateSuspectAnswersData } from 'components/Testimonies/utils';
-import { useTDResource } from 'hooks/useTDResource';
-import { cloneDeep, difference, isEmpty, sample, sampleSize, shuffle, uniq } from 'lodash';
+
+import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
+import { calculateSuspectAnswersData } from '@components/Testimonies/utils';
+import { useTDResource } from '@hooks/useTDResource';
 import {
   type TestimonyAnswers,
   testimoniesDeserializer,
-} from 'pages/Libraries/Testimonies/useTestimoniesResource';
-import type { CrimeReasonData, SuspectCardData, TestimonyQuestionCardData } from 'types';
+} from '@pages/Libraries/Testimonies/useTestimoniesResource';
+import { useQuery } from '@tanstack/react-query';
+import type { CrimeReasonData, SuspectCardData, TestimonyQuestionCardData } from '@types';
+import { cloneDeep, difference, isEmpty, sample, sampleSize, shuffle, uniq } from 'lodash';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { checkWeekend, getNextDay } from '../utils';

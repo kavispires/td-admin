@@ -1,13 +1,13 @@
 import { CloudSyncOutlined, FireFilled, SearchOutlined } from '@ant-design/icons';
+import { PageContent } from '@components/Common/PageContent';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
+import { useTablePagination } from '@hooks/useTablePagination';
+import type { useTestimoniesResource } from '@pages/Libraries/Testimonies/useTestimoniesResource';
+import type { TestimonyQuestionCardData } from '@types';
 import { Button, Flex, Input, Rate, Segmented, Table, type TableProps, Tag, Tooltip, Typography } from 'antd';
-import { PageContent } from 'components/Common/PageContent';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { orderBy, sample } from 'lodash';
-import type { useTestimoniesResource } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo, useState } from 'react';
-import type { TestimonyQuestionCardData } from 'types';
 import { TestimonyAnswerExpandedRow } from './TestimonyAnswerExpandedRow';
 
 export type TestimoniesContentProps = ReturnType<typeof useTestimoniesResource>;

@@ -1,13 +1,13 @@
 import { EnvironmentOutlined, SkinOutlined, TagOutlined } from '@ant-design/icons';
+import { FilterSegments, FilterSwitch } from '@components/Common';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { SaveButton } from '@components/Common/SaveButton';
+import { SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { CrimeSceneTileData, CrimesHediondosCardData } from '@types';
+import { sortJsonKeys } from '@utils/json';
 import { Divider, Flex } from 'antd';
-import { FilterSegments, FilterSwitch } from 'components/Common';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { SaveButton } from 'components/Common/SaveButton';
-import { SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
-import type { CrimeSceneTileData, CrimesHediondosCardData } from 'types';
-import { sortJsonKeys } from 'utils/json';
 import type { CrimesHediondosContentProps } from './CrimesHediondosContent';
 
 export function CrimesHediondosFilters({

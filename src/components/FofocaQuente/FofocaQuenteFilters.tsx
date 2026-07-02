@@ -1,11 +1,11 @@
 import { DotChartOutlined, FileImageOutlined, FileJpgOutlined, TableOutlined } from '@ant-design/icons';
+import { DataFilters } from '@components/Common/DataFilters';
+import { FilterSegments } from '@components/Common/FilterEntries';
+import { SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { useTDResource } from '@hooks/useTDResource';
+import type { TeenageStudentData } from '@types';
 import { Divider } from 'antd';
-import { DataFilters } from 'components/Common/DataFilters';
-import { FilterSegments } from 'components/Common/FilterEntries';
-import { SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { useTDResource } from 'hooks/useTDResource';
-import type { TeenageStudentData } from 'types';
 
 export type FofocaQuenteFiltersProps = ReturnType<typeof useTDResource<TeenageStudentData>>;
 

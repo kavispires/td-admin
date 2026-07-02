@@ -1,5 +1,5 @@
+import type { useTDResource } from '@hooks/useTDResource';
 import { Card, Col, Row, Statistic, Typography, theme } from 'antd';
-import type { useTDResource } from 'hooks/useTDResource';
 import _ from 'lodash';
 import { useMemo } from 'react';
 import {

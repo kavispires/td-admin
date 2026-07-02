@@ -1,9 +1,9 @@
+import { FilterSelect, ResponseState } from '@components/Common';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { SaveButton } from '@components/Common/SaveButton';
+import { PageSider, SiderContent } from '@components/Layout';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Button, Divider, Flex } from 'antd';
-import { FilterSelect, ResponseState } from 'components/Common';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { SaveButton } from 'components/Common/SaveButton';
-import { PageSider, SiderContent } from 'components/Layout';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty } from 'lodash';
 import type { UseImageCardsRelationshipDataReturnValue } from './hooks/hooks';
 
@@ -18,7 +18,10 @@ export function ComparatorFilters({ query }: ComparatorFiltersProps) {
   return (
     <PageSider>
       <SiderContent>
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           <SaveButton
             dirt={JSON.stringify(data)}
             isDirty={isDirty}
@@ -44,7 +47,10 @@ export function ComparatorFilters({ query }: ComparatorFiltersProps) {
       />
 
       <SiderContent>
-        <Button block onClick={() => addParam('open', 'true')}>
+        <Button
+          block
+          onClick={() => addParam('open', 'true')}
+        >
           Open Modal
         </Button>
 

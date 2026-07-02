@@ -1,5 +1,5 @@
-import { FilterSegments } from 'components/Common';
-import { useQueryParams } from 'hooks/useQueryParams';
+import { FilterSegments } from '@components/Common';
+import { useQueryParams } from '@hooks/useQueryParams';
 
 const options = [
   { value: 'gb', title: 'Ghibli', icon: 'GB' },

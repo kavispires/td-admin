@@ -1,6 +1,6 @@
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import { useQueryParams } from '@hooks/useQueryParams';
 import { Affix, Button, Card, Divider, Flex, Space, Typography } from 'antd';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { useEffect, useMemo } from 'react';
 import { ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';

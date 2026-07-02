@@ -1,15 +1,15 @@
 import { AppstoreOutlined, EyeFilled, NotificationFilled, SkinFilled } from '@ant-design/icons';
+import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
+import { CanvasSVG } from '@components/Daily/CanvasSVG';
+import { ImageCard } from '@components/Images/ImageCard';
+import { AlienSign, Item } from '@components/Sprites';
+import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
+import type { ArteRuimCardData } from '@types';
 import { Alert, Button, Flex, Popover, Space, type TableColumnsType, Tag, Typography } from 'antd';
 import clsx from 'clsx';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
-import { CanvasSVG } from 'components/Daily/CanvasSVG';
-import { ImageCard } from 'components/Images/ImageCard';
-import { AlienSign, Item } from 'components/Sprites';
-import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
 import { truncate } from 'lodash';
 import moment from 'moment';
 import type { ReactNode } from 'react';
-import type { ArteRuimCardData } from 'types';
 import type { DailyEntry } from './hooks';
 
 function EntryCell({ children }: { children: ReactNode }) {

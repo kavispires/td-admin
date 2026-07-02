@@ -1,16 +1,16 @@
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import { useTablePagination } from '@hooks/useTablePagination';
+import type { ImageCardDescriptorData } from '@types';
 import { App, Button, Flex, Popconfirm, Table, type TableProps, Tag, Typography } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
-import { useTablePagination } from 'hooks/useTablePagination';
 import { useMemo } from 'react';
-import type { ImageCardDescriptorData } from 'types';
 import { ImageCard } from '../ImageCard';
 import { FavoriteImageCardButton } from './ImageCardsDescriptorModal';
 import './ImageCardsDescriptorTable.css';
-import { IdTag } from 'components/Common/IdTag';
-import { LanguageFlag } from 'components/Common/LanguageFlag';
-import { PageContent } from 'components/Common/PageContent';
+import { IdTag } from '@components/Common/IdTag';
+import { LanguageFlag } from '@components/Common/LanguageFlag';
+import { PageContent } from '@components/Common/PageContent';
 
 /**
  * Parses a card ID into its components

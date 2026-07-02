@@ -1,17 +1,17 @@
 import { SkinOutlined, SwapOutlined } from '@ant-design/icons';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { PopoverInfo } from '@components/Common/PopoverInfo';
+import { AlienSign } from '@components/Sprites';
+import { useItemsAttributeValuesContext } from '@context/ItemsAttributeValuesContext';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { ItemAttributeData, ItemAttributesValuesData } from '@types';
+import { sortJsonKeys } from '@utils/json';
+import { deepCleanObject } from '@utils/object';
 import { Button, Flex, Progress, Rate, Space, Table, type TableProps, Tabs, Tag, Typography } from 'antd';
 import type { TabsProps } from 'antd/lib';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { PopoverInfo } from 'components/Common/PopoverInfo';
-import { AlienSign } from 'components/Sprites';
-import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
-import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
-import { sortJsonKeys } from 'utils/json';
-import { deepCleanObject } from 'utils/object';
 
 export function ItemStats() {
   const { attributes } = useItemsAttributeValuesContext();

@@ -1,17 +1,17 @@
-import { Flex, Segmented, Table, type TableProps, Typography } from 'antd';
-import { DownloadButton } from 'components/Common/DownloadButton';
-import { PageContent } from 'components/Common/PageContent';
-import { SuspectImageCard } from 'components/Suspects/SuspectImageCard';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
-import { useTablePagination } from 'hooks/useTablePagination';
-import { orderBy } from 'lodash';
+import { DownloadButton } from '@components/Common/DownloadButton';
+import { PageContent } from '@components/Common/PageContent';
+import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
+import { useQueryParams } from '@hooks/useQueryParams';
+import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
+import { useTablePagination } from '@hooks/useTablePagination';
 import type {
   TestimonyAnswers,
   useTestimoniesResource,
-} from 'pages/Libraries/Testimonies/useTestimoniesResource';
+} from '@pages/Libraries/Testimonies/useTestimoniesResource';
+import type { SuspectCardData } from '@types';
+import { Flex, Segmented, Table, type TableProps, Typography } from 'antd';
+import { orderBy } from 'lodash';
 import { useMemo } from 'react';
-import type { SuspectCardData } from 'types';
 import { SuspectAnswersExpandedRow } from './SuspectAnswersExpandedRow';
 import { filterAdultSuspects } from './utils';
 

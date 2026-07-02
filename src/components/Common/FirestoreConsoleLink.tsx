@@ -1,7 +1,7 @@
 import { ArrowUpOutlined, DeleteOutlined, FireOutlined, GoogleOutlined } from '@ant-design/icons';
+import { useFirestoreConsoleUrl } from '@hooks/useBaseUrl';
+import { useWipeFirebaseDoc } from '@hooks/useWipeFirebaseDoc';
 import { Button, Divider, Flex, Popconfirm, Typography } from 'antd';
-import { useFirestoreConsoleUrl } from 'hooks/useBaseUrl';
-import { useWipeFirebaseDoc } from 'hooks/useWipeFirebaseDoc';
 
 type FirestoreConsoleLinkProps = {
   path: string;
@@ -13,7 +13,12 @@ export function FirestoreConsoleLink({ path, label, disabled, ...rest }: Firesto
   const { getConsoleUrl } = useFirestoreConsoleUrl();
 
   return (
-    <Typography.Link disabled={disabled} href={getConsoleUrl(path)} target="_blank" {...rest}>
+    <Typography.Link
+      disabled={disabled}
+      href={getConsoleUrl(path)}
+      target="_blank"
+      {...rest}
+    >
       <GoogleOutlined /> {label ?? 'Console'} <ArrowUpOutlined style={{ rotate: '45deg' }} />
     </Typography.Link>
   );
@@ -59,8 +64,16 @@ export function FirestoreConsoleWipe({
   });
 
   return (
-    <Flex align="center" gap={8}>
-      <Typography.Link disabled={disabled} href={getConsoleUrl(`${path}/${docId}`)} target="_blank" {...rest}>
+    <Flex
+      align="center"
+      gap={8}
+    >
+      <Typography.Link
+        disabled={disabled}
+        href={getConsoleUrl(`${path}/${docId}`)}
+        target="_blank"
+        {...rest}
+      >
         <GoogleOutlined /> {label ?? 'Console'} <ArrowUpOutlined style={{ rotate: '45deg' }} />
       </Typography.Link>
       <Divider orientation="vertical" />
@@ -74,7 +87,12 @@ export function FirestoreConsoleWipe({
         placement="topRight"
         title={`Are you sure to wipe the document: ${path}/${docId}?`}
       >
-        <Button danger disabled={disabled} loading={mutationQuery.isPending} size="small">
+        <Button
+          danger
+          disabled={disabled}
+          loading={mutationQuery.isPending}
+          size="small"
+        >
           <FireOutlined />
         </Button>
       </Popconfirm>

@@ -1,6 +1,6 @@
 import { FireFilled } from '@ant-design/icons';
+import { PageLayout } from '@components/Layout';
 import { Button, Layout, Result } from 'antd';
-import { PageLayout } from 'components/Layout';
 
 type PageErrorProps = {
   /**
@@ -35,7 +35,10 @@ export function PageError({ message = 'Something went wrong', description, onRet
       <Layout.Content className="content-center">
         <Result
           extra={
-            <Button onClick={handleReload} type="primary">
+            <Button
+              onClick={handleReload}
+              type="primary"
+            >
               Reload Page
             </Button>
           }

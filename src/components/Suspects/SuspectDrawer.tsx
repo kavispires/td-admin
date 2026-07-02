@@ -1,4 +1,7 @@
 import { CloudSyncOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { SuspectCardData, SuspectExtendedInfoData } from '@types';
 import {
   Button,
   Drawer,
@@ -14,11 +17,8 @@ import {
   Tooltip,
   Typography,
 } from 'antd';
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep, set } from 'lodash';
 import { type ReactNode, useEffect, useState } from 'react';
-import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
 import { AddDataModal } from './AddDataModal';
 import {
   AGE_OPTIONS,

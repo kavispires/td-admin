@@ -1,14 +1,14 @@
 import { FireFilled, SearchOutlined } from '@ant-design/icons';
-import { Badge, Button, Flex, Input, Space, Switch, Table, Tag, Typography } from 'antd';
-import type { TableProps } from 'antd/lib';
-import { useQueryParams } from 'hooks/useQueryParams';
-import { orderBy } from 'lodash';
+import { useQueryParams } from '@hooks/useQueryParams';
 import type {
   TestimonyAnswers,
   TestimonyAnswersValues,
-} from 'pages/Libraries/Testimonies/useTestimoniesResource';
+} from '@pages/Libraries/Testimonies/useTestimoniesResource';
+import type { SuspectCardData, TestimonyQuestionCardData } from '@types';
+import { Badge, Button, Flex, Input, Space, Switch, Table, Tag, Typography } from 'antd';
+import type { TableProps } from 'antd/lib';
+import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import type { SuspectCardData, TestimonyQuestionCardData } from 'types';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';
 import { calculateSuspectAnswersData } from './utils';
 

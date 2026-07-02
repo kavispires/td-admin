@@ -1,7 +1,7 @@
-import { useQueryParams } from 'hooks/useQueryParams';
-import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
+import { useQueryParams } from '@hooks/useQueryParams';
+import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
+import type { CrimeSceneTileData, CrimesHediondosCardData } from '@types';
 import { useMemo } from 'react';
-import type { CrimeSceneTileData, CrimesHediondosCardData } from 'types';
 import { CrimeTableContent } from './CrimeTable';
 import './CrimesHediondos.scss';
 import { Alert } from 'antd';

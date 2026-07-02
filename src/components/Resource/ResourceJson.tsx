@@ -1,5 +1,5 @@
+import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
 import { Col, Input, Row, Typography } from 'antd';
-import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useMemo } from 'react';
 import { SEARCH_PROPERTY } from '../../utils/constants';
 import { SearchDuplicates } from '../SearchDuplicates';
@@ -22,10 +22,20 @@ export function ResourceJson({ response, resourceName }: ResourceJsonProps) {
 
       <Row gutter={16}>
         <Col span={16}>
-          <Input.TextArea cols={15} id="" name="output" readOnly rows={30} value={jsonString} />
+          <Input.TextArea
+            cols={15}
+            id=""
+            name="output"
+            readOnly
+            rows={30}
+            value={jsonString}
+          />
         </Col>
         <Col span={8}>
-          <SearchDuplicates property={property} response={response} />
+          <SearchDuplicates
+            property={property}
+            response={response}
+          />
         </Col>
       </Row>
     </>
