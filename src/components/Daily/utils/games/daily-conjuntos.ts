@@ -233,6 +233,17 @@ function pickUniqueNames(
   return null;
 }
 
+const RULE_TYPE_TITLES: Record<string, string> = {
+  contains: 'Inclusão',
+  starts: 'Inicialização',
+  ends: 'Terminação',
+  grammar: 'Gramática',
+  order: 'Sequência',
+  count: 'Contagem',
+  comparison: 'Comparação',
+  repetition: 'Repetição',
+};
+
 /**
  * Builds a batch of daily Conjuntos games
  *
@@ -427,11 +438,18 @@ export const buildDailyConjuntosGames = (
         ...finalOut.map((tid) => ({ id: tid, name: validItemsMap.get(tid)?.name ?? 'Unknown', rule: 3 })),
       ]);
 
+      // Build title
+
+      const title = [
+        RULE_TYPE_TITLES?.[rules[selectedRule1.id].type] ?? 'Desconhecido',
+        RULE_TYPE_TITLES?.[rules[selectedRule2.id].type] ?? 'Desconhecido',
+      ].join(' vs ');
+
       entries[id] = {
         id,
         number: latestNumber,
         type: 'conjuntos',
-        title: 'Conjuntos',
+        title,
         level: Math.max(selectedRule1.level, selectedRule2.level),
         setId: 'conjuntos',
         rule1: {
