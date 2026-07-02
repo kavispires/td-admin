@@ -11,9 +11,10 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceState } from 'hooks/useResourceState';
 import { useEffect, useState } from 'react';
 import type { ArteRuimCardData } from 'types';
-import { checkForDuplicates, findSimilar, stringRemoveAccents } from 'utils';
 import { SEARCH_THRESHOLD } from 'utils/constants';
+import { checkForDuplicates } from 'utils/object';
 import { RESOURCES_NAMES } from 'utils/resources-list';
+import { findSimilar, stringRemoveAccents } from 'utils/string';
 
 export function ArteRuimParser() {
   // Set default query params

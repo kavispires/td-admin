@@ -6,7 +6,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useTDResource } from 'hooks/useTDResource';
 import type { ImageCardDescriptorData } from 'types';
-import { removeDuplicates } from 'utils';
+import { removeDuplicates } from 'utils/array';
 import { ImageCard } from '../ImageCard';
 import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 

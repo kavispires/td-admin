@@ -5,7 +5,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep, merge, padStart, random } from 'lodash';
 import { useEffect, useState } from 'react';
 import { firestore, printFirebase } from 'services/firebase';
-import { removeDuplicates } from 'utils';
+import { removeDuplicates } from 'utils/array';
 import { CARDS_PER_DECK, DEFAULT_ENTRY, TOTAL_DECKS } from '../constants';
 import type { FirebaseImageCardLibrary, ImageCardData, ImageCardRelationship } from '../types';
 import { cleanupData } from '../utils';

@@ -10,8 +10,8 @@ import {
   testimoniesDeserializer,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import type { SuspectCardData, TestimonyQuestionCardData } from 'types';
-import { makeBooleanDictionary } from 'utils';
 import { SEPARATOR } from 'utils/constants';
+import { makeBooleanDictionary } from 'utils/object';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { getNextDay } from '../utils';

@@ -9,7 +9,8 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, isEmpty, omitBy } from 'lodash';
 import type { ItemData, ItemGroupData } from 'types';
-import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
+import { removeDuplicates, sortItemsIds } from 'utils/array';
+import { sortJsonKeys } from 'utils/json';
 import { AddNewGroupFlow } from './AddNewGroupFlow';
 
 export function ItemsGroupsFilters({

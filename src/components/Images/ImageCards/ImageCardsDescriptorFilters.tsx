@@ -10,7 +10,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import type { ImageCardDescriptorData } from 'types';
-import { sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
 import { AddImageCardDataModal } from './AddImageCardDataModal';
 import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 import { ImageCardsDescriptorModal } from './ImageCardsDescriptorModal';

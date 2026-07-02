@@ -4,7 +4,8 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { cloneDeep } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { ImageCardPasscodeSet } from 'types';
-import { createUUID, removeDuplicates } from 'utils';
+import { removeDuplicates } from 'utils/array';
+import { createUUID } from 'utils/id';
 import { ImageCard } from '../ImageCard';
 import { useImageCardsDecks } from './hooks/useImageCardsDecks';
 import { SetsTable, usePasscodeSetTypeahead } from './ImageCardsPasscodeComponents';
@@ -54,17 +55,33 @@ export function ImageCardsPasscodeCreate(query: ImageCardsPasscodeProps) {
   }, [placeholderSets]);
 
   return (
-    <Space className="full-width" orientation="vertical">
-      <Button disabled={!isDirty} onClick={onAddEntriesToDatabase} type="primary">
+    <Space
+      className="full-width"
+      orientation="vertical"
+    >
+      <Button
+        disabled={!isDirty}
+        onClick={onAddEntriesToDatabase}
+        type="primary"
+      >
         Add Entries
       </Button>
-      <SetsTable addEntryToUpdate={updateEntry} sets={placeholderSets} />
+      <SetsTable
+        addEntryToUpdate={updateEntry}
+        sets={placeholderSets}
+      />
 
-      <Button icon={<PlusOutlined />} onClick={onAddRow}>
+      <Button
+        icon={<PlusOutlined />}
+        onClick={onAddRow}
+      >
         Add row
       </Button>
       <Divider />
-      <ImageCardMultiCreate addEntryToUpdate={query.addEntryToUpdate} data={query.data} />
+      <ImageCardMultiCreate
+        addEntryToUpdate={query.addEntryToUpdate}
+        data={query.data}
+      />
     </Space>
   );
 }
@@ -124,11 +141,17 @@ function ImageCardMultiCreate({ data, addEntryToUpdate }: ImageCardMultiCreatePr
 
   return (
     <>
-      <Typography.Title className="my-0" level={4}>
+      <Typography.Title
+        className="my-0"
+        level={4}
+      >
         Create Image Card Multiprompt
       </Typography.Title>
       <Space className="full-width">
-        <Flex gap={8} vertical>
+        <Flex
+          gap={8}
+          vertical
+        >
           <Flex>
             <Input
               onChange={(e) => setImageIdInput(e.target.value)}
@@ -138,16 +161,33 @@ function ImageCardMultiCreate({ data, addEntryToUpdate }: ImageCardMultiCreatePr
             />
             <Button onClick={onSetRandomCard}>Random</Button>
           </Flex>
-          <ImageCard cardId={imageId} cardWidth={200} />
+          <ImageCard
+            cardId={imageId}
+            cardWidth={200}
+          />
         </Flex>
-        <Flex gap={8} vertical>
+        <Flex
+          gap={8}
+          vertical
+        >
           <Flex>
-            <Input onChange={(e) => setNamesInput(e.target.value)} placeholder="Names" value={namesInput} />
-            <Button disabled={!imageId || !namesInput} onClick={onProcessNewEntries} type="primary">
+            <Input
+              onChange={(e) => setNamesInput(e.target.value)}
+              placeholder="Names"
+              value={namesInput}
+            />
+            <Button
+              disabled={!imageId || !namesInput}
+              onClick={onProcessNewEntries}
+              type="primary"
+            >
               Process
             </Button>
           </Flex>
-          <Flex gap={8} wrap>
+          <Flex
+            gap={8}
+            wrap
+          >
             {namesInput.split(',').map((name) => {
               const trimmedName = name.trim().toLowerCase();
               const exists = namesDict[trimmedName];
@@ -162,7 +202,10 @@ function ImageCardMultiCreate({ data, addEntryToUpdate }: ImageCardMultiCreatePr
               );
             })}
           </Flex>
-          <Flex gap={8} wrap>
+          <Flex
+            gap={8}
+            wrap
+          >
             {imagesDict[imageId] && (
               <>
                 <Typography.Text type="secondary">Already in:</Typography.Text>

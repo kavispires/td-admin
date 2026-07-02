@@ -3,7 +3,7 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { sample } from 'lodash';
 import { useMemo, useState } from 'react';
 import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from 'types';
-import { wait } from 'utils';
+import { wait } from 'utils/time';
 import { EditThingModal } from './EditThingModal';
 
 type AddNewThingFlowProps = {

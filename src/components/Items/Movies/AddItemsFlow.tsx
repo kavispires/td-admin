@@ -3,8 +3,8 @@ import { Button, Divider, Flex, Typography } from 'antd';
 import { Item } from 'components/Sprites';
 import { useTDResource } from 'hooks/useTDResource';
 import { useMemo } from 'react';
-import stringSimilarity from 'string-similarity';
 import type { DailyMovieSet, ItemData as ItemT } from 'types';
+import { findBestStringMatch } from 'utils/string';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 
 type AddItemFlowProps = {
@@ -66,7 +66,7 @@ function ItemsSuggestions({ movie, onUpdate }: ItemsSuggestionsProps) {
       }
 
       // Find best match using findBestMatch which is more efficient for multiple comparisons
-      const matchResult = stringSimilarity.findBestMatch(title, textsToMatch);
+      const matchResult = findBestStringMatch(title, textsToMatch);
       const bestMatch = matchResult.bestMatch.rating;
 
       // If similarity is above threshold, add to matches

@@ -2,9 +2,11 @@ import { Button, Card, Flex, Modal } from 'antd';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep, orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
-import stringSimilarity from 'string-similarity';
 import type { DailyQuartetSet } from 'types';
-import { createUUID, removeDuplicates, wait } from 'utils';
+import { removeDuplicates } from 'utils/array';
+import { createUUID } from 'utils/id';
+import { compareTwoStrings } from 'utils/string';
+import { wait } from 'utils/time';
 import { InspirationSample } from '../InspirationSample';
 import { ItemsQuartetsTable } from './ItemsQuartetsTable';
 
@@ -56,10 +58,7 @@ export function NewQuartetFlow({ data, addEntryToUpdate }: NewQuartetFlowProps) 
     return orderBy(
       Object.values(data),
       (quartet) =>
-        stringSimilarity.compareTwoStrings(
-          quartet.title.toLocaleLowerCase(),
-          activeQuartet.title.toLocaleLowerCase(),
-        ),
+        compareTwoStrings(quartet.title.toLocaleLowerCase(), activeQuartet.title.toLocaleLowerCase()),
       'desc',
     )
       .slice(0, 5)
@@ -68,7 +67,11 @@ export function NewQuartetFlow({ data, addEntryToUpdate }: NewQuartetFlowProps) 
 
   return (
     <>
-      <Button block onClick={() => setOpen(true)} type="dashed">
+      <Button
+        block
+        onClick={() => setOpen(true)}
+        type="dashed"
+      >
         Add New Set
       </Button>
 
@@ -88,14 +91,20 @@ export function NewQuartetFlow({ data, addEntryToUpdate }: NewQuartetFlowProps) 
             />
             {similarQuartets.length > 0 && (
               <Card size="small">
-                <Flex gap={4} vertical>
+                <Flex
+                  gap={4}
+                  vertical
+                >
                   {similarQuartets.map((quartet) => (
                     <div key={quartet.id}>{quartet.title}</div>
                   ))}
                 </Flex>
               </Card>
             )}
-            <InspirationSample excludeList={activeQuartet.itemsIds} onSelect={onAddSampledItem} />
+            <InspirationSample
+              excludeList={activeQuartet.itemsIds}
+              onSelect={onAddSampledItem}
+            />
           </>
         )}
       </Modal>

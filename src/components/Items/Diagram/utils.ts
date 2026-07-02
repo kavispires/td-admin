@@ -1,6 +1,6 @@
 import { memoize } from 'lodash';
 import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
-import { stringRemoveAccents } from 'utils';
+import { stringRemoveAccents } from 'utils/string';
 
 export const SYLLABLE_SEPARATOR = '|';
 export const LETTERS = 'abcdefghijklmnopqrstuvwxyz';

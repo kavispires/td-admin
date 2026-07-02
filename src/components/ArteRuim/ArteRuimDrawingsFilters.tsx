@@ -6,7 +6,7 @@ import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { useDrawingsResourceData } from 'pages/Games/ArteRuim/useArteRuimDrawings';
 import type { DrawingData } from 'types';
-import { sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
 
 type ArteRuimDrawingsFiltersProps = ReturnType<typeof useDrawingsResourceData>;
 
@@ -15,7 +15,10 @@ export function ArteRuimDrawingsFilters(query: ArteRuimDrawingsFiltersProps) {
   const language = queryParams.get('language');
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <DownloadButton
           block
           data={() => prepareFileForDownload(query.drawings)}

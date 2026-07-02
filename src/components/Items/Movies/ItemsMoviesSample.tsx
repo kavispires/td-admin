@@ -7,7 +7,7 @@ import { useTDResource } from 'hooks/useTDResource';
 import { sample } from 'lodash';
 import { useState } from 'react';
 import type { DailyMovieSet, ItemData as ItemT } from 'types';
-import { removeDuplicates } from 'utils';
+import { removeDuplicates } from 'utils/array';
 import { AddItemFlow } from './AddItemsFlow';
 import { MovieEditableCell, MovieItemsCell } from './ItemsMoviesTable';
 

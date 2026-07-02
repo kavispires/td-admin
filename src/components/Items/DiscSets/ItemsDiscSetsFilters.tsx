@@ -8,7 +8,8 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep, isEmpty, omitBy } from 'lodash';
 import type { DailyDiscSet } from 'types';
-import { removeDuplicates, sortItemsIds, sortJsonKeys } from 'utils';
+import { removeDuplicates, sortItemsIds } from 'utils/array';
+import { sortJsonKeys } from 'utils/json';
 import { AddNewSetFlow } from './AddNewSetFlow';
 
 export function ItemsDiscSetsFilters({
@@ -24,7 +25,10 @@ export function ItemsDiscSetsFilters({
 
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(prepareObjectToSave(entriesToUpdate))}
           isDirty={isDirty}
@@ -61,7 +65,10 @@ export function ItemsDiscSetsFilters({
         value={queryParams.get('display') ?? 'sets'}
       />
 
-      <AddNewSetFlow addEntryToUpdate={addEntryToUpdate} ids={Object.keys(data)} />
+      <AddNewSetFlow
+        addEntryToUpdate={addEntryToUpdate}
+        ids={Object.keys(data)}
+      />
     </SiderContent>
   );
 }

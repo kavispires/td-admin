@@ -10,7 +10,8 @@ import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
-import { deepCleanObject, sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
+import { deepCleanObject } from 'utils/object';
 
 export function ItemStats() {
   const { attributes } = useItemsAttributeValuesContext();

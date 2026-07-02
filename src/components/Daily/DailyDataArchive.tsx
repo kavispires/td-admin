@@ -7,7 +7,7 @@ import { getDocQueryFunction } from 'hooks/useGetFirestoreDoc';
 import moment from 'moment';
 import { useMemo, useState } from 'react';
 import { firestore } from 'services/firebase';
-import { sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
 
 export function DailyDataArchive() {
   const [startDate, setStartDate] = useState('');
@@ -63,15 +63,27 @@ export function DailyDataArchive() {
     <div>
       <Typography.Title level={2}>Data Archive</Typography.Title>
 
-      <Flex align="center" className="mb-6" justify="space-between">
-        <Flex align="center" gap={12}>
+      <Flex
+        align="center"
+        className="mb-6"
+        justify="space-between"
+      >
+        <Flex
+          align="center"
+          gap={12}
+        >
           <Space.Compact>
             <Input
               onChange={(e) => onUpdateDate(e.target.value)}
               placeholder="YYYY-MM-DD"
               value={startDate}
             />
-            <InputNumber max={100} min={1} onChange={(value) => onUpdateRange(value ?? 1)} value={range} />
+            <InputNumber
+              max={100}
+              min={1}
+              onChange={(value) => onUpdateRange(value ?? 1)}
+              value={range}
+            />
             <Button
               disabled={!startDate || !moment(startDate, 'YYYY-MM-DD', true).isValid()}
               onClick={onValidateDate}
@@ -104,7 +116,10 @@ export function DailyDataArchive() {
           </span>
         </Flex>
 
-        <Flex align="center" gap={12}>
+        <Flex
+          align="center"
+          gap={12}
+        >
           <DeleteSecuredDocuments />
           <Select
             allowClear
@@ -129,7 +144,11 @@ export function DailyDataArchive() {
         </Flex>
       </Flex>
 
-      <ReactJsonView collapsed={1} src={selectedData} theme="twilight" />
+      <ReactJsonView
+        collapsed={1}
+        src={selectedData}
+        theme="twilight"
+      />
     </div>
   );
 }
@@ -218,7 +237,12 @@ function DeleteSecuredDocuments() {
   });
 
   return (
-    <Button danger disabled loading={mutation.isPending} onClick={() => mutation.mutate()}>
+    <Button
+      danger
+      disabled
+      loading={mutation.isPending}
+      onClick={() => mutation.mutate()}
+    >
       Delete secured documents
     </Button>
   );

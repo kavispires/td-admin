@@ -16,7 +16,7 @@ import type {
   ItemAttributesValuesFirestore,
   ItemData,
 } from 'types';
-import { deserializeFirestoreData, serializeFirestoreData } from 'utils';
+import { deserializeFirestoreData, serializeFirestoreData } from 'utils/firestore';
 import { useGetFirestoreDoc } from './useGetFirestoreDoc';
 import { useTDResource } from './useTDResource';
 import { useUpdateFirestoreDoc } from './useUpdateFirestoreDoc';

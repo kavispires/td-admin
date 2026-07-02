@@ -4,7 +4,7 @@ import { useParsedHistory } from 'components/Daily/hooks/useParsedHistory';
 import { useTDResource } from 'hooks/useTDResource';
 import { sample, sampleSize, shuffle } from 'lodash';
 import type { ItemAttributeData, ItemAttributesValuesData, ItemData } from 'types';
-import { makeArray } from 'utils';
+import { makeArray } from 'utils/array';
 import { ATTRIBUTE_VALUE } from 'utils/constants';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';

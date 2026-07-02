@@ -10,7 +10,7 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
 import type { ImageCardPasscodeSet } from 'types';
-import { sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
 
 export function ImageCardsPasscodeFilters({
   data,
@@ -61,7 +61,10 @@ export function ImageCardsPasscodeFilters({
 
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(entriesToUpdate)}
           isDirty={isDirty}

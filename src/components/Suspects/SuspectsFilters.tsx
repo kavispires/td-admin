@@ -9,7 +9,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { cloneDeep, merge } from 'lodash';
 import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
-import { sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
 import { NewSuspectFlow } from './NewSuspectFlow';
 import { SuspectsStyleVariantSelector } from './SuspectsStyleVariantSelector';
 

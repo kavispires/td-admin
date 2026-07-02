@@ -20,7 +20,8 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { orderBy, truncate } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import type { SuspectCardData, SuspectExtendedInfoData } from 'types';
-import { stringRemoveAccents, wait } from 'utils';
+import { stringRemoveAccents } from 'utils/string';
+import { wait } from 'utils/time';
 import { ActiveExtendedInfoSwitch, ExtendedInfoFilterBar } from './ExtendedInfoFilterBar';
 import { ActiveFeatureSwitch, FeaturesFilterBar } from './FeaturesFilterBar';
 import { PromptBuilder, PromptButton } from './PromptBuilder';

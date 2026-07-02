@@ -10,7 +10,7 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep } from 'lodash';
 import type { DailyDiagramItemData, DailyDiagramRuleData } from 'types';
-import { sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
 import { stressSyllableDependencyVerifier, syllableDependencyVerifier, verifiers } from './utils';
 
 export function ItemsDiagramFilters({

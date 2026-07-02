@@ -15,7 +15,9 @@ import type {
   useTestimoniesResource,
 } from 'pages/Libraries/Testimonies/useTestimoniesResource';
 import { useMemo } from 'react';
-import { deepCleanObject, deserializeFirestoreData, sortJsonKeys } from 'utils';
+import { deserializeFirestoreData } from 'utils/firestore';
+import { sortJsonKeys } from 'utils/json';
+import { deepCleanObject } from 'utils/object';
 import { TestimonyDrawer } from './TestimonyDrawer';
 import normalizeValues, { countAnswersAbsoluteTotal, filterAdultSuspects } from './utils';
 
@@ -70,7 +72,10 @@ export function TestimoniesFilters({
   return (
     <>
       <SiderContent>
-        <Flex gap={12} vertical>
+        <Flex
+          gap={12}
+          vertical
+        >
           <SaveButton
             dirt={JSON.stringify(entriesToUpdate)}
             isDirty={isDirty}
@@ -86,7 +91,10 @@ export function TestimoniesFilters({
             hasNewData={hasNewData}
           />
 
-          <FirestoreConsoleLink label="FS Data" path="data/testimonies" />
+          <FirestoreConsoleLink
+            label="FS Data"
+            path="data/testimonies"
+          />
 
           <FirestoreConsoleWipe
             docId="testimonies"
@@ -157,7 +165,12 @@ export function TestimoniesFilters({
           suspects={filteredSuspects}
         />
 
-        <DownloadButton block data={questions} fileName="testimony-questions-pt.json" hasNewData={hasNewData}>
+        <DownloadButton
+          block
+          data={questions}
+          fileName="testimony-questions-pt.json"
+          hasNewData={hasNewData}
+        >
           Questions (PT)
         </DownloadButton>
       </SiderContent>

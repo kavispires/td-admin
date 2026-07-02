@@ -6,7 +6,7 @@ import { useTableExpandableRows } from 'hooks/useTableExpandableRows';
 import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
 import type { DailyDiscSet, ItemData as ItemT } from 'types';
-import { removeDuplicates, sortItemsIds } from 'utils';
+import { removeDuplicates, sortItemsIds } from 'utils/array';
 import { DiscEditableTitleCell } from './DiscEditableTitleCell';
 import { DiscItemsCell } from './DiscItemsCell';
 import { ItemsDiscSetExpandedRow } from './ItemsDiscSetExpandedRow';

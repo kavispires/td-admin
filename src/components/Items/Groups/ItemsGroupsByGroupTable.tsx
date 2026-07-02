@@ -20,7 +20,7 @@ import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
 import { useRef, useState } from 'react';
 import type { ItemGroupData, ItemData as ItemT } from 'types';
-import { removeDuplicates } from 'utils';
+import { removeDuplicates } from 'utils/array';
 import { CopyIdsButton } from '../CopyIdsButton';
 import { AddItemFlow } from './AddItemFlow';
 import { ItemGroupsCard } from './ItemGroupsCard';

@@ -7,7 +7,8 @@ import { useCopyToClipboardFunction } from 'hooks/useCopyToClipboardFunction';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import type { DailyMovieSet } from 'types';
-import { createIncrementalUID, sortJsonKeys } from 'utils';
+import { createIncrementalUID } from 'utils/id';
+import { sortJsonKeys } from 'utils/json';
 
 export function ItemsMoviesFilters({
   data,
@@ -21,7 +22,10 @@ export function ItemsMoviesFilters({
   const { is, addParam } = useQueryParams();
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(entriesToUpdate)}
           isDirty={isDirty}
@@ -46,7 +50,10 @@ export function ItemsMoviesFilters({
         value={is('emptyOnly')}
       />
 
-      <NewPlaceholderMovieSet addEntryToUpdate={addEntryToUpdate} data={data} />
+      <NewPlaceholderMovieSet
+        addEntryToUpdate={addEntryToUpdate}
+        data={data}
+      />
     </SiderContent>
   );
 }
@@ -77,7 +84,11 @@ function NewPlaceholderMovieSet({ data, addEntryToUpdate }: NewPlaceholderMovieS
   };
 
   return (
-    <Button block onClick={onNewMovieSet} variant="dashed">
+    <Button
+      block
+      onClick={onNewMovieSet}
+      variant="dashed"
+    >
       Add New Movie Set
     </Button>
   );

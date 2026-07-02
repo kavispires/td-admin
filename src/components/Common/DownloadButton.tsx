@@ -3,7 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import { Alert, Badge, Button, type ButtonProps, Cascader, Dropdown, Modal, Space, Spin } from 'antd';
 import { isEmpty } from 'lodash';
 import { useMemo, useState } from 'react';
-import { downloadObjectAsFile, wait } from 'utils';
+import { downloadObjectAsFile } from 'utils/json';
+import { wait } from 'utils/time';
 
 type DownloadButtonProps = {
   /**
@@ -98,12 +99,22 @@ export function DownloadButton({
   return (
     <>
       <Space.Compact style={block ? { width: '100%' } : undefined}>
-        <Button disabled={loading} icon={icon} loading={loading} onClick={handleDownload} {...props}>
+        <Button
+          disabled={loading}
+          icon={icon}
+          loading={loading}
+          onClick={handleDownload}
+          {...props}
+        >
           {children ?? 'Download JSON'}
           {hasNewData && <Badge status="warning" />}
         </Button>
         <Dropdown menu={{ items, onClick: onMenuClick }}>
-          <Button disabled={loading} icon={<DownOutlined />} loading={loading} />
+          <Button
+            disabled={loading}
+            icon={<DownOutlined />}
+            loading={loading}
+          />
         </Dropdown>
       </Space.Compact>
       <SelectiveModal
@@ -208,7 +219,12 @@ function SelectiveModal({ open, onClose, data, fileName }: SelectiveModalProps) 
   };
 
   return (
-    <Modal onCancel={onClose} onOk={onDownloadSelectiveData} open={open} title="Selective Download">
+    <Modal
+      onCancel={onClose}
+      onOk={onDownloadSelectiveData}
+      open={open}
+      title="Selective Download"
+    >
       {isLoading && <Spin />}
       {isSuccess && (
         <>
@@ -216,7 +232,12 @@ function SelectiveModal({ open, onClose, data, fileName }: SelectiveModalProps) 
           {isEmpty(predata) && (
             <Alert
               action={
-                <Button key="retry" loading={isRefetching} onClick={() => refetch()} size="small">
+                <Button
+                  key="retry"
+                  loading={isRefetching}
+                  onClick={() => refetch()}
+                  size="small"
+                >
                   Retry
                 </Button>
               }

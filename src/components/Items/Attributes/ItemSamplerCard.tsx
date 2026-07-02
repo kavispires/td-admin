@@ -5,7 +5,7 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { isEmpty } from 'lodash';
 import { Fragment } from 'react';
 import { useToggle } from 'react-use';
-import { wait } from 'utils';
+import { wait } from 'utils/time';
 import { ItemGoTo, ItemId, ItemName, ItemSprite } from '../ItemBuildingBlocks';
 import { AttributionValueButtons } from './AttributionValueButtons';
 import { ItemAttributionDrawer } from './ItemAttributionDrawer';
@@ -20,7 +20,11 @@ export function ItemSamplerCard() {
       <Card className="my-4">
         <Typography.Text type="secondary">
           No sample has been generated. Tweak options and{' '}
-          <Button onClick={onGetSample} size="small" type="primary">
+          <Button
+            onClick={onGetSample}
+            size="small"
+            type="primary"
+          >
             Get Sample
           </Button>
         </Typography.Text>
@@ -54,16 +58,30 @@ export function ItemSamplerCard() {
       <SingleSampleModalFlow />
       <Card
         actions={[
-          <Button danger disabled={unsetItems.length === 0} key="1" onClick={onMarkRestAsUnrelated}>
+          <Button
+            danger
+            disabled={unsetItems.length === 0}
+            key="1"
+            onClick={onMarkRestAsUnrelated}
+          >
             Mark rest as unrelated
           </Button>,
-          <Button ghost key="2" onClick={onGetSample} type="primary">
+          <Button
+            ghost
+            key="2"
+            onClick={onGetSample}
+            type="primary"
+          >
             Get New Sample
           </Button>,
         ]}
         className="my-4"
         extra={
-          <Button onClick={onGetSample} size="small" type="primary">
+          <Button
+            onClick={onGetSample}
+            size="small"
+            type="primary"
+          >
             Get New Sample
           </Button>
         }
@@ -73,7 +91,10 @@ export function ItemSamplerCard() {
           </Typography.Text>
         }
       >
-        <Flex gap={6} vertical>
+        <Flex
+          gap={6}
+          vertical
+        >
           {sample.length === 0 && (
             <Empty
               description="No unset items found for this attribute."
@@ -84,19 +105,35 @@ export function ItemSamplerCard() {
             return (
               <Fragment key={`${item.id}-${itemAttributes.updatedAt}`}>
                 <Flex gap={6}>
-                  <ItemSprite item={item} width={75} />
-                  <Flex gap={6} vertical>
+                  <ItemSprite
+                    item={item}
+                    width={75}
+                  />
+                  <Flex
+                    gap={6}
+                    vertical
+                  >
                     <Flex gap={6}>
                       <ItemId item={item} />
                       <Space.Compact>
                         <ItemGoTo item={item} />
-                        <Button onClick={() => addParam('drawer', item.id)} shape="round" size="small">
+                        <Button
+                          onClick={() => addParam('drawer', item.id)}
+                          shape="round"
+                          size="small"
+                        >
                           Drawer
                         </Button>
                       </Space.Compact>
                     </Flex>
-                    <ItemName item={item} language="en" />
-                    <ItemName item={item} language="pt" />
+                    <ItemName
+                      item={item}
+                      language="en"
+                    />
+                    <ItemName
+                      item={item}
+                      language="pt"
+                    />
                   </Flex>
                   {!!attribute && (
                     <AttributionValueButtons
@@ -142,7 +179,10 @@ export function SingleSampleModalFlow() {
 
   return (
     <Flex className="mt-4">
-      <Button onClick={handleOpenSingleSampler} type="primary">
+      <Button
+        onClick={handleOpenSingleSampler}
+        type="primary"
+      >
         Single Sampler
       </Button>
       <Modal
@@ -160,15 +200,32 @@ export function SingleSampleModalFlow() {
         width="100vw"
       >
         {itemId && item && itemAttributes && attribute && (
-          <Flex className="my-10" gap={6} key={itemId} wrap="wrap">
-            <ItemSprite item={item} width={150} />
-            <Flex gap={6} vertical>
+          <Flex
+            className="my-10"
+            gap={6}
+            key={itemId}
+            wrap="wrap"
+          >
+            <ItemSprite
+              item={item}
+              width={150}
+            />
+            <Flex
+              gap={6}
+              vertical
+            >
               <Flex gap={6}>
                 <ItemId item={item} />
                 <ItemGoTo item={item} />
               </Flex>
-              <ItemName item={item} language="en" />
-              <ItemName item={item} language="pt" />
+              <ItemName
+                item={item}
+                language="en"
+              />
+              <ItemName
+                item={item}
+                language="pt"
+              />
             </Flex>
             {!!attribute && (
               <AttributionValueButtons

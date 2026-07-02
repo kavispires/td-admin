@@ -10,9 +10,9 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { useResourceState } from 'hooks/useResourceState';
 import { useEffect, useState } from 'react';
 import type { TextCardData } from 'types';
-import { findSimilar, stringRemoveAccents } from 'utils';
 import { SEARCH_THRESHOLD } from 'utils/constants';
 import { RESOURCES_NAMES } from 'utils/resources-list';
+import { findSimilar, stringRemoveAccents } from 'utils/string';
 
 const { Text } = Typography;
 

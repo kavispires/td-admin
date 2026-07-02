@@ -7,7 +7,8 @@ import { SiderContent } from 'components/Layout';
 import { useItemsAttributeValuesContext } from 'context/ItemsAttributeValuesContext';
 import { useQueryParams } from 'hooks/useQueryParams';
 import type { ItemAttributeData, ItemAttributesValuesData } from 'types';
-import { deepCleanObject, sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
+import { deepCleanObject } from 'utils/object';
 import { calculateItemReliability, calculateItemScore, constructItemSignature } from '../utils';
 import {
   ItemAttributionClassifierFilters,

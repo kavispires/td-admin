@@ -4,7 +4,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { cloneDeep, intersection } from 'lodash';
 import { useState } from 'react';
 import { firestore } from 'services/firebase';
-import { removeDuplicates } from 'utils';
+import { removeDuplicates } from 'utils/array';
 import { LANGUAGE_PREFIX } from '../utils/constants';
 import type { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';

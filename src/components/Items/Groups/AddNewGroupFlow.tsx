@@ -2,9 +2,9 @@ import { App, Button, Form, Input, Modal, Typography } from 'antd';
 import { LanguageFlag } from 'components/Common/LanguageFlag';
 import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirestoreData';
 import { useMemo, useState } from 'react';
-import stringSimilarity from 'string-similarity';
 import type { ItemGroupData } from 'types';
-import { createUUID } from 'utils';
+import { createUUID } from 'utils/id';
+import { compareTwoStrings } from 'utils/string';
 
 type AddNewGroupFlowProps = {
   data: UseResourceFirestoreDataReturnType<ItemGroupData>['data'];
@@ -36,8 +36,8 @@ export function AddNewGroupFlow({ addEntryToUpdate, data }: AddNewGroupFlowProps
     if (nameEn && nameEn.length > 2) {
       const similarityThreshold = 0.2;
       const similarity = Object.entries(data).reduce((acc, [id, group]) => {
-        const similarityScoreEn = stringSimilarity.compareTwoStrings(group.name.en, nameEn);
-        const similarityScorePt = stringSimilarity.compareTwoStrings(group.name.pt, namePt);
+        const similarityScoreEn = compareTwoStrings(group.name.en, nameEn);
+        const similarityScorePt = compareTwoStrings(group.name.pt, namePt);
         if (similarityScoreEn > similarityThreshold || similarityScorePt > similarityThreshold) {
           acc[id] = Math.max(similarityScoreEn, similarityScorePt);
         }

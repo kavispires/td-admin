@@ -7,7 +7,8 @@ import type { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { cloneDeep } from 'lodash';
 import { useMemo } from 'react';
 import type { ContenderCardData } from 'types';
-import { deepCleanObject, sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
+import { deepCleanObject } from 'utils/object';
 import { DECKS } from './ContenderEditCard';
 
 export type ContendersFiltersProps = ReturnType<typeof useResourceFirestoreData<ContenderCardData>>;

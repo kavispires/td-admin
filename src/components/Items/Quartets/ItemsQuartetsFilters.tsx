@@ -9,7 +9,7 @@ import type { UseResourceFirestoreDataReturnType } from 'hooks/useResourceFirest
 import { useTDResource } from 'hooks/useTDResource';
 import { useEffect } from 'react';
 import type { DailyQuartetSet, ItemData } from 'types';
-import { sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
 import { NewQuartetFlow } from './NewQuartetFlow';
 
 export function ItemsQuartetsFilters({

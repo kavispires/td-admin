@@ -9,7 +9,7 @@ import { useTablePagination } from 'hooks/useTablePagination';
 import { useTDResource } from 'hooks/useTDResource';
 import { cloneDeep, orderBy } from 'lodash';
 import type { DailyQuartetSet, ItemData as ItemT } from 'types';
-import { removeDuplicates } from 'utils';
+import { removeDuplicates } from 'utils/array';
 import { InspirationSample } from '../InspirationSample';
 import { ItemsTypeahead } from '../ItemsTypeahead';
 

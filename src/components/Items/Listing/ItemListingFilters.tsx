@@ -10,7 +10,8 @@ import { useQueryParams } from 'hooks/useQueryParams';
 import { capitalize, cloneDeep, orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { ItemData } from 'types';
-import { deepCleanObject, sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
+import { deepCleanObject } from 'utils/object';
 import { AddNewItem } from './AddNewItem';
 
 export function ItemListingFilters() {

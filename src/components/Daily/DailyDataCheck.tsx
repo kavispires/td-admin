@@ -6,7 +6,7 @@ import { CopyToClipboardButton } from 'components/CopyToClipboardButton';
 import { useGetFirestoreDoc } from 'hooks/useGetFirestoreDoc';
 import moment from 'moment';
 import { useEffect, useMemo, useState } from 'react';
-import { sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
 import { dailyColumns } from './DailyColumns';
 import type { DailyEntry } from './hooks';
 import { getToday } from './utils/utils';
@@ -52,18 +52,37 @@ export function DailyDataCheck() {
     <div>
       <Typography.Title level={2}>Data Verification</Typography.Title>
 
-      <Flex align="center" className="mb-6" justify="space-between">
-        <Flex align="center" gap={12}>
+      <Flex
+        align="center"
+        className="mb-6"
+        justify="space-between"
+      >
+        <Flex
+          align="center"
+          gap={12}
+        >
           <Space.Compact>
-            <Input onChange={(e) => onUpdateDate(e.target.value)} placeholder="YYYY-MM-DD" />
-            <Button onClick={onValidateDate} type="primary">
+            <Input
+              onChange={(e) => onUpdateDate(e.target.value)}
+              placeholder="YYYY-MM-DD"
+            />
+            <Button
+              onClick={onValidateDate}
+              type="primary"
+            >
               Load
             </Button>
           </Space.Compact>
 
           {selectedDate && (
-            <Flex align="center" gap={6}>
-              <Button icon={<DoubleLeftOutlined />} onClick={onPreviousDate} />
+            <Flex
+              align="center"
+              gap={6}
+            >
+              <Button
+                icon={<DoubleLeftOutlined />}
+                onClick={onPreviousDate}
+              />
               <span>
                 <Tag>{selectedDate}</Tag>
               </span>
@@ -81,13 +100,26 @@ export function DailyDataCheck() {
             </Tag>
           </span>
 
-          <FirestoreConsoleLink disabled={!data} path={`/diario/${selectedDate}`} />
+          <FirestoreConsoleLink
+            disabled={!data}
+            path={`/diario/${selectedDate}`}
+          />
         </Flex>
       </Flex>
-      <Table columns={dailyColumns} dataSource={rows} loading={isLoading} scroll={{ x: 'max-content' }} />
+      <Table
+        columns={dailyColumns}
+        dataSource={rows}
+        loading={isLoading}
+        scroll={{ x: 'max-content' }}
+      />
       <Divider />
 
-      <Flex align="center" className="mb-4" justify="space-between" wrap>
+      <Flex
+        align="center"
+        className="mb-4"
+        justify="space-between"
+        wrap
+      >
         <CopyToClipboardButton
           className="mb-4"
           content={JSON.stringify(rows[0], null, 2)}
@@ -100,7 +132,10 @@ export function DailyDataCheck() {
         <DataSearcher data={data} />
       </Flex>
 
-      <ReactJsonView src={rows[0] ?? {}} theme="twilight" />
+      <ReactJsonView
+        src={rows[0] ?? {}}
+        theme="twilight"
+      />
     </div>
   );
 }
@@ -171,7 +206,10 @@ function DataSearcher({ data }: DataSearcherProps) {
   }, [data]);
 
   return (
-    <Flex gap={8} vertical>
+    <Flex
+      gap={8}
+      vertical
+    >
       <Input.Search
         allowClear
         onChange={(e) => handleSearch(e.target.value)}
@@ -185,7 +223,10 @@ function DataSearcher({ data }: DataSearcherProps) {
           <ul style={{ maxHeight: '200px', overflow: 'auto', margin: '4px 0' }}>
             {searchResults.map((result, index) => (
               <li key={index}>
-                <Typography.Text code copyable>
+                <Typography.Text
+                  code
+                  copyable
+                >
                   {result}
                 </Typography.Text>
               </li>

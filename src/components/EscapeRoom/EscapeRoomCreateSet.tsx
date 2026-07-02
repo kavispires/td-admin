@@ -18,7 +18,7 @@ import { PageContent } from 'components/Common/PageContent';
 import { orderBy } from 'lodash';
 import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
 import { useCallback, useMemo, useState } from 'react';
-import { createUUID } from 'utils';
+import { createUUID } from 'utils/id';
 import { BACKGROUNDS } from './cards/CardBuildingBlocks';
 import { EscapeRoomCard } from './cards/EscapeRoomCard';
 import type {
@@ -492,13 +492,23 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
 
   return (
     <PageContent>
-      <Flex align="center" justify="space-between">
-        <Typography.Title className="my-0" level={5}>
+      <Flex
+        align="center"
+        justify="space-between"
+      >
+        <Typography.Title
+          className="my-0"
+          level={5}
+        >
           Card Creator
         </Typography.Title>
         <Space>
           <Button onClick={onResetForm}>Reset</Button>
-          <Button icon={<SaveOutlined />} onClick={onSaveCard} type="primary">
+          <Button
+            icon={<SaveOutlined />}
+            onClick={onSaveCard}
+            type="primary"
+          >
             Save Card
           </Button>
         </Space>
@@ -506,7 +516,10 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
 
       {/* Card Selection Section */}
       <Card size="small">
-        <Flex align="center" gap={12}>
+        <Flex
+          align="center"
+          gap={12}
+        >
           <Typography.Text strong>Work with existing card:</Typography.Text>
           <Select
             allowClear
@@ -520,10 +533,20 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
             style={{ width: 400 }}
             value={selectedCardId}
           />
-          <Button disabled={!selectedCardId} icon={<EditOutlined />} onClick={onEditCard} type="default">
+          <Button
+            disabled={!selectedCardId}
+            icon={<EditOutlined />}
+            onClick={onEditCard}
+            type="default"
+          >
             Edit
           </Button>
-          <Button disabled={!selectedCardId} icon={<CopyOutlined />} onClick={onDuplicateCard} type="default">
+          <Button
+            disabled={!selectedCardId}
+            icon={<CopyOutlined />}
+            onClick={onDuplicateCard}
+            type="default"
+          >
             Duplicate
           </Button>
         </Flex>
@@ -531,7 +554,10 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
 
       <Flex gap={24}>
         {/* Form Section */}
-        <Card className="flex-1" title="Card Configuration">
+        <Card
+          className="flex-1"
+          title="Card Configuration"
+        >
           <Form
             form={form}
             initialValues={{ ...DEFAULT_FORM, id: generateNewCardId('ANNOUNCEMENT') }}
@@ -539,7 +565,11 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
             size="small"
           >
             {/* Card Type - Must be selected first as it determines the ID format */}
-            <Form.Item label="Card Type" name="type" rules={[{ required: true }]}>
+            <Form.Item
+              label="Card Type"
+              name="type"
+              rules={[{ required: true }]}
+            >
               <Select
                 disabled={isEditMode}
                 onChange={(value) => {
@@ -556,7 +586,11 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
             </Form.Item>
 
             {/* Card ID - Auto-generated based on card type */}
-            <Form.Item label="Card ID" name="id" rules={[{ required: true, message: 'Card ID is required' }]}>
+            <Form.Item
+              label="Card ID"
+              name="id"
+              rules={[{ required: true, message: 'Card ID is required' }]}
+            >
               <Space.Compact>
                 <Input
                   placeholder="er-announcement-abc"
@@ -579,10 +613,17 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
               name="doc"
               rules={[{ required: true, message: 'Description is required' }]}
             >
-              <Input.TextArea placeholder="Brief description of the card" rows={2} />
+              <Input.TextArea
+                placeholder="Brief description of the card"
+                rows={2}
+              />
             </Form.Item>
 
-            <Form.Item label="Background" name="background" rules={[{ required: true }]}>
+            <Form.Item
+              label="Background"
+              name="background"
+              rules={[{ required: true }]}
+            >
               <AutoComplete
                 options={Object.keys(BACKGROUNDS).map((key) => ({ value: key, label: key }))}
                 placeholder="Select from list or enter custom background"
@@ -593,14 +634,21 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
               />
             </Form.Item>
 
-            <Form.Item label="Unplayable Card" name="unplayable" valuePropName="checked">
+            <Form.Item
+              label="Unplayable Card"
+              name="unplayable"
+              valuePropName="checked"
+            >
               <Switch />
             </Form.Item>
 
             <Divider dashed />
 
             {/* Dynamic fields based on card type */}
-            <Form.Item noStyle shouldUpdate>
+            <Form.Item
+              noStyle
+              shouldUpdate
+            >
               {({ getFieldValue, setFieldValue }) => {
                 const cardType = getFieldValue('type');
 
@@ -612,10 +660,16 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
                 if (cardType === 'ANNOUNCEMENT') {
                   return (
                     <>
-                      <Form.Item label="Title" name="announcementTitle">
+                      <Form.Item
+                        label="Title"
+                        name="announcementTitle"
+                      >
                         <Input placeholder="Announcement title" />
                       </Form.Item>
-                      <Form.Item label="Subtitle" name="announcementSubtitle">
+                      <Form.Item
+                        label="Subtitle"
+                        name="announcementSubtitle"
+                      >
                         <Input placeholder="Announcement subtitle (optional)" />
                       </Form.Item>
                     </>
@@ -649,14 +703,20 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
                         name="missionParagraphs"
                         rules={[{ required: true, message: 'Mission description is required' }]}
                       >
-                        <Input.TextArea placeholder="Mission description (supports markdown)" rows={4} />
+                        <Input.TextArea
+                          placeholder="Mission description (supports markdown)"
+                          rows={4}
+                        />
                       </Form.Item>
                       <Form.Item
                         label="Mission Action"
                         name="missionAction"
                         rules={[{ required: true, message: 'Mission action is required' }]}
                       >
-                        <Input.TextArea placeholder="What players need to do (supports markdown)" rows={3} />
+                        <Input.TextArea
+                          placeholder="What players need to do (supports markdown)"
+                          rows={3}
+                        />
                       </Form.Item>
                     </>
                   );
@@ -681,7 +741,11 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
                       >
                         <Input placeholder="Enter the word to display" />
                       </Form.Item>
-                      <Form.Item label="Position" name="wordPosition" rules={[{ required: true }]}>
+                      <Form.Item
+                        label="Position"
+                        name="wordPosition"
+                        rules={[{ required: true }]}
+                      >
                         <InputNumber
                           max={14}
                           min={0}
@@ -689,7 +753,10 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
                           style={{ width: '100%' }}
                         />
                       </Form.Item>
-                      <Form.Item label="Text Alignment" name="wordAlign">
+                      <Form.Item
+                        label="Text Alignment"
+                        name="wordAlign"
+                      >
                         <Select
                           options={[
                             { value: 'left', label: 'Left' },
@@ -699,7 +766,10 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
                           placeholder="Select alignment"
                         />
                       </Form.Item>
-                      <Form.Item label="Text Size" name="wordSize">
+                      <Form.Item
+                        label="Text Size"
+                        name="wordSize"
+                      >
                         <Select
                           options={[
                             { value: 'small', label: 'Small' },
@@ -709,13 +779,28 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
                           placeholder="Select size"
                         />
                       </Form.Item>
-                      <Form.Item label="Text Color" name="wordColor">
-                        <Input placeholder="CSS color (e.g., #FF0000, red)" type="color" />
+                      <Form.Item
+                        label="Text Color"
+                        name="wordColor"
+                      >
+                        <Input
+                          placeholder="CSS color (e.g., #FF0000, red)"
+                          type="color"
+                        />
                       </Form.Item>
-                      <Form.Item label="Border Color" name="wordBorderColor">
-                        <Input placeholder="CSS color (e.g., #000000, black)" type="color" />
+                      <Form.Item
+                        label="Border Color"
+                        name="wordBorderColor"
+                      >
+                        <Input
+                          placeholder="CSS color (e.g., #000000, black)"
+                          type="color"
+                        />
                       </Form.Item>
-                      <Form.Item label="Border Width (px)" name="wordBorderWidth">
+                      <Form.Item
+                        label="Border Width (px)"
+                        name="wordBorderWidth"
+                      >
                         <InputNumber
                           max={20}
                           min={0}
@@ -735,9 +820,15 @@ export function EscapeRoomCreateSet(query: UseEscapeRoomResourceReturnType) {
 
         {/* Preview Section */}
         <div style={{ width: 300, position: 'sticky', top: 20, alignSelf: 'flex-start' }}>
-          <Card size="small" title={`Preview: ${previewCard?.id || ''}`}>
+          <Card
+            size="small"
+            title={`Preview: ${previewCard?.id || ''}`}
+          >
             {previewCard ? (
-              <EscapeRoomCard card={previewCard} width={250} />
+              <EscapeRoomCard
+                card={previewCard}
+                width={250}
+              />
             ) : (
               <div
                 style={{

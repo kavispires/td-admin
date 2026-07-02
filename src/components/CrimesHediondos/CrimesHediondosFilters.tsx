@@ -7,7 +7,7 @@ import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep } from 'lodash';
 import type { CrimeSceneTileData, CrimesHediondosCardData } from 'types';
-import { sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
 import type { CrimesHediondosContentProps } from './CrimesHediondosContent';
 
 export function CrimesHediondosFilters({

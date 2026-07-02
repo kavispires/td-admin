@@ -6,7 +6,7 @@ import { ImageCard } from 'components/Images/ImageCard';
 import type { useResourceFirestoreData } from 'hooks/useResourceFirestoreData';
 import { merge } from 'lodash';
 import type { ContenderCardData } from 'types';
-import { removeDuplicates } from 'utils';
+import { removeDuplicates } from 'utils/array';
 import { PLACEHOLDER_DUAL_LANGUAGE_OBJECT } from 'utils/constants';
 
 export const DECKS = [

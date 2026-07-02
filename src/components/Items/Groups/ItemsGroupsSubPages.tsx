@@ -5,7 +5,7 @@ import { useTDResource } from 'hooks/useTDResource';
 import { orderBy } from 'lodash';
 import { useMemo } from 'react';
 import type { ItemGroupData, ItemData as ItemT } from 'types';
-import { removeDuplicates } from 'utils';
+import { removeDuplicates } from 'utils/array';
 import { ItemsGroupsByGroupTable } from './ItemsGroupsByGroupTable';
 import { ItemsGroupsByItemTable } from './ItemsGroupsByItemTable';
 import { ItemsGroupsSearch } from './ItemsGroupsSearch';

@@ -8,7 +8,7 @@ import { SiderContent } from 'components/Layout';
 import { useQueryParams } from 'hooks/useQueryParams';
 import { cloneDeep, orderBy } from 'lodash';
 import type { UseEscapeRoomResourceReturnType } from 'pages/Games/EscapeRoom/useEscapeRoomResource';
-import { sortJsonKeys } from 'utils';
+import { sortJsonKeys } from 'utils/json';
 import type { EscapeRoomDatabase } from './cards/escape-room-types';
 
 export function EscapeRoomFilters({
@@ -22,7 +22,10 @@ export function EscapeRoomFilters({
   const { queryParams, addParams } = useQueryParams();
   return (
     <SiderContent>
-      <Flex gap={12} vertical>
+      <Flex
+        gap={12}
+        vertical
+      >
         <SaveButton
           dirt={JSON.stringify(entriesToUpdate)}
           isDirty={isDirty}
@@ -38,7 +41,10 @@ export function EscapeRoomFilters({
           hasNewData={hasNewData}
         />
 
-        <FirestoreConsoleLink label="Firestore" path="/tdr/escapeRoom" />
+        <FirestoreConsoleLink
+          label="Firestore"
+          path="/tdr/escapeRoom"
+        />
       </Flex>
 
       <Divider />
