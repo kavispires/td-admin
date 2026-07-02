@@ -1,5 +1,5 @@
+import { addDays, format, getDay, parseISO, subDays } from 'date-fns';
 import { sample } from 'lodash';
-import moment from 'moment';
 import { ATTEMPTS_THRESHOLD } from './constants';
 
 /**
@@ -8,7 +8,7 @@ import { ATTEMPTS_THRESHOLD } from './constants';
  * @returns The current date in 'YYYY-MM-DD' format.
  */
 export function getToday(): string {
-  return moment().format('YYYY-MM-DD');
+  return format(new Date(), 'yyyy-MM-dd');
 }
 
 /**
@@ -17,7 +17,7 @@ export function getToday(): string {
  * @returns The date of yesterday in 'YYYY-MM-DD' format.
  */
 export function getYesterday(): string {
-  return moment().subtract(1, 'days').format('YYYY-MM-DD');
+  return format(subDays(new Date(), 1), 'yyyy-MM-dd');
 }
 
 /**
@@ -27,10 +27,10 @@ export function getYesterday(): string {
  * @returns The next day in the format 'YYYY-MM-DD'.
  */
 export function getNextDay(dateString: string): string {
-  const inputDate = moment(dateString, 'YYYY-MM-DD');
-  const nextDate = inputDate.add(1, 'days');
+  const inputDate = parseISO(dateString);
+  const nextDate = addDays(inputDate, 1);
 
-  return nextDate.format('YYYY-MM-DD');
+  return format(nextDate, 'yyyy-MM-dd');
 }
 
 /**
@@ -40,8 +40,8 @@ export function getNextDay(dateString: string): string {
  * @returns True if the date is a Saturday or Sunday, false otherwise.
  */
 export function checkWeekend(dateString: string): boolean {
-  const date = moment(dateString, 'YYYY-MM-DD');
-  return [6, 0].includes(date.day()); // 0 represents Sunday and 6 represents Saturday in moment.js
+  const date = parseISO(dateString);
+  return [6, 0].includes(getDay(date)); // 0 represents Sunday and 6 represents Saturday in date-fns
 }
 
 /**
@@ -51,8 +51,8 @@ export function checkWeekend(dateString: string): boolean {
  * @returns The day of the week as a number (0 for Sunday through 6 for Saturday).
  */
 export const getDayOfTheWeek = (dateString: string): number => {
-  const date = moment(dateString, 'YYYY-MM-DD');
-  return date.day(); // Returns the day of the week as a number (0-6)
+  const date = parseISO(dateString);
+  return getDay(date); // Returns the day of the week as a number (0-6)
 };
 
 export function getWordsWithUniqueLetters(words: string[]): string[] {

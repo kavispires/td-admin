@@ -1,7 +1,7 @@
 import { SaveOutlined } from '@ant-design/icons';
 import { togglePendingSave } from '@store/globalSave';
 import { Button, type ButtonProps } from 'antd';
-import moment from 'moment';
+import { format } from 'date-fns';
 import { useEffect } from 'react';
 import { useTimeoutFn } from 'react-use';
 
@@ -34,7 +34,7 @@ export function SaveButton({
   useEffect(() => {
     if (isDirty) {
       togglePendingSave(true);
-      console.log('Save Reset', moment(Date.now()).format('MM/DD/YYYY HH:mm:ss'));
+      console.log('Save Reset', format(new Date(), 'MM/dd/yyyy HH:mm:ss'));
       reset(); // Start or reset the timeout if `isDirty` is true and dirt has changed
     } else {
       togglePendingSave(false);

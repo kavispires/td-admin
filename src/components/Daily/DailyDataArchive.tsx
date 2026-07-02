@@ -5,8 +5,8 @@ import { firestore } from '@services/firebase';
 import { useMutation, useQueries } from '@tanstack/react-query';
 import { sortJsonKeys } from '@utils/json';
 import { Button, Flex, Input, InputNumber, Select, Space, Tag, Typography } from 'antd';
+import { addDays, differenceInDays, format, isValid, parseISO } from 'date-fns';
 import { deleteDoc, doc } from 'firebase/firestore';
-import moment from 'moment';
 import { useMemo, useState } from 'react';
 
 export function DailyDataArchive() {
@@ -30,7 +30,7 @@ export function DailyDataArchive() {
   };
 
   const onValidateDate = () => {
-    const valid = moment(startDate, 'YYYY-MM-DD', true).isValid();
+    const valid = isValid(parseISO(startDate)) && /^\d{4}-\d{2}-\d{2}$/.test(startDate);
     setIsValidDate(valid);
     setIsQueryEnabled(valid);
   };
@@ -85,7 +85,9 @@ export function DailyDataArchive() {
               value={range}
             />
             <Button
-              disabled={!startDate || !moment(startDate, 'YYYY-MM-DD', true).isValid()}
+              disabled={
+                !startDate || !(isValid(parseISO(startDate)) && /^\d{4}-\d{2}-\d{2}$/.test(startDate))
+              }
               onClick={onValidateDate}
               type="primary"
             >
@@ -98,12 +100,7 @@ export function DailyDataArchive() {
               <Tag>{startDate}</Tag>
               {range > 1 && (
                 <>
-                  to{' '}
-                  <Tag>
-                    {moment(startDate)
-                      .add(range - 1, 'days')
-                      .format('YYYY-MM-DD')}
-                  </Tag>
+                  to <Tag>{format(addDays(parseISO(startDate), range - 1), 'yyyy-MM-dd')}</Tag>
                 </>
               )}
             </span>
@@ -162,15 +159,15 @@ export function DailyDataArchive() {
  */
 const useRangedDailyDataCheck = (startDate: string, range: number, enabled: boolean) => {
   const queryOptions = useMemo(() => {
-    if (!enabled || !moment(startDate, 'YYYY-MM-DD', true).isValid()) {
+    if (!enabled || !(isValid(parseISO(startDate)) && /^\d{4}-\d{2}-\d{2}$/.test(startDate))) {
       return [];
     }
 
     const options = [];
-    const start = moment(startDate);
+    const start = parseISO(startDate);
 
     for (let i = 0; i < range; i++) {
-      const currentDate = start.clone().add(i, 'days').format('YYYY-MM-DD');
+      const currentDate = format(addDays(start, i), 'yyyy-MM-dd');
       options.push({
         queryKey: ['firebase', 'diario', currentDate],
         queryFn: getDocQueryFunction<DailyEntry>('diario', currentDate),
@@ -193,7 +190,7 @@ const useRangedDailyDataCheck = (startDate: string, range: number, enabled: bool
     return results.reduce(
       (acc, result, index) => {
         if (result.data && Object.keys(result.data).length > 0) {
-          const currentDate = moment(startDate).add(index, 'days').format('YYYY-MM-DD');
+          const currentDate = format(addDays(parseISO(startDate), index), 'yyyy-MM-dd');
           acc[currentDate] = result.data;
         }
         return acc;
@@ -216,11 +213,11 @@ function DeleteSecuredDocuments() {
       const startDocId = '2024-01-01';
       const endDocId = '2024-04-30';
       try {
-        const startDate = moment(startDocId);
-        const endDate = moment(endDocId);
+        const startDate = parseISO(startDocId);
+        const endDate = parseISO(endDocId);
 
-        for (let i = 0; i <= endDate.diff(startDate, 'days'); i++) {
-          const currentDate = startDate.clone().add(i, 'days').format('YYYY-MM-DD');
+        for (let i = 0; i <= differenceInDays(endDate, startDate); i++) {
+          const currentDate = format(addDays(startDate, i), 'yyyy-MM-dd');
           const docRef = doc(firestore, 'diario', currentDate);
           await deleteDoc(docRef);
         }

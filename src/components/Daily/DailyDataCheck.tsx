@@ -5,7 +5,7 @@ import { useGetFirestoreDoc } from '@hooks/useGetFirestoreDoc';
 import ReactJsonView from '@microlink/react-json-view';
 import { sortJsonKeys } from '@utils/json';
 import { Button, Divider, Flex, Input, Space, Table, Tag, Typography } from 'antd';
-import moment from 'moment';
+import { addDays, format, isValid, parseISO, subDays } from 'date-fns';
 import { useEffect, useMemo, useState } from 'react';
 import { dailyColumns } from './DailyColumns';
 import type { DailyEntry } from './hooks';
@@ -28,16 +28,16 @@ export function DailyDataCheck() {
   };
 
   const onValidateDate = () => {
-    setIsValidDate(moment(selectedDate, 'YYYY-MM-DD', true).isValid());
+    setIsValidDate(isValid(parseISO(selectedDate)) && /^\d{4}-\d{2}-\d{2}$/.test(selectedDate));
   };
 
   const onPreviousDate = () => {
-    const previousDate = moment(selectedDate).subtract(1, 'days').format('YYYY-MM-DD');
+    const previousDate = format(subDays(parseISO(selectedDate), 1), 'yyyy-MM-dd');
     setSelectedDate(previousDate);
   };
 
   const onNextDate = () => {
-    const nextDate = moment(selectedDate).add(1, 'days').format('YYYY-MM-DD');
+    const nextDate = format(addDays(parseISO(selectedDate), 1), 'yyyy-MM-dd');
     setSelectedDate(nextDate);
   };
 

@@ -1,11 +1,14 @@
 import { firestore } from '@services/firebase';
 import { type QueryKey, type UseQueryOptions, useQuery } from '@tanstack/react-query';
-import { getCurrentDateTime } from '@utils/time';
+import { format } from 'date-fns/format';
 import { doc, getDoc } from 'firebase/firestore';
 
 export function getDocQueryFunction<TQueryFnData>(path: string, docId: string) {
   return async () => {
-    console.log(`%cQuerying ${path}/${docId} from firestore: ${getCurrentDateTime()}`, 'color: #f0f');
+    console.log(
+      `%cQuerying ${path}/${docId} from firestore: ${format(new Date(), 'yyyy/MM/dd HH:mm')}`,
+      'color: #f0f',
+    );
     const docRef = doc(firestore, `${path}/${docId}`);
     const querySnapshot = await getDoc(docRef);
     return (querySnapshot.data() ?? {}) as TQueryFnData;

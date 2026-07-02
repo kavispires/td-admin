@@ -8,8 +8,8 @@ import {
 } from '@pages/Games/ArteRuim/useArteRuimDrawings';
 import type { DrawingData } from '@types';
 import { Flex, Table, type TableProps } from 'antd';
+import { format } from 'date-fns';
 import { orderBy } from 'lodash';
-import moment from 'moment';
 import { useMemo } from 'react';
 
 type ArteRuimDrawingsContentProps = ReturnType<typeof useDrawingsResourceData>;
@@ -60,7 +60,7 @@ function ByArtistContent(query: ArteRuimDrawingsContentProps) {
       key: 'firstDrawingAt',
       render: (date: string) => (
         <span>
-          {moment(date).format('MM/DD/YYYY HH:mm:ss')} <IdField value={date} />
+          {format(date, 'MM/dd/yyyy HH:mm:ss')} <IdField value={date} />
         </span>
       ),
       sorter: (a, b) => a.firstDrawingAt - b.firstDrawingAt,
@@ -69,7 +69,7 @@ function ByArtistContent(query: ArteRuimDrawingsContentProps) {
       title: 'Last Drawing',
       dataIndex: 'lastDrawingAt',
       key: 'lastDrawingAt',
-      render: (date: string) => moment(date).format('MM/DD/YYYY HH:mm:ss'),
+      render: (date: string) => format(date, 'MM/dd/yyyy HH:mm:ss'),
       sorter: (a, b) => a.lastDrawingAt - b.lastDrawingAt,
     },
     {

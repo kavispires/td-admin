@@ -7,8 +7,8 @@ import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
 import type { ArteRuimCardData } from '@types';
 import { Alert, Button, Flex, Popover, Space, type TableColumnsType, Tag, Typography } from 'antd';
 import clsx from 'clsx';
+import { format, parseISO } from 'date-fns';
 import { truncate } from 'lodash';
-import moment from 'moment';
 import type { ReactNode } from 'react';
 import type { DailyEntry } from './hooks';
 
@@ -57,7 +57,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     fixed: 'left',
     render: (id: DailyEntry['id']) => (
       <Typography.Text>
-        {id} <br /> {moment(id, 'YYYY-MM-DD').format('dddd')}
+        {id} <br /> {format(parseISO(id), 'EEEE')}
       </Typography.Text>
     ),
   },
