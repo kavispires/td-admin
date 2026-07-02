@@ -1,1 +1,0 @@
-import{T as e,_ as t}from"./Header-DSYECK3p.js";var n=t();function r({children:t,level:r,...i}){return(0,n.jsx)(e.Title,{level:r??3,...i,children:t})}export{r as t};

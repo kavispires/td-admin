@@ -1,1 +1,0 @@
-import{Ei as e,bi as t}from"./Header-DSYECK3p.js";import{n}from"./SaveButton-CYrPS-Sx.js";var r=e(t());function i(e,t,i){t===void 0&&(t=0),i===void 0&&(i=[]);var a=n(e,t),o=a[0],s=a[1],c=a[2];return(0,r.useEffect)(c,i),[o,s]}export{i as t};

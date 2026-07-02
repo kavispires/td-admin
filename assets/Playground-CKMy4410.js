@@ -1,1 +1,0 @@
-import{Y as e,_ as t,k as n,t as r,y as i}from"./Header-DSYECK3p.js";var a=t();function o(){return(0,a.jsx)(`div`,{children:`Playground Content`})}function s(){return i(`Playground`),(0,a.jsxs)(n,{children:[(0,a.jsx)(r,{title:`Playground`}),(0,a.jsx)(e,{}),(0,a.jsx)(n.Content,{className:`content`,children:(0,a.jsx)(o,{})})]})}export{s as default};
