@@ -22,9 +22,11 @@ function EntryCell({ children }: { children: ReactNode }) {
     </Space>
   );
 }
+
 function GameNumber({ children }: { children: number }) {
   return <Tag color="cyan">#{children}</Tag>;
 }
+
 function GameInfo({ label, children }: { label: string; children: ReactNode }) {
   return (
     <Typography.Text>
@@ -32,6 +34,7 @@ function GameInfo({ label, children }: { label: string; children: ReactNode }) {
     </Typography.Text>
   );
 }
+
 function GamePopover({ children, entry }: { children: ReactNode; entry: DailyEntry[keyof DailyEntry] }) {
   return (
     <Popover
@@ -235,6 +238,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               gap={6}
               vertical
             >
+              <span>{title}</span>
               <Flex gap={6}>
                 <Item
                   itemId={rule1.thing.id}
@@ -251,11 +255,16 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               </Flex>
               <Flex gap={6}>
                 {things.map((thing) => (
-                  <Item
-                    itemId={thing.id}
+                  <Flex
                     key={thing.id}
-                    width={35}
-                  />
+                    vertical
+                  >
+                    <Item
+                      itemId={thing.id}
+                      width={35}
+                    />
+                    <Tag>{thing.rule}</Tag>
+                  </Flex>
                 ))}
               </Flex>
             </Flex>

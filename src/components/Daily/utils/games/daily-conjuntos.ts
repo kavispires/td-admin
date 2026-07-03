@@ -4,68 +4,12 @@ import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
 import { getIsThingOutdated, getLatestRuleUpdate } from '@components/Items/Diagram/utils';
 import { useTDResource } from '@hooks/useTDResource';
 import { useQuery } from '@tanstack/react-query';
+import type { DailyDiagramItemData, DailyDiagramRuleData } from '@types';
 import { shuffle } from 'lodash';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
-import { getNextDay } from '../utils';
+import { checkWeekend, getNextDay } from '../utils';
 import { debugDailyStore } from './debug-daily';
-
-export type UID = string;
-export type DateMilliseconds = number;
-
-export type DailyDiagramRuleData = {
-  /**
-   * Rule identifier
-   */
-  id: UID;
-  /**
-   * Rule title/description
-   */
-  title: string;
-  /**
-   * Difficulty level
-   */
-  level: number;
-  /**
-   * Rule type
-   */
-  type: string;
-  /**
-   * How the rule was created
-   */
-  method: 'auto' | 'manual' | 'dependency';
-  /**
-   * Last update timestamp
-   */
-  updatedAt: DateMilliseconds;
-};
-
-export type DailyDiagramItemData = {
-  /**
-   * Item identifier
-   */
-  itemId: UID;
-  /**
-   * Item name
-   */
-  name: string;
-  /**
-   * Syllable breakdown
-   */
-  syllables?: string;
-  /**
-   * Which syllable is stressed
-   */
-  stressedSyllable?: number;
-  /**
-   * Rule IDs this item matches
-   */
-  rules: string[];
-  /**
-   * Last update timestamp
-   */
-  updatedAt: DateMilliseconds;
-};
 
 export type DailyConjuntosEntry = {
   /**
@@ -121,12 +65,13 @@ export type DailyConjuntosEntry = {
     name: string;
   };
   /**
-   * Items to categorize (2 per rule + 2 unrelated)
+   * Items to categorize (8 on weekdays, 10 on weekends, mix of rule1-only, rule2-only, and intersection)
+   * rule: 0 = intersection (matches both rules), 1 = rule1-only, 2 = rule2-only
    */
   things: {
     id: string;
     name: string;
-    rule: number;
+    rule: 0 | 1 | 2;
   }[];
 };
 
@@ -249,12 +194,12 @@ const RULE_TYPE_TITLES: Record<string, string> = {
  * Builds a batch of daily Conjuntos games
  *
  * Generates games by finding two rules that have intersecting items and ensuring all
- * 9 items have unique names. Uses a queue system to prioritize fresh rules with LRU fallback.
+ * items have unique names. Uses a queue system to prioritize fresh rules with LRU fallback.
  * Each game requires:
- * - 1 item matching both rules (intersection)
- * - 3 items matching only rule 1
- * - 3 items matching only rule 2
- * - 2 items matching neither rule
+ * - 1 example item matching both rules (intersection) - shown to player
+ * - 1 example item matching only rule 1 - shown to player
+ * - 1 example item matching only rule 2 - shown to player
+ * - 8 board items (weekdays) or 10 board items (weekends) from a mix of all three categories
  *
  * @param batchSize - Number of games to generate
  * @param history - Historical data for tracking used rules
@@ -290,7 +235,6 @@ export const buildDailyConjuntosGames = (
         validItemsMap.set(item.itemId, item);
       }
     }
-    const allValidItemIds = Array.from(validItemsMap.keys());
 
     // Build inverted mapping: Rule ID -> Item IDs
     const ruleItemIdsMap = new Map<string, Set<string>>();
@@ -347,7 +291,7 @@ export const buildDailyConjuntosGames = (
       let finalIntersect = '';
       let finalR1: string[] = [];
       let finalR2: string[] = [];
-      let finalOut: string[] = [];
+      let finalInter: string[] = [];
 
       const attemptedPairs = new Set<string>();
 
@@ -372,40 +316,35 @@ export const buildDailyConjuntosGames = (
 
         // Calculate item pools
         const intersectionIds = r1.validItemIds.filter((id) => r2Set.has(id));
-        if (intersectionIds.length < 1) continue;
+        if (intersectionIds.length < 5) continue; // Need 1 example + 4 board candidates
 
         const r1ExclusiveIds = r1.validItemIds.filter((id) => !r2Set.has(id));
-        if (r1ExclusiveIds.length < 3) continue;
+        if (r1ExclusiveIds.length < 5) continue; // Need 1 example + 4 board candidates
 
         const r2ExclusiveIds = r2.validItemIds.filter((id) => !r1Set.has(id));
-        if (r2ExclusiveIds.length < 3) continue;
+        if (r2ExclusiveIds.length < 5) continue; // Need 1 example + 4 board candidates
 
-        const outsideIds = allValidItemIds.filter((id) => !r1Set.has(id) && !r2Set.has(id));
-        if (outsideIds.length < 2) continue;
-
-        // Enforce unique name constraint across all 9 items
+        // Enforce unique name constraint across all items (3 examples + up to 12 board candidates)
         const usedNames = new Set<string>();
 
-        const intersectIds = pickUniqueNames(intersectionIds, 1, usedNames, validItemsMap);
+        // Pick 5 from each category (1 for example, 4 for board pool)
+        const intersectIds = pickUniqueNames(intersectionIds, 5, usedNames, validItemsMap);
         if (!intersectIds) continue;
 
-        const r1Items = pickUniqueNames(r1ExclusiveIds, 3, usedNames, validItemsMap);
+        const r1Items = pickUniqueNames(r1ExclusiveIds, 5, usedNames, validItemsMap);
         if (!r1Items) continue;
 
-        const r2Items = pickUniqueNames(r2ExclusiveIds, 3, usedNames, validItemsMap);
+        const r2Items = pickUniqueNames(r2ExclusiveIds, 5, usedNames, validItemsMap);
         if (!r2Items) continue;
-
-        const outItems = pickUniqueNames(outsideIds, 2, usedNames, validItemsMap);
-        if (!outItems) continue;
 
         // Valid game structure found
         found = true;
         selectedRule1 = r1;
         selectedRule2 = r2;
-        finalIntersect = intersectIds[0];
-        finalR1 = r1Items;
-        finalR2 = r2Items;
-        finalOut = outItems;
+        finalIntersect = intersectIds[0]; // Example intersection item
+        finalR1 = r1Items; // [0] = example, [1-4] = board candidates
+        finalR2 = r2Items; // [0] = example, [1-4] = board candidates
+        finalInter = intersectIds.slice(1); // [1-4] = board candidates for intersection
       }
 
       if (!found || !selectedRule1 || !selectedRule2) {
@@ -426,18 +365,32 @@ export const buildDailyConjuntosGames = (
       // Track usage for history update
       used.push(rule1Id, rule2Id);
 
-      // Use first item from each exclusive array as example
+      // Use first item from each array as example
       const rule1ExampleId = finalR1[0];
       const rule2ExampleId = finalR2[0];
-      const finalR1Board = finalR1.slice(1);
-      const finalR2Board = finalR2.slice(1);
+      const intersectionExampleId = finalIntersect;
 
-      // Build remaining items array
-      const combinedThings = shuffle([
-        ...finalR1Board.map((tid) => ({ id: tid, name: validItemsMap.get(tid)?.name ?? 'Unknown', rule: 1 })),
-        ...finalR2Board.map((tid) => ({ id: tid, name: validItemsMap.get(tid)?.name ?? 'Unknown', rule: 2 })),
-        ...finalOut.map((tid) => ({ id: tid, name: validItemsMap.get(tid)?.name ?? 'Unknown', rule: 3 })),
+      // Determine if weekend (Saturday=6 or Sunday=0)
+      const isWeekend = checkWeekend(id);
+      const boardSize = isWeekend ? 10 : 8;
+
+      // Pool of board candidates (4 from each category)
+      const boardCandidates = shuffle([
+        ...finalR1
+          .slice(1)
+          .map((tid) => ({ id: tid, name: validItemsMap.get(tid)?.name ?? 'Unknown', rule: 1 as const })),
+        ...finalR2
+          .slice(1)
+          .map((tid) => ({ id: tid, name: validItemsMap.get(tid)?.name ?? 'Unknown', rule: 2 as const })),
+        ...finalInter.map((tid) => ({
+          id: tid,
+          name: validItemsMap.get(tid)?.name ?? 'Unknown',
+          rule: 0 as const,
+        })), // 0 = intersection
       ]);
+
+      // Select items for the board (8 or 10 depending on day)
+      const combinedThings = boardCandidates.slice(0, boardSize);
 
       // Build title
 
@@ -472,8 +425,8 @@ export const buildDailyConjuntosGames = (
           },
         },
         intersectingThing: {
-          id: finalIntersect,
-          name: validItemsMap.get(finalIntersect)?.name ?? 'Unknown',
+          id: intersectionExampleId,
+          name: validItemsMap.get(intersectionExampleId)?.name ?? 'Unknown',
         },
         things: combinedThings,
       };

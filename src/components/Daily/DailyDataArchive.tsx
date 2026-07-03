@@ -95,7 +95,7 @@ export function DailyDataArchive() {
             </Button>
           </Space.Compact>
 
-          {startDate && (
+          {isValidDate && startDate && (
             <span>
               <Tag>{startDate}</Tag>
               {range > 1 && (
