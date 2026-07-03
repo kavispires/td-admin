@@ -1,0 +1,1 @@
+import{E as e,v as t}from"./Header-C1gxyWQN.js";import{o as n}from"./input-D4bGKYL8.js";import{t as r}from"./useCopyToClipboardFunction-Cil5LKAv.js";var i=t();function a({content:t,shape:a,icon:o,size:s,...c}){let l=r();return(0,i.jsx)(n,{icon:o??(0,i.jsx)(e,{}),onClick:()=>{l(typeof t==`function`?t():t)},shape:a??`circle`,size:s??`small`,...c})}export{a as t};
