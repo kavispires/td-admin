@@ -1,0 +1,1 @@
+import{ki as e,wi as t}from"./Header-GOI4GSFi.js";var n=e(t()),r=function(e,t){return typeof t==`boolean`?t:!e},i=function(e){return(0,n.useReducer)(r,e)};export{i as t};
