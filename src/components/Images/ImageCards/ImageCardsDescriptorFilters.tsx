@@ -125,9 +125,17 @@ function prepareFileForDownload(data: Dictionary<ImageCardDescriptorData>) {
   // Filter out empty entries
   const filtered = Object.fromEntries(Object.entries(copy).filter(([_, entry]) => !isEmptyEntry(entry)));
 
-  if (Object.keys(filtered).length > 0) {
-    console.log(`Filtered out ${Object.keys(copy).length - Object.keys(filtered).length} empty entries`);
+  const removedEntriesCount = Object.keys(copy).length - Object.keys(filtered).length;
+
+  if (removedEntriesCount > 0) {
+    console.log(`Filtered out ${removedEntriesCount} empty entries`);
   }
+
+  Object.values(filtered).forEach((entry) => {
+    if (!entry.updatedAt) {
+      entry.updatedAt = Date.now();
+    }
+  });
 
   return sortJsonKeys(filtered);
 }

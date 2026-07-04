@@ -29,6 +29,7 @@ export function AddImageCardDataModal({ addEntryToUpdate }: AddImageCardDataModa
       favorite: parsed.favorite,
       triggers: parsed.triggers,
       associatedDreams: parsed.associatedDreams,
+      updatedAt: Date.now(),
     };
 
     // Remove any undefined fields that are optional

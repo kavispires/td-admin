@@ -483,6 +483,10 @@ export type ImageCardDescriptorData = {
    * Card ids from the theme-words deck associated with the image
    */
   associatedDreams?: UID[];
+  /**
+   * The date in milliseconds the card was last updated
+   */
+  updatedAt: DateMilliseconds;
 };
 
 /**

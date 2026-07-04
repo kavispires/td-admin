@@ -104,8 +104,11 @@ export function useResourceFirestoreData<
   ]);
 
   const isDirty = !isEmpty(modifiedEntries);
+
   const addEntryToUpdate = (id: string, item: TDRData) => {
-    setModifiedEntries((prev) => ({ ...prev, [id]: item }));
+    const updatedItem =
+      item && typeof item === 'object' && 'updatedAt' in item ? { ...item, updatedAt: Date.now() } : item;
+    setModifiedEntries((prev) => ({ ...prev, [id]: updatedItem as TDRData }));
   };
 
   const firestoreData = firestoreQuery.data;

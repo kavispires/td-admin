@@ -4,6 +4,7 @@ import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFires
 import { useTablePagination } from '@hooks/useTablePagination';
 import type { ImageCardDescriptorData } from '@types';
 import { App, Button, Flex, Popconfirm, Table, type TableProps, Tag, Typography } from 'antd';
+import { format } from 'date-fns';
 import { useMemo } from 'react';
 import { ImageCard } from '../ImageCard';
 import { FavoriteImageCardButton } from './ImageCardsDescriptorModal';
@@ -11,6 +12,7 @@ import './ImageCardsDescriptorTable.css';
 import { IdTag } from '@components/Common/IdTag';
 import { LanguageFlag } from '@components/Common/LanguageFlag';
 import { PageContent } from '@components/Common/PageContent';
+import { orderBy } from 'lodash';
 
 /**
  * Parses a card ID into its components
@@ -113,9 +115,13 @@ export function ImageCardsDescriptorTable({
 
   const rows = useMemo(
     () =>
-      Object.values(data)
-        .filter((entry): entry is ImageCardDescriptorData => entry !== null && entry !== undefined)
-        .sort((a, b) => sortCardIds(a.id, b.id)),
+      orderBy(
+        Object.values(data).filter(
+          (entry): entry is ImageCardDescriptorData => entry !== null && entry !== undefined,
+        ),
+        [(o) => o.updatedAt || 0, (o) => parseCardId(o.id).prefix, (o) => parseCardId(o.id).number],
+        ['desc', 'asc', 'asc'],
+      ),
     [data],
   );
 
@@ -134,6 +140,7 @@ export function ImageCardsDescriptorTable({
       title: { en: '', pt: '' },
       description: { en: '', pt: '' },
       keywords: { en: '', pt: '' },
+      updatedAt: Date.now(),
     };
 
     addEntryToUpdate(newCardId, newEntry);
@@ -423,6 +430,18 @@ export function ImageCardsDescriptorTable({
           );
         },
       },
+      {
+        title: 'Last Updated',
+        dataIndex: 'updatedAt',
+        key: 'updatedAt',
+        width: '10%',
+        sorter: (a, b) => (a.updatedAt || 0) - (b.updatedAt || 0),
+        render: (updatedAt: number | undefined) => {
+          if (!updatedAt) return '-';
+          const date = new Date(updatedAt);
+          return format(date, 'yyyy-MM-dd HH:mm');
+        },
+      },
     ],
     [data, language],
   );
@@ -431,6 +450,17 @@ export function ImageCardsDescriptorTable({
 
   return (
     <PageContent className="image-cards-descriptor-table-wrapper">
+      <Flex
+        align="center"
+        justify="space-between"
+      >
+        <Typography.Title
+          className="my-0"
+          level={4}
+        >
+          Image Cards Descriptor Table ({rows.length} entries)
+        </Typography.Title>
+      </Flex>
       <Table
         columns={columns}
         dataSource={rows}
