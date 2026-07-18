@@ -11,6 +11,7 @@ import {
   MessageFilled,
   WomanOutlined,
 } from '@ant-design/icons';
+import { IdTag } from '@components/Common/IdTag';
 import { useCardWidth } from '@hooks/useCardWidth';
 import { useQueryParams } from '@hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
@@ -335,7 +336,7 @@ export function SuspectsListing({
                       align="center"
                       gap={3}
                     >
-                      <Tag>{entry.id}</Tag>{' '}
+                      <IdTag>{entry.id}</IdTag>{' '}
                       <PromptButton
                         extendedInfo={extendedEntry}
                         suspect={entry}
@@ -362,27 +363,33 @@ export function SuspectsListing({
                       )}
                     </Flex>
                     <div style={{ backgroundColor: !entry.name.pt ? 'red' : 'transparent' }}>
-                      🇧🇷 {entry.name.pt}
+                      🇧🇷 <Typography.Text copyable>{entry.name.pt}</Typography.Text>
                     </div>
-                    <Typography.Text
+                    <Typography.Paragraph
                       className={clsx({ 'missing-value': !extendedEntry.persona?.pt })}
-                      ellipsis
+                      ellipsis={{
+                        tooltip: extendedEntry.persona?.pt,
+                      }}
                       italic
+                      style={{ marginBottom: 0 }}
                       type="secondary"
                     >
-                      <small>{truncate(extendedEntry.persona?.pt || '-', { length: 18 })}</small>
-                    </Typography.Text>
+                      <small>{extendedEntry.persona?.pt || '-'}</small>
+                    </Typography.Paragraph>
                     <div style={{ backgroundColor: !entry.name.en ? 'red' : 'transparent' }}>
-                      🇺🇸 {entry.name.en}
+                      🇺🇸 <Typography.Text copyable>{entry.name.en}</Typography.Text>
                     </div>
-                    <Typography.Text
-                      className={clsx({ 'missing-value': !extendedEntry.persona?.en })}
-                      ellipsis
+                    <Typography.Paragraph
+                      className={clsx({ 'missing-value': !extendedEntry.persona?.pt })}
+                      ellipsis={{
+                        tooltip: extendedEntry.persona?.en,
+                      }}
                       italic
+                      style={{ marginBottom: 0 }}
                       type="secondary"
                     >
-                      <small>{truncate(extendedEntry.persona?.en || '-', { length: 18 })}</small>
-                    </Typography.Text>
+                      <small>{extendedEntry.persona?.en || '-'}</small>
+                    </Typography.Paragraph>
 
                     <div
                       className="suspect__info"

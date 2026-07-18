@@ -231,7 +231,7 @@ function prepareSuspectFileForDownload(data: Dictionary<SuspectCardData>) {
   return sortJsonKeys(copy, [
     'id',
     'name',
-    'decks',
+    'deck',
     'gender',
     'race',
     'age',
