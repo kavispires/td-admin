@@ -215,7 +215,9 @@ function SelectiveModal({ open, onClose, data, fileName }: SelectiveModalProps) 
       return acc;
     }, {});
 
-    downloadObjectAsFile(selectedData, `${fileName}-selective`);
+    const prefixFileName = fileName.split('.')[0];
+
+    downloadObjectAsFile(selectedData, `${prefixFileName}-selective.json`);
   };
 
   return (
