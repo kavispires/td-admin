@@ -83,7 +83,7 @@ export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedI
         onCancel={handleCancel}
         onOk={handleDataInsertion}
         open={open}
-        title={`JSON Partial Data for ${suspect.name} (${suspect.id})`}
+        title={`JSON Partial Data for ${suspect.name.pt} (${suspect.id})`}
       >
         <Collapse size="small">
           <Collapse.Panel

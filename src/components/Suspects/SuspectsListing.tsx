@@ -25,6 +25,7 @@ import { orderBy, truncate } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import { ActiveExtendedInfoSwitch, ExtendedInfoFilterBar } from './ExtendedInfoFilterBar';
 import { ActiveFeatureSwitch, FeaturesFilterBar } from './FeaturesFilterBar';
+import { FEATURES_BY_GROUP } from './options';
 import { PromptBuilder, PromptButton } from './PromptBuilder';
 import { SuspectDrawer } from './SuspectDrawer';
 import { SuspectImageCard } from './SuspectImageCard';
@@ -473,10 +474,28 @@ export function SuspectsListing({
   );
 }
 
+const hairLengthFeatures =
+  FEATURES_BY_GROUP.find((g) => g.title === 'Hair Length')?.features.map((f) => f.id) || [];
+const hairColorFeatures =
+  FEATURES_BY_GROUP.find((g) => g.title === 'Hair Color')?.features.map((f) => f.id) || [];
+
 const getHeightBuildAlert = (entry: SuspectCardData) => {
   if (!entry.build || !entry.height || entry.build.length === 1 || entry.height.length === 1) {
     return { borderColor: 'red' };
   }
+  if (entry.features.includes('noHairInfo')) {
+    return {};
+  }
+  // If any hair length is missing in features, flag it
+  if (!entry.features.some((feature) => hairLengthFeatures.includes(feature))) {
+    return { borderColor: 'orange' };
+  }
+
+  // If any hair color is missing in features, flag it
+  if (!entry.features.some((feature) => hairColorFeatures.includes(feature))) {
+    return { borderColor: 'orange' };
+  }
+
   return {};
 };
 
@@ -485,6 +504,7 @@ const printNameLogging = (suspectsList: SuspectCardData[]) => {
   console.log(orderBy(suspectsList.map((s) => s.name.pt).filter(Boolean)).join(', '));
   // log duplicated names
   const duplicatedNamesPT = suspectsList
+    .filter((s) => s.deck === 'adult')
     .map((s) => s.name.pt)
     .filter(Boolean)
     .reduce(
@@ -505,6 +525,7 @@ const printNameLogging = (suspectsList: SuspectCardData[]) => {
   console.log('ALL NAMES EN');
   console.log(orderBy(suspectsList.map((s) => s.name.en).filter(Boolean)).join(', '));
   const duplicatedNamesEN = suspectsList
+    .filter((s) => s.deck === 'adult')
     .map((s) => s.name.en)
     .filter(Boolean)
     .reduce(
