@@ -73,6 +73,8 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   purpleClothes: 'está vestindo roupas roxas',
   orangeClothes: 'está vestindo roupas laranjas',
   brownClothes: 'está vestindo roupas marrons',
+  beigeClothes: 'está vestindo roupas bege',
+  greyClothes: 'está vestindo roupas cinzas',
   whiteShirt: 'está usando camisa branca',
   pinkClothes: 'está vestindo roupas rosas',
   patternedShirt: 'está usando roupa estampada',
@@ -83,6 +85,11 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   showTeeth: 'está mostrando os dentes',
   hairTie: 'está usando um xuxinha ou fita no cabelo',
   'non-binary': 'é não-binário(a)',
+  shirtless: 'está sem camisa/roupa',
+  holdingSomething: 'está segurando algo',
+  suspenders: 'está usando suspensórios',
+  zipper: 'tem zíper na roupa',
+  turtleNeck: 'está usando gola rolê',
 };
 
 const TOTAL_SUSPECTS_WEEKDAY = 12;

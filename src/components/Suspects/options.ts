@@ -151,15 +151,16 @@ export const FEATURES_BY_GROUP = [
       { id: 'mustache', label: 'Mustache' },
       { id: 'goatee', label: 'Goatee' },
       { id: 'lipstick', label: 'Lipstick' },
+      { id: 'showTeeth', label: 'Showing Teeth' },
     ],
   },
   {
     title: 'Specific',
     features: [
-      { id: 'showTeeth', label: 'Showing Teeth' },
       { id: 'avoidingCamera', label: 'Avoiding Camera' },
       { id: 'hairyChest', label: 'Exposed Hairy Chest' },
       { id: 'shirtless', label: 'Shirtless' },
+      { id: 'holdingSomething', label: 'Holding Something' },
     ],
   },
   {
@@ -179,15 +180,19 @@ export const FEATURES_BY_GROUP = [
       { id: 'wearingFlowers', label: 'Wearing Flowers' },
       { id: 'hairTie', label: 'Hair Tie' },
       { id: 'suspenders', label: 'Suspenders' },
+      { id: 'zipper', label: 'Zipper' },
+      { id: 'turtleNeck', label: 'Turtleneck' },
     ],
   },
   {
     title: 'Clothing',
     features: [
       { id: 'whiteShirt', label: 'White Shirt' },
+      { id: 'beigeClothes', label: 'Beige Clothes' },
       { id: 'blackClothes', label: 'Black Clothes' },
       { id: 'blueClothes', label: 'Blue Clothes' },
       { id: 'redClothes', label: 'Red Clothes' },
+      { id: 'greyClothes', label: 'Grey Clothes' },
       { id: 'greenClothes', label: 'Green Clothes' },
       { id: 'yellowClothes', label: 'Yellow Clothes' },
       { id: 'purpleClothes', label: 'Purple Clothes' },
