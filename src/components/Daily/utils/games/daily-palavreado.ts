@@ -297,7 +297,9 @@ const getNewWord = (
   const targetChar = keyword[index];
 
   // Find words matching the required letter at the required index
-  const possibleWords = words.filter((word) => word[index] === targetChar && !selectedWords.includes(word));
+  const possibleWords = words.filter(
+    (word) => word[index] === targetChar && !selectedWords.includes(word) && word !== keyword,
+  );
 
   if (possibleWords.length === 0) {
     return undefined;
