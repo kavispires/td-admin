@@ -15,9 +15,9 @@ import type {
 import { deserializeFirestoreData } from '@utils/firestore';
 import { sortJsonKeys } from '@utils/json';
 import { deepCleanObject } from '@utils/object';
-import { Flex, Tooltip } from 'antd';
+import { Checkbox, Flex, Input, Space, Tooltip } from 'antd';
 import { uniq } from 'lodash';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { TestimonyDrawer } from './TestimonyDrawer';
 import normalizeValues, { countAnswersAbsoluteTotal, filterAdultSuspects } from './utils';
 
@@ -35,6 +35,8 @@ export function TestimoniesFilters({
   addEntryToUpdate,
 }: TestimoniesFiltersProps) {
   const { queryParams, addParams } = useQueryParams();
+  const [wipeIds, setWipeIds] = useState<string[]>([]);
+  const [wipeConfirmed, setWipeConfirmed] = useState(false);
 
   // Filter to only include adult suspects in testimonies
   const filteredSuspects = useMemo(() => filterAdultSuspects(suspects), [suspects]);
@@ -69,6 +71,12 @@ export function TestimoniesFilters({
 
   const total = counts.queriedTestimoniesCount * counts.suspectsCount;
 
+  const handleWipeIdsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const ids = event.target.value.split(',').map((id) => id.trim());
+    setWipeIds(ids);
+    setWipeConfirmed(false);
+  };
+
   return (
     <>
       <SiderContent>
@@ -85,11 +93,27 @@ export function TestimoniesFilters({
 
           <DownloadButton
             block
-            data={async () => await prepareFileForDownload(data)}
+            data={async () => await prepareFileForDownload(data, wipeIds)}
             disabled={isDirty}
             fileName="testimony-answers.json"
             hasNewData={hasNewData}
-          />
+            style={{ width: '100%' }}
+          >
+            Download
+          </DownloadButton>
+
+          <Flex gap={4}>
+            <Input
+              onChange={handleWipeIdsChange}
+              placeholder="Enter IDs to wipe"
+              value={wipeIds.join(', ')}
+            />
+            <Checkbox
+              checked={wipeConfirmed}
+              disabled={wipeIds.length === 0}
+              onChange={(e) => setWipeConfirmed(e.target.checked)}
+            />
+          </Flex>
 
           <FirestoreConsoleLink
             label="FS Data"
@@ -178,7 +202,7 @@ export function TestimoniesFilters({
   );
 }
 
-async function prepareFileForDownload(localData: Dictionary<TestimonyAnswers>) {
+async function prepareFileForDownload(localData: Dictionary<TestimonyAnswers>, wipeIds: string[]) {
   console.log('Preparing file for download...');
 
   const firebaseRawData = await getDocQueryFunction<Dictionary<string>>('data', 'testimonies')();
@@ -235,6 +259,20 @@ async function prepareFileForDownload(localData: Dictionary<TestimonyAnswers>) {
       }
     });
   });
+
+  // 4. Wipe specified IDs
+  if (wipeIds.length > 0) {
+    console.log('Wiping IDs:', wipeIds);
+
+    wipeIds.forEach((wipeId) => {
+      if (wipeId in results) {
+        delete results[wipeId];
+        console.log(`Wiped question ID: ${wipeId}`);
+      } else {
+        console.warn(`Question ID not found for wiping: ${wipeId}`);
+      }
+    });
+  }
 
   return sortJsonKeys(deepCleanObject(results));
 }
