@@ -5,11 +5,11 @@ import { ImageCard } from '@components/Images/ImageCard';
 import { AlienSign, Item } from '@components/Sprites';
 import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
 import type { ArteRuimCardData } from '@types';
-import { Alert, Button, Flex, Popover, Space, type TableColumnsType, Tag, Typography } from 'antd';
+import { Alert, Button, Checkbox, Flex, Popover, Space, type TableColumnsType, Tag, Typography } from 'antd';
 import clsx from 'clsx';
 import { format, parseISO } from 'date-fns';
 import { truncate } from 'lodash';
-import type { ReactNode } from 'react';
+import { type ReactNode, useState } from 'react';
 import type { DailyEntry } from './hooks';
 
 function EntryCell({ children }: { children: ReactNode }) {
@@ -357,7 +357,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
                   <SuspectImageCard
                     cardId={suspect.id}
                     cardWidth={48}
-                    className={clsx({ 'red-border': suspect.id === culpritId })}
+                    // className={clsx({ 'red-border': suspect.id === culpritId })}
                     key={suspect.id}
                   />
                 ))}
