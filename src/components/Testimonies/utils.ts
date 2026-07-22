@@ -62,9 +62,9 @@ export const calculateSuspectAnswersData = (
 
   values.forEach((v) => {
     if (v === 32) {
-      yesCountFromSystem += 35;
+      yesCountFromSystem += 32;
     } else if (v === -32) {
-      noCountFromSystem += 35;
+      noCountFromSystem += 32;
     } else if (v === 4) {
       yesCountFromSystem += 4;
     } else if (v === -4) {
