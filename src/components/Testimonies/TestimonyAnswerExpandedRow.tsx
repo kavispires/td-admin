@@ -249,13 +249,16 @@ function BatchOptions({
       const suspect = suspects[suspectId];
       const searchString = [suspect.gender, suspect.race, suspect.build, suspect.height];
       if (suspect.age === '18-21') {
-        searchString.push('young');
+        searchString.push('<20');
       }
-      if (suspect.age === '21-30' || suspect.age === '30-40') {
-        searchString.push('adult');
+      if (suspect.age === '21-30') {
+        searchString.push('21-30');
+      }
+      if (suspect.age === '30-40') {
+        searchString.push('30-40');
       }
       if (suspect.age === '40-50') {
-        searchString.push('parent');
+        searchString.push('40-50');
       }
       if (
         suspect.age === '50-60' ||
@@ -343,17 +346,22 @@ function BatchOptions({
         />
         <FilterEntry
           activeFilters={activeFilters}
-          filter="young"
+          filter="<20"
           updateActiveFilter={updateActiveFilter}
         />
         <FilterEntry
           activeFilters={activeFilters}
-          filter="adult"
+          filter="21-30"
           updateActiveFilter={updateActiveFilter}
         />
         <FilterEntry
           activeFilters={activeFilters}
-          filter="parent"
+          filter="30-40"
+          updateActiveFilter={updateActiveFilter}
+        />
+        <FilterEntry
+          activeFilters={activeFilters}
+          filter="40-50"
           updateActiveFilter={updateActiveFilter}
         />
         <FilterEntry
@@ -388,13 +396,13 @@ function BatchOptions({
         />
         <FilterEntry
           activeFilters={activeFilters}
-          filter="caucasian"
+          filter="white"
           updateActiveFilter={updateActiveFilter}
         />
         <FilterEntry
           activeFilters={activeFilters}
           end
-          filter="latino"
+          filter="brown"
           updateActiveFilter={updateActiveFilter}
         />
       </Flex>
