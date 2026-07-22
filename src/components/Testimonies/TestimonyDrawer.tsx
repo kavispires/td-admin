@@ -2,8 +2,8 @@ import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
 import { useQueryParams } from '@hooks/useQueryParams';
 import type { useTestimoniesResource } from '@pages/Libraries/Testimonies/useTestimoniesResource';
 import { Button, Flex, InputNumber, Modal, Segmented, Space, Switch, Typography } from 'antd';
-import { cloneDeep, sample, sampleSize } from 'lodash';
-import { useState } from 'react';
+import { cloneDeep, keyBy, sample, sampleSize } from 'lodash';
+import { useMemo, useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { useEffectOnce, useStateWithHistory, useWindowSize } from 'react-use';
 import { countAnswersAbsoluteTotal, filterAdultSuspects } from './utils';
@@ -19,6 +19,13 @@ type TestimonyDrawerProps = {
 
 export function TestimonyDrawer(props: TestimonyDrawerProps) {
   const { addParam } = useQueryParams();
+
+  const nonDeprecatedQuestions = useMemo(() => {
+    return keyBy(
+      Object.values(props.questions).filter((question) => !question.deprecated),
+      'id',
+    );
+  }, [props.questions]);
 
   return (
     <Flex
@@ -38,7 +45,10 @@ export function TestimonyDrawer(props: TestimonyDrawerProps) {
         Testify Group
       </Button>
       <SingleDrawerContent {...props} />
-      <GroupDrawerContent {...props} />
+      <GroupDrawerContent
+        {...props}
+        questions={nonDeprecatedQuestions}
+      />
     </Flex>
   );
 }

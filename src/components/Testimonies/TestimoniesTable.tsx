@@ -5,7 +5,19 @@ import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
 import { useTablePagination } from '@hooks/useTablePagination';
 import type { useTestimoniesResource } from '@pages/Libraries/Testimonies/useTestimoniesResource';
 import type { TestimonyQuestionCardData } from '@types';
-import { Button, Flex, Input, Rate, Segmented, Table, type TableProps, Tag, Tooltip, Typography } from 'antd';
+import {
+  Button,
+  Checkbox,
+  Flex,
+  Input,
+  Rate,
+  Segmented,
+  Table,
+  type TableProps,
+  Tag,
+  Tooltip,
+  Typography,
+} from 'antd';
 import { orderBy, sample } from 'lodash';
 import { useMemo, useState } from 'react';
 import { TestimonyAnswerExpandedRow } from './TestimonyAnswerExpandedRow';
@@ -22,7 +34,7 @@ export function TestimoniesTable({
   isSuccess,
   addEntryToUpdate,
 }: TestimoniesContentProps) {
-  const { queryParams, addParam } = useQueryParams();
+  const { queryParams, addParam, is } = useQueryParams();
   const [searchQuery, setSearchQuery] = useState('');
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: don't recalculate unless questions change

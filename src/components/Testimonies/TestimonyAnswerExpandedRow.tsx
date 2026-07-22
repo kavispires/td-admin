@@ -29,15 +29,20 @@ export function TestimonyAnswerExpandedRow({
   const [cardWidth, ref] = useCardWidth(12, { maxWidth: 168 });
   const { queryParams, is } = useQueryParams({ sortSuspectsBy: 'answers' });
   const isBatchEnabled = is('enableBatch');
+  const onlyMissingValues = is('onlyMissingValues');
   const sortSuspectsBy = queryParams.get('sortSuspectsBy') ?? 'answers';
 
   // Filter to only include adult suspects in testimonies
   const filteredSuspects = useMemo(() => filterAdultSuspects(suspects), [suspects]);
 
   const list = useMemo(() => {
-    const res = Object.keys(filteredSuspects).map((suspectCardId) => {
+    let res = Object.keys(filteredSuspects).map((suspectCardId) => {
       return calculateSuspectAnswersData(suspectCardId, testimonyId, answers);
     });
+
+    if (onlyMissingValues) {
+      res = res.filter((entry) => entry.total < 4);
+    }
 
     if (sortSuspectsBy === 'answers') {
       return orderBy(
@@ -45,7 +50,7 @@ export function TestimonyAnswerExpandedRow({
         [
           'reliable',
           'enoughData',
-          (o) => o.values.length,
+          (o) => o.total,
           'yesPercentage',
           'noPercentage',
           (o) => Number(o.suspectCardId.split('-')[1]),
@@ -66,7 +71,7 @@ export function TestimonyAnswerExpandedRow({
     }
 
     return orderBy(res, (o) => Number(o.suspectCardId.split('-')[1]), ['asc']);
-  }, [answers, filteredSuspects, testimonyId, sortSuspectsBy]);
+  }, [answers, filteredSuspects, testimonyId, sortSuspectsBy, onlyMissingValues]);
 
   const [selection, setSelection] = useState<string[]>([]);
 
@@ -97,11 +102,26 @@ export function TestimonyAnswerExpandedRow({
                 key={entry.suspectCardId}
                 vertical
               >
-                <SuspectImageCard
-                  cardId={entry.imageId}
-                  cardWidth={cardWidth}
-                  className={entry.values.length > 1 || entry.enoughData ? undefined : 'grayscale'}
-                />
+                {/* biome-ignore lint/a11y/noStaticElementInteractions: interactive div with conditional pointer behavior */}
+                <div
+                  onClick={() => {
+                    if (isBatchEnabled) {
+                      if (selection.includes(entry.suspectCardId)) {
+                        setSelection((prev) => prev.filter((id) => id !== entry.suspectCardId));
+                      } else {
+                        setSelection((prev) => [...prev, entry.suspectCardId]);
+                      }
+                    }
+                  }}
+                  style={{ cursor: isBatchEnabled ? 'pointer' : 'default' }}
+                >
+                  <SuspectImageCard
+                    cardId={entry.imageId}
+                    cardWidth={cardWidth}
+                    className={entry.values.length > 1 || entry.enoughData ? undefined : 'grayscale'}
+                    preview={!isBatchEnabled}
+                  />
+                </div>
                 <Flex gap={4}>
                   {isBatchEnabled && (
                     <Checkbox
@@ -267,6 +287,7 @@ function BatchOptions({
       <Typography.Text className="nowrap mr-2">
         Selected {selection.length.toString().padStart(3, '0')}
       </Typography.Text>
+
       <Flex
         align="center"
         className="boxed"
@@ -426,25 +447,38 @@ function BatchOptions({
         gap={6}
         justify="space-between"
       >
-        <Flex gap={3}>
-          <Typography.Text
-            className="nowrap"
-            style={{ minWidth: '5ch' }}
+        <Flex vertical>
+          <Flex
+            gap={3}
+            vertical
           >
-            Batch
-          </Typography.Text>
-          <Switch
-            checkedChildren="On"
-            onChange={(checked) => {
-              if (checked) {
-                addParam('enableBatch', true);
-              } else {
-                removeParam('enableBatch');
-              }
-            }}
-            unCheckedChildren="Off"
-            value={isBatchEnabled}
-          />
+            <Switch
+              checkedChildren="On"
+              onChange={(checked) => {
+                if (checked) {
+                  addParam('enableBatch', true);
+                } else {
+                  removeParam('enableBatch');
+                }
+              }}
+              size="small"
+              unCheckedChildren="Off"
+              value={isBatchEnabled}
+            />
+            <Typography.Text
+              className="nowrap"
+              style={{ minWidth: '5ch' }}
+            >
+              Batch Selection
+            </Typography.Text>
+          </Flex>
+          <Divider className="my-0" />
+          <Checkbox
+            checked={is('onlyMissingValues')}
+            onChange={(e) => addParam('onlyMissingValues', e.target.checked)}
+          >
+            Total {'<'} 4 only
+          </Checkbox>
         </Flex>
         {isBatchEnabled && options}
       </Flex>

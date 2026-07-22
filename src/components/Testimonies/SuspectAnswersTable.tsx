@@ -1,3 +1,4 @@
+import { CloudSyncOutlined, SearchOutlined } from '@ant-design/icons';
 import { DownloadButton } from '@components/Common/DownloadButton';
 import { PageContent } from '@components/Common/PageContent';
 import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
@@ -9,9 +10,9 @@ import type {
   useTestimoniesResource,
 } from '@pages/Libraries/Testimonies/useTestimoniesResource';
 import type { SuspectCardData } from '@types';
-import { Flex, Segmented, Table, type TableProps, Typography } from 'antd';
-import { orderBy } from 'lodash';
-import { useMemo } from 'react';
+import { Button, Flex, Input, Segmented, Table, type TableProps, Tooltip, Typography } from 'antd';
+import { orderBy, sample } from 'lodash';
+import { useMemo, useState } from 'react';
 import { SuspectAnswersExpandedRow } from './SuspectAnswersExpandedRow';
 import { filterAdultSuspects } from './utils';
 
@@ -30,8 +31,7 @@ export function SuspectAnswersTable({
   addEntryToUpdate,
 }: TestimoniesContentProps) {
   const { queryParams, addParam } = useQueryParams();
-
-  const newq = Object.values(questions).map(({ id, question }) => ({ id, question }));
+  const [searchQuery, setSearchQuery] = useState('');
 
   const answersPerSuspect = useMemo(() => {
     return Object.keys(data).reduce((acc: Record<string, TestimonyAnswers>, questionId) => {
@@ -48,17 +48,28 @@ export function SuspectAnswersTable({
   }, [data]);
 
   // Filter to only include adult suspects in testimonies
-  const filteredSuspects = useMemo(() => filterAdultSuspects(suspects), [suspects]);
+  const onlyAdults = useMemo(() => filterAdultSuspects(suspects), [suspects]);
 
   const entries: SuspectRow[] = useMemo(() => {
     // id, id (picture), name, answers, reliable answers
 
-    return orderBy(
-      Object.values(filteredSuspects).map((s) => ({ ...s, answers: answersPerSuspect[s.id] })),
+    const ordered = orderBy(
+      Object.values(onlyAdults).map((s) => ({ ...s, answers: answersPerSuspect[s.id] })),
       (entry) => Number(entry.id.split('-')[1]),
       'asc',
     );
-  }, [filteredSuspects, answersPerSuspect]);
+
+    if (!searchQuery.trim()) {
+      return ordered;
+    }
+
+    return ordered.filter(
+      (item) =>
+        item.name.pt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.name.en.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.id.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+  }, [onlyAdults, answersPerSuspect, searchQuery]);
 
   const paginationProps = useTablePagination({ total: entries.length, showQuickJumper: true });
 
@@ -129,7 +140,7 @@ export function SuspectAnswersTable({
         align="center"
         justify="space-between"
       >
-        <Flex>
+        <Flex gap={8}>
           <Typography.Title
             className="my-0"
             level={4}
@@ -137,7 +148,7 @@ export function SuspectAnswersTable({
             Testimonies by Suspect
           </Typography.Title>
           <DownloadButton
-            data={newq}
+            data={() => Object.values(questions).map(({ id, question }) => ({ id, question }))}
             fileName={'newQuestions.json'}
           />
         </Flex>
@@ -156,6 +167,22 @@ export function SuspectAnswersTable({
             value={queryParams.get('sortSuspectsBy') ?? 'id'}
           />
         </Flex>
+      </Flex>
+      <Flex gap={6}>
+        <Input
+          allowClear
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search suspects by name or ID..."
+          prefix={<SearchOutlined />}
+          style={{ width: 320 }}
+          value={searchQuery}
+        />
+        <Tooltip title="Select random suspect">
+          <Button
+            icon={<CloudSyncOutlined />}
+            onClick={() => setSearchQuery(sample(Object.keys(onlyAdults)) ?? '')}
+          />
+        </Tooltip>
       </Flex>
       <Table
         bordered
