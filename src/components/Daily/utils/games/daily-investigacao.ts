@@ -29,6 +29,7 @@ const FEATURE_PT_TRANSLATIONS: Dictionary<string> = {
   large: 'é gordo(a)',
   tall: 'é alto(a)',
   short: 'é baixinho(a)',
+  undefinedAge: 'sem idade definida',
   young: 'é jovem',
   adult: 'é adulto(a)',
   senior: 'é da terceira idade',
@@ -664,6 +665,7 @@ const createSuspectEntry = (
 
     const age: string =
       {
+        '0': 'undefinedAge',
         '18-21': 'young',
         '21-30': 'adult',
         '30-40': 'adult',
@@ -793,6 +795,7 @@ const calculateFeaturesStats = (data: Dictionary<SuspectCardData>) => {
     });
   }
 
+  result.undefinedAge = cloneDeep(result['0']);
   result.young = cloneDeep(result['18-21']);
   result.adult = cloneDeep({ ...result['21-30'], ...result['30-40'], ...result['40-50'] });
   result.senior = cloneDeep({
