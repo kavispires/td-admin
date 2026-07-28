@@ -163,6 +163,7 @@ export function SuspectAnswersTable({
               { label: 'IDs', value: 'id' },
               { label: 'Answers', value: 'answers' },
               { label: 'Level', value: 'level' },
+              { label: 'Random', value: 'random' },
             ]}
             value={queryParams.get('sortSuspectsBy') ?? 'id'}
           />

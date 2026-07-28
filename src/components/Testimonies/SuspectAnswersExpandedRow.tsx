@@ -7,8 +7,8 @@ import type {
 import type { SuspectCardData, TestimonyQuestionCardData } from '@types';
 import { Badge, Button, Flex, Input, Space, Switch, Table, Tag, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
-import { orderBy } from 'lodash';
-import { useMemo, useState } from 'react';
+import { orderBy, shuffle } from 'lodash';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { PopoverStrongAnswers } from './PopoverStrongAnswers';
 import { calculateSuspectAnswersData } from './utils';
 
@@ -47,8 +47,20 @@ export function SuspectAnswersExpandedRow({
   const [searchQuery, setSearchQuery] = useState('');
   const [filterHighValues, setFilterHighValues] = useState(false);
 
+  const questionsList = useMemo(() => Object.values(questions).filter((q) => !q.deprecated), [questions]);
+
+  // Store the shuffled order so it doesn't change on every re-render
+  const shuffledOrderRef = useRef<string[]>([]);
+
+  useEffect(() => {
+    if (sortSuspectsBy === 'random') {
+      const baseIds = questionsList.map((q) => q.id);
+      shuffledOrderRef.current = shuffle(baseIds);
+    }
+  }, [sortSuspectsBy, questionsList]);
+
   const list: RowType[] = useMemo(() => {
-    const res = Object.values(questions).map((question) => {
+    const res = questionsList.map((question) => {
       const answers = answersPerQuestion[question.id] ?? {};
       const {
         enoughData,
@@ -87,8 +99,13 @@ export function SuspectAnswersExpandedRow({
       return orderBy(res, ['reliable', 'enoughData', 'yesPercentage'], ['desc', 'desc', 'desc']);
     }
 
+    if (sortSuspectsBy === 'random') {
+      const shuffledOrder = shuffledOrderRef.current;
+      return res.sort((a, b) => shuffledOrder.indexOf(a.id) - shuffledOrder.indexOf(b.id));
+    }
+
     return orderBy(res, (o) => Number(o.id.split('-')[1]), ['asc']);
-  }, [answersPerQuestion, questions, suspect.id, sortSuspectsBy]);
+  }, [answersPerQuestion, questionsList, suspect.id, sortSuspectsBy]);
 
   const description = useMemo(() => {
     return writeDescription(suspect, list);
