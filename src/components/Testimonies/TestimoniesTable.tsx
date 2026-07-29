@@ -187,7 +187,9 @@ export function TestimoniesTable({
         <Tooltip title="Set random question">
           <Button
             icon={<CloudSyncOutlined />}
-            onClick={() => setSearchQuery(sample(Object.keys(questions)) ?? '')}
+            onClick={() =>
+              setSearchQuery(sample(Object.keys(questions).filter((q) => !questions[q].deprecated)) ?? '')
+            }
           />
         </Tooltip>
       </Flex>

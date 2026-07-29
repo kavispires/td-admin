@@ -1,9 +1,9 @@
 import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
 import { useQueryParams } from '@hooks/useQueryParams';
 import type { useTestimoniesResource } from '@pages/Libraries/Testimonies/useTestimoniesResource';
-import { Button, Flex, InputNumber, Modal, Segmented, Space, Switch, Typography } from 'antd';
+import { Button, Flex, InputNumber, Modal, Segmented, Select, Space, Switch, Typography } from 'antd';
 import { cloneDeep, keyBy, sample, sampleSize } from 'lodash';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { useEffectOnce, useStateWithHistory, useWindowSize } from 'react-use';
 import { countAnswersAbsoluteTotal, filterAdultSuspects } from './utils';
@@ -180,16 +180,27 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
     testimonyId: string | null;
   }>();
   const [numberOfSuspects, setNumberOfSuspects] = useState(6);
-  const [isRandomQuestion, setRandomQuestion] = useState(true);
+  const [isRandomQuestion, setIsRandomQuestion] = useState(true);
+  const [selectedTestimonyId, setSelectedTestimonyId] = useState<string | null>(null);
+
+  // Track evaluated suspects per question during the drawer session
+  const evaluatedSuspectsRef = useRef<Record<string, Set<string>>>({});
 
   const getRandom = () => {
-    const selectedTestimonyId =
-      (isRandomQuestion ? sample(Object.keys(questions)) : state?.testimonyId) ?? null;
+    const currentTestimonyId = isRandomQuestion ? sample(Object.keys(questions)) : selectedTestimonyId;
+
+    if (!currentTestimonyId) return;
 
     const adultSuspects = filterAdultSuspects(suspects);
+    const evaluatedForQuestion = evaluatedSuspectsRef.current[currentTestimonyId] || new Set();
+
     const suspectsSet = sampleSize(
       Object.keys(adultSuspects).filter((suspectId) => {
-        const existingAnswers = answers[selectedTestimonyId ?? '']?.[suspectId] || [];
+        // Skip if already evaluated for this question in this session
+        if (evaluatedForQuestion.has(suspectId)) {
+          return false;
+        }
+        const existingAnswers = answers[currentTestimonyId ?? '']?.[suspectId] || [];
         const absValue = countAnswersAbsoluteTotal(existingAnswers);
         return absValue < 4;
       }),
@@ -201,13 +212,30 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
 
     setState({
       suspectsIds: suspectsSet,
-      testimonyId: selectedTestimonyId,
+      testimonyId: currentTestimonyId,
     });
   };
 
   useEffectOnce(() => getRandom());
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: no functions on dependencies
+  useEffect(() => {
+    if (!isRandomQuestion && selectedTestimonyId) {
+      getRandom();
+    }
+  }, [selectedTestimonyId, isRandomQuestion]);
+
   const onNext = () => {
+    // Track all suspects shown in this round (both judged and skipped)
+    if (state?.testimonyId) {
+      if (!evaluatedSuspectsRef.current[state.testimonyId]) {
+        evaluatedSuspectsRef.current[state.testimonyId] = new Set();
+      }
+      Object.keys(state.suspectsIds).forEach((suspectId) => {
+        evaluatedSuspectsRef.current[state.testimonyId!].add(suspectId);
+      });
+    }
+
     // From the judged suspects, only keep the ones that have a value (4 or -4) and add to the answers
     const judgedSuspects = Object.entries(state?.suspectsIds ?? {}).reduce(
       (acc: Record<string, (-4 | 4)[]>, [id, value]) => {
@@ -256,7 +284,10 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
   return (
     <Modal
       footer={null}
-      onCancel={() => removeParam('testify')}
+      onCancel={() => {
+        evaluatedSuspectsRef.current = {};
+        removeParam('testify');
+      }}
       open={is('testify', 'group')}
       title={<Typography>Do these people do this??</Typography>}
       width={width - 64}
@@ -274,6 +305,7 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
               align="center"
               gap={6}
               justify="center"
+              wrap="wrap"
             >
               <Typography.Text>Number of Suspects:</Typography.Text>
               <InputNumber
@@ -281,12 +313,39 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
                 size="small"
                 value={numberOfSuspects}
               />
-              <Typography.Text>Random Questions:</Typography.Text>
+              <Typography.Text>Random Question:</Typography.Text>
               <Switch
                 checked={isRandomQuestion}
-                onChange={setRandomQuestion}
+                onChange={(checked) => {
+                  setIsRandomQuestion(checked);
+                  if (checked) {
+                    setSelectedTestimonyId(null);
+                  }
+                }}
                 size="small"
               />
+              {!isRandomQuestion && (
+                <>
+                  <Typography.Text>Question:</Typography.Text>
+                  <Select
+                    filterOption={(input, option) => {
+                      return (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
+                    }}
+                    onChange={(value) => {
+                      setSelectedTestimonyId(value);
+                    }}
+                    options={Object.entries(questions).map(([id, question]) => ({
+                      value: id,
+                      label: `${id} - ${question.question}`,
+                    }))}
+                    placeholder="Type ID or question text..."
+                    showSearch
+                    size="small"
+                    style={{ width: 350 }}
+                    value={selectedTestimonyId}
+                  />
+                </>
+              )}
             </Flex>
             <Typography.Title
               className="text-center"
