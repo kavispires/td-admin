@@ -1,1 +1,0 @@
-import{t as e}from"./useMutation-cPqiSdPM.js";import{N as t,O as n,P as r}from"./index-CoDTqg_f.js";function i(e,i,a){return console.log(`%cUpdating ${e}/${i} from firebase`,`color: #f00`),t(r(n,`${e}/${i}`),a)}function a(t,n,r={}){return e({mutationFn:async e=>i(t,n,e),...r})}export{a as t};

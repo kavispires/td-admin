@@ -1,1 +1,0 @@
-import{v as e}from"./Header-GOI4GSFi.js";import{J as t}from"./index-CoDTqg_f.js";var n=e();function r({children:e,className:r,vertical:i=!0,...a}){return(0,n.jsx)(t,{className:`full-width py-4 ${r}`,gap:12,vertical:i,...a,children:e})}export{r as t};
