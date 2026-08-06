@@ -3,8 +3,10 @@ import { PageContent } from '@components/Common/PageContent';
 import { useQueryParams } from '@hooks/useQueryParams';
 import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
 import { useTablePagination } from '@hooks/useTablePagination';
+import { useTDResource } from '@hooks/useTDResource';
 import type { useTestimoniesResource } from '@pages/Libraries/Testimonies/useTestimoniesResource';
-import type { TestimonyQuestionCardData } from '@types';
+import type { TestimonyQuestionCardData, TestimonyQuestionExtendedData } from '@types';
+import { RESOURCES_NAMES } from '@utils/resources-list';
 import {
   Button,
   Checkbox,
@@ -34,8 +36,13 @@ export function TestimoniesTable({
   isSuccess,
   addEntryToUpdate,
 }: TestimoniesContentProps) {
-  const { queryParams, addParam, is } = useQueryParams();
+  const { queryParams, addParam } = useQueryParams();
   const [searchQuery, setSearchQuery] = useState('');
+  // Get Testimonies Extended Info
+  const testimoniesExtendedInfoQuery = useTDResource<TestimonyQuestionExtendedData>(
+    RESOURCES_NAMES.TESTIMONIES_EXTENDED_INFO,
+  );
+  const testimoniesExtendedData = testimoniesExtendedInfoQuery.data ?? {};
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: don't recalculate unless questions change
   const entriesRowData = useMemo(() => {
@@ -112,9 +119,22 @@ export function TestimoniesTable({
       dataIndex: 'alignment',
       key: 'alignment',
       render: (_, record) => {
-        const mbti = record.mbti ? record.mbti.related.join(', ') : 'N/A';
-        const zodiac = record.zodiac ? record.zodiac.related.join(', ') : 'N/A';
-        const alignment = record.alignment ? record.alignment.related.join(', ') : 'N/A';
+        if (testimoniesExtendedInfoQuery.isLoading) {
+          return <Typography.Text type="secondary">Loading...</Typography.Text>;
+        }
+        if (testimoniesExtendedInfoQuery.isError) {
+          return <Typography.Text type="danger">Error loading info</Typography.Text>;
+        }
+        const testimonyExtendedData = testimoniesExtendedData[record.id];
+        if (!testimonyExtendedData) {
+          return <Typography.Text type="secondary">No info</Typography.Text>;
+        }
+
+        const mbti = testimonyExtendedData.mbti ? testimonyExtendedData.mbti.related.join(', ') : 'N/A';
+        const zodiac = testimonyExtendedData.zodiac ? testimonyExtendedData.zodiac.related.join(', ') : 'N/A';
+        const alignment = testimonyExtendedData.alignment
+          ? testimonyExtendedData.alignment.related.join(', ')
+          : 'N/A';
         return (
           <Typography.Paragraph style={{ fontSize: '0.85em', marginBottom: 0 }}>
             <div>

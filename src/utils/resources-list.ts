@@ -100,6 +100,7 @@ export const ALL_RESOURCES_LIST = [
   'teenage-motivations',
   'teenage-rumors',
   'teenage-students',
+  'testimonies-extended-info',
   'testimony-answers',
   'testimony-questions-en',
   'testimony-questions-pt',
@@ -200,6 +201,7 @@ export const RESOURCES_NAMES = {
   TEENAGE_MOTIVATIONS: 'teenage-motivations',
   TEENAGE_RUMORS: 'teenage-rumors',
   TEENAGE_STUDENTS: 'teenage-students',
+  TESTIMONIES_EXTENDED_INFO: 'testimonies-extended-info',
   TESTIMONY_ANSWERS: 'testimony-answers',
   TESTIMONY_QUESTIONS: 'testimony-questions',
   THEME_WORDS: 'theme-words',
@@ -258,6 +260,7 @@ export const DUAL_LANGUAGE_RESOURCES = [
   RESOURCES_NAMES.TEENAGE_MOTIVATIONS,
   RESOURCES_NAMES.TEENAGE_RUMORS,
   RESOURCES_NAMES.TEENAGE_STUDENTS,
+  RESOURCES_NAMES.TESTIMONIES_EXTENDED_INFO,
   RESOURCES_NAMES.TESTIMONY_ANSWERS,
   RESOURCES_NAMES.WAREHOUSE_BOSS_IDEAS,
 ] as const;

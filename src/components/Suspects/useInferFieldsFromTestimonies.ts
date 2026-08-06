@@ -5,8 +5,8 @@ import {
   type TestimonyAnswers,
   testimoniesDeserializer,
 } from '@pages/Libraries/Testimonies/useTestimoniesResource';
-import type { SuspectExtendedInfoData, TestimonyQuestionCardData } from '@types';
-import { capitalize } from 'lodash';
+import type { SuspectExtendedInfoData, TestimonyQuestionExtendedData } from '@types';
+import { RESOURCES_NAMES } from '@utils/resources-list';
 import { useState } from 'react';
 
 const POSITIVE_WEIGHT = 3;
@@ -41,32 +41,38 @@ export function useInferFieldsFromTestimonies(
 ) {
   const [enabled, setEnabled] = useState(true);
 
-  // Get Testimonies
-  const testimoniesQuery = useTDResource<TestimonyQuestionCardData>('testimony-questions-pt', { enabled });
+  // Get Testimonies Extended Info
+  const testimoniesExtendedInfoQuery = useTDResource<TestimonyQuestionExtendedData>(
+    RESOURCES_NAMES.TESTIMONIES_EXTENDED_INFO,
+    { enabled },
+  );
 
   // Get Testimonies answers
-  const testimonyAnswersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
-    select: testimoniesDeserializer,
-    enabled,
-  });
+  const testimonyAnswersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>(
+    RESOURCES_NAMES.TESTIMONY_ANSWERS,
+    {
+      select: testimoniesDeserializer,
+      enabled,
+    },
+  );
 
   const onInfer = async (suspectExtendedInfo: SuspectExtendedInfoData) => {
-    const testimonies = testimoniesQuery.data;
+    const testimoniesInfo = testimoniesExtendedInfoQuery.data;
     const answers = testimonyAnswersQuery.data;
 
     // Enable queries if not already enabled
-    if (!testimonies || !answers || !enabled) {
+    if (!testimoniesInfo || !answers || !enabled) {
       console.log('Enabling testimony queries for inference');
       setEnabled(true);
       return;
     }
 
-    if (!testimonies || !answers) {
+    if (!testimoniesInfo || !answers) {
       console.warn('Testimonies or answers data not available');
       return;
     }
 
-    const suspectAnswers = Object.keys(testimonies).reduce(
+    const suspectAnswers = Object.keys(testimoniesInfo).reduce(
       (acc, testimonyId) => {
         const res = calculateSuspectAnswersData(
           suspectExtendedInfo.id,
@@ -86,7 +92,7 @@ export function useInferFieldsFromTestimonies(
     const zodiacCounts: Dictionary<number> = {};
     const alignmentCounts: Dictionary<number> = {};
 
-    Object.values(testimonies).forEach((testimony) => {
+    Object.values(testimoniesInfo).forEach((testimony) => {
       const projection = suspectAnswers?.[testimony.id]?.projection;
       if (!projection) return;
       const positiveAnswerResult = projection === '👍';

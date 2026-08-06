@@ -1456,6 +1456,7 @@ export type SuspectExtendedInfoData = {
  * Internal use for MBTI in TestimonyQuestionCardData
  */
 type MBTIType = 'E' | 'I' | 'N' | 'S' | 'F' | 'T' | 'J' | 'P';
+
 /**
  * Internal use for Zodiac Sign in TestimonyQuestionCardData
  */
@@ -1472,6 +1473,7 @@ type ZodiacSign =
   | 'Capricorn'
   | 'Aquarius'
   | 'Pisces';
+
 /**
  * Internal use for Alignment in TestimonyQuestionCardData
  */
@@ -1485,6 +1487,7 @@ type AlignmentType =
   | 'lawful-evil'
   | 'neutral-evil'
   | 'chaotic-evil';
+
 /**
  * Dual Relation type used in TestimonyQuestionCardData to relate or unrelate MBTI, Zodiac and Alignment types
  */
@@ -1519,6 +1522,21 @@ export type TestimonyQuestionCardData = {
    */
   nsfw?: boolean;
   /**
+   * Flag indicating if the question is deprecated and shouldn't be used in new testimonies
+   */
+  deprecated?: boolean;
+};
+
+/**
+ * Testimony Question Extended data
+ * Used for: testimony-extended-info
+ */
+export type TestimonyQuestionExtendedData = {
+  /**
+   * Unique identifier for the card
+   */
+  id: UID;
+  /**
    * Personality types related to the question
    */
   mbti?: DualRelation<MBTIType>;
@@ -1530,10 +1548,6 @@ export type TestimonyQuestionCardData = {
    * Alignment types related to the question
    */
   alignment?: DualRelation<AlignmentType>;
-  /**
-   * Flag indicating if the question is deprecated and shouldn't be used in new testimonies
-   */
-  deprecated?: boolean;
 };
 
 /**
