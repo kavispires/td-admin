@@ -5,7 +5,7 @@ import {
   type TestimonyAnswers,
   testimoniesDeserializer,
 } from '@pages/Libraries/Testimonies/useTestimoniesResource';
-import type { SuspectExtendedInfoData, TestimonyQuestionExtendedData } from '@types';
+import type { SuspectExtendedInfoData, TestimonyStatementExtendedInfoData } from '@types';
 import { RESOURCES_NAMES } from '@utils/resources-list';
 import { useState } from 'react';
 
@@ -42,7 +42,7 @@ export function useInferFieldsFromTestimonies(
   const [enabled, setEnabled] = useState(true);
 
   // Get Testimonies Extended Info
-  const testimoniesExtendedInfoQuery = useTDResource<TestimonyQuestionExtendedData>(
+  const testimoniesExtendedInfoQuery = useTDResource<TestimonyStatementExtendedInfoData>(
     RESOURCES_NAMES.TESTIMONIES_EXTENDED_INFO,
     { enabled },
   );

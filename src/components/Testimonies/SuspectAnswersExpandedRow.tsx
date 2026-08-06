@@ -4,7 +4,7 @@ import type {
   TestimonyAnswers,
   TestimonyAnswersValues,
 } from '@pages/Libraries/Testimonies/useTestimoniesResource';
-import type { SuspectCardData, TestimonyQuestionCardData } from '@types';
+import type { SuspectCardData, TestimonyStatementCardData } from '@types';
 import { Badge, Button, Flex, Input, Space, Switch, Table, Tag, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import { orderBy, shuffle } from 'lodash';
@@ -15,14 +15,14 @@ import { calculateSuspectAnswersData } from './utils';
 type SuspectAnswersExpandedRowProps = {
   suspect: SuspectCardData;
   answersPerQuestion: TestimonyAnswers;
-  questions: Dictionary<TestimonyQuestionCardData>;
+  questions: Dictionary<TestimonyStatementCardData>;
   addEntryToUpdate: (testimonyId: string, answers: TestimonyAnswers) => void;
   allAnswers: Dictionary<TestimonyAnswers>;
 };
 
 type RowType = {
   id: string;
-  question: TestimonyQuestionCardData;
+  question: TestimonyStatementCardData;
   enoughData: boolean;
   reliable: boolean;
   total: number;
@@ -198,7 +198,7 @@ export function SuspectAnswersExpandedRow({
     if (searchQuery.trim()) {
       filtered = filtered.filter(
         (item) =>
-          item.question.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.question.statement.toLowerCase().includes(searchQuery.toLowerCase()) ||
           item.id.toLowerCase().includes(searchQuery.toLowerCase()),
       );
     }
@@ -277,7 +277,7 @@ const writeDescription = (suspect: SuspectCardData, list: RowType[]) => {
       const { question, resolution, projection } = entry;
       const result = resolution || projection;
       const pronoun = suspect.gender === 'male' ? 'ele' : 'ela';
-      return `${pronoun} ${result === '👍' ? '' : 'não '}${question.answer.toLocaleLowerCase()}`;
+      return `${pronoun} ${result === '👍' ? '' : 'não '}${question.statement.toLocaleLowerCase()}`;
     });
 
   return `${suspect.name.pt}: ${sentences.join(', ')}`;

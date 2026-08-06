@@ -8,7 +8,8 @@ import {
   testimoniesDeserializer,
 } from '@pages/Libraries/Testimonies/useTestimoniesResource';
 import { useQuery } from '@tanstack/react-query';
-import type { CrimeReasonData, SuspectCardData, TestimonyQuestionCardData } from '@types';
+import type { CrimeReasonData, SuspectCardData, TestimonyStatementCardData } from '@types';
+import { RESOURCES_NAMES } from '@utils/resources-list';
 import { cloneDeep, difference, isEmpty, sample, sampleSize, shuffle, uniq } from 'lodash';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
@@ -203,21 +204,27 @@ export const useDailyInvestigacaoGames = (
   const [investigacaoHistory] = useParsedHistory(DAILY_GAMES_KEYS.INVESTIGACAO, dailyHistory);
 
   const suspectsQuery = useTDResource<SuspectCardData>('suspects', { enabled });
-  const questionsQuery = useTDResource<TestimonyQuestionCardData>(`testimony-questions-${queryLanguage}`, {
-    enabled,
-  });
-  const answersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
-    select: testimoniesDeserializer,
-    enabled,
-  });
-  const reasonsQuery = useTDResource<CrimeReasonData>('crime-reasons', { enabled });
+  const statementsQuery = useTDResource<TestimonyStatementCardData>(
+    `${RESOURCES_NAMES.TESTIMONY_STATEMENTS}-${queryLanguage}`,
+    {
+      enabled,
+    },
+  );
+  const answersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>(
+    RESOURCES_NAMES.TESTIMONY_ANSWERS,
+    {
+      select: testimoniesDeserializer,
+      enabled,
+    },
+  );
+  const reasonsQuery = useTDResource<CrimeReasonData>(RESOURCES_NAMES.CRIME_REASONS, { enabled });
 
   // Ensure all prerequisite data is available before generating
   const isReadyToGenerate =
     enabled &&
     !!investigacaoHistory &&
     suspectsQuery.isSuccess &&
-    questionsQuery.isSuccess &&
+    statementsQuery.isSuccess &&
     answersQuery.isSuccess &&
     reasonsQuery.isSuccess;
 
@@ -228,7 +235,7 @@ export const useDailyInvestigacaoGames = (
       'investigacao',
       batchSize,
       suspectsQuery.dataUpdatedAt,
-      questionsQuery.dataUpdatedAt,
+      statementsQuery.dataUpdatedAt,
       answersQuery.dataUpdatedAt,
       reasonsQuery.dataUpdatedAt,
     ],
@@ -237,7 +244,7 @@ export const useDailyInvestigacaoGames = (
       if (
         !investigacaoHistory ||
         !suspectsQuery.data ||
-        !questionsQuery.data ||
+        !statementsQuery.data ||
         !answersQuery.data ||
         !reasonsQuery.data
       ) {
@@ -252,7 +259,7 @@ export const useDailyInvestigacaoGames = (
         batchSize,
         investigacaoHistory,
         suspectsQuery.data,
-        questionsQuery.data,
+        statementsQuery.data,
         testimonySuspectAnswers,
         featuresStats,
         reasonsQuery.data,
@@ -268,7 +275,7 @@ export const useDailyInvestigacaoGames = (
     isLoading:
       !isReadyToGenerate ||
       suspectsQuery.isLoading ||
-      questionsQuery.isLoading ||
+      statementsQuery.isLoading ||
       answersQuery.isLoading ||
       reasonsQuery.isLoading,
     isGenerating: generatorQuery.isFetching,
@@ -307,7 +314,7 @@ export const buildDailyInvestigacaoGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   suspects: Dictionary<SuspectCardData>,
-  questions: Dictionary<TestimonyQuestionCardData>,
+  questions: Dictionary<TestimonyStatementCardData>,
   suspectTestimonyAnswers: TestimonySuspectAnswers,
   featuresStats: Dictionary<Dictionary<true>>,
   reasons: Dictionary<CrimeReasonData>,
@@ -399,7 +406,7 @@ export const buildDailyInvestigacaoGames = (
 
 function generateInvestigacaoGame(
   suspects: Dictionary<SuspectCardData>,
-  questions: Dictionary<TestimonyQuestionCardData>,
+  questions: Dictionary<TestimonyStatementCardData>,
   suspectTestimonyAnswers: TestimonySuspectAnswers,
   featuresStats: Dictionary<Dictionary<true>>,
   usedIds: string[],
@@ -1053,7 +1060,7 @@ const updateExcludeScoreBoard = (scoreboard: Dictionary<number>, excludes: strin
 const getTestimonyStatement = (
   culpritId: string,
   suspectsIds: string[],
-  testimony: TestimonyQuestionCardData,
+  testimony: TestimonyStatementCardData,
   answers: Dictionary<boolean>,
 ): StatementClue => {
   const culpritAnswer = answers[culpritId];
@@ -1062,7 +1069,7 @@ const getTestimonyStatement = (
     (suspectId) => answers[suspectId] !== undefined && answers[suspectId] !== culpritAnswer,
   );
 
-  const answer = testimony.answer.charAt(0).toLowerCase() + testimony.answer.slice(1);
+  const answer = testimony.statement.charAt(0).toLowerCase() + testimony.statement.slice(1);
 
   const result = {
     key: `testimony.${testimony.id}`,

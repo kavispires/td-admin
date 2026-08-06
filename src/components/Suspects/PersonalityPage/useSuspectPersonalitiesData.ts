@@ -4,7 +4,8 @@ import {
   type TestimonyAnswers,
   testimoniesDeserializer,
 } from '@pages/Libraries/Testimonies/useTestimoniesResource';
-import type { SuspectCardData, TestimonyQuestionCardData } from '@types';
+import type { SuspectCardData, TestimonyStatementCardData } from '@types';
+import { RESOURCES_NAMES } from '@utils/resources-list';
 import { useMemo } from 'react';
 
 export type CrossReferenceData = {
@@ -25,15 +26,20 @@ type SuspectPersonality = {
 
 export function useSuspectPersonalitiesData() {
   // Get Suspects
-  const suspectsQuery = useTDResource<SuspectCardData>('suspects');
+  const suspectsQuery = useTDResource<SuspectCardData>(RESOURCES_NAMES.SUSPECTS);
 
   // Get Testimonies
-  const testimoniesQuery = useTDResource<TestimonyQuestionCardData>('testimony-questions-pt');
+  const testimoniesQuery = useTDResource<TestimonyStatementCardData>(
+    `${RESOURCES_NAMES.TESTIMONY_STATEMENTS}-pt`,
+  );
 
   // Get Testimonies answers
-  const testimonyAnswersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
-    select: testimoniesDeserializer,
-  });
+  const testimonyAnswersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>(
+    RESOURCES_NAMES.TESTIMONY_ANSWERS,
+    {
+      select: testimoniesDeserializer,
+    },
+  );
 
   // Get Cross-reference Zodiac
   const zodiacCrossRefQuery = useTDResource<CrossReferenceData>('suspect-testimony-crossreference-zodiac-pt');
@@ -128,7 +134,7 @@ export function useSuspectPersonalitiesData() {
 
 const getSuspectPersonalities = (
   suspects: Dictionary<SuspectCardData>,
-  testimonies: Dictionary<TestimonyQuestionCardData>,
+  testimonies: Dictionary<TestimonyStatementCardData>,
   testimonyAnswers: Dictionary<TestimonyAnswers>,
   zodiacCrossReference: Dictionary<CrossReferenceData>,
   mbtiCrossReference: Dictionary<CrossReferenceData>,

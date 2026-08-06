@@ -13,7 +13,7 @@ import { calculateSuspectAnswersData, filterAdultSuspects } from './utils';
 
 type TestimonyAnswerExpandedRowProps = {
   testimonyId: string;
-  question: string;
+  statement: string;
   answers: TestimonyAnswers;
   suspects: Dictionary<SuspectCardData>;
   addEntryToUpdate: (id: string, entry: TestimonyAnswers) => void;
@@ -24,7 +24,7 @@ export function TestimonyAnswerExpandedRow({
   suspects,
   addEntryToUpdate,
   testimonyId,
-  question,
+  statement,
 }: TestimonyAnswerExpandedRowProps) {
   const [cardWidth, ref] = useCardWidth(12, { maxWidth: 168 });
   const { queryParams, is } = useQueryParams({ sortSuspectsBy: 'answers' });
@@ -81,9 +81,9 @@ export function TestimonyAnswerExpandedRow({
         addEntryToUpdate={addEntryToUpdate}
         answers={answers}
         list={list}
-        question={question}
         selection={selection}
         setSelection={setSelection}
+        statement={statement}
         suspects={suspects}
         testimonyId={testimonyId}
       >
@@ -165,7 +165,7 @@ export function TestimonyAnswerExpandedRow({
 
 type BatchOptionsProps = {
   testimonyId: string;
-  question: string;
+  statement: string;
   selection: string[];
   setSelection: (selection: string[]) => void;
   suspects: Dictionary<SuspectCardData>;
@@ -176,7 +176,7 @@ type BatchOptionsProps = {
 };
 
 function BatchOptions({
-  question,
+  statement,
   testimonyId,
   selection,
   setSelection,
@@ -514,13 +514,13 @@ function BatchOptions({
             badge={{ count: selection.length, color: 'green', size: 'small' }}
             icon="👍"
             onClick={() => onApplyBatch(4)}
-            tooltip={{ title: question, placement: 'left' }}
+            tooltip={{ title: statement, placement: 'left' }}
           />
           <FloatButton
             badge={{ count: selection.length, color: 'red', size: 'small' }}
             icon="👎"
             onClick={() => onApplyBatch(-4)}
-            tooltip={{ title: question, placement: 'left' }}
+            tooltip={{ title: statement, placement: 'left' }}
           />
           <FloatButton
             icon={<ExpandOutlined />}

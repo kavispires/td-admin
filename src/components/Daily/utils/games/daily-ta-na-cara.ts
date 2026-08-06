@@ -9,9 +9,10 @@ import {
   testimoniesDeserializer,
 } from '@pages/Libraries/Testimonies/useTestimoniesResource';
 import { useQuery } from '@tanstack/react-query';
-import type { SuspectCardData, TestimonyQuestionCardData } from '@types';
+import type { SuspectCardData, TestimonyStatementCardData } from '@types';
 import { SEPARATOR } from '@utils/constants';
 import { makeBooleanDictionary } from '@utils/object';
+import { RESOURCES_NAMES } from '@utils/resources-list';
 import { orderBy, shuffle } from 'lodash';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
@@ -92,14 +93,20 @@ export const useDailyTaNaCaraGames = (
   // Fetch prerequisite data
   const [taNaCaraHistory] = useParsedHistory(DAILY_GAMES_KEYS.TA_NA_CARA, dailyHistory);
 
-  const suspectsQuery = useTDResource<SuspectCardData>('suspects', { enabled });
-  const testimoniesQuery = useTDResource<TestimonyQuestionCardData>(`testimony-questions-${queryLanguage}`, {
-    enabled,
-  });
-  const answersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>('testimony-answers', {
-    select: testimoniesDeserializer,
-    enabled,
-  });
+  const suspectsQuery = useTDResource<SuspectCardData>(RESOURCES_NAMES.SUSPECTS, { enabled });
+  const testimoniesQuery = useTDResource<TestimonyStatementCardData>(
+    `${RESOURCES_NAMES.TESTIMONY_STATEMENTS}-${queryLanguage}`,
+    {
+      enabled,
+    },
+  );
+  const answersQuery = useTDResource<TestimonyAnswers, Dictionary<string>>(
+    RESOURCES_NAMES.TESTIMONY_ANSWERS,
+    {
+      select: testimoniesDeserializer,
+      enabled,
+    },
+  );
 
   // Ensure all prerequisite data is available before generating
   const isReadyToGenerate =
@@ -172,7 +179,7 @@ export const buildDailyTaNaCaraGames = (
   batchSize: number,
   history: ParsedDailyHistoryEntry,
   allSuspectsIds: string[],
-  testimoniesDict: Dictionary<TestimonyQuestionCardData>,
+  testimoniesDict: Dictionary<TestimonyStatementCardData>,
   sortedTestimoniesCounts: ReturnType<typeof countTestimonyAnswers>,
   suspectDict: Dictionary<SuspectCardData>,
 ) => {
@@ -327,7 +334,7 @@ const buildTestimonyEntry = (
     counts: Dictionary<string[]>;
     totalAnswers?: number;
   },
-  testimony: TestimonyQuestionCardData,
+  testimony: TestimonyStatementCardData,
 ): TaNaCaraQuestion => {
   const suspectsIds = [
     ...shuffle(sortedCounts.counts[0]),
@@ -340,9 +347,11 @@ const buildTestimonyEntry = (
     .slice(0, SUSPECTS_SIZE)
     .map((id) => getSuspectImageId(id, 'gb'));
 
+  const parsedStatement = `${testimony.statement.charAt(0).toLowerCase()}${testimony.statement.slice(1)}`;
+
   return {
     testimonyId: testimony.id,
-    question: testimony.question,
+    question: `Quem aqui ${parsedStatement}?`,
     nsfw: !!testimony.nsfw,
     suspectsIds,
   };
@@ -370,7 +379,7 @@ const getTaNaCaraUsedDictionary = (previousHistory: string[]) => {
 };
 
 const countTestimonyAnswers = (
-  testimonies: Dictionary<TestimonyQuestionCardData>,
+  testimonies: Dictionary<TestimonyStatementCardData>,
   answers: Dictionary<TestimonyAnswers>,
   suspects: Dictionary<SuspectCardData>,
   mode: 'BUCKET_DISTRIBUTION' | 'TOTAL_ANSWERS',

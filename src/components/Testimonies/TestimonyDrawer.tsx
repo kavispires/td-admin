@@ -127,7 +127,7 @@ function SingleDrawerContent({ suspects, questions, answers, addEntryToUpdate }:
               className="text-center"
               level={5}
             >
-              {questions[state.testimonyId ?? '']?.question}
+              {questions[state.testimonyId ?? '']?.statement}
             </Typography.Title>
           </Flex>
         )}
@@ -336,9 +336,9 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
                     }}
                     options={Object.entries(questions).map(([id, question]) => ({
                       value: id,
-                      label: `${id} - ${question.question}`,
+                      label: `${id} - ${question.statement}`,
                     }))}
-                    placeholder="Type ID or question text..."
+                    placeholder="Type ID or statement text..."
                     showSearch
                     size="small"
                     style={{ width: 350 }}
@@ -351,7 +351,7 @@ function GroupDrawerContent({ suspects, questions, answers, addEntryToUpdate }: 
               className="text-center"
               level={4}
             >
-              {state.testimonyId} - {questions[state.testimonyId ?? '']?.question}
+              {state.testimonyId} - {questions[state.testimonyId ?? '']?.statement}
             </Typography.Title>
             <Flex
               gap={8}

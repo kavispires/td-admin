@@ -4,7 +4,7 @@ import type {
   MovieCardData,
   MovieGenres,
   SuspectCardData,
-  TestimonyQuestionCardData,
+  TestimonyStatementCardData,
 } from '@types';
 import { Button, Divider, Flex, Input, Space, Tag, Typography } from 'antd';
 import { cloneDeep, sample, sampleSize, shuffle } from 'lodash';
@@ -36,7 +36,7 @@ type FeatureFilmViewProps = {
   movieTitles: MovieCardData[];
   movieGenres: MovieGenres;
   movieActors: SuspectCardData[];
-  characterTraits: TestimonyQuestionCardData[];
+  characterTraits: TestimonyStatementCardData[];
   items: ItemData[];
   language: Language;
 };
@@ -130,7 +130,7 @@ const buildFeatureFilm = (
   movieTitles: MovieCardData[],
   movieGenres: MovieGenres,
   movieActors: SuspectCardData[],
-  characterTraits: TestimonyQuestionCardData[],
+  characterTraits: TestimonyStatementCardData[],
   items: ItemData[],
 ): FeatureFilm => {
   // Define title
@@ -186,7 +186,7 @@ const buildFeatureFilm = (
     return {
       ...role,
       actor: { ...selectedActors[index], id: getSuspectCTId(selectedActors[index].id) },
-      traits: shuffledTraits.splice(0, role.complexity).map((trait) => trait.answer),
+      traits: shuffledTraits.splice(0, role.complexity).map((trait) => trait.statement),
     };
   });
 

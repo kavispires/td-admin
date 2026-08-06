@@ -25,7 +25,7 @@ export const SEARCH_PROPERTY: Record<string, string> = {
   'single-words': 'text',
   'spy-locations': '',
   'spy-questions': '',
-  'testimony-questions': 'question',
+  'testimony-statements': 'statement',
   'thing-prompts': 'text',
   topics: 'text',
 };

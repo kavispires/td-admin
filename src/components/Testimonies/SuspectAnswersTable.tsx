@@ -148,8 +148,8 @@ export function SuspectAnswersTable({
             Testimonies by Suspect
           </Typography.Title>
           <DownloadButton
-            data={() => Object.values(questions).map(({ id, question }) => ({ id, question }))}
-            fileName={'newQuestions.json'}
+            data={() => Object.values(questions).map(({ id, statement }) => ({ id, statement }))}
+            fileName={'onlyQuestions.json'}
           />
         </Flex>
         <Flex

@@ -1,6 +1,7 @@
 import { useResourceFirestoreData } from '@hooks/useResourceFirestoreData';
 import { useTDResource } from '@hooks/useTDResource';
-import type { SuspectCardData, TestimonyQuestionCardData } from '@types';
+import type { SuspectCardData, TestimonyStatementCardData } from '@types';
+import { RESOURCES_NAMES } from '@utils/resources-list';
 
 /**
  * Values <suspectId, answers>
@@ -24,7 +25,7 @@ export type UseTestimoniesResourceReturnType = {
   isSuccess: boolean;
   error: ResponseError;
   data: Dictionary<TestimonyAnswers>;
-  questions: Dictionary<TestimonyQuestionCardData>;
+  questions: Dictionary<TestimonyStatementCardData>;
   suspects: Dictionary<SuspectCardData>;
   hasNewData: boolean;
   isSaving: boolean;
@@ -35,10 +36,12 @@ export type UseTestimoniesResourceReturnType = {
 };
 
 export function useTestimoniesResource(): UseTestimoniesResourceReturnType {
-  const suspectsQuery = useTDResource<SuspectCardData>('suspects');
-  const questionsQuery = useTDResource<TestimonyQuestionCardData>('testimony-questions-pt');
+  const suspectsQuery = useTDResource<SuspectCardData>(RESOURCES_NAMES.SUSPECTS);
+  const statementsQuery = useTDResource<TestimonyStatementCardData>(
+    `${RESOURCES_NAMES.TESTIMONY_STATEMENTS}-pt`,
+  );
   const dataQuery = useResourceFirestoreData<TestimonyAnswers, Dictionary<string>>({
-    tdrResourceName: 'testimony-answers',
+    tdrResourceName: RESOURCES_NAMES.TESTIMONY_ANSWERS,
     firestoreDataCollectionName: 'testimonies',
     serialize: true,
     deserializer: testimoniesDeserializer,
@@ -46,10 +49,10 @@ export function useTestimoniesResource(): UseTestimoniesResourceReturnType {
 
   return {
     ...dataQuery,
-    isLoading: dataQuery.isLoading || questionsQuery.isLoading || suspectsQuery.isLoading,
-    isSuccess: dataQuery.isSuccess && questionsQuery.isSuccess && suspectsQuery.isSuccess,
-    error: dataQuery.error || questionsQuery.error || suspectsQuery.error,
-    questions: questionsQuery.data,
+    isLoading: dataQuery.isLoading || statementsQuery.isLoading || suspectsQuery.isLoading,
+    isSuccess: dataQuery.isSuccess && statementsQuery.isSuccess && suspectsQuery.isSuccess,
+    error: dataQuery.error || statementsQuery.error || suspectsQuery.error,
+    questions: statementsQuery.data,
     suspects: suspectsQuery.data,
     hasNewData: dataQuery.hasFirestoreData,
   };

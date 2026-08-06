@@ -1453,12 +1453,12 @@ export type SuspectExtendedInfoData = {
 };
 
 /**
- * Internal use for MBTI in TestimonyQuestionCardData
+ * Internal use for MBTI in TestimonyStatementCardData
  */
 type MBTIType = 'E' | 'I' | 'N' | 'S' | 'F' | 'T' | 'J' | 'P';
 
 /**
- * Internal use for Zodiac Sign in TestimonyQuestionCardData
+ * Internal use for Zodiac Sign in TestimonyStatementCardData
  */
 type ZodiacSign =
   | 'Aries'
@@ -1475,7 +1475,7 @@ type ZodiacSign =
   | 'Pisces';
 
 /**
- * Internal use for Alignment in TestimonyQuestionCardData
+ * Internal use for Alignment in TestimonyStatementCardData
  */
 type AlignmentType =
   | 'lawful-good'
@@ -1489,7 +1489,7 @@ type AlignmentType =
   | 'chaotic-evil';
 
 /**
- * Dual Relation type used in TestimonyQuestionCardData to relate or unrelate MBTI, Zodiac and Alignment types
+ * Dual Relation type used in TestimonyStatementCardData to relate or unrelate MBTI, Zodiac and Alignment types
  */
 type DualRelation<T> = {
   related: T[];
@@ -1497,22 +1497,22 @@ type DualRelation<T> = {
 };
 
 /**
- * Testimony Question Card
- * Used for: testimony-questions
+ * Testimony Statement Card
+ * Used for: testimony-statements
  */
-export type TestimonyQuestionCardData = {
+export type TestimonyStatementCardData = {
   /**
    * Unique identifier for the card
    */
   id: UID;
   /**
-   * The testimony question text
+   * The testimony statement (prefixed with a third person pronoun in context)
    */
-  question: string;
+  statement: string;
   /**
-   * The testimony question in a form of a statement (that needs to be prefixed with a third person pronoun)
+   * The deck the statement is appropriate for (family-friendly, base, or adult/NSFW)
    */
-  answer: string;
+  deck: 'family' | 'default' | 'adult' | (string & NonNullable<unknown>);
   /**
    * The level of difficulty
    */
@@ -1522,16 +1522,16 @@ export type TestimonyQuestionCardData = {
    */
   nsfw?: boolean;
   /**
-   * Flag indicating if the question is deprecated and shouldn't be used in new testimonies
+   * Flag indicating if the statement is deprecated and shouldn't be used in new testimonies
    */
   deprecated?: boolean;
 };
 
 /**
- * Testimony Question Extended data
+ * Testimony Statement Extended data
  * Used for: testimony-extended-info
  */
-export type TestimonyQuestionExtendedData = {
+export type TestimonyStatementExtendedInfoData = {
   /**
    * Unique identifier for the card
    */

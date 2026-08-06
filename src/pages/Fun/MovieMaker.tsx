@@ -2,7 +2,6 @@ import { ResponseState } from '@components/Common';
 import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
 import { PageLayout } from '@components/Layout';
 import { PageSider } from '@components/Layout/PageSider';
-import { FeatureFilmView } from '@components/Movie/FeatureFilmView';
 import { FeatureFilmViewV2 } from '@components/Movie/FeatureFilmViewV2';
 import { useQueryParams } from '@hooks/useQueryParams';
 import { useTDResource, useTDResourceNonCollection } from '@hooks/useTDResource';
@@ -12,8 +11,9 @@ import type {
   MovieGenres,
   SuspectCardData,
   SuspectExtendedInfoData,
-  TestimonyQuestionCardData,
+  TestimonyStatementCardData,
 } from '@types';
+import { RESOURCES_NAMES } from '@utils/resources-list';
 import { Layout } from 'antd';
 
 function MovieMaker() {
@@ -22,15 +22,19 @@ function MovieMaker() {
   // Gather movie title
   const movieTitleQuery = useTDResource<MovieCardData>(`movies-${language}`);
   // Gather movie genres
-  const movieGenresQuery = useTDResourceNonCollection<MovieGenres>('movie-genres');
+  const movieGenresQuery = useTDResourceNonCollection<MovieGenres>(RESOURCES_NAMES.MOVIE_GENRES);
   // Gather movie actors
-  const movieActorsQuery = useTDResource<SuspectCardData>('suspects');
+  const movieActorsQuery = useTDResource<SuspectCardData>(RESOURCES_NAMES.SUSPECTS);
   // Gather extended info about suspects
-  const suspectsExtendedQuery = useTDResource<SuspectExtendedInfoData>('suspects-extended-info');
+  const suspectsExtendedQuery = useTDResource<SuspectExtendedInfoData>(
+    RESOURCES_NAMES.SUSPECTS_EXTENDED_INFO,
+  );
   // Gather character traits
-  const characterTraitsQuery = useTDResource<TestimonyQuestionCardData>(`testimony-questions-${language}`);
+  const characterTraitsQuery = useTDResource<TestimonyStatementCardData>(
+    `${RESOURCES_NAMES.TESTIMONY_STATEMENTS}-${language}`,
+  );
   // Gather items
-  const itemsQuery = useTDResource<ItemData>('items');
+  const itemsQuery = useTDResource<ItemData>(RESOURCES_NAMES.ITEMS);
 
   const hasResponseData =
     movieTitleQuery.hasResponseData &&

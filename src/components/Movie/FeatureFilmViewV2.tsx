@@ -5,7 +5,7 @@ import type {
   MovieGenres,
   SuspectCardData,
   SuspectExtendedInfoData,
-  TestimonyQuestionCardData,
+  TestimonyStatementCardData,
 } from '@types';
 import { Button, Divider, Flex, Input, Space, Tag, Typography } from 'antd';
 import _ from 'lodash';
@@ -41,7 +41,7 @@ type FeatureFilmViewProps = {
   movieGenres: MovieGenres;
   movieActors: Dictionary<SuspectCardData>;
   actorsExtendedInfo: Dictionary<SuspectExtendedInfoData>;
-  characterTraits: Dictionary<TestimonyQuestionCardData>;
+  characterTraits: Dictionary<TestimonyStatementCardData>;
   items: Dictionary<ItemData>;
   language: Language;
 };
@@ -154,7 +154,7 @@ export function generateFeatureFilm(
     genresData: MovieGenres;
     suspects: Record<string, SuspectCardData>;
     suspectsExtended: Record<string, SuspectExtendedInfoData>;
-    testimonies: Record<string, TestimonyQuestionCardData>;
+    testimonies: Record<string, TestimonyStatementCardData>;
     items: Record<string, ItemData>;
   },
 ): FeatureFilm {
@@ -197,7 +197,7 @@ export function generateFeatureFilm(
     const roleDef = db.genresData.roles[roleId];
     const actor = db.suspects[castKeys[index]];
     const extendedInfo = db.suspectsExtended[actor.id];
-    const traits = _.sampleSize(testimonyKeys, roleDef.complexity).map((k) => db.testimonies[k].answer);
+    const traits = _.sampleSize(testimonyKeys, roleDef.complexity).map((k) => db.testimonies[k].statement);
 
     return {
       actor,

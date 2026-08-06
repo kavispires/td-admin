@@ -5,7 +5,7 @@ import { useTableExpandableRows } from '@hooks/useTableExpandableRows';
 import { useTablePagination } from '@hooks/useTablePagination';
 import { useTDResource } from '@hooks/useTDResource';
 import type { useTestimoniesResource } from '@pages/Libraries/Testimonies/useTestimoniesResource';
-import type { TestimonyQuestionCardData, TestimonyQuestionExtendedData } from '@types';
+import type { TestimonyStatementCardData, TestimonyStatementExtendedInfoData } from '@types';
 import { RESOURCES_NAMES } from '@utils/resources-list';
 import {
   Button,
@@ -26,7 +26,7 @@ import { TestimonyAnswerExpandedRow } from './TestimonyAnswerExpandedRow';
 
 export type TestimoniesContentProps = ReturnType<typeof useTestimoniesResource>;
 
-type RowData = TestimonyQuestionCardData & { answersCount: number };
+type RowData = TestimonyStatementCardData & { answersCount: number };
 
 export function TestimoniesTable({
   data,
@@ -39,7 +39,7 @@ export function TestimoniesTable({
   const { queryParams, addParam } = useQueryParams();
   const [searchQuery, setSearchQuery] = useState('');
   // Get Testimonies Extended Info
-  const testimoniesExtendedInfoQuery = useTDResource<TestimonyQuestionExtendedData>(
+  const testimoniesExtendedInfoQuery = useTDResource<TestimonyStatementExtendedInfoData>(
     RESOURCES_NAMES.TESTIMONIES_EXTENDED_INFO,
   );
   const testimoniesExtendedData = testimoniesExtendedInfoQuery.data ?? {};
@@ -62,7 +62,7 @@ export function TestimoniesTable({
     }
     return entriesRowData.filter(
       (item) =>
-        item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.statement.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.id.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }, [entriesRowData, searchQuery]);
@@ -78,15 +78,15 @@ export function TestimoniesTable({
     },
     {
       title: 'Question',
-      dataIndex: 'question',
-      key: 'question',
-      render: (question, record) => (
+      dataIndex: 'statement',
+      key: 'statement',
+      render: (statement, record) => (
         <div>
-          {question}
+          {statement}
           {record.deprecated && <Tag color="error">Deprecated</Tag>}
         </div>
       ),
-      sorter: (a, b) => a.question.localeCompare(b.question),
+      sorter: (a, b) => a.statement.localeCompare(b.statement),
     },
     {
       title: 'NSFW',
@@ -159,7 +159,7 @@ export function TestimoniesTable({
         addEntryToUpdate={addEntryToUpdate}
         answers={data[record.id] ?? {}}
         key={record.id}
-        question={record.question}
+        statement={record.statement}
         suspects={suspects}
         testimonyId={record.id}
       />
