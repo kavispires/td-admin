@@ -10,6 +10,7 @@ export const DECK_OPTIONS = [
 
 export const AGE_OPTIONS = [
   '0-10',
+  '15-18',
   '18-21',
   '21-30',
   '30-40',
@@ -18,6 +19,7 @@ export const AGE_OPTIONS = [
   '60-70',
   '70-80',
   '80-90',
+  '0',
 ].map((v) => ({
   label: v,
   value: v,
@@ -27,6 +29,9 @@ export const GENDER_OPTIONS = [
   { label: 'Male', value: 'male' },
   { label: 'Female', value: 'female' },
   { label: 'Non-binary', value: 'non-binary' },
+  { label: 'Transgender', value: 'transgender' },
+  { label: 'Fluid', value: 'fluid' },
+  { label: 'None', value: 'none' },
   { label: 'Other', value: 'other' },
 ];
 
@@ -107,6 +112,7 @@ export const SEXUAL_ORIENTATION_OPTIONS = [
   { label: 'Gay', value: 'gay' },
   { label: 'Bisexual', value: 'bisexual' },
   { label: 'Other', value: 'other' },
+  { label: 'Unknown', value: 'unknown' },
 ];
 
 export const EDUCATION_LEVEL_OPTIONS = [
@@ -114,12 +120,14 @@ export const EDUCATION_LEVEL_OPTIONS = [
   { label: 'Basic', value: 'basic' },
   { label: 'College', value: 'college' },
   { label: 'High Education', value: 'high' },
+  { label: 'Unknown', value: 'unknown' },
 ];
 
 export const ECONOMIC_CLASS_OPTIONS = [
   { label: 'Lower', value: 'lower' },
   { label: 'Middle', value: 'middle' },
   { label: 'Upper', value: 'upper' },
+  { label: 'Unknown', value: 'unknown' },
 ];
 
 export const FEATURES_BY_GROUP = [

@@ -157,6 +157,31 @@ export function SuspectDrawer({
                 value={suspect.deck}
               />
             </Flex>
+
+            <Flex
+              gap={4}
+              vertical
+            >
+              <TextField
+                defaultValue={suspect.persona?.pt || ''}
+                label="Persona in PT"
+                prefix={<span>🇧🇷</span>}
+                suspect={suspect}
+                suspectId={suspect.id}
+                updater={addSuspectEntryToUpdate}
+                valueKey="persona.pt"
+              />
+
+              <TextField
+                defaultValue={suspect.persona?.en || ''}
+                label="Persona in EN"
+                prefix={<span>🇺🇸</span>}
+                suspect={suspect}
+                suspectId={suspect.id}
+                updater={addSuspectEntryToUpdate}
+                valueKey="persona.en"
+              />
+            </Flex>
           </Flex>
         </div>
         {drawerTab === 'Basic' && (
@@ -447,38 +472,17 @@ function SuspectExtendedInfoForm({
             suspectExtendedInfo={suspectExtendedInfo}
           />
         </Typography.Title>
-        <Flex
-          gap={4}
-          vertical
-        >
-          <Typography.Text strong>Persona</Typography.Text>
-          <TextField
-            defaultValue={suspectExtendedInfo.persona?.pt || ''}
-            label="Persona in PT"
-            prefix={<span>🇧🇷</span>}
-            suspect={suspectExtendedInfo}
-            suspectId={suspect.id}
-            updater={addExtendedInfoEntryToUpdate}
-            valueKey="persona.pt"
-          />
-
-          <TextField
-            defaultValue={suspectExtendedInfo.persona?.en || ''}
-            label="Persona in EN"
-            prefix={<span>🇺🇸</span>}
-            suspect={suspectExtendedInfo}
-            suspectId={suspect.id}
-            updater={addExtendedInfoEntryToUpdate}
-            valueKey="persona.en"
-          />
-        </Flex>
 
         <Flex
           gap={4}
           vertical
         >
           <Typography.Text strong>
-            Prompt <DescriptionPromptButton extendedInfo={suspectExtendedInfo} />
+            Prompt{' '}
+            <DescriptionPromptButton
+              extendedInfo={suspectExtendedInfo}
+              suspect={suspect}
+            />
           </Typography.Text>
           <TextField
             defaultValue={suspectExtendedInfo?.prompt || ''}

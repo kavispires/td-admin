@@ -202,7 +202,7 @@ export function generateFeatureFilm(
     return {
       actor,
       traits,
-      persona: extendedInfo?.persona || { en: 'Character', pt: 'Personagem' },
+      persona: actor?.persona || { en: 'Character', pt: 'Personagem' },
       id: roleDef.id,
       title: roleDef.title,
       description: roleDef.description,

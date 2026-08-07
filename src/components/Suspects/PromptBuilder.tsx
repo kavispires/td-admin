@@ -118,14 +118,19 @@ export function PromptButton({ suspect, extendedInfo }: PromptButtonProps) {
   );
 }
 
-export function DescriptionPromptButton({ extendedInfo }: { extendedInfo: SuspectExtendedInfoData }) {
+type DescriptionPromptButtonProps = {
+  suspect: SuspectCardData;
+  extendedInfo: SuspectExtendedInfoData;
+};
+
+export function DescriptionPromptButton({ suspect, extendedInfo }: DescriptionPromptButtonProps) {
   const copyToClipboard = useCopyToClipboardFunction();
 
   const handleClick = () => {
     let prompt = '';
 
-    if (extendedInfo.persona.en) {
-      prompt += `This one is: "${extendedInfo.persona.en}" `;
+    if (suspect.persona.en) {
+      prompt += `This one is: "${suspect.persona.en}" `;
     }
 
     prompt += `Here is some info about the character: ${extendedInfo?.prompt}`;

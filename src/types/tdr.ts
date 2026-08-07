@@ -9,7 +9,7 @@
 
 export type UID = string;
 export type Language = 'en' | 'pt';
-export type DualLanguageValue = { en: string; pt: string };
+export type DualLanguageValue<T = string> = { en: T; pt: T };
 export type DateMilliseconds = number;
 
 // ==========================================
@@ -1284,6 +1284,11 @@ export type MovieGenres = {
 export type SuspectStyleVariant = 'gb' | 'rl' | 'px' | 'fx' | (string & NonNullable<unknown>);
 
 /**
+ * Enforces a format like "85|-2|0.8" or "85|-2"
+ */
+type SuspectPackedTransformString = `${number}|${number}|${number}` | `${number}|${number}`;
+
+/**
  * Suspect Card
  * Used for: suspects
  */
@@ -1297,13 +1302,24 @@ export type SuspectCardData = {
    */
   name: DualLanguageValue;
   /**
+   * Descriptive label of the suspect representing their persona
+   */
+  persona: DualLanguageValue;
+  /**
    * The deck the suspect belongs to
    */
   deck: 'adult' | 'kid' | 'pet' | 'teen' | 'other' | (string & NonNullable<unknown>);
   /**
    * The gender of the suspect
    */
-  gender: 'male' | 'female' | (string & NonNullable<unknown>);
+  gender:
+    | 'male'
+    | 'female'
+    | 'transgender'
+    | 'none'
+    | 'non-binary'
+    | 'fluid'
+    | (string & NonNullable<unknown>);
   /**
    * The race of the suspect
    */
@@ -1343,6 +1359,12 @@ export type SuspectCardData = {
    */
   features: string[];
   /**
+   * Packed coordinates for dynamic name placement on the Polaroid.
+   * Format: <y>|<angle>|<size> (separated by a pipe).
+   * @example "85|-2|0.8"
+   */
+  labelTransform?: SuspectPackedTransformString;
+  /**
    * Flag indicating if the suspect is exclusive to the gb style
    */
   gbExclusive?: true | boolean;
@@ -1358,10 +1380,6 @@ export type SuspectExtendedInfoData = {
    * Unique identifier for the card that matches its SuspectCard equivalent
    */
   id: UID;
-  /**
-   * Descriptive label of the suspect representing their persona
-   */
-  persona: DualLanguageValue;
   /**
    * AI prompt descriptor
    */
@@ -1453,12 +1471,12 @@ export type SuspectExtendedInfoData = {
 };
 
 /**
- * Internal use for MBTI in TestimonyStatementCardData
+ * Internal use for MBTI in TestimonyQuestionCardData
  */
 type MBTIType = 'E' | 'I' | 'N' | 'S' | 'F' | 'T' | 'J' | 'P';
 
 /**
- * Internal use for Zodiac Sign in TestimonyStatementCardData
+ * Internal use for Zodiac Sign in TestimonyQuestionCardData
  */
 type ZodiacSign =
   | 'Aries'
@@ -1475,7 +1493,7 @@ type ZodiacSign =
   | 'Pisces';
 
 /**
- * Internal use for Alignment in TestimonyStatementCardData
+ * Internal use for Alignment in TestimonyQuestionCardData
  */
 type AlignmentType =
   | 'lawful-good'

@@ -33,7 +33,6 @@ export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedI
       const parsed = JSON.parse(value);
       // Check if parse values has any keys not in SuspectExtendedInfoData
       const allowedKeys = [
-        'persona',
         'prompt',
         'description',
         'animal',

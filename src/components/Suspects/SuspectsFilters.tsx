@@ -237,6 +237,7 @@ function prepareSuspectFileForDownload(data: Dictionary<SuspectCardData>) {
     'age',
     'height',
     'build',
+    'persona',
     'features',
     'gbExclusive',
   ]);
@@ -265,10 +266,6 @@ export function prepareExtendedInfoFileForDownload(
         data[suspectId] = {
           id: suspectId,
           prompt: '',
-          persona: {
-            en: '',
-            pt: '',
-          },
           description: '',
           animal: '',
           occupation: '',
@@ -288,7 +285,6 @@ export function prepareExtendedInfoFileForDownload(
   return sortJsonKeys(data, [
     'id',
     'prompt',
-    'persona',
     'description',
     'animal',
     'occupation',

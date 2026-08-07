@@ -367,29 +367,29 @@ export function SuspectsListing({
                       🇧🇷 <Typography.Text copyable>{entry.name.pt}</Typography.Text>
                     </div>
                     <Typography.Paragraph
-                      className={clsx({ 'missing-value': !extendedEntry.persona?.pt })}
+                      className={clsx({ 'missing-value': !entry.persona?.pt })}
                       ellipsis={{
-                        tooltip: extendedEntry.persona?.pt,
+                        tooltip: entry.persona?.pt,
                       }}
                       italic
                       style={{ marginBottom: 0 }}
                       type="secondary"
                     >
-                      <small>{extendedEntry.persona?.pt || '-'}</small>
+                      <small>{entry.persona?.pt || '-'}</small>
                     </Typography.Paragraph>
                     <div style={{ backgroundColor: !entry.name.en ? 'red' : 'transparent' }}>
                       🇺🇸 <Typography.Text copyable>{entry.name.en}</Typography.Text>
                     </div>
                     <Typography.Paragraph
-                      className={clsx({ 'missing-value': !extendedEntry.persona?.pt })}
+                      className={clsx({ 'missing-value': !entry.persona?.en })}
                       ellipsis={{
-                        tooltip: extendedEntry.persona?.en,
+                        tooltip: entry.persona?.en,
                       }}
                       italic
                       style={{ marginBottom: 0 }}
                       type="secondary"
                     >
-                      <small>{extendedEntry.persona?.en || '-'}</small>
+                      <small>{entry.persona?.en || '-'}</small>
                     </Typography.Paragraph>
 
                     <div
