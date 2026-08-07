@@ -1,6 +1,7 @@
 import {
   AppstoreOutlined,
   BarsOutlined,
+  CodeOutlined,
   ColumnHeightOutlined,
   ColumnWidthOutlined,
   EditFilled,
@@ -11,6 +12,7 @@ import {
   MessageFilled,
   WomanOutlined,
 } from '@ant-design/icons';
+import { TransparentButton } from '@components/Common';
 import { IdTag } from '@components/Common/IdTag';
 import { useCardWidth } from '@hooks/useCardWidth';
 import { useQueryParams } from '@hooks/useQueryParams';
@@ -21,12 +23,13 @@ import { wait } from '@utils/time';
 import { Button, Flex, Image, Segmented, Space, Switch, Table, Tag, Tooltip, Typography } from 'antd';
 import type { TableProps } from 'antd/lib';
 import clsx from 'clsx';
-import { orderBy, truncate } from 'lodash';
+import { orderBy } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import { ActiveExtendedInfoSwitch, ExtendedInfoFilterBar } from './ExtendedInfoFilterBar';
 import { ActiveFeatureSwitch, FeaturesFilterBar } from './FeaturesFilterBar';
 import { FEATURES_BY_GROUP } from './options';
 import { PromptBuilder, PromptButton } from './PromptBuilder';
+import { SuspectLabelTransformEditorModal } from './SuspectCard';
 import { SuspectDrawer } from './SuspectDrawer';
 import { SuspectImageCard } from './SuspectImageCard';
 import { useInferFieldsFromTestimonies } from './useInferFieldsFromTestimonies';
@@ -308,6 +311,7 @@ export function SuspectsListing({
           </Button>
         </Flex>
       </Flex>
+      <SuspectLabelTransformEditorModal suspectsQuery={suspectsQuery} />
 
       <Image.PreviewGroup>
         {view === 'cards' && (
@@ -326,11 +330,14 @@ export function SuspectsListing({
                   key={entry.id}
                   style={{ width: `${cardWidth}px` }}
                 >
-                  <SuspectImageCard
-                    cardId={entry.id}
-                    cardWidth={cardWidth}
-                    className="suspect__image"
-                  />
+                  <TransparentButton onClick={() => addParam('editLabelId', entry.id)}>
+                    <SuspectImageCard
+                      cardId={entry.id}
+                      cardWidth={cardWidth}
+                      className="suspect__image"
+                      preview={false}
+                    />
+                  </TransparentButton>
 
                   <div className="suspect__name">
                     <Flex
@@ -347,6 +354,12 @@ export function SuspectsListing({
                           <MessageFilled style={{ color: 'red' }} />
                         </Tooltip>
                       )}
+                      {!entry.labelTransform ||
+                        (entry.labelTransform === '0|0' && (
+                          <Tooltip title="Missing label transform">
+                            <CodeOutlined style={{ color: 'red' }} />
+                          </Tooltip>
+                        ))}
                       {!!extendedEntry.animal && (
                         <Tooltip title={`Animal: ${extendedEntry.animal}`}>
                           <GitlabFilled style={{ color: 'sandybrown' }} />

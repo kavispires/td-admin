@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { deserializeFirestoreData, serializeFirestoreData } from '@utils/firestore';
 import { App } from 'antd';
-import { cloneDeep, isEmpty } from 'lodash';
+import { cloneDeep, isEmpty, isEqual, omit } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useGetFirestoreDoc } from './useGetFirestoreDoc';
 import { useTDResource } from './useTDResource';
@@ -106,9 +106,28 @@ export function useResourceFirestoreData<
   const isDirty = !isEmpty(modifiedEntries);
 
   const addEntryToUpdate = (id: string, item: TDRData) => {
-    const updatedItem =
-      item && typeof item === 'object' && 'updatedAt' in item ? { ...item, updatedAt: Date.now() } : item;
-    setModifiedEntries((prev) => ({ ...prev, [id]: updatedItem as TDRData }));
+    setModifiedEntries((prev) => {
+      const previousItem = prev[id];
+
+      const updatedItem =
+        item && typeof item === 'object' && 'updatedAt' in item ? { ...item, updatedAt: Date.now() } : item;
+
+      const isSameValue =
+        previousItem &&
+        typeof previousItem === 'object' &&
+        updatedItem &&
+        typeof updatedItem === 'object' &&
+        'updatedAt' in previousItem &&
+        'updatedAt' in updatedItem
+          ? isEqual(omit(previousItem, ['updatedAt']), omit(updatedItem, ['updatedAt']))
+          : isEqual(previousItem, updatedItem);
+
+      if (isSameValue) {
+        return prev;
+      }
+
+      return { ...prev, [id]: updatedItem as TDRData };
+    });
   };
 
   const firestoreData = firestoreQuery.data;

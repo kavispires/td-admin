@@ -1,0 +1,16 @@
+.dynamicCard {
+  position: relative;
+  // This is the magic property. It tells the browser:
+  // "Treat this element as a boundary for container queries."
+  container-type: size;
+  border-radius: var(--border-radius, 8px); // Fallback if variable is missing
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.dynamicCardItem {
+  position: absolute;
+  // We apply absolute positioning here, but leave top/left/transform
+  // to the React component's inline styles so they are highly customizable.
+}
