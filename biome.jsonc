@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.2/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.7/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -7,14 +7,16 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**/src/**",
+    "includes": [
+      "**/src/**",
       "!**/node_modules",
       "!**/dist",
       "!**/coverage",
       "!**/public",
       "!**/build",
       "!**/out",
-      "!**/lib"]
+      "!**/lib"
+    ]
   },
   "formatter": {
     "attributePosition": "multiline",
