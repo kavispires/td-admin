@@ -286,6 +286,7 @@ export function SuspectsListing({
           ]}
         />
       </Flex>
+
       <Space style={{ position: 'sticky', top: 0, background: 'black', zIndex: 1, width: '100%' }}>
         <FeaturesFilterBar /> <ExtendedInfoFilterBar />
       </Space>
