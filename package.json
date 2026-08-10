@@ -32,7 +32,6 @@
     "vite": "^8.0.8",
     "vite-plugin-commonjs": "^0.10.4",
     "vite-plugin-svgr": "^5.2.0",
-    "vite-tsconfig-paths": "^6.1.1",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
@@ -88,6 +87,6 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "vite-plugin-checker": "^0.13.0",
-    "vitest": "^4.1.4"
+    "vitest": "^4.1.10"
   }
 }

@@ -1465,7 +1465,7 @@ export type SuspectExtendedInfoData = {
    */
   educationLevel: 'none' | 'basic' | 'college' | 'high' | (string & NonNullable<unknown>);
   /**
-   * Personality traits of the suspect (e.g. religious, athletic, artistic, drunk, gamer, foodie, etc.)
+   * Tags for the suspect (e.g. religious, athletic, artistic, drunk, gamer, foodie, etc.)
    */
   tags: string[];
 };
