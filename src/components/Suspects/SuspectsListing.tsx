@@ -26,6 +26,7 @@ import clsx from 'clsx';
 import { orderBy } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import { ActiveExtendedInfoSwitch, ExtendedInfoFilterBar } from './ExtendedInfoFilterBar';
+import { ActiveExtendedTagSwitch, ExtendedTagsFilterBar } from './ExtendedTagsFilterBar';
 import { ActiveFeatureSwitch, FeaturesFilterBar } from './FeaturesFilterBar';
 import { FEATURES_BY_GROUP } from './options';
 import { PromptBuilder, PromptButton } from './PromptBuilder';
@@ -52,6 +53,7 @@ export function SuspectsListing({
   const cardsPerRow = Number(queryParams.get('cardsPerRow')) || 10;
   const activeFeature = queryParams.get('activeFeature') || '';
   const activeExtendedInfo = queryParams.get('activeExtendedInfo') || '';
+  const activeTag = queryParams.get('activeTag') || '';
   // Suspect id just to 'key' the drawer
   const suspectId = queryParams.get('suspectId');
 
@@ -288,7 +290,8 @@ export function SuspectsListing({
       </Flex>
 
       <Space style={{ position: 'sticky', top: 0, background: 'black', zIndex: 1, width: '100%' }}>
-        <FeaturesFilterBar /> <ExtendedInfoFilterBar />
+        <FeaturesFilterBar /> <ExtendedInfoFilterBar />{' '}
+        <ExtendedTagsFilterBar suspectsExtendedInfo={extendedInfo} />
       </Space>
 
       <Flex
@@ -457,6 +460,12 @@ export function SuspectsListing({
 
                     <ActiveExtendedInfoSwitch
                       activeExtendedInfo={activeExtendedInfo}
+                      addEntryToUpdate={suspectsExtendedInfoQuery.addEntryToUpdate}
+                      entry={extendedEntry}
+                    />
+
+                    <ActiveExtendedTagSwitch
+                      activeTag={activeTag}
                       addEntryToUpdate={suspectsExtendedInfoQuery.addEntryToUpdate}
                       entry={extendedEntry}
                     />

@@ -7,12 +7,20 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**/src/**"]
+    "includes": ["**/src/**",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/coverage",
+      "!**/public",
+      "!**/build",
+      "!**/out",
+      "!**/lib"]
   },
   "formatter": {
     "attributePosition": "multiline",
     "bracketSpacing": true,
     "enabled": true,
+    "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",

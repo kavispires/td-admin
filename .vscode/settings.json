@@ -20,5 +20,6 @@
     "sider",
     "tanstack",
     "Tchan"
-  ]
+  ],
+  "editor.formatOnSave": true
 }
