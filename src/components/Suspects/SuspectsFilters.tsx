@@ -273,7 +273,7 @@ export function prepareExtendedInfoFileForDownload(
           ethnicity: '',
           economicClass: '',
           educationLevel: '',
-          traits: [],
+          tags: [],
           mbti: '',
           zodiacSign: '',
           alignment: '',
@@ -292,6 +292,6 @@ export function prepareExtendedInfoFileForDownload(
     'ethnicity',
     'economicClass',
     'educationLevel',
-    'traits',
+    'tags',
   ]);
 }

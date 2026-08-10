@@ -41,7 +41,7 @@ export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedI
         'ethnicity',
         'economicClass',
         'educationLevel',
-        'traits',
+        'tags',
       ];
       const hasInvalidKeys = Object.keys(parsed).some((key) => !allowedKeys.includes(key));
       if (hasInvalidKeys) {
@@ -97,11 +97,11 @@ export function AddDataModal({ suspect, suspectExtendedInfo, addSuspectExtendedI
             Only include the fields you want to add or update for this suspect. For example:
             <pre>
               {`{
-  "occupation": "Detective",
-  "traits": ["Brave", "Clever"]
-}`}
+                  "occupation": "Detective",
+                  "tags": ["Introverted", "Clever"]
+                }`}
             </pre>
-            This will update the occupation and traits fields for the suspect.
+            This will update the occupation and tags fields for the suspect.
           </Collapse.Panel>
         </Collapse>
 

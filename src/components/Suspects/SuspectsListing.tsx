@@ -71,9 +71,9 @@ export function SuspectsListing({
 
   const personalityOptions = useMemo(() => {
     const set = Object.values(extendedInfo).reduce((acc, info) => {
-      if (info.traits) {
-        info.traits.forEach((trait) => {
-          acc.add(trait);
+      if (info.tags) {
+        info.tags.forEach((tag) => {
+          acc.add(tag);
         });
       }
       return acc;
@@ -432,11 +432,11 @@ export function SuspectsListing({
                       </div>
                       <div
                         className={clsx({
-                          'missing-value': !extendedEntry?.traits?.length,
+                          'missing-value': !extendedEntry?.tags?.length,
                           'missing-value-alt': !extendedEntry?.description,
                         })}
                       >
-                        {extendedEntry?.traits?.length ?? 0} traits
+                        {extendedEntry?.tags?.length ?? 0} tags
                       </div>
                     </div>
                     <Button

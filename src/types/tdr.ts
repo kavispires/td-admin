@@ -1467,7 +1467,7 @@ export type SuspectExtendedInfoData = {
   /**
    * Personality traits of the suspect (e.g. religious, athletic, artistic, drunk, gamer, foodie, etc.)
    */
-  traits: string[];
+  tags: string[];
 };
 
 /**

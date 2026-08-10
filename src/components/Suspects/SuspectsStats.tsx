@@ -72,10 +72,10 @@ export function SuspectsStats({
     return mergeSuspectsData(physical, extended);
   }, [suspectsQuery.data, suspectsExtendedInfoQuery.data]);
 
-  const { totalFeatures, totalTraits } = useMemo(() => {
+  const { totalFeatures, totalTags } = useMemo(() => {
     return {
       totalFeatures: new Set(mergedData.flatMap((suspect) => suspect.features || [])).size,
-      totalTraits: new Set(mergedData.flatMap((suspect) => suspect.traits || [])).size,
+      totalTags: new Set(mergedData.flatMap((suspect) => suspect.tags || [])).size,
     };
   }, [mergedData]);
 
@@ -95,7 +95,7 @@ export function SuspectsStats({
       gender: getDistribution(mergedData, 'gender'),
       build: getDistribution(mergedData, 'build'),
       height: getDistribution(mergedData, 'height'),
-      traits: getTopArrayItems(mergedData, 'traits'),
+      tags: getTopArrayItems(mergedData, 'tags'),
       deck: getDistribution(mergedData, 'deck'),
       animals: getDistribution(mergedData, 'animal').slice(0, 5),
       nameInitials: getNameInitialStats(mergedData),
@@ -147,8 +147,8 @@ export function SuspectsStats({
           >
             <Statistic
               styles={{ content: { color: '#c74a68' } }}
-              title={<span style={{ color: '#888' }}>Total Traits</span>}
-              value={totalTraits}
+              title={<span style={{ color: '#888' }}>Total Tags</span>}
+              value={totalTags}
             />
           </Card>
         </Col>
@@ -689,14 +689,14 @@ export function SuspectsStats({
           </Card>
         </Col>
 
-        {/* Personality Traits Bar */}
+        {/* Personality Tags Bar */}
         <Col
           lg={8}
           xs={24}
         >
           <Card
             style={cardStyle}
-            title="Dominant Personality Traits"
+            title="Dominant Personality Tags"
             variant="borderless"
           >
             <ResponsiveContainer
@@ -704,7 +704,7 @@ export function SuspectsStats({
               width="100%"
             >
               <BarChart
-                data={charts.traits}
+                data={charts.tags}
                 layout="vertical"
                 margin={{ left: 20 }}
               >

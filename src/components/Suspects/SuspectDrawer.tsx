@@ -627,13 +627,13 @@ function SuspectExtendedInfoForm({
           gap={4}
           vertical
         >
-          <Typography.Text strong>Traits</Typography.Text>
+          <Typography.Text strong>Tags</Typography.Text>
           <Select
-            defaultValue={suspectExtendedInfo.traits ?? []}
+            defaultValue={suspectExtendedInfo.tags ?? []}
             mode="tags"
-            onChange={(traits) => updateExtendedKeyValue(suspect.id, 'traits', traits.sort())}
+            onChange={(tags) => updateExtendedKeyValue(suspect.id, 'tags', tags.sort())}
             options={personalityOptions.map((trait) => ({ label: trait, value: trait }))}
-            placeholder="Traits"
+            placeholder="Tags"
             size="small"
             style={{ width: '100%' }}
           />
