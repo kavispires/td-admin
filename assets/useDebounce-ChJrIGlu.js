@@ -1,0 +1,1 @@
+import{Ji as e,Zi as t}from"./Header-DT702hSG.js";import{n}from"./SaveButton-D7Qs5c3D.js";var r=t(e());function i(e,t,i){t===void 0&&(t=0),i===void 0&&(i=[]);var a=n(e,t),o=a[0],s=a[1],c=a[2];return(0,r.useEffect)(c,i),[o,s]}export{i as t};

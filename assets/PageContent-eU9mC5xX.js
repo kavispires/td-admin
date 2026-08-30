@@ -1,0 +1,1 @@
+import{v as e}from"./Header-DT702hSG.js";import{K as t}from"./index-BGm3l9qZ.js";var n=e();function r({children:e,className:r,vertical:i=!0,...a}){return(0,n.jsx)(t,{className:`full-width py-4 ${r}`,gap:12,vertical:i,...a,children:e})}export{r as t};

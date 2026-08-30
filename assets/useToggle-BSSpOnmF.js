@@ -1,0 +1,1 @@
+import{Ji as e,Zi as t}from"./Header-DT702hSG.js";var n=t(e()),r=function(e,t){return typeof t==`boolean`?t:!e},i=function(e){return(0,n.useReducer)(r,e)};export{i as t};

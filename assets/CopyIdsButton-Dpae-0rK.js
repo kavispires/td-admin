@@ -1,1 +1,0 @@
-import{v as e}from"./Header-B5mObaPy.js";import{o as t,r as n}from"./input-D9cAoWht.js";import{t as r}from"./useCopyToClipboardFunction-7BjxQE48.js";var i=e();function a({ids:e}){let a=r();return(0,i.jsx)(n,{orientation:`vertical`,size:`small`,children:(0,i.jsx)(t,{onClick:()=>a(JSON.stringify(e)),size:`small`,children:`Copy Ids`})})}export{a as t};
