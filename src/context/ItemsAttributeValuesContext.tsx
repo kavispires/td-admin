@@ -146,19 +146,19 @@ export const ItemsAttributeValuesProvider = ({ children }: ItemsAttributeValuesP
 
       if (direction === 'incomplete') {
         setItemIndex((prev) => {
-          let index = prev + 1;
-          while (index < sortedAvailableItemsIds.length) {
+          const total = sortedAvailableItemsIds.length;
+
+          for (let offset = 1; offset <= total; offset++) {
+            const index = (prev + offset) % total;
             const item = getItemAttributeValues(sortedAvailableItemsIds[index]);
+            console.log(item);
+
             if (Object.keys(item.attributes).length !== attributesList.length) {
-              // TODO: Account for filtered attributes in qp
               return index;
             }
-            if (index === sortedAvailableItemsIds.length - 1) {
-              message.info('No more incomplete items found.');
-              return prev;
-            }
-            index++;
           }
+
+          message.info('No more incomplete items found.');
           return prev;
         });
         return;

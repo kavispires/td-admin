@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { sign } from 'crypto';
 // Components
 import { DEFAULT_PADDING, DEFAULT_SPRITE_SIZE, Sprite } from './Sprite';
 
@@ -39,7 +40,12 @@ export function AlienSign({
       className={clsx('sprite', className)}
       style={{ ...rest.style, width: `${width}px`, height: `${width}px`, ...divPadding }}
     >
-      <Sprite padding={padding} source="alien-signs" spriteId={`sign-${signId}`} width={width} />
+      <Sprite
+        padding={padding}
+        source="alien-signs"
+        spriteId={String(signId).startsWith('sign') ? String(signId) : `sign-${signId}`}
+        width={width}
+      />
     </div>
   );
 }
@@ -53,5 +59,13 @@ export function AlienSignSprite({
   ...props
 }: Pick<AlienSignProps, 'signId' | 'width'> & ElementProps) {
   const id = String(signId).startsWith('sign') ? String(signId) : `sign-${signId}`;
-  return <Sprite padding={0} source="alien-signs" spriteId={id} width={width} {...props} />;
+  return (
+    <Sprite
+      padding={0}
+      source="alien-signs"
+      spriteId={id}
+      width={width}
+      {...props}
+    />
+  );
 }
