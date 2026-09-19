@@ -6,7 +6,7 @@ import { useTDResource } from '@hooks/useTDResource';
 import { useQuery } from '@tanstack/react-query';
 import type { DailyDiagramItemData, DailyDiagramRuleData } from '@types';
 import { shuffle } from 'lodash';
-import { DAILY_GAMES_KEYS } from '../constants';
+import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
 import { checkWeekend, getNextDay } from '../utils';
 import { debugDailyStore } from './debug-daily';
@@ -296,7 +296,7 @@ export const buildDailyConjuntosGames = (
       const attemptedPairs = new Set<string>();
 
       // Search for valid rule pair satisfying all constraints
-      while (attempts < 100 && !found) {
+      while (attempts < ATTEMPTS_THRESHOLD && !found) {
         attempts++;
 
         // Select from front of queue to prioritize fresh rules
@@ -305,6 +305,10 @@ export const buildDailyConjuntosGames = (
         const r2 = availableRules[Math.floor(Math.random() * poolSize)];
 
         if (!r1 || !r2 || r1.id === r2.id) continue;
+
+        // Rules of the same type (e.g. contains vs contains) would produce a redundant
+        // "X vs X" title, so require rule1 and rule2 to have different types
+        if (r1.type === r2.type) continue;
 
         // Skip already tested pairs
         const pairKey = [r1.id, r2.id].sort().join('-');
@@ -348,7 +352,9 @@ export const buildDailyConjuntosGames = (
       }
 
       if (!found || !selectedRule1 || !selectedRule2) {
-        errors.push(`Could not find a valid combination for entry ${i + 1} after 100 attempts.`);
+        errors.push(
+          `Could not find a valid combination for entry ${i + 1} after ${ATTEMPTS_THRESHOLD} attempts.`,
+        );
         continue;
       }
 
