@@ -731,8 +731,13 @@ export function generatePuzzle(
     } else {
       exactLiars = pickRandom([3, 4]);
     }
-    const variance = pickRandom([-1, 0, 0, 1]);
-    possibleLiars = Math.max(0, exactLiars + variance);
+    // With 4+ liars, never show a "possible liars" count different from the actual one
+    if (exactLiars >= 4) {
+      possibleLiars = exactLiars;
+    } else {
+      const variance = pickRandom([-1, 0, 0, 1]);
+      possibleLiars = Math.max(0, exactLiars + variance);
+    }
   }
 
   if (difficultyOverride === 3) {
@@ -744,12 +749,15 @@ export function generatePuzzle(
     } else {
       exactLiars = pickRandom([2, 3, 4]);
 
-      if (exactLiars === 2) {
+      // With 4+ liars, never show a "possible liars" count different from the actual one
+      if (exactLiars >= 4) {
+        possibleLiars = exactLiars;
+      } else if (exactLiars === 2) {
         // For 2 liars, variance ranges from -2 to +2
         const variance = pickRandom([-2, -1, 0, 0, 1, 2]);
         possibleLiars = Math.max(0, exactLiars + variance);
       } else {
-        // For 3 or 4 liars, variance ranges from -1 to +1
+        // For 3 liars, variance ranges from -1 to +1
         const variance = pickRandom([-1, -1, 0, 1, 1]);
         possibleLiars = Math.max(0, exactLiars + variance);
       }
@@ -765,6 +773,9 @@ export function generatePuzzle(
   // Precompute combinations once
   const possibleCulpritCombos = getCombinations(activeKids, numCulprits);
   const possibleLiarCombos = getCombinations(activeKids, exactLiars);
+  // If the displayed "possible liars" count differs from the actual liar count, precompute
+  // its combinations too so we can verify no valid solution exists using that decoy count
+  const decoyLiarCombos = possibleLiars !== exactLiars ? getCombinations(activeKids, possibleLiars) : null;
 
   let attempts = 0;
 
@@ -813,6 +824,15 @@ export function generatePuzzle(
     const solution = solvePuzzle(activeKids, kidStatements, possibleCulpritCombos, possibleLiarCombos);
 
     if (solution.validSolutionsCount === 1) {
+      // The displayed "possible liars" count must be a red herring: reject the puzzle if it can
+      // also be solved using that (different) number of liars, which would make it ambiguous
+      if (decoyLiarCombos) {
+        const decoySolution = solvePuzzle(activeKids, kidStatements, possibleCulpritCombos, decoyLiarCombos);
+        if (decoySolution.validSolutionsCount > 0) {
+          continue;
+        }
+      }
+
       const stmtInstances = kidStatements.map((ks) => ks.stmt);
       const puzzleId = encodePuzzleId(activeKids, exactLiars, possibleLiars, stmtInstances);
 
