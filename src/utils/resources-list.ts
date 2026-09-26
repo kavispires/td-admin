@@ -104,6 +104,7 @@ export const ALL_RESOURCES_LIST = [
   'testimony-answers',
   'testimony-statements-en',
   'testimony-statements-pt',
+  'theme-item-groups',
   'theme-words-en',
   'theme-words-pt',
   'thing-prompts-en',
@@ -204,6 +205,7 @@ export const RESOURCES_NAMES = {
   TESTIMONIES_EXTENDED_INFO: 'testimonies-extended-info',
   TESTIMONY_ANSWERS: 'testimony-answers',
   TESTIMONY_STATEMENTS: 'testimony-statements',
+  THEME_ITEM_GROUPS: 'theme-item-groups',
   THEME_WORDS: 'theme-words',
   THING_PROMPTS: 'thing-prompts',
   THINGS_QUALITIES: 'things-qualities',
@@ -262,6 +264,7 @@ export const DUAL_LANGUAGE_RESOURCES = [
   RESOURCES_NAMES.TEENAGE_STUDENTS,
   RESOURCES_NAMES.TESTIMONIES_EXTENDED_INFO,
   RESOURCES_NAMES.TESTIMONY_ANSWERS,
+  RESOURCES_NAMES.THEME_ITEM_GROUPS,
   RESOURCES_NAMES.WAREHOUSE_BOSS_IDEAS,
 ] as const;
 
