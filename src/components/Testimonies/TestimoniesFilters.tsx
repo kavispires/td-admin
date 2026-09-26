@@ -203,23 +203,47 @@ export function TestimoniesFilters({
 }
 
 async function prepareFileForDownload(localData: Dictionary<TestimonyAnswers>, wipeIds: string[]) {
-  console.log('Preparing file for download...');
+  console.log('Preparing file for download...', localData);
 
   const firebaseRawData = await getDocQueryFunction<Dictionary<string>>('data', 'testimonies')();
-  const parsedData = deserializeFirestoreData<TestimonyAnswers>(firebaseRawData);
+  // Parse the raw data into { [userId]: { [questionKey]: { [suspectId]: TestimonyAnswersValues[] } } }
+  // Note: this is keyed by userId first, inverted compared to `localData` (keyed by questionKey first)
+  const parsedData = deserializeFirestoreData<Dictionary<string>>(firebaseRawData);
 
   console.log('Parsed data from Firestore:', parsedData);
+
+  // Transpose into the question-keyed shape used everywhere else in this function:
+  // { [questionKey]: { [userId]: TestimonyAnswersValues[] } }
+  const serverData: Dictionary<TestimonyAnswers> = {};
+
+  Object.values(parsedData).forEach((testimonySuspectAnswers) => {
+    Object.entries(testimonySuspectAnswers).forEach(([questionKey, answersBySuspectsStr]) => {
+      if (!serverData[questionKey]) {
+        serverData[questionKey] = {};
+      }
+      // Merge answersBySuspects into serverData[questionKey]
+      const parsedSuspectAnswers: TestimonyAnswers = JSON.parse(answersBySuspectsStr);
+      Object.entries(parsedSuspectAnswers).forEach(([suspectId, values]) => {
+        if (!serverData[questionKey][suspectId]) {
+          serverData[questionKey][suspectId] = [];
+        }
+        serverData[questionKey][suspectId].push(...values.map((v) => v * 3));
+      });
+    });
+  });
+
+  console.log('Transposed server data:', serverData);
 
   const results: Dictionary<Dictionary<string>> = {};
 
   // 1. Get all unique Question IDs from both Local and Server data
   // This prevents deleting questions that exist on the server but not locally
-  const allQuestionKeys = uniq([...Object.keys(localData), ...Object.keys(parsedData)]);
+  const allQuestionKeys = uniq([...Object.keys(localData), ...Object.keys(serverData)]);
 
   allQuestionKeys.forEach((questionKey) => {
     results[questionKey] = {};
     const localEntry = localData[questionKey] || {};
-    const serverEntry = parsedData[questionKey] || {};
+    const serverEntry = serverData[questionKey] || {};
 
     // 2. Get all unique Suspect IDs for this question from both sources
     const allSuspectIds = uniq([...Object.keys(localEntry), ...Object.keys(serverEntry)]);

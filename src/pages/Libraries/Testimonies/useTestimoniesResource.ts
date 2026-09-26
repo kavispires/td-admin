@@ -12,7 +12,7 @@ import { RESOURCES_NAMES } from '@utils/resources-list';
  * 4 = Auto-grouped four 1s
  * -4 = Auto-grouped four 0s
  */
-export type TestimonyAnswersValues = -1 | 1 | 0 | 4 | -4 | -8 | 8 | 32 | -32;
+export type TestimonyAnswersValues = -1 | 1 | 0 | 4 | -4 | -8 | 8 | 32 | -32 | number;
 
 /**
  * Dictionary of suspect IDs to their corresponding testimony answers.
