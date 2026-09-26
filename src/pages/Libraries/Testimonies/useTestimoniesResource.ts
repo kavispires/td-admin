@@ -5,14 +5,15 @@ import { RESOURCES_NAMES } from '@utils/resources-list';
 
 /**
  * Values <suspectId, answers>
- * 0 = Does not fit
- * 1 = Fits
- * 3 = For sure fits (set by system)
- * -3 = For sure does not fit (set by system)
- * 4 = Auto-grouped four 1s
- * -4 = Auto-grouped four 0s
+ * -1 = Does not fit (regular vote)
+ * 1 = Fits (regular vote)
+ * -4 = Curated "Unfit" (manually set by an admin)
+ * 4 = Curated "Fit" (manually set by an admin)
+ * -32 = Curated "Unsure" (manually set by an admin, deterministic)
+ * 32 = Curated "Sure" (manually set by an admin, deterministic)
+ * Any other number = normalized sum of regular votes (see `normalizeValues`)
  */
-export type TestimonyAnswersValues = -1 | 1 | 0 | 4 | -4 | -8 | 8 | 32 | -32 | number;
+export type TestimonyAnswersValues = -1 | 1 | 4 | -4 | 32 | -32 | number;
 
 /**
  * Dictionary of suspect IDs to their corresponding testimony answers.

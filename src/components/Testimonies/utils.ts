@@ -131,74 +131,106 @@ export const calculateSuspectAnswersData = (
   };
 };
 
+/** Reserved marker values that carry a special, non-summable meaning. */
+const KEY_VALUES = [4, -4, 32, -32];
+/** Magnitude ceiling applied to summed values when the two sides diverge too much. */
+const CAP = 31;
+/** Difference (between the remaining positive/negative sums) above which the cap kicks in. */
+const CAP_DIFF_THRESHOLD = 13;
+
 /**
- * Normalizes an array of testimony answer values according to specific rules.
+ * Reduces a computed sum that happens to land exactly on a reserved marker value (4, -4, 32, -32)
+ * by 1 towards zero, pushing the removed unit into a separate +1/-1 padding entry so the total
+ * weight is preserved. This avoids ambiguity between a "real" curated marker and a coincidental
+ * sum, while leaving sums that don't collide untouched.
  *
- * This function processes an array of testimony values, specifically handling values 0 and 1 in a special way:
- * - Values that are not 0 or 1 are kept as is
- * - Values of 0 and 1 are grouped:
- *   - For every 4 occurrences of 0, a -4 is added to the result
- *   - For every 4 occurrences of 1, a 4 is added to the result
- *   - Any remaining 0s or 1s after grouping are kept as is
+ * @param sum - Computed sum for one polarity (all positive or all negative)
+ * @returns Array with either the untouched sum, the sum split into a reduced value plus padding, or nothing (if the sum is 0)
+ */
+const splitIfCollidesWithKeyValue = (sum: number): number[] => {
+  if (sum === 0) return [];
+  if (!KEY_VALUES.includes(sum)) return [sum];
+
+  const padding = sum > 0 ? 1 : -1;
+  return [sum - padding, padding];
+};
+
+/**
+ * Normalizes an array of testimony answer values.
  *
- * The function returns a sorted array of the normalized values.
+ * - `32`/`-32` ("Sure"/"Unsure") are always kept untouched, one entry per occurrence: they are
+ *   never folded into any sum.
+ * - `4`/`-4` ("Fit"/"Unfit", curated by an admin) are reserved one per polarity (if present) as
+ *   untouched markers. Any additional `4`s/`-4`s beyond the first are folded into the regular sum.
+ * - Every other value (regular `1`/`-1` votes, extra `4`/`-4`s, and any other magnitude) is summed,
+ *   separately for positive and negative.
+ * - If a computed sum lands exactly on a reserved marker value (`4`, `-4`, `32`, `-32`), it is
+ *   split via `splitIfCollidesWithKeyValue` to avoid ambiguity with the marker's meaning.
+ * - Otherwise, if the absolute difference between the (remaining) positive and negative sums
+ *   exceeds `CAP_DIFF_THRESHOLD`, each sum is lossily capped to `+/-CAP` (excess is discarded).
+ * - Legacy `0` values are treated the same as `-1` ("does not fit").
+ *
+ * The final array places the reserved markers first (`32`, `-32`, `4`, `-4`, whichever are
+ * present), followed by the computed sums and any padding values, ascending.
  *
  * @param arr - Array of testimony answer values to normalize
- * @returns Sorted array of normalized testimony answer values
- * @throws Error if an unexpected value is encountered in the input array
+ * @returns Normalized array of testimony answer values
  *
  * @example
- * Returns [-4, 2, 3, 4]
- * normalizeValues([0, 0, 0, 0, 1, 1, 1, 1, 2, 3])
+ * normalizeValues([1, 1, 1, 1, 4]) // => [4, 1, 3]
+ * @example
+ * normalizeValues([1, 1, 4, 4, 4]) // => [4, 10]
+ * @example
+ * normalizeValues([-1, 4, 4, 4, 4, 4, 4, 4, 8]) // => [4, -1, 1, 31]
+ * @example
+ * normalizeValues([-4, -4, -7, -12, -1, 4, 4, 4, 4, 4, 4, 4, 8]) // => [-4, 4, -24, 1, 31]
  */
 export default function normalizeValues(arr: TestimonyAnswersValues[]): TestimonyAnswersValues[] {
-  // Convert all 0 values to -1 for easier processing
+  // Legacy encoding: 0 means "does not fit", same polarity as -1
   const processed = arr.map((v) => (v === 0 ? -1 : v));
 
-  // Keep all -32 and 32 as is
-  // Keep all 4 and -4 as is
-  const final: number[] = arr.filter((v) => v === -32 || v === 32 || v === 4 || v === -4);
+  // 32/-32 ("Sure"/"Unsure"): always kept untouched, one entry per occurrence
+  const sureMarkers = processed.filter((v) => v === 32 || v === -32);
 
-  // Process -1 and 1 values
-  const ones = processed.filter((v) => v === -1 || v === 1);
+  // 4/-4 ("Fit"/"Unfit"): reserve exactly one of each polarity (if present) as an untouched marker
+  const hasFitMarker = processed.includes(4);
+  const hasUnfitMarker = processed.includes(-4);
 
-  // This should be done just now because after the first time everything
-  const others = processed
-    .filter((v) => ![-32, 32, 4, -4, -1, 1].includes(v))
-    .flatMap((v) => {
-      return Array.from({ length: Math.abs(v) }, () => (v > 0 ? 1 : -1));
-    });
+  // Everything else (regular votes, extra 4/-4s beyond the reserved one, other magnitudes) is summed
+  const remaining = [...processed];
+  if (hasFitMarker) remaining.splice(remaining.indexOf(4), 1);
+  if (hasUnfitMarker) remaining.splice(remaining.indexOf(-4), 1);
+  const toSum = remaining.filter((v) => v !== 32 && v !== -32);
 
-  const allOnes = [...ones, ...others].sort((a, b) => a - b);
+  const rawPositiveSum = toSum.filter((v) => v > 0).reduce((acc, v) => acc + v, 0);
+  const rawNegativeSum = toSum.filter((v) => v < 0).reduce((acc, v) => acc + v, 0);
 
-  /// From allOnes, every the THRESHOLD -1s become a -THRESHOLD, every THRESHOLD 1s become a +THRESHOLD, the reminder stay as is
-  const counts: { [-1]: number; 1: number } = {
-    '-1': 0,
-    '1': 0,
-  };
+  // Collision-avoidance always takes priority over the general cap: an exact match against a
+  // reserved marker (e.g. a raw sum of exactly 32) must be split before any capping happens,
+  // otherwise the lossy cap would silently swallow it with no padding.
+  const collidesPositive = KEY_VALUES.includes(rawPositiveSum);
+  const collidesNegative = KEY_VALUES.includes(rawNegativeSum);
 
-  allOnes.forEach((v) => {
-    if (v === -1 || v === 1) {
-      counts[v] += 1;
-    }
-  });
+  const diff = Math.abs(Math.abs(rawPositiveSum) - Math.abs(rawNegativeSum));
+  const shouldCap = diff > CAP_DIFF_THRESHOLD;
 
-  const THRESHOLD = 8;
+  const positiveResult = collidesPositive
+    ? splitIfCollidesWithKeyValue(rawPositiveSum)
+    : splitIfCollidesWithKeyValue(shouldCap ? Math.min(rawPositiveSum, CAP) : rawPositiveSum);
+  const negativeResult = collidesNegative
+    ? splitIfCollidesWithKeyValue(rawNegativeSum)
+    : splitIfCollidesWithKeyValue(shouldCap ? Math.max(rawNegativeSum, -CAP) : rawNegativeSum);
 
-  for (const [key, value] of Object.entries(counts)) {
-    const groups = Math.floor(value / THRESHOLD);
-    const remainder = value % THRESHOLD;
+  const sortedKeyMarkers = [
+    ...sureMarkers.filter((v) => v === 32),
+    ...sureMarkers.filter((v) => v === -32),
+    ...(hasFitMarker ? [4] : []),
+    ...(hasUnfitMarker ? [-4] : []),
+  ];
 
-    for (let i = 0; i < groups; i++) {
-      final.push(key === '-1' ? -THRESHOLD : THRESHOLD);
-    }
-    if (remainder > 0) {
-      const remainderArr = Array.from({ length: remainder }, () => (key === '-1' ? -1 : 1));
-      final.push(...remainderArr);
-    }
-  }
+  const sumsAndPadding = [...positiveResult, ...negativeResult].sort((a, b) => a - b);
 
-  return final.sort((a, b) => a - b) as TestimonyAnswersValues[];
+  return [...sortedKeyMarkers, ...sumsAndPadding] as TestimonyAnswersValues[];
 }
 
 /**

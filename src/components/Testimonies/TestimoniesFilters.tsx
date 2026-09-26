@@ -203,7 +203,7 @@ export function TestimoniesFilters({
 }
 
 async function prepareFileForDownload(localData: Dictionary<TestimonyAnswers>, wipeIds: string[]) {
-  console.log('Preparing file for download...', localData);
+  console.log('Preparing file for download...');
 
   const firebaseRawData = await getDocQueryFunction<Dictionary<string>>('data', 'testimonies')();
   // Parse the raw data into { [userId]: { [questionKey]: { [suspectId]: TestimonyAnswersValues[] } } }
@@ -286,6 +286,7 @@ async function prepareFileForDownload(localData: Dictionary<TestimonyAnswers>, w
 
   // 4. Wipe specified IDs
   if (wipeIds.length > 0) {
+    console.log('Warning: About to wipe specified question ID answers');
     console.log('Wiping IDs:', wipeIds);
 
     wipeIds.forEach((wipeId) => {
