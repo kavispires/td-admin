@@ -22,30 +22,37 @@ import type { DateKey, UseDailyGeneratorResponse } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
 type GamesEntries = {
-  'arte-ruim': DailyArteRuimEntry;
-  'aqui-o': DailyAquiOEntry;
-  alienado: DailyAlienadoEntry;
-  investigacao: DailyInvestigacaoEntry;
-  filmaco: DailyFilmacoEntry;
-  mapeamento: DailyMapeamentoEntry;
-  organiku: DailyOrganikuEntry;
-  palavreado: DailyPalavreadoEntry;
-  portais: DailyPortaisEntry;
-  quartetos: DailyQuartetosEntry;
-  conjuntos: DailyConjuntosEntry;
-  vitral: DailyVitralEntry;
-  pirralhos: DailyPirralhosEntry;
-  // Contributions
-  picaco: DailyPicacoEntry;
-  'ta-na-cara': DailyTaNaCaraEntry;
+  'arte-ruim'?: DailyArteRuimEntry;
+  'aqui-o'?: DailyAquiOEntry;
+  alienado?: DailyAlienadoEntry;
+  investigacao?: DailyInvestigacaoEntry;
+  filmaco?: DailyFilmacoEntry;
+  mapeamento?: DailyMapeamentoEntry;
+  organiku?: DailyOrganikuEntry;
+  palavreado?: DailyPalavreadoEntry;
+  portais?: DailyPortaisEntry;
+  quartetos?: DailyQuartetosEntry;
+  conjuntos?: DailyConjuntosEntry;
+  vitral?: DailyVitralEntry;
+  pirralhos?: DailyPirralhosEntry;
+};
+
+type ContributionsEntries = {
+  picaco?: DailyPicacoEntry;
+  'ta-na-cara'?: DailyTaNaCaraEntry;
 };
 
 export type DailyEntry = {
   id: DateKey;
   // Games
+  challenges: GamesEntries;
+  //
+  contributions: ContributionsEntries;
   // Additional info
-  dictionary: Dictionary<string>;
-} & GamesEntries;
+  metadata?: {
+    dictionary?: Dictionary<string>;
+  };
+};
 
 // Extracted the history payload type from our standard response
 type HistoryPayload = UseDailyGeneratorResponse<GamesEntries[keyof GamesEntries]>['historyUpdate'];
@@ -157,29 +164,34 @@ export function useLoadDailySetup(
       const dailyEntry: DailyEntry = {
         id,
         // Games
-        'arte-ruim': arteRuim.entries[id],
-        'aqui-o': aquiO.entries[id],
-        alienado: alienado.entries[id],
-        investigacao: investigacao.entries[id],
-        filmaco: filmaco.entries[id],
-        organiku: organiku.entries[id],
-        palavreado: palavreado.entries[id],
-        portais: portais.entries[id],
-        quartetos: quartetos.entries[id],
-        conjuntos: conjuntos.entries[id],
-        vitral: vitral.entries[id],
-        mapeamento: mapeamento.entries[id],
-        pirralhos: pirralhos.entries[id],
+        challenges: {
+          'arte-ruim': arteRuim.entries[id],
+          'aqui-o': aquiO.entries[id],
+          alienado: alienado.entries[id],
+          investigacao: investigacao.entries[id],
+          filmaco: filmaco.entries[id],
+          organiku: organiku.entries[id],
+          palavreado: palavreado.entries[id],
+          portais: portais.entries[id],
+          quartetos: quartetos.entries[id],
+          conjuntos: conjuntos.entries[id],
+          vitral: vitral.entries[id],
+          mapeamento: mapeamento.entries[id],
+          pirralhos: pirralhos.entries[id],
+        },
         // Contributions
-        picaco: picaco.entries[id],
-        'ta-na-cara': taNaCara.entries[id],
+        contributions: {
+          picaco: picaco.entries[id],
+          'ta-na-cara': taNaCara.entries[id],
+        },
         // Additional info
-        dictionary: {},
+        metadata: {},
       };
 
       // Generate dictionary for the entry
       // Using fallback `{}` in case items are still loading so it doesn't crash
-      dailyEntry.dictionary = generateItemNamesDictionary(dailyEntry, tdrItemsQuery.data ?? {});
+      dailyEntry.metadata = dailyEntry.metadata ?? {};
+      dailyEntry.metadata.dictionary = generateItemNamesDictionary(dailyEntry, tdrItemsQuery.data ?? {});
 
       return dailyEntry;
     });
@@ -340,21 +352,21 @@ export function useLoadDailySetup(
     entries.forEach((entry) => {
       if (
         !entry.id ||
-        !entry['arte-ruim'] ||
-        !entry['aqui-o'] ||
-        !entry.alienado ||
-        !entry.investigacao ||
-        !entry.filmaco ||
-        !entry.organiku ||
-        !entry.palavreado ||
-        !entry.portais ||
-        !entry.quartetos ||
-        !entry.conjuntos ||
-        !entry.vitral ||
-        !entry.mapeamento ||
-        !entry.pirralhos ||
-        !entry.picaco ||
-        !entry['ta-na-cara']
+        !entry.challenges?.['arte-ruim'] ||
+        !entry.challenges?.['aqui-o'] ||
+        !entry.challenges?.alienado ||
+        !entry.challenges?.investigacao ||
+        !entry.challenges?.filmaco ||
+        !entry.challenges?.organiku ||
+        !entry.challenges?.palavreado ||
+        !entry.challenges?.portais ||
+        !entry.challenges?.quartetos ||
+        !entry.challenges?.conjuntos ||
+        !entry.challenges?.vitral ||
+        !entry.challenges?.mapeamento ||
+        !entry.challenges?.pirralhos ||
+        !entry.contributions?.picaco ||
+        !entry.contributions?.['ta-na-cara']
       ) {
         missing.push(entry.id);
       }
@@ -383,7 +395,7 @@ const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemDa
   const dictionary: Dictionary<string> = {};
 
   // Gather Aqui Ó items
-  entry['aqui-o']?.itemsIds?.forEach((itemId) => {
+  entry.challenges?.['aqui-o']?.itemsIds?.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;
@@ -391,13 +403,14 @@ const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemDa
   });
 
   // Gather Alienado items
-  entry.alienado?.itemsIds?.forEach((itemId) => {
+  entry.challenges?.alienado?.itemsIds?.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;
     }
   });
-  entry.alienado?.attributes?.forEach((attribute) => {
+
+  entry.challenges?.alienado?.attributes?.forEach((attribute) => {
     attribute.itemsIds.forEach((itemId) => {
       const item = items[itemId];
       if (item) {
@@ -407,7 +420,7 @@ const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemDa
   });
 
   // Gather Filmaço items
-  entry.filmaco?.itemsIds?.forEach((itemId) => {
+  entry.challenges?.filmaco?.itemsIds?.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;
@@ -415,7 +428,7 @@ const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemDa
   });
 
   // Gather Quartetos items
-  entry.quartetos?.grid?.forEach((itemId) => {
+  entry.challenges?.quartetos?.grid?.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;
@@ -423,7 +436,7 @@ const generateItemNamesDictionary = (entry: DailyEntry, items: Dictionary<ItemDa
   });
 
   // Gather Organiku items
-  entry.organiku?.itemsIds?.forEach((itemId) => {
+  entry.challenges?.organiku?.itemsIds?.forEach((itemId) => {
     const item = items[itemId];
     if (item) {
       dictionary[itemId] = item.name.pt;

@@ -5,11 +5,10 @@ import { ImageCard } from '@components/Images/ImageCard';
 import { AlienSign, Item } from '@components/Sprites';
 import { SuspectImageCard } from '@components/Suspects/SuspectImageCard';
 import type { ArteRuimCardData } from '@types';
-import { Alert, Button, Checkbox, Flex, Popover, Space, type TableColumnsType, Tag, Typography } from 'antd';
-import clsx from 'clsx';
+import { Alert, Button, Flex, Popover, Space, type TableColumnsType, Tag, Typography } from 'antd';
 import { format, parseISO } from 'date-fns';
 import { truncate } from 'lodash';
-import { type ReactNode, useState } from 'react';
+import type { ReactNode } from 'react';
 import type { DailyEntry } from './hooks';
 
 function EntryCell({ children }: { children: ReactNode }) {
@@ -35,7 +34,7 @@ function GameInfo({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-function GamePopover({ children, entry }: { children: ReactNode; entry: DailyEntry[keyof DailyEntry] }) {
+function GamePopover({ children, entry }: { children: ReactNode; entry: unknown }) {
   return (
     <Popover
       content={children}
@@ -66,9 +65,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Alienado',
-    dataIndex: 'alienado',
+    dataIndex: ['challenges', 'alienado'],
     key: 'alienado',
-    render: (entry: DailyEntry['alienado']) => {
+    render: (entry: DailyEntry['challenges']['alienado']) => {
       if (!entry) {
         return (
           <Alert
@@ -118,9 +117,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Aqui O',
-    dataIndex: 'aqui-o',
+    dataIndex: ['challenges', 'aqui-o'],
     key: 'aqui-o',
-    render: (entry: DailyEntry['aqui-o']) => {
+    render: (entry: DailyEntry['challenges']['aqui-o']) => {
       if (!entry) {
         return (
           <Alert
@@ -161,9 +160,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Arte Ruim',
-    dataIndex: 'arte-ruim',
+    dataIndex: ['challenges', 'arte-ruim'],
     key: 'arte-ruim',
-    render: (entry: DailyEntry['arte-ruim']) => {
+    render: (entry: DailyEntry['challenges']['arte-ruim']) => {
       if (!entry) {
         return (
           <Alert
@@ -213,9 +212,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Conjuntos',
-    dataIndex: 'conjuntos',
+    dataIndex: ['challenges', 'conjuntos'],
     key: 'conjuntos',
-    render: (entry: DailyEntry['conjuntos']) => {
+    render: (entry: DailyEntry['challenges']['conjuntos']) => {
       if (!entry) {
         return (
           <Alert
@@ -275,9 +274,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Filmaço',
-    dataIndex: 'filmaco',
+    dataIndex: ['challenges', 'filmaco'],
     key: 'filmaco',
-    render: (entry: DailyEntry['filmaco']) => {
+    render: (entry: DailyEntry['challenges']['filmaco']) => {
       if (!entry) {
         return (
           <Alert
@@ -316,9 +315,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Investigação',
-    dataIndex: 'investigacao',
+    dataIndex: ['challenges', 'investigacao'],
     key: 'investigacao',
-    render: (entry: DailyEntry['investigacao']) => {
+    render: (entry: DailyEntry['challenges']['investigacao']) => {
       if (!entry) {
         return (
           <Alert
@@ -397,9 +396,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Mapeamento',
-    dataIndex: 'mapeamento',
+    dataIndex: ['challenges', 'mapeamento'],
     key: 'mapeamento',
-    render: (entry: DailyEntry['mapeamento']) => {
+    render: (entry: DailyEntry['challenges']['mapeamento']) => {
       if (!entry) {
         return (
           <Alert
@@ -436,9 +435,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Organiku',
-    dataIndex: 'organiku',
+    dataIndex: ['challenges', 'organiku'],
     key: 'organiku',
-    render: (entry: DailyEntry['organiku']) => {
+    render: (entry: DailyEntry['challenges']['organiku']) => {
       if (!entry) {
         return (
           <Alert
@@ -481,9 +480,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Palavreado',
-    dataIndex: 'palavreado',
+    dataIndex: ['challenges', 'palavreado'],
     key: 'palavreado',
-    render: (entry) => {
+    render: (entry: DailyEntry['challenges']['palavreado']) => {
       if (!entry) {
         return (
           <Alert
@@ -523,9 +522,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Pirralhos',
-    dataIndex: 'pirralhos',
+    dataIndex: ['challenges', 'pirralhos'],
     key: 'pirralhos',
-    render: (entry: DailyEntry['pirralhos']) => {
+    render: (entry: DailyEntry['challenges']['pirralhos']) => {
       if (!entry) {
         return (
           <Alert
@@ -579,9 +578,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Portais',
-    dataIndex: 'portais',
+    dataIndex: ['challenges', 'portais'],
     key: 'portais',
-    render: (entry: DailyEntry['portais']) => {
+    render: (entry: DailyEntry['challenges']['portais']) => {
       if (!entry) {
         return (
           <Alert
@@ -632,9 +631,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Quartetos',
-    dataIndex: 'quartetos',
+    dataIndex: ['challenges', 'quartetos'],
     key: 'quartetos',
-    render: (entry: DailyEntry['quartetos']) => {
+    render: (entry: DailyEntry['challenges']['quartetos']) => {
       if (!entry) {
         return (
           <Alert
@@ -677,9 +676,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Vitral',
-    dataIndex: 'vitral',
+    dataIndex: ['challenges', 'vitral'],
     key: 'vitral',
-    render: (entry: DailyEntry['vitral']) => {
+    render: (entry: DailyEntry['challenges']['vitral']) => {
       if (!entry) {
         return (
           <Alert
@@ -716,9 +715,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Picaço',
-    dataIndex: 'picaco',
+    dataIndex: ['contributions', 'picaco'],
     key: 'picaco',
-    render: (entry: DailyEntry['picaco']) => {
+    render: (entry: DailyEntry['contributions']['picaco']) => {
       if (!entry) {
         return (
           <Alert
@@ -753,9 +752,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
   },
   {
     title: 'Tá Na Cara',
-    dataIndex: 'ta-na-cara',
+    dataIndex: ['contributions', 'ta-na-cara'],
     key: 'ta-na-cara',
-    render: (entry: DailyEntry['ta-na-cara']) => {
+    render: (entry: DailyEntry['contributions']['ta-na-cara']) => {
       if (!entry) {
         return (
           <Alert
