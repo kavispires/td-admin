@@ -1,0 +1,1 @@
+import{h as e,l as t,m as n}from"./Layout-CM6n3Y7t.js";import{t as r}from"./useMutation-BYCT6NXD.js";function i(r,i,a){return console.log(`%cUpdating ${r}/${i} from firebase`,`color: #f00`),n(e(t,`${r}/${i}`),a)}function a(e,t,n={}){return r({mutationFn:async n=>i(e,t,n),...n})}export{a as t};

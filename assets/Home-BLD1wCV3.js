@@ -1,0 +1,1 @@
+import{_ as e,k as t,v as n}from"./Header-DT702hSG.js";import{r}from"./Layout-CM6n3Y7t.js";import{x as i}from"./index-BMAi42fo.js";var a=n();function o(){return(0,a.jsx)(r,{title:`TD Admin`,children:(0,a.jsx)(t.Content,{className:`content-center`,children:(0,a.jsx)(i,{alt:`logo`,className:`home-logo`,preview:!1,src:e,width:512})})})}export{o as default};
