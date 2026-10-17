@@ -688,7 +688,7 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
         );
       }
 
-      const { number, title, pieces } = entry;
+      const { number, title, pieces, cardId, cardsIds = [] } = entry;
 
       return (
         <EntryCell>
@@ -703,10 +703,20 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
               style={{ maxWidth: '300px' }}
               wrap
             >
-              <ImageCard
-                cardId={entry.cardId}
-                cardWidth={75}
-              />
+              {cardsIds.length > 0 ? (
+                cardsIds.map((id) => (
+                  <ImageCard
+                    cardId={id}
+                    cardWidth={75}
+                    key={id}
+                  />
+                ))
+              ) : (
+                <ImageCard
+                  cardId={cardId}
+                  cardWidth={75}
+                />
+              )}
             </Flex>
           </GamePopover>
         </EntryCell>

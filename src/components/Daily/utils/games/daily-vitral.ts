@@ -4,10 +4,10 @@ import { useParsedHistory } from '@components/Daily/hooks/useParsedHistory';
 import { useTDResource } from '@hooks/useTDResource';
 import { useQuery } from '@tanstack/react-query';
 import type { ImageCardDescriptorData } from '@types';
-import { sample, shuffle } from 'lodash';
+import { sample, sampleSize, shuffle } from 'lodash';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
-import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
-import { getDayOfTheWeek, getNextDay } from '../utils';
+import type { DailyHistory, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
+import { checkWeekend, getDayOfTheWeek, getNextDay } from '../utils';
 import { debugDailyStore } from './debug-daily';
 
 export type Point = {
@@ -45,26 +45,37 @@ export type PieceState = Point & {
 
 export type DailyVitralEntry = {
   /**
-   * Date-based identifier (YYYY-MM-DD)
+   * Today's daily challenge id (a date string).
    */
-  id: DateKey;
+  id: string;
   /**
-   * Daily puzzle number
+   * Sequential challenge number shown to the player.
    */
   number: number;
+  /**
+   * Discriminator for Vitral payloads.
+   */
   type: 'vitral';
   /**
-   * Image title in Portuguese
+   * Title of the artwork being reassembled.
    */
   title: string;
   /**
-   * Image card identifier
+   * Image card id used to build the source artwork URL.
    */
   cardId: string;
   /**
-   * Shuffled piece indices (derangement: no piece at correct position)
+   * Piece ids shuffled into the starting board order.
    */
   pieces: number[];
+  /**
+   * Number of columns in the starting board layout. (default is 3)
+   */
+  columns?: 3 | 4;
+  /**
+   * Image card ids for the special mutating vitral, with cardId in the middle.
+   */
+  cardsIds?: string[];
 };
 
 /**
@@ -147,23 +158,35 @@ export const buildDailyVitralGames = (
       throw new Error('Critical: No valid Vitral sets (with Portuguese titles) found in the database.');
     }
 
+    let nextDate = history.latestDate;
+    const dates = Array.from({ length: batchSize }, () => {
+      nextDate = getNextDay(nextDate);
+      return nextDate;
+    });
+    const weekdayCount = dates.filter((date) => !checkWeekend(date)).length;
+    const historicalSets = allValidSets.filter((setEntry) => history.used.includes(setEntry.id));
+
+    if (weekdayCount < dates.length && historicalSets.length < 3) {
+      throw new Error('Critical: At least three historical Vitral images are required for weekend entries.');
+    }
+
     // Separate into fresh pool
     const freshSets = allValidSets.filter((setEntry) => !history.used.includes(setEntry.id));
     let eligibleSets = shuffle(freshSets);
 
     // History recycling using LRU strategy
-    if (eligibleSets.length < batchSize) {
+    if (eligibleSets.length < weekdayCount) {
       if (debugDailyStore.state.vitral) {
         console.log('🔆 Not enough fresh vitral sets left, recycling...');
       }
       errors.push('Not enough fresh Vitral sets. Recycling historical data.');
 
-      const needed = batchSize - eligibleSets.length;
+      const needed = weekdayCount - eligibleSets.length;
 
       // Prioritize least recently used sets (LRU)
-      const usedSetsLRU = allValidSets
-        .filter((s) => history.used.includes(s.id))
-        .sort((a, b) => history.used.indexOf(a.id) - history.used.indexOf(b.id));
+      const usedSetsLRU = [...historicalSets].sort(
+        (a, b) => history.used.indexOf(a.id) - history.used.indexOf(b.id),
+      );
 
       const fallbackPool = usedSetsLRU.length > 0 ? usedSetsLRU : shuffle(allValidSets);
 
@@ -177,24 +200,33 @@ export const buildDailyVitralGames = (
 
     // Build the batch
     for (let i = 0; i < batchSize; i++) {
-      const id = getNextDay(latestDate);
-      latestDate = id;
-      latestNumber = history.latestNumber + i + 1;
+      const id = dates[i];
       const dayOfWeek = getDayOfTheWeek(id);
+      const isWeekend = checkWeekend(id);
+      const weekendSets = isWeekend ? sampleSize(historicalSets, 3) : undefined;
 
-      const selectedSet = eligibleSets[i];
+      const selectedSet = weekendSets ? weekendSets[1] : eligibleSets.shift();
 
-      // Track usage
-      used.push(selectedSet.id);
+      if (!selectedSet) {
+        throw new Error(`No Vitral sets left to generate day ${id}`);
+      }
 
       entries[id] = {
         id,
-        number: latestNumber,
+        number: history.latestNumber + i + 1,
         type: 'vitral',
-        title: selectedSet.title.pt,
+        title: isWeekend ? 'Vitrais Especiais' : selectedSet.title.pt,
         cardId: selectedSet.id,
+        ...(weekendSets ? { cardsIds: weekendSets.map((setEntry) => setEntry.id) } : {}),
         pieces: shufflePieces(dayOfWeek),
       };
+
+      if (entries[id]) latestDate = id;
+      latestNumber = entries[id].number;
+
+      if (!isWeekend) {
+        used.push(selectedSet.id);
+      }
     }
   } catch (error: unknown) {
     if (debugDailyStore.state.vitral) {
@@ -226,13 +258,13 @@ export const buildDailyVitralGames = (
  */
 function shufflePieces(dayOfWeek: number): number[] {
   const piecesOptions: Record<number, number[]> = {
-    0: [30, 33, 36], // Sunday
+    0: [15, 24, 30], // Sunday
     1: [9, 12], // Monday
     2: [12, 18], // Tuesday
     3: [18, 21, 24], // Wednesday
     4: [21, 24, 27], // Thursday
     5: [24, 27, 30], // Friday
-    6: [27, 30, 33], // Saturday
+    6: [15, 24, 30], // Saturday
   };
 
   const piecesCount = sample(piecesOptions[dayOfWeek]) ?? 12;
