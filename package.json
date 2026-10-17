@@ -39,7 +39,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "prepare": "husky",
-    "sync:types": "curl -s -o src/types/tdr.ts https://raw.githubusercontent.com/kavispires/td-resources/main/types/tdr.ts",
+    "sync:types": "curl -s -o src/types/tdr.ts https://raw.githubusercontent.com/kavispires/td-resources/main/types/tdr.d.ts",
     "sync:resources": "node scripts/sync-resources.cjs",
     "sync": "yarn sync:types && yarn sync:resources",
     "predeploy": "yarn sync && yarn build",
