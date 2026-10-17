@@ -3,6 +3,7 @@ import { useQueryParams } from '@hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
 import { useTablePagination } from '@hooks/useTablePagination';
 import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from '@types';
+import { parseDiagramRuleId } from '@utils/diagram-items';
 import { Divider, Flex, Rate, Space, Switch, Table, type TableColumnsType, Tag, Typography } from 'antd';
 import { useMemo } from 'react';
 import { AddNewThingFlow } from './AddNewThingFlow';
@@ -58,7 +59,7 @@ export function ThingsByRule({
       title: 'Id',
       dataIndex: 'id',
       key: 'id',
-      sorter: (a, b) => Number(a.id.split('-')[1]) - Number(b.id.split('-')[1]),
+      sorter: (a, b) => parseDiagramRuleId(a.id) - parseDiagramRuleId(b.id),
       render: (title: string) => <Typography.Text>{title}</Typography.Text>,
     },
     {

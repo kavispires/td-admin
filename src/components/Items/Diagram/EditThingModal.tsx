@@ -1,5 +1,6 @@
 import { Item } from '@components/Sprites';
 import type { DailyDiagramItemData, DailyDiagramRuleData } from '@types';
+import { parseDiagramRuleId } from '@utils/diagram-items';
 import { Affix, Button, Flex, Form, Input, Modal, Radio, Switch, Tag, Typography } from 'antd';
 import clsx from 'clsx';
 import { orderBy } from 'lodash';
@@ -57,7 +58,7 @@ export function EditThingModal({
       // Sort by partial title
       (r) => r.title.slice(0, 7),
       // Sort by id
-      (r) => Number(r.id.split('-')[1]),
+      (r) => parseDiagramRuleId(r.id),
     ]);
   }, [rules]);
 
@@ -84,7 +85,8 @@ export function EditThingModal({
       if (verifiers[ruleId]) {
         fields[ruleId] = verifiers[ruleId](nameWatch);
       } else {
-        fields[ruleId] = thing.rules.length > 0 ? thing.rules.includes(ruleId) : undefined;
+        fields[ruleId] =
+          thing.rules.length > 0 ? thing.rules.includes(parseDiagramRuleId(ruleId)) : undefined;
       }
     });
     form.setFieldsValue(fields);
@@ -419,7 +421,7 @@ const deserializeThing = (
       if (thing.updatedAt < rules[ruleId].updatedAt) {
         if (verifiers[ruleId]) {
           const reVerify = verifiers[ruleId](thing.name);
-          const wasIncluded = thing.rules.includes(ruleId);
+          const wasIncluded = thing.rules.includes(parseDiagramRuleId(ruleId));
           // Rule changed if it was added or removed
           if (reVerify !== wasIncluded) {
             wasAnyRuleUpdated = true;
@@ -429,7 +431,7 @@ const deserializeThing = (
           acc[ruleId] = undefined;
         }
       } else {
-        acc[ruleId] = thing.rules.includes(ruleId);
+        acc[ruleId] = thing.rules.includes(parseDiagramRuleId(ruleId));
       }
 
       return acc;
@@ -447,6 +449,8 @@ const serializeThing = (values: Record<string, boolean | string | number>): Dail
     updatedAt: Date.now(),
     syllables: syllables as string,
     stressedSyllable: stressedSyllable as number,
-    rules: Object.keys(thingRules).filter((key) => thingRules[key] === true),
+    rules: Object.keys(thingRules)
+      .filter((key) => thingRules[key] === true)
+      .map(parseDiagramRuleId),
   };
 };

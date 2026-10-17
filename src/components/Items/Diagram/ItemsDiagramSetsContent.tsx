@@ -3,6 +3,7 @@ import { useQueryParams } from '@hooks/useQueryParams';
 import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
 import { useTDResource } from '@hooks/useTDResource';
 import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from '@types';
+import { composeDiagramRuleId } from '@utils/diagram-items';
 import { Typography } from 'antd';
 import { orderBy } from 'lodash';
 import { useMemo, useState } from 'react';
@@ -61,8 +62,8 @@ export function ItemsDiagramSetsContent({
     }, {});
 
     orderBy(Object.values(data), ['updatedAt'], ['desc']).forEach((entry) => {
-      entry.rules.forEach((ruleId) => {
-        dict[ruleId].push(entry.itemId);
+      entry.rules.forEach((ruleNumber) => {
+        dict[composeDiagramRuleId(ruleNumber)].push(entry.itemId);
       });
     });
     return dict;

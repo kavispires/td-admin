@@ -1,6 +1,6 @@
 // ==========================================
 // TDR TYPES
-// Version: 2.3.0
+// Version: 2.3.2
 // ==========================================
 
 // ==========================================
@@ -1160,9 +1160,9 @@ export type DailyDiagramItemData = {
    */
   stressedSyllable?: number;
   /**
-   * The list of rules the item agrees with
+   * The list of rules the item agrees with by number (actual rule id is ddr-<number>-pt)
    */
-  rules: string[];
+  rules: number[];
   /**
    * The date in milliseconds the rule was last updated
    */

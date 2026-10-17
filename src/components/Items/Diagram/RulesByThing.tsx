@@ -1,6 +1,7 @@
 import type { UseResourceFirestoreDataReturnType } from '@hooks/useResourceFirestoreData';
 import { useTablePagination } from '@hooks/useTablePagination';
 import type { DailyDiagramItemData, DailyDiagramRuleData, ItemData as ItemT } from '@types';
+import { composeDiagramRuleId } from '@utils/diagram-items';
 import { Divider, Flex, Space, Table, type TableColumnsType, Tag, Tooltip, Typography } from 'antd';
 import { useMemo } from 'react';
 import { useMeasure } from 'react-use';
@@ -60,9 +61,9 @@ export function RulesByThing({
       title: 'Rules',
       dataIndex: 'rules',
       key: 'rules',
-      render: (itemRules: string[], record) => (
+      render: (itemRules: number[], record) => (
         <Space wrap>
-          {itemRules.map((ruleId) => (
+          {itemRules.map(composeDiagramRuleId).map((ruleId) => (
             <Tooltip
               key={ruleId}
               title={rules[ruleId].title}
@@ -78,7 +79,7 @@ export function RulesByThing({
       dataIndex: 'rules',
       key: 'count',
       sorter: (a, b) => a.rules.length - b.rules.length,
-      render: (rules: string[]) => rules.length,
+      render: (rules: number[]) => rules.length,
     },
   ];
 

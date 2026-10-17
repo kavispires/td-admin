@@ -5,6 +5,7 @@ import { getIsThingOutdated, getLatestRuleUpdate } from '@components/Items/Diagr
 import { useTDResource } from '@hooks/useTDResource';
 import { useQuery } from '@tanstack/react-query';
 import type { DailyDiagramItemData, DailyDiagramRuleData } from '@types';
+import { composeDiagramRuleId } from '@utils/diagram-items';
 import { shuffle } from 'lodash';
 import { ATTEMPTS_THRESHOLD, DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
@@ -120,14 +121,24 @@ export const useDailyConjuntosGames = (
     staleTime: Number.POSITIVE_INFINITY,
   });
 
+  const prerequisiteErrors = [tdrThingsQuery.error, tdrRulesQuery.error]
+    .filter((error) => error !== null)
+    .map((error) => error.message);
+
   // Map TanStack states to response type
   return {
     entries: generatorQuery.data?.entries ?? {},
-    isLoading: !isReadyToGenerate || generatorQuery.isLoading,
+    isLoading: prerequisiteErrors.length === 0 && (!isReadyToGenerate || generatorQuery.isLoading),
     isGenerating: generatorQuery.isFetching,
-    isError: generatorQuery.isError || !!generatorQuery.data?.errors?.length,
-    errors: generatorQuery.data?.errors ?? (generatorQuery.error ? [generatorQuery.error.message] : []),
-    isSuccess: generatorQuery.isSuccess && Object.keys(generatorQuery.data?.entries ?? {}).length > 0,
+    isError: prerequisiteErrors.length > 0 || generatorQuery.isError || !!generatorQuery.data?.errors?.length,
+    errors: [
+      ...prerequisiteErrors,
+      ...(generatorQuery.data?.errors ?? (generatorQuery.error ? [generatorQuery.error.message] : [])),
+    ],
+    isSuccess:
+      prerequisiteErrors.length === 0 &&
+      generatorQuery.isSuccess &&
+      Object.keys(generatorQuery.data?.entries ?? {}).length > 0,
     historyUpdate: generatorQuery.data?.historyUpdate ?? {
       latestDate: conjuntosHistory?.latestDate ?? '',
       latestNumber: conjuntosHistory?.latestNumber ?? 0,
@@ -239,7 +250,8 @@ export const buildDailyConjuntosGames = (
     // Build inverted mapping: Rule ID -> Item IDs
     const ruleItemIdsMap = new Map<string, Set<string>>();
     for (const item of validItemsMap.values()) {
-      for (const ruleId of item.rules) {
+      for (const ruleNumber of item.rules) {
+        const ruleId = composeDiagramRuleId(ruleNumber);
         let ruleSet = ruleItemIdsMap.get(ruleId);
         if (!ruleSet) {
           ruleSet = new Set<string>();
