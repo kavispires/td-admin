@@ -243,7 +243,6 @@ export const verifiers: Record<string, (word: string) => boolean> = {
 
   // The same consonant repeats 3 or more times
   'ddr-76-pt': (word: string) => {
-    console.log('Verifying ddr-76-pt for word:', word);
     const letters = cleanupWord(word).split('');
     const consonantCounts: Record<string, number> = {};
 
@@ -254,6 +253,61 @@ export const verifiers: Record<string, (word: string) => boolean> = {
     });
 
     return Object.values(consonantCounts).some((count) => count >= 3);
+  },
+
+  // Starts and ends with the same letter
+  'ddr-77-pt': (word: string) => {
+    const cleanedWord = cleanupWord(word);
+    return cleanedWord[0] === cleanedWord.slice(-1);
+  },
+
+  // Alternates perfectly between consonant and vowel
+  'ddr-78-pt': (word: string) => {
+    const cleanedWord = cleanupWord(word);
+    for (let i = 0; i < cleanedWord.length; i++) {
+      if (i % 2 === 0 && !CONSONANTS.includes(cleanedWord[i])) {
+        return false;
+      }
+      if (i % 2 === 1 && !VOWELS.includes(cleanedWord[i])) {
+        return false;
+      }
+    }
+    return true;
+  },
+
+  // Is a palindrome
+  'ddr-79-pt': (word: string) => {
+    const cleanedWord = cleanupWord(word);
+    return cleanedWord === cleanedWord.split('').reverse().join('');
+  },
+
+  // Has all 5 vowels
+  'ddr-80-pt': (word: string) => {
+    const cleanedWord = cleanupWord(word);
+    return VOWELS.split('').every((vowel) => cleanedWord.includes(vowel));
+  },
+
+  // Have double consecutive consonants
+  'ddr-81-pt': (word: string) => {
+    const cleanedWord = cleanupWord(word);
+    for (let i = 0; i < cleanedWord.length - 1; i++) {
+      if (CONSONANTS.includes(cleanedWord[i]) && cleanedWord[i] === cleanedWord[i + 1]) {
+        return true;
+      }
+    }
+    return false;
+  },
+
+  // Starts and ends with a vowel
+  'ddr-82-pt': (word: string) => {
+    const cleanedWord = cleanupWord(word);
+    return VOWELS.includes(cleanedWord[0]) && VOWELS.includes(cleanedWord.slice(-1));
+  },
+
+  // Ends with a consonant
+  'ddr-83-pt': (word: string) => {
+    const cleanedWord = cleanupWord(word);
+    return CONSONANTS.includes(cleanedWord.slice(-1));
   },
 };
 
