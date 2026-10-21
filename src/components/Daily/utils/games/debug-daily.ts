@@ -16,6 +16,7 @@ type DebugDailyState = {
   organiku: boolean;
   palavreado: boolean;
   portais: boolean;
+  panico: boolean;
   quartetos: boolean;
   'ta-na-cara': boolean;
   conjuntos: boolean;
@@ -41,6 +42,7 @@ const loadInitialState = (): DebugDailyState => {
     portais: false,
     mapeamento: false,
     pirralhos: false,
+    panico: false,
     quartetos: false,
     'ta-na-cara': false,
     conjuntos: false,
@@ -73,6 +75,7 @@ debugDailyStore.subscribe(() => {
       filmaco: debugDailyStore.state.filmaco,
       organiku: debugDailyStore.state.organiku,
       palavreado: debugDailyStore.state.palavreado,
+      panico: debugDailyStore.state.panico,
       portais: debugDailyStore.state.portais,
       quartetos: debugDailyStore.state.quartetos,
       'ta-na-cara': debugDailyStore.state['ta-na-cara'],
@@ -110,6 +113,7 @@ export const resetAllDebugModes = () => {
     filmaco: false,
     organiku: false,
     palavreado: false,
+    panico: false,
     portais: false,
     quartetos: false,
     'ta-na-cara': false,
