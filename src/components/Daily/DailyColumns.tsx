@@ -521,6 +521,54 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
     },
   },
   {
+    title: 'Pânico',
+    dataIndex: ['challenges', 'panico'],
+    key: 'panico',
+    render: (entry: DailyEntry['challenges']['panico']) => {
+      if (!entry) {
+        return (
+          <Alert
+            title="No entry"
+            type="error"
+          />
+        );
+      }
+
+      const { number, hashId, buttons } = entry;
+
+      return (
+        <EntryCell>
+          <GameNumber>{number}</GameNumber>
+          <GameInfo label="Buttons">{buttons.length}</GameInfo>
+          <GameInfo label="HashId">{truncate(hashId, { length: 9 })}</GameInfo>
+
+          <GamePopover entry={entry}>
+            <Flex
+              gap={6}
+              style={{ maxWidth: 500 }}
+              vertical
+            >
+              <Typography.Text copyable>Full Hash: {hashId}</Typography.Text>
+              <Space
+                orientation="vertical"
+                style={{ maxHeight: 400, overflowY: 'auto' }}
+              >
+                {buttons.map((button) => (
+                  <Typography.Text
+                    code
+                    key={button}
+                  >
+                    {button}
+                  </Typography.Text>
+                ))}
+              </Space>
+            </Flex>
+          </GamePopover>
+        </EntryCell>
+      );
+    },
+  },
+  {
     title: 'Pirralhos',
     dataIndex: ['challenges', 'pirralhos'],
     key: 'pirralhos',

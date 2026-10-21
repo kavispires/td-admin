@@ -9,6 +9,11 @@ import { addDays, differenceInDays, format, isValid, parseISO } from 'date-fns';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { useMemo, useState } from 'react';
 
+type ArchivedGameEntry = NonNullable<
+  | DailyEntry['challenges'][keyof DailyEntry['challenges']]
+  | DailyEntry['contributions'][keyof DailyEntry['contributions']]
+>;
+
 export function DailyDataArchive() {
   const [startDate, setStartDate] = useState('');
   const [range, setRange] = useState(7);
@@ -41,17 +46,22 @@ export function DailyDataArchive() {
     // If no game is selected, show all data
     if (!selectedGame) return data;
 
-    const selectedGameKey = selectedGame as keyof DailyEntry;
-    if (!Object.values(data).every((dailyEntry) => dailyEntry?.[selectedGameKey])) {
+    const selectedEntries = Object.values(data).map((dailyEntry) => {
+      const games: Partial<Dictionary<ArchivedGameEntry>> = {
+        ...dailyEntry.challenges,
+        ...dailyEntry.contributions,
+      };
+      return games[selectedGame];
+    });
+    if (!selectedEntries.every((entry) => entry !== undefined)) {
       return data;
     }
 
-    const filteredData: Record<number, any> = {};
-    Object.values(data).forEach((dailyEntry) => {
-      const entry = dailyEntry?.[selectedGameKey];
-      const number = (entry as any)?.number;
+    const filteredData: Dictionary<ArchivedGameEntry> = {};
+    selectedEntries.forEach((entry) => {
+      const number = entry.number;
       if (filteredData[number]) {
-        console.error(`Duplicate entry for game ${selectedGameKey} with number ${number}`);
+        console.error(`Duplicate entry for game ${selectedGame} with number ${number}`);
       }
       filteredData[number] = sortJsonKeys(entry, ['number', 'language', 'text']);
     });
@@ -130,6 +140,7 @@ export function DailyDataArchive() {
               { value: 'estoquista', label: 'Estoquista' },
               { value: 'filmaco', label: 'Filmaço' },
               { value: 'palavreado', label: 'Palavreado' },
+              { value: 'panico', label: 'Pânico' },
               { value: 'portais', label: 'Portais' },
               { value: 'quartetos', label: 'Quartetos' },
               { value: 'ta-na-cara', label: 'Tá na Cara' },

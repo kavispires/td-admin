@@ -13,7 +13,7 @@ import { useQuery } from '@tanstack/react-query';
 import { random, sampleSize, shuffle } from 'lodash';
 import { DAILY_GAMES_KEYS } from '../constants';
 import type { DailyHistory, DateKey, ParsedDailyHistoryEntry, UseDailyGeneratorResponse } from '../types';
-import { getNextDay } from '../utils';
+import { getDayOfTheWeek, getNextDay } from '../utils';
 import { BUTTONS_LIBRARY, type ButtonDictionaryEntry, type ButtonKey, POOLS } from './daily-panico-data';
 import { debugDailyStore } from './debug-daily';
 
@@ -134,7 +134,10 @@ export const buildDailyPanicoGames = (batchSize: number, history: ParsedDailyHis
     for (let i = 0; i < batchSize; i++) {
       const id = getNextDay(latestDate);
       const number = latestNumber + 1;
-      const partialGame = generateGameSequence();
+
+      const dayOfTheWeek = getDayOfTheWeek(id);
+      const buttonCounts = [30, 10, 20, 20, 20, 15, 25];
+      const partialGame = generateGameSequence(buttonCounts[dayOfTheWeek]);
 
       // Track usage
       used.push(partialGame.hash);

@@ -92,7 +92,12 @@ function DataPopulation({ language, batchSize }: DataPopulationProps) {
         <Typography.Title level={4}>Total: {dataLoad.entries.length}</Typography.Title>
 
         <Button
-          disabled={(dataLoad.entries ?? []).length === 0}
+          disabled={
+            dataLoad.entries.length === 0 ||
+            dataLoad.isLoading ||
+            dataLoad.isGenerating ||
+            dataLoad.isMissingEntries
+          }
           icon={<SaveOutlined />}
           loading={isPending}
           onClick={() => {

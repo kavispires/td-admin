@@ -12,13 +12,14 @@ import { type DailyInvestigacaoEntry, useDailyInvestigacaoGames } from '../utils
 import { type DailyMapeamentoEntry, useDailyMapeamentoGames } from '../utils/games/daily-mapeamento';
 import { type DailyOrganikuEntry, useDailyOrganikuGames } from '../utils/games/daily-organiku';
 import { type DailyPalavreadoEntry, useDailyPalavreadoGames } from '../utils/games/daily-palavreado';
+import { type DailyPanicoEntry, useDailyPanicoGames } from '../utils/games/daily-panico';
 import { type DailyPicacoEntry, useDailyPicacoGames } from '../utils/games/daily-picaco';
 import { type DailyPirralhosEntry, useDailyPirralhosGames } from '../utils/games/daily-pirralhos';
 import { type DailyPortaisEntry, useDailyPortaisGames } from '../utils/games/daily-portais';
 import { type DailyQuartetosEntry, useDailyQuartetosGames } from '../utils/games/daily-quartetos';
 import { type DailyTaNaCaraEntry, useDailyTaNaCaraGames } from '../utils/games/daily-ta-na-cara';
 import { type DailyVitralEntry, useDailyVitralGames } from '../utils/games/daily-vitral';
-import type { DateKey, UseDailyGeneratorResponse } from '../utils/types';
+import type { DailyHistory, DateKey, UseDailyGeneratorResponse } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
 type GamesEntries = {
@@ -30,6 +31,7 @@ type GamesEntries = {
   mapeamento?: DailyMapeamentoEntry;
   organiku?: DailyOrganikuEntry;
   palavreado?: DailyPalavreadoEntry;
+  panico?: DailyPanicoEntry;
   portais?: DailyPortaisEntry;
   quartetos?: DailyQuartetosEntry;
   conjuntos?: DailyConjuntosEntry;
@@ -66,6 +68,7 @@ export type DailyHistoryUpdates = {
   mapeamento: HistoryPayload;
   organiku: HistoryPayload;
   palavreado: HistoryPayload;
+  panico: HistoryPayload;
   portais: HistoryPayload;
   quartetos: HistoryPayload;
   conjuntos: HistoryPayload;
@@ -107,6 +110,24 @@ export function useLoadDailySetup(
 
   const enableBuilders = enabled && historyQuery.isSuccess;
 
+  const panicoHistory = useMemo<DailyHistory>(() => {
+    const history = historyQuery.data ?? {};
+    if (history.panico || !history['arte-ruim']) {
+      return history;
+    }
+
+    // Bundles use Arte Ruim's dates; start the new game on the same schedule.
+    return {
+      ...history,
+      panico: {
+        latestDate: history['arte-ruim'].latestDate,
+        latestNumber: 0,
+        used: '[]',
+        reset: 0,
+      },
+    };
+  }, [historyQuery.data]);
+
   // GET ITEMS FOR DICTIONARY
   const tdrItemsQuery = useTDResource<ItemData>('items', { enabled: enableBuilders });
 
@@ -125,6 +146,7 @@ export function useLoadDailySetup(
   const conjuntos = useDailyConjuntosGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
   const portais = useDailyPortaisGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
   const organiku = useDailyOrganikuGames(enableBuilders, queryLanguage, batchSize, historyQuery.data ?? {});
+  const panico = useDailyPanicoGames(enableBuilders, queryLanguage, batchSize, panicoHistory);
   const investigacao = useDailyInvestigacaoGames(
     enableBuilders,
     queryLanguage,
@@ -172,6 +194,7 @@ export function useLoadDailySetup(
           filmaco: filmaco.entries[id],
           organiku: organiku.entries[id],
           palavreado: palavreado.entries[id],
+          panico: panico.entries[id],
           portais: portais.entries[id],
           quartetos: quartetos.entries[id],
           conjuntos: conjuntos.entries[id],
@@ -202,6 +225,7 @@ export function useLoadDailySetup(
     filmaco.entries,
     organiku.entries,
     palavreado.entries,
+    panico.entries,
     portais.entries,
     quartetos.entries,
     conjuntos.entries,
@@ -225,6 +249,7 @@ export function useLoadDailySetup(
       mapeamento: mapeamento.historyUpdate,
       organiku: organiku.historyUpdate,
       palavreado: palavreado.historyUpdate,
+      panico: panico.historyUpdate,
       portais: portais.historyUpdate,
       quartetos: quartetos.historyUpdate,
       conjuntos: conjuntos.historyUpdate,
@@ -242,6 +267,7 @@ export function useLoadDailySetup(
       mapeamento.historyUpdate,
       organiku.historyUpdate,
       palavreado.historyUpdate,
+      panico.historyUpdate,
       portais.historyUpdate,
       quartetos.historyUpdate,
       conjuntos.historyUpdate,
@@ -263,6 +289,7 @@ export function useLoadDailySetup(
       ...mapeamento.errors.map((e) => `[Mapeamento] ${e}`),
       ...organiku.errors.map((e) => `[Organiku] ${e}`),
       ...palavreado.errors.map((e) => `[Palavreado] ${e}`),
+      ...panico.errors.map((e) => `[Pânico] ${e}`),
       ...portais.errors.map((e) => `[Portais] ${e}`),
       ...quartetos.errors.map((e) => `[Quartetos] ${e}`),
       ...conjuntos.errors.map((e) => `[Conjuntos] ${e}`),
@@ -280,6 +307,7 @@ export function useLoadDailySetup(
       mapeamento.errors,
       organiku.errors,
       palavreado.errors,
+      panico.errors,
       portais.errors,
       quartetos.errors,
       conjuntos.errors,
@@ -298,6 +326,7 @@ export function useLoadDailySetup(
     alienado.isLoading ||
     filmaco.isLoading ||
     palavreado.isLoading ||
+    panico.isLoading ||
     portais.isLoading ||
     quartetos.isLoading ||
     conjuntos.isLoading ||
@@ -315,6 +344,7 @@ export function useLoadDailySetup(
     alienado.isGenerating ||
     filmaco.isGenerating ||
     palavreado.isGenerating ||
+    panico.isGenerating ||
     portais.isGenerating ||
     quartetos.isGenerating ||
     conjuntos.isGenerating ||
@@ -334,6 +364,7 @@ export function useLoadDailySetup(
     alienado.isError ||
     filmaco.isError ||
     palavreado.isError ||
+    panico.isError ||
     portais.isError ||
     quartetos.isError ||
     conjuntos.isError ||
@@ -359,6 +390,7 @@ export function useLoadDailySetup(
         !entry.challenges?.filmaco ||
         !entry.challenges?.organiku ||
         !entry.challenges?.palavreado ||
+        !entry.challenges?.panico ||
         !entry.challenges?.portais ||
         !entry.challenges?.quartetos ||
         !entry.challenges?.conjuntos ||

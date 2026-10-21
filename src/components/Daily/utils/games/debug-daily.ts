@@ -51,7 +51,7 @@ const loadInitialState = (): DebugDailyState => {
 
   try {
     const savedState = localStorage.getItem(STORAGE_KEY);
-    return savedState ? JSON.parse(savedState) : defaultState;
+    return savedState ? { ...defaultState, ...JSON.parse(savedState) } : defaultState;
   } catch {
     return defaultState;
   }

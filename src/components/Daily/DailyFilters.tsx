@@ -124,6 +124,14 @@ function DebugDailyFilters() {
       </div>
       <div>
         <Checkbox
+          checked={debugState.panico}
+          onChange={() => toggleDebugMode('panico')}
+        >
+          Pânico
+        </Checkbox>
+      </div>
+      <div>
+        <Checkbox
           checked={debugState.picaco}
           onChange={() => toggleDebugMode('picaco')}
         >
