@@ -764,6 +764,10 @@ export function generatePuzzle(
     }
   }
 
+  if (exactLiars === 3) {
+    possibleLiars = Math.min(3, possibleLiars);
+  }
+
   // Special handling for 3-kid puzzles
   if (numKids === 3) {
     exactLiars = 0;

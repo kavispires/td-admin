@@ -413,7 +413,9 @@ export const dailyColumns: TableColumnsType<DailyEntry> = [
         <EntryCell>
           <GameNumber>{number}</GameNumber>
 
-          <GameInfo label="SetId">{setId}</GameInfo>
+          <GameInfo label="SetId">
+            {'*'.repeat(setId.length)} ({setId.length})
+          </GameInfo>
 
           <GamePopover entry={entry}>
             <Flex
