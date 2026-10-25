@@ -5,7 +5,8 @@ import { App } from 'antd';
 import { doc, setDoc } from 'firebase/firestore';
 import { cloneDeep, intersection } from 'lodash';
 import { useState } from 'react';
-import { LANGUAGE_PREFIX } from '../utils/constants';
+import { APP_VERSION_HISTORY_KEY, LANGUAGE_PREFIX } from '../utils/constants';
+import { compareAppVersions, normalizeMinAppVersion, readHistoryAppVersion } from '../utils/minAppVersion';
 import type { DailyHistory } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 import type { UseLoadDailySetupResponse } from './useLoadDailySetup';
@@ -33,14 +34,21 @@ export function useSaveDailySetup(queryLanguage: Language) {
         throw new Error('No previous history');
       }
 
-      const { entries, historyUpdates } = data;
-
-      const saves = entries.map((entry) => {
-        const docRef = doc(firestore, `${source}/${entry.id}`);
-        return setDoc(docRef, entry);
-      });
-
-      const historyDocRec = doc(firestore, `${source}/history`);
+      const { entries, historyUpdates, minAppVersion } = data;
+      const version = normalizeMinAppVersion(minAppVersion);
+      if (!version || version !== minAppVersion) {
+        throw new Error('Minimum app version must use major.minor.patch format.');
+      }
+      if (entries.length === 0) {
+        throw new Error('Cannot save an empty daily batch.');
+      }
+      if (entries.some((entry) => entry.minAppVersion !== version)) {
+        throw new Error('Every daily entry must match the batch minimum app version.');
+      }
+      const historyVersion = readHistoryAppVersion(previousHistory).version;
+      if (historyVersion && compareAppVersions(version, historyVersion) < 0) {
+        throw new Error(`Minimum app version cannot be lower than ${historyVersion}.`);
+      }
 
       const newHistory: DailyHistory = cloneDeep(previousHistory);
       Object.entries(historyUpdates).forEach(([key, update]) => {
@@ -65,6 +73,18 @@ export function useSaveDailySetup(queryLanguage: Language) {
         }
       });
 
+      newHistory[APP_VERSION_HISTORY_KEY] = {
+        latestDate: entries.reduce((latest, entry) => (entry.id > latest ? entry.id : latest), entries[0].id),
+        latestNumber: 0,
+        used: JSON.stringify([version]),
+        reset: 0,
+      };
+
+      const saves = entries.map((entry) => {
+        const docRef = doc(firestore, `${source}/${entry.id}`);
+        return setDoc(docRef, entry);
+      });
+      const historyDocRec = doc(firestore, `${source}/history`);
       saves.push(setDoc(historyDocRec, newHistory));
 
       return Promise.all(saves);
@@ -84,9 +104,10 @@ export function useSaveDailySetup(queryLanguage: Language) {
       setIsDirty(false);
     },
 
-    onError: () => {
+    onError: (error) => {
       notification.error({
         title: 'Error saving data',
+        description: error.message,
         placement: 'bottomLeft',
       });
     },

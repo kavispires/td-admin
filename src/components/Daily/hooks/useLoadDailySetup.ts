@@ -2,7 +2,7 @@ import { useTDResource } from '@hooks/useTDResource';
 import type { ItemData } from '@types';
 import { useMemo } from 'react';
 
-import { LANGUAGE_PREFIX } from '../utils/constants';
+import { DEFAULT_MIN_APP_VERSION, LANGUAGE_PREFIX } from '../utils/constants';
 import { type DailyAlienadoEntry, useDailyAlienadoGames } from '../utils/games/daily-alienado';
 import { type DailyAquiOEntry, useDailyAquiOGames } from '../utils/games/daily-aqui-o';
 import { type DailyArteRuimEntry, useDailyArteRuimGames } from '../utils/games/daily-arte-ruim';
@@ -19,6 +19,7 @@ import { type DailyPortaisEntry, useDailyPortaisGames } from '../utils/games/dai
 import { type DailyQuartetosEntry, useDailyQuartetosGames } from '../utils/games/daily-quartetos';
 import { type DailyTaNaCaraEntry, useDailyTaNaCaraGames } from '../utils/games/daily-ta-na-cara';
 import { type DailyVitralEntry, useDailyVitralGames } from '../utils/games/daily-vitral';
+import { readHistoryAppVersion } from '../utils/minAppVersion';
 import type { DailyHistory, DateKey, UseDailyGeneratorResponse } from '../utils/types';
 import { useDailyHistoryQuery } from './useDailyHistoryQuery';
 
@@ -46,6 +47,8 @@ type ContributionsEntries = {
 
 export type DailyEntry = {
   id: DateKey;
+  /** Minimum TD Diario version required to use this daily document. */
+  minAppVersion?: string;
   // Games
   challenges: GamesEntries;
   //
@@ -79,6 +82,14 @@ export type DailyHistoryUpdates = {
 };
 
 export type UseLoadDailySetupResponse = {
+  /** Accepted version applied to every daily entry in this batch. */
+  minAppVersion: string;
+  /** Valid version from the reserved _app-version history entry, when present. */
+  historyMinAppVersion?: string;
+  /** Diagnostic for malformed reserved version history, without blocking fallback. */
+  historyVersionWarning?: string;
+  /** Whether history has loaded, allowing the provisional version to be resolved. */
+  isHistoryLoaded: boolean;
   isLoading: boolean;
   isGenerating: boolean;
   isError: boolean;
@@ -103,10 +114,12 @@ export function useLoadDailySetup(
   enabled: boolean,
   queryLanguage: Language,
   batchSize: number,
+  minAppVersion = DEFAULT_MIN_APP_VERSION,
 ): UseLoadDailySetupResponse {
   // STEP 1: HISTORY
   const source = LANGUAGE_PREFIX.DAILY[queryLanguage ?? 'pt'];
   const historyQuery = useDailyHistoryQuery(source, { enabled });
+  const historyVersion = useMemo(() => readHistoryAppVersion(historyQuery.data), [historyQuery.data]);
 
   const enableBuilders = enabled && historyQuery.isSuccess;
 
@@ -185,6 +198,7 @@ export function useLoadDailySetup(
     return dates.map((id) => {
       const dailyEntry: DailyEntry = {
         id,
+        minAppVersion,
         // Games
         challenges: {
           'arte-ruim': arteRuim.entries[id],
@@ -236,6 +250,7 @@ export function useLoadDailySetup(
     mapeamento.entries,
     pirralhos.entries,
     tdrItemsQuery.data,
+    minAppVersion,
   ]);
 
   // STEP N+1: Aggregate History Updates
@@ -411,6 +426,10 @@ export function useLoadDailySetup(
   }, [entries]);
 
   return {
+    minAppVersion,
+    historyMinAppVersion: historyVersion.version,
+    historyVersionWarning: historyVersion.warning,
+    isHistoryLoaded: historyQuery.isSuccess,
     isLoading,
     isGenerating,
     isError,

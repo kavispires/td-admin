@@ -3,10 +3,11 @@ import { FilterSelect } from '@components/Common';
 import { FirestoreConsoleLink } from '@components/Common/FirestoreConsoleLink';
 import { DataLoadingWrapper } from '@components/DataLoadingWrapper';
 import { useQueryClient } from '@tanstack/react-query';
-import { Alert, App, Button, Flex, Table, Typography } from 'antd';
-import { useState } from 'react';
+import { Alert, App, Button, Flex, Input, Table, Typography } from 'antd';
+import { useEffect, useId, useState } from 'react';
 import { dailyColumns } from './DailyColumns';
 import { type DailyEntry, useLoadDailySetup, useSaveDailySetup } from './hooks';
+import { useDailyMinAppVersion } from './hooks/useDailyMinAppVersion';
 
 export const DEFAULT_LANGUAGE: Language = 'pt';
 
@@ -68,90 +69,147 @@ export function DailyDataPopulation() {
 }
 
 type DataPopulationProps = {
+  /** Selected source language; empty until the user enables generation. */
   language: string;
+  /** Number of consecutive daily documents to generate. */
   batchSize: number;
 };
 
 function DataPopulation({ language, batchSize }: DataPopulationProps) {
   const { notification } = App.useApp();
+  const versionInputId = useId();
+  const versionErrorId = useId();
   const queryLanguage = language as Language;
-  const dataLoad = useLoadDailySetup(Boolean(queryLanguage), queryLanguage, batchSize);
+  const version = useDailyMinAppVersion();
+  const dataLoad = useLoadDailySetup(Boolean(queryLanguage), queryLanguage, batchSize, version.minAppVersion);
 
   const { save, isPending } = useSaveDailySetup(queryLanguage ?? 'pt');
 
+  useEffect(() => {
+    if (dataLoad.isHistoryLoaded) {
+      version.reconcileHistory(dataLoad.historyMinAppVersion);
+    }
+  }, [dataLoad.isHistoryLoaded, dataLoad.historyMinAppVersion, version.reconcileHistory]);
+
   return (
-    <DataLoadingWrapper
-      error={null}
-      hasResponseData={!dataLoad.isLoading}
-      isLoading={!!queryLanguage && dataLoad.isLoading}
-    >
+    <>
       <Flex
-        align="center"
-        justify="space-between"
+        className="my-4"
+        gap={12}
+        vertical
       >
-        <Typography.Title level={4}>Total: {dataLoad.entries.length}</Typography.Title>
-
-        <Button
-          disabled={
-            dataLoad.entries.length === 0 ||
-            dataLoad.isLoading ||
-            dataLoad.isGenerating ||
-            dataLoad.isMissingEntries
-          }
-          icon={<SaveOutlined />}
-          loading={isPending}
-          onClick={() => {
-            // biome-ignore lint/suspicious/noConsole: on purpose
-            console.log('Saving data...');
-            // biome-ignore lint/suspicious/noConsole: on purpose
-            console.log('Entries to save:', dataLoad.entries);
-            // biome-ignore lint/suspicious/noConsole: on purpose
-            console.log('History update:', dataLoad.historyUpdates);
-
-            const undefinedIssues = verifyUndefinedValues(dataLoad.entries ?? []);
-            if (undefinedIssues.length > 0) {
-              // biome-ignore lint/suspicious/noConsole: on purpose
-              console.error('Found undefined values:', undefinedIssues);
-              notification.error({
-                message: 'Undefined Values Found',
-                description: `Found ${undefinedIssues.length} undefined values. Check console for details.`,
-              });
-              return;
-            }
-
-            save(dataLoad);
-          }}
-          size="large"
-          type="primary"
+        <Flex
+          align="center"
+          gap={12}
         >
-          Save
-        </Button>
+          <Typography.Text>
+            <label htmlFor={versionInputId}>Minimum App Version</label>
+          </Typography.Text>
+          <Input
+            aria-describedby={version.error ? versionErrorId : undefined}
+            aria-invalid={Boolean(version.error)}
+            disabled={isPending}
+            id={versionInputId}
+            onChange={(event) => version.onChange(event.target.value)}
+            placeholder="2.0.35"
+            status={version.error ? 'error' : undefined}
+            style={{ width: 180 }}
+            value={version.value}
+          />
+          {version.error && (
+            <Typography.Text
+              id={versionErrorId}
+              type="danger"
+            >
+              {version.error}
+            </Typography.Text>
+          )}
+        </Flex>
+        {(version.storageWarning || dataLoad.historyVersionWarning) && (
+          <Alert
+            showIcon
+            title={[version.storageWarning, dataLoad.historyVersionWarning].filter(Boolean).join(' ')}
+            type="warning"
+          />
+        )}
       </Flex>
+      <DataLoadingWrapper
+        error={null}
+        hasResponseData={!dataLoad.isLoading}
+        isLoading={!!queryLanguage && dataLoad.isLoading}
+      >
+        <Flex
+          align="center"
+          justify="space-between"
+        >
+          <Typography.Title level={4}>Total: {dataLoad.entries.length}</Typography.Title>
 
-      {dataLoad.isMissingEntries && (
-        <Alert
-          banner
-          title={`Warning: ${dataLoad.missingEntries.length} entries are missing or incomplete. Check console for details.`}
-          type="warning"
+          <Button
+            disabled={
+              dataLoad.entries.length === 0 ||
+              dataLoad.isLoading ||
+              dataLoad.isGenerating ||
+              dataLoad.isMissingEntries ||
+              isPending ||
+              Boolean(version.error)
+            }
+            icon={<SaveOutlined />}
+            loading={isPending}
+            onClick={() => {
+              // biome-ignore lint/suspicious/noConsole: on purpose
+              console.log('Saving data...');
+              // biome-ignore lint/suspicious/noConsole: on purpose
+              console.log('Entries to save:', dataLoad.entries);
+              // biome-ignore lint/suspicious/noConsole: on purpose
+              console.log('History update:', dataLoad.historyUpdates);
+
+              const undefinedIssues = verifyUndefinedValues(dataLoad.entries ?? []);
+              if (undefinedIssues.length > 0) {
+                // biome-ignore lint/suspicious/noConsole: on purpose
+                console.error('Found undefined values:', undefinedIssues);
+                notification.error({
+                  message: 'Undefined Values Found',
+                  description: `Found ${undefinedIssues.length} undefined values. Check console for details.`,
+                });
+                return;
+              }
+
+              if (!version.error && !isPending) {
+                save(dataLoad);
+              }
+            }}
+            size="large"
+            type="primary"
+          >
+            Save
+          </Button>
+        </Flex>
+
+        {dataLoad.isMissingEntries && (
+          <Alert
+            banner
+            title={`Warning: ${dataLoad.missingEntries.length} entries are missing or incomplete. Check console for details.`}
+            type="warning"
+          />
+        )}
+
+        {dataLoad.errors.map((error) => (
+          <Alert
+            banner
+            key={error}
+            showIcon
+            title={error}
+            type="error"
+          />
+        ))}
+
+        <Table
+          columns={dailyColumns}
+          dataSource={dataLoad.entries ?? []}
+          scroll={{ x: 'max-content' }}
         />
-      )}
-
-      {dataLoad.errors.map((error) => (
-        <Alert
-          banner
-          key={error}
-          showIcon
-          title={error}
-          type="error"
-        />
-      ))}
-
-      <Table
-        columns={dailyColumns}
-        dataSource={dataLoad.entries ?? []}
-        scroll={{ x: 'max-content' }}
-      />
-    </DataLoadingWrapper>
+      </DataLoadingWrapper>
+    </>
   );
 }
 

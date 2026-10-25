@@ -39,3 +39,12 @@ export const DAILY_GAMES_KEYS = {
 };
 
 export const ATTEMPTS_THRESHOLD = 500;
+
+/** Fallback when neither local preferences nor history supplies a valid version. */
+export const DEFAULT_MIN_APP_VERSION = '2.0.35';
+
+/** Reserved history entry; its used field contains a JSON singleton version array. */
+export const APP_VERSION_HISTORY_KEY = '_app-version';
+
+/** App-wide preference shared by the daily population language sources. */
+export const MIN_APP_VERSION_STORAGE_KEY = 'td-admin-daily-min-app-version';

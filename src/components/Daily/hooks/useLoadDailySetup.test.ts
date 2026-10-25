@@ -1,6 +1,7 @@
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { APP_VERSION_HISTORY_KEY, DEFAULT_MIN_APP_VERSION } from '../utils/constants';
 import type { DailyPanicoEntry } from '../utils/games/daily-panico';
 import type { UseDailyGeneratorResponse } from '../utils/types';
 import { type UseLoadDailySetupResponse, useLoadDailySetup } from './useLoadDailySetup';
@@ -55,10 +56,10 @@ const completed: UseDailyGeneratorResponse<{ id: string; number: number }> = {
   },
 };
 
-function loadSetup(enabled = true): UseLoadDailySetupResponse {
+function loadSetup(enabled = true, minAppVersion?: string): UseLoadDailySetupResponse {
   const captured: { response?: UseLoadDailySetupResponse } = {};
   function HookHarness() {
-    captured.response = useLoadDailySetup(enabled, 'pt', 1);
+    captured.response = useLoadDailySetup(enabled, 'pt', 1, minAppVersion);
     return null;
   }
   renderToStaticMarkup(createElement(HookHarness));
@@ -76,8 +77,53 @@ beforeEach(() => {
     entries: { [id]: panicoEntry },
     historyUpdate: { ...completed.historyUpdate, used: [panicoEntry.hashId] },
   });
+
   mocks.history.mockReturnValue({ data: {}, isSuccess: true, isLoading: false, isError: false });
   mocks.resource.mockReturnValue({ data: {}, isLoading: false, isError: false });
+});
+
+describe('daily bundle minimum app version', () => {
+  it('uses the default for existing callers and stamps each date at the root', () => {
+    mocks.game.mockReturnValue({
+      ...completed,
+      entries: { [id]: { id, number: 1 }, '2026-10-22': { id: '2026-10-22', number: 2 } },
+    });
+    const result = loadSetup();
+    expect(result.minAppVersion).toBe(DEFAULT_MIN_APP_VERSION);
+    expect(result.entries).toHaveLength(2);
+    expect(result.entries.every((entry) => entry.minAppVersion === DEFAULT_MIN_APP_VERSION)).toBe(true);
+  });
+
+  it('updates metadata without changing generated challenge payloads or generator arguments', () => {
+    const first = loadSetup();
+    const updated = loadSetup(true, '2.0.50');
+    expect(updated.entries[0].minAppVersion).toBe('2.0.50');
+    expect(updated.entries[0].challenges).toEqual(first.entries[0].challenges);
+    expect(updated.entries[0].contributions).toEqual(first.entries[0].contributions);
+    expect(mocks.panico.mock.calls[0]).toEqual(mocks.panico.mock.calls[1]);
+  });
+
+  it('exposes reserved history for reconciliation without treating it as a game', () => {
+    mocks.history.mockReturnValue({
+      data: {
+        [APP_VERSION_HISTORY_KEY]: {
+          latestDate: '2026-10-20',
+          latestNumber: 0,
+          reset: 0,
+          used: '["2.0.50"]',
+        },
+      },
+      isSuccess: true,
+      isLoading: false,
+      isError: false,
+    });
+    const result = loadSetup();
+    expect(result.historyMinAppVersion).toBe('2.0.50');
+    expect(result.isHistoryLoaded).toBe(true);
+    expect(result.historyUpdates).not.toHaveProperty(APP_VERSION_HISTORY_KEY);
+    expect(result.entries[0].challenges).not.toHaveProperty(APP_VERSION_HISTORY_KEY);
+    expect(result.isMissingEntries).toBe(false);
+  });
 });
 
 describe('Pânico daily setup integration', () => {
