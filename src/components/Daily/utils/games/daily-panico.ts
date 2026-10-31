@@ -136,7 +136,7 @@ export const buildDailyPanicoGames = (batchSize: number, history: ParsedDailyHis
       const number = latestNumber + 1;
 
       const dayOfTheWeek = getDayOfTheWeek(id);
-      const buttonCounts = [30, 10, 20, 20, 20, 15, 25];
+      const buttonCounts = [30, 10, 12, 15, 15, 10, 20];
       const partialGame = generateGameSequence(buttonCounts[dayOfTheWeek]);
 
       // Track usage
