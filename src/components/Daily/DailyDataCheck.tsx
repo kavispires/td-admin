@@ -2,17 +2,20 @@ import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
 import { FirestoreConsoleLink } from '@components/Common/FirestoreConsoleLink';
 import { CopyToClipboardButton } from '@components/CopyToClipboardButton';
 import { useGetFirestoreDoc } from '@hooks/useGetFirestoreDoc';
+import { useUpdateFirestoreDoc } from '@hooks/useUpdateFirestoreDoc';
 import ReactJsonView from '@microlink/react-json-view';
+import { useQueryClient } from '@tanstack/react-query';
 import { sortJsonKeys } from '@utils/json';
-import { Button, Divider, Flex, Input, Space, Table, Tag, Typography } from 'antd';
+import { App, Button, Divider, Flex, Input, Space, Table, Tag, Typography } from 'antd';
 import { addDays, format, isValid, parseISO, subDays } from 'date-fns';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useState } from 'react';
 import { dailyColumns } from './DailyColumns';
 import type { DailyEntry } from './hooks';
+import { getMinAppVersionError, normalizeMinAppVersion } from './utils/minAppVersion';
 import { getToday } from './utils/utils';
 
 export function DailyDataCheck() {
-  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedDate, setSelectedDate] = useState(getToday);
   const [isValidDate, setIsValidDate] = useState(false);
   const { isLoading, data, dataUpdatedAt } = useGetFirestoreDoc<DailyEntry>('diario', selectedDate, {
     enabled: !!selectedDate && isValidDate,
@@ -65,6 +68,7 @@ export function DailyDataCheck() {
             <Input
               onChange={(e) => onUpdateDate(e.target.value)}
               placeholder="YYYY-MM-DD"
+              value={selectedDate}
             />
             <Button
               onClick={onValidateDate}
@@ -112,6 +116,13 @@ export function DailyDataCheck() {
         loading={isLoading}
         scroll={{ x: 'max-content' }}
       />
+      {!isLoading && data?.id === selectedDate && (
+        <MinAppVersionEditor
+          docId={data.id}
+          key={`${data.id}:${data.minAppVersion ?? ''}`}
+          minAppVersion={data.minAppVersion}
+        />
+      )}
       <Divider />
 
       <Flex
@@ -137,6 +148,95 @@ export function DailyDataCheck() {
         theme="twilight"
       />
     </div>
+  );
+}
+
+type MinAppVersionEditorProps = {
+  /** Loaded daily document to update, independent of later date selection. */
+  docId: string;
+  /** Saved version; legacy documents may omit this field. */
+  minAppVersion?: string;
+};
+
+function MinAppVersionEditor({ docId, minAppVersion }: MinAppVersionEditorProps) {
+  const { notification } = App.useApp();
+  const queryClient = useQueryClient();
+  const inputId = useId();
+  const errorId = useId();
+  const [value, setValue] = useState(minAppVersion ?? '');
+  const [error, setError] = useState<string>();
+  const isUnchanged = value.trim() === (minAppVersion ?? '');
+  const queryKey = ['firestore', 'diario', docId];
+  const mutation = useUpdateFirestoreDoc<{ minAppVersion: string }>('diario', docId, {
+    onSuccess: (_, update) => {
+      queryClient.setQueryData<DailyEntry>(queryKey, (previous) =>
+        previous ? { ...previous, minAppVersion: update.minAppVersion } : previous,
+      );
+      queryClient.invalidateQueries({ queryKey, exact: true });
+      notification.success({ title: 'Minimum app version updated' });
+    },
+    onError: (updateError) => {
+      notification.error({
+        title: 'Minimum app version update failed',
+        description: updateError.message,
+      });
+    },
+  });
+
+  const onUpdate = () => {
+    if (mutation.isPending || isUnchanged) return;
+    const version = normalizeMinAppVersion(value);
+    if (!version) {
+      setError(getMinAppVersionError(value));
+      return;
+    }
+    setError(undefined);
+    mutation.mutate({ minAppVersion: version });
+  };
+
+  return (
+    <Flex
+      className="mt-4"
+      gap={8}
+      vertical
+    >
+      <Flex
+        align="center"
+        gap={12}
+      >
+        <label htmlFor={inputId}>Minimum App Version</label>
+        <Input
+          aria-describedby={error ? errorId : undefined}
+          aria-invalid={Boolean(error)}
+          disabled={mutation.isPending}
+          id={inputId}
+          onChange={(event) => {
+            setValue(event.target.value);
+            setError(undefined);
+          }}
+          placeholder="2.0.35"
+          status={error ? 'error' : undefined}
+          style={{ width: 180 }}
+          value={value}
+        />
+        <Button
+          disabled={mutation.isPending || isUnchanged}
+          loading={mutation.isPending}
+          onClick={onUpdate}
+          type="primary"
+        >
+          Update
+        </Button>
+      </Flex>
+      {error && (
+        <Typography.Text
+          id={errorId}
+          type="danger"
+        >
+          {error}
+        </Typography.Text>
+      )}
+    </Flex>
   );
 }
 
