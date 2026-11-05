@@ -105,7 +105,8 @@ export const useDailyPanicoGames = (
 /**
  * Builds a batch of daily Pânico games
  *
- * Creates 25-button sequences with spacing, exclusion, and dependency rules.
+ * Creates weekday-sized sequences with spacing, exclusion, and dependency rules.
+ * Balances button-key usage across completed games in this batch only.
  * History advances only for completed games. Fingerprints are recorded but
  * are not used to reject duplicates. Generation stops at the first failure and
  * reports it alongside any completed entries instead of rejecting the batch.
@@ -122,6 +123,7 @@ export const buildDailyPanicoGames = (batchSize: number, history: ParsedDailyHis
   const errors: string[] = [];
   const entries: Dictionary<DailyPanicoEntry> = {};
   const used: string[] = [];
+  const buttonUsage: Partial<Dictionary<number>> = {};
 
   let latestDate = history.latestDate;
   let latestNumber = history.latestNumber;
@@ -137,7 +139,7 @@ export const buildDailyPanicoGames = (batchSize: number, history: ParsedDailyHis
 
       const dayOfTheWeek = getDayOfTheWeek(id);
       const buttonCounts = [30, 10, 12, 15, 15, 10, 20];
-      const partialGame = generateGameSequence(buttonCounts[dayOfTheWeek]);
+      const partialGame = generateGameSequence(buttonCounts[dayOfTheWeek], buttonUsage);
 
       // Track usage
       used.push(partialGame.hash);
@@ -149,6 +151,10 @@ export const buildDailyPanicoGames = (batchSize: number, history: ParsedDailyHis
         type: 'panico',
         buttons: partialGame.sequence,
       };
+      for (const encoded of partialGame.sequence.slice(1, -1)) {
+        const key = encoded.split(BUTTON_SEPARATOR)[1];
+        buttonUsage[key] = (buttonUsage[key] ?? 0) + 1;
+      }
       latestDate = id;
       latestNumber = number;
     }
@@ -255,15 +261,20 @@ type PlacedButton = {
 /**
  * Generates a Panico button sequence using the game's full set of placement
  * rules via recursive backtracking. Dependencies must be at least five positions
- * earlier. Difficulty balancing and ready dependents are selection preferences,
+ * earlier. Prefers unused keys, lower batch usage, and less-used categories,
+ * followed by ready dependents and difficulty balancing. These are preferences,
  * not quotas. Fallbacks may exceed occurrence limits but preserve spacing and
  * restricted-target streak limits. Dynamic targets remain client-resolved.
  *
  * @param length Total number of buttons in the sequence (default 25).
+ * @param batchUsage Interior button-key counts from completed batch games; never mutated.
  * @returns The encoded sequence strings plus their history fingerprint.
  * @throws If length is not an integer of at least 8, or no sequence can be built.
  */
-export function generateGameSequence(length = NUMBER_OF_BUTTONS): {
+export function generateGameSequence(
+  length = NUMBER_OF_BUTTONS,
+  batchUsage: Readonly<Partial<Dictionary<number>>> = {},
+): {
   /**
    * Concatenated button hash codes and pool indexes; not a uniqueness guarantee.
    */
@@ -319,6 +330,7 @@ export function generateGameSequence(length = NUMBER_OF_BUTTONS): {
     }
 
     const occurrences: Partial<Dictionary<number>> = {};
+    const categoryCounts: Partial<Dictionary<number>> = {};
     const bannedByEitherOr = new Set<ButtonKey>();
 
     // Tracker to ensure a healthy mix of difficulty levels.
@@ -330,9 +342,12 @@ export function generateGameSequence(length = NUMBER_OF_BUTTONS): {
       5: 0,
     };
 
-    for (const placedButton of sequence) {
+    for (const [index, placedButton] of sequence.entries()) {
       occurrences[placedButton.key] = (occurrences[placedButton.key] || 0) + 1;
       const entry = BUTTONS_LIBRARY[placedButton.key];
+      if (index > 0) {
+        categoryCounts[entry.category] = (categoryCounts[entry.category] ?? 0) + 1;
+      }
 
       if (entry.eitherOr) {
         for (const key of entry.eitherOr) {
@@ -443,17 +458,29 @@ export function generateGameSequence(length = NUMBER_OF_BUTTONS): {
       return false;
     }
 
-    // Sort valid candidates to enforce the mix of levels and dependencies.
+    // Keep randomized ties while preferring variety over level/dependency bias.
     validCandidates.sort((a, b) => {
-      // Priority 1: ready dependencies bubble to the top.
+      const occurrenceDifference = (occurrences[a.key] ?? 0) - (occurrences[b.key] ?? 0);
+      if (occurrenceDifference !== 0) {
+        return occurrenceDifference;
+      }
+
+      const batchDifference = (batchUsage[a.key] ?? 0) - (batchUsage[b.key] ?? 0);
+      if (batchDifference !== 0) {
+        return batchDifference;
+      }
+
+      const categoryDifference = (categoryCounts[a.category] ?? 0) - (categoryCounts[b.category] ?? 0);
+      if (categoryDifference !== 0) {
+        return categoryDifference;
+      }
+
       const aReady = a.dependsOn && occurrences[a.dependsOn] ? 1 : 0;
       const bReady = b.dependsOn && occurrences[b.dependsOn] ? 1 : 0;
       if (aReady !== bReady) {
         return bReady - aReady;
       }
 
-      // Priority 2: prioritize buttons whose difficulty level has appeared
-      // the least so far. Ties keep the randomized shuffle order.
       const aLevelCount = a.dependsOn ? 0 : levelCounts[a.level] || 0;
       const bLevelCount = b.dependsOn ? 0 : levelCounts[b.level] || 0;
 

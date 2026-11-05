@@ -1,4 +1,4 @@
-import { random, shuffle } from 'lodash';
+import lodash, { random, shuffle } from 'lodash';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { getNextDay } from '../utils';
 import {
@@ -32,9 +32,59 @@ vi.mock('lodash', async (importOriginal) => {
 
 afterEach(() => {
   vi.clearAllMocks();
+  vi.mocked(shuffle).mockReset().mockImplementation(lodash.shuffle);
 });
 
 const history = { latestDate: '2026-10-20', latestNumber: 10, used: [], reset: 0 };
+
+function expectValidSequence(sequence: string[], length: number) {
+  expect(sequence).toHaveLength(length);
+  expect(sequence[0]).toBe('1::BASIC_PRESS::');
+  expect(sequence.at(-1)).toBe(`${length}::FINAL_PRESS::`);
+  const keys = sequence.map((button) => button.split('::')[1]);
+  const definitions = keys.map((key) => {
+    const definition = Object.values(BUTTONS_LIBRARY).find((button) => button.key === key);
+    if (!definition) {
+      throw new Error(`Unknown generated button: ${key}`);
+    }
+    return definition;
+  });
+  let restrictedStreak = 0;
+
+  sequence.forEach((encoded, index) => {
+    const fields = encoded.split('::');
+    const definition = definitions[index];
+    expect(fields).toHaveLength(3);
+    expect(fields[0]).toBe(String(index + 1));
+    if (definition.pool) {
+      expect(Number(fields[2])).toBeGreaterThanOrEqual(0);
+      expect(Number(fields[2])).toBeLessThan(Object.keys(POOLS[definition.pool]).length);
+    } else {
+      expect(fields[2]).toBe('');
+    }
+    if (definition.dependsOn) {
+      const prerequisiteIndex = keys.indexOf(definition.dependsOn);
+      expect(prerequisiteIndex).toBeGreaterThanOrEqual(0);
+      expect(index - prerequisiteIndex).toBeGreaterThanOrEqual(5);
+    }
+    if (definition.key === 'SAME_AS_PREVIOUS') {
+      expect(['ANY', 'TBD']).not.toContain(definitions[index - 1].expectedAction);
+    }
+    expect(keys[index - 1]).not.toBe(definition.key);
+    expect(keys[index - 2]).not.toBe(definition.key);
+    for (const excluded of definition.eitherOr ?? []) {
+      expect(keys).not.toContain(excluded);
+    }
+    if (index < length - 1) {
+      restrictedStreak =
+        definition.targetCount === 0 || definition.targetCount === -2 ? restrictedStreak + 1 : 0;
+      expect(restrictedStreak).toBeLessThanOrEqual(5);
+      expect(keys.filter((key) => key === definition.key).length).toBeLessThanOrEqual(
+        definition.maxOccurrence,
+      );
+    }
+  });
+}
 
 describe('Pânico pool arrangements', () => {
   it.each([0, 8])('replaces exactly one item at index %i without mutating inputs', (index) => {
@@ -149,26 +199,127 @@ describe('Pânico generation and history', () => {
     });
     Object.values(result.entries).forEach((entry, gameIndex) => {
       expect(entry.number).toBe(11 + gameIndex);
-      expect(entry.buttons).toHaveLength(25);
-      expect(entry.buttons[0]).toBe('1::BASIC_PRESS::');
-      expect(entry.buttons.at(-1)).toBe('25::FINAL_PRESS::');
-      const keys = entry.buttons.map((button) => button.split('::')[1]);
-      keys.forEach((key, index) => {
-        const definition = Object.values(BUTTONS_LIBRARY).find((button) => button.key === key);
-        expect(definition).toBeDefined();
-        if (!definition) {
-          throw new Error(`Unknown generated button: ${key}`);
-        }
-        if (definition.dependsOn) {
-          const prerequisiteIndex = keys.indexOf(definition.dependsOn);
-          expect(prerequisiteIndex).toBeGreaterThanOrEqual(0);
-          expect(index - prerequisiteIndex).toBeGreaterThanOrEqual(5);
-        }
-        expect(keys[index - 1]).not.toBe(key);
-        expect(keys[index - 2]).not.toBe(key);
-        for (const excluded of definition.eitherOr ?? []) {
-          expect(keys).not.toContain(excluded);
-        }
+      expectValidSequence(entry.buttons, [15, 15, 10][gameIndex]);
+    });
+  });
+
+  describe('Pânico button variety', () => {
+    it('prefers an unused key over a repeatable button', () => {
+      vi.mocked(shuffle)
+        .mockReturnValueOnce([BUTTONS_LIBRARY.SAME_AS_PREVIOUS])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.TRICK_POLITE_DO_NOT_PRESS])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.TRICK_URGENT_PRESS])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.SAME_AS_PREVIOUS, BUTTONS_LIBRARY.REMEMBER_NUMBER]);
+
+      expect(generateGameSequence(10).sequence[4].split('::')[1]).toBe('REMEMBER_NUMBER');
+    });
+
+    it('prefers less-used batch keys without mutating supplied usage', () => {
+      const usage = Object.freeze({ TRICK_POLITE_DO_NOT_PRESS: 5, COUNT_SENTENCE: 0 });
+      vi.mocked(shuffle).mockReturnValueOnce([
+        BUTTONS_LIBRARY.TRICK_POLITE_DO_NOT_PRESS,
+        BUTTONS_LIBRARY.COUNT_SENTENCE,
+      ]);
+
+      expect(generateGameSequence(10, usage).sequence[1].split('::')[1]).toBe('COUNT_SENTENCE');
+      expect(usage).toEqual({ TRICK_POLITE_DO_NOT_PRESS: 5, COUNT_SENTENCE: 0 });
+    });
+
+    it('prefers a less-used category over the old level-balancing preference', () => {
+      vi.mocked(shuffle)
+        .mockReturnValueOnce([BUTTONS_LIBRARY.RANDOM_QUESTION])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.NUMBER_RIDDLE, BUTTONS_LIBRARY.TRICK_POLITE_DO_NOT_PRESS]);
+
+      expect(generateGameSequence(10).sequence[2].split('::')[1]).toBe('TRICK_POLITE_DO_NOT_PRESS');
+    });
+
+    it('prioritizes batch rotation over category balance when current-game key usage ties', () => {
+      vi.mocked(shuffle)
+        .mockReturnValueOnce([BUTTONS_LIBRARY.RANDOM_QUESTION])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.TRICK_POLITE_DO_NOT_PRESS, BUTTONS_LIBRARY.NUMBER_RIDDLE]);
+
+      const { sequence } = generateGameSequence(10, { TRICK_POLITE_DO_NOT_PRESS: 5 });
+
+      expect(sequence[2].split('::')[1]).toBe('NUMBER_RIDDLE');
+    });
+
+    it('excludes the mandatory opening from category counts', () => {
+      vi.mocked(shuffle).mockReturnValueOnce([
+        BUTTONS_LIBRARY.BASIC_DO_NOT_PRESS,
+        BUTTONS_LIBRARY.LOGIC_HUMAN_TRUE,
+      ]);
+
+      expect(generateGameSequence(10).sequence[1].split('::')[1]).toBe('BASIC_DO_NOT_PRESS');
+    });
+
+    it('prefers a new category over a ready dependent when key usage ties', () => {
+      vi.mocked(shuffle)
+        .mockReturnValueOnce([BUTTONS_LIBRARY.REMEMBER_NUMBER])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.COUNT_SENTENCE])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.TRICK_POLITE_DO_NOT_PRESS])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.RANDOM_QUESTION])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.PRESS_IF_WANTED])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.REMEMBERED_NUMBER, BUTTONS_LIBRARY.COLOR_GRID]);
+
+      expect(generateGameSequence(10).sequence[6].split('::')[1]).toBe('COLOR_GRID');
+    });
+
+    it.each([
+      ['TRICK_POLITE_DO_NOT_PRESS', 'TRICK_URGENT_PRESS'],
+      ['TRICK_URGENT_PRESS', 'TRICK_POLITE_DO_NOT_PRESS'],
+    ] as const)('preserves shuffled ties with %s before %s', (first, second) => {
+      vi.mocked(shuffle).mockReturnValueOnce([BUTTONS_LIBRARY[first], BUTTONS_LIBRARY[second]]);
+
+      expect(generateGameSequence(10).sequence[1].split('::')[1]).toBe(first);
+    });
+
+    it('applies unused-key preference to basic fallbacks while counting the fixed opening as used', () => {
+      vi.mocked(shuffle)
+        .mockReturnValueOnce([BUTTONS_LIBRARY.TRICK_POLITE_DO_NOT_PRESS])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.RANDOM_QUESTION])
+        .mockReturnValueOnce([])
+        .mockReturnValueOnce([BUTTONS_LIBRARY.BASIC_PRESS, BUTTONS_LIBRARY.BASIC_DO_NOT_PRESS]);
+
+      expect(generateGameSequence(10).sequence[3].split('::')[1]).toBe('BASIC_DO_NOT_PRESS');
+    });
+
+    it.each([10, 12, 15, 20, 30])(
+      'generates %i distinct button keys without violating placement rules',
+      (length) => {
+        vi.mocked(shuffle).mockImplementation(lodash.toArray);
+
+        const { sequence } = generateGameSequence(length);
+
+        expectValidSequence(sequence, length);
+        expect(new Set(sequence.map((encoded) => encoded.split('::')[1])).size).toBe(length);
+      },
+    );
+
+    it('rotates interior keys across a real batch and resets usage for the next build', () => {
+      vi.mocked(shuffle).mockImplementation(lodash.toArray);
+      const keysForBatch = () => {
+        const result = buildDailyPanicoGames(3, history);
+        expect(result.errors).toEqual([]);
+        return Object.values(result.entries).map((entry) =>
+          entry.buttons.slice(1, -1).map((encoded) => encoded.split('::')[1]),
+        );
+      };
+
+      const first = keysForBatch();
+      const allKeys = first.flat();
+
+      expect(new Set(allKeys).size).toBe(allKeys.length);
+      expect(keysForBatch()).toEqual(first);
+    });
+
+    it('preserves weekday lengths and completes a full week with balanced batch usage', () => {
+      vi.mocked(shuffle).mockImplementation(lodash.toArray);
+      const result = buildDailyPanicoGames(7, history);
+
+      expect(result.errors).toEqual([]);
+      expect(Object.values(result.entries)).toHaveLength(7);
+      Object.values(result.entries).forEach((entry, index) => {
+        expectValidSequence(entry.buttons, [15, 15, 10, 20, 30, 10, 12][index]);
       });
     });
   });
