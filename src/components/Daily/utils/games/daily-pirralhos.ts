@@ -639,23 +639,125 @@ function decodePuzzleId(hash: string) {
 }
 
 /**
- * Calculates the difficulty score for a puzzle
+ * Calculates the difficulty score for a puzzle by analyzing logical paths,
+ * statement contradictions, and red herrings.
+ *
+ * @param numKids - Number of kids in the puzzle.
+ * @param numCulprits - Number of culprits in the solution.
+ * @param exactLiars - Actual number of liars.
+ * @param possibleLiars - Liar count shown to the player, which may be a red herring.
+ * @param kidStatements - Statements paired with their speakers in lineup order.
+ * @returns A heuristic difficulty score between 1 and 100.
  */
 function calculateDifficulty(
   numKids: number,
   numCulprits: number,
   exactLiars: number,
-  stmts: StatementInstance[],
+  possibleLiars: number,
+  kidStatements: { kid: Kid; stmt: StatementInstance }[],
 ): number {
+  const activeKids = kidStatements.map(({ kid }) => kid);
+  const stmts = kidStatements.map(({ stmt }) => stmt);
+  // 1. Base Variable Scoring
   const kidsScore = (numKids - 3) * 5;
   const culpritsScore = (numCulprits - 1) * 15;
-  const liarsScore = exactLiars * 5;
+  let liarsScore = exactLiars * 5;
+
+  // The "Red Herring" Modifier: If the game lies to the player about
+  // the liar count, increase the difficulty based on the variance.
+  if (exactLiars !== possibleLiars) {
+    const variance = Math.abs(exactLiars - possibleLiars);
+    liarsScore += variance * 10;
+  }
+
+  // 2. Logical Solve Path Analysis
+  let difficultyMultiplier = 1.0;
+  let scorePenalty = 0;
+
+  const stmtTypes = stmts.map((s) => s.type);
+
+  // A. Detect Global Contradictions
+  const hasGenderContradiction = stmtTypes.includes(4) && stmtTypes.includes(5);
+  let hasRelativeGenderContradiction = false;
+  let hasProximityContradiction = false;
+
+  // B. Detect contradictions that depend on the speaker or target.
+  let hasTargetedContradiction = false;
+  for (let i = 0; i < stmts.length; i++) {
+    for (let j = i + 1; j < stmts.length; j++) {
+      const s1 = stmts[i];
+      const s2 = stmts[j];
+      const speaker1 = activeKids[i];
+      const speaker2 = activeKids[j];
+
+      if (
+        ((s1.type === 9 && s2.type === 13) || (s1.type === 13 && s2.type === 9)) &&
+        speaker1.gender === speaker2.gender
+      ) {
+        hasRelativeGenderContradiction = true;
+      }
+
+      if ((s1.type === 8 && s2.type === 12) || (s1.type === 12 && s2.type === 8)) {
+        const neighbors1 = getNeighbors(speaker1, activeKids);
+        const neighbors2 = getNeighbors(speaker2, activeKids);
+        hasProximityContradiction ||=
+          (neighbors1.left.id === neighbors2.left.id && neighbors1.right.id === neighbors2.right.id) ||
+          (neighbors1.left.id === neighbors2.right.id && neighbors1.right.id === neighbors2.left.id);
+      }
+
+      // If two statements target the exact same kid...
+      if (s1.param === s2.param && s1.param !== undefined) {
+        // Type 0 (X did it) vs Type 1 (X didn't do it)
+        if ((s1.type === 0 && s2.type === 1) || (s1.type === 1 && s2.type === 0)) {
+          hasTargetedContradiction = true;
+        }
+        // Type 2 (X is lying) vs Type 10 (X is telling truth)
+        if ((s1.type === 2 && s2.type === 10) || (s1.type === 10 && s2.type === 2)) {
+          hasTargetedContradiction = true;
+        }
+      }
+    }
+  }
+
+  const hasDirectContradiction =
+    hasGenderContradiction ||
+    hasRelativeGenderContradiction ||
+    hasProximityContradiction ||
+    hasTargetedContradiction;
+
+  // C. The Zero-Sum Penalty
+  if (hasDirectContradiction && exactLiars === 1) {
+    // With 1 liar, a contradictory pair identifies everyone else as truthful.
+    scorePenalty += 35;
+  } else if (hasDirectContradiction) {
+    // Contradictions with multiple liars still provide a strong anchor point.
+    scorePenalty += 10;
+  }
+
+  // D. Dependency Chain Multiplier
+  // Statements 2 ("is lying") and 10 ("is telling truth") force the player to cross-reference.
+  const dependencyCount = stmts.filter((s) => s.type === 2 || s.type === 10).length;
+  if (dependencyCount > 0) {
+    difficultyMultiplier += dependencyCount * 0.15; // Add 15% difficulty per relational statement
+  }
+
+  // E. Weak Statement Penalty
+  // Statement 11 ("I didn't do it") rarely helps solve the logic grid.
+  const weakStatementCount = stmts.filter((s) => s.type === 11).length;
+  if (weakStatementCount > 0) {
+    scorePenalty += weakStatementCount * 5;
+  }
+
+  // 3. Final Calculation
   const totalWeight = stmts.reduce((sum, stmt) => sum + STATEMENT_POOL[stmt.type].difficultyWeight, 0);
   const avgWeight = totalWeight / stmts.length;
   const statementsScore = (avgWeight - 1) * 15;
-  const totalScore = Math.round(kidsScore + culpritsScore + liarsScore + statementsScore);
 
-  return Math.max(1, Math.min(100, totalScore));
+  const totalScore =
+    (kidsScore + culpritsScore + liarsScore + statementsScore - scorePenalty) * difficultyMultiplier;
+
+  // Ensure the score remains within the 1-100 bounds
+  return Math.max(1, Math.min(100, Math.round(totalScore)));
 }
 
 /**
@@ -844,7 +946,7 @@ export function generatePuzzle(
         continue;
       }
 
-      const difficulty = calculateDifficulty(numKids, numCulprits, exactLiars, stmtInstances);
+      const difficulty = calculateDifficulty(numKids, numCulprits, exactLiars, possibleLiars, kidStatements);
 
       return {
         id: '',
@@ -894,8 +996,13 @@ export function getPuzzleById(hashId: string): DailyPirralhosEntry {
     throw new Error('Invalid puzzle ID provided. Puzzle does not have a unique solution.');
   }
 
-  const stmtInstances = kidStatements.map((ks) => ks.stmt);
-  const difficulty = calculateDifficulty(activeKids.length, numCulprits, exactLiars, stmtInstances);
+  const difficulty = calculateDifficulty(
+    activeKids.length,
+    numCulprits,
+    exactLiars,
+    possibleLiars,
+    kidStatements,
+  );
 
   return {
     id: '',
